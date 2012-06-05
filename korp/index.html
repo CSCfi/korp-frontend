@@ -1,0 +1,353 @@
+<!DOCTYPE HTML>
+<html>
+	<head>  
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="description" 
+		content="Med Korp kan den språkligt nyfikna göra avancerade sökningar i stora mängder av skriven text." />
+		<link rel="stylesheet" href="lib/slickgrid/slick.grid.css" type="text/css" media="screen" charset="utf-8" />
+		<link type="text/css" href="common_lib/themes/base/jquery.ui.all.css" rel="stylesheet" />
+<!-- 		<link type="text/css" href="lib/themes/Aristo/Aristo.css" rel="stylesheet" /> -->
+		<link type="text/css" href="ui_mods.css" rel="stylesheet" />
+
+		<link type="text/css" href="jquery.tooltip.css" rel="stylesheet" />
+		<link rel="shortcut icon" type="image/ico" href="img/korp_icon.ico" />
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="stylesheet" type="text/css" href="pagination.css" />
+		
+		<title>Korp</title>
+		<script type="text/javascript" src="common_lib/jquery.js" ></script>
+		<script type="text/javascript" src="common_lib/mootools-1.2.4-base.js"></script>
+		<script type="text/javascript" src="common_lib/Class.Mutators.jQuery.js"></script>
+		<script type="text/javascript" src="common_lib/raphael.js"></script>
+		<script type="text/javascript" src="common_lib/jquery.ba-bbq.min.js"></script>
+		<script type="text/javascript" src="common_lib/jquery.jLog.min.js"></script>
+		
+		<script type="text/javascript" src="common_lib/ui/jquery.ui.core.js" ></script>
+		<script type="text/javascript" src="common_lib/ui/jquery.ui.widget.js"></script>
+		<script type="text/javascript" src="common_lib/ui/jquery.ui.position.js"></script>
+		<script type="text/javascript" src="common_lib/ui/jquery.ui.mouse.js"></script>
+		<script type="text/javascript" src="common_lib/ui/jquery.ui.draggable.js"></script>
+		<script type="text/javascript" src="common_lib/ui/jquery.ui.sortable.js"></script>
+		<script type="text/javascript" src="common_lib/ui/jquery.ui.resizable.js"></script>
+		<script type="text/javascript" src="common_lib/ui/jquery.ui.menu.js"></script>
+
+		<script type="text/javascript" src="common_lib/ui/jquery.ui.autocomplete.js"></script>
+		<script type="text/javascript" src="common_lib/ui/jquery.ui.dialog.js"></script>
+		<script type="text/javascript" src="common_lib/ui/jquery.ui.tabs.js"></script>
+		<script type="text/javascript" src="common_lib/ui/jquery.ui.button.js"></script>
+		<script type="text/javascript" src="common_lib/ui/jquery.effects.core.js"></script>
+		<script type="text/javascript" src="common_lib/ui/jquery.effects.highlight.js"></script>
+		<script type="text/javascript" src="common_lib/ui/jquery.effects.slide.js"></script>
+		<script type="text/javascript" src="common_lib/jquery.ui.preloader.min.js"></script>
+		<script type="text/javascript" src="common_lib/jquery.ui.subclass.js"></script>
+		
+		<script type="text/javascript" src="common_lib/jquery.json-2.2.min.js"></script>
+		<script type="text/javascript" src="common_lib/jquery.tmpl.js"></script>
+		<script type="text/javascript" src="common_lib/jquery.dump.js"></script>
+		<script type="text/javascript" src="common_lib/jquery.format.js"></script>
+		<script type="text/javascript" src="common_lib/jquery.localize.js"></script>
+		<script type="text/javascript" src="common_lib/jquery.placeholder.js"></script>
+		<script type="text/javascript" src="common_lib/jquery.raphael.spinner.js"></script>
+		
+		<script type="text/javascript" src="lib/modernizr-1.7.min.js"></script>
+		
+		<script type="text/javascript" src="lib/scxml/require.js"></script>
+		<script type="text/javascript" src="lib/scxml/require/xml.js"></script>
+		<script type="text/javascript" src="lib/scxml/require/text.js"></script>
+		
+<!-- 		<script type="text/javascript" src="lib/ui.tabs.closable.js"></script> -->
+		
+		
+		<script type="text/javascript" src="lib/jquery.pagination.js"></script>
+		<script type="text/javascript" src="lib/jquery.tooltip.pack.js"></script>
+		<script type="text/javascript" src="lib/jquery.reject.min.js"></script>
+		<script type="text/javascript" src="lib/slickgrid/lib/jquery.event.drag-2.0.min.js"></script>
+		<script type="text/javascript" src="lib/slickgrid/slick.grid.js"></script>
+		<script type="text/javascript" src="lib/slickgrid/slick.model.js"></script>
+		
+		<script type="text/javascript" src="scripts/util.js"></script>
+		
+		<script>
+			//$("[rel^=localize]").localize("locale" ,{pathPrefix : "translations", language : "sv"});
+			//var language = $.localize.data.locale;
+			//if(!language)
+			//	$.error("Localization failed");
+			//util.localize();	
+			
+			var isLab = window.location.pathname == "/korplabb/";
+			
+			if(window.console == null) window.console = {"log" : $.noop, "error" : $.noop};
+			window.c = window.console;
+			
+		</script>
+		<script type="text/javascript" src="common_lib/jquery.hoverIntent.js"></script>
+		<script type="text/javascript" src="lib/g.raphael-min.js"></script>
+		<script type="text/javascript" src="lib/g.line-min.js"></script>
+		<script type="text/javascript" src="lib/jstorage.js"></script>
+		<script type="text/javascript" src="scripts/jq_extensions.js"></script>
+		<script type="text/javascript" src="scripts/widgets.js"></script>
+		
+		
+		<script type="text/javascript" src="config.js"></script>
+		
+		<script type="text/javascript" src="scripts/selector_widget.js"></script>
+		<script type="text/javascript" src="scripts/pie-widget.js"></script>
+		
+		
+		<script type="text/javascript" src="scripts/controller.js"></script>
+		<script type="text/javascript" src="scripts/searchview.js"></script>
+		<script type="text/javascript" src="scripts/resultsview.js"></script>
+		<script type="text/javascript" src="scripts/model.js"></script>
+		<script type="text/javascript" src="scripts/main.js"></script>
+		
+		
+	</head>
+  	<body>
+  		
+	  	<noscript>
+	  		<h2>You need JavaScript to run Korp.</h2>
+	  	</noscript>
+	  	<script>
+	  		$("body").css("opacity", 0);
+	  	</script>
+  		<div id="header">
+  			<div id="top_bar">
+  				<div id="mode_switch"></div>
+				
+				<div id="cog"></div>
+				<ul id="cog_menu">
+					<li><a id="about" href="javascript:" rel="localize[about]">About Korp</a></li>
+					<li><a id="docs" href="http://spraakbanken.gu.se/swe/forskning/infrastruktur/korp/anvandarhandledning" target="_blank" rel="localize[docs]"></a></li>
+					<li id="korplink"><a href="/korp" class="follow_link" rel="localize[korp]"></a></li>
+					<li id="korplablink"><a href="/korplabb" class="follow_link" rel="localize[korp_lab]"></a></li>
+				</ul>
+				<div id="languages">
+	  				<a href="javascript:" rel="localize[swedish]" data-mode="sv">Svenska</a>
+	  				<a href="javascript:" rel="localize[english]" data-mode="en">Engelska</a>
+	  			</div>
+	  			
+	  			
+  			</div>
+  			<div id="header_left">
+ 				<a href=""><img src="img/korplogo.png" /></a>
+ 				<div id="labs_logo"></div>
+	 			<div id="corpusbox"></div>
+  			</div>
+  			<select id="search_history"></select>
+  			<div style='clear : both;'></div>
+  		</div>
+		
+  		
+  		
+		<div id="content">
+	   		
+	   		<div id="searchbar" ></div>
+<!-- 			<div id="welcome" class="ui-widget ui-widget-content ui-corner-all"> -->
+<!-- 				<div class="welcome-header ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix "> -->
+<!-- 					<span class="ui-dialog-title">Välkommen</span> -->
+<!-- 				</div> -->
+<!-- 				<p>hej</p> -->
+<!-- 			</div> -->
+			<div id="results-wrapper">
+				<div id="columns" >
+					<div id="left-column" >
+						<div id="result-container">
+							<ul>
+								<li class="on"><a href="#results-kwic">KWIC</a></li>
+								<li><a href="#results-stats" rel="localize[statistics]">Statistik</a></li>
+								<li id="lemgram_list_item"><a href="#results-lemgram" rel="localize[lemgram_results]" >Ordbild</a></li><!-- class="ui-icon ui-icon-script" -->
+							</ul>
+							<div id="results-kwic">
+								<div class="result_controls">
+								   <div>
+									   <label for="num_hits" rel="localize[hits_per_page]">Träffar per sida</label>: 
+									   <select id="num_hits" class="num_hits">
+									   		<option value="25" selected="selected">25</option>
+									   		<option value="50">50</option>
+									   		<option value="75">75</option>
+									   		<option value="100">100</option>
+									   		<option value="500">500</option>
+									   		<option value="1000">1000</option>
+									   </select>
+								   </div>
+								   <div class="controls_n" ><span rel="localize[num_results]">Antal resultat</span>: <span class="num-result"></span></div>
+								 
+								   <div class="hits_picture" ></div>
+								   <div style="float:right"><img id="showLineDiagram"/></div>
+							   	   <div style="clear : both; float : none;" ></div>
+							   </div>
+								
+								<div class="pager-wrapper"></div>
+								<select class="sort_select">
+									<option value="" rel="localize[sort_default]">Sortera inom korpus på</option>
+									<option value="keyword" rel="localize[word_context]">Ordkontext</option>
+									<option value="left" rel="localize[left_context]">Vänsterkontext</option>
+									<option value="right" rel="localize[right_context]">Högerkontext</option>
+								</select>
+								
+								<div class="table_scrollarea">
+									<table class="results_table" cellspacing="0"></table>
+								</div>
+							</div>
+							<div id="results-stats">
+<!-- 								<div>Visar <span id="stats_showing"></span>Totalt antal: <span id="stats_total"></span><input type="button" value="Hämta fler"><input type="button" value="Hämta alla"></div> -->   
+<!-- 								<div style="float:right"><img src="img/stats3.png" id="showLineDiagram"/></div> -->
+								<div id="myGrid" style="width:600px;height:500px;"></div>
+								<div id="exportStatsSection">
+									<br/><br/><select id="kindOfData">
+										<option value="relative" rel="localize[statstable_relfigures]">Relativa tal</option>
+										<option value="absolute" rel="localize[statstable_absfigures]">Absoluta tal</option>
+									</select>
+									<select id="kindOfFormat">
+										<option value="CSV" rel="localize[statstable_exp_csv]">CSV (kommaseparerade värden)</option>
+										<option value="TSV" rel="localize[statstable_exp_tsv]">TSV (tabseparerade värden)</option>
+									</select>
+									<input id="exportButton" value="Exportera" rel="localize[statstable_export]" type="submit"/>									
+								</div>
+								
+<!-- 								<div id="leftStatsTable" style="float:left; margin-left:-8"></div> -->
+<!-- 								<div id="rightStatsTable" style="float:left; overflow-x:auto; margin-left: -20px; padding-left: 0px; width: 200px"></div> -->
+<!-- 								<div style="clear : both; float : none;"></div> -->
+
+							</div>
+							<div id="results-lemgram">
+							</div>
+						</div>
+						<a id="json-link" href="#"><img src="img/json.png" /></a>
+					</div>
+					<div id="sidebar" class="ui-corner-all kwic_sidebar" ></div>	
+					
+					<div style="clear : both; float : none;"></div>
+				</div>
+			</div>
+		</div>
+		<div id="click_cover"></div>
+		<div id="about_content" title="Om Korp" style="display : none;"></div>
+		<div id="msd_popup" title="Morfosyntaktisk beskrivning" style="display : none;"></div>
+		<div id="line_diagram_window"><div id="linecontainer" style="width:470px; height:400px"></div></div>
+			
+		<!-- for showing full deprel locale names.
+		{{else $index == "deprel"}}
+			${util.getLocaleString("malt_" + $data[$index])}</p>
+			
+			{{if $value.dataset}}
+			 ${$value.dataset[$data[$index]]}
+			 
+			 
+			 {{html $item.defaultSetFormatter($data[$index]).outerHTML() }}
+			-->
+			
+	<script id="sidebarTmpl" type="text/x-jquery-tmpl">
+		
+		
+		{{each $item.corpusAttributes}}
+		
+			{{if $value.displayType != "hidden"}}
+			<p><span rel="localize[${$value.label}]">${util.getLocaleString($value.label)}</span>:
+				
+    			{{if $data[$index] == "|" || $data[$index] == ""}}
+    				<i rel='localize[empty]' style='color : grey'>${util.getLocaleString("empty")}</i>
+    			{{else $index == "lemma"}}
+    			{{html $item.parseLemma($data[$index])}} 
+    			{{else $index == "pos"}}
+    				${util.getLocaleString("pos_" + $data[$index])} 
+				{{else $index == "deprel"}}
+    				${util.getLocaleString("deprel_" + $data[$index])}
+				{{else $index == "msd"}}
+					${$data[$index]}<a href="msdtags.html" target="_blank"><span id="sidbar_info" class="ui-icon ui-icon-info"></span></a>
+    			{{else $value.type == "set" && $.inArray($index, ["lex", "prefix", "suffix", "saldo"]) != -1}}
+    			<span id="sidebar_${$index}">${$data[$index]}</span>
+    			{{else $value.type == "set"}}
+    				<ul data-type="${$value.label}">
+    				{{tmpl($.grep($data[$index].split("|"), Boolean)) '#defaultSetTmpl'}}
+    				</ul>
+    			{{else $value.type == "url"}}
+    			<a href="${$data[$index]}" class="exturl sidebar_url">${decodeURI($data[$index])}</a>
+    			
+    			{{else}}
+    			${$data[$index]}
+    			{{/if}}
+
+			</p>
+			{{/if}}
+		{{/each}}
+	</script>
+	
+	<script id="defaultSetTmpl" type="text/x-jquery-tmpl">
+		<li>${$data}</li>
+	</script>
+	
+	<script id="sentenceTmpl" type="text/x-jquery-tmpl">
+		<tr class="sentence">
+		  	<td class="left">
+			{{tmpl(left) '#wordTmpl'}}
+		  	</td>
+		  	<td class="match">
+				{{tmpl(match) '#wordTmpl'}}
+		  	</td>
+		  	<td class="right">
+			{{tmpl(right) '#wordTmpl'}}
+		  	</td>
+	    </tr>
+		{{if $item.aligned != null}}
+		<tr id="linked_${corpus}" class="linked_sentence">
+			<td colspan="3">
+				{{each(corpus, sentence) $item.aligned}}
+				{{tmpl(sentence) '#wordTmpl'}}
+				{{/each}}
+			</td>
+		</tr>
+		{{/if}}
+	</script>
+	
+	<script id="wordTmpl" type="text/x-jquery-tmpl">
+		<span class="word">${word}</span><span class="word_gap"> </span>
+	</script>
+	
+<!-- 			<p class="explanation"></p> -->
+	<script id="lemgramResultsTmpl" type="text/x-jquery-tmpl">
+		<div class="lemgram_section">
+			{{if $data.length}}
+			<div class='lemgram_help' />
+			{{tmpl($data, {"lemgram" : $item.lemgram}) '#lemgramTableTmpl'}}
+			{{/if}}
+		</div>
+	</script>
+	
+	<script id="lemgramTableTmpl" type="text/x-jquery-tmpl">
+		<div class="lemgram_result"
+		{{if word}}
+		data-word="${word}">
+			<h3 id="display_word"></h3>
+		{{else}}
+		data-rel="${$data[0].rel}"
+		data-show_rel="${$data[0].show_rel}">
+		<table>
+			{{tmpl($data, {"lemgram" : $item.lemgram}) '#lemgramRowTmpl'}}
+		</table>
+		{{/if}}
+		</div>
+	</script>
+	<!-- {{if $item.lemgram == $.grep($item.data[(!$item.isAdj ? "head" : "dep")].split("|"), Boolean)[0]}} -->
+	<script id="lemgramRowTmpl" type="text/x-jquery-tmpl">
+			<tr>
+				<td><span class="enumerate"/></td>
+				<td data-lemgram="${$.grep($item.data[show_rel].split("|"), Boolean)[0]}" data-depextra="${depextra}"></td> 
+				<!--<td>{{html util.formatDecimalString($.format("%.2f", mi), true)}}</td>-->
+				<td>${freq}</td>
+				<td class="example_link"></td> 
+		    </tr>
+	</script>
+	
+	<script id="similarTmpl" type="text/x-jquery-tmpl">
+	<li>
+		{{each rel}}
+			<a href="javascript:" data-lemgram="${$value}">${util.splitLemgram($value)[0]}</a>
+		{{/each}}
+	</li>
+		
+	</script>
+
+
+	</body>
+ </html>
