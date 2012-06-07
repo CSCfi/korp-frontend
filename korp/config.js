@@ -276,14 +276,14 @@ var context = {
 
 settings.corporafolders = {};
 
-settings.corporafolders.fi = {
-    title : "Suomenkielisiä tekstejä",
-    contents : ["ftb2", "metsatalo"]
-};
-
 settings.corporafolders.sv = {
     title : "Svenska texter",
     contents : ["testcorpus"]
+};
+
+settings.corporafolders.fi = {
+    title : "Suomenkielisiä tekstejä",
+    contents : ["ftb2", "metsatalo"]
 };
 
 
