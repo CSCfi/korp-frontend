@@ -88,9 +88,9 @@ var currentMode;
 //            selected : $($.format("a[data-mode=%s]", currentMode)).index(),
             selected : currentMode,
             modes : [
-                 {localekey : "modern_texts", mode : "default"},
-                 {localekey : "parallel_texts", mode : "parallel"},
-                 {localekey : "faroese_texts", mode : "faroe"}
+                 {localekey : "modern_texts", mode : "default"} //,
+                 // {localekey : "parallel_texts", mode : "parallel"},
+                 // {localekey : "faroese_texts", mode : "faroe"}
                      ]
 		}).add("#about").vAlign();
 		
