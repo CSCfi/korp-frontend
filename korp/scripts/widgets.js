@@ -337,7 +337,7 @@ var Sidebar = {
 		.find("li")
 		.each(function(i, item){
 			var id = saldoidArray[i].match(util.saldoRegExp).slice(1,3).join("..");
-			$(item).wrap($.format("<a href='http://demosb.spraakdata.gu.se/karp/#search=sense|%s&lang=%s' target='_blank' />", [id, $.bbq.getState("lang") || "sv"]));
+			$(item).wrap($.format("<a href='http://spraakbanken.gu.se/karp/#search=sense|%s&lang=%s' target='_blank' />", [id, $.bbq.getState("lang") || "sv"]));
 		})
 		.hoverIcon("ui-icon-extlink");
 	},
@@ -684,6 +684,8 @@ var ExtendedToken = {
 					height : h,
 					modal : true
 				});
+				$("#ui-dialog-title-msd_popup").localeKey("msd_long");
+				
 				$(".ui-widget-overlay").one("click", function(evt) {
 					c.log("body click");
 					$("#msd_popup").dialog("close");

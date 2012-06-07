@@ -1261,3 +1261,38 @@ a.relStat:hover {
 	text-align : right;
 	box-shadow: 2px 2px 3px grey;
 }
+
+.korp_fail {
+	height : 80px;
+	width : 180px;
+}
+.fail_text {
+	margin : 1em 0 0 1em;
+	vertical-align: top;
+	font-family : Garamond,Cochin,Serif;
+	font-size : 1.3em;
+	
+}
+
+.error_msg ~ * {
+	display : none;
+}
+
+.sidebar_msd {
+	font-size : 0.8em;
+}
+
+#korp-extended #sendBtn ~ * {
+	display : none;
+}
+.lab #korp-extended #sendBtn ~ * {
+	display : inline;
+}
+
+/* .lab label[for=suffixChk] ~ * { */
+/* 	display : inline; */
+/* } */
+
+/* .lab label[for=suffixChk] ~ *  { */
+/* 	display : none;	 */
+/* } */

@@ -8,8 +8,19 @@
 				return !!$.localize.data[item]; 
 			}));
 			var dfds = [];
+			// some language identifyer aliases
+			var trans = {
+				"swe"  : "sv",
+				"sv" : "sv",
+				"eng" : "en",
+				"en" : "en"
+			};
+			var lang = o.language;
+			if(lang in trans)
+				lang = trans[o.language];
+			$.localize.data.lang = lang;
 			$.each(o.packages, function(i, pkg) {
-				var file = pkg + "-" + o.language + '.json';
+				var file = pkg + "-" + lang + '.json';
 				$.localize.data[pkg] = {};
 				if (o.pathPrefix)
 					file = o.pathPrefix + "/" + file;
@@ -25,7 +36,7 @@
 
 			});
 			return $.when.apply($, dfds);
-		}
+		} else if(cmd == "getLang") return $.localize.data.lang;
 
 	};
 

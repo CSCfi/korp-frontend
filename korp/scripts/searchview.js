@@ -137,13 +137,16 @@ var SimpleSearch = {
 				}
 			});
 		
-		$("#prefixChk, #suffixChk").click(function() {
+		$("#prefixChk, #suffixChk, #caseChk").click(function() {
+			c.log("caseChk before");
 			if($("#simple_text").attr("placeholder") && $("#simple_text").text() == "" ) {
 				self.enableSubmit();
 			} else {
+				c.log("caseChk");
 				self.onSimpleChange();
 			}
 		});
+		
 	},
 	
 	isSearchPrefix : function() {
@@ -310,6 +313,7 @@ var SimpleSearch = {
 		var currentText = $("#simple_text").val();
 		currentText = $.trim(currentText, '"');
 		var val;
+		var suffix = $("#caseChk").is(":checked") ? " %c" : "";
 		if(util.isLemgramId(currentText)) { // if the input is a lemgram, do semantic search.
 			val = $.format('[lex contains "%s"]', currentText);
 		} else if(this.isSearchPrefix() || this.isSearchSuffix()) {
@@ -318,7 +322,8 @@ var SimpleSearch = {
 			this.isSearchSuffix() && query.push(".*%s");
 			val = $.map(currentText.split(" "), function(wd) {
 				return "[" + $.map(query, function(q) {
-					return $.format($.format('word = "%s"', q), wd);
+					q = $.format(q, wd);
+					return $.format('word = "%s"%s', [q, suffix]);
 				}).join(" | ")  + "]";
 			}).join(" ");
 			
@@ -326,7 +331,7 @@ var SimpleSearch = {
 		else {
 			var wordArray = currentText.split(" ");
 			var cqp = $.map(wordArray, function(item, i){
-				return '[word = "' + regescape(item) + '"]';
+				return $.format('[word = "%s"%s]', [regescape(item), suffix]);
 			});
 			val = cqp.join(" ");
 		}
@@ -387,6 +392,7 @@ var ExtendedSearch = {
 	    	tolerance : "pointer"
 	    });
 	    insert_token_button.click();
+	    this.updateReduceSelect();
 	},
 	
 	onentry : function() {
@@ -438,7 +444,25 @@ var ExtendedSearch = {
 	
 	refreshTokens : function() {
 		$(".query_token").extendedToken("refresh");
+	},
+	
+	updateReduceSelect : function() {
+		var groups = $.extend({word : {word : {label : "word"}}}, {
+			"word_attr" : getCurrentAttributes(),
+			"sentence_attr" : $.grepObj(getStructAttrs(), function(val, key) {
+								 return val.disabled !== true;
+							  })
+			});
+		
+		
+		var select = util.makeAttrSelect(groups);
+		$("#reduceSelect").html(select);
+	},
+	
+	getReduction : function() {
+		return $("#reduceSelect select").val();
 	}
+	
 };
 
 var AdvancedSearch = {

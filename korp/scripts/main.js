@@ -69,7 +69,7 @@ var currentMode;
 	});
 	
 	$.when(deferred_load, chained, deferred_domReady, deferred_sm, deferred_mode, loc_dfd).then(function(searchbar_html) {
-		$.revision = parseInt("$Rev: 51087 $".split(" ")[1]);
+		$.revision = parseInt("$Rev: 51245 $".split(" ")[1]);
 		c.log("preloading done, t = ", $.now() - t);
 		if(isLab) $("body").addClass("lab");
 		currentMode = $.deparam.querystring().mode || "default";
@@ -251,15 +251,6 @@ var currentMode;
 			
 			if(hasChanged("lang")) {
 				var lang = $.bbq.getState("lang") || "sv";
-				// some language identifyer aliases
-				var trans = {
-					"swe"  : "sv",
-					"sv" : "sv",
-					"eng" : "en",
-					"en" : "en"
-				};
-				if(lang in trans)
-					lang = trans[lang];
 				
 				var loc_dfd = $.localize("init", {
 					packages : ["locale", "corpora"],
@@ -269,7 +260,7 @@ var currentMode;
 				loc_dfd.done(function() {
 					util.localize();
 				});
-				$("#languages").radioList("select", lang);
+				$("#languages").radioList("select", $.localize("getLang"));
 			}
 				
 			

@@ -14,7 +14,8 @@
 	"about_dev" : "Developers",
 	"about_logo" : "Logotype by",
 	"warning_header" : "Please note",
-	"warning_body" : "The dependency relations illustrated herein are the result of automated parsing.",  
+	"warning_body" : "The dependency relations illustrated herein are the result of automated parsing.",
+	"fail_text" : "An error has occurred.",  
 	"corpus" : "Corpus",
 	"search_for" : "Search for ",
 	"show_more" : "Show more",
@@ -29,6 +30,8 @@
 	"starts_with" : "begins with",
 	"ends_with" : "ends with",
 	
+	"case_insensitive" : "case insensitive",
+	"reduce_text" : "Compile the statistics according to",
 	
 	"word_is" : "word is",
 	"word_is_not" : "word is not",
@@ -40,7 +43,9 @@
 	"interval" : "interval",
 	"matches" : "regexp",
 	
-	"repeat" : "repeat",
+	"repeat" : "Repeat",
+	"to" : "to",
+	"times" : "times",
 	
 	"none_selected" : "&lt;none selected&gt;",
 	
@@ -85,6 +90,7 @@
 	"text" : "text",
 	"word" : "word",
 	
+	"msd_long" : "Morphosyntactic description",
 	
 	"corpselector_allselected" : " corpora selected (all)",
 	"corpselector_noneselected" : "No corpus selected",

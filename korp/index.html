@@ -117,7 +117,7 @@
 				<div id="cog"></div>
 				<ul id="cog_menu">
 					<li><a id="about" href="javascript:" rel="localize[about]">About Korp</a></li>
-					<li><a id="docs" href="http://spraakbanken.gu.se/swe/forskning/infrastruktur/korp/anvandarhandledning" target="_blank" rel="localize[docs]"></a></li>
+					<li><a id="docs" class="follow_link" href="http://spraakbanken.gu.se/swe/forskning/infrastruktur/korp/anvandarhandledning" target="_blank" rel="localize[docs]"></a></li>
 					<li id="korplink"><a href="/korp" class="follow_link" rel="localize[korp]"></a></li>
 					<li id="korplablink"><a href="/korplabb" class="follow_link" rel="localize[korp_lab]"></a></li>
 				</ul>
@@ -254,7 +254,7 @@
 				{{else $index == "deprel"}}
     				${util.getLocaleString("deprel_" + $data[$index])}
 				{{else $index == "msd"}}
-					${$data[$index]}<a href="msdtags.html" target="_blank"><span id="sidbar_info" class="ui-icon ui-icon-info"></span></a>
+					<span class="sidebar_msd">${$data[$index]}</span><a href="msdtags.html" target="_blank"><span id="sidbar_info" class="ui-icon ui-icon-info"></span></a>
     			{{else $value.type == "set" && $.inArray($index, ["lex", "prefix", "suffix", "saldo"]) != -1}}
     			<span id="sidebar_${$index}">${$data[$index]}</span>
     			{{else $value.type == "set"}}
