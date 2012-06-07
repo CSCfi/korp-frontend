@@ -63,6 +63,7 @@
 	"detailed" : "Extended",
 	"advanced" : "Advanced",
 	"lemgram_results" : "Word picture",
+	"kwic" : "KWIC",
 	"sort_default" : "sort within corpora on",
 	"word_context" : "matched word(s)",
 	"left_context" : "left context",
