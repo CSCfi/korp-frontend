@@ -231,7 +231,8 @@ var LemgramProxy = {
 		var self = this;
 		var deferred = $.Deferred(function( dfd ){
 			self.pendingRequest = $.ajax({
-			    url : "http://spraakbanken.gu.se/ws/lexikon",
+			    // url : "http://spraakbanken.gu.se/ws/lexikon",
+			    url : "http://nyklait-09-01.hum.helsinki.fi/cgi-bin/korp/korp_lemgrams.cgi",
 			    data : {
 			        wf : word,
 			        lexikon : "saldom",

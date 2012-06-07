@@ -248,6 +248,10 @@ attrs.link = {
 attrs.text = {
     label : "text"
 };
+attrs.spoken = {
+    label : "spoken",
+    opts : settings.defaultOptions
+};
 
 sattrs.date = {
     label : "date",
@@ -274,7 +278,7 @@ settings.corporafolders = {};
 
 settings.corporafolders.fi = {
     title : "Suomenkielisiä tekstejä",
-    contents : ["ftb2"]
+    contents : ["ftb2", "metsatalo"]
 };
 
 settings.corporafolders.sv = {
@@ -454,6 +458,30 @@ settings.corpora.ftb2 = {
 		"is_not" : "is_not"
             }
 	},
+	sentence_id : {
+	    label : "sentence_id",
+	    displayType : "hidden"
+	}
+    }
+};
+
+settings.corpora.metsatalo = {
+    title : "Reitti A-siipeen",
+    description : "Reitti (Metsätalon) A-siipeen: videon yleiskielistetty litteraatti",
+    languages : {
+        FTB2 : "suomi"
+    },
+    within : {"sentence" : "sentence"},
+    attributes : {
+	lemma : attrs.baseform_ftb2,
+        pos : attrs.pos_ftb2,
+	msd : attrs.msd,
+	dephead : attrs.dephead,
+	deprel : attrs.deprel_ftb2,
+	spoken : attrs.spoken,
+	lemgram : attrs.lemgram_hidden
+    },
+    struct_attributes : {
 	sentence_id : {
 	    label : "sentence_id",
 	    displayType : "hidden"
