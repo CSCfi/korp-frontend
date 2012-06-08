@@ -18,7 +18,7 @@ settings.defaultWithin = {
 	"sentence" : "sentence"	
 };
 
-settings.defaultLanguage = "en";
+settings.defaultLanguage = "fi";
 
 /*
  * ATTRIBUTES
