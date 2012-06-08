@@ -18,6 +18,12 @@
 	"party" : "party",
 	"spoken" : "puhemuoto",
 	
+	"year_from" : "alkaen vuodesta",
+	"year_to" : "päättyen vuoteen",
+	
+	"url" : "url",
+	"referensnummer" : "viitenumero",
+	
 	"text_year" : "year",
 	"text_party" : "party",
 	"date" : "date",

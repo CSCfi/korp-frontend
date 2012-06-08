@@ -8,6 +8,8 @@
 	"modern_texts" : "Nykytekstit",
 	"parallel_texts" : "Rinnakkaistekstit",
 	"faroese_texts" : "Fäärinkieliset tekstit",
+	"old_swedish_texts" : "Muinaisruotsin tekstit",
+	"1800_texts" : "1800-luvun tekstit",
 	"search_history" : "Hakuhistoria",
 	"about" : "Tietoa Korpista",
 	"about_body" : "Korp on Språkbankenin (Ruotsin kielipankki) konkordanssihakuohjelma. Jos haluat saada lisätietoja tai lähettää kommentteja tai ehdotuksia, <a href='mailto:sb-info@svenska.gu.se'>ota yhteyttä</a>.",
@@ -16,6 +18,7 @@
 	"about_logo" : "Logo",
 	"warning_header" : "Huomaa",
 	"warning_body" : "The dependency relations illustrated herein are the result of automated parsing.",  
+	"fail_text" : "Tapahtui virhe.",  
 	"corpus" : "Korpus",
 	"search_for" : "Etsi ",
 	"show_more" : "Näytä lisää",
@@ -31,7 +34,8 @@
 	"ends_with" : "loppuu",
 	
 	"case_insensitive" : "samaista pien- ja suuraakkoset",
-	"reduce_text" : "Laske tilastot tämän perusteella",
+	"case_sensitive" : "erottele pien- ja suuraakkoset",
+	"reduce_text" : "laske tilastot tämän perusteella",
 	
 	"word_is" : "sana on",
 	"word_is_not" : "sana ei ole",
@@ -57,13 +61,16 @@
 	"following_text" : "Täsmää johonkin seuraavista säännöistä:",
 	"stats_hit" : "Osuma",
 	"stats_total" : "Yhteensä",
+	"options" : "Valinnat",
 	
 	"simple" : "Yksinkertainen",
 	"detailed" : "Laajennettu",
 	"advanced" : "Edistynyt",
+	"statistics" : "Tilastoja",
 	"lemgram_results" : "Sanakuva",
 	"kwic" : "Konkordanssi",
 	"sort_default" : "järjestä korpuksen sisällä",
+	"appearance_context" : "järjestämätön",
 	"word_context" : "täsmänneet sanat",
 	"left_context" : "vasen konteksti",
 	"right_context" : "oikea konteksti", 
@@ -72,14 +79,14 @@
 	"no_lemgram_results" : "Esimerkkejä ei löytynyt.",
 	"no_stats_results" : "Haku ei tuottanut tuloksia.",
 	
-	"sentence_attr" : "Tekstin ominaisuudet",
-	"word_attr" : "Sanan ominaisuudet",
+	"sentence_attr" : "tekstin ominaisuudet",
+	"word_attr" : "sanan ominaisuudet",
 	
 	"similar_header" : "Liittyvät sanat",
 	"show_wordclass" : "Näytä sanaluokka",
 	"search" : "Etsi",
 	"and_include" : "myös",
-	"hits_per_page" : "Osumia sivulla",
+	"hits_per_page" : "osumia sivulla",
 	"num_results" : "Tuloksia",
 	"next" : "Seuraava",
 	"prev" : "Edellinen",
@@ -125,5 +132,7 @@
 	"util_numbergroupseparator" : "&nbsp;",
 	
 	"hitspicture_hits" : "osumia",
-	"hitspicture_gotocorpushits" : "Napsauta päästäksesi ensimmäiselle sivulle, jolla on osumia tästä korpuksesta."
+	"hitspicture_gotocorpushits" : "Napsauta päästäksesi ensimmäiselle sivulle, jolla on osumia tästä korpuksesta.",
+
+	"hits_per_mil" : "Osumia miljoonaa sanetta kohti"
 }
