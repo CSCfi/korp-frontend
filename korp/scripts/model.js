@@ -289,12 +289,11 @@ var StatsProxy = {
 		var selected_uppercased_corpora_ids = $.map(selected_corpora_ids, function(n) {
 			return n.toUpperCase();
 	    });
-//		range = range || {start : 0, end : 1000};
-		$.ajax({ 
+		return $.ajax({ 
 			url: settings.cgi_script,
 			data : {
 				command : "count",
-				groupby : extendedSearch.getReduction(),
+				groupby : $.bbq.getState("stats_reduce") || "",
 				cqp : cqp,
 				corpus : selected_uppercased_corpora_ids
 			},
@@ -336,7 +335,15 @@ var StatsProxy = {
 					});
 				});
 				
-				var dataset = [];
+				var totalRow = {
+					id : "row_total",
+					hit_value : "&Sigma;",
+					total_value : {"absolute" : data.total.sums.absolute, "relative" : data.total.sums.relative}
+				};
+				var dataset = [totalRow];
+				$.each(data.corpora, function(corpus, obj) {
+					totalRow[corpus + "_value"] = {"absolute" : obj.sums.absolute, "relative" : obj.sums.relative};
+				});
 				var wordArray = $.keys(data.total.absolute);
 				
 				$.each(wordArray, function(i, word) {
@@ -344,13 +351,9 @@ var StatsProxy = {
 						id : "row" + i,
 						hit_value : word,
 						total_value : {"absolute" : data.total.absolute[word], "relative" : data.total.relative[word]}
-//						toString : function() {
-//							return data.total.relative[word] || "0";
-//						}
-						
 					};
 					$.each(data.corpora, function(corpus, obj) {
-						row[corpus + "_value"] = {"absolute" : obj.absolute[word], "relative" : obj.relative[word]}; // + obj.relative[word];
+						row[corpus + "_value"] = {"absolute" : obj.absolute[word], "relative" : obj.relative[word]};
 					});
 					dataset.push(row);
 				});

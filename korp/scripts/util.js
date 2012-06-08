@@ -41,6 +41,20 @@ util.getLocaleString = function(key) {
 //		$.error("Could not find translation key " + key);
 	return output;
 };
+util.initLocalize = function() {
+	return $.localize("init", {
+		packages : ["locale", "corpora"],
+		pathPrefix : "translations",
+		language : $.bbq.getState("lang") || settings.defaultLanguage,
+		callback : function() {
+			if(this.is(".num_hits")) {
+				var selected = this.find("option:selected");
+				c.log("selected", selected, util.getLocaleString(this.data("prefix")) + ": " + selected.text())
+				selected.text(util.getLocaleString(this.data("prefix")) + ": " + selected.text());
+			}
+		}
+	});
+};
 //TODO: get rid of this
 util.localize = function(root) {
 	root = root || "body"; 
@@ -213,7 +227,7 @@ function loadCorpora() {
 		$.bbq.pushState({"corpus" : corpora.join(",")});
 		if(corpora.length) {
 			extendedSearch.refreshTokens();
-			extendedSearch.updateReduceSelect();
+			view.updateReduceSelect();
 		}
 		var enableSearch = !!corpora.length;
 		view.enableSearch(enableSearch);

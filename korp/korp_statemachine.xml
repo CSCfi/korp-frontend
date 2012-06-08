@@ -69,6 +69,7 @@
             <assign location="statsResults"   expr="new view.StatsResults('#result-container li:nth-child(2)', '#results-stats')"/>
             <assign location="lemgramResults" expr="new view.LemgramResults('#result-container li:nth-child(3)', '#results-lemgram')"/>
             
+            <script>view.initSearchOptions();</script>
             
         </transition>
     </state>
@@ -314,7 +315,7 @@
             <state id="logger" initial="l2">
                 <state id="l2">
                     <transition event="*" target="l2">
-                        <log expr="'event found: ' + _event.name" />
+<!--                         <log expr="'event found: ' + _event.name" /> -->
 <!--                         <script> -->
 <!--                             $.log("conf", $.sm.getConfiguration()); -->
 <!--                         </script> -->

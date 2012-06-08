@@ -52,6 +52,56 @@ view.enableSearch = function(bool) {
 	
 };
 
+view.initSearchOptions = function() {
+	$("#num_hits,.sort_select").customSelect();
+	view.updateReduceSelect();
+	
+	$("#search_options").css("background-color", settings.primaryLight)
+	.change(function(event) {
+		simpleSearch.enableSubmit();
+		extendedSearch.enableSubmit();
+		advancedSearch.enableSubmit();
+		var target = $(event.target);
+		
+		var state = {};
+		state[target.data("history")] = target.val();
+		$.bbq.pushState(state);
+	})
+	.find("select")
+	.each(function() {
+		var state = $.bbq.getState($(this).data("history"));
+		if(!!state) {
+			$(this).val(state)
+			.change();
+		} else {
+			$(this).prop("selectedIndex", 0)
+			.change();
+		}
+	});
+};
+
+view.updateReduceSelect = function() {
+	var groups = $.extend({word : {word : {label : "word"}}}, {
+		"word_attr" : getCurrentAttributes(),
+		"sentence_attr" : $.grepObj(getStructAttrs(), function(val, key) {
+							 return val.disabled !== true;
+						  })
+		});
+	
+	var prevVal = $("#reduceSelect select").val();
+	var select = util.makeAttrSelect(groups);
+	$("#reduceSelect").html(select);
+	
+	select.attr("data-history", "stats_reduce")
+	.attr("data-prefix", "reduce_text")
+	.customSelect();
+	if(prevVal) {
+		select.val(prevVal);
+		select.trigger("change");
+	}
+	return select;
+};
+
 var BaseSearch = {
 	initialize : function(mainDivId) {
 		this.$main = $(mainDivId);
@@ -132,17 +182,20 @@ var SimpleSearch = {
 						});
 						
 						dfd.resolve(listItems);
+					})
+					.fail(function() {
+						c.log("reject");
+						dfd.reject();
+						textinput.preloader("hide");
 					});
 					return dfd.promise();
 				}
 			});
 		
 		$("#prefixChk, #suffixChk, #caseChk").click(function() {
-			c.log("caseChk before");
 			if($("#simple_text").attr("placeholder") && $("#simple_text").text() == "" ) {
 				self.enableSubmit();
 			} else {
-				c.log("caseChk");
 				self.onSimpleChange();
 			}
 		});
@@ -392,7 +445,6 @@ var ExtendedSearch = {
 	    	tolerance : "pointer"
 	    });
 	    insert_token_button.click();
-	    this.updateReduceSelect();
 	},
 	
 	onentry : function() {
@@ -446,22 +498,11 @@ var ExtendedSearch = {
 		$(".query_token").extendedToken("refresh");
 	},
 	
-	updateReduceSelect : function() {
-		var groups = $.extend({word : {word : {label : "word"}}}, {
-			"word_attr" : getCurrentAttributes(),
-			"sentence_attr" : $.grepObj(getStructAttrs(), function(val, key) {
-								 return val.disabled !== true;
-							  })
-			});
-		
-		
-		var select = util.makeAttrSelect(groups);
-		$("#reduceSelect").html(select);
-	},
 	
-	getReduction : function() {
-		return $("#reduceSelect select").val();
-	}
+	
+//	getReduction : function() {
+//		return $("#reduceSelect select").val();
+//	}
 	
 };
 

@@ -4,9 +4,11 @@
 	"english" : "English",
 	"korp" : "Korp",
 	"korp_lab" : "Korp Labs",
-	"modern_texts" : "Modern texts",
-	"parallel_texts" : "Parallel texts",
-	"faroese_texts" : "Faroese texts",
+	"modern_texts" : "Modern",
+	"parallel_texts" : "Parallel",
+	"faroese_texts" : "Faroese",
+	"old_swedish_texts" : "Old Swedish",
+	"1800_texts" : "19th century",
 	"search_history" : "Search history",
 	"about" : "About Korp",
 	"about_body" : "Korp is the concordance search tool of Språkbanken (The Swedish Language Bank). For more information, comments or suggestions, <a href='mailto:sb-info@svenska.gu.se'>contact us</a>.",
@@ -30,8 +32,9 @@
 	"starts_with" : "begins with",
 	"ends_with" : "ends with",
 	
-	"case_insensitive" : "case insensitive",
-	"reduce_text" : "Compile the statistics according to",
+	"case_insensitive" : "case-insensitive",
+	"case_sensitive" : "case-sensitive",
+	"reduce_text" : "compile based on",
 	
 	"word_is" : "word is",
 	"word_is_not" : "word is not",
@@ -57,12 +60,15 @@
 	"following_text" : "Match any of the following rules:",
 	"stats_hit" : "Hit",
 	"stats_total" : "Total",
+	"options" : "Options",
 	
 	"simple" : "Simple",
 	"detailed" : "Extended",
 	"advanced" : "Advanced",
+	"statistics" : "Statistics",
 	"lemgram_results" : "Word picture",
-	"sort_default" : "sort within corpora on",
+	"sort_default" : "sort within corpora",
+	"appearance_context" : "not sorted",
 	"word_context" : "matched word(s)",
 	"left_context" : "left context",
 	"right_context" : "right context", 
@@ -71,14 +77,14 @@
 	"no_lemgram_results" : "No examples found.",
 	"no_stats_results" : "The search generated no results.",
 	
-	"sentence_attr" : "Text attributes",
-	"word_attr" : "Word attributes",
+	"sentence_attr" : "text attributes",
+	"word_attr" : "word attributes",
 	
 	"similar_header" : "Related words",
 	"show_wordclass" : "Show word class",
 	"search" : "Search",
 	"and_include" : "also as",
-	"hits_per_page" : "Hits per page",
+	"hits_per_page" : "hits per page",
 	"num_results" : "Results",
 	"next" : "Next",
 	"prev" : "Previous",
@@ -124,5 +130,7 @@
 	"util_numbergroupseparator" : ",",
 	
 	"hitspicture_hits" : "hits",
-	"hitspicture_gotocorpushits" : "Click to go to the first page with hits from this corpus."
+	"hitspicture_gotocorpushits" : "Click to go to the first page with hits from this corpus.",
+	
+	"hits_per_mil" : "Hits per million tokens"
 }

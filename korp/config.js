@@ -1911,7 +1911,7 @@ settings.corpora.vivill = {
 		ref : attrs.ref
 	},
 	struct_attributes : {
-		text_year : {label : "year", includeInKWIC : true, displayType : "select",
+		text_year : {label : "year", displayType : "select",
 					dataset : {
 								"1887" : "1887",
 								"1902" : "1902",
@@ -1976,7 +1976,6 @@ settings.corpora.vivill = {
 					}},
 		text_party : {
 			label : "party", 
-			includeInKWIC : true,
 			displayType : "select",
 			dataset: {
 				"all" : "Alliansen",
@@ -2502,12 +2501,34 @@ settings.corpora.hbl1999 = {
 	}
 };
 
+settings.corpora.talbanken = {
+	title : "Talbanken",
+	description : "",
+	languages : {
+		TALBANKEN : "svenska"
+	},
+	within : within.defaultStruct,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : {
+	}
+};
 
 /*
  * MISC
  */
 
-settings.cgi_script = "http://demosb.spraakdata.gu.se/cgi-bin/korp/korp.cgi";
+settings.cgi_script = "http://spraakbanken.gu.se/ws/korp";
 
 // label values here represent translation keys.
 settings.arg_groups = {

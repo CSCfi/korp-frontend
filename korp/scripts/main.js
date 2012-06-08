@@ -1,8 +1,6 @@
 var currentMode;
 
 
-
-
 (function(){
 	var t = $.now();
 //	if(window.console == null) window.console = {"log" : $.noop};
@@ -61,17 +59,13 @@ var currentMode;
 			settings.corpora[key]["info"] = info_data["corpora"][key.toUpperCase()]["info"];
 		});
 	});
-	
-	var loc_dfd = $.localize("init", {
-		packages : ["locale", "corpora"],
-		pathPrefix : "translations",
-		language : $.bbq.getState("lang") || "sv" 
-	});
+	var loc_dfd = util.initLocalize();
 	
 	$.when(deferred_load, chained, deferred_domReady, deferred_sm, deferred_mode, loc_dfd).then(function(searchbar_html) {
-		$.revision = parseInt("$Rev: 51245 $".split(" ")[1]);
+		$.revision = parseInt("$Rev: 52598 $".split(" ")[1]);
 		c.log("preloading done, t = ", $.now() - t);
 		if(isLab) $("body").addClass("lab");
+		
 		currentMode = $.deparam.querystring().mode || "default";
 		util.browserWarn();
 		
@@ -90,7 +84,9 @@ var currentMode;
             modes : [
                  {localekey : "modern_texts", mode : "default"},
                  {localekey : "parallel_texts", mode : "parallel"},
-                 {localekey : "faroese_texts", mode : "faroe"}
+                 {localekey : "faroese_texts", mode : "faroe"},
+                 {localekey : "1800_texts", mode : "1800"},
+                 {localekey : "old_swedish_texts", mode : "old_swedish"}
                      ]
 		}).add("#about").vAlign();
 		
@@ -167,19 +163,19 @@ var currentMode;
 			tabTemplate : '<li class="custom_tab"><a class="custom_anchor" href="#{href}"><span rel="localize[example]">#{label}</span></a><a class="tabClose" href="#"><span class="ui-icon ui-icon-circle-close"></span></a></li>'
 		});
 		
-		$("#result-container li.ui-state-disabled").live({
-			mouseover : function() {
-				nTimeout = setTimeout(function() {
-					$("#lemgram_select").highlight();
-				}, 750);
-				
-			},
-			mouseout : function() {
-				if(nTimeout)
-					clearTimeout(nTimeout);
-				$("#lemgram_select").highlight("abort");
-			}
-		});
+//		$("#result-container li.ui-state-disabled").live({
+//			mouseover : function() {
+//				nTimeout = setTimeout(function() {
+//					$("#lemgram_select").highlight();
+//				}, 750);
+//				
+//			},
+//			mouseout : function() {
+//				if(nTimeout)
+//					clearTimeout(nTimeout);
+//				$("#lemgram_select").highlight("abort");
+//			}
+//		});
 		
 		var tabs = $(".ui-tabs");
 		tabs.find(tab_a_selector).click(function() {
@@ -244,19 +240,13 @@ var currentMode;
 			
 			var hpp = e.getState("hpp", true);
 			if(hpp)
-				kwicResults.$result.find(".num_hits").val(hpp);
+				$(".num_hits").val(hpp);
 			if(!isInit && hasChanged("hpp")) {
-				kwicResults.handlePaginationClick(0, null, true);
+//				kwicResults.handlePaginationClick(0, null, true);
 			}
 			
 			if(hasChanged("lang")) {
-				var lang = $.bbq.getState("lang") || "sv";
-				
-				var loc_dfd = $.localize("init", {
-					packages : ["locale", "corpora"],
-					pathPrefix : "translations",
-					language : lang 
-				});
+				var loc_dfd = util.initLocalize();
 				loc_dfd.done(function() {
 					util.localize();
 				});
@@ -269,13 +259,13 @@ var currentMode;
 				kwicResults.setPage(page);
 			}
 			
-			var sort = e.getState("sort");
-			if(isInit && sort) {
-				kwicResults.$result.find(".sort_select").val(sort);
-			}
-			if(!isInit && hasChanged("sort")) {
-				kwicResults.handlePaginationClick(0, null, true);
-			}
+//			var sort = e.getState("sort");
+//			if(isInit && sort) {
+//				kwicResults.$result.find(".sort_select").val(sort);
+//			}
+//			if(!isInit && hasChanged("sort")) {
+//				kwicResults.handlePaginationClick(0, null, true);
+//			}
 			
 			if(isInit) {
 				kwicResults.current_page = page;
@@ -324,12 +314,13 @@ var currentMode;
 				});
 			}
 			
-			if(!isInit) {
+			if(!isInit && hasChanged("display")) {
 				
-				if(e.getState("display") == "line_diagram") {
-					statsResults.showLineDiagram();
+				if(e.getState("display") == "bar_plot") {
+					statsResults.drawBarPlot();
 				} else {
-					$("#line_diagram_window").dialog("destroy");
+					$("#plot_popup").dialog("destroy")
+					.css({"opacity" : 0, "display" : "block", "height" : 0});
 				}
 			
 			}
@@ -408,7 +399,7 @@ var currentMode;
 			$(this).css("opacity", "");
 		});
 //		$("body").css("opacity", 1)
-		view.updateSearchHistory();
+//		view.updateSearchHistory();
 	});
 
 
