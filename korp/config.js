@@ -2680,6 +2680,7 @@ settings.corpora.metsatalo = {
  */
 
 settings.cgi_script = "http://nyklait-09-01.hum.helsinki.fi/cgi-bin/korp/korp.cgi";
+settings.lemgrams_cgi_script = "http://nyklait-09-01.hum.helsinki.fi/cgi-bin/korp/korp_lemgrams.cgi";
 
 // label values here represent translation keys.
 settings.arg_groups = {
