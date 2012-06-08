@@ -5,17 +5,17 @@
 var settings = {};
 //var language = $.localize.data.locale;
 
-settings.lemgramSelect = true; //false;
-settings.autocomplete = true; //false;
+settings.lemgramSelect = true;
+settings.autocomplete = true;
 
 settings.primaryColor = "rgb(221, 233, 255)";
 settings.primaryLight = "rgb(242, 247, 255)";
 settings.corpora = {};
 settings.defaultContext = {
-    "1 sentence" : "1 sentence"
+	"1 sentence" : "1 sentence"
 };
 settings.defaultWithin = {
-    "sentence" : "sentence"	
+	"sentence" : "sentence"	
 };
 
 settings.defaultLanguage = "en";
@@ -27,11 +27,11 @@ settings.defaultLanguage = "en";
 settings.cqp_prio = ['deprel', 'pos', 'msd', 'suffix', 'prefix', 'grundform', 'lemgram', 'saldo', 'word'];
 
 settings.defaultOptions = {
-    "is" : "is",
-    "is_not" : "is_not",
-    "starts_with" : "starts_with",
-    "ends_with" : "ends_with",
-    "matches" : "matches"
+	"is" : "is",
+	"is_not" : "is_not",
+	"starts_with" : "starts_with",
+	"ends_with" : "ends_with",
+	"matches" : "matches"
 };
 settings.liteOptions = $.exclude(settings.defaultOptions, ["starts_with", "ends_with", "matches"]);
 
@@ -92,8 +92,8 @@ attrs.pos_ftb2 = {
     opts : settings.liteOptions
 };
 attrs.msd = {
-    label : "msd",
-    opts : settings.defaultOptions
+	label : "msd",
+	opts : settings.defaultOptions
 };
 attrs.baseform = {
     label : "baseform",
@@ -120,14 +120,14 @@ attrs.lemgram_hidden = {
     // opts : settings.liteOptions
 };
 attrs.saldo = {
-    label : "saldo",
-    type : "set",
-    displayType : "autocomplete",
-    opts : settings.liteOptions
+	label : "saldo",
+	type : "set",
+	displayType : "autocomplete",
+	opts : settings.liteOptions
 };
 attrs.dephead = {
-    label : "dephead",
-    displayType : "hidden"
+	label : "dephead",
+	displayType : "hidden"
 };
 attrs.deprel = {
     label : "deprel",
@@ -227,23 +227,23 @@ attrs.deprel_ftb2 = {
     opts : settings.liteOptions
 };
 attrs.prefix = {
-    label : "prefix",
-    type : "set",
-    displayType : "autocomplete",
-    opts : settings.liteOptions
+	label : "prefix",
+	type : "set",
+	displayType : "autocomplete",
+	opts : settings.liteOptions
 };
 attrs.suffix = {
-    label : "suffix",
-    type : "set",
-    displayType : "autocomplete",
-    opts : settings.liteOptions
+	label : "suffix",
+	type : "set",
+	displayType : "autocomplete",
+	opts : settings.liteOptions
 };
 attrs.ref = {
-    label : "ref",
-    displayType : "hidden"
+	label : "ref",
+	displayType : "hidden"
 };
 attrs.link = {
-    label : "sentence_link"
+	label : "sentence_link"
 };
 attrs.text = {
     label : "text"
@@ -254,26 +254,26 @@ attrs.spoken = {
 };
 
 sattrs.date = {
-    label : "date",
-    displayType : "date"
+	label : "date",
+	displayType : "date"
 };
 
 var within = {
-    "defaultStruct" : {
-	"sentence" : "sentence"
-    }
+	"defaultStruct" : {
+		"sentence" : "sentence"
+	}
 };
 
 var context = {
-    "defaultAligned" : {
-	"1 link" : "1 link"
-    }
+	"defaultAligned" : {
+		"1 link" : "1 link"
+	}
 };
 
 /*
  * FOLDERS
  */
-
+ 
 settings.corporafolders = {};
 
 settings.corporafolders.sv = {
@@ -2510,6 +2510,29 @@ settings.corpora.metsatalo = {
 //     }
 // };
 
+// settings.corpora.osterbottenstidning2011 = {
+// 	title : "Österbottens tidning 2011",
+// 	description : "",
+// 	languages : {
+// 		OSTERBOTTENSTIDNING2011 : "svenska"
+// 	},
+// 	within : within.defaultStruct,
+// 	attributes : {
+// 		pos : attrs.pos,
+// 		msd : attrs.msd,
+// 		lemma : attrs.baseform,
+// 		lex : attrs.lemgram,
+// 		saldo : attrs.saldo,
+// 		prefix : attrs.prefix,
+// 		suffix : attrs.suffix,
+// 		dephead : attrs.dephead,
+// 		deprel : attrs.deprel,
+// 		ref : attrs.ref
+// 	},
+// 	struct_attributes : {
+// 	}
+// };
+
 // settings.corpora.fnb1999 = {
 //     title : "FNB 1999",
 //     description : "<a href=\"http://www.stt.fi/sv\">FNB</a> är Finlands ledande nyhets- och bildbyrå.",
@@ -2629,6 +2652,28 @@ settings.corpora.metsatalo = {
 //     }
 // };
 
+// settings.corpora.talbanken = {
+// 	title : "Talbanken",
+// 	description : "",
+// 	languages : {
+// 		TALBANKEN : "svenska"
+// 	},
+// 	within : within.defaultStruct,
+// 	attributes : {
+// 		pos : attrs.pos,
+// 		msd : attrs.msd,
+// 		lemma : attrs.baseform,
+// 		lex : attrs.lemgram,
+// 		saldo : attrs.saldo,
+// 		prefix : attrs.prefix,
+// 		suffix : attrs.suffix,
+// 		dephead : attrs.dephead,
+// 		deprel : attrs.deprel,
+// 		ref : attrs.ref
+// 	},
+// 	struct_attributes : {
+// 	}
+// };
 
 /*
  * MISC

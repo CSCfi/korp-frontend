@@ -4,9 +4,11 @@
 	"english" : "English",
 	"korp" : "Korp",
 	"korp_lab" : "Korplabbet",
-	"modern_texts" : "Moderna texter",
-	"parallel_texts" : "Parallella texter",
-	"faroese_texts" : "Färöiska texter",
+	"modern_texts" : "Moderna",
+	"parallel_texts" : "Parallella",
+	"faroese_texts" : "Färöiska",
+	"old_swedish_texts" : "Fornsvenska",
+	"1800_texts" : "1800-tal",
 	"search_history" : "Sökhistorik",
 	"about" : "Om Korp",
 	"about_body" : "Korp är Språkbankens konkordansverktyg. För mer information, kommentarer eller förslag, kontakta <a href='mailto:sb-info@svenska.gu.se'>Språkbanken</a>.",
@@ -27,7 +29,8 @@
 	"or" : "eller",
 	
 	"case_insensitive" : "skiftlägesoberoende",
-	"reduce_text" : "Sammanställ statistiken med avseende på",
+	"case_sensitive" : "skiftlägesberoende",
+	"reduce_text" : "sammanställ på",
 	
 	"is" : "är", 
 	"is_not" : "är inte",
@@ -58,13 +61,16 @@
 	"following_text" : "Matcha någon av följande regler:",
 	"stats_hit" : "Träff",
 	"stats_total" : "Totalt",
+	"options" : "Alternativ",
 	
 	"simple" : "Enkel",
 	"detailed" : "Utökad",
 	"advanced" : "Avancerad",
+	"statistics" : "Statistik",
 	"lemgram_results" : "Ordbild", 
 	"kwic" : "KWIC",
 	"sort_default" : "sortera inom korpus på",
+	"appearance_context" : "förekomst",
 	"word_context" : "träff",
 	"left_context" : "vänsterkontext",
 	"right_context" : "högerkontext",
@@ -73,14 +79,14 @@
 	"no_lemgram_results" : "Hittade inga förekomster.",
 	"no_stats_results" : "Sökningen gav inga träffar.",
 	
-	"sentence_attr" : "Textattribut",
-	"word_attr" : "Ordattribut",
+	"sentence_attr" : "textattribut",
+	"word_attr" : "ordattribut",
 	
 	"similar_header" : "Relaterade ord",
 	"show_wordclass" : "Visa ordklass",
 	"search" : "   Sök   ",
 	"and_include" : "även som",
-	"hits_per_page" : "Träffar per sida",
+	"hits_per_page" : "träffar per sida",
 	"num_results" : "Antal träffar",
 	"next" : "Nästa",
 	"prev" : "Föregående",
@@ -92,7 +98,7 @@
 	"text" : "text",
 	"word" : "ord",
 	
-	"msd_long" : "Morfosyntaktisk beskrvning",
+	"msd_long" : "Morfosyntaktisk beskrivning",
 	
 	
 	"corpselector_allselected" : " korpusar valda (alla)",
@@ -127,5 +133,7 @@
 	"util_numbergroupseparator" : "&nbsp;",
 	
 	"hitspicture_hits" : "träffar",
-	"hitspicture_gotocorpushits" : "Klicka för att gå till första sidan med träffar från denna korpus."
+	"hitspicture_gotocorpushits" : "Klicka för att gå till första sidan med träffar från denna korpus.",
+	
+	"hits_per_mil" : "Träffar per miljon token"
 }

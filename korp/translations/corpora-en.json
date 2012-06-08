@@ -18,6 +18,12 @@
 	"party" : "party",
 	"spoken" : "spoken form",
 	
+	"year_from" : "starting year",
+	"year_to" : "ending year",
+	
+	"url" : "url",
+	"referensnummer" : "reference number",
+	
 	"text_year" : "year",
 	"text_party" : "party",
 	"date" : "date",
@@ -66,8 +72,6 @@
 	"unknown" : "unknown",
 	"male_female" : "both",
 	
-	"statistics" : "Statistics",
-
 	"subcorpus_name" : "subcorpus name",
 	"sentence_id" : "sentence identifier",
 
