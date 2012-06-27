@@ -288,7 +288,12 @@ settings.corporafolders.fi = {
 
 settings.corporafolders.kotus = {
     title : "Kotuksen korpukset",
-    contents : ["vks"]
+    contents : []
+};
+
+settings.corporafolders.kotus.vks = {
+    title : "Vanhan kirjasuomen korpus",
+    contents : ["vks_biblia"]
 };
 
 
@@ -373,27 +378,23 @@ settings.corpora.metsatalo = {
 };
 
 
-settings.corpora.vks = {
-    title : "Vanha kirjasuomi",
-    description : "Vanhan kirjasuomen korpus",
+settings.corpora.vks_biblia = {
+    title : "Biblia 1642",
+    description : "Vuoden 1642 raamatunsuomennos",
     languages : {
-        VKS : "suomi"
+        VKS_BIBLIA : "suomi"
     },
     within : {"sentence" : "sentence"},
     attributes : {},
     struct_attributes : {
 	work_code : {
 	    label : "vks_work_code",
-	    displayType : "select",
-	    translationKey : "vkswork_",
-	    dataset : {
-		"B1" : "B1"
-	    },
+	    displayType : "hidden",
 	},
 	book_code : {
-	    label : "vks_book_code",
+	    label : "vksbib_book_code",
 	    displayType : "select",
-	    translationKey : "vksbook_",
+	    translationKey : "vksbibbook_",
 	    dataset : {
 		"VT4" : "VT4",
 		"Jes" : "Jes",
@@ -416,13 +417,13 @@ settings.corpora.vks = {
 	    },
 	},
 	chapter_code : {
-	    label : "vks_chapter_code"
+	    label : "vksbib_chapter_code"
 	},
 	verse_code : {
-	    label : "vks_verse_code"
+	    label : "vksbib_verse_code"
 	},
 	sentence_id : {
-	    label : "vks_sentence_id",
+	    label : "sentence_id",
 	    displayType : "hidden"
 	},
 	sentence_code : {
