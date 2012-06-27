@@ -277,5 +277,34 @@
 	"deprel_IF" : "Infinitive verb phrase minus infinitive marker",
 	"deprel_PA" : "Complement of preposition",
 	"deprel_UA" : "Subordinate clause minus subordinating conjunction",
-	"deprel_VG" : "Verb group"
+	"deprel_VG" : "Verb group",
+
+	"vks_work_code" : "teos",
+	"vks_book_code" : "kirja",
+	"vks_chapter_code" : "luku",
+	"vks_verse_code" : "jae",
+	"vks_sentence_code" : "lähdekoodi",
+	"vks_sentence_page" : "sivu",
+
+	"vkswork_B1" : "Biblia 1642",
+
+	"vksbook_Am" : "Amos",
+	"vksbook_Dan" : "Daniel",
+	"vksbook_Hab" : "Habacuc",
+	"vksbook_Hes" : "Hesekiel",
+	"vksbook_Hgg" : "Haggai",
+	"vksbook_Hos" : "Hosea",
+	"vksbook_Jer" : "Jeremia",
+	"vksbook_Jes" : "Jesaia",
+	"vksbook_Joel" : "Joel",
+	"vksbook_Jon" : "Jona",
+	"vksbook_Mal" : "Malachi",
+	"vksbook_Mik" : "Micha",
+	"vksbook_Nah" : "Nahum",
+	"vksbook_Ob" : "Obadja",
+	"vksbook_Sak" : "Sacharja",
+	"vksbook_Sef" : "Zephania",
+	"vksbook_Vlt" : "Jeremian Walituswirret",
+	"vksbook_VT4" : "Neliäs Osa Wanhast Testamentist, Prophetat (nimiö)"
+
 	}

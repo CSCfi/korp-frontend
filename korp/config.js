@@ -286,6 +286,11 @@ settings.corporafolders.fi = {
     contents : ["ftb2", "metsatalo"]
 };
 
+settings.corporafolders.kotus = {
+    title : "Kotuksen korpukset",
+    contents : ["vks"]
+};
+
 
 /*
  * CORPORA
@@ -363,6 +368,68 @@ settings.corpora.metsatalo = {
 	sentence_id : {
 	    label : "sentence_id",
 	    displayType : "hidden"
+	}
+    }
+};
+
+
+settings.corpora.vks = {
+    title : "Vanha kirjasuomi",
+    description : "Vanhan kirjasuomen korpus",
+    languages : {
+        VKS : "suomi"
+    },
+    within : {"sentence" : "sentence"},
+    attributes : {},
+    struct_attributes : {
+	work_code : {
+	    label : "vks_work_code",
+	    displayType : "select",
+	    translationKey : "vkswork_",
+	    dataset : {
+		"B1" : "B1"
+	    },
+	},
+	book_code : {
+	    label : "vks_book_code",
+	    displayType : "select",
+	    translationKey : "vksbook_",
+	    dataset : {
+		"VT4" : "VT4",
+		"Jes" : "Jes",
+		"Jer" : "Jer",
+		"Vlt" : "Vlt",
+		"Hes" : "Hes",
+		"Dan" : "Dan",
+		"Hos" : "Hos",
+		"Joel" : "Joel",
+		"Am" : "Am",
+		"Ob" : "Ob",
+		"Jon" : "Jon",
+		"Mik" : "Mik",
+		"Nah" : "Nah",
+		"Hab" : "Hab",
+		"Sef" : "Sef",
+		"Hgg" : "Hgg",
+		"Sak" : "Sak",
+		"Mal" : "Mal",
+	    },
+	},
+	chapter_code : {
+	    label : "vks_chapter_code"
+	},
+	verse_code : {
+	    label : "vks_verse_code"
+	},
+	sentence_id : {
+	    label : "vks_sentence_id",
+	    displayType : "hidden"
+	},
+	sentence_code : {
+	    label : "vks_sentence_code"
+	},
+	sentence_page : {
+	    label : "vks_sentence_page"
 	}
     }
 };
