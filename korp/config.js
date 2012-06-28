@@ -252,6 +252,14 @@ attrs.spoken = {
     label : "spoken",
     opts : settings.defaultOptions
 };
+attrs.origword = {
+    label : "word_orig",
+    opts : settings.defaultOptions
+};
+attrs.complword = {
+    label : "word_completed",
+    opts : settings.defaultOptions
+};
 
 sattrs.date = {
 	label : "date",
@@ -293,7 +301,7 @@ settings.corporafolders.kotus = {
 
 settings.corporafolders.kotus.vks = {
     title : "Vanhan kirjasuomen korpus",
-    contents : ["vks_biblia"]
+    contents : ["vks_biblia", "vks_lait", "vks_saarnat"]
 };
 
 
@@ -421,6 +429,86 @@ settings.corpora.vks_biblia = {
 	},
 	verse_code : {
 	    label : "vksbib_verse_code"
+	},
+	sentence_id : {
+	    label : "sentence_id",
+	    displayType : "hidden"
+	},
+	sentence_code : {
+	    label : "vks_sentence_code"
+	},
+	sentence_page : {
+	    label : "vks_sentence_page"
+	}
+    }
+};
+
+settings.corpora.vks_lait = {
+    title : "Lait",
+    description : "Vanhoja lakeja ja asetuksia",
+    languages : {
+        VKS_LAIT : "suomi"
+    },
+    within : {"sentence" : "sentence"},
+    attributes : {
+	word_orig : attrs.origword,
+	word_completed : attrs.complword
+    },
+    struct_attributes : {
+	law_code : {
+	    label : "vkslait_law_code",
+	    displayType : "select",
+	    translationKey : "vkslaitlaw_",
+	    dataset : {
+		"As1584" : "As1584",
+		"As1593" : "As1593"
+	    },
+	},
+	sentence_id : {
+	    label : "sentence_id",
+	    displayType : "hidden"
+	},
+	sentence_code : {
+	    label : "vks_sentence_code"
+	},
+	sentence_page : {
+	    label : "vks_sentence_page"
+	}
+    }
+};
+
+settings.corpora.vks_saarnat = {
+    title : "Saarnat",
+    description : "Saarnoja",
+    languages : {
+        VKS_SAARNAT : "suomi"
+    },
+    within : {"sentence" : "sentence"},
+    attributes : {
+	word_orig : attrs.origword,
+	word_completed : attrs.complword
+    },
+    struct_attributes : {
+	source_code : {
+	    label : "vkssaarnat_source_code",
+	    displayType : "select",
+	    translationKey : "vkssaarnatsource_",
+	    dataset : {
+		"Swahn1706" : "Swahn1706",
+		"Wall1706" : "Wall1706",
+		"Sten1750" : "Sten1750",
+		"Rein1750" : "Rein1750",
+		"Sten1771" : "Sten1771",
+		"Varia1756a" : "Varia1756a",
+		"Paz1764" : "Paz1764",
+		"Elgf1768" : "Elgf1768",
+		"Laih1768" : "Laih1768",
+		"GLyra1772" : "GLyra1772",
+		"Sax1776" : "Sax1776",
+		"Äjm1779" : "Äjm1779",
+		"Widen1780" : "Widen1780",
+		"Popp1781" : "Popp1781"
+	    },
 	},
 	sentence_id : {
 	    label : "sentence_id",

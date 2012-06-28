@@ -286,6 +286,9 @@
 	"vks_sentence_code" : "lähdekoodi",
 	"vks_sentence_page" : "sivu",
 
+	"word_orig" : "alkuperäinen sana",
+	"word_completed" : "täydennetty sana",
+
 	"vksbibbook_Am" : "Amos",
 	"vksbibbook_Dan" : "Daniel",
 	"vksbibbook_Hab" : "Habacuc",
@@ -303,6 +306,27 @@
 	"vksbibbook_Sak" : "Sacharja",
 	"vksbibbook_Sef" : "Zephania",
 	"vksbibbook_Vlt" : "Jeremian Walituswirret",
-	"vksbibbook_VT4" : "Neliäs Osa Wanhast Testamentist, Prophetat (nimiö)"
+	"vksbibbook_VT4" : "Neliäs Osa Wanhast Testamentist, Prophetat (nimiö)",
 
+	"vkslait_law_code" : "laki",
+
+	"vkslaitlaw_As1584" : "Asetus vuodelta 1584",
+	"vkslaitlaw_As1593" : "Asetus vuodelta 1593",
+
+	"vkssaarnat_source_code" : "lähde",
+
+	"vkssaarnatsource_Swahn1706" : "Ericus M. Swahn 1706",
+	"vkssaarnatsource_Wall1706" : "Ericus Wallenius 1706",
+	"vkssaarnatsource_Sten1750" : "Thomas Steenbäck 1750",
+	"vkssaarnatsource_Rein1750" : "Carl Rein 1750",
+	"vkssaarnatsource_Sten1771" : "Thomas Steenbäck 1771",
+	"vkssaarnatsource_Varia1756a" : "Greifwin Eric Brahen Instructioni ... (1756)",
+	"vkssaarnatsource_Paz1764" : "Matthias Pazelius 1764",
+	"vkssaarnatsource_Elgf1768" : "Andreas Elgfooth 1768",
+	"vkssaarnatsource_Laih1768" : "Johan Laihiander 1768",
+	"vkssaarnatsource_GLyra1772" : "Gabriel Lyra 1772",
+	"vkssaarnatsource_Sax1776" : "Johannes Saxberg 1776",
+	"vkssaarnatsource_Äjm1779" : "Johannes Äjmeläus 1779",
+	"vkssaarnatsource_Widen1780" : "Ephraim Widenius 1780",
+	"vkssaarnatsource_Popp1781" : "Henric Poppius 1781"
 	}
