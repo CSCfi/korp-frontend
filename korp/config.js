@@ -306,7 +306,7 @@ settings.corporafolders.kotus.vks = {
 
 settings.corporafolders.kotus.vns = {
     title : "Varhaisnykysuomen korpus",
-    contents : ["vns_asetus"]
+    contents : ["vns_asetus", "vns_renqvist"]
 };
 
 
@@ -575,6 +575,41 @@ settings.corpora.vns_asetus = {
 	    dataset : {
 		"bold" : "bold"
 	    },
+	}
+    }
+};
+
+settings.corpora.vns_renqvist = {
+    title : "Renqvist",
+    description : "Renqvist",
+    languages : {
+        VNS_RENQVIST : "suomi"
+    },
+    within : {"sentence" : "sentence"},
+    attributes : {
+    },
+    struct_attributes : {
+	text_title : {
+	    label : "text_title"
+	},
+	text_distributor : {
+	    label : "text_distributor",
+	    displayType : "hidden"
+	},
+	text_source : {
+	    label : "text_source"
+	},
+	para_id : {
+	    label : "para_id"
+	},
+	para_type : {
+	    label : "para_type"
+	},
+	sentence_id : {
+	    label : "sentence_id"
+	},
+	sentence_n : {
+	    label : "sentence_n"
 	}
     }
 };

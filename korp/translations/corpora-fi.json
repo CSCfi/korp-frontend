@@ -339,5 +339,9 @@
 	"sentencetype_head" : "otsikko",
 	"sentencetype_opening" : "aloitus",
 	"hi_rend" : "korostus",
-	"hirend_bold" : "lihavoitu"
+	"hirend_bold" : "lihavoitu",
+
+	"para_id" : "kappaleen tunniste",
+	"para_type" : "kappaleen tyyppi",
+	"sentence_n" : "virkkeen koodi"
 	}
