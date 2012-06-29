@@ -304,6 +304,11 @@ settings.corporafolders.kotus.vks = {
     contents : ["vks_biblia", "vks_lait", "vks_saarnat"]
 };
 
+settings.corporafolders.kotus.vns = {
+    title : "Varhaisnykysuomen korpus",
+    contents : ["vns_asetus"]
+};
+
 
 /*
  * CORPORA
@@ -387,7 +392,7 @@ settings.corpora.metsatalo = {
 
 
 settings.corpora.vks_biblia = {
-    title : "Biblia 1642",
+    title : "Biblia",
     description : "Vuoden 1642 raamatunsuomennos",
     languages : {
         VKS_BIBLIA : "suomi"
@@ -444,8 +449,8 @@ settings.corpora.vks_biblia = {
 };
 
 settings.corpora.vks_lait = {
-    title : "Lait",
-    description : "Vanhoja lakeja ja asetuksia",
+    title : "Laki- ja asetustekstejä",
+    description : "Laki- ja asetustekstejä",
     languages : {
         VKS_LAIT : "suomi"
     },
@@ -478,8 +483,8 @@ settings.corpora.vks_lait = {
 };
 
 settings.corpora.vks_saarnat = {
-    title : "Saarnat",
-    description : "Saarnoja",
+    title : "Ruumissaarnoja, puheita ja muistorunoja",
+    description : "Ruumissaarnoja, puheita ja muistorunoja",
     languages : {
         VKS_SAARNAT : "suomi"
     },
@@ -520,6 +525,39 @@ settings.corpora.vks_saarnat = {
 	sentence_page : {
 	    label : "vks_sentence_page"
 	}
+    }
+};
+
+
+settings.corpora.vns_asetus = {
+    title : "Asetuksia",
+    description : "Asetuksia",
+    languages : {
+        VNS_ASETUS : "suomi"
+    },
+    within : {"sentence" : "sentence"},
+    attributes : {
+    },
+    struct_attributes : {
+	text_title : {
+	    label : "text_title"
+	},
+	text_distributor : {
+	    label : "text_distributor",
+	    displayType : "hidden"
+	},
+	div_type : {
+	    label : "div_type",
+	},
+	div_id : {
+	    label : "div_id",
+	},
+	sentence_type : {
+	    label : "sentence_type",
+	},
+	sentence_id : {
+	    label : "sentence_id",
+	}	
     }
 };
 
