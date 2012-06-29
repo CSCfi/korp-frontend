@@ -74,8 +74,8 @@
 	
 	"statistics" : "Tilastoja",
 
-	"subcorpus_name" : "Osakorpuksen nimi",
-	"sentence_id" : "Virkkeen tunniste",
+	"subcorpus_name" : "osakorpuksen nimi",
+	"sentence_id" : "virkkeen tunniste",
 
 	"subcorp_news-samples" : "news-samples: Suomenkielisiä uutistekstiotteita (HS, Tietoviikko)",
 	"subcorp_sofie12" : "sofie12: Sofien maailma (kaksi ensimmäistä lukua)",
@@ -328,5 +328,16 @@
 	"vkssaarnatsource_Sax1776" : "Johannes Saxberg 1776",
 	"vkssaarnatsource_Äjm1779" : "Johannes Äjmeläus 1779",
 	"vkssaarnatsource_Widen1780" : "Ephraim Widenius 1780",
-	"vkssaarnatsource_Popp1781" : "Henric Poppius 1781"
+	"vkssaarnatsource_Popp1781" : "Henric Poppius 1781",
+
+	"text_title" : "teksti",
+	"text_source" : "lähdelinkki",
+	"article_id" : "artiklan tunniste",
+	"paragraph_id" : "pykälän tunniste",
+	"sentence_type" : "virkkeen tyyppi",
+	"sentencetype_p" : "kappale",
+	"sentencetype_head" : "otsikko",
+	"sentencetype_opening" : "aloitus",
+	"hi_rend" : "korostus",
+	"hirend_bold" : "lihavoitu"
 	}

@@ -546,18 +546,36 @@ settings.corpora.vns_asetus = {
 	    label : "text_distributor",
 	    displayType : "hidden"
 	},
-	div_type : {
-	    label : "div_type",
+	text_source : {
+	    label : "text_source"
 	},
-	div_id : {
-	    label : "div_id",
+	article_id : {
+	    label : "article_id"
+	},
+	paragraph_id : {
+	    label : "paragraph_id"
 	},
 	sentence_type : {
 	    label : "sentence_type",
+	    displayType : "select",
+	    translationKey : "sentencetype_",
+	    dataset : {
+		"p" : "p",
+		"head" : "head",
+		"opening" : "opening"
+	    },
 	},
 	sentence_id : {
-	    label : "sentence_id",
-	}	
+	    label : "sentence_id"
+	},
+	hi_rend : {
+	    label : "hi_rend",
+	    displayType : "select",
+	    translationKey : "hirend_",
+	    dataset : {
+		"bold" : "bold"
+	    },
+	}
     }
 };
 
