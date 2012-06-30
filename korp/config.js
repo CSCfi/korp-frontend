@@ -306,7 +306,7 @@ settings.corporafolders.kotus.vks = {
 
 settings.corporafolders.kotus.vns = {
     title : "Varhaisnykysuomen korpus",
-    contents : ["vns_asetus", "vns_renqvist"]
+    contents : ["vns_asetus", "vns_renqvist", "vns_renvall"]
 };
 
 
@@ -428,6 +428,7 @@ settings.corpora.vks_biblia = {
 		"Sak" : "Sak",
 		"Mal" : "Mal",
 	    },
+	    opts : settings.liteOptions
 	},
 	chapter_code : {
 	    label : "vksbib_chapter_code"
@@ -468,6 +469,7 @@ settings.corpora.vks_lait = {
 		"As1584" : "As1584",
 		"As1593" : "As1593"
 	    },
+	    opts : settings.liteOptions
 	},
 	sentence_id : {
 	    label : "sentence_id",
@@ -514,6 +516,7 @@ settings.corpora.vks_saarnat = {
 		"Widen1780" : "Widen1780",
 		"Popp1781" : "Popp1781"
 	    },
+	    opts : settings.liteOptions
 	},
 	sentence_id : {
 	    label : "sentence_id",
@@ -564,6 +567,7 @@ settings.corpora.vns_asetus = {
 		"head" : "head",
 		"opening" : "opening"
 	    },
+	    opts : settings.liteOptions
 	},
 	sentence_id : {
 	    label : "sentence_id"
@@ -575,6 +579,7 @@ settings.corpora.vns_asetus = {
 	    dataset : {
 		"bold" : "bold"
 	    },
+	    opts : settings.liteOptions
 	}
     }
 };
@@ -611,6 +616,81 @@ settings.corpora.vns_renqvist = {
 	sentence_n : {
 	    label : "sentence_n"
 	}
+    }
+};
+
+settings.corpora.vns_renvall = {
+    title : "Renvall",
+    description : "Gustaf Renvall: Suomalainen sana-kirja (1826)",
+    languages : {
+        VNS_RENVALL : "suomi"
+    },
+    within : {"sentence" : "sentence"},
+    attributes : {
+    },
+    struct_attributes : {
+	text_title : {
+	    label : "text_title"
+	},
+	text_distributor : {
+	    label : "text_distributor",
+	    displayType : "hidden"
+	},
+	text_source : {
+	    label : "text_source"
+	},
+/*	sentence_form : {
+	    label : "dict_form"
+	},
+	sentence_example : {
+	    label : "dict_example"
+	},
+	sentence_pos : {
+	    label : "pos"
+	},
+	sentence_xref : {
+	    label : "dict_xref"
+	},
+	sentence_etym : {
+	    label : "dict_etym"
+	},
+	sentence_etymlang : {
+	    label : "dict_etymlang",
+	    displayType : "select",
+	    translationKey : "dictetymlang_",
+	    dataset : {
+		"ru" : "ru",
+		"ve" : "ve"
+	    },
+	    opts : settings.liteOptions
+	},  */
+	item_itemtype : {
+	    label : "dict_itemtype",
+	    displayType : "select",
+	    translationKey : "dictitemtype_",
+	    dataset : {
+		"orth" : "orth",
+		"pos" : "pos",
+		"eg" : "eg",
+		"xr" : "xr",
+		"etym" : "etym",
+		"note" : "note"
+	    },
+	    opts : settings.liteOptions
+	},
+	item_type : {
+	    label : "dict_item_type"
+	},
+	item_lang : {
+	    label : "dict_etymlang",
+	    displayType : "select",
+	    translationKey : "dictetymlang_",
+	    dataset : {
+		"ru" : "ru",
+		"ve" : "ve"
+	    },
+	    opts : settings.liteOptions
+	},
     }
 };
 

@@ -343,5 +343,21 @@
 
 	"para_id" : "kappaleen tunniste",
 	"para_type" : "kappaleen tyyppi",
-	"sentence_n" : "virkkeen koodi"
+	"sentence_n" : "virkkeen koodi",
+
+	"dict_form" : "hakusana",
+	"dict_example" : "esimerkki",
+	"dict_xref" : "ristiviittaus",
+	"dict_etym" : "etymologia",
+	"dict_etymlang" : "lähdekieli",
+	"dictetymlang_ru" : "ruotsi",
+	"dictetymlang_ve" : "venäjä",
+	"dict_itemtype" : "tiedon tyyppi",
+	"dictitemtype_orth" : "kirjoitusasu",
+	"dictitemtype_pos" : "sanaluokka",
+	"dictitemtype_eg" : "esimerkki",
+	"dictitemtype_xr" : "ristiviittaus",
+	"dictitemtype_etym" : "etymologia",
+	"dictitemtype_note" : "huomautus",
+	"dict_item_type" : "alatyyppi"
 	}
