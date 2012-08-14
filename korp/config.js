@@ -91,6 +91,33 @@ attrs.pos_ftb2 = {
     },
     opts : settings.liteOptions
 };
+attrs.pos_ftb3 = {
+    label : "pos",
+    displayType : "select",
+    translationKey : "posftb3_",
+    dataset : {
+	"A" : "A",
+	"Abbr" : "Abbr",
+	"Adp" : "Adp",
+	"Adp|Po" : "Post",
+	"Adv" : "Adv",
+	"Art" : "Art",
+	"CC" : "CC",
+	"Con|C" : "Con",
+	"CS" : "CS",
+	"Forgn" : "Forgn",
+	"Interj|INTERJ" : "Interj",
+	"N|Noun" : "N",
+	"Num" : "Num",
+	"Pron" : "Pron",
+	"PrfPrc" : "PrfPrc",
+	"PrsPrc" : "PrsPrc",
+	"Punct" : "Punct",
+	"V" : "V",
+	"[NON-TWOL]" : "NonTWOL"
+    },
+    opts : settings.liteOptions
+};
 attrs.msd = {
 	label : "msd",
 	opts : settings.defaultOptions
@@ -103,6 +130,12 @@ attrs.baseform = {
 };
 attrs.baseform_ftb2 = {
     label : "baseform",
+    // type : "set",
+    // displayType : "autocomplete",
+    opts : settings.defaultOptions
+};
+attrs.baseform_compound = {
+    label : "baseform_compound",
     // type : "set",
     // displayType : "autocomplete",
     opts : settings.defaultOptions
@@ -222,7 +255,7 @@ attrs.deprel_ftb2 = {
 	"scomp" : "scomp",
 	"subj" : "subj",
 	"voc" : "voc",
-	"_" : "_"
+	"_|-" : "_",
     },
     opts : settings.liteOptions
 };
@@ -291,7 +324,12 @@ settings.corporafolders.sv = {
 
 settings.corporafolders.fi = {
     title : "Suomenkielisiä tekstejä",
-    contents : ["ftb2", "metsatalo"]
+    contents : ["metsatalo"]
+};
+
+settings.corporafolders.ftb = {
+    title : "FinnTreeBank: suomen puupankki",
+    contents : ["ftb2", "ftb3"]
 };
 
 settings.corporafolders.kotus = {
@@ -362,6 +400,49 @@ settings.corpora.ftb2 = {
 	sentence_id : {
 	    label : "sentence_id",
 	    displayType : "hidden"
+	}
+    }
+};
+
+settings.corpora.ftb3 = {
+    title : "FinnTreeBank 3",
+    description : "Finnish tree bank, version 3: EuroParl, JRC Acquis",
+    languages : {
+        FTB3 : "suomi"
+    },
+    within : {"sentence" : "sentence"},
+    attributes : {
+	lemma : attrs.baseform_ftb2,
+	lemmacomp : attrs.baseform_compound,
+        pos : attrs.pos_ftb3,
+	msd : attrs.msd,
+	dephead : attrs.dephead,
+	deprel : attrs.deprel_ftb2,
+	lemgram : attrs.lemgram_hidden
+    },
+    struct_attributes : {
+	subcorpus_name : {
+	    label : "subcorpus_name",
+	    displayType : "select",
+	    translationKey : "ftb3_subcorp_",
+	    dataset : {
+		"JRC_Acquis" : "jrc-acquis",
+		"EuroParl" : "europarl",
+	    },
+            opts : {
+		"is" : "is",
+		"is_not" : "is_not"
+            }
+	},
+	file_name : {
+	    label : "file_name",
+	},
+	sentence_id : {
+	    label : "sentence_id",
+	    displayType : "hidden"
+	},
+	sentence_line : {
+	    label : "sentence_line",
 	}
     }
 };
