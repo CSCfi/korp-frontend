@@ -118,6 +118,31 @@ attrs.pos_ftb3 = {
     },
     opts : settings.liteOptions
 };
+attrs.pos_kotus = {
+    label : "pos",
+    displayType : "select",
+    translationKey : "poskotus_",
+    dataset : {
+	"A" : "A",
+	"ABBR" : "Abbr",
+	"AD-A" : "AdA",
+	"ADV" : "Adv",
+	"C" : "Con",
+	"DV-MA" : "DvMa",
+	"N" : "N",
+	"NUM" : "Num",
+	"PCP1" : "Pcp1",
+	"PCP2" : "Pcp2",
+	"PP" : "Pp",
+	"PRON" : "Pron",
+	"PSP" : "Post",
+	"PUNCT" : "Punct",
+	"REFL/PRON" : "ReflPron",
+	"#UNKNOWN" : "Unknown",
+	"V" : "V",
+    },
+    opts : settings.liteOptions
+};
 attrs.msd = {
 	label : "msd",
 	opts : settings.defaultOptions
@@ -293,6 +318,11 @@ attrs.complword = {
     label : "word_completed",
     opts : settings.defaultOptions
 };
+attrs.id_hidden = {
+	label : "id",
+	displayType : "hidden",
+	opts : settings.defaultOptions
+};
 
 sattrs.date = {
 	label : "date",
@@ -334,7 +364,7 @@ settings.corporafolders.ftb = {
 
 settings.corporafolders.kotus = {
     title : "Kotuksen korpukset",
-    contents : []
+    contents : ["kotus_klassikot"]
 };
 
 settings.corporafolders.kotus.vks = {
@@ -346,6 +376,12 @@ settings.corporafolders.kotus.vns = {
     title : "Varhaisnykysuomen korpus",
     contents : ["vns_asetus", "vns_renqvist", "vns_renvall"]
 };
+
+settings.corporafolders.kotus.ns = {
+    title : "Nykysuomen aineistoja",
+    contents : ["ns_presidentti", "ns_saadokset"]
+};
+
 
 
 /*
@@ -700,6 +736,41 @@ settings.corpora.vns_renqvist = {
     }
 };
 
+settings.corpora.vns_renqvist = {
+    title : "Renqvist",
+    description : "Renqvist",
+    languages : {
+        VNS_RENQVIST : "suomi"
+    },
+    within : {"sentence" : "sentence"},
+    attributes : {
+    },
+    struct_attributes : {
+	text_title : {
+	    label : "text_title"
+	},
+	text_distributor : {
+	    label : "text_distributor",
+	    displayType : "hidden"
+	},
+	text_source : {
+	    label : "text_source"
+	},
+	para_id : {
+	    label : "para_id"
+	},
+	para_type : {
+	    label : "para_type"
+	},
+	sentence_id : {
+	    label : "sentence_id"
+	},
+	sentence_n : {
+	    label : "sentence_n"
+	}
+    }
+};
+
 settings.corpora.vns_renvall = {
     title : "Renvall",
     description : "Gustaf Renvall: Suomalainen sana-kirja (1826)",
@@ -772,6 +843,184 @@ settings.corpora.vns_renvall = {
 	    },
 	    opts : settings.liteOptions
 	},
+    }
+};
+
+settings.corpora.kotus_klassikot = {
+    title : "Suomen kielen klassikoita -korpus",
+    description : "Suomen kielen klassikoita",
+    languages : {
+        KOTUS_KLASSIKOT : "suomi"
+    },
+    within : {"sentence" : "sentence"},
+    attributes : {
+    },
+    struct_attributes : {
+	text_title : {
+	    label : "text_title"
+	},
+	text_distributor : {
+	    label : "text_distributor",
+	    displayType : "hidden"
+	},
+	text_source : {
+	    label : "text_source"
+	},
+	text_title : {
+	    label : "text_title"
+	},
+	collection_id : {
+	    label : "collection_id",
+	    displayType : "hidden"
+	},
+	story_id : {
+	    label : "story_id",
+	    displayType : "hidden"
+	},
+	sentence_id : {
+	    label : "sentence_id"
+	},
+	sentence_type : {
+	    label : "sentence_type",
+	    displayType : "select",
+	    translationKey : "sentencetype_",
+	    dataset : {
+		"p" : "p",
+		"head" : "head"
+	    },
+	    opts : settings.liteOptions
+	}
+    }
+};
+
+settings.corpora.ns_presidentti = {
+    title : "Tasavallan presidenttien uudenvuodenpuheita",
+    description : "Tasavallan presidenttien uudenvuodenpuheita (1935–2006)",
+    languages : {
+        NS_PRESIDENTTI : "suomi"
+    },
+    within : {"sentence" : "sentence"},
+    attributes : {
+	lemma : attrs.baseform,
+	lemmacomp : attrs.baseform_compound,
+        pos : attrs.pos_kotus,
+	msd : attrs.msd,
+	id : attrs.id_hidden,
+	lemgram : attrs.lemgram_hidden
+    },
+    struct_attributes : {
+	text_title : {
+	    label : "text_title"
+	},
+	text_distributor : {
+	    label : "text_distributor",
+	    displayType : "hidden"
+	},
+	text_source : {
+	    label : "text_source"
+	},
+	collection_id : {
+	    label : "collection_id",
+	    displayType : "hidden"
+	},
+	story_id : {
+	    label : "story_id",
+	    displayType : "hidden"
+	},
+	para_id : {
+	    label : "para_id"
+	},
+	para_type : {
+	    label : "para_type",
+	    displayType : "select",
+	    translationKey : "paratype_",
+	    dataset : {
+		"p" : "p",
+		"head" : "head",
+		"opener" : "opener",
+	    },
+	    opts : settings.liteOptions
+	},
+	para_topic : {
+	    label : "para_topic"
+	},
+	sentence_id : {
+	    label : "sentence_id"
+	}
+    }
+};
+
+settings.corpora.ns_saadokset = {
+    title : "Lakeja ja direktiivejä",
+    description : "Lakeja ja direktiivejä vuosilta 2002–2003",
+    languages : {
+        NS_SAADOKSET : "suomi"
+    },
+    within : {"sentence" : "sentence"},
+    attributes : {
+	lemma : attrs.baseform,
+	lemmacomp : attrs.baseform_compound,
+        pos : attrs.pos_kotus,
+	msd : attrs.msd,
+	id : attrs.id_hidden,
+	lemgram : attrs.lemgram_hidden
+    },
+    struct_attributes : {
+	text_title : {
+	    label : "text_title"
+	},
+	text_distributor : {
+	    label : "text_distributor",
+	    displayType : "hidden"
+	},
+	text_source : {
+	    label : "text_source"
+	},
+	div_id : {
+	    label : "div_id",
+	    displayType : "hidden",
+	},
+	div_type : {
+	    label : "div_type",
+	    displayType : "select",
+	    translationKey : "divtype_",
+	    dataset : {
+		"section" : "section",
+		"section/law" : "section_law",
+		"section/end" : "section_end"
+	    },
+	    opts : settings.liteOptions
+	},
+	para_id : {
+	    label : "para_id"
+	},
+	para_type : {
+	    label : "para_type",
+	    displayType : "select",
+	    translationKey : "paratype_",
+	    dataset : {
+		"p" : "p",
+		"head" : "head",
+		"opener" : "opener",
+		"closer" : "closer"
+	    },
+	    opts : settings.liteOptions
+	},
+	sentence_id : {
+	    label : "sentence_id"
+	},
+	sentence_type : {
+	    label : "sentence_type",
+	    displayType : "select",
+	    translationKey : "sentencetype_",
+	    dataset : {
+		"p" : "p",
+		"head" : "head",
+		"dateline" : "dateline",
+		"signed" : "signed"
+	    },
+	    opts : settings.liteOptions
+	}
     }
 };
 
