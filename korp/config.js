@@ -364,7 +364,7 @@ settings.corporafolders.ftb = {
 
 settings.corporafolders.kotus = {
     title : "Kotuksen korpukset",
-    contents : ["kotus_klassikot"]
+    contents : ["kotus_klassikot", "kotus_sananparret"]
 };
 
 settings.corporafolders.kotus.vks = {
@@ -1018,6 +1018,58 @@ settings.corpora.ns_saadokset = {
 		"head" : "head",
 		"dateline" : "dateline",
 		"signed" : "signed"
+	    },
+	    opts : settings.liteOptions
+	}
+    }
+};
+
+settings.corpora.kotus_sananparret = {
+    title : "Sananparsikokoelma",
+    description : "Suomen murteiden Sananparsikokoelma (1930-luvulta)",
+    languages : {
+        KOTUS_SANANPARRET : "suomi"
+    },
+    within : {"sentence" : "sentence"},
+    attributes : {
+    },
+    struct_attributes : {
+	text_title : {
+	    label : "text_title"
+	},
+	text_distributor : {
+	    label : "text_distributor",
+	    displayType : "hidden"
+	},
+	text_source : {
+	    label : "text_source"
+	},
+	entry_location : {
+	    label : "entry_location"
+	},
+	entry_collector : {
+	    label : "entry_collector"
+	},
+	entry_date : {
+	    label : "entry_date"
+	},
+	entry_standard : {
+	    label : "entry_standard"
+	},
+	entry_dialect : {
+	    label : "entry_dialect"
+	},
+	entry_usage : {
+	    label : "entry_usage"
+	},
+	sentence_type : {
+	    label : "sentence_type",
+	    displayType : "select",
+	    translationKey : "sayings_sentencetype_",
+	    dataset : {
+		"standard" : "standard",
+		"dialect" : "dialect",
+		"usage" : "usage"
 	    },
 	    opts : settings.liteOptions
 	}

@@ -431,5 +431,18 @@
 	"dictitemtype_xr" : "ristiviittaus",
 	"dictitemtype_etym" : "etymologia",
 	"dictitemtype_note" : "huomautus",
-	"dict_item_type" : "alatyyppi"
+	"dict_item_type" : "alatyyppi",
+
+	"entry_location" : "pitäjä",
+	"entry_collector" : "kerääjä",
+	"entry_date" : "vuosi",
+	"entry_standard" : "yleiskielistetty muoto",
+	"entry_dialect" : "murremuoto",
+	"entry_usage" : "selitykset ja kommentit",
+	"sayings_sentencetype_standard" : "yleiskielistetty muoto",
+	"sayings_sentencetype_dialect" : "murremuoto",
+	"sayings_sentencetype_usage" : "selitykset ja kommentit",
+	"standard" : "yleiskielistetty muoto",
+	"dialect" : "murremuoto",
+	"usage" : "selitykset ja kommentit"
 	}
