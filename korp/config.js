@@ -329,6 +329,40 @@ sattrs.date = {
 	displayType : "date"
 };
 
+sattrs.text_title = {
+    label : "text_title"
+};
+sattrs.text_distributor = {
+    label : "text_distributor",
+    displayType : "hidden"
+};
+sattrs.text_source = {
+    label : "text_source"
+};
+sattrs.sentence_id_hidden = {
+    label : "sentence_id",
+    displayType : "hidden"
+};
+sattrs.sentence_id = {
+    label : "sentence_id"
+};
+sattrs.sentence_n = {
+    label : "sentence_n"
+};
+sattrs.vks_sentence_code = {
+    label : "vks_sentence_code"
+};
+sattrs.vks_sentence_page = {
+    label : "vks_sentence_page"
+};
+sattrs.para_id = {
+    label : "para_id"
+};
+sattrs.para_type = {
+    label : "para_type"
+};
+
+
 var within = {
 	"defaultStruct" : {
 		"sentence" : "sentence"
@@ -428,15 +462,9 @@ settings.corpora.ftb2 = {
 		"visk-sent" : "visk-sent",
 		"wikipedia-samples" : "wikipedia-samples"
 	    },
-            opts : {
-		"is" : "is",
-		"is_not" : "is_not"
-            }
+            opts : settings.liteOptions
 	},
-	sentence_id : {
-	    label : "sentence_id",
-	    displayType : "hidden"
-	}
+	sentence_id : sattrs.sentence_id_hidden
     }
 };
 
@@ -465,18 +493,12 @@ settings.corpora.ftb3 = {
 		"JRC_Acquis" : "jrc-acquis",
 		"EuroParl" : "europarl",
 	    },
-            opts : {
-		"is" : "is",
-		"is_not" : "is_not"
-            }
+            opts : settings.liteOptions
 	},
 	file_name : {
 	    label : "file_name",
 	},
-	sentence_id : {
-	    label : "sentence_id",
-	    displayType : "hidden"
-	},
+	sentence_id : sattrs.sentence_id_hidden,
 	sentence_line : {
 	    label : "sentence_line",
 	}
@@ -500,10 +522,7 @@ settings.corpora.metsatalo = {
 	lemgram : attrs.lemgram_hidden
     },
     struct_attributes : {
-	sentence_id : {
-	    label : "sentence_id",
-	    displayType : "hidden"
-	}
+	sentence_id : sattrs.sentence_id_hidden
     }
 };
 
@@ -553,16 +572,9 @@ settings.corpora.vks_biblia = {
 	verse_code : {
 	    label : "vksbib_verse_code"
 	},
-	sentence_id : {
-	    label : "sentence_id",
-	    displayType : "hidden"
-	},
-	sentence_code : {
-	    label : "vks_sentence_code"
-	},
-	sentence_page : {
-	    label : "vks_sentence_page"
-	}
+	sentence_id : sattrs.sentence_id_hidden,
+	sentence_code : sattrs.vks_sentence_code,
+	sentence_page : sattrs.vks_sentence_page
     }
 };
 
@@ -588,16 +600,9 @@ settings.corpora.vks_lait = {
 	    },
 	    opts : settings.liteOptions
 	},
-	sentence_id : {
-	    label : "sentence_id",
-	    displayType : "hidden"
-	},
-	sentence_code : {
-	    label : "vks_sentence_code"
-	},
-	sentence_page : {
-	    label : "vks_sentence_page"
-	}
+	sentence_id : sattrs.sentence_id_hidden,
+	sentence_code : sattrs.vks_sentence_code,
+	sentence_page : sattrs.vks_sentence_page
     }
 };
 
@@ -635,16 +640,9 @@ settings.corpora.vks_saarnat = {
 	    },
 	    opts : settings.liteOptions
 	},
-	sentence_id : {
-	    label : "sentence_id",
-	    displayType : "hidden"
-	},
-	sentence_code : {
-	    label : "vks_sentence_code"
-	},
-	sentence_page : {
-	    label : "vks_sentence_page"
-	}
+	sentence_id : sattrs.sentence_id_hidden,
+	sentence_code : sattrs.vks_sentence_code,
+	sentence_page : sattrs.vks_sentence_page
     }
 };
 
@@ -659,16 +657,9 @@ settings.corpora.vns_asetus = {
     attributes : {
     },
     struct_attributes : {
-	text_title : {
-	    label : "text_title"
-	},
-	text_distributor : {
-	    label : "text_distributor",
-	    displayType : "hidden"
-	},
-	text_source : {
-	    label : "text_source"
-	},
+	text_title : sattrs.text_title,
+	text_distributor : sattrs.text_distributor,
+	text_source : sattrs.text_source,
 	article_id : {
 	    label : "article_id"
 	},
@@ -686,9 +677,7 @@ settings.corpora.vns_asetus = {
 	    },
 	    opts : settings.liteOptions
 	},
-	sentence_id : {
-	    label : "sentence_id"
-	},
+	sentence_id : sattrs.sentence_id_hidden,
 	hi_rend : {
 	    label : "hi_rend",
 	    displayType : "select",
@@ -711,28 +700,13 @@ settings.corpora.vns_renqvist = {
     attributes : {
     },
     struct_attributes : {
-	text_title : {
-	    label : "text_title"
-	},
-	text_distributor : {
-	    label : "text_distributor",
-	    displayType : "hidden"
-	},
-	text_source : {
-	    label : "text_source"
-	},
-	para_id : {
-	    label : "para_id"
-	},
-	para_type : {
-	    label : "para_type"
-	},
-	sentence_id : {
-	    label : "sentence_id"
-	},
-	sentence_n : {
-	    label : "sentence_n"
-	}
+	text_title : sattrs.text_title,
+	text_distributor : sattrs.text_distributor,
+	text_source : sattrs.text_source,
+	para_id : sattrs.para_id,
+	para_type : sattrs.para_type,
+	sentence_id : sattrs.sentence_id_hidden,
+	sentence_n : sattrs.sentence_n
     }
 };
 
@@ -746,28 +720,13 @@ settings.corpora.vns_renqvist = {
     attributes : {
     },
     struct_attributes : {
-	text_title : {
-	    label : "text_title"
-	},
-	text_distributor : {
-	    label : "text_distributor",
-	    displayType : "hidden"
-	},
-	text_source : {
-	    label : "text_source"
-	},
-	para_id : {
-	    label : "para_id"
-	},
-	para_type : {
-	    label : "para_type"
-	},
-	sentence_id : {
-	    label : "sentence_id"
-	},
-	sentence_n : {
-	    label : "sentence_n"
-	}
+	text_title : sattrs.text_title,
+	text_distributor : sattrs.text_distributor,
+	text_source : sattrs.text_source,
+	para_id : sattrs.para_id,
+	para_type : sattrs.para_type,
+	sentence_id : sattrs.sentence_id_hidden,
+	sentence_n : sattrs.sentence_n
     }
 };
 
@@ -781,16 +740,9 @@ settings.corpora.vns_renvall = {
     attributes : {
     },
     struct_attributes : {
-	text_title : {
-	    label : "text_title"
-	},
-	text_distributor : {
-	    label : "text_distributor",
-	    displayType : "hidden"
-	},
-	text_source : {
-	    label : "text_source"
-	},
+	text_title : sattrs.text_title,
+	text_distributor : sattrs.text_distributor,
+	text_source : sattrs.text_source,
 /*	sentence_form : {
 	    label : "dict_form"
 	},
@@ -856,19 +808,9 @@ settings.corpora.kotus_klassikot = {
     attributes : {
     },
     struct_attributes : {
-	text_title : {
-	    label : "text_title"
-	},
-	text_distributor : {
-	    label : "text_distributor",
-	    displayType : "hidden"
-	},
-	text_source : {
-	    label : "text_source"
-	},
-	text_title : {
-	    label : "text_title"
-	},
+	text_title : sattrs.text_title,
+	text_distributor : sattrs.text_distributor,
+	text_source : sattrs.text_source,
 	collection_id : {
 	    label : "collection_id",
 	    displayType : "hidden"
@@ -877,9 +819,7 @@ settings.corpora.kotus_klassikot = {
 	    label : "story_id",
 	    displayType : "hidden"
 	},
-	sentence_id : {
-	    label : "sentence_id"
-	},
+	sentence_id : sattrs.sentence_id_hidden,
 	sentence_type : {
 	    label : "sentence_type",
 	    displayType : "select",
@@ -909,27 +849,10 @@ settings.corpora.ns_presidentti = {
 	lemgram : attrs.lemgram_hidden
     },
     struct_attributes : {
-	text_title : {
-	    label : "text_title"
-	},
-	text_distributor : {
-	    label : "text_distributor",
-	    displayType : "hidden"
-	},
-	text_source : {
-	    label : "text_source"
-	},
-	collection_id : {
-	    label : "collection_id",
-	    displayType : "hidden"
-	},
-	story_id : {
-	    label : "story_id",
-	    displayType : "hidden"
-	},
-	para_id : {
-	    label : "para_id"
-	},
+	text_title : sattrs.text_title,
+	text_distributor : sattrs.text_distributor,
+	text_source : sattrs.text_source,
+	para_id : sattrs.para_id,
 	para_type : {
 	    label : "para_type",
 	    displayType : "select",
@@ -944,9 +867,7 @@ settings.corpora.ns_presidentti = {
 	para_topic : {
 	    label : "para_topic"
 	},
-	sentence_id : {
-	    label : "sentence_id"
-	}
+	sentence_id : sattrs.sentence_id_hidden
     }
 };
 
@@ -966,16 +887,9 @@ settings.corpora.ns_saadokset = {
 	lemgram : attrs.lemgram_hidden
     },
     struct_attributes : {
-	text_title : {
-	    label : "text_title"
-	},
-	text_distributor : {
-	    label : "text_distributor",
-	    displayType : "hidden"
-	},
-	text_source : {
-	    label : "text_source"
-	},
+	text_title : sattrs.text_title,
+	text_distributor : sattrs.text_distributor,
+	text_source : sattrs.text_source,
 	div_id : {
 	    label : "div_id",
 	    displayType : "hidden",
@@ -991,9 +905,7 @@ settings.corpora.ns_saadokset = {
 	    },
 	    opts : settings.liteOptions
 	},
-	para_id : {
-	    label : "para_id"
-	},
+	para_id : sattrs.para_id,
 	para_type : {
 	    label : "para_type",
 	    displayType : "select",
@@ -1006,9 +918,7 @@ settings.corpora.ns_saadokset = {
 	    },
 	    opts : settings.liteOptions
 	},
-	sentence_id : {
-	    label : "sentence_id"
-	},
+	sentence_id : sattrs.sentence_id_hidden,
 	sentence_type : {
 	    label : "sentence_type",
 	    displayType : "select",
@@ -1034,16 +944,9 @@ settings.corpora.kotus_sananparret = {
     attributes : {
     },
     struct_attributes : {
-	text_title : {
-	    label : "text_title"
-	},
-	text_distributor : {
-	    label : "text_distributor",
-	    displayType : "hidden"
-	},
-	text_source : {
-	    label : "text_source"
-	},
+	text_title : sattrs.text_title,
+	text_distributor : sattrs.text_distributor,
+	text_source : sattrs.text_source,
 	entry_location : {
 	    label : "entry_location"
 	},
