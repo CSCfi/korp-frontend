@@ -92,7 +92,7 @@ attrs.pos_ftb2 = {
     opts : settings.liteOptions
 };
 attrs.pos_ftb3 = {
-    label : "pos",
+    label : "pos_clean",
     displayType : "select",
     translationKey : "posftb3_",
     dataset : {
@@ -118,6 +118,32 @@ attrs.pos_ftb3 = {
     },
     opts : settings.liteOptions
 };
+attrs.pos_ftb3_orig = {
+    label : "pos",
+    translationKey : "posftb3_",
+    dataset : {
+	"A" : "A",
+	"Abbr" : "Abbr",
+	"Adp" : "Adp",
+	"Adp|Po" : "Post",
+	"Adv" : "Adv",
+	"Art" : "Art",
+	"CC" : "CC",
+	"Con|C" : "Con",
+	"CS" : "CS",
+	"Forgn" : "Forgn",
+	"Interj|INTERJ" : "Interj",
+	"N|Noun" : "N",
+	"Num" : "Num",
+	"Pron" : "Pron",
+	"PrfPrc" : "PrfPrc",
+	"PrsPrc" : "PrsPrc",
+	"Punct" : "Punct",
+	"V" : "V",
+	"[NON-TWOL]" : "NonTWOL"
+    },
+    opts : settings.defaultOptions
+};
 attrs.pos_kotus = {
     label : "pos",
     displayType : "select",
@@ -141,7 +167,7 @@ attrs.pos_kotus = {
 	"#UNKNOWN" : "Unknown",
 	"V" : "V",
     },
-    opts : settings.liteOptions
+    opts : settings.defaultOptions
 };
 attrs.msd = {
 	label : "msd",
@@ -479,6 +505,7 @@ settings.corpora.ftb3 = {
 	lemma : attrs.baseform_ftb2,
 	lemmacomp : attrs.baseform_compound,
         pos : attrs.pos_ftb3,
+	posorig : attrs.pos_ftb3_orig,
 	msd : attrs.msd,
 	dephead : attrs.dephead,
 	deprel : attrs.deprel_ftb2,
