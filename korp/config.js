@@ -176,8 +176,8 @@ attrs.msd = {
 };
 attrs.baseform = {
     label : "baseform",
-    type : "set",
-    displayType : "autocomplete",
+    // type : "set",
+    // displayType : "autocomplete",
     opts : settings.liteOptions
 };
 attrs.baseform_ftb2 = {

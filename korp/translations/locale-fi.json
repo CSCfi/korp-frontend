@@ -5,11 +5,14 @@
 	"finnish" : "Suomi",
 	"korp" : "Korp",
 	"korp_lab" : "Korp Labs",
+	"university" : "Helsingin yliopisto",
 	"modern_texts" : "Nykytekstit",
 	"parallel_texts" : "Rinnakkaistekstit",
 	"faroese_texts" : "Fäärinkieliset tekstit",
 	"old_swedish_texts" : "Muinaisruotsin tekstit",
 	"1800_texts" : "1800-luvun tekstit",
+	"lb_texts" : "Kirjallisuuspankki",
+	"siberian_texts" : "Siperian saksa",
 	"search_history" : "Hakuhistoria",
 	"about" : "Tietoa Korpista",
 	"about_body" : "Korp on Språkbankenin (Ruotsin kielipankki) konkordanssihakuohjelma. Jos haluat saada lisätietoja tai lähettää kommentteja tai ehdotuksia, <a href='mailto:sb-info@svenska.gu.se'>ota yhteyttä</a>.",
@@ -28,11 +31,14 @@
 	"min" : "vähintään",
 	"and" : "ja",
 	"or" : "tai",
+	"show_reading" : "Näytä rivitettynä",
+	"show_kwic" : "Näytä KWIC-konkordanssi",
 	"is" : "on", 
 	"is_not" : "ei ole",
 	"starts_with" : "alkaa",
 	"ends_with" : "loppuu",
 	
+	"any_word_placeholder" : "<sana>",
 	"case_insensitive" : "samaista pien- ja suuraakkoset",
 	"case_sensitive" : "erottele pien- ja suuraakkoset",
 	"reduce_text" : "laske tilastot tämän perusteella",
@@ -66,6 +72,10 @@
 	"simple" : "Yksinkertainen",
 	"detailed" : "Laajennettu",
 	"advanced" : "Edistynyt",
+	"parallel" : "Rinnakkainen",
+	"swe" : "ruotsi",
+	"dan" : "tanska",
+    	"nld" : "hollanti",
 	"statistics" : "Tilastoja",
 	"lemgram_results" : "Sanakuva",
 	"kwic" : "Konkordanssi",
@@ -134,5 +144,9 @@
 	"hitspicture_hits" : "osumia",
 	"hitspicture_gotocorpushits" : "Napsauta päästäksesi ensimmäiselle sivulle, jolla on osumia tästä korpuksesta.",
 
-	"hits_per_mil" : "Osumia miljoonaa sanetta kohti"
+	"hits_per_mil" : "Osumia miljoonaa sanetta kohti",
+
+	"chapter" : "luku",
+	"verse" : "säkeistö",
+	"modern" : "moderni"
 }
