@@ -13,17 +13,16 @@ $("#showLineDiagram").remove();
 settings.corpora = {};
 settings.corporafolders = {};
 settings.corpora.fornsvenska = {
-	title : "Fornsvenska",
-	description : "Fornsvenska texter",
-               languages : {
-		FORNSVENSKA : "svenska"
-	},
+	id : "fornsvenska",
+	title : "Fornsvenska textbankens material",
+	description : '<a href="http://project2.sol.lu.se/fornsvenska/">Fornsvenska textbanken</a> är ett projekt som digitaliserar fornsvenska texter och gör dem tillgängliga över webben. Projektet leds av Lars-Olof Delsing vid Lunds universitet.',
 	within : within.defaultStruct,
 	attributes : {},
 	struct_attributes : {
 		"text_title" : {label : "title"},
 		"text_datefrom" : {label : "year_from"},
-		"text_dateto" : {label : "year_to"},
+		"text_dateto" : {label : "year_to"}
 	}
 };
 
+settings.corpusListing = new CorpusListing(settings.corpora);

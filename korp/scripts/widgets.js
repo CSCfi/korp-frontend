@@ -1,3 +1,4 @@
+
 $.widget("ui.radioList", {
 	options : {change : $.noop, separator : "|", selected : "default"},
 	_init : function() {
@@ -18,6 +19,7 @@ $.widget("ui.radioList", {
 		});
 		this.element.find(".inline_list span:first").remove();
 		this.select(this.options.selected);
+		
 	},
 	
 	select : function(mode) {
@@ -79,7 +81,7 @@ $.fn.korp_autocomplete = function(options) {
 		middleware : function(request, idArray) {
 			var dfd = $.Deferred();
 			
-			idArray.sort(view.lemgramSort);
+			idArray.sort(options.sortFunction || view.lemgramSort);
 			
 			var labelArray = util.sblexArraytoString(idArray, options.labelFunction);
 			var listItems = $.map(idArray, function(item, i) {
@@ -218,7 +220,7 @@ var KorpTabs = {
 	getCurrentInstance : function() {
 //		var ret = this.lis.filter(".ui-tabs-active").data("instance") || null; //for jquery ui 1.9
 		var ret = this.lis.filter(".ui-tabs-selected").data("instance") || null;
-		c.log("getCurrentInstance", this.lis, ret);
+		c.log("getCurrentInstance", ret);
 		return ret;
 	}
 	
@@ -233,17 +235,12 @@ var Sidebar = {
 	},
 	
 	updateContent : function(sentenceData, wordData, corpus) {
-		c.log("updateContent", sentenceData, wordData);
 		this.element.html('<div id="selected_sentence" /><div id="selected_word" />');
-		
-		var corpusObj = settings.corpora[corpus.toLowerCase()];
+		var corpusObj = settings.corpora[corpus];
 		$("<div />").html(
 				$.format("<h4 rel='localize[corpus]'>%s</h4> <p>%s</p>", [util.getLocaleString("corpus"), corpusObj.title]))
 				.prependTo("#selected_sentence");
 		
-		
-		if($("#sidebarTmpl").length == 0)
-			$.error("sidebartemplate broken");
 		
 		if(!$.isEmptyObject(corpusObj.attributes)) {
 			$("#selected_word").append($.format('<h4 rel="localize[word_attr]">%s</h4>', [util.getLocaleString("word_attr")]));
@@ -306,11 +303,11 @@ var Sidebar = {
 	},
 	
 	_sidebarSaldoFormat : function() {
-		$("#sidebar_lex, #sidebar_prefix, #sidebar_suffix").each(function() {
+		$("#sidebar_lex, #sidebar_prefix, #sidebar_suffix, #sidebar_dalinlem, #sidebar_saldolem").each(function() {
 			var idArray = $.grep($(this).text().split("|"), function(itm) {
 				return itm && itm.length;  
 			}).sort();
-				
+			var attr = $(this).attr("id").split("_")[1];
 			var labelArray = util.sblexArraytoString(idArray);
 			$(this)
 			.html($.arrayToHTMLList(labelArray))
@@ -318,9 +315,16 @@ var Sidebar = {
 			.wrap("<a href='javascript:void(0)' />")
 			.click(function() {
 				var split = util.splitLemgram(idArray[$(this).parent().index()]);
-				var id = $.format("%s..%s.%s", split); //split[0] + ".." + split[1] + "." + split[2];
+				var id = $.format("%s..%s.%s", split);
 				c.log("sidebar click", split, idArray, $(this).parent().index(), $(this).data("lemgram"));
-				simpleSearch.selectLemgram(id);
+				if($.inArray(attr, ["dalinlem", "saldolem"]) != -1) {
+					advancedSearch.setCQP($.format("[%s contains '%s']", [attr, id]));
+					advancedSearch.onSubmit();
+				}
+				else
+					simpleSearch.selectLemgram(id);
+				
+				
 			})
 			.hoverIcon("ui-icon-search");
 			
@@ -346,7 +350,7 @@ var Sidebar = {
 		var self = this;
 		if(mode == "lemgramWarning") {
 			return $.Deferred(function( dfd ){
-				self.element.load("parse_warning.html", function() {
+				self.element.load("markup/parse_warning.html", function() {
 					util.localize();
 					self.element.addClass("ui-state-highlight").removeClass("kwic_sidebar");
 					dfd.resolve();
@@ -365,12 +369,10 @@ var Sidebar = {
 	updatePlacement : function() {
 		var max = Math.round($("#columns").position().top);
 		if($(window).scrollTop() < max) {
-			this.element.css("top", "");
-			this.element.css("position", "absolute");
+			this.element.removeClass("fixed");
 		}
 		else if($("#left-column").height() > $("#sidebar").height()){
-			this.element.css("top", 8);
-			this.element.css("position", "fixed");
+			this.element.addClass("fixed");
 		}
 	},
 	
@@ -382,22 +384,18 @@ var Sidebar = {
 		}).done(function() {
 			self.element.show("slide", {direction : "right"});
 			$("#left-column").animate({
-				right : 273
+				right : 265
 			}, null, null, function() {
 				$.sm.send("sidebar.show.end");
 			});
 		});      
 	}, 
 	hide : function() {
-//		$.sm.send("sidebar.hide.start");
-		if($("#left-column").css("right") == "8px") return;
+		if($("#left-column").css("right") == "0px") return;
 		var self = this;
 		self.element.hide("slide", {direction : "right"});
-//		self.element.animate({
-//			right : -273
-//		});
 		$("#left-column").animate({
-			right : 8
+			right : 0
 		}, null, null, function() {
 			$.sm.send("sidebar.hide.end");
 		});
@@ -459,7 +457,7 @@ var ExtendedToken = {
 	    }).end()
 	    .appendTo(this.element.find(".args"))
 	    .before($("<span>", {"class" : "and"}).localeKey("and").hide().fadeIn());
-		
+		util.localize(arg);
 		if(animate)
 			arg.hide().slideDown("fast");
 		
@@ -470,12 +468,9 @@ var ExtendedToken = {
 		var self = this;
 		var arg_select = this.makeSelect();
 		
+		var arg_value = this.makeWordArgValue();
 		
-		var arg_value = $("<input type='text'/>").addClass("arg_value")
-		.change(function(){
-			self._trigger("change");
-		});
-		var link_mod = $("<span class='val_mod insensitive'>").text("Aa")
+		var link_mod = $("<span class='val_mod sensitive'>").text("Aa")
 		.click(function() {
 			var btn = $(this);
 			if($("#mod_menu").length) {
@@ -483,8 +478,8 @@ var ExtendedToken = {
 				return;
 			}
 			$("<ul id='mod_menu'>")
-			.append($("<li />").append($("<a>").localeKey("case_insensitive").data("val", "insensitive")))
 			.append($("<li />").append($("<a>").localeKey("case_sensitive").data("val", "sensitive")))
+			.append($("<li />").append($("<a>").localeKey("case_insensitive").data("val", "insensitive")))
 			.insertAfter(this)
 			.menu({
 			})
@@ -523,7 +518,7 @@ var ExtendedToken = {
 	    		});
 	    	}
 	    }).end();
-		
+		arg_value.keyup();
 		return orElem;
 	},
 	
@@ -531,10 +526,13 @@ var ExtendedToken = {
 	makeSelect : function() {
 		var arg_select = $("<select/>").addClass("arg_type")
 		.change($.proxy(this.onArgTypeChange, this));
-
+		
+		var lang;
+		if(currentMode == "parallel") 
+			lang = this.element.closest(".lang_row,#query_table").find(".lang_select").val();
 		var groups = $.extend({}, settings.arg_groups, {
-			"word_attr" : getCurrentAttributes(),
-			"sentence_attr" : getStructAttrs()
+			"word_attr" : settings.corpusListing.getCurrentAttributes(lang),
+			"sentence_attr" : settings.corpusListing.getStructAttrs(lang)
 			});
 		
 		$.each(groups, function(lbl, group) {
@@ -603,6 +601,27 @@ var ExtendedToken = {
 		});
 	},
 	
+	makeWordArgValue : function() {
+		var self = this;
+		return $("<input type='text'/>")
+		.addClass("arg_value")
+		.attr("data-placeholder", "any_word_placeholder")
+		.keyup(function() {
+			if($(this).val() == "") {
+//				$(this).closest(".query_arg").addClass("word_empty");
+				$(this).prev().find(".arg_opts").attr("disabled", "disabled");
+			}
+			else {
+//				$(this).closest(".query_arg").removeClass("word_empty");
+				$(this).prev().find(".arg_opts").attr("disabled", null);
+			}
+		})
+		.change(function(){
+			self._trigger("change");
+		}).keyup();
+		
+	},
+	
 	onArgTypeChange : function(event) {
 		// change input widget
 		var self = this;
@@ -622,9 +641,8 @@ var ExtendedToken = {
 			});
 			
 			$.each(keys, function(_, key) {
-				c.log("key", data.translationKey + key)
 				$("<option />")
-				.localeKey(data.translationKey + data.dataset[key])
+				.localeKey((data.translationKey || "") + data.dataset[key])
 				.val(key).appendTo(arg_value);
 			});
 			break;
@@ -635,6 +653,7 @@ var ExtendedToken = {
 				type = "saldo";
 				labelFunc = util.saldoToString;
 				sortFunc = view.saldoSort;
+				c.log("saldo");
 			} else {
 				type = "lem";
 				labelFunc = util.lemgramToString;
@@ -675,7 +694,8 @@ var ExtendedToken = {
 		case "date":
 			// at some point, fix this.
 		default:
-			arg_value = $("<input type='text'/>");
+			arg_value = this.makeWordArgValue();
+			util.localize(arg_value);
 			break;
 		} 
 		
@@ -693,7 +713,7 @@ var ExtendedToken = {
 			arg_value.replaceWith("<span class='arg_value'>");
 			break;
 		case "msd":
-			$("#msd_popup").load("msd.html", function() {
+			$("#msd_popup").load("markup/msd.html", function() {
 				
 				$(this).find("a").click(function() {
 					arg_value.val($(this).parent().data("value"));
@@ -727,7 +747,7 @@ var ExtendedToken = {
 			this.element.find(".ui-icon-info").remove();
 		}
 		
-		arg_value.addClass("arg_value")
+		arg_value.addClass("arg_value").keyup()
 		.change(function() {
 			self._trigger("change");
 		});
@@ -745,7 +765,7 @@ var ExtendedToken = {
 	        var data = $(this).find(".arg_type :selected").data("dataProvider");
 	        var value = $(this).find(".arg_value").val();
 	        var opt = $(this).find(".arg_opts").val();
-	        var case_sens = $(this).find(".val_mod.sensitive").length === 0 ? "" : " %c";
+	        var case_sens = $(this).find(".val_mod.sensitive").length === 0 ? " %c" : "";
 	        if(data.displayType == "autocomplete") {
 	        	value = null;
 	        }
@@ -777,10 +797,14 @@ var ExtendedToken = {
 	    					"ends_with" : ["=", ".*", value, ""],
 	    					"matches" : ["=", "", value, ""]
 	    				}[op];
-	    			c.log("case_sens", obj.case_sense);
 	    			return $.format('%s%s %s "%s%s%s"%s', [prefix, type].concat(op, [obj.case_sens]));
 	    		};
-	    		var argFunc = settings.inner_args[type] ||  defaultArgsFunc; 
+	    		var argFunc;
+	    		if(type == "word" && !obj.value) {
+	    			argFunc = function() {return "";};
+	    		}
+	    		else
+	    			argFunc = defaultArgsFunc; 
 	    		inner_query.push(argFunc(obj.value, obj.opt || settings.defaultOptions));
 	    	});
 	    	
