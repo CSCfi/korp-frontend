@@ -12,8 +12,7 @@ var hp_corpusChooser = {
 		// Make the popup disappear when the user clicks outside it
 		$(window).unbind('click.corpusselector');
 		$(window).bind('click.corpusselector', function(e) {
-			var disp = $(".popupchecks").css("display");
-			if(disp != "none" && e.target != self) {
+			if($(".popupchecks").is(":visible") && e.target != self) {
 				$(".popupchecks").fadeOut('fast');
 				$(".corpusInfoSpace").fadeOut('fast');
 				$(".hp_topframe").removeClass("ui-corner-top");
@@ -160,12 +159,8 @@ var hp_corpusChooser = {
 			} else {
 				body = el.html();
 			}
-			var textoffset = -1;
-			if ($.browser.webkit) {
-				textoffset = -2;
-			}
 			
-			var upper = '<div class="hp_topframe buttonlink ui-state-default ui-corner-all"><div style="float:left;margin-top:' + textoffset + 'px;"><span id="hp_corpora_title1"></span><span id="hp_corpora_title2" rel="localize[corpselector_allselected]"></span><span id="hp_corpora_title3" style="color:#888888"></span></div><div style="float:right; width:16px"><span style="text-align:right; left:auto" class="ui-icon ui-icon-triangle-2-n-s"></span></div></div></div>';
+			var upper = '<div class="hp_topframe buttonlink ui-state-default ui-corner-all"><div><span id="hp_corpora_title1"></span><span id="hp_corpora_title2" rel="localize[corpselector_allselected]"></span><span id="hp_corpora_title3" style="color:#888888"></span></div><div style="float:right; width:16px"><span style="text-align:right; left:auto" class="ui-icon ui-icon-triangle-2-n-s"></span></div></div></div>';
 			var newHTML = '<div class="popupchecks ui-corner-bottom"><div class="header"><a href="javascript:" class="buttonlink ui-state-default ui-corner-all selectall"><span class="ui-icon ui-icon-check"></span> <span rel="localize[corpselector_buttonselectall]">' + this.options.buttonSelectAll + '</span></a> <a href="javascript:" class="selectnone buttonlink ui-state-default ui-corner-all"><span class="ui-icon ui-icon-closethick"></span> <span rel="localize[corpselector_buttonselectnone]"></span></a></div>';
 			
 			newHTML += recursive_transform(body,0);
@@ -186,9 +181,9 @@ var hp_corpusChooser = {
 			});
 			
 			var popoffset = $(".scroll_checkboxes").position().top + $(".scroll_checkboxes").height();
-			$(".popupchecks").css({"top": popoffset-1});
+//			$(".popupchecks").css({"top": popoffset-1});
 			// ie7 hack
-			$(".popupchecks").css({"left": $(".scroll_checkboxes").position().left});
+//			$(".popupchecks").css({"left": $(".scroll_checkboxes").position().left});
 			
 			
 			$(".scroll_checkboxes").unbind("mousedown");
@@ -201,8 +196,14 @@ var hp_corpusChooser = {
 					$(".hp_topframe").removeClass("ui-corner-top");
 					$(".hp_topframe").addClass("ui-corner-all");
 				} else {
-					$(this).siblings(".popupchecks").css({"position":"absolute"});
-					$(this).siblings(".popupchecks").css({"display":"block"});
+					$(".popupchecks")
+					.show()
+					.css({
+						"position" : "absolute",
+						"top" : $("#corpusbox").offset().top + $("#corpusbox").height() - 2,
+						"left" : $("#corpusbox").offset().left
+					});
+					
 					$(".hp_topframe").addClass("ui-corner-top");
 					$(".hp_topframe").removeClass("ui-corner-all");
 				}
@@ -277,7 +278,13 @@ var hp_corpusChooser = {
 			
 			$(".boxlabel")
 			.unbind("click") // "folders"
-			.click(function() {
+			.click(function(event) {
+			    if( event.altKey == 1 ) {
+                    $(".checkbox").each(function() {
+                        hp_this.setStatus($(this), "unchecked");
+                    });
+                }
+			 
 				hp_this.updateState($(this).parent());
 	 			var childMan = $(this).children('.checkbox');
 	 			if ( childMan.hasClass("checked") ) { // Checked, uncheck it if not the root of a tree
@@ -332,20 +339,20 @@ var hp_corpusChooser = {
 					var callback = hp_this.options.infoPopupFolder;
 					var returnValue = "";
 					var indata = [];
-					var boxes = $(this).find(".boxdiv")
+					var boxes = $(this).parent().find(".boxdiv");
 					var corpusID = [];
 					boxes.each(function(index) {
 						corpusID.push($(this).find("img").attr('id').slice(9));
 					});
 					indata["corporaID"] = corpusID;
-					var desc = $(this).attr("data").split("___")[1];
+					var desc = $(this).parent().attr("data").split("___")[1];
 					if(!desc) {
 						desc = "";
 					}
 					indata["description"] = desc;
-					indata["title"] = $(this).attr("data").split("___")[0];
+					indata["title"] = $(this).parent().attr("data").split("___")[0];
 					if ($.isFunction(callback)) returnValue = callback(indata);
-					$(".corpusInfoSpace").css({"top": $(this).offset().top});
+					$(".corpusInfoSpace").css({"top": $(this).parent().offset().top});
  					$(".corpusInfoSpace").find("p").html(returnValue);
  					$(".corpusInfoSpace").fadeIn('fast');
 				},
@@ -354,10 +361,16 @@ var hp_corpusChooser = {
 			};
 
  			$(".boxdiv").hoverIntent(hoverConfig);
- 			$(".tree").hoverIntent(hoverFolderConfig);
+ 			$(".boxlabel").hoverIntent(hoverFolderConfig);
  			
  			$(".boxdiv").unbind("click"); // "Non-folder items"
-			$(".boxdiv").click(function() {
+			$(".boxdiv").click(function(event) {
+			    if( event.altKey == 1 ) {
+                    $(".checkbox").each(function() {
+                        hp_this.setStatus($(this), "unchecked");
+                    });
+                }
+			 
 				$(this).disableSelection();
 				hp_this.updateState($(this));
 	 			var childMan = $(this).children('label').children('.checkbox');
@@ -427,7 +440,7 @@ var hp_corpusChooser = {
 		}
 
 	}
-}
+};
 
 $.widget("hp.corpusChooser", hp_corpusChooser); // create the widget
 

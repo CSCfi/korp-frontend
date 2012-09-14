@@ -7,12 +7,12 @@
 		<link rel="stylesheet" href="lib/slickgrid/slick.grid.css" type="text/css" media="screen" charset="utf-8" />
 		<link type="text/css" href="common_lib/themes/base/jquery.ui.all.css" rel="stylesheet" />
 <!-- 		<link type="text/css" href="lib/themes/Aristo/Aristo.css" rel="stylesheet" /> -->
-		<link type="text/css" href="ui_mods.css" rel="stylesheet" />
+		<link type="text/css" href="styles/ui_mods.css" rel="stylesheet" />
 
-		<link type="text/css" href="jquery.tooltip.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="styles/jquery.tooltip.css" />
 		<link rel="shortcut icon" type="image/ico" href="img/korp_icon.ico" />
-		<link rel="stylesheet" type="text/css" href="style.css" />
-		<link rel="stylesheet" type="text/css" href="pagination.css" />
+		<link rel="stylesheet" type="text/css" href="styles/style.css" />
+		<link rel="stylesheet" type="text/css" href="styles/pagination.css" />
 		
 		<title>Korp</title>
 		<script type="text/javascript" src="common_lib/jquery.js" ></script>
@@ -21,6 +21,7 @@
 		<script type="text/javascript" src="common_lib/raphael.js"></script>
 		<script type="text/javascript" src="common_lib/jquery.ba-bbq.min.js"></script>
 		<script type="text/javascript" src="common_lib/jquery.jLog.min.js"></script>
+		
 		
 		<script type="text/javascript" src="common_lib/ui/jquery.ui.core.js" ></script>
 		<script type="text/javascript" src="common_lib/ui/jquery.ui.widget.js"></script>
@@ -41,6 +42,7 @@
 		<script type="text/javascript" src="common_lib/jquery.ui.preloader.min.js"></script>
 		<script type="text/javascript" src="common_lib/jquery.ui.subclass.js"></script>
 		
+		
 		<script type="text/javascript" src="common_lib/jquery.json-2.2.min.js"></script>
 		<script type="text/javascript" src="common_lib/jquery.tmpl.js"></script>
 		<script type="text/javascript" src="common_lib/jquery.dump.js"></script>
@@ -48,6 +50,7 @@
 		<script type="text/javascript" src="common_lib/jquery.localize.js"></script>
 		<script type="text/javascript" src="common_lib/jquery.placeholder.js"></script>
 		<script type="text/javascript" src="common_lib/jquery.raphael.spinner.js"></script>
+		<script type="text/javascript" src="common_lib/underscore.js"></script>
 		
 		<script type="text/javascript" src="lib/modernizr-1.7.min.js"></script>
 		
@@ -85,7 +88,6 @@
 		<script type="text/javascript" src="lib/g.line-min.js"></script>
 		<script type="text/javascript" src="lib/flot/jquery.flot.min.js"></script>
 		<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="lib/flot/excanvas.min.js"></script><![endif]-->
-<!-- 		<script type="text/javascript" src="lib/g.bar-min.js"></script> -->
 		<script type="text/javascript" src="lib/jstorage.js"></script>
 		<script type="text/javascript" src="scripts/jq_extensions.js"></script>
 		<script type="text/javascript" src="scripts/widgets.js"></script>
@@ -96,17 +98,14 @@
 		<script type="text/javascript" src="scripts/selector_widget.js"></script>
 		<script type="text/javascript" src="scripts/pie-widget.js"></script>
 		
-		
 		<script type="text/javascript" src="scripts/controller.js"></script>
 		<script type="text/javascript" src="scripts/searchview.js"></script>
 		<script type="text/javascript" src="scripts/resultsview.js"></script>
 		<script type="text/javascript" src="scripts/model.js"></script>
 		<script type="text/javascript" src="scripts/main.js"></script>
 		
-		
 	</head>
   	<body>
-  		
 	  	<noscript>
 	  		<h2>You need JavaScript to run Korp.</h2>
 	  	</noscript>
@@ -122,7 +121,8 @@
 					<li><a id="about" href="javascript:" rel="localize[about]">About Korp</a></li>
 					<li><a id="docs" class="follow_link" href="http://spraakbanken.gu.se/swe/forskning/infrastruktur/korp/anvandarhandledning" target="_blank" rel="localize[docs]"></a></li>
 					<li id="korplink"><a href="/korp" class="follow_link" rel="localize[korp]"></a></li>
-<!--					<li id="korplablink"><a href="/korplabb" class="follow_link" rel="localize[korp_lab]"></a></li>  -->
+<!--					<li id="korplablink"><a href="/korplabb" class="follow_link" rel="localize[korp_lab]"></a></li> -->
+					<li><a href="http://gu.se" class="follow_link" rel="localize[university]"></a></li>
 				</ul>
 				<div id="languages">
 	  				<a href="javascript:" rel="localize[finnish]" data-mode="fi">Finska</a>
@@ -181,33 +181,36 @@
 					<div id="left-column" >
 						<div id="result-container">
 							<ul>
-								<li class="on"><a href="#results-kwic" rel="localize[kwic]">KWIC</a></li>
-								<li><a href="#results-stats" rel="localize[statistics]">Statistik</a></li>
-								<li id="lemgram_list_item"><a href="#results-lemgram" rel="localize[lemgram_results]" >Ordbild</a></li><!-- class="ui-icon ui-icon-script" -->
+								<li class="on"><a href="#results-kwic" rel="localize[kwic]">KWIC</a><div class="tab_progress" ></div></li>
+								<li><a href="#results-stats" rel="localize[statistics]">Statistik</a><div class="tab_progress" ></div></li>
+								<li id="lemgram_list_item"><a href="#results-lemgram" rel="localize[lemgram_results]" >Ordbild</a><div class="tab_progress" ></div></li>
 							</ul>
 							<div id="results-kwic">
 								<div class="result_controls">
-								   <div>
-<!-- 									   <label for="num_hits" rel="localize[hits_per_page]">Träffar per sida</label>:  -->
-									   
+								   <div class="controls_n" >
+								   	<span rel="localize[num_results]">Antal träffar</span>: <span class="num-result">0</span>
 								   </div>
-								   <div class="controls_n" ><span rel="localize[num_results]">Antal resultat</span>: <span class="num-result"></span></div>
-								 
+									<div class="progress">
+										<progress value="0" max="100"></progress>
+									</div>
 								   <div class="hits_picture" ></div>
-								   <div style="float:right"><img id="showBarPlot"/></div>
-							   	   <div style="clear : both; float : none;" ></div>
 							   </div>
 								
 								<div class="pager-wrapper"></div>
+								<span class="reading_btn show link" rel="localize[show_reading]">Visa läsläge</span>
+								<span class="reading_btn hide link" rel="localize[show_kwic]">Visa kwic</span>
 								
 								
 								<div class="table_scrollarea">
-									<table class="results_table" cellspacing="0"></table>
+									<table class="results_table kwic" cellspacing="0"></table>
+									<table class="results_table reading" cellspacing="0"></table>
 								</div>
 							</div>
 							<div id="results-stats">
-<!-- 								<div>Visar <span id="stats_showing"></span>Totalt antal: <span id="stats_total"></span><input type="button" value="Hämta fler"><input type="button" value="Hämta alla"></div> -->   
-<!-- 								<div style="float:right"><img src="img/stats3.png" id="showLineDiagram"/></div> -->
+								<div class="progress">
+									<progress value="0" max="100"></progress>
+								</div>
+								<div id="showBarPlot"></div>
 								<div id="myGrid" style="width:600px;height:500px;"></div>
 								<div id="exportStatsSection">
 									<br/><br/><select id="kindOfData">
@@ -220,13 +223,17 @@
 									</select>
 									<input id="exportButton" value="Exportera" rel="localize[statstable_export]" type="submit"/>									
 								</div>
-								
-<!-- 								<div id="leftStatsTable" style="float:left; margin-left:-8"></div> -->
-<!-- 								<div id="rightStatsTable" style="float:left; overflow-x:auto; margin-left: -20px; padding-left: 0px; width: 200px"></div> -->
-<!-- 								<div style="clear : both; float : none;"></div> -->
-
 							</div>
 							<div id="results-lemgram">
+								<div id="wordclassChkParent">
+									<input id='wordclassChk' type='checkbox'>
+									<label for="wordclassChk" rel="localize[show_wordclass]"></label>
+								</div>
+								<div class="progress">
+									<progress value="0" max="100"></progress>
+								</div>
+							
+								<div class="content_target"></div>
 							</div>
 						</div>
 						<a id="json-link" href="#"><img src="img/json.png" /></a>
@@ -243,17 +250,6 @@
 		<div id="plot_popup">
 			<div id="plot_canvas" style="width:470px; height:400px"></div>
 		</div>
-			
-		<!-- for showing full deprel locale names.
-		{{else $index == "deprel"}}
-			${util.getLocaleString("malt_" + $data[$index])}</p>
-			
-			{{if $value.dataset}}
-			 ${$value.dataset[$data[$index]]}
-			 
-			 
-			 {{html $item.defaultSetFormatter($data[$index]).outerHTML() }}
-			-->
 			
 	<script id="sidebarTmpl" type="text/x-jquery-tmpl">
 		
@@ -273,7 +269,7 @@
     				${util.getLocaleString("deprel_" + $data[$index])}
 				{{else $index == "msd"}}
 					<span class="sidebar_msd">${$data[$index]}</span><a href="msdtags.html" target="_blank"><span id="sidbar_info" class="ui-icon ui-icon-info"></span></a>
-    			{{else $value.type == "set" && $.inArray($index, ["lex", "prefix", "suffix", "saldo"]) != -1}}
+    			{{else $value.type == "set" && $.inArray($index, ["lex", "prefix", "suffix", "saldo", "dalinlem", "saldolem"]) != -1}}
     			<span id="sidebar_${$index}">${$data[$index]}</span>
     			{{else $value.type == "set"}}
     				<ul data-type="${$value.label}">
@@ -308,7 +304,7 @@
 		  	</td>
 	    </tr>
 		{{if $item.aligned != null}}
-		<tr id="linked_${corpus}" class="linked_sentence">
+		<tr class="linked_sentence">
 			<td colspan="3">
 				{{each(corpus, sentence) $item.aligned}}
 				{{tmpl(sentence) '#wordTmpl'}}
@@ -346,13 +342,12 @@
 		{{/if}}
 		</div>
 	</script>
-	<!-- {{if $item.lemgram == $.grep($item.data[(!$item.isAdj ? "head" : "dep")].split("|"), Boolean)[0]}} -->
 	<script id="lemgramRowTmpl" type="text/x-jquery-tmpl">
 			<tr>
 				<td><span class="enumerate"/></td>
 				<td data-lemgram="${$.grep($item.data[show_rel].split("|"), Boolean)[0]}" data-depextra="${depextra}"></td> 
 				<!--<td>{{html util.formatDecimalString($.format("%.2f", mi), true)}}</td>-->
-				<td>${freq}</td>
+				<td title="${$.format("mi: %.2f", mi)}">${freq}</td>
 				<td class="example_link"></td> 
 		    </tr>
 	</script>

@@ -17,7 +17,17 @@ var BaseResults = {
 		this.$tab = $(tabSelector);
 		this.$result = $(resultSelector);
 		this.index = this.$tab.index();
-		this.optionWidget = $("#search_options"); 
+		this.optionWidget = $("#search_options");
+		this.num_result = this.$result.find(".num-result");
+		this.$result.add(this.$tab).addClass("not_loading");
+	},
+	
+	onProgress : function(progressObj) {
+		// TODO: this item only exists in the kwic.
+		this.num_result.html(prettyNumbers(progressObj["total_results"]));
+		if(!isNaN(progressObj["stats"]))
+			this.$result.find(".progress progress").attr("value", Math.round(progressObj["stats"]));
+		this.$tab.find(".tab_progress").css("width", Math.round(progressObj["stats"]).toString() + "%");
 	},
 	
 	renderResult : function(data) {
@@ -55,17 +65,27 @@ var BaseResults = {
 	},
 	
 	showPreloader : function() {
-		this.hidePreloader();
-		$("<div class='spinner' />").appendTo(this.$tab)
-		.spinner({innerRadius: 5, outerRadius: 7, dashes: 8, strokeWidth: 3});
+		//this.$tab.find(".spinner").remove();
+		//$("<div class='spinner' />").appendTo(this.$tab)
+		//.spinner({innerRadius: 5, outerRadius: 7, dashes: 8, strokeWidth: 3});
+		this.$result.add(this.$tab).toggleClass("loading not_loading");
+		this.$tab.find(".tab_progress").css("width", 0); //.show();
+		this.$result.find("progress").attr("value", 0);
+//		this.$result.find(".progress").show();
 	},
 	hidePreloader : function() {
-		this.$tab.find(".spinner").remove();
+//		this.$tab.find(".spinner").remove();
+		this.$result.add(this.$tab).toggleClass("loading not_loading");
+//		this.$tab.find(".tab_progress").hide();
+//		this.$result.find(".progress:visible").hide("clip");
+//		this.$result.find(".progress:hidden").hide();
+			
 	},
 	
 	resetView : function() {
 		this.$result.find(".error_msg").remove();
 	}
+	
 };
 
 view.BaseResults = new Class(BaseResults);
@@ -88,19 +108,50 @@ var KWICResults = {
 			$.sm.send("word.deselect");
 		});
 		
-		
+		this.$result.find(".reading_btn").click(function() {
+			self.$result.toggleClass("reading_mode");
+			if(self.$result.is(".reading_mode")) {
+				$.bbq.pushState({"reading_mode" : true});
+			} else {
+				$.bbq.removeState("reading_mode");
+			}
+			self.setReadingMode();
+			return false;
+		});
+		if($.bbq.getState("reading_mode")) {
+			this.$result.addClass("reading_mode");
+		}
 	},
 	resetView : function() {
 		this.parent();
-		this.$result.find(".results_table,.pager-wrapper,.results_table").empty();
+		this.$result.find(".results_table,.pager-wrapper").empty();
 	},
-//	resultError : function(data) {
-//		this.parent(data);
-//		this.$result.find(".results_table").empty();
-//		this.$result.find(".pager-wrapper").empty();
-//		this.$result.find(".results_table").html($.format("<i>There was a CQP error: <br/>%s:</i>", data.ERROR.traceback.join("<br/>")));
-//		util.setJsonLink(this.proxy.prevRequest);
-//	},
+	
+	setReadingMode : function() {
+		if(this.$result.is(".reading_mode")) {
+			
+			var newResult = this.$result.find(".results_table.kwic").hide()
+			.children().first().clone(true, true);
+			newResult.find(".match .word").addClass("reading_match");
+			newResult.find(".word").unwrap();
+			
+			$(".results_table.reading").html(newResult).show()
+			.find(".token_selected").click();
+			
+		} else {
+			this.$result.find(".results_table.kwic").show();
+			
+			if($(".results_table.reading .token_selected").length) {
+				var p_index = $(".token_selected").parent().index();
+				var w_index = $(".token_selected").prevAll(".word").length + 1;
+				this.$result.find(".results_table.kwic")
+				.find(".sentence").eq(p_index-1).find(".word").eq(w_index-1).click();
+				
+			}
+			this.$result.find(".results_table.reading").empty();
+			this.centerScrollbar();
+		}
+	},
 	
 	onentry : function() {
 		this.centerScrollbar();
@@ -150,7 +201,22 @@ var KWICResults = {
 		output.end = (output.start + items_per_page) - 1;
 		return output;
 	},
+	
+	renderCompleteResult : function(data) {
 		
+		if(!data.hits) {
+			c.log("no kwic results");
+			this.showNoResults();
+			return;
+		}
+		this.$result.find('.num-result').html(prettyNumbers(data.hits));
+		this.renderHitsPicture(data);
+		this.buildPager(data.hits);
+		
+		
+		this.hidePreloader();
+	},
+	
 	renderResult : function(data, sourceCQP) {
 		var resultError = this.parent(data);
 		if(resultError === false) {
@@ -159,48 +225,20 @@ var KWICResults = {
 		var self = this;
 		this.prevCQP = sourceCQP;
 		
-		//c.log(data);
-		
-		if(!data.hits) {
-
-			c.log("no kwic results");
-			this.showNoResults();
-			return;
-		}
-//		this.$result.find(".sort_select").show();
-		this.renderHitsPicture(data);
-		
-
 		var effectSpeed = 100;
-		if($.trim(this.$result.find(".results_table").html()).length) {
+		if($.trim(this.$result.find(".results_table.kwic").html()).length) {
 			this.$result.fadeOut(effectSpeed, function() {
-				$(this).find(".results_table").empty();
+				$(this).find(".results_table.kwic").empty();
 				self.renderResult(data, sourceCQP);
 			});
 			return;
 		}
-//		else {
-//			$("#results-kwic").css("opacity", 0);
-//		}
 		c.log("corpus_results");
-		//$("#results-kwic").show();
-		
-		this.$result.find('.num-result').html(prettyNumbers(data.hits.toString()));
-		this.buildPager(data.hits);
-		
-		var colorMapping = {};
-		$.each(data.corpus_order, function(i, corpus) {
-			colorMapping[corpus] = util.colors.getNext();
-		});
-		
-		var corpusOrderArray = $.grep(data.corpus_order, function(corpus) {
-			return data.corpus_hits[corpus] > 0;
-		});
 		
 		var punctArray = [",", ".", ";", ":", "!", "?"];
 		var borderColor = util.changeColor(settings.primaryColor, -15);
 		var prevCorpus = "";
-		var table = self.$result.find(".results_table");
+		var table = self.$result.find(".results_table.kwic");
 		$.each(data.kwic, function(i,sentence) {
 			var offset = 0; 
 		    var splitObj = {
@@ -210,7 +248,14 @@ var KWICResults = {
 		    };
 		    
 		    if(prevCorpus != sentence.corpus) {
-		    	$($.format("<tr><td /><td class='corpus_title' colspan='1'><span class='corpus_title_span'>%s</span></td><td /></tr>", settings.corpora[sentence.corpus.toLowerCase()].title )).appendTo(table);
+		    	var corpus = settings.corpora[sentence.corpus.toLowerCase()];
+		    	if(currentMode == "parallel") {
+		    		corpus = settings.corpora[sentence.corpus.split("|")[0].toLowerCase()];
+//		    		var parent = settings.corpora[sentence.corpus.split("|")[0].toLowerCase()].parent; 
+//		    		corpus = settings.parallel_corpora[parent];
+		    	}
+		    	$($.format("<tr><td /><td class='corpus_title' colspan='1'><span class='corpus_title_span'>%s</span></td><td /></tr>", 
+		    			corpus.title )).appendTo(table);
 		    }
 		    
 		    prevCorpus = sentence.corpus;
@@ -222,6 +267,7 @@ var KWICResults = {
 							$(this).prev().html("");
 					})
 					.click(function(event) {
+						var corpus = sentence.corpus
 						event.stopPropagation();
 						self.onWordClick($(this), sentence);
 						$.sm.send("word.select");
@@ -229,27 +275,15 @@ var KWICResults = {
 					}).end();
 			
 			var color = i % 2 == 0 ? settings.primaryColor : settings.primaryLight;
-//			color = $.inArray(sentence.corpus, corpusOrderArray) % 2 == 0 ? color : util.changeColor(color, 15);
-			if($.inArray(sentence.corpus, corpusOrderArray) % 2 != 0) {
-//				color = util.changeColor(color, 15);
+//			if($.inArray(sentence.corpus, corpusOrderArray) % 2 != 0) {
+			if(i % 2 == 0) {
 				rows.addClass("odd_corpus");
 			} else {
 				rows.addClass("even_corpus");
 			}
 			 
 			rows.css("background-color", color);
-			rows.css("border-color", borderColor);
-			
-			
-//			if(i % 2 == 0) {
-////				rows.addClass(colorMapping[sentence.corpus]);
-//				rows.css("background-color", settings.primaryColor);
-//				
-//			} else {
-////				rows.addClass(colorMapping[sentence.corpus] + "_light");
-//				rows.css("background-color", settings.primaryLight);
-//			}
-			
+			//rows.css("border-color", borderColor);
 		});
 		
 		this.$result.find(".match").children().first().click();
@@ -258,8 +292,9 @@ var KWICResults = {
 			self.centerScrollbar();
 		});
 		
-		this.hidePreloader();
-
+//		this.hidePreloader();
+		
+		this.setReadingMode();
     },
 	
     showNoResults : function() {
@@ -274,7 +309,7 @@ var KWICResults = {
     
     renderHitsPicture : function(data) {
     	var self=this;
-		if (getSelectedCorpora().length > 1) {
+		if (settings.corpusListing.selected.length > 1) {
 			var totalhits = data["hits"];
 			var hits_picture_html = '<table class="hits_picture_table"><tr height="18px">';
 			var barcolors = ["color_blue","color_purple","color_green","color_yellow","color_azure","color_red"];
@@ -302,27 +337,16 @@ var KWICResults = {
 			}
 
 
-			hoverHitPictureConfig = {
-				sensitivity: 3, interval: 100, timeout: 800,
-				over: function() {                
-//					$(".hits_picture_table").find("td").each(function() {
-						//if ($(this).css("background-color") != "rgb(128, 128, 128)")
-//							$(this).css({"background-color":""});
-//					});
-//                    $(".hits_picture_table").stop().animate({"opacity":"1"},400);
-				},
-				out: function() {
-//                    $(".hits_picture_table").stop().animate({"opacity":".3"});  
-				}
-			};
-			this.$result.find(".hits_picture_table").hoverIntent(hoverHitPictureConfig);
-
-
 			this.$result.find(".hits_picture_corp").each(function() {
 				var corpus_name = $(this).attr("data");
 				$(this).tooltip({delay : 0, bodyHandler : function() {
+					var corpusObj = settings.corpora[corpus_name.toLowerCase()];
+			    	if(currentMode == "parallel") {
+			    		corpusObj = settings.corpora[corpus_name.split("|")[0].toLowerCase()];
+			    	}
+					
 					return '<img src="img/korp_icon.png" style="vertical-align:middle"/> <b>' + 
-						settings.corpora[corpus_name.toLowerCase()]["title"] + 
+					corpusObj["title"] + 
 						' (' + prettyNumbers(data["corpus_hits"][corpus_name].toString()) + 
 						' ' + util.getLocaleString("hitspicture_hits") + ')</b><br/><br/><i>' + 
 						util.getLocaleString("hitspicture_gotocorpushits") + '</i>';
@@ -381,7 +405,8 @@ var KWICResults = {
 		
 		this.scrollToShowWord(word);
 		
-		$("#sidebar").sidebar("updateContent", sentence.structs, data, sentence.corpus);
+		
+		$("#sidebar").sidebar("updateContent", sentence.structs, data, sentence.corpus.toLowerCase());
 		$("#columns").height($("#sidebar").height());
 	},
 	
@@ -427,11 +452,21 @@ var KWICResults = {
 	
 	handlePaginationClick : function(new_page_index, pagination_container, force_click) {
 		c.log("handlePaginationClick", new_page_index, this.current_page);
+		var self = this;
 		if(new_page_index != this.current_page || !!force_click) {
 			
 			this.showPreloader();
 			this.current_page = new_page_index;
-			this.makeRequest();
+			this.proxy.makeRequest(this.buildQueryOptions(), this.current_page, function(progressObj) { 
+				//progress
+				if(!isNaN(progressObj["stats"]))
+					self.$result.find(".progress progress").attr("value", Math.round(progressObj["stats"]));
+				self.$tab.find(".tab_progress").css("width", Math.round(progressObj["stats"]).toString() + "%");
+			}, function(data) {
+				//success
+				self.buildPager(data.hits);
+				self.hidePreloader();
+			});
 			$.bbq.pushState({"page" : new_page_index});
 		}
 	    
@@ -447,7 +482,8 @@ var KWICResults = {
 	},
 	
 	makeRequest : function(page_num) {
-		this.proxy.makeRequest(this.buildQueryOptions(), page_num || this.current_page);
+	 	this.proxy.makeRequest(this.buildQueryOptions(), page_num || this.current_page, $.proxy(this.onProgress, this));
+//		this.proxy.makeRequest(this.buildQueryOptions(), page_num || this.current_page, $.noop);
 	},
 	
 	setPage : function(page) {
@@ -474,26 +510,61 @@ var KWICResults = {
 	},
 	
 	selectNext : function() {
-		var i = this.getCurrentRow().index(this.$result.find(".token_selected").get(0));
-		var next = this.getCurrentRow().get(i+1);
-		if(next == null) return;
-		$(next).click();
+		if(!this.$result.is(".reading_mode")) {
+			var i = this.getCurrentRow().index(this.$result.find(".token_selected").get(0));
+			var next = this.getCurrentRow().get(i+1);
+			if(next == null) return;
+			$(next).click();
+		} else {
+			this.$result.find(".token_selected").next().next(".word").click();
+		}
 	},
 	selectPrev : function() {
-		var i = this.getCurrentRow().index(this.$result.find(".token_selected").get(0));
-		if(i == 0) return;
-		var prev = this.getCurrentRow().get(i-1);
-		$(prev).click();
+		if(!this.$result.is(".reading_mode")) {
+			var i = this.getCurrentRow().index(this.$result.find(".token_selected").get(0));
+			if(i == 0) return;
+			var prev = this.getCurrentRow().get(i-1);
+			$(prev).click();
+		} else {
+			this.$result.find(".token_selected").prev().prev(".word").click();
+		}
 	},
 	selectUp : function() {
 		var current = this.selectionManager.selected;
-		var prevMatch = this.getWordAt(current.offset().left + current.width()/2, current.closest("tr").prevAll(".sentence").first());
-		prevMatch.click();
+		if(!this.$result.is(".reading_mode")) {
+			var prevMatch = this.getWordAt(current.offset().left + current.width()/2, current.closest("tr").prevAll(".sentence").first());
+			prevMatch.click();
+		} else {
+			var searchwords = current.prevAll(".word").get().concat(current.closest(".sentence").prev().find(".word").get().reverse());
+			var def = current.parent().prev().find(".word:last");
+			this.getFirstAtCoor(current.offset().left + current.width()/2, $(searchwords), def).click();
+		}
 	},
 	selectDown : function() {
 		var current = this.selectionManager.selected;
-		var nextMatch = this.getWordAt(current.offset().left + current.width()/2, current.closest("tr").nextAll(".sentence").first());
-		nextMatch.click();
+		if(!this.$result.is(".reading_mode")) {
+			var nextMatch = this.getWordAt(current.offset().left + current.width()/2, current.closest("tr").nextAll(".sentence").first());
+			nextMatch.click();
+		} else {
+			var searchwords = current.nextAll(".word").add(current.closest(".sentence").next().find(".word"));
+			var def = current.parent().next().find(".word:first");
+			this.getFirstAtCoor(current.offset().left + current.width()/2, searchwords, def).click();
+		}
+	},
+	
+	getFirstAtCoor : function(xCoor, wds, default_word) {
+		var output = null;
+		
+		wds.each(function(i, item) {
+			var thisLeft = $(this).offset().left;
+			var thisRight = $(this).offset().left + $(this).width();
+			if((xCoor > thisLeft && xCoor < thisRight)) {
+				output = $(this);
+				return false;
+			}
+		});
+		
+		return output || default_word;
 	},
 	
 	getWordAt : function(xCoor, $row) {
@@ -540,6 +611,7 @@ var KWICResults = {
 			}
 		}
 	}
+	
 };
 
 view.KWICResults = new Class(KWICResults);
@@ -553,6 +625,8 @@ var ExampleResults = {
 		this.parent(tabSelector, resultSelector);
 		this.proxy = new model.ExamplesProxy();
 //		this.$result.find(".num_hits").parent().hide();
+		this.$result.find(".progress").hide();
+		this.$result.add(this.$tab).addClass("not_loading");
 	},
 	
 	makeRequest : function(opts) {
@@ -561,14 +635,20 @@ var ExampleResults = {
 			success : function(data) {
 				c.log("ExampleResults success", data, opts);
 				self.renderResult(data, opts.cqp);
+				self.renderCompleteResult(data);
+				self.hidePreloader();
 				util.setJsonLink(self.proxy.prevRequest);
+				self.$result.find(".num-result").html(prettyNumbers(data.hits));
+				
 			},
 			error : function() {
-				self.hidePreloader()
-			}
+				self.hidePreloader();
+			},
+			incremental : false
 		});
 		this.showPreloader();
-		this.proxy.makeRequest(opts);
+//		this.proxy.makeRequest(opts, $.proxy(this.onProgress, this));
+		this.proxy.makeRequest(opts, null, $.noop, $.noop, $.noop);
 	},
 	
 	onHpp : function() {
@@ -608,12 +688,16 @@ var ExampleResults = {
 	},
 	
 	showPreloader : function() {
-		this.parent();
-		this.$tab.find(".spinner").css("padding-left", 8);
+		this.$result.add(this.$tab).addClass("loading").removeClass("not_loading");
+		this.$tab.find(".spinner").remove();
+		$("<div class='spinner' />").appendTo(this.$tab)
+		.spinner({innerRadius: 5, outerRadius: 7, dashes: 8, strokeWidth: 3});
+		
 		this.$tab.find(".tabClose").hide();
 	},
 	hidePreloader : function() {
-		this.parent();
+		this.$result.add(this.$tab).addClass("not_loading").removeClass("loading");
+		this.$tab.find(".spinner").remove();
 		this.$tab.find(".tabClose").show();
 	}
 	
@@ -624,13 +708,13 @@ var LemgramResults = {
 	Extends : view.BaseResults,
 	initialize : function(tabSelector, resultSelector) {
 		this.parent(tabSelector, resultSelector);
+//		TODO: figure out what I use this for.
 		this.resultDeferred = $.Deferred();
 		this.proxy = lemgramProxy;
 
 		this.order = {  //		"_" represents the actual word in the order
 			vb : ["SS_d,_,OBJ_d,ADV_d".split(",")], //OBJ_h, , "SS_h,_".split(",")
 			nn : ["PA_h,AT_d,_,ET_d".split(","), "_,SS_h".split(","), "OBJ_h,_".split(",")],
-//				pn : ["PA_h,AT_d,_,ET_d".split(","), "_,SS_h".split(","), "OBJ_h,_".split(",")],
 			av : [[], "_,AT_h".split(",")],
 			jj : [[], "_,AT_h".split(",")],
 			pp : [[], "_,PA_d".split(",")]
@@ -642,7 +726,7 @@ var LemgramResults = {
 	
 	resetView : function() {
 		this.parent();
-		$("#results-lemgram").empty();
+		$("#results-lemgram .content_target").empty();
 	},
 	
 	renderResult : function(data, query) {
@@ -650,7 +734,6 @@ var LemgramResults = {
 		if(resultError === false) {
 			return;
 		}
-//		$("#results-lemgram").empty();
 		if(!data.relations){
 			this.showNoResults();
 			this.resultDeferred.reject();
@@ -676,7 +759,6 @@ var LemgramResults = {
 				ET : "color_red",
 				PA : "color_green"};
 		$(".tableContainer:last .lemgram_section").each(function(i) {
-//			var $parent = $("<div class='lemgram_help' />").prependTo(this);
 			var $parent = $(this).find(".lemgram_help");
 			
 			$(this).find(".lemgram_result").each(function() {
@@ -704,7 +786,6 @@ var LemgramResults = {
 				}
 					
 			});
-//			$(".explanation").localeKey("lemgram_explan_" + i);
 		}).append("<div style='clear:both;'/>");
 		
 		
@@ -748,8 +829,6 @@ var LemgramResults = {
 		
 		$(".lemgram_result .wordclass_suffix").hide();
 		
-//		$(".tableContainer:odd").css("background-color", settings.primaryLight);
-		this.drawChk();
 		this.hidePreloader();
 	},
 	
@@ -764,29 +843,10 @@ var LemgramResults = {
 		}
 		
 		this.drawTable(lemgram, wordClass, data, getRelType);
-//		table.appendTo("#results-lemgram");
 		$(".lemgram_result .wordclass_suffix").hide();
 		
 		this.renderHeader(wordClass);
-		this.drawChk();
 		this.hidePreloader();
-		
-	},
-	
-	drawChk : function() {
-		$("<div><input id='wordclassChk' type='checkbox' /></div>").css({"margin-bottom" : "10px", "float" : "right"})
-		.append($("<label>", {"for" : "wordclassChk"}).localeKey("show_wordclass"))
-		.change(function() {
-			if($(this).find("#wordclassChk").is(":checked")) {
-				$(".lemgram_result .wordclass_suffix").show();
-			}
-			else {
-				$(".lemgram_result .wordclass_suffix").hide();
-			}
-			
-		})
-		.prependTo("#results-lemgram")
-		.filter("label").css("margin-left", "5px");
 		
 	},
 	
@@ -843,7 +903,8 @@ var LemgramResults = {
 			//c.log("unsortedList", unsortedList.length, unsortedList);
 			
 		});
-		var container = $("<div>", {"class" : "tableContainer radialBkg"}).appendTo("#results-lemgram");
+		var container = $("<div>", {"class" : "tableContainer radialBkg"})
+		.appendTo("#results-lemgram .content_target");
 		$("#lemgramResultsTmpl").tmpl(orderArrays, {lemgram : token})
 		.find(".example_link").addClass("ui-icon ui-icon-document")
 		.css("cursor", "pointer")
@@ -911,8 +972,7 @@ var LemgramResults = {
 	
 	showNoResults : function() {
 		this.hidePreloader();
-		$("#results-lemgram")
-		.append($("<i />").localeKey("no_lemgram_results"));
+		this.$result.find(".content_target").html($("<i />").localeKey("no_lemgram_results"));
 	},
 	
 	hideWordclass : function() {
@@ -982,20 +1042,23 @@ function newDataInGraph(dataName, horizontalDiagram, targetDiv) {
 			height : 500,
 			resize: function(){
 				$("#chartFrame").css("height",$("#chartFrame").parent().width()-20);
-				stats2Instance.pie_widget("resizeDiagram",$(this).width()-60);},
-				resizeStop: function(event, ui) {
-					var w = $(this).dialog("option","width");
-					var h = $(this).dialog("option","height");
-					if(this.width*1.25 > this.height) {
-						$(this).dialog("option","height", w*1.25);
-					} else {
-						$(this).dialog("option","width", h*0.80);
-					}
-					stats2Instance.pie_widget("resizeDiagram",$(this).width()-60);
+				stats2Instance.pie_widget("resizeDiagram",$(this).width()-60);
+				return false;
+			},
+			resizeStop: function(event, ui) {
+				var w = $(this).dialog("option","width");
+				var h = $(this).dialog("option","height");
+				if(this.width*1.25 > this.height) {
+					$(this).dialog("option","height", w*1.25);
+				} else {
+					$(this).dialog("option","width", h*0.80);
 				}
+				stats2Instance.pie_widget("resizeDiagram",$(this).width()-60);
+			}
+				
 
 		}).css("opacity", 0);
-		
+		$("#ui-dialog-title-dialog").localeKey("statstable_hitsheader_lemgram");
 		$("#dialog").fadeTo(400,1);
 		$("#dialog").find("a").blur(); // Prevents the focus of the first link in the "dialog"
 		stats2Instance = $('#chartFrame').pie_widget({container_id: "chartFrame", data_items: dataItems, bar_horizontal: false, diagram_type: 0});
@@ -1067,17 +1130,13 @@ var StatsResults = {
 		
 		$(".c0 .link").live("click", function() {
 			c.log("word click", $(this).data("context"), $(this).data("corpora"));
-//			$.bbq.pushState({search : "word|" + context})
-//			corpusChooserInstance.corpusChooser("selectItems",$(this).data("corpora"));
 			var instance = $("#result-container").korptabs("addTab", view.ExampleResults);
 			instance.proxy.command = "query";
-			var query = $.map($(this).data("value").split(" "), function(item) {
-				return $.format("[word='%s']", item);
-			}).join(" ");
-			c.log("query", query);
+			
+			var query = $(this).data('query');
 			instance.makeRequest({
 				corpora : $(this).data("corpora").join(","),
-				cqp : query
+				cqp : decodeURIComponent(query)
 			});
 			util.localize(instance.$result);
 		});
@@ -1118,17 +1177,24 @@ var StatsResults = {
 			else
 				window.open( "data:text/csv;charset=latin1," + escape(output));
 		});
+		this.$result.find("#wordclassChk")
+		.change(function() {
+			if($(this).find("#wordclassChk").is(":checked")) {
+				$(".lemgram_result .wordclass_suffix").show();
+			}
+			else {
+				$(".lemgram_result .wordclass_suffix").hide();
+			}
+			
+		});
+		
 	},
 	
 	renderResult : function(columns, data) {
-//		statsResults.savedData = data;
 		var resultError = this.parent(data);
 		if(resultError === false) {
 			return;
 		}
-		
-		c.log("stats.renderResults columns", columns);
-		c.log("stats.renderResults data", data);
 		
 		if(data[0].total_value.absolute === 0) {
 			this.showNoResults();
@@ -1210,18 +1276,19 @@ var StatsResults = {
 	renderPlot : function() {
 		var self = this;
 		var src;
-		var css = {};
-		if($.keys(statsResults.savedData.corpora).length > 1) {
-			src = "stats3.png";
-			css["cursor"] = "pointer";
-		} else {
-			src = "stats3_disabled.png";
+		var css = {cursor : "pointer"};
+		var fill = "#666";
+		if($.keys(statsResults.savedData.corpora).length < 2) {
 			css["cursor"] = "normal";
+			fill = "lightgrey";
 		}
+		var barElem = $("#showBarPlot").empty().get(0);
+		var paper = new Raphael(barElem, 33, 33);
+		paper.path("M21.25,8.375V28h6.5V8.375H21.25zM12.25,28h6.5V4.125h-6.5V28zM3.25,28h6.5V12.625h-6.5V28z")
+		.attr({fill: fill, stroke: "none", transform : "s0.6"});
 		
 		// Line Diagram
 		$("#showBarPlot")
-		.attr("src", "img/" + src)
 		.css(css)
 		.click(function() {
 		    $.bbq.pushState({"display" : "bar_plot"});
@@ -1264,6 +1331,7 @@ var StatsResults = {
 				return false;
 			}
 		}).css("opacity", 0);
+		
 		$("#ui-dialog-title-plot_popup").localeKey("hits_per_mil");
 		$("#plot_popup").fadeTo(400,1);
 //		$("#plot_popup").find("a").blur();

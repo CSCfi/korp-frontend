@@ -10,6 +10,7 @@ settings.autocomplete = true;
 
 settings.primaryColor = "rgb(221, 233, 255)";
 settings.primaryLight = "rgb(242, 247, 255)";
+settings.secondaryColor = "";
 settings.corpora = {};
 settings.defaultContext = {
 	"1 sentence" : "1 sentence"
@@ -451,9 +452,7 @@ settings.corporafolders.kotus.ns = {
 settings.corpora.testcorpus = {
     title : "The Korp Test Corpus",
     description : "A test corpus for testing Korp.",
-    languages : {
-        TESTCORPUS : "svenska"
-    },
+    id : "testcorpus",
     within : {"sentence" : "sentence"},
     attributes : {
         pos : attrs.pos
@@ -465,9 +464,7 @@ settings.corpora.testcorpus = {
 settings.corpora.ftb2 = {
     title : "FinnTreeBank 2",
     description : "Finnish tree bank, version 2",
-    languages : {
-        FTB2 : "suomi"
-    },
+    id : "ftb2",
     within : {"sentence" : "sentence"},
     attributes : {
 	lemma : attrs.baseform_ftb2,
@@ -497,9 +494,7 @@ settings.corpora.ftb2 = {
 settings.corpora.ftb3 = {
     title : "FinnTreeBank 3",
     description : "Finnish tree bank, version 3: EuroParl, JRC Acquis",
-    languages : {
-        FTB3 : "suomi"
-    },
+    id : "ftb3",
     within : {"sentence" : "sentence"},
     attributes : {
 	lemma : attrs.baseform_ftb2,
@@ -535,9 +530,7 @@ settings.corpora.ftb3 = {
 settings.corpora.metsatalo = {
     title : "Reitti A-siipeen",
     description : "Reitti (Metsätalon) A-siipeen: videon yleiskielistetty litteraatti",
-    languages : {
-        FTB2 : "suomi"
-    },
+    id : "metsatalo",
     within : {"sentence" : "sentence"},
     attributes : {
 	lemma : attrs.baseform_ftb2,
@@ -557,9 +550,7 @@ settings.corpora.metsatalo = {
 settings.corpora.vks_biblia = {
     title : "Biblia",
     description : "Vuoden 1642 raamatunsuomennos",
-    languages : {
-        VKS_BIBLIA : "suomi"
-    },
+    id : "vks_biblia",
     within : {"sentence" : "sentence"},
     attributes : {},
     struct_attributes : {
@@ -608,9 +599,7 @@ settings.corpora.vks_biblia = {
 settings.corpora.vks_lait = {
     title : "Laki- ja asetustekstejä",
     description : "Laki- ja asetustekstejä",
-    languages : {
-        VKS_LAIT : "suomi"
-    },
+    id : "vks_lait",
     within : {"sentence" : "sentence"},
     attributes : {
 	word_orig : attrs.origword,
@@ -636,9 +625,7 @@ settings.corpora.vks_lait = {
 settings.corpora.vks_saarnat = {
     title : "Ruumissaarnoja, puheita ja muistorunoja",
     description : "Ruumissaarnoja, puheita ja muistorunoja",
-    languages : {
-        VKS_SAARNAT : "suomi"
-    },
+    id : "vks_saarnat",
     within : {"sentence" : "sentence"},
     attributes : {
 	word_orig : attrs.origword,
@@ -677,9 +664,7 @@ settings.corpora.vks_saarnat = {
 settings.corpora.vns_asetus = {
     title : "Asetuksia",
     description : "Asetuksia",
-    languages : {
-        VNS_ASETUS : "suomi"
-    },
+    id : "vns_asetus",
     within : {"sentence" : "sentence"},
     attributes : {
     },
@@ -720,29 +705,7 @@ settings.corpora.vns_asetus = {
 settings.corpora.vns_renqvist = {
     title : "Renqvist",
     description : "Renqvist",
-    languages : {
-        VNS_RENQVIST : "suomi"
-    },
-    within : {"sentence" : "sentence"},
-    attributes : {
-    },
-    struct_attributes : {
-	text_title : sattrs.text_title,
-	text_distributor : sattrs.text_distributor,
-	text_source : sattrs.text_source,
-	para_id : sattrs.para_id,
-	para_type : sattrs.para_type,
-	sentence_id : sattrs.sentence_id_hidden,
-	sentence_n : sattrs.sentence_n
-    }
-};
-
-settings.corpora.vns_renqvist = {
-    title : "Renqvist",
-    description : "Renqvist",
-    languages : {
-        VNS_RENQVIST : "suomi"
-    },
+    id : "vns_renqvist",
     within : {"sentence" : "sentence"},
     attributes : {
     },
@@ -760,9 +723,7 @@ settings.corpora.vns_renqvist = {
 settings.corpora.vns_renvall = {
     title : "Renvall",
     description : "Gustaf Renvall: Suomalainen sana-kirja (1826)",
-    languages : {
-        VNS_RENVALL : "suomi"
-    },
+    id : "vns_renvall",
     within : {"sentence" : "sentence"},
     attributes : {
     },
@@ -828,9 +789,7 @@ settings.corpora.vns_renvall = {
 settings.corpora.kotus_klassikot = {
     title : "Suomen kielen klassikoita -korpus",
     description : "Suomen kielen klassikoita",
-    languages : {
-        KOTUS_KLASSIKOT : "suomi"
-    },
+    id : "kotus_klassikot",
     within : {"sentence" : "sentence"},
     attributes : {
     },
@@ -863,9 +822,7 @@ settings.corpora.kotus_klassikot = {
 settings.corpora.ns_presidentti = {
     title : "Tasavallan presidenttien uudenvuodenpuheita",
     description : "Tasavallan presidenttien uudenvuodenpuheita (1935–2006)",
-    languages : {
-        NS_PRESIDENTTI : "suomi"
-    },
+    id : "ns_presidentti",
     within : {"sentence" : "sentence"},
     attributes : {
 	lemma : attrs.baseform,
@@ -901,9 +858,7 @@ settings.corpora.ns_presidentti = {
 settings.corpora.ns_saadokset = {
     title : "Lakeja ja direktiivejä",
     description : "Lakeja ja direktiivejä vuosilta 2002–2003",
-    languages : {
-        NS_SAADOKSET : "suomi"
-    },
+    id : "ns_saadokset",
     within : {"sentence" : "sentence"},
     attributes : {
 	lemma : attrs.baseform,
@@ -964,9 +919,7 @@ settings.corpora.ns_saadokset = {
 settings.corpora.kotus_sananparret = {
     title : "Sananparsikokoelma",
     description : "Suomen murteiden Sananparsikokoelma (1930-luvulta)",
-    languages : {
-        KOTUS_SANANPARRET : "suomi"
-    },
+    id : "kotus_sananparret",
     within : {"sentence" : "sentence"},
     attributes : {
     },
@@ -1017,20 +970,264 @@ settings.lemgrams_cgi_script = "http://nyklait-09-01.hum.helsinki.fi/cgi-bin/kor
 // label values here represent translation keys.
 settings.arg_groups = {
 	"word" : {
-		word : {label : "word"},
-		anyword : {label : "any", opts : {}}
+		word : {label : "word"}
 	}
 };
 
 
-settings.inner_args = {
-	anyword : function(s) {
-		return "";
+settings.reduce_stringify = function(type) {
+	c.log("reduce_stringify", type)
+	function filterCorpora(rowObj) {
+		return $.grepObj(rowObj, function(value, key) {
+			return key != "total_value" && $.isPlainObject(value);
+		});
 	}
+	
+	function getCorpora(dataContext) {
+		var corpora = $.grepObj(filterCorpora(dataContext), function(value, key) {
+			return value.relative != null;
+		});
+		corpora = $.map($.keys(corpora), function(item) {
+			return item.split("_")[0].toLowerCase();
+		});
+		return corpora;
+	}
+	
+	switch(type) {
+	case "word":
+		return function(row, cell, value, columnDef, dataContext) {
+			
+			var corpora = getCorpora(dataContext);
+			
+			var query = $.map(dataContext.hit_value.split(" "), function(item) {
+				return $.format('[word="%s"]', item);
+			}).join(" ");
+			
+			c.log("config query", query, encodeURIComponent(query))
+			var output = $.format("<span class='link' data-query='%s' data-corpora='%s'>%s</span>", 
+					[encodeURIComponent(query), $.toJSON(corpora), value]);
+			if(corpora.length > 1)
+				output += $.format('<img id="circlediagrambutton__%s" src="img/stats2.png" class="arcDiagramPicture"/>', value);
+			return output;
+		}; 
+	case "pos":
+		return function(row, cell, value, columnDef, dataContext) {
+			if(value == "&Sigma;") return value;
+			var corpora = getCorpora(dataContext);
+			var query = $.map(dataContext.hit_value.split(" "), function(item) {
+				return $.format('[pos="%s"]', item);
+			}).join(" ");
+			return $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ", 
+					[query, $.toJSON(corpora), value, util.getLocaleString("pos_" + value)]);
+		};
+	case "lex":
+		return function(row, cell, value, columnDef, dataContext) {
+		if(value == "&Sigma;") return value;
+			return _.chain(value.split("|"))
+				.filter(Boolean)
+				.map(function(item) {
+					return util.lemgramToString(item, true);
+				})
+				.value().join(", ");
+		};
+	case "prefix":
+	case "suffix":
+	case "saldo":
+		return function(row, cell, value, columnDef, dataContext) {
+		if(value == "&Sigma;") return value;
+			return _.chain(value.split("|"))
+				.filter(Boolean)
+				.map(function(item) {
+					return util.saldoToString(item, true);
+				})
+				.value().join(", ");
+		};
+	case "deprel":
+		return function(row, cell, value, columnDef, dataContext) {
+		if(value == "&Sigma;") return value;
+		var corpora = getCorpora(dataContext);
+		var query = $.map(dataContext.hit_value.split(" "), function(item) {
+			return $.format('[deprel="%s"]', item);
+		}).join(" ");
+		return $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ", 
+				[query, $.toJSON(corpora), value, util.getLocaleString("deprel_" + value)]);
+	};
+	default:
+		return function(row, cell, value, columnDef, dataContext) {
+			return value;
+		};
+	}
+	
+	
 };
+
 
 delete attrs;
 delete sattrs;
 delete within;
 delete context;
 delete ref;
+
+
+var CorpusListing = new Class({
+	initialize : function(corpora) {
+		this.struct = corpora;
+		this.corpora = _.values(corpora);
+		this.selected = [];
+	},
+	
+	get : function(key) {
+		return this.struct[key];
+	},
+	
+	list : function() {
+		return this.corpora;
+	},
+	
+	map : function(func) {
+		return _.map(this.corpora, func);
+	},
+	
+	
+	/* Returns an array of all the selected corpora's IDs in uppercase */
+	getSelectedCorpora : function() {
+		return corpusChooserInstance.corpusChooser("selectedItems");
+	},
+	
+	select : function(idArray) {
+		this.selected = _.values(_.pick.apply(this, [this.struct].concat(idArray))); 
+	},
+
+	mapSelectedCorpora : function(f) {
+		return _.map(this.selected, f);
+	},
+	// takes an array of mapping objs and returns their intersection
+	_mapping_intersection : function(mappingArray) {
+		return $.reduce(mappingArray, function(a,b) {
+			var output = {};
+			$.each(a, function(key, value) {
+				if(b[key] != null)
+					output[key] = value;
+			});
+			return output;
+		});
+	},
+
+	_mapping_union : function(mappingArray) {
+		return $.reduce(mappingArray, function(a, b) {
+			return $.extend({}, a, b);
+		}) || {};
+	},
+
+	getCurrentAttributes : function() {
+		var attrs = this.mapSelectedCorpora(function(corpus) {
+			return corpus.attributes;
+		});
+		
+		return this._invalidateAttrs(attrs);
+		
+	},
+	getStructAttrs : function() {
+		var attrs = this.mapSelectedCorpora(function(corpus) {
+			$.each(corpus.struct_attributes, function(key, value) {
+				value["isStructAttr"] = true; 
+			});
+			return corpus.struct_attributes;
+		});
+		
+		return this._invalidateAttrs(attrs);
+	},
+
+	_invalidateAttrs : function(attrs) {
+		var union = this._mapping_union(attrs);
+		var intersection = this._mapping_intersection(attrs);
+		$.each(union, function(key, value) {
+			if(intersection[key] == null) {
+				value["disabled"] = true;
+			} else {
+				delete value["disabled"];
+			}
+		});
+		return union;
+	},
+	
+	corpusHasAttr : function(corpus, attr) {
+		return attr in $.extend({}, this.struct[corpus].attributes, this.struct[corpus].struct_attributes);
+	},
+	
+	stringifySelected : function() {
+		return _.chain(this.selected)
+		.pluck("id")
+		.invoke("toUpperCase")
+		.value().join(",");
+	},
+		
+});
+
+
+
+
+var ParallelCorpusListing = new Class({
+	Extends : CorpusListing,
+	initialize : function(corpora) {
+		var self = this;
+		this.parallel_corpora = corpora;
+		this.corpora = [];
+		this.struct = {};
+		$.each(corpora, function(__, struct) {
+			$.each(struct, function(key, corp) {
+				if(key == "default") return;
+				self.corpora.push(corp);
+				self.struct[corp.id] = corp;
+			});
+		});
+		
+	},
+	
+	select : function(idArray) {
+		c.log("select", idArray)
+		var self = this;
+		this.selected = [];
+		$.each(idArray, function(i, id) {
+			var corp = self.struct[id];
+			self.selected = self.selected.concat(self.getLinked(corp, true));
+		});
+	},
+	
+	getCurrentAttributes : function(lang) {
+		var corpora = _.filter(this.selected, function(item) {
+			return item.lang == lang;
+		});
+		var struct = _.reduce(corpora, function(a, b) {
+			return $.extend({}, a.attributes, b.attributes);
+		},{});
+		return struct;
+	},
+	
+	getStructAttrs : function(lang) {
+		var corpora = _.filter(this.selected, function(item) {
+			return item.lang == lang;
+		});
+		var struct = _.reduce(corpora, function(a, b) {
+			return $.extend({}, a.struct_attributes, b.struct_attributes);
+		},{});
+		return struct;
+	},
+	
+	
+	getLinked : function(corp, andSelf) {
+		andSelf = andSelf || false;
+		var output = _.filter(this.corpora, function(item) {
+			return item.parent == corp.parent && item !== corp;
+		});
+		if(andSelf)
+			output.push(corp);
+		return output;
+	}
+
+});
+
+
+
+settings.corpusListing = new CorpusListing(settings.corpora);
+

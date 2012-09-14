@@ -39,13 +39,13 @@ a {
 }
 a:link {color:navy;}      /* unvisited link */
 a:visited {color:purple;}  /* visited link */
-a:hover {color:red;}  /* mouse over link */
+a:hover {color:indianred;}  /* mouse over link */
 
 .link {
 	color : navy !important;
 	cursor : pointer;
 }
-.link:hover {color : red !important;}
+.link:hover {color : indianred !important;}
 
 
 .radialBkg {
@@ -187,6 +187,7 @@ input:placeholder, textarea:placeholder {
 	background-image : none;
 	margin-bottom : 8px;
 }
+
 #search_options > div {
 	display : inline-block;
 	margin-right : 10px;
@@ -224,10 +225,34 @@ input:placeholder, textarea:placeholder {
 	margin-right : 8px;
 }
 
-#query_table {
+#query_table,.lang_row {
 	overflow : auto;	
 	white-space: nowrap;
 	margin-bottom : 15px;
+}
+.lang_row {
+    padding : 8px;
+}
+
+#query_table > select,.lang_row > select {
+    margin-left : 2px;
+    display : block;
+}
+
+.lang_row:nth-child(2n) {
+    background-color: #F5F5F5;
+}
+
+.mode-parallel #linkedLang {
+    display : inline;
+}
+
+#removeLang, #linkedLang {
+    display : none;   
+}
+
+.lang_row + #removeLang {
+    display : inline;
 }
 
 .remove_arg {
@@ -269,9 +294,9 @@ input:placeholder, textarea:placeholder {
 }
 .arg_type {
 	display : inline-block;
+	min-width : 150px;
 }
 .arg_opts {
-	padding-bottom : 1px;
 	margin-left : 5px;
 }
 
@@ -381,6 +406,7 @@ input.arg_value {
 	overflow-x: hidden;
 	display: none;
 	padding : 10px;
+	position : absolute;
 }
 .popupchecks .header {
 	text-align:right;
@@ -655,6 +681,39 @@ table {
 	height : 20px;
 }
 
+.reading_btn {
+    margin-left : 1em;
+    display : none;
+    vertical-align: top;
+    margin-top : 3px;
+}
+.not_loading .reading_btn {
+    display : inline-block;
+}
+
+
+.reading_mode .reading_btn.show, .reading_btn.hide {
+    display : none;
+}
+.reading_mode .reading_btn.hide {
+    display : inline;
+    
+}
+
+.results_table.reading {
+    margin-left : 10%;
+}
+
+.reading_match {
+   font-weight : bold;
+}
+
+.results_table.reading tr {
+    display : block;
+    padding : 1em;
+    width : 400px;
+}
+
 .result_table td {
 	white-space: nowrap; 
 }
@@ -686,6 +745,12 @@ table {
 	border-bottom : 3px solid white;
 	border-width : 3px !important;
 	
+}
+
+.reading_mode .corpus_title_span {
+    margin : 0;
+    margin-left : -21px;
+    font-size : 3em;
 }
 
 .corpus_title_span {
@@ -723,12 +788,11 @@ table {
 }
 
 .word:hover {
-	color: red;
+	color: indianred;
 }
 
 .word_selected {
 	border-radius: 10px;
-	-moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     -khtml-border-radius: 10px;	
 	padding-left: 3px;
@@ -860,7 +924,7 @@ a.absStat {
 
 
 a.absStat:hover {
-	color: red;
+	color: indianred;
 }
 
 a.relStat {
@@ -868,7 +932,7 @@ a.relStat {
 }
 
 a.relStat:hover {
-	color: red;
+	color: indianred;
 }
 
 .word_column {
@@ -884,7 +948,7 @@ a.relStat:hover {
 }
 
 .linked_sentence td {
-	text-align : center;
+	/*text-align : center;*/
 }	
 
 #about_content ul {
@@ -903,7 +967,6 @@ a.relStat:hover {
 	
 	
 	border-radius: 5px;
-	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-khtml-border-radius: 5px;
 }
@@ -1137,7 +1200,7 @@ a.relStat:hover {
 
 .autocomplete-item-disabled a {
 	font-style: italic;
-	color : red;
+	color : indianred;
 	opacity : 0.7;
 }
 
@@ -1206,16 +1269,12 @@ a.relStat:hover {
 	display : inline;
 }
 
-/*
-#mode_switch li:last-child, #mode_switch li:nth-last-child(2), #mode_switch li:nth-last-child(3) {
-	display : none;
-}*/
 #mode_switch li:nth-child(3) ~ * {
     display : none;
 }
 
 .lab #mode_switch li{
-	display : inline-block;
+    display : inline-block;
 }
 
 
@@ -1233,7 +1292,7 @@ a.relStat:hover {
 }
 
 .arg_value[type=text]:not(.ui-autocomplete-input) {
-	width : 93%;
+	width : 91%;
 	margin-right : 3px;
 }
 .arg_value[type=text]:not(.ui-autocomplete-input) + .val_mod {
