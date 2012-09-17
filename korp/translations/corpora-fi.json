@@ -1,7 +1,7 @@
 {	
 	"saldo" : "sense",
 	"pos" : "sanaluokka",
-	"pos_clean" : "sanaluokka (siivottu)",
+	"pos_orig" : "sanaluokka (siivoamaton)",
 	"msd" : "morfologinen analyysi",
 	"baseform" : "perusmuoto",
 	"baseform_compound" : "perusmuoto (yhdyssanarajat)",

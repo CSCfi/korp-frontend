@@ -38,7 +38,7 @@
 	"starts_with" : "alkaa",
 	"ends_with" : "loppuu",
 	
-	"any_word_placeholder" : "<sana>",
+	"any_word_placeholder" : "<mikä tahansa sana>",
 	"case_insensitive" : "samaista pien- ja suuraakkoset",
 	"case_sensitive" : "erottele pien- ja suuraakkoset",
 	"reduce_text" : "laske tilastot tämän perusteella",

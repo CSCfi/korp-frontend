@@ -93,7 +93,7 @@ attrs.pos_ftb2 = {
     opts : settings.liteOptions
 };
 attrs.pos_ftb3 = {
-    label : "pos_clean",
+    label : "pos",
     displayType : "select",
     translationKey : "posftb3_",
     dataset : {
@@ -120,7 +120,7 @@ attrs.pos_ftb3 = {
     opts : settings.liteOptions
 };
 attrs.pos_ftb3_orig = {
-    label : "pos",
+    label : "pos_orig",
     translationKey : "posftb3_",
     dataset : {
 	"A" : "A",
@@ -472,7 +472,7 @@ settings.corpora.ftb2 = {
 	msd : attrs.msd,
 	dephead : attrs.dephead,
 	deprel : attrs.deprel_ftb2,
-	lemgram : attrs.lemgram_hidden
+	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
 	subcorpus_name : {
@@ -504,7 +504,7 @@ settings.corpora.ftb3 = {
 	msd : attrs.msd,
 	dephead : attrs.dephead,
 	deprel : attrs.deprel_ftb2,
-	lemgram : attrs.lemgram_hidden
+	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
 	subcorpus_name : {
@@ -539,7 +539,7 @@ settings.corpora.metsatalo = {
 	dephead : attrs.dephead,
 	deprel : attrs.deprel_ftb2,
 	spoken : attrs.spoken,
-	lemgram : attrs.lemgram_hidden
+	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
 	sentence_id : sattrs.sentence_id_hidden
@@ -830,7 +830,7 @@ settings.corpora.ns_presidentti = {
         pos : attrs.pos_kotus,
 	msd : attrs.msd,
 	id : attrs.id_hidden,
-	lemgram : attrs.lemgram_hidden
+	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
 	text_title : sattrs.text_title,
@@ -866,7 +866,7 @@ settings.corpora.ns_saadokset = {
         pos : attrs.pos_kotus,
 	msd : attrs.msd,
 	id : attrs.id_hidden,
-	lemgram : attrs.lemgram_hidden
+	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
 	text_title : sattrs.text_title,
@@ -992,20 +992,23 @@ settings.reduce_stringify = function(type) {
 		});
 		return corpora;
 	}
-	
+
 	switch(type) {
 	case "word":
+	case "lemma":
+	case "lemmacomp":
 		return function(row, cell, value, columnDef, dataContext) {
 			
 			var corpora = getCorpora(dataContext);
 			
 			var query = $.map(dataContext.hit_value.split(" "), function(item) {
-				return $.format('[word="%s"]', item);
+			    return "[" + type + "=" + '"' + item + '"]';
 			}).join(" ");
 			
-			c.log("config query", query, encodeURIComponent(query))
-			var output = $.format("<span class='link' data-query='%s' data-corpora='%s'>%s</span>", 
-					[encodeURIComponent(query), $.toJSON(corpora), value]);
+			c.log("config query", query, encodeURIComponent(query),
+			      corpora)
+			var output = $.format("<span class='link' data-query='%s' data-corpora='%s'>" + value + "</span>", 
+					[encodeURIComponent(query), $.toJSON(corpora)]);
 			if(corpora.length > 1)
 				output += $.format('<img id="circlediagrambutton__%s" src="img/stats2.png" class="arcDiagramPicture"/>', value);
 			return output;
