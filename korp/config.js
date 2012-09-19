@@ -801,9 +801,15 @@ settings.corpora.kotus_klassikot = {
 	    label : "collection_id",
 	    displayType : "hidden"
 	},
+	collection_title : {
+	    label : "collection_title"
+	},
 	story_id : {
 	    label : "story_id",
 	    displayType : "hidden"
+	},
+	story_title : {
+	    label : "story_title"
 	},
 	sentence_id : sattrs.sentence_id_hidden,
 	sentence_type : {

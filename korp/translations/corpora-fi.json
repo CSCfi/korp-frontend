@@ -411,6 +411,9 @@
 	"hi_rend" : "korostus",
 	"hirend_bold" : "lihavoitu",
 
+	"collection_title" : "kokoelma",
+	"story_title" : "kertomus",
+
 	"para_id" : "kappaleen tunniste",
 	"para_type" : "kappaleen tyyppi",
 	"sentence_n" : "virkkeen koodi",
