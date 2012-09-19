@@ -284,114 +284,43 @@ settings.primaryLight = "#FFF9EE";
 settings.corporafolders = {};
 
 settings.corporafolders.europarl = {
-	title : "Europarl3",
-		contents : ["europarlda_sv"]
-};
-
-settings.corporafolders.salt = {
-	title : "SALT",
-	contents : ["saltnld_swe"]
+	title : "EuroParl 7",
+	contents : ["europarl_fi"]
 };
 
 settings.corpora = {};
 settings.parallel_corpora = {};
 
+
 settings.parallel_corpora.europarl = {
-	"default" : "europarlda_sv",
-	europarlda_sv : {
-		id : "europarlda_sv",
-		lang : "swe",
-		parent : "europarl",
-		title: "Svenska-danska",
-		context: context.defaultAligned, 
-		within: {
-			"link": "meningspar"
-		}, 
-		attributes: {
-			pos: attrs.pos, 
-			msd: attrs.msd, 
-			lemma: attrs.baseform,
-			lex: attrs.lemgram, 
-			saldo: attrs.saldo, 
-			dephead: attrs.dephead, 
-			deprel: attrs.deprel, 
-			ref: attrs.ref, 
-			text: attrs.text
-		},
-		struct_attributes : {
-		}
-	},
-	europarlda_da : {
-		id : "europarlda_da",
-		lang : "dan",
-		parent : "europarl",
-		title: "Svenska-danska", 
-		context: context.defaultAligned, 
-		within: {
-			"link": "meningspar"
-		}, 
-		attributes: {
-		},
-		struct_attributes : {
-		},
-		hide : true
-	}
+    "default" : "europarl_fi",
+    europarl_fi : {
+	id : "europarl_fi",
+	lang : "fi",
+        parent : "europarl",
+        title: "EuroParl suomi–englanti-rinnakkaiskorpus",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: {},
+        struct_attributes : {}
+    },
+    europarl_en : {
+	id : "europarl_en",
+	lang : "en",
+        parent : "europarl",
+        title: "EuroParl suomi–englanti-rinnakkaiskorpus",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: {},
+        struct_attributes : {},
+        hide : true
+    }
 };
 
-
-settings.parallel_corpora.salt = {
-	"default" : "saltnld_swe", 
-	saltnld_swe : {
-		id : "saltnld_swe",
-		lang : "swe",
-		parent : "salt",
-		title: "Svenska-nederländska", 
-		context: context.defaultAligned, 
-		within: {
-			"link": "meningspar"
-		}, 
-		attributes: {
-			pos: attrs.pos, 
-			msd: attrs.msd, 
-			lemma: attrs.baseform,
-			lex: attrs.lemgram, 
-			saldo: attrs.saldo, 
-			dephead: attrs.dephead, 
-			deprel: attrs.deprel, 
-			ref: attrs.ref, 
-			text: attrs.text
-		},
-		struct_attributes : {
-			text_author : {label : "author"},
-		    text_title : {label : "title"},
-			
-		    text_year : {label : "year"},
-			text_origlang : {label : "origlang"},
-			page_n : {label : "page_n"}
-			
-		}
-	},
-	saltnld_nld : {
-		id : "saltnld_nld",
-		parent : "salt",
-		lang : "nld",
-		title: "Svenska-nederländska", 
-		context: context.defaultAligned, 
-		within: {
-			"link": "meningspar"
-		}, 
-		attributes: {},
-		struct_attributes : {
-			text_author : {label : "author"},
-		    text_title : {label : "title"},
-			
-		    text_year : {label : "year"},
-			text_origlang : {label : "origlang"},
-			page_n : {label : "page_n"}
-		},
-		hide : true
-	}
-};
 
 $.each(settings.parallel_corpora, function(corpora, struct) {
 	$.each(struct, function(key, corp) {

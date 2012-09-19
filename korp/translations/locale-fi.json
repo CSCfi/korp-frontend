@@ -76,6 +76,8 @@
 	"swe" : "ruotsi",
 	"dan" : "tanska",
     	"nld" : "hollanti",
+	"fi" : "suomi",
+	"en" : "englanti",
 	"statistics" : "Tilastoja",
 	"lemgram_results" : "Sanakuva",
 	"kwic" : "Konkordanssi",
@@ -107,6 +109,9 @@
 	"link" : "linkki",
 	"text" : "teksti",
 	"word" : "sana",
+
+	"more_languages" : "Enemmän kieliä",
+	"fewer_languages" : "Vähemmän kieliä",
 	
 	"msd_long" : "Morfologinen analyysi",
 	
