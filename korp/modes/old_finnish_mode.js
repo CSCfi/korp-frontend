@@ -16,6 +16,77 @@ sattrs.vks_sentence_code = {
 sattrs.vks_sentence_page = {
     label : "vks_sentence_page"
 };
+sattrs.vks_sourcecode_code = {
+    label : "vks_sourcecode_code"
+};
+sattrs.vks_sourcecode_page = {
+    label : "vks_sourcecode_page"
+};    
+sattrs.vksbib_book_code = {
+    label : "vksbib_book_code",
+    displayType : "select",
+    translationKey : "vksbibbook_",
+    dataset : {
+	"VT4" : "VT4",
+	"Jes" : "Jes",
+	"Jer" : "Jer",
+	"Vlt" : "Vlt",
+	"Hes" : "Hes",
+	"Dan" : "Dan",
+	"Hos" : "Hos",
+	"Joel" : "Joel",
+	"Am" : "Am",
+	"Ob" : "Ob",
+	"Jon" : "Jon",
+	"Mik" : "Mik",
+	"Nah" : "Nah",
+	"Hab" : "Hab",
+	"Sef" : "Sef",
+	"Hgg" : "Hgg",
+	"Sak" : "Sak",
+	"Mal" : "Mal",
+    },
+    opts : settings.liteOptions
+};
+// Copy the object so that the change does not affect the original.
+sattrs.vksbib_sourcecode_book = $.extend({}, sattrs.vksbib_book_code);
+sattrs.vksbib_sourcecode_book.label = "vksbib_sourcecode_book";
+sattrs.vkslait_law_code = {
+    label : "vkslait_law_code",
+    displayType : "select",
+    translationKey : "vkslaitlaw_",
+    dataset : {
+	"As1584" : "As1584",
+	"As1593" : "As1593"
+    },
+    opts : settings.liteOptions
+};
+sattrs.vkslait_sourcecode_work = $.extend({}, sattrs.vkslait_law_code);
+sattrs.vkslait_sourcecode_work.label = "vkslait_sourcecode_work";
+sattrs.vkssaarnat_source_code = {
+    label : "vkssaarnat_source_code",
+    displayType : "select",
+    translationKey : "vkssaarnatsource_",
+    dataset : {
+	"Swahn1706" : "Swahn1706",
+	"Wall1706" : "Wall1706",
+	"Sten1750" : "Sten1750",
+	"Rein1750" : "Rein1750",
+	"Sten1771" : "Sten1771",
+	"Varia1756a" : "Varia1756a",
+	"Paz1764" : "Paz1764",
+	"Elgf1768" : "Elgf1768",
+	"Laih1768" : "Laih1768",
+	"GLyra1772" : "GLyra1772",
+	"Sax1776" : "Sax1776",
+	"Äjm1779" : "Äjm1779",
+	"Widen1780" : "Widen1780",
+	"Popp1781" : "Popp1781"
+    },
+    opts : settings.liteOptions
+};
+sattrs.vkssaarnat_sourcecode_work = $.extend({}, sattrs.vkssaarnat_source_code);
+sattrs.vkssaarnat_sourcecode_work.label = "vkssaarnat_sourcecode_work";
 
 
 settings.corpora = {};
@@ -40,36 +111,23 @@ settings.corpora.vks_biblia = {
     within : {"sentence" : "sentence"},
     attributes : {},
     struct_attributes : {
+	sourcecode_code : sattrs.vks_sourcecode_code,
+	sourcecode_bibleref : {
+	    label : "vksbib_sourcecode_bibleref"
+	},
+	sourcecode_book : sattrs.vksbib_sourcecode_book,
+	sourcecode_chapter : {
+	    label : "vksbib_sourcecode_chapter"
+	},
+	sourcecode_verse : {
+	    label : "vksbib_sourcecode_verse"
+	},
+	sourcecode_page : sattrs.vks_sourcecode_page,
 	work_code : {
 	    label : "vks_work_code",
 	    displayType : "hidden",
 	},
-	book_code : {
-	    label : "vksbib_book_code",
-	    displayType : "select",
-	    translationKey : "vksbibbook_",
-	    dataset : {
-		"VT4" : "VT4",
-		"Jes" : "Jes",
-		"Jer" : "Jer",
-		"Vlt" : "Vlt",
-		"Hes" : "Hes",
-		"Dan" : "Dan",
-		"Hos" : "Hos",
-		"Joel" : "Joel",
-		"Am" : "Am",
-		"Ob" : "Ob",
-		"Jon" : "Jon",
-		"Mik" : "Mik",
-		"Nah" : "Nah",
-		"Hab" : "Hab",
-		"Sef" : "Sef",
-		"Hgg" : "Hgg",
-		"Sak" : "Sak",
-		"Mal" : "Mal",
-	    },
-	    opts : settings.liteOptions
-	},
+	book_code : sattrs.vksbib_book_code,
 	chapter_code : {
 	    label : "vksbib_chapter_code"
 	},
@@ -98,16 +156,10 @@ settings.corpora.vks_lait = {
 	word_completed : attrs.complword
     },
     struct_attributes : {
-	law_code : {
-	    label : "vkslait_law_code",
-	    displayType : "select",
-	    translationKey : "vkslaitlaw_",
-	    dataset : {
-		"As1584" : "As1584",
-		"As1593" : "As1593"
-	    },
-	    opts : settings.liteOptions
-	},
+	sourcecode_work : sattrs.vkslait_sourcecode_work,
+	sourcecode_code : sattrs.vks_sourcecode_code,
+	sourcecode_page : sattrs.vks_sourcecode_page,
+	law_code : sattrs.vkslait_law_code,
 	sentence_id : sattrs.sentence_id_hidden,
 	sentence_code : sattrs.vks_sentence_code,
 	sentence_page : sattrs.vks_sentence_page
@@ -124,28 +176,10 @@ settings.corpora.vks_saarnat = {
 	word_completed : attrs.complword
     },
     struct_attributes : {
-	source_code : {
-	    label : "vkssaarnat_source_code",
-	    displayType : "select",
-	    translationKey : "vkssaarnatsource_",
-	    dataset : {
-		"Swahn1706" : "Swahn1706",
-		"Wall1706" : "Wall1706",
-		"Sten1750" : "Sten1750",
-		"Rein1750" : "Rein1750",
-		"Sten1771" : "Sten1771",
-		"Varia1756a" : "Varia1756a",
-		"Paz1764" : "Paz1764",
-		"Elgf1768" : "Elgf1768",
-		"Laih1768" : "Laih1768",
-		"GLyra1772" : "GLyra1772",
-		"Sax1776" : "Sax1776",
-		"Äjm1779" : "Äjm1779",
-		"Widen1780" : "Widen1780",
-		"Popp1781" : "Popp1781"
-	    },
-	    opts : settings.liteOptions
-	},
+	sourcecode_work : sattrs.vkssaarnat_sourcecode_work,
+	sourcecode_code : sattrs.vks_sourcecode_code,
+	sourcecode_page : sattrs.vks_sourcecode_page,
+	source_code : sattrs.vkssaarnat_source_code,
 	sentence_id : sattrs.sentence_id_hidden,
 	sentence_code : sattrs.vks_sentence_code,
 	sentence_page : sattrs.vks_sentence_page
