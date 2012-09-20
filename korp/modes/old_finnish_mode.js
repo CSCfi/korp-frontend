@@ -111,7 +111,6 @@ settings.corpora.vks_biblia = {
     within : {"sentence" : "sentence"},
     attributes : {},
     struct_attributes : {
-	sourcecode_code : sattrs.vks_sourcecode_code,
 	sourcecode_bibleref : {
 	    label : "vksbib_sourcecode_bibleref"
 	},
@@ -122,27 +121,28 @@ settings.corpora.vks_biblia = {
 	sourcecode_verse : {
 	    label : "vksbib_sourcecode_verse"
 	},
+	sourcecode_code : sattrs.vks_sourcecode_code,
 	sourcecode_page : sattrs.vks_sourcecode_page,
 	work_code : {
 	    label : "vks_work_code",
 	    displayType : "hidden",
 	},
+	verse_bibleref : {
+	    label : "vksbib_verse_bibleref"
+	},
 	book_code : sattrs.vksbib_book_code,
 	chapter_code : {
 	    label : "vksbib_chapter_code"
 	},
-	chapter_bibleref : {
-	    label : "vksbib_chapter_bibleref"
-	},
+	// chapter_bibleref : {
+	//     label : "vksbib_chapter_bibleref"
+	// },
 	verse_code : {
 	    label : "vksbib_verse_code"
 	},
-	verse_bibleref : {
-	    label : "vksbib_verse_bibleref"
-	},
 	sentence_id : sattrs.sentence_id_hidden,
-	sentence_code : sattrs.vks_sentence_code,
-	sentence_page : sattrs.vks_sentence_page
+	span_code : sattrs.vks_sentence_code,
+	span_page : sattrs.vks_sentence_page
     }
 };
 
@@ -161,8 +161,8 @@ settings.corpora.vks_lait = {
 	sourcecode_page : sattrs.vks_sourcecode_page,
 	law_code : sattrs.vkslait_law_code,
 	sentence_id : sattrs.sentence_id_hidden,
-	sentence_code : sattrs.vks_sentence_code,
-	sentence_page : sattrs.vks_sentence_page
+	span_code : sattrs.vks_sentence_code,
+	span_page : sattrs.vks_sentence_page
     }
 };
 
@@ -181,8 +181,8 @@ settings.corpora.vks_saarnat = {
 	sourcecode_page : sattrs.vks_sourcecode_page,
 	source_code : sattrs.vkssaarnat_source_code,
 	sentence_id : sattrs.sentence_id_hidden,
-	sentence_code : sattrs.vks_sentence_code,
-	sentence_page : sattrs.vks_sentence_page
+	span_code : sattrs.vks_sentence_code,
+	span_page : sattrs.vks_sentence_page
     }
 };
 
