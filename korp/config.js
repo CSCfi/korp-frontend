@@ -587,8 +587,14 @@ settings.corpora.vks_biblia = {
 	chapter_code : {
 	    label : "vksbib_chapter_code"
 	},
+	chapter_bibleref : {
+	    label : "vksbib_chapter_bibleref"
+	},
 	verse_code : {
 	    label : "vksbib_verse_code"
+	},
+	verse_bibleref : {
+	    label : "vksbib_verse_bibleref"
 	},
 	sentence_id : sattrs.sentence_id_hidden,
 	sentence_code : sattrs.vks_sentence_code,

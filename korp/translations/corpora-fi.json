@@ -340,7 +340,9 @@
 	"vks_work_code" : "teos",
 	"vksbib_book_code" : "kirja",
 	"vksbib_chapter_code" : "luku",
+	"vksbib_chapter_bibleref" : "kirja+luku",
 	"vksbib_verse_code" : "jae",
+	"vksbib_verse_bibleref" : "kirja+luku+jae",
 	"vks_sentence_code" : "lähdekoodi",
 	"vks_sentence_page" : "sivu",
 
