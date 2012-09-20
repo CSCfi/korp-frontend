@@ -1269,9 +1269,9 @@ a.relStat:hover {
 	display : inline;
 }
 
-#mode_switch li:nth-child(3) ~ * {
-    display : none;
-}
+/* #mode_switch li:nth-child(3) ~ * { */
+/*     display : none; */
+/* } */
 
 .lab #mode_switch li{
     display : inline-block;
