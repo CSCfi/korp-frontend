@@ -383,7 +383,8 @@ var currentMode;
 			change : function() {
 				$.bbq.pushState({lang : $(this).radioList("getSelected").data("mode")});
 			},
-			selected : "sv"
+			// selected : "sv"
+			selected : settings.defaultLanguage
 		}).vAlign();
 		
 		

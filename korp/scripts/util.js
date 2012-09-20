@@ -184,7 +184,7 @@ util.localizeFloat = function(float, nDec) {
 	var sep = null;
 	nDec = nDec || float.toString().split(".")[1].length;
 	
-	if(lang == "sv") {
+	if(lang == "sv" || lang == "fi") {
 		sep = ",";
 	} else if(lang == "en") {
 		sep = ".";
