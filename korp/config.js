@@ -392,7 +392,7 @@ var within = {
 
 var context = {
 	"defaultAligned" : {
-		"1 link" : "1 link"
+		"1 sentence" : "1 sentence"
 	}
 };
 
