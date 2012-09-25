@@ -449,6 +449,19 @@ settings.corpora.testcorpus = {
 };
 */
 
+settings.corpora.testcorp = {
+    title : "Testikorpus",
+    description : "Testikorpus Korpin ominaisuuksien testaamiseksi",
+    id : "testcorp",
+    within : {"sentence" : "sentence"},
+    attributes : {
+	lemma : attrs.baseform,
+        pos : attrs.pos
+    },
+    struct_attributes : {
+    }
+};
+
 settings.corpora.ftb2 = {
     title : "FinnTreeBank 2",
     description : "Finnish tree bank, version 2",
