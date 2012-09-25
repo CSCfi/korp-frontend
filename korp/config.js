@@ -166,9 +166,49 @@ attrs.pos_kotus = {
 	"PUNCT" : "Punct",
 	"REFL/PRON" : "ReflPron",
 	"#UNKNOWN" : "Unknown",
-	"V" : "V",
+	"V" : "V"
     },
-    opts : settings.defaultOptions
+    opts : settings.liteOptions
+};
+attrs.pos_parrus_fi = {
+    label : "pos",
+    displayType : "select",
+    translationKey : "posparrusfi_",
+    dataset : {
+	"A" : "A",
+	"Abbr" : "Abbr",
+	"ADV" : "Adv",
+	"Aux" : "Aux",
+	"CC" : "CC",
+	"CS" : "CS",
+	"Heur" : "Heur",
+	"N" : "N",
+	"NUM" : "Num",
+	"POST" : "Post",
+	"PRON" : "Pron",
+	"pun" : "Punct",
+	"V" : "V"
+    },
+    opts : settings.liteOptions
+};
+attrs.pos_parrus_ru = {
+    label : "pos",
+    displayType : "select",
+    translationKey : "posparrusru_",
+    dataset : {
+	"Adj" : "Adj",
+	"Conj" : "Conj",
+	"Gerund" : "Gerund",
+	"Noun" : "Noun",
+	"Numeral" : "Numeral",
+	"Part" : "Part",
+	"Particle" : "Particle",
+	"Preposition" : "Preposition",
+	"Pron" : "Pron",
+	"pun" : "Punct",
+	"Verb" : "Verb"
+    },
+    opts : settings.liteOptions
 };
 attrs.msd = {
 	label : "msd",

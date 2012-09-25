@@ -288,6 +288,11 @@ settings.corporafolders.europarl = {
 	contents : ["europarl_fi"]
 };
 
+settings.corporafolders.parrus = {
+    title : "ParRus",
+    contents : ["parrus_fi"]
+};
+
 settings.corpora = {};
 settings.parallel_corpora = {};
 
@@ -316,6 +321,44 @@ settings.parallel_corpora.europarl = {
             "sentence": "sentence"
         }, 
         attributes: {},
+        struct_attributes : {},
+        hide : true
+    }
+};
+
+
+settings.parallel_corpora.parrus = {
+    "default" : "parrus_fi",
+    parrus_fi : {
+	id : "parrus_fi",
+	lang : "fi",
+        parent : "parrus",
+        title: "ParRus suomi–venäjä-rinnakkaiskorpus",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: {
+	    lemma : attrs.baseform,
+	    pos : attrs.pos_parrus_fi,
+	    msd : attrs.msd
+	},
+        struct_attributes : {}
+    },
+    parrus_ru : {
+	id : "parrus_ru",
+	lang : "ru",
+        parent : "parrus",
+        title: "ParRus suomi–venäjä-rinnakkaiskorpus",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: {
+	    lemma : attrs.baseform,
+	    pos : attrs.pos_parrus_ru,
+	    msd : attrs.msd
+	},
         struct_attributes : {},
         hide : true
     }
