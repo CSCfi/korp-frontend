@@ -218,7 +218,7 @@ attrs.baseform = {
     label : "baseform",
     // type : "set",
     // displayType : "autocomplete",
-    opts : settings.liteOptions
+    opts : settings.defaultOptions
 };
 attrs.baseform_ftb2 = {
     label : "baseform",
@@ -462,6 +462,11 @@ settings.corporafolders.kotus = {
 settings.corporafolders.kotus.ns = {
     title : "Nykysuomen aineistoja",
     contents : ["ns_presidentti", "ns_saadokset"]
+};
+
+settings.corporafolders.la = {
+    title : "Lauseopin arkisto",
+    contents : ["la_murre"]
 };
 
 settings.corporafolders.fi = {
@@ -763,6 +768,158 @@ settings.corpora.kotus_sananparret = {
 		"usage" : "usage"
 	    },
 	    opts : settings.liteOptions
+	}
+    }
+};
+
+
+attrs.pos_la = {
+    label : "pos",
+    displayType : "select",
+    translationKey : "posla_",
+    dataset : {
+	"a" : "a",
+	"adv" : "adv",
+	"adv:pron" : "adv:pron",
+	"adv:pron:dem" : "adv:pron:dem",
+	"adv:pron:int" : "adv:pron:int",
+	"adv:pron:rel" : "adv:pron:rel",
+	"adv:q" : "adv:q",
+	"a:pron:dem" : "a:pron:dem",
+	"a:pron:int" : "a:pron:int",
+	"cnj:coord" : "cnj:coord",
+	"cnj:rel" : "cnj:rel",
+	"cnj:sub" : "cnj:sub",
+	"muu" : "muu",
+	"n" : "n",
+	"neg" : "neg",
+	"n:prop" : "n:prop",
+	"n:prop:pname" : "n:prop:pname",
+	"num:card" : "num:card",
+	"num:murto" : "num:murto",
+	"num:ord" : "num:ord",
+	"num:ord_pron" : "num:ord_pron",
+	"p:post" : "p:post",
+	"p:pre" : "p:pre",
+	"pron" : "pron",
+	"pron:dem" : "pron:dem",
+	"pron:int" : "pron:int",
+	"pron:pers12" : "pron:pers12",
+	"pron:ref" : "pron:ref",
+	"pron:rel" : "pron:rel",
+	"punct" : "punct",
+	"q" : "q",
+	"v" : "v",
+    },
+    opts : settings.liteOptions
+};
+attrs.func_la = {
+    label : "func",
+    displayType : "select",
+    translationKey : "funcla_",
+    dataset : {
+	"advl" : "advl",
+	"advl:p" : "advl:p",
+	"advl:v" : "advl:v",
+	"advmod" : "advmod",
+	"amod" : "amod",
+	"analysoimaton" : "analysoimaton",
+	"compl:o" : "compl:o",
+	"compl:q" : "compl:q",
+	"compl:s" : "compl:s",
+	"infobj" : "infobj",
+	"infsubj" : "infsubj",
+	"irrall" : "irrall",
+	"jälkiosa" : "jälkiosa",
+	"lauseyhd" : "lauseyhd",
+	"lkeyhd" : "lkeyhd",
+	"muu" : "muu",
+	"nmod" : "nmod",
+	"npobj" : "npobj",
+	"npsubj" : "npsubj",
+	"nummod" : "nummod",
+	"osma" : "osma",
+	"pmod" : "pmod",
+	"pred" : "pred",
+	"pred2" : "pred2",
+	"pred3" : "pred3",
+	"pred:ref" : "pred:ref",
+	"pred:toisto" : "pred:toisto",
+	"subj:nonfin" : "subj:nonfin",
+	"subj:stat" : "subj:stat",
+    },
+    opts : settings.liteOptions
+};
+
+settings.corpora.la_murre = {
+    title : "Murrekorpus",
+    description : "Lauseopin arkiston murrekorpus",
+    id : "la_murre",
+    within : {"sentence" : "sentence"},
+    attributes : {
+	lemma : attrs.baseform,
+        pos : attrs.pos_la,
+	msd : attrs.msd,
+	func : attrs.func_la,
+	lex : attrs.lemgram_hidden
+    },
+    struct_attributes : {
+	text_info : {
+	    label : "text_info"
+	},
+	text_header : {
+	    label : "text_header"
+	},
+	para_type : {
+	    label : "para_type"
+	},
+	para_id : {
+	    label : "para_id"
+	},
+	para_n : {
+	    label : "para_n"
+	},
+	clause_sinum : {
+	    label : "clause_sinum"
+	},
+	clause_clnum : {
+	    label : "clause_clnum"
+	},
+	clause_num : {
+	    label : "clause_num"
+	},
+	clause_hier : {
+	    label : "clause_hier"
+	},
+	clause_snum : {
+	    label : "clause_snum"
+	},
+	clause_type : {
+	    label : "clause_type"
+	},
+	sentence_sinum : {
+	    label : "sentence_sinum"
+	},
+	sentence_clnum : {
+	    label : "sentence_clnum"
+	},
+	sentence_sp : {
+	    label : "sentence_sp"
+	},
+	sentence_source : {
+	    label : "sentence_source"
+	},
+	sentence_num : {
+	    label : "sentence_num"
+	},
+	sentence_wnum : {
+	    label : "sentence_wnum"
+	},
+	sentence_id : {
+	    label : "sentence_id"
+	},
+	clause_hallnum : {
+	    label : "clause_hallnum"
 	}
     }
 };
