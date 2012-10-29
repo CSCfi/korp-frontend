@@ -15,8 +15,16 @@ settings.corpora = {};
 settings.defaultContext = {
 	"1 sentence" : "1 sentence"
 };
+settings.spContext = {
+	"1 sentence" : "1 sentence",
+	"1 paragraph" : "1 paragraph"
+};
 settings.defaultWithin = {
 	"sentence" : "sentence"	
+};
+settings.spWithin = {
+	"sentence" : "sentence",
+	"paragraph" : "paragraph"
 };
 
 settings.defaultLanguage = "fi";
@@ -31,10 +39,37 @@ settings.defaultOptions = {
 	"is" : "is",
 	"is_not" : "is_not",
 	"starts_with" : "starts_with",
+	"contains" : "contains",
 	"ends_with" : "ends_with",
 	"matches" : "matches"
 };
-settings.liteOptions = $.exclude(settings.defaultOptions, ["starts_with", "ends_with", "matches"]);
+
+settings.getTransformFunc = function(type, value, opt) {
+	c.log("getTransformFunc", type, value);
+	
+	if(type == "word" && !value) return function() {return "";};
+	
+	if(type == "date_interval") {
+		
+		var from = value[0].toString() + "0101";
+		var to = value[1].toString() + "1231";
+		
+		var operator1 = ">=", operator2 = "<=", bool = "&";
+		if(opt == "is_not") {
+			operator1 = "<";
+			operator2 = ">";
+			bool = "|";
+		}
+		
+		return function() {
+			return $.format("(int(_.text_datefrom) %s %s %s int(_.text_dateto) %s %s)", 
+					[operator1, from, bool, operator2, to]);
+		};
+	
+	}
+};
+
+settings.liteOptions = $.exclude(settings.defaultOptions, ["starts_with", "contains", "ends_with", "matches"]);
 
 var attrs = {};  // positional attributes
 var sattrs = {}; // structural attributes
@@ -424,18 +459,6 @@ sattrs.para_type = {
 };
 
 
-var within = {
-	"defaultStruct" : {
-		"sentence" : "sentence"
-	}
-};
-
-var context = {
-	"defaultAligned" : {
-		"1 sentence" : "1 sentence"
-	}
-};
-
 /*
  * FOLDERS
  */
@@ -485,7 +508,8 @@ settings.corpora.testcorpus = {
     title : "The Korp Test Corpus",
     description : "A test corpus for testing Korp.",
     id : "testcorpus",
-    within : {"sentence" : "sentence"},
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
     attributes : {
         pos : attrs.pos
     },
@@ -498,7 +522,8 @@ settings.corpora.testcorp = {
     title : "Testikorpus",
     description : "Testikorpus Korpin ominaisuuksien testaamiseksi",
     id : "testcorp",
-    within : {"sentence" : "sentence"},
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
     attributes : {
 	lemma : attrs.baseform,
         pos : attrs.pos
@@ -511,7 +536,8 @@ settings.corpora.ftb2 = {
     title : "FinnTreeBank 2",
     description : "Finnish tree bank, version 2",
     id : "ftb2",
-    within : {"sentence" : "sentence"},
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
     attributes : {
 	lemma : attrs.baseform_ftb2,
         pos : attrs.pos_ftb2,
@@ -541,7 +567,8 @@ settings.corpora.ftb3 = {
     title : "FinnTreeBank 3",
     description : "Finnish tree bank, version 3: EuroParl, JRC Acquis",
     id : "ftb3",
-    within : {"sentence" : "sentence"},
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
     attributes : {
 	lemma : attrs.baseform_ftb2,
 	lemmacomp : attrs.baseform_compound,
@@ -577,7 +604,8 @@ settings.corpora.metsatalo = {
     title : "Reitti A-siipeen",
     description : "Reitti (Metsätalon) A-siipeen: videon yleiskielistetty litteraatti",
     id : "metsatalo",
-    within : {"sentence" : "sentence"},
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
     attributes : {
 	lemma : attrs.baseform_ftb2,
         pos : attrs.pos_ftb2,
@@ -597,7 +625,8 @@ settings.corpora.kotus_klassikot = {
     title : "Suomen kielen klassikoita -korpus",
     description : "Suomen kielen klassikoita",
     id : "kotus_klassikot",
-    within : {"sentence" : "sentence"},
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
     attributes : {
     },
     struct_attributes : {
@@ -636,7 +665,8 @@ settings.corpora.ns_presidentti = {
     title : "Tasavallan presidenttien uudenvuodenpuheita",
     description : "Tasavallan presidenttien uudenvuodenpuheita (1935–2006)",
     id : "ns_presidentti",
-    within : {"sentence" : "sentence"},
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
     attributes : {
 	lemma : attrs.baseform,
 	lemmacomp : attrs.baseform_compound,
@@ -672,7 +702,8 @@ settings.corpora.ns_saadokset = {
     title : "Lakeja ja direktiivejä",
     description : "Lakeja ja direktiivejä vuosilta 2002–2003",
     id : "ns_saadokset",
-    within : {"sentence" : "sentence"},
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
     attributes : {
 	lemma : attrs.baseform,
 	lemmacomp : attrs.baseform_compound,
@@ -733,7 +764,8 @@ settings.corpora.kotus_sananparret = {
     title : "Sananparsikokoelma",
     description : "Suomen murteiden Sananparsikokoelma (1930-luvulta)",
     id : "kotus_sananparret",
-    within : {"sentence" : "sentence"},
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
     attributes : {
     },
     struct_attributes : {
@@ -855,7 +887,8 @@ settings.corpora.la_murre = {
     title : "Murrekorpus",
     description : "Lauseopin arkiston murrekorpus",
     id : "la_murre",
-    within : {"sentence" : "sentence"},
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
     attributes : {
 	lemma : attrs.baseform,
         pos : attrs.pos_la,
@@ -941,7 +974,6 @@ settings.arg_groups = {
 
 
 settings.reduce_stringify = function(type) {
-	c.log("reduce_stringify", type)
 	function filterCorpora(rowObj) {
 		return $.grepObj(rowObj, function(value, key) {
 			return key != "total_value" && $.isPlainObject(value);
@@ -957,82 +989,99 @@ settings.reduce_stringify = function(type) {
 		});
 		return corpora;
 	}
-
+	
+	function appendDiagram(output, corpora, value) {
+		if(corpora.length > 1)
+			return output + $.format('<img id="circlediagrambutton__%s" src="img/stats2.png" class="arcDiagramPicture"/>', value);
+		else
+			return output;
+	}
+	var output = "";
 	switch(type) {
 	case "word":
 	case "lemma":
 	case "lemmacomp":
 		return function(row, cell, value, columnDef, dataContext) {
-			
 			var corpora = getCorpora(dataContext);
+			if(value == "&Sigma;") return appendDiagram(value, corpora, value);
 			
 			var query = $.map(dataContext.hit_value.split(" "), function(item) {
 			    return "[" + type + "=" + '"' + item + '"]';
 			}).join(" ");
 			
-			c.log("config query", query, encodeURIComponent(query),
-			      corpora)
-			var output = $.format("<span class='link' data-query='%s' data-corpora='%s'>" + value + "</span>", 
-					[encodeURIComponent(query), $.toJSON(corpora)]);
-			if(corpora.length > 1)
-				output += $.format('<img id="circlediagrambutton__%s" src="img/stats2.png" class="arcDiagramPicture"/>', value);
-			return output;
+			output = $("<span>", 
+					{
+					"class" : "link", 
+					"data-query" : encodeURIComponent(query), 
+					"data-corpora" : $.toJSON(corpora)
+					}).text(value).outerHTML();
+			return appendDiagram(output, corpora, value);
+			 
 		}; 
+		
 	case "pos":
 		return function(row, cell, value, columnDef, dataContext) {
-			if(value == "&Sigma;") return value;
 			var corpora = getCorpora(dataContext);
+			if(value == "&Sigma;") return appendDiagram(value, corpora, value);
 			var query = $.map(dataContext.hit_value.split(" "), function(item) {
 				return $.format('[pos="%s"]', item);
 			}).join(" ");
-			return $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ", 
+			output =  $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ", 
 					[query, $.toJSON(corpora), value, util.getLocaleString("pos_" + value)]);
+			return appendDiagram(output, corpora, value);
 		};
 	case "lex":
 		return function(row, cell, value, columnDef, dataContext) {
-		if(value == "&Sigma;") return value;
-			return _.chain(value.split("|"))
+		var corpora = getCorpora(dataContext);
+		if(value == "&Sigma;") return appendDiagram(value, corpora, value);
+		output = _.chain(value.split("|"))
 				.filter(Boolean)
 				.map(function(item) {
 					return util.lemgramToString(item, true);
 				})
 				.value().join(", ");
+		return appendDiagram(output, corpora, value);
 		};
 	case "prefix":
 	case "suffix":
 	case "saldo":
 		return function(row, cell, value, columnDef, dataContext) {
-		if(value == "&Sigma;") return value;
-			return _.chain(value.split("|"))
+		var corpora = getCorpora(dataContext);
+		if(value == "&Sigma;") return appendDiagram(value, corpora, value);
+		output = _.chain(value.split("|"))
 				.filter(Boolean)
 				.map(function(item) {
 					return util.saldoToString(item, true);
 				})
 				.value().join(", ");
+		return appendDiagram(output, corpora, value);
 		};
 	case "deprel":
 		return function(row, cell, value, columnDef, dataContext) {
-		if(value == "&Sigma;") return value;
-		var corpora = getCorpora(dataContext);
-		var query = $.map(dataContext.hit_value.split(" "), function(item) {
-			return $.format('[deprel="%s"]', item);
-		}).join(" ");
-		return $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ", 
-				[query, $.toJSON(corpora), value, util.getLocaleString("deprel_" + value)]);
-	};
+			var corpora = getCorpora(dataContext);
+			if(value == "&Sigma;") return appendDiagram(value, corpora, value);
+			var query = $.map(dataContext.hit_value.split(" "), function(item) {
+				return $.format('[deprel="%s"]', item);
+			}).join(" ");
+			var output = $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ", 
+					[query, $.toJSON(corpora),"deprel_" + value, util.getLocaleString("deprel_" + value)]);
+			return appendDiagram(output, corpora, value);
+			
+		};
 	default:
 		return function(row, cell, value, columnDef, dataContext) {
-			return value;
+			var corpora = getCorpora(dataContext);
+			if(value == "&Sigma;") return appendDiagram(output, corpora, value);
+			return appendDiagram(output, corpora, value);;
 		};
 	}
 	
-	
+	return output;
 };
 
 
 delete attrs;
 delete sattrs;
-delete within;
 delete context;
 delete ref;
 
@@ -1071,20 +1120,20 @@ var CorpusListing = new Class({
 	},
 	// takes an array of mapping objs and returns their intersection
 	_mapping_intersection : function(mappingArray) {
-		return $.reduce(mappingArray, function(a,b) {
+		return _.reduce(mappingArray, function(a,b) {
 			var output = {};
-			$.each(a, function(key, value) {
+			$.each(b, function(key, value) {
 				if(b[key] != null)
 					output[key] = value;
 			});
 			return output;
-		});
+		}, {});
 	},
 
 	_mapping_union : function(mappingArray) {
-		return $.reduce(mappingArray, function(a, b) {
+		return _.reduce(mappingArray, function(a, b) {
 			return $.extend({}, a, b);
-		}) || {};
+		}, {});
 	},
 
 	getCurrentAttributes : function() {
@@ -1102,8 +1151,27 @@ var CorpusListing = new Class({
 			});
 			return corpus.struct_attributes;
 		});
+		var rest = this._invalidateAttrs(attrs);
 		
-		return this._invalidateAttrs(attrs);
+		// fix for combining dataset values
+		var withDataset = _.filter(_.pairs(rest), function(item) {
+			return item[1].dataset;
+		});
+		
+		$.each(withDataset, function(i, item) {
+			var key = item[0];
+			var val = item[1];
+			$.each(attrs, function(j, origStruct) {
+				
+				if(origStruct[key] && origStruct[key].dataset) {
+					var ds = origStruct[key].dataset;
+					if($.isArray(ds))
+						ds = _.object(ds, ds);
+					$.extend(val.dataset, ds);
+				}
+			});
+		});
+		return $.extend(rest, _.object(withDataset));
 	},
 
 	_invalidateAttrs : function(attrs) {
@@ -1129,7 +1197,35 @@ var CorpusListing = new Class({
 		.invoke("toUpperCase")
 		.value().join(",");
 	},
+	
+	getAttrIntersection : function(attr) {
 		
+		var struct = _.map(this.selected, function(corpus) {
+			return _.keys(corpus[attr]);
+		});
+		return _.intersection.apply(null, struct);
+	},
+	
+	getAttrUnion : function(attr) {
+		var struct = _.map(this.selected, function(corpus) {
+			return _.keys(corpus[attr]);
+		}); 
+		return _.union.apply(null, struct);
+	},
+	
+	getContextQueryString : function() {
+		return $.grep($.map(_.pluck(settings.corpusListing.selected, "id"), function(id) {
+			if("1 paragraph" in settings.corpora[id].context)
+				return id.toUpperCase() + ":1 paragraph";
+		}), Boolean).join();
+	},
+	getWithinQueryString : function() {
+		return $.grep($.map(_.pluck(settings.corpusListing.selected, "id"), function(id) {
+			if("paragraph" in settings.corpora[id].within)
+				return id.toUpperCase() + ":paragraph";
+		}), Boolean).join();
+	}
+	
 });
 
 
@@ -1153,7 +1249,6 @@ var ParallelCorpusListing = new Class({
 	},
 	
 	select : function(idArray) {
-		c.log("select", idArray)
 		var self = this;
 		this.selected = [];
 		$.each(idArray, function(i, id) {
@@ -1179,6 +1274,9 @@ var ParallelCorpusListing = new Class({
 		var struct = _.reduce(corpora, function(a, b) {
 			return $.extend({}, a.struct_attributes, b.struct_attributes);
 		},{});
+		$.each(struct, function(key, val) {
+			val["isStructAttr"] = true;
+		});
 		return struct;
 	},
 	

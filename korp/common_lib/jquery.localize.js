@@ -48,8 +48,10 @@
 			var key = elem.attr("rel").match(/localize\[(.*?)\]/)[1];
 			var value = valueForKey(key, data);
 			var prefix = valueForKey($(this).data("locPrefix"), data) || "";
+			var suffix = valueForKey($(this).data("locSuffix"), data) || "";
 			if(prefix) prefix += ": "; 
-			value = prefix + value;
+			value = prefix + value + suffix;
+			
 			if (elem.is('input')) {
 				elem.val(value);
 			} else if (elem.is('optgroup')) {
@@ -60,6 +62,9 @@
 				elem.find(":selected").text(value + ": " + elem.find(":selected").val());
 			} 
 			else {
+				if(elem.is("option[data-loc-title]")) {
+					elem.attr("title", valueForKey(elem.data("locTitle"), data));
+				}
 				elem.html(value);
 			}
 		});

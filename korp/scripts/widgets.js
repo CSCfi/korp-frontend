@@ -289,11 +289,16 @@ var Sidebar = {
 		this.element.css("display", oldDisplay);
 	},
 	
-	_parseLemma : function(attr) {
+	_parseLemma : function(attr, tmplVal) {
+		c.log("parseLemma", attr, tmplVal);
 		var seq = [];
 		if(attr != null) {
 			seq = $.map(attr.split("|"), function(item) {
-				return item.split(":")[0];
+				var lemma = item.split(":")[0];
+				if(tmplVal.pattern)
+					return $.format(tmplVal.pattern, [lemma, lemma]);
+				else 
+					return lemma;
 			});
 		}
 		seq = $.grep(seq, function(itm) {
@@ -341,9 +346,68 @@ var Sidebar = {
 		.find("li")
 		.each(function(i, item){
 			var id = saldoidArray[i].match(util.saldoRegExp).slice(1,3).join("..");
-			$(item).wrap($.format("<a href='http://spraakbanken.gu.se/karp/#search=sense|%s&lang=%s' target='_blank' />", [id, $.bbq.getState("lang") || "sv"]));
+			$(item).wrap($.format("<a href='http://spraakbanken.gu.se/karp/#search-tab=1&search=cql|(saldo+%3D+\"%s\")&lang=\%s' target='_blank' />",
+					[id, $.bbq.getState("lang") || "sv"]));
 		})
 		.hoverIcon("ui-icon-extlink");
+		
+		
+		// hacked in at the last minute
+		
+		
+		var fsvbase = $("#sidebar_fsvbaseform"); 
+		var labelArray = $.grep(fsvbase.text().split("|"), Boolean).sort();
+
+		fsvbase.html($.arrayToHTMLList(labelArray))
+		.find("li")
+		.each(function(i, item){
+			$(this).wrap($.format('<a href="http://spraakbanken.gu.se/karp/#search=cql%7Cgf%7C%s" target="_blank" />', $(this).text()));
+		})
+		.hoverIcon("ui-icon-extlink");
+		
+		function getStringVal(str) {
+			return _.reduce(_.invoke(_.invoke(str, "charCodeAt", 0), "toString"), function(a,b) {return a + b});
+		}
+		
+		$("#sidebar_fsvlemgram,#sidebar_fsvvariants").each(function() {
+			
+			var saldoidArray = $.grep($(this).text().split("|"), function(itm) {
+				return itm && itm.length;  
+			}).sort(function(a, b) {
+				var splita = util.splitLemgram(a);
+				var splitb = util.splitLemgram(b);
+				var strvala = getStringVal(splita[0]) + getStringVal(splita[1]) + splita[2]; 
+				var strvalb = getStringVal(splitb[0]) + getStringVal(splitb[1]) + splitb[2]; 
+								
+				return parseInt(strvala) - parseInt(strvalb);
+				
+			});
+			var saldolabelArray = util.sblexArraytoString(saldoidArray, util.lemgramToString);
+
+			$(this).html($.arrayToHTMLList(saldolabelArray))
+			.find("li")
+			.each(function(i, item){
+				$(this).wrap($.format('<a href="http://spraakbanken.gu.se/karp/#search=lemgram%7Cfsvm:%s" target="_blank" />', saldoidArray[i] )); 
+			})
+			.hoverIcon("ui-icon-extlink");
+			
+			
+			
+			
+			
+//			var labelArray = $.grep($(this).text().split("|"), Boolean).sort();
+//			
+//			$(this).html($.arrayToHTMLList(labelArray))
+//			.find("li")
+//			.each(function(i, item){
+//				var label = util.lemgramToString($(this).text());
+//				$(this).wrap($.format('<a href="http://spraakbanken.gu.se/karp/#search=lemgram%7C%s" target="_blank">%s</a>', 
+//						[$(this).text().split("..")[0], label] ));
+//			})
+//			.hoverIcon("ui-icon-extlink");
+			
+		});
+		
 	},
 	
 	refreshContent : function(mode) {
@@ -408,7 +472,6 @@ var ExtendedToken = {
 	_init : function() {
 		var self = this;
 		this.table = this.element;
-		
         this.element.find(".ui-icon-circle-close") //close icon
         .click(function() {
         	if($(this).css("opacity") === "0") return;
@@ -428,17 +491,47 @@ var ExtendedToken = {
         	},
         	text : false
         }).click(function() {
-        	if(repeat.filter(":animated").length) return; 
-			repeat.toggle("slide", {direction : 'right'}, function() {
-    		
-    		self._trigger("change");
-    	});
+        	if($("#opt_menu").is(":visible")) {
+        		return;
+        	}
+        	$("#opt_menu").show().menu({
+        	})
+        	.one("click", function(evt) {
+        		c.log("click", evt.target );
+        		if(!$(evt.target).is("a")) return;
+        		var item = $(evt.target).data("item");
+        		self.element.toggleClass(item);
+        		self._trigger("change");
+        	})
+        	.position({
+        		my : "right top",
+        		at : "right bottom",
+        		of : this
+        	});
+        	$("body").one("click", function() {
+        		$("#opt_menu").hide();
+        	});
         	
-        }).next().hide().find("input").change(function() {
+        	return false;
+        });
+        this.element.find(".close_token .ui-icon").click(function() {
+        	var item = $(this).closest(".close_token").data("item");
+        	self.element.toggleClass(item);
+        	self._trigger("change");
+        });
+        this.element.find(".repeat input").change(function() {
         	self._trigger("change");
         });
         
 	},
+	
+//	toggleRange : function() {
+//		if(repeat.filter(":animated").length) return; 
+//		repeat.toggle("slide", {direction : 'right'}, function() {
+//			self._trigger("change");
+//		});
+//		
+//	},
 	
 	insertArg : function(animate) {
 		c.log("insertArg");
@@ -469,7 +562,7 @@ var ExtendedToken = {
 		var arg_select = this.makeSelect();
 		
 		var arg_value = this.makeWordArgValue();
-		
+		arg_value.attr("data-placeholder", "any_word_placeholder");
 		var link_mod = $("<span class='val_mod sensitive'>").text("Aa")
 		.click(function() {
 			var btn = $(this);
@@ -605,7 +698,7 @@ var ExtendedToken = {
 		var self = this;
 		return $("<input type='text'/>")
 		.addClass("arg_value")
-		.attr("data-placeholder", "any_word_placeholder")
+		
 		.keyup(function() {
 			if($(this).val() == "") {
 //				$(this).closest(".query_arg").addClass("word_empty");
@@ -635,19 +728,32 @@ var ExtendedToken = {
 		switch(data.displayType) {
 		case "select":
 			arg_value = $("<select />");
-			var keys = $.keys(data.dataset).sort(function(a, b) {
+			
+			function sorter(a, b) {
+				if(data.localize === false) return a > b;
 				var prefix = data.translationKey || "";
 				return util.getLocaleString(prefix + a) >= util.getLocaleString(prefix + b) ? 1 : -1;
-			});
+			}
+			var keys;
+			if($.isArray(data.dataset)) {
+				keys = data.dataset;
+			} else {
+				keys = _.keys(data.dataset);
+			}
+			keys.sort(sorter);
+			
+			
 			
 			$.each(keys, function(_, key) {
-				$("<option />")
-				.localeKey((data.translationKey || "") + data.dataset[key])
-				.val(key).appendTo(arg_value);
+				var opt = $("<option />")
+				.val(regescape(key)).appendTo(arg_value);
+				if(data.localize === false)
+					opt.text(key);
+				else
+					opt.localeKey((data.translationKey || "") + data.dataset[key])
 			});
 			break;
 		case "autocomplete":
-			c.log("displayType autocomplete");
 			var type, labelFunc, sortFunc;
 			if(data.label == "saldo") {
 				type = "saldo";
@@ -691,10 +797,52 @@ var ExtendedToken = {
 				}, 100);
 			});
 			break;
-		case "date":
-			// at some point, fix this.
+		case "date_interval":
+			c.log(_.pluck(settings.corpusListing.selected, "time"));
+			var all_years = _.chain(settings.corpusListing.selected)
+				.pluck("time")
+				.map(_.pairs)
+				.flatten(true)
+				.filter(function(tuple) {
+					return tuple[0] && tuple[1];
+				})
+				.map(_.compose(Number, _.head))
+				.value();
+			
+			c.log('all', all_years);
+			var start = Math.min.apply(null, all_years);
+			var end = Math.max.apply(null, all_years);
+			
+			arg_value = $("<div>");
+			arg_value.data("value", [start, end]);
+			var from = $("<input type='text' class='from'>").val(start);
+			var to = $("<input type='text' class='to'>").val(end);
+			
+			var slider = $( "<div />" ).slider({
+				range: true,
+				min: start,
+				max: end,
+				values: [ start, end ],
+				slide : function(event, ui) {
+					from.val(ui.values[0]);
+					to.val(ui.values[1]);
+				},
+				change : function(event, ui) {
+					$(this).data("value", ui.values);
+					arg_value.data("value", ui.values);
+					self._trigger("change");
+				}
+			});
+			from.add(to).keyup(function() {
+				self._trigger("change");
+				
+			});
+			arg_value.append(slider, from, to);
+			break;
 		default:
 			arg_value = this.makeWordArgValue();
+			if(data.label == "word")
+				arg_value.attr("data-placeholder", "any_word_placeholder");
 			util.localize(arg_value);
 			break;
 		} 
@@ -760,6 +908,7 @@ var ExtendedToken = {
 //	    var query = {token: []};
 		var output = "";
 	    var args = {};
+	    var annoVals = [];
 	    andSection.find(".or_arg").each(function(){
 	        var type = $(this).find(".arg_type").val();
 	        var data = $(this).find(".arg_type :selected").data("dataProvider");
@@ -778,7 +927,11 @@ var ExtendedToken = {
 	        	opt : opt,
 	        	case_sens : case_sens
         	});
+	        if(currentMode == "law") {
+	        	annoVals.push(getAnnotationRank(type));
+	        }
 	    });
+	    var minAnno = Math.min.apply(null, annoVals);
 	    
 	    var inner_query = [];
 	    $.sortedEach(args, function(type, valueArray) {
@@ -790,33 +943,56 @@ var ExtendedToken = {
 	    			var prefix = obj.data.isStructAttr != null ? "_." : "";
 	    			var formatter = op == "matches" || obj.data.displayType == "select" ? function(arg) {return arg;} : regescape;
 	    			var value = formatter(s);
-	    			op = {
-	    					"is" : [operator, "", value, ""],
-	    					"is_not" : [not_operator, "", value, ""],
-	    					"starts_with" : ["=", "", value, ".*"],
-	    					"ends_with" : ["=", ".*", value, ""],
-	    					"matches" : ["=", "", value, ""]
+	    			function getOp(value) {
+	    				return {
+	    						"is" : [operator, "", value, ""],
+	    						"is_not" : [not_operator, "", value, ""],
+	    						"starts_with" : ["=", "", value, ".*"],
+	    						"contains" : ["=", ".*", value, ".*"],
+	    						"ends_with" : ["=", ".*", value, ""],
+	    						"matches" : ["=", "", value, ""]
 	    				}[op];
-	    			return $.format('%s%s %s "%s%s%s"%s', [prefix, type].concat(op, [obj.case_sens]));
+	    			}
+	    			function stringify(value) {
+	    				return $.format('%s%s %s "%s%s%s"%s', [prefix, type].concat(getOp(value), [obj.case_sens]));
+	    			}
+	    			
+	    			if(currentMode == "law") {
+	    				c.log('currentRank', getAnnotationRank(type));
+	    				if(getAnnotationRank(type) > minAnno) {
+	    					// TODO: continue here.
+//	    					return $.format("(%s)", [stringify(value), stringify("")].join(" | "));
+	    				}
+	    			} 
+    				return stringify(value);
+	    			
+	    			
 	    		};
 	    		var argFunc;
-	    		if(type == "word" && !obj.value) {
-	    			argFunc = function() {return "";};
-	    		}
-	    		else
-	    			argFunc = defaultArgsFunc; 
+//	    		if(type == "word" && !obj.value) {
+//	    			argFunc = function() {return "";};
+//	    		}
+//	    		else
+    			argFunc = settings.getTransformFunc(type, obj.value, obj.opt) || defaultArgsFunc; 
 	    		inner_query.push(argFunc(obj.value, obj.opt || settings.defaultOptions));
 	    	});
 	    	
 	    }, function(a, b) { // sort function for key order
 	    	return 1 - ($.inArray(a, settings.cqp_prio) - $.inArray(b, settings.cqp_prio)); 
 	    });
+	    
 	    if (inner_query.length > 1) {
 	    	output = "(" + inner_query.join(" | ") + ")";
 	    } else {
 	    	output = inner_query.join(" | ");
 	    }
-	    return output;
+	    var bound = [];
+	    if(this.element.is(".lbound_item")) bound.push("lbound(sentence)")
+	    if(this.element.is(".rbound_item")) bound.push("rbound(sentence)")
+	    var boundprefix = " & ";
+	    if(output == "") boundprefix = "";
+	    var boundStr = bound.length ? boundprefix + bound.join(" & ") : "";
+	    return output + boundStr;
 	},
 	
 	getCQP : function() {
@@ -838,7 +1014,6 @@ var ExtendedToken = {
 		}
 		
 		return "[" + output.join(" & ") + "]" + suffix; 
-//		return $.format("[%s]%s", [output.join(" & "), suffix]); 
 	}
 };
 $.widget("ui.sidebar", Sidebar);

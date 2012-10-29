@@ -10,9 +10,10 @@
 	"parallel_texts" : "Parallel",
 	"faroese_texts" : "Faroese",
 	"old_swedish_texts" : "Old Swedish",
-	"1800_texts" : "19th century",
+	"1800_texts" : "Biblical texts",
 	"lb_texts" : "Litteraturbanken",
 	"siberian_texts" : "Siberian German",
+	"lawroom" : "Habeas Corpus",
 	"search_history" : "Search history",
 	"about" : "About Korp",
 	"about_body" : "Korp is the concordance search tool of Språkbanken (The Swedish Language Bank). For more information, comments or suggestions, <a href='mailto:sb-info@svenska.gu.se'>contact us</a>.",
@@ -31,8 +32,14 @@
 	"min" : "at least",
 	"and" : "and",
 	"or" : "or",
-	"show_reading" : "Show reading mode",
+	"show_reading" : "Show context",
     "show_kwic" : "Show KWIC",
+    "log_in" : "Log in",
+    "username" : "Username",
+    "password" : "Password",
+    "login_fail_msg" : "Authentication failed, please check your username and password and try again.",
+    "send" : "Send",
+    "log_out" : "Log out",
 	
 	"is" : "is", 
 	"is_not" : "is not",
@@ -47,6 +54,7 @@
 	"word_is" : "word is",
 	"word_is_not" : "word is not",
 	"word_beginswith" : "word begins with",
+	"contains" : "innehåller",
 	"word_endswith" : "word ends with",
 	"matches_regexp" : "regular expression",
 	"wordclass_is" : "word class is",
@@ -57,6 +65,9 @@
 	"repeat" : "Repeat",
 	"to" : "to",
 	"times" : "times",
+	
+	"sent_start" : "Sentence start",
+    "sent_end" : "Sentence end",
 	
 	"none_selected" : "&lt;none selected&gt;",
 	
@@ -81,6 +92,13 @@
 	"lemgram_results" : "Word picture",
 	"kwic" : "KWIC",
 	"sort_default" : "sort within corpora",
+	"within" : "within",
+	"context" : "contex",
+	"only_support" : "Only for supported corpora.",
+	"no_context_support" : "does not support extended context",
+	"within_sentence" : "sentence",
+    "within_paragraph" : "up to paragraph",
+    "asterix" : "*",
 	"appearance_context" : "not sorted",
 	"word_context" : "matched word(s)",
 	"left_context" : "left context",
@@ -89,7 +107,9 @@
 	"autocomplete_header" : "is a word form in",
 	"no_lemgram_results" : "No examples found.",
 	"no_stats_results" : "The search generated no results.",
-	
+    
+    
+    "word_insensitive" : "word (case insensitive)",	
 	"sentence_attr" : "text attributes",
 	"word_attr" : "word attributes",
 	
@@ -125,6 +145,12 @@
 	"corpselector_corporawith_sing" : "corpus with",
 	"corpselector_corporawith_plur" : "corpora with",
 	"corpselector_lastupdate" : "Last update",
+	"corpselector_supports" : "Supports extended context.",
+	"corpselector_limited" : "The corpus is protected.",
+	"corpselector_time" : "Material dated",
+	"corpselector_rest_time" : "Undated material",
+	"corpselector_time_chosen" : "Selected material",
+    "corpselector_of_total" : "of total",
 	
 	"statstable_allcorpora" : "All&nbsp;corpora",
 	"statstable_relfreq" : "relative frequency (per million words):",

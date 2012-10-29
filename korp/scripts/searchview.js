@@ -56,8 +56,21 @@ view.enableSearch = function(bool) {
 };
 
 view.initSearchOptions = function() {
-	$("#num_hits,.sort_select").customSelect();
+	var selects = $("#search_options > div:first select").customSelect();
 	view.updateReduceSelect();
+//	view.updateContextSelect("within");
+//	view.updateContextSelect("context");
+	$("#search_options select").each(function() {
+		var state = $.bbq.getState($(this).data("history"));
+		if(!!state) {
+			$(this).val(state)
+			.change();
+		} else {
+			$(this).prop("selectedIndex", 0)
+			.change();
+		}
+	});
+	
 	
 	$("#search_options").css("background-color", settings.primaryLight)
 	.change(function(event) {
@@ -68,32 +81,62 @@ view.initSearchOptions = function() {
 		
 		var state = {};
 		state[target.data("history")] = target.val();
-		$.bbq.pushState(state);
-	})
-	.find("select")
-	.each(function() {
-		var state = $.bbq.getState($(this).data("history"));
-		if(!!state) {
-			$(this).val(state)
-			.change();
-		} else {
-			$(this).prop("selectedIndex", 0)
-			.change();
-		}
+		if(target.prop("selectedIndex") != 0)
+			$.bbq.pushState(state);
+		else 
+			$.bbq.removeState(target.data("history"));
 	});
+	
+};
+
+view.updateContextSelect = function(withinOrContext) {
+	var intersect = settings.corpusListing.getAttrIntersection(withinOrContext);
+	var union = settings.corpusListing.getAttrUnion(withinOrContext);
+	var opts = $("." + withinOrContext + "_select option");
+	opts.data('locSuffix', null).attr("disabled", null).removeClass("limited");
+//	if(union.length == 2 && intersect.length == 2) {
+		// all support enhanced context
+	if(union.length > intersect.length) {
+		// partial
+		opts.each(function() {
+			if($.inArray($(this).attr("value"), intersect) == -1) {
+				$(this).addClass("limited").data("locSuffix", "asterix")
+				
+			}
+			
+		});
+		
+		
+	} else if(union.length == 1 && intersect.length == 1) {
+		// none support
+		
+		opts.each(function() {
+			if($.inArray($(this).attr("value"), intersect) != -1) 
+				$(this).attr("disabled", null);
+			else 
+				$(this).attr("disabled", "disabled").parent().val("sentence").change();
+		});
+	}
+	$("." + withinOrContext + "_select").localize();
 };
 
 view.updateReduceSelect = function() {
-	var groups = $.extend({word : {word : {label : "word"}}}, {
+	var groups = $.extend({
+		word : { 
+			word : {label : "word"},
+			word_insensitive : {label : "word_insensitive"}
+		}},	
+		{
 		"word_attr" : settings.corpusListing.getCurrentAttributes(),
 		"sentence_attr" : $.grepObj(settings.corpusListing.getStructAttrs(), function(val, key) {
+							 if(val.displayType == "date_interval") return false;
 							 return val.disabled !== true;
 						  })
 		});
-	
 	var prevVal = $("#reduceSelect select").val();
 	var select = util.makeAttrSelect(groups);
 	$("#reduceSelect").html(select);
+	c.log("updateReduceSelect", groups, select);
 	
 	select.attr("data-history", "stats_reduce")
 	.attr("data-prefix", "reduce_text")

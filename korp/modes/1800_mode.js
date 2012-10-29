@@ -18,7 +18,8 @@ settings.corpora.bibel1917 = {
 	id : "bibel1917",
 	title : "Bibeln 1917",
 	description : "",
-	within : within.defaultStruct,
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
 	attributes : {
 		pos : attrs.pos,
 		msd : attrs.msd,
@@ -32,17 +33,10 @@ settings.corpora.bibel1917 = {
 		ref : attrs.ref,
 	},
 	struct_attributes : {
-		"text_title" : {
-			label : "title"
-		},
-                "paragraph_chap" : {label : "chapter"},
-                "verse_n" : {label : "verse"},
-		"text_datefrom" : {
-			label : "year_from"
-		},
-		"text_dateto" : {
-			label : "year_to"
-		}
+		"text_title" : {label : "title"},
+        "chapter_name" : {label : "chapter"},
+        "verse_name" : {label : "verse"},
+		"text_date" : {label : "year"}
 	}
 };
 
@@ -50,7 +44,8 @@ settings.corpora.bibel1873 = {
 	id : "bibel1873",
 	title : "Bibeln 1873",
 	description : "",
-    within : within.defaultStruct,
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
 	attributes : {
 		pos : attrs.pos,
 		msd : attrs.msd,
@@ -64,31 +59,25 @@ settings.corpora.bibel1873 = {
 		ref : attrs.ref
 	},
 	struct_attributes : {
-		"text_title" : {
-			label : "title"
-		},
-        "paragraph_chap" : {label : "chapter"},
-		"text_datefrom" : {
-			label : "year_from"
-		},
-		"text_dateto" : {
-			label : "year_to"
-		}
+		"text_title" : {label : "title"},
+        "chapter_name" : {label : "chapter"},
+        "verse_name" : {label : "verse"},
+		"text_date" : {label : "year"}
 	}
 };
+
 settings.corpora.bibel1873dalin = {
 	id : "bibel1873dalin",
 	title : "Bibeln 1873 (Dalin)",
 	description : "Annoterad med Dalin",
-	within : within.defaultStruct,
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
 	attributes : {
 		pos : attrs.pos,
 		msd : attrs.msd,
 		lemma    : attrs.baseform,
-		dalinlem : {label : "lemgram",
-                            type  : "set"},
-		saldolem : {label : "modern",
-                            type  : "set"},
+		dalinlem : {label : "lemgram", type  : "set"},
+		saldolem : {label : "modern", type  : "set"},
 		prefix : attrs.prefix,
 		suffix : attrs.suffix,
 		dephead : attrs.dephead,
@@ -97,17 +86,10 @@ settings.corpora.bibel1873dalin = {
 		
 	},
 	struct_attributes : {
-		"text_title" : {
-			label : "title"
-		},
-        "paragraph_chap" : {label : "chapter"},
-		"text_datefrom" : {
-			label : "year_from"
-		},
-		"text_dateto" : {
-			label : "year_to"
-		},
-		"verse_n" : {label : "verse"}
+		"text_title" : {label : "title"},
+        "chapter_name" : {label : "chapter"},
+		"verse_name" : {label : "verse"},
+		"text_date" : {label : "year"}
 	}
 };
 
