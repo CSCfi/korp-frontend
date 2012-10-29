@@ -1,6 +1,5 @@
 var currentMode;
 
-
 (function(){
 	var t = $.now();
 //	if(window.console == null) window.console = {"log" : $.noop};
@@ -27,20 +26,32 @@ var currentMode;
 		
 	}).promise();
 	
-	
+	var deferred_mode = $.Deferred();
 	var deferred_domReady = $.Deferred(function( dfd ){
-		$(dfd.resolve);
+		$(function() {
+			
+			var mode = $.deparam.querystring().mode;
+			if(mode != null && mode != "default") {
+				$.getScript($.format("modes/%s_mode.js", mode), function() {
+					deferred_mode.resolve();
+					dfd.resolve();
+				});
+			} else {
+				deferred_mode.resolve();
+				dfd.resolve();
+			}
+		});
 	}).promise();
 	
-	var deferred_mode = $.Deferred();
-	var mode = $.deparam.querystring().mode;
-	if(mode != null && mode != "default") {
-		deferred_mode = $.getScript($.format("modes/%s_mode.js", mode));
-	} else {
-		deferred_mode.resolve();
-	}
-	
-    var chained = deferred_mode.pipe(function() {
+//	var deferred_mode = $.Deferred();
+//	var mode = $.deparam.querystring().mode;
+//	if(mode != null && mode != "default") {
+//		deferred_mode = $.getScript($.format("modes/%s_mode.js", mode));
+//	} else {
+//		deferred_mode.resolve();
+//	}
+
+	var chained = deferred_mode.pipe(function() {
         return $.ajax({
 			url : settings.cgi_script,
 			data : {
@@ -60,14 +71,34 @@ var currentMode;
 	});
 	var loc_dfd = util.initLocalize();
 	
-	$.when(deferred_load, chained, deferred_domReady, deferred_sm, deferred_mode, loc_dfd).then(function(searchbar_html) {
-		$.revision = parseInt("$Rev: 57540 $".split(" ")[1]);
+	$.when(deferred_load, chained, deferred_domReady, deferred_sm, loc_dfd).then(function(searchbar_html) {
+		$.revision = parseInt("$Rev: 61111 $".split(" ")[1]);
 		c.log("preloading done, t = ", $.now() - t);
 		if(isLab) $("body").addClass("lab");
 		
 		currentMode = $.deparam.querystring().mode || "default";
+		
 		$("body").addClass("mode-" + currentMode);
 		util.browserWarn();
+		
+		
+		var from = $("#time_from");
+		var to = $("#time_to");
+		var start = 1900;
+		var end = new Date().getFullYear();
+		$("#time_slider").slider({
+			range: true,
+			min: start,
+			max: end,
+			values: [ 1982, end ],
+			slide : function(event, ui) {
+				from.val(ui.values[0]);
+				to.val(ui.values[1]);
+			},
+			change : function(event, ui) {
+				$(this).data("value", ui.values);
+			}
+		});
 		
 		$("#mode_switch").modeSelector({
             change : function() {
@@ -79,16 +110,16 @@ var currentMode;
     				location.href = location.pathname + "?mode=" + mode;
     			}
             },
-//            selected : $($.format("a[data-mode=%s]", currentMode)).index(),
             selected : currentMode,
             modes : [
                  {localekey : "modern_texts", mode : "default"},
                  {localekey : "parallel_texts", mode : "parallel"},
-                 {localekey : "faroese_texts", mode : "faroe"},
-                 {localekey : "1800_texts", mode : "1800"},
                  {localekey : "old_swedish_texts", mode : "old_swedish"},
+                 {localekey : "faroese_texts", mode : "faroe"},
+                 {localekey : "siberian_texts", mode : "siberian_german"},
+                 {localekey : "1800_texts", mode : "1800"},
                  {localekey : "lb_texts", mode : "lb"},
-                 {localekey : "siberian_texts", mode : "siberian_german"}
+                 {localekey : "lawroom", mode : "law"}
                      ]
 		}).add("#about").vAlign();
 		
@@ -137,8 +168,13 @@ var currentMode;
 		});
 
 		loadCorpora();
+		var creds = $.jStorage.get("creds");
 		
 		$.sm.start();
+		if(creds) {
+			authenticationProxy.loginObj = creds;
+			util.setLogin();
+		}
 		var tab_a_selector = 'ul.ui-tabs-nav a';
 		
 		
@@ -198,9 +234,19 @@ var currentMode;
 			$(this).triggerHandler( 'change' );
 		});
 		
+		$("#log_out").click(function() {
+			$.each(authenticationProxy.loginObj.credentials, function(i, item) {
+				$($.format(".boxdiv[data=%s]", item.toLowerCase())).addClass("disabled");
+			});
+			authenticationProxy.loginObj = {};
+			$.jStorage.deleteKey("creds");
+			$("body").toggleClass("logged_in not_logged_in");
+			$("#pass").val("");
+			$('#corpusbox').corpusChooser("redraw");
+		});
 		
 		function getAllCorporaInFolders(lastLevel, folderOrCorpus) {
-		    var outCorpora = Array();
+		    var outCorpora = [];
 		    
 		    // Go down the alley to the last subfolder
 		    while(folderOrCorpus.contains(".")) {
@@ -239,13 +285,6 @@ var currentMode;
 				return prevFragment[key] != e.getState(key);
 			}
 			
-			var hpp = e.getState("hpp", true);
-			if(hpp)
-				$(".num_hits").val(hpp);
-			if(!isInit && hasChanged("hpp")) {
-//				kwicResults.handlePaginationClick(0, null, true);
-			}
-			
 			if(hasChanged("lang")) {
 				var loc_dfd = util.initLocalize();
 				loc_dfd.done(function() {
@@ -260,20 +299,12 @@ var currentMode;
 				kwicResults.setPage(page);
 			}
 			
-//			var sort = e.getState("sort");
-//			if(isInit && sort) {
-//				kwicResults.$result.find(".sort_select").val(sort);
-//			}
-//			if(!isInit && hasChanged("sort")) {
-//				kwicResults.handlePaginationClick(0, null, true);
-//			}
-			
 			if(isInit) {
 				kwicResults.current_page = page;
 			}
 			
 			var corpus = e.getState("corpus");
-			if (corpus && corpus.length != 0 && corpus != prevFragment["corpus"]){
+			if (isInit && corpus && corpus.length != 0 && hasChanged("corpus")){
 				var corp_array = corpus.split(',');
 				var processed_corp_array = [];
 				$.each(corp_array, function(key, val) {
@@ -284,7 +315,6 @@ var currentMode;
 				$("#select_corpus").val(corpus);
 				simpleSearch.enableSubmit();
 			}
-			
 			
 			function showAbout() {
 				$("#about_content").dialog({
@@ -297,8 +327,8 @@ var currentMode;
 				$("#about_content").fadeTo(400,1);
 				$("#about_content").find("a").blur(); // Prevents the focus of the first link in the "dialog"
 			}
-			
-			if(e.getState("display") == "about") {
+			var display = e.getState("display");
+			if(display == "about") {
 				if($("#about_content").is(":empty")) {
 					$("#about_content").load("markup/about.html", function() {
 						$("#revision").text($.revision);
@@ -309,9 +339,55 @@ var currentMode;
 					showAbout();
 				}
 				
-			} else  {
-				$("#about_content").closest(".ui-dialog").fadeTo(400, 0, function() {
-					$("#about_content").dialog("destroy");
+			} else if(display == "login") {
+				$("#login_popup").dialog({
+					height : 220,
+					width : 177,
+					modal : true,
+					resizable : false,
+					create : function() {
+						$(".err_msg", this).hide();
+					},
+					open: function(){
+			            $('.ui-widget-overlay').hide().fadeIn();
+			        },
+			        beforeClose: function(){
+			            $('.ui-widget-overlay').remove();
+			            $("<div />", {
+			                'class':'ui-widget-overlay'
+			            }).css(
+			                {
+			                    height: $("body").outerHeight(),
+			                    width: $("body").outerWidth(),
+			                    zIndex: 1001
+			                }
+			            ).appendTo("body").fadeOut(function(){
+			                $(this).remove();
+			            });
+			            $.bbq.removeState("display");
+						return false;	 
+			        }
+					
+				}).show()
+				.unbind("submit")
+				.submit(function() {
+					var self = this;
+					authenticationProxy.makeRequest($("#usrname", this).val(), $("#pass", this).val())
+					.done(function(data) {
+						util.setLogin();
+						$.bbq.removeState("display");
+					}).fail(function() {
+						c.log("login fail");
+						$("#pass", self).val("");
+						$(".err_msg", self).show();
+					});
+					return false;
+				});
+				$("#ui-dialog-title-login_popup").attr("rel", "localize[log_in]");
+			} else { 
+			
+				$(".ui-dialog").fadeTo(400, 0, function() {
+					$(".ui-dialog-content", this).dialog("destroy");
 				});
 			}
 			
@@ -331,6 +407,26 @@ var currentMode;
 				$(this).find( tab_a_selector ).eq( idx ).triggerHandler( 'change' );
 			});
 			
+			var reading = e.getState("reading_mode");
+			if(hasChanged("reading_mode")) {
+//				$.sm.send("display_change");
+				
+				if(reading) {
+					kwicResults.$result.addClass("reading_mode");
+    				if(!isInit && kwicResults.$result.find(".results_table.reading").is(":empty")) {
+						kwicResults.makeRequest();
+					} 
+				} else {
+					kwicResults.$result.removeClass("reading_mode");
+					if(!isInit && kwicResults.$result.find(".results_table.kwic").is(":empty")) {
+						kwicResults.makeRequest();
+					} else {  
+						kwicResults.centerScrollbar();
+					}
+				}
+			}
+			
+			
 			var search = e.getState("search");
 			if(search != null && search !== prevFragment["search"]) {
 				kwicResults.current_page = page || 0;
@@ -338,7 +434,6 @@ var currentMode;
 				var value = search.split("|").slice(1).join("|");
 				
 				view.updateSearchHistory(value);
-				
 				switch(type) {
 				case "word":
 					$("#simple_text").val(value);
@@ -362,6 +457,8 @@ var currentMode;
 				}
 			}
 			
+			
+			
 			$.bbq.prevFragment = $.deparam.fragment();
 		}
 		$(window).bind( 'hashchange', onHashChange);
@@ -377,6 +474,15 @@ var currentMode;
 			} else {
 				$.bbq.removeState("display");
 			}
+		});
+		$("#login").click(function() {
+			if($.bbq.getState("display") == null) {
+				$.bbq.pushState({display : "login"});
+			} else {
+				$.bbq.removeState("display");
+			}
+			
+			
 		});
 		
 		$("#languages").radioList({
@@ -395,16 +501,228 @@ var currentMode;
 			$("#simple_text").autocomplete("close");
 		});
 		
+		view.initSearchOptions();
 		onHashChange(null, true);
 		$("body").animate({"opacity" : 1}, function() {
 			$(this).css("opacity", "");
 		});
+		
 //		$("body").css("opacity", 1)
 //		view.updateSearchHistory();
+		
+		initTimeGraph();
+		
 	}, function() {
 		c.log("failed to load some resource at startup.", arguments)
+		$("body")
+		.css({"opacity" : 1, padding : 20})
+		.html('<object class="korp_fail" type="image/svg+xml" data="img/korp_fail.svg"> ')
+		.append("<p>The server failed to respond, please try again later.</p>");
 	});
+	
+	
+	
+	function initTimeGraph() {
+		var time_comb = timeProxy.makeRequest(true);
+		
+		var time = timeProxy.makeRequest(false).done(function(data) {
+			
+			$.each(data, function(corpus, struct) {
+				if(corpus !== "time") {
+					var cor = settings.corpora[corpus.toLowerCase()];
+					timeProxy.expandTimeStruct(struct);
+					cor.time = struct;
+					if(_.keys(struct).length > 1) {
+						cor.struct_attributes.date_interval = {
+								label : "date_interval", 
+								displayType : "date_interval",
+								opts : settings.liteOptions
+						};
+					}
+				}
+			});
+			$("#corpusbox").trigger("corpuschooserchange", [settings.corpusListing.getSelectedCorpora()]);
+		});
+		var timestruct;
+		var all_timestruct;
+		var restdata;
+		var restyear;
+		$.when(time_comb, time).then(function(combdata, timedata) {
+//			c.log("combdata", combdata);
+			all_timestruct = combdata[0];
+//			c.log("all_timestruct", all_timestruct)
+			
+			$("#corpusbox").bind("corpuschooserchange", function(evt, data) {
+				var output = _.chain(settings.corpusListing.selected)
+				  .pluck("time")
+				  .filter(Boolean)
+				  .map(_.pairs)
+				  .flatten(true)
+				  .reduce(function(memo, val) {
+				    var a = val[0], b = val[1];
+				    if(typeof memo[a] == "undefined") memo[a] = b;
+				    else memo[a] += b;
+				    return memo;
+				  }, {}).value();
+				
+//				c.log("keys length", timestruct);
+				var max = _.reduce(all_timestruct, function(accu,item) {
+					if(item[1] > accu) return item[1];
+					return accu;
+				}, 0);
+//				c.log('max', max);
 
+				// the 46 here is the presumed value of
+				//the height of the graph
+				var one_px = max / 46;
+				c.log('one_px', one_px);
+				function normalize(array) {
+					return _.map(array, function(item) {
+						var out = [].concat(item);
+						if(out[1] < one_px && out[1] > 0) out[1] = one_px;
+						return out;
+					});
+				}
+				
+				 
+				timestruct = timeProxy.compilePlotArray(output);
+				
+//				c.log('timestruct before', output);
+//				c.log('timestruct', timestruct);
+				
+				var endyear = all_timestruct.slice(-1)[0][0];
+				var yeardiff = endyear - all_timestruct[0][0];
+				restyear =  endyear + (yeardiff / 25);
+				restdata = _.chain(settings.corpusListing.selected)
+				.filter(function(item) {
+					return item.time;
+				})
+				.reduce(function(accu, corp) {
+					return accu + parseInt(corp.time[''] || "0");
+				}, 0).value();
+				
+//				all_timestruct.push([restyear, combdata[1]]);
+//				timestruct.push([restyear, restdata, 0]);
+				var plots = [{
+	                	//color : "white",
+	                	data : normalize([].concat(all_timestruct, [[restyear, combdata[1]]])),
+	              	bars :   {
+	              		fillColor : "lightgrey"
+	              	}
+	                }, 
+	                {		
+	              	  //color : "white", 
+	              	  data : normalize(timestruct),
+	              	  bars : {
+	              		  fillColor : "navy"
+	              	  }
+	                }
+	            ];
+				if(restdata) {
+					plots.push({		
+	                	  //color : "white", 
+	                	  data : normalize([[restyear, restdata]]),
+	                	  bars : {
+	                		  fillColor : "indianred"
+	                	  }
+	                  });
+				}
+				
+				plot = $.plot($("#time_graph"), plots,
+                   {
+					bars : {show : true, fill : 1, align : "center"},
+					
+					grid: {
+						hoverable : true,
+						borderColor : "white"
+							
+					},
+					//stack : true,
+					yaxis : {
+						show : false
+					},
+					xaxis : {
+						show : true
+					},
+					hoverable : true,
+					colors : ["lightgrey", "navy"]
+					
+					
+               });
+				// hack for hiding the red future restyear graph. 
+				$.each($("#time_graph .tickLabel"), function() {
+					if(parseInt($(this).text()) > new Date().getFullYear())
+						$(this).hide();
+				});
+			});
+			
+			function getValByDate(date, struct) {
+				var output;
+				$.each(struct, function(i, item) {
+					if(date == item[0]) {
+						output = item[1];
+						return false;
+					}
+				});
+				return output;
+			}
+			
+			$("#time_graph,#rest_time_graph").bind("plothover", _.throttle(function(event, pos, item) {
+				if(item) {
+					c.log("hover", pos, item, item.datapoint);
+					var date = item.datapoint[0];
+					var header = $("<h4>");
+					var val, total;
+					if(date == restyear) {
+						header.text(util.getLocaleString("corpselector_rest_time"));
+						val = restdata; 
+						total = combdata[1];
+						
+					} else {
+						header.text(util.getLocaleString("corpselector_time") + " " + item.datapoint[0]);
+						val = getValByDate(date, timestruct);  //item.datapoint[1].toString()
+						total = getValByDate(date, all_timestruct);  //item.datapoint[1].toString()
+					}
+					
+//					var body = $("<span>");
+					c.log("output", timestruct[item.datapoint[0].toString()]);
+					
+//					var firstrow = $("<p>").append($("<span>").html(prettyNumbers(total) + " " + util.getLocaleString("corpselector_tokens")))
+					
+					var pTmpl = _.template("<p><span rel='localize[<%= loc %>]'></span>: <%= num %> <span rel='localize[corpselector_tokens]' </p>");
+					
+					var firstrow = pTmpl({loc : 'corpselector_time_chosen', num : prettyNumbers(val || 0)});
+					var secondrow = pTmpl({loc : 'corpselector_of_total', num : prettyNumbers(total)});
+					
+					var time = item.datapoint[0];
+					
+					$(".corpusInfoSpace").css({"top": $(this).parent().offset().top});
+					$(".corpusInfoSpace").find("p")
+					.empty()
+					.append(header, "<span> </span>", firstrow, secondrow)
+					.localize()
+					.end()
+					.fadeIn("fast");
+					
+					
+				} else {
+					$(".corpusInfoSpace").fadeOut("fast");
+				}
+			},100));
+			
+			
+		});
+
+		var opendfd = $.Deferred();
+//		opendfd.resolve();
+		$("#corpusbox").one("corpuschooseropen", function() {
+			opendfd.resolve();
+		});
+		$.when(time_comb, time, opendfd).then(function() {
+			$("#corpusbox").trigger("corpuschooserchange", [settings.corpusListing.getSelectedCorpora()]);
+		});
+	}
+	
 
 })();
 

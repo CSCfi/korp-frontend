@@ -91,8 +91,7 @@ var ParallelExtendedSearch = {
 		var corps = _.filter(settings.corpusListing.selected, function(item) {
 			return item["lang"] == lang;
 		});
-		c.log('getlinnkedto', corps, _.flatten(_.map(corps, settings.corpusListing.getLinked)));
-		window.corps = corps;
+		
 		return _.flatten(_.map(corps, function(item) {
 			return settings.corpusListing.getLinked(item);
 		}));
@@ -116,7 +115,6 @@ var ParallelExtendedSearch = {
 		if(prevLang) {
 			other_corp = this.getLinkedTo(prevLang);
 			langs = _.pluck(other_corp , "lang");
-			c.log("langs", langs)
 		} else {
 			$.each(settings.corpusListing.selected, function(i, corp) {
 				var childCorpora = $.grepObj(settings.parallel_corpora[corp.parent], function(val, key) {
@@ -151,7 +149,6 @@ var ParallelExtendedSearch = {
 		var currentLangList = _.map($(".lang_select").get(), function(item) {
 			return $(item).val();
 		});
-		
 		// remove corpora for lang not used
 		var children = _.flatten(_.map(parents, function(p) {
 			var children = _.values(p);
@@ -182,14 +179,21 @@ var ParallelExtendedSearch = {
 			var output = _.filter(children, function(item) {
 				return item.parent == childWithLeastParents.parent;
 			});
-			return {"linked" : output};
+			return {"linked" : _.uniq(output)};
 		}
 	},
 	
 	getCorporaQuery : function() {
+		var currentLangList = _.map($(".lang_select").get(), function(item) {
+			return $(item).val();
+		});
 		var struct = this.getCorporaByLang();
 		if(struct.linked) {
-			return _.chain(struct.linked)
+			var struct = struct.linked.sort(function(a,b) {
+//				c.log("inarray", $.inArray(currentLangList, a.lang), $.inArray(currentLangList, b.lang))
+				return $.inArray(a.lang, currentLangList) - $.inArray(b.lang, currentLangList); 
+			});
+			return _.chain(struct)
 				.pluck("id")
 				.invoke("toUpperCase")
 				.value().join("|");
@@ -246,17 +250,22 @@ var ParallelKWICResults = {
 		
 		this.scrollToShowWord(word);
 		
-		$("#sidebar").sidebar("updateContent", currentSentence.structs, data, corpus);
+		$("#sidebar").sidebar("updateContent", isLinked ? {} : sentence.structs, data, corpus);
 	},
 	
-	renderResult : function(data, sourceCQP) {
-		this.parent(data, sourceCQP);
-		var offset = $(".table_scrollarea").scrollLeft(0);
-		$(".linked_sentence span:first-child").each(function(i, linked) {
-			var mainLeft = $(linked).closest("tr").prev().find("span:first").offset().left;
-			$(linked).parent().css("padding-left", Math.round(mainLeft));
+//	renderResult : function(target, data, sourceCQP, pDef) {
+//	},
+	
+	renderKwicResult : function(data, sourceCQP) {
+		var self = this;
+		this.renderResult(".results_table.kwic", data, sourceCQP).done(function() {
+			var offset = $(".table_scrollarea").scrollLeft(0);
+			$(".linked_sentence span:first-child").each(function(i, linked) {
+				var mainLeft = $(linked).closest("tr").prev().find("span:first").offset().left;
+				$(linked).parent().css("padding-left", Math.round(mainLeft));
+			});
+			self.centerScrollbar();
 		});
-		this.centerScrollbar();
 	}
 	
 };
@@ -281,6 +290,13 @@ delete ParallelStatsProxy;
 
 settings.primaryColor = "#FFF3D8";
 settings.primaryLight = "#FFF9EE";
+
+var context = {
+	"defaultAligned" : {
+		"1 link" : "1 link"
+	}
+};
+
 settings.corporafolders = {};
 
 settings.corporafolders.europarl = {
@@ -315,8 +331,9 @@ settings.parallel_corpora.europarl = {
 			saldo: attrs.saldo, 
 			dephead: attrs.dephead, 
 			deprel: attrs.deprel, 
-			ref: attrs.ref, 
-			text: attrs.text
+			ref: attrs.ref,
+			prefix : attrs.prefix,
+			suffix : attrs.suffix
 		},
 		struct_attributes : {
 		}
@@ -347,6 +364,7 @@ settings.parallel_corpora.salt = {
 		parent : "salt",
 		title: "Svenska-nederländska", 
 		context: context.defaultAligned, 
+		context : settings.defaultContext,
 		within: {
 			"link": "meningspar"
 		}, 
@@ -358,8 +376,9 @@ settings.parallel_corpora.salt = {
 			saldo: attrs.saldo, 
 			dephead: attrs.dephead, 
 			deprel: attrs.deprel, 
-			ref: attrs.ref, 
-			text: attrs.text
+			ref: attrs.ref,
+			prefix : attrs.prefix,
+			suffix : attrs.suffix
 		},
 		struct_attributes : {
 			text_author : {label : "author"},
@@ -402,5 +421,8 @@ $.each(settings.parallel_corpora, function(corpora, struct) {
 });
 
 
+
 settings.corpusListing = new ParallelCorpusListing(settings.parallel_corpora);
 delete ParallelCorpusListing;
+delete context;
+$.extend(settings.corpora, settings.corpusListing.struct);

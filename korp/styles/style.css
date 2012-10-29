@@ -1,18 +1,21 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+@font-face {
+    font-family: "Source Sans Pro";
+    src: url(SourceSansPro-Regular.otf);
+}
 
 body {
 	font-family : 'Source Sans Pro',Helvetica, Arial, Verdana, sans-serif;
 	font-size: 13px;
 	margin : 0;
 	overflow-x : hidden;
-}
+} 
 
 ul, ol {
 	list-style: none;	
 }
 
 h4 {
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 
 #welcome {
@@ -188,6 +191,10 @@ input:placeholder, textarea:placeholder {
 	margin-bottom : 8px;
 }
 
+#search_options select {
+    margin-right : 5px;
+}
+
 #search_options > div {
 	display : inline-block;
 	margin-right : 10px;
@@ -210,10 +217,6 @@ input:placeholder, textarea:placeholder {
 
 #content {
 	padding : 0 8px 8px 8px;
-}
-
-.num_hits {
-	margin-right : 5px;
 }
 
 .lang_selected {
@@ -243,8 +246,15 @@ input:placeholder, textarea:placeholder {
     background-color: #F5F5F5;
 }
 
+.mode-parallel #korp-extended #sendBtn ~ * {
+    display : none;
+}
+
 .mode-parallel #linkedLang {
     display : inline;
+}
+.mode-parallel .context_select, .mode-parallel .within_select {
+    display : none;
 }
 
 #removeLang, #linkedLang {
@@ -269,19 +279,7 @@ input:placeholder, textarea:placeholder {
 	float : left;
 }
 
-.query_token .repeat {
-	float : right;
-	font-size : 10px;
-	margin-right : 25px;
-}
-.query_token .repeat input {
-	max-width : 30px;
-	
-}
 
-.ui-icon-gear {
-    background-position: -193px -114px;
-}
 
 .insert_token {
 	position: relative;
@@ -303,10 +301,11 @@ input:placeholder, textarea:placeholder {
 input.arg_value {
 	width : 98%;
 }
-input.arg_value {
+.arg_value {
+	max-width : 300px;
 	
 }
-.arg_value option {
+select.arg_value option {
 	padding-top: 1px;
 	padding-bottom: 1px;
 }
@@ -325,8 +324,24 @@ input.arg_value {
 	height : 20px;
 	float : right;
 }
+
+.query_token .repeat {
+    float : right;
+    margin-right : 25px;
+    
+}
+.query_token .repeat input {
+    max-width : 30px;
+    
+}
+
+.ui-icon-gear {
+    background-position: -193px -114px;
+}
+
 .token_footer {
 	position: relative;
+	font-size : .8em;
 }
 
 .token_footer ul {
@@ -341,6 +356,44 @@ input.arg_value {
 .token_footer ul, li {
 	margin : 0;
 	padding : 0;
+}
+
+.close_token {
+    border-radius : 20px;
+    color : black;
+    background-color : rgb(242, 247, 255);
+    border : thin lightgrey solid;
+    padding-left : 5px;
+    padding-right : 1px;
+    cursor : default; 
+}
+
+.lower_footer {
+    text-align : right;
+    margin-top : 2px;    
+}
+
+#opt_menu {
+    display : none;
+    font-size : .8em;
+    cursor : pointer;
+}
+
+
+.close_token .ui-icon-close {
+    display : inline-block;
+    position : relative;
+    top : 3px;
+    cursor : pointer;
+}
+
+.repeat,.lower_footer > * {
+    display : none;
+}
+.repeat_item .repeat,
+.lbound_item .lbound,
+.rbound_item .rbound {
+    display : inline;
 }
 
 .statisticWords {
@@ -408,12 +461,19 @@ input.arg_value {
 	padding : 10px;
 	position : absolute;
 }
-.popupchecks .header {
-	text-align:right;
+.popupchecks .buttons {
 	margin : 10px 0;
+	display : inline-block;
+	vertical-align : top;
+	font-size : .8em;
 }
-.popupchecks .header a {
-	margin-left : 8px;	
+.popupchecks .buttons a {
+	display : block;
+	margin-bottom : 5px;
+		
+}
+.popupchecks .header {
+    
 }
 
 .numberOfChildren {
@@ -435,9 +495,23 @@ input.arg_value {
 	cursor : pointer;
 }
 
+.corpusInfoSpace {
+    display: none; 
+    border: 1px solid #CCCCCC; 
+    z-index: 10000; 
+    min-width: 30px; 
+    min-height: 30px; 
+    max-width: 33%; 
+    position: absolute; 
+    left:615px; 
+    background-color: white; 
+    padding-right: 4px
+}
+
 .tree {
 	margin-top: 1px;
 	margin-bottom: -3px;
+	margin-left : 2px;
 	padding-top: 3px;
 	padding-bottom: 1px;
 	overflow-x : hidden;
@@ -454,11 +528,18 @@ input.arg_value {
 	padding-bottom: 1px;
 	margin-bottom: 2px;
 }
+.boxdiv.disabled {
+    color : grey;
+}
+.boxdiv.disabled img {
+    display : none;
+}
+.boxdiv.disabled label {
+}
 
 .hplabel, .boxlabel {
 	padding : 2px 6px 0px 6px;
 }
-
 
 .boxlabel > span {
 	background: #FFFFFF;
@@ -467,6 +548,24 @@ input.arg_value {
 .checkbox {
 	width: 12px;
 	height: 12px;
+    display : inline-block;
+	
+}
+.checkbox.checked {
+    background-image : url("../img/checked.png");
+}
+.checkbox.unchecked {
+    background-image : url("../img/unchecked.png");
+}
+.checkbox.intermediate {
+    background-image : url("../img/intermediate.png");
+}
+.boxdiv.disabled .checkbox{
+    background-image : url("../common_lib/themes/base/images/ui-icons_222222_256x240.png");
+    background-position : -192px -96px;
+    height : 13px;
+    width : 14px;
+    margin-left : -2px;
 }
 .query_footer {
 	background-color: #e1e1e1;
@@ -597,12 +696,13 @@ table {
 /* 	float : left; */
 	display : inline-block;
 	*display : inline;
+	zoom : 1;
 	vertical-align: bottom;
 }
 
 .controls_n {
-	margin-top : 3px;
 	margin-right : 5px;
+	min-width : 125px;
 }
 .loading .controls_n {
 	color : darkgrey;
@@ -658,7 +758,6 @@ table {
 	-ms-overflow-y: hidden;
 	
 }
-
 .results_table {
 	padding-left : 0;
 	margin-left : 0;
@@ -680,7 +779,19 @@ table {
 .pagination {
 	height : 20px;
 }
-
+/* removing context for custom tab */
+.customtab .reading_btn {
+    display : none !important;
+}
+.loading .reading_btn {
+    display : none;
+}
+.pager-wrapper:empty ~ .reading_btn {
+    margin-left : 0;
+}
+.reading_btn .show {
+    line-height : 1.1;
+}
 .reading_btn {
     margin-left : 1em;
     display : none;
@@ -688,30 +799,46 @@ table {
     margin-top : 3px;
 }
 .not_loading .reading_btn {
-    display : inline-block;
+    display : inline;
 }
 
-
-.reading_mode .reading_btn.show, .reading_btn.hide {
+.reading_mode .reading_btn.show, 
+.reading_btn.hide,
+.zero_results .reading_btn {
     display : none;
 }
 .reading_mode .reading_btn.hide {
     display : inline;
-    
+}
+
+.results_table.reading, 
+.reading_mode .results_table.kwic {
+    display : none;   
+}
+.reading_mode .results_table.reading {
+    display : block;
 }
 
 .results_table.reading {
     margin-left : 10%;
 }
-
+/*
+.customtab .results_table.kwic {
+    display : block;
+}
+.customtab .results_table.reading {
+    display : none;
+}
+*/
 .reading_match {
    font-weight : bold;
+   color : black !important;
 }
 
 .results_table.reading tr {
     display : block;
-    padding : 1em;
-    width : 400px;
+    padding : 1em !important;
+    width : 510px;
 }
 
 .result_table td {
@@ -746,6 +873,36 @@ table {
 	border-width : 3px !important;
 	
 }
+
+.no_context .corpus_title_span {
+    margin-left : -200px;
+    margin-right : 0;
+    position : relative;
+    left : 60px;
+}
+.reading .no_context .corpus_title_span {
+    left : 0;   
+}
+.corpus_title_warn {
+    margin-right : -100px;
+    position : relative;
+    left : 10px;
+    font-variant: normal;
+}
+.reading .corpus_title_warn {
+    font-size : 12px;
+    display : block;
+}
+.webkit .reading .no_context .corpus_title_warn {
+    margin-bottom : -40px;
+}
+.corpus_title_warn:before {
+    content : "(";
+}
+.corpus_title_warn:after {
+    content : ")";
+}
+
 
 .reading_mode .corpus_title_span {
     margin : 0;
@@ -786,7 +943,12 @@ table {
 .word {
 	cursor: pointer;	
 }
-
+.reading_mode .word {
+    color : #666;
+}
+.matching_sentence {
+    color : black !important;
+}
 .word:hover {
 	color: indianred;
 }
@@ -803,7 +965,7 @@ table {
 }
 
 .token_selected {
-	color: #fff;
+	color: #fff !important;
 	background-color: #666;
 }
 
@@ -814,6 +976,7 @@ table {
 
 #result-container {
 	clear: both;
+	min-height : 400px;
 }
 
 #json-link {
@@ -956,6 +1119,42 @@ a.relStat:hover {
 	margin-top : 8px;
 }
 
+#login {
+    /*display : none;*/
+}
+
+#login_popup {
+    display : none;
+}
+#login_popup * {
+    display : block;   
+}
+#login_popup label {
+    margin-top : 5px;   
+}
+#login_popup .err_msg {
+    display : none;
+    font-size : .8em;
+}
+#login_popup input[type=submit] {
+    float : right;
+    margin-top : 2em;
+}
+
+.logged_in #login {
+    display : none;
+}
+
+#log_out {
+    display : none;
+    float : right;
+    margin-right : 8px;
+    margin-top : 7px;
+    margin-left : 3px;
+}
+.logged_in #log_out {
+    display : block;
+}
 /* when selecting a word, not a lemgram, this pops up. */
 .lemgram_select {
 	margin-top : 8px;
@@ -1121,6 +1320,49 @@ a.relStat:hover {
 
 .sort_select {
 }
+#time {
+    margin-top : 10px;
+    display : inline-block;
+}
+#time_inputs {
+   /*display : inline-block;*/
+}
+#time_inputs input {
+    border : none;
+    font-weight : bold;
+    width : 30px;   
+}
+
+#time_graph {
+    display : inline-block;
+    width : 335px;
+    height : 70px;
+}
+
+#rest_time_graph {
+    display : inline-block;
+    height : 70px;
+    width : 5px;
+    position : relative;
+    bottom : 20px;
+}
+
+#time_slider {
+    display : inline-block;
+    width : 250px;
+    margin-right : 10px;
+}
+
+.query_arg .ui-slider {
+    margin-right : 9px;
+    margin-top : 10px;
+    margin-bottom : 10px;
+}
+
+.ui-slider-handle {
+    border-radius : 20px;
+}
+
 
 .pager-wrapper {
 	display: inline-block;
@@ -1132,12 +1374,6 @@ a.relStat:hover {
 .sidebar_url {
 	white-space: nowrap;
 }
-
-/* .odd_corpus + .even_corpus > td,.even_corpus + .odd_corpus > td { */
-/* 	border-top-style : solid; */
-/* 	border-width : 1px; */
-/* 	border-color : inherit;  */
-/* } */
 
 .arcDiagramPicture {
 	cursor : pointer;
@@ -1154,15 +1390,18 @@ a.relStat:hover {
 	right : 0;
 }
 
-.slick-cell > span {
+/*.slick-cell > span {
 	position: absolute;
-	top : 3px;
+	top : 3px;}
+
+.slick-cell .wordclass_suffix {
+    position :static;
 }
 
 .slick-cell {
 	position: relative;
 }
-
+*/
 .lemgram_section {
 	display : inline-block;
 	margin-right : 30px;
@@ -1229,7 +1468,7 @@ a.relStat:hover {
 
 #cog {
 	float : right;
-	margin-top : -2px;
+	margin-top : -1px;
 	cursor : pointer;
 }
 #cog_menu {
@@ -1262,14 +1501,16 @@ a.relStat:hover {
 	font-size : 0.8em;
 }
 
-#korp-extended #sendBtn ~ * {
+
+
+#korp-extended .within_select ~ * {
 	display : none;
 }
 .lab #korp-extended #sendBtn ~ * {
 	display : inline;
 }
 
-#mode_switch li:nth-child(3) ~ * {
+#mode_switch li:nth-child(5) ~ * {
     display : none;
 }
 
@@ -1378,7 +1619,18 @@ a.relStat:hover {
 	transition: left 400ms ease;
 }
 
-#results-stats.not_loading .progress, #results-lemgram.not_loading .progress {
+#results-stats.not_loading .progress, 
+#results-lemgram.not_loading .progress {
 	display : none;
 }
 
+.arg_value .from, .arg_value .to  {
+    width : 50px;
+}
+.arg_value .from {
+    float : left;    
+}
+.arg_value .to {
+    float : right;
+    text-align: left;    
+}

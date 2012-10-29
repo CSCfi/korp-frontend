@@ -75,8 +75,14 @@ util.lemgramToString = function(lemgram, appendIndex) {
 		var type = match[1].slice(0, 2);
 	}
 	else { // missing from saldo, and has the form word_NN instead.
-		var concept = lemgram.split("_")[0];
-		var type = lemgram.split("_")[1].toLowerCase();
+		var concept = "";
+		var type = "";
+		try {
+			 concept = lemgram.split("_")[0];
+			 type = lemgram.split("_")[1].toLowerCase();
+		} catch(e) {
+			c.log("lemgramToString broken for ", lemgram);
+		}
 	}
 	return $.format("%s%s <span class='wordclass_suffix'>(<span rel='localize[%s]'>%s</span>)</span>", 
 			[concept, infixIndex, type, util.getLocaleString(type)]);
@@ -169,12 +175,6 @@ function loadCorporaFolderRecursive(first_level, folder) {
 			outHTML += '<li id="' + val + '">' + settings.corpora[val].title + '</li>';
 		}
 	}
-//	if(settings.parallel_corpora) {
-//		$.each(settings.parallel_corpora, function(corpora, struct) {
-//			var corp = struct[struct["default"]];
-//			outHTML += $("<li />", {id: corp.id}).text(corp.title).outerHTML();
-//		});
-//	}
 	outHTML += "</ul>";
 	return outHTML;
 }
@@ -230,34 +230,36 @@ function loadCorpora() {
 	corpusChooserInstance = $('#corpusbox')
 	.corpusChooser({
 		template: outStr, 
-		change : function(corpora) {
-			c.log("corpus changed", corpora);
-			settings.corpusListing.select(corpora);
-			$.bbq.pushState({"corpus" : corpora.join(",")});
-			if(corpora.length) {
-				extendedSearch.refreshTokens();
-				view.updateReduceSelect();
-			}
-			var enableSearch = !!corpora.length;
-			view.enableSearch(enableSearch);
-	    }, 
 	    infoPopup: function(corpusID) {
+	    	var corpusObj = settings.corpora[corpusID];
 	    	var maybeInfo = "";
-	    	if(settings.corpora[corpusID].description)
-	    		maybeInfo = "<br/><br/>" + settings.corpora[corpusID].description;
-	    	var numTokens = settings.corpora[corpusID]["info"]["Size"];
-	    	var numSentences = settings.corpora[corpusID]["info"]["Sentences"];
-	    	var lastUpdate = settings.corpora[corpusID]["info"]["Updated"];
+	    	if(corpusObj.description)
+	    		maybeInfo = "<br/><br/>" + corpusObj.description;
+	    	var numTokens = corpusObj["info"]["Size"];
+	    	var numSentences = corpusObj["info"]["Sentences"];
+	    	var lastUpdate = corpusObj["info"]["Updated"];
 	    	if (!lastUpdate) {
 	       	    lastUpdate = "?";
 	    	}
 	    	var sentenceString = "-";
 	    	if (numSentences)
 	    		sentenceString = prettyNumbers(numSentences.toString());
-	    	return '<b><img src="img/korp_icon.png" style="margin-right:4px; width:24px; height:24px; vertical-align:middle; margin-top:-1px"/>' +
-	    	settings.corpora[corpusID].title + "</b>" + maybeInfo + "<br/><br/>" + util.getLocaleString("corpselector_numberoftokens") + 
+	    	var output = '<b><img src="img/korp_icon.png" style="margin-right:4px; width:24px; height:24px; vertical-align:middle; margin-top:-1px"/>' +
+	    	corpusObj.title + "</b>" + maybeInfo + "<br/><br/>" + util.getLocaleString("corpselector_numberoftokens") + 
 	    	": <b>" + prettyNumbers(numTokens) + "</b><br/>" + util.getLocaleString("corpselector_numberofsentences") + ": <b>" + sentenceString + 
-	    	"</b><br/>" + util.getLocaleString("corpselector_lastupdate") + ": <b>" + lastUpdate + "</b>";
+	    	"</b><br/>" + util.getLocaleString("corpselector_lastupdate") + ": <b>" + lastUpdate + "</b><br/><br/>";
+	    	
+	    	var supportsContext = _.keys(corpusObj.context).length > 1;
+	    	if(supportsContext)
+	    		output += $("<div>").localeKey("corpselector_supports").html();
+	    	
+	    	if(corpusObj.limited_access)
+	    		output += $("<div>").localeKey("corpselector_limited").html();
+	    	
+	    	return output;
+	    	
+	    	
+	    	
 	    }, 
 	    infoPopupFolder: function(indata) {
 	    	var corporaID = indata.corporaID;
@@ -288,6 +290,20 @@ function loadCorpora() {
 	    	"</b><br/><br/>" + maybeInfo + "<b>" + corporaID.length + "</b> " + glueString + ":<br/><br/><b>" + prettyNumbers(totalTokens.toString()) + 
 	    	"</b> " + util.getLocaleString("corpselector_tokens") + "<br/><b>" + totalSentencesString + "</b> " + util.getLocaleString("corpselector_sentences");
 	    }
+    }).bind("corpuschooserchange", function(evt, corpora) {
+    	c.log("corpus changed", corpora);
+		settings.corpusListing.select(corpora);
+		if(_.keys(corpora).length < _.keys(settings.corpora).length) {
+			$.bbq.pushState({"corpus" : corpora.join(",")});
+		}
+		if(corpora.length) {
+			extendedSearch.refreshTokens();
+			view.updateReduceSelect();
+			view.updateContextSelect("within");
+//			view.updateContextSelect("context");
+		}
+		var enableSearch = !!corpora.length;
+		view.enableSearch(enableSearch);
     });
 	settings.corpusListing.select(corpusChooserInstance.corpusChooser("selectedItems"));
 }
@@ -414,4 +430,15 @@ util.changeColor = function(rgbstr, incr) {
         rgb[i] = Math.max(0, Math.min(rgb[i] + incr, 255));
     }
     return 'rgb(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ')';
+};
+
+
+util.setLogin = function() {
+	c.log("login success");
+	$("body").toggleClass("logged_in not_logged_in");
+	$.each(authenticationProxy.loginObj.credentials, function(i, item) {
+		$($.format("#hpcorpus_%s", item.toLowerCase())).closest(".boxdiv.disabled").removeClass("disabled");
+	});
+	$("#log_out .usrname").text(authenticationProxy.loginObj.name);
+	$(".err_msg", self).hide();
 };
