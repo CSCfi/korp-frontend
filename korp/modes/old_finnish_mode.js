@@ -108,7 +108,8 @@ settings.corpora.vks_biblia = {
     title : "Biblia",
     description : "Vuoden 1642 raamatunsuomennos",
     id : "vks_biblia",
-    within : {"sentence" : "sentence"},
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
     attributes : {},
     struct_attributes : {
 	sourcecode_bibleref : {
@@ -150,7 +151,8 @@ settings.corpora.vks_lait = {
     title : "Laki- ja asetustekstejä",
     description : "Laki- ja asetustekstejä",
     id : "vks_lait",
-    within : {"sentence" : "sentence"},
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
     attributes : {
 	word_orig : attrs.origword,
 	word_completed : attrs.complword
@@ -170,7 +172,8 @@ settings.corpora.vks_saarnat = {
     title : "Ruumissaarnoja, puheita ja muistorunoja",
     description : "Ruumissaarnoja, puheita ja muistorunoja",
     id : "vks_saarnat",
-    within : {"sentence" : "sentence"},
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
     attributes : {
 	word_orig : attrs.origword,
 	word_completed : attrs.complword
@@ -191,7 +194,8 @@ settings.corpora.vns_asetus = {
     title : "Asetuksia",
     description : "Asetuksia",
     id : "vns_asetus",
-    within : {"sentence" : "sentence"},
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : {
     },
     struct_attributes : {
@@ -202,7 +206,7 @@ settings.corpora.vns_asetus = {
 	    label : "article_id"
 	},
 	paragraph_id : {
-	    label : "paragraph_id"
+	    label : "lawparagraph_id"
 	},
 	sentence_type : {
 	    label : "sentence_type",
@@ -232,15 +236,16 @@ settings.corpora.vns_renqvist = {
     title : "Renqvist",
     description : "Renqvist",
     id : "vns_renqvist",
-    within : {"sentence" : "sentence"},
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
     attributes : {
     },
     struct_attributes : {
 	text_title : sattrs.text_title,
 	text_distributor : sattrs.text_distributor,
 	text_source : sattrs.text_source,
-	para_id : sattrs.para_id,
-	para_type : sattrs.para_type,
+	paragraph_id : sattrs.paragraph_id,
+	paragraph_type : sattrs.paragraph_type,
 	sentence_id : sattrs.sentence_id_hidden,
 	sentence_n : sattrs.sentence_n
     }
@@ -250,7 +255,8 @@ settings.corpora.vns_renvall = {
     title : "Renvall",
     description : "Gustaf Renvall: Suomalainen sana-kirja (1826)",
     id : "vns_renvall",
-    within : {"sentence" : "sentence"},
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
     attributes : {
     },
     struct_attributes : {

@@ -451,11 +451,11 @@ sattrs.sentence_id = {
 sattrs.sentence_n = {
     label : "sentence_n"
 };
-sattrs.para_id = {
-    label : "para_id"
+sattrs.paragraph_id = {
+    label : "paragraph_id"
 };
-sattrs.para_type = {
-    label : "para_type"
+sattrs.paragraph_type = {
+    label : "paragraph_type"
 };
 
 
@@ -665,8 +665,8 @@ settings.corpora.ns_presidentti = {
     title : "Tasavallan presidenttien uudenvuodenpuheita",
     description : "Tasavallan presidenttien uudenvuodenpuheita (1935–2006)",
     id : "ns_presidentti",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : {
 	lemma : attrs.baseform,
 	lemmacomp : attrs.baseform_compound,
@@ -679,11 +679,11 @@ settings.corpora.ns_presidentti = {
 	text_title : sattrs.text_title,
 	text_distributor : sattrs.text_distributor,
 	text_source : sattrs.text_source,
-	para_id : sattrs.para_id,
-	para_type : {
-	    label : "para_type",
+	paragraph_id : sattrs.paragraph_id,
+	paragraph_type : {
+	    label : "paragraph_type",
 	    displayType : "select",
-	    translationKey : "paratype_",
+	    translationKey : "paragraphtype_",
 	    dataset : {
 		"p" : "p",
 		"head" : "head",
@@ -691,8 +691,8 @@ settings.corpora.ns_presidentti = {
 	    },
 	    opts : settings.liteOptions
 	},
-	para_topic : {
-	    label : "para_topic"
+	paragraph_topic : {
+	    label : "paragraph_topic"
 	},
 	sentence_id : sattrs.sentence_id_hidden
     }
@@ -702,8 +702,8 @@ settings.corpora.ns_saadokset = {
     title : "Lakeja ja direktiivejä",
     description : "Lakeja ja direktiivejä vuosilta 2002–2003",
     id : "ns_saadokset",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : {
 	lemma : attrs.baseform,
 	lemmacomp : attrs.baseform_compound,
@@ -731,11 +731,11 @@ settings.corpora.ns_saadokset = {
 	    },
 	    opts : settings.liteOptions
 	},
-	para_id : sattrs.para_id,
-	para_type : {
-	    label : "para_type",
+	paragraph_id : sattrs.paragraph_id,
+	paragraph_type : {
+	    label : "paragraph_type",
 	    displayType : "select",
-	    translationKey : "paratype_",
+	    translationKey : "paragraphtype_",
 	    dataset : {
 		"p" : "p",
 		"head" : "head",
@@ -887,8 +887,8 @@ settings.corpora.la_murre = {
     title : "Murrekorpus",
     description : "Lauseopin arkiston murrekorpus",
     id : "la_murre",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : {
 	lemma : attrs.baseform,
         pos : attrs.pos_la,
@@ -903,14 +903,14 @@ settings.corpora.la_murre = {
 	text_header : {
 	    label : "text_header"
 	},
-	para_type : {
-	    label : "para_type"
+	paragraph_type : {
+	    label : "paragraph_type"
 	},
-	para_id : {
-	    label : "para_id"
+	paragraph_id : {
+	    label : "paragraph_id"
 	},
-	para_n : {
-	    label : "para_n"
+	paragraph_n : {
+	    label : "paragraph_n"
 	},
 	clause_sinum : {
 	    label : "clause_sinum"
