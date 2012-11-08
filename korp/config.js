@@ -836,6 +836,7 @@ attrs.pos_la = {
 	"pron" : "pron",
 	"pron:dem" : "pron:dem",
 	"pron:int" : "pron:int",
+	"pron:pers" : "pron:pers",
 	"pron:pers12" : "pron:pers12",
 	"pron:ref" : "pron:ref",
 	"pron:rel" : "pron:rel",
@@ -866,6 +867,7 @@ attrs.func_la = {
 	"lauseyhd" : "lauseyhd",
 	"lkeyhd" : "lkeyhd",
 	"muu" : "muu",
+	"neg:prt" : "neg:prt",
 	"nmod" : "nmod",
 	"npobj" : "npobj",
 	"npsubj" : "npsubj",
@@ -904,55 +906,92 @@ settings.corpora.la_murre = {
 	    label : "text_header"
 	},
 	paragraph_type : {
-	    label : "paragraph_type"
+	    label : "paragraph_type",
+	    displayType : "select",
+	    translationKey : "paragraphtype_",
+	    dataset : {
+		"interviewee" : "interviewee",
+		"interviewer" : "interviewer",
+	    },
+	    opts : settings.liteOptions
 	},
 	paragraph_id : {
-	    label : "paragraph_id"
+	    label : "paragraph_id",
+	    opts : settings.liteOptions
 	},
 	paragraph_n : {
-	    label : "paragraph_n"
+	    label : "paragraph_n",
+	    opts : settings.liteOptions
 	},
-	clause_sinum : {
-	    label : "clause_sinum"
-	},
+	// clause_sinum : {
+	//     label : "clause_sinum"
+	// },
 	clause_clnum : {
-	    label : "clause_clnum"
+	    label : "clause_clnum",
+	    opts : settings.liteOptions
 	},
 	clause_num : {
-	    label : "clause_num"
+	    label : "clause_num",
+	    opts : settings.liteOptions
 	},
 	clause_hier : {
-	    label : "clause_hier"
+	    label : "clause_hier",
+	    displayType : "select",
+	    translationKey : "clausehier_",
+	    dataset : {
+		"irrall" : "irrall",
+		"main" : "main",
+		"sub1" : "sub1",
+		"sub2" : "sub2",
+		"sub3" : "sub3",
+	    },
+	    opts : settings.liteOptions
 	},
-	clause_snum : {
-	    label : "clause_snum"
-	},
+	// clause_snum : {
+	//     label : "clause_snum"
+	// },
 	clause_type : {
-	    label : "clause_type"
+	    label : "clause_type",
+	    displayType : "select",
+	    translationKey : "clausetype_",
+	    dataset : {
+		"affdecl" : "affdecl",
+		"affint" : "affint",
+		"affopt" : "affopt",
+		"muu" : "muu",
+		"negdecl" : "negdecl",
+	    },
+	    opts : settings.liteOptions
 	},
 	sentence_sinum : {
-	    label : "sentence_sinum"
+	    label : "sentence_sinum",
+	    opts : settings.liteOptions
 	},
 	sentence_clnum : {
-	    label : "sentence_clnum"
+	    label : "sentence_clnum",
+	    opts : settings.liteOptions
 	},
-	sentence_sp : {
-	    label : "sentence_sp"
-	},
+	// sentence_sp : {
+	//     label : "sentence_sp"
+	// },
 	sentence_source : {
 	    label : "sentence_source"
 	},
 	sentence_num : {
-	    label : "sentence_num"
+	    label : "sentence_num",
+	    opts : settings.liteOptions
 	},
 	sentence_wnum : {
-	    label : "sentence_wnum"
+	    label : "sentence_wnum",
+	    opts : settings.liteOptions
 	},
 	sentence_id : {
-	    label : "sentence_id"
+	    label : "sentence_id",
+	    opts : settings.liteOptions
 	},
 	clause_hallnum : {
-	    label : "clause_hallnum"
+	    label : "clause_hallnum",
+	    opts : settings.liteOptions
 	}
     }
 };
