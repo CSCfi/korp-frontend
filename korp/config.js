@@ -529,6 +529,9 @@ settings.corpora.testcorp = {
         pos : attrs.pos
     },
     struct_attributes : {
+	sentence_id : {
+	    label : "sentence_id"
+	}
     }
 };
 
