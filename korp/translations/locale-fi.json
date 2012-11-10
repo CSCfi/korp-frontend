@@ -55,7 +55,7 @@
 	"word_is" : "sana on",
 	"word_is_not" : "sana ei ole",
 	"word_beginswith" : "sana alkaa",
-	"contains" : "sana sisältää",
+	"contains" : "sisältää",
 	"word_endswith" : "sana loppuu",
 	"matches_regexp" : "säännöllinen lauseke",
 	"wordclass_is" : "sanaluokka on",
