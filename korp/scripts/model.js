@@ -292,7 +292,8 @@ var LemgramProxy = {
 			word : word,
 			corpus : settings.corpusListing.stringifySelected(),
 			incremental : $.support.ajaxProgress,
-			type : type
+			type : type,
+		        max : settings["wordPictureMaxWords"] || 15
 		};
 		$.ajax({
 			url: settings.cgi_script,
