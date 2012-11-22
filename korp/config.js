@@ -520,6 +520,7 @@ settings.corpora.testcorpus = {
 };
 */
 
+/*
 settings.corpora.testcorp = {
     title : "Testikorpus",
     description : "Testikorpus Korpin ominaisuuksien testaamiseksi",
@@ -536,6 +537,7 @@ settings.corpora.testcorp = {
 	}
     }
 };
+*/
 
 settings.corpora.ftb2 = {
     title : "FinnTreeBank 2",
