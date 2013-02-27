@@ -860,6 +860,7 @@ var ExtendedToken = {
 		case "anyword":
 			arg_value.replaceWith("<span class='arg_value'>");
 			break;
+/*
 		case "msd":
 			$("#msd_popup").load("markup/msd.html", function() {
 				
@@ -891,6 +892,7 @@ var ExtendedToken = {
 			
 			arg_value.css("width", "93%");
 			break;
+*/
 		default:
 			this.element.find(".ui-icon-info").remove();
 		}
