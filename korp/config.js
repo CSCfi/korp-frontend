@@ -818,14 +818,17 @@ attrs.pos_la = {
     translationKey : "posla_",
     dataset : {
 	"a" : "a",
+	"a:pron" : "a:pron",
+	"a:pron:dem" : "a:pron:dem",
+	"a:pron:int" : "a:pron:int",
+	"a:pron:rel" : "a:pron:rel",
+	"a:q" : "a:q",
 	"adv" : "adv",
 	"adv:pron" : "adv:pron",
 	"adv:pron:dem" : "adv:pron:dem",
 	"adv:pron:int" : "adv:pron:int",
 	"adv:pron:rel" : "adv:pron:rel",
 	"adv:q" : "adv:q",
-	"a:pron:dem" : "a:pron:dem",
-	"a:pron:int" : "a:pron:int",
 	"cnj:coord" : "cnj:coord",
 	"cnj:rel" : "cnj:rel",
 	"cnj:sub" : "cnj:sub",
@@ -849,6 +852,7 @@ attrs.pos_la = {
 	"pron:rel" : "pron:rel",
 	"punct" : "punct",
 	"q" : "q",
+	"stem" : "stem",
 	"v" : "v",
     },
     opts : settings.liteOptions
@@ -867,12 +871,14 @@ attrs.func_la = {
 	"compl:o" : "compl:o",
 	"compl:q" : "compl:q",
 	"compl:s" : "compl:s",
+	"compl:x" : "compl:x",
 	"infobj" : "infobj",
 	"infsubj" : "infsubj",
 	"irrall" : "irrall",
 	"jälkiosa" : "jälkiosa",
 	"lauseyhd" : "lauseyhd",
 	"lkeyhd" : "lkeyhd",
+	"sanayhd_lkeyhd" : "sanayhd_lkeyhd",
 	"muu" : "muu",
 	"neg:prt" : "neg:prt",
 	"nmod" : "nmod",
@@ -903,14 +909,30 @@ settings.corpora.la_murre = {
         pos : attrs.pos_la,
 	msd : attrs.msd,
 	func : attrs.func_la,
+	cow : {
+	    label : "cowla",
+	    displayType : "select",
+	    translationKey : "cowla_",
+	    dataset : {
+		"cw" : "cw",
+		"cw1" : "cw1",
+		"cw2" : "cw2",
+		"" : "noncw",
+	    },
+	    opts : settings.liteOptions
+	},
+	note : {
+	    label : "note",
+	    opts : settings.defaultOptions
+	},
 	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
-	text_info : {
-	    label : "text_info"
-	},
 	text_header : {
 	    label : "text_header"
+	},
+	text_info : {
+	    label : "text_info"
 	},
 	paragraph_type : {
 	    label : "paragraph_type",
@@ -919,6 +941,7 @@ settings.corpora.la_murre = {
 	    dataset : {
 		"interviewee" : "interviewee",
 		"interviewer" : "interviewer",
+		"noninterviewee" : "noninterviewee",
 	    },
 	    opts : settings.liteOptions
 	},
@@ -926,10 +949,33 @@ settings.corpora.la_murre = {
 	    label : "paragraph_id",
 	    opts : settings.liteOptions
 	},
-	paragraph_n : {
-	    label : "paragraph_n",
+	// paragraph_n : {
+	//     label : "paragraph_n",
+	//     opts : settings.liteOptions
+	// },
+	sentence_source : {
+	    label : "sentence_source"
+	},
+	sentence_clnum : {
+	    label : "sentence_clnum",
 	    opts : settings.liteOptions
 	},
+	// sentence_sp : {
+	//     label : "sentence_sp"
+	// },
+	sentence_num : {
+	    label : "sentence_num",
+	    opts : settings.liteOptions
+	},
+	sentence_wnum : {
+	    label : "sentence_wnum",
+	    opts : settings.liteOptions
+	},
+	sentence_id : sattrs.sentence_id_hidden,
+	// {
+	//     label : "sentence_id",
+	//     opts : settings.liteOptions
+	// },
 	// clause_sinum : {
 	//     label : "clause_sinum"
 	// },
@@ -951,6 +997,9 @@ settings.corpora.la_murre = {
 		"sub1" : "sub1",
 		"sub2" : "sub2",
 		"sub3" : "sub3",
+		"sub4" : "sub4",
+		"sub5" : "sub5",
+		"muu" : "muu",
 	    },
 	    opts : settings.liteOptions
 	},
@@ -963,41 +1012,31 @@ settings.corpora.la_murre = {
 	    translationKey : "clausetype_",
 	    dataset : {
 		"affdecl" : "affdecl",
-		"affint" : "affint",
-		"affopt" : "affopt",
-		"muu" : "muu",
 		"negdecl" : "negdecl",
+		"affint" : "affint",
+		"negint" : "negint",
+		"affopt" : "affopt",
+		"negopt" : "negopt",
+		"muu" : "muu",
 	    },
 	    opts : settings.liteOptions
 	},
-	sentence_sinum : {
-	    label : "sentence_sinum",
-	    opts : settings.liteOptions
-	},
-	sentence_clnum : {
-	    label : "sentence_clnum",
-	    opts : settings.liteOptions
-	},
-	// sentence_sp : {
-	//     label : "sentence_sp"
+	// sentence_sinum : {
+	//     label : "sentence_sinum",
+	//     opts : settings.liteOptions
 	// },
-	sentence_source : {
-	    label : "sentence_source"
-	},
-	sentence_num : {
-	    label : "sentence_num",
-	    opts : settings.liteOptions
-	},
-	sentence_wnum : {
-	    label : "sentence_wnum",
-	    opts : settings.liteOptions
-	},
-	sentence_id : {
-	    label : "sentence_id",
-	    opts : settings.liteOptions
-	},
 	clause_hallnum : {
 	    label : "clause_hallnum",
+	    opts : settings.liteOptions
+	},
+	clause_ora : {
+	    label : "clause_ora",
+	    displayType : "select",
+	    translationKey : "clauseora_",
+	    dataset : {
+		"dir" : "dir",
+		"" : "indir"
+	    },
 	    opts : settings.liteOptions
 	}
     }
