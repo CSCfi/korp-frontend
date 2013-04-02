@@ -559,8 +559,8 @@ settings.corpora.ftb2 = {
 	    displayType : "select",
 	    translationKey : "subcorp_",
 	    dataset : {
-		"news-samples" : "news-samples",
-		"sofie12" : "sofie12",
+		// "news-samples" : "news-samples",
+		// "sofie12" : "sofie12",
 		"visk-sent" : "visk-sent",
 		"wikipedia-samples" : "wikipedia-samples"
 	    },
