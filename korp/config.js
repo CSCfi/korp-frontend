@@ -182,6 +182,31 @@ attrs.pos_ftb3_orig = {
     },
     opts : settings.defaultOptions
 };
+attrs.pos_ftb31 = {
+    label : "pos",
+    displayType : "select",
+    translationKey : "posftb3_",
+    dataset : {
+	"A" : "A",
+	"Abbr" : "Abbr",
+	"Adp" : "Adp",
+	"Adv" : "Adv",
+	"CC" : "CC",
+	"CS" : "CS",
+	"Forgn" : "Forgn",
+	"Num" : "Num",
+	"Pron" : "Pron",
+	"PrfPrc" : "PrfPrc",
+	"PrsPrc" : "PrsPrc",
+	"AgPrc" : "AgPrc",
+	"NegPrc" : "NegPrc",
+	"Punct" : "Punct",
+	"V" : "V",
+	"TrunCo" : "TrunCo",
+	"Unkwn" : "Unkwn"
+    },
+    opts : settings.liteOptions
+};
 attrs.pos_kotus = {
     label : "pos",
     displayType : "select",
@@ -476,7 +501,12 @@ settings.corporafolders.sv = {
 
 settings.corporafolders.ftb = {
     title : "FinnTreeBank: suomen puupankki",
-    contents : ["ftb2", "ftb3"]
+    contents : ["ftb2"]
+};
+
+settings.corporafolders.ftb.ftb3 = {
+    title : "FinnTreeBank 3",
+    contents : ["ftb3_europarl", "ftb3_jrcacquis"]
 };
 
 settings.corporafolders.kotus = {
@@ -570,6 +600,7 @@ settings.corpora.ftb2 = {
     }
 };
 
+/*
 settings.corpora.ftb3 = {
     title : "FinnTreeBank 3",
     description : "Finnish tree bank, version 3: EuroParl, JRC Acquis",
@@ -597,6 +628,59 @@ settings.corpora.ftb3 = {
 	    },
             opts : settings.liteOptions
 	},
+	file_name : {
+	    label : "file_name",
+	},
+	sentence_id : sattrs.sentence_id_hidden,
+	sentence_line : {
+	    label : "sentence_line",
+	}
+    }
+};
+*/
+
+settings.corpora.ftb3_europarl = {
+    title : "FinnTreeBank 3: EuroParl",
+    description : "Suomen puupankki, versio 3: EuroParl (Euroopan parlamentin istuntoja)",
+    id : "ftb3_europarl",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+	lemma : attrs.baseform_ftb2,
+	lemmacomp : attrs.baseform_compound,
+	pos : attrs.pos_ftb31,
+	msd : attrs.msd,
+	dephead : attrs.dephead,
+	deprel : attrs.deprel_ftb2,
+	lex : attrs.lemgram_hidden
+    },
+    struct_attributes : {
+	file_name : {
+	    label : "file_name",
+	},
+	sentence_id : sattrs.sentence_id_hidden,
+	sentence_line : {
+	    label : "sentence_line",
+	}
+    }
+};
+
+settings.corpora.ftb3_jrcacquis = {
+    title : "FinnTreeBank 3: JRC Acquis",
+    description : "Suomen puupankki, versio 3: JRC Acquis (EU-säädöksiä)",
+    id : "ftb3_jrcacquis",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+	lemma : attrs.baseform_ftb2,
+	lemmacomp : attrs.baseform_compound,
+	pos : attrs.pos_ftb31,
+	msd : attrs.msd,
+	dephead : attrs.dephead,
+	deprel : attrs.deprel_ftb2,
+	lex : attrs.lemgram_hidden
+    },
+    struct_attributes : {
 	file_name : {
 	    label : "file_name",
 	},
