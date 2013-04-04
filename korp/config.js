@@ -643,8 +643,8 @@ settings.corpora.ftb3_europarl = {
     title : "FinnTreeBank 3: EuroParl",
     description : "Suomen puupankki, versio 3: EuroParl (Euroopan parlamentin istuntoja)",
     id : "ftb3_europarl",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : {
 	lemma : attrs.baseform_ftb2,
 	lemmacomp : attrs.baseform_compound,
@@ -658,6 +658,57 @@ settings.corpora.ftb3_europarl = {
 	file_name : {
 	    label : "file_name",
 	},
+	chapter_id : {
+	    label : "chapter_id",
+	    displayType : "hidden",
+	},
+	chapter_title : {
+	    label : "chapter_title",
+	},
+	paragraph_id : {
+	    label : "paragraph_id",
+	    displayType : "hidden",
+	},
+	speech_speakerid : {
+	    label : "speech_speakerid",
+	    displayType : "hidden",
+	},
+	speech_speakername : {
+	    label : "speech_speakername",
+	},
+	speech_language : {
+	    label : "speech_language",
+	    displayType : "select",
+	    translationKey : "ftb3_europarl_language_",
+	    dataset : {
+		"bg" : "bg",
+		"cs|cz" : "cs",
+		"da" : "da",
+		"de" : "de",
+		"el|er|gr" : "el",
+		"en" : "en",
+		"es" : "es",
+		"et" : "et",
+		"eu" : "eu",
+		"fi" : "fi",
+		"fr" : "fr",
+		"ga" : "ga",
+		"hu" : "hu",
+		"it" : "it",
+		"lt" : "lt",
+		"lv" : "lv",
+		"mt" : "mt",
+		"nl" : "nl",
+		"pl" : "pl",
+		"pt" : "pt",
+		"ro" : "ro",
+		"sk" : "sk",
+		"sl|si" : "sl",
+		"sv" : "sv",
+		"und" : "und",
+	    },
+	    opts : settings.liteOptions
+	},
 	sentence_id : sattrs.sentence_id_hidden,
 	sentence_line : {
 	    label : "sentence_line",
@@ -669,8 +720,8 @@ settings.corpora.ftb3_jrcacquis = {
     title : "FinnTreeBank 3: JRC Acquis",
     description : "Suomen puupankki, versio 3: JRC Acquis (EU-säädöksiä)",
     id : "ftb3_jrcacquis",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : {
 	lemma : attrs.baseform_ftb2,
 	lemmacomp : attrs.baseform_compound,
@@ -683,6 +734,20 @@ settings.corpora.ftb3_jrcacquis = {
     struct_attributes : {
 	file_name : {
 	    label : "file_name",
+	},
+	file_title : {
+	    label : "file_title",
+	},
+	file_codetitle : {
+	    label : "file_codetitle",
+	},
+	file_url : {
+	    label : "file_url",
+	    type : "url",
+	},
+	paragraph_id : {
+	    label : "paragraph_id",
+	    displayType : "hidden",
 	},
 	sentence_id : sattrs.sentence_id_hidden,
 	sentence_line : {
