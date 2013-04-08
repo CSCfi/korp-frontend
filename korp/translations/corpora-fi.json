@@ -77,6 +77,8 @@
 	
 	"statistics" : "Tilastoja",
 
+	"date_interval" : "aikaväli",
+
 	"subcorpus_name" : "osakorpuksen nimi",
 	"sentence_id" : "virkkeen tunniste",
 
