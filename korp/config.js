@@ -1054,6 +1054,10 @@ settings.corpora.la_murre = {
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
+	cleanword : {
+	    label : "cleanword",
+	    opts : settings.defaultOptions
+	},
 	lemma : attrs.baseform,
         pos : attrs.pos_la,
 	msd : attrs.msd,

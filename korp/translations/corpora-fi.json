@@ -654,6 +654,7 @@
 
 	"cowla" : "yhdyssana",
 	"note" : "huomautus",
+	"cleanword" : "sananmuoto ilman tarkkeita",
 
 	"cowla_cw" : "yhdyssana",
 	"cowla_cw1" : "yhdyssanan alkuosa",
