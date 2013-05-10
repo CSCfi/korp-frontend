@@ -191,19 +191,21 @@ attrs.pos_ftb31 = {
 	"Abbr" : "Abbr",
 	"Adp" : "Adp",
 	"Adv" : "Adv",
+	"AgPrc" : "AgPrc",
 	"CC" : "CC",
 	"CS" : "CS",
 	"Forgn" : "Forgn",
-	"Num" : "Num",
-	"Pron" : "Pron",
-	"PrfPrc" : "PrfPrc",
-	"PrsPrc" : "PrsPrc",
-	"AgPrc" : "AgPrc",
+	"Interj" : "Interj",
+	"N" : "N",
 	"NegPrc" : "NegPrc",
+	"Num" : "Num",
+	"PrfPrc" : "PrfPrc",
+	"Pron" : "Pron",
+	"PrsPrc" : "PrsPrc",
 	"Punct" : "Punct",
-	"V" : "V",
 	"TrunCo" : "TrunCo",
-	"Unkwn" : "Unkwn"
+	"Unkwn" : "Unkwn",
+	"V" : "V"
     },
     opts : settings.liteOptions
 };
