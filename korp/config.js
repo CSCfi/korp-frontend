@@ -531,6 +531,15 @@ settings.corporafolders.fi = {
     contents : ["metsatalo"]
 };
 
+settings.corporafolders.sks = {
+    title : "SKS:n aineistoja",
+    contents : ["sks_kivi_fi", "skvr"]
+};
+
+settings.corporafolders.klk = {
+    title : "KLK-kokeilu",
+    contents : ["klk_testi"]
+};
 
 
 /*
@@ -1194,6 +1203,290 @@ settings.corpora.la_murre = {
 	    },
 	    opts : settings.liteOptions
 	}
+    }
+};
+
+
+settings.corpora.sks_kivi_fi = {
+    title : "Aleksis Kivi",
+    description : "SKS:n Aleksis Kivi -korpus - Aleksis Kiven painetut teokset ja muu tunnettu tuotanto",
+    id : "sks_kivi_fi",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+	sketchyword : {
+	    label : "sketchyword",
+	    opts : settings.defaultOptions,
+	},
+	clean_note : {
+	    label : "clean_note",
+	    opts : settings.defaultOptions,
+	},
+	sketchy_note : {
+	    label : "sketchy_note",
+	    opts : settings.defaultOptions,
+	},
+	other_note : {
+	    label : "other_note",
+	    opts : settings.defaultOptions,
+	},
+	wtype : {
+	    label : "wtype",
+	    opts : settings.defaultOptions,
+	}
+    },
+    struct_attributes : {
+	content_idno : {
+	    label : "content_idno",
+	    opts : settings.defaultOptions,
+	},
+	content_author : {
+	    label : "content_author",
+	    opts : settings.defaultOptions,
+	},
+	content_title : {
+	    label : "content_title",
+	    opts : settings.defaultOptions,
+	},
+	content_byline : {
+	    label : "content_byline",
+	    opts : settings.defaultOptions,
+	},
+	content_settlement : {
+	    label : "content_settlement",
+	    opts : settings.defaultOptions,
+	},
+	content_repository : {
+	    label : "content_repository",
+	    opts : settings.defaultOptions,
+	},
+	content_publisher : {
+	    label : "content_publisher",
+	    opts : settings.defaultOptions,
+	},
+	content_distributor : {
+	    label : "content_distributor",
+	    opts : settings.defaultOptions,
+	},
+	content_bibl : {
+	    label : "content_bibl",
+	    opts : settings.defaultOptions,
+	},
+	content_bibl_type : {
+	    label : "content_bibl_type",
+	    opts : settings.defaultOptions,
+	},
+	content_lang : {
+	    label : "content_lang",
+	    opts : settings.defaultOptions,
+	},
+	/*content_note : {
+	      label : "content_note",
+	          opts : settings.defaultOptions,
+		  },*/
+	section_id : {
+	    label : "section_id",
+	    displayType : "hidden",
+	},
+	section_type : {
+	    label : "section_type",
+	    opts : settings.defaultOptions,
+	},
+	section_subtype : {
+	    label : "section_subtype",
+	    opts : settings.defaultOptions,
+	},
+	section_subtype_n : {
+	    label : "section_subtype_n",
+	    opts : settings.defaultOptions,
+	},
+	paragraph_id : {
+	    label : "paragraph_id",
+	    displayType : "hidden",
+	},
+	paragraph_type : {
+	    label : "paragraph_type",
+	    opts : settings.defaultOptions,
+	},
+	paragraph_speaker : {
+	    label : "paragraph_speaker",
+	    opts : settings.defaultOptions,
+	},
+	sentence_id : sattrs.sentence_id_hidden,
+	sentence_type : {
+	    label : "sentence_type",
+	    opts : settings.defaultOptions,
+	}
+    }
+};
+
+settings.corpora.skvr = {
+    title : "SKVR",
+    description : "SKS:n Suomen Kansan Vanhat Runot -korpus",
+    id : "skvr",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        cleanword : {
+            label : "cleanword",
+            opts : settings.defaultOptions,
+        },
+        normalized : {
+            label : "normalized",
+            opts : settings.defaultOptions,
+        }
+    },
+    struct_attributes : {
+	paragraph_id : {
+            label : "skvr_item_id",
+            displayType : "hidden",
+        },
+        paragraph_osa : {
+            label : "skvr_item_osa",
+            opts : settings.defaultOptions,
+        },
+        paragraph_loc : {
+            label : "skvr_item_loc",
+            opts : settings.defaultOptions,
+        },
+        paragraph_inf : {
+            label : "skvr_item_inf",
+            opts : settings.defaultOptions,
+        },
+        paragraph_tmp : {
+            label : "skvr_item_tmp",
+            opts : settings.defaultOptions,
+        },
+        paragraph_col : {
+            label : "skvr_item_col",
+            opts : settings.defaultOptions,
+        },
+        paragraph_idn : {
+            label : "skvr_item_idn",
+            opts : settings.defaultOptions,
+        },
+        paragraph_nro : {
+            label : "skvr_item_nro",
+            opts : settings.defaultOptions,
+        },
+        paragraph_sgn : {
+            label : "skvr_item_sgn",
+            opts : settings.defaultOptions,
+        },
+        paragraph_p_code : {
+            label : "skvr_item_p_code",
+            opts : settings.defaultOptions,
+        },
+        paragraph_k_code : {
+            label : "skvr_item_k_code",
+            opts : settings.defaultOptions,
+        },
+        paragraph_y_code : {
+            label : "skvr_item_y_code",
+            opts : settings.defaultOptions,
+        },
+        /*paragraph_refs : {
+            label : "skvr_item_refs",
+            opts : settings.defaultOptions,
+            },*/
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_type : {
+            label : "sentence_type",
+            displayType : "select",
+            translationKey : "stype_",
+            dataset : {
+                'verse':'verse',
+                'comment':'comment',
+                'editor_commentary':'editor_commentary',
+                'theme':'theme' 
+            },
+            opts : settings.LiteOptions,
+        },
+        sentence_refs : {
+            label : "sentence_refs",
+            opts : settings.defaultOptions,
+        }
+    }
+};
+
+settings.corpora.klk_testi = {
+    title : "KLK-testi",
+    description : "Kokeilu",
+    id : "klk_testi",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : {
+	content_label : {
+            label : "klk_label",
+            opts : settings.defaultOptions,
+        },
+	content_publ_title : {
+            label : "klk_publ_title",
+            opts : settings.defaultOptions,
+        },
+	content_publ_part : {
+            label : "klk_publ_part",
+            opts : settings.defaultOptions,
+        },
+	content_publ_id : {
+            label : "klk_publ_id",
+            opts : settings.defaultOptions,
+        },
+	content_issue_no : {
+            label : "klk_issue_no",
+            opts : settings.defaultOptions,
+        },
+	content_issue_date : {
+            label : "klk_issue_date",
+            opts : settings.defaultOptions,
+        },
+	content_issue_no : {
+            label : "klk_issue_no",
+            opts : settings.defaultOptions,
+        },
+	content_issue_title : {
+            label : "klk_issue_title",
+            opts : settings.defaultOptions,
+        },
+	content_part_name : {
+            label : "klk_part_name",
+            opts : settings.defaultOptions,
+        },
+	content_elec_date : {
+            label : "klk_elec_date",
+            opts : settings.defaultOptions,
+        },
+	content_language : {
+            label : "klk_language",
+            opts : settings.defaultOptions,
+        },
+	content_page_id : {
+            label : "klk_page_id",
+            opts : settings.defaultOptions,
+        },
+	content_page_no : {
+            label : "klk_page_no",
+            opts : settings.defaultOptions,
+        },
+	content_sentcount : {
+            label : "klk_sentcount",
+            displayType : "hidden",
+        },
+	content_tokencount : {
+            label : "klk_tokencount",
+            displayType : "hidden",
+        },
+	content_img_url : {
+            label : "klk_img_url",
+            type : "url",
+        },
+	paragraph_id : {
+            label : "paragraph_id",
+            displayType : "hidden",
+        },
+        sentence_id : sattrs.sentence_id_hidden
     }
 };
 
