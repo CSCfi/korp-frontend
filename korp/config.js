@@ -538,7 +538,7 @@ settings.corporafolders.sks = {
 
 settings.corporafolders.klk = {
     title : "KLK-kokeilu",
-    contents : ["klk_testi"]
+    contents : ["klk_testi", "klk_testi_2"]
 };
 
 
@@ -1373,8 +1373,12 @@ settings.corpora.skvr = {
             label : "skvr_item_sgn",
             opts : settings.defaultOptions,
         },
-        paragraph_p_code : {
-            label : "skvr_item_p_code",
+        paragraph_p_code1 : {
+            label : "skvr_item_p_code1",
+            opts : settings.defaultOptions,
+        },
+        paragraph_p_code2 : {
+            label : "skvr_item_p_code2",
             opts : settings.defaultOptions,
         },
         paragraph_k_code : {
@@ -1385,20 +1389,24 @@ settings.corpora.skvr = {
             label : "skvr_item_y_code",
             opts : settings.defaultOptions,
         },
-        /*paragraph_refs : {
+        paragraph_refs : {
             label : "skvr_item_refs",
             opts : settings.defaultOptions,
-            },*/
+	},
+        paragraph_cpt : {
+            label : "skvr_item_cpt",
+            opts : settings.defaultOptions,
+        },
         sentence_id : sattrs.sentence_id_hidden,
         sentence_type : {
             label : "sentence_type",
             displayType : "select",
-            translationKey : "stype_",
+            translationKey : "skvr_stype_",
             dataset : {
                 'verse':'verse',
                 'comment':'comment',
-                'editor_commentary':'editor_commentary',
-                'theme':'theme' 
+                'editor_commentary':'editor',
+                'caption':'caption' 
             },
             opts : settings.LiteOptions,
         },
@@ -1409,13 +1417,17 @@ settings.corpora.skvr = {
     }
 };
 
-settings.corpora.klk_testi = {
-    title : "KLK-testi",
+settings.corpora.klk_testi_2 = {
+    title : "KLK-testi II",
     description : "Kokeilu",
-    id : "klk_testi",
-    within : settings.spWithin,
-    context : settings.spContext,
+    id : "klk_testi_2",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
     attributes : {
+	ocr : {
+            label : "OCR",
+            opts : settings.defaultOptions,
+        }
     },
     struct_attributes : {
 	content_label : {
@@ -1432,10 +1444,6 @@ settings.corpora.klk_testi = {
         },
 	content_publ_id : {
             label : "klk_publ_id",
-            opts : settings.defaultOptions,
-        },
-	content_issue_no : {
-            label : "klk_issue_no",
             opts : settings.defaultOptions,
         },
 	content_issue_date : {
@@ -1483,6 +1491,83 @@ settings.corpora.klk_testi = {
             type : "url",
         },
 	paragraph_id : {
+            label : "paragraph_id",
+            displayType : "hidden",
+        },
+        sentence_id : sattrs.sentence_id_hidden
+    }
+};
+
+settings.corpora.klk_testi = {
+    title : "KLK-testi",
+    description : "Kokeilu",
+    id : "klk_testi",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : {
+        content_label : {
+            label : "klk_label",
+            opts : settings.defaultOptions,
+        },
+        content_publ_title : {
+            label : "klk_publ_title",
+            opts : settings.defaultOptions,
+        },
+        content_publ_part : {
+            label : "klk_publ_part",
+            opts : settings.defaultOptions,
+        },
+        content_publ_id : {
+            label : "klk_publ_id",
+            opts : settings.defaultOptions,
+        },
+	content_issue_no : {
+            label : "klk_issue_no",
+            opts : settings.defaultOptions,
+        },
+	content_issue_date : {
+            label : "klk_issue_date",
+            opts : settings.defaultOptions,
+        },
+        content_issue_title : {
+            label : "klk_issue_title",
+            opts : settings.defaultOptions,
+        },
+        content_part_name : {
+            label : "klk_part_name",
+            opts : settings.defaultOptions,
+        },
+        content_elec_date : {
+            label : "klk_elec_date",
+            opts : settings.defaultOptions,
+        },
+        content_language : {
+            label : "klk_language",
+            opts : settings.defaultOptions,
+        },
+        content_page_id : {
+            label : "klk_page_id",
+            opts : settings.defaultOptions,
+        },
+        content_page_no : {
+            label : "klk_page_no",
+            opts : settings.defaultOptions,
+        },
+        content_sentcount : {
+            label : "klk_sentcount",
+            displayType : "hidden",
+        },
+        content_tokencount : {
+            label : "klk_tokencount",
+            displayType : "hidden",
+        },
+        content_img_url : {
+            label : "klk_img_url",
+            type : "url",
+        },
+        paragraph_id : {
             label : "paragraph_id",
             displayType : "hidden",
         },
