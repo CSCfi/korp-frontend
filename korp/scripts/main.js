@@ -115,6 +115,7 @@ var currentMode;
                  {localekey : "modern_texts", mode : "default"},
                  {localekey : "parallel_texts", mode : "parallel"},
                  {localekey : "old_finnish_texts", mode : "old_finnish"},
+		 {localekey : "finnish_national_library_texts", mode : "finnish_national_library"},
                  // {localekey : "old_swedish_texts", mode : "old_swedish"},
                  // {localekey : "faroese_texts", mode : "faroe"},
                  // {localekey : "siberian_texts", mode : "siberian_german"},
