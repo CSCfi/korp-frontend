@@ -364,47 +364,59 @@ attrlist = {};
 attrlist.mulcold_fi = {
     lemma : attrs.baseform,
     pos : attrs.pos_mulcold_fi,
-    msd : attrs.msd
+    msd : attrs.msd,
+    amblemma : attrs.ambiguous_lemma,
+    ambpos : attrs.ambiguous_pos,
+    ambmsd : attrs.ambiguous_msd
 };
 attrlist.mulcold_ru = {
     lemma : attrs.baseform,
     pos : attrs.pos_mulcold_ru,
-    msd : attrs.msd
+    msd : attrs.msd,
+    amblemma : attrs.ambiguous_lemma,
+    ambpos : attrs.ambiguous_pos,
+    ambmsd : attrs.ambiguous_msd
 };
 attrlist.mulcold_en = {
     lemma : attrs.baseform,
     pos : attrs.pos_mulcold_en,
-    msd : attrs.msd
+    msd : attrs.msd,
+    amblemma : attrs.ambiguous_lemma,
+    ambpos : attrs.ambiguous_pos,
+    ambmsd : attrs.ambiguous_msd
 };
 attrlist.mulcold_sv = {
     lemma : attrs.baseform,
     pos : attrs.pos_mulcold_sv,
-    msd : attrs.msd
+    msd : attrs.msd,
+    amblemma : attrs.ambiguous_lemma,
+    ambpos : attrs.ambiguous_pos,
+    ambmsd : attrs.ambiguous_msd
 };
 attrlist.mulcold_de = {
 };
 
 sattrlist = {};
 sattrlist.mulcold = {
-    text_code : {
+    align_text_code : {
 	label : "text_code"
     },
-    text_author : {
+    align_text_author : {
 	label : "text_author"
     },
-    text_title : {
+    align_text_title : {
 	label : "text_title"
     },
-    text_typeoftext : {
+    align_text_typeoftext : {
 	label : "text_typeoftext"
     },
-    text_genre : {
+    align_text_genre : {
 	label : "text_genre"
     },
-    text_period : {
+    align_text_period : {
 	label : "text_period"
     },
-    text_publisher : {
+    align_text_publisher : {
 	label : "text_publisher"
     },
     sentence_id : sattrs.sentence_id_hidden

@@ -80,7 +80,11 @@
 	"day" : "päivä",
 	"party" : "party",
 	"spoken" : "puhemuoto",
-	
+
+	"ambiguous_lemma" : "monitulkintainen perusmuoto",
+	"ambiguous_pos" : "monitulkintainen sanaluokka",
+	"ambiguous_msd" : "monitulkintainen morfologinen analyysi",
+
 	"year_from" : "alkaen vuodesta",
 	"year_to" : "päättyen vuoteen",
 	

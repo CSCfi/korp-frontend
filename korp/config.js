@@ -507,7 +507,18 @@ attrs.id_hidden = {
 	displayType : "hidden",
 	opts : settings.defaultOptions
 };
-
+attrs.ambiguous_lemma = {
+    label : "ambiguous_lemma",
+    opts : settings.defaultOptions
+};
+attrs.ambiguous_pos = {
+    label : "ambiguous_pos",
+    opts : settings.defaultOptions
+};
+attrs.ambiguous_msd = {
+    label : "ambiguous_msd",
+    opts : settings.defaultOptions
+};
 sattrs.date = {
 	label : "date",
 	displayType : "date"
