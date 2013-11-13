@@ -303,10 +303,10 @@ var context = {
     	"1 sentence" : "1 sentence",
     	"1 paragraph" : "1 paragraph"
     },
+*/
     	"alignAligned" : {
     		"1 align" : "1 align"
     	}
-*/
 };
 
 settings.corporafolders = {};
@@ -323,7 +323,7 @@ settings.corporafolders.parrus = {
 
 settings.corporafolders.mulcold = {
     title : "MULCOLD – Multilingual Corpus of Legal Documents",
-    contents : ["mulcold_firu_fi", "mulcold_fiensvru_fi"]
+    contents : ["mulcold_fi", "mulcold_firu_fi", "mulcold_fiensvru_fi"]
 };
 
 settings.corpora = {};
@@ -380,6 +380,8 @@ attrlist.mulcold_sv = {
     lemma : attrs.baseform,
     pos : attrs.pos_mulcold_sv,
     msd : attrs.msd
+};
+attrlist.mulcold_de = {
 };
 
 sattrlist = {};
@@ -521,6 +523,75 @@ settings.parallel_corpora.mulcold_fiensvru = {
         attributes: attrlist.mulcold_ru,
         struct_attributes : sattrlist.mulcold,
         hide : true
+    }
+};
+
+
+settings.parallel_corpora.mulcold = {
+    "default" : "mulcold_fi",
+    mulcold_fi : {
+	id : "mulcold_fi",
+	lang : "fi",
+	parent : "mulcold",
+	title: "MULCOLD kaikki",
+	context: context.alignAligned, 
+	within: {
+	    "sentence": "sentence"
+	}, 
+	attributes: attrlist.mulcold_fi,
+	struct_attributes : sattrlist.mulcold
+    },
+    mulcold_en : {
+	id : "mulcold_en",
+	lang : "en",
+	parent : "mulcold",
+	title: "MULCOLD kaikki",
+	context: context.alignAligned, 
+	within: {
+	    "sentence": "sentence"
+	}, 
+	attributes: attrlist.mulcold_en,
+	struct_attributes : sattrlist.mulcold,
+	hide : true
+    },
+    mulcold_sv : {
+	id : "mulcold_sv",
+	lang : "sv",
+	parent : "mulcold",
+	title: "MULCOLD kaikki",
+	context: context.alignAligned, 
+	within: {
+	    "sentence": "sentence"
+	}, 
+	attributes: attrlist.mulcold_sv,
+	struct_attributes : sattrlist.mulcold,
+	hide : true
+    },
+    mulcold_ru : {
+	id : "mulcold_ru",
+	lang : "ru",
+	parent : "mulcold",
+	title: "MULCOLD kaikki",
+	context: context.alignAligned, 
+	within: {
+	    "sentence": "sentence"
+	}, 
+	attributes: attrlist.mulcold_ru,
+	struct_attributes : sattrlist.mulcold,
+	hide : true
+    },
+    mulcold_de : {
+	id : "mulcold_de",
+	lang : "de",
+	parent : "mulcold",
+	title: "MULCOLD kaikki",
+	context: context.alignAligned, 
+	within: {
+	    "sentence": "sentence"
+	}, 
+	attributes: attrlist.mulcold_de,
+	struct_attributes : sattrlist.mulcold,
+	hide : true
     }
 };
 
