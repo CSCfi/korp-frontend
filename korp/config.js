@@ -234,10 +234,10 @@ attrs.pos_kotus = {
     },
     opts : settings.liteOptions
 };
-attrs.pos_parrus_fi = {
+attrs.pos_mulcold_fi = {
     label : "pos",
     displayType : "select",
-    translationKey : "posparrusfi_",
+    translationKey : "posmulcoldfi_",
     dataset : {
 	"A" : "A",
 	"Abbr" : "Abbr",
@@ -249,28 +249,81 @@ attrs.pos_parrus_fi = {
 	"N" : "N",
 	"NUM" : "Num",
 	"POST" : "Post",
+	"PREP" : "Prep",
 	"PRON" : "Pron",
 	"pun" : "Punct",
+	"UNKNOWN" : "UNKNOWN",
 	"V" : "V"
     },
     opts : settings.liteOptions
 };
-attrs.pos_parrus_ru = {
+attrs.pos_mulcold_ru = {
     label : "pos",
     displayType : "select",
-    translationKey : "posparrusru_",
+    translationKey : "posmulcoldru_",
     dataset : {
 	"Adj" : "Adj",
+	"Adv" : "Adv",
 	"Conj" : "Conj",
 	"Gerund" : "Gerund",
+	"Interj" : "Interj",
 	"Noun" : "Noun",
 	"Numeral" : "Numeral",
 	"Part" : "Part",
 	"Particle" : "Particle",
+	"Predicative" : "Predicative",
 	"Preposition" : "Preposition",
 	"Pron" : "Pron",
 	"pun" : "Punct",
+	"UNKNOWN" : "UNKNOWN",
 	"Verb" : "Verb"
+    },
+    opts : settings.liteOptions
+};
+attrs.pos_mulcold_en = {
+    label : "pos",
+    displayType : "select",
+    translationKey : "posmulcolden_",
+    dataset : {
+	"A" : "A",
+	"ABBR" : "ABBR",
+	"ADV" : "ADV",
+	"CC" : "CC",
+	"CS" : "CS",
+	"DET" : "DET",
+	"EN" : "EN",
+	"Ex" : "EX",
+	"INFMARK" : "INFMARK",
+	"ING" : "ING",
+	"N" : "N",
+	"NEG-PART" : "NEG-PART",
+	"NUM" : "NUM",
+	"PREP" : "PREP",
+	"PRON" : "PRON",
+	"pun" : "Punct",
+	"Rel" : "REL",
+	"UNKNOWN" : "UNKNOWN",
+	"V" : "V"
+    },
+    opts : settings.liteOptions
+};
+attrs.pos_mulcold_sv = {
+    label : "pos",
+    displayType : "select",
+    translationKey : "posmulcoldsv_",
+    dataset : {
+	"A" : "A",
+	"ADV" : "ADV",
+	"CC" : "CC",
+	"CS" : "CS",
+	"DET" : "DET",
+	"N" : "N",
+	"NUM" : "NUM",
+	"PREP" : "PREP",
+	"PRON" : "PRON",
+	"pun" : "Punct",
+	"UNKNOWN" : "UNKNOWN",
+	"V" : "V"
     },
     opts : settings.liteOptions
 };

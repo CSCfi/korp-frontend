@@ -294,7 +294,19 @@ settings.primaryLight = "#FFF9EE";
 var context = {
 	"defaultAligned" : {
 		"1 link" : "1 link"
-	}
+	},
+/*
+    	"sentenceAligned" : {
+    	    "1 sentence" : "1 sentence"
+    	},
+    "spContext" : {
+    	"1 sentence" : "1 sentence",
+    	"1 paragraph" : "1 paragraph"
+    },
+    	"alignAligned" : {
+    		"1 align" : "1 align"
+    	}
+*/
 };
 
 settings.corporafolders = {};
@@ -307,6 +319,11 @@ settings.corporafolders.europarl = {
 settings.corporafolders.parrus = {
     title : "ParRus",
     contents : ["parrus_fi"]
+};
+
+settings.corporafolders.mulcold = {
+    title : "MULCOLD – Multilingual Corpus of Legal Documents",
+    contents : ["mulcold_firu_fi", "mulcold_fiensvru_fi"]
 };
 
 settings.corpora = {};
@@ -343,6 +360,55 @@ settings.parallel_corpora.europarl = {
 };
 
 
+attrlist = {};
+attrlist.mulcold_fi = {
+    lemma : attrs.baseform,
+    pos : attrs.pos_mulcold_fi,
+    msd : attrs.msd
+};
+attrlist.mulcold_ru = {
+    lemma : attrs.baseform,
+    pos : attrs.pos_mulcold_ru,
+    msd : attrs.msd
+};
+attrlist.mulcold_en = {
+    lemma : attrs.baseform,
+    pos : attrs.pos_mulcold_en,
+    msd : attrs.msd
+};
+attrlist.mulcold_sv = {
+    lemma : attrs.baseform,
+    pos : attrs.pos_mulcold_sv,
+    msd : attrs.msd
+};
+
+sattrlist = {};
+sattrlist.mulcold = {
+    text_code : {
+	label : "text_code"
+    },
+    text_author : {
+	label : "text_author"
+    },
+    text_title : {
+	label : "text_title"
+    },
+    text_typeoftext : {
+	label : "text_typeoftext"
+    },
+    text_genre : {
+	label : "text_genre"
+    },
+    text_period : {
+	label : "text_period"
+    },
+    text_publisher : {
+	label : "text_publisher"
+    },
+    sentence_id : sattrs.sentence_id_hidden
+};
+
+
 settings.parallel_corpora.parrus = {
     "default" : "parrus_fi",
     parrus_fi : {
@@ -354,11 +420,7 @@ settings.parallel_corpora.parrus = {
         within: {
             "sentence": "sentence"
         }, 
-        attributes: {
-	    lemma : attrs.baseform,
-	    pos : attrs.pos_parrus_fi,
-	    msd : attrs.msd
-	},
+        attributes: attrlist.mulcold_fi,
         struct_attributes : {}
     },
     parrus_ru : {
@@ -370,15 +432,185 @@ settings.parallel_corpora.parrus = {
         within: {
             "sentence": "sentence"
         }, 
-        attributes: {
-	    lemma : attrs.baseform,
-	    pos : attrs.pos_parrus_ru,
-	    msd : attrs.msd
-	},
+        attributes: attrlist.mulcold_ru,
         struct_attributes : {},
         hide : true
     }
 };
+
+
+settings.parallel_corpora.mulcold_firu = {
+    "default" : "mulcold_firu_fi",
+    mulcold_firu_fi : {
+	id : "mulcold_firu_fi",
+	lang : "fi",
+        parent : "mulcold_firu",
+        title: "MULCOLD suomi–venäjä",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: attrlist.mulcold_fi,
+        struct_attributes : sattrlist.mulcold
+    },
+    mulcold_firu_ru : {
+	id : "mulcold_firu_ru",
+	lang : "ru",
+        parent : "mulcold_firu",
+        title: "MULCOLD suomi–venäjä",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: attrlist.mulcold_ru,
+        struct_attributes : sattrlist.mulcold,
+        hide : true
+    }
+};
+
+
+settings.parallel_corpora.mulcold_fiensvru = {
+    "default" : "mulcold_fiensvru_fi",
+    mulcold_fiensvru_fi : {
+	id : "mulcold_fiensvru_fi",
+	lang : "fi",
+        parent : "mulcold_fiensvru",
+        title: "MULCOLD suomi–englanti–ruotsi–venäjä",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: attrlist.mulcold_fi,
+        struct_attributes : sattrlist.mulcold
+    },
+    mulcold_fiensvru_en : {
+	id : "mulcold_fiensvru_en",
+	lang : "en",
+        parent : "mulcold_fiensvru",
+        title: "MULCOLD suomi–englanti–ruotsi–venäjä",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: attrlist.mulcold_en,
+        struct_attributes : sattrlist.mulcold,
+        hide : true
+    },
+    mulcold_fiensvru_sv : {
+	id : "mulcold_fiensvru_sv",
+	lang : "sv",
+        parent : "mulcold_fiensvru",
+        title: "MULCOLD suomi–englanti–ruotsi–venäjä",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: attrlist.mulcold_sv,
+        struct_attributes : sattrlist.mulcold,
+        hide : true
+    },
+    mulcold_fiensvru_ru : {
+	id : "mulcold_fiensvru_ru",
+	lang : "ru",
+        parent : "mulcold_fiensvru",
+        title: "MULCOLD suomi–englanti–ruotsi–venäjä",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: attrlist.mulcold_ru,
+        struct_attributes : sattrlist.mulcold,
+        hide : true
+    }
+};
+
+
+/*
+settings.parallel_corpora.testpar = {
+    "default" : "testpar_fi",
+    testpar_fi : {
+	id : "testpar_fi",
+	lang : "fi",
+        parent : "testpar",
+        title: "Testpar suomi–englanti-rinnakkaiskorpustesti",
+        context: context.spContext,
+        within: {
+            "sentence" : "sentence"
+        }, 
+        attributes: {},
+        struct_attributes : {}
+    },
+    testpar_en : {
+	id : "testpar_en",
+	lang : "en",
+        parent : "testpar",
+        title: "Testpar suomi–englanti-rinnakkaiskorpustesti",
+        context: context.spContext, 
+        within: {
+            "sentence" : "sentence"
+        }, 
+        attributes: {},
+        struct_attributes : {},
+        hide : true
+    }
+};
+
+
+settings.parallel_corpora.testpar4 = {
+    "default" : "testpar4_fi",
+    testpar4_fi : {
+	id : "testpar4_fi",
+	lang : "fi",
+        parent : "testpar4",
+        title: "Testpar4 suomi–englanti–ruotsi–saksa-rinnakkaiskorpustesti",
+        context: context.spContext,
+        within: {
+            "sentence" : "sentence"
+        }, 
+        attributes: {},
+        struct_attributes : {}
+    },
+    testpar4_en : {
+	id : "testpar4_en",
+	lang : "en",
+        parent : "testpar4",
+        title: "Testpar4 suomi–englanti–ruotsi–saksa-rinnakkaiskorpustesti",
+        context: context.spContext, 
+        within: {
+            "sentence" : "sentence"
+        }, 
+        attributes: {},
+        struct_attributes : {},
+        hide : true
+    },
+    testpar4_sv : {
+	id : "testpar4_sv",
+	lang : "sv",
+        parent : "testpar4",
+        title: "Testpar4 suomi–englanti–ruotsi–saksa-rinnakkaiskorpustesti",
+        context: context.spContext, 
+        within: {
+            "sentence" : "sentence"
+        }, 
+        attributes: {},
+        struct_attributes : {},
+        hide : true
+    },
+    testpar4_de : {
+	id : "testpar4_de",
+	lang : "de",
+        parent : "testpar4",
+        title: "Testpar4 suomi–englanti–ruotsi–saksa-rinnakkaiskorpustesti",
+        context: context.spContext, 
+        within: {
+            "sentence" : "sentence"
+        }, 
+        attributes: {},
+        struct_attributes : {},
+        hide : true
+    }
+};
+*/
 
 
 $.each(settings.parallel_corpora, function(corpora, struct) {
