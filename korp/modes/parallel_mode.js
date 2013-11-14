@@ -316,15 +316,19 @@ settings.corporafolders.europarl = {
 	contents : ["europarl_fi"]
 };
 
+/*
 settings.corporafolders.parrus = {
     title : "ParRus",
     contents : ["parrus_fi"]
 };
+*/
 
+/*
 settings.corporafolders.mulcold = {
     title : "MULCOLD – Multilingual Corpus of Legal Documents",
-    contents : ["mulcold_fi", "mulcold_firu_fi", "mulcold_fiensvru_fi"]
+    contents : ["mulcold_fi"]
 };
+*/
 
 settings.corpora = {};
 settings.parallel_corpora = {};
@@ -423,6 +427,7 @@ sattrlist.mulcold = {
 };
 
 
+/*
 settings.parallel_corpora.parrus = {
     "default" : "parrus_fi",
     parrus_fi : {
@@ -537,7 +542,7 @@ settings.parallel_corpora.mulcold_fiensvru = {
         hide : true
     }
 };
-
+*/
 
 settings.parallel_corpora.mulcold = {
     "default" : "mulcold_fi",
@@ -545,7 +550,8 @@ settings.parallel_corpora.mulcold = {
 	id : "mulcold_fi",
 	lang : "fi",
 	parent : "mulcold",
-	title: "MULCOLD kaikki",
+	title: "MULCOLD – Multilingual Corpus of Legal Documents",
+	description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
 	context: context.alignAligned, 
 	within: {
 	    "sentence": "sentence"
@@ -557,7 +563,8 @@ settings.parallel_corpora.mulcold = {
 	id : "mulcold_en",
 	lang : "en",
 	parent : "mulcold",
-	title: "MULCOLD kaikki",
+	title: "MULCOLD – Multilingual Corpus of Legal Documents",
+	description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
 	context: context.alignAligned, 
 	within: {
 	    "sentence": "sentence"
@@ -570,7 +577,8 @@ settings.parallel_corpora.mulcold = {
 	id : "mulcold_sv",
 	lang : "sv",
 	parent : "mulcold",
-	title: "MULCOLD kaikki",
+	title: "MULCOLD – Multilingual Corpus of Legal Documents",
+	description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
 	context: context.alignAligned, 
 	within: {
 	    "sentence": "sentence"
@@ -583,7 +591,8 @@ settings.parallel_corpora.mulcold = {
 	id : "mulcold_ru",
 	lang : "ru",
 	parent : "mulcold",
-	title: "MULCOLD kaikki",
+	title: "MULCOLD – Multilingual Corpus of Legal Documents",
+	description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
 	context: context.alignAligned, 
 	within: {
 	    "sentence": "sentence"
@@ -596,7 +605,8 @@ settings.parallel_corpora.mulcold = {
 	id : "mulcold_de",
 	lang : "de",
 	parent : "mulcold",
-	title: "MULCOLD kaikki",
+	title: "MULCOLD – Multilingual Corpus of Legal Documents",
+	description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
 	context: context.alignAligned, 
 	within: {
 	    "sentence": "sentence"
