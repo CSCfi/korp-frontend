@@ -94,18 +94,18 @@ settings.corporafolders = {};
 
 
 settings.corporafolders.vks = {
-    title : "Vanhan kirjasuomen korpus",
+    title : "Vanhan kirjasuomen korpus (näytteitä)",
     contents : ["vks_biblia", "vks_lait", "vks_saarnat"]
 };
 
 settings.corporafolders.vns = {
-    title : "Varhaisnykysuomen korpus",
+    title : "Varhaisnykysuomen korpus (näytteitä)",
     contents : ["vns_asetus", "vns_renqvist", "vns_renvall"]
 };
 
 
 settings.corpora.vks_biblia = {
-    title : "Biblia",
+    title : "Biblia (näyte)",
     description : "Vuoden 1642 raamatunsuomennos",
     id : "vks_biblia",
     within : settings.defaultWithin,
@@ -148,7 +148,7 @@ settings.corpora.vks_biblia = {
 };
 
 settings.corpora.vks_lait = {
-    title : "Laki- ja asetustekstejä",
+    title : "Laki- ja asetustekstejä (näyte)",
     description : "Laki- ja asetustekstejä",
     id : "vks_lait",
     within : settings.defaultWithin,
@@ -169,7 +169,7 @@ settings.corpora.vks_lait = {
 };
 
 settings.corpora.vks_saarnat = {
-    title : "Ruumissaarnoja, puheita ja muistorunoja",
+    title : "Ruumissaarnoja, puheita ja muistorunoja (näyte)",
     description : "Ruumissaarnoja, puheita ja muistorunoja",
     id : "vks_saarnat",
     within : settings.defaultWithin,
@@ -191,7 +191,7 @@ settings.corpora.vks_saarnat = {
 
 
 settings.corpora.vns_asetus = {
-    title : "Asetuksia",
+    title : "Asetuksia (näyte)",
     description : "Asetuksia",
     id : "vns_asetus",
     within : settings.spWithin,
@@ -233,7 +233,7 @@ settings.corpora.vns_asetus = {
 };
 
 settings.corpora.vns_renqvist = {
-    title : "Renqvist",
+    title : "Renqvist (näyte)",
     description : "Renqvist",
     id : "vns_renqvist",
     within : settings.defaultWithin,

@@ -576,12 +576,12 @@ settings.corporafolders.ftb.ftb3 = {
 };
 
 settings.corporafolders.kotus = {
-    title : "Kotuksen korpuksia",
+    title : "Kotuksen korpuksia (näytteitä)",
     contents : ["kotus_klassikot", "kotus_sananparret"]
 };
 
 settings.corporafolders.kotus.ns = {
-    title : "Nykysuomen aineistoja",
+    title : "Nykysuomen aineistoja (näytteitä)",
     contents : ["ns_presidentti", "ns_saadokset"]
 };
 
@@ -878,7 +878,7 @@ settings.corpora.metsatalo = {
 
 
 settings.corpora.kotus_klassikot = {
-    title : "Suomen kielen klassikoita -korpus",
+    title : "Suomen kielen klassikoita -korpus (näyte)",
     description : "Suomen kielen klassikoita",
     id : "kotus_klassikot",
     within : settings.defaultWithin,
@@ -918,7 +918,7 @@ settings.corpora.kotus_klassikot = {
 };
 
 settings.corpora.ns_presidentti = {
-    title : "Tasavallan presidenttien uudenvuodenpuheita",
+    title : "Tasavallan presidenttien uudenvuodenpuheita (näyte)",
     description : "Tasavallan presidenttien uudenvuodenpuheita (1935–2006)",
     id : "ns_presidentti",
     within : settings.spWithin,
@@ -955,7 +955,7 @@ settings.corpora.ns_presidentti = {
 };
 
 settings.corpora.ns_saadokset = {
-    title : "Lakeja ja direktiivejä",
+    title : "Lakeja ja direktiivejä (näyte)",
     description : "Lakeja ja direktiivejä vuosilta 2002–2003",
     id : "ns_saadokset",
     within : settings.spWithin,
@@ -1017,7 +1017,7 @@ settings.corpora.ns_saadokset = {
 };
 
 settings.corpora.kotus_sananparret = {
-    title : "Sananparsikokoelma",
+    title : "Sananparsikokoelma (näyte)",
     description : "Suomen murteiden Sananparsikokoelma (1930-luvulta)",
     id : "kotus_sananparret",
     within : settings.defaultWithin,
