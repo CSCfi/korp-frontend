@@ -72,10 +72,12 @@ klk_struct_attrs = {
         label : "klk_tokencount",
         displayType : "hidden",
     },
+    /*
     content_img_url : {
         label : "klk_img_url",
         type : "url",
     },
+    */
     paragraph_id : {
         label : "paragraph_id",
         displayType : "hidden",
