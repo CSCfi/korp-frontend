@@ -367,6 +367,7 @@ settings.parallel_corpora.europarl = {
 attrlist = {};
 attrlist.mulcold_fi = {
     lemma : attrs.baseform,
+    lemmacomp : attrs.baseform_compound,
     pos : attrs.pos_mulcold_fi,
     msd : attrs.msd,
     amblemma : attrs.ambiguous_lemma,
@@ -391,6 +392,7 @@ attrlist.mulcold_en = {
 };
 attrlist.mulcold_sv = {
     lemma : attrs.baseform,
+    lemmacomp : attrs.baseform_compound,
     pos : attrs.pos_mulcold_sv,
     msd : attrs.msd,
     amblemma : attrs.ambiguous_lemma,

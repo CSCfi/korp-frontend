@@ -1603,7 +1603,7 @@ sattrlist.legal = {
 
 settings.corpora.legal_fi = {
     id : "legal_fi",
-    title : "LEGAL suomi",
+    title : "FiRuLex suomi",
     description : "Juridisia tekstejä (suomi)",
     context : settings.defaultContext, 
     within : settings.defaultWithin, 
@@ -1613,7 +1613,7 @@ settings.corpora.legal_fi = {
 
 settings.corpora.legal_ru = {
     id : "legal_ru",
-    title: "LEGAL venäjä",
+    title: "FiRuLex venäjä",
     description : "Jurdisia tekstejä (venäjä)",
     context : settings.defaultContext, 
     within : settings.defaultWithin, 
