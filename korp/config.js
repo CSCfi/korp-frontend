@@ -551,6 +551,17 @@ sattrs.paragraph_type = {
     label : "paragraph_type"
 };
 
+sattrs.text_genre = {
+    label : "text_genre",
+    displayType : "select",
+    translationKey : "textgenre_",
+    dataset : {
+	"fiction" : "fiction",
+	"law" : "law",
+    },
+    opts : settings.liteOptions
+};
+
 
 /*
  * FOLDERS
@@ -1563,9 +1574,7 @@ sattrlist.mulcold = {
     align_text_typeoftext : {
 	label : "text_typeoftext"
     },
-    align_text_genre : {
-	label : "text_genre"
-    },
+    align_text_genre : sattrs.text_genre,
     align_text_period : {
 	label : "text_period"
     },
@@ -1588,9 +1597,7 @@ sattrlist.legal = {
     text_typeoftext : {
 	label : "text_typeoftext"
     },
-    text_genre : {
-	label : "text_genre"
-    },
+    text_genre : sattrs.text_genre,
     text_period : {
 	label : "text_period"
     },

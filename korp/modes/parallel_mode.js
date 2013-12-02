@@ -416,9 +416,7 @@ sattrlist.mulcold = {
     align_text_typeoftext : {
 	label : "text_typeoftext"
     },
-    align_text_genre : {
-	label : "text_genre"
-    },
+    align_text_genre : sattrs.text_genre,
     align_text_period : {
 	label : "text_period"
     },
@@ -427,6 +425,15 @@ sattrlist.mulcold = {
     },
     sentence_id : sattrs.sentence_id_hidden
 };
+// Make a deep copy of sattrlist.mulcold and then extend it
+sattrlist.parfin = $.extend(
+    true, {}, sattrlist.mulcold,
+    {
+	align_text_translator : {
+	    label : "text_translator"
+	}
+    }
+);
 
 
 /*
@@ -619,6 +626,39 @@ settings.parallel_corpora.mulcold = {
     }
 };
 
+
+settings.parallel_corpora.parfin = {
+    "default" : "parfin_fi",
+    parfin_fi : {
+	id : "parfin_fi",
+	lang : "fi",
+	parent : "parfin",
+	title: "ParFin",
+	description : "Suomenkielisiä kaunokirjallisia teoksia ja niiden käännöksiä venäjäksi",
+	context: context.alignAligned, 
+	within: {
+	    "sentence": "sentence"
+	}, 
+	attributes: attrlist.mulcold_fi,
+	struct_attributes : sattrlist.parfin,
+	limited_access : true
+    },
+    parfin_ru : {
+	id : "parfin_ru",
+	lang : "ru",
+	parent : "parfin",
+	title: "ParFin",
+	description : "Suomenkielisiä kaunokirjallisia teoksia ja niiden käännöksiä venäjäksi",
+	context: context.alignAligned, 
+	within: {
+	    "sentence": "sentence"
+	}, 
+	attributes: attrlist.mulcold_ru,
+	struct_attributes : sattrlist.parfin,
+	limited_access : true,
+	hide : true
+    }
+};
 
 /*
 settings.parallel_corpora.testpar = {
