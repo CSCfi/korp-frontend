@@ -97,7 +97,6 @@ Thanks to...
 			itemIn.call(this);
 			itemOut.call(this);
 		});
-		$.log("placeholder return ", this);
 		return this;
 	};
 

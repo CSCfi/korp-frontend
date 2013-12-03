@@ -9,7 +9,9 @@
 	"parallel_texts" : "Parallel",
 	"faroese_texts" : "Faroese",
 	"old_swedish_texts" : "Old Swedish",
+	"digidaily" : "Digidaily",
 	"1800_texts" : "Biblical texts",
+	"fisk1800_texts" : "Older Finland Swedish",
 	"lb_texts" : "Litteraturbanken",
 	"siberian_texts" : "Siberian German",
 	"lawroom" : "Habeas Corpus",
@@ -19,9 +21,10 @@
 	"about_man" : "Project Managers",
 	"about_dev" : "Developers",
 	"about_logo" : "Logotype by",
+	"about_contributers" : "Contributers",
 	"warning_header" : "Please note",
 	"warning_body" : "The dependency relations illustrated herein are the result of automated parsing.",
-	"fail_text" : "An error has occurred.",  
+	"fail_text" : "An error has occurred.",
 	"corpus" : "Corpus",
 	"search_for" : "Search for ",
 	"show_more" : "Show more",
@@ -34,52 +37,56 @@
 	"show_reading" : "Show context",
     "show_kwic" : "Show KWIC",
     "log_in" : "Log in",
-    "username" : "Username",
+    "username" : "Email",
     "password" : "Password",
     "login_fail_msg" : "Authentication failed, please check your username and password and try again.",
     "send" : "Send",
     "log_out" : "Log out",
-	
-	"is" : "is", 
+    "strict" : "strict",
+    "import_chain" : "Annotation Lab",
+    "show_deptree" : "Show Dependency Tree",
+    "dep_tree" : "Dependency Tree",
+
+	"is" : "is",
 	"is_not" : "is not",
 	"starts_with" : "begins with",
 	"ends_with" : "ends with",
-	
+
 	"any_word_placeholder" : "<any word>",
 	"case_insensitive" : "case-insensitive",
 	"case_sensitive" : "case-sensitive",
 	"reduce_text" : "compile based on",
-	
+
 	"word_is" : "word is",
 	"word_is_not" : "word is not",
 	"word_beginswith" : "word begins with",
-	"contains" : "innehåller",
+	"contains" : "contains",
 	"word_endswith" : "word ends with",
 	"matches_regexp" : "regular expression",
 	"wordclass_is" : "word class is",
 	"wordclass_starts" : "word class begins with",
 	"interval" : "interval",
 	"matches" : "regexp",
-	
+
 	"repeat" : "Repeat",
 	"to" : "to",
 	"times" : "times",
-	
+
 	"sent_start" : "Sentence start",
     "sent_end" : "Sentence end",
-	
+
 	"none_selected" : "&lt;none selected&gt;",
-	
+
 	"any" : "any word",
 	"all" : "all",
 	"one_of" : "any",
 	"error_occurred" : "An error occurred",
-	
+
 	"following_text" : "Match any of the following rules:",
 	"stats_hit" : "Hit",
 	"stats_total" : "Total",
 	"options" : "Options",
-	
+
 	"simple" : "Simple",
 	"detailed" : "Extended",
 	"advanced" : "Advanced",
@@ -87,6 +94,14 @@
 	"swe" : "swedish",
     "dan" : "danish",
     "nld" : "dutch",
+    "eng" : "english",
+    "deu" : "german",
+    "ell" : "greek",
+    "spa" : "spanish",
+    "fin" : "finnish",
+    "fra" : "french",
+    "ita" : "italian",
+    "por" : "portuguese",
 	"statistics" : "Statistics",
 	"lemgram_results" : "Word picture",
 	"sort_default" : "sort within corpora",
@@ -100,17 +115,27 @@
 	"appearance_context" : "not sorted",
 	"word_context" : "matched word(s)",
 	"left_context" : "left context",
-	"right_context" : "right context", 
+	"right_context" : "right context",
+	"random_context" : "random",
 	"loading" : "Searching...",
 	"autocomplete_header" : "is a word form in",
 	"no_lemgram_results" : "No examples found.",
 	"no_stats_results" : "The search generated no results.",
-    
-    
-    "word_insensitive" : "word (case insensitive)",	
+
+	"graph" : "Graph",
+	"line" : "Line",
+	"bar" : "Bar",
+	"smoothing" : "Smoothing",
+	"show_diagram" : "Show Trend Diagram",
+	"non_time_before" : "",
+	"non_time_after" : " of selected material lacks time data.",
+	"rel_hits_short" : "Rel. hits",
+
+
+    "word_insensitive" : "word (case insensitive)",
 	"sentence_attr" : "text attributes",
 	"word_attr" : "word attributes",
-	
+
 	"similar_header" : "Related words",
 	"show_wordclass" : "Show word class",
 	"search" : "Search",
@@ -126,9 +151,9 @@
 	"link" : "link",
 	"text" : "text",
 	"word" : "word",
-	
+
 	"msd_long" : "Morphosyntactic description",
-	
+
 	"corpselector_allselected" : " corpora selected (all)",
 	"corpselector_noneselected" : "No corpus selected",
 	"corpselector_selectedone" : " selected",
@@ -149,7 +174,7 @@
 	"corpselector_rest_time" : "Undated material",
 	"corpselector_time_chosen" : "Selected material",
     "corpselector_of_total" : "of total",
-	
+
 	"statstable_allcorpora" : "All&nbsp;corpora",
 	"statstable_relfreq" : "relative frequency (per million words):",
 	"statstable_absfreq" : "absolute frequency:",
@@ -162,16 +187,21 @@
 	"statstable_exp_csv" : "CSV (comma separated values)",
 	"statstable_exp_tsv" : "TSV (tab separated values)",
 	"statstable_export" : "Export",
-	
+
 	"util_decimalseparator" : ".",
 	"util_numbergroupseparator" : ",",
-	
+
 	"hitspicture_hits" : "hits",
 	"hitspicture_gotocorpushits" : "Click to go to the first page with hits from this corpus.",
-	
+
 	"hits_per_mil" : "Hits per million tokens",
-	
+
 	"chapter" : "chapter",
 	"verse" : "verse",
-	"modern" : "modern"
+	"modern" : "modern",
+
+	"saldom" : "modern",
+    "dalinm" : "19th century",
+    "swedbergm" : "17th century",
+    "fsvm" : "old swedish"
 }

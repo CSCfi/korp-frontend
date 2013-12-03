@@ -1,12 +1,66 @@
 /* lemma => grundform, base form
  * lexem => lemgram, lemgram
- * 
+ *
  */
 var settings = {};
-//var language = $.localize.data.locale;
+
+var isLab = window.isLab || false;
 
 settings.lemgramSelect = true;
 settings.autocomplete = true;
+
+
+settings.modeConfig = [
+    {
+        localekey: "modern_texts",
+        mode: "default"
+    },
+    {
+        localekey: "parallel_texts",
+        mode: "parallel"
+    },
+    {
+        localekey: "old_swedish_texts",
+        mode: "old_swedish"
+    },
+    {
+        localekey: "lb_texts",
+        mode: "lb"
+    },
+    {
+        localekey: "fisk1800_texts",
+        mode: "fisk1800"
+    },
+    {
+        localekey: "faroese_texts",
+        mode: "faroe"
+    },
+    {
+        localekey: "siberian_texts",
+        mode: "siberian_german",
+        labOnly : true
+    },
+    {
+        localekey: "1800_texts",
+        mode: "1800",
+        labOnly : true
+    },
+    {
+        localekey: "lawroom",
+        mode: "law",
+        labOnly : true
+    },
+    {
+        localekey: "digidaily",
+        mode: "digidaily",
+        labOnly : true
+    }
+];
+
+
+
+
+var karpLemgramLink = "http://spraakbanken.gu.se/karp/#search=cql%7C(lemgram+%3D+%22<%= val.replace(/:\\d+/, '') %>%22)+sortBy+lemgram";
 
 settings.primaryColor = "rgb(221, 233, 255)";
 settings.primaryLight = "rgb(242, 247, 255)";
@@ -20,7 +74,7 @@ settings.spContext = {
 	"1 paragraph" : "1 paragraph"
 };
 settings.defaultWithin = {
-	"sentence" : "sentence"	
+	"sentence" : "sentence"
 };
 settings.spWithin = {
 	"sentence" : "sentence",
@@ -45,31 +99,32 @@ settings.defaultOptions = {
 };
 
 settings.getTransformFunc = function(type, value, opt) {
-	c.log("getTransformFunc", type, value);
-	
+
 	if(type == "word" && !value) return function() {return "";};
-	
+
 	if(type == "date_interval") {
-		
+		c.log("date_interval", arguments)
 		var from = value[0].toString() + "0101";
 		var to = value[1].toString() + "1231";
-		
+
 		var operator1 = ">=", operator2 = "<=", bool = "&";
 		if(opt == "is_not") {
 			operator1 = "<";
 			operator2 = ">";
 			bool = "|";
 		}
-		
+
 		return function() {
-			return $.format("(int(_.text_datefrom) %s %s %s int(_.text_dateto) %s %s)", 
+			return $.format("(int(_.text_datefrom) %s %s %s int(_.text_dateto) %s %s)",
 					[operator1, from, bool, operator2, to]);
 		};
-	
+
 	}
 };
 
-settings.liteOptions = $.exclude(settings.defaultOptions, ["starts_with", "contains", "ends_with", "matches"]);
+// settings.liteOptions = $.exclude(settings.defaultOptions, ["starts_with", "contains", "ends_with", "matches"]);
+settings.liteOptions = _.omit.apply(null, [settings.defaultOptions, "starts_with", "contains", "ends_with", "matches"]);
+
 
 var attrs = {};  // positional attributes
 var sattrs = {}; // structural attributes
@@ -113,108 +168,131 @@ attrs.baseform = {
 	label : "baseform",
 	type : "set",
 	displayType : "autocomplete",
+	stringify : function(baseform) {
+		return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
+	},
 	opts : settings.liteOptions
 };
 attrs.lemgram = {
 	label : "lemgram",
 	type : "set",
 	displayType : "autocomplete",
-	opts : settings.liteOptions
+	opts : settings.liteOptions,
+	stringify : function(lemgram) {
+		return util.lemgramToString(lemgram, true);
+	},
+	externalSearch : karpLemgramLink,
+	internalSearch : true
 };
 attrs.saldo = {
 	label : "saldo",
 	type : "set",
 	displayType : "autocomplete",
-	opts : settings.liteOptions
+	opts : settings.liteOptions,
+	stringify : function(saldo) {
+		return util.saldoToString(saldo, true);
+	},
+	externalSearch : "http://spraakbanken.gu.se/karp/#search-tab-1&search=cql|(saldo+%3D+<%= val %>)",
+	internalSearch : true
 };
 attrs.dephead = {
 	label : "dephead",
 	displayType : "hidden"
 };
 attrs.deprel = {
-		label : "deprel",
-		displayType : "select",
-		translationKey : "deprel_",
-		dataset : {
-			"++" : "++",
-			"+A" : "+A",
-			"+F" : "+F",
-			"AA" : "AA",
-			"AG" : "AG",
-			"AN" : "AN",
-			"AT" : "AT",
-			"CA" : "CA",
-			"DB" : "DB",
-			"DT" : "DT",
-			"EF" : "EF",
-			"EO" : "EO",
-			"ES" : "ES",
-			"ET" : "ET",
-			"FO" : "FO",
-			"FP" : "FP",
-			"FS" : "FS",
-			"FV" : "FV",
-			"I?" : "I?",
-			"IC" : "IC",
-			"IG" : "IG",
-			"IK" : "IK",
-			"IM" : "IM",
-			"IO" : "IO",
-			"IP" : "IP",
-			"IQ" : "IQ",
-			"IR" : "IR",
-			"IS" : "IS",
-			"IT" : "IT",
-			"IU" : "IU",
-			"IV" : "IV",
-			"JC" : "JC",
-			"JG" : "JG",
-			"JR" : "JR",
-			"JT" : "JT",
-			"KA" : "KA",
-			"MA" : "MA",
-			"MS" : "MS",
-			"NA" : "NA",
-			"OA" : "OA",
-			"OO" : "OO",
-			"OP" : "OP",
-			"PL" : "PL",
-			"PR" : "PR",
-			"PT" : "PT",
-			"RA" : "RA",
-			"SP" : "SP",
-			"SS" : "SS",
-			"TA" : "TA",
-			"TT" : "TT",
-			"UK" : "UK",
-			"VA" : "VA",
-			"VO" : "VO",
-			"VS" : "VS",
-			"XA" : "XA",
-			"XF" : "XF",
-			"XT" : "XT",
-			"XX" : "XX",
-			"YY" : "YY",
-			"CJ" : "CJ",
-			"HD" : "HD",
-			"IF" : "IF",
-			"PA" : "PA",
-			"UA" : "UA",
-			"VG" : "VG"
-		},
-		opts : settings.liteOptions
-	};
+	label : "deprel",
+	displayType : "select",
+	translationKey : "deprel_",
+	dataset : {
+		"++" : "++",
+		"+A" : "+A",
+		"+F" : "+F",
+		"AA" : "AA",
+		"AG" : "AG",
+		"AN" : "AN",
+		"AT" : "AT",
+		"CA" : "CA",
+		"DB" : "DB",
+		"DT" : "DT",
+		"EF" : "EF",
+		"EO" : "EO",
+		"ES" : "ES",
+		"ET" : "ET",
+		"FO" : "FO",
+		"FP" : "FP",
+		"FS" : "FS",
+		"FV" : "FV",
+		"I?" : "I?",
+		"IC" : "IC",
+		"IG" : "IG",
+		"IK" : "IK",
+		"IM" : "IM",
+		"IO" : "IO",
+		"IP" : "IP",
+		"IQ" : "IQ",
+		"IR" : "IR",
+		"IS" : "IS",
+		"IT" : "IT",
+		"IU" : "IU",
+		"IV" : "IV",
+		"JC" : "JC",
+		"JG" : "JG",
+		"JR" : "JR",
+		"JT" : "JT",
+		"KA" : "KA",
+		"MA" : "MA",
+		"MS" : "MS",
+		"NA" : "NA",
+		"OA" : "OA",
+		"OO" : "OO",
+		"OP" : "OP",
+		"PL" : "PL",
+		"PR" : "PR",
+		"PT" : "PT",
+		"RA" : "RA",
+		"SP" : "SP",
+		"SS" : "SS",
+		"TA" : "TA",
+		"TT" : "TT",
+		"UK" : "UK",
+		"VA" : "VA",
+		"VO" : "VO",
+		"VS" : "VS",
+		"XA" : "XA",
+		"XF" : "XF",
+		"XT" : "XT",
+		"XX" : "XX",
+		"YY" : "YY",
+		"CJ" : "CJ",
+		"HD" : "HD",
+		"IF" : "IF",
+		"PA" : "PA",
+		"UA" : "UA",
+		"VG" : "VG"
+	},
+	opts : settings.liteOptions
+};
 attrs.prefix = {
 	label : "prefix",
 	type : "set",
 	displayType : "autocomplete",
-	opts : settings.liteOptions
+	opts : settings.liteOptions,
+	stringify : function(lemgram) {
+		return util.lemgramToString(lemgram, true);
+	},
+	externalSearch : karpLemgramLink,
+	internalSearch : true
 };
 attrs.suffix = {
 	label : "suffix",
 	type : "set",
 	displayType : "autocomplete",
-	opts : settings.liteOptions
+	opts : settings.liteOptions,
+	stringify : function(lemgram) {
+		return util.lemgramToString(lemgram, true);
+	},
+	externalSearch : karpLemgramLink,
+	internalSearch : true
 };
 attrs.ref = {
 	label : "ref",
@@ -231,21 +309,28 @@ sattrs.date = {
 /*
  * FOLDERS
  */
- 
+
 settings.corporafolders = {};
 
 settings.corporafolders.sweac = {
 	title : "Akademiska texter",
-	contents : ["sweachum"]
+	contents : ["sweachum", "sweacsam"]
 };
 
 settings.corporafolders.strindberg = {
 		title : "August Strindberg",
 		contents : ["strindbergromaner", "strindbergbrev"]
 };
+
+settings.corporafolders.bloggmix = {
+	title : "Bloggmix",
+	contents : ["bloggmix1998", "bloggmix1999", "bloggmix2000", "bloggmix2001", "bloggmix2002", "bloggmix2003", "bloggmix2004", "bloggmix2005", "bloggmix2006", "bloggmix2007", "bloggmix2008", "bloggmix2009", "bloggmix2010", "bloggmix2011", "bloggmix2012", "bloggmix2013", "bloggmixodat"],
+	description : "Material från ett urval av svenska bloggar. Uppdateras regelbundet."
+};
+
 settings.corporafolders.fisk = {
 	title : "Finlandssvenska texter",
-	contents : ["magmakolumner"],
+	contents : ["barnlitteratur", "fsbessaistik", "fsbsakprosa"],
 	description : "Det första steget för att skapa en finlandssvensk korpus togs redan " +
 			"på 1990-talet (Institutionen för nordiska språk vid Helsingfors universitet) " +
 			"och under åren 1999–2000 fortsatte arbetet (ett samarbetsprojekt mellan " +
@@ -255,19 +340,9 @@ settings.corporafolders.fisk = {
 			"Institutet för de inhemska språken och Göteborgs universitet."
 };
 
-settings.corporafolders.fisk.blogs = {
-	title : "Bloggtexter",
-	contents : ["fsbbloggvuxna"]
-};
-
-settings.corporafolders.fisk.essayistic = {
-	title : "Essäistisk litteratur",
-	contents : ["fsbessaistik"]
-};
-
-settings.corporafolders.fisk.articles = {
-	title : "Sakprosa",
-	contents : ["fsbsakprosa"]
+settings.corporafolders.fisk.webtexts = {
+	title : "Webbtexter",
+	contents : ["fsbbloggvuxna", "magmakolumner"]
 };
 
 settings.corporafolders.fisk.governmental = {
@@ -277,30 +352,28 @@ settings.corporafolders.fisk.governmental = {
 
 settings.corporafolders.fisk.novels = {
 	title : "Skönlitteratur",
-	contents : ["fsbskonlit"]
+	contents : ["fsbskonlit1960-1999", "fsbskonlit2000tal"]
 };
 
 settings.corporafolders.fisk.newspapertexts = {
 	title : "Tidningstexter",
-	contents : ["sydosterbotten2012", "abounderrattelser2012", "at2012"]
+	contents : ["borgabladet", "vastranyland", "at2012", "ostranyland"]
 };
 
 settings.corporafolders.fisk.newspapertexts.fnb = {
-	title : "FNB 1999–2000",
+	title : "FNB",
 	contents : ["fnb1999", "fnb2000"],
-	description : "FNB är Finlands ledande nyhets- och bildbyrå."
-	// http://www.stt.fi/sv
+	description : "<a href=\"http://www.stt.fi/sv\" target=\"_blank\">FNB</a> är Finlands ledande nyhets- och bildbyrå."
 };
 
 settings.corporafolders.fisk.newspapertexts.hbl = {
-	title : "Hufvudstadsbladet 1991, 1998–1999",
-	contents : ["hbl1991", "hbl1998", "hbl1999"],
-	description : "Hufvudstadsbladet är den största finlandssvenska dagstidningen i Finland."
-	//description : "<a href=\"http://www.hbl.fi\">Hufvudstadsbladet</a> är den största finlandssvenska dagstidningen i Finland."
+	title : "Hufvudstadsbladet",
+	contents : ["hbl1991", "hbl1998", "hbl1999", "hbl20122013"],
+	description : "<a href=\"http://www.hbl.fi\" target=\"_blank\">Hufvudstadsbladet</a> är den största finlandssvenska dagstidningen i Finland."
 };
 
 settings.corporafolders.fisk.newspapertexts.jakobstadstidning = {
-	title : "Jakobstads tidning 1999–2000",
+	title : "Jakobstads tidning",
 	contents : ["jakobstadstidning1999", "jakobstadstidning2000"],
 	description : "Jakobstads Tidning var en lokal dagstidning i Österbotten som gavs ut under perioden 1898–2008."
 };
@@ -308,26 +381,47 @@ settings.corporafolders.fisk.newspapertexts.jakobstadstidning = {
 settings.corporafolders.fisk.newspapertexts.pargaskungorelser = {
 	title : "Pargas kungörelser",
 	contents : ["pargaskungorelser2011", "pargaskungorelser2012"],
-	description : "Pargas Kungörelser är en regional svenskspråkig tidning i Pargas med omnejd."
-	// http://www.pku.fi
+	description : "<a href=\"http://www.pku.fi\" target=\"_blank\">Pargas Kungörelser</a> är en regional svenskspråkig tidning i Pargas med omnejd."
+};
+
+settings.corporafolders.fisk.newspapertexts.sydosterbotten = {
+	title : "Syd-Österbotten",
+	contents : ["sydosterbotten2010", "sydosterbotten2011", "sydosterbotten2012", "sydosterbotten2013"],
+	description : "<a href=\"http://www.sydin.fi\" target=\"_blank\">Syd-Österbotten</a> är en regional svenskspråkig dagstidning i Österbotten."
 };
 
 settings.corporafolders.fisk.newspapertexts.vasab = {
 	title : "Vasabladet",
-	contents : ["vasabladet1991", "vasabladet2012"],
-	description : "Vasabladet är en regional svenskspråkig dagstidning i Österbotten."
-	//description : "<a href=\"http://www.vasabladet.fi\">Vasabladet</a> är en regional svenskspråkig dagstidning i Österbotten."
+	contents : ["vasabladet1991", "vasabladet2012", "vasabladet2013"],
+	description : "<a href=\"http://www.vasabladet.fi\" target=\"_blank\">Vasabladet</a> är en regional svenskspråkig dagstidning i Österbotten."
+};
+
+settings.corporafolders.fisk.newspapertexts.abounderrattelser = {
+	title : "Åbo Underrättelser",
+	contents : ["abounderrattelser2012", "abounderrattelser2013"],
+	description : "<a href=\"www.abounderrattelser.fi\" target=\"_blank\">Åbo Underrättelser</a> är en regional svenskspråkig dagstidning i Åbotrakten."
 };
 
 settings.corporafolders.fisk.newspapertexts.osterbottenstidning = {
-	title : "Österbottens tidning",
-	contents : ["osterbottenstidning2011", "osterbottenstidning2012"],
-	description : ""
+	title : "Österbottens Tidning",
+	contents : ["osterbottenstidning2011", "osterbottenstidning2012", "osterbottenstidning2013"],
+	description : "<a href=\"http://www.ot.fi\" target=\"_blank\">Österbottens Tidning</a> är en regional svenskspråkig tidning i Österbotten."
+	// 
 };
 
 settings.corporafolders.fisk.magazines = {
 	title : "Tidskrifter",
-	contents : ["astranova", "finsktidskrift", "hanken", "kallan", "meddelanden", "nyaargus", "studentbladet", "svenskbygden"]
+	contents : ["astranova", "bullen", "fanbararen", "finsktidskrift", "forumfeot", "hankeiten", "hanken", "kallan", "meddelanden", "nyaargus", "studentbladet", "svenskbygden"]
+};
+
+settings.corporafolders.fisk.youthnovels = {
+	title : "Ungdomslitteratur",
+	contents : ["ungdomslitteratur"]
+};
+
+settings.corporafolders.protected = {
+	title : "Skyddade korpusar",
+	contents : ["ansokningar", "cefr", "gdc", "soexempel", "tisus"]
 };
 
 settings.corporafolders.medical = {
@@ -338,21 +432,6 @@ settings.corporafolders.medical = {
 settings.corporafolders.medical.ltd = {
 	title : "Läkartidningen",
 	contents : ["lt1996", "lt1997", "lt1998", "lt1999", "lt2000", "lt2001", "lt2002", "lt2003", "lt2004", "lt2005"]
-};
-
-settings.corporafolders.parallel = {
-	title : "Parallella material",
-	contents : []
-};
-
-settings.corporafolders.parallel.europarl = {
-	title : "Europarl",
-	contents : ["europarlda_sv"]
-};
-
-settings.corporafolders.parallel.salt = {
-	title : "SALT",
-	contents : ["saltnld_swe"]
 };
 
 settings.corporafolders.novels = {
@@ -367,7 +446,7 @@ settings.corporafolders.newspapertexts = {
 
 settings.corporafolders.newspapertexts.gp = {
 	title : "GP",
-	contents : ["gp1994", "gp2001", "gp2002", "gp2003", "gp2004", "gp2005", "gp2006", "gp2007", "gp2008", "gp2009", "gp2010", "gp2011", "gp2d"]
+	contents : ["gp1994", "gp2001", "gp2002", "gp2003", "gp2004", "gp2005", "gp2006", "gp2007", "gp2008", "gp2009", "gp2010", "gp2011", "gp2012", "gp2d"]
 };
 
 settings.corporafolders.newspapertexts.press = {
@@ -403,15 +482,15 @@ settings.corpora.magmakolumner = {
 		suffix : attrs.suffix
 	},
 	struct_attributes : {
-	    text_author : {label : "author"},
-	    text_title : {label : "title"},
-	    text_date : {label : "date"}
+		text_author : {label : "author"},
+		text_title : {label : "title"},
+		text_date : {label : "date"}
 	}
 };
 
 settings.corpora.fsbbloggvuxna = {
 	id : "fsbbloggvuxna",
-	title : "Vuxna bloggare",
+	title : "Bloggtexter",
 	description : "",
 	within : settings.spWithin,
 	context : settings.spContext,
@@ -439,10 +518,10 @@ settings.corpora.fsbbloggvuxna = {
 	}
 };
 
-settings.corpora.fsbskonlit = {
-	id : "fsbskonlit",
-	title : "Skönlitteratur 1970–2011",
-	description : "Material ur skönlitterära verk publicerade under 1970–2011 av Söderströms förlag.",
+settings.corpora["fsbskonlit1960-1999"] = {
+	id : "fsbskonlit1960-1999",
+	title : "Skönlitteratur 1960–1999",
+	description : "Material ur skönlitterära verk publicerade under 1960–1999.",
 	within : settings.spWithin,
 	context : settings.spContext,
 	attributes : {
@@ -458,17 +537,69 @@ settings.corpora.fsbskonlit = {
 		suffix : attrs.suffix
 	},
 	struct_attributes : {
-	    text_author : {label : "author"},
-	    text_title : {label : "title"},
-	    text_date : {label : "year"},
-	    text_publisher : {label : "publisher"}
+		text_author : {label : "author"},
+		text_title : {label : "title"},
+		text_date : {label : "year"},
+		text_publisher : {label : "publisher"}
+	}
+};
+
+settings.corpora.fsbskonlit2000tal = {
+	id : "fsbskonlit2000tal",
+	title : "Skönlitteratur 2000–2013",
+	description : "Material ur skönlitterära verk publicerade under 2000–2013.",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix
+	},
+	struct_attributes : {
+		text_author : {label : "author"},
+		text_title : {label : "title"},
+		text_date : {label : "year"},
+		text_publisher : {label : "publisher"}
+	}
+};
+
+settings.corpora.barnlitteratur = {
+	id : "barnlitteratur",
+	title : "Barnlitteratur 2000–2013",
+	description : "Material ur barnlitterära verk publicerade under 2000–2013.",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix
+	},
+	struct_attributes : {
+		text_author : {label : "author"},
+		text_title : {label : "title"},
+		text_date : {label : "year"},
+		text_publisher : {label : "publisher"}
 	}
 };
 
 settings.corpora.fsbessaistik = {
 	id : "fsbessaistik",
-	title : "Essäistisk litteratur 1970–2011",
-	description : "Material ur essäistiska verk publicerade under 1970–2011 av Söderströms förlag.",
+	title : "Essäistisk litteratur 1992–2013",
+	description : "Material ur essäistiska verk publicerade under 1992–2013",
 	within : settings.spWithin,
 	context : settings.spContext,
 	attributes : {
@@ -484,17 +615,17 @@ settings.corpora.fsbessaistik = {
 		suffix : attrs.suffix
 	},
 	struct_attributes : {
-	    text_author : {label : "author"},
-	    text_title : {label : "title"},
-	    text_date : {label : "year"},
-	    text_publisher : {label : "publisher"}
+		text_author : {label : "author"},
+		text_title : {label : "title"},
+		text_date : {label : "year"},
+		text_publisher : {label : "publisher"}
 	}
 };
 
 settings.corpora.fsbsakprosa = {
 	id : "fsbsakprosa",
-	title : "Sakprosa 1970–2011",
-	description : "Material ur facklitterära verk publicerade under 1970–2011 av Söderströms förlag och Svenska litteratursällskapets förlag.",
+	title : "Sakprosa 2006–2013",
+	description : "Material ur facklitterära verk publicerade under 2006–2013.",
 	within : settings.spWithin,
 	context : settings.spContext,
 	attributes : {
@@ -510,10 +641,36 @@ settings.corpora.fsbsakprosa = {
 		suffix : attrs.suffix
 	},
 	struct_attributes : {
-	    text_author : {label : "author"},
-	    text_title : {label : "title"},
-	    text_date : {label : "year"},
-	    text_publisher : {label : "publisher"}
+		text_author : {label : "author"},
+		text_title : {label : "title"},
+		text_date : {label : "year"},
+		text_publisher : {label : "publisher"}
+	}
+};
+
+settings.corpora.ungdomslitteratur = {
+	id : "ungdomslitteratur",
+	title : "Ungdomslitteratur",
+	description : "",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix
+	},
+	struct_attributes : {
+		text_author : {label : "author"},
+		text_title : {label : "title"},
+		text_date : {label : "year"},
+		text_publisher : {label : "publisher"}
 	}
 };
 
@@ -605,8 +762,31 @@ settings.corpora.finsktidskrift = {
 		suffix : attrs.suffix
 	},
 	struct_attributes : {
-	    text_date : {label : "year"},
-	    text_issue : {label : "issue"}
+		text_date : {label : "year"},
+		text_issue : {label : "issue"}
+	}
+};
+
+settings.corpora.forumfeot = {
+	id : "forumfeot",
+	title : "Forum för ekonomi och teknik 2007–2012",
+	description : "<a href=\"http://www.forummag.fi\">Forum för ekonomi och teknik</a> är Finlands enda svenskspråkiga affärsmagasin och ger sina läsare information om näringsliv, ledarskap och teknologi.",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix
+	},
+	struct_attributes : {
+		text_date : {label : "date"}
 	}
 };
 
@@ -629,8 +809,8 @@ settings.corpora.hanken = {
 		suffix : attrs.suffix
 	},
 	struct_attributes : {
-	    text_date : {label : "year"},
-	    text_issue : {label : "issue"}
+		text_date : {label : "year"},
+		text_issue : {label : "issue"}
 	}
 };
 
@@ -653,8 +833,8 @@ settings.corpora.svenskbygden = {
 		suffix : attrs.suffix
 	},
 	struct_attributes : {
-	    text_year : {label : "year"},
-	    text_issue : {label : "issue"}
+		text_year : {label : "year"},
+		text_issue : {label : "issue"}
 	}
 };
 
@@ -677,15 +857,15 @@ settings.corpora.studentbladet = {
 		suffix : attrs.suffix
 	},
 	struct_attributes : {
-	    text_date : {label : "year"},
-	    text_issue : {label : "issue"}
+		text_date : {label : "year"},
+		text_issue : {label : "issue"}
 	}
 };
 
 settings.corpora.jakobstadstidning1999 = {
 	id : "jakobstadstidning1999",
 	title : "Jakobstads tidning 1999",
-	description : "Jakobstads Tidning var en lokal dagstidning i Österbotten som gavs ut under perioden 1898–2008.",
+	description : "",
 	within : settings.spWithin,
 	context : settings.spContext,
 	attributes : {
@@ -708,7 +888,7 @@ settings.corpora.jakobstadstidning1999 = {
 settings.corpora.jakobstadstidning2000 = {
 	id : "jakobstadstidning2000",
 	title : "Jakobstads tidning 2000",
-	description : "Jakobstads Tidning var en lokal dagstidning i Österbotten som gavs ut under perioden 1898–2008.",
+	description : "",
 	within : settings.spWithin,
 	context : settings.spContext,
 	attributes : {
@@ -747,8 +927,67 @@ settings.corpora.sweachum = {
 		suffix : attrs.suffix
 	},
 	struct_attributes : {
-	    text_type : {label : "type"},
-	    text_subject : {label : "subject"}
+		text_type : {label : "type",
+			displayType : "select",
+			dataset : {
+				"Licentiat" : "Licentiat",
+				"PhD" : "PhD"
+			}
+		},
+		text_subject : {label : "subject",
+			displayType : "select",
+			dataset : {
+				"Etnologi" : "Etnologi",
+				"Filosofi" : "Filosofi",
+				"Historia" : "Historia",
+				"Jämförande språkvetenskap och lingvistik" : "Jämförande språkvetenskap och lingvistik",
+				"Konst" : "Konst",
+				"Litteraturvetenskap" : "Litteraturvetenskap",
+				"Religionsvetenskap" : "Religionsvetenskap"
+			}
+		}
+	}
+};
+
+settings.corpora.sweacsam = {
+	id : "sweacsam",
+	title : "Samhällsvetenskap",
+	description : "",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix
+	},
+	struct_attributes : {
+		text_type : {label : "type",
+			displayType : "select",
+			dataset : {
+				"Licentiat" : "Licentiat",
+				"PhD" : "PhD"
+			}
+		},
+		text_subject : {label : "subject",
+			displayType : "select",
+			dataset : {
+				"Ekonomi och näringsliv" : "Ekonomi och näringsliv",
+				"Juridik" : "Juridik",
+				"Medie- och kommunikationsvetenskap" : "Medie- och kommunikationsvetenskap",
+				"Psykologi" : "Psykologi",
+				"Social och ekonomisk geografi" : "Social och ekonomisk geografi",
+				"Sociologi" : "Sociologi",
+				"Statsvetenskap" : "Statsvetenskap",
+				"Utbildningsvetenskap" : "Utbildningsvetenskap"
+			}
+		}
 	}
 };
 
@@ -1091,6 +1330,31 @@ settings.corpora.gp2011 = {
 	}
 };
 
+settings.corpora.gp2012 = {
+	id : "gp2012",
+	title : "GP 2012",
+	description : "Göteborgs-Posten 2012.",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix
+	},
+	struct_attributes : {
+		text_date : sattrs.date,
+		text_author : {label : "article_author"},
+		text_section : {label : "article_section"}
+	}
+};
+
 settings.corpora.gp2d = {
 	id : "gp2d",
 	title : "GP – Två dagar",
@@ -1339,10 +1603,21 @@ settings.corpora.strindbergbrev = {
 	}
 };
 
-settings.corpora.bloggmix = {
-	id : "bloggmix",
-	title : "Bloggmix (augusti 2012)",
-	description : "Material från ett urval av svenska bloggar. Uppdateras regelbundet.",
+var bloggmix_structs = {
+	blog_title : {label : "blog_title"},
+	blog_url : {label : "blog_url", type : "url"},
+	blog_age : {label : "author_age"},
+	blog_city : {label : "city"},
+	blog_categories : {label : "categories", type : "set"},
+	text_title : {label : "post_title"},
+	text_date : {label : "date"},
+	text_tags : {label : "tags", type : "set"},
+	text_url : {label : "post_url", type : "url"}
+}
+
+settings.corpora.bloggmix1998 = {
+	id : "bloggmix1998",
+	title : "Bloggmix 1998",
 	within : settings.defaultWithin,
 	context : settings.defaultContext,
 	attributes : {
@@ -1357,191 +1632,349 @@ settings.corpora.bloggmix = {
 		deprel : attrs.deprel,
 		ref : attrs.ref
 	},
-	struct_attributes : {
-		blog_title : {label : "blog_title"},
-		blog_url : {label : "blog_url", type : "url"},
-		blog_age : {label : "author_age"},
-		blog_city : {
-			label : "city", 
-			displayType : "select",
-			localize : false,
-			dataset : {
-            "Alingsås" : "Alingsås",
-            "Alnö" : "Alnö",
-            "Arboga" : "Arboga",
-            "Arild" : "Arild",
-            "Bankeryd" : "Bankeryd",
-            "Bergviken" : "Bergviken",
-            "Birsta" : "Birsta",
-            "Bjursås" : "Bjursås",
-            "Boden" : "Boden",
-            "Bohus" : "Bohus",
-            "Borgholm" : "Borgholm",
-            "Borlänge" : "Borlänge",
-            "Borås" : "Borås",
-            "Brunflo" : "Brunflo",
-            "Brynäs" : "Brynäs",
-            "Bygdeå" : "Bygdeå",
-            "Danholn" : "Danholn",
-            "Deje" : "Deje",
-            "Djurslöv" : "Djurslöv",
-            "Enköping" : "Enköping",
-            "Enskede" : "Enskede",
-            "Eriksberg" : "Eriksberg",
-            "Eskilstuna" : "Eskilstuna",
-            "Falun" : "Falun",
-            "Finspång" : "Finspång",
-            "Frösö" : "Frösö",
-            "Färjestaden" : "Färjestaden",
-            "Fårbo" : "Fårbo",
-            "Gimo" : "Gimo",
-            "Gnesta" : "Gnesta",
-            "Granlo" : "Granlo",
-            "Grebo" : "Grebo",
-            "Grums" : "Grums",
-            "Grycksbo" : "Grycksbo",
-            "Gryta" : "Gryta",
-            "Gränna" : "Gränna",
-            "Gustafs" : "Gustafs",
-            "Gävle" : "Gävle",
-            "Göteborg" : "Göteborg",
-            "Habo" : "Habo",
-            "Haga" : "Haga",
-            "Hallstahammar" : "Hallstahammar",
-            "Handen" : "Handen",
-            "Hedemora" : "Hedemora",
-            "Helsingborg" : "Helsingborg",
-            "Hillared" : "Hillared",
-            "Hille" : "Hille",
-            "Holmsund" : "Holmsund",
-            "Hortlax" : "Hortlax",
-            "Huddinge" : "Huddinge",
-            "Huskvarna" : "Huskvarna",
-            "Höganäs" : "Höganäs",
-            "Högsby" : "Högsby",
-            "Hönö" : "Hönö",
-            "Irsta" : "Irsta",
-            "Järna" : "Järna",
-            "Jönköping" : "Jönköping",
-            "Kalmar" : "Kalmar",
-            "Karlskoga" : "Karlskoga",
-            "Karlstad" : "Karlstad",
-            "Kimstad" : "Kimstad",
-            "Kinna" : "Kinna",
-            "Klippan" : "Klippan",
-            "Kristinehamn" : "Kristinehamn",
-            "Krokek" : "Krokek",
-            "Kumla" : "Kumla",
-            "Kungsbacka" : "Kungsbacka",
-            "Kungsholmen" : "Kungsholmen",
-            "Kungälv" : "Kungälv",
-            "Köping" : "Köping",
-            "Landskrona" : "Landskrona",
-            "Laxå" : "Laxå",
-            "Lerum" : "Lerum",
-            "Lidingö" : "Lidingö",
-            "Lilla Alby" : "Lilla Alby",
-            "Lillån" : "Lillån",
-            "Limhamn" : "Limhamn",
-            "Lindesberg" : "Lindesberg",
-            "Lindsdal" : "Lindsdal",
-            "Linköping" : "Linköping",
-            "Ljunga" : "Ljunga",
-            "Lomma" : "Lomma",
-            "Luleå" : "Luleå",
-            "Lund" : "Lund",
-            "Löberöd" : "Löberöd",
-            "Malmö" : "Malmö",
-            "Mariefred" : "Mariefred",
-            "Mjölby" : "Mjölby",
-            "Motala" : "Motala",
-            "Mullsjö" : "Mullsjö",
-            "Mölnbo" : "Mölnbo",
-            "Mönsterås" : "Mönsterås",
-            "Mörbylånga" : "Mörbylånga",
-            "Nacka" : "Nacka",
-            "Nacksta" : "Nacksta",
-            "Nolhaga" : "Nolhaga",
-            "Nora" : "Nora",
-            "Norrköping" : "Norrköping",
-            "Norrtälje" : "Norrtälje",
-            "Nässjö" : "Nässjö",
-            "Oskarshamn" : "Oskarshamn",
-            "Partille" : "Partille",
-            "Piteå" : "Piteå",
-            "Pålsjö" : "Pålsjö",
-            "Ransta" : "Ransta",
-            "Rosvik" : "Rosvik",
-            "Rutvik" : "Rutvik",
-            "Ryd" : "Ryd",
-            "Röbäck" : "Röbäck",
-            "Sala" : "Sala",
-            "Sandhult" : "Sandhult",
-            "Sandskogen" : "Sandskogen",
-            "Sandviken" : "Sandviken",
-            "Sigtuna" : "Sigtuna",
-            "Sjöbo" : "Sjöbo",
-            "Skanör med Falsterbo" : "Skanör med Falsterbo",
-            "Skellefteå" : "Skellefteå",
-            "Skeppsvik" : "Skeppsvik",
-            "Skurholmsstaden" : "Skurholmsstaden",
-            "Skönsmon" : "Skönsmon",
-            "Smedby" : "Smedby",
-            "Smedslätten" : "Smedslätten",
-            "Sollentuna" : "Sollentuna",
-            "Staffanstorp" : "Staffanstorp",
-            "Stockholm" : "Stockholm",
-            "Stora Vickleby" : "Stora Vickleby",
-            "Storvreta" : "Storvreta",
-            "Strålsnäs" : "Strålsnäs",
-            "Sundsvall" : "Sundsvall",
-            "Svedala" : "Svedala",
-            "Säffle" : "Säffle",
-            "Särö" : "Särö",
-            "Säter" : "Säter",
-            "Sävar" : "Sävar",
-            "Sävedalen" : "Sävedalen",
-            "Södermalm" : "Södermalm",
-            "Södertälje" : "Södertälje",
-            "Södra Möckleby" : "Södra Möckleby",
-            "Sörby" : "Sörby",
-            "Tallboda" : "Tallboda",
-            "Tierp" : "Tierp",
-            "Torvalla" : "Torvalla",
-            "Tranemo" : "Tranemo",
-            "Trelleborg" : "Trelleborg",
-            "Trollhättan" : "Trollhättan",
-            "Trosa" : "Trosa",
-            "Tuve" : "Tuve",
-            "Ulricehamn" : "Ulricehamn",
-            "Umeå" : "Umeå",
-            "Uppsala" : "Uppsala",
-            "Vadstena" : "Vadstena",
-            "Vagnhärad" : "Vagnhärad",
-            "Valbo" : "Valbo",
-            "Vaplan" : "Vaplan",
-            "Vasastaden" : "Vasastaden",
-            "Vejbystrand" : "Vejbystrand",
-            "Vellinge" : "Vellinge",
-            "Vimmerby" : "Vimmerby",
-            "Västerljung" : "Västerljung",
-            "Västerås" : "Västerås",
-            "Åre" : "Åre",
-            "Årsunda" : "Årsunda",
-            "Älvkarleby" : "Älvkarleby",
-            "Ängelholm" : "Ängelholm",
-            "Örebro" : "Örebro",
-            "Östermalm" : "Östermalm",
-            "Östersund" : "Östersund",
-            "Övre Ullerud" : "Övre Ullerud"
-		}},
-		//blog_categories : {label : "title", type : "set"},
-		text_title : {label : "post_title"},
-		text_date : {label : "date"},
-		text_tags : {label : "tags", type : "set"},
-		text_url : {label : "post_url", type : "url"}
-	}
+	struct_attributes : bloggmix_structs
 };
+
+settings.corpora.bloggmix1999 = {
+	id : "bloggmix1999",
+	title : "Bloggmix 1999",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : bloggmix_structs
+};
+
+settings.corpora.bloggmix2000 = {
+	id : "bloggmix2000",
+	title : "Bloggmix 2000",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : bloggmix_structs
+};
+
+settings.corpora.bloggmix2001 = {
+	id : "bloggmix2001",
+	title : "Bloggmix 2001",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : bloggmix_structs
+};
+
+settings.corpora.bloggmix2002 = {
+	id : "bloggmix2002",
+	title : "Bloggmix 2002",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : bloggmix_structs
+};
+
+settings.corpora.bloggmix2003 = {
+	id : "bloggmix2003",
+	title : "Bloggmix 2003",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : bloggmix_structs
+};
+
+settings.corpora.bloggmix2004 = {
+	id : "bloggmix2004",
+	title : "Bloggmix 2004",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : bloggmix_structs
+};
+
+settings.corpora.bloggmix2005 = {
+	id : "bloggmix2005",
+	title : "Bloggmix 2005",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : bloggmix_structs
+};
+
+settings.corpora.bloggmix2006 = {
+	id : "bloggmix2006",
+	title : "Bloggmix 2006",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : bloggmix_structs
+};
+
+settings.corpora.bloggmix2007 = {
+	id : "bloggmix2007",
+	title : "Bloggmix 2007",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : bloggmix_structs
+};
+
+settings.corpora.bloggmix2008 = {
+	id : "bloggmix2008",
+	title : "Bloggmix 2008",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : bloggmix_structs
+};
+
+settings.corpora.bloggmix2009 = {
+	id : "bloggmix2009",
+	title : "Bloggmix 2009",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : bloggmix_structs
+};
+
+settings.corpora.bloggmix2009 = {
+	id : "bloggmix2009",
+	title : "Bloggmix 2009",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : bloggmix_structs
+};
+
+settings.corpora.bloggmix2010 = {
+	id : "bloggmix2010",
+	title : "Bloggmix 2010",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : bloggmix_structs
+};
+
+settings.corpora.bloggmix2011 = {
+	id : "bloggmix2011",
+	title : "Bloggmix 2011",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : bloggmix_structs
+};
+
+settings.corpora.bloggmix2012 = {
+	id : "bloggmix2012",
+	title : "Bloggmix 2012",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : bloggmix_structs
+};
+
+settings.corpora.bloggmix2013 = {
+	id : "bloggmix2013",
+	title : "Bloggmix 2013",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : bloggmix_structs
+};
+
+settings.corpora.bloggmixodat = {
+	id : "bloggmixodat",
+	title : "Bloggmix okänt datum",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : bloggmix_structs
+};
+
 
 settings.corpora.drama = {
 	id : "drama",
@@ -1659,13 +2092,38 @@ settings.corpora.snp7879 = {
 		dephead : attrs.dephead,
 		deprel : attrs.deprel,
 		ref : attrs.ref
-	}, 
+	},
 	struct_attributes : {}
 };
 
 settings.corpora.suc2 = {
 	id : "suc2",
 	title : "SUC 2.0",
+	description : "Stockholm-Umeå Corpus",
+	within : settings.defaultWithin,
+	context : {
+		"1 sentence" : "1 sentence"
+	},
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix
+	},
+	struct_attributes : {
+		text_id : {label : "text"}
+	}
+};
+
+settings.corpora.suc3 = {
+	id : "suc3",
+	title : "SUC 3.0",
 	description : "Stockholm-Umeå Corpus",
 	within : settings.defaultWithin,
 	context : {
@@ -1715,7 +2173,7 @@ settings.corpora.storsuc = {
 
 settings.corpora.saltnld_swe = {
 	id : "saltnld_swe",
-	title: "Svenska-nederländska", 
+	title: "SALT svenska-nederländska",
 	description : "En samling parallella korpusar (svenska-nederländska), bestående av följande subkorpusar:\
 <ul>\
 <li>Bergman, Ingmar: Laterna magica</li>\
@@ -1738,42 +2196,41 @@ settings.corpora.saltnld_swe = {
 </ul>\
 \
 Meningarna i korpusarna är sorterade i slumpvis ordning, för att man inte ska kunna återskapa originalet.",
-	context: settings.defaultContext, 
-	within: settings.defaultWithin, 
+	context: settings.defaultContext,
+	within: settings.defaultWithin,
 	attributes: {
-		pos: attrs.pos, 
-		msd: attrs.msd, 
+		pos: attrs.pos,
+		msd: attrs.msd,
 		lemma: attrs.baseform,
-		lex: attrs.lemgram, 
-		saldo: attrs.saldo, 
-		dephead: attrs.dephead, 
-		deprel: attrs.deprel, 
-		ref: attrs.ref, 
+		lex: attrs.lemgram,
+		saldo: attrs.saldo,
+		dephead: attrs.dephead,
+		deprel: attrs.deprel,
+		ref: attrs.ref,
 	},
 	struct_attributes : {
 	}
 };
 
-settings.corpora.europarlda_sv = {
-	id : "europarlda_sv",
-	title: "Svenska-danska", 
+settings.corpora["europarl-sv"] = {
+	id : "europarl-sv",
+	title: "Europarl svenska",
 	description : "Texter från Europaparlamentets webbsida.",
-	context: settings.defaultContext, 
-	within: settings.defaultWithin, 
+	context: settings.defaultContext,
+	within: settings.defaultWithin,
 	attributes: {
-		pos: attrs.pos, 
-		msd: attrs.msd, 
+		pos: attrs.pos,
+		msd: attrs.msd,
 		lemma: attrs.baseform,
-		lex: attrs.lemgram, 
-		saldo: attrs.saldo, 
-		dephead: attrs.dephead, 
-		deprel: attrs.deprel, 
-		ref: attrs.ref, 
+		lex: attrs.lemgram,
+		saldo: attrs.saldo,
+		dephead: attrs.dephead,
+		deprel: attrs.deprel,
+		ref: attrs.ref,
 	},
 	struct_attributes : {
-//		text_origlang : {
-//			label : "original_language"
-//		}
+		text_date : {label : "date"},
+		text_speaker : {label : "speaker"}
 	}
 };
 
@@ -1824,7 +2281,7 @@ settings.corpora.lt1996 = {
 		suffix : attrs.suffix
 	},
 	struct_attributes : {
-	    text_year : {label : "year"},
+		text_year : {label : "year"},
 		text_article : {label : "article"},
 		text_id : {label : "text"}
 	}
@@ -2163,7 +2620,7 @@ settings.corpora.vivill = {
 								"2010" : "2010"
 					}},
 		text_party : {
-			label : "party", 
+			label : "party",
 			displayType : "select",
 			dataset: {
 				"all" : "Alliansen",
@@ -2182,11 +2639,11 @@ settings.corpora.vivill = {
 				"nyd" : "Ny demokrati",
 				"pp" : "Piratpartiet",
 				"sd" : "Sverigedemokraterna",
-				"k_h" : "Sveriges kommunistiska parti, Höglundarna", 
-				"k_k" : "Sverges kommunistiska parti, Kilbommarna", 
-				"svp" : "Sverges socialdemokratiska vänsterparti", 
+				"k_h" : "Sveriges kommunistiska parti, Höglundarna",
+				"k_k" : "Sverges kommunistiska parti, Kilbommarna",
+				"svp" : "Sverges socialdemokratiska vänsterparti",
 				"lp" : "Sveriges liberala parti",
-				"s" : "Sveriges socialdemokratiska arbetareparti", 
+				"s" : "Sveriges socialdemokratiska arbetareparti",
 				"v" : "Vänsterpartiet"
 				}
 			},
@@ -2289,14 +2746,15 @@ settings.corpora.romg = {
 	},
 	struct_attributes : {
 		text_author : {label : "author"},
-		text_title : {label : "title"}
+		text_title : {label : "title"},
+		text_date : {label : "year"}
 	}
 };
 
 settings.corpora.rom99 = {
 	id : "rom99",
 	title : "Norstedtsromaner (1999)",
-    description : "23 romaner utgivna 1999 på Norstedts förlag.",
+	description : "23 romaner utgivna 1999 på Norstedts förlag.",
 	within : settings.defaultWithin,
 	context : settings.defaultContext,
 	attributes : {
@@ -2344,7 +2802,7 @@ settings.corpora.sfs = {
 
 settings.corpora["wikipedia-sv"] = {
 	id : "wikipedia-sv",
-	title : "Svenska Wikipedia (augusti 2012)",
+	title : "Svenska Wikipedia (januari 2013)",
 	description : "Samtliga artikar från svenska Wikipedia. Uppdateras regelbundet.",
 	within : settings.spWithin,
 	context : settings.spContext,
@@ -2412,6 +2870,53 @@ settings.corpora.astranova = {
 	}
 };
 
+settings.corpora.bullen = {
+	id : "bullen",
+	title : "Bullen 2010–2012",
+	description : "<a href=\"http://www.karen.abo.fi/index.php?u[2]=0&u[3]=70\">Bullen</a> är Åbo Akademis Studentkårs informationsbulletin.",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : {
+		text_date : {label : "date"}
+	}
+};
+
+settings.corpora.fanbararen = {
+	id : "fanbararen",
+	title : "Fanbäraren 2011–2012",
+	description : "<a href=\"http://www.nylandsbrigadsgille.fi/sidor/?page_id=813\">Fanbäraren</a> är en tidskrift som utges gemensamt av Nylands brigad och Nylands Brigads Gille, med syfte att öka kännedomen om utbildningen vid Nylands Brigad och öka sammanhållningen mellan Gillets medlemmar.",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : {
+		text_date : {label : "year"},
+		text_issue : {label : "issue"}
+	}
+};
+
 settings.corpora.kallan = {
 	id : "kallan",
 	title : "Källan 2008–2010",
@@ -2440,6 +2945,30 @@ settings.corpora.meddelanden = {
 	id : "meddelanden",
 	title : "Meddelanden från Åbo Akademi 2002–2010",
 	description : "<a href=\"http://www.abo.fi/meddelanden\">Meddelanden från Åbo Akademi</a> är Åbo Akademis tidning för extern och intern information. Materialet består av artiklar skrivna av redaktörerna Peter Sandström och Michael Karlsson",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : {
+		text_date : {label : "year"},
+		text_issue : {label : "issue"}
+	}
+};
+
+settings.corpora.hankeiten = {
+	id : "hankeiten",
+	title : "Hankeiten 2006–2012",
+	description : "<a href=\"http://www.shsweb.fi/shs/arkiv/hankeiten1\">Hankeiten</a> är Svenska Handelshögskolans Studentkårs tidskrift.",
 	within : settings.spWithin,
 	context : settings.spContext,
 	attributes : {
@@ -2532,6 +3061,75 @@ settings.corpora.pargaskungorelser2012 = {
 	}
 };
 
+settings.corpora.borgabladet = {
+	id : "borgabladet",
+	title : "Borgåbladet 2012–2013",
+	description : "<a href=\"http://www.bbl.fi\">Borgåbladet</a> är en regional svenskspråkig dagstidning i Borgå med omnejd.",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : {
+    	text_date : {label : "date"}
+	}
+};
+
+settings.corpora.sydosterbotten2010 = {
+	id : "sydosterbotten2010",
+	title : "Syd-Österbotten 2010",
+	description : "",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : {
+	    text_date : {label : "date"}
+	}
+};
+
+settings.corpora.sydosterbotten2011 = {
+	id : "sydosterbotten2011",
+	title : "Syd-Österbotten 2011",
+	description : "",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : {
+	    text_date : {label : "date"}
+	}
+};
+
 settings.corpora.sydosterbotten2012 = {
 	id : "sydosterbotten2012",
 	title : "Syd-Österbotten 2012",
@@ -2551,13 +3149,37 @@ settings.corpora.sydosterbotten2012 = {
 		ref : attrs.ref
 	},
 	struct_attributes : {
+	    text_date : {label : "date"}
 	}
 };
 
-settings.corpora.abounderrattelser2012 = {
-	id : "abounderrattelser2012",
-	title : "Åbo Underrättelser 2012",
-	description : "<a href=\"www.abounderrattelser.fi\">Åbo Underrättelser</a> är en regional svenskspråkig dagstidning i Åbotrakten.",
+settings.corpora.sydosterbotten2013 = {
+	id : "sydosterbotten2013",
+	title : "Syd-Österbotten 2013",
+	description : "",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : {
+	    text_date : {label : "date"}
+	}
+};
+
+settings.corpora.vastranyland = {
+	id : "vastranyland",
+	title : "Västra Nyland 2012–2013",
+	description : "<a href=\"http://www.vastranyland.fi\">Västra Nyland</a> är en regional svenskspråkig dagstidning i Västra Nyland.",
 	within : settings.spWithin,
 	context : settings.spContext,
 	attributes : {
@@ -2573,7 +3195,76 @@ settings.corpora.abounderrattelser2012 = {
 		ref : attrs.ref
 	},
 	struct_attributes : {
-	    text_date : {label : "date"}
+    	text_date : {label : "date"}
+	}
+};
+
+settings.corpora.ostranyland = {
+	id : "ostranyland",
+	title : "Östra Nyland 2012–2013",
+	description : "<a href=\"http://www.ostnyland.fi\">Östra Nyland</a> är en regional svenskspråkig dagstidning i Östra Nyland.",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : {
+    	text_date : {label : "date"}
+	}
+};
+
+settings.corpora.abounderrattelser2012 = {
+	id : "abounderrattelser2012",
+	title : "Åbo Underrättelser 2012",
+	description : "",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : {
+		text_date : {label : "date"}
+	}
+};
+
+settings.corpora.abounderrattelser2013 = {
+	id : "abounderrattelser2013",
+	title : "Åbo Underrättelser 2013",
+	description : "",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : {
+		text_date : {label : "date"}
 	}
 };
 
@@ -2597,14 +3288,14 @@ settings.corpora.at2012 = {
 		ref : attrs.ref
 	},
 	struct_attributes : {
-	    text_date : {label : "date"}
+		text_date : {label : "date"}
 	}
 };
 
 settings.corpora.vasabladet1991 = {
 	id : "vasabladet1991",
 	title : "Vasabladet 1991",
-	description : "<a href=\"http://www.vasabladet.fi\">Vasabladet</a> är en regional svenskspråkig dagstidning i Österbotten.",
+	description : "",
 	within : settings.spWithin,
 	context : settings.spContext,
 	attributes : {
@@ -2628,7 +3319,7 @@ settings.corpora.vasabladet1991 = {
 settings.corpora.vasabladet2012 = {
 	id : "vasabladet2012",
 	title : "Vasabladet 2012",
-	description : "<a href=\"http://www.vasabladet.fi\">Vasabladet</a> är en regional svenskspråkig dagstidning i Österbotten.",
+	description : "",
 	within : settings.defaultWithin,
 	context : settings.defaultContext,
 	attributes : {
@@ -2644,12 +3335,35 @@ settings.corpora.vasabladet2012 = {
 		ref : attrs.ref
 	},
 	struct_attributes : {
+	}
+};
+
+settings.corpora.vasabladet2013 = {
+	id : "vasabladet2013",
+	title : "Vasabladet 2013",
+	description : "",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : {
+	    text_date : {label : "date"}
 	}
 };
 
 settings.corpora.osterbottenstidning2011 = {
 	id : "osterbottenstidning2011",
-	title : "Österbottens tidning 2011",
+	title : "Österbottens Tidning 2011",
 	description : "",
 	within : settings.defaultWithin,
 	context : settings.defaultContext,
@@ -2666,12 +3380,13 @@ settings.corpora.osterbottenstidning2011 = {
 		ref : attrs.ref
 	},
 	struct_attributes : {
+	    text_date : {label : "date"}
 	}
 };
 
 settings.corpora.osterbottenstidning2012 = {
 	id : "osterbottenstidning2012",
-	title : "Österbottens tidning 2012",
+	title : "Österbottens Tidning 2012",
 	description : "",
 	within : settings.defaultWithin,
 	context : settings.defaultContext,
@@ -2688,13 +3403,37 @@ settings.corpora.osterbottenstidning2012 = {
 		ref : attrs.ref
 	},
 	struct_attributes : {
+	    text_date : {label : "date"}
+	}
+};
+
+settings.corpora.osterbottenstidning2013 = {
+	id : "osterbottenstidning2013",
+	title : "Österbottens Tidning 2013",
+	description : "",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : {
+	    text_date : {label : "date"}
 	}
 };
 
 settings.corpora.fnb1999 = {
 	id : "fnb1999",
 	title : "FNB 1999",
-	description : "<a href=\"http://www.stt.fi/sv\">FNB</a> är Finlands ledande nyhets- och bildbyrå.",
+	description : "",
 	within : settings.spWithin,
 	context : settings.spContext,
 	attributes : {
@@ -2718,7 +3457,7 @@ settings.corpora.fnb1999 = {
 settings.corpora.fnb2000 = {
 	id : "fnb2000",
 	title : "FNB 2000",
-	description : "<a href=\"http://www.stt.fi/sv\">FNB</a> är Finlands ledande nyhets- och bildbyrå.",
+	description : "",
 	within : settings.spWithin,
 	context : settings.spContext,
 	attributes : {
@@ -2742,7 +3481,7 @@ settings.corpora.fnb2000 = {
 settings.corpora.hbl1991 = {
 	id : "hbl1991",
 	title : "Hufvudstadsbladet 1991",
-	description : "<a href=\"http://www.hbl.fi\">Hufvudstadsbladet</a> är den största finlandssvenska dagstidningen i Finland.",
+	description : "",
 	within : settings.spWithin,
 	context : settings.spContext,
 	attributes : {
@@ -2758,15 +3497,15 @@ settings.corpora.hbl1991 = {
 		ref : attrs.ref
 	},
 	struct_attributes : {
-	    text_date : {label : "year"},
-	    text_type : {label : "section"}
+		text_date : {label : "year"},
+		text_type : {label : "section"}
 	}
 };
 
 settings.corpora.hbl1998 = {
 	id : "hbl1998",
 	title : "Hufvudstadsbladet 1998",
-	description : "<a href=\"http://www.hbl.fi\">Hufvudstadsbladet</a> är den största finlandssvenska dagstidningen i Finland.",
+	description : "",
 	within : settings.spWithin,
 	context : settings.spContext,
 	attributes : {
@@ -2782,14 +3521,14 @@ settings.corpora.hbl1998 = {
 		ref : attrs.ref
 	},
 	struct_attributes : {
-	    text_year : {label : "year"}
+		text_year : {label : "year"}
 	}
 };
 
 settings.corpora.hbl1999 = {
 	id : "hbl1999",
 	title : "Hufvudstadsbladet 1999",
-	description : "<a href=\"http://www.hbl.fi\">Hufvudstadsbladet</a> är den största finlandssvenska dagstidningen i Finland.",
+	description : "",
 	within : settings.spWithin,
 	context : settings.spContext,
 	attributes : {
@@ -2805,7 +3544,30 @@ settings.corpora.hbl1999 = {
 		ref : attrs.ref
 	},
 	struct_attributes : {
-	    text_year : {label : "year"}
+		text_year : {label : "year"}
+	}
+};
+
+settings.corpora.hbl20122013 = {
+	id : "hbl20122013",
+	title : "Hufvudstadsbladet (2012–)2013",
+	description : "",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : {
+		text_date : {label : "date"}
 	}
 };
 
@@ -2831,39 +3593,210 @@ settings.corpora.talbanken = {
 	}
 };
 
+settings.corpora.tisus = {
+	id : "tisus",
+	title : "TISUS-texter",
+	description : "",
+	limited_access : true,
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : {
+		text_id : {label : "id"},
+		text_age : {label : "age"},
+		text_gender : {label : "gender"},
+		text_residencetime : {label : "residencetime"},
+		text_education : {label : "education"},
+		text_l1 : {label : "tisus_l1", type : "set"},
+		text_lf1 : {label : "tisus_lf1"},
+		text_lf2 : {label : "tisus_lf2"},
+		text_sum : {label : "sum"},
+		text_written : {label : "tisus_written"},
+		text_oral : {label : "tisus_oral"},
+		text_finalgrade : {label : "finalgrade"},
+		text_proficiencylevel : {label : "proficiencylevel"},
+		text_date : {label : "date"}
+	}
+};
 
-settings.corpora.gslc = {
-		id : "gslc",
-		title : "Göteborg Spoken Language Corpus (GSLC)",
-		description : 'GSLC is an incrementally growing corpus of spoken language from different social activities. Based on the fact that spoken language varies considerably in different social activities with regard to pronunciation, vocabulary and grammar, the goal of the corpus is to include spoken language from as many social activities as possible.',
-		limited_access : true,
-		within : settings.defaultWithin,
-		context : settings.defaultContext,
-		attributes : {
-			pos : attrs.pos,
-			msd : attrs.msd,
-			lemma : attrs.baseform,
-			lex : attrs.lemgram,
-			saldo : attrs.saldo,
-			dephead : attrs.dephead,
-			deprel : attrs.deprel,
-			ref : attrs.ref,
-			prefix : attrs.prefix,
-			suffix : attrs.suffix
-		},
-		struct_attributes : {
-			"text_activity1" : {label : "activity1"},
-			"text_activity2" : {label : "activity2"},
-			"text_activity3" : {label : "activity3"},
-			"text_title" : {label : "title"},
-			"text_duration" : {label : "duration"},
-			"text_project" : {label : "project"},
-			"line_speaker" : {label : "speaker"},
-			"text_date" : {label : "date"},
-			"section_name" : {label : "section"}
-		}
-	};
+settings.corpora.ansokningar = {
+	id : "ansokningar",
+	title : "Ansökningar",
+	description : "",
+	limited_access : true,
+	context : settings.defaultContext,
+	within : settings.defaultWithin,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : {
+		text_id : {label : "id"},
+		text_gender : {label : "gender"},
+		text_birthyear : {label : "birthyear"}
+	}
+};
 
+settings.corpora.cefr = {
+	id : "cefr",
+	title : "CEFR",
+	description : "",
+	limited_access : true,
+	context : settings.spContext,
+	within : settings.spWithin,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref
+	},
+	struct_attributes : {
+		text_author : {label : "author"},
+		text_title : {label : "title"},
+		text_date : {label : "date"}
+	}
+};
+
+settings.corpora.twitter = {
+	id : "twitter",
+	title : "Twittermix",
+	description : "Material från ett urval av svenska Twitteranvändare. Uppdateras regelbundet.",
+	within : {
+		"sentence" : "sentence",
+		"text" : "text"
+	},
+	context : {
+		"1 sentence" : "1 sentence",
+		"1 text" : "1 text"
+	},
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix
+	},
+	struct_attributes : {
+		user_username : {label : "username2"},
+		user_name : {label : "name"},
+		text_datetime : {label : "date"},
+		text_weekday : {label : "weekday"},
+		text_hashtags : {label : "hashtags", type : "set"},
+		text_mentions : {label : "mentions", type : "set"},
+		text_retweets : {label : "retweets"},
+		text_location : {label : "location"},
+		text_coordinates : {label : "coordinates"},
+		text_replytouser : {label : "replytouser"},
+		user_location : {label : "user_location"},
+		user_followers : {label : "followers"},
+		user_following : {label : "following"},
+		user_tweets : {label : "tweets"},
+		user_description : {
+					label : "description",
+					pattern : '<p style="margin-left: 5px;"><%=val%></p>'
+			},
+		user_url : {label : "website", type : "url"},
+		user_created : {label : "user_since"},
+		user_trstrank : {label : "trstrank"},
+	}
+};
+
+settings.corpora.gdc = {
+	id : "gdc",
+	title : "Gothenburg Dialogue Corpus (GDC)",
+	description : 'För åtkomst kontakta <a href="mailto:cajsa.ottesjo@gu.se">Cajsa Ottesjö</a>.',
+	limited_access : true,
+	within : settings.defaultWithin,
+	context : {
+	"1 sentence" : "1 sentence",
+	"3 sentence" : "3 sentences"
+	},
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix
+	},
+	struct_attributes : {
+		"text_activity1" : {label : "activity1"},
+		"text_activity2" : {label : "activity2"},
+		"text_activity3" : {label : "activity3"},
+		"text_title" : {label : "title"},
+		"text_duration" : {label : "duration"},
+		"text_project" : {label : "project"},
+		"line_speaker" : {label : "speaker"},
+		"text_date" : {label : "date"},
+		"section_name" : {label : "section"}
+		// TODO: this gives some error, fix this.
+		//"meta_comment" : {label : "comment", type : "set"}
+	}
+};
+
+settings.corpora.soexempel = {
+	id : "soexempel",
+	title : "Språkprov SO 2009",
+	description : 'De drygt 94 000 språkexemplen är hämtade ur Svensk ordbok utgiven av Svenska Akademien (2009). '+
+				  'Exemplens uppgift är att stödja ordboksdefinitionerna och att ge information om uppslagsordens fraseologi. ' +
+				  '<br><br>För åtkomst kontakta <a href="mailto:emma.skoldberg@svenska.gu.se">Emma Sköldberg</a>.',
+	limited_access : true,
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		pos : attrs.pos,
+		msd : attrs.msd,
+		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+		saldo : attrs.saldo,
+		dephead : attrs.dephead,
+		deprel : attrs.deprel,
+		ref : attrs.ref,
+		prefix : attrs.prefix,
+		suffix : attrs.suffix
+	},
+	struct_attributes : {
+		"text_date" : {label : "year"},
+		"entry_word" : {label : "entryword"},
+		"entry_entryno" : {label : "entryno"},
+		"entry_sense1" : {label : "sense1"},
+		"entry_sense2" : {label : "sense2"}
+	}
+};
 
 
 /*
@@ -2871,6 +3804,7 @@ settings.corpora.gslc = {
  */
 
 settings.cgi_script = "http://spraakbanken.gu.se/ws/korp";
+//settings.cgi_script = "http://demosb.spraakdata.gu.se/cgi-bin/korp/korp2.cgi";
 
 // label values here represent translation keys.
 settings.arg_groups = {
@@ -2886,7 +3820,7 @@ settings.reduce_stringify = function(type) {
 			return key != "total_value" && $.isPlainObject(value);
 		});
 	}
-	
+
 	function getCorpora(dataContext) {
 		var corpora = $.grepObj(filterCorpora(dataContext), function(value, key) {
 			return value.relative != null;
@@ -2896,7 +3830,7 @@ settings.reduce_stringify = function(type) {
 		});
 		return corpora;
 	}
-	
+
 	function appendDiagram(output, corpora, value) {
 		if(corpora.length > 1)
 			return output + $.format('<img id="circlediagrambutton__%s" src="img/stats2.png" class="arcDiagramPicture"/>', value);
@@ -2909,21 +3843,21 @@ settings.reduce_stringify = function(type) {
 		return function(row, cell, value, columnDef, dataContext) {
 			var corpora = getCorpora(dataContext);
 			if(value == "&Sigma;") return appendDiagram(value, corpora, value);
-			
+
 			var query = $.map(dataContext.hit_value.split(" "), function(item) {
 				return $.format('[word="%s"]', item);
 			}).join(" ");
-			
-			output = $("<span>", 
+
+			output = $("<span>",
 					{
-					"class" : "link", 
-					"data-query" : encodeURIComponent(query), 
-					"data-corpora" : $.toJSON(corpora)
+					"class" : "link",
+					"data-query" : encodeURIComponent(query),
+					"data-corpora" : JSON.stringify(corpora)
 					}).text(value).outerHTML();
 			return appendDiagram(output, corpora, value);
-			 
-		}; 
-		
+
+		};
+
 	case "pos":
 		return function(row, cell, value, columnDef, dataContext) {
 			var corpora = getCorpora(dataContext);
@@ -2931,34 +3865,38 @@ settings.reduce_stringify = function(type) {
 			var query = $.map(dataContext.hit_value.split(" "), function(item) {
 				return $.format('[pos="%s"]', item);
 			}).join(" ");
-			output =  $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ", 
-					[query, $.toJSON(corpora), value, util.getLocaleString("pos_" + value)]);
+			output =  $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ",
+					[query, JSON.stringify(corpora), value, util.getLocaleString("pos_" + value)]);
 			return appendDiagram(output, corpora, value);
 		};
+	case "prefix":
+	case "suffix":
 	case "lex":
 		return function(row, cell, value, columnDef, dataContext) {
 		var corpora = getCorpora(dataContext);
 		if(value == "&Sigma;") return appendDiagram(value, corpora, value);
-		output = _.chain(value.split("|"))
+		else if(value == "|") return "-";
+		output = _(value.split("|"))
 				.filter(Boolean)
 				.map(function(item) {
-					return util.lemgramToString(item, true);
+					var wrapper = $("<div>");
+					$("<span>").html(util.lemgramToString(item, true)).attr("data-cqp", '[lex contains "' + item + '"]').appendTo(wrapper);
+					return wrapper.html();
 				})
-				.value().join(", ");
+				.join(", ");
 		return appendDiagram(output, corpora, value);
 		};
-	case "prefix":
-	case "suffix":
 	case "saldo":
 		return function(row, cell, value, columnDef, dataContext) {
 		var corpora = getCorpora(dataContext);
 		if(value == "&Sigma;") return appendDiagram(value, corpora, value);
-		output = _.chain(value.split("|"))
+		else if(value == "|") return "-";
+		output = _(value.split("|"))
 				.filter(Boolean)
 				.map(function(item) {
 					return util.saldoToString(item, true);
 				})
-				.value().join(", ");
+				.join(", ");
 		return appendDiagram(output, corpora, value);
 		};
 	case "deprel":
@@ -2968,19 +3906,25 @@ settings.reduce_stringify = function(type) {
 			var query = $.map(dataContext.hit_value.split(" "), function(item) {
 				return $.format('[deprel="%s"]', item);
 			}).join(" ");
-			var output = $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ", 
-					[query, $.toJSON(corpora),"deprel_" + value, util.getLocaleString("deprel_" + value)]);
+			output = $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ",
+					[query, JSON.stringify(corpora),"deprel_" + value, util.getLocaleString("deprel_" + value)]);
 			return appendDiagram(output, corpora, value);
-			
+
 		};
 	default:
 		return function(row, cell, value, columnDef, dataContext) {
 			var corpora = getCorpora(dataContext);
+			var query = $.map(dataContext.hit_value.split(" "), function(item) {
+				return $.format('[%s="%s"]', [value, item]);
+			}).join(" ");
+			output = $.format("<span data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ",
+					[query, $.toJSON(corpora),"deprel_" + value, util.getLocaleString(value)]);
 			if(value == "&Sigma;") return appendDiagram(output, corpora, value);
-			return appendDiagram(output, corpora, value);;
+
+			return appendDiagram(output, corpora, value);
 		};
 	}
-	
+
 	return output;
 };
 
@@ -2991,214 +3935,156 @@ delete context;
 delete ref;
 
 
-var CorpusListing = new Class({
-	initialize : function(corpora) {
-		this.struct = corpora;
-		this.corpora = _.values(corpora);
-		this.selected = [];
-	},
-	
-	get : function(key) {
-		return this.struct[key];
-	},
-	
-	list : function() {
-		return this.corpora;
-	},
-	
-	map : function(func) {
-		return _.map(this.corpora, func);
-	},
-	
-	
-	/* Returns an array of all the selected corpora's IDs in uppercase */
-	getSelectedCorpora : function() {
-		return corpusChooserInstance.corpusChooser("selectedItems");
-	},
-	
-	select : function(idArray) {
-		this.selected = _.values(_.pick.apply(this, [this.struct].concat(idArray))); 
-	},
 
-	mapSelectedCorpora : function(f) {
-		return _.map(this.selected, f);
-	},
-	// takes an array of mapping objs and returns their intersection
-	_mapping_intersection : function(mappingArray) {
-		return _.reduce(mappingArray, function(a,b) {
-			var output = {};
-			$.each(b, function(key, value) {
-				if(b[key] != null)
-					output[key] = value;
-			});
-			return output;
-		}, {});
-	},
 
-	_mapping_union : function(mappingArray) {
-		return _.reduce(mappingArray, function(a, b) {
-			return $.extend({}, a, b);
-		}, {});
-	},
-
-	getCurrentAttributes : function() {
-		var attrs = this.mapSelectedCorpora(function(corpus) {
-			return corpus.attributes;
-		});
-		
-		return this._invalidateAttrs(attrs);
-		
-	},
-	getStructAttrs : function() {
-		var attrs = this.mapSelectedCorpora(function(corpus) {
-			$.each(corpus.struct_attributes, function(key, value) {
-				value["isStructAttr"] = true; 
-			});
-			return corpus.struct_attributes;
-		});
-		var rest = this._invalidateAttrs(attrs);
-		
-		// fix for combining dataset values
-		var withDataset = _.filter(_.pairs(rest), function(item) {
-			return item[1].dataset;
-		});
-		
-		$.each(withDataset, function(i, item) {
-			var key = item[0];
-			var val = item[1];
-			$.each(attrs, function(j, origStruct) {
-				
-				if(origStruct[key] && origStruct[key].dataset) {
-					var ds = origStruct[key].dataset;
-					if($.isArray(ds))
-						ds = _.object(ds, ds);
-					$.extend(val.dataset, ds);
-				}
-			});
-		});
-		return $.extend(rest, _.object(withDataset));
-	},
-
-	_invalidateAttrs : function(attrs) {
-		var union = this._mapping_union(attrs);
-		var intersection = this._mapping_intersection(attrs);
-		$.each(union, function(key, value) {
-			if(intersection[key] == null) {
-				value["disabled"] = true;
-			} else {
-				delete value["disabled"];
+settings.posset = {
+   type : "set",
+   label : "pos",
+   displayType : "select",
+   translationKey : "pos_",
+   dataset :  {
+	"AB" : "AB",
+	"MID|MAD|PAD" : "DL",
+	"DT" : "DT",
+	"HA" : "HA",
+	"HD" : "HD",
+	"HP" : "HP",
+	"HS" : "HS",
+	"IE" : "IE",
+	"IN" : "IN",
+	"JJ" : "JJ",
+	"KN" : "KN",
+	"NN" : "NN",
+	"PC" : "PC",
+	"PL" : "PL",
+	"PM" : "PM",
+	"PN" : "PN",
+	"PP" : "PP",
+	"PS" : "PS",
+	"RG" : "RG",
+	"RO" : "RO",
+	"SN" : "SN",
+	"UO" : "UO",
+	"VB" : "VB"
 			}
-		});
-		return union;
-	},
-	
-	corpusHasAttr : function(corpus, attr) {
-		return attr in $.extend({}, this.struct[corpus].attributes, this.struct[corpus].struct_attributes);
-	},
-	
-	stringifySelected : function() {
-		return _.chain(this.selected)
-		.pluck("id")
-		.invoke("toUpperCase")
-		.value().join(",");
-	},
-	
-	getAttrIntersection : function(attr) {
-		
-		var struct = _.map(this.selected, function(corpus) {
-			return _.keys(corpus[attr]);
-		});
-		return _.intersection.apply(null, struct);
-	},
-	
-	getAttrUnion : function(attr) {
-		var struct = _.map(this.selected, function(corpus) {
-			return _.keys(corpus[attr]);
-		}); 
-		return _.union.apply(null, struct);
-	},
-	
-	getContextQueryString : function() {
-		return $.grep($.map(_.pluck(settings.corpusListing.selected, "id"), function(id) {
-			if("1 paragraph" in settings.corpora[id].context)
-				return id.toUpperCase() + ":1 paragraph";
-		}), Boolean).join();
-	},
-	getWithinQueryString : function() {
-		return $.grep($.map(_.pluck(settings.corpusListing.selected, "id"), function(id) {
-			if("paragraph" in settings.corpora[id].within)
-				return id.toUpperCase() + ":paragraph";
-		}), Boolean).join();
+};
+settings.fsvlemma = {
+	//pattern : "<a href='http://spraakbanken.gu.se/karp/#search=cql%7C(gf+%3D+%22<%= key %>%22)+sortBy+wf'><%= val %></a>",
+  	type : "set",
+  	label : "baseform",
+  	displayType : "autocomplete",
+  	stringify : function(baseform) {
+		return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
 	}
-	
-});
+//  	externalSearch : "http://spraakbanken.gu.se/karp/#search=cql%7C(gf+%3D+%22<%= val %>%22)+sortBy+lemgram",
+//	internalSearch : true
 
+};
+settings.fsvlex = {
+  	type : "set",
+  	label : "lemgram",
+  	displayType : "autocomplete",
+  	stringify : function(str) {
+  		return util.lemgramToString(str, true);
+  	},
+  	externalSearch : karpLemgramLink,
+	internalSearch : true
+};
+settings.fsvvariants = {
+  	type : "set",
+  	label : "variants",
+  	stringify : function(str) {
+  		return util.lemgramToString(str, true);
+  	},
+  	displayType : "autocomplete",
+  	opts : settings.liteOptions,
+  	externalSearch : karpLemgramLink,
+	internalSearch : true
+};
 
-
-
-var ParallelCorpusListing = new Class({
-	Extends : CorpusListing,
-	initialize : function(corpora) {
-		var self = this;
-		this.parallel_corpora = corpora;
-		this.corpora = [];
-		this.struct = {};
-		$.each(corpora, function(__, struct) {
-			$.each(struct, function(key, corp) {
-				if(key == "default") return;
-				self.corpora.push(corp);
-				self.struct[corp.id] = corp;
-			});
-		});
-		
-	},
-	
-	select : function(idArray) {
-		var self = this;
-		this.selected = [];
-		$.each(idArray, function(i, id) {
-			var corp = self.struct[id];
-			self.selected = self.selected.concat(self.getLinked(corp, true));
-		});
-	},
-	
-	getCurrentAttributes : function(lang) {
-		var corpora = _.filter(this.selected, function(item) {
-			return item.lang == lang;
-		});
-		var struct = _.reduce(corpora, function(a, b) {
-			return $.extend({}, a.attributes, b.attributes);
-		},{});
-		return struct;
-	},
-	
-	getStructAttrs : function(lang) {
-		var corpora = _.filter(this.selected, function(item) {
-			return item.lang == lang;
-		});
-		var struct = _.reduce(corpora, function(a, b) {
-			return $.extend({}, a.struct_attributes, b.struct_attributes);
-		},{});
-		$.each(struct, function(key, val) {
-			val["isStructAttr"] = true;
-		});
-		return struct;
-	},
-	
-	
-	getLinked : function(corp, andSelf) {
-		andSelf = andSelf || false;
-		var output = _.filter(this.corpora, function(item) {
-			return item.parent == corp.parent && item !== corp;
-		});
-		if(andSelf)
-			output.push(corp);
-		return output;
+settings.fsvdescription ='<a href="http://project2.sol.lu.se/fornsvenska/">Fornsvenska textbanken</a> är ett projekt som digitaliserar fornsvenska texter och gör dem tillgängliga över webben. Projektet leds av Lars-Olof Delsing vid Lunds universitet.';
+var fsv_yngrelagar = {
+	morf : 'fsvm',
+	id : "fsv-yngrelagar",
+	title : "Yngre lagar – Fornsvenska textbankens material",
+	description : settings.fsvdescription,
+	within : settings.defaultWithin,
+	context : settings.spContext,
+	attributes : {
+		posset : settings.posset,
+		lemma : settings.fsvlemma,
+		lex : settings.fsvlex,
+		variants : settings.fsvvariants
+		},
+	struct_attributes : {
+		text_title : {
+			label : "title",
+			displayType : "select",
+			localize : false,
+			dataset : [
+				"Kristoffers Landslag, nyskrivna flockar i förhållande till MEL",
+				"Kristoffers Landslag, innehållsligt ändrade flockar i förhållande til MEL",
+				"Kristoffers Landslag, flockar direkt hämtade från MEL",
+				"Kristoffers Landslag"
+				],
+		},
+		text_date : {label : "date"}
 	}
+};
 
-});
+var fsv_aldrelagar = {
+	morf : 'fsvm',
+	id : "fsv-aldrelagar",
+	title : "Äldre lagar – Fornsvenska textbankens material",
+	description : settings.fsvdescription,
+	within : settings.defaultWithin,
+	context : settings.spContext,
+	attributes : {
+		posset : settings.posset,
+		lemma : settings.fsvlemma,
+		lex : settings.fsvlex,
+		variants : settings.fsvvariants
+				},
+	struct_attributes : {
+		text_title : {
+			label : "title",
+			displayType : "select",
+			localize : false,
+			dataset : [
+				"Yngre Västgötalagens äldsta fragment, Lydekini excerpter och anteckningar",
+				"Tillägg till Upplandslagen, hskr A (Ups B 12)",
+				"Södermannalagen, enligt Codex iuris Sudermannici",
+				"Östgötalagen, fragment H, ur Kyrkobalken ur Skokloster Avdl I 145",
+				"Yngre Västmannalagen, enl Holm B 57",
+				"Vidhemsprästens anteckningar",
+				"Magnus Erikssons Stadslag, exklusiva stadslagsflockar",
+				"Södermannalagens additamenta, efter NKS 2237",
+				"Hälsingelagen",
+				"Yngre Västgötalagen, tillägg, enligt Holm B 58",
+				"Östgötalagen, fragment C, ur Holm B 1709",
+				"Yngre Västgötalagen, enligt Holm B 58",
+				"Upplandslagen enl Schlyters utgåva och Codex Ups C 12, hskr A",
+				"Skånelagen, enligt Holm B 76",
+				"Östgötalagen, fragment D, ur Holm B 24",
+				"Östgötalagen A, ur Holm B 50",
+				"Äldre Västgötalagen",
+				"Östgötalagen, fragment M, ur Holm B 196",
+				"Gutalagen enligt Holm B 64",
+				"Upplandslagen enligt Codex Holm B 199, Schlyters hskr B",
+				"Smålandslagens kyrkobalk",
+				"Dalalagen (Äldre Västmannalagen)",
+				"Gutalagens additamenta enligt AM 54",
+				"Bjärköarätten",
+				"Magnus Erikssons Landslag",
+				"Östgötalagen, fragment N, ur Köpenhamn AM 1056",
+				"Södermannalagen stadsfästelse - Confirmatio, enligt NKS 2237",
+				"Östgötalagen, fragment E, ur Ups B 22"
+							],
+		},
+		text_date : {label : "date"}
+	}
+};
 
 
 
-settings.corpusListing = new CorpusListing(settings.corpora);
 

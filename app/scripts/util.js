@@ -68,11 +68,11 @@ util.lemgramToString = function(lemgram, appendIndex) {
 	var infixIndex = "";
 	if(util.isLemgramId(lemgram)) {
 		var match = util.splitLemgram(lemgram);
-		if(appendIndex != null && match[2] != "1") {
-			infixIndex = $.format("<sup>%s</sup>", match[2]);
+		if(appendIndex != null && match.index != "1") {
+			infixIndex = $.format("<sup>%s</sup>", match.index);
 		}
-		var concept = match[0].replace(/_/g, " ");
-		var type = match[1].slice(0, 2);
+		var concept = match.form.replace(/_/g, " ");
+		var type = match.pos.slice(0, 2);
 	}
 	else { // missing from saldo, and has the form word_NN instead.
 		var concept = "";
@@ -118,7 +118,10 @@ util.splitLemgram = function(lemgram) {
 		throw new Error("Input to util.splitLemgram is not a lemgram: " + lemgram);
 		return;
 	}
-	return lemgram.match(/(.*?)\.\.(\w+)\.(\d\d?)(\:\d+)?$/).slice(1);
+	var keys = ["morph", "form", "pos", "index", "startIndex"];
+	var splitArray = lemgram.match(/((\w+)--)?(.*?)\.\.(\w+)\.(\d\d?)(\:\d+)?$/).slice(2);
+	
+	return _.object(keys, splitArray);
 };
 
 util.splitSaldo = function(saldo) {
@@ -194,7 +197,7 @@ util.localizeFloat = function(float, nDec) {
 
 util.formatDecimalString = function(x, mode, statsmode) { // Use "," instead of "." if Swedish, if mode is
 	// Split the string into two parts
-	if(x.contains(".")) {
+	if(_.contains(x, ".")) {
     	var parts = x.split(".");
     	var decimalSeparator = util.getLocaleString("util_decimalseparator");
     	if(mode)
@@ -291,13 +294,24 @@ function loadCorpora() {
 	    	"</b> " + util.getLocaleString("corpselector_tokens") + "<br/><b>" + totalSentencesString + "</b> " + util.getLocaleString("corpselector_sentences");
 	    }
     }).bind("corpuschooserchange", function(evt, corpora) {
-    	c.log("corpus changed", corpora);
+    	c.log("corpuschooserchange", corpora)
+    	// c.log("corpus changed", corpora);
 		settings.corpusListing.select(corpora);
-		if(_.keys(corpora).length < _.keys(settings.corpora).length) {
-			$.bbq.pushState({"corpus" : corpora.join(",")});
+		// if(_.keys(corpora).length < _.keys(settings.corpora).length) {
+		// 	$.bbq.pushState({"corpus" : corpora.join(",")});
+		// }
+		var nonprotected = _.pluck(settings.corpusListing.getNonProtected(), "id")
+		if(corpora.length && _.intersection(corpora, nonprotected).length != nonprotected.length) {
+	        $.bbq.pushState({"corpus" : corpora.join(",")})
+	        // search({"corpus" : corpora.join(",")})
+		} else {
+	        $.bbq.removeState("corpus")
 		}
 		if(corpora.length) {
-			extendedSearch.refreshTokens();
+			if(currentMode == "parallel")
+				extendedSearch.reset();
+			else 
+				extendedSearch.refreshTokens();
 			view.updateReduceSelect();
 			view.updateContextSelect("within");
 //			view.updateContextSelect("context");
@@ -442,3 +456,81 @@ util.setLogin = function() {
 	$("#log_out .usrname").text(authenticationProxy.loginObj.name);
 	$(".err_msg", self).hide();
 };
+
+
+
+util.convertLMFFeatsToObjects = function(structure, key) {
+	   // Recursively traverse a tree, expanding each "feat" array into a real object, with the key "feat-[att]":
+
+	   if(structure != null) {
+	       var output = null;
+
+	       var theType = util.findoutType(structure);
+	       if( theType == "object" ) {
+	           output = {}
+
+	           $.each(structure, function(inkey, inval) {
+	               if( inkey == "feat" ) {
+
+	                   var innerType = util.findoutType(inval);
+
+	                   if( innerType == "array" ) {
+	                       $.each(inval, function(fkey, fval) {
+	                           var keyName = "feat_" + fval["att"];
+	                           if( output[keyName] === undefined ) {
+	                               output[keyName] = fval["val"];
+	                           } else {
+	                               if( $.isArray(output[keyName]) ) {
+	                                   output[keyName].push(fval["val"]);
+	                               } else {
+	                                   var dummy = output[keyName];
+	                                   output[keyName] = new Array();
+	                                   output[keyName].push(dummy);
+	                                   output[keyName].push(fval["val"]);
+	                               }
+	                           }
+	                       });
+	                   } else {
+	                       var keyName = "feat_" + inval["att"];
+	                       if( output[keyName] === undefined ) {
+	                           output[keyName] = inval["val"];
+	                       } else {
+	                           if( $.isArray(output[keyName]) ) {
+	                               output[keyName].push(inval["val"]);
+	                           } else {
+	                               var dummy = output[keyName];
+	                               output[keyName] = new Array();
+	                               output[keyName].push(dummy);
+	                               output[keyName].push(inval["val"]);
+	                           }
+	                       }
+	                   }
+
+	               } else {
+	                   output[inkey] = util.convertLMFFeatsToObjects(inval);
+	               }
+	           });
+
+	       } else if( theType == "array" ) {
+	           var dArr = new Array();
+	           $.each(structure, function(inkey, inval) {
+	               dArr.push(util.convertLMFFeatsToObjects(inval));
+	           });
+	           output = dArr;
+	       } else {
+	           output = structure;
+	       }
+
+	       return output;
+	   } else {
+	       return null;
+	   }
+	}
+
+util.findoutType = function(variable) {
+	   if( $.isArray(variable) ) {
+	       return "array";
+	   } else {
+	       return typeof(variable);
+	   }
+	};
