@@ -12,8 +12,11 @@
 	<div id="korp-simple">
 		<div class="ui-widget">
 			<label for="simple_text" rel="localize[search_for]">Sök efter</label>
-			<input id="simple_text" type="text" /> 
-			<input id="sendBtn" value="  Sök  " type="submit" rel="localize[search]" /> 
+			<input id="simple_text" type="text" />
+<!-- 			<span id="keyboard" class="lig">&#xe07d;</span> -->
+			<span id="keyboard" class="ui-state-default specialkey">ð</span>
+
+			<input id="sendBtn" value="  Sök  " type="submit" rel="localize[search]" />
 			<span rel="localize[and_include]">och inkludera</span>
 			<input id="prefixChk" type="checkbox">
 			<label rel="localize[prefix]" for="prefixChk">förled</label>
@@ -23,10 +26,29 @@
 			<span rel="localize[and]">och</span>
 			<input id="caseChk" type="checkbox">
 			<label for="caseChk" rel="localize[case_insensitive]">shiftlägesoberoende</label>
-			
-			
-				 
-				
+
+			<table id="char_table">
+				<tbody>
+					<tr>
+						<td class="ui-state-default specialkey">å</td>
+						<td class="ui-state-default specialkey">ä</td>
+						<td class="ui-state-default specialkey">ö</td>
+						<td class="ui-state-default specialkey">æ</td>
+						<td class="ui-state-default specialkey">œ</td>
+						<td class="ui-state-default specialkey">ð</td>
+						<td class="ui-state-default specialkey">þ</td>
+						<td class="ui-state-default specialkey">Å</td>
+						<td class="ui-state-default specialkey">Ä</td>
+						<td class="ui-state-default specialkey">Ö</td>
+						<td class="ui-state-default specialkey">Æ</td>
+						<td class="ui-state-default specialkey">Œ</td>
+						<td class="ui-state-default specialkey">Ð</td>
+						<td	class="ui-state-default specialkey">Þ</td>
+					</tr>
+				</tbody>
+			</table>
+
+
 		</div>
 		<div id="similar_wrapper">
 			<div id="similar_lemgrams"></div>
@@ -37,14 +59,15 @@
 	<div id="korp-extended">
 		<div id="query_table"></div>
 
-		<input id="removeLang" type="submit" value="Färre språk" rel="localize[fewer_languages]">
 		<input id="linkedLang" type="submit" value="Fler språk" rel="localize[more_languages]">
+		<input id="removeLang" type="submit" value="Färre språk" rel="localize[fewer_languages]">
 		<input id="sendBtn" value="  Sök  " type="submit" rel="localize[search]" />
 		<span rel="localize[within]"></span>
 		<select class="within_select">
 			<option value="sentence" rel="localize[within_sentence]">Mening</option>
 			<option value="paragraph" rel="localize[within_paragraph]">Stycke</option>
 		</select>
+		<input id="strict_chk" type="checkbox"><label for="strict_chk" rel="localize[strict]"></label>
 	</div>
 
 	<div id="korp-advanced">
@@ -56,7 +79,7 @@
 			</div>
 			<input id="sendBtn" value="  Sök  " type="submit"
 				rel="localize[search]" />
-				
+
 		</div>
 	</div>
 
@@ -69,28 +92,28 @@
 			</div>
 
 			<div class="args"></div>
-			
+
 			<div class="token_footer">
 				<div>
 					<img src="img/plus.png" class="image_button insert_arg">
 					<button rel="localize[options]">Alternativ</button>
 					<div class="repeat">
-						<span rel="localize[repeat]">Upprepa</span> 
-						<input type="number" value="1"> 
-						<span rel="localize[to]">till</span> 
+						<span rel="localize[repeat]">Upprepa</span>
+						<input type="number" value="1">
+						<span rel="localize[to]">till</span>
 						<input type="number" value="1">
 						<span rel="localize[times]">gånger</span>
 					</div>
 
 					<div style="clear:both;"></div>
 				</div>
-				
+
 			<div class="lower_footer">
 				<span class="lbound close_token" data-item="lbound_item">
 					<span rel="localize[sent_start]">Meningsbörjan</span>
 					<span class="ui-icon ui-icon-close"></span>
-				</span> 
-				<span class="rbound close_token" data-item="rbound_item"> 
+				</span>
+				<span class="rbound close_token" data-item="rbound_item">
 					<span rel="localize[sent_end]">Meningsslut</span>
 					<span class="ui-icon ui-icon-close"></span>
 				</span>
@@ -116,12 +139,12 @@
 
 <script id="orTmpl" type="text/x-jquery-tmpl">
 	<div class="or_arg">
-	<div class="arg_header" rel="localize[following_text]">${util.getLocaleString('following_text')}</div>
-	<div class="left_col inline_block" style="vertical-align: top;">
-		<img src="img/minus.png" class="image_button remove_arg">
+		<div class="arg_header" rel="localize[following_text]">${util.getLocaleString('following_text')}</div>
+		<div class="left_col inline_block" style="vertical-align: top;">
+			<img src="img/minus.png" class="image_button remove_arg">
+		</div><div class="right_col inline_block" style="margin-left: 5px;"></div>
+
 	</div>
-	<div class="right_col inline_block" style="margin-left: 5px;"></div>
-	<div>
 </script>
 
 

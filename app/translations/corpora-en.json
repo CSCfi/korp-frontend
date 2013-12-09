@@ -24,6 +24,40 @@
     "url" : "url",
     "referensnummer" : "reference number",
     
+    "weekday" : "weekday",
+	"hashtags" : "hashtags",
+	"mentions" : "mentions",
+	"retweets" : "retweets",
+	"replytouser" : "reply to",
+	"coordinates" : "coordinates",
+	"location" : "tweeted from",
+	"username2" : "username",
+	"name" : "name",
+	"user_location" : "lives at",
+	"user_since" : "member since",
+	"followers" : "followers",
+	"following" : "following",
+	"trstrank" : "trstrank",
+	"description" : "description",
+	"tweets" : "tweets",
+	"website" : "website",
+	
+	"id" : "id",
+	
+	"imprintyear" : "imprint year",
+	"pagelink" : "page link",
+	
+    "tisus_l1" : "native language",
+    "tisus_lf1" : "reading comprehension, part 1",
+    "tisus_lf2" : "reading comprehension, part 2",
+    "tisus_written" : "written proficiency",
+    "tisus_oral" : "oral proficiency",
+    "residencetime" : "residence time",
+    "education" : "education",
+    "finalgrade" : "final grade",
+    "sum" : "sum",
+    "proficiencylevel" : "proficiency level",
+    
     "text_year" : "year",
     "text_party" : "party",
     "date" : "date",
@@ -35,6 +69,7 @@
     "type" : "type",
     "publisher" : "publisher",
     "issue" : "issue",
+    "translator" : "translator",
     "article_publisher" : "article publisher",
     "article_author" : "article author",
     "article_genre" : "article genre",
@@ -61,10 +96,12 @@
     "post_title" : "post title",
     "tags" : "tags",
     "post_url" : "post address",
+    "categories" : "categories",
     
     "page" : "page",
     "author_type" : "author type",
     "gender" : "gender",
+    "birthyear" : "birth year",
     "journalist" : "journalist",
     "reader" : "reader",
     "male" : "male",
@@ -85,11 +122,18 @@
     "visk-sent" : "visk-sent: Example sentences of Finnish grammar",
     "wikipedia-samples" : "wikipedia-samples: Finnish Wikipedia samples",
 
+    "entryword" : "entry word",
+    "entryno" : "entry word (number)",
+    "sense1" : "sense 1",
+    "sense2" : "sense 2",
+    
+    
     "pos_AB" : "adverb",
     "pos_DL" : "punctuation",
     "pos_MAD": "punctuation",
     "pos_MID": "punctuation",
     "pos_PAD": "punctuation",
+    "pos_MID|MAD|PAD": "punctuation",
     "pos_DT" : "determiner",
     "pos_HA" : "interrogative/relative adverb",
     "pos_HD" : "interrogative/relative determiner",
@@ -111,6 +155,7 @@
     "pos_SN" : "subjunction",
     "pos_UO" : "foreign word",
     "pos_VB" : "verb",
+    "pos_E": "e",
         
     "posftb2_A" : "adjective",
     "posftb2_Abbr" : "abbreviation",
@@ -190,6 +235,7 @@
     "kn" : "conjunction", 
     "al" : "article", 
     "ie" : "infinitive particle",
+    "e" : "e",
     
     "mx" : "flerordsprefix",      
     "sx" : "prefix",                        
@@ -279,7 +325,8 @@
     "deprel_UA" : "Subordinate clause minus subordinating conjunction",
     "deprel_VG" : "Verb group",
     
-    "INFINIT" : "Non-finite verb",
+    "INF" : "Non-finite verb",
+    "INFINIT" : "Participle",
     "FINIT" : "Finite verb",
     
     "origlang" : "original language",
@@ -290,10 +337,17 @@
     "dalin:baseform" : "dalin:baseform",
     "saldo:lemgram" : "saldo:lemgram",
     "dalin:lemgram" : "dalin:lemgram",
-    "fsv:baseform" : "baseform (old Swedish)",
-    "fsv:lemgram" : "lemgram (old Swedish)",
-    "fsv:variants" : "variants (old Swedish)",
-    "variants" : "variants",
+    
+    "variants" : "similar lemgram",
+
+    "typography" : "typographic information",
+    "fab_footnote" : "footnote",
+    "fab_marginal" : "margin notes",
+    "fab_bold" : "bold text",
+    "fab_emphasis" : "emphasised text",
+    "fab_headline" : "header",
+    "fab_smallcaps" : "small caps",
+    "fab_italic" : "italics",
     
      "sst_koncept" : "Stockholms stads tänkebok - Koncept",
      "sst_notariat" : "Stockholms stads tänkebok - Notariat",
@@ -304,7 +358,9 @@
      "forord1734" : "1734 års lag Förord",
      "domareregler1734" : "1734 års lag Domareregler",
      "Lagtext1734" : "1734 års lag Lagtext",
-     "forarbeten1734v1-3" : "1734 års lag Förarbeten vol 1-3",
+     "forarbeten1734v1" : "1734 års lag Förarbeten vol 1",
+     "forarbeten1734v2" : "1734 års lag Förarbeten vol 2",
+     "forarbeten1734v3" : "1734 års lag Förarbeten vol 3",
      "forarbeten1734v4" : "1734 års lag Förarbeten vol 4",
      "forarbeten1734v5" : "1734 års lag Förarbeten vol 5",
      "forarbeten1734v6" : "1734 års lag Förarbeten vol 6",
@@ -323,6 +379,15 @@
     "activity3": "activity 3",
     "duration": "duration",
     "project": "project",
-    "speaker": "speaker"
+    "speaker": "speaker",
+    
+    "verk" : "book location",
+    "lang" : "language",
 			
+    "fulltext" : "full text",
+    
+    "album" : "album",
+    "album_year" : "album year", 
+    "song_title" : "song title",
+    "song_year" : "song year"
 }

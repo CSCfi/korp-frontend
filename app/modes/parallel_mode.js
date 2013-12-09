@@ -1,69 +1,85 @@
-var ParallelSimpleSearch = {
-	Extends : view.SimpleSearch,
-	
-	initialize : function(mainDivId) {
-		this.parent(mainDivId);
-	}
-};
-
 
 settings.wordpicture = false;
 settings.showSimpleSearch = false;
+
 $("#lemgram_list_item").remove();
 $("#results-lemgram").remove();
 $("#search_options > div:last").remove();
+$("#num_hits").prepend("<option value='10'>10</option>");
 
-var ParallelExtendedSearch = {
-	Extends : view.ExtendedSearch,
-	initialize : function(mainDivId) {
-		this.parent(mainDivId);
+// for the language selects
+var lang_prio = ["fi"].reverse();
+var start_lang = "fi";
+
+// var c1 = view.ExtendedSearch.prototype.constructor
+var ext = view.ExtendedSearch.prototype
+view.ExtendedSearch = Subclass(view.ExtendedSearch, function(mainDivId) {
+	ext.constructor.call(this, mainDivId);
+	// c.log("parallel constructor")
+	// this.parent(mainDivId);
+	var self = this;
+	$("#linkedLang").click(function() {
+		self.makeLangRow();
+	});
+	$("#removeLang").click(function() {
+		$(".lang_row:last").remove();
+		$("#linkedLang").attr("disabled", null);
+		self.onUpdate();
+
+	});
+	var langsel = this.getLangSelect().prependTo("#query_table")
+	.change(function() {
+		self.onUpdate();
+		self.invalidate($(this));
+	});
+
+	var pc = $.bbq.getState("parallel_corpora");
+	if(pc) {
 		var self = this;
-		$("#linkedLang").click(function() {
-			self.makeLangRow();
+		pc = pc.split(",").reverse();
+		langsel.val(pc.pop());
+		$.each(pc, function(i, item) {
+			self.makeLangRow(item);
 		});
-		$("#removeLang").click(function() {
-			$(".lang_row:last").remove();
-			$("#linkedLang").attr("disabled", null);
-			self.onUpdate();
-			
-		});
-		var langsel = this.getLangSelect().prependTo("#query_table")
-		.change(function() {
-			self.onUpdate();
-			self.invalidate($(this));
-		});
-		
-		var pc = $.bbq.getState("parallel_corpora");
-		if(pc) {
-			var self = this;
-			pc = pc.split(",").reverse();
-			langsel.val(pc.pop());
-			$.each(pc, function(i, item) {
-				self.makeLangRow(item);
-			});
-		}
-		langsel.change();
-	},
-	
+	}
+	langsel.change();
+}, {
+
+
 	invalidate : function(select) {
 		var index = select.closest(".lang_row,#query_table").index();
 		$(".lang_row,#query_table").filter($.format(":gt(%s)", index)).each(function() {
 			$("#removeLang").click();
 		});
+		var langs = this.getEnabledLangs($(".lang_select").first().val());
+		if(!langs.length)
+			$("#linkedLang").attr("disabled", "disabled");
+		else
+			$("#linkedLang").attr("disabled", null);
+
 		this.refreshTokens();
 	},
-	
+
+	reset : function() {
+		// ext.refreshTokens.call(this);
+		$(".lang_row", this.main).remove()
+		$("#query_table .lang_select", this.main).remove();
+		this.getLangSelect().prependTo("#query_table");
+
+		this.invalidate($(".lang_select", this.main).first())
+	},
+
 	onUpdate : function() {
 		var corps = _.map($(".lang_select").get(), function(item) {
 			return $(item).val();
 		});
 		$.bbq.pushState({"parallel_corpora" : corps.join(",")});
 	},
-	
+
 	makeLangRow : function(start_val) {
 		var self = this;
 		var newRow = $("<div class='lang_row' />");
-		$("#removeLang").before(newRow);
+		$("#linkedLang").before(newRow);
 		this.setupContainer(newRow);
 		this.getLangSelect()
 		.prependTo(".lang_row:last")
@@ -71,172 +87,159 @@ var ParallelExtendedSearch = {
 			self.invalidate($(this));
 		})
 		.val(start_val | null).change();
-		
+
 		this.onUpdate();
 	},
-	
-	getParentCorpora : function() {
-		var output = [];
-		$.each(settings.corpusListing.selected, function(i, corp) {
-			var childCorpora = $.grepObj(settings.parallel_corpora[corp.parent], function(val, key) {
-				return key != "default";
-			});
-			output = output.concat(childCorpora);
-		});
-		return output;
-		
-	},
-	
-	getLinkedTo : function(lang) {
-		var corps = _.filter(settings.corpusListing.selected, function(item) {
-			return item["lang"] == lang;
-		});
-		
-		return _.flatten(_.map(corps, function(item) {
-			return settings.corpusListing.getLinked(item);
-		}));
-	},
-	
-	getSiblingCorpora : function(corp) {
-		
-		var childCorpora = $.grepObj(settings.parallel_corpora[corp.parent], function(val, key) {
-			return key !== "default";
-		});
-		delete childCorpora[corp.id];
-		return _.values(childCorpora);
-	},
-	
-	getLangSelect : function() {
-		var ul = $("<select/>").addClass("lang_select");
-		var langs = [];
-		
-		var prevLang = $(".lang_select:last").val();
-		
-		if(prevLang) {
-			other_corp = this.getLinkedTo(prevLang);
-			langs = _.pluck(other_corp , "lang");
-		} else {
-			$.each(settings.corpusListing.selected, function(i, corp) {
-				var childCorpora = $.grepObj(settings.parallel_corpora[corp.parent], function(val, key) {
-					return key !== "default";
-				});
-				langs = langs.concat(_.pluck(childCorpora, "lang"));
-				
-			});
-			
-			langs = _.uniq(langs);
-		}
-		
+
+	getEnabledLangs : function(mainLang) {
 		var currentLangList = _.map($(".lang_select").get(), function(item) {
 			return $(item).val();
 		});
-		if(currentLangList.length + 1 >= langs.length)	
-			$("#linkedLang").attr("disabled", "disabled");
-		else 
-			$("#linkedLang").attr("disabled", null);
+		var other =  _(settings.corpusListing.getLinksFromLangs([mainLang || start_lang]))
+			.flatten()
+			.pluck("lang").unique().value();
+
+		return _.difference(other, currentLangList);
+
+
+
+		// if(activeLangs.length) {
+		// 	var links = settings.corpusListing.getLinksFromLangs(activeLangs);
+		// 	output = _(links).flatten().pluck("lang").unique().value();
+		// } else {
+		// 	output = _(settings.corpusListing.selected).map(function(item) {
+		// 		return settings.corpusListing.getLinked(item, true);
+		// 	})
+		// 	.flatten()
+		// 	.pluck("lang")
+		// 	.unique()
+		// 	.value()
+		// }
+		// c.log ("output, activeLangs", output, activeLangs)
+		// output = _.difference(output, activeLangs);
+		// output = output.sort(function(a, b) {
+		//     return lang_prio.indexOf(b) - lang_prio.indexOf(a)
+		// });
+
+		// return output;
+
+		// var output = [];
+		// // get the languages that are enabled given a list of active languages
+		// if(activeLangs.length) {
+
+		// 	var enabled = settings.corpusListing.getEnabledByLang(activeLangs[0])
+		// 	$.each(activeLangs, function(i, lang) {
+		// 		var set = _(settings.corpusListing.getEnabledByLang(lang, true))
+		// 			.map(function(item) {
+		// 				return settings.corpusListing.getLinked(item);
+		// 			})
+		// 			.flatten()
+		// 			.filter(function(item) {
+		// 				return $.inArray(item.lang, activeLangs) == -1;
+		// 			})
+		// 			.value()
+
+		// 		enabled = _.intersection(enabled, set)
+
+		// 	});
 			
-		
-		
+		// 	output = _.pluck(enabled , "lang");
+		// } else {
+		// 	output = _(settings.corpusListing.selected).map(function(item) {
+		// 		return settings.corpusListing.getLinked(item, true);
+		// 	})
+		// 	.flatten()
+		// 	.pluck("lang")
+		// 	.value()
+		// }
+
+		// output = output.sort(function(a, b) {
+		//     return lang_prio.indexOf(b) - lang_prio.indexOf(a)
+		// });
+
+		// return _.uniq(output);
+
+	},
+
+	getLangSelect : function() {
+		var ul = $("<select/>").addClass("lang_select");
+
+		// var prevLang = $(".lang_select:last").val();
+
+		var langs = this.getEnabledLangs($(".lang_select").first().val());
+
+
 		ul.append($.map(langs, function(item) {
 			return $("<option />", {"val" : item}).localeKey(item).get(0);
 		}));
 		return ul;
 	},
-	
-	getCorporaByLang : function() {
-		var parents = this.getParentCorpora();
-		
-		var currentLangList = _.map($(".lang_select").get(), function(item) {
-			return $(item).val();
-		});
-		// remove corpora for lang not used
-		var children = _.flatten(_.map(parents, function(p) {
-			var children = _.values(p);
-			children = _.filter(children, function(item) {
-				return $.inArray(item.lang, currentLangList) != -1;
-			});
-			return children;
-		}));
-		
-		if(currentLangList.length == 1) {
-			var self = this;
-			var output = [];
-			$.each(children, function(i, item) {
-				output.push([item].concat(self.getSiblingCorpora(item)));
-			});
-			
-			return {"not_linked" : output};
-		} else {
-			function countParentsForLang(corp) {
-				return _.chain(_.values(parents))
-				.reduce(function(memo, p) {
-					var langs = _.pluck(_.values(p), "lang");
-					if(langs.contains(corp.lang)) memo++;
-					return memo;
-				}, 0).value();
-			}
-			var childWithLeastParents = _.min(children, countParentsForLang);
-			var output = _.filter(children, function(item) {
-				return item.parent == childWithLeastParents.parent;
-			});
-			return {"linked" : _.uniq(output)};
-		}
-	},
-	
+
 	getCorporaQuery : function() {
 		var currentLangList = _.map($(".lang_select").get(), function(item) {
 			return $(item).val();
 		});
-		var struct = this.getCorporaByLang();
-		if(struct.linked) {
-			var struct = struct.linked.sort(function(a,b) {
-//				c.log("inarray", $.inArray(currentLangList, a.lang), $.inArray(currentLangList, b.lang))
-				return $.inArray(a.lang, currentLangList) - $.inArray(b.lang, currentLangList); 
-			});
-			return _.chain(struct)
-				.pluck("id")
-				.invoke("toUpperCase")
-				.value().join("|");
-		} else {
-			return _.map(struct.not_linked, this.stringifyCorporaSet).join(",");
-		}
-	},
-	
-	stringifyCorporaSet : function(corpusList) {
-		return _.chain(corpusList)
-		.pluck("id")
-		.invoke("toUpperCase")
-		.value().join("|");
-	}
-	
-	
-	
-};
 
-var ParallelAdvancedSearch = {
-	Extends : view.AdvancedSearch,
-	
+		var struct = settings.corpusListing.getLinksFromLangs(currentLangList);
+		var output = [];
+		$.each(struct, function(i, item) {
+			main = item[0]
+
+			var pair = _.map(item.slice(1), function(corp) {
+				return main.id.toUpperCase() + "|" + corp.id.toUpperCase();
+			});
+			output.push(pair);
+		});
+		return output.join(",")
+	}
+
+});
+
+var c2 = view.AdvancedSearch.prototype.constructor
+view.AdvancedSearch = Subclass(view.AdvancedSearch, function() {
+	c2.apply(this, arguments);
+}, {
+
 	updateCQP : function() {
-		
+		var currentLangList = _.map($(".lang_select").get(), function(item) {
+			return $(item).val();
+		});
+
+		var struct = settings.corpusListing.getLinksFromLangs(currentLangList);
+
+		function getLangMapping(excludeLangs) {
+			return _(struct)
+				.flatten()
+				.filter(function(item) {
+					return !_.contains(excludeLangs, item.lang);
+				}).groupBy("lang").value()
+		}
 		var query = $("#query_table .query_token").map(function() {
 	    	return $(this).extendedToken("getCQP");
 	    }).get().join(" ");
-		
-		$(".lang_row").each(function(i, item) {
-			query += ": <LINKED_CORPUS> "; 
-			query += $(this).find(".query_token").map(function() {
-		    	return $(this).extendedToken("getCQP");
-		    }).get().join(" ");
-		});
-		
+		if(currentLangList.length > 1) {
+			$(".lang_row").each(function(i, item) {			
+				cqp = $(this).find(".query_token").map(function() {
+			    	return $(this).extendedToken("getCQP");
+			    }).get().join(" ");
+
+				var lang = $(".lang_select", this).val();
+				var langMapping = getLangMapping(currentLangList.slice(0, i + 1));
+				// c.log ("langMapping", langMapping)
+				query += ":LINKED_CORPUS:" + _(langMapping[lang]).pluck("id").invoke("toUpperCase").join("|") + " " + cqp;
+
+			});
+		}
 	    this.setCQP(query);
 	    return query;
 	}
-};
+});
 
-var ParallelKWICResults = {
-	Extends : view.KWICResults,
-	
+var c3 = view.KWICResults.prototype.constructor
+view.KWICResults = Subclass(view.KWICResults, function() {
+	c3.apply(this, arguments);
+}, {
+
 	onWordClick : function(word, sentence) {
 		var data = word.tmplItem().data;
 		var currentSentence = sentence.aligned;
@@ -244,18 +247,15 @@ var ParallelKWICResults = {
 		var i = Number(data.dephead);
 		var aux = $(word.closest("tr").find(".word").get(i - 1));
 		this.selectionManager.select(word, aux);
-		
+
 		var isLinked = word.closest("tr").is(".linked_sentence");
 		var corpus = isLinked ? _.keys(sentence.aligned)[0] : sentence.corpus.split("|")[0].toLowerCase();
-		
+
 		this.scrollToShowWord(word);
-		
+
 		$("#sidebar").sidebar("updateContent", isLinked ? {} : sentence.structs, data, corpus);
 	},
-	
-//	renderResult : function(target, data, sourceCQP, pDef) {
-//	},
-	
+
 	renderKwicResult : function(data, sourceCQP) {
 		var self = this;
 		this.renderResult(".results_table.kwic", data, sourceCQP).done(function() {
@@ -267,33 +267,17 @@ var ParallelKWICResults = {
 			self.centerScrollbar();
 		});
 	}
-	
-};
 
-var ParallelStatsProxy = {
-	Extends : model.StatsProxy,
-	makeRequest : function() {}
-};
+});
 
-
-view.SimpleSearch = new Class(ParallelSimpleSearch);
-view.ExtendedSearch = new Class(ParallelExtendedSearch);
-view.AdvancedSearch = new Class(ParallelAdvancedSearch);
-view.KWICResults = new Class(ParallelKWICResults);
-model.StatsProxy = new Class(ParallelStatsProxy);
-delete ParallelSimpleSearch;
-delete ParallelExtendedSearch;
-delete ParallelAdvancedSearch;
-delete ParallelKWICResults;
-delete ParallelStatsProxy;
-
+model.StatsProxy.prototype.makeRequest = function(){};
 
 settings.primaryColor = "#FFF3D8";
 settings.primaryLight = "#FFF9EE";
 
 var context = {
 	"defaultAligned" : {
-		"1 link" : "1 link"
+		"1 sentence" : "1 sentence"
 	},
 /*
     	"sentenceAligned" : {
@@ -326,37 +310,36 @@ settings.corporafolders.mulcold = {
     contents : ["mulcold_fi", "mulcold_firu_fi", "mulcold_fiensvru_fi"]
 };
 
+
 settings.corpora = {};
 settings.parallel_corpora = {};
 
 
-settings.parallel_corpora.europarl = {
-    "default" : "europarl_fi",
-    europarl_fi : {
-	id : "europarl_fi",
-	lang : "fi",
-        parent : "europarl",
-        title: "EuroParl suomi–englanti-rinnakkaiskorpus",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: {},
-        struct_attributes : {}
-    },
-    europarl_en : {
-	id : "europarl_en",
-	lang : "en",
-        parent : "europarl",
-        title: "EuroParl suomi–englanti-rinnakkaiskorpus",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: {},
-        struct_attributes : {},
-        hide : true
-    }
+settings.corpora.europarl_fi = {
+    id : "europarl_fi",
+    lang : "fi",
+    linked_to : ["europarl_en"],
+    title: "EuroParl suomi–englanti-rinnakkaiskorpus",
+    context: context.defaultAligned, 
+    within: {
+	"sentence": "sentence"
+    }, 
+    attributes: {},
+    struct_attributes : {}
+};
+
+settings.corpora.europarl_en = {
+    id : "europarl_en",
+    lang : "en",
+    linked_to : ["europarl_fi"],
+    title: "EuroParl suomi–englanti-rinnakkaiskorpus",
+    context: context.defaultAligned, 
+    within: {
+	"sentence": "sentence"
+    }, 
+    attributes: {},
+    struct_attributes : {},
+    hide : true
 };
 
 
@@ -411,188 +394,198 @@ sattrlist.mulcold = {
 };
 
 
-settings.parallel_corpora.parrus = {
-    "default" : "parrus_fi",
-    parrus_fi : {
-	id : "parrus_fi",
-	lang : "fi",
-        parent : "parrus",
-        title: "ParRus suomi–venäjä-rinnakkaiskorpus",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: attrlist.mulcold_fi,
-        struct_attributes : {}
-    },
-    parrus_ru : {
-	id : "parrus_ru",
-	lang : "ru",
-        parent : "parrus",
-        title: "ParRus suomi–venäjä-rinnakkaiskorpus",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: attrlist.mulcold_ru,
-        struct_attributes : {},
-        hide : true
-    }
+settings.corpora.parrus_fi = {
+    id : "parrus_fi",
+    lang : "fi",
+    linked_to : ["parrus_ru"],
+    parent : "parrus",
+    title: "ParRus suomi–venäjä-rinnakkaiskorpus",
+    context: context.defaultAligned, 
+    within: {
+	"sentence": "sentence"
+    }, 
+    attributes: attrlist.mulcold_fi,
+    struct_attributes : {}
+};
+
+settings.corpora.parrus_ru = {
+    id : "parrus_ru",
+    lang : "ru",
+    parent : "parrus",
+    linked_to : ["parrus_fi"],
+    title: "ParRus suomi–venäjä-rinnakkaiskorpus",
+    context: context.defaultAligned, 
+    within: {
+	"sentence": "sentence"
+    }, 
+    attributes: attrlist.mulcold_ru,
+    struct_attributes : {},
+    hide : true
 };
 
 
-settings.parallel_corpora.mulcold_firu = {
-    "default" : "mulcold_firu_fi",
-    mulcold_firu_fi : {
-	id : "mulcold_firu_fi",
-	lang : "fi",
-        parent : "mulcold_firu",
-        title: "MULCOLD suomi–venäjä",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: attrlist.mulcold_fi,
-        struct_attributes : sattrlist.mulcold
-    },
-    mulcold_firu_ru : {
-	id : "mulcold_firu_ru",
-	lang : "ru",
-        parent : "mulcold_firu",
-        title: "MULCOLD suomi–venäjä",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: attrlist.mulcold_ru,
-        struct_attributes : sattrlist.mulcold,
-        hide : true
-    }
+settings.corpora.mulcold_firu_fi = {
+    id : "mulcold_firu_fi",
+    lang : "fi",
+    parent : "mulcold_firu",
+    linked_to : ["mulcold_firu_ru"],
+    title: "MULCOLD suomi–venäjä",
+    context: context.defaultAligned, 
+    within: {
+	"sentence": "sentence"
+    }, 
+    attributes: attrlist.mulcold_fi,
+    struct_attributes : sattrlist.mulcold
+};
+
+settings.corpora.mulcold_firu_ru = {
+    id : "mulcold_firu_ru",
+    lang : "ru",
+    parent : "mulcold_firu",
+    linked_to : ["mulcold_firu_fi"],
+    title: "MULCOLD suomi–venäjä",
+    context: context.defaultAligned, 
+    within: {
+	"sentence": "sentence"
+    }, 
+    attributes: attrlist.mulcold_ru,
+    struct_attributes : sattrlist.mulcold,
+    hide : true
 };
 
 
-settings.parallel_corpora.mulcold_fiensvru = {
-    "default" : "mulcold_fiensvru_fi",
-    mulcold_fiensvru_fi : {
-	id : "mulcold_fiensvru_fi",
-	lang : "fi",
-        parent : "mulcold_fiensvru",
-        title: "MULCOLD suomi–englanti–ruotsi–venäjä",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: attrlist.mulcold_fi,
-        struct_attributes : sattrlist.mulcold
-    },
-    mulcold_fiensvru_en : {
-	id : "mulcold_fiensvru_en",
-	lang : "en",
-        parent : "mulcold_fiensvru",
-        title: "MULCOLD suomi–englanti–ruotsi–venäjä",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: attrlist.mulcold_en,
-        struct_attributes : sattrlist.mulcold,
-        hide : true
-    },
-    mulcold_fiensvru_sv : {
-	id : "mulcold_fiensvru_sv",
-	lang : "sv",
-        parent : "mulcold_fiensvru",
-        title: "MULCOLD suomi–englanti–ruotsi–venäjä",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: attrlist.mulcold_sv,
-        struct_attributes : sattrlist.mulcold,
-        hide : true
-    },
-    mulcold_fiensvru_ru : {
-	id : "mulcold_fiensvru_ru",
-	lang : "ru",
-        parent : "mulcold_fiensvru",
-        title: "MULCOLD suomi–englanti–ruotsi–venäjä",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: attrlist.mulcold_ru,
-        struct_attributes : sattrlist.mulcold,
-        hide : true
-    }
+settings.corpora.mulcold_fiensvru_fi = {
+    id : "mulcold_fiensvru_fi",
+    lang : "fi",
+    parent : "mulcold_fiensvru",
+    linked_to : ["mulcold_fiensvru_en", "mulcold_fiensvru_sv", "mulcold_fiensvru_ru"],
+    title: "MULCOLD suomi–englanti–ruotsi–venäjä",
+    context: context.defaultAligned, 
+    within: {
+	"sentence": "sentence"
+    }, 
+    attributes: attrlist.mulcold_fi,
+    struct_attributes : sattrlist.mulcold
+};
+
+settings.corpora.mulcold_fiensvru_en = {
+    id : "mulcold_fiensvru_en",
+    lang : "en",
+    parent : "mulcold_fiensvru",
+    linked_to : ["mulcold_fiensvru_fi", "mulcold_fiensvru_sv", "mulcold_fiensvru_ru"],
+    title: "MULCOLD suomi–englanti–ruotsi–venäjä",
+    context: context.defaultAligned, 
+    within: {
+	"sentence": "sentence"
+    }, 
+    attributes: attrlist.mulcold_en,
+    struct_attributes : sattrlist.mulcold,
+    hide : true
+};
+
+settings.corpora.mulcold_fiensvru_sv = {
+    id : "mulcold_fiensvru_sv",
+    lang : "sv",
+    parent : "mulcold_fiensvru",
+    linked_to : ["mulcold_fiensvru_fi", "mulcold_fiensvru_en", "mulcold_fiensvru_ru"],
+    title: "MULCOLD suomi–englanti–ruotsi–venäjä",
+    context: context.defaultAligned, 
+    within: {
+	"sentence": "sentence"
+    }, 
+    attributes: attrlist.mulcold_sv,
+    struct_attributes : sattrlist.mulcold,
+    hide : true
+};
+
+settings.corpora.mulcold_fiensvru_ru = {
+    id : "mulcold_fiensvru_ru",
+    lang : "ru",
+    parent : "mulcold_fiensvru",
+    linked_to : ["mulcold_fiensvru_fi", "mulcold_fiensvru_en", "mulcold_fiensvru_sv"],
+    title: "MULCOLD suomi–englanti–ruotsi–venäjä",
+    context: context.defaultAligned, 
+    within: {
+	"sentence": "sentence"
+    }, 
+    attributes: attrlist.mulcold_ru,
+    struct_attributes : sattrlist.mulcold,
+    hide : true
 };
 
 
-settings.parallel_corpora.mulcold = {
-    "default" : "mulcold_fi",
-    mulcold_fi : {
-	id : "mulcold_fi",
-	lang : "fi",
-	parent : "mulcold",
-	title: "MULCOLD kaikki",
-	context: context.alignAligned, 
-	within: {
-	    "sentence": "sentence"
-	}, 
-	attributes: attrlist.mulcold_fi,
-	struct_attributes : sattrlist.mulcold
-    },
-    mulcold_en : {
-	id : "mulcold_en",
-	lang : "en",
-	parent : "mulcold",
-	title: "MULCOLD kaikki",
-	context: context.alignAligned, 
-	within: {
-	    "sentence": "sentence"
-	}, 
-	attributes: attrlist.mulcold_en,
-	struct_attributes : sattrlist.mulcold,
-	hide : true
-    },
-    mulcold_sv : {
-	id : "mulcold_sv",
-	lang : "sv",
-	parent : "mulcold",
-	title: "MULCOLD kaikki",
-	context: context.alignAligned, 
-	within: {
-	    "sentence": "sentence"
-	}, 
-	attributes: attrlist.mulcold_sv,
-	struct_attributes : sattrlist.mulcold,
-	hide : true
-    },
-    mulcold_ru : {
-	id : "mulcold_ru",
-	lang : "ru",
-	parent : "mulcold",
-	title: "MULCOLD kaikki",
-	context: context.alignAligned, 
-	within: {
-	    "sentence": "sentence"
-	}, 
-	attributes: attrlist.mulcold_ru,
-	struct_attributes : sattrlist.mulcold,
-	hide : true
-    },
-    mulcold_de : {
-	id : "mulcold_de",
-	lang : "de",
-	parent : "mulcold",
-	title: "MULCOLD kaikki",
-	context: context.alignAligned, 
-	within: {
-	    "sentence": "sentence"
-	}, 
-	attributes: attrlist.mulcold_de,
-	struct_attributes : sattrlist.mulcold,
-	hide : true
-    }
+settings.corpora.mulcold_fi = {
+    id : "mulcold_fi",
+    lang : "fi",
+    parent : "mulcold",
+    linked_to : ["mulcold_en", "mulcold_sv", "mulcold_ru", "mulcold_de"],
+    title: "MULCOLD kaikki",
+    context: context.alignAligned, 
+    within: {
+	"sentence": "sentence"
+    }, 
+    attributes: attrlist.mulcold_fi,
+    struct_attributes : sattrlist.mulcold
+};
+
+settings.corpora.mulcold_en = {
+    id : "mulcold_en",
+    lang : "en",
+    parent : "mulcold",
+    linked_to : ["mulcold_fi", "mulcold_sv", "mulcold_ru", "mulcold_de"],
+    title: "MULCOLD kaikki",
+    context: context.alignAligned, 
+    within: {
+	"sentence": "sentence"
+    }, 
+    attributes: attrlist.mulcold_en,
+    struct_attributes : sattrlist.mulcold,
+    hide : true
+};
+
+settings.corpora.mulcold_sv = {
+    id : "mulcold_sv",
+    lang : "sv",
+    parent : "mulcold",
+    linked_to : ["mulcold_fi", "mulcold_en", "mulcold_ru", "mulcold_de"],
+    title: "MULCOLD kaikki",
+    context: context.alignAligned, 
+    within: {
+	"sentence": "sentence"
+    }, 
+    attributes: attrlist.mulcold_sv,
+    struct_attributes : sattrlist.mulcold,
+    hide : true
+};
+
+settings.corpora.mulcold_ru = {
+    id : "mulcold_ru",
+    lang : "ru",
+    parent : "mulcold",
+    linked_to : ["mulcold_fi", "mulcold_en", "mulcold_sv", "mulcold_de"],
+    title: "MULCOLD kaikki",
+    context: context.alignAligned, 
+    within: {
+	"sentence": "sentence"
+    }, 
+    attributes: attrlist.mulcold_ru,
+    struct_attributes : sattrlist.mulcold,
+    hide : true
+};
+
+settings.corpora.mulcold_de = {
+    id : "mulcold_de",
+    lang : "de",
+    parent : "mulcold",
+    linked_to : ["mulcold_fi", "mulcold_en", "mulcold_sv", "mulcold_ru"],
+    title: "MULCOLD kaikki",
+    context: context.alignAligned, 
+    within: {
+	"sentence": "sentence"
+    }, 
+    attributes: attrlist.mulcold_de,
+    struct_attributes : sattrlist.mulcold,
+    hide : true
 };
 
 
@@ -684,17 +677,8 @@ settings.parallel_corpora.testpar4 = {
 */
 
 
-$.each(settings.parallel_corpora, function(corpora, struct) {
-	$.each(struct, function(key, corp) {
-		if(key == "default") return;
-		
-		settings.corpora[corp.id] = corp;
-	});
-});
 
 
-
-settings.corpusListing = new ParallelCorpusListing(settings.parallel_corpora);
+window.cl = settings.corpusListing = new ParallelCorpusListing(settings.corpora);
 delete ParallelCorpusListing;
 delete context;
-$.extend(settings.corpora, settings.corpusListing.struct);

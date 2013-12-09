@@ -1,14 +1,36 @@
 /* lemma => grundform, base form
  * lexem => lemgram, lemgram
- * 
+ *
  */
 var settings = {};
-//var language = $.localize.data.locale;
+
+var isLab = window.isLab || false;
 
 settings.lemgramSelect = true;
 settings.autocomplete = true;
 
 settings.wordPictureMaxWords = 30;
+
+
+settings.modeConfig = [
+    {
+        localekey: "modern_texts",
+        mode: "default"
+    },
+    {
+        localekey: "parallel_texts",
+        mode: "parallel"
+    },
+    {
+	localekey: "old_finnish_texts",
+	mode: "old_finnish"
+    }
+];
+
+
+
+
+var karpLemgramLink = "http://spraakbanken.gu.se/karp/#search=cql%7C(lemgram+%3D+%22<%= val.replace(/:\\d+/, '') %>%22)+sortBy+lemgram";
 
 settings.primaryColor = "rgb(221, 233, 255)";
 settings.primaryLight = "rgb(242, 247, 255)";
@@ -22,7 +44,7 @@ settings.spContext = {
 	"1 paragraph" : "1 paragraph"
 };
 settings.defaultWithin = {
-	"sentence" : "sentence"	
+	"sentence" : "sentence"
 };
 settings.spWithin = {
 	"sentence" : "sentence",
@@ -47,31 +69,32 @@ settings.defaultOptions = {
 };
 
 settings.getTransformFunc = function(type, value, opt) {
-	c.log("getTransformFunc", type, value);
-	
+
 	if(type == "word" && !value) return function() {return "";};
-	
+
 	if(type == "date_interval") {
-		
+		c.log("date_interval", arguments)
 		var from = value[0].toString() + "0101";
 		var to = value[1].toString() + "1231";
-		
+
 		var operator1 = ">=", operator2 = "<=", bool = "&";
 		if(opt == "is_not") {
 			operator1 = "<";
 			operator2 = ">";
 			bool = "|";
 		}
-		
+
 		return function() {
-			return $.format("(int(_.text_datefrom) %s %s %s int(_.text_dateto) %s %s)", 
+			return $.format("(int(_.text_datefrom) %s %s %s int(_.text_dateto) %s %s)",
 					[operator1, from, bool, operator2, to]);
 		};
-	
+
 	}
 };
 
-settings.liteOptions = $.exclude(settings.defaultOptions, ["starts_with", "contains", "ends_with", "matches"]);
+// settings.liteOptions = $.exclude(settings.defaultOptions, ["starts_with", "contains", "ends_with", "matches"]);
+settings.liteOptions = _.omit.apply(null, [settings.defaultOptions, "starts_with", "contains", "ends_with", "matches"]);
+
 
 var attrs = {};  // positional attributes
 var sattrs = {}; // structural attributes
@@ -335,25 +358,39 @@ attrs.baseform = {
     label : "baseform",
     // type : "set",
     // displayType : "autocomplete",
+    stringify : function(baseform) {
+	    return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
+    },
     opts : settings.defaultOptions
 };
 attrs.baseform_ftb2 = {
     label : "baseform",
     // type : "set",
     // displayType : "autocomplete",
+    stringify : function(baseform) {
+	    return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
+    },
     opts : settings.defaultOptions
 };
 attrs.baseform_compound = {
     label : "baseform_compound",
     // type : "set",
     // displayType : "autocomplete",
+    stringify : function(baseform) {
+	    return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
+    },
     opts : settings.defaultOptions
 };
 attrs.lemgram = {
     label : "lemgram",
     type : "set",
     displayType : "autocomplete",
-    opts : settings.liteOptions
+    opts : settings.liteOptions,
+    stringify : function(lemgram) {
+	    return util.lemgramToString(lemgram, true);
+    },
+    // externalSearch : karpLemgramLink,
+    internalSearch : true
 };
 attrs.lemgram_hidden = {
     label : "lemgram",
@@ -365,7 +402,12 @@ attrs.saldo = {
 	label : "saldo",
 	type : "set",
 	displayType : "autocomplete",
-	opts : settings.liteOptions
+	opts : settings.liteOptions,
+	stringify : function(saldo) {
+		return util.saldoToString(saldo, true);
+	},
+	externalSearch : "http://spraakbanken.gu.se/karp/#search-tab-1&search=cql|(saldo+%3D+<%= val %>)",
+	internalSearch : true
 };
 attrs.dephead = {
 	label : "dephead",
@@ -472,13 +514,23 @@ attrs.prefix = {
 	label : "prefix",
 	type : "set",
 	displayType : "autocomplete",
-	opts : settings.liteOptions
+	opts : settings.liteOptions,
+	stringify : function(lemgram) {
+		return util.lemgramToString(lemgram, true);
+	},
+	externalSearch : karpLemgramLink,
+	internalSearch : true
 };
 attrs.suffix = {
 	label : "suffix",
 	type : "set",
 	displayType : "autocomplete",
-	opts : settings.liteOptions
+	opts : settings.liteOptions,
+	stringify : function(lemgram) {
+		return util.lemgramToString(lemgram, true);
+	},
+	externalSearch : karpLemgramLink,
+	internalSearch : true
 };
 attrs.ref = {
 	label : "ref",
@@ -584,10 +636,6 @@ settings.corporafolders.fi = {
     contents : ["metsatalo"]
 };
 
-settings.corporafolders.sks = {
-    title : "SKS:n aineistoja",
-    contents : ["sks_kivi_fi", "skvr"]
-};
 
 
 /*
@@ -1255,223 +1303,16 @@ settings.corpora.la_murre = {
 };
 
 
-settings.corpora.sks_kivi_fi = {
-    title : "Aleksis Kivi",
-    description : "SKS:n Aleksis Kivi -korpus - Aleksis Kiven painetut teokset ja muu tunnettu tuotanto",
-    id : "sks_kivi_fi",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-	sketchyword : {
-	    label : "sketchyword",
-	    opts : settings.defaultOptions,
-	},
-	clean_note : {
-	    label : "clean_note",
-	    opts : settings.defaultOptions,
-	},
-	sketchy_note : {
-	    label : "sketchy_note",
-	    opts : settings.defaultOptions,
-	},
-	other_note : {
-	    label : "other_note",
-	    opts : settings.defaultOptions,
-	},
-	wtype : {
-	    label : "wtype",
-	    opts : settings.defaultOptions,
-	}
-    },
-    struct_attributes : {
-	content_idno : {
-	    label : "content_idno",
-	    opts : settings.defaultOptions,
-	},
-	content_author : {
-	    label : "content_author",
-	    opts : settings.defaultOptions,
-	},
-	content_title : {
-	    label : "content_title",
-	    opts : settings.defaultOptions,
-	},
-	content_byline : {
-	    label : "content_byline",
-	    opts : settings.defaultOptions,
-	},
-	content_settlement : {
-	    label : "content_settlement",
-	    opts : settings.defaultOptions,
-	},
-	content_repository : {
-	    label : "content_repository",
-	    opts : settings.defaultOptions,
-	},
-	content_publisher : {
-	    label : "content_publisher",
-	    opts : settings.defaultOptions,
-	},
-	content_distributor : {
-	    label : "content_distributor",
-	    opts : settings.defaultOptions,
-	},
-	content_bibl : {
-	    label : "content_bibl",
-	    opts : settings.defaultOptions,
-	},
-	content_bibl_type : {
-	    label : "content_bibl_type",
-	    opts : settings.defaultOptions,
-	},
-	content_lang : {
-	    label : "content_lang",
-	    opts : settings.defaultOptions,
-	},
-	/*content_note : {
-	      label : "content_note",
-	          opts : settings.defaultOptions,
-		  },*/
-	section_id : {
-	    label : "section_id",
-	    displayType : "hidden",
-	},
-	section_type : {
-	    label : "section_type",
-	    opts : settings.defaultOptions,
-	},
-	section_subtype : {
-	    label : "section_subtype",
-	    opts : settings.defaultOptions,
-	},
-	section_subtype_n : {
-	    label : "section_subtype_n",
-	    opts : settings.defaultOptions,
-	},
-	paragraph_id : {
-	    label : "paragraph_id",
-	    displayType : "hidden",
-	},
-	paragraph_type : {
-	    label : "paragraph_type",
-	    opts : settings.defaultOptions,
-	},
-	paragraph_speaker : {
-	    label : "paragraph_speaker",
-	    opts : settings.defaultOptions,
-	},
-	sentence_id : sattrs.sentence_id_hidden,
-	sentence_type : {
-	    label : "sentence_type",
-	    opts : settings.defaultOptions,
-	}
-    }
-};
-
-settings.corpora.skvr = {
-    title : "SKVR",
-    description : "SKS:n Suomen Kansan Vanhat Runot -korpus",
-    id : "skvr",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        cleanword : {
-            label : "cleanword",
-            opts : settings.defaultOptions,
-        },
-        normalized : {
-            label : "normalized",
-            opts : settings.defaultOptions,
-        }
-    },
-    struct_attributes : {
-	paragraph_id : {
-            label : "skvr_item_id",
-            displayType : "hidden",
-        },
-        paragraph_osa : {
-            label : "skvr_item_osa",
-            opts : settings.defaultOptions,
-        },
-        paragraph_loc : {
-            label : "skvr_item_loc",
-            opts : settings.defaultOptions,
-        },
-        paragraph_inf : {
-            label : "skvr_item_inf",
-            opts : settings.defaultOptions,
-        },
-        paragraph_tmp : {
-            label : "skvr_item_tmp",
-            opts : settings.defaultOptions,
-        },
-        paragraph_col : {
-            label : "skvr_item_col",
-            opts : settings.defaultOptions,
-        },
-        paragraph_idn : {
-            label : "skvr_item_idn",
-            opts : settings.defaultOptions,
-        },
-        paragraph_nro : {
-            label : "skvr_item_nro",
-            opts : settings.defaultOptions,
-        },
-        paragraph_sgn : {
-            label : "skvr_item_sgn",
-            opts : settings.defaultOptions,
-        },
-        paragraph_p_code1 : {
-            label : "skvr_item_p_code1",
-            opts : settings.defaultOptions,
-        },
-        paragraph_p_code2 : {
-            label : "skvr_item_p_code2",
-            opts : settings.defaultOptions,
-        },
-        paragraph_k_code : {
-            label : "skvr_item_k_code",
-            opts : settings.defaultOptions,
-        },
-        paragraph_y_code : {
-            label : "skvr_item_y_code",
-            opts : settings.defaultOptions,
-        },
-        paragraph_refs : {
-            label : "skvr_item_refs",
-            opts : settings.defaultOptions,
-	},
-        paragraph_cpt : {
-            label : "skvr_item_cpt",
-            opts : settings.defaultOptions,
-        },
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_type : {
-            label : "sentence_type",
-            displayType : "select",
-            translationKey : "skvr_stype_",
-            dataset : {
-                'verse':'verse',
-                'comment':'comment',
-                'editor_commentary':'editor',
-                'caption':'caption' 
-            },
-            opts : settings.LiteOptions,
-        },
-        sentence_refs : {
-            label : "sentence_refs",
-            opts : settings.defaultOptions,
-        }
-    }
-};
-
-
 /*
  * MISC
  */
 
-settings.cgi_script = "http://nyklait-09-01.hum.helsinki.fi/cgi-bin/korp/korp.cgi";
-settings.lemgrams_cgi_script = "http://nyklait-09-01.hum.helsinki.fi/cgi-bin/korp/korp_lemgrams.cgi";
+settings.cgi_prefix = "http://localhost/cgi-bin/korp/";
+settings.cgi_script = settings.cgi_prefix + "korp.cgi";
+settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
+
+// settings.cgi_script = "http://nyklait-09-01.hum.helsinki.fi/cgi-bin/korp/korp.cgi";
+// settings.lemgrams_cgi_script = "http://nyklait-09-01.hum.helsinki.fi/cgi-bin/korp/korp_lemgrams.cgi";
 
 // label values here represent translation keys.
 settings.arg_groups = {
@@ -1487,7 +1328,7 @@ settings.reduce_stringify = function(type) {
 			return key != "total_value" && $.isPlainObject(value);
 		});
 	}
-	
+
 	function getCorpora(dataContext) {
 		var corpora = $.grepObj(filterCorpora(dataContext), function(value, key) {
 			return value.relative != null;
@@ -1497,7 +1338,7 @@ settings.reduce_stringify = function(type) {
 		});
 		return corpora;
 	}
-	
+
 	function appendDiagram(output, corpora, value) {
 		if(corpora.length > 1)
 			return output + $.format('<img id="circlediagrambutton__%s" src="img/stats2.png" class="arcDiagramPicture"/>', value);
@@ -1512,21 +1353,21 @@ settings.reduce_stringify = function(type) {
 		return function(row, cell, value, columnDef, dataContext) {
 			var corpora = getCorpora(dataContext);
 			if(value == "&Sigma;") return appendDiagram(value, corpora, value);
-			
+
 			var query = $.map(dataContext.hit_value.split(" "), function(item) {
 			    return "[" + type + "=" + '"' + item + '"]';
 			}).join(" ");
-			
-			output = $("<span>", 
+
+			output = $("<span>",
 					{
-					"class" : "link", 
-					"data-query" : encodeURIComponent(query), 
-					"data-corpora" : $.toJSON(corpora)
+					"class" : "link",
+					"data-query" : encodeURIComponent(query),
+					"data-corpora" : JSON.stringify(corpora)
 					}).text(value).outerHTML();
 			return appendDiagram(output, corpora, value);
-			 
-		}; 
-		
+
+		};
+
 	case "pos":
 		return function(row, cell, value, columnDef, dataContext) {
 			var corpora = getCorpora(dataContext);
@@ -1534,34 +1375,38 @@ settings.reduce_stringify = function(type) {
 			var query = $.map(dataContext.hit_value.split(" "), function(item) {
 				return $.format('[pos="%s"]', item);
 			}).join(" ");
-			output =  $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ", 
-					[query, $.toJSON(corpora), value, util.getLocaleString("pos_" + value)]);
+			output =  $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ",
+					[query, JSON.stringify(corpora), value, util.getLocaleString("pos_" + value)]);
 			return appendDiagram(output, corpora, value);
 		};
+	case "prefix":
+	case "suffix":
 	case "lex":
 		return function(row, cell, value, columnDef, dataContext) {
 		var corpora = getCorpora(dataContext);
 		if(value == "&Sigma;") return appendDiagram(value, corpora, value);
-		output = _.chain(value.split("|"))
+		else if(value == "|") return "-";
+		output = _(value.split("|"))
 				.filter(Boolean)
 				.map(function(item) {
-					return util.lemgramToString(item, true);
+					var wrapper = $("<div>");
+					$("<span>").html(util.lemgramToString(item, true)).attr("data-cqp", '[lex contains "' + item + '"]').appendTo(wrapper);
+					return wrapper.html();
 				})
-				.value().join(", ");
+				.join(", ");
 		return appendDiagram(output, corpora, value);
 		};
-	case "prefix":
-	case "suffix":
 	case "saldo":
 		return function(row, cell, value, columnDef, dataContext) {
 		var corpora = getCorpora(dataContext);
 		if(value == "&Sigma;") return appendDiagram(value, corpora, value);
-		output = _.chain(value.split("|"))
+		else if(value == "|") return "-";
+		output = _(value.split("|"))
 				.filter(Boolean)
 				.map(function(item) {
 					return util.saldoToString(item, true);
 				})
-				.value().join(", ");
+				.join(", ");
 		return appendDiagram(output, corpora, value);
 		};
 	case "deprel":
@@ -1571,19 +1416,25 @@ settings.reduce_stringify = function(type) {
 			var query = $.map(dataContext.hit_value.split(" "), function(item) {
 				return $.format('[deprel="%s"]', item);
 			}).join(" ");
-			var output = $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ", 
-					[query, $.toJSON(corpora),"deprel_" + value, util.getLocaleString("deprel_" + value)]);
+			output = $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ",
+					[query, JSON.stringify(corpora),"deprel_" + value, util.getLocaleString("deprel_" + value)]);
 			return appendDiagram(output, corpora, value);
-			
+
 		};
 	default:
 		return function(row, cell, value, columnDef, dataContext) {
 			var corpora = getCorpora(dataContext);
+			var query = $.map(dataContext.hit_value.split(" "), function(item) {
+				return $.format('[%s="%s"]', [value, item]);
+			}).join(" ");
+			output = $.format("<span data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ",
+					[query, $.toJSON(corpora),"deprel_" + value, util.getLocaleString(value)]);
 			if(value == "&Sigma;") return appendDiagram(output, corpora, value);
-			return appendDiagram(output, corpora, value);;
+
+			return appendDiagram(output, corpora, value);
 		};
 	}
-	
+
 	return output;
 };
 
@@ -1594,214 +1445,156 @@ delete context;
 delete ref;
 
 
-var CorpusListing = new Class({
-	initialize : function(corpora) {
-		this.struct = corpora;
-		this.corpora = _.values(corpora);
-		this.selected = [];
-	},
-	
-	get : function(key) {
-		return this.struct[key];
-	},
-	
-	list : function() {
-		return this.corpora;
-	},
-	
-	map : function(func) {
-		return _.map(this.corpora, func);
-	},
-	
-	
-	/* Returns an array of all the selected corpora's IDs in uppercase */
-	getSelectedCorpora : function() {
-		return corpusChooserInstance.corpusChooser("selectedItems");
-	},
-	
-	select : function(idArray) {
-		this.selected = _.values(_.pick.apply(this, [this.struct].concat(idArray))); 
-	},
 
-	mapSelectedCorpora : function(f) {
-		return _.map(this.selected, f);
-	},
-	// takes an array of mapping objs and returns their intersection
-	_mapping_intersection : function(mappingArray) {
-		return _.reduce(mappingArray, function(a,b) {
-			var output = {};
-			$.each(b, function(key, value) {
-				if(b[key] != null)
-					output[key] = value;
-			});
-			return output;
-		}, {});
-	},
 
-	_mapping_union : function(mappingArray) {
-		return _.reduce(mappingArray, function(a, b) {
-			return $.extend({}, a, b);
-		}, {});
-	},
-
-	getCurrentAttributes : function() {
-		var attrs = this.mapSelectedCorpora(function(corpus) {
-			return corpus.attributes;
-		});
-		
-		return this._invalidateAttrs(attrs);
-		
-	},
-	getStructAttrs : function() {
-		var attrs = this.mapSelectedCorpora(function(corpus) {
-			$.each(corpus.struct_attributes, function(key, value) {
-				value["isStructAttr"] = true; 
-			});
-			return corpus.struct_attributes;
-		});
-		var rest = this._invalidateAttrs(attrs);
-		
-		// fix for combining dataset values
-		var withDataset = _.filter(_.pairs(rest), function(item) {
-			return item[1].dataset;
-		});
-		
-		$.each(withDataset, function(i, item) {
-			var key = item[0];
-			var val = item[1];
-			$.each(attrs, function(j, origStruct) {
-				
-				if(origStruct[key] && origStruct[key].dataset) {
-					var ds = origStruct[key].dataset;
-					if($.isArray(ds))
-						ds = _.object(ds, ds);
-					$.extend(val.dataset, ds);
-				}
-			});
-		});
-		return $.extend(rest, _.object(withDataset));
-	},
-
-	_invalidateAttrs : function(attrs) {
-		var union = this._mapping_union(attrs);
-		var intersection = this._mapping_intersection(attrs);
-		$.each(union, function(key, value) {
-			if(intersection[key] == null) {
-				value["disabled"] = true;
-			} else {
-				delete value["disabled"];
+settings.posset = {
+   type : "set",
+   label : "pos",
+   displayType : "select",
+   translationKey : "pos_",
+   dataset :  {
+	"AB" : "AB",
+	"MID|MAD|PAD" : "DL",
+	"DT" : "DT",
+	"HA" : "HA",
+	"HD" : "HD",
+	"HP" : "HP",
+	"HS" : "HS",
+	"IE" : "IE",
+	"IN" : "IN",
+	"JJ" : "JJ",
+	"KN" : "KN",
+	"NN" : "NN",
+	"PC" : "PC",
+	"PL" : "PL",
+	"PM" : "PM",
+	"PN" : "PN",
+	"PP" : "PP",
+	"PS" : "PS",
+	"RG" : "RG",
+	"RO" : "RO",
+	"SN" : "SN",
+	"UO" : "UO",
+	"VB" : "VB"
 			}
-		});
-		return union;
-	},
-	
-	corpusHasAttr : function(corpus, attr) {
-		return attr in $.extend({}, this.struct[corpus].attributes, this.struct[corpus].struct_attributes);
-	},
-	
-	stringifySelected : function() {
-		return _.chain(this.selected)
-		.pluck("id")
-		.invoke("toUpperCase")
-		.value().join(",");
-	},
-	
-	getAttrIntersection : function(attr) {
-		
-		var struct = _.map(this.selected, function(corpus) {
-			return _.keys(corpus[attr]);
-		});
-		return _.intersection.apply(null, struct);
-	},
-	
-	getAttrUnion : function(attr) {
-		var struct = _.map(this.selected, function(corpus) {
-			return _.keys(corpus[attr]);
-		}); 
-		return _.union.apply(null, struct);
-	},
-	
-	getContextQueryString : function() {
-		return $.grep($.map(_.pluck(settings.corpusListing.selected, "id"), function(id) {
-			if("1 paragraph" in settings.corpora[id].context)
-				return id.toUpperCase() + ":1 paragraph";
-		}), Boolean).join();
-	},
-	getWithinQueryString : function() {
-		return $.grep($.map(_.pluck(settings.corpusListing.selected, "id"), function(id) {
-			if("paragraph" in settings.corpora[id].within)
-				return id.toUpperCase() + ":paragraph";
-		}), Boolean).join();
+};
+settings.fsvlemma = {
+	//pattern : "<a href='http://spraakbanken.gu.se/karp/#search=cql%7C(gf+%3D+%22<%= key %>%22)+sortBy+wf'><%= val %></a>",
+  	type : "set",
+  	label : "baseform",
+  	displayType : "autocomplete",
+  	stringify : function(baseform) {
+		return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
 	}
-	
-});
+//  	externalSearch : "http://spraakbanken.gu.se/karp/#search=cql%7C(gf+%3D+%22<%= val %>%22)+sortBy+lemgram",
+//	internalSearch : true
 
+};
+settings.fsvlex = {
+  	type : "set",
+  	label : "lemgram",
+  	displayType : "autocomplete",
+  	stringify : function(str) {
+  		return util.lemgramToString(str, true);
+  	},
+  	externalSearch : karpLemgramLink,
+	internalSearch : true
+};
+settings.fsvvariants = {
+  	type : "set",
+  	label : "variants",
+  	stringify : function(str) {
+  		return util.lemgramToString(str, true);
+  	},
+  	displayType : "autocomplete",
+  	opts : settings.liteOptions,
+  	externalSearch : karpLemgramLink,
+	internalSearch : true
+};
 
-
-
-var ParallelCorpusListing = new Class({
-	Extends : CorpusListing,
-	initialize : function(corpora) {
-		var self = this;
-		this.parallel_corpora = corpora;
-		this.corpora = [];
-		this.struct = {};
-		$.each(corpora, function(__, struct) {
-			$.each(struct, function(key, corp) {
-				if(key == "default") return;
-				self.corpora.push(corp);
-				self.struct[corp.id] = corp;
-			});
-		});
-		
-	},
-	
-	select : function(idArray) {
-		var self = this;
-		this.selected = [];
-		$.each(idArray, function(i, id) {
-			var corp = self.struct[id];
-			self.selected = self.selected.concat(self.getLinked(corp, true));
-		});
-	},
-	
-	getCurrentAttributes : function(lang) {
-		var corpora = _.filter(this.selected, function(item) {
-			return item.lang == lang;
-		});
-		var struct = _.reduce(corpora, function(a, b) {
-			return $.extend({}, a.attributes, b.attributes);
-		},{});
-		return struct;
-	},
-	
-	getStructAttrs : function(lang) {
-		var corpora = _.filter(this.selected, function(item) {
-			return item.lang == lang;
-		});
-		var struct = _.reduce(corpora, function(a, b) {
-			return $.extend({}, a.struct_attributes, b.struct_attributes);
-		},{});
-		$.each(struct, function(key, val) {
-			val["isStructAttr"] = true;
-		});
-		return struct;
-	},
-	
-	
-	getLinked : function(corp, andSelf) {
-		andSelf = andSelf || false;
-		var output = _.filter(this.corpora, function(item) {
-			return item.parent == corp.parent && item !== corp;
-		});
-		if(andSelf)
-			output.push(corp);
-		return output;
+settings.fsvdescription ='<a href="http://project2.sol.lu.se/fornsvenska/">Fornsvenska textbanken</a> är ett projekt som digitaliserar fornsvenska texter och gör dem tillgängliga över webben. Projektet leds av Lars-Olof Delsing vid Lunds universitet.';
+var fsv_yngrelagar = {
+	morf : 'fsvm',
+	id : "fsv-yngrelagar",
+	title : "Yngre lagar – Fornsvenska textbankens material",
+	description : settings.fsvdescription,
+	within : settings.defaultWithin,
+	context : settings.spContext,
+	attributes : {
+		posset : settings.posset,
+		lemma : settings.fsvlemma,
+		lex : settings.fsvlex,
+		variants : settings.fsvvariants
+		},
+	struct_attributes : {
+		text_title : {
+			label : "title",
+			displayType : "select",
+			localize : false,
+			dataset : [
+				"Kristoffers Landslag, nyskrivna flockar i förhållande till MEL",
+				"Kristoffers Landslag, innehållsligt ändrade flockar i förhållande til MEL",
+				"Kristoffers Landslag, flockar direkt hämtade från MEL",
+				"Kristoffers Landslag"
+				],
+		},
+		text_date : {label : "date"}
 	}
+};
 
-});
+var fsv_aldrelagar = {
+	morf : 'fsvm',
+	id : "fsv-aldrelagar",
+	title : "Äldre lagar – Fornsvenska textbankens material",
+	description : settings.fsvdescription,
+	within : settings.defaultWithin,
+	context : settings.spContext,
+	attributes : {
+		posset : settings.posset,
+		lemma : settings.fsvlemma,
+		lex : settings.fsvlex,
+		variants : settings.fsvvariants
+				},
+	struct_attributes : {
+		text_title : {
+			label : "title",
+			displayType : "select",
+			localize : false,
+			dataset : [
+				"Yngre Västgötalagens äldsta fragment, Lydekini excerpter och anteckningar",
+				"Tillägg till Upplandslagen, hskr A (Ups B 12)",
+				"Södermannalagen, enligt Codex iuris Sudermannici",
+				"Östgötalagen, fragment H, ur Kyrkobalken ur Skokloster Avdl I 145",
+				"Yngre Västmannalagen, enl Holm B 57",
+				"Vidhemsprästens anteckningar",
+				"Magnus Erikssons Stadslag, exklusiva stadslagsflockar",
+				"Södermannalagens additamenta, efter NKS 2237",
+				"Hälsingelagen",
+				"Yngre Västgötalagen, tillägg, enligt Holm B 58",
+				"Östgötalagen, fragment C, ur Holm B 1709",
+				"Yngre Västgötalagen, enligt Holm B 58",
+				"Upplandslagen enl Schlyters utgåva och Codex Ups C 12, hskr A",
+				"Skånelagen, enligt Holm B 76",
+				"Östgötalagen, fragment D, ur Holm B 24",
+				"Östgötalagen A, ur Holm B 50",
+				"Äldre Västgötalagen",
+				"Östgötalagen, fragment M, ur Holm B 196",
+				"Gutalagen enligt Holm B 64",
+				"Upplandslagen enligt Codex Holm B 199, Schlyters hskr B",
+				"Smålandslagens kyrkobalk",
+				"Dalalagen (Äldre Västmannalagen)",
+				"Gutalagens additamenta enligt AM 54",
+				"Bjärköarätten",
+				"Magnus Erikssons Landslag",
+				"Östgötalagen, fragment N, ur Köpenhamn AM 1056",
+				"Södermannalagen stadsfästelse - Confirmatio, enligt NKS 2237",
+				"Östgötalagen, fragment E, ur Ups B 22"
+							],
+		},
+		text_date : {label : "date"}
+	}
+};
 
 
 
-settings.corpusListing = new CorpusListing(settings.corpora);
 

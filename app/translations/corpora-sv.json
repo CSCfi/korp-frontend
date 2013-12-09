@@ -22,7 +22,40 @@
     "url" : "url",
     "referensnummer" : "referensnummer",
     
+    "weekday" : "veckodag",
+	"hashtags" : "hashtaggar",
+	"mentions" : "omnämnda",
+	"retweets" : "retweets",
+	"replytouser" : "svar till",
+	"coordinates" : "koordinater",
+	"location" : "tweetat från",
+	"username2" : "användarnamn",
+	"name" : "namn",
+	"user_location" : "bor",
+	"user_since" : "medlem sedan",
+	"followers" : "följare",
+	"following" : "följer",
+	"trstrank" : "trstrank",
+	"description" : "beskrivning",
+	"tweets" : "tweets",
+	"website" : "webbsida",
+	
+	"id" : "id",
+
+    "imprintyear" : "tryckår",
+    "pagelink" : "sidlänk",
     
+    "tisus_l1" : "modersmål",
+    "tisus_lf1" : "läsförståelse, del 1",
+    "tisus_lf2" : "läsförståelse, del 2",
+    "tisus_written" : "skriftlig språkfärdighet",
+    "tisus_oral" : "muntlig språkfärdighet",
+    "residencetime" : "uppehållstid (månader)",
+    "education" : "utbildning",
+    "finalgrade" : "slutgiltigt betyg",
+    "sum" : "summa",
+    "proficiencylevel" : "kunskapsnivå",
+	
     "text_year" : "år",
     "text_party" : "parti",
     "date" : "datum",
@@ -34,6 +67,7 @@
     "type" : "typ",
     "publisher" : "utgivare",
     "issue" : "utgåva",
+    "translator" : "översättare",
     "article_publisher" : "artikelutgivare",
     "article_author" : "artikelförfattare",
     "article_genre" : "artikelgenre",
@@ -59,10 +93,12 @@
     "post_title" : "inläggets titel",
     "tags" : "nyckelord",
     "post_url" : "inläggsadress",
+    "categories" : "kategorier",
     
     "page" : "sida",
     "author_type" : "författartyp",
     "gender" : "kön",
+    "birthyear" : "födelseår",
     "journalist" : "journalist",
     "reader" : "läsare",
     "male" : "man",
@@ -70,12 +106,17 @@
     "unknown" : "okänd",
     "male_female" : "man och kvinna",
     
+    "entryword" : "uppslagsord",
+    "entryno" : "uppslagsord (nummer)",
+    "sense1" : "huvudbetydelse",
+    "sense2" : "betydelsenyans",
     
     
     "pos_AB": "adverb", 
     "pos_MAD": "interpunktion",
     "pos_MID": "interpunktion",
     "pos_PAD": "interpunktion",
+    "pos_MID|MAD|PAD": "interpunktion",
     "pos_DL": "interpunktion",
     "pos_DT": "determinerare",
     "pos_HA": "frågande/relativt adverb",
@@ -98,6 +139,7 @@
     "pos_SN": "subjunktion",
     "pos_UO": "utländskt ord",
     "pos_VB": "verb",
+    "pos_E": "e",
     
     "nn" : "substantiv", 
     "av" : "adjektiv", 
@@ -113,6 +155,7 @@
     "kn" : "konjunktion", 
     "al" : "artikel", 
     "ie" : "infinitivmärke",
+    "e" : "e",
     
     "mx" : "flerordsprefix",      
     "sx" : "prefix",
@@ -202,7 +245,8 @@
     "deprel_UA" : "Underordnad sats (bisats), utom subjunktion",
     "deprel_VG" : "Verbgrupp",
     
-    "INFINIT" : "Infinit verb",
+    "INFINIT" : "Particip",
+    "INF" : "Infinitiv",
     "FINIT" : "Finit verb",
     
     "origlang" : "orginalspråk",
@@ -211,10 +255,18 @@
     "paragraph_marginal" : "marginalnoter",
     "date_interval" : "tidsintervall",
 
-    "fsv:baseform" : "grundform (fornsvenska)",
-    "fsv:lemgram" : "lemgram (fornsvenska)",
-    "fsv:variants" : "varianter (fornsvenska)",
-    "variants" : "varianter",
+    "variants" : "närliggande lemgram",
+
+    "typography" : "typografisk information",
+    "fab_footnote" : "fotnot",
+    "fab_marginal" : "marginalnoter",
+    "fab_bold" : "fetstilt",
+    "fab_emphasis" : "emfas",
+    "fab_headline" : "rubrik",
+    "fab_smallcaps" : "kapitäler",
+    "fab_italic" : "kursivt",
+    
+
 
      "sst_koncept" : "Stockholms stads tänkebok - Koncept",
      "sst_notariat" : "Stockholms stads tänkebok - Notariat",
@@ -225,7 +277,9 @@
      "forord1734" : "1734 års lag Förord",
      "domareregler1734" : "1734 års lag Domareregler",
      "Lagtext1734" : "1734 års lag Lagtext",
-     "forarbeten1734v1-3" : "1734 års lag Förarbeten vol 1-3",
+     "forarbeten1734v1" : "1734 års lag Förarbeten vol 1",
+     "forarbeten1734v2" : "1734 års lag Förarbeten vol 2",
+     "forarbeten1734v3" : "1734 års lag Förarbeten vol 3",
      "forarbeten1734v4" : "1734 års lag Förarbeten vol 4",
      "forarbeten1734v5" : "1734 års lag Förarbeten vol 5",
      "forarbeten1734v6" : "1734 års lag Förarbeten vol 6",
@@ -244,5 +298,16 @@
     "activity3": "aktivitet 3",
     "duration": "längd",
     "project": "projekt",
-    "speaker": "talare"
+    "speaker": "talare",
+    
+    "verk" : "länk till boken",
+    "lang" : "språk",
+    
+    "fulltext" : "heltext",
+	
+	"album" : "album",
+    "album_year" : "år (album)", 
+    "song_title" : "låttitel",
+    "song_year" : "år (låt)"
+    
 }
