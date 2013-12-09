@@ -80,7 +80,11 @@
 	"day" : "päivä",
 	"party" : "party",
 	"spoken" : "puhemuoto",
-	
+
+	"ambiguous_lemma" : "monitulkintainen perusmuoto",
+	"ambiguous_pos" : "monitulkintainen sanaluokka",
+	"ambiguous_msd" : "monitulkintainen morfologinen analyysi",
+
 	"year_from" : "alkaen vuodesta",
 	"year_to" : "päättyen vuoteen",
 	
@@ -831,6 +835,10 @@
 	"text_typeoftext" : "tekstin tyyppi",
 	"text_genre" : "tekstilaji",
 	"text_period" : "tekstin ajankohta",
-	"text_publisher" : "julkaisija"
+	"text_publisher" : "julkaisija",
+	"text_translator" : "kääntäjä",
+
+	"textgenre_fiction" : "kaunokirjallisuus",
+	"textgenre_law" : "lakiteksti"
 	
 	}

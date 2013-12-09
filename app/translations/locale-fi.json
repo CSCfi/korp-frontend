@@ -151,7 +151,7 @@
 	"corpselector_sentences" : "virkettä",
 	"corpselector_sentences_long" : "virkettä valituissa korpuksissa",
 	"corpselector_corporawith_sing" : "korpus, jossa",
-	"corpselector_corporawith_plur" : "korpukset, joissa",
+	"corpselector_corporawith_plur" : "korpusta, joissa",
 	"corpselector_lastupdate" : "Viimeksi päivitetty",
 	"corpselector_supports" : "Tukee laajennettua kontekstia.",
 	"corpselector_limited" : "Korpus on suojattu.",
@@ -176,7 +176,7 @@
 	"util_decimalseparator" : ",",
 	"util_numbergroupseparator" : "&nbsp;",
 	
-	"hitspicture_hits" : "osumia",
+	"hitspicture_hits" : "osumaa",
 	"hitspicture_gotocorpushits" : "Napsauta päästäksesi ensimmäiselle sivulle, jolla on osumia tästä korpuksesta.",
 
 	"hits_per_mil" : "Osumia miljoonaa sanetta kohti",

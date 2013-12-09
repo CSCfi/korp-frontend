@@ -300,15 +300,19 @@ settings.corporafolders.europarl = {
 	contents : ["europarl_fi"]
 };
 
+/*
 settings.corporafolders.parrus = {
     title : "ParRus",
     contents : ["parrus_fi"]
 };
+*/
 
+/*
 settings.corporafolders.mulcold = {
     title : "MULCOLD – Multilingual Corpus of Legal Documents",
-    contents : ["mulcold_fi", "mulcold_firu_fi", "mulcold_fiensvru_fi"]
+    contents : ["mulcold_fi"]
 };
+*/
 
 
 settings.corpora = {};
@@ -346,180 +350,199 @@ settings.corpora.europarl_en = {
 attrlist = {};
 attrlist.mulcold_fi = {
     lemma : attrs.baseform,
+    lemmacomp : attrs.baseform_compound,
     pos : attrs.pos_mulcold_fi,
-    msd : attrs.msd
+    msd : attrs.msd,
+    amblemma : attrs.ambiguous_lemma,
+    ambpos : attrs.ambiguous_pos,
+    ambmsd : attrs.ambiguous_msd
 };
 attrlist.mulcold_ru = {
     lemma : attrs.baseform,
     pos : attrs.pos_mulcold_ru,
-    msd : attrs.msd
+    msd : attrs.msd,
+    amblemma : attrs.ambiguous_lemma,
+    ambpos : attrs.ambiguous_pos,
+    ambmsd : attrs.ambiguous_msd
 };
 attrlist.mulcold_en = {
     lemma : attrs.baseform,
     pos : attrs.pos_mulcold_en,
-    msd : attrs.msd
+    msd : attrs.msd,
+    amblemma : attrs.ambiguous_lemma,
+    ambpos : attrs.ambiguous_pos,
+    ambmsd : attrs.ambiguous_msd
 };
 attrlist.mulcold_sv = {
     lemma : attrs.baseform,
+    lemmacomp : attrs.baseform_compound,
     pos : attrs.pos_mulcold_sv,
-    msd : attrs.msd
+    msd : attrs.msd,
+    amblemma : attrs.ambiguous_lemma,
+    ambpos : attrs.ambiguous_pos,
+    ambmsd : attrs.ambiguous_msd
 };
 attrlist.mulcold_de = {
 };
 
 sattrlist = {};
 sattrlist.mulcold = {
-    text_code : {
+    align_text_code : {
 	label : "text_code"
     },
-    text_author : {
+    align_text_author : {
 	label : "text_author"
     },
-    text_title : {
+    align_text_title : {
 	label : "text_title"
     },
-    text_typeoftext : {
+    align_text_typeoftext : {
 	label : "text_typeoftext"
     },
-    text_genre : {
-	label : "text_genre"
-    },
-    text_period : {
+    align_text_genre : sattrs.text_genre,
+    align_text_period : {
 	label : "text_period"
     },
-    text_publisher : {
+    align_text_publisher : {
 	label : "text_publisher"
     },
     sentence_id : sattrs.sentence_id_hidden
 };
+// Make a deep copy of sattrlist.mulcold and then extend it
+sattrlist.parfin = $.extend(
+    true, {}, sattrlist.mulcold,
+    {
+	align_text_translator : {
+	    label : "text_translator"
+	}
+    }
+);
 
 
-settings.corpora.parrus_fi = {
-    id : "parrus_fi",
-    lang : "fi",
-    linked_to : ["parrus_ru"],
-    parent : "parrus",
-    title: "ParRus suomi–venäjä-rinnakkaiskorpus",
-    context: context.defaultAligned, 
-    within: {
-	"sentence": "sentence"
-    }, 
-    attributes: attrlist.mulcold_fi,
-    struct_attributes : {}
-};
-
-settings.corpora.parrus_ru = {
-    id : "parrus_ru",
-    lang : "ru",
-    parent : "parrus",
-    linked_to : ["parrus_fi"],
-    title: "ParRus suomi–venäjä-rinnakkaiskorpus",
-    context: context.defaultAligned, 
-    within: {
-	"sentence": "sentence"
-    }, 
-    attributes: attrlist.mulcold_ru,
-    struct_attributes : {},
-    hide : true
-};
-
-
-settings.corpora.mulcold_firu_fi = {
-    id : "mulcold_firu_fi",
-    lang : "fi",
-    parent : "mulcold_firu",
-    linked_to : ["mulcold_firu_ru"],
-    title: "MULCOLD suomi–venäjä",
-    context: context.defaultAligned, 
-    within: {
-	"sentence": "sentence"
-    }, 
-    attributes: attrlist.mulcold_fi,
-    struct_attributes : sattrlist.mulcold
-};
-
-settings.corpora.mulcold_firu_ru = {
-    id : "mulcold_firu_ru",
-    lang : "ru",
-    parent : "mulcold_firu",
-    linked_to : ["mulcold_firu_fi"],
-    title: "MULCOLD suomi–venäjä",
-    context: context.defaultAligned, 
-    within: {
-	"sentence": "sentence"
-    }, 
-    attributes: attrlist.mulcold_ru,
-    struct_attributes : sattrlist.mulcold,
-    hide : true
+/*
+settings.parallel_corpora.parrus = {
+    "default" : "parrus_fi",
+    parrus_fi : {
+	id : "parrus_fi",
+	lang : "fi",
+        parent : "parrus",
+        title: "ParRus suomi–venäjä-rinnakkaiskorpus",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: attrlist.mulcold_fi,
+        struct_attributes : {}
+    },
+    parrus_ru : {
+	id : "parrus_ru",
+	lang : "ru",
+        parent : "parrus",
+        title: "ParRus suomi–venäjä-rinnakkaiskorpus",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: attrlist.mulcold_ru,
+        struct_attributes : {},
+        hide : true
+    }
 };
 
 
-settings.corpora.mulcold_fiensvru_fi = {
-    id : "mulcold_fiensvru_fi",
-    lang : "fi",
-    parent : "mulcold_fiensvru",
-    linked_to : ["mulcold_fiensvru_en", "mulcold_fiensvru_sv", "mulcold_fiensvru_ru"],
-    title: "MULCOLD suomi–englanti–ruotsi–venäjä",
-    context: context.defaultAligned, 
-    within: {
-	"sentence": "sentence"
-    }, 
-    attributes: attrlist.mulcold_fi,
-    struct_attributes : sattrlist.mulcold
+settings.parallel_corpora.mulcold_firu = {
+    "default" : "mulcold_firu_fi",
+    mulcold_firu_fi : {
+	id : "mulcold_firu_fi",
+	lang : "fi",
+        parent : "mulcold_firu",
+        title: "MULCOLD suomi–venäjä",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: attrlist.mulcold_fi,
+        struct_attributes : sattrlist.mulcold
+    },
+    mulcold_firu_ru : {
+	id : "mulcold_firu_ru",
+	lang : "ru",
+        parent : "mulcold_firu",
+        title: "MULCOLD suomi–venäjä",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: attrlist.mulcold_ru,
+        struct_attributes : sattrlist.mulcold,
+        hide : true
+    }
 };
 
-settings.corpora.mulcold_fiensvru_en = {
-    id : "mulcold_fiensvru_en",
-    lang : "en",
-    parent : "mulcold_fiensvru",
-    linked_to : ["mulcold_fiensvru_fi", "mulcold_fiensvru_sv", "mulcold_fiensvru_ru"],
-    title: "MULCOLD suomi–englanti–ruotsi–venäjä",
-    context: context.defaultAligned, 
-    within: {
-	"sentence": "sentence"
-    }, 
-    attributes: attrlist.mulcold_en,
-    struct_attributes : sattrlist.mulcold,
-    hide : true
-};
 
-settings.corpora.mulcold_fiensvru_sv = {
-    id : "mulcold_fiensvru_sv",
-    lang : "sv",
-    parent : "mulcold_fiensvru",
-    linked_to : ["mulcold_fiensvru_fi", "mulcold_fiensvru_en", "mulcold_fiensvru_ru"],
-    title: "MULCOLD suomi–englanti–ruotsi–venäjä",
-    context: context.defaultAligned, 
-    within: {
-	"sentence": "sentence"
-    }, 
-    attributes: attrlist.mulcold_sv,
-    struct_attributes : sattrlist.mulcold,
-    hide : true
+settings.parallel_corpora.mulcold_fiensvru = {
+    "default" : "mulcold_fiensvru_fi",
+    mulcold_fiensvru_fi : {
+	id : "mulcold_fiensvru_fi",
+	lang : "fi",
+        parent : "mulcold_fiensvru",
+        title: "MULCOLD suomi–englanti–ruotsi–venäjä",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: attrlist.mulcold_fi,
+        struct_attributes : sattrlist.mulcold
+    },
+    mulcold_fiensvru_en : {
+	id : "mulcold_fiensvru_en",
+	lang : "en",
+        parent : "mulcold_fiensvru",
+        title: "MULCOLD suomi–englanti–ruotsi–venäjä",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: attrlist.mulcold_en,
+        struct_attributes : sattrlist.mulcold,
+        hide : true
+    },
+    mulcold_fiensvru_sv : {
+	id : "mulcold_fiensvru_sv",
+	lang : "sv",
+        parent : "mulcold_fiensvru",
+        title: "MULCOLD suomi–englanti–ruotsi–venäjä",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: attrlist.mulcold_sv,
+        struct_attributes : sattrlist.mulcold,
+        hide : true
+    },
+    mulcold_fiensvru_ru : {
+	id : "mulcold_fiensvru_ru",
+	lang : "ru",
+        parent : "mulcold_fiensvru",
+        title: "MULCOLD suomi–englanti–ruotsi–venäjä",
+        context: context.defaultAligned, 
+        within: {
+            "sentence": "sentence"
+        }, 
+        attributes: attrlist.mulcold_ru,
+        struct_attributes : sattrlist.mulcold,
+        hide : true
+    }
 };
-
-settings.corpora.mulcold_fiensvru_ru = {
-    id : "mulcold_fiensvru_ru",
-    lang : "ru",
-    parent : "mulcold_fiensvru",
-    linked_to : ["mulcold_fiensvru_fi", "mulcold_fiensvru_en", "mulcold_fiensvru_sv"],
-    title: "MULCOLD suomi–englanti–ruotsi–venäjä",
-    context: context.defaultAligned, 
-    within: {
-	"sentence": "sentence"
-    }, 
-    attributes: attrlist.mulcold_ru,
-    struct_attributes : sattrlist.mulcold,
-    hide : true
-};
-
+*/
 
 settings.corpora.mulcold_fi = {
     id : "mulcold_fi",
     lang : "fi",
     parent : "mulcold",
     linked_to : ["mulcold_en", "mulcold_sv", "mulcold_ru", "mulcold_de"],
-    title: "MULCOLD kaikki",
+    title: "MULCOLD – Multilingual Corpus of Legal Documents",
+    description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned, 
     within: {
 	"sentence": "sentence"
@@ -533,7 +556,8 @@ settings.corpora.mulcold_en = {
     lang : "en",
     parent : "mulcold",
     linked_to : ["mulcold_fi", "mulcold_sv", "mulcold_ru", "mulcold_de"],
-    title: "MULCOLD kaikki",
+    title: "MULCOLD – Multilingual Corpus of Legal Documents",
+    description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned, 
     within: {
 	"sentence": "sentence"
@@ -548,7 +572,8 @@ settings.corpora.mulcold_sv = {
     lang : "sv",
     parent : "mulcold",
     linked_to : ["mulcold_fi", "mulcold_en", "mulcold_ru", "mulcold_de"],
-    title: "MULCOLD kaikki",
+    title: "MULCOLD – Multilingual Corpus of Legal Documents",
+    description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned, 
     within: {
 	"sentence": "sentence"
@@ -563,7 +588,8 @@ settings.corpora.mulcold_ru = {
     lang : "ru",
     parent : "mulcold",
     linked_to : ["mulcold_fi", "mulcold_en", "mulcold_sv", "mulcold_de"],
-    title: "MULCOLD kaikki",
+    title: "MULCOLD – Multilingual Corpus of Legal Documents",
+    description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned, 
     within: {
 	"sentence": "sentence"
@@ -578,7 +604,8 @@ settings.corpora.mulcold_de = {
     lang : "de",
     parent : "mulcold",
     linked_to : ["mulcold_fi", "mulcold_en", "mulcold_sv", "mulcold_ru"],
-    title: "MULCOLD kaikki",
+    title: "MULCOLD – Multilingual Corpus of Legal Documents",
+    description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned, 
     within: {
 	"sentence": "sentence"
@@ -588,6 +615,39 @@ settings.corpora.mulcold_de = {
     hide : true
 };
 
+
+settings.corpora.parfin_fi = {
+    id : "parfin_fi",
+    lang : "fi",
+    parent : "parfin",
+    linked_to : ["parfin_ru"],
+    title: "ParFin",
+    description : "Suomenkielisiä kaunokirjallisia teoksia ja niiden käännöksiä venäjäksi",
+    context: context.alignAligned, 
+    within: {
+	"sentence": "sentence"
+    }, 
+    attributes: attrlist.mulcold_fi,
+    struct_attributes : sattrlist.parfin,
+    limited_access : true
+};
+
+settings.corpora.parfin_ru = {
+    id : "parfin_ru",
+    lang : "ru",
+    parent : "parfin",
+    linked_to : ["parfin_fi"],
+    title: "ParFin",
+    description : "Suomenkielisiä kaunokirjallisia teoksia ja niiden käännöksiä venäjäksi",
+    context: context.alignAligned, 
+    within: {
+	"sentence": "sentence"
+    }, 
+    attributes: attrlist.mulcold_ru,
+    struct_attributes : sattrlist.parfin,
+    limited_access : true,
+    hide : true
+};
 
 /*
 settings.parallel_corpora.testpar = {

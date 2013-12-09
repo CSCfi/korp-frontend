@@ -24,6 +24,10 @@ settings.modeConfig = [
     {
 	localekey: "old_finnish_texts",
 	mode: "old_finnish"
+    },
+    {
+	localekey: "finnish_national_library_texts",
+	mode: "finnish_national_library"
     }
 ];
 
@@ -559,7 +563,18 @@ attrs.id_hidden = {
 	displayType : "hidden",
 	opts : settings.defaultOptions
 };
-
+attrs.ambiguous_lemma = {
+    label : "ambiguous_lemma",
+    opts : settings.defaultOptions
+};
+attrs.ambiguous_pos = {
+    label : "ambiguous_pos",
+    opts : settings.defaultOptions
+};
+attrs.ambiguous_msd = {
+    label : "ambiguous_msd",
+    opts : settings.defaultOptions
+};
 sattrs.date = {
 	label : "date",
 	displayType : "date"
@@ -592,6 +607,17 @@ sattrs.paragraph_type = {
     label : "paragraph_type"
 };
 
+sattrs.text_genre = {
+    label : "text_genre",
+    displayType : "select",
+    translationKey : "textgenre_",
+    dataset : {
+	"fiction" : "fiction",
+	"law" : "law",
+    },
+    opts : settings.liteOptions
+};
+
 
 /*
  * FOLDERS
@@ -617,12 +643,12 @@ settings.corporafolders.ftb.ftb3 = {
 };
 
 settings.corporafolders.kotus = {
-    title : "Kotuksen korpuksia",
+    title : "Kotuksen korpuksia (näytteitä)",
     contents : ["kotus_klassikot", "kotus_sananparret"]
 };
 
 settings.corporafolders.kotus.ns = {
-    title : "Nykysuomen aineistoja",
+    title : "Nykysuomen aineistoja (näytteitä)",
     contents : ["ns_presidentti", "ns_saadokset"]
 };
 
@@ -631,8 +657,42 @@ settings.corporafolders.la = {
     contents : ["la_murre"]
 };
 
-settings.corporafolders.fi = {
-    title : "Muita suomenkielisiä aineistoja",
+settings.corporafolders.sks = {
+    title : "SKS:n aineistoja",
+    contents : ["sks_kivi_fi", "skvr"]
+};
+
+settings.corporafolders.legal = {
+    title : "Juridisia tekstejä",
+    contents : ["legal_fi", "mulcold_fi"]
+};
+
+settings.corporafolders.foreign = {
+    title : "Muunkielisiä tekstejä"
+};
+
+settings.corporafolders.foreign.sv = {
+    title : "Ruotsinkielisiä tekstejä",
+    contents : ["mulcold_sv"]
+};
+
+settings.corporafolders.foreign.en = {
+    title : "Englanninkielisiä tekstejä",
+    contents : ["mulcold_en"]
+};
+
+settings.corporafolders.foreign.de = {
+    title : "Saksankielisiä tekstejä",
+    contents : ["mulcold_de"]
+};
+
+settings.corporafolders.foreign.ru = {
+    title : "Venäjänkielisiä tekstejä",
+    contents : ["legal_ru", "mulcold_ru"]
+};
+
+settings.corporafolders.test = {
+    title : "Demo- ja testiaineistoja",
     contents : ["metsatalo"]
 };
 
@@ -885,7 +945,7 @@ settings.corpora.metsatalo = {
 
 
 settings.corpora.kotus_klassikot = {
-    title : "Suomen kielen klassikoita -korpus",
+    title : "Suomen kielen klassikoita -korpus (näyte)",
     description : "Suomen kielen klassikoita",
     id : "kotus_klassikot",
     within : settings.defaultWithin,
@@ -925,7 +985,7 @@ settings.corpora.kotus_klassikot = {
 };
 
 settings.corpora.ns_presidentti = {
-    title : "Tasavallan presidenttien uudenvuodenpuheita",
+    title : "Tasavallan presidenttien uudenvuodenpuheita (näyte)",
     description : "Tasavallan presidenttien uudenvuodenpuheita (1935–2006)",
     id : "ns_presidentti",
     within : settings.spWithin,
@@ -962,7 +1022,7 @@ settings.corpora.ns_presidentti = {
 };
 
 settings.corpora.ns_saadokset = {
-    title : "Lakeja ja direktiivejä",
+    title : "Lakeja ja direktiivejä (näyte)",
     description : "Lakeja ja direktiivejä vuosilta 2002–2003",
     id : "ns_saadokset",
     within : settings.spWithin,
@@ -1024,7 +1084,7 @@ settings.corpora.ns_saadokset = {
 };
 
 settings.corpora.kotus_sananparret = {
-    title : "Sananparsikokoelma",
+    title : "Sananparsikokoelma (näyte)",
     description : "Suomen murteiden Sananparsikokoelma (1930-luvulta)",
     id : "kotus_sananparret",
     within : settings.defaultWithin,
@@ -1300,6 +1360,378 @@ settings.corpora.la_murre = {
 	    opts : settings.liteOptions
 	}
     }
+};
+
+
+settings.corpora.sks_kivi_fi = {
+    title : "Aleksis Kivi",
+    description : "SKS:n Aleksis Kivi -korpus - Aleksis Kiven painetut teokset ja muu tunnettu tuotanto",
+    id : "sks_kivi_fi",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+	sketchyword : {
+	    label : "sketchyword",
+	    opts : settings.defaultOptions,
+	},
+	clean_note : {
+	    label : "clean_note",
+	    opts : settings.defaultOptions,
+	},
+	sketchy_note : {
+	    label : "sketchy_note",
+	    opts : settings.defaultOptions,
+	},
+	other_note : {
+	    label : "other_note",
+	    opts : settings.defaultOptions,
+	},
+	wtype : {
+	    label : "wtype",
+	    opts : settings.defaultOptions,
+	}
+    },
+    struct_attributes : {
+	content_idno : {
+	    label : "content_idno",
+	    opts : settings.defaultOptions,
+	},
+	content_author : {
+	    label : "content_author",
+	    opts : settings.defaultOptions,
+	},
+	content_title : {
+	    label : "content_title",
+	    opts : settings.defaultOptions,
+	},
+	content_byline : {
+	    label : "content_byline",
+	    opts : settings.defaultOptions,
+	},
+	content_settlement : {
+	    label : "content_settlement",
+	    opts : settings.defaultOptions,
+	},
+	content_repository : {
+	    label : "content_repository",
+	    opts : settings.defaultOptions,
+	},
+	content_publisher : {
+	    label : "content_publisher",
+	    opts : settings.defaultOptions,
+	},
+	content_distributor : {
+	    label : "content_distributor",
+	    opts : settings.defaultOptions,
+	},
+	content_bibl : {
+	    label : "content_bibl",
+	    opts : settings.defaultOptions,
+	},
+	content_bibl_type : {
+	    label : "content_bibl_type",
+	    opts : settings.defaultOptions,
+	},
+	content_lang : {
+	    label : "content_lang",
+	    opts : settings.defaultOptions,
+	},
+	/*content_note : {
+	      label : "content_note",
+	          opts : settings.defaultOptions,
+		  },*/
+	section_id : {
+	    label : "section_id",
+	    displayType : "hidden",
+	},
+	section_type : {
+	    label : "section_type",
+	    opts : settings.defaultOptions,
+	},
+	section_subtype : {
+	    label : "section_subtype",
+	    opts : settings.defaultOptions,
+	},
+	section_subtype_n : {
+	    label : "section_subtype_n",
+	    opts : settings.defaultOptions,
+	},
+	paragraph_id : {
+	    label : "paragraph_id",
+	    displayType : "hidden",
+	},
+	paragraph_type : {
+	    label : "paragraph_type",
+	    opts : settings.defaultOptions,
+	},
+	paragraph_speaker : {
+	    label : "paragraph_speaker",
+	    opts : settings.defaultOptions,
+	},
+	sentence_id : sattrs.sentence_id_hidden,
+	sentence_type : {
+	    label : "sentence_type",
+	    opts : settings.defaultOptions,
+	}
+    }
+};
+
+settings.corpora.skvr = {
+    title : "SKVR",
+    description : "SKS:n Suomen Kansan Vanhat Runot -korpus",
+    id : "skvr",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        cleanword : {
+            label : "cleanword",
+            opts : settings.defaultOptions,
+        },
+        normalized : {
+            label : "normalized",
+            opts : settings.defaultOptions,
+        }
+    },
+    struct_attributes : {
+	paragraph_id : {
+            label : "skvr_item_id",
+            displayType : "hidden",
+        },
+        paragraph_osa : {
+            label : "skvr_item_osa",
+            opts : settings.defaultOptions,
+        },
+        paragraph_loc : {
+            label : "skvr_item_loc",
+            opts : settings.defaultOptions,
+        },
+        paragraph_inf : {
+            label : "skvr_item_inf",
+            opts : settings.defaultOptions,
+        },
+        paragraph_tmp : {
+            label : "skvr_item_tmp",
+            opts : settings.defaultOptions,
+        },
+        paragraph_col : {
+            label : "skvr_item_col",
+            opts : settings.defaultOptions,
+        },
+        paragraph_idn : {
+            label : "skvr_item_idn",
+            opts : settings.defaultOptions,
+        },
+        paragraph_nro : {
+            label : "skvr_item_nro",
+            opts : settings.defaultOptions,
+        },
+        paragraph_sgn : {
+            label : "skvr_item_sgn",
+            opts : settings.defaultOptions,
+        },
+        paragraph_p_code1 : {
+            label : "skvr_item_p_code1",
+            opts : settings.defaultOptions,
+        },
+        paragraph_p_code2 : {
+            label : "skvr_item_p_code2",
+            opts : settings.defaultOptions,
+        },
+        paragraph_k_code : {
+            label : "skvr_item_k_code",
+            opts : settings.defaultOptions,
+        },
+        paragraph_y_code : {
+            label : "skvr_item_y_code",
+            opts : settings.defaultOptions,
+        },
+        paragraph_refs : {
+            label : "skvr_item_refs",
+            opts : settings.defaultOptions,
+	},
+        paragraph_cpt : {
+            label : "skvr_item_cpt",
+            opts : settings.defaultOptions,
+        },
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_type : {
+            label : "sentence_type",
+            displayType : "select",
+            translationKey : "skvr_stype_",
+            dataset : {
+                'verse':'verse',
+                'comment':'comment',
+                'editor_commentary':'editor',
+                'caption':'caption' 
+            },
+            opts : settings.LiteOptions,
+        },
+        sentence_refs : {
+            label : "sentence_refs",
+            opts : settings.defaultOptions,
+        }
+    }
+};
+
+
+attrlist = {};
+attrlist.mulcold_fi = {
+    lemma : attrs.baseform,
+    lemmacomp : attrs.baseform_compound,
+    pos : attrs.pos_mulcold_fi,
+    msd : attrs.msd,
+    amblemma : attrs.ambiguous_lemma,
+    ambpos : attrs.ambiguous_pos,
+    ambmsd : attrs.ambiguous_msd,
+    lex : attrs.lemgram_hidden
+};
+attrlist.mulcold_ru = {
+    lemma : attrs.baseform,
+    pos : attrs.pos_mulcold_ru,
+    msd : attrs.msd,
+    amblemma : attrs.ambiguous_lemma,
+    ambpos : attrs.ambiguous_pos,
+    ambmsd : attrs.ambiguous_msd,
+    lex : attrs.lemgram_hidden
+};
+attrlist.mulcold_en = {
+    lemma : attrs.baseform,
+    pos : attrs.pos_mulcold_en,
+    msd : attrs.msd,
+    amblemma : attrs.ambiguous_lemma,
+    ambpos : attrs.ambiguous_pos,
+    ambmsd : attrs.ambiguous_msd,
+    lex : attrs.lemgram_hidden
+};
+attrlist.mulcold_sv = {
+    lemma : attrs.baseform,
+    lemmacomp : attrs.baseform_compound,
+    pos : attrs.pos_mulcold_sv,
+    msd : attrs.msd,
+    amblemma : attrs.ambiguous_lemma,
+    ambpos : attrs.ambiguous_pos,
+    ambmsd : attrs.ambiguous_msd,
+    lex : attrs.lemgram_hidden
+};
+attrlist.mulcold_de = {
+};
+
+sattrlist = {};
+sattrlist.mulcold = {
+    align_text_code : {
+	label : "text_code"
+    },
+    align_text_author : {
+	label : "text_author"
+    },
+    align_text_title : {
+	label : "text_title"
+    },
+    align_text_typeoftext : {
+	label : "text_typeoftext"
+    },
+    align_text_genre : sattrs.text_genre,
+    align_text_period : {
+	label : "text_period"
+    },
+    align_text_publisher : {
+	label : "text_publisher"
+    },
+    sentence_id : sattrs.sentence_id_hidden
+};
+
+sattrlist.legal = {
+    text_code : {
+	label : "text_code"
+    },
+    text_author : {
+	label : "text_author"
+    },
+    text_title : {
+	label : "text_title"
+    },
+    text_typeoftext : {
+	label : "text_typeoftext"
+    },
+    text_genre : sattrs.text_genre,
+    text_period : {
+	label : "text_period"
+    },
+    text_publisher : {
+	label : "text_publisher"
+    },
+    sentence_id : sattrs.sentence_id_hidden
+};
+
+
+settings.corpora.legal_fi = {
+    id : "legal_fi",
+    title : "FiRuLex suomi",
+    description : "Juridisia tekstejä (suomi)",
+    context : settings.defaultContext, 
+    within : settings.defaultWithin, 
+    attributes: attrlist.mulcold_fi,
+    struct_attributes : sattrlist.legal
+};
+
+settings.corpora.legal_ru = {
+    id : "legal_ru",
+    title: "FiRuLex venäjä",
+    description : "Jurdisia tekstejä (venäjä)",
+    context : settings.defaultContext, 
+    within : settings.defaultWithin, 
+    attributes: attrlist.mulcold_ru,
+    struct_attributes : sattrlist.legal
+};
+
+settings.corpora.mulcold_fi = {
+    id : "mulcold_fi",
+    title : "MULCOLD suomi",
+    description : "Multilingual Corpus of Legal Documents, suomenkielinen osa",
+    context : settings.defaultContext, 
+    within : settings.defaultWithin, 
+    attributes: attrlist.mulcold_fi,
+    struct_attributes : sattrlist.mulcold
+};
+
+settings.corpora.mulcold_ru = {
+    id : "mulcold_ru",
+    title: "MULCOLD venäjä",
+    description : "Multilingual Corpus of Legal Documents, venäjänkielinen osa",
+    context : settings.defaultContext, 
+    within : settings.defaultWithin, 
+    attributes: attrlist.mulcold_ru,
+    struct_attributes : sattrlist.mulcold,
+};
+
+settings.corpora.mulcold_en = {
+    id : "mulcold_en",
+    title: "MULCOLD englanti",
+    description : "Multilingual Corpus of Legal Documents, englanninkielinen osa",
+    context : settings.defaultContext, 
+    within : settings.defaultWithin, 
+    attributes: attrlist.mulcold_en,
+    struct_attributes : sattrlist.mulcold,
+};
+
+settings.corpora.mulcold_sv = {
+    id : "mulcold_sv",
+    title: "MULCOLD ruotsi",
+    description : "Multilingual Corpus of Legal Documents, ruotsinkielinen osa",
+    context : settings.defaultContext, 
+    within : settings.defaultWithin, 
+    attributes: attrlist.mulcold_sv,
+    struct_attributes : sattrlist.mulcold,
+};
+
+settings.corpora.mulcold_de = {
+    id : "mulcold_de",
+    title: "MULCOLD saksa",
+    description : "Multilingual Corpus of Legal Documents, saksankielinen osa",
+    context : settings.defaultContext, 
+    within : settings.defaultWithin, 
+    attributes: attrlist.mulcold_de,
+    struct_attributes : sattrlist.mulcold,
 };
 
 
