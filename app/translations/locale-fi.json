@@ -105,6 +105,7 @@
 	"no_context_support" : "ei tue laajennettua kontekstia",
 	"within_sentence" : "virke",
 	"within_paragraph" : "kappale (enintään)",
+	"within_clause" : "lause",
 	"asterix" : "*",
 	"appearance_context" : "järjestämätön",
 	"word_context" : "täsmänneet sanat",
