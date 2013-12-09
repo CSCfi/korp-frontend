@@ -50,10 +50,14 @@ autoWatch = false;
 // - Safari (only Mac)
 // - PhantomJS
 // - IE (only Windows)
-browsers = ['PhantomJS', "Chrome", "Firefox"];
+// browsers = ['PhantomJS', "Chrome", "Firefox"];
+// PhantomJS and Chrome are not available in the standard
+// Red Hat/Fedora repositories
+browsers = ["Firefox"];
 
 // If browser does not capture in given timeout [ms], kill it
-captureTimeout = 5000;
+// captureTimeout = 5000;
+captureTimeout = 20000;
 
 // Continuous Integration mode
 // if true, it capture browsers, run tests and exit
