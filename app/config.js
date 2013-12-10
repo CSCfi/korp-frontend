@@ -146,8 +146,10 @@ attrs.pos_ftb2 = {
 	"CC" : "CC",
 	"Con" : "Con",
 	"CS" : "CS",
-	"Interj|INTERJ" : "Interj",
-	"N|Noun" : "N",
+	// "Interj|INTERJ" : "Interj",
+	"Interj" : "Interj",
+	// "N|Noun" : "N",
+	"N" : "N",
 	"Num" : "Num",
 	"POST" : "POST",
 	"Pron" : "Pron",
@@ -156,6 +158,7 @@ attrs.pos_ftb2 = {
     },
     opts : settings.liteOptions
 };
+/*
 attrs.pos_ftb3 = {
     label : "pos",
     displayType : "select",
@@ -209,6 +212,7 @@ attrs.pos_ftb3_orig = {
     },
     opts : settings.defaultOptions
 };
+*/
 attrs.pos_ftb31 = {
     label : "pos",
     displayType : "select",
@@ -500,7 +504,8 @@ attrs.deprel_ftb2 = {
 	"aux" : "aux",
 	"comp" : "comp",
 	"conjunct" : "conjunct",
-	"idiom|idom" : "idiom",
+	// "idiom|idom" : "idiom",
+	"idiom" : "idiom",
 	"main" : "main",
 	"mod" : "mod",
 	"modal" : "modal",
@@ -510,7 +515,7 @@ attrs.deprel_ftb2 = {
 	"scomp" : "scomp",
 	"subj" : "subj",
 	"voc" : "voc",
-	"_|-" : "_",
+	"_" : "_",
     },
     opts : settings.liteOptions
 };
