@@ -101,18 +101,19 @@
     union = settings.corpusListing.getAttrUnion(withinOrContext);
     opts = $("." + withinOrContext + "_select option");
     opts.data("locSuffix", null).attr("disabled", null).removeClass("limited");
-    if (union.length > intersect.length) {
+    if (union.length < opts.length) {
       opts.each(function() {
-        if ($.inArray($(this).attr("value"), intersect) === -1) {
-          return $(this).addClass("limited").data("locSuffix", "asterix");
-        }
-      });
-    } else if (union.length === 1 && intersect.length === 1) {
-      opts.each(function() {
-        if ($.inArray($(this).attr("value"), intersect) !== -1) {
+        if ($.inArray($(this).attr("value"), union) !== -1) {
           return $(this).attr("disabled", null);
         } else {
           return $(this).attr("disabled", "disabled").parent().val("sentence").change();
+        }
+      });
+    }
+    if (union.length > intersect.length) {
+      opts.each(function() {
+        if ($.inArray($(this).attr("value"), intersect) === -1 && $(this).attr("disabled") !== "disabled") {
+          return $(this).addClass("limited").data("locSuffix", "asterix");
         }
       });
     }

@@ -73,22 +73,24 @@ view.updateContextSelect = (withinOrContext) ->
     union = settings.corpusListing.getAttrUnion(withinOrContext)
     opts = $(".#{withinOrContext}_select option")
     opts.data("locSuffix", null).attr("disabled", null).removeClass "limited"
+    # c.log "updateContextSelect", intersect, union, opts
 
+    # else if union.length is 1 and intersect.length is 1
+    if union.length < opts.length
+
+        # no support
+        opts.each ->
+            unless $.inArray($(this).attr("value"), union) is -1
+                $(this).attr "disabled", null
+            else
+                $(this).attr("disabled", "disabled").parent().val("sentence").change()
     # all support enhanced context
     if union.length > intersect.length
 
         # partial support for enhanced context
         opts.each ->
-            $(this).addClass("limited").data "locSuffix", "asterix"  if $.inArray($(this).attr("value"), intersect) is -1
-
-    else if union.length is 1 and intersect.length is 1
-
-        # no support
-        opts.each ->
-            unless $.inArray($(this).attr("value"), intersect) is -1
-                $(this).attr "disabled", null
-            else
-                $(this).attr("disabled", "disabled").parent().val("sentence").change()
+            # $(this).addClass("limited").data "locSuffix", "asterix"  if $.inArray($(this).attr("value"), intersect) is -1
+            $(this).addClass("limited").data "locSuffix", "asterix"  if $.inArray($(this).attr("value"), intersect) is -1 and $(this).attr("disabled") isnt "disabled"
 
     $(".#{withinOrContext}_select").localize()
 

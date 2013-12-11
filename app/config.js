@@ -54,6 +54,11 @@ settings.spWithin = {
 	"sentence" : "sentence",
 	"paragraph" : "paragraph"
 };
+settings.spcWithin = {
+    "sentence" : "sentence",
+    "paragraph" : "paragraph",
+    "clause" : "clause"
+};
 
 settings.defaultLanguage = "fi";
 
@@ -1223,7 +1228,7 @@ settings.corpora.la_murre = {
     title : "Murrekorpus",
     description : "Lauseopin arkiston murrekorpus",
     id : "la_murre",
-    within : settings.spWithin,
+    within : settings.spcWithin,
     context : settings.spContext,
     attributes : {
 	cleanword : {
