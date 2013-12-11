@@ -119,10 +119,8 @@ attrs.pos_ftb2 = {
 	"CC" : "CC",
 	"Con" : "Con",
 	"CS" : "CS",
-	// "Interj|INTERJ" : "Interj",
-	"Interj" : "Interj",
-	// "N|Noun" : "N",
-	"N" : "N",
+	"Interj|INTERJ" : "Interj",
+	"N|Noun" : "N",
 	"Num" : "Num",
 	"POST" : "POST",
 	"Pron" : "Pron",
@@ -131,7 +129,6 @@ attrs.pos_ftb2 = {
     },
     opts : settings.liteOptions
 };
-/*
 attrs.pos_ftb3 = {
     label : "pos",
     displayType : "select",
@@ -185,7 +182,6 @@ attrs.pos_ftb3_orig = {
     },
     opts : settings.defaultOptions
 };
-*/
 attrs.pos_ftb31 = {
     label : "pos",
     displayType : "select",
@@ -238,10 +234,10 @@ attrs.pos_kotus = {
     },
     opts : settings.liteOptions
 };
-attrs.pos_mulcold_fi = {
+attrs.pos_parrus_fi = {
     label : "pos",
     displayType : "select",
-    translationKey : "posmulcoldfi_",
+    translationKey : "posparrusfi_",
     dataset : {
 	"A" : "A",
 	"Abbr" : "Abbr",
@@ -253,81 +249,28 @@ attrs.pos_mulcold_fi = {
 	"N" : "N",
 	"NUM" : "Num",
 	"POST" : "Post",
-	"PREP" : "Prep",
 	"PRON" : "Pron",
 	"pun" : "Punct",
-	"UNKNOWN" : "UNKNOWN",
 	"V" : "V"
     },
     opts : settings.liteOptions
 };
-attrs.pos_mulcold_ru = {
+attrs.pos_parrus_ru = {
     label : "pos",
     displayType : "select",
-    translationKey : "posmulcoldru_",
+    translationKey : "posparrusru_",
     dataset : {
 	"Adj" : "Adj",
-	"Adv" : "Adv",
 	"Conj" : "Conj",
 	"Gerund" : "Gerund",
-	"Interj" : "Interj",
 	"Noun" : "Noun",
 	"Numeral" : "Numeral",
 	"Part" : "Part",
 	"Particle" : "Particle",
-	"Predicative" : "Predicative",
 	"Preposition" : "Preposition",
 	"Pron" : "Pron",
 	"pun" : "Punct",
-	"UNKNOWN" : "UNKNOWN",
 	"Verb" : "Verb"
-    },
-    opts : settings.liteOptions
-};
-attrs.pos_mulcold_en = {
-    label : "pos",
-    displayType : "select",
-    translationKey : "posmulcolden_",
-    dataset : {
-	"A" : "A",
-	"ABBR" : "ABBR",
-	"ADV" : "ADV",
-	"CC" : "CC",
-	"CS" : "CS",
-	"DET" : "DET",
-	"EN" : "EN",
-	"Ex" : "EX",
-	"INFMARK" : "INFMARK",
-	"ING" : "ING",
-	"N" : "N",
-	"NEG-PART" : "NEG-PART",
-	"NUM" : "NUM",
-	"PREP" : "PREP",
-	"PRON" : "PRON",
-	"pun" : "Punct",
-	"Rel" : "REL",
-	"UNKNOWN" : "UNKNOWN",
-	"V" : "V"
-    },
-    opts : settings.liteOptions
-};
-attrs.pos_mulcold_sv = {
-    label : "pos",
-    displayType : "select",
-    translationKey : "posmulcoldsv_",
-    dataset : {
-	"A" : "A",
-	"ADV" : "ADV",
-	"CC" : "CC",
-	"CS" : "CS",
-	"DET" : "DET",
-	"N" : "N",
-	"NUM" : "NUM",
-	"PREP" : "PREP",
-	"PRON" : "PRON",
-	"pun" : "Punct",
-	"UNKNOWN" : "UNKNOWN",
-	"V" : "V"
     },
     opts : settings.liteOptions
 };
@@ -458,8 +401,7 @@ attrs.deprel_ftb2 = {
 	"aux" : "aux",
 	"comp" : "comp",
 	"conjunct" : "conjunct",
-	// "idiom|idom" : "idiom",
-	"idiom" : "idiom",
+	"idiom|idom" : "idiom",
 	"main" : "main",
 	"mod" : "mod",
 	"modal" : "modal",
@@ -469,7 +411,7 @@ attrs.deprel_ftb2 = {
 	"scomp" : "scomp",
 	"subj" : "subj",
 	"voc" : "voc",
-	"_" : "_",
+	"_|-" : "_",
     },
     opts : settings.liteOptions
 };
@@ -512,18 +454,7 @@ attrs.id_hidden = {
 	displayType : "hidden",
 	opts : settings.defaultOptions
 };
-attrs.ambiguous_lemma = {
-    label : "ambiguous_lemma",
-    opts : settings.defaultOptions
-};
-attrs.ambiguous_pos = {
-    label : "ambiguous_pos",
-    opts : settings.defaultOptions
-};
-attrs.ambiguous_msd = {
-    label : "ambiguous_msd",
-    opts : settings.defaultOptions
-};
+
 sattrs.date = {
 	label : "date",
 	displayType : "date"
@@ -556,17 +487,6 @@ sattrs.paragraph_type = {
     label : "paragraph_type"
 };
 
-sattrs.text_genre = {
-    label : "text_genre",
-    displayType : "select",
-    translationKey : "textgenre_",
-    dataset : {
-	"fiction" : "fiction",
-	"law" : "law",
-    },
-    opts : settings.liteOptions
-};
-
 
 /*
  * FOLDERS
@@ -592,12 +512,12 @@ settings.corporafolders.ftb.ftb3 = {
 };
 
 settings.corporafolders.kotus = {
-    title : "Kotuksen korpuksia (näytteitä)",
+    title : "Kotuksen korpuksia",
     contents : ["kotus_klassikot", "kotus_sananparret"]
 };
 
 settings.corporafolders.kotus.ns = {
-    title : "Nykysuomen aineistoja (näytteitä)",
+    title : "Nykysuomen aineistoja",
     contents : ["ns_presidentti", "ns_saadokset"]
 };
 
@@ -606,45 +526,16 @@ settings.corporafolders.la = {
     contents : ["la_murre"]
 };
 
+settings.corporafolders.fi = {
+    title : "Muita suomenkielisiä aineistoja",
+    contents : ["metsatalo"]
+};
+
+
 settings.corporafolders.sks = {
     title : "SKS:n aineistoja",
     contents : ["sks_kivi_fi", "skvr"]
 };
-
-settings.corporafolders.legal = {
-    title : "Juridisia tekstejä",
-    contents : ["legal_fi", "mulcold_fi"]
-};
-
-settings.corporafolders.foreign = {
-    title : "Muunkielisiä tekstejä"
-};
-
-settings.corporafolders.foreign.sv = {
-    title : "Ruotsinkielisiä tekstejä",
-    contents : ["mulcold_sv"]
-};
-
-settings.corporafolders.foreign.en = {
-    title : "Englanninkielisiä tekstejä",
-    contents : ["mulcold_en"]
-};
-
-settings.corporafolders.foreign.de = {
-    title : "Saksankielisiä tekstejä",
-    contents : ["mulcold_de"]
-};
-
-settings.corporafolders.foreign.ru = {
-    title : "Venäjänkielisiä tekstejä",
-    contents : ["legal_ru", "mulcold_ru"]
-};
-
-settings.corporafolders.test = {
-    title : "Demo- ja testiaineistoja",
-    contents : ["metsatalo"]
-};
-
 
 
 /*
@@ -894,7 +785,7 @@ settings.corpora.metsatalo = {
 
 
 settings.corpora.kotus_klassikot = {
-    title : "Suomen kielen klassikoita -korpus (näyte)",
+    title : "Suomen kielen klassikoita -korpus",
     description : "Suomen kielen klassikoita",
     id : "kotus_klassikot",
     within : settings.defaultWithin,
@@ -934,7 +825,7 @@ settings.corpora.kotus_klassikot = {
 };
 
 settings.corpora.ns_presidentti = {
-    title : "Tasavallan presidenttien uudenvuodenpuheita (näyte)",
+    title : "Tasavallan presidenttien uudenvuodenpuheita",
     description : "Tasavallan presidenttien uudenvuodenpuheita (1935–2006)",
     id : "ns_presidentti",
     within : settings.spWithin,
@@ -971,7 +862,7 @@ settings.corpora.ns_presidentti = {
 };
 
 settings.corpora.ns_saadokset = {
-    title : "Lakeja ja direktiivejä (näyte)",
+    title : "Lakeja ja direktiivejä",
     description : "Lakeja ja direktiivejä vuosilta 2002–2003",
     id : "ns_saadokset",
     within : settings.spWithin,
@@ -1033,7 +924,7 @@ settings.corpora.ns_saadokset = {
 };
 
 settings.corpora.kotus_sananparret = {
-    title : "Sananparsikokoelma (näyte)",
+    title : "Sananparsikokoelma",
     description : "Suomen murteiden Sananparsikokoelma (1930-luvulta)",
     id : "kotus_sananparret",
     within : settings.defaultWithin,
@@ -1314,7 +1205,7 @@ settings.corpora.la_murre = {
 
 settings.corpora.sks_kivi_fi = {
     title : "Aleksis Kivi",
-    description : "SKS:n Aleksis Kivi -korpus - Aleksis Kiven painetut teokset ja muu tunnettu tuotanto",
+    description : "Aleksis Kiven painetut teokset, kirjeet ja muu tunnettu tuotanto",
     id : "sks_kivi_fi",
     within : settings.spWithin,
     context : settings.spContext,
@@ -1341,54 +1232,58 @@ settings.corpora.sks_kivi_fi = {
 	}
     },
     struct_attributes : {
-	content_idno : {
-	    label : "content_idno",
+	text_idno : {
+	    label : "kivi_text_idno",
 	    opts : settings.defaultOptions,
 	},
-	content_author : {
-	    label : "content_author",
+	text_author : {
+	    label : "kivi_text_author",
 	    opts : settings.defaultOptions,
 	},
-	content_title : {
-	    label : "content_title",
+	text_title : {
+	    label : "kivi_text_title",
 	    opts : settings.defaultOptions,
 	},
-	content_byline : {
-	    label : "content_byline",
+	text_byline : {
+	    label : "kivi_text_byline",
 	    opts : settings.defaultOptions,
 	},
-	content_settlement : {
-	    label : "content_settlement",
+	text_settlement : {
+	    label : "kivi_text_settlement",
 	    opts : settings.defaultOptions,
 	},
-	content_repository : {
-	    label : "content_repository",
+	text_repository : {
+	    label : "kivi_text_repository",
 	    opts : settings.defaultOptions,
 	},
-	content_publisher : {
-	    label : "content_publisher",
+	text_publisher : {
+	    label : "kivi_text_publisher",
 	    opts : settings.defaultOptions,
 	},
-	content_distributor : {
-	    label : "content_distributor",
+	text_distributor : {
+	    label : "kivi_text_distributor",
 	    opts : settings.defaultOptions,
 	},
-	content_bibl : {
-	    label : "content_bibl",
+	text_bibl : {
+	    label : "kivi_text_bibl",
+	    displayType : "hidden",
+	},
+	text_bibl_type : {
+	    label : "kivi_text_bibl_type",
+	    displayType : "hidden",
+	},
+	text_lang : {
+	    label : "kivi_text_lang",
 	    opts : settings.defaultOptions,
 	},
-	content_bibl_type : {
-	    label : "content_bibl_type",
-	    opts : settings.defaultOptions,
+	text_note : {
+	      label : "kivi_text_note",
+	      opts : settings.defaultOptions,
 	},
-	content_lang : {
-	    label : "content_lang",
-	    opts : settings.defaultOptions,
-	},
-	/*content_note : {
-	      label : "content_note",
-	          opts : settings.defaultOptions,
-		  },*/
+	text_date : {
+              label : "kivi_text_date",
+              opts : settings.defaultOptions,
+        },
 	section_id : {
 	    label : "section_id",
 	    displayType : "hidden",
@@ -1401,10 +1296,11 @@ settings.corpora.sks_kivi_fi = {
 	    label : "section_subtype",
 	    opts : settings.defaultOptions,
 	},
+	/*
 	section_subtype_n : {
 	    label : "section_subtype_n",
-	    opts : settings.defaultOptions,
-	},
+	    displayType : "hidden",
+	},*/
 	paragraph_id : {
 	    label : "paragraph_id",
 	    displayType : "hidden",
@@ -1520,167 +1416,6 @@ settings.corpora.skvr = {
             opts : settings.defaultOptions,
         }
     }
-};
-
-
-attrlist = {};
-attrlist.mulcold_fi = {
-    lemma : attrs.baseform,
-    lemmacomp : attrs.baseform_compound,
-    pos : attrs.pos_mulcold_fi,
-    msd : attrs.msd,
-    amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos,
-    ambmsd : attrs.ambiguous_msd,
-    lex : attrs.lemgram_hidden
-};
-attrlist.mulcold_ru = {
-    lemma : attrs.baseform,
-    pos : attrs.pos_mulcold_ru,
-    msd : attrs.msd,
-    amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos,
-    ambmsd : attrs.ambiguous_msd,
-    lex : attrs.lemgram_hidden
-};
-attrlist.mulcold_en = {
-    lemma : attrs.baseform,
-    pos : attrs.pos_mulcold_en,
-    msd : attrs.msd,
-    amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos,
-    ambmsd : attrs.ambiguous_msd,
-    lex : attrs.lemgram_hidden
-};
-attrlist.mulcold_sv = {
-    lemma : attrs.baseform,
-    lemmacomp : attrs.baseform_compound,
-    pos : attrs.pos_mulcold_sv,
-    msd : attrs.msd,
-    amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos,
-    ambmsd : attrs.ambiguous_msd,
-    lex : attrs.lemgram_hidden
-};
-attrlist.mulcold_de = {
-};
-
-sattrlist = {};
-sattrlist.mulcold = {
-    align_text_code : {
-	label : "text_code"
-    },
-    align_text_author : {
-	label : "text_author"
-    },
-    align_text_title : {
-	label : "text_title"
-    },
-    align_text_typeoftext : {
-	label : "text_typeoftext"
-    },
-    align_text_genre : sattrs.text_genre,
-    align_text_period : {
-	label : "text_period"
-    },
-    align_text_publisher : {
-	label : "text_publisher"
-    },
-    sentence_id : sattrs.sentence_id_hidden
-};
-
-sattrlist.legal = {
-    text_code : {
-	label : "text_code"
-    },
-    text_author : {
-	label : "text_author"
-    },
-    text_title : {
-	label : "text_title"
-    },
-    text_typeoftext : {
-	label : "text_typeoftext"
-    },
-    text_genre : sattrs.text_genre,
-    text_period : {
-	label : "text_period"
-    },
-    text_publisher : {
-	label : "text_publisher"
-    },
-    sentence_id : sattrs.sentence_id_hidden
-};
-
-
-settings.corpora.legal_fi = {
-    id : "legal_fi",
-    title : "FiRuLex suomi",
-    description : "Juridisia tekstejä (suomi)",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
-    attributes: attrlist.mulcold_fi,
-    struct_attributes : sattrlist.legal
-};
-
-settings.corpora.legal_ru = {
-    id : "legal_ru",
-    title: "FiRuLex venäjä",
-    description : "Jurdisia tekstejä (venäjä)",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
-    attributes: attrlist.mulcold_ru,
-    struct_attributes : sattrlist.legal
-};
-
-settings.corpora.mulcold_fi = {
-    id : "mulcold_fi",
-    title : "MULCOLD suomi",
-    description : "Multilingual Corpus of Legal Documents, suomenkielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
-    attributes: attrlist.mulcold_fi,
-    struct_attributes : sattrlist.mulcold
-};
-
-settings.corpora.mulcold_ru = {
-    id : "mulcold_ru",
-    title: "MULCOLD venäjä",
-    description : "Multilingual Corpus of Legal Documents, venäjänkielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
-    attributes: attrlist.mulcold_ru,
-    struct_attributes : sattrlist.mulcold,
-};
-
-settings.corpora.mulcold_en = {
-    id : "mulcold_en",
-    title: "MULCOLD englanti",
-    description : "Multilingual Corpus of Legal Documents, englanninkielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
-    attributes: attrlist.mulcold_en,
-    struct_attributes : sattrlist.mulcold,
-};
-
-settings.corpora.mulcold_sv = {
-    id : "mulcold_sv",
-    title: "MULCOLD ruotsi",
-    description : "Multilingual Corpus of Legal Documents, ruotsinkielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
-    attributes: attrlist.mulcold_sv,
-    struct_attributes : sattrlist.mulcold,
-};
-
-settings.corpora.mulcold_de = {
-    id : "mulcold_de",
-    title: "MULCOLD saksa",
-    description : "Multilingual Corpus of Legal Documents, saksankielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
-    attributes: attrlist.mulcold_de,
-    struct_attributes : sattrlist.mulcold,
 };
 
 

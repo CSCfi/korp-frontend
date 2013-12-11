@@ -1,6 +1,6 @@
 
 settings.primaryColor = "#cceecc";
-settings.primaryLight = "#def1e2";
+settings.primaryLight = "#e2efe2";
 settings.autocomplete = false;
 settings.lemgramSelect = false;
 settings.wordpicture = false;
@@ -72,12 +72,11 @@ klk_struct_attrs = {
         label : "klk_tokencount",
         displayType : "hidden",
     },
-    /*
     content_img_url : {
         label : "klk_img_url",
         type : "url",
+	displayType : "hidden",
     },
-    */
     paragraph_id : {
         label : "paragraph_id",
         displayType : "hidden",
@@ -95,29 +94,13 @@ klk_pos_attrs = {
 settings.corpora = {};
 settings.corporafolders = {};
 
-/*
-settings.corpora.klk_testi = {
-    title : "KLK-testi",
-    description : "Kokeilu",
-    id : "klk_testi",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : klk_pos_attrs,
-    struct_attributes : klk_struct_attrs
+
+settings.corporafolders.klk_fi = {    
+    title : "Suomenkieliset lehdet"
 };
 
-settings.corpora.klk_testi2 = {
-    title : "KLK-testi II",
-    description : "Kokeilu",
-    id : "klk_testi2",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : klk_pos_attrs,
-    struct_attributes : klk_struct_attrs
-};
-*/
 
-settings.corporafolders.fi_1820 = {
+settings.corporafolders.klk_fi.fi_1820 = {
     title : "1820-luku",
     contents : ["klk_fi_1820",
                 "klk_fi_1821",
@@ -131,7 +114,7 @@ settings.corporafolders.fi_1820 = {
                ]
 };
 
-settings.corporafolders.fi_1830 = {
+settings.corporafolders.klk_fi.fi_1830 = {
     title : "1830-luku",
     contents : ["klk_fi_1830",
                 "klk_fi_1831",
@@ -146,7 +129,7 @@ settings.corporafolders.fi_1830 = {
                ]
 };
 
-settings.corporafolders.fi_1840 = {
+settings.corporafolders.klk_fi.fi_1840 = {
     title : "1840-luku",
     contents : ["klk_fi_1840",
                 "klk_fi_1841",
@@ -160,7 +143,7 @@ settings.corporafolders.fi_1840 = {
                ]
 };
 
-settings.corporafolders.fi_1850 = {
+settings.corporafolders.klk_fi.fi_1850 = {
     title : "1850-luku",
     contents : ["klk_fi_1850",
                 "klk_fi_1851",
@@ -175,7 +158,7 @@ settings.corporafolders.fi_1850 = {
                ]
 };
 
-settings.corporafolders.fi_1860 = {
+settings.corporafolders.klk_fi.fi_1860 = {
     title : "1860-luku",
     contents : ["klk_fi_1860",
                 "klk_fi_1861",
@@ -190,7 +173,7 @@ settings.corporafolders.fi_1860 = {
                ]
 };
 
-settings.corporafolders.fi_1870 = {
+settings.corporafolders.klk_fi.fi_1870 = {
     title : "1870-luku",
     contents : ["klk_fi_1870",
                 "klk_fi_1871",
@@ -205,7 +188,7 @@ settings.corporafolders.fi_1870 = {
                ]
 };
 
-settings.corporafolders.fi_1880 = {
+settings.corporafolders.klk_fi.fi_1880 = {
     title : "1880-luku",
     contents : ["klk_fi_1880",
                 "klk_fi_1881",
@@ -214,13 +197,13 @@ settings.corporafolders.fi_1880 = {
                 "klk_fi_1884",
                 "klk_fi_1885",
                 "klk_fi_1886",
-                /*"klk_fi_1887",*/
+                "klk_fi_1887",
                 "klk_fi_1888",
                 "klk_fi_1889"
                ]
 };
 
-settings.corporafolders.fi_1890 = {
+settings.corporafolders.klk_fi.fi_1890 = {
     title : "1890-luku",
     contents : ["klk_fi_1890",
                 "klk_fi_1891",
@@ -235,7 +218,7 @@ settings.corporafolders.fi_1890 = {
                ]
 };
 
-settings.corporafolders.fi_1900 = {
+settings.corporafolders.klk_fi.fi_1900 = {
     title : "1900-luku",
     contents : ["klk_fi_1900",
                 "klk_fi_1901",
@@ -250,22 +233,22 @@ settings.corporafolders.fi_1900 = {
                ]
 };
 
-settings.corporafolders.fi_1910 = {
+settings.corporafolders.klk_fi.fi_1910 = {
     title : "1910-luku",
     contents : ["klk_fi_1910",
                 "klk_fi_1911",
-	        "klk_fi_1912",
-		"klk_fi_1913",
+                "klk_fi_1912",
+                "klk_fi_1913",
                 "klk_fi_1914",
                 "klk_fi_1915",
                 "klk_fi_1916",
                 "klk_fi_1917",
                 "klk_fi_1918",
                 "klk_fi_1919"
-	       ]
+               ]
 };
 
-settings.corporafolders.fi_1920 = {
+settings.corporafolders.klk_fi.fi_1920 = {
     title : "1920-luku",
     contents : ["klk_fi_1920",
                 "klk_fi_1921",
@@ -280,7 +263,7 @@ settings.corporafolders.fi_1920 = {
                ]
 };
 
-settings.corporafolders.fi_1930 = {
+settings.corporafolders.klk_fi.fi_1930 = {
     title : "1930-luku",
     contents : ["klk_fi_1930",
                 "klk_fi_1931",
@@ -295,12 +278,12 @@ settings.corporafolders.fi_1930 = {
                ]
 };
 
-settings.corporafolders.fi_1940 = {
+settings.corporafolders.klk_fi.fi_1940 = {
     title : "1940-luku",
     contents : ["klk_fi_1940",
                 "klk_fi_1941",
                 "klk_fi_1942",
-                /*"klk_fi_1943",*/
+                "klk_fi_1943",
                 "klk_fi_1944",
                 "klk_fi_1945",
                 "klk_fi_1946",
@@ -310,7 +293,7 @@ settings.corporafolders.fi_1940 = {
                ]
 };
 
-settings.corporafolders.fi_1950 = {
+settings.corporafolders.klk_fi.fi_1950 = {
     title : "1950-luku",
     contents : ["klk_fi_1950",
                 "klk_fi_1951",
@@ -325,7 +308,7 @@ settings.corporafolders.fi_1950 = {
                ]
 };
 
-settings.corporafolders.fi_1960 = {
+settings.corporafolders.klk_fi.fi_1960 = {
     title : "1960-luku",
     contents : ["klk_fi_1960",
                 "klk_fi_1961",
@@ -340,7 +323,7 @@ settings.corporafolders.fi_1960 = {
                ]
 };
 
-settings.corporafolders.fi_1970 = {
+settings.corporafolders.klk_fi.fi_1970 = {
     title : "1970-luku",
     contents : ["klk_fi_1970",
                 "klk_fi_1971",
@@ -355,7 +338,7 @@ settings.corporafolders.fi_1970 = {
                ]
 };
 
-settings.corporafolders.fi_1980 = {
+settings.corporafolders.klk_fi.fi_1980 = {
     title : "1980-luku",
     contents : ["klk_fi_1980",
                 "klk_fi_1981",
@@ -370,7 +353,7 @@ settings.corporafolders.fi_1980 = {
                ]
 };
 
-settings.corporafolders.fi_1990 = {
+settings.corporafolders.klk_fi.fi_1990 = {
     title : "1990-luku",
     contents : ["klk_fi_1990",
                 "klk_fi_1991",
@@ -385,21 +368,22 @@ settings.corporafolders.fi_1990 = {
                ]
 };
 
-settings.corporafolders.fi_2000 = {
+settings.corporafolders.klk_fi.fi_2000 = {
     title : "2000-luku",
     contents : ["klk_fi_2000"]
 };
 
-settings.corporafolders.fi_2010 = {
+settings.corporafolders.klk_fi.fi_2010 = {
     title : "2010-luku",
     contents : ["klk_fi_2011"]
 };
+
 settings.corpora.klk_fi_1820 = {
     title : "1820",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1820",
     id : "klk_fi_1820",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -408,8 +392,8 @@ settings.corpora.klk_fi_1821 = {
     title : "1821",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1821",
     id : "klk_fi_1821",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -418,8 +402,8 @@ settings.corpora.klk_fi_1822 = {
     title : "1822",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1822",
     id : "klk_fi_1822",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -428,8 +412,8 @@ settings.corpora.klk_fi_1823 = {
     title : "1823",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1823",
     id : "klk_fi_1823",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -438,8 +422,8 @@ settings.corpora.klk_fi_1824 = {
     title : "1824",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1824",
     id : "klk_fi_1824",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -448,8 +432,8 @@ settings.corpora.klk_fi_1825 = {
     title : "1825",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1825",
     id : "klk_fi_1825",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -458,8 +442,8 @@ settings.corpora.klk_fi_1826 = {
     title : "1826",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1826",
     id : "klk_fi_1826",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -468,8 +452,8 @@ settings.corpora.klk_fi_1827 = {
     title : "1827",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1827",
     id : "klk_fi_1827",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -478,8 +462,8 @@ settings.corpora.klk_fi_1829 = {
     title : "1829",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1829",
     id : "klk_fi_1829",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -488,8 +472,8 @@ settings.corpora.klk_fi_1830 = {
     title : "1830",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1830",
     id : "klk_fi_1830",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -498,8 +482,8 @@ settings.corpora.klk_fi_1831 = {
     title : "1831",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1831",
     id : "klk_fi_1831",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -508,8 +492,8 @@ settings.corpora.klk_fi_1832 = {
     title : "1832",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1832",
     id : "klk_fi_1832",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -518,8 +502,8 @@ settings.corpora.klk_fi_1833 = {
     title : "1833",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1833",
     id : "klk_fi_1833",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -528,8 +512,8 @@ settings.corpora.klk_fi_1834 = {
     title : "1834",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1834",
     id : "klk_fi_1834",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -538,8 +522,8 @@ settings.corpora.klk_fi_1835 = {
     title : "1835",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1835",
     id : "klk_fi_1835",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -548,8 +532,8 @@ settings.corpora.klk_fi_1836 = {
     title : "1836",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1836",
     id : "klk_fi_1836",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -558,8 +542,8 @@ settings.corpora.klk_fi_1837 = {
     title : "1837",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1837",
     id : "klk_fi_1837",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -568,8 +552,8 @@ settings.corpora.klk_fi_1838 = {
     title : "1838",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1838",
     id : "klk_fi_1838",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -578,8 +562,8 @@ settings.corpora.klk_fi_1839 = {
     title : "1839",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1839",
     id : "klk_fi_1839",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -588,8 +572,8 @@ settings.corpora.klk_fi_1840 = {
     title : "1840",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1840",
     id : "klk_fi_1840",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -598,8 +582,8 @@ settings.corpora.klk_fi_1841 = {
     title : "1841",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1841",
     id : "klk_fi_1841",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -608,8 +592,8 @@ settings.corpora.klk_fi_1842 = {
     title : "1842",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1842",
     id : "klk_fi_1842",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -618,8 +602,8 @@ settings.corpora.klk_fi_1844 = {
     title : "1844",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1844",
     id : "klk_fi_1844",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -628,8 +612,8 @@ settings.corpora.klk_fi_1845 = {
     title : "1845",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1845",
     id : "klk_fi_1845",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -638,8 +622,8 @@ settings.corpora.klk_fi_1846 = {
     title : "1846",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1846",
     id : "klk_fi_1846",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -648,8 +632,8 @@ settings.corpora.klk_fi_1847 = {
     title : "1847",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1847",
     id : "klk_fi_1847",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -658,8 +642,8 @@ settings.corpora.klk_fi_1848 = {
     title : "1848",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1848",
     id : "klk_fi_1848",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -668,8 +652,8 @@ settings.corpora.klk_fi_1849 = {
     title : "1849",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1849",
     id : "klk_fi_1849",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -678,8 +662,8 @@ settings.corpora.klk_fi_1850 = {
     title : "1850",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1850",
     id : "klk_fi_1850",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -688,8 +672,8 @@ settings.corpora.klk_fi_1851 = {
     title : "1851",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1851",
     id : "klk_fi_1851",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -698,8 +682,8 @@ settings.corpora.klk_fi_1852 = {
     title : "1852",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1852",
     id : "klk_fi_1852",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -708,8 +692,8 @@ settings.corpora.klk_fi_1853 = {
     title : "1853",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1853",
     id : "klk_fi_1853",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -718,8 +702,8 @@ settings.corpora.klk_fi_1854 = {
     title : "1854",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1854",
     id : "klk_fi_1854",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -728,8 +712,8 @@ settings.corpora.klk_fi_1855 = {
     title : "1855",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1855",
     id : "klk_fi_1855",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -738,8 +722,8 @@ settings.corpora.klk_fi_1856 = {
     title : "1856",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1856",
     id : "klk_fi_1856",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -748,8 +732,8 @@ settings.corpora.klk_fi_1857 = {
     title : "1857",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1857",
     id : "klk_fi_1857",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -758,8 +742,8 @@ settings.corpora.klk_fi_1858 = {
     title : "1858",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1858",
     id : "klk_fi_1858",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -768,8 +752,8 @@ settings.corpora.klk_fi_1859 = {
     title : "1859",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1859",
     id : "klk_fi_1859",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -778,8 +762,8 @@ settings.corpora.klk_fi_1860 = {
     title : "1860",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1860",
     id : "klk_fi_1860",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -788,8 +772,8 @@ settings.corpora.klk_fi_1861 = {
     title : "1861",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1861",
     id : "klk_fi_1861",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -798,8 +782,8 @@ settings.corpora.klk_fi_1862 = {
     title : "1862",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1862",
     id : "klk_fi_1862",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -808,8 +792,8 @@ settings.corpora.klk_fi_1863 = {
     title : "1863",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1863",
     id : "klk_fi_1863",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -818,8 +802,8 @@ settings.corpora.klk_fi_1864 = {
     title : "1864",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1864",
     id : "klk_fi_1864",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -828,8 +812,8 @@ settings.corpora.klk_fi_1865 = {
     title : "1865",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1865",
     id : "klk_fi_1865",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -838,8 +822,8 @@ settings.corpora.klk_fi_1866 = {
     title : "1866",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1866",
     id : "klk_fi_1866",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -848,8 +832,8 @@ settings.corpora.klk_fi_1867 = {
     title : "1867",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1867",
     id : "klk_fi_1867",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -858,8 +842,8 @@ settings.corpora.klk_fi_1868 = {
     title : "1868",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1868",
     id : "klk_fi_1868",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -868,8 +852,8 @@ settings.corpora.klk_fi_1869 = {
     title : "1869",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1869",
     id : "klk_fi_1869",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -878,8 +862,8 @@ settings.corpora.klk_fi_1870 = {
     title : "1870",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1870",
     id : "klk_fi_1870",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -888,8 +872,8 @@ settings.corpora.klk_fi_1871 = {
     title : "1871",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1871",
     id : "klk_fi_1871",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -898,8 +882,8 @@ settings.corpora.klk_fi_1872 = {
     title : "1872",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1872",
     id : "klk_fi_1872",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -908,8 +892,8 @@ settings.corpora.klk_fi_1873 = {
     title : "1873",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1873",
     id : "klk_fi_1873",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -918,8 +902,8 @@ settings.corpora.klk_fi_1874 = {
     title : "1874",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1874",
     id : "klk_fi_1874",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -928,8 +912,8 @@ settings.corpora.klk_fi_1875 = {
     title : "1875",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1875",
     id : "klk_fi_1875",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -938,8 +922,8 @@ settings.corpora.klk_fi_1876 = {
     title : "1876",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1876",
     id : "klk_fi_1876",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -948,8 +932,8 @@ settings.corpora.klk_fi_1877 = {
     title : "1877",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1877",
     id : "klk_fi_1877",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -958,8 +942,8 @@ settings.corpora.klk_fi_1878 = {
     title : "1878",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1878",
     id : "klk_fi_1878",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -968,8 +952,8 @@ settings.corpora.klk_fi_1879 = {
     title : "1879",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1879",
     id : "klk_fi_1879",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -978,8 +962,8 @@ settings.corpora.klk_fi_1880 = {
     title : "1880",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1880",
     id : "klk_fi_1880",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -988,8 +972,8 @@ settings.corpora.klk_fi_1881 = {
     title : "1881",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1881",
     id : "klk_fi_1881",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -998,8 +982,8 @@ settings.corpora.klk_fi_1882 = {
     title : "1882",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1882",
     id : "klk_fi_1882",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1008,8 +992,8 @@ settings.corpora.klk_fi_1883 = {
     title : "1883",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1883",
     id : "klk_fi_1883",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1018,8 +1002,8 @@ settings.corpora.klk_fi_1884 = {
     title : "1884",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1884",
     id : "klk_fi_1884",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1028,8 +1012,8 @@ settings.corpora.klk_fi_1885 = {
     title : "1885",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1885",
     id : "klk_fi_1885",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1038,8 +1022,18 @@ settings.corpora.klk_fi_1886 = {
     title : "1886",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1886",
     id : "klk_fi_1886",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : klk_pos_attrs,
+    struct_attributes : klk_struct_attrs
+};
+
+settings.corpora.klk_fi_1887 = {
+    title : "1887",
+    description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1887",
+    id : "klk_fi_1887",
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1048,8 +1042,8 @@ settings.corpora.klk_fi_1888 = {
     title : "1888",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1888",
     id : "klk_fi_1888",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1058,8 +1052,8 @@ settings.corpora.klk_fi_1889 = {
     title : "1889",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1889",
     id : "klk_fi_1889",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1068,8 +1062,8 @@ settings.corpora.klk_fi_1890 = {
     title : "1890",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1890",
     id : "klk_fi_1890",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1078,8 +1072,8 @@ settings.corpora.klk_fi_1891 = {
     title : "1891",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1891",
     id : "klk_fi_1891",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1088,8 +1082,8 @@ settings.corpora.klk_fi_1892 = {
     title : "1892",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1892",
     id : "klk_fi_1892",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1098,8 +1092,8 @@ settings.corpora.klk_fi_1893 = {
     title : "1893",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1893",
     id : "klk_fi_1893",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1108,8 +1102,8 @@ settings.corpora.klk_fi_1894 = {
     title : "1894",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1894",
     id : "klk_fi_1894",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1118,8 +1112,8 @@ settings.corpora.klk_fi_1895 = {
     title : "1895",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1895",
     id : "klk_fi_1895",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1128,8 +1122,8 @@ settings.corpora.klk_fi_1896 = {
     title : "1896",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1896",
     id : "klk_fi_1896",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1138,8 +1132,8 @@ settings.corpora.klk_fi_1897 = {
     title : "1897",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1897",
     id : "klk_fi_1897",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1148,8 +1142,8 @@ settings.corpora.klk_fi_1898 = {
     title : "1898",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1898",
     id : "klk_fi_1898",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1158,8 +1152,8 @@ settings.corpora.klk_fi_1899 = {
     title : "1899",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1899",
     id : "klk_fi_1899",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1168,8 +1162,8 @@ settings.corpora.klk_fi_1900 = {
     title : "1900",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1900",
     id : "klk_fi_1900",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1178,8 +1172,8 @@ settings.corpora.klk_fi_1901 = {
     title : "1901",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1901",
     id : "klk_fi_1901",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1188,8 +1182,8 @@ settings.corpora.klk_fi_1902 = {
     title : "1902",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1902",
     id : "klk_fi_1902",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1198,8 +1192,8 @@ settings.corpora.klk_fi_1903 = {
     title : "1903",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1903",
     id : "klk_fi_1903",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1208,8 +1202,8 @@ settings.corpora.klk_fi_1904 = {
     title : "1904",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1904",
     id : "klk_fi_1904",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1218,8 +1212,8 @@ settings.corpora.klk_fi_1905 = {
     title : "1905",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1905",
     id : "klk_fi_1905",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1228,8 +1222,8 @@ settings.corpora.klk_fi_1906 = {
     title : "1906",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1906",
     id : "klk_fi_1906",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1238,8 +1232,8 @@ settings.corpora.klk_fi_1907 = {
     title : "1907",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1907",
     id : "klk_fi_1907",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1248,8 +1242,8 @@ settings.corpora.klk_fi_1908 = {
     title : "1908",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1908",
     id : "klk_fi_1908",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1258,8 +1252,8 @@ settings.corpora.klk_fi_1909 = {
     title : "1909",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1909",
     id : "klk_fi_1909",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1268,8 +1262,8 @@ settings.corpora.klk_fi_1910 = {
     title : "1910",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1910",
     id : "klk_fi_1910",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
@@ -1588,6 +1582,16 @@ settings.corpora.klk_fi_1942 = {
     title : "1942",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1942",
     id : "klk_fi_1942",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : klk_pos_attrs,
+    struct_attributes : klk_struct_attrs
+};
+
+settings.corpora.klk_fi_1943 = {
+    title : "1943",
+    description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1943",
+    id : "klk_fi_1943",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : klk_pos_attrs,
