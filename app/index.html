@@ -1,0 +1,454 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		<meta name="description"
+		content="Med Korp kan den språkligt nyfikna göra avancerade sökningar i stora mängder av skriven text." />
+		<!-- build:css styles/korp.css -->
+		<link type="text/css" href="components/jquery-ui/themes/smoothness/jquery-ui.min.css" rel="stylesheet" />
+		<!-- <link type="text/css" href="components/jquery-ui/themes/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet" /> -->
+		<link rel="stylesheet" href="components/SlickGrid/slick.grid.css" type="text/css" media="screen" charset="utf-8" />
+		<link type="text/css" href="styles/ui_mods.css" rel="stylesheet" />
+
+
+		<link rel="stylesheet" type="text/css" href="styles/jquery.tooltip.css" />
+		<link rel="stylesheet" type="text/css" href="styles/pagination.css" />
+		<link rel="stylesheet" href="components/rickshaw/rickshaw.css">
+		<link rel="stylesheet" type="text/css" href="styles/styles.css" />
+
+		<!-- endbuild -->
+		<link rel="shortcut icon" type="image/ico" href="img/korp_icon.ico" />
+		<script>
+			var isLab = window.location.pathname.split("/")[1] == "korplabb";
+
+			if(window.console == null) window.console = {"log" : $.noop, "error" : $.noop};
+			window.c = window.console;
+
+		</script>
+
+		<title>Korp</title>
+
+
+		<!--[if lte IE 8]><script language="javascript" src="lib/flot/excanvas.min.js"></script><![endif]-->
+
+
+
+		<!-- build:js scripts/korp_lib.js -->
+		<script src="components/json3/lib/json3.js"></script>
+		<script src="components/jquery/jquery.js" ></script>
+		<script src="components/jquery-ui/ui/jquery-ui.custom.js"></script>
+		<script src="components/unstable-angular-complete/angular.js"></script>
+		<script src="lib/jquery.localize.js"></script>
+		<script src="components/raphael/raphael.js"></script>
+		<script src="components/jReject/js/jquery.reject.js"></script>
+		<script src="lib/jquery.raphael.spinner.js"></script>
+		<script src="lib/watch-fighters.js"></script>
+		<script src="lib/jquery.format.js"></script>
+		<script src="lib/scxml/require.js"></script>
+		<script src="lib/scxml/require/xml.js"></script>
+		<script src="lib/scxml/require/text.js"></script>
+		<script src="components/modernizr/modernizr.js"></script>
+		<script src="components/yepnope/yepnope.js"></script>
+		<script src="components/jquery-bbq/jquery.ba-bbq.js"></script>
+
+		<script src="lib/jstorage.js"></script>
+		<script src="lib/jquery.hoverIntent.js"></script>
+		<script src="lib/jquery.ui.preloader.min.js"></script>
+		<script src="lib/jquery.tmpl.js"></script>
+		<script src="lib/jquery.dump.js"></script>
+		<script src="lib/jquery.placeholder.js"></script>
+		<script src="lib/jquery.pagination.js"></script>
+		<script src="lib/flot/jquery.flot.min.js"></script>
+		<script src="lib/flot/jquery.flot.stack.js"></script>
+
+		<script src="components/SlickGrid/slick.core.js"></script>
+		<script src="lib/jquery.event.drag-2.2.js"></script>
+		<script src="components/SlickGrid/slick.grid.js"></script>
+		<script src="components/SlickGrid/plugins/slick.checkboxselectcolumn.js"></script>
+		<script src="components/SlickGrid/plugins/slick.rowselectionmodel.js"></script>
+		<script src="lib/g.line-min.js"></script>
+		<script src="lib/jquery.tooltip.pack.js"></script>
+
+
+
+		<!-- endbuild -->
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/1.2.0/lodash.compat.js"></script>
+		<script>
+			yepnope({
+			  test: $("html.msie7,html.msie8").length,
+			  // yep : 'geo.js',
+			  nope: 'components/d3/d3.js'
+			});
+		</script>
+		<script src="components/moment/moment.js"></script>
+		<!-- // <script src="components/d3/d3.js"></script> -->
+		<script src="components/rickshaw/rickshaw.js"></script>
+
+		<script src="scripts/jq_extensions.js"></script>
+		<script src="config.js"></script>
+		<!-- build:js scripts/scripts.js -->
+
+		<script src="scripts/util.js"></script>
+		<script src="scripts/bin/util_coffee.js"></script>
+		<script src="scripts/bin/widgets.js"></script>
+		<script src="scripts/selector_widget.js"></script>
+		<script src="scripts/pie-widget.js"></script>
+		<script src="scripts/scxml.js"></script>
+		<script src="scripts/bin/search.js"></script>
+		<script src="scripts/bin/results.js"></script>
+		<script src="scripts/bin/model.js"></script>
+		<script src="scripts/bin/main.js"></script>
+		<!-- endbuild -->
+		<script src="scripts/bin/controllers/controllers.js"></script>
+	</head>
+  	<body class="not_logged_in" ng-app="korpApp">
+	  	<noscript>
+	  		<h2>You need JavaScript to run Korp.</h2>
+	  	</noscript>
+	  	<script>
+	  		$("body").css("opacity", 0.1);
+	  	</script>
+	  	<div id="main">
+  		<div id="header">
+  			<div id="top_bar">
+  				<div id="mode_switch"></div>
+
+				<div id="cog"></div>
+				<ul id="cog_menu">
+					<li><a id="about" href="javascript:" rel="localize[about]">About Korp</a></li>
+					<li><a id="docs" class="follow_link"
+						href="http://spraakbanken.gu.se/swe/forskning/infrastruktur/korp/anvandarhandledning"
+						target="_blank" rel="localize[docs]"></a>
+					</li>
+					<li id="korplink"><a href="/korp" class="follow_link" rel="localize[korp]"></a></li>
+<!--					<li id="korplablink"><a href="/korplabb" class="follow_link" rel="localize[korp_lab]"></a></li>
+					<li id="import"><a href="http://spraakbanken.gu.se/korp/annoteringslabbet"
+						class="follow_link" rel="localize[import_chain]"></a></li>
+					<li id="login" ><a href="javascript:" rel="localize[log_in]"></a></li>  -->
+<!--					<li><a href="http://www.helsinki.fi/yliopisto/" class="follow_link" rel="localize[university]"></a></li> -->
+				</ul>
+				<div class="link" id="log_out">
+					<span rel="localize[log_out]">Logga ut</span> <span class="usrname"></span>
+				</div>
+				<div id="languages">
+	  				<a href="javascript:" rel="localize[finnish]" data-mode="fi">Finska</a>
+	  				<a href="javascript:" rel="localize[swedish]" data-mode="sv">Svenska</a>
+	  				<a href="javascript:" rel="localize[english]" data-mode="en">Engelska</a>
+	  			</div>
+
+
+  			</div>
+  			<div id="header_left">
+ 				<a id="logo"><img src="img/korplogo.png" /></a>
+ 				<div id="labs_logo"></div>
+
+
+				<div id="corpusbox">
+					<div class="hp_topframe buttonlink ui-state-default ui-corner-all">
+						<div>
+							<span id="hp_corpora_title1"></span>
+							<span id="hp_corpora_title2" rel="localize[corpselector_allselected]"></span>
+							<span id="hp_corpora_title3" style="color: #888888"></span>
+						</div>
+						<div style="float: right; width: 16px">
+							<span style="text-align: right; left: auto" class="ui-icon ui-icon-triangle-2-n-s"></span>
+						</div>
+					</div>
+				</div>
+				<div class="popupchecks ui-corner-bottom">
+					<div class='header'>
+						<div id="time">
+							<div id="time_graph"></div>
+							<div id="rest_time_graph"></div>
+						</div>
+						<div class="buttons">
+							<a href="javascript:" class="buttonlink ui-state-default ui-corner-all selectall">
+								<span class="ui-icon ui-icon-check"></span>
+								<span rel="localize[corpselector_buttonselectall]"></span>
+								<span data-loc="corpselector_buttonselectall"></span>
+							</a>
+							<a href="javascript:" class="selectnone buttonlink ui-state-default ui-corner-all">
+								<span class="ui-icon ui-icon-closethick"></span>
+								<span rel="localize[corpselector_buttonselectnone]"></span>
+							</a>
+
+						</div>
+						<div style="clear:both;"></div>
+					</div>
+
+					<div class="checks"></div>
+
+					<br/><p style="font-size:85%" id="sentenceCounter"></p></div><div class="corpusInfoSpace ui-corner-all"><div class=""><p style="padding: 10px; margin: 0px"></p></div>
+				</div>
+			</div>
+
+			<select id="search_history"></select>
+  			<div style='clear : both;'></div>
+  		</div>
+
+
+
+		<div id="content">
+
+	   		<div id="searchbar" ></div>
+	   		<div id="search_options" class="ui-widget-content ui-corner-bottom">
+	   			<div>
+		   			<span style="font-size:.9em"><span rel="localize[kwic]">KWIC</span>:</span>
+		   			<select id="num_hits" class="num_hits" data-history="hpp" data-prefix="hits_per_page" rel="localize[hits_per_page]" >
+				   		<option value="25">25</option>
+				   		<option value="50">50</option>
+				   		<option value="75">75</option>
+				   		<option value="100">100</option>
+				   		<option value="500">500</option>
+				   		<option value="1000">1000</option>
+				   </select>
+
+				   <select class="sort_select" data-history="sort" data-prefix="sort_default">
+						<option value="" rel="localize[appearance_context]">Förekomst</option>
+						<option value="keyword" rel="localize[word_context]">Ordkontext</option>
+						<option value="left" rel="localize[left_context]">Vänsterkontext</option>
+						<option value="right" rel="localize[right_context]">Högerkontext</option>
+						<option value="random" rel="localize[random_context]">Slumpvis</option>
+					</select>
+
+				</div>
+				<div>
+					<span rel="localize[statistics]">Statistik</span>:
+					<span id="reduceSelect"></span>
+				</div>
+	   		</div>
+			<div id="results-wrapper">
+				<div id="columns" >
+					<div id="left-column" >
+						<div id="result-container">
+							<ul>
+								<li class="on"><a href="#results-kwic" rel="localize[kwic]">KWIC</a><div class="tab_progress" ></div></li>
+								<li><a href="#results-stats" rel="localize[statistics]">Statistik</a><div class="tab_progress" ></div></li>
+								<li id="lemgram_list_item"><a href="#results-lemgram" rel="localize[lemgram_results]" >Ordbild</a><div class="tab_progress" ></div></li>
+							</ul>
+							<div id="results-kwic" ng-controller="kwicCtrl" ng-cloak>
+								<div class="result_controls">
+								    <div class="controls_n" >
+										<span rel="localize[num_results]">Antal träffar</span>: <span class="num-result">0</span>
+								    </div>
+									<div class="progress">
+										<progress value="0" max="100"></progress>
+									</div>
+								   <div class="hits_picture" ></div>
+							   </div>
+
+								<div class="pager-wrapper"></div>
+								<span class="reading_btn show link" rel="localize[show_reading]">Visa läsläge</span>
+								<span class="reading_btn hide link" rel="localize[show_kwic]">Visa kwic</span>
+
+
+								<div class="table_scrollarea">
+									<table class="results_table kwic" cellspacing="0">
+
+										<tr class="sentence" ng-repeat="sentence in kwic" style="background-color: {{sentence._color}}"
+											ng-class="{corpus_info : sentence.newCorpus, not_corpus_info : !sentence.newCorpus, linked_sentence : sentence.isLinked}">
+
+											<td class="empty_td"></td>
+											<td colspan="0" class="corpus_title">
+												{{sentence.newCorpus}}
+												<span class='corpus_title_warn' rel='localize[no_context_support]' set-if="sentence.noContext"></span>
+											</td>
+
+											<td colspan="3" set-if="sentence.isLinked" class="lnk">
+												<span kwic-word ng-repeat="wd in sentence.tokens"></span>
+											</td>
+											<td class="left" set-if="!sentence.newCorpus">
+												<span kwic-word ng-repeat="wd in selectLeft(sentence)"></span>
+											</td>
+											<td class="match" set-if="!sentence.newCorpus">
+												<span kwic-word ng-repeat="wd in selectMatch(sentence)"></span>
+											</td>
+											<td class="right" set-if="!sentence.newCorpus">
+												<span kwic-word ng-repeat="wd in selectRight(sentence)"></span>
+											</td>
+
+
+
+										</tr>
+										<!-- <tr class="linked_sentence" ng-show="sentence.aligned">
+											<td colspan="3">
+												<span kwic-word ng-repeat="wd in sentence.aligned"></span>
+											</td>
+										</tr> -->
+									</table>
+
+									<div class="results_table reading">
+
+										<p class="sentence" ng-repeat="sentence in contextKwic" style="background-color: {{sentence._color}}"
+											ng-class="{corpus_info : sentence.newCorpus, not_corpus_info : !sentence.newCorpus, linked_sentence : sentence.isLinked}">
+											<span colspan="0" class="corpus_title">
+												{{sentence.newCorpus}}
+												<span class='corpus_title_warn' rel='localize[no_context_support]' set-if="sentence.noContext"></span>
+											</span>
+											<span ng-repeat="wd in sentence.tokens" kwic-word></span>
+
+										</p>
+									</div>
+									<!-- <table class="results_table reading" cellspacing="0"></table> -->
+<!-- 									<table class="results_table cached_kwic" cellspacing="0"></table> -->
+								</div>
+
+							</div>
+							<div id="results-stats">
+								<div class="stats_header">
+									<button id="showGraph">Visa trenddiagram</button>
+									<div class="progress">
+										<progress value="0" max="100"></progress>
+									</div>
+									<div id="showBarPlot"></div>
+								</div>
+								<div id="myGrid" style="width:600px;height:500px;"></div>
+								<div id="exportStatsSection">
+									<br/><br/><select id="kindOfData">
+										<option value="relative" rel="localize[statstable_relfigures]">Relativa tal</option>
+										<option value="absolute" rel="localize[statstable_absfigures]">Absoluta tal</option>
+									</select>
+									<select id="kindOfFormat">
+										<option value="CSV" rel="localize[statstable_exp_csv]">CSV (kommaseparerade värden)</option>
+										<option value="TSV" rel="localize[statstable_exp_tsv]">TSV (tabseparerade värden)</option>
+									</select>
+									<input id="exportButton" value="Exportera" rel="localize[statstable_export]" type="submit"/>
+								</div>
+							</div>
+							<div id="results-lemgram">
+								<div id="wordclassChkParent">
+									<input id='wordclassChk' type='checkbox'>
+									<label for="wordclassChk" rel="localize[show_wordclass]"></label>
+								</div>
+								<div class="progress">
+									<progress value="0" max="100"></progress>
+								</div>
+
+								<div class="content_target"></div>
+							</div>
+						</div>
+						<a id="json-link" href="#"><img src="img/json.png" /></a>
+					</div>
+					<div id="sidebar" class="ui-corner-all kwic_sidebar"></div>
+					<div style="clear : both; float : none;"></div>
+				</div>
+			</div>
+		</div>
+		<div id="click_cover"></div>
+		<div id="about_content" title="Om Korp" style="display : none;"></div>
+<!--		<div id="msd_popup" title="Morfosyntaktisk beskrivning" style="display : none;"></div> -->
+		<div id="deptree_popup" title="Dependensträd" style="display : none;">
+		</div>
+		<div id="plot_popup">
+			<div id="plot_canvas" style="width:470px; height:400px"></div>
+		</div>
+		<div id="login_popup" title="Logga in">
+			<form>
+
+				<label for="usrname" rel="localize[username]">E-postadress</label>
+				<input type="text" id="usrname">
+
+				<label for="pass" rel="localize[password]">Lösenord</label>
+				<input type="password" id="pass">
+
+				<p class="err_msg" rel="localize[login_fail_msg]">Login misslyckades, kontrollera användarnamn och lösenord och försök igen.</p>
+
+				<input type="submit" value="Skicka" rel="localize[send]">
+			</form>
+		</div>
+		<!-- extendedtoken options menu. -->
+		<ul id="opt_menu">
+			<li><a data-item="repeat_item" rel="localize[repeat]">Upprepa</a></li>
+			<li><a data-item="lbound_item" rel="localize[sent_start]">Meningsbörjan</a></li>
+			<li><a data-item="rbound_item" rel="localize[sent_end]">Meningsslut</a></li>
+		</ul>
+	</div>
+
+	<script type="text/ng-template" id="wordTemplate">
+		<span class="word"
+
+            ng-click="wordClick($event, wd, sentence)">{{wd.word}}</span>
+        <span class="word_gap"> </span>
+	</script>
+
+	<script id="defaultSetTmpl" type="text/x-jquery-tmpl">
+			{{if $item.translationKey}}
+				<li rel="localize[${$item.translationKey + $data}]">${$data}</li>
+			{{else}}
+				<li>${$data}</li>
+			{{/if}}
+	</script>
+
+	<script id="sentenceTmpl" type="text/x-jquery-tmpl">
+		<tr class="sentence">
+		  	<td class="left">
+			{{tmpl(left) '#wordTmpl'}}
+		  	</td>
+		  	<td class="match">
+				{{tmpl(match) '#wordTmpl'}}
+		  	</td>
+		  	<td class="right">
+			{{tmpl(right) '#wordTmpl'}}
+		  	</td>
+	    </tr>
+		{{if $item.aligned != null}}
+		<tr class="linked_sentence">
+			<td colspan="3">
+				{{each(corpus, sentence) $item.aligned}}
+				{{tmpl(sentence) '#wordTmpl'}}
+				{{/each}}
+			</td>
+		</tr>
+		{{/if}}
+	</script>
+
+	<script id="wordTmpl" type="text/x-jquery-tmpl">
+		<span class="word${((typeof structs != 'undefined') && (' sent_' + _.keys(structs)[0])) || ''}">${word}</span><span class="word_gap"> </span>
+	</script>
+
+	<script id="lemgramResultsTmpl" type="text/x-jquery-tmpl">
+		<div class="lemgram_section">
+			{{if $data.length}}
+			<div class='lemgram_help' />
+			{{tmpl($data, {"lemgram" : $item.lemgram}) '#lemgramTableTmpl'}}
+			{{/if}}
+		</div>
+	</script>
+
+	<script id="lemgramTableTmpl" type="text/x-jquery-tmpl">
+		<div class="lemgram_result"
+		{{if word}}
+		data-word="${word}">
+			<h3 id="display_word"></h3>
+		{{else}}
+		data-rel="${$data[0].rel}"
+		data-show_rel="${$data[0].show_rel}">
+		<table>
+			{{tmpl($data, {"lemgram" : $item.lemgram}) '#lemgramRowTmpl'}}
+		</table>
+		{{/if}}
+		</div>
+	</script>
+	<script id="lemgramRowTmpl" type="text/x-jquery-tmpl">
+			<tr>
+				<td><span class="enumerate"/></td>
+				<td data-lemgram="${$.grep($item.data[show_rel].split("|"), Boolean)[0]}" data-depextra="${depextra}"></td>
+				<!--<td>{{html util.formatDecimalString($.format("%.2f", mi), true)}}</td>-->
+				<td title="${$.format("mi: %.2f", mi)}">${freq}</td>
+				<td class="example_link"></td>
+		    </tr>
+	</script>
+
+	<script id="similarTmpl" type="text/x-jquery-tmpl">
+	<li>
+		{{each rel}}
+			<a href="javascript:" data-lemgram="${$value}">${util.splitLemgram($value).form}</a>
+		{{/each}}
+	</li>
+
+	</script>
+
+
+	</body>
+ </html>
