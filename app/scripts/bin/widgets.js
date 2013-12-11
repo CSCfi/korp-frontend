@@ -149,8 +149,6 @@
       value = (attrs.stringify || _.identity)(value);
       if (attrs.type === "url") {
         return output.append("<a href='" + value + "' class='exturl sidebar_url'>" + (decodeURI(value)) + "</a>");
-      } else if (key === "msd") {
-        return output.append("<span class='msd'>" + value + "</span>\n    <a href='markup/msdtags.html' target='_blank'>\n        <span id='sidbar_info' class='ui-icon ui-icon-info'></span>\n    </a>\n</span>");
       } else if (attrs.pattern) {
         return output.append(_.template(attrs.pattern, {
           key: key,
@@ -865,32 +863,8 @@
       if ((oldVal != null) && oldVal.length) {
         arg_value.val(oldVal);
       }
-      switch (target.val()) {
-        case "msd":
-          $("#msd_popup").load("markup/msd.html", function() {
-            return $(this).find("a").click(function() {
-              arg_value.val($(this).parent().data("value"));
-              return $("#msd_popup").dialog("close");
-            });
-          });
-          $("<span class='ui-icon ui-icon-info' />").click(function() {
-            var h, w;
-            w = $("html").width() * 0.6;
-            h = $("html").height();
-            $("#msd_popup").fadeIn("fast").dialog({
-              width: w,
-              height: h,
-              modal: true
-            }).parent().find(".ui-dialog-title").localeKey("msd_long");
-            return $(".ui-widget-overlay").one("click", function(evt) {
-              c.log("body click");
-              return $("#msd_popup").dialog("close");
-            });
-          }).insertAfter(arg_value);
-          arg_value.css("width", "93%");
-          break;
-        default:
-          this.element.find(".ui-icon-info").remove();
+      if (!target.val() === "msd") {
+        this.element.find(".ui-icon-info").remove();
       }
       arg_value.addClass("arg_value").keyup().change(function() {
         return self._trigger("change");

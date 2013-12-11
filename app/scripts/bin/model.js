@@ -317,7 +317,8 @@
         word: word,
         corpus: settings.corpusListing.stringifySelected(),
         incremental: $.support.ajaxProgress,
-        type: type
+        type: type,
+        max: settings.wordPictureMaxWords || 15
       };
       return $.ajax({
         url: settings.cgi_script,
@@ -381,9 +382,10 @@
       self = this;
       deferred = $.Deferred(function(dfd) {
         return self.pendingRequest = $.ajax({
-          url: "http://spraakbanken.gu.se/ws/karp-sok",
+          url: settings.lemgrams_cgi_script,
           data: {
             wf: word,
+            corpus: settings.corpusListing.stringifySelected(),
             resource: settings.corpusListing.getMorphology(),
             format: "json",
             "sms-forms": false,
@@ -398,8 +400,7 @@
             c.log("karp success", data, sw_forms);
             div = ($.isPlainObject(data.div) ? [data.div] : data.div);
             output = $.map(div.slice(0, Number(data.count)), function(item) {
-              item = util.convertLMFFeatsToObjects(item);
-              return item.LexicalEntry.Lemma.FormRepresentation.feat_lemgram;
+              return item.LexicalEntry.lem;
             });
             return dfd.resolve(output, textStatus, xhr);
           },

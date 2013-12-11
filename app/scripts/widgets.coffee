@@ -124,13 +124,13 @@ Sidebar =
         if attrs.type == "url"
             return output.append "<a href='#{value}' class='exturl sidebar_url'>#{decodeURI(value)}</a>"
 
-        else if key == "msd"
-            return output.append """<span class='msd'>#{value}</span>
-                                        <a href='markup/msdtags.html' target='_blank'>
-                                            <span id='sidbar_info' class='ui-icon ui-icon-info'></span>
-                                        </a>
-                                    </span>
-                                """
+#        else if key == "msd"
+#            return output.append """<span class='msd'>#{value}</span>
+#                                        <a href='markup/msdtags.html' target='_blank'>
+#                                            <span id='sidbar_info' class='ui-icon ui-icon-info'></span>
+#                                        </a>
+#                                    </span>
+#                                """
         else if attrs.pattern
             return output.append _.template(attrs.pattern, {key : key, val : value})
 
@@ -814,30 +814,31 @@ ExtendedToken =
 
         # target.next().val(oldOptVal).attr "disabled", null
         arg_value.val oldVal  if oldVal? and oldVal.length
-        switch target.val()
-            when "msd"
-                $("#msd_popup").load "markup/msd.html", ->
-                    $(this).find("a").click ->
-                        arg_value.val $(this).parent().data("value")
-                        $("#msd_popup").dialog("close")
-
-                $("<span class='ui-icon ui-icon-info' />").click(->
-                    w = $("html").width() * 0.6
-                    h = $("html").height()
-                    $("#msd_popup").fadeIn("fast").dialog(
-                        width: w
-                        height: h
-                        modal: true
-                    ).parent().find(".ui-dialog-title").localeKey("msd_long")
-
-                    $(".ui-widget-overlay").one "click", (evt) ->
-                        c.log "body click"
-                        $("#msd_popup").dialog("close")
-
-                ).insertAfter arg_value
-                arg_value.css "width", "93%"
-            else
-                @element.find(".ui-icon-info").remove()
+#        switch target.val()
+#            when "msd"
+#                $("#msd_popup").load "markup/msd.html", ->
+#                    $(this).find("a").click ->
+#                        arg_value.val $(this).parent().data("value")
+#                        $("#msd_popup").dialog("close")
+#
+#                $("<span class='ui-icon ui-icon-info' />").click(->
+#                    w = $("html").width() * 0.6
+#                    h = $("html").height()
+#                    $("#msd_popup").fadeIn("fast").dialog(
+#                        width: w
+#                        height: h
+#                        modal: true
+#                    ).parent().find(".ui-dialog-title").localeKey("msd_long")
+#
+#                    $(".ui-widget-overlay").one "click", (evt) ->
+#                        c.log "body click"
+#                        $("#msd_popup").dialog("close")
+#
+#                ).insertAfter arg_value
+#                arg_value.css "width", "93%"
+#            else
+        if not target.val() is "msd"
+            @element.find(".ui-icon-info").remove()
         arg_value.addClass("arg_value").keyup().change ->
             self._trigger "change"
 
