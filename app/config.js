@@ -8,6 +8,7 @@ var isLab = window.isLab || false;
 
 settings.lemgramSelect = true;
 settings.autocomplete = true;
+settings.textDateAllowBareYears = true;
 
 settings.wordPictureMaxWords = 30;
 

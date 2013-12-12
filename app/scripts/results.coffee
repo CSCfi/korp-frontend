@@ -1196,7 +1196,11 @@ class view.GraphResults extends BaseResults
 
                 start = m.format("YYYYMMDD")
                 end = m.add(1, "year").subtract(1, "day").format("YYYYMMDD")
-                timecqp = "(int(_.text_datefrom) >= #{start} & int(_.text_dateto) <= #{end})]"
+                timecqp = "(int(_.text_datefrom) >= #{start} & int(_.text_dateto) <= #{end})"
+                if settings.textDateAllowBareYears
+                    year = m.format("YYYY")
+                    timecqp = "(" + timecqp + " | (int(_.text_datefrom) = #{year} & int(_.text_dateto) = #{year}))"
+                timecqp += "]"
                 cqp = decodeURIComponent(cqp)[...-1] + " & #{timecqp}"
                 instance = $("#result-container").korptabs("addTab", view.ExampleResults)
                 instance.proxy.command = "query"

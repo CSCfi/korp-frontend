@@ -1357,7 +1357,7 @@
       this.corpora = null;
       this.proxy = new model.GraphProxy();
       $(".chart", this.$result).on("click", function(event) {
-        var cqp, end, instance, m, start, target, timecqp, val;
+        var cqp, end, instance, m, start, target, timecqp, val, year;
         target = $(".chart", _this.$result);
         val = $(".detail .x_label > span", target).data("val");
         cqp = $(".detail .item.active > span", target).data("cqp");
@@ -1366,7 +1366,12 @@
           m = moment(val * 1000);
           start = m.format("YYYYMMDD");
           end = m.add(1, "year").subtract(1, "day").format("YYYYMMDD");
-          timecqp = "(int(_.text_datefrom) >= " + start + " & int(_.text_dateto) <= " + end + ")]";
+          timecqp = "(int(_.text_datefrom) >= " + start + " & int(_.text_dateto) <= " + end + ")";
+          if (settings.textDateAllowBareYears) {
+            year = m.format("YYYY");
+            timecqp = "(" + timecqp + (" | (int(_.text_datefrom) = " + year + " & int(_.text_dateto) = " + year + "))");
+          }
+          timecqp += "]";
           cqp = decodeURIComponent(cqp).slice(0, -1) + (" & " + timecqp);
           instance = $("#result-container").korptabs("addTab", view.ExampleResults);
           instance.proxy.command = "query";
