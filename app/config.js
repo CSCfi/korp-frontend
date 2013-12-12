@@ -1375,7 +1375,7 @@ settings.corpora.la_murre = {
 
 settings.corpora.sks_kivi_fi = {
     title : "Aleksis Kivi",
-    description : "SKS:n Aleksis Kivi -korpus - Aleksis Kiven painetut teokset ja muu tunnettu tuotanto",
+    description : "Aleksis Kiven painetut teokset, kirjeet ja muu tunnettu tuotanto",
     id : "sks_kivi_fi",
     within : settings.spWithin,
     context : settings.spContext,
@@ -1402,54 +1402,58 @@ settings.corpora.sks_kivi_fi = {
 	}
     },
     struct_attributes : {
-	content_idno : {
-	    label : "content_idno",
+	text_idno : {
+	    label : "kivi_text_idno",
 	    opts : settings.defaultOptions,
 	},
-	content_author : {
-	    label : "content_author",
+	text_author : {
+	    label : "kivi_text_author",
 	    opts : settings.defaultOptions,
 	},
-	content_title : {
-	    label : "content_title",
+	text_title : {
+	    label : "kivi_text_title",
 	    opts : settings.defaultOptions,
 	},
-	content_byline : {
-	    label : "content_byline",
+	text_byline : {
+	    label : "kivi_text_byline",
 	    opts : settings.defaultOptions,
 	},
-	content_settlement : {
-	    label : "content_settlement",
+	text_settlement : {
+	    label : "kivi_text_settlement",
 	    opts : settings.defaultOptions,
 	},
-	content_repository : {
-	    label : "content_repository",
+	text_repository : {
+	    label : "kivi_text_repository",
 	    opts : settings.defaultOptions,
 	},
-	content_publisher : {
-	    label : "content_publisher",
+	text_publisher : {
+	    label : "kivi_text_publisher",
 	    opts : settings.defaultOptions,
 	},
-	content_distributor : {
-	    label : "content_distributor",
+	text_distributor : {
+	    label : "kivi_text_distributor",
 	    opts : settings.defaultOptions,
 	},
-	content_bibl : {
-	    label : "content_bibl",
+	text_bibl : {
+	    label : "kivi_text_bibl",
+	    displayType : "hidden",
+	},
+	text_bibl_type : {
+	    label : "kivi_text_bibl_type",
+	    displayType : "hidden",
+	},
+	text_lang : {
+	    label : "kivi_text_lang",
 	    opts : settings.defaultOptions,
 	},
-	content_bibl_type : {
-	    label : "content_bibl_type",
-	    opts : settings.defaultOptions,
+	text_note : {
+	      label : "kivi_text_note",
+	      opts : settings.defaultOptions,
 	},
-	content_lang : {
-	    label : "content_lang",
-	    opts : settings.defaultOptions,
-	},
-	/*content_note : {
-	      label : "content_note",
-	          opts : settings.defaultOptions,
-		  },*/
+	text_date : {
+              label : "kivi_text_date",
+              opts : settings.defaultOptions,
+        },
 	section_id : {
 	    label : "section_id",
 	    displayType : "hidden",
@@ -1462,10 +1466,11 @@ settings.corpora.sks_kivi_fi = {
 	    label : "section_subtype",
 	    opts : settings.defaultOptions,
 	},
+	/*
 	section_subtype_n : {
 	    label : "section_subtype_n",
-	    opts : settings.defaultOptions,
-	},
+	    displayType : "hidden",
+	},*/
 	paragraph_id : {
 	    label : "paragraph_id",
 	    displayType : "hidden",

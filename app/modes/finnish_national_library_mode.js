@@ -72,12 +72,11 @@ klk_struct_attrs = {
         label : "klk_tokencount",
         displayType : "hidden",
     },
-    /*
     content_img_url : {
         label : "klk_img_url",
         type : "url",
+	displayType : "hidden",
     },
-    */
     paragraph_id : {
         label : "paragraph_id",
         displayType : "hidden",
@@ -95,13 +94,13 @@ klk_pos_attrs = {
 settings.corpora = {};
 settings.corporafolders = {};
 
-/*
+
 settings.corporafolders.klk_fi = {    
     title : "Suomenkieliset lehdet"
 };
-*/
 
-settings.corporafolders.fi_1820 = {
+
+settings.corporafolders.klk_fi.fi_1820 = {
     title : "1820-luku",
     contents : ["klk_fi_1820",
                 "klk_fi_1821",
@@ -115,7 +114,7 @@ settings.corporafolders.fi_1820 = {
                ]
 };
 
-settings.corporafolders.fi_1830 = {
+settings.corporafolders.klk_fi.fi_1830 = {
     title : "1830-luku",
     contents : ["klk_fi_1830",
                 "klk_fi_1831",
@@ -130,7 +129,7 @@ settings.corporafolders.fi_1830 = {
                ]
 };
 
-settings.corporafolders.fi_1840 = {
+settings.corporafolders.klk_fi.fi_1840 = {
     title : "1840-luku",
     contents : ["klk_fi_1840",
                 "klk_fi_1841",
@@ -144,7 +143,7 @@ settings.corporafolders.fi_1840 = {
                ]
 };
 
-settings.corporafolders.fi_1850 = {
+settings.corporafolders.klk_fi.fi_1850 = {
     title : "1850-luku",
     contents : ["klk_fi_1850",
                 "klk_fi_1851",
@@ -159,7 +158,7 @@ settings.corporafolders.fi_1850 = {
                ]
 };
 
-settings.corporafolders.fi_1860 = {
+settings.corporafolders.klk_fi.fi_1860 = {
     title : "1860-luku",
     contents : ["klk_fi_1860",
                 "klk_fi_1861",
@@ -174,7 +173,7 @@ settings.corporafolders.fi_1860 = {
                ]
 };
 
-settings.corporafolders.fi_1870 = {
+settings.corporafolders.klk_fi.fi_1870 = {
     title : "1870-luku",
     contents : ["klk_fi_1870",
                 "klk_fi_1871",
@@ -189,7 +188,7 @@ settings.corporafolders.fi_1870 = {
                ]
 };
 
-settings.corporafolders.fi_1880 = {
+settings.corporafolders.klk_fi.fi_1880 = {
     title : "1880-luku",
     contents : ["klk_fi_1880",
                 "klk_fi_1881",
@@ -198,13 +197,13 @@ settings.corporafolders.fi_1880 = {
                 "klk_fi_1884",
                 "klk_fi_1885",
                 "klk_fi_1886",
-                /*"klk_fi_1887",*/
+                "klk_fi_1887",
                 "klk_fi_1888",
                 "klk_fi_1889"
                ]
 };
 
-settings.corporafolders.fi_1890 = {
+settings.corporafolders.klk_fi.fi_1890 = {
     title : "1890-luku",
     contents : ["klk_fi_1890",
                 "klk_fi_1891",
@@ -219,7 +218,7 @@ settings.corporafolders.fi_1890 = {
                ]
 };
 
-settings.corporafolders.fi_1900 = {
+settings.corporafolders.klk_fi.fi_1900 = {
     title : "1900-luku",
     contents : ["klk_fi_1900",
                 "klk_fi_1901",
@@ -234,7 +233,7 @@ settings.corporafolders.fi_1900 = {
                ]
 };
 
-settings.corporafolders.fi_1910 = {
+settings.corporafolders.klk_fi.fi_1910 = {
     title : "1910-luku",
     contents : ["klk_fi_1910",
                 "klk_fi_1911",
@@ -249,7 +248,7 @@ settings.corporafolders.fi_1910 = {
                ]
 };
 
-settings.corporafolders.fi_1920 = {
+settings.corporafolders.klk_fi.fi_1920 = {
     title : "1920-luku",
     contents : ["klk_fi_1920",
                 "klk_fi_1921",
@@ -264,7 +263,7 @@ settings.corporafolders.fi_1920 = {
                ]
 };
 
-settings.corporafolders.fi_1930 = {
+settings.corporafolders.klk_fi.fi_1930 = {
     title : "1930-luku",
     contents : ["klk_fi_1930",
                 "klk_fi_1931",
@@ -279,7 +278,7 @@ settings.corporafolders.fi_1930 = {
                ]
 };
 
-settings.corporafolders.fi_1940 = {
+settings.corporafolders.klk_fi.fi_1940 = {
     title : "1940-luku",
     contents : ["klk_fi_1940",
                 "klk_fi_1941",
@@ -294,7 +293,7 @@ settings.corporafolders.fi_1940 = {
                ]
 };
 
-settings.corporafolders.fi_1950 = {
+settings.corporafolders.klk_fi.fi_1950 = {
     title : "1950-luku",
     contents : ["klk_fi_1950",
                 "klk_fi_1951",
@@ -309,7 +308,7 @@ settings.corporafolders.fi_1950 = {
                ]
 };
 
-settings.corporafolders.fi_1960 = {
+settings.corporafolders.klk_fi.fi_1960 = {
     title : "1960-luku",
     contents : ["klk_fi_1960",
                 "klk_fi_1961",
@@ -324,7 +323,7 @@ settings.corporafolders.fi_1960 = {
                ]
 };
 
-settings.corporafolders.fi_1970 = {
+settings.corporafolders.klk_fi.fi_1970 = {
     title : "1970-luku",
     contents : ["klk_fi_1970",
                 "klk_fi_1971",
@@ -339,7 +338,7 @@ settings.corporafolders.fi_1970 = {
                ]
 };
 
-settings.corporafolders.fi_1980 = {
+settings.corporafolders.klk_fi.fi_1980 = {
     title : "1980-luku",
     contents : ["klk_fi_1980",
                 "klk_fi_1981",
@@ -354,7 +353,7 @@ settings.corporafolders.fi_1980 = {
                ]
 };
 
-settings.corporafolders.fi_1990 = {
+settings.corporafolders.klk_fi.fi_1990 = {
     title : "1990-luku",
     contents : ["klk_fi_1990",
                 "klk_fi_1991",
@@ -369,12 +368,12 @@ settings.corporafolders.fi_1990 = {
                ]
 };
 
-settings.corporafolders.fi_2000 = {
+settings.corporafolders.klk_fi.fi_2000 = {
     title : "2000-luku",
     contents : ["klk_fi_2000"]
 };
 
-settings.corporafolders.fi_2010 = {
+settings.corporafolders.klk_fi.fi_2010 = {
     title : "2010-luku",
     contents : ["klk_fi_2011"]
 };
@@ -1023,6 +1022,16 @@ settings.corpora.klk_fi_1886 = {
     title : "1886",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1886",
     id : "klk_fi_1886",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : klk_pos_attrs,
+    struct_attributes : klk_struct_attrs
+};
+
+settings.corpora.klk_fi_1887 = {
+    title : "1887",
+    description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1887",
+    id : "klk_fi_1887",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : klk_pos_attrs,
