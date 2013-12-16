@@ -373,11 +373,6 @@ settings.corporafolders.klk_fi.fi_2000 = {
     contents : ["klk_fi_2000"]
 };
 
-settings.corporafolders.klk_fi.fi_2010 = {
-    title : "2010-luku",
-    contents : ["klk_fi_2011"]
-};
-
 settings.corpora.klk_fi_1820 = {
     title : "1820",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 1820",
@@ -2162,16 +2157,6 @@ settings.corpora.klk_fi_2000 = {
     title : "2000",
     description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 2000",
     id : "klk_fi_2000",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : klk_pos_attrs,
-    struct_attributes : klk_struct_attrs
-};
-
-settings.corpora.klk_fi_2011 = {
-    title : "2011",
-    description : "Suomenkielisiä sanoma- ja aikakauslehtiä vuodelta 2011",
-    id : "klk_fi_2011",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : klk_pos_attrs,
