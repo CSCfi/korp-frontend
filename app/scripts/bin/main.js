@@ -157,6 +157,7 @@
     loadCorpora();
     creds = $.jStorage.get("creds");
     $.sm.start();
+    // for some reason this matches after login after browser start, but not later. --matthies 28.11.13
     if (creds) {
       authenticationProxy.loginObj = creds;
       util.setLogin();
@@ -284,50 +285,33 @@
           showAbout();
         }
       } else if (display === "login") {
-        $("#login_popup").dialog({
-          height: 220,
-          width: 177,
-          modal: true,
-          resizable: false,
-          create: function() {
-            return $(".err_msg", this).hide();
-          },
-          open: function() {
-            return $(".ui-widget-overlay").hide().fadeIn();
-          },
-          beforeClose: function() {
-            $(".ui-widget-overlay").remove();
-            $("<div />", {
-              "class": "ui-widget-overlay"
-            }).css({
-              height: $("body").outerHeight(),
-              width: $("body").outerWidth(),
-              zIndex: 1001
-            }).appendTo("body").fadeOut(function() {
-              return $(this).remove();
-            });
-            $.bbq.removeState("display");
-            return false;
-          }
-        }).show().unbind("submit").submit(function() {
-          var self;
-          self = this;
-          authenticationProxy.makeRequest($("#usrname", this).val(), $("#pass", this).val()).done(function(data) {
-            util.setLogin();
+	    // Shibboleth deals with username and password on the IdP-server side. Therefore I ripped out the login window
+	    // Note that this code is called *after* successful login via Shibboleth. -- matthies 28.11.13
+
+	    // We don't have a username/password, so I just call it with dummy values:
+	    authenticationProxy.makeRequest("dummyuser", "dummypass").done(function(data) {
+	    if ( $("body").hasClass("not_logged_in") ) {
+		// for some reason the first login after browser start is caught further up (see my comment there)
+                // and with the user from the previous browser session(!)
+		// So if setLogin has been called already, we toggle and call it again. -- matthies 28.11.13
+		util.setLogin();
+	    } else {
+		$("body").toggleClass("logged_in not_logged_in");
+		util.setLogin();
+	    }
+
             return $.bbq.removeState("display");
           }).fail(function() {
             c.log("login fail");
             $("#pass", self).val("");
             return $(".err_msg", self).show();
           });
-          return false;
-        });
-        $("#ui-dialog-title-login_popup").attr("rel", "localize[log_in]");
       } else {
         $(".ui-dialog").fadeTo(400, 0, function() {
           return $(".ui-dialog-content", this).dialog("destroy");
         });
       }
+
       reading = e.getState("reading_mode");
       if (hasChanged("reading_mode")) {
         if (reading) {
