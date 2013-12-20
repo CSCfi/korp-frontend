@@ -183,7 +183,7 @@ var hp_corpusChooser = {
 			hp_this.countSelected();
 			// Update the number of children for all folders:
 			$(".tree").each(function() {
-				var noItems = $(this).find(".hplabel .checked").length;
+				var noItems = $(this).find(".hplabel .checked").length + $(this).find(".hplabel .unchecked").length;
 				$(this).children("label").children(".numberOfChildren").text("(" + noItems + ")");
 			});
 
@@ -396,20 +396,29 @@ var hp_corpusChooser = {
 						var folderdescription = $(this).children('ul').attr('description');
 						if(folderdescription == "undefined")
 							folderdescription = "";
-						outStr += '<div data="' + foldertitle + "___" + folderdescription + '" style="' + cssattrib + '" class="tree collapsed '+ levelindent +'"><img src="img/collapsed.png" alt="extend" class="ext"/> <label class="boxlabel"><span id="' + item_id + '" class="checkbox checked"/> <span>' + foldertitle + ' </span><span class="numberOfChildren">(?)</span></label>';
+					    childrenHTML = recursive_transform(theHTML, levelindent+1);
+					    var checkType = "checked";
+					    var hasCheckedChildren = childrenHTML.indexOf('class="checkbox checked"') != -1;
+					    var hasUncheckedChildren = childrenHTML.indexOf('class="checkbox unchecked"') != -1;
+					    if (hasUncheckedChildren) {
+						checkType = hasCheckedChildren ? "intermediate" : "unchecked";
+					    }
+					    outStr += '<div data="' + foldertitle + "___" + folderdescription + '" style="' + cssattrib + '" class="tree collapsed '+ levelindent +'"><img src="img/collapsed.png" alt="extend" class="ext"/> <label class="boxlabel"><span id="' + item_id + '" class="checkbox ' + checkType + '"/> <span>' + foldertitle + ' </span><span class="numberOfChildren">(?)</span></label>';
 
-						outStr += recursive_transform(theHTML, levelindent+1);
+					    outStr += childrenHTML;
 						outStr += "</div>";
 					} else {
+					    // c.log($(this).attr('id'), this, settings.corpora);
 						var disable = settings.corpora[$(this).attr('id')].limited_access != null;
+					    var unchecked = disable || settings.corpora[$(this).attr('id')].unselected == true;
 						if(levelindent > 0) {
 							// Indragna och gömda per default
 							hasDirectCorporaChildren = true;
-							outStr += '<div data="' + theHTML + '" class="boxdiv ui-corner-all' + (disable ? " disabled" : "")  + '" style="margin-left:46px; display:none; background-color:' + settings.primaryColor + '"><label class="hplabel"><span id="' + item_id + '" class="checkbox ' + (disable ? " unchecked" : "checked")  + '" /> ' + theHTML + ' </label></div>';
+							outStr += '<div data="' + theHTML + '" class="boxdiv ui-corner-all' + (disable ? " disabled" : "")  + '" style="margin-left:46px; display:none; background-color:' + settings.primaryColor + '"><label class="hplabel"><span id="' + item_id + '" class="checkbox ' + (unchecked ? "unchecked" : "checked")  + '" /> ' + theHTML + ' </label></div>';
 						} else {
 							if (index != ul.size()) {
 								hasDirectCorporaChildren = true;
-								outStr += '<div data="' + theHTML + '" class="boxdiv ui-corner-all' + (disable ? " disabled" : "")  + '" style="margin-left:16px; background-color:' + settings.primaryColor + '"><label class="hplabel"><span id="' + item_id + '" class="checkbox ' + (disable ? " unchecked" : "checked")  + '" /> ' + theHTML + ' </label></div>';
+								outStr += '<div data="' + theHTML + '" class="boxdiv ui-corner-all' + (disable ? " disabled" : "")  + '" style="margin-left:16px; background-color:' + settings.primaryColor + '"><label class="hplabel"><span id="' + item_id + '" class="checkbox ' + (unchecked ? "unchecked" : "checked")  + '" /> ' + theHTML + ' </label></div>';
 							}
 						}
 					}
