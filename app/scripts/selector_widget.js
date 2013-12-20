@@ -168,7 +168,7 @@ var hp_corpusChooser = {
 			}
 
 
-			var newHTML = recursive_transform(body,0);
+			var newHTML = recursive_transform(body, 0, false);
 			$(".popupchecks .checks").html(newHTML);
 
 			el.addClass("scroll_checkboxes inline_block");
@@ -371,12 +371,13 @@ var hp_corpusChooser = {
 		 		hp_this.triggerChange();
  			});
 
-		function recursive_transform(einHTML, levelindent) {
+		function recursive_transform(einHTML, levelindent, isUncheckedFolder) {
 			var outStr = "";
 			var ul = $(einHTML).children();
 			var hasDirectCorporaChildren = false;
 			ul = ul.each(function(index){
 				var theHTML = $(this).html();
+			    var thisFolderIsUnchecked = isUncheckedFolder;
 				if(theHTML != null) {
 					var leftattrib = 0;
 					var item_id = $(this).attr('id');
@@ -394,14 +395,22 @@ var hp_corpusChooser = {
 						}
 						var foldertitle = $(this).children('ul').attr('title');
 						var folderdescription = $(this).children('ul').attr('description');
+					    c.log(folderdescription, isUncheckedFolder);
+					    if (folderdescription.indexOf("### unselected") != -1) {
+						thisFolderIsUnchecked = true;
+						folderdescription = folderdescription.replace("### unselected", "");
+					    }
+					    c.log(folderdescription, thisFolderIsUnchecked);
 						if(folderdescription == "undefined")
 							folderdescription = "";
-					    childrenHTML = recursive_transform(theHTML, levelindent+1);
-					    var checkType = "checked";
-					    var hasCheckedChildren = childrenHTML.indexOf('class="checkbox checked"') != -1;
-					    var hasUncheckedChildren = childrenHTML.indexOf('class="checkbox unchecked"') != -1;
-					    if (hasUncheckedChildren) {
-						checkType = hasCheckedChildren ? "intermediate" : "unchecked";
+					    childrenHTML = recursive_transform(theHTML, levelindent+1, thisFolderIsUnchecked);
+					    var checkType = thisFolderIsUnchecked ? "unchecked" : "checked";
+					    if (checkType == "checked") {
+						var hasCheckedChildren = childrenHTML.indexOf('class="checkbox checked"') != -1;
+						var hasUncheckedChildren = childrenHTML.indexOf('class="checkbox unchecked"') != -1;
+						if (hasUncheckedChildren) {
+						    checkType = hasCheckedChildren ? "intermediate" : "unchecked";
+						}
 					    }
 					    outStr += '<div data="' + foldertitle + "___" + folderdescription + '" style="' + cssattrib + '" class="tree collapsed '+ levelindent +'"><img src="img/collapsed.png" alt="extend" class="ext"/> <label class="boxlabel"><span id="' + item_id + '" class="checkbox ' + checkType + '"/> <span>' + foldertitle + ' </span><span class="numberOfChildren">(?)</span></label>';
 
@@ -410,7 +419,7 @@ var hp_corpusChooser = {
 					} else {
 					    // c.log($(this).attr('id'), this, settings.corpora);
 						var disable = settings.corpora[$(this).attr('id')].limited_access != null;
-					    var unchecked = disable || settings.corpora[$(this).attr('id')].unselected == true;
+					    var unchecked = disable || thisFolderIsUnchecked || settings.corpora[$(this).attr('id')].unselected == true;
 						if(levelindent > 0) {
 							// Indragna och gömda per default
 							hasDirectCorporaChildren = true;
