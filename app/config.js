@@ -747,6 +747,29 @@ settings.corpora.testcorp = {
 };
 */
 
+/*
+settings.corpora.testcorp_deptree = {
+    title : "Dependenssipuutesti",
+    description : "Testikorpus Korpin dependenssipuun piirtämisen testaamiseksi",
+    id : "testcorp_deptree",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+	lemma : attrs.baseform_ftb2,
+        pos : attrs.pos_ftb2,
+	msd : attrs.msd,
+	dephead : attrs.dephead,
+	deprel : attrs.deprel_ftb2,
+	ref : attrs.ref,
+	spoken : attrs.spoken,
+	lex : attrs.lemgram_hidden
+    },
+    struct_attributes : {
+	sentence_id : sattrs.sentence_id_hidden
+    }
+};
+*/
+
 settings.corpora.ftb2 = {
     title : "FinnTreeBank 2",
     description : "Finnish tree bank, version 2",
@@ -759,6 +782,7 @@ settings.corpora.ftb2 = {
 	msd : attrs.msd,
 	dephead : attrs.dephead,
 	deprel : attrs.deprel_ftb2,
+	ref : attrs.ref,
 	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
@@ -830,6 +854,7 @@ settings.corpora.ftb3_europarl = {
 	msd : attrs.msd,
 	dephead : attrs.dephead,
 	deprel : attrs.deprel_ftb2,
+	ref : attrs.ref,
 	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
@@ -907,6 +932,7 @@ settings.corpora.ftb3_jrcacquis = {
 	msd : attrs.msd,
 	dephead : attrs.dephead,
 	deprel : attrs.deprel_ftb2,
+	ref : attrs.ref,
 	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
@@ -946,6 +972,7 @@ settings.corpora.metsatalo = {
 	msd : attrs.msd,
 	dephead : attrs.dephead,
 	deprel : attrs.deprel_ftb2,
+	ref : attrs.ref,
 	spoken : attrs.spoken,
 	lex : attrs.lemgram_hidden
     },
