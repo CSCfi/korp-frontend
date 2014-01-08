@@ -858,7 +858,7 @@ settings.corpora.ftb3_europarl = {
 	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
-	file_name : {
+	text_filename : {
 	    label : "file_name",
 	},
 	chapter_id : {
@@ -936,16 +936,16 @@ settings.corpora.ftb3_jrcacquis = {
 	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
-	file_name : {
+	text_filename : {
 	    label : "file_name",
 	},
-	file_title : {
+	text_title : {
 	    label : "file_title",
 	},
-	file_codetitle : {
+	text_codetitle : {
 	    label : "file_codetitle",
 	},
-	file_url : {
+	text_url : {
 	    label : "file_url",
 	    type : "url",
 	},
