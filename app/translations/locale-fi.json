@@ -216,5 +216,7 @@
 	"saldom" : "moderni",
 	"dalinm" : "1800-luku",
 	"swedbergm" : "1600-luku",
-	"fsvm" : "muinaisruotsi"
+	"fsvm" : "muinaisruotsi",
+
+	"privacy" : "Tietosuojaseloste"
 }

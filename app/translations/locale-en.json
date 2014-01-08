@@ -205,5 +205,7 @@
 	"saldom" : "modern",
     "dalinm" : "19th century",
     "swedbergm" : "17th century",
-    "fsvm" : "old swedish"
+    "fsvm" : "old swedish",
+
+	"privacy" : "Privacy policy"
 }
