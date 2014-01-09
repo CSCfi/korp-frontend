@@ -140,9 +140,9 @@
 	"bar" : "Pylväs",
 	"smoothing" : "Tasoitus",
 	"show_diagram" : "Näytä trendidiagrammi",
-	"non_time_before" : "",
-	"non_time_after" : " valitusta aineistosta puuttuu aikatieto",
-	"rel_hits_short" : "Suht. osumaa",
+	"non_time_before" : "Aikatieto puuttuu ",
+	"non_time_after" : ":sta valitusta aineistosta",
+	"rel_hits_short" : "Suht. osumia",
 
 	"word_insensitive" : "sana (pien- ja suuraakkoset samaistettu)",	
 	"sentence_attr" : "tekstin ominaisuudet",
