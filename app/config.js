@@ -23,12 +23,20 @@ settings.modeConfig = [
         mode: "parallel"
     },
     {
+	localekey: "finnish_national_library_texts",
+	mode: "finnish_national_library"
+    },
+    {
 	localekey: "old_finnish_texts",
 	mode: "old_finnish"
     },
     {
-	localekey: "finnish_national_library_texts",
-	mode: "finnish_national_library"
+	localekey: "swedish_texts",
+	mode: "swedish"
+    },
+    {
+	localekey: "other_languages_texts",
+	mode: "other_languages"
     }
 ];
 
@@ -676,30 +684,6 @@ settings.corporafolders.sks = {
 settings.corporafolders.legal = {
     title : "Juridisia tekstejä",
     contents : ["legal_fi", "mulcold_fi"]
-};
-
-settings.corporafolders.foreign = {
-    title : "Muunkielisiä tekstejä"
-};
-
-settings.corporafolders.foreign.sv = {
-    title : "Ruotsinkielisiä tekstejä",
-    contents : ["mulcold_sv"]
-};
-
-settings.corporafolders.foreign.en = {
-    title : "Englanninkielisiä tekstejä",
-    contents : ["mulcold_en"]
-};
-
-settings.corporafolders.foreign.de = {
-    title : "Saksankielisiä tekstejä",
-    contents : ["mulcold_de"]
-};
-
-settings.corporafolders.foreign.ru = {
-    title : "Venäjänkielisiä tekstejä",
-    contents : ["legal_ru", "mulcold_ru"]
 };
 
 settings.corporafolders.test = {
@@ -1717,16 +1701,6 @@ settings.corpora.legal_fi = {
     struct_attributes : sattrlist.legal
 };
 
-settings.corpora.legal_ru = {
-    id : "legal_ru",
-    title: "FiRuLex venäjä",
-    description : "Jurdisia tekstejä (venäjä)",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
-    attributes: attrlist.mulcold_ru,
-    struct_attributes : sattrlist.legal
-};
-
 settings.corpora.mulcold_fi = {
     id : "mulcold_fi",
     title : "MULCOLD suomi",
@@ -1735,46 +1709,6 @@ settings.corpora.mulcold_fi = {
     within : settings.defaultWithin, 
     attributes: attrlist.mulcold_fi,
     struct_attributes : sattrlist.mulcold
-};
-
-settings.corpora.mulcold_ru = {
-    id : "mulcold_ru",
-    title: "MULCOLD venäjä",
-    description : "Multilingual Corpus of Legal Documents, venäjänkielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
-    attributes: attrlist.mulcold_ru,
-    struct_attributes : sattrlist.mulcold,
-};
-
-settings.corpora.mulcold_en = {
-    id : "mulcold_en",
-    title: "MULCOLD englanti",
-    description : "Multilingual Corpus of Legal Documents, englanninkielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
-    attributes: attrlist.mulcold_en,
-    struct_attributes : sattrlist.mulcold,
-};
-
-settings.corpora.mulcold_sv = {
-    id : "mulcold_sv",
-    title: "MULCOLD ruotsi",
-    description : "Multilingual Corpus of Legal Documents, ruotsinkielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
-    attributes: attrlist.mulcold_sv,
-    struct_attributes : sattrlist.mulcold,
-};
-
-settings.corpora.mulcold_de = {
-    id : "mulcold_de",
-    title: "MULCOLD saksa",
-    description : "Multilingual Corpus of Legal Documents, saksankielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
-    attributes: attrlist.mulcold_de,
-    struct_attributes : sattrlist.mulcold,
 };
 
 
