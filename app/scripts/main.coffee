@@ -139,6 +139,7 @@ $.when(deferred_load, chained, deferred_domReady, deferred_sm, loc_dfd).then ((s
     loadCorpora()
     creds = $.jStorage.get("creds")
     $.sm.start()
+    # for some reason this matches after login after browser start, but not later. --matthies 28.11.13
     if creds
         authenticationProxy.loginObj = creds
         util.setLogin()
@@ -206,6 +207,30 @@ $.when(deferred_load, chained, deferred_domReady, deferred_sm, loc_dfd).then ((s
         $("#pass").val ""
         $("#corpusbox").corpusChooser "redraw"
 
+    # Use Basic authentication if not specified explicitly
+    settings.authenticationType ?= "basic"
+    settings.authenticationType = settings.authenticationType.toLowerCase()
+    # Modify the login (and logout) link according to authentication type
+    # (janiemi 2014-01-13)
+    switch settings.authenticationType
+        when "shibboleth"
+            # Change the href of login link to the one specified in config.js
+            if settings.shibbolethLoginUrl?
+                $("#login").find("a").attr("href", settings.shibbolethLoginUrl)
+            else
+                c.log "settings.shibbolethLoginUrl not defined"
+            # Add an 'a' element to the logout link, href specified in config.js
+            if settings.shibbolethLogoutUrl?
+                $("#log_out").wrapInner(
+                    "<a href='#{settings.shibbolethLogoutUrl}'></a>")
+            else
+                c.log "settings.shibbolethLogoutUrl not defined"
+        when "basic"
+            # Invoke JavaScript code from the login link
+            $("#login").find("a").attr("href", "javascript:")
+        else
+            # Otherwise no authentication, so hide the login link
+            $("#login").css("display", "none")
 
     onHashChange = (event, isInit) ->
         hasChanged = (key) ->
@@ -251,43 +276,65 @@ $.when(deferred_load, chained, deferred_domReady, deferred_sm, loc_dfd).then ((s
             else
                 showAbout()
         else if display is "login"
-            $("#login_popup").dialog(
-                height: 220
-                width: 177
-                modal: true
-                resizable: false
-                create: ->
-                    $(".err_msg", this).hide()
 
-                open: ->
-                    $(".ui-widget-overlay").hide().fadeIn()
+            if settings.authenticationType == "basic"
+                $("#login_popup").dialog(
+                    height: 220
+                    width: 177
+                    modal: true
+                    resizable: false
+                    create: ->
+                        $(".err_msg", this).hide()
 
-                beforeClose: ->
-                    $(".ui-widget-overlay").remove()
-                    $("<div />",
-                        class: "ui-widget-overlay"
-                    ).css(
-                        height: $("body").outerHeight()
-                        width: $("body").outerWidth()
-                        zIndex: 1001
-                    ).appendTo("body").fadeOut ->
-                        $(this).remove()
+                    open: ->
+                        $(".ui-widget-overlay").hide().fadeIn()
 
-                    $.bbq.removeState "display"
+                    beforeClose: ->
+                        $(".ui-widget-overlay").remove()
+                        $("<div />",
+                            class: "ui-widget-overlay"
+                        ).css(
+                            height: $("body").outerHeight()
+                            width: $("body").outerWidth()
+                            zIndex: 1001
+                        ).appendTo("body").fadeOut ->
+                            $(this).remove()
+
+                        $.bbq.removeState "display"
+                        false
+                ).show().unbind("submit").submit ->
+                    self = this
+                    authenticationProxy.makeRequest($("#usrname", this).val(), $("#pass", this).val()).done((data) ->
+                        util.setLogin()
+                        $.bbq.removeState "display"
+                    ).fail ->
+                        c.log "login fail"
+                        $("#pass", self).val ""
+                        $(".err_msg", self).show()
+
                     false
-            ).show().unbind("submit").submit ->
-                self = this
-                authenticationProxy.makeRequest($("#usrname", this).val(), $("#pass", this).val()).done((data) ->
-                    util.setLogin()
-                    $.bbq.removeState "display"
+
+                $("#ui-dialog-title-login_popup").attr "rel", "localize[log_in]"
+
+            else if settings.authenticationType == "shibboleth"
+                # Shibboleth deals with username and password on the IdP-server side. Therefore I ripped out the login window
+                # Note that this code is called *after* successful login via Shibboleth. -- matthies 28.11.13
+
+                # We don't have a username/password, so I just call it with dummy values:
+                authenticationProxy.makeRequest("dummyuser", "dummypass").done((data) ->
+                    if $("body").hasClass("not_logged_in")
+                        # for some reason the first login after browser start is caught further up (see my comment there)
+                        # and with the user from the previous browser session(!)
+                        # So if setLogin has been called already, we toggle and call it again. -- matthies 28.11.13
+                        util.setLogin()
+                    else
+                        $("body").toggleClass("logged_in not_logged_in")
+                        util.setLogin()
+
+                    $.bbq.removeState("display")
                 ).fail ->
                     c.log "login fail"
-                    $("#pass", self).val ""
-                    $(".err_msg", self).show()
 
-                false
-
-            $("#ui-dialog-title-login_popup").attr "rel", "localize[log_in]"
         else
             $(".ui-dialog").fadeTo 400, 0, ->
                 $(".ui-dialog-content", this).dialog "destroy"

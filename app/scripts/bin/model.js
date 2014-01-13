@@ -649,7 +649,7 @@
           return;
         }
         self.loginObj = {
-	  name: data.username, // this is the only change in model.js: I use the username returned from the authentication proxy (simple_auth.py) -- matthies 28.11.13
+          name: settings.authenticationType === "shibboleth" ? data.username : usr,
           credentials: data.corpora,
           auth: auth
         };

@@ -124,17 +124,19 @@
 					<li id="korplink"><a href="/korp" class="follow_link" rel="localize[korp]"></a></li>
 <!--					<li id="korplablink"><a href="/korplabb" class="follow_link" rel="localize[korp_lab]"></a></li>
 					<li id="import"><a href="http://spraakbanken.gu.se/korp/annoteringslabbet"
-						class="follow_link" rel="localize[import_chain]"></a></li>
+						class="follow_link" rel="localize[import_chain]"></a></li> -->
 <!--					<li><a href="http://www.helsinki.fi/yliopisto/" class="follow_link" rel="localize[university]"></a></li> -->
-					<li id="login" ><a href="https://testsp.funet.fi/shibboleth/WAYF?entityID=sp.korp-test.csc.fi&return=https%3A%2F%2Fkorp-test.csc.fi%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dhttps%253A%252F%252Fkorp-test.csc.fi%252F%2523display%253Dlogin" rel="localize[log_in]"></a></li>
-<!--					<li id="login" ><a href="javascript:" rel="localize[log_in]"></a></li> -->
+					<li id="login" ><a href="javascript:" rel="localize[log_in]"></a></li>
+                                <!-- Shibboleth login link is created by changing (in JS code) the value of the href attribute above to the one specified in config.js (settings.shibbolethLoginUrl) (janiemi 2014-01-13). -->
+<!--					<li id="login" ><a href="https://testsp.funet.fi/shibboleth/WAYF?entityID=sp.korp-test.csc.fi&return=https%3A%2F%2Fkorp-test.csc.fi%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dhttps%253A%252F%252Fkorp-test.csc.fi%252F%2523display%253Dlogin" rel="localize[log_in]"></a></li> -->
 				</ul>
-				<div class ="link" id="log_out" ><a href="https://korp-test.csc.fi/Shibboleth.sso/Logout?return=https%3A%2F%2Fkorp-test.csc.fi%2F">
-					<span rel="localize[log_out]">Logga ut</span> <span class="usrname"></span> 
-				</a></div>
-<!--				<div class="link" id="log_out">
+				<div class="link" id="log_out">
 					<span rel="localize[log_out]">Logga ut</span> <span class="usrname"></span>
-				</div> -->
+				</div>
+                                <!-- Shibboleth logout link is created by adding (in JS code) an "a" element with a URL specified in config.js (settings.shibbolethLogoutUrl) (janiemi 2014-01-13). -->
+<!--				<div class="link" id="log_out" ><a href="https://korp-test.csc.fi/Shibboleth.sso/Logout?return=https%3A%2F%2Fkorp-test.csc.fi%2F">
+					<span rel="localize[log_out]">Logga ut</span> <span class="usrname"></span>
+				</a></div> -->
 				<div id="languages">
 	  				<a href="javascript:" rel="localize[finnish]" data-mode="fi">Finska</a>
 	  				<a href="javascript:" rel="localize[swedish]" data-mode="sv">Svenska</a>
