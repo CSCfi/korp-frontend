@@ -419,129 +419,11 @@ sattrlist.parfin = $.extend(
 );
 
 
-/*
-settings.parallel_corpora.parrus = {
-    "default" : "parrus_fi",
-    parrus_fi : {
-	id : "parrus_fi",
-	lang : "fi",
-        parent : "parrus",
-        title: "ParRus suomi–venäjä-rinnakkaiskorpus",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: attrlist.mulcold_fi,
-        struct_attributes : {}
-    },
-    parrus_ru : {
-	id : "parrus_ru",
-	lang : "ru",
-        parent : "parrus",
-        title: "ParRus suomi–venäjä-rinnakkaiskorpus",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: attrlist.mulcold_ru,
-        struct_attributes : {},
-        hide : true
-    }
-};
-
-
-settings.parallel_corpora.mulcold_firu = {
-    "default" : "mulcold_firu_fi",
-    mulcold_firu_fi : {
-	id : "mulcold_firu_fi",
-	lang : "fi",
-        parent : "mulcold_firu",
-        title: "MULCOLD suomi–venäjä",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: attrlist.mulcold_fi,
-        struct_attributes : sattrlist.mulcold
-    },
-    mulcold_firu_ru : {
-	id : "mulcold_firu_ru",
-	lang : "ru",
-        parent : "mulcold_firu",
-        title: "MULCOLD suomi–venäjä",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: attrlist.mulcold_ru,
-        struct_attributes : sattrlist.mulcold,
-        hide : true
-    }
-};
-
-
-settings.parallel_corpora.mulcold_fiensvru = {
-    "default" : "mulcold_fiensvru_fi",
-    mulcold_fiensvru_fi : {
-	id : "mulcold_fiensvru_fi",
-	lang : "fi",
-        parent : "mulcold_fiensvru",
-        title: "MULCOLD suomi–englanti–ruotsi–venäjä",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: attrlist.mulcold_fi,
-        struct_attributes : sattrlist.mulcold
-    },
-    mulcold_fiensvru_en : {
-	id : "mulcold_fiensvru_en",
-	lang : "en",
-        parent : "mulcold_fiensvru",
-        title: "MULCOLD suomi–englanti–ruotsi–venäjä",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: attrlist.mulcold_en,
-        struct_attributes : sattrlist.mulcold,
-        hide : true
-    },
-    mulcold_fiensvru_sv : {
-	id : "mulcold_fiensvru_sv",
-	lang : "sv",
-        parent : "mulcold_fiensvru",
-        title: "MULCOLD suomi–englanti–ruotsi–venäjä",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: attrlist.mulcold_sv,
-        struct_attributes : sattrlist.mulcold,
-        hide : true
-    },
-    mulcold_fiensvru_ru : {
-	id : "mulcold_fiensvru_ru",
-	lang : "ru",
-        parent : "mulcold_fiensvru",
-        title: "MULCOLD suomi–englanti–ruotsi–venäjä",
-        context: context.defaultAligned, 
-        within: {
-            "sentence": "sentence"
-        }, 
-        attributes: attrlist.mulcold_ru,
-        struct_attributes : sattrlist.mulcold,
-        hide : true
-    }
-};
-*/
-
 settings.corpora.mulcold_fi = {
     id : "mulcold_fi",
     lang : "fi",
-    parent : "mulcold",
     linked_to : ["mulcold_en", "mulcold_sv", "mulcold_ru", "mulcold_de"],
-    title: "MULCOLD – Multilingual Corpus of Legal Documents",
+    title: "MULCOLD – Multilingual Corpus of Legal Documents (suomi)",
     description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned, 
     within: {
@@ -554,9 +436,8 @@ settings.corpora.mulcold_fi = {
 settings.corpora.mulcold_en = {
     id : "mulcold_en",
     lang : "en",
-    parent : "mulcold",
     linked_to : ["mulcold_fi", "mulcold_sv", "mulcold_ru", "mulcold_de"],
-    title: "MULCOLD – Multilingual Corpus of Legal Documents",
+    title: "MULCOLD – Multilingual Corpus of Legal Documents (englanti)",
     description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned, 
     within: {
@@ -570,9 +451,8 @@ settings.corpora.mulcold_en = {
 settings.corpora.mulcold_sv = {
     id : "mulcold_sv",
     lang : "sv",
-    parent : "mulcold",
     linked_to : ["mulcold_fi", "mulcold_en", "mulcold_ru", "mulcold_de"],
-    title: "MULCOLD – Multilingual Corpus of Legal Documents",
+    title: "MULCOLD – Multilingual Corpus of Legal Documents (ruotsi)",
     description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned, 
     within: {
@@ -586,9 +466,8 @@ settings.corpora.mulcold_sv = {
 settings.corpora.mulcold_ru = {
     id : "mulcold_ru",
     lang : "ru",
-    parent : "mulcold",
     linked_to : ["mulcold_fi", "mulcold_en", "mulcold_sv", "mulcold_de"],
-    title: "MULCOLD – Multilingual Corpus of Legal Documents",
+    title: "MULCOLD – Multilingual Corpus of Legal Documents (venäjä)",
     description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned, 
     within: {
@@ -602,9 +481,8 @@ settings.corpora.mulcold_ru = {
 settings.corpora.mulcold_de = {
     id : "mulcold_de",
     lang : "de",
-    parent : "mulcold",
     linked_to : ["mulcold_fi", "mulcold_en", "mulcold_sv", "mulcold_ru"],
-    title: "MULCOLD – Multilingual Corpus of Legal Documents",
+    title: "MULCOLD – Multilingual Corpus of Legal Documents (saksa)",
     description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned, 
     within: {
@@ -619,7 +497,6 @@ settings.corpora.mulcold_de = {
 settings.corpora.parfin_fi = {
     id : "parfin_fi",
     lang : "fi",
-    parent : "parfin",
     linked_to : ["parfin_ru"],
     title: "ParFin",
     description : "Suomenkielisiä kaunokirjallisia teoksia ja niiden käännöksiä venäjäksi",
@@ -635,7 +512,6 @@ settings.corpora.parfin_fi = {
 settings.corpora.parfin_ru = {
     id : "parfin_ru",
     lang : "ru",
-    parent : "parfin",
     linked_to : ["parfin_fi"],
     title: "ParFin",
     description : "Suomenkielisiä kaunokirjallisia teoksia ja niiden käännöksiä venäjäksi",

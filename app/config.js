@@ -967,8 +967,8 @@ settings.corpora.metsatalo = {
 
 
 settings.corpora.kotus_klassikot = {
-    title : "Suomen kielen klassikoita -korpus (näyte)",
-    description : "Suomen kielen klassikoita",
+    title : "Suomalaisen kirjallisuuden klassikoita (näyte)",
+    description : "Suomalaisen kirjallisuuden klassikoita",
     id : "kotus_klassikot",
     within : settings.defaultWithin,
     context : settings.defaultContext,
