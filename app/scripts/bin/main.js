@@ -155,12 +155,18 @@
       return location.href = $(this).find(":selected").val();
     });
     loadCorpora();
+    if (!sessionStorage.getItem("newSession")) {
+      sessionStorage.setItem("newSession", true);
+      $.jStorage.deleteKey("creds");
+      c.log("delete creds");
+    }
     creds = $.jStorage.get("creds");
     $.sm.start();
     if (creds) {
       authenticationProxy.loginObj = creds;
       util.setLogin();
     }
+    c.log("creds", creds);
     tab_a_selector = "ul .ui-tabs-anchor";
     $("#search-tab").tabs({
       event: "change",

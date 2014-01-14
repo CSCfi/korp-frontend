@@ -137,12 +137,19 @@ $.when(deferred_load, chained, deferred_domReady, deferred_sm, loc_dfd).then ((s
         location.href = $(this).find(":selected").val()
 
     loadCorpora()
+
+    # reset creds if new session --matthies 2014-01-14
+    if not sessionStorage.getItem("newSession")
+        sessionStorage.setItem("newSession", true)
+        $.jStorage.deleteKey("creds")
+        c.log "delete creds"
     creds = $.jStorage.get("creds")
     $.sm.start()
     # for some reason this matches after login after browser start, but not later. --matthies 28.11.13
     if creds
         authenticationProxy.loginObj = creds
         util.setLogin()
+    c.log "creds", creds
 
     tab_a_selector = "ul .ui-tabs-anchor"
 
