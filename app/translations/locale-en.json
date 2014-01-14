@@ -5,7 +5,8 @@
 	"finnish" : "Suomi",
 	"korp" : "Korp",
 	"korp_lab" : "Korp Labs",
-	"university" : "Göteborgs universitet",
+	"university" : "University of Helsinki",
+	"language_bank" : "The Language Bank of Finland",
 	"modern_texts" : "Modern",
 	"parallel_texts" : "Parallel",
 	"faroese_texts" : "Faroese",
@@ -16,6 +17,10 @@
 	"lb_texts" : "Litteraturbanken",
 	"siberian_texts" : "Siberian German",
 	"lawroom" : "Habeas Corpus",
+	"old_finnish_texts" : "Old Literary Finnish",
+ 	"finnish_national_library_texts" : "Finnish National Library",
+	"swedish_texts" : "Swedish",
+	"other_languages_texts" : "Other languages",
 	"search_history" : "Search history",
 	"about" : "About Korp",
 	"about_body" : "Korp is the concordance search tool of Språkbanken (The Swedish Language Bank). For more information, comments or suggestions, <a href='mailto:sb-info@svenska.gu.se'>contact us</a>.",
@@ -205,5 +210,7 @@
 	"saldom" : "modern",
     "dalinm" : "19th century",
     "swedbergm" : "17th century",
-    "fsvm" : "old swedish"
+    "fsvm" : "old swedish",
+
+	"privacy" : "Privacy policy"
 }

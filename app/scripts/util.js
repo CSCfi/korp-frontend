@@ -148,12 +148,13 @@ function loadCorporaFolderRecursive(first_level, folder) {
 	if (first_level) 
 		outHTML = '<ul>';
 	else {
-		outHTML = '<ul title="' + folder.title + '" description="' + folder.description + '">';
+		// KLUDGE: Mark unselected folders in description (janiemi 2013-12-19)
+		outHTML = '<ul title="' + folder.title + '" description="' + folder.description + (folder["unselected"] ? "### unselected" : "") + '">';
 	}
 	if(folder) { //This check makes the code work even if there isn't a ___settings.corporafolders = {};___ in config.js
 		// Folders
 		$.each(folder, function(fol, folVal) {
-			if (fol != "contents" && fol != "title" && fol != "description")
+			if (fol != "contents" && fol != "title" && fol != "description" && fol != "unselected")
 				outHTML += '<li>' + loadCorporaFolderRecursive(false, folVal) + "</li>";
 		});
 		// Corpora

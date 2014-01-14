@@ -23,12 +23,20 @@ settings.modeConfig = [
         mode: "parallel"
     },
     {
+	localekey: "finnish_national_library_texts",
+	mode: "finnish_national_library"
+    },
+    {
 	localekey: "old_finnish_texts",
 	mode: "old_finnish"
     },
     {
-	localekey: "finnish_national_library_texts",
-	mode: "finnish_national_library"
+	localekey: "swedish_texts",
+	mode: "swedish"
+    },
+    {
+	localekey: "other_languages_texts",
+	mode: "other_languages"
     }
 ];
 
@@ -678,30 +686,6 @@ settings.corporafolders.legal = {
     contents : ["legal_fi", "mulcold_fi"]
 };
 
-settings.corporafolders.foreign = {
-    title : "Muunkielisiä tekstejä"
-};
-
-settings.corporafolders.foreign.sv = {
-    title : "Ruotsinkielisiä tekstejä",
-    contents : ["mulcold_sv"]
-};
-
-settings.corporafolders.foreign.en = {
-    title : "Englanninkielisiä tekstejä",
-    contents : ["mulcold_en"]
-};
-
-settings.corporafolders.foreign.de = {
-    title : "Saksankielisiä tekstejä",
-    contents : ["mulcold_de"]
-};
-
-settings.corporafolders.foreign.ru = {
-    title : "Venäjänkielisiä tekstejä",
-    contents : ["legal_ru", "mulcold_ru"]
-};
-
 settings.corporafolders.test = {
     title : "Demo- ja testiaineistoja",
     contents : ["metsatalo"]
@@ -747,6 +731,29 @@ settings.corpora.testcorp = {
 };
 */
 
+/*
+settings.corpora.testcorp_deptree = {
+    title : "Dependenssipuutesti",
+    description : "Testikorpus Korpin dependenssipuun piirtämisen testaamiseksi",
+    id : "testcorp_deptree",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+	lemma : attrs.baseform_ftb2,
+        pos : attrs.pos_ftb2,
+	msd : attrs.msd,
+	dephead : attrs.dephead,
+	deprel : attrs.deprel_ftb2,
+	ref : attrs.ref,
+	spoken : attrs.spoken,
+	lex : attrs.lemgram_hidden
+    },
+    struct_attributes : {
+	sentence_id : sattrs.sentence_id_hidden
+    }
+};
+*/
+
 settings.corpora.ftb2 = {
     title : "FinnTreeBank 2",
     description : "Finnish tree bank, version 2",
@@ -759,6 +766,7 @@ settings.corpora.ftb2 = {
 	msd : attrs.msd,
 	dephead : attrs.dephead,
 	deprel : attrs.deprel_ftb2,
+	ref : attrs.ref,
 	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
@@ -830,10 +838,11 @@ settings.corpora.ftb3_europarl = {
 	msd : attrs.msd,
 	dephead : attrs.dephead,
 	deprel : attrs.deprel_ftb2,
+	ref : attrs.ref,
 	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
-	file_name : {
+	text_filename : {
 	    label : "file_name",
 	},
 	chapter_id : {
@@ -907,19 +916,20 @@ settings.corpora.ftb3_jrcacquis = {
 	msd : attrs.msd,
 	dephead : attrs.dephead,
 	deprel : attrs.deprel_ftb2,
+	ref : attrs.ref,
 	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
-	file_name : {
+	text_filename : {
 	    label : "file_name",
 	},
-	file_title : {
+	text_title : {
 	    label : "file_title",
 	},
-	file_codetitle : {
+	text_codetitle : {
 	    label : "file_codetitle",
 	},
-	file_url : {
+	text_url : {
 	    label : "file_url",
 	    type : "url",
 	},
@@ -946,6 +956,7 @@ settings.corpora.metsatalo = {
 	msd : attrs.msd,
 	dephead : attrs.dephead,
 	deprel : attrs.deprel_ftb2,
+	ref : attrs.ref,
 	spoken : attrs.spoken,
 	lex : attrs.lemgram_hidden
     },
@@ -1690,16 +1701,6 @@ settings.corpora.legal_fi = {
     struct_attributes : sattrlist.legal
 };
 
-settings.corpora.legal_ru = {
-    id : "legal_ru",
-    title: "FiRuLex venäjä",
-    description : "Jurdisia tekstejä (venäjä)",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
-    attributes: attrlist.mulcold_ru,
-    struct_attributes : sattrlist.legal
-};
-
 settings.corpora.mulcold_fi = {
     id : "mulcold_fi",
     title : "MULCOLD suomi",
@@ -1708,46 +1709,6 @@ settings.corpora.mulcold_fi = {
     within : settings.defaultWithin, 
     attributes: attrlist.mulcold_fi,
     struct_attributes : sattrlist.mulcold
-};
-
-settings.corpora.mulcold_ru = {
-    id : "mulcold_ru",
-    title: "MULCOLD venäjä",
-    description : "Multilingual Corpus of Legal Documents, venäjänkielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
-    attributes: attrlist.mulcold_ru,
-    struct_attributes : sattrlist.mulcold,
-};
-
-settings.corpora.mulcold_en = {
-    id : "mulcold_en",
-    title: "MULCOLD englanti",
-    description : "Multilingual Corpus of Legal Documents, englanninkielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
-    attributes: attrlist.mulcold_en,
-    struct_attributes : sattrlist.mulcold,
-};
-
-settings.corpora.mulcold_sv = {
-    id : "mulcold_sv",
-    title: "MULCOLD ruotsi",
-    description : "Multilingual Corpus of Legal Documents, ruotsinkielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
-    attributes: attrlist.mulcold_sv,
-    struct_attributes : sattrlist.mulcold,
-};
-
-settings.corpora.mulcold_de = {
-    id : "mulcold_de",
-    title: "MULCOLD saksa",
-    description : "Multilingual Corpus of Legal Documents, saksankielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
-    attributes: attrlist.mulcold_de,
-    struct_attributes : sattrlist.mulcold,
 };
 
 

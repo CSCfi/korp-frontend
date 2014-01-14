@@ -2,9 +2,11 @@
 	"docs" : "Användarhandledning",
 	"swedish" : "Svenska",
 	"english" : "English",
+	"finnish" : "Suomi",
 	"korp" : "Korp",
 	"korp_lab" : "Korplabbet",
-	"university" : "Göteborgs universitet",
+	"university" : "Helsingfors universitet",
+	"language_bank" : "Språkbanken i Finland",
 	"modern_texts" : "Moderna",
 	"parallel_texts" : "Parallella",
 	"faroese_texts" : "Färöiska",
@@ -15,6 +17,10 @@
 	"lb_texts" : "Litteraturbanken",
 	"siberian_texts" : "Sibirientyska",
 	"lawroom" : "Lagrummet",
+	"old_finnish_texts" : "Äldre finskt skriftspråk",
+ 	"finnish_national_library_texts" : "Nationalbiblioteket (finska)",
+	"swedish_texts" : "Svenska",
+	"other_languages_texts" : "Andra språk",
 	"search_history" : "Sökhistorik",
 	"about" : "Om Korp",
 	"about_body" : "Korp är Språkbankens konkordansverktyg. För mer information, kommentarer eller förslag, kontakta <a href='mailto:sb-info@svenska.gu.se'>Språkbanken</a>.",
@@ -203,6 +209,7 @@
 	"saldom" : "moderna",
     "dalinm" : "1800-tal",
     "swedbergm" : "1600-tal",
-    "fsvm" : "fornsvenska"
+    "fsvm" : "fornsvenska",
 
+	"privacy" : "Dataskyddsbeskrivning"
 }

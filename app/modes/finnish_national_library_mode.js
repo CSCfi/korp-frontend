@@ -111,7 +111,8 @@ settings.corporafolders.klk_fi.fi_1820 = {
                 "klk_fi_1826",
                 "klk_fi_1827",
                 "klk_fi_1829"
-               ]
+               ],
+    unselected : true
 };
 
 settings.corporafolders.klk_fi.fi_1830 = {
@@ -126,7 +127,8 @@ settings.corporafolders.klk_fi.fi_1830 = {
                 "klk_fi_1837",
                 "klk_fi_1838",
                 "klk_fi_1839"
-               ]
+               ],
+    unselected : true
 };
 
 settings.corporafolders.klk_fi.fi_1840 = {
@@ -140,7 +142,8 @@ settings.corporafolders.klk_fi.fi_1840 = {
                 "klk_fi_1847",
                 "klk_fi_1848",
                 "klk_fi_1849"
-               ]
+               ],
+    unselected : true
 };
 
 settings.corporafolders.klk_fi.fi_1850 = {
@@ -155,7 +158,8 @@ settings.corporafolders.klk_fi.fi_1850 = {
                 "klk_fi_1857",
                 "klk_fi_1858",
                 "klk_fi_1859"
-               ]
+               ],
+    unselected : true
 };
 
 settings.corporafolders.klk_fi.fi_1860 = {
@@ -170,7 +174,8 @@ settings.corporafolders.klk_fi.fi_1860 = {
                 "klk_fi_1867",
                 "klk_fi_1868",
                 "klk_fi_1869"
-               ]
+               ],
+    unselected : true
 };
 
 settings.corporafolders.klk_fi.fi_1870 = {
@@ -185,7 +190,8 @@ settings.corporafolders.klk_fi.fi_1870 = {
                 "klk_fi_1877",
                 "klk_fi_1878",
                 "klk_fi_1879"
-               ]
+               ],
+    unselected : true
 };
 
 settings.corporafolders.klk_fi.fi_1880 = {
@@ -200,7 +206,8 @@ settings.corporafolders.klk_fi.fi_1880 = {
                 "klk_fi_1887",
                 "klk_fi_1888",
                 "klk_fi_1889"
-               ]
+               ],
+    unselected : true
 };
 
 settings.corporafolders.klk_fi.fi_1890 = {
