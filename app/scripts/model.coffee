@@ -524,7 +524,12 @@ class model.AuthenticationProxy
                 dfd.reject()
                 return
             self.loginObj =
-                name: usr
+                name:
+                    # This is the only change for Shibboleth authentication in model.coffee: I use the username returned from the authentication proxy (auth.cgi) -- matthies 28.11.13, janiemi 2014-01-13
+                    if settings.authenticationType == "shibboleth"
+                        data.username
+                    else
+                        usr
                 credentials: data.corpora
                 auth: auth
 
