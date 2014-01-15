@@ -426,6 +426,9 @@
 	"kn" : "rinnastuskonjunktio", 
 	"al" : "artikkeli", 
 	"ie" : "infinitiivipartikkeli",
+	"rg" : "perusluku",
+	"an" : "lyhenne",
+	"xx" : "muu",
 	
 	"mx" : "flerordsprefix",	  
 	"sx" : "alkuosa",	  					
