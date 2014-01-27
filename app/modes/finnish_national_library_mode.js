@@ -10,72 +10,80 @@ $("#results-lemgram").remove();
 $("#showLineDiagram").remove();
 
 klk_struct_attrs = {
-    content_label : {
+    text_label : {
         label : "klk_label",
         opts : settings.defaultOptions,
     },
-    content_publ_title : {
+    text_publ_title : {
         label : "klk_publ_title",
         opts : settings.defaultOptions,
     },
     /*
-    content_publ_part : {
+    text_publ_part : {
         label : "klk_publ_part",
         opts : settings.defaultOptions,
     },
     */
-    content_publ_id : {
+    text_publ_id : {
         label : "klk_publ_id",
         opts : settings.defaultOptions,
     },
-    content_issue_date : {
+    text_issue_date : {
         label : "klk_issue_date",
         opts : settings.defaultOptions,
     },
-    content_issue_no : {
+    text_issue_no : {
         label : "klk_issue_no",
         opts : settings.defaultOptions,
     },
-    content_issue_title : {
+    text_issue_title : {
         label : "klk_issue_title",
         opts : settings.defaultOptions,
     },
     /*
-    content_part_name : {
+    text_part_name : {
         label : "klk_part_name",
         opts : settings.defaultOptions,
     },
     */
-    content_elec_date : {
+    text_elec_date : {
         label : "klk_elec_date",
         opts : settings.defaultOptions,
     },
-    content_language : {
+    text_language : {
         label : "klk_language",
         opts : settings.defaultOptions,
     },
     /*
-    content_page_id : {
+    text_page_id : {
         label : "klk_page_id",
         opts : settings.defaultOptions,
     },
     */
-    content_page_no : {
+    text_page_no : {
         label : "klk_page_no",
         opts : settings.defaultOptions,
     },
-    content_sentcount : {
+    text_sentcount : {
         label : "klk_sentcount",
         displayType : "hidden",
     },
-    content_tokencount : {
+    text_tokencount : {
         label : "klk_tokencount",
         displayType : "hidden",
     },
-    content_img_url : {
+    text_img_url : {
         label : "klk_img_url",
         type : "url",
 	displayType : "hidden",
+    },
+    text_dateto : {
+        label : "klk_dateto",
+        displayType : "hidden",
+    },
+    text_datefrom : {
+        label : "klk_datefrom",
+        displayType : "hidden",
     },
     paragraph_id : {
         label : "paragraph_id",

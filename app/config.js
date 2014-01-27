@@ -673,7 +673,7 @@ settings.corporafolders.kotus.ns = {
 
 settings.corporafolders.la = {
     title : "Lauseopin arkisto",
-    contents : ["la_murre"]
+    contents : ["la_murre", "las2"]
 };
 
 settings.corporafolders.sks = {
@@ -1385,9 +1385,106 @@ settings.corpora.la_murre = {
 };
 
 
+settings.corpora.las2 = {
+    title : "LAS2",
+    description : "Edistyneiden suomeoppijoiden korpus",
+    id : "las2",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+	lemma : attrs.baseform,
+        pos : attrs.pos_la,
+        mrp : attrs.msd,
+        fun : attrs.func_la,
+        com : {
+            label : "note",
+        }
+    },
+    struct_attributes : {
+        text_dateto : {
+            label : "text_date",
+        },
+        text_datefrom : {
+            label : "datefrom",
+	    displayType : "hidden",
+        },
+        text_num : {
+            label : "exam_num",
+        },
+        text_inf : {
+            label : "text_inf",
+        },
+        text_tt : {
+            label : "text_tt",
+        },
+        text_te : {
+            label : "text_te",
+        },
+        text_lo : {
+            label : "text_lo",
+        },
+        text_l1 : {
+            label : "text_l1",
+        }, 
+        text_alin_cefr : {
+            label : "text_alin_cefr",
+        }, 
+        text_ylin_cefr : {
+            label : "text_ylin_cefr",
+        },
+        text_tekstin_cefr : {
+            label : "text_tekstin_cefr",
+        },
+	text_inf_url : {
+	    label : "text_inf_url",
+	    type : "url",
+	},
+        div_id : {
+            displayType : "hidden",
+        },
+        div_question : {
+            label : "div_question",
+        },
+        paragraph_id : {
+            displayType : "hidden",
+        },
+        paragraph_type : {
+            displayType : "hidden",
+        },
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_type : {
+            displayType : "hidden",
+        },
+	clause_id : {
+            displayType : "hidden",
+        },
+        clause_type : {
+            label : "clause_type",
+            displayType : "select",
+            translationKey : "clausetype_",
+            dataset : {
+                "affdecl" : "affdecl",
+                "negdecl" : "negdecl",
+                "affint" : "affint",
+                "negint" : "negint",
+                "affopt" : "affopt",
+                "negopt" : "negopt",
+                "muu" : "muu",
+            },
+            opts : settings.liteOptions
+        },
+        clause_fun : {
+            label : "clause_fun",
+        },
+        clause_com : {
+            label : "note",
+        }         
+    }
+};
+
 settings.corpora.sks_kivi_fi = {
-    title : "Aleksis Kivi",
-    description : "Aleksis Kiven painetut teokset, kirjeet ja muu tunnettu tuotanto",
+    title : "Aleksis Kivi (SKS)",
+    description : "Aleksis Kiven painetut teokset, kirjeet ja muu tunnettu tuotanto. Toimittaneet Sakari Katajamäki, Ossi Kokko ja Elina Kela.",
     id : "sks_kivi_fi",
     within : settings.spWithin,
     context : settings.spContext,

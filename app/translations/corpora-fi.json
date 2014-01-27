@@ -21,7 +21,21 @@
 	"sketchy_note":"huomautus luonnoksesta",
 	"other_note":"muu huomautus",
 	"wtype":"sanan tyyppi",	
-	
+
+        "text_date":"päivämäärä",
+        "exam_num":"tentti",
+        "text_inf":"informantti",
+        "text_tt":"tekstilaji",
+        "text_te":"tunniste informantin tekstien joukossa",
+        "text_lo":"ajallinen etäisyys informantin 1. tekstistä (kk)",
+        "text_l1":"informantin ensikieli",
+        "text_alin_cefr":"alin (CEFR)",
+        "text_ylin_cefr":"ylin (CEFR)",
+        "text_inf_url":"lisätietoja informantista",
+        "text_tekstin_cefr":"tekstin taso (CEFR)",
+        "div_question":"kysymys/tehtävänanto",
+        "clause_fun":"lauseen funktio",
+
 	"normalized":"normalisoitu sanamuoto",
 	"skvr_item_osa":"osan numero",
 	"skvr_item_loc":"paikkakunta/pitäjä",
