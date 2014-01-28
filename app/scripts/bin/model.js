@@ -649,7 +649,7 @@
           return;
         }
         self.loginObj = {
-          name: usr,
+          name: settings.authenticationType === "shibboleth" ? data.username : usr,
           credentials: data.corpora,
           auth: auth
         };

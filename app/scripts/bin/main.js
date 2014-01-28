@@ -155,12 +155,18 @@
       return location.href = $(this).find(":selected").val();
     });
     loadCorpora();
+    if (!sessionStorage.getItem("newSession")) {
+      sessionStorage.setItem("newSession", true);
+      $.jStorage.deleteKey("creds");
+      c.log("delete creds");
+    }
     creds = $.jStorage.get("creds");
     $.sm.start();
     if (creds) {
       authenticationProxy.loginObj = creds;
       util.setLogin();
     }
+    c.log("creds", creds);
     tab_a_selector = "ul .ui-tabs-anchor";
     $("#search-tab").tabs({
       event: "change",
@@ -231,6 +237,29 @@
       $("#pass").val("");
       return $("#corpusbox").corpusChooser("redraw");
     });
+    if (settings.authenticationType == null) {
+      settings.authenticationType = "basic";
+    }
+    settings.authenticationType = settings.authenticationType.toLowerCase();
+    switch (settings.authenticationType) {
+      case "shibboleth":
+        if (settings.shibbolethLoginUrl != null) {
+          $("#login").find("a").attr("href", settings.shibbolethLoginUrl);
+        } else {
+          c.log("settings.shibbolethLoginUrl not defined");
+        }
+        if (settings.shibbolethLogoutUrl != null) {
+          $("#log_out").wrapInner("<a href='" + settings.shibbolethLogoutUrl + "'></a>");
+        } else {
+          c.log("settings.shibbolethLogoutUrl not defined");
+        }
+        break;
+      case "basic":
+        $("#login").find("a").attr("href", "javascript:");
+        break;
+      default:
+        $("#login").css("display", "none");
+    }
     onHashChange = function(event, isInit) {
       var corp_array, corpus, data, display, e, hasChanged, page, prevFragment, processed_corp_array, reading, search, showAbout, type, value;
       hasChanged = function(key) {
@@ -284,45 +313,59 @@
           showAbout();
         }
       } else if (display === "login") {
-        $("#login_popup").dialog({
-          height: 220,
-          width: 177,
-          modal: true,
-          resizable: false,
-          create: function() {
-            return $(".err_msg", this).hide();
-          },
-          open: function() {
-            return $(".ui-widget-overlay").hide().fadeIn();
-          },
-          beforeClose: function() {
-            $(".ui-widget-overlay").remove();
-            $("<div />", {
-              "class": "ui-widget-overlay"
-            }).css({
-              height: $("body").outerHeight(),
-              width: $("body").outerWidth(),
-              zIndex: 1001
-            }).appendTo("body").fadeOut(function() {
-              return $(this).remove();
+        if (settings.authenticationType === "basic") {
+          $("#login_popup").dialog({
+            height: 220,
+            width: 177,
+            modal: true,
+            resizable: false,
+            create: function() {
+              return $(".err_msg", this).hide();
+            },
+            open: function() {
+              return $(".ui-widget-overlay").hide().fadeIn();
+            },
+            beforeClose: function() {
+              $(".ui-widget-overlay").remove();
+              $("<div />", {
+                "class": "ui-widget-overlay"
+              }).css({
+                height: $("body").outerHeight(),
+                width: $("body").outerWidth(),
+                zIndex: 1001
+              }).appendTo("body").fadeOut(function() {
+                return $(this).remove();
+              });
+              $.bbq.removeState("display");
+              return false;
+            }
+          }).show().unbind("submit").submit(function() {
+            var self;
+            self = this;
+            authenticationProxy.makeRequest($("#usrname", this).val(), $("#pass", this).val()).done(function(data) {
+              util.setLogin();
+              return $.bbq.removeState("display");
+            }).fail(function() {
+              c.log("login fail");
+              $("#pass", self).val("");
+              return $(".err_msg", self).show();
             });
-            $.bbq.removeState("display");
             return false;
-          }
-        }).show().unbind("submit").submit(function() {
-          var self;
-          self = this;
-          authenticationProxy.makeRequest($("#usrname", this).val(), $("#pass", this).val()).done(function(data) {
-            util.setLogin();
+          });
+          $("#ui-dialog-title-login_popup").attr("rel", "localize[log_in]");
+        } else if (settings.authenticationType === "shibboleth") {
+          authenticationProxy.makeRequest("dummyuser", "dummypass").done(function(data) {
+            if ($("body").hasClass("not_logged_in")) {
+              util.setLogin();
+            } else {
+              $("body").toggleClass("logged_in not_logged_in");
+              util.setLogin();
+            }
             return $.bbq.removeState("display");
           }).fail(function() {
-            c.log("login fail");
-            $("#pass", self).val("");
-            return $(".err_msg", self).show();
+            return c.log("login fail");
           });
-          return false;
-        });
-        $("#ui-dialog-title-login_popup").attr("rel", "localize[log_in]");
+        }
       } else {
         $(".ui-dialog").fadeTo(400, 0, function() {
           return $(".ui-dialog-content", this).dialog("destroy");
