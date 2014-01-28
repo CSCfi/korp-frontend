@@ -2112,7 +2112,7 @@ settings.corpora.klk_sv_1948 = {
 
 settings.corpora.klk_sv_1982 = {
     title : "1982",
-    description : "Ruotsinkielisiä sanoma- ja aikakauslehtiä vuodelta 1941",
+    description : "Ruotsinkielisiä sanoma- ja aikakauslehtiä vuodelta 1982",
     id : "klk_sv_1982",
     within : settings.defaultWithin,
     context : settings.defaultContext,
@@ -2122,7 +2122,7 @@ settings.corpora.klk_sv_1982 = {
 
 settings.corpora.klk_sv_1983 = {
     title : "1983",
-    description : "Ruotsinkielisiä sanoma- ja aikakauslehtiä vuodelta 1941",
+    description : "Ruotsinkielisiä sanoma- ja aikakauslehtiä vuodelta 1983",
     id : "klk_sv_1983",
     within : settings.defaultWithin,
     context : settings.defaultContext,
@@ -2132,7 +2132,7 @@ settings.corpora.klk_sv_1983 = {
 
 settings.corpora.klk_sv_1986 = {
     title : "1986",
-    description : "Ruotsinkielisiä sanoma- ja aikakauslehtiä vuodelta 1941",
+    description : "Ruotsinkielisiä sanoma- ja aikakauslehtiä vuodelta 1986",
     id : "klk_sv_1986",
     within : settings.defaultWithin,
     context : settings.defaultContext,

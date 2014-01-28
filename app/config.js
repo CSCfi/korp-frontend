@@ -12,6 +12,8 @@ settings.textDateAllowBareYears = true;
 
 settings.wordPictureMaxWords = 30;
 
+settings.authenticationType = "basic";
+
 
 settings.modeConfig = [
     {
@@ -1167,6 +1169,7 @@ attrs.pos_la = {
 	"adv:pron:int" : "adv:pron:int",
 	"adv:pron:rel" : "adv:pron:rel",
 	"adv:q" : "adv:q",
+	"cnj" : "cnj",
 	"cnj:coord" : "cnj:coord",
 	"cnj:rel" : "cnj:rel",
 	"cnj:sub" : "cnj:sub",
@@ -1391,6 +1394,7 @@ settings.corpora.las2 = {
     id : "las2",
     within : settings.spWithin,
     context : settings.spContext,
+    limited_access : true,
     attributes : {
 	lemma : attrs.baseform,
         pos : attrs.pos_la,
@@ -1484,7 +1488,7 @@ settings.corpora.las2 = {
 
 settings.corpora.sks_kivi_fi = {
     title : "Aleksis Kivi (SKS)",
-    description : "Aleksis Kiven painetut teokset, kirjeet ja muu tunnettu tuotanto. Toimittaneet Sakari Katajamäki, Ossi Kokko ja Elina Kela.",
+    description : "Aleksis Kiven painetut teokset, kirjeet ja muu tunnettu tuotanto. Toimittaneet Sakari Katajamäki, Ossi Kokko ja Elina Kela. <a href='http://www.edith.fi/kivikorpus/index.htm'>Infosivu</a>",
     id : "sks_kivi_fi",
     within : settings.spWithin,
     context : settings.spContext,

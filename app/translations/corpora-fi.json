@@ -715,6 +715,7 @@
 	"posla_adv:q" : "kvanttoriadverbi",
 	"posla_a:pron:dem" : "demonstratiivinen proadjektiivi",
 	"posla_a:pron:int" : "interrogatiivinen proadjektiivi",
+        "posla_cnj" : "konjunktio",
 	"posla_cnj:coord" : "rinnastuskonjunktio",
 	"posla_cnj:rel" : "konjunktio relatiivilauseessa",
 	"posla_cnj:sub" : "alistuskonjunktio",
