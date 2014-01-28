@@ -733,6 +733,10 @@ settings.corpora.testcorp = {
     struct_attributes : {
 	sentence_id : {
 	    label : "sentence_id"
+	},
+	sentence_url : { 
+	    label : "file_url",
+	    type : "url"
 	}
     }
 };
