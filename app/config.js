@@ -1413,7 +1413,8 @@ settings.corpora.las2 = {
         fun : attrs.func_la,
         com : {
             label : "note",
-        }
+        },
+	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
         text_dateto : {
