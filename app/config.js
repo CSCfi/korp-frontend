@@ -1633,65 +1633,68 @@ settings.corpora.skvr = {
         }
     },
     struct_attributes : {
-	paragraph_id : {
+	text_id : {
             label : "skvr_item_id",
             displayType : "hidden",
         },
-        paragraph_osa : {
+        text_osa : {
             label : "skvr_item_osa",
             opts : settings.defaultOptions,
         },
-        paragraph_loc : {
+        text_loc : {
             label : "skvr_item_loc",
             opts : settings.defaultOptions,
         },
-        paragraph_inf : {
+        text_inf : {
             label : "skvr_item_inf",
             opts : settings.defaultOptions,
         },
-        paragraph_tmp : {
+        text_tmp : {
             label : "skvr_item_tmp",
             opts : settings.defaultOptions,
         },
-        paragraph_col : {
+        text_col : {
             label : "skvr_item_col",
             opts : settings.defaultOptions,
         },
-        paragraph_idn : {
+        text_idn : {
             label : "skvr_item_idn",
             opts : settings.defaultOptions,
         },
-        paragraph_nro : {
+        text_nro : {
             label : "skvr_item_nro",
             opts : settings.defaultOptions,
         },
-        paragraph_sgn : {
+        text_sgn : {
             label : "skvr_item_sgn",
             opts : settings.defaultOptions,
         },
-        paragraph_p_code1 : {
+        text_p_code1 : {
             label : "skvr_item_p_code1",
             opts : settings.defaultOptions,
         },
-        paragraph_p_code2 : {
+        text_p_code2 : {
             label : "skvr_item_p_code2",
             opts : settings.defaultOptions,
         },
-        paragraph_k_code : {
+        text_k_code : {
             label : "skvr_item_k_code",
             opts : settings.defaultOptions,
         },
-        paragraph_y_code : {
+        text_y_code : {
             label : "skvr_item_y_code",
             opts : settings.defaultOptions,
         },
-        paragraph_refs : {
+        text_refs : {
             label : "skvr_item_refs",
             opts : settings.defaultOptions,
 	},
-        paragraph_cpt : {
+        text_cpt : {
             label : "skvr_item_cpt",
             opts : settings.defaultOptions,
+        },
+	paragraph_id : {
+            displayType : "hidden",
         },
         sentence_id : sattrs.sentence_id_hidden,
         sentence_type : {
