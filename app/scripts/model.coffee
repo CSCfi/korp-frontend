@@ -551,7 +551,7 @@ class model.TimeProxy extends BaseProxy
             data:
                 command: "timespan"
                 granularity: "y"
-                corpus: settings.corpusListing.stringifySelected()
+                corpus: settings.corpusListing.stringifyAll()
 
 
     makeRequest: (combined) ->
