@@ -144,6 +144,17 @@ util.searchHash = function(type, value) {
 
 
 function loadCorporaFolderRecursive(first_level, folder) {
+
+    // Format the possible licence type information to be suffixed to
+    // the corpus name in the corpus selector. <span class="..."> does
+    // not seem to work correctly here; it probably disturbs
+    // transforming the corpus selector. (janiemi 2014-02-06)
+    var format_licence_type = function(corpus_id) {
+	var licence_type = settings.corpora[corpus_id]["licence_type"];
+	c.log("licence_type", corpus_id, licence_type);
+	return (licence_type ? ' [' + licence_type.toUpperCase() + ']' : "");
+    }
+
 	var outHTML;
 	if (first_level) 
 		outHTML = '<ul>';
@@ -160,7 +171,8 @@ function loadCorporaFolderRecursive(first_level, folder) {
 		// Corpora
 		if (folder["contents"] && folder["contents"].length > 0) {
 			$.each(folder.contents, function(key, value) {
-				outHTML += '<li id="' + value + '">' + settings.corpora[value]["title"] + '</li>';
+				outHTML += '<li id="' + value + '">' + settings.corpora[value]["title"]
+				+ format_licence_type(value) + '</li>';
 				added_corpora_ids.push(value);
 				
 			});
@@ -176,7 +188,7 @@ function loadCorporaFolderRecursive(first_level, folder) {
 				}
 			}
 			// Add it anyway:
-			outHTML += '<li id="' + val + '">' + settings.corpora[val].title + '</li>';
+			outHTML += '<li id="' + val + '">' + settings.corpora[val].title + format_licence_type(val) + '</li>';
 		}
 	}
 	outHTML += "</ul>";
@@ -259,7 +271,7 @@ function loadCorpora() {
 	    	
 	    	if(corpusObj.limited_access)
 	    		output += $("<div>").localeKey("corpselector_limited").html();
-	    	
+
 	    	return output;
 	    	
 	    	

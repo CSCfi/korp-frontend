@@ -1406,6 +1406,7 @@ settings.corpora.las2 = {
     within : settings.spWithin,
     context : settings.spContext,
     limited_access : true,
+    licence_type : "RES",
     attributes : {
 	lemma : attrs.baseform,
         pos : attrs.pos_la,

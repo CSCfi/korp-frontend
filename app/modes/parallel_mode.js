@@ -506,7 +506,8 @@ settings.corpora.parfin_fi = {
     }, 
     attributes: attrlist.mulcold_fi,
     struct_attributes : sattrlist.parfin,
-    limited_access : true
+    limited_access : true,
+    licence_type : "RES"
 };
 
 settings.corpora.parfin_ru = {
@@ -522,6 +523,7 @@ settings.corpora.parfin_ru = {
     attributes: attrlist.mulcold_ru,
     struct_attributes : sattrlist.parfin,
     limited_access : true,
+    licence_type : "RES",
     hide : true
 };
 
