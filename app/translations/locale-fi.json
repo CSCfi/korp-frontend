@@ -185,7 +185,7 @@
 	"corpselector_corporawith_plur" : "korpusta, joissa",
 	"corpselector_lastupdate" : "Viimeksi päivitetty",
 	"corpselector_supports" : "Tukee laajennettua kontekstia.",
-	"corpselector_limited" : "Korpus on suojattu.",
+	"corpselector_limited" : "Korpus on suojattu; <a class=\"link\" href=\"https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiKayttooikeudet#KorpPalvelu\">tietoa käyttöoikeuksista ja niiden hakemisesta</a>.",
 	"corpselector_time" : "Aineisto päivätty",
 	"corpselector_rest_time" : "Päiväämätön aineisto",
 	"corpselector_time_chosen" : "Valitut aineistot",
