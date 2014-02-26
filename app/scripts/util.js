@@ -135,6 +135,19 @@ util.setJsonLink = function(settings){
 	}
 	$('#json-link').attr('href', settings.url);
 	$('#json-link').show();
+	// Handle other download formats (janiemi 2014-02-24)
+	var download_formats = ["csv", "tsv"];
+	for (var i = 0; i < download_formats.length; i++) {
+	    var format = download_formats[i];
+	    var link_ref = '#' + format + '-link';
+	    $(link_ref).attr('href', 
+			     settings.url.replace('command=query',
+						  'command=query_download')
+			     + '&format=' + format);
+	    $(link_ref).html('<img src="img/' + format + '.png" alt="'
+			     + format.toUpperCase() + '" />');
+	    $(link_ref).show();
+	}
 };
 
 util.searchHash = function(type, value) {

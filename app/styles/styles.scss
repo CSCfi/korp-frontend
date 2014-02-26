@@ -1037,6 +1037,14 @@ table {
   }
 }
 
+.download_link {
+  float: right;
+  display: none;
+  img {
+    border: 0px;
+  }
+}
+
 #columns {
   position: relative;
   max-height: 600px;
