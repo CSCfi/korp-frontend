@@ -9,6 +9,7 @@ var isLab = window.isLab || false;
 settings.lemgramSelect = true;
 settings.autocomplete = true;
 settings.textDateAllowBareYears = true;
+settings.downloadFormats = ["csv", "tsv"];
 
 settings.wordPictureMaxWords = 30;
 

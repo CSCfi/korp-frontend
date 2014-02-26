@@ -1037,9 +1037,12 @@ table {
   }
 }
 
-.download_link {
+#download-links {
   float: right;
   display: none;
+}
+
+.download_link {
   img {
     border: 0px;
   }

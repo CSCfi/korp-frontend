@@ -135,19 +135,26 @@ util.setJsonLink = function(settings){
 	}
 	$('#json-link').attr('href', settings.url);
 	$('#json-link').show();
-	// Handle other download formats (janiemi 2014-02-24)
-	var download_formats = ["csv", "tsv"];
-	for (var i = 0; i < download_formats.length; i++) {
-	    var format = download_formats[i];
-	    var link_ref = '#' + format + '-link';
-	    $(link_ref).attr('href', 
-			     settings.url.replace('command=query',
-						  'command=query_download')
-			     + '&format=' + format);
-	    $(link_ref).html('<img src="img/' + format + '.png" alt="'
-			     + format.toUpperCase() + '" />');
-	    $(link_ref).show();
-	}
+	util.setDownloadLinks(settings);
+};
+
+// Add download links for other formats, defined in
+// settings.downloadFormats (janiemi 2014-02-26)
+util.setDownloadLinks = function(xhr_settings) {
+    var download_links_html = '';
+    for (var i = 0; i < settings.downloadFormats.length; i++) {
+	var format = settings.downloadFormats[i];
+	download_links_html += ('<a href="'
+				+ xhr_settings.url.replace(
+				    'command=query', 'command=query_download')
+				+ '&format=' + format + '"'
+				+ ' id="#' + format + '-link"'
+				+ ' class="download_link"><img src="img/'
+				+ format + '.png" alt="'
+				+ format.toUpperCase() + '" /></a>');
+    }
+    $('#download-links').html(download_links_html);
+    $('#download-links').show();
 };
 
 util.searchHash = function(type, value) {
