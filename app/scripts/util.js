@@ -158,7 +158,11 @@ util.setDownloadLinks = function(xhr_settings, result_data) {
 			{ 
 			    query_params: JSON.stringify(
 				$.deparam.querystring(xhr_settings.url)),
-			    query_result: JSON.stringify(result_data),
+			    // For large results in particular, it
+			    // seems to be faster to perform the query
+			    // again via korp_download.cgi than to
+			    // pass the (processed) query result here.
+			    // query_result: JSON.stringify(result_data),
 			    format: _format
 			});
 		    e.preventDefault();
