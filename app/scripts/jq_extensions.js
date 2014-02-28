@@ -473,23 +473,22 @@ jQuery.fn.customSelect = function() {
 
 
 /*
- * A file generation plugin by Martin Angelov:
+ * A file generation plugin modified from that by Martin Angelov:
  * http://tutorialzine.com/2011/05/generating-files-javascript-php/
- * (assets/jquery.generateFile.js)
+ * (assets/jquery.generateFile.js) (janiemi 2014-02-27)
  */
 
 (function($) {
 
     // Creating a jQuery plugin:
-    $.generateFile = function(options) {
+    $.generateFile = function(script, data) {
 
-        options = options || {};
-        if (! options.script || ! options.filename || ! options.content) {
-            throw new Error("Please enter all the required config options!");
-        }
+        c.log("generateFile", script, data);
+        data = data || {};
 
         // Creating a 1 by 1 px invisible iframe:
         var iframe = $('<iframe>', {
+            id: 'generate-file',
             width: 1,
             height: 1,
             frameborder: 0,
@@ -498,10 +497,11 @@ jQuery.fn.customSelect = function() {
             }
         }).appendTo('body');
 
-        var formHTML = ('<form action="" method="post">' +
-                        '<input type="hidden" name="filename" />' +
-                        '<input type="hidden" name="content" />' +
-                        '</form>');
+        var formHTML = '<form action="" method="post">';
+        for (var key in data) {
+            formHTML += '<input type="hidden" name="' + key + '" />';
+        }
+        formHTML += '</form>';
 
         // Giving IE a chance to build the DOM in
         // the iframe with a short timeout:
@@ -517,14 +517,21 @@ jQuery.fn.customSelect = function() {
             body.html(formHTML);
 
             var form = body.find('form');
-            form.attr('action', options.script);
-            form.find('input[name=filename]').val(options.filename);
-            form.find('input[name=content]').val(options.content);
+            form.attr('action', script);
+            for (var key in data) {
+                form.find('input[name=' + key + ']').val(data[key]);
+            }
 
-            // Submitting the form to download.php. This will
+            // Submitting the form to the download script. This will
             // cause the file download dialog box to appear.
             form.submit();
         }, 50);
+
+	// TODO: Check for a possible error message printed to iframe.
+	// Should $.generateFile have a callback function argument for
+	// handling error messages? How do we recognize an error
+	// message and for how long should we wait for one to appear?
+	// Is it at all possible?
     };
 
 })(jQuery);

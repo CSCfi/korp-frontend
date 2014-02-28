@@ -23,7 +23,9 @@ class BaseResults
         #       this.resetView();
         @$result.find(".error_msg").remove()
         c.log "renderResults", @proxy
-        util.setJsonLink @proxy.prevRequest if @$result.is(":visible")
+        if @$result.is(":visible")
+            util.setJsonLink @proxy.prevRequest
+            util.setDownloadLinks @proxy.prevRequest, data
 
         #$("#result-container").tabs("select", 0);
         disabled = $("#result-container").korptabs("option", "disabled")
@@ -47,6 +49,7 @@ class BaseResults
             .prependTo(@$result)
             .wrapAll "<div class='error_msg'>"
         util.setJsonLink @proxy.prevRequest
+        util.setDownloadLinks @proxy.prevRequest, data
 
     showPreloader: ->
         @$result.add(@$tab).addClass("loading").removeClass "not_loading"
@@ -502,6 +505,7 @@ class view.ExampleResults extends view.KWICResults
                 @renderCompleteResult data
                 @hidePreloader()
                 util.setJsonLink @proxy.prevRequest
+                util.setDownloadLinks @proxy.prevRequest, data
                 @$result.find(".num-result").html prettyNumbers(data.hits)
 
             error: ->

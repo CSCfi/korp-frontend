@@ -35,6 +35,7 @@
       c.log("renderResults", this.proxy);
       if (this.$result.is(":visible")) {
         util.setJsonLink(this.proxy.prevRequest);
+        util.setDownloadLinks(this.proxy.prevRequest, data);
       }
       disabled = $("#result-container").korptabs("option", "disabled");
       newDisabled = $.grep(disabled, function(item) {
@@ -52,7 +53,8 @@
       this.hidePreloader();
       this.resetView();
       $('<object class="korp_fail" type="image/svg+xml" data="img/korp_fail.svg">').append("<img class='korp_fail' src='img/korp_fail.svg'>").add($("<div class='fail_text' />").localeKey("fail_text")).addClass("inline_block").prependTo(this.$result).wrapAll("<div class='error_msg'>");
-      return util.setJsonLink(this.proxy.prevRequest);
+      util.setJsonLink(this.proxy.prevRequest);
+      return util.setDownloadLinks(this.proxy.prevRequest, data);
     };
 
     BaseResults.prototype.showPreloader = function() {
@@ -606,6 +608,7 @@
           _this.renderCompleteResult(data);
           _this.hidePreloader();
           util.setJsonLink(_this.proxy.prevRequest);
+          util.setDownloadLinks(_this.proxy.prevRequest, data);
           return _this.$result.find(".num-result").html(prettyNumbers(data.hits));
         },
         error: function() {

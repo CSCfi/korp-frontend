@@ -1839,6 +1839,7 @@ settings.corpora.mulcold_fi = {
 settings.cgi_prefix = "http://nyklait-09-01.hum.helsinki.fi/cgi-bin/korp/";
 settings.cgi_script = settings.cgi_prefix + "korp.cgi";
 settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
+settings.download_cgi_script = settings.cgi_prefix + "korp_download.cgi";
 
 
 // label values here represent translation keys.

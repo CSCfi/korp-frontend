@@ -135,25 +135,36 @@ util.setJsonLink = function(settings){
 	}
 	$('#json-link').attr('href', settings.url);
 	$('#json-link').show();
-	util.setDownloadLinks(settings);
 };
 
 // Add download links for other formats, defined in
 // settings.downloadFormats (janiemi 2014-02-26)
-util.setDownloadLinks = function(xhr_settings) {
-    var download_links_html = '';
+util.setDownloadLinks = function(xhr_settings, result_data) {
+    c.log("setDownloadLinks data:", result_data);
+    $('#download-links').empty();
     for (var i = 0; i < settings.downloadFormats.length; i++) {
 	var format = settings.downloadFormats[i];
-	download_links_html += ('<a href="'
-				+ xhr_settings.url.replace(
-				    'command=query', 'command=query_download')
-				+ '&format=' + format + '"'
-				+ ' id="#' + format + '-link"'
-				+ ' class="download_link"><img src="img/'
-				+ format + '.png" alt="'
-				+ format.toUpperCase() + '" /></a>');
+	var link_id = format + '-link'
+	$('#download-links').append('<a href="javascript:" '
+				    + ' id="' + link_id + '"'
+				    + ' class="download_link"><img src="img/'
+				    + format + '.png" alt="'
+				    + format.toUpperCase() + '" /></a>');
+	$('#' + link_id).click(
+	    (function(_format) {
+		return function(e) {
+		    $.generateFile(
+			settings.download_cgi_script,
+			{ 
+			    query_params: JSON.stringify(
+				$.deparam.querystring(xhr_settings.url)),
+			    query_result: JSON.stringify(result_data),
+			    format: _format
+			});
+		    e.preventDefault();
+		};
+	    })(format));
     }
-    $('#download-links').html(download_links_html);
     $('#download-links').show();
 };
 
