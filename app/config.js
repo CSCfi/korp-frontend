@@ -14,8 +14,8 @@ settings.downloadFormats = ["csv", "csvp", "tsv"];
 settings.downloadFormatConfig = {
     "csvp": {
 	format: "csv",
-	structs: "*",
-	attrs: "*"
+	structs: "+",
+	attrs: "+"
     }
 };
 
