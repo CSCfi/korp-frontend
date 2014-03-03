@@ -150,24 +150,27 @@ util.setDownloadLinks = function(xhr_settings, result_data) {
 				    + ' class="download_link"><img src="img/'
 				    + format + '.png" alt="'
 				    + format.toUpperCase() + '" /></a>');
+	var download_params = {
+	    query_params: JSON.stringify(
+		$.deparam.querystring(xhr_settings.url)),
+	    // For large results in particular, it seems to be faster
+	    // to perform the query again via korp_download.cgi than
+	    // to pass the (processed) query result here.
+	    // query_result: JSON.stringify(result_data),
+	    format: format,
+	    headings: "true"
+	};
+	if ('downloadFormatConfig' in settings
+	    && format in settings.downloadFormatConfig) {
+	    $.extend(download_params, settings.downloadFormatConfig[format]);
+	}
 	$('#' + link_id).click(
-	    (function(_format) {
+	    (function(params) {
 		return function(e) {
-		    $.generateFile(
-			settings.download_cgi_script,
-			{ 
-			    query_params: JSON.stringify(
-				$.deparam.querystring(xhr_settings.url)),
-			    // For large results in particular, it
-			    // seems to be faster to perform the query
-			    // again via korp_download.cgi than to
-			    // pass the (processed) query result here.
-			    // query_result: JSON.stringify(result_data),
-			    format: _format
-			});
+		    $.generateFile(settings.download_cgi_script, params);
 		    e.preventDefault();
 		};
-	    })(format));
+	    })(download_params));
     }
     $('#download-links').show();
 };

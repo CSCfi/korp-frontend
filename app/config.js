@@ -9,7 +9,15 @@ var isLab = window.isLab || false;
 settings.lemgramSelect = true;
 settings.autocomplete = true;
 settings.textDateAllowBareYears = true;
-settings.downloadFormats = ["csv", "tsv"];
+settings.downloadFormats = ["csv", "csvp", "tsv"];
+
+settings.downloadFormatConfig = {
+    "csvp": {
+	format: "csv",
+	structs: "*",
+	attrs: "*"
+    }
+};
 
 settings.wordPictureMaxWords = 30;
 
