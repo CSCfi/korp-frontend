@@ -134,6 +134,9 @@ util.setJsonLink = function(settings){
 		return;
 	}
 	$('#json-link').attr('href', settings.url);
+	$('#json-link').attr('title', 'JSON');
+	$('#json-link').attr('rel', 'localize[formatdescr_json]');
+	$('#json-link').localize();
 	$('#json-link').show();
 };
 
@@ -145,8 +148,17 @@ util.setDownloadLinks = function(xhr_settings, result_data) {
     for (var i = 0; i < settings.downloadFormats.length; i++) {
 	var format = settings.downloadFormats[i];
 	var link_id = format + '-link'
+	// NOTE: Using attribute rel="localize[...]" to localize the
+	// title attribute requires a small change to
+	// lib/jquery.localize.js. Without that, we could use
+	// util.getLocaleString, but it would not change the
+	// localizations immediately when switching languages but only
+	// after reloading the page.
+	// // var title = util.getLocaleString('formatdescr_' + format);
 	$('#download-links').append('<a href="javascript:" '
 				    + ' id="' + link_id + '"'
+				    + ' title="' + format + '"'
+				    + ' rel="localize[formatdescr_' + format + ']"'
 				    + ' class="download_link"><img src="img/'
 				    + format + '.png" alt="'
 				    + format.toUpperCase() + '" /></a>');
@@ -172,6 +184,7 @@ util.setDownloadLinks = function(xhr_settings, result_data) {
 		};
 	    })(download_params));
     }
+    $('#download-links').localize();
     $('#download-links').show();
 };
 

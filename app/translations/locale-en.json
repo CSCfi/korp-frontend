@@ -52,6 +52,7 @@
     "import_chain" : "Annotation Lab",
     "show_deptree" : "Show Dependency Tree",
     "dep_tree" : "Dependency Tree",
+    "download" : "Download as",
 
 	"is" : "is",
 	"is_not" : "is not",
@@ -211,6 +212,12 @@
     "dalinm" : "19th century",
     "swedbergm" : "17th century",
     "fsvm" : "old swedish",
+
+	"formatdescr_json" : "JavaScript Object Notation (raw format)",
+	"formatdescr_csv" : "Comma-Separated Values (e.g., for importing to a spreadsheet)",
+	"formatdescr_tsv" : "Tab-Separated Values",
+	"formatdescr_vrt" : "VeRticalized Text: Corpus Workbench input format: each word on its own line with attributes, and structures as XML-style elements",
+	"formatdescr_text" : "Plain text with matches marked",
 
 	"privacy" : "Privacy policy"
 }

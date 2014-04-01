@@ -53,6 +53,7 @@
 	"import_chain" : "Annotaatiolaboratorio",
 	"show_deptree" : "Näytä dependenssipuu",
 	"dep_tree" : "Dependenssipuu",
+	"download" : "Lataa tiedostona muodossa:",
 
 	"is" : "on", 
 	"is_not" : "ei ole",
@@ -220,6 +221,12 @@
 	"dalinm" : "1800-luku",
 	"swedbergm" : "1600-luku",
 	"fsvm" : "muinaisruotsi",
+
+	"formatdescr_json" : "JavaScript Object Notation (raakamuoto)",
+	"formatdescr_csv" : "Comma-Separated Values: pilkuilla erotetut arvot (esim. taulukkolaskentaohjelmassa käsiteltäväksi)",
+	"formatdescr_tsv" : "Tab-Separated Values: sarkainmerkeillä (tab) erotetut arvot",
+	"formatdescr_vrt" : "VeRticalized Text: Corpus Workbenchin syötemuoto, jossa kukin sana attribuutteineen omalla rivillään ja rakenteet XML-tyylisinä elementteinä",
+	"formatdescr_text" : "Pelkkä teksti, jossa osumat merkitty",
 
 	"privacy" : "Tietosuojaseloste"
 }

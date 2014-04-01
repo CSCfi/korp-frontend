@@ -52,6 +52,7 @@
 	"import_chain" : "Annoteringslabbet",
 	"show_deptree" : "Visa dependenstråd",
 	"dep_tree" : "Dependenstråd",
+	"download": "Ladda ner som",
 
 	"any_word_placeholder" : "<vilket ord som helst>",
 	"case_insensitive" : "skiftlägesoberoende",
@@ -210,6 +211,12 @@
     "dalinm" : "1800-tal",
     "swedbergm" : "1600-tal",
     "fsvm" : "fornsvenska",
+
+	"formatdescr_json" : "JavaScript Object Notation",
+	"formatdescr_csv" : "Kommaseparerade värden (t ex for att importera till ett kalkylbladsprogram)",
+	"formatdescr_tsv" : "Tabseparerade värden",
+	"formatdescr_vrt" : "VeRticalized Text: Corpus Workbench inputformat",
+	"formatdescr_text" : "Klartext med träffar markerade",
 
 	"privacy" : "Dataskyddsbeskrivning"
 }
