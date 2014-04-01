@@ -9,11 +9,24 @@ var isLab = window.isLab || false;
 settings.lemgramSelect = true;
 settings.autocomplete = true;
 settings.textDateAllowBareYears = true;
-settings.downloadFormats = ["csv", "csvp", "tsv"];
+settings.downloadFormats = ["csv", "tsv", "text", "vrt"];
 
 settings.downloadFormatConfig = {
-    "csvp": {
-	format: "csv",
+    "csv": {
+	structs: "+"
+    },
+    // "csvp": {
+    // 	format: "csv",
+    // 	structs: "+",
+    // 	attrs: "+"
+    // },
+    "tsv": {
+	structs: "+"
+    },
+    "text": {
+	structs: "+"
+    },
+    "vrt": {
 	structs: "+",
 	attrs: "+"
     }
