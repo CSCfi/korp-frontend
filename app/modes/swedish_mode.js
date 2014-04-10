@@ -104,10 +104,67 @@ settings.corporafolders = {};
 
 
 settings.corporafolders.klk_sv = {
-    title : "KLK - Ruotsinkieliset lehdet"
+    title : "Kansalliskirjaston lehtikokoelman (KLK) ruotsinkieliset lehdet"
 };
 
 
+var klk_missing_years = [1770, 1779, 1780, 1781, 1786, 1787, 1788, 1790, 1949];
+
+settings.corporafolders.klk_sv.sv_1980 = {
+    title : "1980-luku",
+    contents : ["klk_sv_1986",
+                "klk_sv_1983",
+                "klk_sv_1982"
+               ]
+};
+
+for (var decade = 1940; decade >= 1770; decade -= 10) {
+    var decade_str = decade.toString();
+    var contents = [];
+    for (var year = decade + 9; year >= decade; year--) {
+	if (klk_missing_years.indexOf(year) == -1) {
+	    contents.push("klk_sv_" + year.toString());
+	}
+    }
+    settings.corporafolders.klk_sv["sv_" + decade_str] = {
+	title : decade_str + "-luku",
+	contents : contents
+    };
+    /*
+    if (decade <= 1880) {
+	settings.corporafolders.klk_sv["sv_" + decade_str]["unselected"] = true;
+    }
+    */
+}
+
+var klk_year = function (year)
+{
+    if (klk_missing_years.indexOf(year) != -1) {
+	return;
+    }
+    var year_str = year.toString();
+    var ctx_type = (year <= 1911 ? "sp" : "default");
+    settings.corpora["klk_sv_" + year_str] = {
+	title : "KLK " + year_str,
+	description : "Kansalliskirjaston ruotsinkielisiä sanoma- ja aikakauslehtiä vuodelta " + year_str,
+	id : "klk_sv_" + year_str,
+	within : settings[ctx_type + "Within"],
+	context : settings[ctx_type + "Context"],
+	attributes : klk_pos_attrs,
+	struct_attributes : klk_struct_attrs
+    };
+}
+
+for (var year = 1771; year <= 1948; year += 1) {
+    klk_year(year);
+}
+
+klk_year(1982);
+klk_year(1983);
+klk_year(1986);
+
+
+/*
 settings.corporafolders.klk_sv.sv_1770 = {
     title : "1770-luku",
     contents : ["klk_sv_1771",
@@ -382,7 +439,7 @@ settings.corporafolders.klk_sv.sv_1980 = {
                ]
 };
 
-
+*/
 
 
 settings.corpora.mulcold_sv = {
@@ -394,6 +451,9 @@ settings.corpora.mulcold_sv = {
     attributes: attrlist.mulcold_sv,
     struct_attributes : sattrlist.mulcold,
 };
+
+
+/*
 
 settings.corpora.klk_sv_1771 = {
     title : "1771",
@@ -2139,7 +2199,7 @@ settings.corpora.klk_sv_1986 = {
     attributes : klk_pos_attrs,
     struct_attributes : klk_struct_attrs
 };
-
+*/
 
 
 settings.corpusListing = new CorpusListing(settings.corpora);

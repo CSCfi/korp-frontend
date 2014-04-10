@@ -21,12 +21,14 @@ settings.corporafolders.english = {
 
 settings.corporafolders.german = {
     title : "Saksankielisiä tekstejä",
-    contents : ["mulcold_de"]
+    contents : ["mulcold_de"],
+    unselected : true
 };
 
 settings.corporafolders.russian = {
     title : "Venäjänkielisiä tekstejä",
-    contents : ["legal_ru", "mulcold_ru"]
+    contents : ["legal_ru", "mulcold_ru"],
+    unselected : true
 };
 
 
