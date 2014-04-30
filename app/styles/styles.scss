@@ -1031,15 +1031,21 @@ table {
 
 #json-link {
   float: right;
+  // Clear floats so that the JSON link is right-justified and not
+  // placed to the left of the download links.
+  clear: both;
   display: none;
   img {
     border: 0px;
   }
 }
 
+#download-links-container {
+  display: none;
+}
+
 #download-links {
   float: right;
-  display: none;
 }
 
 .download_link {
@@ -1050,6 +1056,9 @@ table {
 
 #download-heading {
   float: right;
+  margin-right: 8px;
+  // Try to align vertically with the download link buttons
+  margin-top: -3px;
 }
 
 #columns {
