@@ -141,7 +141,8 @@ util.setJsonLink = function(settings){
 };
 
 // Add download links for other formats, defined in
-// settings.downloadFormats (janiemi 2014-02-26)
+// settings.downloadFormats (Jyrki Niemi <jyrki.niemi@helsinki.fi>
+// 2014-02-26/04-30)
 util.setDownloadLinks = function(xhr_settings, result_data) {
     c.log("setDownloadLinks data:", result_data);
     $('#download-links').empty();
@@ -167,14 +168,24 @@ util.setDownloadLinks = function(xhr_settings, result_data) {
 		$.deparam.querystring(xhr_settings.url)),
 	    // For large results in particular, it seems to be faster
 	    // to perform the query again via korp_download.cgi than
-	    // to pass the (processed) query result here.
+	    // to pass the (processed) query result here. However, for
+	    // a search with a large number of hits and a relatively
+	    // small number of hits shown, it might be more efficient
+	    // to pass the query result. Should we do differently
+	    // depending on the size of the query result?
 	    // query_result: JSON.stringify(result_data),
 	    format: format,
-	    headings: "true"
+	    korp_url: window.location.href,
+	    korp_server_url: settings.cgi_script
 	};
-	if ('downloadFormatConfig' in settings
-	    && format in settings.downloadFormatConfig) {
-	    $.extend(download_params, settings.downloadFormatConfig[format]);
+	if ('downloadFormatParams' in settings) {
+	    if ('*' in settings.downloadFormatParams) {
+		$.extend(download_params, settings.downloadFormatParams['*']);
+	    }
+	    if (format in settings.downloadFormatParams) {
+		$.extend(download_params,
+			 settings.downloadFormatParams[format]);
+	    }
 	}
 	$('#' + link_id).click(
 	    (function(params) {

@@ -11,23 +11,15 @@ settings.autocomplete = true;
 settings.textDateAllowBareYears = true;
 settings.downloadFormats = ["csvp", "csv", "tsv", "text", "vrt"];
 
-settings.downloadFormatConfig = {
-    "csv": {
+settings.downloadFormatParams = {
+    "*": {
 	structs: "+"
     },
     "csvp": {
-	structs: "+",
 	attrs: "+,-lex",
 	match_marker: "***"
     },
-    "tsv": {
-	structs: "+"
-    },
-    "text": {
-	structs: "+"
-    },
     "vrt": {
-	structs: "+",
 	attrs: "+"
     }
 };
