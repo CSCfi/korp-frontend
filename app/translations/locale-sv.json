@@ -213,10 +213,11 @@
     "fsvm" : "fornsvenska",
 
 	"formatdescr_json" : "JavaScript Object Notation",
-	"formatdescr_csv" : "Kommaseparerade värden (t ex for att importera till ett kalkylbladsprogram)",
-	"formatdescr_tsv" : "Tabseparerade värden",
-	"formatdescr_vrt" : "VeRticalized Text: Corpus Workbench inputformat",
-	"formatdescr_text" : "Klartext med träffar markerade",
+	"formatdescr_csv" : "Kommaseparerade värden, en mening per rad, t ex for att importera till ett kalkylbladsprogram. Varje mening är på sin egen rad, som kolumner korpusidentifierare, träffens position, vänsterkontext, träffen, högerkontext, textattribut. Träffen och kontexter innehåller token utan attribut.",
+	"formatdescr_csvp" : "Kommaseparerade värden, ett token per rad, t ex for att importera till ett kalkylbladsprogram. Varje token är på sin egen rad, som kolumner token och sina ordattribut samt en kolumn som markerar token som ingår i träffen. Token av ett mening föregås av en rad som visar korpusidentifierare, träffens position och textattribut för meningen.",
+	"formatdescr_tsv" : "Tabseparerade värden, en mening per rad, t ex for att bearbeta med Unix-stil verktygsprogram. Varje mening är på sin egen rad, som kolumner korpusidentifierare, träffens position, vänsterkontext, träffen, högerkontext, textattribut. Träffen och kontexter innehåller token utan attribut.",
+	"formatdescr_vrt" : "VeRticalized Text: Corpus Workbench inputformat, där varje token är på sin egen rad med sina ordattribut och strukturer som XML-stil elementer",
+	"formatdescr_text" : "Klartext med träffar markerade, en mening per rad, token utan ordattribut, meningens textattribut visade",
 
 	"privacy" : "Dataskyddsbeskrivning"
 }
