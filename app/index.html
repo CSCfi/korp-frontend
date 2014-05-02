@@ -27,14 +27,16 @@
 
 
 
-		<!-- build:js scripts/korp_lib.js -->
+		<!-- build:js scripts/korp_lib1.js -->
 		<script src="components/json3/lib/json3.js"></script>
 		<script src="components/jquery/jquery.js" ></script>
+		<!-- endbuild -->
 		<script>
 		  var isLab = window.location.pathname.split("/")[1] == "korplabb";
 		  if(! window.console) window.console = {"log" : $.noop, "error" : $.noop};
 		  window.c = window.console;
 		</script>
+		<!-- build:js scripts/korp_lib2.js -->
 		<script src="components/jquery-ui/ui/jquery-ui.custom.js"></script>
 		<script src="components/unstable-angular-complete/angular.js"></script>
 		<script src="lib/jquery.localize.js"></script>
