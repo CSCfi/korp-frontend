@@ -1564,6 +1564,7 @@ settings.corpora.sks_kivi_fi = {
     title : "Aleksis Kivi (SKS)",
     description : "Aleksis Kiven painetut teokset, kirjeet ja muu tunnettu tuotanto. Toimittaneet Sakari Katajamäki, Ossi Kokko ja Elina Kela. <a href='http://www.edith.fi/kivikorpus/index.htm'>Infosivu</a>",
     id : "sks_kivi_fi",
+    unselected : true,
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
