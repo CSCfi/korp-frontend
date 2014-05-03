@@ -223,10 +223,10 @@
 	"fsvm" : "muinaisruotsi",
 
 	"formatdescr_json" : "JavaScript Object Notation (raakamuoto)",
-	"formatdescr_csv" : "Comma-Separated Values: pilkuilla erotetut arvot, virke per rivi, esim. taulukkolaskentaohjelmassa käsiteltäväksi. Kukin virke on omana rivinään, sarakkeina korpuksen tunniste, osuman sijainti, vasen konteksti, hakuosuma, oikea konteksti sekä tekstin ominaisuudet. Hakuosuma ja kontekstit sisältävät saneet ilman attribuutteja.",
-	"formatdescr_csvp" : "Comma-Separated Values: pilkuilla erotetut arvot, sane per rivi, esim. taulukkolaskentaohjelmassa käsiteltäväksi. Kukin sane on omana rivinään, sarakkeina sane ja sen attribuutit sekä sarake, joka ilmaisee hakuosumaan sisältyvät sanat. Virkkeen saneita edeltää rivi, joka sisältää korpuksen tunnisteen, osuman sijainnin ja virkkeeseen liittyvät tekstin ominaisuudet.",
-	"formatdescr_tsv" : "Tab-Separated Values: sarkainmerkeillä (tab) erotetut arvot, virke per rivi, esim. Unix-peräisillä tekstityökaluilla käsiteltäväksi. Kullakin rivillä on yksi virke, sarakkeina korpuksen tunniste, osuman sijainti, vasen konteksti, hakuosuma, oikea konteksti sekä tekstin ominaisuudet. Hakuosuma ja kontekstit sisältävät saneet ilman attribuutteja.",
-	"formatdescr_vrt" : "VeRticalized Text: Corpus Workbenchin syötemuoto, jossa kukin sane attribuutteineen on omalla rivillään ja rakenteet XML-tyylisinä elementteinä",
+	"formatdescr_csv" : "Comma-Separated Values: pilkuilla erotetut arvot, virke per rivi, esim. taulukkolaskentaohjelmassa käsiteltäväksi. Joka rivillä on korpustunniste, osuman korpussijainti, vasen konteksti, hakuosuma, oikea konteksti sekä tekstin ominaisuudet. Hakuosuma ja kontekstit sisältävät saneet ilman attribuutteja.",
+	"formatdescr_csvp" : "Comma-Separated Values: pilkuilla erotetut arvot, sane per rivi, esim. taulukkolaskentaohjelmassa käsiteltäväksi. Joka rivillä on sane attribuutteineen sekä mahdollinen hakuosumailmaisin. Osumavirkettä edeltää rivi, joka sisältää korpustunnisteen, osuman korpussijainnin ja virkkeen tekstiominaisuudet.",
+	"formatdescr_tsv" : "Tab-Separated Values: sarkainmerkeillä (tab) erotetut arvot, virke per rivi, esim. Unixin tekstityökaluilla käsiteltäväksi. Kullakin rivillä on yksi virke, sarakkeina korpustunniste, osuman korpussijainti, vasen konteksti, hakuosuma, oikea konteksti sekä tekstin ominaisuudet. Hakuosuma ja kontekstit sisältävät saneet ilman attribuutteja.",
+	"formatdescr_vrt" : "VeRticalized Text: Corpus Workbenchin syötemuoto, jossa kukin rivi sisältää saneen attribuutteineen, ja rakenteet on merkitty XML-tyylisinä elementteinä.",
 	"formatdescr_text" : "Pelkkä teksti, jossa osumat merkitty: virke per rivi, saneet ilman attribuutteja, tekstin ominaisuudet mukana",
 
 	"privacy" : "Tietosuojaseloste"

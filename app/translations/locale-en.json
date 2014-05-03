@@ -214,10 +214,10 @@
     "fsvm" : "old swedish",
 
 	"formatdescr_json" : "JavaScript Object Notation (raw format)",
-	"formatdescr_csv" : "Comma-Separated Values, sentence per row, e.g., for importing to a spreadsheet. Each sentence is on its own row, with columns containing the corpus id, match position, left context, matching tokens, right context and text attributes. The match and contexts contain tokens without attributes.",
-	"formatdescr_csvp" : "Comma-Separated Values, token per row, e.g., for importing to a spreadsheet. Each token is on its own row, with columns containing the token, its attributes and an indicator for tokens within the match. The tokens of a sentence are preceded by a line containing corpus id, match position and text attributes for the sentence.",
+	"formatdescr_csv" : "Comma-Separated Values, sentence per row, e.g., for importing to a spreadsheet. Each row has a corpus id, match position, left context, matching tokens, right context and text attributes. The match and contexts contain tokens without attributes.",
+	"formatdescr_csvp" : "Comma-Separated Values, token per row, e.g., for importing to a spreadsheet. Each row has one text token with attributes and a potential search hit indicator. Each found sentence is preceded by a line with a corpus ID, corpus position and text attributes for the sentence.",
 	"formatdescr_tsv" : "Tab-Separated Values, sentence per line, e.g., for processing with Unix-style text tools. Each sentence is on its own line, with fields containing the corpus id, match position, left context, matching tokens, right context and text attributes. The match and contexts contain tokens without attributes.",
-	"formatdescr_vrt" : "VeRticalized Text: Corpus Workbench input format: each token on its own line with attributes, and structures as XML-style elements",
+	"formatdescr_vrt" : "VeRticalized Text: Corpus Workbench input format: each row contains one token with attributes, and structures are marked with XML-like elements.",
 	"formatdescr_text" : "Plain text with matches marked: sentence per line, tokens without attributes, text attributes shown",
 
 	"privacy" : "Privacy policy"
