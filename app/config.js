@@ -16,8 +16,10 @@ settings.wordPictureMaxWords = 30;
 settings.authenticationType = "basic";
 // Login and logout URLs to use with Shibboleth authentication if
 // authenticationType == "shibboleth"
-settings.shibbolethLoginUrl = "https://testsp.funet.fi/shibboleth/WAYF?entityID=sp.korp-test.csc.fi&return=https%3A%2F%2Fkorp-test.csc.fi%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dhttps%253A%252F%252Fkorp-test.csc.fi%252F%2523display%253Dlogin";
-settings.shibbolethLogoutUrl = "https://korp-test.csc.fi/Shibboleth.sso/Logout?return=https%3A%2F%2Fkorp-test.csc.fi%2F";
+// for eduGAIN / CSC Account:
+settings.shibbolethLoginUrl = "/shibboleth-ds/index.html";
+//settings.shibbolethLoginUrl = "https://haka.funet.fi/shibboleth/WAYF?entityID=https://sp.korp.csc.fi/&return=https%3A%2F%2Fkorp.csc.fi%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dhttps%253A%252F%252Fkorp.csc.fi%252F%2523display%253Dlogin";
+settings.shibbolethLogoutUrl = "https://korp.csc.fi/Shibboleth.sso/Logout?return=https%3A%2F%2Fkorp.csc.fi%2F";
 
 
 settings.modeConfig = [
