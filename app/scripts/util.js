@@ -314,6 +314,12 @@ function loadCorpora() {
 	    	var maybeInfo = "";
 	    	if(corpusObj.description)
 	    		maybeInfo = "<br/><br/>" + corpusObj.description;
+		var corpusExtraInfo = 
+		    util.formatCorpusExtraInfo(corpusObj.info);
+		if (corpusExtraInfo) {
+		    maybeInfo += ((maybeInfo ? "<br/><br/>" : "")
+				  + corpusExtraInfo);
+		}
 	    	var numTokens = corpusObj["info"]["Size"];
 	    	var numSentences = corpusObj["info"]["Sentences"];
 	    	var lastUpdate = corpusObj["info"]["Updated"];
@@ -610,3 +616,39 @@ util.findoutType = function(variable) {
 	       return typeof(variable);
 	   }
 	};
+
+
+util.formatCorpusExtraInfo = function (corpusInfo) {
+    // Format corpus URN and licence information.
+    var key_urn = "URN";
+    var key_licence = "Licence";
+    var key_licence_urn = "Licence_URN";
+    var result = "";
+    if (key_urn in corpusInfo) {
+        result += ($("<span>").localeKey("urn").html() + ": "
+		   + makeUrnLink(corpusInfo[key_urn]));
+    }
+    if (key_licence in corpusInfo) {
+	var licence_text = "";
+	if (key_licence_urn in corpusInfo) {
+	    licence_text = makeUrnLink(corpusInfo[key_licence_urn],
+				       corpusInfo[key_licence]);
+	} else {
+	    licence_text = corpusInfo[key_licence];
+	}
+	if (result) {
+	    result += "<br/>";
+	}
+	result += ($("<span>").localeKey("licence").html() + ": "
+		   + licence_text);
+    }
+    return result;
+}
+
+function makeUrnLink (urn) {
+    // Make a link of a URN. An optional second argument specifies the
+    // link text; if omitted, use the URN.
+    var link_text = (arguments.length > 1 ? arguments[1] : urn);
+    return ("<a href='" + settings.urnResolver + urn + "' target='_blank'>"
+	    + link_text + "</a>");
+}

@@ -229,5 +229,8 @@
 	"formatdescr_vrt" : "VeRticalized Text: Corpus Workbenchin syötemuoto, jossa kukin rivi sisältää saneen attribuutteineen, ja rakenteet on merkitty XML-tyylisinä elementteinä.",
 	"formatdescr_text" : "Pelkkä teksti, jossa osumat merkitty: virke per rivi, saneet ilman attribuutteja, tekstin ominaisuudet mukana",
 
-	"privacy" : "Tietosuojaseloste"
+	"privacy" : "Tietosuojaseloste",
+
+	"urn" : "URN",
+	"licence" : "Lisenssi"
 }

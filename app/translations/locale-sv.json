@@ -219,5 +219,8 @@
 	"formatdescr_vrt" : "VeRticalized Text: Corpus Workbench inputformat, där varje rad har ett token med attribut, och strukturer markeras med XML-liknande element.",
 	"formatdescr_text" : "Klartext med träffar markerade, en mening per rad, token utan ordattribut, meningens textattribut inkluderade",
 
-	"privacy" : "Dataskyddsbeskrivning"
+	"privacy" : "Dataskyddsbeskrivning",
+
+	"urn" : "URN",
+	"licence" : "licens"
 }

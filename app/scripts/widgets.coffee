@@ -17,7 +17,10 @@ Sidebar =
         @element.html '<div id="selected_sentence" /><div id="selected_word" />'
         corpusObj = settings.corpora[corpus]
 
-        $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>#{corpusObj.title}</p>").prependTo "#selected_sentence"
+        formattedCorpusInfo = util.formatCorpusExtraInfo(corpusObj.info)
+        if formattedCorpusInfo
+            formattedCorpusInfo = "<br/>" + formattedCorpusInfo
+        $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>#{corpusObj.title}</p><p>#{formattedCorpusInfo}</p>").prependTo "#selected_sentence"
         unless $.isEmptyObject(corpusObj.attributes)
             $("#selected_word").append $("<h4>").localeKey("word_attr")
 

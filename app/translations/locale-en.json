@@ -220,5 +220,8 @@
 	"formatdescr_vrt" : "VeRticalized Text: Corpus Workbench input format: each row contains one token with attributes, and structures are marked with XML-like elements.",
 	"formatdescr_text" : "Plain text with matches marked: sentence per line, tokens without attributes, text attributes shown",
 
-	"privacy" : "Privacy policy"
+	"privacy" : "Privacy policy",
+
+	"urn" : "URN",
+	"licence" : "Licence"
 }
