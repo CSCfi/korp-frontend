@@ -600,6 +600,10 @@ attrs.origword = {
     label : "word_orig",
     opts : settings.defaultOptions
 };
+attrs.tildeword = {
+    label : "word_tilde",
+    opts : settings.defaultOptions
+};
 attrs.complword = {
     label : "word_completed",
     opts : settings.defaultOptions
@@ -649,6 +653,11 @@ sattrs.sentence_n = {
 sattrs.paragraph_id = {
     label : "paragraph_id"
 };
+
+sattrs.text_time = {
+    label : "text_time"
+};
+
 sattrs.paragraph_type = {
     label : "paragraph_type"
 };
@@ -746,8 +755,21 @@ settings.corporafolders.learner = {
 };
 
 settings.corporafolders.vks = {
-    title : "Vanhan kirjasuomen korpus (näytteitä)",
-    contents : ["vks_biblia", "vks_lait", "vks_saarnat"],
+    title : "Vanhan kirjasuomen korpus",
+    contents : [
+	"vks_agricola",
+	"vks_biblia",
+	"vks_lait",
+	"vks_saarnat",
+	"vks_almanakat",
+	"vks_bjorkqvist",
+	"vks_frosterus",
+	"vks_ganander",
+	"vks_lizelius",
+	"vks_lpetri",
+	"vks_varia",
+	"vks_virret"
+    ],
     unselected : true
 };
 
@@ -2104,8 +2126,28 @@ settings.fn.make_corpus_settings_by_year_decade(
  * Previously in Old Finnish Mode
  */
 
+sattrs.vks_sentence_id = {
+    label : "vks_sentence_id"
+};
+sattrs.vks_sentence_cref = {
+    label : "vks_sentence_cRef"
+};
 sattrs.vks_sentence_code = {
     label : "vks_sentence_code"
+};
+sattrs.vks_sentence_type = {
+    label : "vks_sentence_type",
+    translationKey : "vks_sentence_type_",
+    dataset : {
+	"sentence" : "Sentence",
+	"heading" : "Heading" 
+    }
+};
+sattrs.vks_text_year = {
+    label : "vks_text_year"
+};
+sattrs.vks_text_title = {
+    label : "vks_text_title"
 };
 sattrs.vks_sentence_page = {
     label : "vks_sentence_page"
@@ -2116,6 +2158,11 @@ sattrs.vks_sourcecode_code = {
 sattrs.vks_sourcecode_page = {
     label : "vks_sourcecode_page"
 };    
+sattrs.vks_span_page = {
+    label : "vks_span_page"
+};
+
+/*
 sattrs.vksbib_book_code = {
     label : "vksbib_book_code",
     displayType : "select",
@@ -2181,8 +2228,9 @@ sattrs.vkssaarnat_source_code = {
 };
 sattrs.vkssaarnat_sourcecode_work = $.extend({}, sattrs.vkssaarnat_source_code);
 sattrs.vkssaarnat_sourcecode_work.label = "vkssaarnat_sourcecode_work";
+*/
 
-
+/*
 settings.corpora.vks_biblia = {
     title : "Biblia (näyte)",
     description : "Vuoden 1642 raamatunsuomennos",
@@ -2225,7 +2273,9 @@ settings.corpora.vks_biblia = {
 	span_page : sattrs.vks_sentence_page
     }
 };
+*/
 
+/*
 settings.corpora.vks_lait = {
     title : "Laki- ja asetustekstejä (näyte)",
     description : "Laki- ja asetustekstejä",
@@ -2246,7 +2296,9 @@ settings.corpora.vks_lait = {
 	span_page : sattrs.vks_sentence_page
     }
 };
+*/
 
+/*
 settings.corpora.vks_saarnat = {
     title : "Ruumissaarnoja, puheita ja muistorunoja (näyte)",
     description : "Ruumissaarnoja, puheita ja muistorunoja",
@@ -2265,6 +2317,272 @@ settings.corpora.vks_saarnat = {
 	sentence_id : sattrs.sentence_id_hidden,
 	span_code : sattrs.vks_sentence_code,
 	span_page : sattrs.vks_sentence_page
+    }
+};
+*/
+
+settings.corpora.vks_agricola = {
+    title : "Mikael Agricolan teoksia",
+    description : "Mikael Agricola: Suomalaisen Kirjallisuuden Seuran näköispainossarja Mikael Agricolan teoksista",
+    id : "vks_agricola",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+	word_orig : attrs.origword,
+	word_completed : attrs.complword,
+	word_tilde : attrs.tildeword
+    },
+    struct_attributes : {
+	text_year : sattrs.vks_text_year,
+	text_title : sattrs.vks_text_title,
+	sentence_type : sattrs.vks_sentence_type,
+	sentence_code : sattrs.vks_sentence_code,
+	sentence_id : sattrs.sentence_id_hidden,
+	sentence_cRef : sattrs.vks_sentence_cref,
+	span_page : sattrs.vks_span_page
+    }
+};
+
+settings.corpora.vks_almanakat = {
+    title : "Almanakkoja vuosilta 1705–1809",
+    description : "Almanakkoja vuosilta 1705–1809",
+    id : "vks_almanakat",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+        word_orig : attrs.origword,
+        word_completed : attrs.complword,
+        word_tilde : attrs.tildeword
+    },
+    struct_attributes : {
+        text_year : sattrs.vks_text_year,
+        text_title : sattrs.vks_text_title,
+        sentence_type : sattrs.vks_sentence_type,
+        sentence_code : sattrs.vks_sentence_code,
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_cRef : sattrs.vks_sentence_cref,
+        span_page : sattrs.vks_span_page
+    }
+};
+
+settings.corpora.vks_biblia = {
+    title : "Biblia 1642",
+    description : "Vuoden 1642 raamatunsuomennos",
+    id : "vks_biblia",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+        word_orig : attrs.origword,
+        word_completed : attrs.complword,
+        word_tilde : attrs.tildeword
+    },
+    struct_attributes : {
+        text_year : sattrs.vks_text_year,
+        text_title : sattrs.vks_text_title,
+        sentence_type : sattrs.vks_sentence_type,
+        sentence_code : sattrs.vks_sentence_code,
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_cRef : sattrs.vks_sentence_cref,
+        span_page : sattrs.vks_span_page
+    }
+};
+
+settings.corpora.vks_bjorkqvist = {
+    title : "Bjorkqvist 1801",
+    description : "Uskon harjoitus Autuuteen, Sowitettu niiden Wuotisten \
+Juhla- ja Sunnundai-Päiwäisten Evangeliumein Tutkinnoissa. Osat I–II 1801",
+    id : "vks_bjorkqvist",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+        word_orig : attrs.origword,
+        word_completed : attrs.complword,
+        word_tilde : attrs.tildeword
+    },
+    struct_attributes : {
+        text_year : sattrs.vks_text_year,
+        text_title : sattrs.vks_text_title,
+        sentence_type : sattrs.vks_sentence_type,
+        sentence_code : sattrs.vks_sentence_code,
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_cRef : sattrs.vks_sentence_cref,
+        span_page : sattrs.vks_span_page
+    }
+};
+
+settings.corpora.vks_frosterus = {
+    title : "Frosterus 1791",
+    description : "Hyödyllinen Huwitus Luomisen Töistä, Yxinkertaisille awuxi Jumalan Hywyden Tundoon ja Palweluxeen",
+    id : "vks_frosterus",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+        word_orig : attrs.origword,
+        word_completed : attrs.complword,
+        word_tilde : attrs.tildeword
+    },
+    struct_attributes : {
+        text_year : sattrs.vks_text_year,
+        text_title : sattrs.vks_text_title,
+        sentence_type : sattrs.vks_sentence_type,
+        sentence_code : sattrs.vks_sentence_code,
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_cRef : sattrs.vks_sentence_cref,
+        span_page : sattrs.vks_span_page
+    }
+};
+
+settings.corpora.vks_ganander = {
+    title : "Christfried Ganander 1763–1788",
+    description : "Gananderin teoksia",
+    id : "vks_ganander",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+        word_orig : attrs.origword,
+        word_completed : attrs.complword,
+        word_tilde : attrs.tildeword
+    },
+    struct_attributes : {
+        text_year : sattrs.vks_text_year,
+        text_title : sattrs.vks_text_title,
+        sentence_type : sattrs.vks_sentence_type,
+        sentence_code : sattrs.vks_sentence_code,
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_cRef : sattrs.vks_sentence_cref,
+        span_page : sattrs.vks_span_page
+    }
+};
+
+settings.corpora.vks_lait = {
+    title : "Lakeja ja asetuksia 1500–1810",
+    description : "Lakeja ja asetuksia 1500-, 1600-, 1700- ja 1800-luvuilta",
+    id : "vks_lait",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+        word_orig : attrs.origword,
+        word_completed : attrs.complword,
+        word_tilde : attrs.tildeword
+    },
+    struct_attributes : {
+        text_year : sattrs.vks_text_year,
+        text_title : sattrs.vks_text_title,
+        sentence_type : sattrs.vks_sentence_type,
+        sentence_code : sattrs.vks_sentence_code,
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_cRef : sattrs.vks_sentence_cref,
+        span_page : sattrs.vks_span_page
+    }
+};
+
+settings.corpora.vks_lizelius = {
+    title : "Antti Lizelius 1756–1780",
+    description : "Lizeliuksen teoksia vuosilta 1756–1780",
+    id : "vks_lizelius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+        word_orig : attrs.origword,
+        word_completed : attrs.complword,
+        word_tilde : attrs.tildeword
+    },
+    struct_attributes : {
+        text_year : sattrs.vks_text_year,
+        text_title : sattrs.vks_text_title,
+        sentence_type : sattrs.vks_sentence_type,
+        sentence_code : sattrs.vks_sentence_code,
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_cRef : sattrs.vks_sentence_cref,
+        span_page : sattrs.vks_span_page
+    }
+};
+
+settings.corpora.vks_lpetri = {
+    title : "Laurentius Petri 1644–1670",
+    description : "Laurentius Petrin saarnoja 1644–1670",
+    id : "vks_lpetri",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+        word_orig : attrs.origword,
+        word_completed : attrs.complword,
+        word_tilde : attrs.tildeword
+    },
+    struct_attributes : {
+        text_year : sattrs.vks_text_year,
+        text_title : sattrs.vks_text_title,
+        sentence_type : sattrs.vks_sentence_type,
+        sentence_code : sattrs.vks_sentence_code,
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_cRef : sattrs.vks_sentence_cref,
+        span_page : sattrs.vks_span_page
+    }
+};
+
+settings.corpora.vks_saarnat = {
+    title : "Ruumissaarnoja, puheita ja muistorunoja",
+    description : "Ruumissaarnoja, puheita ja muistorunoja 1600- ja 1700-luvuilta",
+    id : "vks_saarnat",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+        word_orig : attrs.origword,
+        word_completed : attrs.complword,
+        word_tilde : attrs.tildeword
+    },
+    struct_attributes : {
+        text_year : sattrs.vks_text_year,
+        text_title : sattrs.vks_text_title,
+        sentence_type : sattrs.vks_sentence_type,
+        sentence_code : sattrs.vks_sentence_code,
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_cRef : sattrs.vks_sentence_cref,
+        span_page : sattrs.vks_span_page
+    }
+};
+
+settings.corpora.vks_varia = {
+    title : "Varia",
+    description : "Kokoelma tekstejä 1500-, 1600-, 1700- ja 1800-luvuilta",
+    id : "vks_varia",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+        word_orig : attrs.origword,
+        word_completed : attrs.complword,
+        word_tilde : attrs.tildeword
+    },
+    struct_attributes : {
+        text_year : sattrs.vks_text_year,
+        text_title : sattrs.vks_text_title,
+        sentence_type : sattrs.vks_sentence_type,
+        sentence_code : sattrs.vks_sentence_code,
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_cRef : sattrs.vks_sentence_cref,
+        span_page : sattrs.vks_span_page
+    }
+};
+
+settings.corpora.vks_virret = {
+    title : "Virret",
+    description : "Virsiä",
+    id : "vks_virret",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+        word_orig : attrs.origword,
+        word_completed : attrs.complword,
+        word_tilde : attrs.tildeword
+    },
+    struct_attributes : {
+        text_year : sattrs.vks_text_year,
+        text_title : sattrs.vks_text_title,
+        sentence_type : sattrs.vks_sentence_type,
+        sentence_code : sattrs.vks_sentence_code,
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_cRef : sattrs.vks_sentence_cref,
+        span_page : sattrs.vks_span_page
     }
 };
 

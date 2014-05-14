@@ -536,8 +536,8 @@
 	"vksbib_chapter_bibleref" : "lisäehto: kirja luku",
 	"vksbib_verse_code" : "lisäehto: jae",
 	"vksbib_verse_bibleref" : "lisäehto: kirja luku:jae",
-	"vks_sentence_code" : "lisäehto: lähdekoodi",
-	"vks_sentence_page" : "lisäehto: sivu",
+	"vks_sentence_code" : "lähdekoodi",
+	"vks_sentence_page" : "sivu",
 
 	"vks_sourcecode_work" : "teos",
 	"vksbib_sourcecode_book" : "kirja",
@@ -549,6 +549,7 @@
 
 	"word_orig" : "alkuperäinen sana",
 	"word_completed" : "täydennetty sana",
+	"word_tilde" : "korjausmerkintä",
 
 	"vksbibbook_Am" : "Amos",
 	"vksbibbook_Dan" : "Daniel",
@@ -855,6 +856,14 @@
 	"text_period" : "tekstin ajankohta",
 	"text_publisher" : "julkaisija",
 	"text_translator" : "kääntäjä",
+
+ 	"vks_text_year" : "vuosi",
+	"vks_sentence_cRef" : "ristiviittaus",
+	"vks_span_page" : "sivu",
+	"vks_text_title" : "otsikko",
+	"vks_sentence_type" : "virkkeen tyyppi",
+	"vks_sentence_type_heading" : "otsikko",
+	"vks_sentence_type_sentence" : "virke",
 
 	"textgenre_fiction" : "kaunokirjallisuus",
 	"textgenre_law" : "lakiteksti"
