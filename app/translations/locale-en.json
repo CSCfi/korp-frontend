@@ -219,6 +219,7 @@
 	"formatdescr_tsv" : "Tab-Separated Values, sentence per line, e.g., for processing with Unix-style text tools. Each sentence is on its own line, with fields containing the corpus id, match position, left context, matching tokens, right context and text attributes. The match and contexts contain tokens without attributes.",
 	"formatdescr_vrt" : "VeRticalized Text: Corpus Workbench input format: each row contains one token with attributes, and structures are marked with XML-like elements.",
 	"formatdescr_text" : "Plain text with matches marked: sentence per line, tokens without attributes, text attributes shown",
+	"formatdescr_excel" : "Excel spreadsheet (XLS), token per row. Each row has one text token with attributes and a potential search hit indicator. Each found sentence is preceded by a line with a corpus ID, corpus position and text attributes for the sentence.",
 
 	"privacy" : "Privacy policy",
 

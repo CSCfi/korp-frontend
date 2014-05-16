@@ -228,6 +228,7 @@
 	"formatdescr_tsv" : "Tab-Separated Values: sarkainmerkeillä (tab) erotetut arvot, virke per rivi, esim. Unixin tekstityökaluilla käsiteltäväksi. Kullakin rivillä on yksi virke, sarakkeina korpustunniste, osuman korpussijainti, vasen konteksti, hakuosuma, oikea konteksti sekä tekstin ominaisuudet. Hakuosuma ja kontekstit sisältävät saneet ilman attribuutteja.",
 	"formatdescr_vrt" : "VeRticalized Text: Corpus Workbenchin syötemuoto, jossa kukin rivi sisältää saneen attribuutteineen, ja rakenteet on merkitty XML-tyylisinä elementteinä.",
 	"formatdescr_text" : "Pelkkä teksti, jossa osumat merkitty: virke per rivi, saneet ilman attribuutteja, tekstin ominaisuudet mukana",
+	"formatdescr_excel" : "Excel-taulukko (XLS), sane per rivi. Joka rivillä on sane attribuutteineen sekä mahdollinen hakuosumailmaisin. Osumavirkettä edeltää rivi, joka sisältää korpustunnisteen, osuman korpussijainnin ja virkkeen tekstiominaisuudet.",
 
 	"privacy" : "Tietosuojaseloste",
 

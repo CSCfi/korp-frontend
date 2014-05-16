@@ -9,13 +9,17 @@ var isLab = window.isLab || false;
 settings.lemgramSelect = true;
 settings.autocomplete = true;
 settings.textDateAllowBareYears = true;
-settings.downloadFormats = ["csvp", "csv", "tsv", "text", "vrt"];
+settings.downloadFormats = ["csvp", "csv", "excel", "tsv", "text", "vrt"];
 
 settings.downloadFormatParams = {
     "*": {
 	structs: "+"
     },
     "csvp": {
+	attrs: "+,-lex",
+	match_marker: "***"
+    },
+    "excel": {
 	attrs: "+,-lex",
 	match_marker: "***"
     },
