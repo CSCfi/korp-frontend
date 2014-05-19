@@ -866,6 +866,11 @@
 	"vks_sentence_type_sentence" : "virke",
 
 	"textgenre_fiction" : "kaunokirjallisuus",
-	"textgenre_law" : "lakiteksti"
-	
-	}
+	"textgenre_law" : "lakiteksti",
+
+	"text_time" : "kommentin aikaleima",
+	"word_hsfi" : "sana",
+	"text_id" : "tunniste",
+	"text_publicnick" : "kirjoittaja"
+
+}

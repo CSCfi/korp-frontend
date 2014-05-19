@@ -741,6 +741,11 @@ settings.corporafolders.legal = {
     contents : ["ns_saadokset", "legal_fi", "mulcold_fi"]
 };
 
+settings.corporafolders.net = {
+    title : "Verkkotekstejä",
+    contents : ["hsfi"]
+};
+
 settings.corporafolders.other_texts = {
     title : "Muita tekstejä",
     contents : ["ns_presidentti"]
@@ -1046,6 +1051,41 @@ settings.corpora.ftb3_jrcacquis = {
 	}
     }
 };
+
+
+settings.corpora.hsfi = {
+    title : "HS.fi",
+    description : "HS.fi uutiskommenttiaineisto",
+    id : "hsfi",
+    within : settings.spWithin,
+    context : settings.spContext,
+    limited_access : true,
+    licence_type : "ACA",
+    attributes : {
+        word_hsfi : {
+	    label : "word_hsfi",
+	    opts : settings.defaultOptions
+	}
+    },
+    struct_attributes : {
+        sentence_id : sattrs.sentence_id_hidden,
+	text_id : {
+	    label : "text_id"
+	},
+	text_time : {
+	    label : "text_time"
+	},
+	text_publicnick : {
+	    label : "text_publicnick",
+	},
+	text_title : {
+	    label : "text_title"
+	    }
+    }
+
+};
+
+
 
 settings.corpora.metsatalo = {
     title : "Reitti A-siipeen",
