@@ -403,6 +403,27 @@ attrs.pos_mulcold_sv = {
     },
     opts : settings.liteOptions
 };
+attrs.pos_klk = {
+    label : "pos",
+    displayType : "select",
+    translationKey : "pos_klk_",
+    dataset : {
+	"" : "",
+	"A" : "A",
+	"Adp" : "Adp",
+	"Adv" : "Adv",
+	"C" : "C",
+	"Foreign" : "Foreign",
+	"Interj" : "Interj",
+	"N" : "N",
+	"Num" : "Num",
+	"Pron" : "Pron",
+	"Punct" : "Punct",
+	"Symb" : "Symb",
+	"V" : "V"
+    },
+    opts : settings.liteOptions
+};
 attrs.msd = {
 	label : "msd",
 	opts : settings.defaultOptions
@@ -543,6 +564,7 @@ attrs.deprel_ftb2 = {
     label : "deprel",
     displayType : "select",
     translationKey : "deprelftb2_",
+    opts : settings.liteOptions,
     dataset : {
 	"advl" : "advl",
 	"attr" : "attr",
@@ -561,8 +583,70 @@ attrs.deprel_ftb2 = {
 	"subj" : "subj",
 	"voc" : "voc",
 	"_" : "_",
-    },
-    opts : settings.liteOptions
+    }
+};
+attrs.deprel_tdt = {
+    label : "deprel",
+    displayType : "select",
+    translationKey : "deprel_tdt_",
+    opts : settings.liteOptions,
+    dataset : {
+	"_" : "_",
+	"acomp" : "acomp",
+	"adpos" : "adpos",
+	"advcl" : "advcl",
+	"advmod" : "advmod",
+	"amod" : "amod",
+	"appos" : "appos",
+	"arg" : "arg",
+	"aux" : "aux",
+	"auxpass" : "auxpass",
+	"cc" : "cc",
+	"ccomp" : "ccomp",
+	"comp" : "comp",
+	"compar" : "compar",
+	"comparator" : "comparator",
+	"complm" : "complm",
+	"conj" : "conj",
+	"cop" : "cop",
+	"csubj" : "csubj",
+	"csubj-cop" : "csubj-cop",
+	"dep" : "dep",
+	"det" : "det",
+	"dobj" : "dobj",
+	"ellipsis" : "ellipsis",
+	"gobj" : "gobj",
+	"gsubj" : "gsubj",
+	"iccomp" : "iccomp",
+	"infmod" : "infmod",
+	"intj" : "intj",
+	"mark" : "mark",
+	"mod" : "mod",
+	"name" : "name",
+	"neg" : "neg",
+	"nn" : "nn",
+	"nommod" : "nommod",
+	"nommod-own" : "nommod-own",
+	"nsubj" : "nsubj",
+	"nsubj-cop" : "nsubj-cop",
+	"num" : "num",
+	"number" : "number",
+	"parataxis" : "parataxis",
+	"partmod" : "partmod",
+	"poss" : "poss",
+	"preconj" : "preconj",
+	"prt" : "prt",
+	"punct" : "punct",
+	"quantmod" : "quantmod",
+	"rcmod" : "rcmod",
+	"rel" : "rel",
+	"ROOT" : "ROOT",
+	"subj" : "subj",
+	"voc" : "voc",
+	"xcomp" : "xcomp",
+	"xsubj" : "xsubj",
+	"xsubj-cop" : "xsubj-cop"
+    }
 };
 attrs.prefix = {
 	label : "prefix",
@@ -1964,7 +2048,7 @@ settings.corpora.mulcold_fi = {
  * Previously in Finnish National Library mode
  */
 
-klk_struct_attrs = {
+sattrlist.klk = {
     text_label : {
         label : "klk_label",
         opts : settings.defaultOptions,
@@ -2047,13 +2131,45 @@ klk_struct_attrs = {
     sentence_id : sattrs.sentence_id_hidden
 };
 
-klk_pos_attrs = {
+sattrlist.klk_parsed = $.extend({}, sattrlist.klk);
+$.extend(sattrlist.klk_parsed, 
+	 {
+	     sentence_parse_state : {
+		 label : "klk_parse_state",
+		 displayType : "select",
+		 translationKey : "parse_state_",
+		 opts : settings.LiteOptions,
+		 dataset : {
+		     "parsed" : "parsed",
+		     "tagged" : "tagged"
+		 }
+	     },
+	     sentence_local_id : {
+		 label : "local_id",
+		 displayType : "hidden"
+	     }
+	 });
+		 
+attrlist.klk = {
     ocr : {
 	label : "OCR",
-	opts : settings.defaultOptions,
+	opts : settings.defaultOptions
     }
 };
 
+attrlist.klk_parsed = 
+    $.extend(
+	{
+	    lemma : attrs.baseform,
+	    lemmacomp : attrs.baseform_compound,
+	    pos : attrs.pos_klk,
+	    msd : attrs.msd,
+	    dephead : attrs.dephead,
+	    deprel : attrs.deprel_tdt,
+	    ref : attrs.ref,
+	    lex : attrs.lemgram_hidden
+	},
+	attrlist.klk);
 
 // Namespace for functions used in configuring corpora
 settings.fn = {};
@@ -2126,22 +2242,26 @@ settings.fn.make_corpus_settings_by_year_decade = function(
     make_decade(prev_decade);
 };
 
+
 // Construct settings contents for a single KLK corpus
 settings.fn.make_klk_corpus_settings = function(
-    title_format, descr_format, year)
+    title_format, descr_format, year, parsed)
 {
     var year_str = year.toString();
     var ctx_type = (year <= 1911 ? "sp" : "default");
+    var attrs_key = (parsed ? "klk_parsed" : "klk");
     return {
 	title : title_format.replace("{year}", year_str),
 	description : descr_format.replace("{year}", year_str),
 	within : settings[ctx_type + "Within"],
 	context : settings[ctx_type + "Context"],
-	attributes : klk_pos_attrs,
-	struct_attributes : klk_struct_attrs
+	attributes : attrlist[attrs_key],
+	struct_attributes : sattrlist[attrs_key]
     };
 }
 
+
+var klk_fi_parsed_years = settings.fn.make_yearlist(1820, 1999);
 
 // Generate settings.corpora and settings.corporafolders for the
 // Finnish KLK corpora by using the above functions
@@ -2158,12 +2278,15 @@ settings.fn.make_corpus_settings_by_year_decade(
 	return settings.fn.make_klk_corpus_settings(
 	    "KLK suomi {year}",
 	    "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä vuodelta {year}",
-	    year);
+	    year,
+	    klk_fi_parsed_years.indexOf(year) != -1);
     },
     settings.fn.make_yearlist(1820, 2000,
 			      {descending : true,
 			       omit : [1828, 1843]})
 );
+
+delete klk_fi_parsed_years;
 
 
 /*
