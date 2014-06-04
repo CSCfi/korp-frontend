@@ -825,10 +825,12 @@ settings.corporafolders.legal = {
     contents : ["ns_saadokset", "legal_fi", "mulcold_fi"]
 };
 
+/*
 settings.corporafolders.net = {
     title : "Verkkotekstejä",
     contents : ["hsfi"]
 };
+*/
 
 settings.corporafolders.other_texts = {
     title : "Muita tekstejä",
@@ -1168,7 +1170,6 @@ settings.corpora.hsfi = {
     }
 
 };
-
 
 
 settings.corpora.metsatalo = {
