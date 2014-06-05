@@ -16,7 +16,7 @@ settings.corporafolders = {};
 
 settings.corporafolders.english = {
     title : "Englanninkielisiä tekstejä",
-    contents : ["mulcold_en"]
+    contents : ["mulcold_en", "topling"]
 };
 
 settings.corporafolders.german = {
@@ -72,5 +72,14 @@ settings.corpora.legal_ru = {
     struct_attributes : sattrlist.legal
 };
 
+settings.corpora.topling = {
+    id : "topling",
+    title : "TOPLING (näytteitä)",
+    description : "TOPLING (näytteitä)",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes : attrlist.topling,
+    struct_attributes : sattrlist.topling
+};
 
 settings.corpusListing = new CorpusListing(settings.corpora);

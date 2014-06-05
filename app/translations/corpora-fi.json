@@ -942,9 +942,21 @@
 	"textgenre_fiction" : "kaunokirjallisuus",
 	"textgenre_law" : "lakiteksti",
 
-	"text_time" : "kommentin aikaleima",
-	"word_hsfi" : "sana",
-	"text_id" : "tunniste",
-	"text_publicnick" : "kirjoittaja"
+        "text_time" : "kommentin aikaleima",
+        "word_hsfi" : "sana",
+        "text_id" : "tunniste",
+        "text_publicnick" : "kirjoittaja",
 
+        "text_studentno" : "opiskelija",
+        "file_edulevel" : "aineiston tyyppi",
+        "file_round" : "kierros",
+        "file_levelops" : "taso",
+        "file_exercise" : "harjoitus",
+        "file_filetype" : "tiedoston tyyppi",
+        "type" : "tyyppi",
+        "topling_textfield" : "leipäteksti",
+        "topling_to" : "vastaanottaja",
+        "topling_from" : "lähettäjä",
+        "topling_subject" : "aihe",
+        "topling_comment" : "tarkistajan kommentti"
 }

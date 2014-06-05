@@ -428,6 +428,19 @@ attrs.msd = {
 	label : "msd",
 	opts : settings.defaultOptions
 };
+attrs.wordtype = {
+    label : "type",
+    translationkey : 'topling_',
+    dataset : {
+	"text" : "textfield",
+	"to" : "to",
+	"from" : "from",
+	"comment" : "comment",
+	"subject" : "subject"
+    },
+    opts : settings.defaultOptions
+};
+
 attrs.baseform = {
     label : "baseform",
     // type : "set",
@@ -1976,7 +1989,41 @@ attrlist.mulcold_sv = {
 attrlist.mulcold_de = {
 };
 
+attrlist.topling = {
+    lemma : attrs.baseform,
+    type : attrs.wordtype
+};
+
 sattrlist = {};
+
+sattrlist.topling = {
+    sentence_id : sattrs.sentence_id_hidden,
+    text_id : {
+	label : "text_id"
+        },
+    text_student : {
+	label : "text_studentno"
+	},
+    file_edulevel : {
+	label : "file_edulevel"
+	},
+    text_year : {
+	label : "year"
+	},
+    file_round : {
+	label : "file_round"
+	},
+    file_levelops : {
+	label : "file_levelops"
+	},
+    file_exercise : {
+	label : "file_exercise"
+	},
+    file_filetype: {
+	label : "file_filetype"
+	}
+};
+
 sattrlist.mulcold = {
     align_text_code : {
 	label : "text_code"
