@@ -76,8 +76,11 @@ settings.corpora.topling = {
     id : "topling",
     title : "TOPLING (näytteitä)",
     description : "TOPLING (näytteitä)",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
+    context : settings.spContext,
+    within : settings.spWithin,
+    limited_access : true,
+    licence_type : "RES",
+    unselected : true,
     attributes : attrlist.topling,
     struct_attributes : sattrlist.topling
 };

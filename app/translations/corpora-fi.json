@@ -954,9 +954,9 @@
         "file_exercise" : "harjoitus",
         "file_filetype" : "tiedoston tyyppi",
         "type" : "tyyppi",
-        "topling_textfield" : "leipäteksti",
+        "topling_text" : "leipäteksti",
         "topling_to" : "vastaanottaja",
         "topling_from" : "lähettäjä",
         "topling_subject" : "aihe",
-        "topling_comment" : "tarkistajan kommentti"
+        "topling_comment" : "transkriboijan kommentti"
 }

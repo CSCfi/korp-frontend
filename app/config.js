@@ -430,9 +430,10 @@ attrs.msd = {
 };
 attrs.wordtype = {
     label : "type",
-    translationkey : 'topling_',
+    displayType : "select",
+    translationKey : "topling_",
     dataset : {
-	"text" : "textfield",
+	"text" : "text",
 	"to" : "to",
 	"from" : "from",
 	"comment" : "comment",
@@ -1990,7 +1991,6 @@ attrlist.mulcold_de = {
 };
 
 attrlist.topling = {
-    lemma : attrs.baseform,
     type : attrs.wordtype
 };
 
