@@ -1,0 +1,35 @@
+[
+    {
+        "d": "2014-04-29",
+        "h": {
+            "en": "<p>This is another cool thing!</p>",
+            "se": "<p>This is another cool thing!</p>"
+        },
+        "t": {
+            "en": "Even newer new function",
+            "se": "Even newer new function"
+        }
+    },
+    {
+        "d": "2014-04-28",
+        "h": {
+            "en": "<p>This is one cool thing!</p>",
+            "se": "<p>This is one cool thing!</p>"
+        },
+        "t": {
+            "en": "New new function",
+            "se": "New new function"
+        }
+    },
+    {
+        "d": "2014-04-28",
+        "h": {
+            "en": "<p>This is <strong><em>old</em></strong> as hell.\nWe just made it a little bit safer to use.</p>",
+            "se": "<p>This is <strong><em>old</em></strong> as hell.\nWe just made it a little bit safer to use.</p>"
+        },
+        "t": {
+            "en": "New old function",
+            "se": "New old function"
+        }
+    }
+]
