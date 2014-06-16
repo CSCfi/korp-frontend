@@ -1,5 +1,14 @@
 newsdata([
     {
+        "d": "2014-04-30",
+        "h": {
+            "se": "<p>Super new function which is so new you'll wet\nyour <strong><em>pants</em></strong>, Mr. Banana Squid!!! Yes it's true,\nif you don't believe me I will be sad and give you bananas\nor sticks of wood for christmas!</p>"
+        },
+        "t": {
+            "se": "Even newer new function"
+        }
+    },
+    {
         "d": "2014-04-29",
         "h": {
             "se": "<p>This is another cool thing! Please don't use it\nwithout first specifying which way to render your\nresults in the special listing. This allows also for\nincredible stuff when researching internal values in the\ntext fields and other components in different situations.\nUse with care because it will be slower than regular search.</p>"
