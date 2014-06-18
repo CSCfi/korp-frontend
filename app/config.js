@@ -839,6 +839,8 @@ settings.corporafolders.legal = {
     contents : ["ns_saadokset", "legal_fi", "mulcold_fi"]
 };
 
+// Uncomment the following when selecting a folder no longer
+// incorrectly selects protected corpora within it.
 /*
 settings.corporafolders.net = {
     title : "Verkkotekstejä",
@@ -857,11 +859,15 @@ settings.corporafolders.spoken = {
     unselected : true
 };
 
+// Uncomment the following when selecting a folder no longer
+// incorrectly selects protected corpora within it.
+/*
 settings.corporafolders.learner = {
     title : "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
     contents : ["las2"],
     unselected : true
 };
+*/
 
 settings.corporafolders.vks = {
     title : "Vanhan kirjasuomen korpus",
@@ -1638,7 +1644,7 @@ settings.corpora.las2 = {
     attributes : {
 	lemma : attrs.baseform,
         pos : attrs.pos_la,
-        mrp : attrs.msd,
+        msd : attrs.msd,
         fun : attrs.func_la,
         com : {
             label : "note",
@@ -1680,10 +1686,11 @@ settings.corpora.las2 = {
         text_tekstin_cefr : {
             label : "text_tekstin_cefr",
         },
-	text_inf_url : {
-	    label : "text_inf_url",
-	    type : "url",
-	},
+	// // Uncomment when showing info pages is implemented
+	// text_inf_url : {
+	//     label : "text_inf_url",
+	//     type : "url",
+	// },
         div_id : {
             displayType : "hidden",
         },
@@ -2309,7 +2316,7 @@ settings.fn.make_klk_corpus_settings = function(
 }
 
 
-var klk_fi_parsed_years = settings.fn.make_yearlist(1820, 1999);
+var klk_fi_parsed_years = settings.fn.make_yearlist(1820, 2000);
 
 // Generate settings.corpora and settings.corporafolders for the
 // Finnish KLK corpora by using the above functions
