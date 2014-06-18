@@ -50,7 +50,7 @@
 	"send" : "Lähetä",
 	"log_out" : "Kirjaudu ulos",
 	"strict" : "tarkka",
-	"import_chain" : "Annotaatiolaboratorio",
+	"import_chain" : "Annotointilaboratorio",
 	"show_deptree" : "Näytä dependenssipuu",
 	"dep_tree" : "Dependenssipuu",
 	"download" : "Lataa tiedostona muodossa:",
