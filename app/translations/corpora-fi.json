@@ -109,13 +109,13 @@
 	"year_from" : "alkaen vuodesta",
 	"year_to" : "päättyen vuoteen",
 	
-	"url" : "url",
+	"url" : "URL",
 	"referensnummer" : "viitenumero",
 	
 	"text_year" : "year",
 	"text_party" : "party",
-	"date" : "date",
-	"author" : "author",
+	"date" : "päiväys",
+	"author" : "tekijä",
 	"title" : "title",
 	"section" : "section",
 	"genre" : "genre",
@@ -755,6 +755,7 @@
 	"paragraphtype_opener" : "aloitus",
 	"paragraphtype_closer" : "lopetus",
 	"paragraph_topic" : "kappaleen aihe",
+	"paragraph_span" : "kappaleen viittaama aika",
 	"div_type" : "jakson tyyppi",
 	"divtype_section" : "luku",
 	"divtype_section_law" : "lakipykälä",
@@ -1001,6 +1002,12 @@
 	"text_period" : "tekstin ajankohta",
 	"text_publisher" : "julkaisija",
 	"text_translator" : "kääntäjä",
+
+	"author_birthyear" : "tekijän syntymävuosi",
+	"author_deathyear" : "tekijän kuolinvuosi",
+	"original_url" : "alkuperäisteksti",
+	"fulltext_url" : "kokoteksti",
+	"context_url" : "konteksti kokotekstissä",
 
  	"vks_text_year" : "vuosi",
 	"vks_sentence_cRef" : "ristiviittaus",
