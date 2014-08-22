@@ -152,6 +152,11 @@ settings.liteOptions = _.omit.apply(null, [settings.defaultOptions, "starts_with
 var attrs = {};  // positional attributes
 var sattrs = {}; // structural attributes
 
+// TODO: Replace the corpus- or annotation-specific translationKeys in
+// pos and deprel attributes with the generic pos_ and deprel_, so
+// that the translations need not be specified twice in the
+// translations files.
+
 attrs.pos = {
     label : "pos",
     displayType : "select",
@@ -294,23 +299,44 @@ attrs.pos_kotus = {
     displayType : "select",
     translationKey : "poskotus_",
     dataset : {
+	// Some of the following POS codes might be coding errors in
+	// the corpora (usually very few occurrences): CMPR, D, DA-US,
+	// DA-UUS, DN-INEN, DN-LLINEN, DN-TON, DV-MA (?), DV-TTA,
+	// FORGN, INTJ, P, PROP, REL, null (empty)
 	"A" : "A",
 	"ABBR" : "Abbr",
 	"AD-A" : "AdA",
 	"ADV" : "Adv",
+	"A/N" : "AN",
 	"C" : "Con",
+	"CMPR" : "Cmpr",
+	"D" : "D",
+	"DA-US" : "DaUs",
+	"DA-UUS" : "DaUus",
+	"DN-INEN" : "DnInen",
+	"DN-LLINEN" : "DnLlinen",
+	"DN-TON" : "DnTon",
 	"DV-MA" : "DvMa",
+	"DV-TTA" : "DvTta",
+	"FORGN" : "Forgn",
+	"INTJ" : "Interj",
 	"N" : "N",
 	"NUM" : "Num",
+	"P" : "P",
 	"PCP1" : "Pcp1",
 	"PCP2" : "Pcp2",
 	"PP" : "Pp",
 	"PRON" : "Pron",
+	"PROP" : "Prop",
 	"PSP" : "Post",
 	"PUNCT" : "Punct",
 	"REFL/PRON" : "ReflPron",
+	"REL" : "Rel",
 	"#UNKNOWN" : "Unknown",
-	"V" : "V"
+	"V" : "V",
+	// null corresponds to an __UNDEF__ value in CWB, resulting
+	// from an empty value in the VRT file.
+	"null" : "null"
     },
     opts : settings.liteOptions
 };
