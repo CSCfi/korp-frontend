@@ -139,6 +139,7 @@ Sidebar =
 
         else
             if attrs.translationKey
+                value = attrs?.dataset[value] or value
                 return output.append "<span rel='localize[#{attrs.translationKey}#{value}]'></span>"
             else
                 return output.append "<span>#{value || ''}</span>"
@@ -724,22 +725,27 @@ ExtendedToken =
         arg_value = null
         switch data.displayType
             when "select"
+                arg_value = $("<select />")
+                # keyVals contains the values for data.dataset keys; if
+                # data.dataset is an array, it is an identity mapping
+                if $.isArray(data.dataset)
+                    keys = data.dataset
+                    keyVals = {}
+                    keyVals[key] = key for key in data.dataset
+                else
+                    keys = _.keys(data.dataset)
+                    keyVals = data.dataset
                 sorter = (a, b) ->
                     return a > b  if data.localize is false
                     prefix = data.translationKey or ""
-                    (if util.getLocaleString(prefix + a) >= util.getLocaleString(prefix + b) then 1 else -1)
-                arg_value = $("<select />")
-                if $.isArray(data.dataset)
-                    keys = data.dataset
-                else
-                    keys = _.keys(data.dataset)
+                    (if util.getLocaleString(prefix + keyVals[a]) >= util.getLocaleString(prefix + keyVals[b]) then 1 else -1)
                 keys.sort sorter
                 $.each keys, (_, key) ->
                     opt = $("<option />").val(regescape(key)).appendTo(arg_value)
                     if data.localize is false
-                        opt.text key
+                        opt.text keyVals[key]
                     else
-                        opt.localeKey (data.translationKey or "") + key
+                        opt.localeKey (data.translationKey or "") + keyVals[key]
 
             when "autocomplete"
                 if data.label is "saldo"

@@ -160,6 +160,7 @@
         }));
       } else {
         if (attrs.translationKey) {
+          value = (attrs != null ? attrs.dataset[value] : void 0) || value;
           return output.append("<span rel='localize[" + attrs.translationKey + value + "]'></span>");
         } else {
           return output.append("<span>" + (value || '') + "</span>");
@@ -751,7 +752,7 @@
       return out;
     },
     onArgTypeChange: function(event) {
-      var all_years, arg_value, data, end, from, keys, labelFunc, newSelect, oldOptVal, oldVal, self, slider, sortFunc, sorter, start, target, to, type;
+      var all_years, arg_value, data, end, from, key, keyVals, keys, labelFunc, newSelect, oldOptVal, oldVal, self, slider, sortFunc, sorter, start, target, to, type, _i, _len, _ref;
       self = this;
       target = $(event.currentTarget);
       oldVal = target.parent().siblings(".arg_value:input[type=text]").val() || "";
@@ -760,32 +761,39 @@
       arg_value = null;
       switch (data.displayType) {
         case "select":
+          arg_value = $("<select />");
+          if ($.isArray(data.dataset)) {
+            keys = data.dataset;
+            keyVals = {};
+            _ref = data.dataset;
+            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+              key = _ref[_i];
+              keyVals[key] = key;
+            }
+          } else {
+            keys = _.keys(data.dataset);
+            keyVals = data.dataset;
+          }
           sorter = function(a, b) {
             var prefix;
             if (data.localize === false) {
               return a > b;
             }
             prefix = data.translationKey || "";
-            if (util.getLocaleString(prefix + a) >= util.getLocaleString(prefix + b)) {
+            if (util.getLocaleString(prefix + keyVals[a]) >= util.getLocaleString(prefix + keyVals[b])) {
               return 1;
             } else {
               return -1;
             }
           };
-          arg_value = $("<select />");
-          if ($.isArray(data.dataset)) {
-            keys = data.dataset;
-          } else {
-            keys = _.keys(data.dataset);
-          }
           keys.sort(sorter);
           $.each(keys, function(_, key) {
             var opt;
             opt = $("<option />").val(regescape(key)).appendTo(arg_value);
             if (data.localize === false) {
-              return opt.text(key);
+              return opt.text(keyVals[key]);
             } else {
-              return opt.localeKey((data.translationKey || "") + key);
+              return opt.localeKey((data.translationKey || "") + keyVals[key]);
             }
           });
           break;
