@@ -472,6 +472,7 @@
     }, function() {
       return $(this).css("opacity", "");
     });
+    util.initCorpusSettingsLinkAttrs();
     return initTimeGraph();
   }), function() {
     c.log("failed to load some resource at startup.", arguments);

@@ -440,6 +440,7 @@ $.when(deferred_load, chained, deferred_domReady, deferred_sm, loc_dfd).then ((s
     , ->
         $(this).css "opacity", ""
 
+    util.initCorpusSettingsLinkAttrs()
     initTimeGraph()
 ), ->
     c.log "failed to load some resource at startup.", arguments

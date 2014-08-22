@@ -618,8 +618,8 @@ util.findoutType = function(variable) {
 	};
 
 
+// Format corpus URN and licence information.
 util.formatCorpusExtraInfo = function (corpusInfo) {
-    // Format corpus URN and licence information.
     var key_urn = "URN";
     var key_licence = "Licence";
     var key_licence_urn = "Licence_URN";
@@ -643,12 +643,49 @@ util.formatCorpusExtraInfo = function (corpusInfo) {
 		   + licence_text);
     }
     return result;
-}
+};
 
+// Make a link of a URN. An optional second argument specifies the
+// link text; if omitted, use the URN.
 function makeUrnLink (urn) {
-    // Make a link of a URN. An optional second argument specifies the
-    // link text; if omitted, use the URN.
     var link_text = (arguments.length > 1 ? arguments[1] : urn);
     return ("<a href='" + settings.urnResolver + urn + "' target='_blank'>"
 	    + link_text + "</a>");
 }
+
+
+// Initialize the link_attributes properties in all the corpora in
+// settings.corpora.
+util.initCorpusSettingsLinkAttrs = function () {
+    for (var corpus in settings.corpora) {
+        util.extractLinkAttrs(settings.corpora[corpus])
+    }
+};
+
+// Initialize the link_attributes property in corpusInfo to contain
+// the attributes with type "url" and url_opts.in_link_section true.
+// These attributes are shown in a separate section in the sidebar.
+// The original attributes are marked as hidden.
+util.extractLinkAttrs = function (corpusInfo) {
+    var extractLinkAttrs = function (attrs, link_attrs) {
+        if (attrs !== undefined) {
+            for (var attrname in attrs) {
+		var attr = attrs[attrname]
+                if (attr.type == "url" && attr.url_opts !== undefined
+		    && attr.url_opts.in_link_section) {
+                    link_attrs[attrname] = $.extend(true, {}, attr);
+		    // The original attribute cannot be deleted
+		    // (without making more modifications elsewhere)
+		    // because Korp only requests from the backend the
+		    // attributes mentioned in attributes or
+		    // struct_attributes.
+		    attrs[attrname].displayType = "hidden";
+                }
+            }
+        }
+    }
+    var link_attrs = {};
+    extractLinkAttrs(corpusInfo.attributes, link_attrs);
+    extractLinkAttrs(corpusInfo.struct_attributes, link_attrs);
+    corpusInfo.link_attributes = link_attrs;
+};

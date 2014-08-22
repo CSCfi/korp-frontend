@@ -11,7 +11,7 @@
     },
     updateContent: function(sentenceData, wordData, corpus, tokens) {
       var corpusObj, formattedCorpusInfo;
-      this.element.html('<div id="selected_sentence" /><div id="selected_word" />');
+      this.element.html('<div id="selected_sentence" /><div id="selected_word" /><div id="selected_links" />');
       corpusObj = settings.corpora[corpus];
       formattedCorpusInfo = util.formatCorpusExtraInfo(corpusObj.info);
       if (formattedCorpusInfo) {
@@ -25,6 +25,9 @@
       if (!$.isEmptyObject(corpusObj.struct_attributes)) {
         $("#selected_sentence").append($("<h4>").localeKey("sentence_attr"));
         this.renderContent(sentenceData, corpusObj.struct_attributes).appendTo("#selected_sentence");
+      }
+      if (!$.isEmptyObject(corpusObj.link_attributes)) {
+        this.renderContent(sentenceData, corpusObj.link_attributes).appendTo("#selected_links");
       }
       this.element.localize();
       this.applyEllipse();
@@ -78,11 +81,18 @@
       return $(items);
     },
     renderItem: function(key, value, attrs) {
-      var address, getStringVal, inner, itr, li, lis, output, pattern, prefix, ul, val, valueArray, x;
+      var address, getStringVal, inner, itr, li, link_text, lis, output, pattern, prefix, target, ul, url, val, valueArray, x, _ref, _ref1, _ref2;
       if (attrs.displayType === "hidden" || attrs.displayType === "date_interval") {
         return "";
       }
-      output = $("<p><span rel='localize[" + attrs.label + "]'>" + key + "</span>: </p>");
+      if (attrs.type === "url" && (attrs != null ? (_ref = attrs.url_opts) != null ? _ref.hide_url : void 0 : void 0)) {
+        if (value === "") {
+          return "";
+        }
+        output = $("<p></p>");
+      } else {
+        output = $("<p><span rel='localize[" + attrs.label + "]'>" + key + "</span>: </p>");
+      }
       output.data("attrs", attrs);
       if (value === "|" || value === "") {
         output.append("<i rel='localize[empty]' style='color : grey'>${util.getLocaleString('empty')}</i>");
@@ -152,7 +162,10 @@
       }
       value = (attrs.stringify || _.identity)(value);
       if (attrs.type === "url") {
-        return output.append("<a href='" + value + "' class='exturl sidebar_url'>" + (decodeURI(value)) + "</a>");
+        url = (attrs.url_prefix || "") + value;
+        target = (attrs != null ? (_ref1 = attrs.url_opts) != null ? _ref1.new_window : void 0 : void 0) ? " target='_blank'" : "";
+        link_text = (attrs != null ? (_ref2 = attrs.url_opts) != null ? _ref2.hide_url : void 0 : void 0) ? "<span rel='localize[" + attrs.label + "]'>" + key + "</span>" : decodeURI(value);
+        return output.append("<a href='" + url + "' class='exturl sidebar_url'" + target + ">" + link_text + "</a>");
       } else if (attrs.pattern) {
         return output.append(_.template(attrs.pattern, {
           key: key,
