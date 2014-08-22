@@ -1036,6 +1036,9 @@
 	"original_url" : "alkuperäisteksti",
 	"fulltext_url" : "kokoteksti",
 	"context_url" : "konteksti kokotekstissä",
+	"show_original" : "Näytä alkuperäisteksti",
+	"show_fulltext" : "Näytä kokoteksti",
+	"show_fulltext_context" : "Näytä konteksti kokotekstissä",
 
  	"vks_text_year" : "vuosi",
 	"vks_sentence_cRef" : "ristiviittaus",

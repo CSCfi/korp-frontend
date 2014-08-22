@@ -782,6 +782,7 @@ sattrs.author_birthyear = {
 sattrs.author_deathyear = {
     label : "author_deathyear"
 };
+
 sattrs.fulltext_url = {
     label : "fulltext_url",
     type : "url"
@@ -793,6 +794,34 @@ sattrs.original_url = {
 sattrs.context_url = {
     label : "context_url",
     type : "url"
+};
+
+// Options for URL attributes to be shown as separate links in the
+// search result sidebar; to be used as the value of attribute
+// property url_opts.
+sattrs.link_url_opts = {
+    // Show the the link in a separate link section
+    in_link_section : true,
+    // Hide the URL and use the attribute label as the link text
+    hide_url : true,
+    // Open the link in a new window (or tab)
+    new_window : true,
+};
+
+sattrs.link_fulltext = {
+    label : "show_fulltext",
+    type : "url",
+    url_opts : sattrs.link_url_opts
+};
+sattrs.link_original = {
+    label : "show_original",
+    type : "url",
+    url_opts : sattrs.link_url_opts
+};
+sattrs.link_fulltext_context = {
+    label : "show_fulltext_context",
+    type : "url",
+    url_opts : sattrs.link_url_opts
 };
 
 sattrs.sentence_id_hidden = {
@@ -974,7 +1003,9 @@ settings.fn.add_corpus_settings = function (template, infolist, folder,
     for (var i = 0; i < infolist.length; i++) {
 	var info = infolist[i];
 	var id = id_prefix + info.id;
-	settings.corpora[id] = $.extend({}, template);
+	// Make a deep copy so that the resulting objects can be
+	// safely modified independently of each other if necessary.
+	settings.corpora[id] = $.extend(true, {}, template);
 	$.extend(settings.corpora[id], info);
 	settings.corpora[id].id = id;
 	ids.push(id);
@@ -1396,8 +1427,8 @@ settings.templ.kotus_ns_presidentti = {
 	text_author_birthyear : sattrs.author_birthyear,
 	text_author_deathyear : sattrs.author_deathyear,
 	text_date : sattrs.date,
-	text_url : sattrs.fulltext_url,
-	text_original_url : sattrs.original_url,
+	text_url : sattrs.link_fulltext,
+	text_original_url : sattrs.link_original,
 	paragraph_id : sattrs.paragraph_id,
 	paragraph_type : {
 	    label : "paragraph_type",
