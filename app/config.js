@@ -6,10 +6,23 @@ var settings = {};
 
 var isLab = window.isLab || false;
 
+var isProductionServer = (window.location.hostname.indexOf(".csc.fi") != -1);
+
+c.log("Production server:", isProductionServer);
+
 settings.lemgramSelect = true;
 settings.autocomplete = true;
 settings.textDateAllowBareYears = true;
-settings.downloadFormats = ["csvp", "csv", "excel", "tsv", "text", "vrt"];
+settings.downloadFormats = [
+    "csvp",
+    "csv",
+    "excel",
+    "tsv",
+    "text"
+];
+if (! isProductionServer) {
+    settings.downloadFormats.push("vrt");
+}
 
 settings.downloadFormatParams = {
     "*": {
@@ -31,7 +44,7 @@ settings.downloadFormatParams = {
 settings.wordPictureMaxWords = 30;
 
 // authenticationType: "basic", "shibboleth" or "none"
-settings.authenticationType = "basic";
+settings.authenticationType = (isProductionServer ? "shibboleth" : "basic");
 // Login and logout URLs to use with Shibboleth authentication if
 // authenticationType == "shibboleth"
 // for eduGAIN / CSC Account:
@@ -40,6 +53,11 @@ settings.shibbolethLoginUrl = "/shibboleth-ds/index.html";
 settings.shibbolethLogoutUrl = "https://korp.csc.fi/Shibboleth.sso/Logout?return=https%3A%2F%2Fkorp.csc.fi%2F";
 
 settings.urnResolver = "http://urn.fi/";
+
+settings.cgi_prefix = (isProductionServer ? "/cgi-bin/" : "/cgi-bin/korp/");
+settings.cgi_script = settings.cgi_prefix + "korp.cgi";
+settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
+settings.download_cgi_script = settings.cgi_prefix + "korp_download.cgi";
 
 
 settings.modeConfig = [
@@ -3137,11 +3155,6 @@ settings.corpora.vns_renvall = {
 /*
  * MISC
  */
-
-settings.cgi_prefix = "http://nyklait-09-01.hum.helsinki.fi/cgi-bin/korp/";
-settings.cgi_script = settings.cgi_prefix + "korp.cgi";
-settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
-settings.download_cgi_script = settings.cgi_prefix + "korp_download.cgi";
 
 
 // label values here represent translation keys.
