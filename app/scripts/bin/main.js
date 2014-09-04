@@ -67,7 +67,8 @@
 
   chained.done(function(info_data) {
     return $.each(settings.corpora, function(key) {
-      return settings.corpora[key]["info"] = info_data["corpora"][key.toUpperCase()]["info"];
+      settings.corpora[key]["info"] = info_data["corpora"][key.toUpperCase()]["info"];
+      return util.copyCorpusInfoToConfig(settings.corpora[key]);
     });
   });
 

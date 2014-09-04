@@ -10,10 +10,10 @@
       return dfd = $.Deferred();
     },
     updateContent: function(sentenceData, wordData, corpus, tokens) {
-      var corpusObj, formattedCorpusInfo;
+      var corpusObj, formattedCorpusInfo, _ref;
       this.element.html('<div id="selected_sentence" /><div id="selected_word" /><div id="selected_links" />');
       corpusObj = settings.corpora[corpus];
-      formattedCorpusInfo = util.formatCorpusExtraInfo(corpusObj.info);
+      formattedCorpusInfo = (typeof settings !== "undefined" && settings !== null ? settings.corpusExtraInfo : void 0) ? util.formatCorpusExtraInfo(corpusObj, (_ref = settings.corpusExtraInfo) != null ? _ref.sidebar : void 0) : "";
       if (formattedCorpusInfo) {
         formattedCorpusInfo = "<br/>" + formattedCorpusInfo;
       }

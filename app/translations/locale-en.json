@@ -223,6 +223,9 @@
 
 	"privacy" : "Privacy policy",
 
-	"urn" : "URN",
-	"licence" : "Licence"
+	"corpus_urn" : "URN",
+	"corpus_licence" : "Licence",
+	"corpus_metadata" : "Metadata",
+	"corpus_homepage" : "Home page",
+	"corpus_compiler" : "Compiler"
 }

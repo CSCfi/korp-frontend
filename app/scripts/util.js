@@ -222,13 +222,24 @@ function loadCorporaFolderRecursive(first_level, folder) {
 	if (first_level) 
 		outHTML = '<ul>';
 	else {
-		// KLUDGE: Mark unselected folders in description (janiemi 2013-12-19)
-		outHTML = '<ul title="' + folder.title + '" description="' + folder.description + (folder["unselected"] ? "### unselected" : "") + '">';
+	    // KLUDGE: Mark unselected folders in description (janiemi 2013-12-19)
+	    outHTML = ('<ul title="' + folder.title
+		       + '" description="' + folder.description
+		       + (folder.info && settings.corpusExtraInfo
+			  ? ("<br/><br/>"
+			     + util.formatCorpusExtraInfo(
+				 folder.info,
+				 settings.corpusExtraInfo.corpus_infobox))
+			  : "")
+		       + (folder.unselected ? "### unselected" : "")
+		       + '">');
 	}
 	if(folder) { //This check makes the code work even if there isn't a ___settings.corporafolders = {};___ in config.js
 		// Folders
 		$.each(folder, function(fol, folVal) {
-			if (fol != "contents" && fol != "title" && fol != "description" && fol != "unselected")
+			if (fol != "contents" && fol != "title"
+			    && fol != "description" && fol != "unselected"
+			    && fol != "info")
 				outHTML += '<li>' + loadCorporaFolderRecursive(false, folVal) + "</li>";
 		});
 		// Corpora
@@ -315,7 +326,10 @@ function loadCorpora() {
 	    	if(corpusObj.description)
 	    		maybeInfo = "<br/><br/>" + corpusObj.description;
 		var corpusExtraInfo = 
-		    util.formatCorpusExtraInfo(corpusObj.info);
+		    (settings.corpusExtraInfo
+		     ? util.formatCorpusExtraInfo(
+			 corpusObj, settings.corpusExtraInfo.corpus_infobox)
+		     : undefined);
 		if (corpusExtraInfo) {
 		    maybeInfo += ((maybeInfo ? "<br/><br/>" : "")
 				  + corpusExtraInfo);
@@ -618,39 +632,143 @@ util.findoutType = function(variable) {
 	};
 
 
-// Format corpus URN and licence information.
-util.formatCorpusExtraInfo = function (corpusInfo) {
-    var key_urn = "URN";
-    var key_licence = "Licence";
-    var key_licence_urn = "Licence_URN";
+// Format extra information associated with a corpus object, typically
+// a URN, licence information and various links. An optional second
+// argument specifies a list of items (properties in the corpus
+// configuration) to be formatted.
+//
+// The properties are usually composite objects which may contain the
+// properties "name", "description" (not currently handled) and "url"
+// or "urn". If the information contains "name", it is presented as
+// follows: a label and a colon (unless the property "no_label" is
+// true or the item is "homepage"), followed by the name as a link to
+// the URN or URL (or if neither URN nor URL, no link). Otherwise, the
+// label is a link to the URN or URL. The label is the localized
+// string for the key "corpus_" + item name.
+//
+// If an item needs no separate name, the simple properties X_urn and
+// X_url can be used instead of X: { urn: ... } (similarly for url).
+// The item "urn" is treated specially: it shows the value of the
+// "urn" property as the link text.
+
+util.formatCorpusExtraInfo = function (corpusObj) {
+    var info_items = (arguments.length > 1 && arguments[1]
+                      ? arguments[1]
+                      : ["urn", "metadata", "licence", "homepage", "compiler"]);
+
+    // Get the value of a URN (preferred, prefixed with resolver URL)
+    // or URL property in obj. The optional second argument specifies
+    // the property name prefix to "urn" or "url".
+    var getUrnOrUrl = function (obj) {
+        var prefix = arguments.length > 1 ? arguments[1] : "";
+        return (prefix + "urn" in obj
+                ? settings.urnResolver + obj[prefix + "urn"]
+                : obj[prefix + "url"]);
+    };
+
+    // Return a HTML link (or text) given link_info, which may contain
+    // the properties "label", "url" and "text".
+    var makeLinkItem = function (link_info) {
+        var result = "";
+        if (link_info.label) {
+            result += link_info.label + ": ";
+        }
+        if (link_info.url) {
+            result += ("<a href='" + link_info.url + "' target='_blank'>"
+                       + link_info.text + "</a>");
+        } else if (link_info.text) {
+            result += link_info.text;
+        }
+        return result;
+    };
+
     var result = "";
-    if (key_urn in corpusInfo) {
-        result += ($("<span>").localeKey("urn").html() + ": "
-		   + makeUrnLink(corpusInfo[key_urn]));
-    }
-    if (key_licence in corpusInfo) {
-	var licence_text = "";
-	if (key_licence_urn in corpusInfo) {
-	    licence_text = makeUrnLink(corpusInfo[key_licence_urn],
-				       corpusInfo[key_licence]);
-	} else {
-	    licence_text = corpusInfo[key_licence];
-	}
-	if (result) {
-	    result += "<br/>";
-	}
-	result += ($("<span>").localeKey("licence").html() + ": "
-		   + licence_text);
-    }
+    for (var i = 0; i < info_items.length; i++) {
+        var info_item = info_items[i];
+        var link_info = {};
+        var label = "";
+        // Use rel='localize[...]' instead of util.getLocaleString, so
+        // that the texts are re-localized immediately when switching
+        // languages.
+        label = ("<span rel='localize[corpus_" + info_item + "]'>"
+                 + "Corpus " + info_item + "</span>");
+        if (info_item == "urn" && corpusObj.urn) {
+            link_info = { url: settings.urnResolver + corpusObj.urn,
+                          text: corpusObj.urn,
+                          label: label };
+        } else if (info_item == "homepage" && ! ("homepage" in corpusObj)
+                   && corpusObj.url) {
+            // Assume that the top-level property "url" refers to the
+            // home page of the corpus (unless the there is a property
+            // "homepage").
+            link_info = { url: corpusObj.url,
+                          text: label };
+        } else if (corpusObj[info_item]) {
+            info_obj = corpusObj[info_item];
+            link_info = { url: getUrnOrUrl(info_obj) };
+            if (info_obj.name) {
+                link_info.text = info_obj.name;
+                if (! info_obj.no_label) {
+                    link_info.label = label;
+                }
+            } else {
+                link_info.text = label;
+            }
+        } else if (corpusObj[info_item + "_urn"]
+                   || corpusObj[info_item + "_url"]) {
+            // Simple *_urn or *_url properties
+            link_info = { url: getUrnOrUrl(corpusObj, info_item + "_"),
+                          text: label };
+        }
+        if (link_info.url || link_info.text) {
+            if (result) {
+                result += "<br/>";
+            }
+            result += makeLinkItem(link_info);
+        }
+    }           
     return result;
 };
 
-// Make a link of a URN. An optional second argument specifies the
-// link text; if omitted, use the URN.
-function makeUrnLink (urn) {
-    var link_text = (arguments.length > 1 ? arguments[1] : urn);
-    return ("<a href='" + settings.urnResolver + urn + "' target='_blank'>"
-	    + link_text + "</a>");
+
+// Copy information from the "info" property of corpusObj to the top
+// level of corpusObj. This information may come from the backend
+// .info file or database. The same information can also be specified
+// in top-level properties of the frontend config file, but the
+// information from "info" overrides them, so that this information
+// can be accessed uniformly through the top-level properties. A
+// property name may contain a prefix indicating a section (Metadata,
+// Licence or Compiler): these are converted to separate composite
+// objects in corpusObj. For example, Licence_URL: X, Licence_Name: Y
+// is converted to licence : { url: X, name: Y }.
+
+util.copyCorpusInfoToConfig = function (corpusObj) {
+    var info_key_sects = ["", "Metadata", "Licence", "Compiler"];
+    var info_subkeys = ["Name", "Description", "URN", "URL"];
+    var corpusInfo = corpusObj.info;
+    for (var i = 0; i < info_key_sects.length; i++) {
+        var sect = info_key_sects[i];
+        var sect_name = sect.toLowerCase();
+        var subobj = corpusObj;
+        if (sect != "") {
+            subobj = (sect_name in corpusObj ? corpusObj[sect_name] : {});
+        }
+        var info_key_prefix = sect + (sect == "" ? "" : "_");
+        var added_properties = false;
+        for (var j = 0; j < info_subkeys.length; j++) {
+            var key = info_subkeys[j];
+            var subkey = key.toLowerCase();
+            var value = corpusInfo[info_key_prefix + key];
+            if (value) {
+                subobj[subkey] = value;
+                added_properties = true;
+            }
+        }
+        // Add only non-empty subobjects
+        if (sect != "" && added_properties) {
+            corpusObj[sect_name] = subobj;
+        }
+    }
 }
 
 
@@ -661,6 +779,7 @@ util.initCorpusSettingsLinkAttrs = function () {
         util.extractLinkAttrs(settings.corpora[corpus])
     }
 };
+
 
 // Initialize the link_attributes property in corpusInfo to contain
 // the attributes with type "url" and url_opts.in_link_section true.

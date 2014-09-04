@@ -232,6 +232,9 @@
 
 	"privacy" : "Tietosuojaseloste",
 
-	"urn" : "URN",
-	"licence" : "Lisenssi"
+	"corpus_urn" : "URN",
+	"corpus_licence" : "Lisenssi",
+	"corpus_metadata" : "Kuvailutiedot",
+	"corpus_homepage" : "Kotisivu",
+	"corpus_compiler" : "Koostaja"
 }

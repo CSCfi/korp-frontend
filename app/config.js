@@ -43,6 +43,13 @@ settings.downloadFormatParams = {
 
 settings.wordPictureMaxWords = 30;
 
+// The extra info (usually links) to be shown in the corpus info box
+// of the corpus chooser and the KWIC results sidebar.
+settings.corpusExtraInfo = {
+    corpus_infobox : ["urn", "metadata", "licence", "homepage", "compiler"],
+    sidebar : ["urn", "metadata", "licence"]
+};
+
 // authenticationType: "basic", "shibboleth" or "none"
 settings.authenticationType = (isProductionServer ? "shibboleth" : "basic");
 // Login and logout URLs to use with Shibboleth authentication if

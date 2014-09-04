@@ -56,6 +56,10 @@ chained = deferred_mode.pipe(->
 chained.done (info_data) ->
     $.each settings.corpora, (key) ->
         settings.corpora[key]["info"] = info_data["corpora"][key.toUpperCase()]["info"]
+        # Copy possible URL and URN information in "info" to top-level
+        # properties, so that it can be specified in either the backend
+        # info file or in the frontend config (Jyrki Niemi 2014-09-04).
+        util.copyCorpusInfoToConfig settings.corpora[key]
 
 
 loc_dfd = util.initLocalize()

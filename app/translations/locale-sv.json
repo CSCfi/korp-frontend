@@ -222,6 +222,9 @@
 
 	"privacy" : "Dataskyddsbeskrivning",
 
-	"urn" : "URN",
-	"licence" : "licens"
+	"corpus_urn" : "URN",
+	"corpus_licence" : "Lisens",
+	"corpus_metadata" : "Metadata",
+	"corpus_homepage" : "Hemsida",
+	"corpus_compiler" : "Sammanställare"
 }
