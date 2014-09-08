@@ -47,7 +47,7 @@ settings.wordPictureMaxWords = 30;
 // of the corpus chooser and the KWIC results sidebar.
 settings.corpusExtraInfo = {
     corpus_infobox : ["urn", "metadata", "licence", "homepage", "compiler"],
-    sidebar : ["urn", "metadata", "licence"]
+    sidebar : ["urn", "metadata", "licence", "homepage"]
 };
 
 // authenticationType: "basic", "shibboleth" or "none"
@@ -961,10 +961,29 @@ settings.corporafolders.other_texts = {
 
 settings.corporafolders.other_texts.kotus_ns_presidentti = {
     title : "Tasavallan presidenttien uudenvuodenpuheet",
-    description : "Tasavallan presidenttien uudenvuodenpuheiden kokoelmassa on kaikki tasavallan presidenttien pitämät uudenvuodenpuheet vuosilta 1935–2007. Muutaman kerran puheen on pitänyt joku muu kuin presidentti. Nämäkin puheet sisältyvät aineistoon.<br/>Kokoelma on järjestetty presidenteittäin ja vuosittain. Kokoelma koostuu lehtileikkeistä, konekirjoitusliuskoista, kirjojen sivuista, lehdistötiedotteista ja verkkoteksteistä. Aineistoa on hankittu arkistoista, kirjoista ja Internetistä.<br/><a href='http://kaino.kotus.fi/korpus/teko/meta/presidentti/presidentti_coll_rdf.xml' target='_blank'>Kokoelman etusivu</a><br/><a href='http://www.kotus.fi' target='_blank'>Kotimaisten kielten keskus</a>",
+    description : "Tasavallan presidenttien uudenvuodenpuheiden kokoelmassa on kaikki tasavallan presidenttien pitämät uudenvuodenpuheet vuosilta 1935–2007. Muutaman kerran puheen on pitänyt joku muu kuin presidentti. Nämäkin puheet sisältyvät aineistoon.<br/>Kokoelma on järjestetty presidenteittäin ja vuosittain. Kokoelma koostuu lehtileikkeistä, konekirjoitusliuskoista, kirjojen sivuista, lehdistötiedotteista ja verkkoteksteistä. Aineistoa on hankittu arkistoista, kirjoista ja Internetistä.",
     // Contents will be filled in when constructing the corpus
     // settings
-    contents : []
+    contents : [],
+    info : {
+	// // An example of URN, metadata and licence information
+	// urn : "urn:folder_urn",
+	// metadata_url : "http://example.org/metadata_url",
+	// licence : {
+	//      name : "CLARIN PUB",
+	//      urn : "urn:licence_urn"
+	// },
+	homepage : {
+	    name : "Kokoelman etusivu",
+	    url : "http://kaino.kotus.fi/korpus/teko/meta/presidentti/presidentti_coll_rdf.xml",
+	    no_label : true
+	},
+	compiler : {
+	    name : "Kotimaisten kielten keskus",
+	    url : "http://www.kotus.fi/",
+	    no_label : true
+	}
+    }
 }
 
 settings.corporafolders.spoken = {
@@ -1453,7 +1472,11 @@ settings.templ.kotus_ns_presidentti = {
 	text_author_deathyear : sattrs.author_deathyear,
 	text_date : sattrs.date,
 	text_url : sattrs.link_fulltext,
-	text_original_url : sattrs.link_original,
+	// text_original_url : sattrs.link_original,
+	// text_collection_url contains the URL of the subcorpus main
+	// page (the speeches of a certain president) in the Kaino
+	// service.
+	// text_collection_url : ...,
 	paragraph_id : sattrs.paragraph_id,
 	paragraph_type : {
 	    label : "paragraph_type",
@@ -1478,41 +1501,69 @@ settings.templ.kotus_ns_presidentti = {
 };
 
 
-settings.fn.add_corpus_settings(
-    settings.templ.kotus_ns_presidentti,
-    [
-	// The descriptions come from the metadata of Kotus.
-	{ id: "ahtisaari",
-	  title: "Presidentti Ahtisaaren uudenvuodenpuheet",
-	  description: "Kokoelma sisältää presidentti Martti Ahtisaaren pitämät uudenvuodenpuheet (1995–2000). Aineisto on kerätty Tasavallan presidentin kanslian Internet-sivustolta <a target='_blank' href='http://www.tpk.fi'>www.tpk.fi</a>." },
-	{ id: "halonen",
-	  title: "Presidentti Halosen uudenvuodenpuheet",
-	  description: "Kokoelma sisältää presidentti Tarja Halosen pitämät uudenvuodenpuheet (2001–2007). Aineisto on kerätty Tasavallan presidentin kanslian Internet-sivustolta <a target='_blank' href='http://www.tpk.fi'>www.tpk.fi</a>." },
-	{ id: "kallio",
-	  title: "Presidentti Kallion uudenvuodenpuheet",
-	  description: "Kokoelma sisältää presidentti Kyösti Kallion pitämät uudenvuodenpuheet (1938–1940)." },
-	{ id: "kekkonen",
-	  title: "Presidentti Kekkosen uudenvuodenpuheet",
-	  description: "Kokoelma sisältää presidentti Urho Kekkosen pitämät uudenvuodenpuheet (1957–1981). Vuosien 1957–1967 puheet ovat teoksesta <i>Puheita ja kirjoituksia 2</i> (Weilin &amp; Göös 1967), muissa alkutekstinä on presidentin kanslian lehdistötiedote." },
-	{ id: "koivisto",
-	  title: "Presidentti Koiviston uudenvuodenpuheet",
-	  description: "Kokoelma sisältää presidentti Mauno Koiviston pitämät uudenvuodenpuheet (1982–1994)." },
-	{ id: "paasikivi",
-	  title: "Presidentti Paasikiven uudenvuodenpuheet",
-	  description: "Kokoelma sisältää presidentti J. K. Paasikiven pitämät uudenvuodenpuheet (1946–1956)." },
-	{ id: "ryti",
-	  title: "Presidentti Rydin uudenvuodenpuheet",
-	  description: "Kokoelma sisältää presidentti Risto Rydin pitämät uudenvuodenpuheet (1941, 1943)." },
-	{ id: "svinhufvud",
-	  title: "Presidentti Svinhufvudin uudenvuodenpuheet",
-	  description: "Kokoelma sisältää presidentti P. E. Svinhufvudin pitämät uudenvuodenpuheet (1935–1937)." },
-	{ id: "muut",
-	  title: "Muiden kuin tasavallan presidenttien uudenvuodenpuheet",
-	  description: "Muiden kuin tasavallan presidenttien pitämät uudenvuodenpuheet: pääministeri Esko Aho (1993), eduskunnan puhemies Väinö Hakkila (1942), pääministeri Edwin Linkomies (1944), ministeri Mauno Pekkala (1945)." },
-    ],
-    settings.corporafolders.other_texts.kotus_ns_presidentti,
-    "kotus_ns_presidentti_"
-);
+settings.fn.make_president_corpora = function () {
+
+    var make_homepage_info = function (id) {
+	return {
+	    name : "Korpus Kaino-palvelussa",
+	    url : ("http://kaino.kotus.fi/korpus/teko/meta/presidentti/"
+		   + id + "/" + id + "_coll_rdf.xml"),
+	    no_label : true
+	};
+    };
+
+    var make_info = function (arglist) {
+	var id = arglist[0];
+	var firstname = arglist[1];
+	var lastname = arglist[2];
+	var years = arglist[3];
+	var extradescr = (arglist.length > 4 ? " " + arglist[4] : "");
+	return {
+	    id : id,
+	    title : "Presidentti " + lastname + " uudenvuodenpuheet",
+	    description : ("Kokoelma sisältää presidentti " + firstname + " "
+			   + lastname + " pitämät uudenvuodenpuheet (" + years
+			   + ")." + extradescr),
+	    // Note that in this way the link text is not localized,
+	    // unlike that for a URL attribute could be. The same
+	    // information is also found in the structural attribute
+	    // text_collection_url.
+	    homepage : make_homepage_info(id)
+	};
+    };
+
+    // The descriptions come from the metadata of Kotus.
+    var extradescr_tpk = "Aineisto on kerätty Tasavallan presidentin kanslian Internet-sivustolta <a target='_blank' href='http://www.tpk.fi'>www.tpk.fi</a>.";
+    var president_info_items = [
+	["ahtisaari", "Martti", "Ahtisaaren", "1995–2000", extradescr_tpk],
+	["halonen", "Tarja", "Halosen", "2001–2007", extradescr_tpk],
+	["kallio", "Kyösti", "Kallion", "1938–1940"],
+	["kekkonen", "Urho", "Kekkosen", "1957–1981",
+	 "Vuosien 1957–1967 puheet ovat teoksesta <i>Puheita ja kirjoituksia 2</i> (Weilin &amp; Göös 1967), muissa alkutekstinä on presidentin kanslian lehdistötiedote."],
+	["koivisto", "Mauno", "Koiviston", "1982–1994"],
+	["paasikivi", "J. K.", "Paasikiven", "1946–1956"],
+	["ryti", "Risto", "Rydin", "1941, 1943"],
+	["svinhufvud", "P. E.", "Svinhufvudin", "1935–1937"]
+    ];
+    var president_templ_fill = [];
+    for (var i = 0; i < president_info_items.length; i++) {
+	president_templ_fill.push(make_info(president_info_items[i]));
+    }
+    president_templ_fill.push(
+	{ id : "muut",
+	  title : "Muiden kuin tasavallan presidenttien uudenvuodenpuheet",
+	  description : "Muiden kuin tasavallan presidenttien pitämät uudenvuodenpuheet: pääministeri Esko Aho (1993), eduskunnan puhemies Väinö Hakkila (1942), pääministeri Edwin Linkomies (1944), ministeri Mauno Pekkala (1945).",
+	  homepage : make_homepage_info("muut") }
+    );
+    settings.fn.add_corpus_settings(
+	settings.templ.kotus_ns_presidentti,
+	president_templ_fill,
+	settings.corporafolders.other_texts.kotus_ns_presidentti,
+	"kotus_ns_presidentti_"
+    );
+}
+
+settings.fn.make_president_corpora();
 
 
 settings.corpora.ns_saadokset = {
