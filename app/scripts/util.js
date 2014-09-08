@@ -224,9 +224,9 @@ function loadCorporaFolderRecursive(first_level, folder) {
 	else {
 	    // KLUDGE: Mark unselected folders in description (janiemi 2013-12-19)
 	    outHTML = ('<ul title="' + folder.title
-		       + '" description="' + folder.description
+		       + '" description="' + (folder.description || "")
 		       + (folder.info && settings.corpusExtraInfo
-			  ? ("<br/><br/>"
+			  ? ((folder.description ? "<br/><br/>" : "")
 			     + util.formatCorpusExtraInfo(
 				 folder.info,
 				 settings.corpusExtraInfo.corpus_infobox))
@@ -768,6 +768,49 @@ util.copyCorpusInfoToConfig = function (corpusObj) {
         if (sect != "" && added_properties) {
             corpusObj[sect_name] = subobj;
         }
+    }
+}
+
+
+// Propagate information in the properties of info to corpusFolder,
+// all its subfolders (recursively) and corpora. Info items lower in
+// the corpus folder tree override those from above.
+
+util.propagateCorpusFolderInfo = function (corpusFolder, info) {
+
+    // Copy properties from info to corpusConfig if they are missing
+    // from corpusConfig. A composite property in corpusConfg
+    // overrides all the values in info (coming from folder info).
+    var addCorpusInfo = function (corpusConfig, info) {
+	for (var prop_name in info) {
+	    if (! (prop_name in corpusConfig)) {
+		corpusConfig[prop_name] = info[prop_name];
+	    }
+	}
+    };
+
+    // The info in this folder overrides that coming from above
+    if (corpusFolder.info) {
+	info = $.extend(true, {}, info || {}, corpusFolder.info);
+    }
+    // Add or modify the info in this folder
+    if (info) {
+	corpusFolder.info = info;
+    }
+    // Propagate the info to the corpora in this folder
+    if (info && corpusFolder.contents) {
+	for (var i = 0; i < corpusFolder.contents.length; i++) {
+	    addCorpusInfo(settings.corpora[corpusFolder.contents[i]], info);
+	}
+    }
+    // Recursively process subfolders and propagate the info
+    for (var prop_name in corpusFolder) {
+	if (prop_name != "title" && prop_name != "description"
+	    && prop_name != "contents" && prop_name != "unselected"
+	    && prop_name != "info") {
+	    c.log("propagate ", prop_name)
+	    util.propagateCorpusFolderInfo(corpusFolder[prop_name], info);
+	}
     }
 }
 

@@ -58,8 +58,13 @@ chained.done (info_data) ->
         settings.corpora[key]["info"] = info_data["corpora"][key.toUpperCase()]["info"]
         # Copy possible URL and URN information in "info" to top-level
         # properties, so that it can be specified in either the backend
-        # info file or in the frontend config (Jyrki Niemi 2014-09-04).
+        # info file or in the frontend config. (Jyrki Niemi 2014-09-04)
         util.copyCorpusInfoToConfig settings.corpora[key]
+    # Propagate the properties in corpus folder "info" to all subfolders
+    # and corpora. (Jyrki Niemi 2014-09-08)
+    $.each settings.corporafolders, (folder_name) ->
+        util.propagateCorpusFolderInfo(
+            settings.corporafolders[folder_name], undefined)
 
 
 loc_dfd = util.initLocalize()

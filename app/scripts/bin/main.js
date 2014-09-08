@@ -66,9 +66,12 @@
   });
 
   chained.done(function(info_data) {
-    return $.each(settings.corpora, function(key) {
+    $.each(settings.corpora, function(key) {
       settings.corpora[key]["info"] = info_data["corpora"][key.toUpperCase()]["info"];
       return util.copyCorpusInfoToConfig(settings.corpora[key]);
+    });
+    return $.each(settings.corporafolders, function(folder_name) {
+      return util.propagateCorpusFolderInfo(settings.corporafolders[folder_name], void 0);
     });
   });
 
