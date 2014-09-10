@@ -29,12 +29,20 @@ settings.downloadFormatParams = {
 	structs: "+"
     },
     "csvp": {
+	format: "tokens,csv",
 	attrs: "+,-lex",
 	match_marker: "***"
     },
+    "csv": {
+	format: "sentences,csv"
+    },
     "excel": {
+	format: "tokens,xls",
 	attrs: "+,-lex",
 	match_marker: "***"
+    },
+    "tsv": {
+	format: "sentences,tsv"
     },
     "vrt": {
 	attrs: "+"
