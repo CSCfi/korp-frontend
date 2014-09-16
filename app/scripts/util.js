@@ -351,9 +351,13 @@ function loadCorpora() {
 	    	var supportsContext = _.keys(corpusObj.context).length > 1;
 	    	if(supportsContext)
 	    		output += $("<div>").localeKey("corpselector_supports").html();
-	    	
-	    	if(corpusObj.limited_access)
-	    		output += $("<div>").localeKey("corpselector_limited").html();
+
+		if (corpusObj.limited_access) {
+		    if (supportsContext) {
+			output += "<br/>";
+		    }
+		    output += $("<div>").localeKey("corpselector_limited").html();
+		}
 
 	    	return output;
 	    	
