@@ -1067,5 +1067,6 @@
         "topling_to" : "vastaanottaja",
         "topling_from" : "lähettäjä",
         "topling_subject" : "aihe",
-        "topling_comment" : "transkriboijan kommentti"
+        "topling_comment" : "transkriboijan kommentti",
+        "text_fulldate" : "päivämäärä ja aika"
 }

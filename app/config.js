@@ -1343,7 +1343,14 @@ settings.corpora.hsfi = {
 	},
 	text_time : {
 	    label : "text_time"
+	    },
+	text_date : {
+	    label : "text_date"
 	},
+	text_fulldate : {
+	    label : "text_fulldate",
+	    displayType : "hidden"
+	    },
 	text_publicnick : {
 	    label : "text_publicnick",
 	},
