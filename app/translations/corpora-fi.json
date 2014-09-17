@@ -1051,10 +1051,10 @@
 	"textgenre_fiction" : "kaunokirjallisuus",
 	"textgenre_law" : "lakiteksti",
 
-        "text_time" : "kommentin aikaleima",
-        "word_hsfi" : "sana",
+        "text_time" : "kellonaika",
         "text_id" : "tunniste",
         "text_publicnick" : "kirjoittaja",
+        "timestamp" : "aikaleima",
 
         "text_studentno" : "opiskelija",
         "file_edulevel" : "aineiston tyyppi",
@@ -1067,6 +1067,5 @@
         "topling_to" : "vastaanottaja",
         "topling_from" : "lähettäjä",
         "topling_subject" : "aihe",
-        "topling_comment" : "transkriboijan kommentti",
-        "text_fulldate" : "päivämäärä ja aika"
+        "topling_comment" : "transkriboijan kommentti"
 }

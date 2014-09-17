@@ -1330,11 +1330,14 @@ settings.corpora.hsfi = {
     context : settings.spContext,
     limited_access : true,
     licence_type : "ACA",
+    urn : "urn:nbn:fi:lb-2014052717",
+    metadata_urn : "urn:nbn:fi:lb-2014052718",
+    licence : {
+	url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaEngACANc",
+	name : "CLARIN ACA +NC +anonymisointi",
+	description : "Vain ei-kaupalliseen tutkimuskäyttöön. Nimimerkit tulee anonymisoida korpukseen viittaavissa julkaisuissa."
+    },
     attributes : {
-        word_hsfi : {
-	    label : "word_hsfi",
-	    opts : settings.defaultOptions
-	}
     },
     struct_attributes : {
         sentence_id : sattrs.sentence_id_hidden,
@@ -1348,15 +1351,15 @@ settings.corpora.hsfi = {
 	    label : "text_date"
 	},
 	text_fulldate : {
-	    label : "text_fulldate",
+	    label : "timestamp",
 	    displayType : "hidden"
-	    },
+	},
 	text_publicnick : {
 	    label : "text_publicnick",
 	},
 	text_title : {
 	    label : "text_title"
-	    }
+	}
     }
 
 };
