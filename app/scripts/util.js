@@ -642,18 +642,23 @@ util.findoutType = function(variable) {
 // configuration) to be formatted.
 //
 // The properties are usually composite objects which may contain the
-// properties "name", "description" (not currently handled) and "url"
-// or "urn". If the information contains "name", it is presented as
-// follows: a label and a colon (unless the property "no_label" is
-// true or the item is "homepage"), followed by the name as a link to
-// the URN or URL (or if neither URN nor URL, no link). Otherwise, the
-// label is a link to the URN or URL. The label is the localized
-// string for the key "corpus_" + item name.
+// properties "name", "description", and "url" or "urn". If the
+// information contains "name", it is presented as follows: a label
+// and a colon (unless the property "no_label" is true or the item is
+// "homepage"), followed by the name as a link to the URN or URL (or
+// if neither URN nor URL, no link). Otherwise, the label is a link to
+// the URN or URL. The label is the localized string for the key
+// "corpus_" + item name. The optional description is a represented as
+// a tooltip (HTML title attribute).
 //
 // If an item needs no separate name, the simple properties X_urn and
 // X_url can be used instead of X: { urn: ... } (similarly for url).
 // The item "urn" is treated specially: it shows the value of the
 // "urn" property as the link text.
+//
+// TODO: Add an option for presenting the description as a text
+// following the link text. It could be used in the corpus info box
+// instead of the tooltip.
 
 util.formatCorpusExtraInfo = function (corpusObj) {
     var info_items = (arguments.length > 1 && arguments[1]
@@ -670,18 +675,27 @@ util.formatCorpusExtraInfo = function (corpusObj) {
                 : obj[prefix + "url"]);
     };
 
-    // Return a HTML link (or text) given link_info, which may contain
-    // the properties "label", "url" and "text".
+    // Return a HTML link (or text), given link_info, which may
+    // contain the properties "label", "url", "text" and "tooltip".
     var makeLinkItem = function (link_info) {
         var result = "";
         if (link_info.label) {
             result += link_info.label + ": ";
         }
         if (link_info.url) {
-            result += ("<a href='" + link_info.url + "' target='_blank'>"
-                       + link_info.text + "</a>");
+            result += ("<a href='" + link_info.url + "' target='_blank'"
+                       + (link_info.tooltip
+                          ? " title='" + link_info.tooltip + "'"
+                          : "")
+                       + ">" + link_info.text + "</a>");
         } else if (link_info.text) {
-            result += link_info.text;
+            if (link_info.tooltip) {
+                result += ("<span class='has_hover_text' title='"
+                           + link_info.tooltip + "'>" + link_info.text
+                           + "</span>");
+            } else {
+                result += link_info.text;
+            }
         }
         return result;
     };
@@ -718,6 +732,9 @@ util.formatCorpusExtraInfo = function (corpusObj) {
             } else {
                 link_info.text = label;
             }
+            if (info_obj.description) {
+                link_info.tooltip = info_obj.description;
+            }
         } else if (corpusObj[info_item + "_urn"]
                    || corpusObj[info_item + "_url"]) {
             // Simple *_urn or *_url properties
@@ -730,7 +747,7 @@ util.formatCorpusExtraInfo = function (corpusObj) {
             }
             result += makeLinkItem(link_info);
         }
-    }           
+    }
     return result;
 };
 

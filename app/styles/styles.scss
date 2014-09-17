@@ -79,6 +79,13 @@ a {
   }
 }
 
+.has_hover_text {
+  color: darkgreen;
+  &:hover {
+    color: green;
+  }
+}  
+
 
 .radialBkg {
   background: #f9fdff;
