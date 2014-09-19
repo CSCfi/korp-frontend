@@ -122,11 +122,11 @@ settings.fn.make_corpus_settings_by_year_decade(
 	    "Kansalliskirjaston ruotsinkielisiä sanoma- ja aikakauslehtiä vuodelta {year}",
 	    year);
     },
-    [1986, 1983, 1982].concat(
-	settings.fn.make_yearlist(1771, 1948,
-				  {descending : true,
-				   omit : [1779, 1780, 1781, 1786, 1787, 1788,
-					   1790]}))
+    settings.fn.make_yearlist(
+	1771, 1948,
+	{descending : true,
+	 omit : [1779, 1780, 1781, 1786, 1787, 1788, 1790]}
+    )
 );
 
 
