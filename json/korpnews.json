@@ -1,0 +1,24 @@
+newsdata([
+    {
+        "d": "2014-04-30",
+        "h": {
+            "en": "<p>Super new function which is so new you'll wet\nyour <strong><em>pants</em></strong>, Mr. Banana Squid!!! Yes it's true,\nif you don't believe me I will be sad and give you bananas\nor sticks of wood for christmas!</p>",
+            "sv": "<p>J\u00e4ttebra ny funktion <strong>serru</strong></p>"
+        },
+        "t": {
+            "en": "Even newer new function",
+            "sv": "Nyaste funktionen n\u00e5nsin"
+        }
+    },
+    {
+        "d": "2014-04-28",
+        "h": {
+            "en": "<p>This is one cool thing! It would have been the coolest ever if it wasn't for\ninternet's ability to silence you with heavy armor and swords.\n<img src=\"http://spraakbanken.gu.se/sites/spraakbanken.gu.se/themes/gu_sb/img/sb_logo.png\"/> There is\nabsolutely no reason to worry about the www installations because the crap\nis already there and functioning like a <strong><em>clock</em></strong>.</p>",
+            "sv": ""
+        },
+        "t": {
+            "en": "New new function",
+            "sv": "En superfunktion"
+        }
+    }
+])
