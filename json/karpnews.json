@@ -1,13 +1,1 @@
-newsdata([
-    {
-        "d": "2014-09-22",
-        "h": {
-            "en": "<p>Here we will announce new features etc. Stay tuned.</p>",
-            "sv": "<p>H\u00e4r kommer vi att redog\u00f6ra f\u00f6r nya funktioner. V\u00e4nta och se.</p>"
-        },
-        "t": {
-            "en": "New function",
-            "sv": "Ny funktion"
-        }
-    }
-])
+newsdata([{"h":{"en":"<p>Here we will announce new features etc. Stay tuned.</p>","sv":"<p>H\u00e4r kommer vi att redog\u00f6ra f\u00f6r nya funktioner. V\u00e4nta och se.</p>"},"t":{"en":"New function","sv":"Ny funktion"},"d":"2014-09-22"}])

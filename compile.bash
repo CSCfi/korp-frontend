@@ -20,10 +20,10 @@
 #   <!-- Our servers will be down for maintenance during X-mas 2014-12-18 2014-12-26 -->
 #
 # NOTES:
-# --pretty can be removed to save bandwidth
+# --pretty can be used to pretty format the jsonp output
 # The number 100 is the maximum number of news items that can be incomporated in the json-files.
 #
 # DON'T FORGET TO COMMIT ALL FILES!
 
-python skript/compile.py karp sv 100 --pretty --secondary general > json/karpnews.json
-python skript/compile.py korp sv 100 --pretty --secondary general > json/korpnews.json
+python skript/compile.py karp sv 100 --secondary general > json/karpnews.json
+python skript/compile.py korp sv 100 --secondary general > json/korpnews.json
