@@ -1,29 +1,3 @@
-<!-- Even newer new function 2014-04-30 -->
+<!-- New function 2014-09-22 -->
 
-Super new function which is so new you'll wet
-your ***pants***, Mr. Banana Squid!!! Yes it's true,
-if you don't believe me I will be sad and give you bananas
-or sticks of wood for christmas!
-
-<!-- Even newer new function 2014-04-29 -->
-
-This is another cool thing! Please don't use it
-without first specifying which way to render your
-results in the special listing. This allows also for
-incredible stuff when researching internal values in the
-text fields and other components in different situations.
-Use with care because it will be slower than regular search.
-
-<!-- New new function 2014-04-28b -->
-
-This is one cool thing! It would have been the coolest ever if it wasn't for
-internet's ability to silence you with heavy armor and swords.
-<img src="http://spraakbanken.gu.se/sites/spraakbanken.gu.se/themes/gu_sb/img/sb_logo.png"/> There is
-absolutely no reason to worry about the www installations because the crap
-is already there and functioning like a ***clock***.
-
-<!-- New old function 2014-04-28a -->
-
-This is ***old*** as hell.
-We just made it a little bit safer to use. And why not prepare yourself for
-internet? Internet is like a load of crap in your stomache.
+Here we will announce new features etc. Stay tuned.
