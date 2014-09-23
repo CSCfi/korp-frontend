@@ -22,7 +22,8 @@ def process_language(obj):
             header = comments[0].strip()[4:-3].strip()
             datepart = augISOdateRegexp.findall(header)
             if datepart:
-                title = header.rsplit(' ', 1)[0].strip()
+                #title = header.rsplit(' ', 1)[0].strip()
+                title = re.split(augISOdateRegexp, header)[0]
                 (date, id_extension) = datepart[0]
                 key = date + id_extension
                 main_text = re.sub(commentRegexp, "", item).strip()
