@@ -22,7 +22,6 @@ def process_language(obj):
             header = comments[0].strip()[4:-3].strip()
             datepart = augISOdateRegexp.findall(header)
             if datepart:
-                #title = header.rsplit(' ', 1)[0].strip()
                 title = re.split(augISOdateRegexp, header)[0]
                 (date, id_extension) = datepart[0]
                 key = date + id_extension
@@ -84,8 +83,8 @@ if __name__ == "__main__":
                 lObj = languages[language]
                 out_item["t"][language] = lObj[n_key]["t"] if n_key in lObj and "t" in lObj[n_key] else out_item["t"][def_lang]
                 out_item["h"][language] = lObj[n_key]["h"] if n_key in lObj and "h" in lObj[n_key] else out_item["h"][def_lang]
-        #if not strftime("%Y-%m-%d") > out_item.get("e", "9999-99-99"): # skip any expired news and introduce a new millenium bug
-        out.append(out_item)
+        if not strftime("%Y-%m-%d") > out_item.get("e", "9999-99-99"): # skip any expired news and introduce a new millenium bug
+            out.append(out_item)
     if args.pretty:
         print "newsdata(%s)" % (json.dumps(out, sort_keys=True, indent=4, separators=(',', ': ')))
     else:
