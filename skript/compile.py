@@ -26,7 +26,9 @@ def process_language(obj):
                 (date, id_extension) = datepart[0]
                 key = date + id_extension
                 main_text = re.sub(commentRegexp, "", item).strip()
-                lang_obj = {"t" : title, "d" : date, "h" : main_text}
+                lang_obj = {"t" : title, "d" : date}
+                if main_text != "":
+                    lang_obj["h"] = main_text
                 if len(datepart) > 1: # if there is a second date then that's the expiration date
                     lang_obj["e"] = datepart[1][0]
                 language["".join(key)] = lang_obj
