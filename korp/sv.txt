@@ -1,3 +1,15 @@
+
+
+
+<!-- Ordlänkning 2014-09-25 -->
+
+Nytt de parallella materialen är _ordlänkning_. Just nu stöds bara SALT-NLD men fler kommer. 
+Prova att göra [denna sökning](http://spraakbanken.gu.se/korp/?mode=parallel#?parallel_corpora=swe&corpus=saltnld-sv&cqp_swe=%5Bword%20%3D%20%22katt%22%5D&search=cqp%7C%5Bword%20%3D%20%22katt%22%5D)
+och klicka sedan runt på orden för att se vilka de länkar till. 
+
+
 <!-- Nyhetsfunktion 2014-09-24 -->
 
 Här kommer det att dyka upp **nyheter** om Korp.
+
+
