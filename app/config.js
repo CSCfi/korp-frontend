@@ -814,6 +814,10 @@ sattrs.text_source = {
     label : "text_source"
 };
 
+sattrs.text_published = {
+    label : "text_pubdate2"
+};
+
 sattrs.author = {
     label : "author"
 };
@@ -865,6 +869,20 @@ sattrs.link_fulltext_context = {
     url_opts : sattrs.link_url_opts
 };
 
+sattrs.link_gutenberg = {
+    label : "show_gutenberg",
+    type : "url",
+    url_opts : sattrs.link_url_opts
+};
+
+sattrs.text_link_gutenberg = {
+    label : "show_gutenberg_text",
+    type : "url",
+    url_opts : sattrs.link_url_opts
+};
+
+
+
 sattrs.sentence_id_hidden = {
     label : "sentence_id",
     displayType : "hidden"
@@ -897,6 +915,23 @@ sattrs.text_genre = {
     },
     opts : settings.liteOptions
 };
+
+sattrs.text_author = {
+    label : "text_author"
+};
+
+sattrs.text_producers = {
+    label : "text_producers"
+};
+
+sattrs.text_ebook_id = {
+    label : "text_ebook_id"
+};
+
+sattrs.text_translator = {
+    label : "text_translator"
+};
+
 
 
 /*
@@ -954,7 +989,7 @@ settings.corporafolders.sks = {
 
 settings.corporafolders.literature = {
     title : "Kirjallisuutta",
-    contents : ["kotus_klassikot", "sks_kivi_fi", "skvr"]
+    contents : ["gutenberg", "kotus_klassikot", "sks_kivi_fi", "skvr"]
 };
 
 settings.corporafolders.legal = {
@@ -3234,6 +3269,37 @@ settings.corpora.vns_renvall = {
 	},
     }
 };
+
+settings.corpora.gutenberg = {
+    title : "Gutenberg",
+    description : "Gutenberg",
+    id : "gutenberg",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : {
+	text_title : sattrs.text_title,
+	sentence_id : sattrs.sentence_id_hidden,
+	text_author : sattrs.text_author,
+	text_producers : sattrs.text_producers,
+	text_ebookid : sattrs.text_ebook_id,
+	text_translator : sattrs.text_translator,
+	text_published : sattrs.text_published,
+        text_url : sattrs.link_gutenberg,
+	text_directurl : sattrs.text_link_gutenberg
+/*
+	text_producers : sattrs.text_producers,
+	sentence_id : sattrs.sentence_id_hidden
+        text_title : sattrs.text_title,
+        text_author : sattrs.text_author,
+        p_id : sattrs.paragraph_id,
+        s_id : sattrs.sentence_id_hidden,
+        s_type : sattrs.sentence_type
+*/    
+    }
+};
+
 
 
 /*

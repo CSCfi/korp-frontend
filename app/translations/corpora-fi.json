@@ -1054,6 +1054,13 @@
         "text_time" : "kellonaika",
         "text_id" : "tunniste",
         "text_publicnick" : "kirjoittaja",
+    "text_author" : "kirjailija",
+    "text_producers" : "tuottajat",
+    "text_ebook_id" : "ebook-tunniste",
+    "text_translator" : "kääntäjä",
+   "show_gutenberg" : "Lataa teksti Project Gutenbergistä",
+   "show_gutenberg_text" : "Tarkastele alkuperäistä Project Gutenbergissä",
+    
         "timestamp" : "aikaleima",
 
         "text_studentno" : "opiskelija",
@@ -1067,5 +1074,7 @@
         "topling_to" : "vastaanottaja",
         "topling_from" : "lähettäjä",
         "topling_subject" : "aihe",
-        "topling_comment" : "transkriboijan kommentti"
+        "topling_comment" : "transkriboijan kommentti",
+
+    "text_pubdate2": "julkaistu"
 }
