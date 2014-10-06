@@ -230,6 +230,7 @@
 	"formatdescr_text" : "Pelkkä teksti, jossa osumat merkitty: virke per rivi, saneet ilman attribuutteja, tekstin ominaisuudet mukana",
 	"formatdescr_excel" : "Excel-taulukko (XLS), sane per rivi. Joka rivillä on sane attribuutteineen sekä mahdollinen hakuosumailmaisin. Osumavirkettä edeltää rivi, joka sisältää korpustunnisteen, osuman korpussijainnin ja virkkeen tekstiominaisuudet.",
 	"formatdescr_nooj" : "NooJ-ohjelmaan ladattavissa oleva XML-muoto",
+	"formatdescr_ref" : "Lähdeviitetiedot: Excel-taulukko (XLS), jossa kukin osuman sisältävä virke on omalla rivillään, jota seuraavat virkkeeseen liittyvät tekstin ominaisuudet omilla riveillään",
 
 	"privacy" : "Tietosuojaseloste",
 

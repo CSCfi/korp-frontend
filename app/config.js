@@ -18,6 +18,7 @@ settings.downloadFormats = [
     "csv",
     "excel",
     "nooj",
+    "ref",
     "tsv",
     "text"
 ];
@@ -28,6 +29,9 @@ if (! isProductionServer) {
 settings.downloadFormatParams = {
     "*": {
 	structs: "+"
+    },
+    "ref": {
+	format: "bibref,xls"
     },
     "csvp": {
 	format: "tokens,csv",
@@ -50,7 +54,7 @@ settings.downloadFormatParams = {
     },
     "vrt": {
 	attrs: "+"
-    }
+    },
 };
 
 settings.wordPictureMaxWords = 30;
