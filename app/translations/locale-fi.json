@@ -229,6 +229,7 @@
 	"formatdescr_vrt" : "VeRticalized Text: Corpus Workbenchin syötemuoto, jossa kukin rivi sisältää saneen attribuutteineen, ja rakenteet on merkitty XML-tyylisinä elementteinä.",
 	"formatdescr_text" : "Pelkkä teksti, jossa osumat merkitty: virke per rivi, saneet ilman attribuutteja, tekstin ominaisuudet mukana",
 	"formatdescr_excel" : "Excel-taulukko (XLS), sane per rivi. Joka rivillä on sane attribuutteineen sekä mahdollinen hakuosumailmaisin. Osumavirkettä edeltää rivi, joka sisältää korpustunnisteen, osuman korpussijainnin ja virkkeen tekstiominaisuudet.",
+	"formatdescr_nooj" : "NooJ-ohjelmaan ladattavissa oleva XML-muoto",
 
 	"privacy" : "Tietosuojaseloste",
 

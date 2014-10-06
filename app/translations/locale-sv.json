@@ -219,6 +219,7 @@
 	"formatdescr_vrt" : "VeRticalized Text: Corpus Workbench inputformat, där varje rad har ett token med attribut, och strukturer markeras med XML-liknande element.",
 	"formatdescr_text" : "Klartext med träffar markerade, en mening per rad, token utan ordattribut, meningens textattribut inkluderade",
 	"formatdescr_excel" : "Excel-kalkylblad (XLS), ett token per rad. Varje rad har ett token med attribut och potentiellt en markör för sökträffen. Varje träffad mening föregås av en rad med korpus-ID, träffens korpusposition och textattribut för meningen.",
+	"formatdescr_nooj" : "XML-importformat för NooJ",
 
 	"privacy" : "Dataskyddsbeskrivning",
 

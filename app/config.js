@@ -17,6 +17,7 @@ settings.downloadFormats = [
     "csvp",
     "csv",
     "excel",
+    "nooj",
     "tsv",
     "text"
 ];
@@ -40,6 +41,9 @@ settings.downloadFormatParams = {
 	format: "tokens,xls",
 	attrs: "+,-lex",
 	match_marker: "***"
+    },
+    "nooj": {
+	attrs: "+"
     },
     "tsv": {
 	format: "sentences,tsv"
