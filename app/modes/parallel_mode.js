@@ -1,13 +1,13 @@
 
 settings.wordpicture = false;
-settings.statistics = false;
+// settings.statistics = false;
 var start_lang = "swe";
 
 korpApp.controller("SearchCtrl", function($scope) {
     $scope.visibleTabs = [false, true, false, false];
     $scope.extendedTmpl = "modes/parallel_extended_tmpl.html";
 });
-korpApp.controller("ParallelSearch", function($scope, $location, $rootScope, $timeout) {
+korpApp.controller("ParallelSearch", function($scope, $location, $rootScope, $timeout, searches) {
 	var s = $scope;
 	s.negates = [];
 	s.onSubmit = function() {
@@ -43,6 +43,7 @@ korpApp.controller("ParallelSearch", function($scope, $location, $rootScope, $ti
 	s.negChange = function() {
 		$location.search("search", null)
 	}
+	c.log ("add langs watch")
 	s.$watch("langs", function() {
 		var currentLangList = _.pluck(s.langs, "lang");
 		c.log("lang change", currentLangList)
@@ -70,6 +71,7 @@ korpApp.controller("ParallelSearch", function($scope, $location, $rootScope, $ti
 		})
 		$rootScope.activeCQP = output;
 		s.$broadcast("corpuschooserchange")
+		searches.langDef.resolve()
 	}, true);
 
 	s.getEnabledLangs = function(i) {
@@ -174,8 +176,7 @@ view.KWICResults = Subclass(view.KWICResults, function() {
 			})
 
 		}
-
-		scope.$apply()
+		
 	},
 
 	clearLinks : function() {
@@ -186,7 +187,7 @@ view.KWICResults = Subclass(view.KWICResults, function() {
 	}
 });
 
-model.StatsProxy.prototype.makeRequest = function(){};
+// model.StatsProxy.prototype.makeRequest = function(){};
 
 settings.primaryColor = "#FFF3D8";
 settings.primaryLight = "#FFF9EE";
