@@ -144,7 +144,6 @@ view.KWICResults = Subclass(view.KWICResults, function() {
 			 	}
 				sent_index--
 			}
- 			c.log( "mainSent", mainSent)
 
  			var linkNum = Number(obj.linkref)
  			var lang = corpus.id.split("-")[1]
@@ -166,7 +165,6 @@ view.KWICResults = Subclass(view.KWICResults, function() {
 				var wordsToLink = _.each(_.compact(val.split("|")), function(num) {
 					var lang = key.split("-")[1]
 					var mainCorpus = corpus.id.split("-")[0]
-					c.log ("corpus.id", corpus.id)
 
 					var link = findRef(num, sentence.aligned[mainCorpus + "-" + lang])
 					link._link_selected = true
