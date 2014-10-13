@@ -933,7 +933,6 @@ sattrs.text_translator = {
 };
 
 
-
 /*
  * FOLDERS
  */
@@ -3272,10 +3271,12 @@ settings.corpora.vns_renvall = {
 
 settings.corpora.gutenberg = {
     title : "Gutenberg",
-    description : "Gutenberg",
+    description : "Project Gutenbergin sisältämiä suomenkielisiä teoksia, joiden tekijänoikeus on päättynyt",
     id : "gutenberg",
     within : settings.spWithin,
     context : settings.spContext,
+    homepage_url : "http://www.gutenberg.org/",
+    licence_url : "http://www.gutenberg.org/wiki/Gutenberg:The_Project_Gutenberg_License",
     attributes : {
     },
     struct_attributes : {
@@ -3296,10 +3297,9 @@ settings.corpora.gutenberg = {
         p_id : sattrs.paragraph_id,
         s_id : sattrs.sentence_id_hidden,
         s_type : sattrs.sentence_type
-*/    
+*/
     }
 };
-
 
 
 /*
