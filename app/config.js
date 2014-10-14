@@ -262,12 +262,16 @@ attrs.msd = {
             modal = $modal.open({
                 template : '<div>' +
                                 '<div class="modal-header">' +
-                                    '<h4>{{\'msd_long\' | loc}}</h4>' +
+                                    '<h3 class="modal-title">{{\'msd_long\' | loc}}</h3>' +
+                                    '<span ng-click="clickX()" class="close-x">×</span>' +
                                 '</div>' +
-                                '<div ng-click="msdClick($event)" ng-include="\'markup/msd.html\'"></div>' +
+                                '<div class="modal-body" ng-click="msdClick($event)" ng-include="\'markup/msd.html\'"></div>' +
                             '</div>',
                 scope : $scope
             })
+        }
+        $scope.clickX = function(event) {
+            modal.close()
         }
         $scope.msdClick = function(event) {
             val = $(event.target).parent().data("value")
