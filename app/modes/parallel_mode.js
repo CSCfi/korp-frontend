@@ -111,6 +111,7 @@ view.KWICResults = Subclass(view.KWICResults, function() {
 }, {
 
 	selectWord : function(word, scope, sentence) {
+		c.log ("word, scope, sentence", word, scope, sentence)
 		c3.prototype.selectWord.apply(this, arguments)
 		this.clearLinks()
 		var self = this
@@ -132,8 +133,9 @@ view.KWICResults = Subclass(view.KWICResults, function() {
 		}
 
 
-		if(sentence.isLinked){
+		if(sentence.isLinked){ // a secondary language was clicked
 			var sent_index = scope.$parent.$index
+			c.log ("sent_index", sent_index)
 			var data = this.getActiveData()
 			var mainSent = null
 			while(data[sent_index]) {
@@ -145,6 +147,7 @@ view.KWICResults = Subclass(view.KWICResults, function() {
 				sent_index--
 			}
 
+ 			c.log( "mainSent", mainSent)
  			var linkNum = Number(obj.linkref)
  			var lang = corpus.id.split("-")[1]
  			var mainCorpus = mainSent.corpus.split("-")[0]
@@ -174,6 +177,8 @@ view.KWICResults = Subclass(view.KWICResults, function() {
 			})
 
 		}
+
+		safeApply($("body").scope())
 		
 	},
 
