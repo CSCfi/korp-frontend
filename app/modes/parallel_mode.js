@@ -19,7 +19,7 @@ korpApp.controller("ParallelSearch", function($scope, $location, $rootScope, $ti
 			    within = s.within
 
 		    $location.search("within", within || null)
-		    $location.search("search", "cqp|" + $rootScope.activeCQP)
+		    $location.search("search", "cqp|" + $rootScope.extendedCQP)
 		}, 0)
 	}	
 
@@ -69,7 +69,7 @@ korpApp.controller("ParallelSearch", function($scope, $location, $rootScope, $ti
 		_.each(s.langs, function(langobj, i) {
 			search("cqp_" + langobj.lang , langobj.cqp);
 		})
-		$rootScope.activeCQP = output;
+		$rootScope.extendedCQP = output;
 		s.$broadcast("corpuschooserchange")
 		searches.langDef.resolve()
 	}, true);
