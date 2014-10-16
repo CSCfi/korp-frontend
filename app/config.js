@@ -3810,13 +3810,19 @@ settings.reduce_stringify = function(type) {
     case "prefix":
     case "suffix":
     case "lex":
+    case "lemma":
         return function(row, cell, value, columnDef, dataContext) {
             var corpora = getCorpora(dataContext);
             if(value == "&Sigma;") return appendDiagram(value, corpora, value);
             // else if(value == "|") return "-";
 
-            var stringify = type == "saldo" ? util.saldoToString : util.lemgramToString;
+            // var stringify = type == "saldo" ? util.saldoToString : util.lemgramToString;
+            if(type == "saldo") stringify = util.saldoToString
+            else if(type == "lemma") stringify = function(lemma) {return lemma.replace(/_/g, " ")}
+            else stringify = util.lemgramToString
             
+            // c.log ("value", value)
+            if(!_.isArray(value)) value = [value]
             var html = _.map(value[0].split(" "), function(token) {
                 if(token == "|") return "–";
                 return _(token.split("|"))
@@ -3844,6 +3850,19 @@ settings.reduce_stringify = function(type) {
             return appendDiagram(output, corpora, value);
         };
     
+    // case "lemma":
+    //     return function(row, cell, value, columnDef, dataContext) {
+    //         var corpora = getCorpora(dataContext);
+    //         if(value == "&Sigma;") return appendDiagram(value, corpora, value);
+
+    //         stringify = function(lemma) {return lemma.replace("_", " "))}
+
+    //         output = $("<span class='link'>")
+    //             .attr("data-query", cqp)
+    //             .attr("data-corpora", JSON.stringify(corpora))
+    //             .append(html.join(" ")).outerHTML()
+            
+    //         return appendDiagram(output, corpora, stringify(value));
     case "deprel":
         return function(row, cell, value, columnDef, dataContext) {
             var corpora = getCorpora(dataContext);

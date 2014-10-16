@@ -58,12 +58,24 @@ korpApp.controller("ParallelSearch", function($scope, $location, $rootScope, $ti
 				}).groupBy("lang").value()
 		}
 
-		var output = CQP.expandOperators(s.langs[0].cqp);
+		try {
+			var output = CQP.expandOperators(s.langs[0].cqp);
+		} catch(e) {
+			c.log("parallel cqp parsing error", e)
+			return
+		}
 		output += _.map(s.langs.slice(1), function(langobj, i) {
 			var neg = s.negates[i + 1] ? "!" : "";
 			var langMapping = getLangMapping(currentLangList.slice(0, i + 1));
 			var linkedCorpus = _(langMapping[langobj.lang]).pluck("id").invoke("toUpperCase").join("|");
-			return ":LINKED_CORPUS:" + linkedCorpus + " " + neg + " " + CQP.expandOperators(langobj.cqp); 
+			
+			try {
+				var expanded = CQP.expandOperators(s.langs[0].cqp);
+			} catch(e) {
+				c.log("parallel cqp parsing error", e)
+				return
+			}
+			return ":LINKED_CORPUS:" + linkedCorpus + " " + neg + " " + expanded; 
 		}).join("");
 
 		_.each(s.langs, function(langobj, i) {
