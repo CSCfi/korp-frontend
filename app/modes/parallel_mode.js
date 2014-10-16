@@ -70,7 +70,7 @@ korpApp.controller("ParallelSearch", function($scope, $location, $rootScope, $ti
 			var linkedCorpus = _(langMapping[langobj.lang]).pluck("id").invoke("toUpperCase").join("|");
 			
 			try {
-				var expanded = CQP.expandOperators(s.langs[0].cqp);
+				var expanded = CQP.expandOperators(langobj.cqp);
 			} catch(e) {
 				c.log("parallel cqp parsing error", e)
 				return
@@ -190,7 +190,7 @@ view.KWICResults = Subclass(view.KWICResults, function() {
 
 		}
 
-		safeApply($("body").scope())
+		safeApply($("body").scope(), $.noop)
 		
 	},
 
