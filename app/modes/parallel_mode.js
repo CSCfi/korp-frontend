@@ -6,6 +6,13 @@ var start_lang = "swe";
 korpApp.controller("SearchCtrl", function($scope) {
     $scope.visibleTabs = [false, true, false, false];
     $scope.extendedTmpl = "modes/parallel_extended_tmpl.html";
+
+    $scope.settings = settings
+    $scope.showStats = function() {
+        // c.log "showstats", settings.statistics, settings.statistics != false
+        return settings.statistics != false
+    	
+    }
 });
 korpApp.controller("ParallelSearch", function($scope, $location, $rootScope, $timeout, searches) {
 	var s = $scope;
