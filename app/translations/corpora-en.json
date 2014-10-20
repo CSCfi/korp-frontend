@@ -8,6 +8,7 @@
     "pos" : "part-of-speech",
     "msd" : "msd",
     "baseform" : "baseform",
+    "baseform_compound" : "baseform (compound boundaries)",
     "lemgram" : "lemgram",
     "dephead" : "dephead",
     "deprel" : "dependency relation",
@@ -115,6 +116,11 @@
     "unknown" : "unknown",
     "male_female" : "both",
     
+    "utterance_num" : "utterance number",
+    "utterance_begin_time" : "utterance begin time",
+    "utterance_end_time" : "utterance end time",
+    "utterance_duration" : "utterance duration",
+
     "subcorpus_name" : "subcorpus name",
     "sentence_id" : "sentence identifier",
 
@@ -461,8 +467,15 @@
 			
     "fulltext" : "full text",
     
+    "show_original" : "Show original text",
+    "show_fulltext" : "Show full text",
+    "show_fulltext_context" : "Show context in full text",
+    "show_video" : "Show video",
+
     "album" : "album",
     "album_year" : "album year", 
     "song_title" : "song title",
-    "song_year" : "song year"
+    "song_year" : "song year",
+
+    "year_published" : "year published"
 }

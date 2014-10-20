@@ -806,6 +806,7 @@ sattrs.date = {
 sattrs.text_title = {
     label : "text_title"
 };
+sattrs.title = sattrs.text_title;
 sattrs.text_distributor = {
     label : "text_distributor",
     displayType : "hidden"
@@ -826,6 +827,10 @@ sattrs.author_birthyear = {
 };
 sattrs.author_deathyear = {
     label : "author_deathyear"
+};
+
+sattrs.publ_year = {
+    label : "year_published"
 };
 
 sattrs.fulltext_url = {
@@ -868,6 +873,16 @@ sattrs.link_fulltext_context = {
     type : "url",
     url_opts : sattrs.link_url_opts
 };
+sattrs.link_show_video_prefixed = function (url_prefix) {
+    return {
+	label : "show_video",
+	type : "url",
+	url_opts : sattrs.link_url_opts,
+	url_prefix : url_prefix
+    };
+};
+sattrs.link_show_video_annex = sattrs.link_show_video_prefixed(
+    "https://lat.csc.fi/ds/annex/runLoader?viewType=timeline&");
 
 sattrs.link_gutenberg = {
     label : "show_gutenberg",
@@ -892,6 +907,10 @@ sattrs.sentence_id = {
 };
 sattrs.sentence_n = {
     label : "sentence_n"
+};
+sattrs.paragraph_id_hidden = {
+    label : "paragraph_id",
+    displayType : "hidden"
 };
 sattrs.paragraph_id = {
     label : "paragraph_id"
@@ -1079,7 +1098,7 @@ settings.corporafolders.vns = {
 
 settings.corporafolders.test = {
     title : "Demo- ja testiaineistoja",
-    contents : ["metsatalo"]
+    contents : ["reittidemo"]
 };
 
 
@@ -1407,24 +1426,57 @@ settings.corpora.hsfi = {
 };
 
 
-settings.corpora.metsatalo = {
+settings.corpora.reittidemo = {
     title : "Reitti A-siipeen",
-    description : "Reitti (Metsätalon) A-siipeen: videon yleiskielistetty litteraatti",
-    id : "metsatalo",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    description : "Kahdenkeskisen videoidun keskustelun ”Reitti A-siipeen” yleiskielistetty litteraatti. Keskustelussa selvitetään reittiä tiettyyn Helsingin yliopiston Metsätalossa sijaitsevaan huoneeseen. Vapaasti käytettäväksi tarkoitettu näyteaineisto.",
+    id : "reittidemo",
+    within : settings.spWithin,
+    context : settings.spContext,
+    urn : "urn:nbn:fi:lb-100110012817",
+    metadata_urn : "urn:nbn:fi:lb-2014101401",
+    licence : {
+	url : "http://creativecommons.org/publicdomain/zero/1.0/legalcode.txt",
+	name : "CC-ZERO (CC0)"
+    },
     attributes : {
-	lemma : attrs.baseform_ftb2,
-        pos : attrs.pos_ftb2,
+	lemma : attrs.baseform,
+	lemmacomp : attrs.baseform_compound,
+        pos : attrs.pos_klk,
 	msd : attrs.msd,
 	dephead : attrs.dephead,
-	deprel : attrs.deprel_ftb2,
+	deprel : attrs.deprel_tdt,
 	ref : attrs.ref,
 	spoken : attrs.spoken,
 	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
-	sentence_id : sattrs.sentence_id_hidden
+	text_author : sattrs.author,
+	text_title : sattrs.title,
+	text_year : sattrs.publ_year,
+	paragraph_id : sattrs.paragraph_id_hidden,
+	sentence_id : sattrs.sentence_id_hidden,
+	utterance_id : {
+	    label : "utterance_num",
+	},
+	utterance_participant : {
+	    label : "speaker",
+	    displayType : "select",
+	    dataset : [
+		"ML",
+		"TA"
+	    ],
+	    opts : settings.liteOptions
+	},
+	utterance_begin_time : {
+	    label : "utterance_begin_time"
+	},
+	utterance_end_time : {
+	    label : "utterance_end_time"
+	},
+	utterance_duration : {
+	    label : "utterance_duration"
+	},
+	utterance_annex_link : sattrs.link_show_video_annex
     }
 };
 

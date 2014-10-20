@@ -112,7 +112,7 @@
 	"url" : "URL",
 	"referensnummer" : "viitenumero",
 	
-	"text_year" : "year",
+	"text_year" : "vuosi",
 	"text_party" : "party",
 	"date" : "päiväys",
 	"author" : "tekijä",
@@ -163,6 +163,12 @@
 	"statistics" : "Tilastoja",
 
 	"date_interval" : "aikaväli",
+
+	"utterance_num" : "puhunnoksen numero",
+	"utterance_begin_time" : "puhunnoksen alkuaika",
+	"utterance_end_time" : "puhunnoksen loppuaika",
+	"utterance_duration" : "puhunnoksen kesto",
+	"speaker" : "puhuja",
 
 	"subcorpus_name" : "osakorpuksen nimi",
 	"sentence_id" : "virkkeen tunniste",
@@ -521,7 +527,7 @@
 	"deprel_tdt_name" : "monisanainen nimi",
 	"deprel_tdt_neg" : "kieltosana",
 	"deprel_tdt_nn" : "yhdyssubstantiivimääre",
-	"deprel_tdt_nommod" : "moninaalimääre",
+	"deprel_tdt_nommod" : "nominaalimääre",
 	"deprel_tdt_nommod-own" : "nominaalimääre: omistaja",
 	"deprel_tdt_nsubj" : "nominaalisubjekti",
 	"deprel_tdt_nsubj-cop" : "kopulan nominaalisubjekti",
@@ -1036,9 +1042,11 @@
 	"original_url" : "alkuperäisteksti",
 	"fulltext_url" : "kokoteksti",
 	"context_url" : "konteksti kokotekstissä",
+
 	"show_original" : "Näytä alkuperäisteksti",
 	"show_fulltext" : "Näytä kokoteksti",
 	"show_fulltext_context" : "Näytä konteksti kokotekstissä",
+	"show_video" : "Näytä video",
 
  	"vks_text_year" : "vuosi",
 	"vks_sentence_cRef" : "ristiviittaus",
@@ -1076,5 +1084,6 @@
         "topling_subject" : "aihe",
         "topling_comment" : "transkriboijan kommentti",
 
-    "text_pubdate2": "julkaistu"
+    "text_pubdate2": "julkaistu",
+    "year_published" : "julkaisuvuosi"
 }
