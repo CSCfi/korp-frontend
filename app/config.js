@@ -7,6 +7,8 @@ var settings = {};
 var isLab = window.isLab || false;
 
 var isProductionServer = (window.location.hostname.indexOf(".csc.fi") != -1);
+var isProductionServerTest =
+    (isProductionServer && window.location.pathname.indexOf("test/") != -1);
 
 c.log("Production server:", isProductionServer);
 
@@ -14,14 +16,18 @@ settings.lemgramSelect = true;
 settings.autocomplete = true;
 settings.textDateAllowBareYears = true;
 settings.downloadFormats = [
-    "csvp",
-    "csv",
-    "excel",
-    "nooj",
+    "annot",
     "ref",
-    "tsv",
-    "text"
+    "nooj"
 ];
+if (! isProductionServer || isProductionServerTest) {
+    settings.downloadFormats = settings.downloadFormats.concat([
+	"csvp",
+	"csv",
+	"tsv",
+	"text"
+    ]);
+}
 if (! isProductionServer) {
     settings.downloadFormats.push("vrt");
 }
@@ -41,7 +47,7 @@ settings.downloadFormatParams = {
     "csv": {
 	format: "sentences,csv"
     },
-    "excel": {
+    "annot": {
 	format: "tokens,xls",
 	attrs: "+,-lex",
 	match_marker: "***"
