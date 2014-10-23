@@ -144,8 +144,27 @@ util.setJsonLink = function(settings){
 // settings.downloadFormats (Jyrki Niemi <jyrki.niemi@helsinki.fi>
 // 2014-02-26/04-30)
 util.setDownloadLinks = function(xhr_settings, result_data) {
+
+    // Get the number (index) of the corpus of the query result hit
+    // number hit_num in the corpus order information of the query
+    // result.
+    var get_corpus_num = function(hit_num) {
+	return result_data.corpus_order.indexOf(
+	    result_data.kwic[hit_num].corpus);
+    }
+
     c.log("setDownloadLinks data:", result_data);
     $('#download-links').empty();
+    // Corpora in the query result
+    var result_corpora = result_data.corpus_order.slice(
+	get_corpus_num(0), get_corpus_num(result_data.kwic.length - 1) + 1);
+    // Settings of the corpora in the result, to be passed to the
+    // download script
+    var result_corpora_settings = {};
+    for (var i = 0; i < result_corpora.length; i++) {
+	var corpus_id = result_corpora[i].toLowerCase()
+	result_corpora_settings[corpus_id] = settings.corpora[corpus_id];
+    }
     for (var i = 0; i < settings.downloadFormats.length; i++) {
 	var format = settings.downloadFormats[i];
 	var link_id = format + '-link'
@@ -168,15 +187,22 @@ util.setDownloadLinks = function(xhr_settings, result_data) {
 		$.deparam.querystring(xhr_settings.url)),
 	    // For large results in particular, it seems to be faster
 	    // to perform the query again via korp_download.cgi than
-	    // to pass the (processed) query result here. However, for
-	    // a search with a large number of hits and a relatively
+	    // to pass the (processed) query result here. (It probably
+	    // depends on the speed of the uplink.) However, for a
+	    // search with a large number of hits and a relatively
 	    // small number of hits shown, it might be more efficient
 	    // to pass the query result. Should we do differently
 	    // depending on the size of the query result?
 	    // query_result: JSON.stringify(result_data),
 	    format: format,
 	    korp_url: window.location.href,
-	    korp_server_url: settings.cgi_script
+	    korp_server_url: settings.cgi_script,
+	    corpus_config: JSON.stringify(result_corpora_settings),
+	    // The properties listed here are considered by the
+	    // download script to contain corpus URN/URL information.
+	    corpus_config_info_keys: [
+		"metadata", "licence", "homepage", "compiler"].join(","),
+	    urn_resolver: settings.urnResolver,
 	};
 	if ('downloadFormatParams' in settings) {
 	    if ('*' in settings.downloadFormatParams) {
@@ -800,7 +826,7 @@ util.copyCorpusInfoToConfig = function (corpusObj) {
 util.propagateCorpusFolderInfo = function (corpusFolder, info) {
 
     // Copy properties from info to corpusConfig if they are missing
-    // from corpusConfig. A composite property in corpusConfg
+    // from corpusConfig. A composite property in corpusConfig
     // overrides all the values in info (coming from folder info).
     var addCorpusInfo = function (corpusConfig, info) {
 	for (var prop_name in info) {
