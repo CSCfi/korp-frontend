@@ -1048,6 +1048,11 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
 	//      name : "CLARIN PUB",
 	//      urn : "urn:licence_urn"
 	// },
+	metadata_urn : "urn:nbn:fi:lb-20140730150",
+	licence : {
+	    name : "EUPL",
+	    url : "http://ec.europa.eu/idabc/en/document/7774.html"
+	},
 	homepage : {
 	    name : "Kokoelman etusivu",
 	    url : "http://kaino.kotus.fi/korpus/teko/meta/presidentti/presidentti_coll_rdf.xml",
@@ -3333,6 +3338,8 @@ settings.corpora.gutenberg = {
     id : "gutenberg",
     within : settings.spWithin,
     context : settings.spContext,
+    urn : "urn:nbn:fi:lb-2014102101",
+    metadata_urn : "urn:nbn:fi:lb-2014100301",
     homepage_url : "http://www.gutenberg.org/",
     licence_url : "http://www.gutenberg.org/wiki/Gutenberg:The_Project_Gutenberg_License",
     attributes : {
