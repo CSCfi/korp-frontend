@@ -169,8 +169,11 @@ util.setDownloadLinks = function(xhr_settings, result_data) {
     // download script
     var result_corpora_settings = {};
     for (var i = 0; i < result_corpora.length; i++) {
-	var corpus_id = result_corpora[i].toLowerCase()
-	result_corpora_settings[corpus_id] = settings.corpora[corpus_id];
+	var corpus_ids = result_corpora[i].toLowerCase().split("|")
+	for (var j = 0; j < corpus_ids.length; j++) {
+	    var corpus_id = corpus_ids[j];
+	    result_corpora_settings[corpus_id] = settings.corpora[corpus_id];
+	}
     }
     for (var i = 0; i < settings.downloadFormats.length; i++) {
 	var format = settings.downloadFormats[i];
