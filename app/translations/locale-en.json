@@ -28,6 +28,7 @@
 	"about_dev" : "Developers",
 	"about_logo" : "Logotype by",
 	"about_contributers" : "Contributers",
+	"about_adapt" : "Adapting Korp to the Language Bank of Finland",
 	"warning_header" : "Please note",
 	"warning_body" : "The dependency relations illustrated herein are the result of automated parsing.",
 	"fail_text" : "An error has occurred.",
