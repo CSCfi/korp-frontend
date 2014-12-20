@@ -300,6 +300,11 @@ settings.corporafolders.europarl = {
 	contents : ["europarl_fi"]
 };
 
+settings.corporafolders.kfspc = {
+    title : "Kotus Finnish-Swedish Parallel Corpus (KFSPC)",
+    contents : ["kfspc_fi"]
+};
+
 /*
 settings.corporafolders.parrus = {
     title : "ParRus",
@@ -318,6 +323,39 @@ settings.corporafolders.mulcold = {
 settings.corpora = {};
 settings.parallel_corpora = {};
 
+
+/* KFSPC */
+settings.corpora.kfspc_sv = {
+    title : "Kotus Finnish-Swedish Parallel Corpus (ruotsi)",
+    description : "KFSPC (ruotsi)",
+    id : "kfspc_sv",
+    lang : "sv",
+    linked_to : ["kfspc_fi"],
+    context: context.defaultAligned,
+    within: {
+        "sentence": "sentence"
+        },
+    attributes : {
+    },
+    struct_attributes : sattrlist.kfspc,
+    hide : true
+};
+
+/* KFSPC */
+settings.corpora.kfspc_fi = {
+    title : "Kotus Finnish-Swedish Parallel Corpus (suomi)",
+    description : "KFSPC (suomi)",
+    id : "kfspc_fi",
+    lang : "fi",
+    linked_to : ["kfspc_sv"],
+    context : context.defaultAligned,
+    within : {
+        "sentence": "sentence"
+        },
+    attributes : {
+    },
+    struct_attributes : sattrlist.kfspc
+};
 
 settings.corpora.europarl_fi = {
     id : "europarl_fi",

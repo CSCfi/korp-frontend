@@ -908,6 +908,19 @@ sattrs.sentence_id_hidden = {
     label : "sentence_id",
     displayType : "hidden"
 };
+
+/* KFSCP --- */
+
+sattrs.text_pubdate = {
+    label : "text_pubdate2"
+};
+
+sattrs.text_publisher = {
+    label : "text_publisher"
+};
+
+/* --------- */
+
 sattrs.sentence_id = {
     label : "sentence_id"
 };
@@ -2428,6 +2441,14 @@ attrlist.fennougrica_veps = {
         }
 };
 
+/* KFSPC */
+sattrlist.kfspc = {
+    sentence_id : sattrs.sentence_id_hidden,
+    text_distributor : sattrs.text_distributor,
+    text_h_title2 : sattrs.text_title,
+    text_pubdate2 : sattrs.text_pubdate,
+    text_publisher : sattrs.text_publisher
+};
 
 /* TOPLING */
 sattrlist.topling = {
