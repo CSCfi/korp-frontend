@@ -13,6 +13,16 @@ $("#results-lemgram").remove();
 settings.corpora = {};
 settings.corporafolders = {};
 
+settings.spWithin = {
+        "sentence" : "sentence",
+        "paragraph" : "paragraph"
+};
+
+settings.spContext = {
+        "1 sentence" : "1 sentence",
+        "1 paragraph" : "1 paragraph"
+};
+
 
 settings.corporafolders.english = {
     title : "Englanninkielisiä tekstejä",
@@ -84,5 +94,16 @@ settings.corpora.topling = {
     attributes : attrlist.topling,
     struct_attributes : sattrlist.topling
 };
+
+settings.corpora.klk_veps = {
+    id : "klk_veps",
+    title : "Fennougrica - Vepsä (näyte)",
+    description : "Fennougrica - Vepsä (näyte)",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.klk_veps,
+    struct_attributes : sattrlist.klk_veps
+};
+
 
 settings.corpusListing = new CorpusListing(settings.corpora);

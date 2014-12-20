@@ -1085,5 +1085,13 @@
         "topling_comment" : "transkriboijan kommentti",
 
     "text_pubdate2": "julkaistu",
-    "year_published" : "julkaisuvuosi"
+    "year_published" : "julkaisuvuosi",
+
+    "klk_hpos": "hpos",
+    "klk_vpos": "vpos",
+    "klk_changed": "changed",
+    "klk_height": "height",
+    "klk_width": "width",
+    "klk_url" : "OCRUI",
+    "klk_page" : "sivunumero"
 }

@@ -2401,6 +2401,35 @@ attrlist.topling = {
 
 sattrlist = {};
 
+sattrlist.klk_veps = {
+    sentence_id : sattrs.sentence_id_hidden,
+    sentence_page : { label : "klk_page"},
+    within : settings.spWithin,
+    context : settings.spContext,
+    text_datefrom : sattrs.date,
+    text_year : {
+	label : "year"
+    },
+    text_author : {
+        label : "text_author"
+    },
+    text_title : {
+        label : "text_title"
+    }
+
+
+};
+
+attrlist.klk_veps = {
+        url : {
+            label : "klk_img_url",
+            type : "url"
+	    /*opts : settings.defaultOptions*/
+        }
+};
+
+
+/* TOPLING */
 sattrlist.topling = {
     sentence_id : sattrs.sentence_id_hidden,
     text_id : {
