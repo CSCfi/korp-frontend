@@ -300,10 +300,12 @@ settings.corporafolders.europarl = {
 	contents : ["europarl_fi"]
 };
 
+/*
 settings.corporafolders.kfspc = {
     title : "Kotus Finnish-Swedish Parallel Corpus (KFSPC)",
     contents : ["kfspc_fi"]
 };
+*/
 
 /*
 settings.corporafolders.parrus = {
@@ -329,6 +331,8 @@ settings.corpora.kfspc_sv = {
     title : "Kotus Finnish-Swedish Parallel Corpus (ruotsi)",
     description : "KFSPC (ruotsi)",
     id : "kfspc_sv",
+    urn : "urn:nbn:fi:lb-201406035",
+    metadata_urn : "urn:nbn:fi:lb-201406036",
     lang : "sv",
     linked_to : ["kfspc_fi"],
     context: context.defaultAligned,
@@ -346,6 +350,8 @@ settings.corpora.kfspc_fi = {
     title : "Kotus Finnish-Swedish Parallel Corpus (suomi)",
     description : "KFSPC (suomi)",
     id : "kfspc_fi",
+    urn : "urn:nbn:fi:lb-201406035",
+    metadata_urn : "urn:nbn:fi:lb-201406036",
     lang : "fi",
     linked_to : ["kfspc_sv"],
     context : context.defaultAligned,
