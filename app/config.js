@@ -2401,7 +2401,7 @@ attrlist.topling = {
 
 sattrlist = {};
 
-sattrlist.klk_veps = {
+sattrlist.fennougrica_veps = {
     sentence_id : sattrs.sentence_id_hidden,
     sentence_page : { label : "klk_page"},
     within : settings.spWithin,
@@ -2420,7 +2420,7 @@ sattrlist.klk_veps = {
 
 };
 
-attrlist.klk_veps = {
+attrlist.fennougrica_veps = {
         url : {
             label : "klk_img_url",
             type : "url"
