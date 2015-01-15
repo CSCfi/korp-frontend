@@ -9,7 +9,7 @@ settings.wordpicture = false;
 $("#lemgram_list_item").remove();
 $("#results-lemgram").remove();
 
-klk_struct_attrs = {
+sattrlist.klk_sv = {
     text_label : {
         label : "klk_label",
         opts : settings.defaultOptions,
@@ -92,12 +92,42 @@ klk_struct_attrs = {
     sentence_id : sattrs.sentence_id_hidden
 };
 
-klk_pos_attrs = {
+sattrlist.klk_sv_parsed = $.extend({}, sattrlist.klk_sv);
+$.extend(sattrlist.klk_sv_parsed, 
+	 {
+	     paragraph_n : {
+		 label : "sentence_n",
+		 displayType : "hidden"
+	     },
+	     sentence_n : {
+		 label : "sentence_n",
+		 displayType : "hidden"
+	     }
+	 });
+		 
+attrlist.klk_sv = {
     ocr : {
 	label : "OCR",
 	opts : settings.defaultOptions,
     }
 };
+
+attrlist.klk_sv_parsed = 
+    $.extend(
+	{
+            pos : attrs.pos,
+            msd : attrs.msd,
+            lemma : attrs.baseform_sv,
+            lex : attrs.lemgram,
+            saldo : attrs.saldo,
+            dephead : attrs.dephead,
+            deprel : attrs.deprel,
+            ref : attrs.ref,
+            prefix : attrs.prefix,
+            suffix : attrs.suffix
+	},
+	attrlist.klk_sv);
+
 
 settings.corpora = {};
 settings.corporafolders = {};
@@ -106,6 +136,9 @@ settings.corporafolders = {};
 settings.corporafolders.klk_sv = {
     title : "Kansalliskirjaston lehtikokoelman (KLK) ruotsinkieliset lehdet"
 };
+
+
+var klk_sv_parsed_years = settings.fn.make_yearlist(1771, 1948);
 
 
 // Generate settings.corpora and settings.corporafolders for the
@@ -120,7 +153,9 @@ settings.fn.make_corpus_settings_by_year_decade(
 	return settings.fn.make_klk_corpus_settings(
 	    "KLK ruotsi {year}",
 	    "Kansalliskirjaston ruotsinkielisiä sanoma- ja aikakauslehtiä vuodelta {year}",
-	    year);
+	    "sv",
+	    year,
+	    klk_sv_parsed_years.indexOf(year) != -1);
     },
     settings.fn.make_yearlist(
 	1771, 1948,
@@ -128,6 +163,9 @@ settings.fn.make_corpus_settings_by_year_decade(
 	 omit : [1779, 1780, 1781, 1786, 1787, 1788, 1790]}
     )
 );
+
+
+delete klk_sv_parsed_years;
 
 
 settings.corpora.mulcold_sv = {

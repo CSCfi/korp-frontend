@@ -519,6 +519,15 @@ attrs.wordtype = {
     opts : settings.defaultOptions
 };
 
+attrs.baseform_sv = {
+    label : "baseform",
+    type : "set",
+    // displayType : "autocomplete",
+    stringify : function(baseform) {
+	    return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
+    },
+    opts : settings.defaultOptions
+};
 attrs.baseform = {
     label : "baseform",
     // type : "set",
@@ -566,7 +575,7 @@ attrs.lemgram_hidden = {
 attrs.saldo = {
 	label : "saldo",
 	type : "set",
-	displayType : "autocomplete",
+	// displayType : "autocomplete",
 	opts : settings.liteOptions,
 	stringify : function(saldo) {
 		return util.saldoToString(saldo, true);
@@ -2551,7 +2560,7 @@ settings.corpora.mulcold_fi = {
  * Previously in Finnish National Library mode
  */
 
-sattrlist.klk = {
+sattrlist.klk_fi = {
     text_label : {
         label : "klk_label",
         opts : settings.defaultOptions,
@@ -2634,8 +2643,8 @@ sattrlist.klk = {
     sentence_id : sattrs.sentence_id_hidden
 };
 
-sattrlist.klk_parsed = $.extend({}, sattrlist.klk);
-$.extend(sattrlist.klk_parsed, 
+sattrlist.klk_fi_parsed = $.extend({}, sattrlist.klk_fi);
+$.extend(sattrlist.klk_fi_parsed, 
 	 {
 	     sentence_parse_state : {
 		 label : "klk_parse_state",
@@ -2652,15 +2661,15 @@ $.extend(sattrlist.klk_parsed,
 		 displayType : "hidden"
 	     }
 	 });
-		 
-attrlist.klk = {
+
+attrlist.klk_fi = {
     ocr : {
 	label : "OCR",
 	opts : settings.defaultOptions
     }
 };
 
-attrlist.klk_parsed = 
+attrlist.klk_fi_parsed =
     $.extend(
 	{
 	    lemma : attrs.baseform,
@@ -2672,7 +2681,7 @@ attrlist.klk_parsed =
 	    ref : attrs.ref,
 	    lex : attrs.lemgram_hidden
 	},
-	attrlist.klk);
+	attrlist.klk_fi);
 
 
 // Functions used for constructing settings.corpora and
@@ -2745,11 +2754,11 @@ settings.fn.make_corpus_settings_by_year_decade = function(
 
 // Construct settings contents for a single KLK corpus
 settings.fn.make_klk_corpus_settings = function(
-    title_format, descr_format, year, parsed)
+    title_format, descr_format, lang, year, parsed)
 {
     var year_str = year.toString();
     var ctx_type = (year <= 1911 ? "sp" : "default");
-    var attrs_key = (parsed ? "klk_parsed" : "klk");
+    var attrs_key = "klk_" + lang + (parsed ? "_parsed" : "");
     return {
 	title : title_format.replace("{year}", year_str),
 	description : descr_format.replace("{year}", year_str),
@@ -2778,6 +2787,7 @@ settings.fn.make_corpus_settings_by_year_decade(
 	return settings.fn.make_klk_corpus_settings(
 	    "KLK suomi {year}",
 	    "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä vuodelta {year}",
+	    "fi",
 	    year,
 	    klk_fi_parsed_years.indexOf(year) != -1);
     },
