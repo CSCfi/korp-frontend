@@ -1,3 +1,7 @@
+<!-- Äldre Eddan 2015-01-19 -->
+
+Korpusen [_Äldre Eddan_](?mode=eddan) finns nu i Korp.
+
 <!-- Bellmans samlade verk 2015-01-16 -->
 
 Korpusen [_Bellmans samlade verk_](?mode=bellman) finns nu i Korp.
