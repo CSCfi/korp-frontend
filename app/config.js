@@ -18,6 +18,7 @@ settings.autocomplete = true;
 
 settings.cgi_prefix = (isProductionServer ? "/cgi-bin/" : "/cgi-bin/korp/");
 settings.cgi_script = settings.cgi_prefix + "korp.cgi";
+settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
 
 // for extended search dropdown, can be 'union' or 'intersection'
 settings.word_attribute_selector = "union"

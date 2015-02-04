@@ -1,7 +1,7 @@
 (function() {
   var BaseProxy,
-    __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    __hasProp = {}.hasOwnProperty,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   window.model = {};
@@ -327,9 +327,10 @@
       deferred = $.Deferred((function(_this) {
         return function(dfd) {
           return _this.pendingRequests.push($.ajax({
-            url: "http://spraakbanken.gu.se/ws/karp-sok",
+            url: settings.lemgrams_cgi_script,
             data: {
               wf: word,
+              corpus: settings.corpusListing.stringifySelected(),
               resource: settings.corpusListing.getMorphology(),
               format: "json",
               "sms-forms": false,
@@ -344,8 +345,7 @@
               c.log("karp success", data, sw_forms);
               div = ($.isPlainObject(data.div) ? [data.div] : data.div);
               output = $.map(div.slice(0, Number(data.count)), function(item) {
-                item = util.convertLMFFeatsToObjects(item);
-                return item.LexicalEntry.Lemma.FormRepresentation.feat_lemgram;
+                return item.LexicalEntry.lem;
               });
               return dfd.resolve(output, textStatus, xhr);
             },
