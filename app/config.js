@@ -6,9 +6,18 @@ var settings = {};
 
 var isLab = window.isLab || false;
 
+var isProductionServer = (window.location.hostname.indexOf(".csc.fi") != -1);
+var isProductionServerTest =
+    (isProductionServer && window.location.pathname.indexOf("test/") != -1);
+
+c.log("Production server:", isProductionServer);
+
 settings.lemgramSelect = true;
 settings.autocomplete = true;
 // settings.wordpicture = false;
+
+settings.cgi_prefix = (isProductionServer ? "/cgi-bin/" : "/cgi-bin/korp/");
+settings.cgi_script = settings.cgi_prefix + "korp.cgi";
 
 // for extended search dropdown, can be 'union' or 'intersection'
 settings.word_attribute_selector = "union"
@@ -18,7 +27,10 @@ settings.struct_attribute_selector = "union"
 settings.reduce_word_attribute_selector = "union" 
 settings.reduce_struct_attribute_selector = "intersection"
 
-settings.news_desk_url = "https://svn.spraakdata.gu.se/sb-arkiv/pub/component_news/json/korpnews.json";
+// settings.news_desk_url = "https://svn.spraakdata.gu.se/sb-arkiv/pub/component_news/json/korpnews.json";
+settings.news_desk_url = 
+    window.location.protocol + "//" + window.location.hostname + "/"
+    + window.location.pathname + "news/json/korpnews.json";
 
 settings.wordpictureTagset = {
     // supported pos-tags
@@ -70,68 +82,11 @@ settings.modeConfig = [
     {
         localekey: "parallel_texts",
         mode: "parallel"
-    },
-    {
-        localekey: "old_swedish_texts",
-        mode: "old_swedish"
-    },
-    {
-        localekey: "lb_texts",
-        mode: "lb"
-    },
-    {
-        localekey: "kubhist",
-        mode: "kubhist"
-    },
-    {
-        localekey: "all_hist",
-        mode: "all_hist",
-    },
-    {
-        localekey: "spf_texts",
-        mode: "spf"
-    },
-    {
-        localekey: "fisk1800_texts",
-        mode: "fisk1800"
-    },
-    {
-        localekey: "faroese_texts",
-        mode: "faroe"
-    },
-    {
-        localekey: "siberian_texts",
-        mode: "siberian_german",
-    },
-    {
-        localekey: "kioping_texts",
-        mode: "kioping_books",
-    },
-    {
-        localekey: "runeberg",
-        mode: "runeberg",
-    },
- 
-    {
-        localekey: "1800_texts",
-        mode: "1800",
-    },
-    {
-        localekey: "lawroom",
-        mode: "law",
-    },
-    {
-        localekey: "spanish_texts",
-        mode: "spanish",
-    },
-    {
-        localekey: "interfra",
-        mode: "interfra"
     }
  
 ];
 
-settings.languages = ["sv", "en"];
+settings.languages = ["fi", "sv", "en"];
 
 
 var karpLemgramLink = "http://spraakbanken.gu.se/karp/#search=cql%7C(lemgram+%3D+%22<%= val.replace(/:\\d+/, '') %>%22)+sortBy+lemgram";
@@ -155,7 +110,7 @@ settings.spWithin = {
     "paragraph" : "paragraph"
 };
 
-settings.defaultLanguage = "sv";
+settings.defaultLanguage = "fi";
 
 /*
  * ATTRIBUTES
@@ -4010,10 +3965,6 @@ settings.corpora.soexempel = {
  * MISC
  */
 
-settings.cgi_script = "http://spraakbanken.gu.se/ws/korp";
-// settings.cgi_script = "http://demosb.spraakdata.gu.se/cgi-bin/korp/korp.cgi";
-// settings.cgi_script = "http://spraakbanken.gu.se/ws/korp";
-// settings.cgi_script = "http://demosb.spraakdata.gu.se/cgi-bin/korp/korp_sme.cgi";
 
 // label values here represent translation keys.
 settings.arg_groups = {
