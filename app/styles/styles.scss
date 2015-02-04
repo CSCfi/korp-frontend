@@ -889,14 +889,16 @@ table {
   display: none;
   p {
     display: block;
-    padding: 1em !important;
-    width: 510px;
+    /* padding: 1em !important; */
+    padding: 0.25em;
+    /* width: 510px; */
     margin : 0;
   }
 }
 
 .reading_mode .results_table {
-  margin-left: 10%;
+  /* margin-left: 10%; */
+  margin-left: 3%;
   &.kwic {
     display: none;
   }
