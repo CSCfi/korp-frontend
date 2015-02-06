@@ -113,4 +113,15 @@ settings.corpora.fennougrica_veps = {
 };
 
 
+var locally_available_corpora = ["(mulcold|legal)_.."];
+
+if (! isPublicServer) {
+    settings.fn.remove_matching_corpora(locally_available_corpora, true);
+} else {
+    settings.fn.remove_matching_corpora(["test.*"]);
+}
+
+delete locally_available_corpora;
+
+
 settings.corpusListing = new CorpusListing(settings.corpora);

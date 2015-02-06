@@ -183,4 +183,9 @@ settings.corpora.mulcold_sv = {
 };
 
 
+if (! isPublicServer) {
+    settings.fn.remove_matching_corpora(["mulcold_.*"], true);
+}
+
+
 settings.corpusListing = new CorpusListing(settings.corpora);

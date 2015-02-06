@@ -9,6 +9,7 @@ var isLab = window.isLab || false;
 var isProductionServer = (window.location.hostname.indexOf(".csc.fi") != -1);
 var isProductionServerTest =
     (isProductionServer && window.location.pathname.indexOf("test/") != -1);
+var isPublicServer = (window.location.hostname != "localhost");
 
 c.log("Production server:", isProductionServer);
 
@@ -3562,6 +3563,103 @@ settings.corpora.gutenberg = {
     }
 };
 
+
+/*
+ * Modify the list of corpora
+ */
+
+
+// corporafolder properties that are not names of subfolders.
+// Represented as an object instead of an array, so that we can use
+// the JavaScript "in" operator.
+settings.corporafolder_properties = {
+    title : "",
+    description : "",
+    contents : "",
+    info : "",
+    unselected : ""
+};
+
+
+// Remove non-existing or irrelevant corpora (and folders) based on
+// the server from which the code is being run.
+
+
+// Recursively remove corpora folders in folder containing no corpora
+// (or folders) that are in settings.corpora. Returns true if folder
+// is empty.
+settings.fn.remove_empty_corporafolders = function (folder) {
+    var empty = true;
+    if ("contents" in folder) {
+	var new_contents = [];
+	for (var i = 0; i < folder.contents.length; i++) {
+	    var corpname = folder.contents[i];
+	    if (corpname in settings.corpora) {
+		new_contents.push(corpname);
+	    }
+	}
+	if (new_contents.length == 0) {
+	    delete folder.contents;
+	} else {
+	    folder.contents = new_contents;
+	    empty = false;
+	}
+    }
+    for (var prop in folder) {
+	if (folder.hasOwnProperty(prop)
+	    && ! (prop in settings.corporafolder_properties)) {
+	    if (settings.fn.remove_empty_corporafolders(folder[prop])) {
+		delete folder[prop];
+	    } else {
+		empty = false;
+	    }
+	}
+    }
+    return empty;
+}
+
+// Remove from settings.corpora corpora whose property name (id)
+// matches one of regular expressions (as strings) in corplist. If the
+// second argument is true, remove the corpora that do *not* match any
+// of the regular expressions. After that, remove corpora folders that
+// would be empty after removing the copora.
+settings.fn.remove_matching_corpora = function (corplist) {
+    var inverse = (arguments.length > 1 && arguments[1]);
+    var corp_re = new RegExp("^(" + corplist.join ("|") + ")$");
+    for (var corpus in settings.corpora) {
+	var matches = corp_re.test (corpus);
+	if ((matches && ! inverse) || (inverse && ! matches)) {
+	    delete settings.corpora[corpus];
+	}
+    }
+    settings.fn.remove_empty_corporafolders(settings.corporafolders);
+};
+
+// Corpora available locally on the development laptop
+var locally_available_corpora =
+    ["ftb(2|3_.*)",
+     "reittidemo",
+     "kotus_ns_presidentti_.*",
+     "kotus_klassikot",
+     "kotus_sananparret",
+     "la_murre",
+     "(mulcold|legal)_..",
+     "skvr",
+     "sks_kivi_fi",
+     "v[kn]s_.*",
+     "test.*"];
+
+// Remove all but the locally available corpora if running on the
+// development and all with names beginning with "test" from the
+// public servers.
+
+if (! isPublicServer) {
+    settings.fn.remove_matching_corpora(locally_available_corpora, true);
+} else {
+    settings.fn.remove_matching_corpora(["test.*"]);
+}
+
+delete locally_available_corpora;
 
 
 /*
