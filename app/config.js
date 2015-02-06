@@ -3662,6 +3662,64 @@ if (! isPublicServer) {
 delete locally_available_corpora;
 
 
+// Add extra properties to corpus attributes based on other
+// properties. This is currently used to add extended_template and
+// controller to attributes with displayType "select".
+// Another approach would be to add these properties explicitly to all
+// the relevant attribute objects, as Språkbanken have done. Both
+// approaches probably have advantages and disadvantages (less
+// redundancy vs. explicitness).
+
+
+// An array of properties of corpus attributes to be added based on
+// other properties. Each element contains is an object with the
+// properties "test" (a function returning true for the attribute
+// object if the extra properties should be added) and "props" (an
+// object containing the extra properties to be added).
+settings.attr_extra_properties = [
+    {
+	// If displayType == "select", add properties
+	// extended_template and controller.
+	test : function (attr) {
+	    return "displayType" in attr && attr.displayType == "select";
+	},
+	props : {
+	    extended_template : selectType.extended_template,
+	    controller : selectType.controller
+	}
+    }
+];
+
+// Add the extra attibute properties in settings.attr_extra_properties
+// to the appropriate attributes of corpora.
+settings.fn.add_attr_extra_properties = function (corpora) {
+    for (var corpname in corpora) {
+	var corpus = corpora[corpname];
+	if ("attributes" in corpus) {
+	    for (var attrname in corpus.attributes) {
+		for (var i = 0; i < settings.attr_extra_properties.length; i++) {
+		    var attr_extra_props = settings.attr_extra_properties[i];
+		    var attr = corpus.attributes[attrname];
+		    if (attr_extra_props.test(attr)) {
+			var props = attr_extra_props.props;
+			for (var prop in props) {
+			    if (props.hasOwnProperty(prop)
+				&& ! attr.hasOwnProperty(prop)) {
+				attr[prop] = props[prop];
+			    }
+			}
+		    }
+		}
+	    }
+	}
+    }
+}
+
+// Add the extra properties to corpora
+
+settings.fn.add_attr_extra_properties(settings.corpora);
+
+
 /*
  * MISC
  */

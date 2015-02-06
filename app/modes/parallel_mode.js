@@ -621,6 +621,9 @@ if (! isPublicServer) {
 delete locally_available_corpora;
 
 
+settings.fn.add_attr_extra_properties(settings.corpora);
+
+
 window.cl = settings.corpusListing = new ParallelCorpusListing(settings.corpora);
 delete ParallelCorpusListing;
 delete context;

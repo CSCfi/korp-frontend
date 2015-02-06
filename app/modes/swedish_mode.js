@@ -188,4 +188,7 @@ if (! isPublicServer) {
 }
 
 
+settings.fn.add_attr_extra_properties(settings.corpora);
+
+
 settings.corpusListing = new CorpusListing(settings.corpora);
