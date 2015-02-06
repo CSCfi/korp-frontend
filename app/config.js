@@ -1182,14 +1182,10 @@ settings.corporafolders.legal = {
     contents : ["ns_saadokset", "legal_fi", "mulcold_fi"]
 };
 
-// Uncomment the following when selecting a folder no longer
-// incorrectly selects protected corpora within it.
-/*
 settings.corporafolders.net = {
     title : "Verkkotekstejä",
     contents : ["hsfi"]
 };
-*/
 
 settings.corporafolders.other_texts = {
     title : "Muita tekstejä",
@@ -1233,15 +1229,11 @@ settings.corporafolders.spoken = {
     // unselected : true
 };
 
-// Uncomment the following when selecting a folder no longer
-// incorrectly selects protected corpora within it.
-/*
 settings.corporafolders.learner = {
     title : "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
     contents : ["las2"],
     // unselected : true
 };
-*/
 
 settings.corporafolders.vks = {
     title : "Vanhan kirjasuomen korpus",
