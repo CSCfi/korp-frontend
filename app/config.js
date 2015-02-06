@@ -16,7 +16,9 @@ settings.lemgramSelect = true;
 settings.autocomplete = true;
 // settings.wordpicture = false;
 
-settings.cgi_prefix = (isProductionServer ? "/cgi-bin/" : "/cgi-bin/korp/");
+settings.cgi_prefix = (isProductionServerTest
+		       ? "/cgi-bin/korp-2.66/"
+		       : (isProductionServer ? "/cgi-bin/" : "/cgi-bin/korp/"));
 settings.cgi_script = settings.cgi_prefix + "korp.cgi";
 settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
 
