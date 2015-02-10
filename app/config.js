@@ -6,6 +6,9 @@ var settings = {};
 
 var isLab = window.isLab || false;
 
+var baseURL = (window.location.protocol + "//" + window.location.hostname
+               + window.location.pathname);
+
 settings.lemgramSelect = true;
 settings.autocomplete = true;
 // settings.wordpicture = false;
@@ -19,6 +22,16 @@ settings.reduce_word_attribute_selector = "union"
 settings.reduce_struct_attribute_selector = "intersection"
 
 settings.news_desk_url = "https://svn.spraakdata.gu.se/sb-arkiv/pub/component_news/json/korpnews.json";
+
+// authenticationType: "basic", "shibboleth" or "none"
+settings.authenticationType = (isProductionServer ? "shibboleth" : "basic");
+// Login and logout URLs to use with Shibboleth authentication if
+// authenticationType == "shibboleth"
+// for eduGAIN / CSC Account:
+settings.shibbolethLoginUrl = baseURL + "shibboleth-ds/index.html";
+//settings.shibbolethLoginUrl = "https://haka.funet.fi/shibboleth/WAYF?entityID=https://sp.korp.csc.fi/&return=https%3A%2F%2Fkorp.csc.fi%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dhttps%253A%252F%252Fkorp.csc.fi%252F%2523display%253Dlogin";
+settings.shibbolethLogoutUrl =
+    "https://korp.csc.fi/Shibboleth.sso/Logout?return=" + encodeURI(baseURL);
 
 settings.wordpictureTagset = {
     // supported pos-tags
