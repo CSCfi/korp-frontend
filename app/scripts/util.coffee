@@ -853,3 +853,34 @@ util.findoutType = (variable) ->
         typeof (variable)
 
 
+# Initialize the link_attributes properties in all the corpora in
+# settings.corpora.
+util.initCorpusSettingsLinkAttrs = () ->
+    for corpus of settings.corpora
+        util.extractLinkAttrs(settings.corpora[corpus])
+    null
+
+# Initialize the link_attributes property in corpusInfo to contain
+# the attributes with type "url" and url_opts.in_link_section true.
+# These attributes are shown in a separate section in the sidebar.
+# The original attributes are marked as hidden.
+util.extractLinkAttrs = (corpusInfo) ->
+
+    extractLinkAttrs = (attrs, link_attrs) ->
+        if attrs?
+            for attrname of attrs
+                attr = attrs[attrname]
+                if attr.type == "url" and attr.url_opts? and attr.url_opts.in_link_section
+                    link_attrs[attrname] = $.extend(true, {}, attr)
+                    # The original attribute cannot be deleted
+                    # (without making more modifications elsewhere)
+                    # because Korp only requests from the backend the
+                    # attributes mentioned in attributes or
+                    # struct_attributes.
+                    attrs[attrname].displayType = "hidden"
+
+    link_attrs = {}
+    extractLinkAttrs(corpusInfo.attributes, link_attrs)
+    extractLinkAttrs(corpusInfo.struct_attributes, link_attrs)
+    corpusInfo.link_attributes = link_attrs
+    null
