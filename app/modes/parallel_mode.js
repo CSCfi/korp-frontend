@@ -659,6 +659,15 @@ settings.parallel_corpora.testpar4 = {
 */
 
 
+var locally_available_corpora = ["europarl_.*"];
+
+if (! isPublicServer) {
+    settings.fn.remove_matching_corpora(locally_available_corpora, true);
+} else {
+    settings.fn.remove_matching_corpora(["test.*"]);
+}
+
+delete locally_available_corpora;
 
 
 window.cl = settings.corpusListing = new ParallelCorpusListing(settings.corpora);
