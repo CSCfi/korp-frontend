@@ -3426,6 +3426,51 @@ settings.corpora.gutenberg = {
     }
 };
 
+settings.corpora.suomi24fi = {
+    title : "Suomi24",
+    description : "suomi24.fi -forumin keskustelut (2001-2014)",
+    id : "suomi24fi",
+    urn : "urn:nbn:fi:lb-201412171",
+    metadata_urn : "urn:nbn:fi:lb-201412171",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+	lemma : attrs.baseform,
+	pos : attrs.pos_klk,
+	msd : attrs.msd,
+	dephead : attrs.dephead
+    },
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_date : sattrs.date,
+        text_time : sattrs.text_time,
+        text_sect : {
+            label : "suomi24_sect",
+        },
+        text_sub : {
+            label : "suomi24_sub",
+        },
+        text_user : {
+            label : "suomi24_user",
+        },
+        sentence_id : sattrs.sentence_id_hidden,
+
+        text_urlmsg : {
+            label : "suomi24_urlmsg",
+            type : "url",
+            url_opts : sattrs.link_url_opts
+        },
+
+	text_urlboard : {
+            label : "suomi24_urlboard",
+            type : "url",
+            url_opts : sattrs.link_url_opts
+        }
+    }
+};
+
+
+
 
 /*
  * MISC

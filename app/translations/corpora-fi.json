@@ -1097,5 +1097,11 @@
     "klk_height": "height",
     "klk_width": "width",
     "klk_url" : "OCRUI",
-    "klk_page" : "sivunumero"
+    "klk_page" : "sivunumero",
+    "suomi24fi_user" : "nimimerkki",
+    "suomi24fi_sub" : "aihe",
+    "suomi24fi_sect" : "keskustelualue",
+    "suomi24fi_urlmsg" : "alkuperäinen viesti",
+    "suomi24fi_urlboard" : "alkuperäinen keskustelu"
+
 }
