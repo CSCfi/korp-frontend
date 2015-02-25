@@ -3445,24 +3445,24 @@ settings.corpora.suomi24fi = {
         text_date : sattrs.date,
         text_time : sattrs.text_time,
         text_sect : {
-            label : "suomi24_sect",
+            label : "suomi24fi_sect",
         },
         text_sub : {
-            label : "suomi24_sub",
+            label : "suomi24fi_sub",
         },
         text_user : {
-            label : "suomi24_user",
+            label : "suomi24fi_user",
         },
         sentence_id : sattrs.sentence_id_hidden,
 
         text_urlmsg : {
-            label : "suomi24_urlmsg",
+            label : "suomi24fi_urlmsg",
             type : "url",
             url_opts : sattrs.link_url_opts
         },
 
 	text_urlboard : {
-            label : "suomi24_urlboard",
+            label : "suomi24fi_urlboard",
             type : "url",
             url_opts : sattrs.link_url_opts
         }
