@@ -2366,7 +2366,7 @@ settings.corpora.skvr = {
                 'editor_commentary':'editor',
                 'caption':'caption' 
             },
-            opts : settings.LiteOptions,
+            opts : settings.liteOptions,
         },
         sentence_refs : {
             label : "sentence_refs",
@@ -2651,7 +2651,7 @@ $.extend(sattrlist.klk_fi_parsed,
 		 label : "klk_parse_state",
 		 displayType : "select",
 		 translationKey : "parse_state_",
-		 opts : settings.LiteOptions,
+		 opts : settings.liteOptions,
 		 dataset : {
 		     "parsed" : "parsed",
 		     "tagged" : "tagged"
