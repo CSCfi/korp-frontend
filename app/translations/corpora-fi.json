@@ -1102,7 +1102,13 @@
     "suomi24fi_sub" : "aihe",
     "suomi24fi_sect" : "keskustelualue",
     "suomi24fi_urlmsg" : "alkuperäinen viesti",
-    "suomi24fi_urlboard" : "alkuperäinen keskustelu"
+    "suomi24fi_urlboard" : "alkuperäinen keskustelu",
 
+    "publication_type" : "julkaisutyyppi",
+    "publtype_aikakausi" : "aikakauslehti",
+    "publtype_sanomalehti" : "sanomalehti",
 
+    "show_page_image" : "Näytä sivun kuva",
+    "show_page_image_context" : "Näytä sivun kuva sanakonteksti korostettuna",
+    "download_publ_pdf" : "Lataa julkaisu PDF-tiedostona"
 }

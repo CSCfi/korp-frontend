@@ -308,6 +308,13 @@
 	"album" : "album",
     "album_year" : "år (album)", 
     "song_title" : "låttitel",
-    "song_year" : "år (låt)"
-    
+    "song_year" : "år (låt)",
+
+    "publication_type" : "publikationstyp",
+    "publtype_aikakausi" : "tidskrift",
+    "publtype_sanomalehti" : "tidning",
+
+    "show_page_image" : "Visa originalsida",
+    "show_page_image_context" : "Visa originalsida med ordkontext i fet stil",
+    "download_publ_pdf" : "Ladda ner publikationen som PDF"
 }
