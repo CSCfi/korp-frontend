@@ -918,3 +918,40 @@ util.extractLinkAttrs = function (corpusInfo) {
     extractLinkAttrs(corpusInfo.struct_attributes, link_attrs);
     corpusInfo.link_attributes = link_attrs;
 };
+
+
+// Initialize the synthetic_attr_names property of all the corpora in
+// settings.corpora.
+util.initCorpusSettingsSyntheticAttrs = function () {
+    for (var corpus in settings.corpora) {
+	util.setSyntheticAttrsInfo(settings.corpora[corpus])
+    }
+}
+
+
+// Initialize the synthetic_attr_names property of corpusInfo to
+// contain the names of synthetic attributes (with property synthetic
+// == true), separately for (positional) attributes, struct_attributes
+// and link_attributes, so that Sidebar.renderContent (in widgets)
+// need not find them out over and over again.
+util.setSyntheticAttrsInfo = function (corpusInfo) {
+    var setSyntheticAttrs = function (attrs, synthetic_list) {
+	if (attrs !== undefined) {
+	    for (var attrname in attrs) {
+		var attr = attrs[attrname]
+		if (attr.synthetic && attr.displayType != "hidden") {
+		    synthetic_list.push(attrname);
+		}
+	    }
+	}
+    }
+    corpusInfo.synthetic_attr_names = {
+	attributes : [],
+	struct_attributes : [],
+	link_attributes : []
+    };
+    for (var attrtype in corpusInfo.synthetic_attr_names) {
+	setSyntheticAttrs(corpusInfo[attrtype],
+			  corpusInfo.synthetic_attr_names[attrtype]);
+    }
+};
