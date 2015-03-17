@@ -3542,6 +3542,7 @@ settings.corpora.gutenberg = {
     }
 };
 
+/* testiversio
 settings.corpora.suomi24fi = {
     title : "Suomi24",
     description : "suomi24.fi -forumin keskustelut (2001-2014)",
@@ -3584,7 +3585,81 @@ settings.corpora.suomi24fi = {
         }
     }
 };
+*/
 
+settings.corpora.ylilauta = {
+    title : "Ylilauta",
+    description : "Ylilauta",
+    id : "ylilauta",
+    urn : "-",
+    metadata_urn : "-",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+	lemma : attrs.baseform,
+	pos : attrs.pos_klk,
+	msd : attrs.msd,
+	syn : attrs.deprel_tdt
+    },
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_date : sattrs.date,
+        text_clock : sattrs.text_time,
+        text_sec : {
+            label : "suomi24fi_sect",
+        }
+    }
+};
+
+settings.corpora.s24 = {
+    title : "Suomi24",
+    description : "Suomi24-keskustelut (2002-2014)",
+    id : "s24",
+    urn : "urn:nbn:fi:lb-201412171",
+    metadata_urn : "urn:nbn:fi:lb-201412171",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : {
+            label : "msd",
+            opts : settings.defaultOptions
+        },
+        dep : {
+            label : "dephead",
+            opts : settings.defaultOptions
+        },
+        syn : attrs.deprel_tdt,
+        unk : attrs.ner_tags
+    },
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_date : sattrs.date,
+        text_time : sattrs.text_time,
+        text_sect : {
+            label : "suomi24fi_sect",
+        },
+        text_sub : {
+            label : "suomi24fi_sub",
+        },
+        text_user : {
+            label : "suomi24fi_user",
+        },
+        sentence_id : sattrs.sentence_id_hidden,
+
+        text_urlmsg : {
+            label : "suomi24fi_urlmsg",
+            type : "url",
+            url_opts : sattrs.link_url_opts
+        },
+        text_urlboard : {
+            label : "suomi24fi_urlboard",
+            type : "url",
+            url_opts : sattrs.link_url_opts
+        }
+    }
+};
 
 
 
