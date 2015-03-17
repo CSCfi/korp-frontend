@@ -315,6 +315,32 @@ attrs.pos_ftb3_orig = {
     opts : settings.defaultOptions
 };
 */
+attrs.ner_tags = {
+    label : "ner_tags",
+    displayType : "select",
+    translationKey: "ner_tags_",
+    opts : settings.liteOptions,
+    dataset : {
+        "_" : "_",
+        "EnamexPrsHum" : "EnamexPrsHum",
+        "TimexTmeDat" : "TimexTmeDat",
+        "NumexMsrCur" : "NumexMsrCur",
+        "NumexMsrXxx" : "NumexMsrXxx",
+        "EnamexOrgCrp" : "EnamexOrgCrp",
+        "EnamexLocXxx" : "EnamexLocXxx",
+        "EnamexLocGpl" : "EnamexLocGpl",
+        "EnamexLocPpl" : "EnamexLocPpl",
+        "EnamexPrsTit" : "EnamexPrsTit",
+        "EnamexOrgTvr" : "EnamexOrgTvr",
+        "EnamexOrgPlt" : "EnamexOrgPlt",
+        "EnamexLocStr" : "EnamexLocStr",
+        "EnamexOrgAth" : "EnamexOrgAth",
+        "EnamexOrgEdu" : "EnamexOrgEdu",
+        "EnamexOrgClt" : "EnamexOrgClt"
+    }
+};
+
+
 attrs.pos_ftb31 = {
     label : "pos",
     displayType : "select",
