@@ -1112,7 +1112,7 @@
     "show_page_image_context" : "Näytä sivun kuva sanakonteksti korostettuna",
     "download_publ_pdf" : "Lataa julkaisu PDF-tiedostona",
 
-    "ner_tags" : "ner-luokitus",
+    "ner_tags" : "nimiluokitus",
     "ner_tags_EnamexPrsHum" : "henkilö: henkilönimi",
     "ner_tags__" : "tunnistamaton",
     "ner_tags_TimexTmeDat" : "aika: ajanmääre",
