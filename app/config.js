@@ -3627,7 +3627,10 @@ settings.corpora.murre = {
             label : "normalized",
             opts : settings.defaultOptions,
         },
-        comment : attrs.word_comment
+        comment : {
+	    label : "word_comment",
+	    opts : settings.defaultOptions
+	}
     },
     struct_attributes : {
         text_title : sattrs.text_title,

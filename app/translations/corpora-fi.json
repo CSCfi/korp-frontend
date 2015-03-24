@@ -733,6 +733,7 @@
 	"word_orig" : "alkuperäinen sana",
 	"word_completed" : "täydennetty sana",
 	"word_tilde" : "korjausmerkintä",
+	"word_comment" : "kommentti",
 
 	"vksbibbook_Am" : "Amos",
 	"vksbibbook_Dan" : "Daniel",
