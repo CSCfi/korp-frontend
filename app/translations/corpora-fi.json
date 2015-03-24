@@ -1128,5 +1128,17 @@
     "ner_tags_EnamexLocStr" : "paikka: katu tai tie",
     "ner_tags_EnamexOrgAth" : "organisaatio: urheilu ",
     "ner_tags_EnamexOrgEdu" : "organisaatio: koulutus",
-    "ner_tags_EnamexOrgClt" : "organisaatio: taide ja musiikki"
+    "ner_tags_EnamexOrgClt" : "organisaatio: taide ja musiikki",
+    "murre_speaker" : "puhuja",
+    "murre_sex" : "sukupuoli",
+    "murre_role" : "rooli",
+    "murre_urlview" : "Kuuntele Annexissa",
+    "murre_kirjoittaja" : "kirjoittaja",
+    "murre_paikkakunta" : "paikkakunta",
+    "murre_murrealue" : "murrealue",
+    "murre_murreryhma" : "murreryhmä",
+    "murre_urlwav" : "lataa WAV-tiedosto",
+    "murre_urltextgrid" : "lataa textgrid-tiedosto",
+    "murre_urleaf" : "lataa EAF-tiedosto"
+
 }

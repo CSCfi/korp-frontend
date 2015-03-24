@@ -3613,6 +3613,73 @@ settings.corpora.suomi24fi = {
 };
 */
 
+settings.corpora.murre = {
+    title : "SKN - Suomen kielen näytteitä",
+    description : "SKN - Suomen kielen näytteitä",
+    id : "murre",
+    urn : "http://urn.fi/urn:nbn:fi:lb-201407141",
+    metadata_urn : "http://urn.fi/urn:nbn:fi:lb-201407141",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        original : attrs.origword,
+        normalized : {
+            label : "normalized",
+            opts : settings.defaultOptions,
+        },
+        comment : attrs.word_comment
+    },
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_date : sattrs.date,
+        text_kirjoittaja : {
+            label : "murre_kirjoittaja"
+	},
+        text_paikkakunta : {
+            label : "murre_paikkakunta"
+	},
+        text_murrealue : {
+            label : "murre_murrealue"
+	},
+        text_murreryhma : {
+            label : "murre_murreryhma"
+	},
+        text_name : {
+            label : "file_name",
+        },
+        paragraph_speaker : {
+            label : "murre_speaker"
+	},
+        paragraph_sex : {
+            label : "murre_sex"
+	},
+        paragraph_role : {
+            label : "murre_role"
+	},
+        sentence_urlview : {
+            label : "murre_urlview",
+            type : "url",
+            url_opts : sattrs.link_url_opts
+        },
+        text_urlvaw : {
+            label : "murre_urlwav",
+            type : "url",
+            url_opts : sattrs.link_url_opts
+        },
+        text_urltextgrid : {
+            label : "murre_urltextgrid",
+            type : "url",
+            url_opts : sattrs.link_url_opts
+        },
+        text_urleaf : {
+            label : "murre_urleaf",
+            type : "url",
+            url_opts : sattrs.link_url_opts
+        }
+    }
+};
+
+
 settings.corpora.ylilauta = {
     title : "Ylilauta",
     description : "Ylilauta",
