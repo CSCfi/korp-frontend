@@ -8,7 +8,9 @@ var isLab = window.isLab || false;
 
 var isProductionServer = (window.location.hostname.indexOf(".csc.fi") != -1);
 var isProductionServerTest =
-    (isProductionServer && window.location.pathname.indexOf("test/") != -1);
+    (isProductionServer
+     && (window.location.pathname.indexOf("test/") != -1
+	 || window.location.pathname.indexOf("test-") != -1));
 var isPublicServer = (window.location.hostname != "localhost");
 
 c.log("Production server:", isProductionServer);
