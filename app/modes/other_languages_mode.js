@@ -14,13 +14,13 @@ settings.corpora = {};
 settings.corporafolders = {};
 
 settings.spWithin = {
-        "sentence" : "sentence",
-        "paragraph" : "paragraph"
+    "sentence" : "sentence",
+    "paragraph" : "paragraph"
 };
 
 settings.spContext = {
-        "1 sentence" : "1 sentence",
-        "1 paragraph" : "1 paragraph"
+    "1 sentence" : "1 sentence",
+    "1 paragraph" : "1 paragraph"
 };
 
 
@@ -46,8 +46,8 @@ settings.corpora.mulcold_en = {
     id : "mulcold_en",
     title: "MULCOLD englanti",
     description : "Multilingual Corpus of Legal Documents, englanninkielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
     attributes: attrlist.mulcold_en,
     struct_attributes : sattrlist.mulcold,
 };
@@ -56,8 +56,8 @@ settings.corpora.mulcold_de = {
     id : "mulcold_de",
     title: "MULCOLD saksa",
     description : "Multilingual Corpus of Legal Documents, saksankielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
     attributes: attrlist.mulcold_de,
     struct_attributes : sattrlist.mulcold,
 };
@@ -66,8 +66,8 @@ settings.corpora.mulcold_ru = {
     id : "mulcold_ru",
     title: "MULCOLD venäjä",
     description : "Multilingual Corpus of Legal Documents, venäjänkielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
     attributes: attrlist.mulcold_ru,
     struct_attributes : sattrlist.mulcold,
 };
@@ -76,8 +76,8 @@ settings.corpora.legal_ru = {
     id : "legal_ru",
     title: "FiRuLex venäjä",
     description : "Jurdisia tekstejä (venäjä)",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
     attributes: attrlist.mulcold_ru,
     struct_attributes : sattrlist.legal
 };

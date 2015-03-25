@@ -1,4 +1,5 @@
-{   "saldo" : "betydelse",
+{
+    "saldo" : "betydelse",
     "pos" : "ordklass",
     "msd" : "msd",
     "baseform" : "grundform",
@@ -15,36 +16,36 @@
     "month" : "månad",
     "day" : "dag",
     "party" : "parti",
-    
+
     "year_from" : "startår",
     "year_to" : "slutår",
-    
+
     "url" : "url",
     "referensnummer" : "referensnummer",
-    
+
     "weekday" : "veckodag",
-	"hashtags" : "hashtaggar",
-	"mentions" : "omnämnda",
-	"retweets" : "retweets",
-	"replytouser" : "svar till",
-	"coordinates" : "koordinater",
-	"location" : "tweetat från",
-	"username2" : "användarnamn",
-	"name" : "namn",
-	"user_location" : "bor",
-	"user_since" : "medlem sedan",
-	"followers" : "följare",
-	"following" : "följer",
-	"trstrank" : "trstrank",
-	"description" : "beskrivning",
-	"tweets" : "tweets",
-	"website" : "webbsida",
-	
-	"id" : "id",
+    "hashtags" : "hashtaggar",
+    "mentions" : "omnämnda",
+    "retweets" : "retweets",
+    "replytouser" : "svar till",
+    "coordinates" : "koordinater",
+    "location" : "tweetat från",
+    "username2" : "användarnamn",
+    "name" : "namn",
+    "user_location" : "bor",
+    "user_since" : "medlem sedan",
+    "followers" : "följare",
+    "following" : "följer",
+    "trstrank" : "trstrank",
+    "description" : "beskrivning",
+    "tweets" : "tweets",
+    "website" : "webbsida",
+
+    "id" : "id",
 
     "imprintyear" : "tryckår",
     "pagelink" : "sidlänk",
-    
+
     "tisus_l1" : "modersmål",
     "tisus_lf1" : "läsförståelse, del 1",
     "tisus_lf2" : "läsförståelse, del 2",
@@ -55,7 +56,7 @@
     "finalgrade" : "slutgiltigt betyg",
     "sum" : "summa",
     "proficiencylevel" : "kunskapsnivå",
-	
+
     "text_year" : "år",
     "text_party" : "parti",
     "date" : "datum",
@@ -75,17 +76,17 @@
     "article_topic" : "artikelns ämne/tema",
     "text_volume" : "band",
     "subject" : "ämne",
-    
+
     "sentence_link" : "meningslänk",
     "text_issue" : "utgåva",
     "text_recipient" : "mottagare",
     "text_sv" : "verksnummer",
-    
+
     "oneSentence" : "en mening",
-    
+
     "source" : "källa",
     "age" : "ålder",
-    
+
     "blog_title" : "bloggtitel",
     "blog_url" : "bloggaddress",
     "author_age" : "författarens ålder",
@@ -94,7 +95,7 @@
     "tags" : "nyckelord",
     "post_url" : "inläggsadress",
     "categories" : "kategorier",
-    
+
     "page" : "sida",
     "author_type" : "författartyp",
     "gender" : "kön",
@@ -105,13 +106,13 @@
     "female" : "kvinna",
     "unknown" : "okänd",
     "male_female" : "man och kvinna",
-    
+
     "entryword" : "uppslagsord",
     "entryno" : "uppslagsord (nummer)",
     "sense1" : "huvudbetydelse",
     "sense2" : "betydelsenyans",
-    
-    
+
+
     "pos_AB": "adverb", 
     "pos_MAD": "interpunktion",
     "pos_MID": "interpunktion",
@@ -140,7 +141,7 @@
     "pos_UO": "utländskt ord",
     "pos_VB": "verb",
     "pos_E": "e",
-    
+
     "nn" : "substantiv", 
     "av" : "adjektiv", 
     "jj" : "adjektiv", 
@@ -156,15 +157,15 @@
     "al" : "artikel", 
     "ie" : "infinitivmärke",
     "e" : "e",
-    
-    "mx" : "flerordsprefix",      
+
+    "mx" : "flerordsprefix",
     "sx" : "prefix",
-    
+
     "example" : "Exempel",
     "page_num" : "sidonummer",
-        "year_to"  : "datum (start)",
-        "year_from"  : "datum (slut)",
-    
+    "year_to"  : "datum (start)",
+    "year_from"  : "datum (slut)",
+
     "malt_AT" : "Attribut",
     "malt_ET" : "Efterställt attribut",
     "malt_IO" : "Indirekt objekt",
@@ -177,7 +178,7 @@
     "malt_ADV" : "Adverbial",
     "malt_PA" : "Preposition",
     "malt_head" : "Huvud",
-    
+
     "deprel_ROOT" : "ROOT",
     "deprel_++" : "Samordnande konjunktion",
     "deprel_+A" : "Konjuktionellt adverb",
@@ -244,14 +245,14 @@
     "deprel_PA" : "Prepositions komplement",
     "deprel_UA" : "Underordnad sats (bisats), utom subjunktion",
     "deprel_VG" : "Verbgrupp",
-    
+
     "INFINIT" : "Particip",
     "INF" : "Infinitiv",
     "FINIT" : "Finit verb",
-    
+
     "origlang" : "orginalspråk",
     "page_n" : "sidonummer",
-    
+
     "paragraph_marginal" : "marginalnoter",
     "date_interval" : "tidsintervall",
 
@@ -265,33 +266,33 @@
     "fab_headline" : "rubrik",
     "fab_smallcaps" : "kapitäler",
     "fab_italic" : "kursivt",
-    
 
 
-     "sst_koncept" : "Stockholms stads tänkebok - Koncept",
-     "sst_notariat" : "Stockholms stads tänkebok - Notariat",
-     "sst_renskr" : "Stockholms stads tänkebok - Renskr",
-     "lassakyrka" : "Författningssamling 1800 Låssa kyrkas arkiv",
-     "ostgotalagen": "Östgötalagen",
-     "regeringsformen": "Regeringsformen 1809",
-     "forord1734" : "1734 års lag Förord",
-     "domareregler1734" : "1734 års lag Domareregler",
-     "Lagtext1734" : "1734 års lag Lagtext",
-     "forarbeten1734v1" : "1734 års lag Förarbeten vol 1",
-     "forarbeten1734v2" : "1734 års lag Förarbeten vol 2",
-     "forarbeten1734v3" : "1734 års lag Förarbeten vol 3",
-     "forarbeten1734v4" : "1734 års lag Förarbeten vol 4",
-     "forarbeten1734v5" : "1734 års lag Förarbeten vol 5",
-     "forarbeten1734v6" : "1734 års lag Förarbeten vol 6",
-     "forarbeten1734v7" : "1734 års lag Förarbeten vol 7",
-     "forarbeten1734v8" : "1734 års lag Förarbeten vol 8",
-     "missgierningsbalk": "Missgierningsbalk",
-     "giftermalsbalk": "Giftermåls balk (1734)",
-     "krLandrade" :"Kristoffers Landslag, innehållsligt ändrade flockar i förhållande til MEL",
-     "krLdirekt" : "Kristoffers Landslag, flockar direkt hämtade från MEL",
-     "krLnyskrivna" : "Kristoffers Landslag, nyskrivna flockar i förhållande till MEL",
-     "meL": "Magnus Erikssons Landslag",
-     "meSt": "Magnus Erikssons Stadslag, exklusiva stadslagsflockar",
+
+    "sst_koncept" : "Stockholms stads tänkebok - Koncept",
+    "sst_notariat" : "Stockholms stads tänkebok - Notariat",
+    "sst_renskr" : "Stockholms stads tänkebok - Renskr",
+    "lassakyrka" : "Författningssamling 1800 Låssa kyrkas arkiv",
+    "ostgotalagen": "Östgötalagen",
+    "regeringsformen": "Regeringsformen 1809",
+    "forord1734" : "1734 års lag Förord",
+    "domareregler1734" : "1734 års lag Domareregler",
+    "Lagtext1734" : "1734 års lag Lagtext",
+    "forarbeten1734v1" : "1734 års lag Förarbeten vol 1",
+    "forarbeten1734v2" : "1734 års lag Förarbeten vol 2",
+    "forarbeten1734v3" : "1734 års lag Förarbeten vol 3",
+    "forarbeten1734v4" : "1734 års lag Förarbeten vol 4",
+    "forarbeten1734v5" : "1734 års lag Förarbeten vol 5",
+    "forarbeten1734v6" : "1734 års lag Förarbeten vol 6",
+    "forarbeten1734v7" : "1734 års lag Förarbeten vol 7",
+    "forarbeten1734v8" : "1734 års lag Förarbeten vol 8",
+    "missgierningsbalk": "Missgierningsbalk",
+    "giftermalsbalk": "Giftermåls balk (1734)",
+    "krLandrade" :"Kristoffers Landslag, innehållsligt ändrade flockar i förhållande til MEL",
+    "krLdirekt" : "Kristoffers Landslag, flockar direkt hämtade från MEL",
+    "krLnyskrivna" : "Kristoffers Landslag, nyskrivna flockar i förhållande till MEL",
+    "meL": "Magnus Erikssons Landslag",
+    "meSt": "Magnus Erikssons Stadslag, exklusiva stadslagsflockar",
 
     "activity1": "aktivitet 1",
     "activity2": "aktivitet 2",
@@ -299,13 +300,13 @@
     "duration": "längd",
     "project": "projekt",
     "speaker": "talare",
-    
+
     "verk" : "länk till boken",
     "lang" : "språk",
-    
+
     "fulltext" : "heltext",
-	
-	"album" : "album",
+
+    "album" : "album",
     "album_year" : "år (album)", 
     "song_title" : "låttitel",
     "song_year" : "år (låt)",

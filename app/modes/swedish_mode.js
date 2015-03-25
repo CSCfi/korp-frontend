@@ -75,7 +75,7 @@ sattrlist.klk_sv = {
     text_img_url : {
         label : "klk_img_url",
         type : "url",
-	displayType : "hidden",
+        displayType : "hidden",
     },
     text_dateto : {
         label : "klk_dateto",
@@ -86,14 +86,14 @@ sattrlist.klk_sv = {
         displayType : "hidden",
     },
     text_publ_type : {
-	label : "publication_type",
-	displayType : "select",
-	translationKey : "publtype_",
-	opts : settings.liteOptions,
-	dataset : [
-	    "aikakausi",
-	    "sanomalehti"
-	]
+        label : "publication_type",
+        displayType : "select",
+        translationKey : "publtype_",
+        opts : settings.liteOptions,
+        dataset : [
+            "aikakausi",
+            "sanomalehti"
+        ]
     },
     paragraph_id : {
         label : "paragraph_id",
@@ -103,31 +103,31 @@ sattrlist.klk_sv = {
 };
 
 sattrlist.klk_sv_parsed = $.extend({}, sattrlist.klk_sv);
-$.extend(sattrlist.klk_sv_parsed, 
-	 {
-	     paragraph_n : {
-		 label : "sentence_n",
-		 displayType : "hidden"
-	     },
-	     sentence_n : {
-		 label : "sentence_n",
-		 displayType : "hidden"
-	     }
-	 });
-		 
+$.extend(sattrlist.klk_sv_parsed,
+         {
+             paragraph_n : {
+                 label : "sentence_n",
+                 displayType : "hidden"
+             },
+             sentence_n : {
+                 label : "sentence_n",
+                 displayType : "hidden"
+             }
+         });
+
 sattrlist.klk_sv_parsed_pagelinks = $.extend({}, sattrlist.klk_sv_parsed);
 $.extend(sattrlist.klk_sv_parsed_pagelinks, sattrlist.klk_pagelinks);
 
 attrlist.klk_sv = {
     ocr : {
-	label : "OCR",
-	opts : settings.defaultOptions,
+        label : "OCR",
+        opts : settings.defaultOptions,
     }
 };
 
-attrlist.klk_sv_parsed = 
+attrlist.klk_sv_parsed =
     $.extend(
-	{
+        {
             pos : attrs.pos,
             msd : attrs.msd,
             lemma : attrs.baseform_sv,
@@ -138,8 +138,8 @@ attrlist.klk_sv_parsed =
             ref : attrs.ref,
             prefix : attrs.prefix,
             suffix : attrs.suffix
-	},
-	attrlist.klk_sv);
+        },
+        attrlist.klk_sv);
 
 attrlist.klk_sv_parsed_pagelinks = attrlist.klk_sv_parsed;
 
@@ -162,20 +162,20 @@ var klk_sv_parsed_years = settings.fn.make_yearlist(1771, 1948);
 settings.fn.make_corpus_settings_by_year_decade(
     settings.corporafolders.klk_sv, "sv_{decade}", "klk_sv_{year}",
     function(decade) {
-	return { title : decade.toString() + "-luku" };
+        return { title : decade.toString() + "-luku" };
     },
     function(year) {
-	return settings.fn.make_klk_corpus_settings(
-	    "KLK ruotsi {year}",
-	    "Kansalliskirjaston ruotsinkielisiä sanoma- ja aikakauslehtiä vuodelta {year}",
-	    "sv",
-	    year,
-	    klk_sv_parsed_years.indexOf(year) != -1);
+        return settings.fn.make_klk_corpus_settings(
+            "KLK ruotsi {year}",
+            "Kansalliskirjaston ruotsinkielisiä sanoma- ja aikakauslehtiä vuodelta {year}",
+            "sv",
+            year,
+            klk_sv_parsed_years.indexOf(year) != -1);
     },
     settings.fn.make_yearlist(
-	1771, 1948,
-	{descending : true,
-	 omit : [1779, 1780, 1781, 1786, 1787, 1788, 1790]}
+        1771, 1948,
+        {descending : true,
+         omit : [1779, 1780, 1781, 1786, 1787, 1788, 1790]}
     )
 );
 
@@ -187,8 +187,8 @@ settings.corpora.mulcold_sv = {
     id : "mulcold_sv",
     title: "MULCOLD ruotsi",
     description : "Multilingual Corpus of Legal Documents, ruotsinkielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
     attributes: attrlist.mulcold_sv,
     struct_attributes : sattrlist.mulcold,
 };
