@@ -1119,7 +1119,7 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
 
 settings.corporafolders.spoken = {
     title : "Puhuttua kieltä (tekstiksi litteroituna)",
-    contents : ["la_murre", "kotus_sananparret"],
+    contents : ["la_murre", "kotus_sananparret", "murre"],
     unselected : true
 };
 
@@ -3619,14 +3619,14 @@ settings.corpora.murre = {
     title : "SKN - Suomen kielen näytteitä",
     description : "SKN - Suomen kielen näytteitä",
     id : "murre",
-    urn : "http://urn.fi/urn:nbn:fi:lb-201407141",
-    metadata_urn : "http://urn.fi/urn:nbn:fi:lb-201407141",
+    urn : "urn:nbn:fi:lb-201407141",
+    metadata_urn : "urn:nbn:fi:lb-201407141",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
         original : attrs.origword,
         normalized : {
-            label : "normalized",
+            label : "murre_normalized",
             opts : settings.defaultOptions,
         },
         comment : {
@@ -3637,17 +3637,17 @@ settings.corpora.murre = {
     struct_attributes : {
         text_title : sattrs.text_title,
         text_date : sattrs.date,
-        text_kirjoittaja : {
-            label : "murre_kirjoittaja"
+        text_editor : {
+            label : "murre_editor"
 	},
-        text_paikkakunta : {
-            label : "murre_paikkakunta"
+        text_parish : {
+            label : "murre_parish"
 	},
-        text_murrealue : {
-            label : "murre_murrealue"
+        text_dialect_region : {
+            label : "murre_dialect_region"
 	},
-        text_murreryhma : {
-            label : "murre_murreryhma"
+        text_dialect_group : {
+            label : "murre_dialect_group"
 	},
         text_name : {
             label : "file_name",

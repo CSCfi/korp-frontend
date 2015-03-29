@@ -1134,12 +1134,13 @@
     "murre_sex" : "sukupuoli",
     "murre_role" : "rooli",
     "murre_urlview" : "Kuuntele Annexissa",
-    "murre_kirjoittaja" : "kirjoittaja",
-    "murre_paikkakunta" : "paikkakunta",
-    "murre_murrealue" : "murrealue",
-    "murre_murreryhma" : "murreryhmä",
-    "murre_urlwav" : "lataa WAV-tiedosto",
-    "murre_urltextgrid" : "lataa textgrid-tiedosto",
-    "murre_urleaf" : "lataa EAF-tiedosto"
+    "murre_editor" : "kirjoittaja",
+    "murre_parish" : "paikkakunta",
+    "murre_dialect_region" : "murrealue",
+    "murre_dialect_group" : "murreryhmä",
+    "murre_urlwav" : "Lataa WAV-tiedosto",
+    "murre_urltextgrid" : "Lataa TextGrid-tiedosto",
+    "murre_urleaf" : "Lataa EAF-tiedosto",
+    "murre_normalized" : "tarkkeeton sananmuoto"
 
 }
