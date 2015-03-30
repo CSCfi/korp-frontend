@@ -3689,15 +3689,23 @@ settings.corpora.ylilauta = {
     title : "Ylilauta",
     description : "Ylilauta",
     id : "ylilauta",
-    urn : "-",
-    metadata_urn : "-",
+    urn : "urn:nbn:fi:lb-2015031802",
+    metadata_urn : "urn:nbn:fi:lb-2015031802",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
+	/*
 	lemma : attrs.baseform,
 	pos : attrs.pos_klk,
 	msd : attrs.msd,
-	syn : attrs.deprel_tdt
+	syn : attrs.deprel_tdt*/
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
     },
     struct_attributes : {
         text_title : sattrs.text_title,
@@ -3718,6 +3726,7 @@ settings.corpora.s24 = {
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
+	/*
         lemma : attrs.baseform,
         pos : attrs.pos_klk,
         msd : {
@@ -3729,7 +3738,14 @@ settings.corpora.s24 = {
             opts : settings.defaultOptions
         },
         syn : attrs.deprel_tdt,
-        unk : attrs.ner_tags
+        unk : attrs.ner_tags*/
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
     },
     struct_attributes : {
         text_title : sattrs.text_title,
