@@ -2380,7 +2380,8 @@ settings.templ.la_murre = {
 	    translationKey : "clauseora_",
 	    dataset : {
 		"dir" : "dir",
-		"" : "indir"
+		"" : "other",
+		null : "other"
 	    },
 	    opts : settings.liteOptions
 	},
