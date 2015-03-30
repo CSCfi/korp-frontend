@@ -2213,7 +2213,7 @@ settings.templ.la_murre = {
 		"cw" : "cw",
 		"cw1" : "cw1",
 		"cw2" : "cw2",
-		"" : "noncw",
+		null : "noncw",
 	    },
 	    opts : settings.liteOptions
 	},
@@ -2271,12 +2271,7 @@ settings.templ.la_murre = {
 	},
 	paragraph_id : {
 	    label : "paragraph_id",
-	    opts : settings.liteOptions
 	},
-	// paragraph_n : {
-	//     label : "paragraph_n",
-	//     opts : settings.liteOptions
-	// },
 	paragraph_speaker : {
 	    label : "speaker",
 	},
@@ -2294,27 +2289,14 @@ settings.templ.la_murre = {
 	// },
 	sentence_clnum : {
 	    label : "sentence_clnum",
-	    opts : settings.liteOptions
 	},
-	// sentence_sp : {
-	//     label : "sentence_sp"
-	// },
 	sentence_num : {
 	    label : "sentence_num",
-	    opts : settings.liteOptions
 	},
 	sentence_wnum : {
 	    label : "sentence_wnum",
-	    opts : settings.liteOptions
 	},
 	sentence_id : sattrs.sentence_id_hidden,
-	// {
-	//     label : "sentence_id",
-	//     opts : settings.liteOptions
-	// },
-	// clause_sinum : {
-	//     label : "clause_sinum"
-	// },
 	sentence_begin_time : {
 	    label : "sentence_begin_time"
 	},
@@ -2326,53 +2308,43 @@ settings.templ.la_murre = {
 	    "https://lat.csc.fi/ds/annex/runLoader?"),
 	clause_clnum : {
 	    label : "clause_clnum",
-	    opts : settings.liteOptions
 	},
 	clause_num : {
 	    label : "clause_num",
-	    opts : settings.liteOptions
 	},
 	clause_hier : {
 	    label : "clause_hier",
 	    displayType : "select",
 	    translationKey : "clausehier_",
-	    dataset : {
-		"irrall" : "irrall",
-		"main" : "main",
-		"sub1" : "sub1",
-		"sub2" : "sub2",
-		"sub3" : "sub3",
-		"sub4" : "sub4",
-		"sub5" : "sub5",
-		"muu" : "muu",
-	    },
+	    dataset : [
+		"irrall",
+		"main",
+		"sub1",
+		"sub2",
+		"sub3",
+		"sub4",
+		"sub5",
+		"muu",
+	    ],
 	    opts : settings.liteOptions
 	},
-	// clause_snum : {
-	//     label : "clause_snum"
-	// },
 	clause_type : {
 	    label : "clause_type",
 	    displayType : "select",
 	    translationKey : "clausetype_",
-	    dataset : {
-		"affdecl" : "affdecl",
-		"negdecl" : "negdecl",
-		"affint" : "affint",
-		"negint" : "negint",
-		"affopt" : "affopt",
-		"negopt" : "negopt",
-		"muu" : "muu",
-	    },
+	    dataset : [
+		"affdecl",
+		"negdecl",
+		"affint",
+		"negint",
+		"affopt",
+		"negopt",
+		"muu",
+	    ],
 	    opts : settings.liteOptions
 	},
-	// sentence_sinum : {
-	//     label : "sentence_sinum",
-	//     opts : settings.liteOptions
-	// },
 	clause_hallnum : {
 	    label : "clause_hallnum",
-	    opts : settings.liteOptions
 	},
 	clause_ora : {
 	    label : "clause_ora",
