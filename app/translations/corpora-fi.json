@@ -883,6 +883,8 @@
     "clause_snum" : "lauseen sisältävän virkkeen numero",
     "clause_type" : "lauseen tyyppi",
     "clause_hallnum" : "päälauseen numero",
+    "clause_depth" : "lauseen upotustaso",
+    "clause_partnum" : "lauseen osan numero",
     "sentence_sinum" : "haastattelijan virkkeen numero",
     "sentence_clnum" : "virkkeen lausemäärä",
     "sentence_source" : "puhuja",
