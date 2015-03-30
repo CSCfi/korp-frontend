@@ -917,13 +917,16 @@ sattrs.link_fulltext_context = {
     type : "url",
     url_opts : sattrs.link_url_opts
 };
-sattrs.link_show_video_prefixed = function (url_prefix) {
+sattrs.link_prefixed = function (label, url_prefix) {
     return {
-	label : "show_video",
+	label : label,
 	type : "url",
 	url_opts : sattrs.link_url_opts,
 	url_prefix : url_prefix
     };
+};
+sattrs.link_show_video_prefixed = function (url_prefix) {
+    return sattrs.link_prefixed("show_video", url_prefix);
 };
 sattrs.link_show_video_annex = sattrs.link_show_video_prefixed(
     "https://lat.csc.fi/ds/annex/runLoader?viewType=timeline&");
@@ -2274,9 +2277,21 @@ settings.templ.la_murre = {
 	//     label : "paragraph_n",
 	//     opts : settings.liteOptions
 	// },
-	sentence_source : {
-	    label : "sentence_source"
+	paragraph_speaker : {
+	    label : "speaker",
 	},
+	paragraph_begin_time : {
+	    label : "speech_begin_time"
+	},
+	paragraph_duration : {
+	    label : "speech_duration"
+	},
+	paragraph_annex_link : sattrs.link_prefixed(
+	    "listen_speech",
+	    "https://lat.csc.fi/ds/annex/runLoader?"),
+	// sentence_source : {
+	//     label : "sentence_source"
+	// },
 	sentence_clnum : {
 	    label : "sentence_clnum",
 	    opts : settings.liteOptions
@@ -2300,6 +2315,15 @@ settings.templ.la_murre = {
 	// clause_sinum : {
 	//     label : "clause_sinum"
 	// },
+	sentence_begin_time : {
+	    label : "sentence_begin_time"
+	},
+	sentence_duration : {
+	    label : "sentence_duration"
+	},
+	sentence_annex_link : sattrs.link_prefixed(
+	    "listen_sentence",
+	    "https://lat.csc.fi/ds/annex/runLoader?"),
 	clause_clnum : {
 	    label : "clause_clnum",
 	    opts : settings.liteOptions

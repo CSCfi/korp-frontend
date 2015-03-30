@@ -170,6 +170,14 @@
     "utterance_duration" : "puhunnoksen kesto",
     "speaker" : "puhuja",
 
+    "speech_begin_time" : "puheenvuoron alkuaika",
+    "speech_end_time" : "puheenvuoron loppuaika",
+    "speech_duration" : "puheenvuoron kesto",
+
+    "sentence_begin_time" : "virkkeen alkuaika",
+    "sentence_end_time" : "virkkeen loppuaika",
+    "sentence_duration" : "virkkeen kesto",
+
     "subcorpus_name" : "osakorpuksen nimi",
     "sentence_id" : "virkkeen tunniste",
 
@@ -1093,6 +1101,8 @@
     "show_fulltext" : "Näytä kokoteksti",
     "show_fulltext_context" : "Näytä konteksti kokotekstissä",
     "show_video" : "Näytä video",
+    "listen_sentence" : "Kuuntele virke",
+    "listen_speech" : "Kuuntele puheenvuoro",
 
     "vks_text_year" : "vuosi",
     "vks_sentence_cRef" : "ristiviittaus",
