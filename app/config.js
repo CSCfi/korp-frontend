@@ -1075,14 +1075,10 @@ settings.corporafolders.legal = {
     contents : ["ns_saadokset", "legal_fi", "mulcold_fi"]
 };
 
-// Uncomment the following when selecting a folder no longer
-// incorrectly selects protected corpora within it.
-/*
-settings.corporafolders.net = {
-    title : "Verkkotekstejä",
-    contents : ["hsfi"]
+settings.corporafolders.internet = {
+    title : "Internet-keskusteluaineistoja",
+    contents : ["s24", "ylilauta", "hsfi"]
 };
-*/
 
 settings.corporafolders.other_texts = {
     title : "Muita tekstejä",
@@ -1183,11 +1179,6 @@ settings.corporafolders.vns = {
 settings.corporafolders.test = {
     title : "Demo- ja testiaineistoja",
     contents : ["reittidemo"]
-};
-
-settings.corporafolders.internet = {
-    title : "Internet-keskusteluaineistot",
-    contents : ["hsfi", "ylilauta", "s24"]
 };
 
 
