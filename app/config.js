@@ -1179,7 +1179,7 @@ settings.corporafolders.internet = {
 // infolist, added to folder, with the id prefixed with id_prefix.
 settings.fn.add_corpus_settings = function (template, infolist, folder,
 					    id_prefix) {
-    var ids = []
+    var ids = [];
     for (var i = 0; i < infolist.length; i++) {
 	var info = infolist[i];
 	var id = id_prefix + info.id;
@@ -1191,6 +1191,9 @@ settings.fn.add_corpus_settings = function (template, infolist, folder,
 	ids.push(id);
     }
     if (folder != null) {
+	if (! ("contents" in folder)) {
+	    folder.contents = [];
+	}
 	folder.contents = folder.contents.concat(ids);
     }
 };
