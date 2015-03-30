@@ -1032,12 +1032,6 @@ settings.corporafolders.ftb.ftb3 = {
     contents : ["ftb3_europarl", "ftb3_jrcacquis"]
 };
 
-settings.corporafolders.internet = {
-    title : "Internet-keskusteluaineistot",
-    contents : ["hsfi", "ylilauta", "s24"]
-};
-
-
 settings.corporafolders.klk_fi = {
     title : "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet"
 };
@@ -1167,6 +1161,11 @@ settings.corporafolders.vns = {
 settings.corporafolders.test = {
     title : "Demo- ja testiaineistoja",
     contents : ["reittidemo"]
+};
+
+settings.corporafolders.internet = {
+    title : "Internet-keskusteluaineistot",
+    contents : ["hsfi", "ylilauta", "s24"]
 };
 
 
