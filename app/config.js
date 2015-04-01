@@ -1077,7 +1077,7 @@ settings.corporafolders.legal = {
 
 settings.corporafolders.internet = {
     title : "Internet-keskusteluaineistoja",
-    contents : ["s24", "ylilauta", "hsfi"]
+    contents : ["s24", "ylilauta"]
 };
 
 settings.corporafolders.other_texts = {
