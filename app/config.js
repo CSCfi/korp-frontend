@@ -4090,6 +4090,110 @@ settings.corpora.s24 = {
     }
 };
 
+settings.corpora.iclfi = {
+    title : "ICLFI - Kansainvälinen oppijansuomen korpus",
+    description : "ICLFI - International Corpus of Learner Finnish - Kansainvälinen oppijansuomen korpus",
+    id : "iclfi",
+    urn : "urn:nbn:fi:lb-20140730163",
+    metadata_urn : "urn:nbn:fi:lb-20140730163",
+    limited_access : true,
+    licence_type : "RES",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        msd : attrs.msd
+        /*dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref*/
+    },
+    struct_attributes : {
+        text_place : {
+            label : "iclfi_place"
+	},
+        text_year : {
+            label : "iclfi_year"
+	},
+        text_medium : {
+            label : "iclfi_medium"
+	},
+        text_code : {
+            label : "iclfi_code"
+	},
+        text_dob : {
+            label : "iclfi_dob"
+	},
+        text_sex : {
+            label : "iclfi_sex"
+	},
+        text_pob : {
+            label : "iclfi_pob"
+	},
+        text_infloc : {
+            label : "iclfi_infloc"
+	},
+        text_inflang : {
+            label : "iclfi_inflang"
+	},
+        text_infmotherlang : {
+            label : "iclfi_infmotherlang"
+	},
+        text_inffatherlang : {
+            label : "iclfi_inffatherlang"
+	},
+        text_finnishathome : {
+            label : "iclfi_finnishathome"
+	},
+        text_taugthfinnish : {
+            label : "iclfi_taugthfinnish"
+	},
+        text_teacherlang : {
+            label : "iclfi_teacherlang"
+	},
+        text_beentofinland : {
+            label : "iclfi_beentofinland"
+	},
+        text_book : {
+            label : "iclfi_book"
+	},
+        text_levelhour : {
+            label : "iclfi_levelhour"
+	},
+        text_levelcerfone : {
+            label : "iclfi_levelcerfone"
+	},
+        text_levelcerftwo : {
+            label : "iclfi_levelcerftwo"
+	},
+        text_otherlangs : {
+            label : "iclfi_otherlangs"
+	},
+        text_texttype : {
+            label : "iclfi_texttype"
+	},
+        text_exercise : {
+            label : "iclfi_exercise"
+	},
+        text_examtype : {
+            label : "iclfi_examtype"
+	},
+        text_limitedtime : {
+            label : "iclfi_limitedtime"
+	},
+        text_wherewritten : {
+            label : "iclfi_wherewritten"
+	},
+        text_aids : {
+            label : "iclfi_aids"
+	},
+        text_filename : {
+            label : "iclfi_filename"
+	}
+    }
+};
+
+
+
 
 
 /*
