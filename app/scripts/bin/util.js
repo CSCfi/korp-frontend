@@ -1058,8 +1058,13 @@
         for (attrname in attrs) {
           attr = attrs[attrname];
           if (attr.type === "url" && (attr.url_opts != null) && attr.url_opts.in_link_section) {
-            link_attrs[attrname] = $.extend(true, {}, attr);
-            _results.push(attrs[attrname].displayType = "hidden");
+            if (attr._link_attr) {
+              _results.push(link_attrs[attrname] = attr._link_attr);
+            } else {
+              link_attrs[attrname] = $.extend(true, {}, attr);
+              attrs[attrname].displayType = "hidden";
+              _results.push(attrs[attrname]._link_attr = link_attrs[attrname]);
+            }
           } else {
             _results.push(void 0);
           }

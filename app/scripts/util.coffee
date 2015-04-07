@@ -871,13 +871,22 @@ util.extractLinkAttrs = (corpusInfo) ->
             for attrname of attrs
                 attr = attrs[attrname]
                 if attr.type == "url" and attr.url_opts? and attr.url_opts.in_link_section
-                    link_attrs[attrname] = $.extend(true, {}, attr)
-                    # The original attribute cannot be deleted
-                    # (without making more modifications elsewhere)
-                    # because Korp only requests from the backend the
-                    # attributes mentioned in attributes or
-                    # struct_attributes.
-                    attrs[attrname].displayType = "hidden"
+                    if attr._link_attr
+                        # This attribute was already handled via
+                        # another reference; that happens when many
+                        # corpora use the same attribute definitions
+                        # objects.
+                        link_attrs[attrname] = attr._link_attr
+                    else
+                        # Make a deep copy of the attr object
+                        link_attrs[attrname] = $.extend(true, {}, attr)
+                        # The original attribute cannot be deleted
+                        # (without making more modifications
+                        # elsewhere) because Korp only requests from
+                        # the backend the attributes mentioned in
+                        # attributes or struct_attributes.
+                        attrs[attrname].displayType = "hidden"
+                        attrs[attrname]._link_attr = link_attrs[attrname]
 
     link_attrs = {}
     extractLinkAttrs(corpusInfo.attributes, link_attrs)
