@@ -3931,8 +3931,8 @@ settings.corpora.suomi24fi = {
 */
 
 settings.corpora.murre = {
-    title : "SKN - Suomen kielen näytteitä",
-    description : "SKN - Suomen kielen näytteitä",
+    title : "SKN – Suomen kielen näytteitä",
+    description : "SKN – Suomen kielen näytteitä",
     id : "murre",
     urn : "urn:nbn:fi:lb-201407141",
     metadata_urn : "urn:nbn:fi:lb-201407141",
@@ -4034,7 +4034,7 @@ settings.corpora.ylilauta = {
 
 settings.corpora.s24 = {
     title : "Suomi24",
-    description : "Suomi24-keskustelut (2002-2014)",
+    description : "Suomi24-keskustelut (2002–2014)",
     id : "s24",
     urn : "urn:nbn:fi:lb-201412171",
     metadata_urn : "urn:nbn:fi:lb-201412171",
@@ -4091,8 +4091,8 @@ settings.corpora.s24 = {
 };
 
 settings.corpora.iclfi = {
-    title : "ICLFI - Kansainvälinen oppijansuomen korpus",
-    description : "ICLFI - International Corpus of Learner Finnish - Kansainvälinen oppijansuomen korpus",
+    title : "ICLFI – Kansainvälinen oppijansuomen korpus",
+    description : "ICLFI – International Corpus of Learner Finnish – Kansainvälinen oppijansuomen korpus",
     id : "iclfi",
     urn : "urn:nbn:fi:lb-20140730163",
     metadata_urn : "urn:nbn:fi:lb-20140730163",
