@@ -2399,7 +2399,7 @@ delete la_murre_parishes;
 
 settings.corpora.las2 = {
     title : "LAS2",
-    description : "Edistyneiden suomeoppijoiden korpus",
+    description : "Edistyneiden suomenoppijoiden korpus",
     id : "las2",
     within : settings.spWithin,
     context : settings.spContext,
