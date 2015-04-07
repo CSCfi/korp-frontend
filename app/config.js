@@ -1198,30 +1198,30 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
     // Contents will be filled in when constructing the corpus
     // settings
     contents : [],
-    // info : {
-    // 	// // An example of URN, metadata and licence information
-    // 	// urn : "urn:folder_urn",
-    // 	// metadata_url : "http://example.org/metadata_url",
-    // 	// licence : {
-    // 	//      name : "CLARIN PUB",
-    // 	//      urn : "urn:licence_urn"
-    // 	// },
-    // 	metadata_urn : "urn:nbn:fi:lb-20140730150",
-    // 	licence : {
-    // 	    name : "EUPL",
-    // 	    url : "http://ec.europa.eu/idabc/en/document/7774.html"
-    // 	},
-    // 	homepage : {
-    // 	    name : "Kokoelman etusivu",
-    // 	    url : "http://kaino.kotus.fi/korpus/teko/meta/presidentti/presidentti_coll_rdf.xml",
-    // 	    no_label : true
-    // 	},
-    // 	compiler : {
-    // 	    name : "Kotimaisten kielten keskus",
-    // 	    url : "http://www.kotus.fi/",
-    // 	    no_label : true
-    // 	}
-    // }
+    info : {
+    	// // An example of URN, metadata and licence information
+    	// urn : "urn:folder_urn",
+    	// metadata_url : "http://example.org/metadata_url",
+    	// licence : {
+    	//      name : "CLARIN PUB",
+    	//      urn : "urn:licence_urn"
+    	// },
+    	metadata_urn : "urn:nbn:fi:lb-20140730150",
+    	licence : {
+    	    name : "EUPL",
+    	    url : "http://ec.europa.eu/idabc/en/document/7774.html"
+    	},
+    	homepage : {
+    	    name : "Kokoelman etusivu",
+    	    url : "http://kaino.kotus.fi/korpus/teko/meta/presidentti/presidentti_coll_rdf.xml",
+    	    no_label : true
+    	},
+    	compiler : {
+    	    name : "Kotimaisten kielten keskus",
+    	    url : "http://www.kotus.fi/",
+    	    no_label : true
+    	}
+    }
 }
 
 settings.corporafolders.spoken = {
