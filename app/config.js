@@ -4020,6 +4020,7 @@ settings.corpora.ylilauta = {
         dephead : attrs.dephead,
         deprel : attrs.deprel_tdt,
         ref : attrs.ref,
+        lex : attrs.lemgram_hidden,
         nertag : attrs.ner_tags
     },
     struct_attributes : {
@@ -4060,6 +4061,7 @@ settings.corpora.s24 = {
         dephead : attrs.dephead,
         deprel : attrs.deprel_tdt,
         ref : attrs.ref,
+        lex : attrs.lemgram_hidden,
         nertag : attrs.ner_tags
     },
     struct_attributes : {
