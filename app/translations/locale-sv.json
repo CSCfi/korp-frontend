@@ -280,5 +280,12 @@
     "fsvm" : "fornsvenska",
 
     "newsdesk-header" : "Nyheter",
-    "privacy" : "Dataskyddsbeskrivning"
+
+    "privacy" : "Dataskyddsbeskrivning",
+
+    "corpus_urn" : "URN",
+    "corpus_licence" : "Lisens",
+    "corpus_metadata" : "Metadata",
+    "corpus_homepage" : "Hemsida",
+    "corpus_compiler" : "Sammanställare"
 }

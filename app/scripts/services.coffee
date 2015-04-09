@@ -224,6 +224,16 @@ korpApp.factory 'searches', (utils, $location, $rootScope, $http, $q) ->
                 c.log "data", data
                 for corpus in settings.corpusListing.corpora
                     corpus["info"] = data["corpora"][corpus.id.toUpperCase()]["info"]
+                    # Copy possible URL and URN information in "info"
+                    # to top-level properties, so that it can be
+                    # specified in either the backend info file or in
+                    # the frontend config (Jyrki Niemi 2014-09-04).
+                    util.copyCorpusInfoToConfig corpus
+                # Propagate the properties in corpus folder "info" to
+                # all subfolders and corpora. (Jyrki Niemi 2014-09-08)
+                for folder_name of settings.corporafolders
+                    util.propagateCorpusFolderInfo(
+                        settings.corporafolders[folder_name], undefined)
 
                 c.log "loadCorpora"
                 util.loadCorpora()

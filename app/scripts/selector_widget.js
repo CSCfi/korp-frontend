@@ -318,7 +318,9 @@ var hp_corpusChooser = {
 					}
 					if ($.isFunction(callback)) returnValue = callback(inValue);
  					$(".corpusInfoSpace").css({"top": $(this).offset().top});
- 					$(".corpusInfoSpace").find("p").html(returnValue);
+				        // localize() is needed to localize corpus extra info items
+					// in the description (Jyrki Niemi 2014-09-04).
+ 					$(".corpusInfoSpace").find("p").html(returnValue).localize();
  					$(".corpusInfoSpace").fadeIn('fast');
  					//$(".corpusInfoSpace").css({"display": "block"});
  				},
@@ -348,7 +350,9 @@ var hp_corpusChooser = {
 					indata["title"] = $(this).parent().attr("data").split("___")[0];
 					if ($.isFunction(callback)) returnValue = callback(indata);
 					$(".corpusInfoSpace").css({"top": $(this).parent().offset().top});
- 					$(".corpusInfoSpace").find("p").html(returnValue);
+				        // localize() is needed to localize corpus extra info items
+					// in the description (Jyrki Niemi 2014-09-04).
+ 				        $(".corpusInfoSpace").find("p").html(returnValue).localize();
  					$(".corpusInfoSpace").fadeIn('fast');
 				},
 				interval: 200,

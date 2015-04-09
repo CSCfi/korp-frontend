@@ -280,5 +280,11 @@
 
     "newsdesk-header" : "News",
 
-    "privacy" : "Privacy policy"
+    "privacy" : "Privacy policy",
+
+    "corpus_urn" : "URN",
+    "corpus_licence" : "Licence",
+    "corpus_metadata" : "Metadata",
+    "corpus_homepage" : "Home page",
+    "corpus_compiler" : "Compiler"
 }

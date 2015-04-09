@@ -19,6 +19,8 @@ settings.autocomplete = true;
 settings.cgi_prefix = (isProductionServer ? "/cgi-bin/" : "/cgi-bin/korp/");
 settings.cgi_script = settings.cgi_prefix + "korp.cgi";
 
+settings.urnResolver = "http://urn.fi/";
+
 // for extended search dropdown, can be 'union' or 'intersection'
 settings.word_attribute_selector = "union"
 settings.struct_attribute_selector = "union"
@@ -31,6 +33,13 @@ settings.reduce_struct_attribute_selector = "intersection"
 settings.news_desk_url = 
     window.location.protocol + "//" + window.location.hostname + "/"
     + window.location.pathname + "news/json/korpnews.json";
+
+// The extra info (usually links) to be shown in the corpus info box
+// of the corpus chooser and the KWIC results sidebar.
+settings.corpusExtraInfo = {
+    corpus_infobox : ["urn", "metadata", "licence", "homepage", "compiler"],
+    sidebar : ["urn", "metadata", "licence"]
+};
 
 settings.wordpictureTagset = {
     // supported pos-tags
