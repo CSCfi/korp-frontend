@@ -1397,7 +1397,14 @@ class view.GraphResults extends BaseResults
 
                 start = m.format("YYYYMMDD")
                 end = m.add(1, "year").subtract(1, "day").format("YYYYMMDD")
-                timecqp = "[(int(_.text_datefrom) >= #{start} & int(_.text_dateto) <= #{end})]"
+                timecqp = "(int(_.text_datefrom) >= #{start} & int(_.text_dateto) <= #{end})"
+                # If specified, allow bare years in text_datefrom and
+                # text_dateto for backward compatibility
+                # (Jyrki Niemi 2013-12-12)
+                if settings.textDateAllowBareYears
+                    year = m.format("YYYY")
+                    timecqp = "(" + timecqp + " | (int(_.text_datefrom) = #{year} & int(_.text_dateto) = #{year}))"
+                timecqp = "[" + timecqp + "]"
 
                 n_tokens = @s.data.cqp.split("]").length - 2
 
