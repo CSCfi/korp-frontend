@@ -1079,6 +1079,36 @@
     return null;
   };
 
+  util.initCorpusSettingsSyntheticAttrs = function() {
+    var corpus;
+    for (corpus in settings.corpora) {
+      util.setSyntheticAttrsInfo(settings.corpora[corpus]);
+    }
+  };
+
+  util.setSyntheticAttrsInfo = function(corpusInfo) {
+    var attrtype, setSyntheticAttrs;
+    setSyntheticAttrs = function(attrs, synthetic_list) {
+      var attr, attrname;
+      if (attrs !== void 0) {
+        for (attrname in attrs) {
+          attr = attrs[attrname];
+          if (attr.synthetic && attr.displayType !== 'hidden') {
+            synthetic_list.push(attrname);
+          }
+        }
+      }
+    };
+    corpusInfo.synthetic_attr_names = {
+      attributes: [],
+      struct_attributes: [],
+      link_attributes: []
+    };
+    for (attrtype in corpusInfo.synthetic_attr_names) {
+      setSyntheticAttrs(corpusInfo[attrtype], corpusInfo.synthetic_attr_names[attrtype]);
+    }
+  };
+
 }).call(this);
 
 //# sourceMappingURL=util.js.map

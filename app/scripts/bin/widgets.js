@@ -8,20 +8,25 @@
     },
     _init: function() {},
     updateContent: function(sentenceData, wordData, corpus, tokens) {
-      var corpusObj;
+      var corpusObj, token_data;
       this.element.html('<div id="selected_sentence" /><div id="selected_word" /><div id="selected_links" />');
       corpusObj = settings.corpora[corpus];
       $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>" + corpusObj.title + "</p>").prependTo("#selected_sentence");
+      token_data = {
+        pos_attrs: wordData,
+        struct_attrs: sentenceData,
+        tokens: tokens
+      };
       if (!$.isEmptyObject(corpusObj.attributes)) {
         $("#selected_word").append($("<h4>").localeKey("word_attr"));
-        this.renderContent(wordData, corpusObj.attributes).appendTo("#selected_word");
+        this.renderContent(wordData, corpusObj.attributes, corpusObj.synthetic_attr_names.attributes, token_data).appendTo("#selected_word");
       }
       if (!$.isEmptyObject(corpusObj.struct_attributes)) {
         $("#selected_sentence").append($("<h4>").localeKey("sentence_attr"));
-        this.renderContent(sentenceData, corpusObj.struct_attributes).appendTo("#selected_sentence");
+        this.renderContent(sentenceData, corpusObj.struct_attributes, corpusObj.synthetic_attr_names.struct_attributes, token_data).appendTo("#selected_sentence");
       }
       if (!$.isEmptyObject(corpusObj.link_attributes)) {
-        this.renderContent(sentenceData, corpusObj.link_attributes).appendTo("#selected_links");
+        this.renderContent(sentenceData, corpusObj.link_attributes, corpusObj.synthetic_attr_names.link_attributes, token_data).appendTo("#selected_links");
       }
       this.element.localize();
       this.applyEllipse();
@@ -51,8 +56,8 @@
         }).parent().find(".ui-dialog-title").localeKey("dep_tree");
       }).appendTo(this.element);
     },
-    renderContent: function(wordData, corpus_attrs) {
-      var items, key, order, pairs, value;
+    renderContent: function(wordData, corpus_attrs, synthetic_attr_names, token_data) {
+      var items, key, order, pairs, synthetic, value;
       pairs = _.pairs(wordData);
       order = this.options.displayOrder;
       pairs.sort(function(_arg, _arg1) {
@@ -67,14 +72,26 @@
         for (_i = 0, _len = pairs.length; _i < _len; _i++) {
           _ref = pairs[_i], key = _ref[0], value = _ref[1];
           if (corpus_attrs[key]) {
-            _results.push(this.renderItem(key, value, corpus_attrs[key]));
+            _results.push(this.renderItem(key, value, corpus_attrs[key], token_data));
           }
         }
         return _results;
       }).call(this);
+      if (synthetic_attr_names.length) {
+        synthetic = (function() {
+          var _i, _len, _results;
+          _results = [];
+          for (_i = 0, _len = synthetic_attr_names.length; _i < _len; _i++) {
+            key = synthetic_attr_names[_i];
+            _results.push(this.renderItem(key, null, corpus_attrs[key], token_data));
+          }
+          return _results;
+        }).call(this);
+        items = items.concat(synthetic);
+      }
       return $(items);
     },
-    renderItem: function(key, value, attrs) {
+    renderItem: function(key, value, attrs, token_data) {
       var address, getStringVal, inner, itr, li, link_text, lis, output, pattern, prefix, str_value, target, ul, url, val, valueArray, x, _ref, _ref1, _ref2;
       if (attrs.displayType === "hidden" || attrs.displayType === "date_interval") {
         return "";
@@ -154,7 +171,7 @@
         output.append(ul);
         return output;
       }
-      str_value = (attrs.stringify || _.identity)(value);
+      str_value = attrs.stringify_synthetic ? attrs.stringify_synthetic(token_data) : (attrs.stringify || _.identity)(value);
       if (attrs.type === "url") {
         url = (attrs.url_prefix || "") + str_value;
         target = (attrs != null ? (_ref1 = attrs.url_opts) != null ? _ref1.new_window : void 0 : void 0) ? " target='_blank'" : "";

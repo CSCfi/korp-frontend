@@ -893,3 +893,37 @@ util.extractLinkAttrs = (corpusInfo) ->
     extractLinkAttrs(corpusInfo.struct_attributes, link_attrs)
     corpusInfo.link_attributes = link_attrs
     null
+
+
+# Initialize the synthetic_attr_names property of all the corpora in
+# settings.corpora.
+
+util.initCorpusSettingsSyntheticAttrs = ->
+    for corpus of settings.corpora
+        util.setSyntheticAttrsInfo settings.corpora[corpus]
+    return
+
+# Initialize the synthetic_attr_names property of corpusInfo to
+# contain the names of synthetic attributes (with property synthetic
+# == true), separately for (positional) attributes, struct_attributes
+# and link_attributes, so that Sidebar.renderContent (in widgets)
+# need not find them out over and over again.
+
+util.setSyntheticAttrsInfo = (corpusInfo) ->
+
+    setSyntheticAttrs = (attrs, synthetic_list) ->
+        if attrs != undefined
+            for attrname of attrs
+                attr = attrs[attrname]
+                if attr.synthetic and attr.displayType != 'hidden'
+                    synthetic_list.push attrname
+        return
+
+    corpusInfo.synthetic_attr_names =
+        attributes: []
+        struct_attributes: []
+        link_attributes: []
+    for attrtype of corpusInfo.synthetic_attr_names
+        setSyntheticAttrs(
+            corpusInfo[attrtype], corpusInfo.synthetic_attr_names[attrtype])
+    return

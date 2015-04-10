@@ -255,6 +255,7 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
         $(this).css "opacity", ""
 
     util.initCorpusSettingsLinkAttrs()
+    util.initCorpusSettingsSyntheticAttrs()
     # initTimeGraph()
 ), ->
     c.log "failed to load some resource at startup.", arguments
