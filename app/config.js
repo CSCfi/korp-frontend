@@ -21,6 +21,17 @@ settings.downloadFormats = [
     "ref",
     "nooj"
 ];
+if (! isProductionServer || isProductionServerTest) {
+    settings.downloadFormats = settings.downloadFormats.concat([
+	"csvp",
+	"csv",
+	"tsv",
+	"text"
+    ]);
+}
+if (! isProductionServer) {
+    settings.downloadFormats.push("vrt");
+}
 
 settings.downloadFormatParams = {
     "*": {
