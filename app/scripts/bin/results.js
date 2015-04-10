@@ -51,7 +51,7 @@
         this.resultError(data);
         return false;
       } else {
-        return safeApply(this.s, (function(_this) {
+        safeApply(this.s, (function(_this) {
           return function() {
             c.log("firstResultDef.resolve");
             _this.firstResultDef.resolve();
@@ -59,6 +59,7 @@
           };
         })(this));
       }
+      return util.setDownloadLinks(this.proxy.prevRequest, data);
     };
 
     BaseResults.prototype.resultError = function(data) {
@@ -352,6 +353,7 @@
           $(linked).find(".lnk").css("padding-left", Math.round(offset));
         }
       }
+      util.setDownloadLinks(this.proxy.prevRequest, data);
       this.$result.localize();
       this.centerScrollbar();
       if (!this.selectionManager.hasSelected() && !isReading) {

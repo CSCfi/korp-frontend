@@ -230,6 +230,9 @@
                       </div>
                     </div>
                     <kwic-pager></kwic-pager>
+                    <div id="download-links-container">
+                      <div id="download-links"></div><span id="download-heading" rel="localize[download]">Ladda ner som:</span>
+                    </div>
                   </div>
                 </tab>
                 <tab ng-controller="StatsResultCtrl" ng-if="_settings.statistics != false" select="instance.onentry()" deselect="instance.onexit()">
@@ -334,6 +337,9 @@
                       </div>
                     </div>
                     <kwic-pager></kwic-pager>
+                    <div id="download-links-container">
+                      <div id="download-links"></div><span id="download-heading" rel="localize[download]">Ladda ner som:</span>
+                    </div>
                   </div>
                 </tab>
                 <tab active="active" ng-repeat="data in graphTabs" ng-controller="graphCtrl">
@@ -497,7 +503,6 @@
     <script src="lib/jquery.localize.js"></script>
     <script src="components/raphael/raphael.js"></script>
     <script src="components/jReject/js/jquery.reject.js"></script>
-    <!-- <script src="components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script> -->
     <script src="lib/tmhDynamicLocale.js"></script>
     <script src="lib/jquery.raphael.spinner.js"></script>
     <script src="lib/jquery.format.js"></script>
