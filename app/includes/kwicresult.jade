@@ -53,3 +53,6 @@ span.reading_btn.hide.link(ng-hide="loading", ng-click="toggleReading()") {{'sho
         | {{sentence.newCorpus}}
         span.corpus_title_warn(rel='localize[no_context_support]', set-if='sentence.noContext')
       span(ng-repeat='wd in sentence.tokens', kwic-word='kwic-word')
+#download-links-container
+  #download-links
+  span#download-heading(rel='localize[download]') Ladda ner som:

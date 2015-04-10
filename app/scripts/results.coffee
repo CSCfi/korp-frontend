@@ -39,7 +39,9 @@ class BaseResults
 
         #       this.resetView();
         @$result.find(".error_msg").remove()
-        util.setJsonLink @proxy.prevRequest if @$result.is(":visible")
+        if @$result.is(":visible")
+            util.setJsonLink @proxy.prevRequest
+            util.setDownloadLinks @proxy.prevRequest, data
         if data.ERROR
             @resultError data
             return false
@@ -59,6 +61,7 @@ class BaseResults
             .prependTo(@$result)
             .wrapAll "<div class='error_msg'>"
         util.setJsonLink @proxy.prevRequest
+        util.setDownloadLinks @proxy.prevRequest, data
 
     showPreloader : () ->
         @s.$parent.loading = true
@@ -612,6 +615,7 @@ class view.ExampleResults extends view.KWICResults
             safeApply @s, () =>
                 @hidePreloader()
             util.setJsonLink @proxy.prevRequest
+            util.setDownloadLinks @proxy.prevRequest, data
             @$result.find(".num-result").html util.prettyNumbers(data.hits)
 
         # def.success = (data) ->
