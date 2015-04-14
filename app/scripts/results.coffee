@@ -41,7 +41,6 @@ class BaseResults
         @$result.find(".error_msg").remove()
         if @$result.is(":visible")
             util.setJsonLink @proxy.prevRequest
-            util.setDownloadLinks @proxy.prevRequest, data
         if data.ERROR
             @resultError data
             return false
@@ -61,7 +60,6 @@ class BaseResults
             .prependTo(@$result)
             .wrapAll "<div class='error_msg'>"
         util.setJsonLink @proxy.prevRequest
-        util.setDownloadLinks @proxy.prevRequest, data
 
     showPreloader : () ->
         @s.$parent.loading = true
@@ -270,6 +268,9 @@ class view.KWICResults extends BaseResults
                 if not firstWord.length then firstWord = mainrow.find(".match .word:first")
                 offset = (firstWord.position().left + scrollLeft) - 25
                 $(linked).find(".lnk").css("padding-left", Math.round(offset))
+
+        if @$result.is(":visible")
+            util.setDownloadLinks @proxy.prevRequest, data
 
         @$result.localize()
         @centerScrollbar()

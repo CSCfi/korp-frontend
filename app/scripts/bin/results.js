@@ -42,7 +42,6 @@
       this.$result.find(".error_msg").remove();
       if (this.$result.is(":visible")) {
         util.setJsonLink(this.proxy.prevRequest);
-        util.setDownloadLinks(this.proxy.prevRequest, data);
       }
       if (data.ERROR) {
         this.resultError(data);
@@ -61,8 +60,7 @@
       this.hidePreloader();
       this.resetView();
       $('<object class="korp_fail" type="image/svg+xml" data="img/korp_fail.svg">').append("<img class='korp_fail' src='img/korp_fail.svg'>").add($("<div class='fail_text' />").localeKey("fail_text")).addClass("inline_block").prependTo(this.$result).wrapAll("<div class='error_msg'>");
-      util.setJsonLink(this.proxy.prevRequest);
-      return util.setDownloadLinks(this.proxy.prevRequest, data);
+      return util.setJsonLink(this.proxy.prevRequest);
     };
 
     BaseResults.prototype.showPreloader = function() {
@@ -306,6 +304,9 @@
           offset = (firstWord.position().left + scrollLeft) - 25;
           $(linked).find(".lnk").css("padding-left", Math.round(offset));
         }
+      }
+      if (this.$result.is(":visible")) {
+        util.setDownloadLinks(this.proxy.prevRequest, data);
       }
       this.$result.localize();
       this.centerScrollbar();
