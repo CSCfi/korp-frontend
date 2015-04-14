@@ -35,6 +35,8 @@ settings.news_desk_url =
     window.location.protocol + "//" + window.location.hostname + "/"
     + window.location.pathname + "news/json/korpnews.json";
 
+settings.wordPictureMaxWords = 30;
+
 settings.wordpictureTagset = {
     // supported pos-tags
     verb : "vb",
