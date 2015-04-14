@@ -34,7 +34,7 @@
     "add_lang" : "Lisää kieli",
     "remove_lang" : "Poista kieli",
     "not_containing" : "Ei sisällä",
-    "negate_explanation" : "Negatoi hakulausekkeen: antaa vain virkkeet, jotka eivät täsmää.",
+    "negate_explanation" : "Käänteistää hakulausekkeen: antaa vain virkkeet, jotka eivät täsmää.",
     "about" : "Tietoa Korpista",
     "about_body" : "Korp on Kielipankin konkordanssihakuohjelma, joka on kehitetty Språkbankenissa (Ruotsin kielipankki). Jos haluat saada lisätietoja tai lähettää kommentteja, ehdotuksia, virheraportteja tai muuta palautetta, täytä <a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html' target='_blank'>palautelomake</a>.",
     "about_cite_header": "Viittaa Korpiin",
@@ -86,7 +86,7 @@
     "show_word_pic" : "Näytä sanakuva",
     "word_pic_warn" : "Sanakuva on poissa käytöstä. ",
     "word_pic_warn_btn" : "Aktivoi ja hae",
-    "word_pic_bad_search" : "Haustasi ei voi tuottaa sanakuvaa. Vain yksittäisten sanojen ja lemgrammien haut ovat tuettuje.",
+    "word_pic_bad_search" : "Haustasi ei voi tuottaa sanakuvaa. Vain yksittäisten sanojen ja lemgrammien haut ovat tuettuja.",
     "search_aborted" : "Haku keskeytettiin",
 
     "word_is" : "sana on",
@@ -232,7 +232,7 @@
     "compare_name" : "Nimi",
     "compare_save" : "Tallenna",
 
-    "compare_distinctive" : "Prominent in",
+    "compare_distinctive" : "Korostuneita haussa",
 
     "corpselector_allselected" : " korpusta valittuina (kaikki)",
     "corpselector_noneselected" : "Ei korpuksia valittuna",
@@ -258,7 +258,7 @@
 
     "statstable_allcorpora" : "Kaikki&nbsp;korpukset",
     "statstable_relfreq" : "suhteellinen frekvenssi (miljoonaa sanaa kohti):",
-    "statstable_absfreq" : "absoluuttinen frekvenssi:",
+    "statstable_absfreq" : "absoluuttinen frekvenssi",
     "statstable_absfigures" : "Absoluuttiset frekvenssit",
     "statstable_relfigures" : "Suhteelliset frekvenssit",
     "statstable_absfigures_hits" : "Osumia korpuksessa, absoluuttiset frekvenssit.",
