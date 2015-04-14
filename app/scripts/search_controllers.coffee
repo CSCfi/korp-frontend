@@ -132,8 +132,11 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             s.placeholder = search.val
             s.simple_text = ""
             cqp = "[lex contains '#{search.val}']"
-            backend.relatedWordSearch(search.val).then (data) ->
-                s.relatedObj = data
+            # # Related-word search does not currently work for Finnish,
+            # # so commented out. It would be nice if it could be
+            # # language- or corpus-specific. (Jyrki Niemi 2015-04-14)
+            # backend.relatedWordSearch(search.val).then (data) ->
+            #     s.relatedObj = data
             
             if s.word_pic
                 searches.lemgramSearch(search.val, s.prefix, s.suffix, page)
