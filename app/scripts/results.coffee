@@ -804,7 +804,7 @@ class view.LemgramResults extends BaseResults
                 list = orderArrays[i]
                 rel = getRelType(item)
 
-                return unless rel
+                return unless rel.rel
                 ret = inArray(rel, rel_type_list)
                 return if ret.i is -1
                 list[ret.i] = [] unless list[ret.i]
