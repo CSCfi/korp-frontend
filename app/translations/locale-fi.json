@@ -239,7 +239,7 @@
     "corpselector_selectedone" : " valittu",
     "corpselector_selectedmultiple" : " korpusta valittuina",
     "corpselector_buttonselectall" : "Valitse kaikki",
-    "corpselector_buttonselectnone" : "Tyhjennä valinnat",
+    "corpselector_buttonselectnone" : "Tyhjennä",
     "corpselector_numberoftokens" : "Saneiden määrä",
     "corpselector_numberofsentences" : "Virkkeiden määrä",
     "corpselector_tokens" : "sanetta",
