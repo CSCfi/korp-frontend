@@ -1,0 +1,12 @@
+
+<!-- Uusi Korp-versio betatestausvaiheessa 2015-02-10 -->
+
+Uuden Korpin uusia ominaisuuksia ovat mm. tämä **uutistoiminto** ja
+kahden hakutuloksen vertailu.
+
+Jotkin [vanhan Korp-version](https://korp.csc.fi/) ominaisuudet eivät
+vielä toimi: mm. hakutulosten lataaminen, sanakuva ja korpusten
+lisätietolinkit.
+
+Uusi Korp korvaa vanhan, kun kaikki vanhan ominaisuudet on saatu
+mukaan uuteen versioon.

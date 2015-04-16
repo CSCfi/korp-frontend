@@ -1,0 +1,12 @@
+
+<!-- New version of Korp in beta testing 2015-02-10 -->
+
+New features of the new Korp include this **news feature** and
+comparing two search results.
+
+Some features of the [old Korp](https://korp.csc.fi/) do not yet work:
+e.g., downloading search results, word picture and corpus information
+links.
+
+The new Korp will replace the old version once all features of the old
+one have been transferred to the new one.
