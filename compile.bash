@@ -25,5 +25,5 @@
 #
 # DON'T FORGET TO COMMIT ALL FILES!
 
-python skript/compile.py karp sv 100 --secondary general > json/karpnews.json
-python skript/compile.py korp sv 100 --secondary general > json/korpnews.json
+# python skript/compile.py karp sv 100 --secondary general > json/karpnews.json
+python skript/compile.py korp fi 100 --secondary general > json/korpnews.json
