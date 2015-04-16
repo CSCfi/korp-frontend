@@ -992,9 +992,9 @@
         var $siblings, hasHomograph, label, prefix, siblingLemgrams;
         $siblings = $(this).parent().siblings().find("td:nth-child(2)");
         siblingLemgrams = $.map($siblings, function(item) {
-          return $(item).data("lemgram").slice(0, -1);
+          return $(item).data("lemgram").toString().slice(0, -1);
         });
-        hasHomograph = $.inArray($(this).data("lemgram").slice(0, -1), siblingLemgrams) !== -1;
+        hasHomograph = $.inArray($(this).data("lemgram").toString().slice(0, -1), siblingLemgrams) !== -1;
         prefix = ($(this).data("depextra").length ? $(this).data("depextra") + " " : "");
         data = $(this).tmplItem().data;
         if (!data.dep) {

@@ -852,9 +852,9 @@ class view.LemgramResults extends BaseResults
         $("td:nth-child(2)", @$result).each -> # labels
             $siblings = $(this).parent().siblings().find("td:nth-child(2)")
             siblingLemgrams = $.map($siblings, (item) ->
-                $(item).data("lemgram").slice 0, -1
+                $(item).data("lemgram").toString().slice 0, -1
             )
-            hasHomograph = $.inArray($(this).data("lemgram").slice(0, -1), siblingLemgrams) isnt -1
+            hasHomograph = $.inArray($(this).data("lemgram").toString().slice(0, -1), siblingLemgrams) isnt -1
             prefix = (if $(this).data("depextra").length then $(this).data("depextra") + " " else "")
             data = $(this).tmplItem().data
             if not data.dep
