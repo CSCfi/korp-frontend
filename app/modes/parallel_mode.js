@@ -230,8 +230,20 @@ settings.primaryLight = "#FFF9EE";
 
 var context = {
 	"defaultAligned" : {
-		"1 link" : "1 link"
-	}
+		"1 sentence" : "1 sentence"
+	},
+/*
+    	"sentenceAligned" : {
+    	    "1 sentence" : "1 sentence"
+    	},
+    "spContext" : {
+    	"1 sentence" : "1 sentence",
+    	"1 paragraph" : "1 paragraph"
+    },
+*/
+    	"alignAligned" : {
+    		"1 align" : "1 align"
+    	}
 };
 
 settings.corporafolders = {};
