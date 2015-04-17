@@ -612,20 +612,21 @@ util.loadCorpora = ->
             maybeInfo = ""
             maybeInfo = "<br/><br/>" + corpusObj.description if corpusObj.description
             numTokens = corpusObj.info.Size
-            baseLang = settings.corpora[corpusID]?.linked_to
-            if baseLang
+            baseLangTokenHTML = ""
+            baseLangSentenceHTML = ""
+            baseLangs = settings.corpora[corpusID]?.linked_to
+            if baseLangs
                 lang = " (" + util.getLocaleString(settings.corpora[corpusID].lang) + ")"
-                #baseLangTag = " (" + settings.corpora[baseLang].lang + ")"
-                baseLangTokenHTML = """#{util.getLocaleString("corpselector_numberoftokens")}: <b>#{util.prettyNumbers(settings.corpora[baseLang].info.Size)}
-                </b> (#{util.getLocaleString(settings.corpora[baseLang].lang)})<br/>
-                """
-                baseLangSentenceHTML = """#{util.getLocaleString("corpselector_numberofsentences")}: <b>#{util.prettyNumbers(settings.corpora[baseLang].info.Sentences)}
-                </b> (#{util.getLocaleString(settings.corpora[baseLang].lang)})<br/>
-                """
+                for baseLang in baseLangs
+                    #baseLangTag = " (" + settings.corpora[baseLang].lang + ")"
+                    baseLangTokenHTML += """#{util.getLocaleString("corpselector_numberoftokens")}: <b>#{util.prettyNumbers(settings.corpora[baseLang].info.Size)}
+                    </b> (#{util.getLocaleString(settings.corpora[baseLang].lang)})<br/>
+                    """
+                    baseLangSentenceHTML += """#{util.getLocaleString("corpselector_numberofsentences")}: <b>#{util.prettyNumbers(settings.corpora[baseLang].info.Sentences)}
+                    </b> (#{util.getLocaleString(settings.corpora[baseLang].lang)})<br/>
+                    """
             else
                 lang = ""
-                baseLangTokenHTML = ""
-                baseLangSentenceHTML = ""
 
             numSentences = corpusObj["info"]["Sentences"]
             lastUpdate = corpusObj["info"]["Updated"]
