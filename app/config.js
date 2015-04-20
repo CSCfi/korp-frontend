@@ -11,6 +11,8 @@ var isProductionServerTest =
     (isProductionServer
      && (window.location.pathname.indexOf("test/") != -1
 	 || window.location.pathname.indexOf("test-") != -1));
+var isProductionServerBeta =
+    (isProductionServer && window.location.pathname.indexOf("beta") != -1);
 var isPublicServer = (window.location.hostname != "localhost");
 
 c.log("Production server:", isProductionServer);
@@ -72,7 +74,7 @@ settings.downloadFormatParams = {
     },
 };
 
-settings.cgi_prefix = (isProductionServerTest
+settings.cgi_prefix = (isProductionServerBeta
 		       ? "/cgi-bin/korp-2.66/"
 		       : (isProductionServer ? "/cgi-bin/" : "/cgi-bin/korp/"));
 settings.cgi_script = settings.cgi_prefix + "korp.cgi";
