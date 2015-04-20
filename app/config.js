@@ -1305,7 +1305,7 @@ settings.corporafolders.legal = {
 
 settings.corporafolders.internet = {
     title : "Internet-keskusteluaineistoja",
-    contents : ["s24", "ylilauta"]
+    contents : ["s24", "ylilauta", "hsfi"]
 };
 
 settings.corporafolders.other_texts = {
@@ -1371,7 +1371,7 @@ settings.corporafolders.spoken.la_murre = {
 
 settings.corporafolders.learner = {
     title : "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
-    contents : ["las2"],
+    contents : ["las2", "iclfi"],
     // unselected : true
 };
 
