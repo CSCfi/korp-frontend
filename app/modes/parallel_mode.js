@@ -297,7 +297,8 @@ settings.corporafolders = {};
 
 settings.corporafolders.europarl = {
 	title : "EuroParl 7",
-	contents : ["europarl_fi"]
+	contents : ["europarl_v7_enfi_fi", "europarl_v7_svfi_fi", "europarl_v7_defi_fi",
+		    "europarl_v7_frfi_fi", "europarl_v7_esfi_fi", "europarl_v7_etfi_fi"]
 };
 
 /*
@@ -590,6 +591,7 @@ settings.corpora.kfspc_fi = {
     struct_attributes : sattrlist.kfspc
 };
 
+/*
 settings.corpora.europarl_fi = {
     id : "europarl_fi",
     lang : "fi",
@@ -616,7 +618,7 @@ settings.corpora.europarl_en = {
     struct_attributes : {},
     hide : true
 };
-
+*/
 
 attrlist = {};
 attrlist.mulcold_fi = {
