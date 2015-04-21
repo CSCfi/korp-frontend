@@ -826,6 +826,7 @@
     "speech_speakerid" : "puheenvuoron tunniste",
     "speech_speakername" : "puhuja",
     "speech_language" : "alkuperäiskieli",
+    "speaker_affiliation" : "yhteys",
 
     "ftb3_europarl_language_bg" : "bulgaria",
     "ftb3_europarl_language_cs" : "tšekki",
@@ -852,6 +853,10 @@
     "ftb3_europarl_language_sl" : "sloveeni",
     "ftb3_europarl_language_sv" : "ruotsi",
     "ftb3_europarl_language_und" : "tuntematon",
+
+    "europarl_v7_sentence_type_meta" : "meta",
+    "europarl_v7_sentence_type_speech" : "puhe",
+    "europarl_v7_aff_und" : "ei määritelty",
 
     "dict_form" : "hakusana",
     "dict_example" : "esimerkki",
