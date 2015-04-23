@@ -164,6 +164,13 @@ a.btn {
   }
 }
 
+#loading-msg {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 50px;
+}
+
 #header_left {
   float: left;
   > a {
