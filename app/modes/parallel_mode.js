@@ -340,7 +340,6 @@ settings.corpora.europarl_v7_enfi_en = {
     within: {
         "sentence": "sentence"
     },
-    metadata_urn : "unspecified",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -362,7 +361,6 @@ settings.corpora.europarl_v7_etfi_et = {
     within: {
         "sentence": "sentence"
     },
-    metadata_urn : "unspecified",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -383,7 +381,6 @@ settings.corpora.europarl_v7_esfi_es = {
     within: {
         "sentence": "sentence"
     },
-    metadata_urn : "unspecified",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -404,7 +401,6 @@ settings.corpora.europarl_v7_frfi_fr = {
     within: {
         "sentence": "sentence"
     },
-    metadata_urn : "unspecified",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -425,7 +421,6 @@ settings.corpora.europarl_v7_defi_de = {
     within: {
         "sentence": "sentence"
     },
-    metadata_urn : "unspecified",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -446,7 +441,6 @@ settings.corpora.europarl_v7_svfi_sv = {
     within: {
         "sentence": "sentence"
     },
-    metadata_urn : "unspecified",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -457,7 +451,7 @@ settings.corpora.europarl_v7_svfi_sv = {
 
 settings.corpora.europarl_v7_etfi_fi = {
     title : "EuroParl suomi-viro",
-    description : "EuroParl suomi-viro-rinnakkaiskorpus (Europarl v7)",
+    description : "EuroParl suomi-viro-rinnakkaiskorpus (EuroParl v7)",
     id : "europarl_v7_etfi_fi",
     urn : "urn:nbn:fi:lb-2015042002",
     metadata_urn : "urn:nbn:fi:lb-2015042001",
@@ -467,7 +461,6 @@ settings.corpora.europarl_v7_etfi_fi = {
     within: {
         "sentence": "sentence"
     },
-    metadata_urn : "unspecified",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -477,7 +470,7 @@ settings.corpora.europarl_v7_etfi_fi = {
 
 settings.corpora.europarl_v7_esfi_fi = {
     title : "EuroParl suomi-espanja",
-    description : "EuroParl suomi-espanja-rinnakkaiskorpus (Europarl v7)",
+    description : "EuroParl suomi-espanja-rinnakkaiskorpus (EuroParl v7)",
     id : "europarl_v7_esfi_fi",
     urn : "urn:nbn:fi:lb-2015042002",
     metadata_urn : "urn:nbn:fi:lb-2015042001",
@@ -487,7 +480,6 @@ settings.corpora.europarl_v7_esfi_fi = {
     within: {
         "sentence": "sentence"
     },
-    metadata_urn : "unspecified",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -497,7 +489,7 @@ settings.corpora.europarl_v7_esfi_fi = {
 
 settings.corpora.europarl_v7_frfi_fi = {
     title : "EuroParl suomi-ranska",
-    description : "EuroParl suomi-ranska-rinnakkaiskorpus (Europarl v7)",
+    description : "EuroParl suomi-ranska-rinnakkaiskorpus (EuroParl v7)",
     id : "europarl_v7_frfi_fi",
     urn : "urn:nbn:fi:lb-2015042002",
     metadata_urn : "urn:nbn:fi:lb-2015042001",
@@ -507,7 +499,6 @@ settings.corpora.europarl_v7_frfi_fi = {
     within: {
         "sentence": "sentence"
     },
-    metadata_urn : "unspecified",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -517,7 +508,7 @@ settings.corpora.europarl_v7_frfi_fi = {
 
 settings.corpora.europarl_v7_defi_fi = {
     title : "EuroParl suomi-saksa",
-    description : "EuroParl suomi-saksa-rinnakkaiskorpus (Europarl v7)",
+    description : "EuroParl suomi-saksa-rinnakkaiskorpus (EuroParl v7)",
     id : "europarl_v7_defi_fi",
     urn : "urn:nbn:fi:lb-2015042002",
     metadata_urn : "urn:nbn:fi:lb-2015042001",
@@ -527,7 +518,6 @@ settings.corpora.europarl_v7_defi_fi = {
     within: {
         "sentence": "sentence"
     },
-    metadata_urn : "unspecified",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -537,7 +527,7 @@ settings.corpora.europarl_v7_defi_fi = {
 
 settings.corpora.europarl_v7_enfi_fi = {
     title : "EuroParl suomi-englanti",
-    description : "EuroParl suomi-englanti-rinnakkaiskorpus (Europarl v7)",
+    description : "EuroParl suomi-englanti-rinnakkaiskorpus (EuroParl v7)",
     id : "europarl_v7_enfi_fi",
     urn : "urn:nbn:fi:lb-2015042002",
     metadata_urn : "urn:nbn:fi:lb-2015042001",
@@ -547,7 +537,6 @@ settings.corpora.europarl_v7_enfi_fi = {
     within: {
         "sentence": "sentence"
     },
-    metadata_urn : "unspecified",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -557,7 +546,7 @@ settings.corpora.europarl_v7_enfi_fi = {
 
 settings.corpora.europarl_v7_svfi_fi = {
     title : "EuroParl suomi-ruotsi",
-    description : "EuroParl suomi-ruotsi-rinnakkaiskorpus (Europarl v7)",
+    description : "EuroParl suomi-ruotsi-rinnakkaiskorpus (EuroParl v7)",
     id : "europarl_v7_svfi_fi",
     urn : "urn:nbn:fi:lb-2015042002",
     metadata_urn : "urn:nbn:fi:lb-2015042001",
@@ -567,7 +556,6 @@ settings.corpora.europarl_v7_svfi_fi = {
     within: {
         "sentence": "sentence"
     },
-    metadata_urn : "unspecified",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
