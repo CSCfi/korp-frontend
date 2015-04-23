@@ -853,3 +853,29 @@ util.findoutType = (variable) ->
         typeof (variable)
 
 
+# Map possible corpus id aliases to actual corpus ids in the URL hash
+# parameter "corpus". Aliases are defined in settings.corpus_aliases,
+# whose property keys are aliases and values the actual corpus ids.
+# Aliases can be useful if a corpus is renamed: the old name (id) can
+# be retained as an alias to avoid breaking possible URLs containing
+# the old id of the corpus. (Jyrki Niemi 2015-04-23)
+
+util.mapHashCorpusAliases = () ->
+
+    getUrlParam = (name) ->
+        param_re = RegExp("\\b" + name + "=([^&;]*)")
+        matches = window.location.hash.match(param_re)
+        if matches? and matches.length > 1 then matches[1] else null
+
+    mapCorpusAliasList = (corpus) ->
+        _.map(corpus.split(","),
+              (corpus_id) -> settings.corpus_aliases[corpus_id] or corpus_id)
+
+    if settings.corpus_aliases?
+        orig_corpus = getUrlParam("corpus")
+        if orig_corpus
+            corpus = mapCorpusAliasList(orig_corpus)
+            if corpus != orig_corpus
+                window.location.hash = window.location.hash.replace(
+                    "corpus=" + orig_corpus, "corpus=" + corpus)
+    return
