@@ -328,6 +328,28 @@ settings.parallel_corpora = {};
 
 /* Europarl V7 */
 
+settings.corpora.europarl_v7_enfi_en = {
+    title : "EuroParl v7 EN",
+    description : "euroParl_v7_enfi_en",
+    id : "europarl_v7_enfi_en",
+    urn : "urn:nbn:fi:lb-2015042002",
+    metadata_urn : "urn:nbn:fi:lb-2015042001",
+    lang : "en",
+    linked_to : ["europarl_v7_enfi_fi"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    metadata_urn : "unspecified",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.europarl_v7,
+    hide : true
+};
+
+
 settings.corpora.europarl_v7_etfi_et = {
     title : "EuroParl v7 ET",
     description : "euroParl_v7_etfi_et",
@@ -353,8 +375,8 @@ settings.corpora.europarl_v7_esfi_es = {
     title : "EuroParl v7 ES",
     description : "euroParl_v7_esfi_es",
     id : "europarl_v7_esfi_es",
-    urn : "https://korp.csc.fi/?mode=parallel#parallel_corpora=fi&corpus=europarl_fi",
-    metadata_urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015042002",
+    metadata_urn : "urn:nbn:fi:lb-2015042001",
     lang : "es",
     linked_to : ["europarl_v7_esfi_fi"],
     context: context.alignAligned,
@@ -457,8 +479,8 @@ settings.corpora.europarl_v7_esfi_fi = {
     title : "EuroParl suomi-espanja",
     description : "EuroParl suomi-espanja-rinnakkaiskorpus (Europarl v7)",
     id : "europarl_v7_esfi_fi",
-    urn : "https://korp.csc.fi/?mode=parallel#parallel_corpora=fi&corpus=europarl_fi",
-    metadata_urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015042002",
+    metadata_urn : "urn:nbn:fi:lb-2015042001",
     lang : "fi",
     linked_to : ["europarl_v7_esfi_es"],
     context: context.alignAligned,
