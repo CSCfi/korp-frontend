@@ -41,13 +41,13 @@ settings.wordpictureTagset = {
     noun : "nn",
     adjective : "jj",
     adverb : "ab",
-    preposition : "pp",
+    // preposition : "pp",
 
     // dependency releations
     subject : "ss",
     object : "obj",
     adverbial : "adv",
-    preposition_rel : "pa",
+    // preposition_rel : "pa",
     pre_modifier : "at",
     post_modifier : "et"
 
@@ -62,7 +62,7 @@ settings.wordPictureConf = {
         {rel : "adverbial", css_class : "color_green"}
     ]],
     noun : [
-        [{rel : "preposition_rel", css_class : "color_yellow", field_reverse: true}, 
+        [ // {rel : "preposition_rel", css_class : "color_yellow", field_reverse: true}, 
          {rel : "pre_modifier", css_class : "color_azure"}, 
          "_", 
          {rel : "post_modifier", css_class : "color_red"}], 
@@ -72,7 +72,7 @@ settings.wordPictureConf = {
     ],
     adjective : [["_", {rel: "pre_modifier", css_class : "color_yellow", field_reverse : true}]],
     adverb : [["_", {rel: "adverbial", css_class : "color_yellow", field_reverse : true}]],
-    preposition : [["_", {rel: "preposition_rel", css_class : "color_green"}]]
+    // preposition : [["_", {rel: "preposition_rel", css_class : "color_green"}]]
     
 }
 
