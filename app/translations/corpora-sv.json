@@ -17,6 +17,11 @@
     "kioping_texts" : "Kiöpings resor",
     "runeberg" : "Runebergtidskrifter",
 
+    "old_finnish_texts" : "Äldre finskt skriftspråk",
+    "finnish_national_library_texts" : "Nationalbiblioteket (finska)",
+    "swedish_texts" : "Svenska",
+    "other_languages_texts" : "Andra språk",
+
     "saldo" : "betydelse",
     "pos" : "ordklass",
     "msd" : "msd",
