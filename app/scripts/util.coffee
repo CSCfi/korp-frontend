@@ -539,6 +539,17 @@ util.searchHash = (type, value) ->
 # $(window).trigger("hashchange")
 added_corpora_ids = []
 util.loadCorporaFolderRecursive = (first_level, folder) ->
+
+    # Format the possible licence type information to be suffixed to
+    # the corpus name in the corpus selector. <span class="..."> does
+    # not seem to work correctly here; it probably disturbs
+    # transforming the corpus selector.
+    # (Jyrki Niemi 2014-02-06, 2015-02-10)
+    format_licence_type = (corpus_id) ->
+        licence_type = settings.corpora[corpus_id]["licence_type"]
+        # c.log("licence_type", corpus_id, licence_type)
+        if licence_type then " [" + licence_type.toUpperCase() + "]" else ""
+
     outHTML = undefined
     if first_level
         outHTML = "<ul>"
@@ -553,7 +564,7 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
         # Corpora
         if folder["contents"] and folder["contents"].length > 0
             $.each folder.contents, (key, value) ->
-                outHTML += "<li id=\"" + value + "\">" + settings.corpora[value]["title"] + "</li>"
+                outHTML += "<li id=\"" + value + "\">" + settings.corpora[value]["title"] + format_licence_type(value) + "</li>"
                 added_corpora_ids.push value
                 return
 
@@ -568,7 +579,7 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
             continue if cont
             
             # Add it anyway:
-            outHTML += "<li id='#{val}'>#{settings.corpora[val].title}</li>"
+            outHTML += "<li id='#{val}'>#{settings.corpora[val].title + format_licence_type(val)}</li>"
     outHTML += "</ul>"
     outHTML
 
