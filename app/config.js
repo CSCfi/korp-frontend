@@ -19,6 +19,8 @@ settings.lemgramSelect = true;
 settings.autocomplete = true;
 // settings.wordpicture = false;
 
+settings.textDateAllowBareYears = true;
+
 settings.cgi_prefix = (isProductionServerTest
 		       ? "/cgi-bin/korp-2.66/"
 		       : (isProductionServer ? "/cgi-bin/" : "/cgi-bin/korp/"));
