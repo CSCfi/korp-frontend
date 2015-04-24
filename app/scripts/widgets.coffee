@@ -23,18 +23,24 @@ Sidebar =
         if formattedCorpusInfo
             formattedCorpusInfo = "<br/>" + formattedCorpusInfo
         $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>#{corpusObj.title}</p><p>#{formattedCorpusInfo}</p>").prependTo "#selected_sentence"
+        # All token data, to be passed to the function stringify_synthtetic
+        # of a synthetic attribute (Jyrki Niemi 2015-02-24)
+        token_data =
+            pos_attrs : wordData
+            struct_attrs : sentenceData
+            tokens : tokens
         unless $.isEmptyObject(corpusObj.attributes)
             $("#selected_word").append $("<h4>").localeKey("word_attr")
 
-            @renderContent(wordData, corpusObj.attributes).appendTo "#selected_word"
+            @renderContent(wordData, corpusObj.attributes, corpusObj.synthetic_attr_names.attributes, token_data).appendTo "#selected_word"
         unless $.isEmptyObject(corpusObj.struct_attributes)
             $("#selected_sentence").append $("<h4>").localeKey("sentence_attr")
 
-            @renderContent(sentenceData, corpusObj.struct_attributes).appendTo "#selected_sentence"
+            @renderContent(sentenceData, corpusObj.struct_attributes, corpusObj.synthetic_attr_names.struct_attributes, token_data).appendTo "#selected_sentence"
 
         # Links in a separate link section
         unless $.isEmptyObject(corpusObj.link_attributes)
-            @renderContent(sentenceData, corpusObj.link_attributes)
+            @renderContent(sentenceData, corpusObj.link_attributes, corpusObj.synthetic_attr_names.link_attributes, token_data)
                 .appendTo "#selected_links"
 
         @element.localize()
@@ -67,17 +73,23 @@ Sidebar =
 
 
 
-    renderContent: (wordData, corpus_attrs) ->
+    renderContent: (wordData, corpus_attrs, synthetic_attr_names, token_data) ->
         pairs = _.pairs(wordData)
         order = @options.displayOrder
         pairs.sort ([a], [b]) ->
             $.inArray(b, order) - $.inArray(a, order)
         items = for [key, value] in pairs when corpus_attrs[key]
-            @renderItem key, value, corpus_attrs[key]
+            @renderItem key, value, corpus_attrs[key], token_data
+
+        # Append possible synthetic attributes (Jyrki Niemi 2015-02-24)
+        if synthetic_attr_names.length
+            synthetic = for key in synthetic_attr_names
+                @renderItem key, null, corpus_attrs[key], token_data
+            items = items.concat(synthetic)
 
         return $(items)
 
-    renderItem: (key, value, attrs) ->
+    renderItem: (key, value, attrs, token_data) ->
         if attrs.displayType == "hidden" or attrs.displayType == "date_interval"
             return ""
         if attrs.type == "url" and attrs?.url_opts?.hide_url
@@ -135,7 +147,10 @@ Sidebar =
             return output
 
 
-        str_value = (attrs.stringify or _.identity)(value)
+        str_value = if attrs.stringify_synthetic
+                        attrs.stringify_synthetic(token_data)
+                    else
+                        (attrs.stringify or _.identity)(value)
 
 
         if attrs.type == "url"

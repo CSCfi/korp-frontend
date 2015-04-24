@@ -1120,44 +1120,6 @@
     }
   };
 
-  util.initCorpusSettingsLinkAttrs = function() {
-    var corpus;
-    for (corpus in settings.corpora) {
-      util.extractLinkAttrs(settings.corpora[corpus]);
-    }
-    return null;
-  };
-
-  util.extractLinkAttrs = function(corpusInfo) {
-    var extractLinkAttrs, link_attrs;
-    extractLinkAttrs = function(attrs, link_attrs) {
-      var attr, attrname, _results;
-      if (attrs != null) {
-        _results = [];
-        for (attrname in attrs) {
-          attr = attrs[attrname];
-          if (attr.type === "url" && (attr.url_opts != null) && attr.url_opts.in_link_section) {
-            if (attr._link_attr) {
-              _results.push(link_attrs[attrname] = attr._link_attr);
-            } else {
-              link_attrs[attrname] = $.extend(true, {}, attr);
-              attrs[attrname].displayType = "hidden";
-              _results.push(attrs[attrname]._link_attr = link_attrs[attrname]);
-            }
-          } else {
-            _results.push(void 0);
-          }
-        }
-        return _results;
-      }
-    };
-    link_attrs = {};
-    extractLinkAttrs(corpusInfo.attributes, link_attrs);
-    extractLinkAttrs(corpusInfo.struct_attributes, link_attrs);
-    corpusInfo.link_attributes = link_attrs;
-    return null;
-  };
-
   util.formatCorpusExtraInfo = function(corpusObj) {
     var getUrnOrUrl, i, info_item, info_items, info_obj, label, link_info, makeLinkItem, result;
     info_items = arguments.length > 1 && arguments[1] ? arguments[1] : ['urn', 'metadata', 'licence', 'homepage', 'compiler'];
@@ -1299,6 +1261,74 @@
         c.log('propagate ', prop_name);
         util.propagateCorpusFolderInfo(corpusFolder[prop_name], info);
       }
+    }
+  };
+
+  util.initCorpusSettingsLinkAttrs = function() {
+    var corpus;
+    for (corpus in settings.corpora) {
+      util.extractLinkAttrs(settings.corpora[corpus]);
+    }
+    return null;
+  };
+
+  util.extractLinkAttrs = function(corpusInfo) {
+    var extractLinkAttrs, link_attrs;
+    extractLinkAttrs = function(attrs, link_attrs) {
+      var attr, attrname, _results;
+      if (attrs != null) {
+        _results = [];
+        for (attrname in attrs) {
+          attr = attrs[attrname];
+          if (attr.type === "url" && (attr.url_opts != null) && attr.url_opts.in_link_section) {
+            if (attr._link_attr) {
+              _results.push(link_attrs[attrname] = attr._link_attr);
+            } else {
+              link_attrs[attrname] = $.extend(true, {}, attr);
+              attrs[attrname].displayType = "hidden";
+              _results.push(attrs[attrname]._link_attr = link_attrs[attrname]);
+            }
+          } else {
+            _results.push(void 0);
+          }
+        }
+        return _results;
+      }
+    };
+    link_attrs = {};
+    extractLinkAttrs(corpusInfo.attributes, link_attrs);
+    extractLinkAttrs(corpusInfo.struct_attributes, link_attrs);
+    corpusInfo.link_attributes = link_attrs;
+    return null;
+  };
+
+  util.initCorpusSettingsSyntheticAttrs = function() {
+    var corpus;
+    for (corpus in settings.corpora) {
+      util.setSyntheticAttrsInfo(settings.corpora[corpus]);
+    }
+  };
+
+  util.setSyntheticAttrsInfo = function(corpusInfo) {
+    var attrtype, setSyntheticAttrs;
+    setSyntheticAttrs = function(attrs, synthetic_list) {
+      var attr, attrname;
+      if (attrs !== void 0) {
+        for (attrname in attrs) {
+          attr = attrs[attrname];
+          if (attr.synthetic && attr.displayType !== 'hidden') {
+            synthetic_list.push(attrname);
+          }
+        }
+      }
+    };
+    corpusInfo.synthetic_attr_names = {
+      attributes: [],
+      struct_attributes: [],
+      link_attributes: []
+    };
+    for (attrtype in corpusInfo.synthetic_attr_names) {
+      setSyntheticAttrs(corpusInfo[attrtype], corpusInfo.synthetic_attr_names[attrtype]);
     }
   };
 

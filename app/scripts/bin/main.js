@@ -314,7 +314,8 @@
     }, function() {
       return $(this).css("opacity", "");
     });
-    return util.initCorpusSettingsLinkAttrs();
+    util.initCorpusSettingsLinkAttrs();
+    return util.initCorpusSettingsSyntheticAttrs();
   }), function() {
     c.log("failed to load some resource at startup.", arguments);
     return $("body").css({
