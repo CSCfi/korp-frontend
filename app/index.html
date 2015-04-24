@@ -18,11 +18,14 @@
     <link rel="shortcut icon" type="image/ico" href="img/korp_icon.ico">
     <title>Korp</title>
   </head>
-  <body style="opacity: 0.1;" class="not_logged_in">
+  <body class="not_logged_in">
     <noscript>
       <h2>You need JavaScript to run Korp.</h2>
     </noscript>
-    <div id="main">
+    <div id="loading-msg" style="opacity: 1;"><img src="img/korplogo.png">
+      <p>Latautuu, odota hetki &hellip;<br>Laddar, var god vänta &hellip;<br>Loading, please wait &hellip;</p>
+    </div>
+    <div id="main" style="opacity: 0;">
       <div id="header">
         <div id="top_bar" ng-controller="headerCtrl">
           <ul id="mode_switch">

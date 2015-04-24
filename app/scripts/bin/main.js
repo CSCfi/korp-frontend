@@ -311,7 +311,12 @@
       view.initSearchOptions();
       return onHashChange(null, true);
     }, 0);
-    $("body").animate({
+    $("#loading-msg").animate({
+      opacity: 0
+    }, function() {
+      return $(this).css("opacity", "0");
+    });
+    $("#main").animate({
       opacity: 1
     }, function() {
       return $(this).css("opacity", "");

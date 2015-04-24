@@ -305,7 +305,12 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
         view.initSearchOptions()
         onHashChange null, true
     , 0)
-    $("body").animate
+    # Hide the "Loading..." message (Jyrki Niemi 2015-04-23)
+    $("#loading-msg").animate
+        opacity: 0
+    , ->
+        $(this).css "opacity", "0"
+    $("#main").animate
         opacity: 1
     , ->
         $(this).css "opacity", ""
