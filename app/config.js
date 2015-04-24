@@ -1346,7 +1346,7 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
 
 settings.corporafolders.spoken = {
     title : "Puhuttua kieltä (tekstiksi litteroituna)",
-    contents : ["kotus_sananparret", "murre"],
+    contents : ["kotus_sananparret", "skn"],
     // unselected : true
 };
 
@@ -4238,10 +4238,12 @@ settings.corpora.suomi24fi = {
 };
 */
 
-settings.corpora.murre = {
+settings.corpus_aliases.murre = "skn";
+
+settings.corpora.skn = {
     title : "SKN – Suomen kielen näytteitä",
     description : "SKN – Suomen kielen näytteitä",
-    id : "murre",
+    id : "skn",
     urn : "urn:nbn:fi:lb-201407141",
     metadata_urn : "urn:nbn:fi:lb-201407141",
     within : settings.spWithin,
