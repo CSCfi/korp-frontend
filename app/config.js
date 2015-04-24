@@ -1297,9 +1297,9 @@ settings.corporafolders.legal = {
     contents : ["ns_saadokset", "legal_fi", "mulcold_fi"]
 };
 
-settings.corporafolders.net = {
-    title : "Verkkotekstejä",
-    contents : ["hsfi"]
+settings.corporafolders.internet = {
+    title : "Internet-keskusteluaineistoja",
+    contents : ["s24", "ylilauta"]
 };
 
 settings.corporafolders.other_texts = {
@@ -1347,7 +1347,7 @@ settings.corporafolders.spoken = {
 settings.corporafolders.spoken.la_murre = {
     title : "Lauseopin arkiston murrekorpus",
     description : "Lauseopin arkiston murrekorpus edustaa kaikkia nykyisen Suomen alueella puhuttuja suomen kielen murteita sekä lisäksi niitä murteita, joita puhuttiin Neuvostoliitolle viime sotien yhteydessä luovutetuilla alueilla ennen alueiden luovuttamista. Puhujat ovat syntyneet vuosina 1860–1910 (suurin osa 1880-luvulla) ja haastattelut on tehty 1950–1970-luvuilla, jolloin puhujat ovat olleet keskimäärin 80-vuotiaita.<br/>Yhdestä pitäjänmurteesta on yleensä valittu käsiteltäväksi yksi noin tunnin laajuinen äänite. Murreaineisto on litteroitu sekä koodattu morfologisesti ja syntaktisesti. Tässä on saatavilla korpuksen versio, jossa litteraatit on karkeasti kohdistettu alkuperäisiin äänitteisiin.",
-    unselected : true,
+    // unselected : true,
     info : {
 	urn : "urn:nbn:fi:lb-2014052715",
 	metadata_urn : "urn:nbn:fi:lb-2014052716",
@@ -1397,11 +1397,6 @@ settings.corporafolders.vns = {
 settings.corporafolders.test = {
     title : "Demo- ja testiaineistoja",
     contents : ["reittidemo"]
-};
-
-settings.corporafolders.internet = {
-    title : "Internet-keskusteluaineistot",
-    contents : ["hsfi", "ylilauta", "s24"]
 };
 
 
@@ -2627,7 +2622,7 @@ delete la_murre_parishes;
 
 settings.corpora.las2 = {
     title : "LAS2",
-    description : "Edistyneiden suomeoppijoiden korpus",
+    description : "Edistyneiden suomenoppijoiden korpus",
     id : "las2",
     within : settings.spWithin,
     context : settings.spContext,
@@ -4159,8 +4154,8 @@ settings.corpora.suomi24fi = {
 */
 
 settings.corpora.murre = {
-    title : "SKN - Suomen kielen näytteitä",
-    description : "SKN - Suomen kielen näytteitä",
+    title : "SKN – Suomen kielen näytteitä",
+    description : "SKN – Suomen kielen näytteitä",
     id : "murre",
     urn : "urn:nbn:fi:lb-201407141",
     metadata_urn : "urn:nbn:fi:lb-201407141",
@@ -4248,6 +4243,7 @@ settings.corpora.ylilauta = {
         dephead : attrs.dephead,
         deprel : attrs.deprel_tdt,
         ref : attrs.ref,
+        lex : attrs.lemgram_hidden,
         nertag : attrs.ner_tags
     },
     struct_attributes : {
@@ -4262,7 +4258,7 @@ settings.corpora.ylilauta = {
 
 settings.corpora.s24 = {
     title : "Suomi24",
-    description : "Suomi24-keskustelut (2002-2014)",
+    description : "Suomi24-keskustelut (2002–2014)",
     id : "s24",
     urn : "urn:nbn:fi:lb-201412171",
     metadata_urn : "urn:nbn:fi:lb-201412171",
@@ -4288,6 +4284,7 @@ settings.corpora.s24 = {
         dephead : attrs.dephead,
         deprel : attrs.deprel_tdt,
         ref : attrs.ref,
+        lex : attrs.lemgram_hidden,
         nertag : attrs.ner_tags
     },
     struct_attributes : {
@@ -4317,6 +4314,110 @@ settings.corpora.s24 = {
         }
     }
 };
+
+settings.corpora.iclfi = {
+    title : "ICLFI – Kansainvälinen oppijansuomen korpus",
+    description : "ICLFI – International Corpus of Learner Finnish – Kansainvälinen oppijansuomen korpus",
+    id : "iclfi",
+    urn : "urn:nbn:fi:lb-20140730163",
+    metadata_urn : "urn:nbn:fi:lb-20140730163",
+    limited_access : true,
+    licence_type : "RES",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        msd : attrs.msd
+        /*dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref*/
+    },
+    struct_attributes : {
+        text_place : {
+            label : "iclfi_place"
+	},
+        text_year : {
+            label : "iclfi_year"
+	},
+        text_medium : {
+            label : "iclfi_medium"
+	},
+        text_code : {
+            label : "iclfi_code"
+	},
+        text_dob : {
+            label : "iclfi_dob"
+	},
+        text_sex : {
+            label : "iclfi_sex"
+	},
+        text_pob : {
+            label : "iclfi_pob"
+	},
+        text_infloc : {
+            label : "iclfi_infloc"
+	},
+        text_inflang : {
+            label : "iclfi_inflang"
+	},
+        text_infmotherlang : {
+            label : "iclfi_infmotherlang"
+	},
+        text_inffatherlang : {
+            label : "iclfi_inffatherlang"
+	},
+        text_finnishathome : {
+            label : "iclfi_finnishathome"
+	},
+        text_taugthfinnish : {
+            label : "iclfi_taugthfinnish"
+	},
+        text_teacherlang : {
+            label : "iclfi_teacherlang"
+	},
+        text_beentofinland : {
+            label : "iclfi_beentofinland"
+	},
+        text_book : {
+            label : "iclfi_book"
+	},
+        text_levelhour : {
+            label : "iclfi_levelhour"
+	},
+        text_levelcerfone : {
+            label : "iclfi_levelcerfone"
+	},
+        text_levelcerftwo : {
+            label : "iclfi_levelcerftwo"
+	},
+        text_otherlangs : {
+            label : "iclfi_otherlangs"
+	},
+        text_texttype : {
+            label : "iclfi_texttype"
+	},
+        text_exercise : {
+            label : "iclfi_exercise"
+	},
+        text_examtype : {
+            label : "iclfi_examtype"
+	},
+        text_limitedtime : {
+            label : "iclfi_limitedtime"
+	},
+        text_wherewritten : {
+            label : "iclfi_wherewritten"
+	},
+        text_aids : {
+            label : "iclfi_aids"
+	},
+        text_filename : {
+            label : "iclfi_filename"
+	}
+    }
+};
+
+
 
 
 
