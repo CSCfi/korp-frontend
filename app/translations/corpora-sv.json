@@ -43,10 +43,10 @@
     
     "year_from" : "startår",
     "year_to" : "slutår",
-    
+
     "url" : "url",
     "referensnummer" : "referensnummer",
-    
+
     "weekday" : "veckodag",
     "hashtags" : "hashtaggar",
     "mentions" : "omnämnda",
@@ -69,7 +69,7 @@
     
     "imprintyear" : "tryckår",
     "pagelink" : "sidlänk",
-    
+
     "tisus_l1" : "modersmål",
     "tisus_lf1" : "läsförståelse, del 1",
     "tisus_lf2" : "läsförståelse, del 2",
@@ -100,7 +100,7 @@
     "article_topic" : "artikelns ämne/tema",
     "text_volume" : "band",
     "subject" : "ämne",
-    
+
     "sentence_link" : "meningslänk",
     "text_issue" : "utgåva",
     
@@ -108,12 +108,12 @@
     "archivecode" : "arkivkod",
     "text_recipient" : "mottagare",
     "text_sv" : "verksnummer",
-    
+
     "oneSentence" : "en mening",
-    
+
     "source" : "källa",
     "age" : "ålder",
-    
+
     "blog_title" : "bloggtitel",
     "blog_url" : "bloggaddress",
     "author_age" : "författarens ålder",
@@ -122,7 +122,7 @@
     "tags" : "nyckelord",
     "post_url" : "inläggsadress",
     "categories" : "kategorier",
-    
+
     "page" : "sida",
     "author_type" : "författartyp",
     "gender" : "kön",
@@ -133,7 +133,7 @@
     "female" : "kvinna",
     "unknown" : "okänd",
     "male_female" : "man och kvinna",
-    
+
     "entryword" : "uppslagsord",
     "entryno" : "uppslagsord (nummer)",
     "sense1" : "huvudbetydelse",
@@ -187,7 +187,7 @@
     
     "mx" : "flerordsprefix",
     "sx" : "prefix",
-    
+
     "example" : "Exempel",
     "page_num" : "sidonummer",
     "year_to"  : "datum (start)",

@@ -331,10 +331,10 @@ settings.corpora.europarl_fi = {
     lang : "fin",
     linked_to : ["europarl_en"],
     title: "EuroParl suomi–englanti-rinnakkaiskorpus",
-    context: context.defaultAligned, 
+    context: context.defaultAligned,
     within: {
 	"sentence": "sentence"
-    }, 
+    },
     attributes: {},
     struct_attributes : {}
 };
@@ -344,10 +344,10 @@ settings.corpora.europarl_en = {
     lang : "eng",
     linked_to : ["europarl_fi"],
     title: "EuroParl suomi–englanti-rinnakkaiskorpus",
-    context: context.defaultAligned, 
+    context: context.defaultAligned,
     within: {
 	"sentence": "sentence"
-    }, 
+    },
     attributes: {},
     struct_attributes : {},
     hide : true
@@ -432,10 +432,10 @@ settings.corpora.mulcold_fi = {
     linked_to : ["mulcold_en", "mulcold_sv", "mulcold_ru", "mulcold_de"],
     title: "MULCOLD – Multilingual Corpus of Legal Documents (suomi)",
     description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
-    context: context.alignAligned, 
+    context: context.alignAligned,
     within: {
 	"sentence": "sentence"
-    }, 
+    },
     attributes: attrlist.mulcold_fi,
     struct_attributes : sattrlist.mulcold
 };
@@ -446,10 +446,10 @@ settings.corpora.mulcold_en = {
     linked_to : ["mulcold_fi", "mulcold_sv", "mulcold_ru", "mulcold_de"],
     title: "MULCOLD – Multilingual Corpus of Legal Documents (englanti)",
     description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
-    context: context.alignAligned, 
+    context: context.alignAligned,
     within: {
 	"sentence": "sentence"
-    }, 
+    },
     attributes: attrlist.mulcold_en,
     struct_attributes : sattrlist.mulcold,
     hide : true
@@ -461,10 +461,10 @@ settings.corpora.mulcold_sv = {
     linked_to : ["mulcold_fi", "mulcold_en", "mulcold_ru", "mulcold_de"],
     title: "MULCOLD – Multilingual Corpus of Legal Documents (ruotsi)",
     description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
-    context: context.alignAligned, 
+    context: context.alignAligned,
     within: {
 	"sentence": "sentence"
-    }, 
+    },
     attributes: attrlist.mulcold_sv,
     struct_attributes : sattrlist.mulcold,
     hide : true
@@ -476,10 +476,10 @@ settings.corpora.mulcold_ru = {
     linked_to : ["mulcold_fi", "mulcold_en", "mulcold_sv", "mulcold_de"],
     title: "MULCOLD – Multilingual Corpus of Legal Documents (venäjä)",
     description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
-    context: context.alignAligned, 
+    context: context.alignAligned,
     within: {
 	"sentence": "sentence"
-    }, 
+    },
     attributes: attrlist.mulcold_ru,
     struct_attributes : sattrlist.mulcold,
     hide : true
@@ -491,10 +491,10 @@ settings.corpora.mulcold_de = {
     linked_to : ["mulcold_fi", "mulcold_en", "mulcold_sv", "mulcold_ru"],
     title: "MULCOLD – Multilingual Corpus of Legal Documents (saksa)",
     description : "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
-    context: context.alignAligned, 
+    context: context.alignAligned,
     within: {
 	"sentence": "sentence"
-    }, 
+    },
     attributes: attrlist.mulcold_de,
     struct_attributes : sattrlist.mulcold,
     hide : true
@@ -507,10 +507,10 @@ settings.corpora.parfin_fi = {
     linked_to : ["parfin_ru"],
     title: "ParFin",
     description : "Suomenkielisiä kaunokirjallisia teoksia ja niiden käännöksiä venäjäksi",
-    context: context.alignAligned, 
+    context: context.alignAligned,
     within: {
 	"sentence": "sentence"
-    }, 
+    },
     attributes: attrlist.mulcold_fi,
     struct_attributes : sattrlist.parfin,
     limited_access : true,
@@ -523,10 +523,10 @@ settings.corpora.parfin_ru = {
     linked_to : ["parfin_fi"],
     title: "ParFin",
     description : "Suomenkielisiä kaunokirjallisia teoksia ja niiden käännöksiä venäjäksi",
-    context: context.alignAligned, 
+    context: context.alignAligned,
     within: {
 	"sentence": "sentence"
-    }, 
+    },
     attributes: attrlist.mulcold_ru,
     struct_attributes : sattrlist.parfin,
     limited_access : true,
@@ -546,7 +546,7 @@ settings.parallel_corpora.testpar = {
         context: context.spContext,
         within: {
             "sentence" : "sentence"
-        }, 
+        },
         attributes: {},
         struct_attributes : {}
     },
@@ -555,10 +555,10 @@ settings.parallel_corpora.testpar = {
 	lang : "eng",
         parent : "testpar",
         title: "Testpar suomi–englanti-rinnakkaiskorpustesti",
-        context: context.spContext, 
+        context: context.spContext,
         within: {
             "sentence" : "sentence"
-        }, 
+        },
         attributes: {},
         struct_attributes : {},
         hide : true
@@ -576,7 +576,7 @@ settings.parallel_corpora.testpar4 = {
         context: context.spContext,
         within: {
             "sentence" : "sentence"
-        }, 
+        },
         attributes: {},
         struct_attributes : {}
     },
@@ -585,10 +585,10 @@ settings.parallel_corpora.testpar4 = {
 	lang : "eng",
         parent : "testpar4",
         title: "Testpar4 suomi–englanti–ruotsi–saksa-rinnakkaiskorpustesti",
-        context: context.spContext, 
+        context: context.spContext,
         within: {
             "sentence" : "sentence"
-        }, 
+        },
         attributes: {},
         struct_attributes : {},
         hide : true
@@ -598,10 +598,10 @@ settings.parallel_corpora.testpar4 = {
 	lang : "swe",
         parent : "testpar4",
         title: "Testpar4 suomi–englanti–ruotsi–saksa-rinnakkaiskorpustesti",
-        context: context.spContext, 
+        context: context.spContext,
         within: {
             "sentence" : "sentence"
-        }, 
+        },
         attributes: {},
         struct_attributes : {},
         hide : true
@@ -611,10 +611,10 @@ settings.parallel_corpora.testpar4 = {
 	lang : "deu",
         parent : "testpar4",
         title: "Testpar4 suomi–englanti–ruotsi–saksa-rinnakkaiskorpustesti",
-        context: context.spContext, 
+        context: context.spContext,
         within: {
             "sentence" : "sentence"
-        }, 
+        },
         attributes: {},
         struct_attributes : {},
         hide : true

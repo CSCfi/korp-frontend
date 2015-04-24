@@ -52,10 +52,10 @@
 
     "year_from" : "starting year",
     "year_to" : "ending year",
-    
+
     "url" : "url",
     "referensnummer" : "reference number",
-    
+
     "weekday" : "weekday",
     "hashtags" : "hashtags",
     "mentions" : "mentions",
@@ -89,7 +89,7 @@
     "finalgrade" : "final grade",
     "sum" : "sum",
     "proficiencylevel" : "proficiency level",
-    
+
     "text_year" : "year",
     "text_party" : "party",
     "date" : "date",
@@ -109,7 +109,7 @@
     "article_topic" : "article topic",
     "text_volume" : "volume",
     "subject" : "subject",
-    
+
     "sentence_link" : "sentence link",
     "text_issue" : "issue",
     
@@ -117,12 +117,12 @@
     "archivecode" : "archive code",
     "text_recipient" : "recipient",
     "text_sv" : "work number",
-    
+
     "oneSentence" : "one sentence",
-    
+
     "source" : "source",
     "age" : "age",
-    
+
     "blog_title" : "blog title",
     "blog_url" : "blog address",
     "author_age" : "author age",
@@ -131,7 +131,7 @@
     "tags" : "tags",
     "post_url" : "post address",
     "categories" : "categories",
-    
+
     "page" : "page",
     "author_type" : "author type",
     "gender" : "gender",
@@ -165,8 +165,8 @@
     "entryno" : "entry word (number)",
     "sense1" : "sense 1",
     "sense2" : "sense 2",
-    
-    
+
+
     "pos_AB" : "adverb",
     "pos_MAD" : "punctuation",
     "pos_MID" : "punctuation",
@@ -432,11 +432,11 @@
     "deprel_PA" : "Complement of preposition",
     "deprel_UA" : "Subordinate clause minus subordinating conjunction",
     "deprel_VG" : "Verb group",
-    
+
     "INF" : "Non-finite verb",
     "INFINIT" : "Participle",
     "FINIT" : "Finite verb",
-    
+
     "origlang" : "original language",
     "page_n" : "page number",
     "paragraph_marginal" : "margin notes",

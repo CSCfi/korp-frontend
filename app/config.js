@@ -188,7 +188,7 @@ settings.languages = ["fi", "sv", "en"];
 // Namespace for functions used in configuring corpora
 settings.fn = {};
 // Namespace for corpus configuration templates
-settings.templ = {}; 
+settings.templ = {};
 
 
 var karpLemgramLink = "http://spraakbanken.gu.se/karp/#search=cql%7C(lemgram+%3D+%22<%= val.replace(/:\\d+/, '') %>%22)+sortBy+lemgram";
@@ -666,7 +666,7 @@ attrs.baseform = {
     // type : "set",
     // displayType : "autocomplete",
     stringify : function(baseform) {
-	    return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
+        return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
     opts : settings.defaultOptions
 };
@@ -675,7 +675,7 @@ attrs.baseform_ftb2 = {
     // type : "set",
     // displayType : "autocomplete",
     stringify : function(baseform) {
-	    return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
+        return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
     opts : settings.defaultOptions
 };
@@ -684,7 +684,7 @@ attrs.baseform_compound = {
     // type : "set",
     // displayType : "autocomplete",
     stringify : function(baseform) {
-	    return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
+        return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
     opts : settings.defaultOptions
 };
@@ -1252,7 +1252,7 @@ settings.corporafolders.ftb.ftb3 = {
     contents : ["ftb3_europarl", "ftb3_jrcacquis"]
 };
 
-settings.corporafolders.klk_fi = {    
+settings.corporafolders.klk_fi = {
     title : "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet"
 };
 
@@ -1439,7 +1439,7 @@ settings.corpora.testcorp = {
 	sentence_id : {
 	    label : "sentence_id"
 	},
-	sentence_url : { 
+	sentence_url : {
 	    label : "file_url",
 	    type : "url"
 	}
@@ -1617,7 +1617,7 @@ settings.corpora.ftb3_europarl = {
 	sentence_id : sattrs.sentence_id_hidden,
 	sentence_line : {
 	    label : "sentence_line",
-	}
+	},
     }
 };
 
@@ -1756,7 +1756,7 @@ settings.corpora.reittidemo = {
 	utterance_duration : {
 	    label : "utterance_duration"
 	},
-	utterance_annex_link : sattrs.link_show_video_annex
+	utterance_annex_link : sattrs.link_show_video_annex,
     }
 };
 
@@ -2342,10 +2342,10 @@ settings.corpora.las2 = {
         },
         text_l1 : {
             label : "text_l1",
-        }, 
+        },
         text_alin_cefr : {
             label : "text_alin_cefr",
-        }, 
+        },
         text_ylin_cefr : {
             label : "text_ylin_cefr",
         },
@@ -2396,7 +2396,7 @@ settings.corpora.las2 = {
         },
         clause_com : {
             label : "note",
-        }         
+        }
     }
 };
 
@@ -2609,7 +2609,7 @@ settings.corpora.skvr = {
                 'verse':'verse',
                 'comment':'comment',
                 'editor_commentary':'editor',
-                'caption':'caption' 
+                'caption':'caption'
             },
             opts : settings.liteOptions,
         },
@@ -2785,8 +2785,8 @@ settings.corpora.legal_fi = {
     id : "legal_fi",
     title : "FiRuLex suomi",
     description : "Juridisia tekstejä (suomi)",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
     attributes: attrlist.mulcold_fi,
     struct_attributes : sattrlist.legal
 };
@@ -2795,8 +2795,8 @@ settings.corpora.mulcold_fi = {
     id : "mulcold_fi",
     title : "MULCOLD suomi",
     description : "Multilingual Corpus of Legal Documents, suomenkielinen osa",
-    context : settings.defaultContext, 
-    within : settings.defaultWithin, 
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
     attributes: attrlist.mulcold_fi,
     struct_attributes : sattrlist.mulcold
 };
@@ -2900,7 +2900,7 @@ sattrlist.klk_fi = {
 };
 
 sattrlist.klk_fi_parsed = $.extend({}, sattrlist.klk_fi);
-$.extend(sattrlist.klk_fi_parsed, 
+$.extend(sattrlist.klk_fi_parsed,
 	 {
 	     sentence_parse_state : {
 		 label : "klk_parse_state",
@@ -3178,7 +3178,7 @@ sattrs.vks_sentence_type = {
     translationKey : "vks_sentence_type_",
     dataset : {
 	"sentence" : "Sentence",
-	"heading" : "Heading" 
+	"heading" : "Heading"
     }
 };
 sattrs.vks_text_year = {
@@ -3195,7 +3195,7 @@ sattrs.vks_sourcecode_code = {
 };
 sattrs.vks_sourcecode_page = {
     label : "vks_sourcecode_page"
-};    
+};
 sattrs.vks_span_page = {
     label : "vks_span_page"
 };
