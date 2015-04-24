@@ -336,7 +336,7 @@ settings.corpora.europarl_v7_enfi_en = {
     metadata_urn : "urn:nbn:fi:lb-2015042001",
     lang : "en",
     linked_to : ["europarl_v7_enfi_fi"],
-    context: context.alignAligned,
+    context: context.defaultAligned,
     within: {
         "sentence": "sentence"
     },
@@ -357,7 +357,7 @@ settings.corpora.europarl_v7_etfi_et = {
     metadata_urn : "urn:nbn:fi:lb-2015042001",
     lang : "et",
     linked_to : ["europarl_v7_etfi_fi"],
-    context: context.alignAligned,
+    context: context.defaultAligned,
     within: {
         "sentence": "sentence"
     },
@@ -377,7 +377,7 @@ settings.corpora.europarl_v7_esfi_es = {
     metadata_urn : "urn:nbn:fi:lb-2015042001",
     lang : "es",
     linked_to : ["europarl_v7_esfi_fi"],
-    context: context.alignAligned,
+    context: context.defaultAligned,
     within: {
         "sentence": "sentence"
     },
@@ -397,7 +397,7 @@ settings.corpora.europarl_v7_frfi_fr = {
     metadata_urn : "urn:nbn:fi:lb-2015042001",
     lang : "fr",
     linked_to : ["europarl_v7_frfi_fi"],
-    context: context.alignAligned,
+    context: context.defaultAligned,
     within: {
         "sentence": "sentence"
     },
@@ -417,7 +417,7 @@ settings.corpora.europarl_v7_defi_de = {
     metadata_urn : "urn:nbn:fi:lb-2015042001",
     lang : "de",
     linked_to : ["europarl_v7_defi_fi"],
-    context: context.alignAligned,
+    context: context.defaultAligned,
     within: {
         "sentence": "sentence"
     },
@@ -437,7 +437,7 @@ settings.corpora.europarl_v7_svfi_sv = {
     metadata_urn : "urn:nbn:fi:lb-2015042001",
     lang : "sv",
     linked_to : ["europarl_v7_svfi_fi"],
-    context: context.alignAligned,
+    context: context.defaultAligned,
     within: {
         "sentence": "sentence"
     },
@@ -457,7 +457,7 @@ settings.corpora.europarl_v7_etfi_fi = {
     metadata_urn : "urn:nbn:fi:lb-2015042001",
     lang : "fi",
     linked_to : ["europarl_v7_etfi_et"],
-    context: context.alignAligned,
+    context: context.defaultAligned,
     within: {
         "sentence": "sentence"
     },
@@ -476,7 +476,7 @@ settings.corpora.europarl_v7_esfi_fi = {
     metadata_urn : "urn:nbn:fi:lb-2015042001",
     lang : "fi",
     linked_to : ["europarl_v7_esfi_es"],
-    context: context.alignAligned,
+    context: context.defaultAligned,
     within: {
         "sentence": "sentence"
     },
@@ -495,7 +495,7 @@ settings.corpora.europarl_v7_frfi_fi = {
     metadata_urn : "urn:nbn:fi:lb-2015042001",
     lang : "fi",
     linked_to : ["europarl_v7_frfi_fr"],
-    context: context.alignAligned,
+    context: context.defaultAligned,
     within: {
         "sentence": "sentence"
     },
@@ -514,7 +514,7 @@ settings.corpora.europarl_v7_defi_fi = {
     metadata_urn : "urn:nbn:fi:lb-2015042001",
     lang : "fi",
     linked_to : ["europarl_v7_defi_de"],
-    context: context.alignAligned,
+    context: context.defaultAligned,
     within: {
         "sentence": "sentence"
     },
@@ -533,7 +533,7 @@ settings.corpora.europarl_v7_enfi_fi = {
     metadata_urn : "urn:nbn:fi:lb-2015042001",
     lang : "fi",
     linked_to : ["europarl_v7_enfi_en"],
-    context: context.alignAligned,
+    context: context.defaultAligned,
     within: {
         "sentence": "sentence"
     },
@@ -552,7 +552,7 @@ settings.corpora.europarl_v7_svfi_fi = {
     metadata_urn : "urn:nbn:fi:lb-2015042001",
     lang : "fi",
     linked_to : ["europarl_v7_svfi_sv"],
-    context: context.alignAligned,
+    context: context.defaultAligned,
     within: {
         "sentence": "sentence"
     },
