@@ -600,5 +600,30 @@
 
     "show_page_image" : "Show page image",
     "show_page_image_context" : "Show page image, word context highlighted",
-    "download_publ_pdf" : "Download publication as PDF"
+    "download_publ_pdf" : "Download publication as PDF",
+
+    "ner_tags" : "name classification",
+    "ner_tags_EnamexPrsHum" : "person: person name",
+    "ner_tags__" : "unidentified",
+    "ner_tags_TimexTmeDat" : "time: date or time",
+    "ner_tags_NumexMsrCur" : "number: currency",
+    "ner_tags_NumexMsrXxx" : "number: unit",
+    "ner_tags_EnamexOrgCrp" : "organization: company or association",
+    "ner_tags_EnamexLocXxx" : "location: other",
+    "ner_tags_EnamexLocGpl" : "location: geographical",
+    "ner_tags_EnamexLocPpl" : "location: geopolitical",
+    "ner_tags_EnamexPrsTit" : "person: titlt",
+    "ner_tags_EnamexOrgTvr" : "organization: tv or radio",
+    "ner_tags_EnamexOrgPlt" : "organization: political",
+    "ner_tags_EnamexLocStr" : "placa: street",
+    "ner_tags_EnamexOrgAth" : "organization: sports",
+    "ner_tags_EnamexOrgEdu" : "organization: education",
+    "ner_tags_EnamexOrgClt" : "organization: arts and culture",
+
+    "suomi24fi_user" : "username",
+    "suomi24fi_sub" : "subsection",
+    "suomi24fi_sect" : "section",
+    "suomi24fi_urlmsg" : "original message",
+    "suomi24fi_urlboard" : "original thread"
+
 }

@@ -8,7 +8,9 @@ var isLab = window.isLab || false;
 
 var isProductionServer = (window.location.hostname.indexOf(".csc.fi") != -1);
 var isProductionServerTest =
-    (isProductionServer && window.location.pathname.indexOf("test/") != -1);
+    (isProductionServer
+     && (window.location.pathname.indexOf("test/") != -1
+	 || window.location.pathname.indexOf("test-") != -1));
 var isPublicServer = (window.location.hostname != "localhost");
 
 c.log("Production server:", isProductionServer);
@@ -1335,7 +1337,7 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
 
 settings.corporafolders.spoken = {
     title : "Puhuttua kieltä (tekstiksi litteroituna)",
-    contents : ["la_murre", "kotus_sananparret"],
+    contents : ["la_murre", "kotus_sananparret", "murre"],
     // unselected : true
 };
 
@@ -1375,6 +1377,11 @@ settings.corporafolders.test = {
     contents : ["reittidemo"]
 };
 
+settings.corporafolders.internet = {
+    title : "Internet-keskusteluaineistot",
+    contents : ["hsfi", "ylilauta", "s24"]
+};
+
 
 /* 
  * PRESELECTED CORPORA
@@ -1392,7 +1399,7 @@ if(window.currentMode == "default")
 // infolist, added to folder, with the id prefixed with id_prefix.
 settings.fn.add_corpus_settings = function (template, infolist, folder,
 					    id_prefix) {
-    var ids = []
+    var ids = [];
     for (var i = 0; i < infolist.length; i++) {
 	var info = infolist[i];
 	var id = id_prefix + info.id;
@@ -1404,6 +1411,9 @@ settings.fn.add_corpus_settings = function (template, infolist, folder,
 	ids.push(id);
     }
     if (folder != null) {
+	if (! ("contents" in folder)) {
+	    folder.contents = [];
+	}
 	folder.contents = folder.contents.concat(ids);
     }
 };
@@ -3836,14 +3846,14 @@ settings.corpora.murre = {
     title : "SKN - Suomen kielen näytteitä",
     description : "SKN - Suomen kielen näytteitä",
     id : "murre",
-    urn : "http://urn.fi/urn:nbn:fi:lb-201407141",
-    metadata_urn : "http://urn.fi/urn:nbn:fi:lb-201407141",
+    urn : "urn:nbn:fi:lb-201407141",
+    metadata_urn : "urn:nbn:fi:lb-201407141",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
         original : attrs.origword,
         normalized : {
-            label : "normalized",
+            label : "murre_normalized",
             opts : settings.defaultOptions,
         },
         comment : {
@@ -3854,17 +3864,17 @@ settings.corpora.murre = {
     struct_attributes : {
         text_title : sattrs.text_title,
         text_date : sattrs.date,
-        text_kirjoittaja : {
-            label : "murre_kirjoittaja"
+        text_editor : {
+            label : "murre_editor"
 	},
-        text_paikkakunta : {
-            label : "murre_paikkakunta"
+        text_parish : {
+            label : "murre_parish"
 	},
-        text_murrealue : {
-            label : "murre_murrealue"
+        text_dialect_region : {
+            label : "murre_dialect_region"
 	},
-        text_murreryhma : {
-            label : "murre_murreryhma"
+        text_dialect_group : {
+            label : "murre_dialect_group"
 	},
         text_name : {
             label : "file_name",
@@ -3906,15 +3916,23 @@ settings.corpora.ylilauta = {
     title : "Ylilauta",
     description : "Ylilauta",
     id : "ylilauta",
-    urn : "-",
-    metadata_urn : "-",
+    urn : "urn:nbn:fi:lb-2015031802",
+    metadata_urn : "urn:nbn:fi:lb-2015031802",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
+	/*
 	lemma : attrs.baseform,
 	pos : attrs.pos_klk,
 	msd : attrs.msd,
-	syn : attrs.deprel_tdt
+	syn : attrs.deprel_tdt*/
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
     },
     struct_attributes : {
         text_title : sattrs.text_title,
@@ -3935,6 +3953,7 @@ settings.corpora.s24 = {
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
+	/*
         lemma : attrs.baseform,
         pos : attrs.pos_klk,
         msd : {
@@ -3946,7 +3965,14 @@ settings.corpora.s24 = {
             opts : settings.defaultOptions
         },
         syn : attrs.deprel_tdt,
-        unk : attrs.ner_tags
+        unk : attrs.ner_tags*/
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
     },
     struct_attributes : {
         text_title : sattrs.text_title,
