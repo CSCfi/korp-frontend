@@ -8,10 +8,14 @@
     },
     _init: function() {},
     updateContent: function(sentenceData, wordData, corpus, tokens) {
-      var corpusObj;
+      var corpusObj, formattedCorpusInfo, _ref;
       this.element.html('<div id="selected_sentence" /><div id="selected_word" /><div id="selected_links" />');
       corpusObj = settings.corpora[corpus];
-      $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>" + corpusObj.title + "</p>").prependTo("#selected_sentence");
+      formattedCorpusInfo = (typeof settings !== "undefined" && settings !== null ? settings.corpusExtraInfo : void 0) ? util.formatCorpusExtraInfo(corpusObj, (_ref = settings.corpusExtraInfo) != null ? _ref.sidebar : void 0) : "";
+      if (formattedCorpusInfo) {
+        formattedCorpusInfo = "<br/>" + formattedCorpusInfo;
+      }
+      $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>" + corpusObj.title + "</p><p>" + formattedCorpusInfo + "</p>").prependTo("#selected_sentence");
       if (!$.isEmptyObject(corpusObj.attributes)) {
         $("#selected_word").append($("<h4>").localeKey("word_attr"));
         this.renderContent(wordData, corpusObj.attributes).appendTo("#selected_word");

@@ -76,6 +76,8 @@ settings.cgi_script = settings.cgi_prefix + "korp.cgi";
 settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
 settings.download_cgi_script = settings.cgi_prefix + "korp_download.cgi";
 
+settings.urnResolver = "http://urn.fi/";
+
 // for extended search dropdown, can be 'union' or 'intersection'
 settings.word_attribute_selector = "union"
 settings.struct_attribute_selector = "union"
@@ -98,6 +100,13 @@ settings.shibbolethLoginUrl = baseURL + "shibboleth-ds/index.html";
 //settings.shibbolethLoginUrl = "https://haka.funet.fi/shibboleth/WAYF?entityID=https://sp.korp.csc.fi/&return=https%3A%2F%2Fkorp.csc.fi%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dhttps%253A%252F%252Fkorp.csc.fi%252F%2523display%253Dlogin";
 settings.shibbolethLogoutUrl =
     "https://korp.csc.fi/Shibboleth.sso/Logout?return=" + encodeURI(baseURL);
+
+// The extra info (usually links) to be shown in the corpus info box
+// of the corpus chooser and the KWIC results sidebar.
+settings.corpusExtraInfo = {
+    corpus_infobox : ["urn", "metadata", "licence", "homepage", "compiler"],
+    sidebar : ["urn", "metadata", "licence"]
+};
 
 settings.wordpictureTagset = {
     // supported pos-tags

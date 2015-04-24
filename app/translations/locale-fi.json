@@ -299,5 +299,11 @@
     "formatdescr_nooj" : "NooJ-ohjelmaan ladattavissa oleva XML-muoto",
     "formatdescr_ref" : "Lähdeviitetiedot Excel-taulukkona (XLS), jossa kukin osuman sisältävä virke on omalla rivillään, jota seuraavat virkkeeseen liittyvät tekstin ominaisuudet omilla riveillään",
 
-    "privacy" : "Tietosuojaseloste"
+    "privacy" : "Tietosuojaseloste",
+
+    "corpus_urn" : "URN",
+    "corpus_licence" : "Lisenssi",
+    "corpus_metadata" : "Kuvailutiedot",
+    "corpus_homepage" : "Kotisivu",
+    "corpus_compiler" : "Koostaja"
 }

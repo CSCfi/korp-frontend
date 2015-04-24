@@ -339,7 +339,7 @@
     }
     if (lastLevel[folderOrCorpus]) {
       $.each(lastLevel[folderOrCorpus], function(key, val) {
-        if (key !== "title" && key !== "contents" && key !== "description") {
+        if (key !== "title" && key !== "contents" && key !== "description" && key !== "info") {
           return outCorpora = outCorpora.concat(getAllCorporaInFolders(lastLevel[folderOrCorpus], key));
         }
       });

@@ -777,7 +777,7 @@
   added_corpora_ids = [];
 
   util.loadCorporaFolderRecursive = function(first_level, folder) {
-    var cont, format_licence_type, outHTML, usedid, val;
+    var cont, folder_descr, format_licence_type, outHTML, usedid, val;
     format_licence_type = function(corpus_id) {
       var licence_type;
       licence_type = settings.corpora[corpus_id]["licence_type"];
@@ -791,11 +791,12 @@
     if (first_level) {
       outHTML = "<ul>";
     } else {
-      outHTML = "<ul title=\"" + folder.title + "\" description=\"" + escape(folder.description) + "\">";
+      folder_descr = (folder.description || "") + (folder.info && settings.corpusExtraInfo ? (folder.description ? "<br/><br/>" : "") + util.formatCorpusExtraInfo(folder.info, settings.corpusExtraInfo.corpus_infobox) : "");
+      outHTML = "<ul title=\"" + folder.title + "\" description=\"" + escape(folder_descr) + "\">";
     }
     if (folder) {
       $.each(folder, function(fol, folVal) {
-        if (fol !== "contents" && fol !== "title" && fol !== "description") {
+        if (fol !== "contents" && fol !== "title" && fol !== "description" && fol !== "info") {
           outHTML += "<li>" + util.loadCorporaFolderRecursive(false, folVal) + "</li>";
         }
       });
@@ -858,11 +859,15 @@
     window.corpusChooserInstance = $("#corpusbox").corpusChooser({
       template: outStr,
       infoPopup: function(corpusID) {
-        var baseLang, baseLangSentenceHTML, baseLangTokenHTML, corpusObj, lang, lastUpdate, maybeInfo, numSentences, numTokens, output, sentenceString, supportsContext, _ref;
+        var baseLang, baseLangSentenceHTML, baseLangTokenHTML, corpusExtraInfo, corpusObj, lang, lastUpdate, maybeInfo, numSentences, numTokens, output, sentenceString, supportsContext, _ref;
         corpusObj = settings.corpora[corpusID];
         maybeInfo = "";
         if (corpusObj.description) {
           maybeInfo = "<br/><br/>" + corpusObj.description;
+        }
+        corpusExtraInfo = settings.corpusExtraInfo ? util.formatCorpusExtraInfo(corpusObj, settings.corpusExtraInfo.corpus_infobox) : void 0;
+        if (corpusExtraInfo) {
+          maybeInfo += (maybeInfo ? "<br/><br/>" : "") + corpusExtraInfo;
         }
         numTokens = corpusObj.info.Size;
         baseLang = (_ref = settings.corpora[corpusID]) != null ? _ref.linked_to : void 0;
@@ -1148,6 +1153,150 @@
     extractLinkAttrs(corpusInfo.struct_attributes, link_attrs);
     corpusInfo.link_attributes = link_attrs;
     return null;
+  };
+
+  util.formatCorpusExtraInfo = function(corpusObj) {
+    var getUrnOrUrl, i, info_item, info_items, info_obj, label, link_info, makeLinkItem, result;
+    info_items = arguments.length > 1 && arguments[1] ? arguments[1] : ['urn', 'metadata', 'licence', 'homepage', 'compiler'];
+    getUrnOrUrl = function(obj) {
+      var prefix;
+      prefix = arguments.length > 1 ? arguments[1] : '';
+      if (prefix + 'urn' in obj) {
+        return settings.urnResolver + obj[prefix + 'urn'];
+      } else {
+        return obj[prefix + 'url'];
+      }
+    };
+    makeLinkItem = function(link_info) {
+      var result;
+      result = '';
+      if (link_info.label) {
+        result += link_info.label + ': ';
+      }
+      if (link_info.url) {
+        result += '<a href=\'' + link_info.url + '\' target=\'_blank\'' + (link_info.tooltip ? ' title=\'' + link_info.tooltip + '\'' : '') + '>' + link_info.text + '</a>';
+      } else if (link_info.text) {
+        if (link_info.tooltip) {
+          result += '<span class=\'has_hover_text\' title=\'' + link_info.tooltip + '\'>' + link_info.text + '</span>';
+        } else {
+          result += link_info.text;
+        }
+      }
+      return result;
+    };
+    result = '';
+    i = 0;
+    while (i < info_items.length) {
+      info_item = info_items[i];
+      link_info = {};
+      label = '';
+      label = '<span rel=\'localize[corpus_' + info_item + ']\'>' + 'Corpus ' + info_item + '</span>';
+      if (info_item === 'urn' && corpusObj.urn) {
+        link_info = {
+          url: settings.urnResolver + corpusObj.urn,
+          text: corpusObj.urn,
+          label: label
+        };
+      } else if (info_item === 'homepage' && !('homepage' in corpusObj) && corpusObj.url) {
+        link_info = {
+          url: corpusObj.url,
+          text: label
+        };
+      } else if (corpusObj[info_item]) {
+        info_obj = corpusObj[info_item];
+        link_info = {
+          url: getUrnOrUrl(info_obj)
+        };
+        if (info_obj.name) {
+          link_info.text = info_obj.name;
+          if (!info_obj.no_label) {
+            link_info.label = label;
+          }
+        } else {
+          link_info.text = label;
+        }
+        if (info_obj.description) {
+          link_info.tooltip = info_obj.description;
+        }
+      } else if (corpusObj[info_item + '_urn'] || corpusObj[info_item + '_url']) {
+        link_info = {
+          url: getUrnOrUrl(corpusObj, info_item + '_'),
+          text: label
+        };
+      }
+      if (link_info.url || link_info.text) {
+        if (result) {
+          result += '<br/>';
+        }
+        result += makeLinkItem(link_info);
+      }
+      i++;
+    }
+    return result;
+  };
+
+  util.copyCorpusInfoToConfig = function(corpusObj) {
+    var added_properties, corpusInfo, i, info_key_prefix, info_key_sects, info_subkeys, j, key, sect, sect_name, subkey, subobj, value;
+    info_key_sects = ['', 'Metadata', 'Licence', 'Compiler'];
+    info_subkeys = ['Name', 'Description', 'URN', 'URL'];
+    corpusInfo = corpusObj.info;
+    i = 0;
+    while (i < info_key_sects.length) {
+      sect = info_key_sects[i];
+      sect_name = sect.toLowerCase();
+      subobj = corpusObj;
+      if (sect !== '') {
+        subobj = sect_name in corpusObj ? corpusObj[sect_name] : {};
+      }
+      info_key_prefix = sect + (sect === '' ? '' : '_');
+      added_properties = false;
+      j = 0;
+      while (j < info_subkeys.length) {
+        key = info_subkeys[j];
+        subkey = key.toLowerCase();
+        value = corpusInfo[info_key_prefix + key];
+        if (value) {
+          subobj[subkey] = value;
+          added_properties = true;
+        }
+        j++;
+      }
+      if (sect !== '' && added_properties) {
+        corpusObj[sect_name] = subobj;
+      }
+      i++;
+    }
+  };
+
+  util.propagateCorpusFolderInfo = function(corpusFolder, info) {
+    var addCorpusInfo, i, prop_name;
+    addCorpusInfo = function(corpusConfig, info) {
+      var prop_name;
+      for (prop_name in info) {
+        if (!(prop_name in corpusConfig)) {
+          corpusConfig[prop_name] = info[prop_name];
+        }
+      }
+    };
+    if (corpusFolder.info) {
+      info = $.extend(true, {}, info || {}, corpusFolder.info);
+    }
+    if (info) {
+      corpusFolder.info = info;
+    }
+    if (info && corpusFolder.contents) {
+      i = 0;
+      while (i < corpusFolder.contents.length) {
+        addCorpusInfo(settings.corpora[corpusFolder.contents[i]], info);
+        i++;
+      }
+    }
+    for (prop_name in corpusFolder) {
+      if (prop_name !== 'title' && prop_name !== 'description' && prop_name !== 'contents' && prop_name !== 'info') {
+        c.log('propagate ', prop_name);
+        util.propagateCorpusFolderInfo(corpusFolder[prop_name], info);
+      }
+    }
   };
 
 }).call(this);

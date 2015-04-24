@@ -640,11 +640,19 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
     if first_level
         outHTML = "<ul>"
     else
-        outHTML = "<ul title=\"" + folder.title + "\" description=\"" + escape(folder.description) + "\">"
+        folder_descr = (folder.description or "") +
+            if folder.info and settings.corpusExtraInfo
+                (if folder.description then "<br/><br/>" else "") +
+                    util.formatCorpusExtraInfo(
+                        folder.info,
+                        settings.corpusExtraInfo.corpus_infobox)
+            else
+                ""
+        outHTML = "<ul title=\"" + folder.title + "\" description=\"" + escape(folder_descr) + "\">"
     if folder #This check makes the code work even if there isn't a ___settings.corporafolders = {};___ in config.js
         # Folders
         $.each folder, (fol, folVal) ->
-            outHTML += "<li>" + util.loadCorporaFolderRecursive(false, folVal) + "</li>" if fol isnt "contents" and fol isnt "title" and fol isnt "description"
+            outHTML += "<li>" + util.loadCorporaFolderRecursive(false, folVal) + "</li>" if fol isnt "contents" and fol isnt "title" and fol isnt "description" and fol isnt "info"
             return
         
         # Corpora
@@ -708,6 +716,14 @@ util.loadCorpora = ->
             corpusObj = settings.corpora[corpusID]
             maybeInfo = ""
             maybeInfo = "<br/><br/>" + corpusObj.description if corpusObj.description
+            corpusExtraInfo =
+                if settings.corpusExtraInfo
+                    util.formatCorpusExtraInfo(
+                        corpusObj, settings.corpusExtraInfo.corpus_infobox)
+                else
+                    undefined
+            if corpusExtraInfo
+                maybeInfo += (if maybeInfo then "<br/><br/>" else "") + corpusExtraInfo
             numTokens = corpusObj.info.Size
             baseLang = settings.corpora[corpusID]?.linked_to
             if baseLang
@@ -948,6 +964,204 @@ util.findoutType = (variable) ->
         "array"
     else
         typeof (variable)
+
+
+# Format extra information associated with a corpus object, typically
+# a URN, licence information and various links. An optional second
+# argument specifies a list of items (properties in the corpus
+# configuration) to be formatted.
+#
+# The properties are usually composite objects which may contain the
+# properties "name", "description", and "url" or "urn". If the
+# information contains "name", it is presented as follows: a label
+# and a colon (unless the property "no_label" is true or the item is
+# "homepage"), followed by the name as a link to the URN or URL (or
+# if neither URN nor URL, no link). Otherwise, the label is a link to
+# the URN or URL. The label is the localized string for the key
+# "corpus_" + item name. The optional description is a represented as
+# a tooltip (HTML title attribute).
+#
+# If an item needs no separate name, the simple properties X_urn and
+# X_url can be used instead of X: { urn: ... } (similarly for url).
+# The item "urn" is treated specially: it shows the value of the
+# "urn" property as the link text.
+#
+# TODO: Add an option for presenting the description as a text
+# following the link text. It could be used in the corpus info box
+# instead of the tooltip.
+
+util.formatCorpusExtraInfo = (corpusObj) ->
+    info_items =
+        if arguments.length > 1 and arguments[1] then arguments[1] else [
+            'urn'
+            'metadata'
+            'licence'
+            'homepage'
+            'compiler'
+        ]
+
+    # Get the value of a URN (preferred, prefixed with resolver URL)
+    # or URL property in obj. The optional second argument specifies
+    # the property name prefix to "urn" or "url".
+    getUrnOrUrl = (obj) ->
+        prefix = if arguments.length > 1 then arguments[1] else ''
+        if prefix + 'urn' of obj
+            settings.urnResolver + obj[prefix + 'urn']
+        else
+            obj[prefix + 'url']
+
+    # Return a HTML link (or text), given link_info, which may
+    # contain the properties "label", "url", "text" and "tooltip".
+    makeLinkItem = (link_info) ->
+        result = ''
+        if link_info.label
+            result += link_info.label + ': '
+        if link_info.url
+            result += '<a href=\'' + link_info.url + '\' target=\'_blank\'' +
+                (if link_info.tooltip
+                    ' title=\'' + link_info.tooltip + '\''
+                else
+                    '') +
+                '>' + link_info.text + '</a>'
+        else if link_info.text
+            if link_info.tooltip
+                result += '<span class=\'has_hover_text\' title=\'' +
+                    link_info.tooltip + '\'>' + link_info.text + '</span>'
+            else
+                result += link_info.text
+        result
+
+    result = ''
+    i = 0
+    while i < info_items.length
+        info_item = info_items[i]
+        link_info = {}
+        label = ''
+        # Use rel='localize[...]' instead of util.getLocaleString, so
+        # that the texts are re-localized immediately when switching
+        # languages.
+        # TODO: Convert to use the new localization method
+        label = '<span rel=\'localize[corpus_' + info_item + ']\'>' +
+            'Corpus ' + info_item + '</span>'
+        if info_item == 'urn' and corpusObj.urn
+            link_info =
+                url: settings.urnResolver + corpusObj.urn
+                text: corpusObj.urn
+                label: label
+        else if info_item == 'homepage' and ! ('homepage' of corpusObj) and
+                corpusObj.url
+            # Assume that the top-level property "url" refers to the
+            # home page of the corpus (unless the there is a property
+            # "homepage").
+            link_info =
+                url: corpusObj.url
+                text: label
+        else if corpusObj[info_item]
+            info_obj = corpusObj[info_item]
+            link_info = url: getUrnOrUrl(info_obj)
+            if info_obj.name
+                link_info.text = info_obj.name
+                if ! info_obj.no_label
+                    link_info.label = label
+            else
+                link_info.text = label
+            if info_obj.description
+                link_info.tooltip = info_obj.description
+        else if corpusObj[info_item + '_urn'] or corpusObj[info_item + '_url']
+            # Simple *_urn or *_url properties
+            link_info =
+                url: getUrnOrUrl(corpusObj, info_item + '_')
+                text: label
+        if link_info.url or link_info.text
+            if result
+                result += '<br/>'
+            result += makeLinkItem(link_info)
+        i++
+    result
+
+# Copy information from the "info" property of corpusObj to the top
+# level of corpusObj. This information may come from the backend
+# .info file or database. The same information can also be specified
+# in top-level properties of the frontend config file, but the
+# information from "info" overrides them, so that this information
+# can be accessed uniformly through the top-level properties. A
+# property name may contain a prefix indicating a section (Metadata,
+# Licence or Compiler): these are converted to separate composite
+# objects in corpusObj. For example, Licence_URL: X, Licence_Name: Y
+# is converted to licence : { url: X, name: Y }.
+
+util.copyCorpusInfoToConfig = (corpusObj) ->
+    info_key_sects = [
+        ''
+        'Metadata'
+        'Licence'
+        'Compiler'
+    ]
+    info_subkeys = [
+        'Name'
+        'Description'
+        'URN'
+        'URL'
+    ]
+    corpusInfo = corpusObj.info
+    i = 0
+    while i < info_key_sects.length
+        sect = info_key_sects[i]
+        sect_name = sect.toLowerCase()
+        subobj = corpusObj
+        if sect != ''
+            subobj = if sect_name of corpusObj then corpusObj[sect_name] else {}
+        info_key_prefix = sect + (if sect == '' then '' else '_')
+        added_properties = false
+        j = 0
+        while j < info_subkeys.length
+            key = info_subkeys[j]
+            subkey = key.toLowerCase()
+            value = corpusInfo[info_key_prefix + key]
+            if value
+                subobj[subkey] = value
+                added_properties = true
+            j++
+        # Add only non-empty subobjects
+        if sect != '' and added_properties
+            corpusObj[sect_name] = subobj
+        i++
+    return
+
+# Propagate information in the properties of info to corpusFolder,
+# all its subfolders (recursively) and corpora. Info items lower in
+# the corpus folder tree override those from above.
+
+util.propagateCorpusFolderInfo = (corpusFolder, info) ->
+
+    # Copy properties from info to corpusConfig if they are missing
+    # from corpusConfig. A composite property in corpusConfig
+    # overrides all the values in info (coming from folder info).
+    addCorpusInfo = (corpusConfig, info) ->
+        for prop_name of info
+            if ! (prop_name of corpusConfig)
+                corpusConfig[prop_name] = info[prop_name]
+        return
+
+    # The info in this folder overrides that coming from above
+    if corpusFolder.info
+        info = $.extend(true, {}, info or {}, corpusFolder.info)
+    # Add or modify the info in this folder
+    if info
+        corpusFolder.info = info
+    # Propagate the info to the corpora in this folder
+    if info and corpusFolder.contents
+        i = 0
+        while i < corpusFolder.contents.length
+            addCorpusInfo settings.corpora[corpusFolder.contents[i]], info
+            i++
+    # Recursively process subfolders and propagate the info
+    for prop_name of corpusFolder
+        if prop_name != 'title' and prop_name != 'description' and
+                prop_name != 'contents' and prop_name != 'info'
+            c.log 'propagate ', prop_name
+            util.propagateCorpusFolderInfo corpusFolder[prop_name], info
+    return
 
 
 # Initialize the link_attributes properties in all the corpora in

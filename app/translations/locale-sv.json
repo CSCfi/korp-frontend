@@ -292,5 +292,11 @@
     "formatdescr_nooj" : "XML-importformat för NooJ",
     "formatdescr_ref" : "Källhänvisningar som ett Excel-kalkylblad (XLS) med varje sökträffmening på sin egen rad, efterträdd av meningens textattribut på sina egna rader",
 
-    "privacy" : "Dataskyddsbeskrivning"
+    "privacy" : "Dataskyddsbeskrivning",
+
+    "corpus_urn" : "URN",
+    "corpus_licence" : "Lisens",
+    "corpus_metadata" : "Metadata",
+    "corpus_homepage" : "Hemsida",
+    "corpus_compiler" : "Sammanställare"
 }
