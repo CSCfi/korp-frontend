@@ -174,7 +174,8 @@
         }));
       } else {
         if (attrs.translationKey) {
-          return output.append("<span rel='localize[" + attrs.translationKey + value + "]'></span>");
+          str_value = (attrs != null ? attrs.dataset[value] : void 0) || str_value;
+          return output.append("<span rel='localize[" + attrs.translationKey + str_value + "]'></span>");
         } else {
           return output.append("<span>" + (str_value || '') + "</span>");
         }
