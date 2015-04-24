@@ -1332,6 +1332,34 @@
     }
   };
 
+  util.mapHashCorpusAliases = function() {
+    var corpus, getUrlParam, mapCorpusAliasList, orig_corpus;
+    getUrlParam = function(name) {
+      var matches, param_re;
+      param_re = RegExp("\\b" + name + "=([^&;]*)");
+      matches = window.location.hash.match(param_re);
+      if ((matches != null) && matches.length > 1) {
+        return matches[1];
+      } else {
+        return null;
+      }
+    };
+    mapCorpusAliasList = function(corpus) {
+      return _.map(corpus.split(","), function(corpus_id) {
+        return settings.corpus_aliases[corpus_id] || corpus_id;
+      });
+    };
+    if (settings.corpus_aliases != null) {
+      orig_corpus = getUrlParam("corpus");
+      if (orig_corpus) {
+        corpus = mapCorpusAliasList(orig_corpus);
+        if (corpus !== orig_corpus) {
+          window.location.hash = window.location.hash.replace("corpus=" + orig_corpus, "corpus=" + corpus);
+        }
+      }
+    }
+  };
+
 }).call(this);
 
 //# sourceMappingURL=util.js.map

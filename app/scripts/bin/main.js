@@ -19,6 +19,8 @@
     location.hash = "#?" + _.str.lstrip(location.hash, "#");
   }
 
+  util.mapHashCorpusAliases();
+
   t = $.now();
 
   isDev = window.location.host === "localhost";

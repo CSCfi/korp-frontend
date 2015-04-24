@@ -216,6 +216,10 @@ settings.spWithin = {
 
 settings.defaultLanguage = "fi";
 
+// Corpus id alias mapping: aliases as property keys and actual corpus
+// ids as values. (Jyrki Niemi 2015-04-23)
+settings.corpus_aliases = {};
+
 /*
  * ATTRIBUTES
  */

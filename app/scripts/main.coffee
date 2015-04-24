@@ -10,6 +10,10 @@ if creds
 if(location.hash.length && location.hash[1] != "?")
     location.hash = "#?" + _.str.lstrip(location.hash, "#")
 
+# Map possible corpus id aliases to actual corpus ids in the URL hash
+# parameter "corpus". (Jyrki Niemi 2015-04-23)
+util.mapHashCorpusAliases()
+
 t = $.now()
 
 isDev = window.location.host is "localhost"
