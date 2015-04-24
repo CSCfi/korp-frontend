@@ -38,7 +38,7 @@
           return wnd.draw_deptree.call(wnd, tokens, function(msg) {
             var type, val, _ref;
             _ref = _.head(_.pairs(msg)), type = _ref[0], val = _ref[1];
-            return info.empty().append($("<span>").localeKey(type), $("<span>: </span>"), $("<span>").localeKey("" + type + "_" + val));
+            return info.empty().append($("<span>").localeKey(type), $("<span>: </span>"), $("<span>").localeKey(type + "_" + val));
           });
         });
         return $("#deptree_popup").empty().append(info, iframe).dialog({
@@ -71,7 +71,7 @@
       return $(items);
     },
     renderItem: function(key, value, attrs) {
-      var address, getStringVal, inner, itr, li, lis, output, pattern, prefix, str_value, ul, val, valueArray, x;
+      var address, getStringVal, inner, itr, li, lis, output, pattern, prefix, str_value, taginfo_url, ul, val, valueArray, x;
       if (attrs.displayType === "hidden" || attrs.displayType === "date_interval") {
         return "";
       }
@@ -146,8 +146,9 @@
       str_value = (attrs.stringify || _.identity)(value);
       if (attrs.type === "url") {
         return output.append("<a href='" + str_value + "' class='exturl sidebar_url' target='_blank'>" + (decodeURI(str_value)) + "</a>");
-      } else if (key === "msd") {
-        return output.append("<span class='msd'>" + str_value + "</span>\n    <a href='markup/msdtags.html' target='_blank'>\n        <span id='sidbar_info' class='ui-icon ui-icon-info'></span>\n    </a>\n</span>");
+      } else if (key === "msd" && attrs.taginfo_url !== "") {
+        taginfo_url = attrs.taginfo_url || "markup/msdtags.html";
+        return output.append("<span class='msd'>" + str_value + "</span>\n    <a href='" + taginfo_url + "' target='_blank'>\n        <span id='sidbar_info' class='ui-icon ui-icon-info'></span>\n    </a>\n</span>");
       } else if (attrs.pattern) {
         return output.append(_.template(attrs.pattern, {
           key: key,

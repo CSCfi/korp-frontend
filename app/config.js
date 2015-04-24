@@ -211,6 +211,14 @@ attrs.pos = {
 attrs.msd = {
     label : "msd",
     opts : settings.defaultOptions,
+    // Empty taginfo_url disables the info link to MSD tags in the
+    // used sidebar; another value would link to the given URL; and an
+    // undefined value would link to the default markup/msd.html.
+    taginfo_url : ""
+};
+attrs.msd_sv = {
+    label : "msd",
+    opts : settings.defaultOptions,
     extended_template : '<input class="arg_value" ng-model="input" escaper>' +
     '<span ng-click="onIconClick()" class="ui-icon ui-icon-info"></span>',
     controller : function($scope, $modal) {

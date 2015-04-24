@@ -122,9 +122,15 @@ Sidebar =
         if attrs.type == "url"
             return output.append "<a href='#{str_value}' class='exturl sidebar_url' target='_blank'>#{decodeURI(str_value)}</a>"
 
-        else if key == "msd"
+        else if key == "msd" and attrs.taginfo_url != ""
+            # An empty taginfo_url disables the info link; a non-empty value
+            # is used as an URL to link to; and an undefined value links to
+            # the default URL markup/msdtags.html.
+            # This probably could be generalized to other attributes as well.
+            # (Jyrki Niemi 2015-02-04)
+            taginfo_url = attrs.taginfo_url or "markup/msdtags.html"
             return output.append """<span class='msd'>#{str_value}</span>
-                                        <a href='markup/msdtags.html' target='_blank'>
+                                        <a href='#{taginfo_url}' target='_blank'>
                                             <span id='sidbar_info' class='ui-icon ui-icon-info'></span>
                                         </a>
                                     </span>
