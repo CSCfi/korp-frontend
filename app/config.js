@@ -2990,6 +2990,85 @@ attrlist.topling = {
 
 sattrlist = {};
 
+sattrlist.europarl_v7 = {
+    text_title : sattrs.text_title,
+    sentence_id : sattrs.sentence_id_hidden,
+
+    sentence_type : {
+        label : "sentence_type",
+        displayType : "select",
+        translationKey : "europarl_v7_sentence_type_",
+        dataset : {
+            "meta" : "meta",
+            "speech" : "speech"
+        },
+        opts : settings.liteOptions
+    },
+
+    sentence_line : {
+        label : "sentence_line",
+    },
+    text_filename : {
+        label : "file_name",
+    },
+    chapter_title : {
+        label : "chapter_title",
+    },
+    chapter_id : {
+        label : "chapter_id",
+        displayType : "hidden",
+    },
+    speaker_id : {
+        label : "speech_speakerid",
+        displayType : "hidden",
+    },
+    speaker_name : {
+        label : "speech_speakername"
+    },
+    speaker_aff : {
+        label : 'speaker_affiliation',
+        displayType : "select",
+        translationKey : "europarl_v7_aff_",
+        dataset : {
+            "und" : "und"
+	}
+    },
+    speaker_lang : {
+        label : "speech_language",
+        displayType : "select",
+        translationKey : "ftb3_europarl_language_",
+        dataset : {
+            "BG" : "bg",
+            "CS" : "cs",
+            "DA" : "da",
+            "DE" : "de",
+            "EL" : "el",
+            "EN" : "en",
+            "ES" : "es",
+            "ET" : "et",
+            "EU" : "eu",
+            "FI" : "fi",
+            "FR" : "fr",
+            "GA" : "ga",
+            "HU" : "hu",
+            "IT" : "it",
+            "LT" : "lt",
+            "LV" : "lv",
+            "MT" : "mt",
+            "NL" : "nl",
+            "PL" : "pl",
+            "PT" : "pt",
+            "RO" : "ro",
+            "SK" : "sk",
+            "SL" : "sl",
+            "SV" : "sv",
+            "und" : "und"
+        },
+        opts : settings.liteOptions
+    }
+};
+
+
 sattrlist.fennougrica_veps = {
     sentence_id : sattrs.sentence_id_hidden,
     sentence_page : { label : "klk_page"},

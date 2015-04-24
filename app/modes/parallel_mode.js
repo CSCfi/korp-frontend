@@ -251,7 +251,8 @@ settings.corporafolders = {};
 
 settings.corporafolders.europarl = {
 	title : "EuroParl 7",
-	contents : ["europarl_fi"]
+	contents : ["europarl_v7_enfi_fi", "europarl_v7_svfi_fi", "europarl_v7_defi_fi",
+		    "europarl_v7_frfi_fi", "europarl_v7_esfi_fi", "europarl_v7_etfi_fi"]
 };
 
 /*
@@ -287,6 +288,243 @@ var wordlink = {
 	label : "wordlink",
 	displayType : "hidden"
 }
+
+/* Europarl V7 */
+
+settings.corpora.europarl_v7_enfi_en = {
+    title : "EuroParl v7 EN",
+    description : "euroParl_v7_enfi_en",
+    id : "europarl_v7_enfi_en",
+    urn : "urn:nbn:fi:lb-2015042002",
+    metadata_urn : "urn:nbn:fi:lb-2015042001",
+    lang : "en",
+    linked_to : ["europarl_v7_enfi_fi"],
+    context: context.defaultAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.europarl_v7,
+    hide : true
+};
+
+
+settings.corpora.europarl_v7_etfi_et = {
+    title : "EuroParl v7 ET",
+    description : "euroParl_v7_etfi_et",
+    id : "europarl_v7_etfi_et",
+    urn : "urn:nbn:fi:lb-2015042002",
+    metadata_urn : "urn:nbn:fi:lb-2015042001",
+    lang : "et",
+    linked_to : ["europarl_v7_etfi_fi"],
+    context: context.defaultAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.europarl_v7,
+    hide : true
+};
+
+settings.corpora.europarl_v7_esfi_es = {
+    title : "EuroParl v7 ES",
+    description : "euroParl_v7_esfi_es",
+    id : "europarl_v7_esfi_es",
+    urn : "urn:nbn:fi:lb-2015042002",
+    metadata_urn : "urn:nbn:fi:lb-2015042001",
+    lang : "es",
+    linked_to : ["europarl_v7_esfi_fi"],
+    context: context.defaultAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.europarl_v7,
+    hide : true
+};
+
+settings.corpora.europarl_v7_frfi_fr = {
+    title : "EuroParl v7 FR",
+    description : "euroParl_v7_frfi_fr",
+    id : "europarl_v7_frfi_fr",
+    urn : "urn:nbn:fi:lb-2015042002",
+    metadata_urn : "urn:nbn:fi:lb-2015042001",
+    lang : "fr",
+    linked_to : ["europarl_v7_frfi_fi"],
+    context: context.defaultAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.europarl_v7,
+    hide : true
+};
+
+settings.corpora.europarl_v7_defi_de = {
+    title : "EuroParl v7 DE",
+    description : "euroParl_v7_defi_de",
+    id : "europarl_v7_defi_de",
+    urn : "urn:nbn:fi:lb-2015042002",
+    metadata_urn : "urn:nbn:fi:lb-2015042001",
+    lang : "de",
+    linked_to : ["europarl_v7_defi_fi"],
+    context: context.defaultAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.europarl_v7,
+    hide : true
+};
+
+settings.corpora.europarl_v7_svfi_sv = {
+    title : "EuroParl v7 SV",
+    description : "euroParl_v7_svfi_sv",
+    id : "europarl_v7_svfi_sv",
+    urn : "urn:nbn:fi:lb-2015042002",
+    metadata_urn : "urn:nbn:fi:lb-2015042001",
+    lang : "sv",
+    linked_to : ["europarl_v7_svfi_fi"],
+    context: context.defaultAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.europarl_v7,
+    hide : true
+};
+
+settings.corpora.europarl_v7_etfi_fi = {
+    title : "EuroParl suomi–viro",
+    description : "EuroParl suomi–viro-rinnakkaiskorpus (EuroParl v7)",
+    id : "europarl_v7_etfi_fi",
+    urn : "urn:nbn:fi:lb-2015042002",
+    metadata_urn : "urn:nbn:fi:lb-2015042001",
+    lang : "fi",
+    linked_to : ["europarl_v7_etfi_et"],
+    context: context.defaultAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.europarl_v7
+};
+
+settings.corpora.europarl_v7_esfi_fi = {
+    title : "EuroParl suomi–espanja",
+    description : "EuroParl suomi–espanja-rinnakkaiskorpus (EuroParl v7)",
+    id : "europarl_v7_esfi_fi",
+    urn : "urn:nbn:fi:lb-2015042002",
+    metadata_urn : "urn:nbn:fi:lb-2015042001",
+    lang : "fi",
+    linked_to : ["europarl_v7_esfi_es"],
+    context: context.defaultAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.europarl_v7
+};
+
+settings.corpora.europarl_v7_frfi_fi = {
+    title : "EuroParl suomi–ranska",
+    description : "EuroParl suomi–ranska-rinnakkaiskorpus (EuroParl v7)",
+    id : "europarl_v7_frfi_fi",
+    urn : "urn:nbn:fi:lb-2015042002",
+    metadata_urn : "urn:nbn:fi:lb-2015042001",
+    lang : "fi",
+    linked_to : ["europarl_v7_frfi_fr"],
+    context: context.defaultAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.europarl_v7
+};
+
+settings.corpora.europarl_v7_defi_fi = {
+    title : "EuroParl suomi–saksa",
+    description : "EuroParl suomi–saksa-rinnakkaiskorpus (EuroParl v7)",
+    id : "europarl_v7_defi_fi",
+    urn : "urn:nbn:fi:lb-2015042002",
+    metadata_urn : "urn:nbn:fi:lb-2015042001",
+    lang : "fi",
+    linked_to : ["europarl_v7_defi_de"],
+    context: context.defaultAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.europarl_v7
+};
+
+settings.corpora.europarl_v7_enfi_fi = {
+    title : "EuroParl suomi–englanti",
+    description : "EuroParl suomi–englanti-rinnakkaiskorpus (EuroParl v7)",
+    id : "europarl_v7_enfi_fi",
+    urn : "urn:nbn:fi:lb-2015042002",
+    metadata_urn : "urn:nbn:fi:lb-2015042001",
+    lang : "fi",
+    linked_to : ["europarl_v7_enfi_en"],
+    context: context.defaultAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.europarl_v7
+};
+
+settings.corpora.europarl_v7_svfi_fi = {
+    title : "EuroParl suomi–ruotsi",
+    description : "EuroParl suomi–ruotsi-rinnakkaiskorpus (EuroParl v7)",
+    id : "europarl_v7_svfi_fi",
+    urn : "urn:nbn:fi:lb-2015042002",
+    metadata_urn : "urn:nbn:fi:lb-2015042001",
+    lang : "fi",
+    linked_to : ["europarl_v7_svfi_sv"],
+    context: context.defaultAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.europarl_v7
+};
 
 
 /* KFSPC */
@@ -326,6 +564,7 @@ settings.corpora.kfspc_fi = {
     struct_attributes : sattrlist.kfspc
 };
 
+/*
 settings.corpora.europarl_fi = {
     id : "europarl_fi",
     lang : "fin",
@@ -352,7 +591,7 @@ settings.corpora.europarl_en = {
     struct_attributes : {},
     hide : true
 };
-
+*/
 
 attrlist = {};
 attrlist.mulcold_fi = {
