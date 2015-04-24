@@ -21,11 +21,60 @@ settings.autocomplete = true;
 
 settings.textDateAllowBareYears = true;
 
+settings.downloadFormats = [
+    "annot",
+    "ref",
+    "nooj"
+];
+if (! isProductionServer || isProductionServerTest) {
+    settings.downloadFormats = settings.downloadFormats.concat([
+	"csvp",
+	"csv",
+	"tsv",
+	"text"
+    ]);
+}
+if (! isProductionServer) {
+    settings.downloadFormats.push("vrt");
+}
+
+settings.downloadFormatParams = {
+    "*": {
+	structs: "+"
+    },
+    "ref": {
+	format: "bibref,xls"
+    },
+    "csvp": {
+	format: "tokens,csv",
+	attrs: "+,-lex",
+	match_marker: "***"
+    },
+    "csv": {
+	format: "sentences,csv"
+    },
+    "annot": {
+	format: "tokens,xls",
+	attrs: "+,-lex",
+	match_marker: "***"
+    },
+    "nooj": {
+	attrs: "+"
+    },
+    "tsv": {
+	format: "sentences,tsv"
+    },
+    "vrt": {
+	attrs: "+"
+    },
+};
+
 settings.cgi_prefix = (isProductionServerTest
 		       ? "/cgi-bin/korp-2.66/"
 		       : (isProductionServer ? "/cgi-bin/" : "/cgi-bin/korp/"));
 settings.cgi_script = settings.cgi_prefix + "korp.cgi";
 settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
+settings.download_cgi_script = settings.cgi_prefix + "korp_download.cgi";
 
 // for extended search dropdown, can be 'union' or 'intersection'
 settings.word_attribute_selector = "union"

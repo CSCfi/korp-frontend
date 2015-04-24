@@ -305,6 +305,9 @@
           $(linked).find(".lnk").css("padding-left", Math.round(offset));
         }
       }
+      if (this.$result.is(":visible")) {
+        util.setDownloadLinks(this.proxy.prevRequest, data);
+      }
       this.$result.localize();
       this.centerScrollbar();
       if (!this.selectionManager.hasSelected() && !isReading) {
@@ -693,6 +696,7 @@
             return _this.hidePreloader();
           });
           util.setJsonLink(_this.proxy.prevRequest);
+          util.setDownloadLinks(_this.proxy.prevRequest, data);
           return _this.$result.find(".num-result").html(util.prettyNumbers(data.hits));
         };
       })(this));

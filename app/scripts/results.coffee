@@ -39,7 +39,8 @@ class BaseResults
 
         #       this.resetView();
         @$result.find(".error_msg").remove()
-        util.setJsonLink @proxy.prevRequest if @$result.is(":visible")
+        if @$result.is(":visible")
+            util.setJsonLink @proxy.prevRequest
         if data.ERROR
             @resultError data
             return false
@@ -267,6 +268,9 @@ class view.KWICResults extends BaseResults
                 if not firstWord.length then firstWord = mainrow.find(".match .word:first")
                 offset = (firstWord.position().left + scrollLeft) - 25
                 $(linked).find(".lnk").css("padding-left", Math.round(offset))
+
+        if @$result.is(":visible")
+            util.setDownloadLinks @proxy.prevRequest, data
 
         @$result.localize()
         @centerScrollbar()
@@ -612,6 +616,7 @@ class view.ExampleResults extends view.KWICResults
             safeApply @s, () =>
                 @hidePreloader()
             util.setJsonLink @proxy.prevRequest
+            util.setDownloadLinks @proxy.prevRequest, data
             @$result.find(".num-result").html util.prettyNumbers(data.hits)
 
         # def.success = (data) ->

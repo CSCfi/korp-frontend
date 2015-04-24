@@ -212,6 +212,9 @@
                         <p ng-repeat="sentence in contextKwic" ng-class="{corpus_info : sentence.newCorpus,         not_corpus_info : !sentence.newCorpus,         linked_sentence : sentence.isLinked,         even : $even,         odd : $odd}" class="sentence"><span colspan="0" class="corpus_title">{{sentence.newCorpus}}<span rel="localize[no_context_support]" set-if="sentence.noContext" class="corpus_title_warn"></span></span><span ng-repeat="wd in sentence.tokens" kwic-word="kwic-word"></span></p>
                       </div>
                     </div>
+                    <div id="download-links-container">
+                      <div id="download-links"></div><span id="download-heading" rel="localize[download]">Ladda ner som:</span>
+                    </div>
                   </div>
                 </tab>
                 <tab ng-controller="StatsResultCtrl" ng-if="_settings.statistics != false" select="instance.onentry()" deselect="instance.onexit()">
@@ -290,6 +293,9 @@
                       <div class="results_table reading">
                         <p ng-repeat="sentence in contextKwic" ng-class="{corpus_info : sentence.newCorpus,         not_corpus_info : !sentence.newCorpus,         linked_sentence : sentence.isLinked,         even : $even,         odd : $odd}" class="sentence"><span colspan="0" class="corpus_title">{{sentence.newCorpus}}<span rel="localize[no_context_support]" set-if="sentence.noContext" class="corpus_title_warn"></span></span><span ng-repeat="wd in sentence.tokens" kwic-word="kwic-word"></span></p>
                       </div>
+                    </div>
+                    <div id="download-links-container">
+                      <div id="download-links"></div><span id="download-heading" rel="localize[download]">Ladda ner som:</span>
                     </div>
                   </div>
                 </tab>

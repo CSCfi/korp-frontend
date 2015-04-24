@@ -702,7 +702,69 @@
       return;
     }
     $("#json-link").attr("href", settings.url);
+    $("#json-link").attr("title", "JSON");
+    $("#json-link").attr("rel", "localize[formatdescr_json]");
+    $("#json-link").localize();
     $("#json-link").show();
+  };
+
+  util.setDownloadLinks = function(xhr_settings, result_data) {
+    var corpus_id, corpus_ids, download_params, format, get_corpus_num, i, j, link_id, result_corpora, result_corpora_settings;
+    if (!((xhr_settings != null) && (result_data != null) && (result_data.corpus_order != null) && (result_data.kwic != null))) {
+      c.log('failed to do setDownloadLinks');
+      return;
+    }
+    get_corpus_num = function(hit_num) {
+      return result_data.corpus_order.indexOf(result_data.kwic[hit_num].corpus);
+    };
+    c.log('setDownloadLinks data:', result_data);
+    $('#download-links').empty();
+    result_corpora = result_data.corpus_order.slice(get_corpus_num(0), get_corpus_num(result_data.kwic.length - 1) + 1);
+    result_corpora_settings = {};
+    i = 0;
+    while (i < result_corpora.length) {
+      corpus_ids = result_corpora[i].toLowerCase().split('|');
+      j = 0;
+      while (j < corpus_ids.length) {
+        corpus_id = corpus_ids[j];
+        result_corpora_settings[corpus_id] = settings.corpora[corpus_id];
+        j++;
+      }
+      i++;
+    }
+    i = 0;
+    while (i < settings.downloadFormats.length) {
+      format = settings.downloadFormats[i];
+      link_id = format + '-link';
+      $('#download-links').append('<a href="javascript:" ' + ' id="' + link_id + '"' + ' title="' + format + '"' + ' rel="localize[formatdescr_' + format + ']"' + ' class="download_link"><img src="img/' + format + '.png" alt="' + format.toUpperCase() + '" /></a>');
+      download_params = {
+        query_params: JSON.stringify($.deparam.querystring(xhr_settings.url)),
+        format: format,
+        korp_url: window.location.href,
+        korp_server_url: settings.cgi_script,
+        corpus_config: JSON.stringify(result_corpora_settings),
+        corpus_config_info_keys: ['metadata', 'licence', 'homepage', 'compiler'].join(','),
+        urn_resolver: settings.urnResolver
+      };
+      if ('downloadFormatParams' in settings) {
+        if ('*' in settings.downloadFormatParams) {
+          $.extend(download_params, settings.downloadFormatParams['*']);
+        }
+        if (format in settings.downloadFormatParams) {
+          $.extend(download_params, settings.downloadFormatParams[format]);
+        }
+      }
+      $('#' + link_id).click((function(params) {
+        return function(e) {
+          $.generateFile(settings.download_cgi_script, params);
+          e.preventDefault();
+        };
+      })(download_params));
+      i++;
+    }
+    $('#download-links').localize();
+    $('#download-links').show();
+    $('#download-links-container').show();
   };
 
   util.searchHash = function(type, value) {
