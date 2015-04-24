@@ -290,9 +290,11 @@ class model.LemgramProxy extends BaseProxy
     karpSearch: (word, sw_forms) ->
         deferred = $.Deferred((dfd) =>
             @pendingRequests.push $.ajax(
-                url: "http://spraakbanken.gu.se/ws/karp-sok"
+                # url: "http://spraakbanken.gu.se/ws/karp-sok"
+                url: settings.lemgrams_cgi_script
                 data:
                     wf: word
+                    corpus: settings.corpusListing.stringifySelected()
                     resource: settings.corpusListing.getMorphology()
                     format: "json"
                     "sms-forms": false
@@ -306,8 +308,9 @@ class model.LemgramProxy extends BaseProxy
                     
                     div = (if $.isPlainObject(data.div) then [data.div] else data.div)
                     output = $.map(div.slice(0, Number(data.count)), (item) ->
-                        item = util.convertLMFFeatsToObjects(item)
-                        item.LexicalEntry.Lemma.FormRepresentation.feat_lemgram
+                        # item = util.convertLMFFeatsToObjects(item)
+                        # item.LexicalEntry.Lemma.FormRepresentation.feat_lemgram
+                        item.LexicalEntry.lem
                     )
                     
                     dfd.resolve output, textStatus, xhr

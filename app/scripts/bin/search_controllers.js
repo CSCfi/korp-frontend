@@ -101,9 +101,6 @@
           s.placeholder = search.val;
           s.simple_text = "";
           cqp = "[lex contains '" + search.val + "']";
-          backend.relatedWordSearch(search.val).then(function(data) {
-            return s.relatedObj = data;
-          });
           if (s.word_pic) {
             return searches.lemgramSearch(search.val, s.prefix, s.suffix, page);
           } else {

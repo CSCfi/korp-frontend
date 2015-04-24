@@ -25,7 +25,7 @@ html
     
        
   //- body.not_logged_in(ng-app='korpApp')
-  body.not_logged_in(style="opacity: 0;")
+  body.not_logged_in(style="opacity: 0.1;")
     noscript
       h2 You need JavaScript to run Korp.
     //- script.
@@ -49,7 +49,7 @@ html
                     ng-controller='kwicCtrl'
                 )
                   tab-heading(ng-class="{not_loading: progress > 99, loading : loading, single: loading && instance.countCorpora() < 2 }")
-                    | KWIC
+                    | {{'kwic' | loc}}
                     tab-preloader(ng-if="loading", value="progress", spinner="instance.countCorpora() < 2")
                   #results-kwic(ng-class="{reading_mode : reading_mode}", constr='KWICResults', constr-name='kwicResults')
                     include includes/kwicresult

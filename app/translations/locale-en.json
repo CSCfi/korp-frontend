@@ -20,12 +20,15 @@
     "lang_SK" : "Slovak",
     "lang_ET" : "Estonian",
 
-    "docs" : "Manual (Swedish only)",
+    "docs" : "Help (mostly in Finnish)",
     "swedish" : "Svenska",
     "english" : "English",
+    "finnish" : "Suomi",
     "korp" : "Korp",
     "korp_lab" : "Korp Labs",
-    "university" : "Göteborgs universitet",
+    "university" : "University of Helsinki",
+    "language_bank" : "The Language Bank of Finland",
+    "feedback_link" : "<a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback' target='_blank'>Feedback</a>",
     "search_history" : "Search history",
     "search_history_clear" : "✘ Clear search history",
     "add_lang" : "Add lang",
@@ -33,7 +36,7 @@
     "not_containing" : "Does not contain",
     "negate_explanation" : "Negates the search expression, giving only sentences that do not match.",
     "about" : "About Korp",
-    "about_body" : "Korp is the concordance search tool of Språkbanken (The Swedish Language Bank). For more information, comments or suggestions, <a href='mailto:sb-info@svenska.gu.se'>contact us</a>.",
+    "about_body" : "Korp is the concordance search tool of Språkbanken (The Swedish Language Bank), adapted to the Language Bank of Finland. For more information, comments, suggestions, bug reports or other feedback, please fill in the <a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback' target='_blank'>feedback form</a>.",
     "about_cite_header": "Cite Korp",
     "about_cite": "Lars Borin, Markus Forsberg and Johan Roxendal. 2012. <a href='http://spraakbanken.gu.se/eng/publikationer/korp-–-corpus-infrastructure-språkbanken'>Korp – the corpus infrastructure of Språkbanken</a><br><a href='http://spraakbanken.gu.se/publikationer/bibtex/1822'><img src='http://spraakbanken.gu.se/sites/spraakbanken.gu.se/themes/gu_sb/img/bibtex.png' alt='BibTeX'></a>",
     "about_man" : "Project Managers",
@@ -41,6 +44,7 @@
     "about_dev_additional" : "Annotation team",
     "about_logo" : "Logotype by",
     "about_contributers" : "Contributers",
+    "about_adapt" : "Adapting Korp to the Language Bank of Finland",
     "warning_header" : "Please note",
     "warning_body" : "The dependency relations illustrated herein are the result of automated parsing.",
     "fail_text" : "An error has occurred.",
@@ -152,6 +156,7 @@
     "svm" : "Molise Slavic",
     "statistics" : "Statistics",
     "word_picture" : "Word picture",
+    "kwic" : "KWIC",
     "sort_default" : "sort within corpora",
     "within" : "within",
     "context" : "contex",
@@ -236,7 +241,7 @@
     "corpselector_corporawith_plur" : "corpora with",
     "corpselector_lastupdate" : "Last update",
     "corpselector_supports" : "Supports extended context.",
-    "corpselector_limited" : "The corpus is protected.",
+    "corpselector_limited" : "The corpus is protected; <a class=\"link\" href=\"https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAccessRights#KorpService\">information on access rights and applying for them</a>.",
     "corpselector_time" : "Material dated",
     "corpselector_rest_time" : "Undated material",
     "corpselector_time_chosen" : "Selected material",
@@ -273,5 +278,7 @@
     "swedbergm" : "17th century",
     "fsvm" : "old swedish",
 
-    "newsdesk-header" : "News"
+    "newsdesk-header" : "News",
+
+    "privacy" : "Privacy policy"
 }

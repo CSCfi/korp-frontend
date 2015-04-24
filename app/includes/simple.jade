@@ -14,19 +14,22 @@
       input#caseChk(type='checkbox', ng-model="isCaseInsensitive") 
       label(for='caseChk')  {{'case_insensitive' | loc}}  
 
-  #similar_wrapper(ng-show="relatedObj", ng-class="{open : relatedLimit == 9999}")
-    button.btn.btn-small(ng-click="showAllRelated()")
-      span.btn_header
-        | Relaterade ord (SWE-FN)
-      br
-      span(ng-repeat="wd in relatedObj[0].words | limitTo:relatedDefault") 
-        | {{stringifyRelated(wd)}}
-        span(ng-if="!$last"), 
-      br
-      span(ng-repeat="wd in relatedObj[0].words.slice(relatedDefault) | limitTo:relatedDefault") 
-        | {{stringifyRelated(wd)}}
-        span(ng-if="!$last"), 
-      span(ng-if="relatedObj[0].words.length > relatedDefault || relatedObj.length > 1")...
+  //- //- Related-word search does not currently work for Finnish,
+  //- //- so commented out. It would be nice if it could be
+  //- //- language- or corpus-specific. (Jyrki Niemi 2015-04-14)
+  //- #similar_wrapper(ng-show="relatedObj", ng-class="{open : relatedLimit == 9999}")
+  //-   button.btn.btn-small(ng-click="showAllRelated()")
+  //-     span.btn_header
+  //-       | Relaterade ord (SWE-FN)
+  //-     br
+  //-     span(ng-repeat="wd in relatedObj[0].words | limitTo:relatedDefault") 
+  //-       | {{stringifyRelated(wd)}}
+  //-       span(ng-if="!$last"), 
+  //-     br
+  //-     span(ng-repeat="wd in relatedObj[0].words.slice(relatedDefault) | limitTo:relatedDefault") 
+  //-       | {{stringifyRelated(wd)}}
+  //-       span(ng-if="!$last"), 
+  //-     span(ng-if="relatedObj[0].words.length > relatedDefault || relatedObj.length > 1")...
 
 
 
