@@ -89,6 +89,16 @@ sattrlist.klk_sv = {
         label : "klk_datefrom",
         displayType : "hidden",
     },
+    text_publ_type : {
+	label : "publication_type",
+	displayType : "select",
+	translationKey : "publtype_",
+	opts : settings.liteOptions,
+	dataset : [
+	    "aikakausi",
+	    "sanomalehti"
+	]
+    },
     paragraph_id : {
         label : "paragraph_id",
         displayType : "hidden",
@@ -109,6 +119,9 @@ $.extend(sattrlist.klk_sv_parsed,
 	     }
 	 });
 		 
+sattrlist.klk_sv_parsed_pagelinks = $.extend({}, sattrlist.klk_sv_parsed);
+$.extend(sattrlist.klk_sv_parsed_pagelinks, sattrlist.klk_pagelinks);
+
 attrlist.klk_sv = {
     ocr : {
 	label : "OCR",
@@ -131,6 +144,8 @@ attrlist.klk_sv_parsed =
             suffix : attrs.suffix
 	},
 	attrlist.klk_sv);
+
+attrlist.klk_sv_parsed_pagelinks = attrlist.klk_sv_parsed;
 
 
 settings.corpora = {};

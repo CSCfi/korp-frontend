@@ -591,5 +591,14 @@
     "klk_parse_state" : "jäsennystila",
 
     "parse_state_parsed" : "jäsennetty",
-    "parse_state_tagged" : "tagattu"
+    "parse_state_tagged" : "tagattu",
+    "year_published" : "year published",
+
+    "publication_type" : "type of publication",
+    "publtype_aikakausi" : "periodical",
+    "publtype_sanomalehti" : "newspaper",
+
+    "show_page_image" : "Show page image",
+    "show_page_image_context" : "Show page image, word context highlighted",
+    "download_publ_pdf" : "Download publication as PDF"
 }
