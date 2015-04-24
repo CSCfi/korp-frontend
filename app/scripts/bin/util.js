@@ -859,7 +859,7 @@
     window.corpusChooserInstance = $("#corpusbox").corpusChooser({
       template: outStr,
       infoPopup: function(corpusID) {
-        var baseLang, baseLangSentenceHTML, baseLangTokenHTML, corpusExtraInfo, corpusObj, lang, lastUpdate, maybeInfo, numSentences, numTokens, output, sentenceString, supportsContext, _ref;
+        var baseLang, baseLangSentenceHTML, baseLangTokenHTML, baseLangs, corpusExtraInfo, corpusObj, lang, lastUpdate, maybeInfo, numSentences, numTokens, output, sentenceString, supportsContext, _i, _len, _ref;
         corpusObj = settings.corpora[corpusID];
         maybeInfo = "";
         if (corpusObj.description) {
@@ -870,15 +870,18 @@
           maybeInfo += (maybeInfo ? "<br/><br/>" : "") + corpusExtraInfo;
         }
         numTokens = corpusObj.info.Size;
-        baseLang = (_ref = settings.corpora[corpusID]) != null ? _ref.linked_to : void 0;
-        if (baseLang) {
+        baseLangTokenHTML = "";
+        baseLangSentenceHTML = "";
+        baseLangs = (_ref = settings.corpora[corpusID]) != null ? _ref.linked_to : void 0;
+        if (baseLangs) {
           lang = " (" + util.getLocaleString(settings.corpora[corpusID].lang) + ")";
-          baseLangTokenHTML = (util.getLocaleString("corpselector_numberoftokens")) + ": <b>" + (util.prettyNumbers(settings.corpora[baseLang].info.Size)) + "\n</b> (" + (util.getLocaleString(settings.corpora[baseLang].lang)) + ")<br/>";
-          baseLangSentenceHTML = (util.getLocaleString("corpselector_numberofsentences")) + ": <b>" + (util.prettyNumbers(settings.corpora[baseLang].info.Sentences)) + "\n</b> (" + (util.getLocaleString(settings.corpora[baseLang].lang)) + ")<br/>";
+          for (_i = 0, _len = baseLangs.length; _i < _len; _i++) {
+            baseLang = baseLangs[_i];
+            baseLangTokenHTML += (util.getLocaleString("corpselector_numberoftokens")) + ": <b>" + (util.prettyNumbers(settings.corpora[baseLang].info.Size)) + "\n</b> (" + (util.getLocaleString(settings.corpora[baseLang].lang)) + ")<br/>";
+            baseLangSentenceHTML += (util.getLocaleString("corpselector_numberofsentences")) + ": <b>" + (util.prettyNumbers(settings.corpora[baseLang].info.Sentences)) + "\n</b> (" + (util.getLocaleString(settings.corpora[baseLang].lang)) + ")<br/>";
+          }
         } else {
           lang = "";
-          baseLangTokenHTML = "";
-          baseLangSentenceHTML = "";
         }
         numSentences = corpusObj["info"]["Sentences"];
         lastUpdate = corpusObj["info"]["Updated"];
