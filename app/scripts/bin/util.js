@@ -1050,6 +1050,44 @@
     }
   };
 
+  util.initCorpusSettingsLinkAttrs = function() {
+    var corpus;
+    for (corpus in settings.corpora) {
+      util.extractLinkAttrs(settings.corpora[corpus]);
+    }
+    return null;
+  };
+
+  util.extractLinkAttrs = function(corpusInfo) {
+    var extractLinkAttrs, link_attrs;
+    extractLinkAttrs = function(attrs, link_attrs) {
+      var attr, attrname, _results;
+      if (attrs != null) {
+        _results = [];
+        for (attrname in attrs) {
+          attr = attrs[attrname];
+          if (attr.type === "url" && (attr.url_opts != null) && attr.url_opts.in_link_section) {
+            if (attr._link_attr) {
+              _results.push(link_attrs[attrname] = attr._link_attr);
+            } else {
+              link_attrs[attrname] = $.extend(true, {}, attr);
+              attrs[attrname].displayType = "hidden";
+              _results.push(attrs[attrname]._link_attr = link_attrs[attrname]);
+            }
+          } else {
+            _results.push(void 0);
+          }
+        }
+        return _results;
+      }
+    };
+    link_attrs = {};
+    extractLinkAttrs(corpusInfo.attributes, link_attrs);
+    extractLinkAttrs(corpusInfo.struct_attributes, link_attrs);
+    corpusInfo.link_attributes = link_attrs;
+    return null;
+  };
+
 }).call(this);
 
 //# sourceMappingURL=util.js.map

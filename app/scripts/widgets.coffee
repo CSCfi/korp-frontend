@@ -12,7 +12,7 @@ Sidebar =
     _init: () ->
 
     updateContent: (sentenceData, wordData, corpus, tokens) ->
-        @element.html '<div id="selected_sentence" /><div id="selected_word" />'
+        @element.html ('<div id="selected_sentence" /><div id="selected_word" /><div id="selected_links" />')
         corpusObj = settings.corpora[corpus]
 
         $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>#{corpusObj.title}</p>").prependTo "#selected_sentence"
@@ -24,6 +24,11 @@ Sidebar =
             $("#selected_sentence").append $("<h4>").localeKey("sentence_attr")
 
             @renderContent(sentenceData, corpusObj.struct_attributes).appendTo "#selected_sentence"
+
+        # Links in a separate link section
+        unless $.isEmptyObject(corpusObj.link_attributes)
+            @renderContent(sentenceData, corpusObj.link_attributes)
+                .appendTo "#selected_links"
 
         @element.localize()
         @applyEllipse()
@@ -68,7 +73,14 @@ Sidebar =
     renderItem: (key, value, attrs) ->
         if attrs.displayType == "hidden" or attrs.displayType == "date_interval"
             return ""
-        output = $("<p><span rel='localize[#{attrs.label}]'>#{key}</span>: </p>")
+        if attrs.type == "url" and attrs?.url_opts?.hide_url
+            # If url_opts.hide_url, hide the url and show the localized
+            # label as the link, or nothing, if the value is empty
+            if value == ""
+                return ""
+            output = $("<p></p>")
+        else
+            output = $("<p><span rel='localize[#{attrs.label}]'>#{key}</span>: </p>")
         output.data("attrs", attrs)
         if value == "|" or value == ""
             output.append "<i rel='localize[empty]' style='color : grey'>${util.getLocaleString('empty')}</i>"
@@ -120,7 +132,20 @@ Sidebar =
 
 
         if attrs.type == "url"
-            return output.append "<a href='#{str_value}' class='exturl sidebar_url' target='_blank'>#{decodeURI(str_value)}</a>"
+            # If url_prefix is specified, prepend it to the URL
+            url = (attrs.url_prefix or "") + str_value
+            # If url_opts.new_window, open the link to a new window
+            target = if attrs?.url_opts?.new_window
+                         " target='_blank'"
+                     else
+                         ""
+            # If url_opts.hide_url, use the localized label as the
+            # link text, otherwise the URL
+            link_text = if attrs?.url_opts?.hide_url
+                            "<span rel='localize[#{attrs.label}]'>#{key}</span>"
+                        else
+                            decodeURI(str_value)
+            return output.append "<a href='#{url}' class='exturl sidebar_url'#{target}>#{link_text}</a>"
 
         else if key == "msd" and attrs.taginfo_url != ""
             # An empty taginfo_url disables the info link; a non-empty value

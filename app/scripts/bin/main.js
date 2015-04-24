@@ -309,11 +309,12 @@
       view.initSearchOptions();
       return onHashChange(null, true);
     }, 0);
-    return $("body").animate({
+    $("body").animate({
       opacity: 1
     }, function() {
       return $(this).css("opacity", "");
     });
+    return util.initCorpusSettingsLinkAttrs();
   }), function() {
     c.log("failed to load some resource at startup.", arguments);
     return $("body").css({
