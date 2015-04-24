@@ -296,7 +296,8 @@
         corpus: settings.corpusListing.stringifySelected(),
         incremental: $.support.ajaxProgress,
         type: type,
-        cache: true
+        cache: true,
+        max: settings.wordPictureMaxWords || 15
       };
       this.prevParams = params;
       def = $.ajax({

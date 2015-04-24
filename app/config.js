@@ -108,6 +108,8 @@ settings.corpusExtraInfo = {
     sidebar : ["urn", "metadata", "licence"]
 };
 
+settings.wordPictureMaxWords = 30;
+
 settings.wordpictureTagset = {
     // supported pos-tags
     verb : "vb",
