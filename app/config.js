@@ -1065,13 +1065,16 @@ sattrs.link_fulltext_context = {
     type : "url",
     url_opts : sattrs.link_url_opts
 };
-sattrs.link_show_video_prefixed = function (url_prefix) {
+sattrs.link_prefixed = function (label, url_prefix) {
     return {
-	label : "show_video",
+	label : label,
 	type : "url",
 	url_opts : sattrs.link_url_opts,
 	url_prefix : url_prefix
     };
+};
+sattrs.link_show_video_prefixed = function (url_prefix) {
+    return sattrs.link_prefixed("show_video", url_prefix);
 };
 sattrs.link_show_video_annex = sattrs.link_show_video_prefixed(
     "https://lat.csc.fi/ds/annex/runLoader?viewType=timeline&");
@@ -1337,9 +1340,28 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
 
 settings.corporafolders.spoken = {
     title : "Puhuttua kieltä (tekstiksi litteroituna)",
-    contents : ["la_murre", "kotus_sananparret", "murre"],
+    contents : ["kotus_sananparret", "murre"],
     // unselected : true
 };
+
+settings.corporafolders.spoken.la_murre = {
+    title : "Lauseopin arkiston murrekorpus",
+    description : "Lauseopin arkiston murrekorpus edustaa kaikkia nykyisen Suomen alueella puhuttuja suomen kielen murteita sekä lisäksi niitä murteita, joita puhuttiin Neuvostoliitolle viime sotien yhteydessä luovutetuilla alueilla ennen alueiden luovuttamista. Puhujat ovat syntyneet vuosina 1860–1910 (suurin osa 1880-luvulla) ja haastattelut on tehty 1950–1970-luvuilla, jolloin puhujat ovat olleet keskimäärin 80-vuotiaita.<br/>Yhdestä pitäjänmurteesta on yleensä valittu käsiteltäväksi yksi noin tunnin laajuinen äänite. Murreaineisto on litteroitu sekä koodattu morfologisesti ja syntaktisesti. Tässä on saatavilla korpuksen versio, jossa litteraatit on karkeasti kohdistettu alkuperäisiin äänitteisiin.",
+    unselected : true,
+    info : {
+	urn : "urn:nbn:fi:lb-2014052715",
+	metadata_urn : "urn:nbn:fi:lb-2014052716",
+	licence : {
+	    name : "CC BY ND 4.0",
+	    url : "https://creativecommons.org/licenses/by-nd/4.0/"
+	},
+	homepage : {
+	    name : "Aineiston tietosivu Kielipankissa",
+	    url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotLAmurre",
+	    no_label : true
+	}
+    }
+ };
 
 settings.corporafolders.learner = {
     title : "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
@@ -2161,10 +2183,236 @@ attrs.func_la = {
     opts : settings.liteOptions
 };
 
-settings.corpora.la_murre = {
-    title : "Lauseopin arkiston murrekorpus",
-    description : "Lauseopin arkiston murrekorpus",
-    id : "la_murre",
+
+// LA-murre: The Finnish Dialect Syntax Archive (Lauseopin arkiston
+// murrekorpus)
+// The logical corpus is divided into physical (Korp) corpora by
+// parish (dialect).
+
+// Dialect regions, their dialect groups and their parishes. A tree
+// structure represented as an array of arrays: the first element is
+// the internal code or id of the item, the second its human-readable
+// name, and the third an array of its child elements (except in leaf
+// nodes).
+var la_murre_grouping = [
+    ["LOU", "Lounaismurteet", [
+	["VarE", "Eteläinen Varsinais-Suomi", [
+	    ["karuna", "Karuna"],
+	    ["kisko", "Kisko"],
+	    ["muurla", "Muurla"],
+	    ["muurla_halikko", "Muurla/Halikko"],
+	    ["paimio", "Paimio"],
+	    ["pernio", "Perniö"],
+	    ["uskela", "Uskela"],
+	] ],
+	["VarP", "Pohjoinen Varsinais-Suomi", [
+	    ["eura", "Eura"],
+	    ["eurajoki", "Eurajoki"],
+	    ["kalanti", "Kalanti"],
+	    ["karjala_tl", "Karjala Tl"],
+	    ["kustavi", "Kustavi"],
+	    ["lappi_tl", "Lappi Tl"],
+	    ["luvia", "Luvia"],
+	    ["masku", "Masku"],
+	    ["pyhamaa", "Pyhämaa"],
+	    ["rauma", "Rauma"],
+	    ["rymattyla", "Rymättylä"],
+	    ["taivassalo", "Taivassalo"],
+	    ["velkua", "Velkua"],
+	] ],
+    ] ],
+    ["LVÄ", "Lounaiset välimurteet", [
+	["SatE", "Etelä-Satakunta", [
+	    ["kokemaki", "Kokemäki"],
+	    ["loimaa", "Loimaa"],
+	    ["vampula", "Vampula"],
+	] ],
+	["SatL", "Länsi-Satakunta", [
+	    ["ahlainen", "Ahlainen"],
+	    ["merikarvia", "Merikarvia"],
+	    ["noormarkku", "Noormarkku"],
+	    ["pori", "Pori"],
+	] ],
+	["VarY", "Varsinais-Suomen ylämaa", [
+	    ["koski_tl", "Koski Tl"],
+	    ["poytya", "Pöytyä"],
+	    ["somero", "Somero"],
+	    ["sakyla", "Säkylä"],
+	    ["tarvasjoki", "Tarvasjoki"],
+	] ],
+	["VarU", "Länsi-Uusimaa", [
+	    ["sammatti", "Sammatti"],
+	    ["vihti", "Vihti"],
+	] ],
+    ] ],
+    ["HÄM", "Hämäläismurteet", [
+	["HämE", "Etelä-Häme", [
+	    ["hattula", "Hattula"],
+	    ["hausjarvi", "Hausjärvi"],
+	    ["nurmijarvi", "Nurmijärvi"],
+	    ["renko", "Renko"],
+	    ["saaksmaki", "Sääksmäki"],
+	    ["tammela", "Tammela"],
+	] ],
+	["HämK", "Kaakkois-Häme", [
+	    ["askola", "Askola"],
+	    ["asikkala", "Asikkala"],
+	    ["lammi", "Lammi"],
+	] ],
+	["HämP", "Pohjois-Häme", [
+	    ["juupajoki", "Juupajoki"],
+	    ["kuru", "Kuru"],
+	    ["luopioinen", "Luopioinen"],
+	    ["pirkkala", "Pirkkala"],
+	    ["pohjaslahti", "Pohjaslahti"],
+	    ["vesilahti", "Vesilahti"],
+	] ],
+	["SatP", "Pohjois-Satakunta", [
+	    ["ikaalinen", "Ikaalinen"],
+	    ["kankaanpaa", "Kankaanpää"],
+	    ["karkku", "Karkku"],
+	    ["kihnio", "Kihniö"],
+	    ["punkalaidun", "Punkalaidun"],
+	    ["suodenniemi", "Suodenniemi"],
+	] ],
+	["Kym", "Kymenlaakso", [
+	    ["iitti", "Iitti"],
+	    ["lapinjarvi", "Lapinjärvi"],
+	    ["suursaari", "Suursaari"],
+	    ["vehkalahti", "Vehkalahti"],
+	] ],
+    ] ],
+    ["POH", "Pohjalaismurteet", [
+	["PohE", "Etelä-Pohjanmaa", [
+	    ["isojoki", "Isojoki"],
+	    ["kauhava", "Kauhava"],
+	    ["kurikka", "Kurikka"],
+	    ["laihia", "Laihia"],
+	    ["nurmo", "Nurmo"],
+	    ["peraseinajoki", "Peräseinäjoki"],
+	    ["yliharma", "Ylihärmä"],
+	] ],
+	["PohK", "Keski-Pohjanmaa", [
+	    ["haapajarvi", "Haapajärvi"],
+	    ["haapavesi", "Haapavesi"],
+	    ["himanka", "Himanka"],
+	    ["kestila", "Kestilä"],
+	    ["lestijarvi", "Lestijärvi"],
+	    ["pyhajoki", "Pyhäjoki"],
+	    ["toholampi", "Toholampi"],
+	    ["veteli", "Veteli"],
+	    ["ylivieska", "Ylivieska"],
+	] ],
+	["PohP", "Pohjois-Pohjanmaa", [
+	    ["hailuoto", "Hailuoto"],
+	    ["paavola", "Paavola"],
+	    ["temmes", "Temmes"],
+	    ["yli_ii", "Yli-Ii"],
+	    ["ylikiiminki", "Ylikiiminki"],
+	] ],
+	["LänP", "Länsipohja", [
+	    ["alatornio", "Alatornio"],
+	    ["muonio", "Muonio"],
+	] ],
+	["PerP", "Peräpohjola", [
+	    ["kemi", "Kemi"],
+	    ["rovaniemi", "Rovaniemi"],
+	    ["salla", "Salla"],
+	    ["sodankyla", "Sodankylä"],
+	] ],
+    ] ],
+    ["SAV", "Savolaismurteet", [
+	["KesE", "Eteläinen Keski-Suomi", [
+	    ["joutsa", "Joutsa"],
+	    ["jamsa", "Jämsä"],
+	    ["sysma", "Sysmä"],
+	] ],
+	["KesL", "Läntinen Keski-Suomi", [
+	    ["lappajarvi", "Lappajärvi"],
+	    ["pihlajavesi", "Pihlajavesi"],
+	    ["soini", "Soini"],
+	] ],
+	["KesP", "Pohjoinen Keski-Suomi", [
+	    ["konginkangas", "Konginkangas"],
+	    ["laukaa", "Laukaa"],
+	    ["multia", "Multia"],
+	    ["pihtipudas", "Pihtipudas"],
+	] ],
+	["SavE", "Etelä-Savo", [
+	    ["enonkoski", "Enonkoski"],
+	    ["mikkeli", "Mikkeli"],
+	    ["mantyharju", "Mäntyharju"],
+	    ["punkaharju", "Punkaharju"],
+	] ],
+	["SavP", "Pohjois-Savo", [
+	    ["haukivuori", "Haukivuori"],
+	    ["lapinlahti", "Lapinlahti"],
+	    ["leppavirta", "Leppävirta"],
+	    ["nilsia", "Nilsiä"],
+	    ["rantasalmi", "Rantasalmi"],
+	    ["rautalampi", "Rautalampi"],
+	    ["riistavesi", "Riistavesi"],
+	    ["tervo", "Tervo"],
+	    ["vierema", "Vieremä"],
+	] ],
+	["KarP", "Pohjois-Karjala", [
+	    ["ilomantsi", "Ilomantsi"],
+	    ["juuka", "Juuka"],
+	    ["kiihtelysvaara", "Kiihtelysvaara"],
+	    ["kitee", "Kitee"],
+	    ["kontiolahti", "Kontiolahti"],
+	    ["liperi", "Liperi"],
+	] ],
+	["Kai", "Kainuu", [
+	    ["posio", "Posio"],
+	    ["sotkamo", "Sotkamo"],
+	    ["suomussalmi", "Suomussalmi"],
+	] ],
+    ] ],
+    ["KAA", "Kaakkoismurteet", [
+	["KarE", "Etelä-Karjala", [
+	    ["antrea", "Antrea"],
+	    ["koivisto", "Koivisto"],
+	    ["lappee", "Lappee"],
+	    ["luumaki", "Luumäki"],
+	    ["muolaa", "Muolaa"],
+	    ["nuijamaa", "Nuijamaa"],
+	    ["ruokolahti", "Ruokolahti"],
+	    ["savitaipale", "Savitaipale"],
+	    ["seiskari", "Seiskari"],
+	    ["taipalsaari", "Taipalsaari"],
+	] ],
+	["KarK", "Keski-Karjala", [
+	    ["lumivaara", "Lumivaara"],
+	    ["parikkala", "Parikkala"],
+	    ["rautu", "Rautu"],
+	    ["raisala", "Räisälä"],
+	    ["sortavala", "Sortavala"],
+	] ],
+    ] ]
+];
+
+// Extract dialect regions, groups and parishes from la_murre_grouping
+var la_murre_regions = [];
+var la_murre_groups = [];
+var la_murre_parishes = [];
+for (var i = 0; i < la_murre_grouping.length; i++) {
+    la_murre_regions.push(la_murre_grouping[i][0]);
+    var groups = la_murre_grouping[i][2];
+    for (var j = 0; j < groups.length; j++) {
+	la_murre_groups.push(groups[j][0]);
+	var parishes = groups[j][2];
+	for (var k = 0; k < parishes.length; k++) {
+	    la_murre_parishes.push(parishes[k][1]);
+	}
+    }
+}
+
+// The corpus settings template for the LA-murre corpora
+settings.templ.la_murre = {
+    // title : "Lauseopin arkiston murrekorpus",
+    // description : "Lauseopin arkiston murrekorpus",
+    // id : "la_murre",
     within : settings.spcWithin,
     context : settings.spContext,
     attributes : {
@@ -2184,7 +2432,7 @@ settings.corpora.la_murre = {
 		"cw" : "cw",
 		"cw1" : "cw1",
 		"cw2" : "cw2",
-		"" : "noncw",
+		null : "noncw",
 	    },
 	    opts : settings.liteOptions
 	},
@@ -2201,6 +2449,34 @@ settings.corpora.la_murre = {
 	text_info : {
 	    label : "text_info"
 	},
+	text_dialect_region : {
+	    label : "dialect_region",
+	    displayType : "select",
+	    translationKey : "dialect_region_",
+	    dataset : la_murre_regions,
+	    opts : settings.liteOptions
+	},
+	text_dialect_group : {
+	    label : "dialect_group",
+	    displayType : "select",
+	    translationKey : "dialect_group_",
+	    dataset : la_murre_groups,
+	    opts : settings.liteOptions
+	},
+	text_parish : {
+	    label : "parish",
+	    displayType : "select",
+	    localize : false,
+	    dataset : la_murre_parishes,
+	    opts : settings.liteOptions
+	},
+	text_parish_title : {
+	    label : "text_title",
+	},
+	text_filename : {
+	    label : "file_name",
+	    displayType : "hidden"
+	},
 	paragraph_type : {
 	    label : "paragraph_type",
 	    displayType : "select",
@@ -2214,87 +2490,80 @@ settings.corpora.la_murre = {
 	},
 	paragraph_id : {
 	    label : "paragraph_id",
-	    opts : settings.liteOptions
 	},
-	// paragraph_n : {
-	//     label : "paragraph_n",
-	//     opts : settings.liteOptions
+	paragraph_speaker : {
+	    label : "speaker",
+	},
+	paragraph_begin_time : {
+	    label : "speech_begin_time"
+	},
+	paragraph_duration : {
+	    label : "speech_duration"
+	},
+	paragraph_annex_link : sattrs.link_prefixed(
+	    "listen_speech",
+	    "https://lat.csc.fi/ds/annex/runLoader?"),
+	// sentence_source : {
+	//     label : "sentence_source"
 	// },
-	sentence_source : {
-	    label : "sentence_source"
-	},
 	sentence_clnum : {
 	    label : "sentence_clnum",
-	    opts : settings.liteOptions
 	},
-	// sentence_sp : {
-	//     label : "sentence_sp"
-	// },
 	sentence_num : {
 	    label : "sentence_num",
-	    opts : settings.liteOptions
 	},
 	sentence_wnum : {
 	    label : "sentence_wnum",
-	    opts : settings.liteOptions
 	},
 	sentence_id : sattrs.sentence_id_hidden,
-	// {
-	//     label : "sentence_id",
-	//     opts : settings.liteOptions
-	// },
-	// clause_sinum : {
-	//     label : "clause_sinum"
-	// },
+	sentence_begin_time : {
+	    label : "sentence_begin_time"
+	},
+	sentence_duration : {
+	    label : "sentence_duration"
+	},
+	sentence_annex_link : sattrs.link_prefixed(
+	    "listen_sentence",
+	    "https://lat.csc.fi/ds/annex/runLoader?"),
 	clause_clnum : {
 	    label : "clause_clnum",
-	    opts : settings.liteOptions
 	},
 	clause_num : {
 	    label : "clause_num",
-	    opts : settings.liteOptions
 	},
 	clause_hier : {
 	    label : "clause_hier",
 	    displayType : "select",
 	    translationKey : "clausehier_",
-	    dataset : {
-		"irrall" : "irrall",
-		"main" : "main",
-		"sub1" : "sub1",
-		"sub2" : "sub2",
-		"sub3" : "sub3",
-		"sub4" : "sub4",
-		"sub5" : "sub5",
-		"muu" : "muu",
-	    },
+	    dataset : [
+		"irrall",
+		"main",
+		"sub1",
+		"sub2",
+		"sub3",
+		"sub4",
+		"sub5",
+		"muu",
+	    ],
 	    opts : settings.liteOptions
 	},
-	// clause_snum : {
-	//     label : "clause_snum"
-	// },
 	clause_type : {
 	    label : "clause_type",
 	    displayType : "select",
 	    translationKey : "clausetype_",
-	    dataset : {
-		"affdecl" : "affdecl",
-		"negdecl" : "negdecl",
-		"affint" : "affint",
-		"negint" : "negint",
-		"affopt" : "affopt",
-		"negopt" : "negopt",
-		"muu" : "muu",
-	    },
+	    dataset : [
+		"affdecl",
+		"negdecl",
+		"affint",
+		"negint",
+		"affopt",
+		"negopt",
+		"muu",
+	    ],
 	    opts : settings.liteOptions
 	},
-	// sentence_sinum : {
-	//     label : "sentence_sinum",
-	//     opts : settings.liteOptions
-	// },
 	clause_hallnum : {
 	    label : "clause_hallnum",
-	    opts : settings.liteOptions
 	},
 	clause_ora : {
 	    label : "clause_ora",
@@ -2302,12 +2571,59 @@ settings.corpora.la_murre = {
 	    translationKey : "clauseora_",
 	    dataset : {
 		"dir" : "dir",
-		"" : "indir"
+		"" : "other",
+		null : "other"
 	    },
 	    opts : settings.liteOptions
+	},
+	clause_depth : {
+	    label : "clause_depth"
+	},
+	clause_partnum : {
+	    label : "clause_partnum",
 	}
     }
 };
+
+// Recursively make settings.corporafolders and settings.corpora for
+// the (sub)corpora of the la_murre corpus (based on
+// la_murre_grouping). main_folder is the folder to which to add the
+// folders or corpora in subfolder_tree. This could perhaps be
+// generalized for other corpora if needed.
+settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree) {
+    for (var i = 0; i < subfolder_tree.length; i++) {
+	var subfolder_info = subfolder_tree[i];
+	var descr = "Lauseopin arkiston murrekorpus: " + subfolder_info[1];
+	if (subfolder_info.length > 2) {
+	    var subfolder = {
+		title : subfolder_info[1],
+		description : descr
+	    };
+	    main_folder[subfolder_info[0]] = subfolder;
+	    settings.fn.make_folders_la_murre(subfolder, subfolder_info[2]);
+	} else {
+	    var templ_fill = {
+		id : subfolder_info[0],
+		title : subfolder_info[1],
+		description : descr
+	    };
+	    settings.fn.add_corpus_settings(
+		settings.templ.la_murre, [templ_fill], main_folder,
+		"la_murre_");
+	}
+    }
+};
+
+// Call the above recursive function
+settings.fn.make_folders_la_murre(
+    settings.corporafolders.spoken.la_murre, la_murre_grouping);
+
+// Delete the variables used for constructing the settings
+delete la_murre_grouping;
+delete la_murre_regions;
+delete la_murre_groups;
+delete la_murre_parishes;
+
 
 settings.corpora.las2 = {
     title : "LAS2",
