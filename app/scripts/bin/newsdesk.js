@@ -51,7 +51,9 @@
                     n += 1;
                   }
                 }
-                return s.numNewNews = n;
+                return safeApply(s, (function() {
+                  return s.numNewNews = n;
+                }));
               },
               error: function(e) {
                 return console.log("error, couldn't fetch news", e.message);
