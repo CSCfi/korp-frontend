@@ -51,14 +51,11 @@ angular.module('newsdesk', []).directive "newsDesk", ($window, $document, $rootE
                         for n_item in s.newsitems
                             if n_item.d > s.lastChecked
                                 n += 1
-                        # Using $apply causes the Angular(?) error "$apply
-                        # already in progress". However, Språkbanken's Korp
-                        # seems to work correctly with that. Why not
-                        # Kielipankki's? Directly settings s.numNewNews
-                        # would seem to work, but there probably is a reason
-                        # for using $apply. (Jyrki Niemi 2015-04-16)
+                        # Avoid the Angular error "$apply already in progress"
+                        # by using safeApply instead of $apply, according to
+                        # Johan Roxendal's suggestion. (Jyrki Niemi 2015-04-27)
                         # s.$apply(() -> s.numNewNews = n)
-                        s.numNewNews = n
+                        safeApply s, (() -> s.numNewNews = n)
                     error: (e) ->
                        console.log "error, couldn't fetch news", e.message
                 });
