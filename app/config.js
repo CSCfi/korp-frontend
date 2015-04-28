@@ -1412,7 +1412,7 @@ settings.corporafolders.test = {
  */
 // TODO: this should be moved when modern texts are moved to their own mode
 if(window.currentMode == "default") 
-    settings.preselected_corpora = ["reittidemo", "__ftb.ftb3"];
+    settings.preselected_corpora = ["reittidemo", "__ftb"];
 
 /*
  * CORPORA

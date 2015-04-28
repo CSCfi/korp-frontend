@@ -10,8 +10,7 @@ $("#lemgram_list_item").remove();
 $("#results-lemgram").remove();
 
 
-// Use a dummy non-existing corpus to avoid preselecting any corpus
-settings.preselected_corpora = ["no_preselected_corpora"];
+settings.preselected_corpora = ["mulcold_en"];
 
 
 settings.corpora = {};

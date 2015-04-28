@@ -247,6 +247,8 @@ var context = {
     	}
 };
 
+settings.preselected_corpora = ["europarl_v7_enfi_fi", "mulcold_fi"];
+
 settings.corporafolders = {};
 
 settings.corporafolders.europarl = {
