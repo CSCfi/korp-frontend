@@ -966,9 +966,12 @@ newDataInGraph = (dataName, horizontalDiagram) ->
         relHitsString = util.getLocaleString("statstable_relfigures_hits")
         $("<div id='dialog' title='#{topheader}' />")
         .appendTo("body")
+        # rel="localize[...]" does not seem to localize the texts here,
+        # nor does Angular localization seem to work, so use
+        # util.getLocaleString directly. (Jyrki Niemi 2015-04-29)
         .append("""<div id="pieDiv"><br/><div id="statistics_switch" style="text-align:center">
-                            <a href="javascript:" rel="localize[statstable_relfigures]" data-mode="relative">Relativa frekvenser</a>
-                            <a href="javascript:" rel="localize[statstable_absfigures]" data-mode="absolute">Absoluta frekvenser</a>
+                            <a href="javascript:" rel="localize[statstable_relfigures]" data-mode="relative">#{util.getLocaleString("statstable_relfigures")}</a>
+                            <a href="javascript:" rel="localize[statstable_absfigures]" data-mode="absolute">#{util.getLocaleString("statstable_absfigures")}</a>
                         </div>
                         <div id="chartFrame" style="height:380"></div>
                         <p id="hitsDescription" style="text-align:center" rel="localize[statstable_absfigures_hits]">#{relHitsString}</p></div>"""
