@@ -309,7 +309,7 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
     $("#loading-msg").animate
         opacity: 0
     , ->
-        $(this).css "opacity", "0"
+        $(this).hide()
     $("#main").animate
         opacity: 1
     , ->

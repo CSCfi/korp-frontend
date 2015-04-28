@@ -314,7 +314,7 @@
     $("#loading-msg").animate({
       opacity: 0
     }, function() {
-      return $(this).css("opacity", "0");
+      return $(this).hide();
     });
     $("#main").animate({
       opacity: 1
