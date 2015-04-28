@@ -4918,12 +4918,17 @@ settings.reduce_stringify = function(type) {
             var attrObj = cl.getStructAttrs()[type]
 
             var prefix = ""
-            if(!_.isUndefined(attrObj) && value != "&Sigma;" )
-                prefix = attrObj.translationKey
+            var relLocalize = ""
+            if(!_.isUndefined(attrObj) && value != "&Sigma;") {
+                if (attrObj.translationKey) {
+                    prefix = attrObj.translationKey
+                    relLocalize = " rel='localize[" + prefix + value + "]'"
+                }
+            }
 
-
-            output = $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ",
-                    [query, JSON.stringify(corpora), prefix + value, util.getLocaleString(prefix + value)]);
+            output = $.format("<span class='link' data-query='%s' data-corpora='%s'%s>%s</span> ",
+                    [query, JSON.stringify(corpora), relLocalize,
+                     util.getLocaleString(prefix + value)]);
             if(value == "&Sigma;") return appendDiagram(output, corpora, value);
 
             return appendDiagram(output, corpora, value);
