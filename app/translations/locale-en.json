@@ -242,7 +242,7 @@
     "corpselector_corporawith_plur" : "corpora with",
     "corpselector_lastupdate" : "Last update",
     "corpselector_supports" : "Supports extended context.",
-    "corpselector_limited" : "The corpus is protected; <a class=\"link\" href=\"https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAccessRights#KorpService\">information on access rights and applying for them</a>.",
+    "corpselector_limited" : "The corpus is protected; <a class=\"link\" href=\"https://lbr.csc.fi/\" target=\"_blank\">apply for access rights</a>.",
     "corpselector_time" : "Material dated",
     "corpselector_rest_time" : "Undated material",
     "corpselector_time_chosen" : "Selected material",
