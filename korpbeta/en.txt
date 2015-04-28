@@ -1,0 +1,25 @@
+
+<!-- The new Korp in final testing 2015-04-17 -->
+
+This new Korp version finally has all the features of the previous
+version, and the [main Korp installation](https://korp.csc.fi/) will soon
+be updated to the new version.
+
+However, the word picture currently works only for a handful of
+corpora. Updating all corpora to the new version will take a couple of
+weeks.
+
+If a feature that worked in the previous version does not seem to work
+any more, please contact us via the [Korp feedback form](https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback).
+
+<!-- New version of Korp in beta testing 2015-02-10 -->
+
+New features of the new Korp include this **news feature** and
+comparing two search results.
+
+Some features of the [old Korp](https://korp.csc.fi/) do not yet work:
+e.g., downloading search results, word picture and corpus information
+links.
+
+The new Korp will replace the old version once all features of the old
+one have been transferred to the new one.
