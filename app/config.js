@@ -13,6 +13,8 @@ var isProductionServerTest =
 	 || window.location.pathname.indexOf("test-") != -1));
 var isProductionServerBeta =
     (isProductionServer && window.location.pathname.indexOf("beta") != -1);
+var isProductionServerOld =
+    (isProductionServer && window.location.pathname.indexOf("old/") != -1);
 var isPublicServer = (window.location.hostname != "localhost");
 
 c.log("Production server:", isProductionServer);
@@ -74,9 +76,12 @@ settings.downloadFormatParams = {
     },
 };
 
-settings.cgi_prefix = (isProductionServerBeta
-		       ? "/cgi-bin/korp-2.66/"
-		       : (isProductionServer ? "/cgi-bin/" : "/cgi-bin/korp/"));
+settings.cgi_prefix =
+    (isProductionServerBeta
+     ? "/cgi-bin/korp-beta/"
+     : (isProductionServerOld ?
+	"/cgi-bin/korp-old/"
+	: (isProductionServer ? "/cgi-bin/" : "/cgi-bin/korp/")));
 settings.cgi_script = settings.cgi_prefix + "korp.cgi";
 settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
 settings.download_cgi_script = settings.cgi_prefix + "korp_download.cgi";
@@ -94,7 +99,8 @@ settings.reduce_struct_attribute_selector = "intersection"
 // settings.news_desk_url = "https://svn.spraakdata.gu.se/sb-arkiv/pub/component_news/json/korpnews.json";
 settings.news_desk_url = 
     window.location.protocol + "//" + window.location.hostname + "/"
-    + window.location.pathname + "news/json/korpnews.json";
+    + window.location.pathname + "news/json/korp"
+    + (isProductionServerBeta ? "beta" : "") + "news.json";
 
 // authenticationType: "basic", "shibboleth" or "none"
 settings.authenticationType = (isProductionServer ? "shibboleth" : "basic");
