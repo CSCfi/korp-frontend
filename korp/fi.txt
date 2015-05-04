@@ -1,0 +1,34 @@
+
+<!-- Korp päivitetty uuteen versioon 2015-04-30c -->
+
+Uuden Korp-version 4.0 uusia ominaisuuksia ovat mm. tämä uutistoiminto
+ja kahden hakutuloksen vertailu. <a
+href="http://www.kielipankki.fi/KielipankkiUutinenKorp30042015"
+target="_blank">Lisätietoja päivityksestä ja uusista ominaisuuksista
+Kielipankin uutisissa</a>.
+
+Sanakuva toimii toistaiseksi vasta muutamalla korpuksella.
+Sanakuvatietokannan päivittäminen kaikkien korpusten osalta vie
+muutaman viikon. Vanha Korp toimivine sanakuvineen on edelleen
+käytettävissä osoitteessa <a href="https://korp.csc.fi/old/"
+target="_blank">https://korp.csc.fi/old/</a>.
+
+Korpusvalikossa HS.fi on nyt kansiossa
+”Internet-keskusteluaineistoja”, ja LAS2 kansiossa ”Suomenoppijoiden
+kieltä”.
+
+Korjaus- ja kehitysehdotuksia ja muuta palautetta voi lähettää <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html"
+target="_blank">Korp-palautelomakkeen</a> kautta.
+
+<!-- EuroParl-rinnakkaiskorpus 2015-04-30b -->
+
+Osastossa ”Rinnakkaistekstit” on nyt EuroParl-rinnakkaiskorpuksesta
+suomen kanssa kohdistettuina englanti, ruotsi, saksa, ranska, espanja
+ja viro.
+
+<!-- ICLFI – Kansainvälinen oppijansuomen korpus 2015-04-30a -->
+
+ICLFI – International Corpus of Learner Finnish – Kansainvälinen
+oppijansuomen korpus on kansiossa ”Suomenoppijoiden kieltä”.
+Aineistoon täytyy hakea erillinen käyttöoikeus.

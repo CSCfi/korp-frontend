@@ -1,4 +1,11 @@
 
+<!-- Korpin pääasennus päivitetty uuteen versioon 2015-04-30 -->
+
+[Korpin pääasennus](https://korp.csc.fi/) on nyt päivitetty uuteen
+versioon (Korp 4.0). Tämä Korpin beta-versio
+([https://korp.csc.fi/beta/](https://korp.csc.fi/beta/)) jatkaa Korpin
+uusien ominaisuuksien ja korjauksien testialustana.
+
 <!-- Uusi Korp lopputestausvaiheessa 2015-04-17 -->
 
 Tässä uudessa Korp-versiossa ovat viimein mukana kaikki vanhan Korpin

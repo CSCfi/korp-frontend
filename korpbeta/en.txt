@@ -1,4 +1,11 @@
 
+<!-- The main Korp installation updated to the new version 2015-04-30 -->
+
+[The main Korp installation](https://korp.csc.fi/) has now been
+updated to the new version 4.0. This Korp beta installation
+([https://korp.csc.fi/beta/](https://korp.csc.fi/beta/)) continues to
+serve as a testing platform for new Korp features and bug fixes.
+
 <!-- The new Korp in final testing 2015-04-17 -->
 
 This new Korp version finally has all the features of the previous

@@ -1,0 +1,34 @@
+
+<!-- The main Korp installation updated 2015-04-30c -->
+
+New features of the new Korp version 4.0 include this **mewsdesk** and
+comparing the results of two searches. <a
+href="http://www.kielipankki.fi/KielipankkiNewsKorp30042015"
+target="_blank">More information about the update and new features in
+Kielipankki news.</a>
+
+The word picture works at the moment only for a handful of corpora.
+Updating the word picture database for all corpora takes a few weeks.
+The old Korp with its working word picture is still available at <a
+href="https://korp.csc.fi/old/"
+target="_blank">https://korp.csc.fi/old/</a>.
+
+In the corpus selector the corpus HS.fi is now in the folder
+”Internet-keskusteluaineistoja” and LAS2 in ”Suomenoppijoiden kieltä”.
+
+You can send bug reports, feature requests and other feedback on Korp
+via the <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback"
+target="_blank">Korp feedback form</a>.
+
+<!-- EuroParl parallel corpus 2015-04-30b -->
+
+The Parallel corpus mode now contains the EuroParl parallel corpus
+Finnish aligned with English, Swedish, German, French, Spanish and
+Estonian.
+
+<!-- ICLFI – International Corpus of Learner Finnish 2015-04-30a -->
+
+ICLFI – International Corpus of Learner Finnish is in the corpus
+folder ”Suomenoppijoiden kieltä”. The access to the corpus is
+restricted: it requires individual access rights.
