@@ -6,6 +6,7 @@ versioon (Korp 4.0). Tämä Korpin beta-versio
 ([https://korp.csc.fi/beta/](https://korp.csc.fi/beta/)) jatkaa Korpin
 uusien ominaisuuksien ja korjauksien testialustana.
 
+
 <!-- Uusi Korp lopputestausvaiheessa 2015-04-17 -->
 
 Tässä uudessa Korp-versiossa ovat viimein mukana kaikki vanhan Korpin
@@ -23,6 +24,7 @@ Korpusvalikossa HS.fi on siirretty kansioon
 Jos jokin aiemmin toiminut ominaisuus ei näytä toimivan, ota yhteyttä
 [Korp-palautelomakkeen](https://elomake.helsinki.fi/lomakkeet/56593/lomake.html)
 kautta.
+
 
 <!-- Uusi Korp-versio betatestausvaiheessa 2015-02-10 -->
 

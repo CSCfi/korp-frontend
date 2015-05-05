@@ -21,11 +21,13 @@ Korjaus- ja kehitysehdotuksia ja muuta palautetta voi lähettää <a
 href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html"
 target="_blank">Korp-palautelomakkeen</a> kautta.
 
+
 <!-- EuroParl-rinnakkaiskorpus 2015-04-30b -->
 
 Osastossa ”Rinnakkaistekstit” on nyt EuroParl-rinnakkaiskorpuksesta
 suomen kanssa kohdistettuina englanti, ruotsi, saksa, ranska, espanja
 ja viro.
+
 
 <!-- ICLFI – Kansainvälinen oppijansuomen korpus 2015-04-30a -->
 

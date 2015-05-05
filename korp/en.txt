@@ -21,11 +21,13 @@ via the <a
 href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback"
 target="_blank">Korp feedback form</a>.
 
+
 <!-- EuroParl parallel corpus 2015-04-30b -->
 
 The Parallel corpus mode now contains the EuroParl parallel corpus
 Finnish aligned with English, Swedish, German, French, Spanish and
 Estonian.
+
 
 <!-- ICLFI – International Corpus of Learner Finnish 2015-04-30a -->
 
