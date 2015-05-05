@@ -10,7 +10,7 @@ Kielipankki news.</a>
 The word picture works at the moment only for a handful of corpora.
 Updating the word picture database for all corpora takes a few weeks.
 The old Korp with its working word picture is still available at <a
-href="https://korp.csc.fi/old/"
+href="/old/?lang=en"
 target="_blank">https://korp.csc.fi/old/</a>.
 
 In the corpus selector the corpus HS.fi is now in the folder
@@ -24,13 +24,21 @@ target="_blank">Korp feedback form</a>.
 
 <!-- EuroParl parallel corpus 2015-04-30b -->
 
-The Parallel corpus mode now contains the EuroParl parallel corpus
-Finnish aligned with English, Swedish, German, French, Spanish and
-Estonian.
+The Parallel corpus mode now contains the [EuroParl parallel
+corpus](?mode=parallel#?corpus=europarl_v7_enfi_fi,europarl_v7_svfi_fi,europarl_v7_defi_fi,europarl_v7_frfi_fi,europarl_v7_esfi_fi,europarl_v7_etfi_fi&lang=en)
+Finnish aligned with
+[English](?mode=parallel#?corpus=europarl_v7_enfi_fi&lang=en),
+[Swedish](?mode=parallel#?corpus=europarl_v7_svfi_fi&lang=en),
+[German](?mode=parallel#?corpus=europarl_v7_defi_fi&lang=en),
+[French](?mode=parallel#?corpus=europarl_v7_frfi_fi&lang=en),
+[Spanish](?mode=parallel#?corpus=europarl_v7_esfi_fi&lang=en) and
+[Estonian](?mode=parallel#?corpus=europarl_v7_etfi_fi&lang=en).
 
 
 <!-- ICLFI – International Corpus of Learner Finnish 2015-04-30a -->
 
-ICLFI – International Corpus of Learner Finnish is in the corpus
-folder ”Suomenoppijoiden kieltä”. The access to the corpus is
-restricted: it requires individual access rights.
+[ICLFI – International Corpus of Learner
+Finnish](?mode=default#?corpus=iclfi&lang=en) is in the corpus folder
+”Suomenoppijoiden kieltä”. The access to the corpus is restricted: you
+need to <a href="https://lbr.csc.fi/" target="_blank">apply for access
+rights</a>.

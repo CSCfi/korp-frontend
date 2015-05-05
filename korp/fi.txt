@@ -10,7 +10,7 @@ Kielipankin uutisissa</a>.
 Sanakuva toimii toistaiseksi vasta muutamalla korpuksella.
 Sanakuvatietokannan päivittäminen kaikkien korpusten osalta vie
 muutaman viikon. Vanha Korp toimivine sanakuvineen on edelleen
-käytettävissä osoitteessa <a href="https://korp.csc.fi/old/"
+käytettävissä osoitteessa <a href="/old/"
 target="_blank">https://korp.csc.fi/old/</a>.
 
 Korpusvalikossa HS.fi on nyt kansiossa
@@ -24,13 +24,21 @@ target="_blank">Korp-palautelomakkeen</a> kautta.
 
 <!-- EuroParl-rinnakkaiskorpus 2015-04-30b -->
 
-Osastossa ”Rinnakkaistekstit” on nyt EuroParl-rinnakkaiskorpuksesta
-suomen kanssa kohdistettuina englanti, ruotsi, saksa, ranska, espanja
-ja viro.
+Osastossa ”Rinnakkaistekstit” on nyt
+[EuroParl-rinnakkaiskorpuksesta](?mode=parallel#?corpus=europarl_v7_enfi_fi,europarl_v7_svfi_fi,europarl_v7_defi_fi,europarl_v7_frfi_fi,europarl_v7_esfi_fi,europarl_v7_etfi_fi)
+suomen kanssa kohdistettuna
+[englanti](?mode=parallel#?corpus=europarl_v7_enfi_fi),
+[ruotsi](?mode=parallel#?corpus=europarl_v7_svfi_fi),
+[saksa](?mode=parallel#?corpus=europarl_v7_defi_fi),
+[ranska](?mode=parallel#?corpus=europarl_v7_frfi_fi),
+[espanja](?mode=parallel#?corpus=europarl_v7_esfi_fi) ja
+[viro](?mode=parallel#?corpus=europarl_v7_etfi_fi).
 
 
 <!-- ICLFI – Kansainvälinen oppijansuomen korpus 2015-04-30a -->
 
-ICLFI – International Corpus of Learner Finnish – Kansainvälinen
-oppijansuomen korpus on kansiossa ”Suomenoppijoiden kieltä”.
-Aineistoon täytyy hakea erillinen käyttöoikeus.
+[ICLFI – International Corpus of Learner Finnish – Kansainvälinen
+oppijansuomen korpus](?mode=default#?corpus=iclfi) on kansiossa
+”Suomenoppijoiden kieltä”. Aineistoon täytyy <a
+href="https://lbr.csc.fi/" target="_blank">hakea erillinen
+käyttöoikeus</a>.
