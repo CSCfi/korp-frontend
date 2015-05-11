@@ -66,7 +66,7 @@
   });
 
   $.when(loc_dfd, deferred_domReady).then((function(loc_data) {
-    var corpus, labs, paper, prevFragment, tab_a_selector;
+    var corpus, labs, make_shibboleth_link, paper, prevFragment, tab_a_selector;
     c.log("preloading done, t = ", $.now() - t);
     angular.bootstrap(document, ['korpApp']);
     corpus = search()["corpus"];
@@ -146,22 +146,37 @@
       $("#pass").val("");
       return $("#corpusbox").corpusChooser("redraw");
     });
+    make_shibboleth_link = function(selector, url_prop, add_link_fn) {
+      var url;
+      url = settings[url_prop];
+      if (url != null) {
+        if (typeof url !== "function") {
+          add_link_fn($(selector), url);
+        } else {
+          add_link_fn($(selector), "javascript:");
+          $(selector).find("a").click((function(url_fn) {
+            return function(e) {
+              e.preventDefault();
+              window.location.href = url_fn();
+            };
+          })(url));
+        }
+      } else {
+        c.log("settings." + url_prop + " not defined");
+      }
+    };
     if (settings.authenticationType == null) {
       settings.authenticationType = "basic";
     }
     settings.authenticationType = settings.authenticationType.toLowerCase();
     switch (settings.authenticationType) {
       case "shibboleth":
-        if (settings.shibbolethLoginUrl != null) {
-          $("#login").find("a").attr("href", settings.shibbolethLoginUrl);
-        } else {
-          c.log("settings.shibbolethLoginUrl not defined");
-        }
-        if (settings.shibbolethLogoutUrl != null) {
-          $("#log_out").wrapInner("<a href='" + settings.shibbolethLogoutUrl + "'></a>");
-        } else {
-          c.log("settings.shibbolethLogoutUrl not defined");
-        }
+        make_shibboleth_link("#login", "shibbolethLoginUrl", function(elem, href) {
+          return elem.find("a").attr("href", href);
+        });
+        make_shibboleth_link("#log_out", "shibbolethLogoutUrl", function(elem, href) {
+          return elem.wrapInner("<a href='" + href + "'></a>");
+        });
         break;
       case "basic":
         $("#login").find("a").attr("href", "javascript:");

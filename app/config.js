@@ -107,10 +107,17 @@ settings.authenticationType = (isProductionServer ? "shibboleth" : "basic");
 // Login and logout URLs to use with Shibboleth authentication if
 // authenticationType == "shibboleth"
 // for eduGAIN / CSC Account:
-settings.shibbolethLoginUrl = baseURL + "shibboleth-ds/index.html";
-//settings.shibbolethLoginUrl = "https://haka.funet.fi/shibboleth/WAYF?entityID=https://sp.korp.csc.fi/&return=https%3A%2F%2Fkorp.csc.fi%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dhttps%253A%252F%252Fkorp.csc.fi%252F%2523display%253Dlogin";
-settings.shibbolethLogoutUrl =
-    "https://korp.csc.fi/Shibboleth.sso/Logout?return=" + encodeURI(baseURL);
+// settings.shibbolethLoginUrl = baseURL + "shibboleth-ds/index.html";
+settings.shibbolethLoginUrl = function () {
+    return (baseURL + "shibboleth-ds/index.html?"
+	    + encodeURIComponent(window.location.href));
+};
+// settings.shibbolethLogoutUrl =
+//     "https://korp.csc.fi/Shibboleth.sso/Logout?return=" + encodeURI(baseURL);
+settings.shibbolethLogoutUrl = function () {
+    return ("https://korp.csc.fi/Shibboleth.sso/Logout?return="
+	    + encodeURIComponent(window.location.href));
+}
 
 // The extra info (usually links) to be shown in the corpus info box
 // of the corpus chooser and the KWIC results sidebar.

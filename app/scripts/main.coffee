@@ -136,6 +136,34 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
         $("#pass").val ""
         $("#corpusbox").corpusChooser "redraw"
 
+    # Add to selector a Shibboleth login or logout link as defined by
+    # settings[url_prop]. If the link is a string, it is taken as a URL.
+    # If it is a function, it is used to generate the URL dynamically
+    # at link click time. This allows passing the current URL (including
+    # parameters and hash) to the Shibboleth pages (scripts), which in
+    # turn allows retaining the state of Korp (mode, language, selected
+    # corpora, query) in login or logout. The function parameter
+    # add_link_fn is used to add the URL to the HTML. It should take two
+    # arguments: elem (corresponding to $(selector)) and href (the value
+    # of the href attribute of the a element to be set or added).
+    # (Jyrki Niemi 2015-05-06)
+    make_shibboleth_link = (selector, url_prop, add_link_fn) ->
+        url = settings[url_prop]
+        if url?
+            if typeof url != "function"
+                add_link_fn($(selector), url)
+            else
+                add_link_fn($(selector), "javascript:")
+                $(selector).find("a").click ((url_fn) ->
+                    (e) ->
+                        e.preventDefault()
+                        window.location.href = url_fn()
+                        return
+                )(url)
+        else
+            c.log "settings.#{url_prop} not defined"
+        return
+
     # Use Basic authentication if not specified explicitly
     settings.authenticationType ?= "basic"
     settings.authenticationType = settings.authenticationType.toLowerCase()
@@ -144,16 +172,15 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
     switch settings.authenticationType
         when "shibboleth"
             # Change the href of login link to the one specified in config.js
-            if settings.shibbolethLoginUrl?
-                $("#login").find("a").attr("href", settings.shibbolethLoginUrl)
-            else
-                c.log "settings.shibbolethLoginUrl not defined"
+            make_shibboleth_link(
+                "#login", "shibbolethLoginUrl",
+                (elem, href) -> elem.find("a").attr("href", href)
+            )
             # Add an 'a' element to the logout link, href specified in config.js
-            if settings.shibbolethLogoutUrl?
-                $("#log_out").wrapInner(
-                    "<a href='#{settings.shibbolethLogoutUrl}'></a>")
-            else
-                c.log "settings.shibbolethLogoutUrl not defined"
+            make_shibboleth_link(
+                "#log_out", "shibbolethLogoutUrl",
+                (elem, href) -> elem.wrapInner("<a href='#{href}'></a>")
+            )
         when "basic"
             # Invoke JavaScript code from the login link
             $("#login").find("a").attr("href", "javascript:")
