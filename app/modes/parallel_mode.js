@@ -548,6 +548,366 @@ settings.corpora.kfspc_sv = {
     hide : true
 };
 
+/* JRC */
+
+settings.corpora.jrc_acquis_enfi_en = {
+    title : "JRC-Acquis englanti",
+    description : "jrc_acquis_enfi_en",
+    id : "jrc_acquis_enfi_en",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "en",
+    linked_to : ["jrc_acquis_enfi_fi"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.jrc_acquis,
+    hide : true
+};
+
+settings.corpora.europarl_v7_enfi_fi = {
+    title : "EuroParl suomi-englanti",
+    description : "EuroParl suomi-englanti-rinnakkaiskorpus (Europarl v7)",
+    id : "europarl_v7_enfi_fi",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "fi",
+    linked_to : ["europarl_v7_enfi_en"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    metadata_urn : "unspecified",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.europarl_v7
+};
+
+settings.corpora.jrc_acquis_hufi_hu = {
+    title : "JRC-Acquis unkari",
+    description : "jrc_acquis_hufi_hu",
+    id : "jrc_acquis_hufi_hu",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "hu",
+    linked_to : ["jrc_acquis_hufi_fi"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.jrc_acquis,
+    hide : true
+};
+
+settings.corpora.jrc_acquis_hufi_fi = {
+    title : "JRC-Acquis suomi–unkari",
+    description : "JRC-Acquis suomi–unkari",
+    id : "jrc_acquis_hufi_fi",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "fi",
+    linked_to : ["jrc_acquis_hufi_hu"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.jrc_acquis
+};
+
+settings.corpora.jrc_acquis_frfi_fr = {
+    title : "JRC-Acquis ranska",
+    description : "jrc_acquis_frfi_fr",
+    id : "jrc_acquis_frfi_fr",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "fr",
+    linked_to : ["jrc_acquis_frfi_fi"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.jrc_acquis,
+    hide : true
+};
+
+settings.corpora.jrc_acquis_frfi_fi = {
+    title : "JRC-Acquis suomi–ranska",
+    description : "JRC-Acquis suomi–ranska",
+    id : "jrc_acquis_frfi_fi",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "fi",
+    linked_to : ["jrc_acquis_frfi_fr"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.jrc_acquis
+};
+
+settings.corpora.jrc_acquis_plfi_pl = {
+    title : "JRC-Acquis puola",
+    description : "jrc_acquis_plfi_pl",
+    id : "jrc_acquis_plfi_pl",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "pl",
+    linked_to : ["jrc_acquis_plfi_fi"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.jrc_acquis,
+    hide : true
+};
+
+settings.corpora.jrc_acquis_plfi_fi = {
+    title : "JRC-Acquis suomi–puola",
+    description : "JRC-Acquis suomi–puola",
+    id : "jrc_acquis_plfi_fi",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "fi",
+    linked_to : ["jrc_acquis_plfi_pl"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.jrc_acquis
+};
+
+settings.corpora.jrc_acquis_itfi_it = {
+    title : "JRC-Acquis italia",
+    description : "jrc_acquis_itfi_it",
+    id : "jrc_acquis_itfi_it",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "it",
+    linked_to : ["jrc_acquis_itfi_fi"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.jrc_acquis,
+    hide : true
+};
+
+settings.corpora.jrc_acquis_itfi_fi = {
+    title : "JRC-Acquis suomi–italia",
+    description : "JRC-Acquis suomi–italia",
+    id : "jrc_acquis_itfi_fi",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "fi",
+    linked_to : ["jrc_acquis_itfi_it"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.jrc_acquis
+};
+
+settings.corpora.jrc_acquis_esfi_es = {
+    title : "JRC-Acquis espanja",
+    description : "jrc_acquis_esfi_es",
+    id : "jrc_acquis_esfi_es",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "es",
+    linked_to : ["jrc_acquis_esfi_fi"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.jrc_acquis,
+    hide : true
+};
+
+settings.corpora.jrc_acquis_esfi_fi = {
+    title : "JRC-Acquis suomi–espanja",
+    description : "JRC-Acquis suomi–espanja",
+    id : "jrc_acquis_esfi_fi",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "fi",
+    linked_to : ["jrc_acquis_esfi_es"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.jrc_acquis
+};
+
+settings.corpora.jrc_acquis_etfi_et = {
+    title : "JRC-Acquis viro",
+    description : "jrc_acquis_etfi_et",
+    id : "jrc_acquis_etfi_et",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "et",
+    linked_to : ["jrc_acquis_etfi_fi"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.jrc_acquis,
+    hide : true
+};
+
+settings.corpora.jrc_acquis_etfi_fi = {
+    title : "JRC-Acquis suomi–viro",
+    description : "JRC-Acquis suomi–viro",
+    id : "jrc_acquis_etfi_fi",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "fi",
+    linked_to : ["jrc_acquis_etfi_et"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.jrc_acquis
+};
+
+settings.corpora.jrc_acquis_defi_de = {
+    title : "JRC-Acquis saksa",
+    description : "jrc_acquis_defi_de",
+    id : "jrc_acquis_defi_de",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "de",
+    linked_to : ["jrc_acquis_defi_fi"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.jrc_acquis,
+    hide : true
+};
+
+settings.corpora.jrc_acquis_defi_fi = {
+    title : "JRC-Acquis suomi–saksa",
+    description : "JRC-Acquis suomi–saksa",
+    id : "jrc_acquis_defi_fi",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "fi",
+    linked_to : ["jrc_acquis_defi_de"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.jrc_acquis
+};
+
+settings.corpora.jrc_acquis_svfi_sv = {
+    title : "JRC-Acquis ruotsi",
+    description : "jrc_acquis_svfi_sv",
+    id : "jrc_acquis_svfi_sv",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "sv",
+    linked_to : ["jrc_acquis_svfi_fi"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.jrc_acquis,
+    hide : true
+};
+
+settings.corpora.europarl_v7_svfi_fi = {
+    title : "EuroParl suomi-ruotsi",
+    description : "EuroParl suomi-ruotsi-rinnakkaiskorpus (Europarl v7)",
+    id : "europarl_v7_svfi_fi",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "fi",
+    linked_to : ["europarl_v7_svfi_sv"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    metadata_urn : "unspecified",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.europarl_v7
+};
+
+
+
+/* */
+
+
 /* KFSPC */
 settings.corpora.kfspc_fi = {
     title : "Kotus Finnish-Swedish Parallel Corpus (suomi)",
