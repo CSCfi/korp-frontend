@@ -4877,10 +4877,14 @@ settings.reduce_stringify = function(type) {
                     .join(", ");
             });
 
-
+            // Assume simple values (instead of feature set values)
+            // for lemmas in other modes than "swedish" and thus use
+            // the operator = instead of contains.
+            var comp_op = (type == "lemma" && window.currentMode != "swedish"
+                           ? " = " : " contains ");
             var cqp = _.map(_.zip.apply(null, _.invoke(value, "split", " ")), function(tup) {
                 return "[" + _.map(_.uniq(tup), function(item) {
-                    return "(" + type + " contains '" + item + "')"    
+                    return "(" + type + comp_op + "'" + item + "')"
                 }).join(" | ") + "]"
 
             }).join(" ")
