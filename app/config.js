@@ -109,14 +109,14 @@ settings.authenticationType = (isProductionServer ? "shibboleth" : "basic");
 // for eduGAIN / CSC Account:
 // settings.shibbolethLoginUrl = baseURL + "shibboleth-ds/index.html";
 settings.shibbolethLoginUrl = function () {
-    return (baseURL + "shibboleth-ds/index.html?"
-	    + encodeURIComponent(window.location.href));
+    return ("/shibboleth-ds/index.html?"
+           + encodeURIComponent(window.location.href + "&shib_logged_in"));
 };
 // settings.shibbolethLogoutUrl =
 //     "https://korp.csc.fi/Shibboleth.sso/Logout?return=" + encodeURI(baseURL);
 settings.shibbolethLogoutUrl = function () {
-    return ("https://korp.csc.fi/Shibboleth.sso/Logout?return="
-	    + encodeURIComponent(window.location.href));
+    return ("/Shibboleth.sso/Logout?return="
+            + encodeURIComponent(window.location.href));
 }
 
 // The extra info (usually links) to be shown in the corpus info box

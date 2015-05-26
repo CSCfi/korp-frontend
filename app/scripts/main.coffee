@@ -220,7 +220,9 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
 
             else
                 showAbout()
-        else if display is "login"
+        else if display is "login" or
+                (settings.authenticationType == "shibboleth" and
+                 search().shib_logged_in?)
 
             if settings.authenticationType == "basic"
                 $("#login_popup").dialog(
@@ -276,7 +278,7 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
                         $("body").toggleClass("logged_in not_logged_in")
                         util.setLogin()
 
-                    search "display", null
+                    search "shib_logged_in", null
                 ).fail ->
                     c.log "login fail"
 

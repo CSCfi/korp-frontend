@@ -217,7 +217,7 @@
         } else {
           showAbout();
         }
-      } else if (display === "login") {
+      } else if (display === "login" || (settings.authenticationType === "shibboleth" && (search().shib_logged_in != null))) {
         if (settings.authenticationType === "basic") {
           $("#login_popup").dialog({
             height: 220,
@@ -266,7 +266,7 @@
               $("body").toggleClass("logged_in not_logged_in");
               util.setLogin();
             }
-            return search("display", null);
+            return search("shib_logged_in", null);
           }).fail(function() {
             return c.log("login fail");
           });
