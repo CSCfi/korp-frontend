@@ -4923,16 +4923,27 @@ settings.reduce_stringify = function(type) {
             return appendDiagram(output, corpora, value);
 
         };
-    default: // structural attributes
+    default: // structural attributes and non-standard positional attributes
         return function(row, cell, value, columnDef, dataContext) {
             var corpora = getCorpora(dataContext);
-            var cl = settings.corpusListing.subsetFactory(corpora)
+            var cl = settings.corpusListing.subsetFactory(corpora);
+            var attrObj;
+            var query_format;
+            // Prefix the name of the attribute with an underscore in
+            // the CQP expression only for structural attributes.
+            if (type in cl.getStructAttrs()) {
+                attrObj = cl.getStructAttrs()[type];
+                query_format = '[_.%s="%s"]';
+            } else {
+                attrObj = cl.getCurrentAttributes()[type];
+                query_format = '[%s="%s"]';
+            }
             var query = $.map(dataContext.hit_value.split(" "), function(item) {
-                return $.format('[_.%s="%s"]', [type, item]);
+                return $.format(query_format, [type, item]);
             }).join(" ");
 
             // if(type in cl.getStructAttrs())
-            var attrObj = cl.getStructAttrs()[type]
+            // var attrObj = cl.getStructAttrs()[type]
 
             var prefix = ""
             var relLocalize = ""
