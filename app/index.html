@@ -43,7 +43,7 @@
           <ul id="cog_menu" class="dropdown-menu popper_menu">
             <li><a id="about" ng-click="show_about = 'about'" rel="localize[about]">About Korp</a></li>
             <li><a id="docs" href="https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiOhjeetKorp" target="_blank" rel="localize[docs]" class="follow_link"></a></li>
-            <li><a href="javascript:" rel="localize[feedback_link]">Feedback</a></li>
+            <li id="feedback"><a href="{{'feedback_url' | loc}}" target="_blank" class="follow_link">{{'feedback_linktext' | loc}}</a></li>
             <li id="korplink"><a href="/korp" rel="localize[korp]" class="follow_link"></a></li>
             <!-- li#korplablink-->
             <!--   a.follow_link(href='/korplabb', rel='localize[korp_lab]')-->

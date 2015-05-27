@@ -30,6 +30,8 @@
     "university" : "Helsingfors universitet",
     "language_bank" : "Språkbanken i Finland",
     "feedback_link" : "<a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback_sv' target='_blank'>Feedback</a>",
+    "feedback_url" : "https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback_sv",
+    "feedback_linktext" : "Feedback",
     "search_history" : "Sökhistorik",
     "search_history_clear" : "✘ Rensa sökhistorik",
     "add_lang" : "Fler språk",

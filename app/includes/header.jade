@@ -19,8 +19,8 @@
       a#about(ng-click="show_about = 'about'", rel='localize[about]') About Korp
     li
       a#docs.follow_link(href='https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiOhjeetKorp', target='_blank', rel='localize[docs]')
-    li
-      a(href='javascript:', rel='localize[feedback_link]') Feedback
+    li#feedback
+      a(href="{{'feedback_url' | loc}}", class="follow_link", target="_blank") {{'feedback_linktext' | loc}}
     li#korplink
       a.follow_link(href='/korp', rel='localize[korp]')
     // li#korplablink
