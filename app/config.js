@@ -4611,7 +4611,7 @@ var locally_available_corpora =
      "kotus_ns_presidentti_.*",
      "kotus_klassikot",
      "kotus_sananparret",
-     "la_murre",
+     "la_murre_.*",
      "(mulcold|legal)_..",
      "skvr",
      "sks_kivi_fi",
