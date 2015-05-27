@@ -305,5 +305,6 @@
     "corpus_licence" : "Lisenssi",
     "corpus_metadata" : "Kuvailutiedot",
     "corpus_homepage" : "Kotisivu",
-    "corpus_compiler" : "Koostaja"
+    "corpus_compiler" : "Koostaja",
+    "corpus_download" : "Lataa aineisto"
 }

@@ -298,5 +298,6 @@
     "corpus_licence" : "Lisens",
     "corpus_metadata" : "Metadata",
     "corpus_homepage" : "Hemsida",
-    "corpus_compiler" : "Sammanställare"
+    "corpus_compiler" : "Sammanställare",
+    "corpus_download" : "Ladda ner korpusen"
 }

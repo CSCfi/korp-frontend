@@ -128,13 +128,14 @@ settings.corpusExtraInfoItems = [
     "licence",
     "homepage",
     "compiler",
+    "download",
 ];
 
 // The extra info (usually links) to be shown in the corpus info box
 // of the corpus chooser and the KWIC results sidebar.
 settings.corpusExtraInfo = {
     corpus_infobox : settings.corpusExtraInfoItems,
-    sidebar : ["urn", "metadata", "licence"]
+    sidebar : ["urn", "metadata", "licence", "download"]
 };
 
 settings.wordPictureMaxWords = 30;
