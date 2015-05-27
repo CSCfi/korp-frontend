@@ -18,7 +18,7 @@ window.korpApp = angular.module('korpApp', ["watchFighters"
 korpApp.run ($rootScope, $location, utils, searches) ->
     s = $rootScope
     s._settings = settings
-    s.lang = "sv"
+    s.lang = settings.defaultLanguage
     s.word_selected = null
     s.isLab = window.isLab;
 
