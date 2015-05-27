@@ -2418,10 +2418,15 @@ var la_murre_grouping = [
     ] ]
 ];
 
-// Extract dialect regions, groups and parishes from la_murre_grouping
+// LA-murre corpus name prefix, prefixed to a parish name
+var la_murre_corpus_prefix = "la_murre_"
+
+// Extract dialect regions, groups, parishes and corpus names from
+// la_murre_grouping
 var la_murre_regions = [];
 var la_murre_groups = [];
 var la_murre_parishes = [];
+var la_murre_corpora = [];
 for (var i = 0; i < la_murre_grouping.length; i++) {
     la_murre_regions.push(la_murre_grouping[i][0]);
     var groups = la_murre_grouping[i][2];
@@ -2430,6 +2435,7 @@ for (var i = 0; i < la_murre_grouping.length; i++) {
 	var parishes = groups[j][2];
 	for (var k = 0; k < parishes.length; k++) {
 	    la_murre_parishes.push(parishes[k][1]);
+	    la_murre_corpora.push(la_murre_corpus_prefix + parishes[k][0]);
 	}
     }
 }
@@ -2635,7 +2641,7 @@ settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree) {
 	    };
 	    settings.fn.add_corpus_settings(
 		settings.templ.la_murre, [templ_fill], main_folder,
-		"la_murre_");
+		la_murre_corpus_prefix);
 	}
     }
 };
@@ -2644,11 +2650,17 @@ settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree) {
 settings.fn.make_folders_la_murre(
     settings.corporafolders.spoken.la_murre, la_murre_grouping);
 
+// Construct a shorthand alias
+settings.corpus_aliases.la_murre = la_murre_corpora.join(",");
+settings.corpus_aliases["la-murre"] = settings.corpus_aliases.la_murre;
+
 // Delete the variables used for constructing the settings
 delete la_murre_grouping;
 delete la_murre_regions;
 delete la_murre_groups;
 delete la_murre_parishes;
+delete la_murre_corpora;
+delete la_murre_corpus_prefix;
 
 
 settings.corpora.las2 = {
