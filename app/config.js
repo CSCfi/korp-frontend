@@ -119,10 +119,21 @@ settings.shibbolethLogoutUrl = function () {
             + encodeURIComponent(window.location.href));
 }
 
+// The supported corpus extra info items, typically links. If you add
+// a new item X, also remember to add corresponding translations for
+// the link text to locale-??.json with the key "corpus_X".
+settings.corpusExtraInfoItems = [
+    "urn",
+    "metadata",
+    "licence",
+    "homepage",
+    "compiler",
+];
+
 // The extra info (usually links) to be shown in the corpus info box
 // of the corpus chooser and the KWIC results sidebar.
 settings.corpusExtraInfo = {
-    corpus_infobox : ["urn", "metadata", "licence", "homepage", "compiler"],
+    corpus_infobox : settings.corpusExtraInfoItems,
     sidebar : ["urn", "metadata", "licence"]
 };
 

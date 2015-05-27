@@ -591,12 +591,11 @@ util.setDownloadLinks = (xhr_settings, result_data) ->
             korp_url: window.location.href
             korp_server_url: settings.cgi_script
             corpus_config: JSON.stringify(result_corpora_settings)
-            corpus_config_info_keys: [
-                'metadata'
-                'licence'
-                'homepage'
-                'compiler'
-            ].join(',')
+            # corpus_config_info_keys previously excluded "urn", but
+            # now it is included if listed in
+            # settings.corpusExtraInfoItems. Does it matter?
+            corpus_config_info_keys:
+                (settings.corpusExtraInfoItems or []).join(',')
             urn_resolver: settings.urnResolver
         if 'downloadFormatParams' of settings
             if '*' of settings.downloadFormatParams
@@ -993,13 +992,10 @@ util.findoutType = (variable) ->
 
 util.formatCorpusExtraInfo = (corpusObj) ->
     info_items =
-        if arguments.length > 1 and arguments[1] then arguments[1] else [
-            'urn'
-            'metadata'
-            'licence'
-            'homepage'
-            'compiler'
-        ]
+        if arguments.length > 1 and arguments[1]
+            arguments[1]
+        else
+            settings.corpusExtraInfoItems? or []
 
     # Get the value of a URN (preferred, prefixed with resolver URL)
     # or URL property in obj. The optional second argument specifies
@@ -1081,23 +1077,22 @@ util.formatCorpusExtraInfo = (corpusObj) ->
     result
 
 # Copy information from the "info" property of corpusObj to the top
-# level of corpusObj. This information may come from the backend
-# .info file or database. The same information can also be specified
-# in top-level properties of the frontend config file, but the
-# information from "info" overrides them, so that this information
-# can be accessed uniformly through the top-level properties. A
-# property name may contain a prefix indicating a section (Metadata,
-# Licence or Compiler): these are converted to separate composite
-# objects in corpusObj. For example, Licence_URL: X, Licence_Name: Y
-# is converted to licence : { url: X, name: Y }.
+# level of corpusObj. This information may come from the backend .info
+# file or database. The same information can also be specified in
+# top-level properties of the frontend config file, but the
+# information from "info" overrides them, so that this information can
+# be accessed uniformly through the top-level properties. A property
+# name may contain a prefix indicating a section (Metadata, Licence,
+# Compiler, or other listed in settings.corpusExtraInfoItems): these
+# are converted to separate composite objects in corpusObj. For
+# example, Licence_URL: X, Licence_Name: Y is converted to licence : {
+# url: X, name: Y }.
 
 util.copyCorpusInfoToConfig = (corpusObj) ->
-    info_key_sects = [
-        ''
-        'Metadata'
-        'Licence'
-        'Compiler'
-    ]
+    info_key_sects =
+        for item in settings.corpusExtraInfoItems when item != 'urn'
+            item.charAt(0).toUpperCase() + item.slice(1)
+    info_key_sects.push('')
     info_subkeys = [
         'Name'
         'Description'

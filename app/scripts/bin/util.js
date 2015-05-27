@@ -743,7 +743,7 @@
         korp_url: window.location.href,
         korp_server_url: settings.cgi_script,
         corpus_config: JSON.stringify(result_corpora_settings),
-        corpus_config_info_keys: ['metadata', 'licence', 'homepage', 'compiler'].join(','),
+        corpus_config_info_keys: (settings.corpusExtraInfoItems || []).join(','),
         urn_resolver: settings.urnResolver
       };
       if ('downloadFormatParams' in settings) {
@@ -1122,7 +1122,7 @@
 
   util.formatCorpusExtraInfo = function(corpusObj) {
     var getUrnOrUrl, i, info_item, info_items, info_obj, label, link_info, makeLinkItem, result;
-    info_items = arguments.length > 1 && arguments[1] ? arguments[1] : ['urn', 'metadata', 'licence', 'homepage', 'compiler'];
+    info_items = arguments.length > 1 && arguments[1] ? arguments[1] : (settings.corpusExtraInfoItems != null) || [];
     getUrnOrUrl = function(obj) {
       var prefix;
       prefix = arguments.length > 1 ? arguments[1] : '';
@@ -1201,8 +1201,20 @@
   };
 
   util.copyCorpusInfoToConfig = function(corpusObj) {
-    var added_properties, corpusInfo, i, info_key_prefix, info_key_sects, info_subkeys, j, key, sect, sect_name, subkey, subobj, value;
-    info_key_sects = ['', 'Metadata', 'Licence', 'Compiler'];
+    var added_properties, corpusInfo, i, info_key_prefix, info_key_sects, info_subkeys, item, j, key, sect, sect_name, subkey, subobj, value;
+    info_key_sects = (function() {
+      var _i, _len, _ref, _results;
+      _ref = settings.corpusExtraInfoItems;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        item = _ref[_i];
+        if (item !== 'urn') {
+          _results.push(item.charAt(0).toUpperCase() + item.slice(1));
+        }
+      }
+      return _results;
+    })();
+    info_key_sects.push('');
     info_subkeys = ['Name', 'Description', 'URN', 'URL'];
     corpusInfo = corpusObj.info;
     i = 0;
