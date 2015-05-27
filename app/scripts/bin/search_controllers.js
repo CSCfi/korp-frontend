@@ -83,15 +83,20 @@
         if (!search) {
           return;
         }
-        c.log("searches.activeSearch", search);
-        page = $rootScope.search()["page"] || 0;
+        page = Number($location.search().page) || 0;
+        c.log("activesearch", search);
         s.relatedObj = null;
         if (search.type === "word") {
           s.placeholder = null;
           s.simple_text = search.val;
           cqp = simpleSearch.getCQP(search.val);
           c.log("simple search cqp", cqp);
-          searches.kwicSearch(cqp, page);
+          if (search.pageOnly) {
+            searches.kwicRequest(cqp, true);
+            return;
+          } else {
+            searches.kwicSearch(cqp);
+          }
           if (settings.wordpicture !== false && s.word_pic && __indexOf.call(search.val, " ") < 0) {
             return lemgramResults.makeRequest(search.val, "word");
           } else {
@@ -104,7 +109,7 @@
           if (s.word_pic) {
             return searches.lemgramSearch(search.val, s.prefix, s.suffix, page);
           } else {
-            return searches.kwicSearch(cqp, page);
+            return searches.kwicSearch(cqp);
           }
         } else {
           s.placeholder = null;
@@ -133,7 +138,7 @@
   korpApp.controller("ExtendedSearch", function($scope, utils, $location, backend, $rootScope, searches, compareSearches, $timeout) {
     var s;
     s = $scope;
-    s.within = "sentence";
+    s.within = $location.search().within || "sentence";
     s.$on("popover_submit", function(event, name) {
       return compareSearches.saveSearch({
         label: name || $rootScope.extendedCQP,
@@ -319,6 +324,7 @@
     return $scope.$on("btn_submit", function() {
       c.log("advanced cqp", $scope.cqp);
       $location.search("search", null);
+      $location.search("page", null);
       return $timeout(function() {
         return $location.search("search", "cqp|" + $scope.cqp);
       }, 0);

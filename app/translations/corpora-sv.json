@@ -16,6 +16,8 @@
     "interfra": "InterFra",
     "kioping_texts" : "Kiöpings resor",
     "runeberg" : "Runebergtidskrifter",
+    "bellman" : "Bellmans samlade verk",
+    "eddan" : "Äldre Eddan",
 
     "old_finnish_texts" : "Äldre finskt skriftspråk",
     "finnish_national_library_texts" : "Nationalbiblioteket (finska)",
@@ -27,6 +29,7 @@
     "msd" : "msd",
     "baseform" : "grundform",
     "lemgram" : "lemgram",
+    "dalin-lemgram" : "dalin-lemgram",
     "dephead" : "dephead",
     "deprel" : "dependensrelation",
     "sentence" : "mening",
@@ -428,5 +431,25 @@
 
     "show_page_image" : "Visa originalsida",
     "show_page_image_context" : "Visa originalsida med ordkontext i fet stil",
-    "download_publ_pdf" : "Ladda ner publikationen som PDF"
+    "download_publ_pdf" : "Ladda ner publikationen som PDF",
+    
+    "librisid" : "Libris-ID",
+
+    "edition" : "utgåva",
+    "periodofpublication" : "publikationsperiod",
+    "holderofpublicationlicense" : "licenshavare",
+    "publishingfrequency" : "publikationsfrekvens",
+    "publishingdays" : "publikationssdagar",
+    "completetitle" : "fullständig titel",
+    "issn" : "ISSN",
+    "politicaltendency" : "politisk tendens",
+    "annualprice" : "årspris",
+    "editorialplace" : "ort", 
+    "typearea" : "storlek",
+    "numberofpages" : "antal sidor",
+    "publicationtype" : "publikationstyp",
+    "editor" : "redaktör",
+    "printedin" : "tryckt i",
+    "printedby" : "tryckt av",
+    "commentaries" : "kommentarer"
 }

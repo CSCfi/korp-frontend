@@ -17,6 +17,7 @@ settings.fsvattributes = {
 };
 
 //SDHK
+settings.sdhkdescription ='Svenskt Diplomatarium - från <a href="http://www.riksarkivet.se/sdhk" target="_blank">Riksarkivet</a>';
 settings.sdhkstructs = {
 	text_id : {
 		label : "fulltext",
@@ -30,7 +31,6 @@ settings.sdhkstructs = {
 };
 
 //DIGI
-
 digidailydescription = '<a href="http://digidaily.kb.se/">Digidaily</a> är ett utvecklingsprojekt där Riksarkivet, Kungliga biblioteket och Mittuniversitetet tillsammans ska utveckla rationella metoder och processer för digitalisering av dagstidningar.'
 settings.digidailyattributes = {
 	lemma : attrs.baseform,
@@ -52,10 +52,50 @@ settings.digidailystruct_attributes = {
 	},
 	text_date : {label : "date"}
 };
-settings.sdhkdescription ='Svenskt Diplomatarium - från <a href="http://www.riksarkivet.se/sdhk" target="_blank">Riksarkivet</a>';
+
+//UB-KVT
+settings.ubkvtattributes = {
+	lemma: attrs.baseform,
+	pos : attrs.pos,
+	msd : attrs.msd,
+	lex : attrs.lemgram,
+	dalinlex : {
+	    label : "dalin-lemgram",
+	    type : "set",
+	    displayType : "autocomplete",
+	    opts : settings.setOptions,
+	    stringify : function(lemgram) {
+	        // if(_.contains(lemgram, " "))
+	        // TODO: what if we're getting more than one consequtive lemgram back?
+	        return util.lemgramToString(_.str.trim(lemgram), true);
+	    },
+	    externalSearch : karpLemgramLink,
+	    internalSearch : true,
+	    extended_template : "<input korp-autocomplete model='model' stringify='stringify' sorter='sorter' type='lem' >",
+	    controller : function($scope) {
+	        $scope.stringify = util.lemgramToString;
+	        $scope.sorter = view.lemgramSort;
+	    }
+	},
+	dephead : attrs.dephead,
+	deprel : attrs.deprel,
+	ref : attrs.ref,
+	saldo : attrs.saldo,
+	prefix : attrs.prefix,
+	suffix : attrs.suffix
+};
+settings.ubkvtstruct_attributes = {
+	text_title : {
+		label : "title",
+		displayType : "select",
+		localize : false,
+ 		opts : settings.liteOptions
+	},
+	text_year : {label : "year"},
+	page_nr : {label : "page"}
+};
 
 //RUNEBERG
-
 settings.runebergattributes = {
 	msd : attrs.msd,
 	lemma : attrs.baseform,
@@ -119,6 +159,12 @@ settings.corporafolders.fsvb.yngre = {
 settings.corporafolders.fsvb.nysvenska = {
 	title : "Nysvenska",
 	contents : ["fsv-nysvensklagar",  "fsv-nysvenskdalin", "fsv-nysvenskkronikor", "fsv-nysvenskovrigt", "fsv-nysvenskbibel"]
+};
+
+settings.corporafolders.ubkvt = {
+	title : "Kvinnotidningar",
+	contents : ["ub-kvt-dagny", "ub-kvt-hertha", "ub-kvt-idun", "ub-kvt-kvt", "ub-kvt-morgonbris", "ub-kvt-rostratt", "ub-kvt-tidevarvet"],
+        description :'Svenska kvinnotidningar'
 };
 
 settings.corporafolders.medeltid = {
@@ -448,7 +494,7 @@ settings.corpora["fsv-nysvenskbibel"] = {
 	description : settings.fsvdescription,
 	within : settings.defaultWithin,
 	context : settings.spContext,
-	attributes : {},
+	attributes : {pos: attrs.pos},
 	struct_attributes : {
 		text_title : {
 			label : "title",
@@ -469,7 +515,7 @@ settings.corpora["fsv-nysvenskdalin"] = {
 	description : settings.fsvdescription,
 	within : settings.defaultWithin,
 	context : settings.spContext,
-	attributes : {},
+	attributes : {pos: attrs.pos},
 	struct_attributes : {
 		text_title : {
 			label : "title",
@@ -489,7 +535,7 @@ settings.corpora["fsv-nysvenskkronikor"] = {
 	description : settings.fsvdescription,
 	within : settings.defaultWithin,
 	context : settings.spContext,
-	attributes : {},
+	attributes : {pos: attrs.pos},
 	struct_attributes : {
 		text_title : {
 			label : "title",
@@ -513,7 +559,7 @@ settings.corpora["fsv-nysvenskovrigt"] = {
 	description : settings.fsvdescription,
 	within : settings.defaultWithin,
 	context : settings.spContext,
-	attributes : {},
+	attributes : {pos: attrs.pos},
 	struct_attributes : {
 		text_title : {
 			label : "title",
@@ -545,6 +591,7 @@ settings.corpora["fsv-nysvensklagar"] = {
 	context : settings.spContext,
 	attributes : { lemma : settings.fsvlemma,
 	            lex : settings.fsvlex,
+	            pos: attrs.pos
         },
 	struct_attributes : {
 		text_title : {
@@ -860,6 +907,84 @@ settings.corpora["sdhk-ovrigt"] = {
 	attributes : {},
 	struct_attributes : settings.sdhkstructs
 };
+
+settings.corpora["ub-kvt-dagny"] = {
+    morf : 'saldom|dalinm|swedbergm',
+	id : "ub-kvt-dagny",
+	title : "Dagny",
+	description : "Tidskrift för sociala och literära intressen - utgiven av Frederika-Bremer-Förbundet",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : settings.ubkvtattributes,
+	struct_attributes : settings.ubkvtstruct_attributes,
+};
+
+settings.corpora["ub-kvt-hertha"] = {
+    morf : 'saldom|dalinm|swedbergm',
+	id : "ub-kvt-hertha",
+	title : "Hertha",
+	description : "Tidskrift för den svenska kvinnorörelsen - utgiven av Fredrika-Bremer-Förbundet",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : settings.ubkvtattributes,
+	struct_attributes : settings.ubkvtstruct_attributes,
+};
+
+settings.corpora["ub-kvt-idun"] = {
+    morf : 'saldom|dalinm|swedbergm',
+	id : "ub-kvt-idun",
+	title : "Idun",
+	description : "Praktisk veckotidning för kvinnan och hemmet",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : settings.ubkvtattributes,
+	struct_attributes : settings.ubkvtstruct_attributes,
+};
+
+settings.corpora["ub-kvt-kvt"] = {
+    morf : 'saldom|dalinm|swedbergm',
+	id : "ub-kvt-kvt",
+	title : "Kvinnornas Tidning",
+	description : "Kvinnornas Tidning",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : settings.ubkvtattributes,
+	struct_attributes : settings.ubkvtstruct_attributes,
+};
+
+settings.corpora["ub-kvt-morgonbris"] = {
+    morf : 'saldom|dalinm|swedbergm',
+	id : "ub-kvt-morgonbris",
+	title : "Morgonbris",
+	description : "Arbeterskornas tidning - utgiven av kvinnornas fackförbund",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : settings.ubkvtattributes,
+	struct_attributes : settings.ubkvtstruct_attributes,
+};
+
+settings.corpora["ub-kvt-rostratt"] = {
+    morf : 'saldom|dalinm|swedbergm',
+	id : "ub-kvt-rostratt",
+	title : "Rösträtt för Kvinnor",
+	description : "Tidning utgiven av landsföreningen för kvinnans politiska rösträtt",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : settings.ubkvtattributes,
+	struct_attributes : settings.ubkvtstruct_attributes,
+};
+
+settings.corpora["ub-kvt-tidevarvet"] = {
+    morf : 'saldom|dalinm|swedbergm',
+	id : "ub-kvt-tidevarvet",
+	title : "Tidevarvet",
+	description : "Kvinnotidning Tidevarvet",
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : settings.ubkvtattributes,
+	struct_attributes : settings.ubkvtstruct_attributes,
+};
+
 
 settings.corpora["tankebok"] = {
     morf : 'swedbergm|dalinm',
@@ -1301,8 +1426,45 @@ settings.corpora['kvah'] = {
 
 };
 
+settings.corpora['bellman'] = {
+	morf : 'swedbergm|dalinm|saldom',
+	id : "bellman",
+	title : "Bellmans samlade verk",
+	description : "",
+	within : settings.spWithin,
+	context : settings.spContext,
+	attributes : {
+		msd : attrs.msd,
+ 		lemma : attrs.baseform,
+ 		lex : attrs.lemgram,
+ 		saldo : attrs.saldo,
+ 		prefix : attrs.prefix,
+ 		suffix : attrs.suffix,
+ 		dephead : attrs.dephead,
+ 		deprel : attrs.deprel,
+ 		ref : attrs.ref
+	},
+	struct_attributes : {
+		text_author : {label : "author"},
+		text_title : {label : "title"},
+		page_n : {label : "page"}
+	}
+};
 
-
+settings.corpora.eddan = {
+	id : "eddan",
+	title : "Äldre Eddan",
+	description : "",
+	languages : {
+		eddan : "svenska"
+	},
+	within : settings.defaultWithin,
+	context : settings.defaultContext,
+	attributes : {},
+	struct_attributes : {
+	    text_part: {label: "part"}
+	    },
+};
 
 
 settings.corpusListing = new CorpusListing(settings.corpora);

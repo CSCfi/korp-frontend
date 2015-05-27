@@ -25,6 +25,7 @@ var baseURL = (window.location.protocol + "//" + window.location.hostname
 settings.lemgramSelect = true;
 settings.autocomplete = true;
 // settings.wordpicture = false;
+settings.hits_per_page_default = 25
 
 settings.textDateAllowBareYears = true;
 
@@ -4717,15 +4718,17 @@ settings.arg_groups = {
 
 
 settings.reduce_stringify = function(type) {
+
     function filterCorpora(rowObj) {
         return $.grepObj(rowObj, function(value, key) {
-            return key != "total_value" && $.isPlainObject(value);
+            return key != "total_value" && $.isArray(value);
+            //return key != "total_value" && $.isPlainObject(value);
         });
     }
 
     function getCorpora(dataContext) {
         var corpora = $.grepObj(filterCorpora(dataContext), function(value, key) {
-            return value.relative != null;
+            return value[1] != null; // value[1] is an optimized value.relative
         });
         corpora = $.map($.keys(corpora), function(item) {
             return item.split("_")[0].toLowerCase();
@@ -4872,19 +4875,19 @@ settings.reduce_stringify = function(type) {
 
             // if(type in cl.getStructAttrs())
             // var attrObj = cl.getStructAttrs()[type]
+            c.log ("attrObj", attrObj)
 
             var prefix = ""
             var relLocalize = ""
-            if(!_.isUndefined(attrObj) && value != "&Sigma;") {
-                if (attrObj.translationKey) {
-                    prefix = attrObj.translationKey
-                    relLocalize = " rel='localize[" + prefix + value + "]'"
-                }
+            if(!_.isUndefined(attrObj) && value != "&Sigma;" && attrObj.translationKey ) {
+                prefix = attrObj.translationKey
+                relLocalize = " rel='localize[" + prefix + value + "]'"
             }
 
             output = $.format("<span class='link' data-query='%s' data-corpora='%s'%s>%s</span> ",
                     [query, JSON.stringify(corpora), relLocalize,
                      util.getLocaleString(prefix + value)]);
+            c.log("stringify default", prefix, value)
             if(value == "&Sigma;") return appendDiagram(output, corpora, value);
 
             return appendDiagram(output, corpora, value);

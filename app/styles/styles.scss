@@ -8,6 +8,11 @@
   font-family: "Source Sans Pro";
   src: url(SourceSansPro-Regular.otf);
 }
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url(SourceSansPro-Semibold.otf);
+  font-weight : bold;
+}
 
 
 * {
@@ -303,6 +308,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, input:pla
 
 .extended .search_submit {
   display: inline;
+  vertical-align: super;
   .btn-group {
     display: inline;
   }
@@ -750,27 +756,6 @@ table {
   margin-bottom: 5px;
 }
 
-.result_controls {
-  position: relative;
-}
-
-.result_controls, .pager-wrapper {
-  margin-bottom: 8px;
-}
-
-.result_controls > * {
-  @include inline-block(bottom);
-}
-
-.controls_n {
-  margin-right: 5px;
-  min-width: 125px;
-}
-
-.loading .controls_n {
-  color: darkgrey;
-  font-style: italic;
-}
 
 #results-stats {
   overflow-x : hidden;
@@ -829,6 +814,7 @@ table {
   &.paging {
     opacity : 0.5 !important;
   }
+  margin-bottom: 1em;
 }
 
 .results_table {
@@ -1103,7 +1089,7 @@ table {
   // Clear floats so that the JSON link is right-justified and not
   // placed to the left of the download links.
   clear: both;
-  display: none;
+  // display: none;
   img {
     border: 0px;
   }
@@ -1275,6 +1261,21 @@ a {
   }
 }
 
+#about_body {
+  position: relative;
+  &:after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    bottom : 0;
+    right : 0;
+    background : url("../img/feather.svg") no-repeat;
+    background-size: contain;
+    height: 430px;
+    width : 230px;
+  }
+}
+
 #about_content ul {
   padding-left: 10px;
   margin-top: 8px;
@@ -1284,8 +1285,15 @@ a {
   /*display : none;*/
 }
 
+.modal.login {
+  width: 280px;
+  height : 370px;
+  margin-left : -120px;
+}
+
 #login_popup {
-  display: none;
+  // display: none;
+  min-height: initial;
   * {
     display: block;
   }
@@ -1293,7 +1301,7 @@ a {
     margin-top: 5px;
   }
   .err_msg {
-    display: none;
+    // display: none;
     font-size: .8em;
   }
   input[type=submit] {
@@ -1561,17 +1569,6 @@ label[for=lemgram_select]:before {
   @include border-radius(20px);
 }
 
-.pager-wrapper {
-  @include inline-block();
-
-  .ui-button-text-only:active {
-    background : inherit;
-    background-color : $primaryColor;
-  }
-}
-
-// .col_wrapper! {}
-
 .sidebar_url {
   white-space: nowrap;
 }
@@ -1740,12 +1737,14 @@ label[for=lemgram_select]:before {
 .modal {
   max-height : initial;
   overflow-y : auto;
+  border-radius: 3px;
+  font-size : 1.3em;
 }
 
 .modal.fade.in {
   top : 30%;
 }
-.modal-header h3 {
+.modal-header h3, .modal-header h2 {
   font-weight : normal;
 }
 
@@ -2013,23 +2012,67 @@ warning ~ * {
   left: 180px;
   @include transition(width 400ms ease);
 }
-/*
-.progress_container {
-  width: 143px;
-  overflow-x: hidden;
-  @include transition(width 400ms ease);
+
+.results-kwic {
+  .controls_n {
+    margin-right: 5px;
+    min-width: 125px;
+  }
+  .pager-wrapper {
+    display: inline;
+  }
+
+  .result_controls {
+    position: relative;
+    > * {
+      @include inline-block(bottom);
+    }
+  }
+
+  .result_controls, .pager-wrapper {
+    margin-bottom: 8px;
+  }
+  .pagination {
+    height: auto;
+    margin : 0;
+    margin-bottom : 8px;
+    display: inline-block; 
+    vertical-align: initial;
+
+    li.active {
+      font-weight : bold;
+    }
+    a, span {
+      border-width : 1px;
+      line-height: 18px;
+      padding : 0 8px;
+      color : #555;
+      float: initial;
+      display: inline-block;
+
+    }
+  }
+  
+  .page_input {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left : 1em;
+    span {
+      color : #666;
+    }
+    input {
+      width : 2em;
+    }
+  }
+  &.loading {
+    .controls_n {
+      color: darkgrey;
+      font-style: italic;
+    }
+  }
 }
 
-#results-kwic.not_loading .progress_container {
-  width: 0;
-  @include transition(width 400ms ease);
-}
 
-
-.not_loading .progress_container {
-  display: none;
-}
-*/
 .arg_value {
   .from, .to {
     width: 50px;
@@ -2315,16 +2358,7 @@ line.tick {
   margin-right : 0;
 }
 
-.pagination {
-  height: 20px;
-  margin : 0;
-}
-.pagination a, .pagination span {
-  border-width : 1px;
-  line-height: 18px;
-  padding : 0 8px;
-  color : #555;
-}
+
 
 .modal-header_left {
   display : none;

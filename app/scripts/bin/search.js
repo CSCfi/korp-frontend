@@ -182,16 +182,15 @@
     __extends(SimpleSearch, _super);
 
     function SimpleSearch(mainDivId, _mainDiv, scope) {
-      var textinput;
+      var textinput,
+        _this = this;
       SimpleSearch.__super__.constructor.call(this, mainDivId, scope);
       $("#similar_lemgrams").css("background-color", settings.primaryColor);
-      $("#simple_text").keyup((function(_this) {
-        return function(event) {
-          return _this.s.$apply(function() {
-            return _this.onSimpleChange(event);
-          });
-        };
-      })(this));
+      $("#simple_text").keyup(function(event) {
+        return _this.s.$apply(function() {
+          return _this.onSimpleChange(event);
+        });
+      });
       $("#similar_lemgrams").hide();
       this.savedSelect = null;
       this.lemgramProxy = new model.LemgramProxy();
@@ -199,79 +198,73 @@
       if (settings.autocomplete) {
         textinput.korp_autocomplete({
           type: "lem",
-          select: (function(_this) {
-            return function(lemgram) {
-              return _this.s.$apply(function() {
-                _this.s.placeholder = lemgram;
-                return _this.s.simple_text = "";
-              });
-            };
-          })(this),
-          middleware: (function(_this) {
-            return function(request, idArray) {
-              var dfd;
-              dfd = $.Deferred();
-              _this.lemgramProxy.lemgramCount(idArray, _this.isSearchPrefix(), _this.isSearchSuffix()).done(function(freqs) {
-                var has_morphs, labelArray, listItems, t;
-                delete freqs["time"];
-                if (currentMode === "law") {
-                  idArray = _.filter(idArray, function(item) {
-                    return item in freqs;
-                  });
-                }
-                has_morphs = settings.corpusListing.getMorphology().split("|").length > 1;
-                if (has_morphs) {
-                  idArray.sort(function(a, b) {
-                    var first, second;
-                    first = (a.split("--").length > 1 ? a.split("--")[0] : "saldom");
-                    second = (b.split("--").length > 1 ? b.split("--")[0] : "saldom");
-                    if (first === second) {
-                      return (freqs[b] || 0) - (freqs[a] || 0);
-                    }
-                    return second < first;
-                  });
-                } else {
-                  idArray.sort(function(first, second) {
-                    return (freqs[second] || 0) - (freqs[first] || 0);
-                  });
-                }
-                t = $.now();
-                window.idArray = idArray;
-                labelArray = util.sblexArraytoString(idArray, util.lemgramToString);
-                listItems = $.map(idArray, function(item, i) {
-                  var out;
-                  out = {
-                    label: labelArray[i],
-                    value: item,
-                    input: request.term,
-                    enabled: item in freqs
-                  };
-                  if (has_morphs) {
-                    out["category"] = (item.split("--").length > 1 ? item.split("--")[0] : "saldom");
-                  }
-                  return out;
+          select: function(lemgram) {
+            return _this.s.$apply(function() {
+              _this.s.placeholder = lemgram;
+              return _this.s.simple_text = "";
+            });
+          },
+          middleware: function(request, idArray) {
+            var dfd;
+            dfd = $.Deferred();
+            _this.lemgramProxy.lemgramCount(idArray, _this.isSearchPrefix(), _this.isSearchSuffix()).done(function(freqs) {
+              var has_morphs, labelArray, listItems, t;
+              delete freqs["time"];
+              if (currentMode === "law") {
+                idArray = _.filter(idArray, function(item) {
+                  return item in freqs;
                 });
-                return dfd.resolve(listItems);
-              }).fail(function() {
-                c.log("reject");
-                dfd.reject();
-                return textinput.preloader("hide");
+              }
+              has_morphs = settings.corpusListing.getMorphology().split("|").length > 1;
+              if (has_morphs) {
+                idArray.sort(function(a, b) {
+                  var first, second;
+                  first = (a.split("--").length > 1 ? a.split("--")[0] : "saldom");
+                  second = (b.split("--").length > 1 ? b.split("--")[0] : "saldom");
+                  if (first === second) {
+                    return (freqs[b] || 0) - (freqs[a] || 0);
+                  }
+                  return second < first;
+                });
+              } else {
+                idArray.sort(function(first, second) {
+                  return (freqs[second] || 0) - (freqs[first] || 0);
+                });
+              }
+              t = $.now();
+              window.idArray = idArray;
+              labelArray = util.sblexArraytoString(idArray, util.lemgramToString);
+              listItems = $.map(idArray, function(item, i) {
+                var out;
+                out = {
+                  label: labelArray[i],
+                  value: item,
+                  input: request.term,
+                  enabled: item in freqs
+                };
+                if (has_morphs) {
+                  out["category"] = (item.split("--").length > 1 ? item.split("--")[0] : "saldom");
+                }
+                return out;
               });
-              return dfd.promise();
-            };
-          })(this),
+              return dfd.resolve(listItems);
+            }).fail(function() {
+              c.log("reject");
+              dfd.reject();
+              return textinput.preloader("hide");
+            });
+            return dfd.promise();
+          },
           "sw-forms": false
         });
       }
-      $("#prefixChk, #suffixChk, #caseChk").click((function(_this) {
-        return function() {
-          if ($("#simple_text").attr("placeholder") && $("#simple_text").text() === "") {
-            return _this.enableSubmit();
-          } else {
-            return _this.onSimpleChange();
-          }
-        };
-      })(this));
+      $("#prefixChk, #suffixChk, #caseChk").click(function() {
+        if ($("#simple_text").attr("placeholder") && $("#simple_text").text() === "") {
+          return _this.enableSubmit();
+        } else {
+          return _this.onSimpleChange();
+        }
+      });
     }
 
     SimpleSearch.prototype.isSearchPrefix = function() {
@@ -283,37 +276,36 @@
     };
 
     SimpleSearch.prototype.makeLemgramSelect = function(lemgram) {
-      var promise, self;
+      var promise, self,
+        _this = this;
       self = this;
       promise = $("#simple_text").data("promise") || this.lemgramProxy.karpSearch(lemgram || $("#simple_text").val(), false);
-      return promise.done((function(_this) {
-        return function(lemgramArray) {
-          var label, select;
-          $("#lemgram_select").prev("label").andSelf().remove();
-          _this.savedSelect = null;
-          if (lemgramArray.length === 0) {
-            return;
+      return promise.done(function(lemgramArray) {
+        var label, select;
+        $("#lemgram_select").prev("label").andSelf().remove();
+        _this.savedSelect = null;
+        if (lemgramArray.length === 0) {
+          return;
+        }
+        lemgramArray.sort(view.lemgramSort);
+        lemgramArray = $.map(lemgramArray, function(item) {
+          return {
+            label: util.lemgramToString(item, true),
+            value: item
+          };
+        });
+        select = _this.buildLemgramSelect(lemgramArray).appendTo("#korp-simple").addClass("lemgram_select").prepend($("<option>").localeKey("none_selected")).change(function() {
+          if (self.selectedIndex !== 0) {
+            self.savedSelect = lemgramArray;
+            self.selectLemgram($(this).val());
           }
-          lemgramArray.sort(view.lemgramSort);
-          lemgramArray = $.map(lemgramArray, function(item) {
-            return {
-              label: util.lemgramToString(item, true),
-              value: item
-            };
-          });
-          select = _this.buildLemgramSelect(lemgramArray).appendTo("#korp-simple").addClass("lemgram_select").prepend($("<option>").localeKey("none_selected")).change(function() {
-            if (self.selectedIndex !== 0) {
-              self.savedSelect = lemgramArray;
-              self.selectLemgram($(this).val());
-            }
-            return $(this).prev("label").andSelf().remove();
-          });
-          label = $("<label />", {
-            "for": "lemgram_select"
-          }).html("<i>" + ($("#simple_text").val()) + "</i> <span rel='localize[autocomplete_header]'>" + (util.getLocaleString("autocomplete_header")) + "</span>").css("margin-right", 8);
-          return select.before(label);
-        };
-      })(this));
+          return $(this).prev("label").andSelf().remove();
+        });
+        label = $("<label />", {
+          "for": "lemgram_select"
+        }).html("<i>" + ($("#simple_text").val()) + "</i> <span rel='localize[autocomplete_header]'>" + (util.getLocaleString("autocomplete_header")) + "</span>").css("margin-right", 8);
+        return select.before(label);
+      });
     };
 
     SimpleSearch.prototype.onSubmit = function() {
@@ -346,69 +338,6 @@
       return $("<select id='lemgram_select' />").html(optionElems).data("dataprovider", lemgrams);
     };
 
-    SimpleSearch.prototype.renderSimilarHeader = function(selectedItem, data) {
-      var count, div, index, isSliced, lemgrams, list, self, sliced;
-      c.log("renderSimilarHeader");
-      self = this;
-      $("#similar_lemgrams").empty().append("<div id='similar_header' />");
-      $("<p/>").localeKey("similar_header").css("float", "left").appendTo("#similar_header");
-      lemgrams = this.savedSelect || $("#simple_text").data("dataArray");
-      this.savedSelect = null;
-      if ((lemgrams != null) && lemgrams.length) {
-        this.buildLemgramSelect(lemgrams).appendTo("#similar_header").css("float", "right").change(function() {
-          self.savedSelect = lemgrams;
-          return self.selectLemgram($(this).val());
-        }).val(selectedItem);
-        $("#simple_text").data("dataArray", null);
-      }
-      $("<div name='wrapper' style='clear : both;' />").appendTo("#similar_header");
-      data = $.grep(data, function(item) {
-        return !!item.rel.length;
-      });
-      count = 0;
-      index = 0;
-      sliced = $.extend(true, [], data);
-      isSliced = false;
-      $.each(sliced, function(i, item) {
-        index = i;
-        if (count + item.rel.length > 30) {
-          item.rel = item.rel.slice(0, 30 - count);
-          isSliced = true;
-          return false;
-        }
-        return count += item.rel.length;
-      });
-      list = $("<ul />").appendTo("#similar_lemgrams");
-      $("#similarTmpl").tmpl(sliced.slice(0, index + 1)).appendTo(list).find("a").click(function() {
-        return self.selectLemgram($(this).data("lemgram"));
-      });
-      $("#show_more").remove();
-      div = $("#similar_lemgrams").show().height("auto").slideUp(0);
-      if (isSliced) {
-        div.after($("<div id='show_more' />")).css("background-color", settings.primaryColor).append($("<a href='javascript:' />").localeKey("show_more")).click(function() {
-          var h, newH;
-          $(this).remove();
-          h = $("#similar_lemgrams").outerHeight();
-          list.html($("#similarTmpl").tmpl(data)).find("a").click(function() {
-            return self.selectLemgram($(this).data("lemgram"));
-          });
-          $("#similar_lemgrams").height("auto");
-          newH = $("#similar_lemgrams").outerHeight();
-          $("#similar_lemgrams").height(h);
-          return $("#similar_lemgrams").animate({
-            height: newH
-          }, "fast");
-        });
-      }
-      return div.slideDown("fast");
-    };
-
-    SimpleSearch.prototype.removeSimilarHeader = function() {
-      return $("#similar_lemgrams").slideUp(function() {
-        return $(this).empty();
-      });
-    };
-
     SimpleSearch.prototype.getCQP = function(word) {
       var cqp, currentText, lemgram, query, suffix, val, wordArray;
       currentText = $.trim(word || $("#simple_text", this.$main).val() || "", '"');
@@ -419,10 +348,10 @@
         lemgram = regescape(this.s.placeholder);
         val = "[lex contains '" + lemgram + "'";
         if (this.isSearchPrefix()) {
-          val += " | prefix contains " + lemgram + " ";
+          val += " | prefix contains '" + lemgram + "' ";
         }
         if (this.isSearchSuffix()) {
-          val += " | suffix contains " + lemgram;
+          val += " | suffix contains '" + lemgram + "'";
         }
         val += "]";
       } else if (this.isSearchPrefix() || this.isSearchSuffix()) {
@@ -474,4 +403,6 @@
 
 }).call(this);
 
-//# sourceMappingURL=search.js.map
+/*
+//@ sourceMappingURL=search.js.map
+*/

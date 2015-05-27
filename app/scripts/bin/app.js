@@ -1,5 +1,5 @@
 (function() {
-  window.korpApp = angular.module('korpApp', ["watchFighters", 'ui.bootstrap', "template/tabs/tabset.html", "template/tabs/tab.html", "template/modal/backdrop.html", "template/modal/window.html", "template/typeahead/typeahead-match.html", "template/typeahead/typeahead-popup.html", "angularSpinner", "uiSlider", "ui.sortable", "pasvaz.bindonce", "newsdesk"]);
+  window.korpApp = angular.module('korpApp', ["watchFighters", 'ui.bootstrap', "template/tabs/tabset.html", "template/tabs/tab.html", "template/modal/backdrop.html", "template/modal/window.html", "template/typeahead/typeahead-match.html", "template/typeahead/typeahead-popup.html", "template/pagination/pagination.html", "angularSpinner", "uiSlider", "ui.sortable", "pasvaz.bindonce", "newsdesk"]);
 
   korpApp.run(function($rootScope, $location, utils, searches) {
     var isInit, s;
@@ -17,6 +17,7 @@
       return $(".search_tabs > ul").scope().tabs;
     };
     s._loc = $location;
+    s._searchOpts = {};
     s.$watch("_loc.search()", function() {
       c.log("loc.search() change", $location.search());
       return _.defer(function() {
@@ -75,8 +76,8 @@
     });
   });
 
-  korpApp.controller("headerCtrl", function($scope, $location) {
-    var N_VISIBLE, i, s;
+  korpApp.controller("headerCtrl", function($scope, $location, $modal, utils) {
+    var N_VISIBLE, closeModals, i, modal, s, showModal;
     s = $scope;
     s.citeClick = function() {
       $location.search("display", "about");
@@ -116,13 +117,71 @@
       if (modeId === "default") {
         return location.pathname;
       }
-      return location.pathname + "?mode=" + modeId;
+      return location.pathname + ("?mode=" + modeId + "#lang=" + s.$root.lang);
     };
     s.onSelect = function(modeId) {
       return $location.search("corpus", null);
     };
-    return s.onModeMenuClick = function(modeId) {
+    s.onModeMenuClick = function(modeId) {
       return window.location = location.pathname + "?mode=" + modeId;
+    };
+    s.show_modal = false;
+    modal = null;
+    utils.setupHash(s, [
+      {
+        key: "display",
+        scope_name: "show_modal",
+        post_change: function(val) {
+          c.log("post change", val);
+          if (val) {
+            return showModal(val);
+          } else {
+            c.log("post change modal", modal);
+            if (modal != null) {
+              modal.close();
+            }
+            return modal = null;
+          }
+        }
+      }
+    ]);
+    closeModals = function() {
+      s.login_err = false;
+      return s.show_modal = false;
+    };
+    showModal = function(key) {
+      var tmpl;
+      tmpl = {
+        about: 'markup/about.html',
+        login: 'login_modal'
+      }[key];
+      modal = $modal.open({
+        templateUrl: tmpl,
+        scope: s,
+        windowClass: key
+      });
+      return modal.result.then((function() {
+        return closeModals();
+      }), function() {
+        return closeModals();
+      });
+    };
+    s.clickX = function() {
+      return closeModals();
+    };
+    return s.loginSubmit = function(usr, pass) {
+      s.login_err = false;
+      return authenticationProxy.makeRequest(usr, pass).done(function(data) {
+        util.setLogin();
+        return safeApply(s, function() {
+          return s.show_modal = null;
+        });
+      }).fail(function() {
+        c.log("login fail");
+        return safeApply(s, function() {
+          return s.login_err = true;
+        });
+      });
     };
   });
 
@@ -134,4 +193,6 @@
 
 }).call(this);
 
-//# sourceMappingURL=app.js.map
+/*
+//@ sourceMappingURL=app.js.map
+*/

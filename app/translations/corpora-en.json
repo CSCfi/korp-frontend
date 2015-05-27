@@ -16,6 +16,8 @@
     "interfra" : "InterFra",
     "kioping_texts" : "Kiöping's book of travel",
     "runeberg" : "Runeberg journal",
+    "bellman" : "Bellman's collected works",
+    "eddan" : "Poetic Edda",
 
     "old_finnish_texts" : "Old Literary Finnish",
     "finnish_national_library_texts" : "Finnish National Library",
@@ -27,6 +29,7 @@
     "msd" : "msd",
     "baseform" : "baseform",
     "lemgram" : "lemgram",
+    "dalin-lemgram" : "dalin-lemgram",
     "dephead" : "dephead",
     "deprel" : "dependency relation",
     "sentence" : "sentence",
@@ -652,6 +655,26 @@
     "iclfi_limitedtime" : "limited time",
     "iclfi_wherewritten" : "where written",
     "iclfi_aids" : "writing aids",
-    "iclfi_filename" : "file name"
+    "iclfi_filename" : "file name",
 
+    "librisid" : "Libris-ID",
+
+    "edition" : "edition",
+    "periodofpublication" : "period of publication",
+    "holderofpublicationlicense" : "holder of publication license",
+    "publishingfrequency" : "publishing frequency",
+    "publishingdays" : "publishing days",
+    "completetitle" : "complete title",
+    "issn" : "ISSN",
+    "politicaltendency" : "political tendency",
+    "annualprice" : "annual price",
+    "editorialplace" : "editorial place",
+    "typearea" : "type area",
+    "numberofpages" : "number of pages",
+    "publicationtype" : "publication type",
+    "editor" : "editor",
+    "printedin" : "printed in",
+    "printedby" : "printed by",
+    "commentaries" : "commentaries"
 }
+

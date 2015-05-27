@@ -237,42 +237,12 @@ Sidebar =
             ).promise()
         else
             @element.removeClass("ui-state-highlight").addClass "kwic_sidebar"
-            # instance = $("#result-container").korptabs("getCurrentInstance")
-            # instance?.selectionManager?.selected?.click()
 
     updatePlacement: ->
         max = Math.round($("#columns").position().top)
         if $(window).scrollTop() < max
             @element.removeClass "fixed"
         else @element.addClass "fixed" if $("#left-column").height() > $("#sidebar").height()
-
-    show: (mode) ->
-
-        # make sure that both hide animation and content load is done before showing
-        $.when(@element).pipe(=>
-            @refreshContent mode
-        ).done =>
-            @element.show "slide",
-                direction: "right"
-
-            $("#left-column").animate
-                right: 265
-            , null, null, ->
-                # $.sm.send "sidebar.show.end"
-
-
-
-    hide: ->
-        return if $("#left-column").css("right") is "0px"
-        @element.hide "slide",
-            direction: "right"
-
-        $("#left-column").animate
-            right: 0
-        , null, null, ->
-            # $.sm.send "sidebar.hide.end"
-
-
 
 
 $.widget("korp.sidebar", Sidebar)
@@ -340,7 +310,9 @@ $.fn.korp_autocomplete = (options) ->
         return
     options = $.extend(
         type: "lem"
-        select: $.noop
+        select: (e) ->
+            # c.log "select", arguments
+            # return false
         labelFunction: util.lemgramToString
         middleware: (request, idArray) ->
 

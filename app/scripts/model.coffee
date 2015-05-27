@@ -93,30 +93,30 @@ class BaseProxy
         stats: stats
         total_results: @total_results
 
-class model.SearchProxy extends BaseProxy
-    constructor: ->
+# class model.SearchProxy extends BaseProxy
+#     constructor: ->
 
-    relatedWordSearch: (lemgram) ->
-        $.ajax
-            url: "http://spraakbanken.gu.se/ws/saldo-ws/grel/json/" + lemgram
-            success: (data) ->
-                c.log "related words success"
-                lemgrams = []
-                $.each data, (i, item) ->
-                    lemgrams = lemgrams.concat(item.rel)
+#     relatedWordSearch: (lemgram) ->
+#         $.ajax
+#             url: "http://spraakbanken.gu.se/ws/saldo-ws/grel/json/" + lemgram
+#             success: (data) ->
+#                 c.log "related words success"
+#                 lemgrams = []
+#                 $.each data, (i, item) ->
+#                     lemgrams = lemgrams.concat(item.rel)
 
-                hasAnyFreq = false
-                lemgramProxy.lemgramCount(lemgrams).done (freqs) ->
-                    $.each data, (i, item) ->
-                        item.rel = $.grep(item.rel, (lemgram) ->
-                            hasAnyFreq = true if freqs[lemgram]
-                            !!freqs[lemgram]
-                        )
+#                 hasAnyFreq = false
+#                 lemgramProxy.lemgramCount(lemgrams).done (freqs) ->
+#                     $.each data, (i, item) ->
+#                         item.rel = $.grep(item.rel, (lemgram) ->
+#                             hasAnyFreq = true if freqs[lemgram]
+#                             !!freqs[lemgram]
+#                         )
 
-                    if hasAnyFreq
-                        simpleSearch.renderSimilarHeader lemgram, data
-                    else
-                        simpleSearch.removeSimilarHeader()
+                    # if hasAnyFreq
+                    #     simpleSearch.renderSimilarHeader lemgram, data
+                    # else
+                    #     simpleSearch.removeSimilarHeader()
 
 
 
@@ -134,7 +134,7 @@ class model.KWICProxy extends BaseProxy
         @pendingRequests.pop i unless i is -1
 
     makeRequest: (options, page, progressCallback, kwicCallback) ->
-        c.log "kwicproxy.makeRequest"
+        c.log "kwicproxy.makeRequest", page, kwicResults.getPageInterval(Number(page))
         self = this
         @foundKwic = false
         super()
@@ -145,16 +145,7 @@ class model.KWICProxy extends BaseProxy
         
 
         o = $.extend(
-            # cqp: $("body").scope().extendedCQP || search().cqp
             queryData: null
-            # ajaxParams: @prevAjaxParams
-            # success: (data, status, xhr) ->
-            #     self.popXhr xhr
-
-            # error: (data, status, xhr) ->
-            #     c.log "kwic error", data
-            #     self.popXhr xhr
-            #     kwicResults.hidePreloader()
 
             progress: (data, e) ->
                 progressObj = self.calcProgress(e)
@@ -168,11 +159,6 @@ class model.KWICProxy extends BaseProxy
                     kwicCallback progressObj["struct"]
         , options)
 
-
-        # @prevAjaxParams = o.ajaxParams
-
-        #       kwicResults.num_result = 0;
-        # defaults
         data =
             command: "query"
             # corpus: settings.corpusListing.stringifySelected()
@@ -180,13 +166,12 @@ class model.KWICProxy extends BaseProxy
             defaultwithin: _.keys(settings.defaultWithin)[0]
             show: []
             show_struct: []
-            incremental: $.support.ajaxProgress
             cache : true
 
         $.extend data, kwicResults.getPageInterval(page), o.ajaxParams
         for corpus in settings.corpusListing.selected
             for key, val of corpus.within
-                data.show.push key
+                data.show.push _.last key.split(" ")
             for key, val of corpus.attributes
                 data.show.push key
 
@@ -195,9 +180,6 @@ class model.KWICProxy extends BaseProxy
                 $.each corpus.struct_attributes, (key, val) ->
                     data.show_struct.push key if $.inArray(key, data.show_struct) is -1
 
-        # if $(".within_select").val() != settings.defaultWithin
-        #     data.within = settings.corpusListing.getWithinQueryString()
-        # data.show = _.uniq data.show
         @prevCQP = data.cqp
         data.show = (_.uniq ["sentence"].concat(data.show)).join(",")
         c.log "data.show", data.show
@@ -211,8 +193,10 @@ class model.KWICProxy extends BaseProxy
             beforeSend: (req, settings) ->
                 self.prevRequest = settings
                 self.addAuthorizationHeader req
+                self.prevUrl = this.url
 
             success: (data, status, jqxhr) ->
+                c.log "jqxhr", this
                 self.queryData = data.querydata
                 kwicCallback data if data.incremental is false or not @foundKwic
 
@@ -224,11 +208,6 @@ class model.KWICProxy extends BaseProxy
         )
         @pendingRequests.push def
         return def
-
-# class model.ExamplesProxy extends model.KWICProxy
-#     constructor: ->
-#         super()
-#         @command = "relations_sentences"
 
 class model.LemgramProxy extends BaseProxy
     constructor: ->
@@ -283,6 +262,7 @@ class model.LemgramProxy extends BaseProxy
             beforeSend: (req, settings) ->
                 self.prevRequest = settings
                 self.addAuthorizationHeader req
+                self.prevUrl = this.url
         @pendingRequests.push def
         return def
 
@@ -380,7 +360,7 @@ class model.StatsProxy extends BaseProxy
         @currentPage = 0
         @page_incr = 25
 
-    makeRequest: (cqp, callback) ->
+    makeRequest: (cqp, callback, within) ->
         self = this
         super()
         reduceval = search().stats_reduce or "word"
@@ -402,18 +382,18 @@ class model.StatsProxy extends BaseProxy
                 ignore_case: "word"
 
         # data.within = settings.corpusListing.getWithinQueryString() if $.sm.In("extended") and $(".within_select").val() is "paragraph"
-        if $(".within_select").val() != settings.defaultWithin
-            data.within = settings.corpusListing.getWithinQueryString()
+        #if within_selection isnt "0" #!= settings.defaultWithin
+        #    data.within = settings.corpusListing.getWithinQueryString()
+        data.within = within
         @prevParams = data
         def = $.Deferred()
         @pendingRequests.push $.ajax
             url: settings.cgi_script
             data: data
             beforeSend: (req, settings) ->
-                c.log "req", req
-
                 self.prevRequest = settings
                 self.addAuthorizationHeader req
+                self.prevUrl = this.url
 
             error: (jqXHR, textStatus, errorThrown) ->
                 c.log "gettings stats error, status: " + textStatus
@@ -431,14 +411,6 @@ class model.StatsProxy extends BaseProxy
                     return
                 minWidth = 100
                 columns = [
-
-                #     id: "chk"
-                #     name: "<input type='checkbox' class='include_all_chk'>"
-                #     field: "hit_chk"
-                #     sortable: false
-                #     formatter: () -> "<input type='checkbox' class='include_chk'>"
-                #     maxWidth : 50
-                # ,
                     id: "hit"
                     name: "stats_hit"
                     field: "hit_value"
@@ -462,76 +434,48 @@ class model.StatsProxy extends BaseProxy
                         formatter: self.valueFormatter
                         minWidth : minWidth
 
-
-                totalRow =
-                    id: "row_total"
-                    hit_value: "&Sigma;"
-                    total_value: data.total.sums
                 
-                $.each data.corpora, (corpus, obj) ->
-                    totalRow[corpus + "_value"] = obj.sums
 
                 wordArray = _.keys(data.total.absolute)
-
-                valueGetter = (obj, word) ->
-                    return obj[word]
-
-                wordGetter = (word) ->
-                    return word
-
                 if reduceval in ["lex", "saldo", "baseform"]
                     groups = _.groupBy wordArray, (item) ->
                         item.replace(/:\d+/g, "")
 
+                    wordArray = _.keys groups
 
+                sizeOfDataset = wordArray.length
+                dataset = new Array(sizeOfDataset + 1)
+                
+                statsWorker = new Worker "scripts/statistics_worker.js"
+                statsWorker.onmessage = (e) ->
+                    c.log "Called back by the worker!\n"
+                    c.log e
+                    def.resolve [data, wordArray, columns, e.data]
 
-                    combinedWordArray = _.keys groups
-                    # c.log "combinedWordArray", combinedWordArray
-                    # c.log "groups", groups
-                    add = (a, b) -> a + b
-                        
-                    valueGetter = (obj, word) ->
-                        _.reduce (_.map groups[word], (wd) -> obj[wd]), add
-                    
-                    wordGetter = (word) ->
-                        groups[word]
+                statsWorker.postMessage {
+                    "total" : data.total
+                    "dataset" : dataset
+                    "allrows" : (wordArray)
+                    "corpora" : data.corpora
+                    "groups" : groups
+                    loc : {
+                        'sv' : "sv-SE"
+                        'en' : "gb-EN"
+                    }[$("body").scope().lang]
+                }
 
-                    # c.log "combined", wordArray.length, _.keys(combined).length, combined
-
-
-                dataset = [totalRow]
-
-                for word, i in (combinedWordArray or wordArray)
-                    row =
-                        id: "row" + i
-                        hit_value: wordGetter word
-                        total_value:
-                            absolute: (valueGetter data.total.absolute, word)
-                            relative: valueGetter data.total.relative, word
-
-                    # $.each data.corpora, (corpus, obj) ->
-                    for corpus, obj of data.corpora
-                        row[corpus + "_value"] =
-                            absolute: (valueGetter obj.absolute, word)
-                            relative: (valueGetter obj.relative, word)
-                    dataset[i+1] = row
-                c.log "stats resolve"
-                def.resolve [data, wordArray, columns, dataset]
         return def.promise()
 
-
     valueFormatter: (row, cell, value, columnDef, dataContext) ->
-        return "" if not value.relative and not value.absolute
-        return """<span>
-                        <span class='relStat'>#{util.formatDecimalString(value.relative.toFixed(1), true)}</span>
-                        <span class='absStat'>(#{util.prettyNumbers(String(value.absolute))})</span>
-                  <span>"""
+        return dataContext[columnDef.id + "_display"]
+
 
 class model.AuthenticationProxy
     constructor: ->
         @loginObj = {}
 
     makeRequest: (usr, pass) ->
+        c.log "makeRequest: (usr, pass", usr, pass
         self = this
         if window.btoa
             auth = window.btoa(usr + ":" + pass)
@@ -667,6 +611,7 @@ class model.GraphProxy extends BaseProxy
 
     makeRequest: (cqp, subcqps, corpora) ->
         super()
+        self = this
         params =
             command : "count_time"
             cqp : cqp
@@ -688,6 +633,7 @@ class model.GraphProxy extends BaseProxy
             beforeSend: (req, settings) =>
                 @prevRequest = settings
                 @addAuthorizationHeader req
+                self.prevUrl = this.url
 
             progress: (data, e) =>
                 progressObj = @calcProgress(e)

@@ -6,6 +6,7 @@ window.korpApp = angular.module('korpApp', ["watchFighters"
                                             "template/modal/window.html"
                                             "template/typeahead/typeahead-match.html",
                                             "template/typeahead/typeahead-popup.html"
+                                            "template/pagination/pagination.html"
                                             "angularSpinner"
                                             "uiSlider"
                                             "ui.sortable"
@@ -13,7 +14,6 @@ window.korpApp = angular.module('korpApp', ["watchFighters"
                                             "newsdesk"
                                         ])
 
-# korpApp.controller "kwicCtrl", ($scope) ->
 
 korpApp.run ($rootScope, $location, utils, searches) ->
     s = $rootScope
@@ -33,6 +33,7 @@ korpApp.run ($rootScope, $location, utils, searches) ->
 
 
     s._loc = $location
+    s._searchOpts = {}
     s.$watch "_loc.search()", () ->
         c.log "loc.search() change", $location.search()
         _.defer () -> window.onHashChange?()
@@ -84,7 +85,7 @@ korpApp.run ($rootScope, $location, utils, searches) ->
             settings.corpusListing.select all_default_corpora
             corpusChooserInstance.corpusChooser "selectItems", all_default_corpora
         
-korpApp.controller "headerCtrl", ($scope, $location) ->
+korpApp.controller "headerCtrl", ($scope, $location, $modal, utils) ->
     s = $scope
 
     s.citeClick = () ->
@@ -117,12 +118,63 @@ korpApp.controller "headerCtrl", ($scope, $location) ->
     s.select(currentMode)
     s.getUrl = (modeId) ->
         if modeId is "default" then return location.pathname
-        return location.pathname + "?mode=" + modeId
+        return location.pathname + "?mode=#{modeId}#lang=#{s.$root.lang}"
     s.onSelect = (modeId) ->
         $location.search("corpus", null)
         
     s.onModeMenuClick = (modeId) ->
         window.location = location.pathname + "?mode=" + modeId
+
+    s.show_modal = false
+
+
+
+    modal = null
+    utils.setupHash s, [
+        key: "display"
+        scope_name: "show_modal"
+        post_change : (val) ->
+            c.log "post change", val
+            if val
+                showModal(val)
+            else
+                c.log "post change modal", modal
+                modal?.close()
+                modal = null
+
+
+    ]
+
+    closeModals = () ->
+        s.login_err = false
+        s.show_modal = false
+
+    showModal = (key) ->
+        tmpl = {about: 'markup/about.html', login: 'login_modal'}[key]
+        modal = $modal.open
+            templateUrl : tmpl
+            scope : s
+            windowClass : key
+
+        modal.result.then (() ->
+            closeModals()
+        ), () ->
+            closeModals()
+
+    s.clickX = () ->
+        closeModals()
+
+
+    s.loginSubmit = (usr, pass) ->
+        s.login_err = false
+        authenticationProxy.makeRequest(usr, pass).done((data) ->
+            util.setLogin()
+            safeApply s, () ->
+                s.show_modal = null
+        ).fail ->
+            c.log "login fail"
+            safeApply s, () ->
+                s.login_err = true
 
 
 korpApp.filter "trust", ($sce) ->

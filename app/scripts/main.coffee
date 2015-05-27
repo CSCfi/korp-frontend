@@ -1,5 +1,5 @@
 
-window.searchProxy = new model.SearchProxy()
+# window.searchProxy = new model.SearchProxy()
 window.authenticationProxy = new model.AuthenticationProxy()
 window.timeProxy = new model.TimeProxy()
 creds = $.jStorage.get("creds")
@@ -56,51 +56,21 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
     if corpus
         settings.corpusListing.select corpus.split(",")
     
-    # window.advancedSearch = new view.AdvancedSearch('#korp-advanced')
-    # window.extendedSearch = new view.ExtendedSearch('#korp-extended')
-    # window.simpleSearch = new view.SimpleSearch('#korp-simple')
-
     $("body").addClass "lab" if isLab
     
     $("body").addClass "mode-" + currentMode
     util.browserWarn()
     view.updateSearchHistory()
 
-    paper = new Raphael(document.getElementById("cog"), 33, 33)
-    paper.path("M26.974,16.514l3.765-1.991c-0.074-0.738-0.217-1.454-0.396-2.157l-4.182-0.579c-0.362-0.872-0.84-1.681-1.402-2.423l1.594-3.921c-0.524-0.511-1.09-0.977-1.686-1.406l-3.551,2.229c-0.833-0.438-1.73-0.77-2.672-0.984l-1.283-3.976c-0.364-0.027-0.728-0.056-1.099-0.056s-0.734,0.028-1.099,0.056l-1.271,3.941c-0.967,0.207-1.884,0.543-2.738,0.986L7.458,4.037C6.863,4.466,6.297,4.932,5.773,5.443l1.55,3.812c-0.604,0.775-1.11,1.629-1.49,2.55l-4.05,0.56c-0.178,0.703-0.322,1.418-0.395,2.157l3.635,1.923c0.041,1.013,0.209,1.994,0.506,2.918l-2.742,3.032c0.319,0.661,0.674,1.303,1.085,1.905l4.037-0.867c0.662,0.72,1.416,1.351,2.248,1.873l-0.153,4.131c0.663,0.299,1.352,0.549,2.062,0.749l2.554-3.283C15.073,26.961,15.532,27,16,27c0.507,0,1.003-0.046,1.491-0.113l2.567,3.301c0.711-0.2,1.399-0.45,2.062-0.749l-0.156-4.205c0.793-0.513,1.512-1.127,2.146-1.821l4.142,0.889c0.411-0.602,0.766-1.243,1.085-1.905l-2.831-3.131C26.778,18.391,26.93,17.467,26.974,16.514zM20.717,21.297l-1.785,1.162l-1.098-1.687c-0.571,0.22-1.186,0.353-1.834,0.353c-2.831,0-5.125-2.295-5.125-5.125c0-2.831,2.294-5.125,5.125-5.125c2.83,0,5.125,2.294,5.125,5.125c0,1.414-0.573,2.693-1.499,3.621L20.717,21.297z").attr
-        fill: "#666"
-        stroke: "none"
-        transform: "s0.6"
-
-    paper = new Raphael(document.getElementById("labs_logo"), 39, 60)
-    labs = paper.path("M22.121,24.438l-3.362-7.847c-0.329-0.769-0.599-2.081-0.599-2.917s0.513-1.521,1.14-1.521s1.141-0.513,1.141-1.14s-0.685-1.14-1.521-1.14h-6.84c-0.836,0-1.52,0.513-1.52,1.14s0.513,1.14,1.14,1.14s1.14,0.685,1.14,1.521s-0.269,2.148-0.599,2.917l-3.362,7.847C8.55,25.206,8.28,26.177,8.28,26.595s0.342,1.103,0.76,1.521s1.444,0.76,2.28,0.76h8.359c0.836,0,1.862-0.342,2.28-0.76s0.76-1.103,0.76-1.521S22.45,25.206,22.121,24.438zM16.582,7.625c0,0.599,0.484,1.083,1.083,1.083s1.083-0.484,1.083-1.083s-0.484-1.084-1.083-1.084S16.582,7.026,16.582,7.625zM13.667,7.792c0.276,0,0.5-0.224,0.5-0.5s-0.224-0.5-0.5-0.5s-0.5,0.224-0.5,0.5S13.391,7.792,13.667,7.792zM15.584,5.292c0.874,0,1.583-0.709,1.583-1.583c0-0.875-0.709-1.584-1.583-1.584C14.709,2.125,14,2.834,14,3.709C14,4.583,14.709,5.292,15.584,5.292z").attr(
-        fill: "#333"
-        stroke: "none"
-        transform: "t0,18s1.7"
-    )
     $("#logo").click ->
         window.location = window.location.protocol + "//" + window.location.host + window.location.pathname + location.search
         false
 
 
     #TODO: why do i have to do this?
-    $("#cog_menu").menu({}).hide().find(".follow_link").click ->
+    $("#cog_menu .follow_link").click ->
         window.href = window.open($(this).attr("href"), $(this).attr("target") or "_self")
 
-    $("#cog").click ->
-        return if $("#cog_menu:visible").length
-        $("#cog_menu").fadeIn("fast").position
-            my: "right top"
-            at: "right bottom"
-            of: "#top_bar"
-            offset: "-8 3"
-
-        $("body").one "click", ->
-            $("#cog_menu").fadeOut "fast"
-
-        false
-
-    # $("#searchbar").html searchbar_html[0]
     $("#search_history").change (event) ->
         c.log "select", $(this).find(":selected")
         target = $(this).find(":selected")
@@ -212,85 +182,61 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
             $("#languages").radioList "select", newLang
 
         display = search().display
-        if display is "about"
-            if $("#about_content").is(":empty")
-                $("#about_content").load "markup/about.html", ->
-                    util.localize this
-                    showAbout()
+        # if display is "about"
+            # if $("#about_content").is(":empty")
+            #     $("#about_content").load "markup/about.html", ->
+            #         util.localize this
+                    # showAbout()
 
-            else
-                showAbout()
-        else if display is "login" or
-                (settings.authenticationType == "shibboleth" and
-                 search().shib_logged_in?)
+            # else
+                # showAbout()
+        # if display is "login"
+        #     $("#login_popup").dialog(
+        #         height: 220
+        #         width: 177
+        #         modal: true
+        #         resizable: false
+        #         create: ->
+        #             $(".err_msg", this).hide()
 
-            if settings.authenticationType == "basic"
-                $("#login_popup").dialog(
-                    height: 220
-                    width: 177
-                    modal: true
-                    resizable: false
-                    create: ->
-                        $(".err_msg", this).hide()
+        #         open: ->
+        #             $(".ui-widget-overlay").hide().fadeIn()
 
-                    open: ->
-                        $(".ui-widget-overlay").hide().fadeIn()
+        #         beforeClose: ->
+        #             $(".ui-widget-overlay").remove()
+        #             $("<div />",
+        #                 class: "ui-widget-overlay"
+        #             ).css(
+        #                 height: $("body").outerHeight()
+        #                 width: $("body").outerWidth()
+        #                 zIndex: 1001
+        #             ).appendTo("body").fadeOut ->
+        #                 $(this).remove()
 
-                    beforeClose: ->
-                        $(".ui-widget-overlay").remove()
-                        $("<div />",
-                            class: "ui-widget-overlay"
-                        ).css(
-                            height: $("body").outerHeight()
-                            width: $("body").outerWidth()
-                            zIndex: 1001
-                        ).appendTo("body").fadeOut ->
-                            $(this).remove()
+        #             search "display", null
+        #             false
+        #     ).show().unbind("submit").submit ->
+        #         self = this
+        #         authenticationProxy.makeRequest($("#usrname", this).val(), $("#pass", this).val()).done((data) ->
+        #             util.setLogin()
+        #             search "display", null
+        #         ).fail ->
+        #             c.log "login fail"
+        #             $("#pass", self).val ""
+        #             $(".err_msg", self).show()
 
-                        search "display", null
-                        false
-                ).show().unbind("submit").submit ->
-                    self = this
-                    authenticationProxy.makeRequest($("#usrname", this).val(), $("#pass", this).val()).done((data) ->
-                        util.setLogin()
-                        search "display", null
-                    ).fail ->
-                        c.log "login fail"
-                        $("#pass", self).val ""
-                        $(".err_msg", self).show()
+        #         false
 
-                    false
+        #     $("#ui-dialog-title-login_popup").attr "rel", "localize[log_in]"
+        # else
+        #     $(".ui-dialog").fadeTo 400, 0, ->
+        #         $(".ui-dialog-content", this).dialog "destroy"
 
-                $("#ui-dialog-title-login_popup").attr "rel", "localize[log_in]"
-
-            else if settings.authenticationType == "shibboleth"
-                # Shibboleth deals with username and password on the IdP-server side. Therefore I ripped out the login window
-                # Note that this code is called *after* successful login via Shibboleth. -- matthies 28.11.13
-
-                # We don't have a username/password, so I just call it with dummy values:
-                authenticationProxy.makeRequest("dummyuser", "dummypass").done((data) ->
-                    if $("body").hasClass("not_logged_in")
-                        # for some reason the first login after browser start is caught further up (see my comment there)
-                        # and with the user from the previous browser session(!)
-                        # So if setLogin has been called already, we toggle and call it again. -- matthies 28.11.13
-                        util.setLogin()
-                    else
-                        $("body").toggleClass("logged_in not_logged_in")
-                        util.setLogin()
-
-                    search "shib_logged_in", null
-                ).fail ->
-                    c.log "login fail"
-
-        else
-            $(".ui-dialog").fadeTo 400, 0, ->
-                $(".ui-dialog-content", this).dialog "destroy"
-
-        if not isInit and hasChanged("display")
-            $("#plot_popup.ui-dialog-content").dialog("destroy").css
-                opacity: 0
-                display: "block"
-                height: 0
+        # if not isInit and hasChanged("display")
+        #     $("#plot_popup.ui-dialog-content").dialog("destroy").css
+        #         opacity: 0
+        #         display: "block"
+        #         height: 0
 
 
         if isInit
@@ -310,11 +256,31 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
         else
             search "about", null
 
-    $("#login").click ->
-        unless search().display?
-            search display: "login"
-        else
-            search "login", null
+    if settings.authenticationType != "shibboleth"
+        $("#login").click ->
+            unless search().display?
+                search display: "login"
+            else
+                search "login", null
+
+    else if search().shib_logged_in?
+        # Shibboleth deals with username and password on the IdP-server side. Therefore I ripped out the login window
+        # Note that this code is called *after* successful login via Shibboleth. -- matthies 28.11.13
+
+        # We don't have a username/password, so I just call it with dummy values:
+        authenticationProxy.makeRequest("dummyuser", "dummypass").done((data) ->
+            if $("body").hasClass("not_logged_in")
+                # for some reason the first login after browser start is caught further up (see my comment there)
+                # and with the user from the previous browser session(!)
+                # So if setLogin has been called already, we toggle and call it again. -- matthies 28.11.13
+                util.setLogin()
+            else
+                $("body").toggleClass("logged_in not_logged_in")
+                util.setLogin()
+
+            search "shib_logged_in", null
+        ).fail ->
+            c.log "login fail"
 
     $("#languages").radioList(
         change: ->

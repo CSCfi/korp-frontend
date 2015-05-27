@@ -27,7 +27,7 @@ korpApp.factory "utils", ($location) ->
                 val = (obj.val_in or _.identity)(val)
                 # c.log "obj.val_in", obj.val_in
                 
-
+                # if obj.key == "page" then c.log "page watch", val
                 if "scope_name" of obj
                     scope[obj.scope_name] = val
                 else if "scope_func" of obj
@@ -42,13 +42,14 @@ korpApp.factory "utils", ($location) ->
 
         for obj in config
             watch = obj.expr or obj.scope_name or obj.key
+            # c.log "watch", watch
             scope.$watch watch, do (obj, watch) ->
                 (val) ->
                     # c.log "before val", scope.$eval watch
                     val = (obj.val_out or _.identity)(val)
                     if val == obj.default then val = null
                     $location.search obj.key, val or null
-                    # c.log "post change", watch, val
+                    if obj.key == "page" then c.log "post change", watch, val
                     obj.post_change?(val)
 
 
@@ -166,22 +167,23 @@ korpApp.factory 'searches', (utils, $location, $rootScope, $http, $q) ->
                 def.resolve()
                 initTimeGraph(timedef)
 
-        kwicRequest : (cqp, page) ->
+        kwicRequest : (cqp, isPaging) ->
             
-            c.log "kwicRequest", page, cqp
-            kwicResults.makeRequest(page, cqp)
+            c.log "kwicRequest", cqp
+            kwicResults.makeRequest(cqp, isPaging)
 
         
-        kwicSearch : (cqp, page) ->
+        kwicSearch : (cqp) ->
             # simpleSearch.resetView()
-            @kwicRequest cqp, page
+            # kwicResults.@            
+            @kwicRequest cqp
             statsResults.makeRequest cqp
 
-        lemgramSearch : (lemgram, searchPrefix, searchSuffix, page) ->
+        lemgramSearch : (lemgram, searchPrefix, searchSuffix) ->
             #TODO: this is dumb, move the cqp calculations elsewhere
             cqp = new model.LemgramProxy().lemgramSearch(lemgram, searchPrefix, searchSuffix)
             statsResults.makeRequest cqp
-            @kwicRequest cqp, page
+            @kwicRequest cqp
 
             if settings.wordpicture == false then return
             
@@ -248,16 +250,33 @@ korpApp.factory 'searches', (utils, $location, $rootScope, $http, $q) ->
     # infoDef = searches.getInfoData()
 
 
-
-    $rootScope.$watch "_loc.search().search", () =>
+    oldValues = []
+    $rootScope.$watchGroup [(() -> $location.search().search), "_loc.search().page"], (newValues) =>
         c.log "searches service watch", $location.search().search
 
         searchExpr = $location.search().search
         unless searchExpr then return
         [type, value...] = searchExpr?.split("|")
         value = value.join("|")
-        page = $rootScope.search()["page"] or 0
-        c.log "page", page
+        # page = $location.search().page or 0
+
+        newValues[1] = Number(newValues[1]) or 0
+        oldValues[1] = Number(oldValues[1]) or 0
+        c.log "newValues", newValues
+        c.log "oldValues", oldValues
+
+        # weird workaround for bug that makes oldValues[0] undefined sometimes
+        # if not oldValues[0]?
+        #     oldValues[0] = newValues[0]
+
+        if _.isEqual newValues, oldValues
+            pageChanged = false
+            searchChanged = true
+        else
+            pageChanged = newValues[1] != oldValues[1]
+            searchChanged = newValues[0] != oldValues[0]
+
+        pageOnly = pageChanged and not searchChanged
 
         view.updateSearchHistory value, $location.absUrl()
         # $.when(chained).then () ->
@@ -268,11 +287,15 @@ korpApp.factory 'searches', (utils, $location, $rootScope, $http, $q) ->
                     searches.activeSearch = 
                         type : type
                         val : value
+                        page: newValues[1]
+                        pageOnly: pageOnly
 
                 when "lemgram"
                     searches.activeSearch = 
                         type : type
                         val : value
+                        page: newValues[1]
+                        pageOnly: pageOnly
 
                     
                     # $.sm.send "submit.lemgram", data
@@ -286,10 +309,12 @@ korpApp.factory 'searches', (utils, $location, $rootScope, $http, $q) ->
                     searches.activeSearch = 
                         type : type
                         val : value
+                        page: newValues[1]
+                        pageOnly: pageOnly
 
 
-                    searches.kwicSearch value, page
-
+                    searches.kwicSearch value
+            oldValues = [].concat newValues
 
 
     return searches

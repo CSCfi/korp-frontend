@@ -4,24 +4,20 @@ class BaseResults
         # @s.instance = this
         @$tab = $(tabSelector)
         @$result = $(resultSelector)
-        @index = @$tab.index()
         @optionWidget = $("#search_options")
-        @num_result = @$result.find(".num-result")
+        # @num_result = @$result.find(".num-result")
         @$result.add(@$tab).addClass "not_loading"
 
-    onProgress: (progressObj) ->
-        # c.log "onProgress", progressObj
-        # TODO: this item only exists in the kwic.
-        @num_result.html util.prettyNumbers(progressObj["total_results"])
-        # unless isNaN(progressObj["stats"])
-            # try
-                # @$result.find(".progress_container progress").attr "value", Math.round(progressObj["stats"])
-            # catch e
-                # c.log "onprogress error", e
-        # @$tab.find(".tab_progress").css "width", Math.round(progressObj["stats"]).toString() + "%"
+        @injector = $("body").injector()
 
+        def = @injector.get("$q").defer()
+        @firstResultDef = def
+
+
+    onProgress: (progressObj) ->
         safeApply @s, () =>
             @s.$parent.progress = Math.round(progressObj["stats"])
+            @s.hits_display = util.prettyNumbers(progressObj["total_results"])
 
 
 
@@ -36,16 +32,19 @@ class BaseResults
         $(".result_tabs > ul").scope().tabs
 
     renderResult: (data) ->
-
         #       this.resetView();
         @$result.find(".error_msg").remove()
-        if @$result.is(":visible")
-            util.setJsonLink @proxy.prevRequest
+        # util.setJsonLink @proxy.prevRequest if @$result.is(":visible")
         if data.ERROR
+            safeApply @s, () =>
+                @firstResultDef.reject()
+            
             @resultError data
             return false
         else
             safeApply @s, () =>
+                c.log "firstResultDef.resolve"
+                @firstResultDef.resolve()
                 @hasData = true
 
     resultError: (data) ->
@@ -59,7 +58,7 @@ class BaseResults
             .addClass("inline_block")
             .prependTo(@$result)
             .wrapAll "<div class='error_msg'>"
-        util.setJsonLink @proxy.prevRequest
+        # util.setJsonLink @proxy.prevRequest
 
     showPreloader : () ->
         @s.$parent.loading = true
@@ -73,6 +72,18 @@ class BaseResults
 
     countCorpora : () ->
         @proxy.prevParams?.corpus.split(",").length
+
+    onentry : () ->
+        @s.$root.jsonUrl = null
+        @firstResultDef.promise.then () =>
+            c.log "firstResultDef.then", @isActive()
+            if @isActive() 
+                @s.$root.jsonUrl = @proxy?.prevUrl
+    onexit : () ->
+        @s.$root.jsonUrl = null
+
+    isActive : () ->
+        !!@getResultTabs()[@tabindex]?.active
 
 
 class view.KWICResults extends BaseResults
@@ -110,7 +121,7 @@ class view.KWICResults extends BaseResults
 
     onWordClick : (event) ->
         c.log "wordclick", @tabindex, @s
-        if @getResultTabs()[@tabindex]?.active
+        if @isActive()
             @s.$root.sidebar_visible = true
         # c.log "click", obj, event
         # c.log "word click", $(this).scope().wd, event.currentTarget
@@ -158,8 +169,6 @@ class view.KWICResults extends BaseResults
 
     resetView: ->
         super()
-        # @$result.find(".results_table,.pager-wrapper").empty()
-        # @$result.find(".pager-wrapper").empty()
 
     getProxy: ->
         # return @readingProxy if @isReadingMode()
@@ -169,20 +178,20 @@ class view.KWICResults extends BaseResults
         @s.reading_mode
 
     onentry: ->
+        super()
         c.log "onentry kwic"
         @s.$root.sidebar_visible = true
 
         @$result.find(".token_selected").click()
-        # $("#sidebar").sidebar("show")
         _.defer () => @centerScrollbar()
         # @centerScrollbar()
         # $(document).keydown $.proxy(@onKeydown, this)
         return
 
     onexit: ->
+        super()
         c.log "onexit kwic"
         @s.$root.sidebar_visible = false
-        # $("#sidebar").sidebar("hide")
         # $(document).unbind "keydown", @onKeydown
         return
 
@@ -190,12 +199,17 @@ class view.KWICResults extends BaseResults
         isSpecialKeyDown = event.shiftKey or event.ctrlKey or event.metaKey
         return if isSpecialKeyDown or $("input, textarea, select").is(":focus") or
             not @$result.is(":visible")
+
         switch event.which
             when 78 # n
-                @$result.find(".pager-wrapper .next").click()
+                safeApply @s, =>
+                    @s.$parent.page++
+                    @s.$parent.pageObj.pager = @s.$parent.page + 1
                 return false
             when 70 # f
-                @$result.find(".pager-wrapper .prev").click()
+                safeApply @s, =>
+                    @s.$parent.page--
+                    @s.$parent.pageObj.pager = @s.$parent.page + 1
                 return false
         return unless @selectionManager.hasSelected()
         switch event.which
@@ -212,7 +226,8 @@ class view.KWICResults extends BaseResults
 
 
     getPageInterval: (page) ->
-        items_per_page = Number(@optionWidget.find(".num_hits").val())
+        items_per_page = Number(@s.$root._searchOpts.hits_per_page) or settings.hits_per_page_default
+        page = Number(page)
         output = {}
         output.start = (page or 0) * items_per_page
         output.end = (output.start + items_per_page) - 1
@@ -223,20 +238,22 @@ class view.KWICResults extends BaseResults
         @current_page = search().page or 0
         safeApply @s, () =>
             @hidePreloader()
+            @s.hits = data.hits
+            @s.hits_display  = util.prettyNumbers(data.hits)
         unless data.hits
             c.log "no kwic results"
             @showNoResults()
             return
         # @s.$parent.loading = false
         @$result.removeClass "zero_results"
-        @$result.find(".num-result").html util.prettyNumbers(data.hits)
+        # @$result.find(".num-result").html util.prettyNumbers(data.hits)
         @renderHitsPicture data
-        @buildPager data.hits
+
 
 
 
     renderResult: (data) ->
-        c.log "data", data
+        c.log "data", data, @proxy.prevUrl
         resultError = super(data)
         return if resultError is false
         unless data.kwic then data.kwic = []
@@ -245,7 +262,8 @@ class view.KWICResults extends BaseResults
 
 
 
-
+        if @isActive()
+            @s.$root.jsonUrl = @proxy.prevUrl
 
         # applyTo "kwicCtrl", ($scope) ->
         @s.$apply ($scope) =>
@@ -279,9 +297,9 @@ class view.KWICResults extends BaseResults
 
     showNoResults: ->
         # @$result.find(".results_table").empty()
-        @$result.find(".pager-wrapper").empty()
+        # @$result.find(".pager-wrapper").empty()
         @hidePreloader()
-        @$result.find(".num-result").html 0
+        # @$result.find(".num-result").html 0
         @$result.addClass("zero_results").click()
 
         #   this.$result.find(".sort_select").hide();
@@ -320,70 +338,8 @@ class view.KWICResults extends BaseResults
         else newX -= offset if wordLeft < area.offset().left
         area.stop(true, true).animate scrollLeft: newX
 
-    buildPager: (number_of_hits, noTryAgain) ->
-        items_per_page = @optionWidget.find(".num_hits").val()
-        # c.log "items_per_page", items_per_page, number_of_hits, @$result.find(".pager-wrapper").is(":visible")
-        # @movePager "up"
-        $.onScrollOut "unbind"
-        @$result.find(".pager-wrapper").unbind().empty()
-        if number_of_hits > items_per_page
-            @$result.find(".pager-wrapper").pagination number_of_hits,
-                items_per_page: items_per_page
-                callback: $.proxy(@handlePaginationClick, this)
-                next_text: util.getLocaleString("next")
-                prev_text: util.getLocaleString("prev")
-                link_to: "javascript:void(0)"
-                num_edge_entries: 2
-                ellipse_text: ".."
-                current_page: @current_page or 0
 
-            @$result.find(".next").attr "rel", "localize[next]"
-            @$result.find(".prev").attr "rel", "localize[prev]"
-
-            buttons = @$result.find(".pagination a:visible")
-            if buttons.length > 20 and not noTryAgain
-                setTimeout( () =>
-                    @buildPager(number_of_hits, true)
-                , 100)
-    
-    # pagination_container is used by the pagination lib
-    handlePaginationClick: (new_page_index, pagination_container, force_click) ->
-        safeApply @s, () =>
-            @s.paging = true
-        page = search().page or 0
-        c.log "handlePaginationClick", new_page_index, page
-        self = this
-        if new_page_index isnt page or !!force_click
-            isReading = @isReadingMode()
-            kwicCallback = @renderResult
-
-            # this.showPreloader();
-
-            opts = @buildQueryOptions()
-            opts.corpus = @proxy.prevRequest.corpus
-
-            req = @getProxy().makeRequest opts, new_page_index, ((progressObj) =>
-                #progress
-                @.$tab.find(".tab_progress").css "width", Math.round(progressObj["stats"]).toString() + "%"
-            ), (data) => 
-                self.renderResult(data)
-                c.log "pagination success", data
-                @buildPager data.hits
-                safeApply @s, () =>
-                    @s.paging = false
-
-            # req.success = (data) =>
-                
-            
-            req.fail = (data) ->
-
-            # $.bbq.pushState page: new_page_index
-            safeApply @s, () ->
-                search page: new_page_index
-            @current_page = new_page_index
-        false
-
-    buildQueryOptions: (cqp) ->
+    buildQueryOptions: (cqp, isPaging) ->
         c.log "buildQueryOptions", cqp
         opts = {}
         getSortParams = () -> 
@@ -409,17 +365,26 @@ class view.KWICResults extends BaseResults
             queryData : @proxy.queryData if @proxy.queryData
             context : settings.corpusListing.getContextQueryString() if @isReadingMode() or currentMode == "parallel"
             within : settings.corpusListing.getWithinQueryString() if search().within
+            incremental: !isPaging and $.support.ajaxProgress
         }
         _.extend opts.ajaxParams, getSortParams()
         return opts
 
 
-    makeRequest: (page_num, cqp) ->
-        c.log "kwicResults.makeRequest", page_num
+    makeRequest: (cqp, isPaging) ->
+        c.log "kwicResults.makeRequest", cqp, isPaging
+
+        page = Number(search().page) or 0
+        if not isPaging
+            @s.gotFirstKwic = false
+            @s.$parent.pageObj.pager = 0
+
+        if !@hasInitialized?
+            @s.$parent.pageObj.pager = page + 1
+
+        @hasInitialized ?= false
         @showPreloader()
         @s.aborted = false
-        @$result.find(".pager-wrapper").empty()
-        @s.gotFirstKwic = false
 
         if @proxy.hasPending()
             @ignoreAbort = true
@@ -428,10 +393,12 @@ class view.KWICResults extends BaseResults
 
         isReading = @isReadingMode()
 
-
-        req = @getProxy().makeRequest @buildQueryOptions(cqp),
-                            page_num or @current_page,
-                            (if isReading then $.noop else $.proxy(@onProgress, this)),
+        params = @buildQueryOptions(cqp, isPaging)
+        progressCallback = if ((not params.ajaxParams.incremental)) then $.noop else $.proxy(@onProgress, this)
+        # c.log "params.incremental", params.ajaxParams.incremental, isReading
+        req = @getProxy().makeRequest params,
+                            page,
+                            progressCallback,
                             (data) => 
                                 @renderResult data
         req.success (data) =>
@@ -448,11 +415,6 @@ class view.KWICResults extends BaseResults
                     @s.aborted = true
 
         
-        # req.always () =>
-        #     c.log "req always"
-        #     safeApply @s, () =>
-        #         @hidePreloader()
-
 
     getActiveData : () ->
         if @isReadingMode()
@@ -460,8 +422,6 @@ class view.KWICResults extends BaseResults
         else
             @s.kwic
 
-    setPage: (page) ->
-        @$result.find(".pager-wrapper").trigger "setPage", [page]
 
     centerScrollbar: ->
         m = @$result.find(".match:first")
@@ -543,51 +503,18 @@ class view.KWICResults extends BaseResults
             false if (xCoor > thisLeft and xCoor < thisRight) or thisLeft > xCoor
 
         output
-    # TODO: currently out of commission
-    # setupPagerMover: ->
-    #     self = this
-    #     pager = @$result.find(".pager-wrapper")
-    #     upOpts =
-    #         point: pager.offset().top + pager.height()
-    #         callback: ->
-    #             self.movePager "up"
-
-    #     self.movePager "down"
-    #     downOpts =
-    #         point: pager.offset().top + pager.height()
-    #         callback: ->
-    #             self.movePager "down"
-
-    #     self.movePager "up"
-    #     c.log "onscrollout", upOpts.point, downOpts.point
-    #     $.onScrollOut upOpts, downOpts
-
-    # movePager: (dir) ->
-    #     pager = @$result.find(".pager-wrapper")
-    #     if dir is "down"
-    #         pager.data("prevPos", pager.prev()).appendTo @$result
-    #     else
-    #         pager.data("prevPos").after pager if pager.data("prevPos")
-
-
-
-
 
 class view.ExampleResults extends view.KWICResults
     constructor: (tabSelector, resultSelector, scope) ->
         c.log "ExampleResults constructor", tabSelector, resultSelector, scope
         super tabSelector, resultSelector, scope
         @proxy = new model.KWICProxy()
-        # @$result.find(".progress_container,.tab_progress").hide()
-        # @$result.add(@$tab).addClass "not_loading customtab"
-        # @$result.removeClass "reading_mode"
         
-        if @s.$parent.queryParams
-            @makeRequest()
-            @onentry()
         @current_page = 0
+        if @s.$parent.queryParams
+            @makeRequest().then () =>
+                @onentry()
         @tabindex = (@getResultTabs().length - 1) + @s.$parent.$index
-        # @s.$parent.active = true
 
     setupReadingHash : () ->
 
@@ -597,7 +524,7 @@ class view.ExampleResults extends view.KWICResults
         items_per_page = parseInt(@optionWidget.find(".num_hits").val())
         opts = @s.$parent.queryParams
         @resetView()
-        opts.ajaxParams.incremental = opts.ajaxParams.command == "query"
+        opts.ajaxParams.incremental = false
 
         opts.ajaxParams.start = @current_page * items_per_page
         opts.ajaxParams.end = (opts.ajaxParams.start + items_per_page)
@@ -615,9 +542,9 @@ class view.ExampleResults extends view.KWICResults
             @renderCompleteResult data
             safeApply @s, () =>
                 @hidePreloader()
-            util.setJsonLink @proxy.prevRequest
+            # util.setJsonLink @proxy.prevRequest
             util.setDownloadLinks @proxy.prevRequest, data
-            @$result.find(".num-result").html util.prettyNumbers(data.hits)
+            # @$result.find(".num-result").html util.prettyNumbers(data.hits)
 
         # def.success = (data) ->
 
@@ -631,11 +558,11 @@ class view.ExampleResults extends view.KWICResults
         super(data)
         @s.setupReadingWatch()
 
-    handlePaginationClick: (new_page_index, pagination_container, force_click) ->
-        c.log "exampleresults.handlePaginationClick"
-        @current_page = new_page_index
-        @makeRequest()
-        false
+
+    renderCompleteResult : (data) ->
+        curr = @current_page
+        super(data)
+        @current_page = curr
 
 
 class view.LemgramResults extends BaseResults
@@ -643,6 +570,7 @@ class view.LemgramResults extends BaseResults
         self = this
         super tabSelector, resultSelector, scope
         @s = scope
+        @tabindex = 2
         #   TODO: figure out what I use this for.
         @resultDeferred = $.Deferred()
         @proxy = new model.LemgramProxy()
@@ -899,17 +827,27 @@ class view.LemgramResults extends BaseResults
         #   var hasWarned = false;
         unless hasWarned
             $.jStorage.set "lemgram_warning", true
-            $("#sidebar").sidebar "show", "lemgramWarning"
-            self.timeout = setTimeout(->
-                $("#sidebar").sidebar "hide"
+            $("#sidebar").sidebar "refreshContent", "lemgramWarning"
+            safeApply @s, () =>
+                @s.$root.sidebar_visible = true
+            self.timeout = setTimeout(=>
+                safeApply @s, () =>
+                    @s.$root.sidebar_visible = false
+                    $("#sidebar").sidebar "refreshContent"
             , 5000)
 
     onentry: ->
+        c.log "lemgram onentry"
+        super()
         @resultDeferred.done @showWarning
+        return
 
     onexit: ->
+        super()
         clearTimeout self.timeout
-        $("#sidebar").sidebar "hide"
+        safeApply @s, () =>
+            @s.$root.sidebar_visible = false
+        return
 
     showNoResults: ->
         @hidePreloader()
@@ -922,159 +860,22 @@ class view.LemgramResults extends BaseResults
             $(this).html $.format("%s <span class='wordClass'>%s</span>", $(this).html().split(" "))
 
 
-
-newDataInGraph = (dataName, horizontalDiagram) ->
-    c.log "dataName, horizontalDiagram", dataName, horizontalDiagram
-    dataItems = []
-    wordArray = []
-    corpusArray = []
-    statsResults["lastDataName"] = dataName
-    if horizontalDiagram # hits/corpus
-        $.each statsResults.savedData["corpora"], (corpus, obj) ->
-            if dataName is "SIGMA_ALL"
-
-                # ∑ selected
-                totfreq = 0
-                $.each obj["relative"], (wordform, freq) ->
-                    numFreq = parseFloat(freq)
-                    totfreq += numFreq if numFreq
-
-                dataItems.push
-                    value: totfreq
-                    caption: settings.corpora[corpus.toLowerCase()]["title"] + ": " + util.formatDecimalString(totfreq.toString())
-                    shape_id: "sigma_all"
-
-            else
-
-                # Individual wordform selected
-                freq = parseFloat(obj["relative"][dataName])
-                if freq
-                    dataItems.push
-                        value: freq
-                        caption: settings.corpora[corpus.toLowerCase()]["title"] + ": " + util.formatDecimalString(freq.toString())
-                        shape_id: dataName
-
-                else
-                    dataItems.push
-                        value: 0
-                        caption: ""
-                        shape_id: dataName
-
-
-        $("#dialog").remove()
-        if dataName is "SIGMA_ALL"
-            topheader = util.getLocaleString("statstable_hitsheader_lemgram")
-            locstring = "statstable_hitsheader_lemgram"
-        else
-            topheader = util.getLocaleString("statstable_hitsheader") + "<i>#{dataName}</i>"
-            locstring = "statstable_hitsheader"
-        relHitsString = util.getLocaleString("statstable_relfigures_hits")
-        $("<div id='dialog' title='#{topheader}' />")
-        .appendTo("body")
-        # rel="localize[...]" does not seem to localize the texts here,
-        # nor does Angular localization seem to work, so use
-        # util.getLocaleString directly. (Jyrki Niemi 2015-04-29)
-        .append("""<div id="pieDiv"><br/><div id="statistics_switch" style="text-align:center">
-                            <a href="javascript:" rel="localize[statstable_relfigures]" data-mode="relative">#{util.getLocaleString("statstable_relfigures")}</a>
-                            <a href="javascript:" rel="localize[statstable_absfigures]" data-mode="absolute">#{util.getLocaleString("statstable_absfigures")}</a>
-                        </div>
-                        <div id="chartFrame" style="height:380"></div>
-                        <p id="hitsDescription" style="text-align:center" rel="localize[statstable_absfigures_hits]">#{relHitsString}</p></div>"""
-        ).dialog(
-            width: 400
-            height: 500
-            resize: ->
-                $("#chartFrame").css "height", $("#chartFrame").parent().width() - 20
-                stats2Instance.pie_widget "resizeDiagram", $(this).width() - 60
-                # false
-
-            resizeStop: (event, ui) ->
-                w = $(this).dialog("option", "width")
-                h = $(this).dialog("option", "height")
-                if @width * 1.25 > @height
-                    $(this).dialog "option", "height", w * 1.25
-                else
-                    $(this).dialog "option", "width", h * 0.80
-                stats2Instance.pie_widget "resizeDiagram", $(this).width() - 60
-            close: () ->
-                $("#pieDiv").remove()
-        ).css("opacity", 0)
-        .parent().find(".ui-dialog-title").localeKey("statstable_hitsheader_lemgram")
-        $("#dialog").fadeTo 400, 1
-        $("#dialog").find("a").blur() # Prevents the focus of the first link in the "dialog"
-        stats2Instance = $("#chartFrame").pie_widget(
-            container_id: "chartFrame"
-            data_items: dataItems
-        )
-        statsSwitchInstance = $("#statistics_switch").radioList(
-            change: ->
-                typestring = statsSwitchInstance.radioList("getSelected").attr("data-mode")
-                dataItems = []
-                dataName = statsResults["lastDataName"]
-                $.each statsResults.savedData["corpora"], (corpus, obj) ->
-                    if dataName is "SIGMA_ALL"
-
-                        # sigma selected
-                        totfreq = 0
-                        $.each obj[typestring], (wordform, freq) ->
-                            if typestring is "absolute"
-                                numFreq = parseInt(freq)
-                            else
-                                numFreq = parseFloat(freq)
-                            totfreq += numFreq if numFreq
-
-                        dataItems.push
-                            value: totfreq
-                            caption: settings.corpora[corpus.toLowerCase()]["title"] + ": " + util.formatDecimalString(totfreq.toString(), false)
-                            shape_id: "sigma_all"
-
-                    else
-
-                        # Individual wordform selected
-                        if typestring is "absolute"
-                            freq = parseInt(obj[typestring][dataName])
-                        else
-                            freq = parseFloat(obj[typestring][dataName])
-                        if freq
-                            dataItems.push
-                                value: freq
-                                caption: settings.corpora[corpus.toLowerCase()]["title"] + ": " + util.formatDecimalString(freq.toString(), false)
-                                shape_id: dataName
-
-                        else
-                            dataItems.push
-                                value: 0
-                                caption: ""
-                                shape_id: dataName
-
-
-                stats2Instance.pie_widget "newData", dataItems
-                if typestring is "absolute"
-                    loc = "statstable_absfigures_hits"
-                else
-                    loc = "statstable_absfigures_hits"
-                $("#hitsDescription").localeKey loc
-
-            selected: "relative"
-        )
-
-
-
 class view.StatsResults extends BaseResults
     constructor: (resultSelector, tabSelector, scope) ->
         super resultSelector, tabSelector, scope
         c.log "StatsResults constr", 
         self = this
+        @tabindex = 1
         @gridData = null
         @proxy = new model.StatsProxy()
         window.statsProxy = @proxy
-        @$result.on "click", ".arcDiagramPicture", (event) ->
+        @$result.on "click", ".arcDiagramPicture", (event) =>
             parts = $(event.currentTarget).attr("id").split("__")
 
             if parts[1] != "Σ"
-                newDataInGraph(parts[1],true)
+                @newDataInGraph(parts[1])
             else # The ∑ row
-                newDataInGraph("SIGMA_ALL",true)
+                @newDataInGraph("SIGMA_ALL")
 
         @$result.on "click", ".slick-cell.l1.r1 .link", () ->
             query = $(this).data("query")
@@ -1096,21 +897,23 @@ class view.StatsResults extends BaseResults
 
 
         $(window).resize _.debounce( () =>
-            # $("#myGrid:visible").width($("#myGrid").parent().width())
             $("#myGrid:visible").width($(window).width() - 40)
             nRows = @gridData?.length or 2
             h = (nRows * 2) + 4
             h = Math.min h, 40
-            $("#myGrid:visible").height "#{h}.1em"
-            @grid?.resizeCanvas()
-            @grid?.autosizeColumns()
             
+            $("#myGrid:visible").height $("#myGrid .slick-viewport").height() + 40
+
         , 100)
 
-        # $("#exportButton").unbind "click"
-        # $("#exportButton").click =>
-            
         $("#kindOfData,#kindOfFormat").change () =>
+            $("#exportButton").hide();
+            $("#generateExportButton").show();
+
+        $("#exportButton").hide();
+        $("#generateExportButton").unbind("click").click () =>
+            $("#exportButton").show()
+            $("#generateExportButton").hide();
             @updateExportBlob()
 
         if $("html.msie7,html.msie8").length
@@ -1128,14 +931,22 @@ class view.StatsResults extends BaseResults
             showTotal = false
             mainCQP = params.cqp
 
-            for chk in @$result.find(".include_chk:checked")
+            console.log "DOING GRAPH CHECKING"
+            # THIS IS FLAWED AND SHOULD USE 'getSelectedRows()' INSTEAD.
+            # FIXED FOR NOW BUT MIGHT ONLY WORK FOR VISIBLE CHECKBOXES!
+            #for chk in @$result.find(".include_chk:checked")
+            for chk in @$result.find(".slick-cell > input:checked")
                 cell = $(chk).parent()
-                if cell.parent().is ".slick-row:nth-child(1)"
+                #if cell.parent().is ".slick-row:nth-child(1)"
+                #    showTotal = true
+                #    continue
+                cqp = decodeURIComponent cell.next().find(" > .link").data("query")
+                unless cqp isnt "undefined" # TODO: make a better check
                     showTotal = true
                     continue
-                cqp = decodeURIComponent cell.next().find(" > .link").data("query")
                 subExprs.push cqp
                 labelMapping[cqp] = cell.next().text()
+
 
 
             activeCorpora = _.flatten [key for key, val of @savedData.corpora when val.sums.absolute]
@@ -1148,12 +959,6 @@ class view.StatsResults extends BaseResults
                     showTotal : showTotal
                     corpusListing : settings.corpusListing.subsetFactory activeCorpora
 
-        paper = new Raphael($(".graph_btn_icon", @$result).get(0), 33, 24)
-        paper.path("M3.625,25.062c-0.539-0.115-0.885-0.646-0.77-1.187l0,0L6.51,6.584l2.267,9.259l1.923-5.188l3.581,3.741l3.883-13.103l2.934,11.734l1.96-1.509l5.271,11.74c0.226,0.504,0,1.095-0.505,1.321l0,0c-0.505,0.227-1.096,0-1.322-0.504l0,0l-4.23-9.428l-2.374,1.826l-1.896-7.596l-2.783,9.393l-3.754-3.924L8.386,22.66l-1.731-7.083l-1.843,8.711c-0.101,0.472-0.515,0.794-0.979,0.794l0,0C3.765,25.083,3.695,25.076,3.625,25.062L3.625,25.062z")
-            .attr
-                fill: "#666"
-                stroke: "none"
-                transform: "s0.6"
 
     updateExportBlob : () ->
         selVal = $("#kindOfData option:selected").val()
@@ -1202,11 +1007,6 @@ class view.StatsResults extends BaseResults
 
         csvstr = csv.encode()
 
-        # if selType is "tsv"
-        #     window.open "data:text/tsv;charset=utf-8," + (csvstr)
-        # else
-        #     window.open "data:text/csv;charset=utf-8," + (csvstr)
-
         blob = new Blob([csvstr], { type: "text/#{selType}"})
         csvUrl = URL.createObjectURL(blob)
 
@@ -1228,13 +1028,16 @@ class view.StatsResults extends BaseResults
             @resetView()
 
         @showPreloader()
-        @proxy.makeRequest(cqp, ((args...) => @onProgress(args...))
+        withinArg = settings.corpusListing.getWithinQueryString() if search().within
+        @proxy.makeRequest(cqp, ((args...) => @onProgress(args...)), withinArg
         ).done( ([data, wordArray, columns, dataset]) =>
             # @s.aborted = false
+            c.log "dataset.length", dataset.length
             safeApply @s, () =>
                 @hidePreloader()
             @savedData = data
             @savedWordArray = wordArray
+
             @renderResult columns, dataset
 
         ).fail (textStatus, err) =>
@@ -1254,15 +1057,10 @@ class view.StatsResults extends BaseResults
                 else
                     @resultError err
 
-        # .always () =>
-        #     safeApply @s, () =>
-        #         @hidePreloader()
-
-
 
     renderResult: (columns, data) ->
         refreshHeaders = ->
-            $(".slick-header-column:nth(2)").click().click()
+            #$(".slick-header-column:nth(2)").click().click()
             $(".slick-column-name:nth(1),.slick-column-name:nth(2)").not("[rel^=localize]").each ->
                 $(this).localeKey $(this).text()
 
@@ -1270,8 +1068,7 @@ class view.StatsResults extends BaseResults
         @gridData = data
         resultError = super(data)
         return if resultError is false
-        c.log "renderresults"
-        @updateExportBlob()
+
         if data[0].total_value.absolute == 0
             # @hidePreloader()
             safeApply @s, () =>
@@ -1282,17 +1079,22 @@ class view.StatsResults extends BaseResults
             cssClass: "slick-cell-checkboxsel"
 
         columns = [checkboxSelector.getColumnDefinition()].concat(columns)
-        $("#myGrid").width($(document).width())
+        #$("#myGrid").width($(document).width())
+        $("#myGrid").width(800)
+        $("#myGrid").height(600)
+
+        #return false
+        console.log "grad data", data
         grid = new Slick.Grid $("#myGrid"), data, columns,
             enableCellNavigation: false
             enableColumnReorder: false
-
+        
         grid.setSelectionModel(new Slick.RowSelectionModel({selectActiveRow: false}))
         grid.registerPlugin(checkboxSelector)
         @grid = grid
         @grid.autosizeColumns()
-        $("#myGrid").width("100%")
-
+        #$("#myGrid").width("100%")
+        
         sortCol = columns[2]
         log = _.debounce () ->
             c.log "grid sort"
@@ -1305,8 +1107,10 @@ class view.StatsResults extends BaseResults
                     x = a[sortCol.field]
                     y = b[sortCol.field]
                 else
-                    x = a[sortCol.field].absolute or 0
-                    y = b[sortCol.field].absolute or 0
+                    #x = a[sortCol.field].absolute or 0
+                    #y = b[sortCol.field].absolute or 0
+                    x = a[sortCol.field][0] or 0
+                    y = b[sortCol.field][0] or 0
                 ret = ((if x is y then 0 else ((if x > y then 1 else -1))))
                 ret *= -1 unless args.sortAsc
                 ret
@@ -1332,23 +1136,150 @@ class view.StatsResults extends BaseResults
 
     updateGraphBtnState : () ->
 
-        # $("#showGraph").button("enable")
         @s.graphEnabled = true
         cl = settings.corpusListing.subsetFactory(@proxy.prevParams.corpus.split(","))
 
         if not (_.compact cl.getTimeInterval()).length
             @s.graphEnabled = false
 
-    # showError : function() {
-    #   this.hidePreloader();
-    #   $("<i/>")
-    #   .localeKey("error_occurred")
-    #   .appendTo("#results-stats");
-    # },
+    newDataInGraph : (dataName) ->
+        dataItems = []
+        wordArray = []
+        corpusArray = []
+        @lastDataName = dataName
+        $.each @savedData["corpora"], (corpus, obj) ->
+            if dataName is "SIGMA_ALL"
+
+                # ∑ selected
+                totfreq = 0
+                $.each obj["relative"], (wordform, freq) ->
+                    numFreq = parseFloat(freq)
+                    totfreq += numFreq if numFreq
+
+                dataItems.push
+                    value: totfreq
+                    caption: settings.corpora[corpus.toLowerCase()]["title"] + ": " + util.formatDecimalString(totfreq.toString())
+                    shape_id: "sigma_all"
+
+            else
+
+                # Individual wordform selected
+                freq = parseFloat(obj["relative"][dataName])
+                if freq
+                    dataItems.push
+                        value: freq
+                        caption: settings.corpora[corpus.toLowerCase()]["title"] + ": " + util.formatDecimalString(freq.toString())
+                        shape_id: dataName
+
+                else
+                    dataItems.push
+                        value: 0
+                        caption: ""
+                        shape_id: dataName
+
+
+            $("#dialog").remove()
+            if dataName is "SIGMA_ALL"
+                topheader = util.getLocaleString("statstable_hitsheader_lemgram")
+                locstring = "statstable_hitsheader_lemgram"
+            else
+                topheader = util.getLocaleString("statstable_hitsheader") + "<i>#{dataName}</i>"
+                locstring = "statstable_hitsheader"
+            relHitsString = util.getLocaleString("statstable_relfigures_hits")
+            $("<div id='dialog' title='#{topheader}' />")
+            .appendTo("body")
+            # rel="localize[...]" does not seem to localize the texts here,
+            # nor does Angular localization seem to work, so use
+            # util.getLocaleString directly. (Jyrki Niemi 2015-04-29)
+            .append("""<div id="pieDiv"><br/><div id="statistics_switch" style="text-align:center">
+                                <a href="javascript:" rel="localize[statstable_relfigures]" data-mode="relative">#{util.getLocaleString("statstable_relfigures")}</a>
+                                <a href="javascript:" rel="localize[statstable_absfigures]" data-mode="absolute">#{util.getLocaleString("statstable_absfigures")}</a>
+                            </div>
+                            <div id="chartFrame" style="height:380"></div>
+                            <p id="hitsDescription" style="text-align:center" rel="localize[statstable_absfigures_hits]">#{relHitsString}</p></div>"""
+            ).dialog(
+                width: 400
+                height: 500
+                resize: ->
+                    $("#chartFrame").css "height", $("#chartFrame").parent().width() - 20
+                    stats2Instance.pie_widget "resizeDiagram", $(this).width() - 60
+                    # false
+
+                resizeStop: (event, ui) ->
+                    w = $(this).dialog("option", "width")
+                    h = $(this).dialog("option", "height")
+                    if @width * 1.25 > @height
+                        $(this).dialog "option", "height", w * 1.25
+                    else
+                        $(this).dialog "option", "width", h * 0.80
+                    stats2Instance.pie_widget "resizeDiagram", $(this).width() - 60
+                close: () ->
+                    $("#pieDiv").remove()
+            ).css("opacity", 0)
+            .parent().find(".ui-dialog-title").localeKey("statstable_hitsheader_lemgram")
+            $("#dialog").fadeTo 400, 1
+            $("#dialog").find("a").blur() # Prevents the focus of the first link in the "dialog"
+            stats2Instance = $("#chartFrame").pie_widget(
+                container_id: "chartFrame"
+                data_items: dataItems
+            )
+            statsSwitchInstance = $("#statistics_switch").radioList(
+                change: =>
+                    typestring = statsSwitchInstance.radioList("getSelected").attr("data-mode")
+                    dataItems = []
+                    dataName = @lastDataName
+                    $.each @savedData["corpora"], (corpus, obj) ->
+                        if dataName is "SIGMA_ALL"
+
+                            # sigma selected
+                            totfreq = 0
+                            $.each obj[typestring], (wordform, freq) ->
+                                if typestring is "absolute"
+                                    numFreq = parseInt(freq)
+                                else
+                                    numFreq = parseFloat(freq)
+                                totfreq += numFreq if numFreq
+
+                            dataItems.push
+                                value: totfreq
+                                caption: settings.corpora[corpus.toLowerCase()]["title"] + ": " + util.formatDecimalString(totfreq.toString(), false)
+                                shape_id: "sigma_all"
+
+                        else
+
+                            # Individual wordform selected
+                            if typestring is "absolute"
+                                freq = parseInt(obj[typestring][dataName])
+                            else
+                                freq = parseFloat(obj[typestring][dataName])
+                            if freq
+                                dataItems.push
+                                    value: freq
+                                    caption: settings.corpora[corpus.toLowerCase()]["title"] + ": " + util.formatDecimalString(freq.toString(), false)
+                                    shape_id: dataName
+
+                            else
+                                dataItems.push
+                                    value: 0
+                                    caption: ""
+                                    shape_id: dataName
+
+
+                    stats2Instance.pie_widget "newData", dataItems
+                    if typestring is "absolute"
+                        loc = "statstable_absfigures_hits"
+                    else
+                        loc = "statstable_relfigures_hits"
+                    $("#hitsDescription").localeKey loc
+
+                selected: "relative"
+            )
+
     onentry : () ->
+        super()
         $(window).trigger("resize")
         return
-    onexit : () ->
+    # onexit : () ->
 
     resetView: ->
         super()
@@ -1435,8 +1366,9 @@ class view.GraphResults extends BaseResults
 
 
 
-    onentry : ->
-    onexit : ->
+    # onentry : () ->
+    #     super
+    # onexit : ->
 
     parseDate : (granularity, time) ->
         [year,month,day] = [null,0,1]
@@ -1775,6 +1707,7 @@ class view.GraphResults extends BaseResults
 
             HTMLFormatter = (row, cell, value, columnDef, dataContext) -> value
 
+
             time_table_data = []
             time_table_columns_intermediate = {}
             for row in series
@@ -1784,9 +1717,21 @@ class view.GraphResults extends BaseResults
                     time_table_columns_intermediate[timestamp] =
                         "name" : timestamp
                         "field" : timestamp
-                        "formatter" : window.statsProxy.valueFormatter
+                        "formatter" : (row, cell, value, columnDef, dataContext) ->
+                            loc = {
+                                'sv' : "sv-SE"
+                                'en' : "gb-EN"
+                            }[$("body").scope().lang]
+                            fmt = (valTup) ->
+                                if typeof valTup[0] == "undefined" then return ""
+                                return "<span>" +
+                                        "<span class='relStat'>" + Number(valTup[1].toFixed(1)).toLocaleString(loc) + "</span> " + 
+                                        "<span class='absStat'>(" + valTup[0].toLocaleString(loc) + ")</span> " +
+                                  "<span>"
+                            return fmt(value)
                     i = _.indexOf (_.pluck row.abs_data, "x"), item.x, true
-                    new_time_row[timestamp] = {"relative" : item.y, "absolute" : row.abs_data[i].y}
+                    #new_time_row[timestamp] = {"relative" : item.y, "absolute" : row.abs_data[i].y}
+                    new_time_row[timestamp] = [item.y, row.abs_data[i].y]
                 time_table_data.push new_time_row
             # Sort columns
             time_table_columns = [

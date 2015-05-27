@@ -97,7 +97,7 @@
             s.isPopoverVisible = false;
             popover.hide();
             $rootElement.off("keydown", handleEscape);
-            return $rootElement.off("click", s.popHide);
+            $rootElement.off("click", s.popHide);
           };
         }
       }
@@ -106,4 +106,6 @@
 
 }).call(this);
 
-//# sourceMappingURL=newsdesk.js.map
+/*
+//@ sourceMappingURL=newsdesk.js.map
+*/

@@ -154,9 +154,9 @@
               address = _.template(attrs.externalSearch, {
                 val: x
               });
-              li.append($("<a href='" + address + "' class='external_link' target='_blank'></a>")).click(function(event) {
+              li.append($("<a href='" + address + "' class='external_link' target='_blank'></a>").click(function(event) {
                 return event.stopImmediatePropagation();
-              });
+              }));
             }
             if (attrs.internalSearch) {
               li.addClass("link").click(function() {
@@ -240,16 +240,15 @@
       return $.arrayToHTMLList(seq).outerHTML();
     },
     refreshContent: function(mode) {
+      var _this = this;
       if (mode === "lemgramWarning") {
-        return $.Deferred((function(_this) {
-          return function(dfd) {
-            return _this.element.load("markup/parse_warning.html", function() {
-              util.localize();
-              _this.element.addClass("ui-state-highlight").removeClass("kwic_sidebar");
-              return dfd.resolve();
-            });
-          };
-        })(this)).promise();
+        return $.Deferred(function(dfd) {
+          return _this.element.load("markup/parse_warning.html", function() {
+            util.localize();
+            _this.element.addClass("ui-state-highlight").removeClass("kwic_sidebar");
+            return dfd.resolve();
+          });
+        }).promise();
       } else {
         return this.element.removeClass("ui-state-highlight").addClass("kwic_sidebar");
       }
@@ -264,33 +263,6 @@
           return this.element.addClass("fixed");
         }
       }
-    },
-    show: function(mode) {
-      return $.when(this.element).pipe((function(_this) {
-        return function() {
-          return _this.refreshContent(mode);
-        };
-      })(this)).done((function(_this) {
-        return function() {
-          _this.element.show("slide", {
-            direction: "right"
-          });
-          return $("#left-column").animate({
-            right: 265
-          }, null, null, function() {});
-        };
-      })(this));
-    },
-    hide: function() {
-      if ($("#left-column").css("right") === "0px") {
-        return;
-      }
-      this.element.hide("slide", {
-        direction: "right"
-      });
-      return $("#left-column").animate({
-        right: 0
-      }, null, null, function() {});
     }
   };
 
@@ -366,7 +338,7 @@
     }
     options = $.extend({
       type: "lem",
-      select: $.noop,
+      select: function(e) {},
       labelFunction: util.lemgramToString,
       middleware: function(request, idArray) {
         var dfd, has_morphs, labelArray, listItems;
@@ -456,4 +428,6 @@
 
 }).call(this);
 
-//# sourceMappingURL=widgets.js.map
+/*
+//@ sourceMappingURL=widgets.js.map
+*/

@@ -325,7 +325,6 @@ class window.ParallelCorpusListing extends CorpusListing
         if onlyMain
             struct = _.map struct, (pair) =>
                 _.filter pair, (item) =>
-                    c.log "item.lang", item.lang
                     item.lang == @activeLangs[0]
 
 
@@ -362,6 +361,7 @@ window.search = (obj, val) ->
 
     # ret = s.$root.$apply () ->
     ret = safeApply s.$root, () ->
+        # if obj or val
         unless obj then return s.$root.search()
         if _.isObject obj
             obj = _.extend {}, s.$root.search(), obj
@@ -688,7 +688,8 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
 util.prettyNumbers = (numstring) ->
     regex = /(\d+)(\d{3})/
     outStrNum = numstring.toString()
-    outStrNum = outStrNum.replace(regex, "$1" + "<span rel=\"localize[util_numbergroupseparator]\">" + util.getLocaleString("util_numbergroupseparator") + "</span>" + "$2")  while regex.test(outStrNum)
+    outStrNum = outStrNum.replace(regex, "$1" + "<span rel=\"localize[util_numbergroupseparator]\">" + util.getLocaleString("util_numbergroupseparator") + "</span>" + "$2") while regex.test(outStrNum)
+
     outStrNum
 
 util.suffixedNumbers = (num) ->
