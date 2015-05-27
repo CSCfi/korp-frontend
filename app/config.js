@@ -4362,6 +4362,7 @@ settings.corpora.ylilauta = {
 	msd : attrs.msd,
 	syn : attrs.deprel_tdt*/
         lemma : attrs.baseform,
+        lemmacomp : attrs.baseform_compound,
         pos : attrs.pos_klk,
         msd : attrs.msd,
         dephead : attrs.dephead,
@@ -4403,6 +4404,7 @@ settings.corpora.s24 = {
         syn : attrs.deprel_tdt,
         unk : attrs.ner_tags*/
         lemma : attrs.baseform,
+        lemmacomp : attrs.baseform_compound,
         pos : attrs.pos_klk,
         msd : attrs.msd,
         dephead : attrs.dephead,
