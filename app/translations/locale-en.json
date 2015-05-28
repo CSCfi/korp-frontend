@@ -39,6 +39,8 @@
     "negate_explanation" : "Negates the search expression, giving only sentences that do not match.",
     "about" : "About Korp",
     "about_body" : "Korp is the concordance search tool of Språkbanken (The Swedish Language Bank), adapted to the Language Bank of Finland. For more information, comments, suggestions, bug reports or other feedback, please fill in the <a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback' target='_blank'>feedback form</a>.",
+    "about_body_begin" : "Korp is the concordance search tool of Språkbanken (The Swedish Language Bank), adapted to the Language Bank of Finland. For more information, comments, suggestions, bug reports or other feedback, please fill in the",
+    "about_feedback_linktext" : "feedback form",
     "about_cite_header": "Cite Korp",
     "about_cite": "Lars Borin, Markus Forsberg and Johan Roxendal. 2012. <a href='http://spraakbanken.gu.se/eng/publikationer/korp-–-corpus-infrastructure-språkbanken'>Korp – the corpus infrastructure of Språkbanken</a><br><a href='http://spraakbanken.gu.se/publikationer/bibtex/1822'><img src='http://spraakbanken.gu.se/sites/spraakbanken.gu.se/themes/gu_sb/img/bibtex.png' alt='BibTeX'></a>",
     "about_man" : "Project Managers",

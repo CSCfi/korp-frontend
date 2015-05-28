@@ -39,6 +39,8 @@
     "negate_explanation" : "Käänteistää hakulausekkeen: antaa vain virkkeet, jotka eivät täsmää.",
     "about" : "Tietoa Korpista",
     "about_body" : "Korp on Kielipankin konkordanssihakuohjelma, joka on kehitetty Språkbankenissa (Ruotsin kielipankki). Jos haluat saada lisätietoja tai lähettää kommentteja, ehdotuksia, virheraportteja tai muuta palautetta, täytä <a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html' target='_blank'>palautelomake</a>.",
+    "about_body_begin" : "Korp on Kielipankin konkordanssihakuohjelma, joka on kehitetty Språkbankenissa (Ruotsin kielipankki). Jos haluat saada lisätietoja tai lähettää kommentteja, ehdotuksia, virheraportteja tai muuta palautetta, täytä",
+    "about_feedback_linktext" : "palautelomake",
     "about_cite_header": "Viittaa Korpiin",
     "about_cite": "Lars Borin, Markus Forsberg and Johan Roxendal. 2012. <a href='http://spraakbanken.gu.se/eng/publikationer/korp-–-corpus-infrastructure-språkbanken'>Korp – the corpus infrastructure of Språkbanken</a><br><a href='http://spraakbanken.gu.se/publikationer/bibtex/1822'><img src='http://spraakbanken.gu.se/sites/spraakbanken.gu.se/themes/gu_sb/img/bibtex.png' alt='BibTeX'></a>",
     "about_man" : "Projektinjohto",
