@@ -1892,7 +1892,7 @@ class view.NameResults extends BaseResults
 
     resetView: ->
         super()
-        $(".content_target", @$result).empty()
+        $(".name_content_target", @$result).empty()
         safeApply @s, () =>
             @s.$parent.aborted = false
             @s.$parent.no_hits = false
@@ -1928,7 +1928,7 @@ class view.NameResults extends BaseResults
     renderResult: (data) ->
         c.log "name renderResult", data
         # @resetView()
-        $(".content_target", @$result).empty()
+        $(".name_content_target", @$result).empty()
         resultError = super(data)
         @hidePreloader()
         @s.$parent.progress = 100
@@ -1957,7 +1957,7 @@ class view.NameResults extends BaseResults
     drawTable: (data) ->
         c.log "name drawTable", data
         container = $("<div>", class: "tableContainer radialBkg")
-        .appendTo(".content_target", @$result)
+        .appendTo(".name_content_target", @$result)
 
         $("#nameTableTmpl").tmpl(data)
         .find(".example_link")
@@ -2016,4 +2016,4 @@ class view.NameResults extends BaseResults
 
     showNoResults: ->
         @hidePreloader()
-        # @$result.find(".content_target").html $("<i />").localeKey("no_name_results")
+        # @$result.find(".name_content_target").html $("<i />").localeKey("no_name_results")

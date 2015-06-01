@@ -2174,7 +2174,7 @@
 
     NameResults.prototype.resetView = function() {
       NameResults.__super__.resetView.call(this);
-      $(".content_target", this.$result).empty();
+      $(".name_content_target", this.$result).empty();
       return safeApply(this.s, (function(_this) {
         return function() {
           _this.s.$parent.aborted = false;
@@ -2229,7 +2229,7 @@
     NameResults.prototype.renderResult = function(data) {
       var resultError;
       c.log("name renderResult", data);
-      $(".content_target", this.$result).empty();
+      $(".name_content_target", this.$result).empty();
       resultError = NameResults.__super__.renderResult.call(this, data);
       this.hidePreloader();
       this.s.$parent.progress = 100;
@@ -2265,7 +2265,7 @@
       c.log("name drawTable", data);
       container = $("<div>", {
         "class": "tableContainer radialBkg"
-      }).appendTo(".content_target", this.$result);
+      }).appendTo(".name_content_target", this.$result);
       $("#nameTableTmpl").tmpl(data).find(".example_link").append($("<span>").addClass("ui-icon ui-icon-document")).css("cursor", "pointer").click((function(_this) {
         return function(event) {
           return _this.onClickExample(event);
