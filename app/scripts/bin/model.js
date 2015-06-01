@@ -742,6 +742,57 @@
 
   })(BaseProxy);
 
+  model.NameProxy = (function(_super) {
+    __extends(NameProxy, _super);
+
+    function NameProxy() {
+      NameProxy.__super__.constructor.call(this);
+    }
+
+    NameProxy.prototype.makeRequest = function(cqp, within, callback) {
+      var def, params, self;
+      NameProxy.__super__.makeRequest.call(this);
+      self = this;
+      params = {
+        command: "names",
+        cqp: cqp,
+        corpus: settings.corpusListing.stringifySelected(),
+        defaultwithin: "sentence",
+        default_nameswithin: "text_id",
+        max: 30,
+        incremental: $.support.ajaxProgress,
+        cache: true
+      };
+      this.prevParams = params;
+      def = $.ajax({
+        url: settings.cgi_script,
+        data: params,
+        success: function(data) {
+          c.log("names success", data);
+          return self.prevRequest = params;
+        },
+        progress: function(data, e) {
+          var progressObj;
+          progressObj = self.calcProgress(e);
+          if (progressObj == null) {
+            return;
+          }
+          return callback(progressObj);
+        },
+        beforeSend: function(req, settings) {
+          self.prevRequest = settings;
+          self.addAuthorizationHeader(req);
+          return self.prevUrl = this.url;
+        }
+      });
+      this.pendingRequests.push(def);
+      return def;
+    };
+
+    return NameProxy;
+
+  })(BaseProxy);
+
 }).call(this);
 
 //# sourceMappingURL=model.js.map

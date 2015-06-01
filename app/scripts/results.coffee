@@ -1871,8 +1871,149 @@ class view.GraphResults extends BaseResults
             $(window).trigger("resize")
 
 
+class view.NameResults extends BaseResults
 
+    # Copied and modified from view.LemgramResults (Jyrki Niemi 2015-05-29)
 
+    constructor: (tabSelector, resultSelector, scope) ->
+        self = this
+        super tabSelector, resultSelector, scope
+        @s = scope
+        @tabindex = 2
+        #   TODO: figure out what I use this for.
+        @resultDeferred = $.Deferred()
+        @proxy = new model.NameProxy()
+        window.nameProxy = @proxy
+        # @$result.find("#wordclassChk").change ->
+        #     if $(this).is(":checked")
+        #         $(".lemgram_result .wordclass_suffix", self.$result).show()
+        #     else
+        #         $(".lemgram_result .wordclass_suffix", self.$result).hide()
 
+    resetView: ->
+        super()
+        $(".content_target", @$result).empty()
+        safeApply @s, () =>
+            @s.$parent.aborted = false
+            @s.$parent.no_hits = false
 
+    makeRequest : (cqp, within) ->
+        c.log "name makeRequest", cqp, within
+        within = within or "sentence"
+        if @proxy.hasPending()
+            @ignoreAbort = true
+        else
+            @ignoreAbort = false
+            @resetView()
+        
+        @showPreloader()
+        def = @proxy.makeRequest cqp, within, (args...) =>
+            @onProgress args...
 
+        def.success (data) =>
+            safeApply @s, () =>
+                @renderResult(data)
+
+        def.fail (jqXHR, status, errorThrown) =>
+            c.log "def fail", status
+            if @ignoreAbort
+                c.log "name ignoreabort"
+                return
+            if status == "abort"
+                safeApply @s, () =>
+                    @hidePreloader()
+                    c.log "aborted true", @s
+                    @s.$parent.aborted = true
+
+    renderResult: (data) ->
+        c.log "name renderResult", data
+        # @resetView()
+        $(".content_target", @$result).empty()
+        resultError = super(data)
+        @hidePreloader()
+        @s.$parent.progress = 100
+        return if resultError is false
+        unless data.name_groups
+            @s.$parent.no_hits = true
+                # @hasData = false
+            @resultDeferred.reject()
+        else
+            @renderTables data.name_groups
+            @resultDeferred.resolve()
+
+    renderHeader: () ->
+        $(".tableContainer:last .name_group").each((i) ->
+            $parent = $(this).find(".name_group_heading")
+            label = $(this).data("namegroup")
+            $("<span>#{label}</span>").appendTo $parent
+        ).append "<div style='clear:both;'/>"
+
+    renderTables: (data) ->
+        @drawTable data
+        # $(".lemgram_result .wordclass_suffix").hide()
+        @renderHeader()
+        @hidePreloader()
+
+    drawTable: (data) ->
+        c.log "name drawTable", data
+        container = $("<div>", class: "tableContainer radialBkg")
+        .appendTo(".content_target", @$result)
+
+        $("#nameTableTmpl").tmpl(data)
+        .find(".example_link")
+        .append($("<span>")
+            .addClass("ui-icon ui-icon-document")
+        ).css("cursor", "pointer")
+        .click( (event) =>
+            @onClickExample(event)
+        ).end()
+        .appendTo container
+
+        $("td:nth-child(2)", @$result).each -> # labels
+            $(this).html $(this).data("name")
+
+    onClickExample: (event) ->
+        self = this
+        $target = $(event.currentTarget)
+        c.log "onClickExample", $target
+        data = $target.parent().tmplItem().data
+        
+        opts = {}
+        opts.ajaxParams =
+            command : "names_sentences"
+            start : 0
+            end : 24
+            source : data.source.join(",")
+            corpus : data.corpus
+
+        @s.$root.kwicTabs.push opts
+
+    showWarning: ->
+        hasWarned = !!$.jStorage.get("name_warning")
+        unless hasWarned
+            $.jStorage.set "name_warning", true
+            $("#sidebar").sidebar "refreshContent", "lemgramWarning"
+            safeApply @s, () =>
+                @s.$root.sidebar_visible = true
+            self.timeout = setTimeout(=>
+                safeApply @s, () =>
+                    @s.$root.sidebar_visible = false
+                    $("#sidebar").sidebar "refreshContent"
+            , 5000)
+
+    onentry: ->
+        c.log "name onentry"
+        super()
+        @resultDeferred.done @showWarning
+        return
+
+    onexit: ->
+        super()
+        clearTimeout self.timeout
+        safeApply @s, () =>
+            @s.$root.sidebar_visible = false
+        return
+
+    showNoResults: ->
+        @hidePreloader()
+        # @$result.find(".content_target").html $("<i />").localeKey("no_name_results")

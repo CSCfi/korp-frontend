@@ -130,6 +130,33 @@ html
                     //- .progress_container
                     //-   progress(value='{{progress || 0}}', max='100')
                     .content_target(ng-show="word_pic")
+                //- Copied and modified from the word picture tab
+                //- (Jyrki Niemi 2015-05-29)
+                tab(ng-if="_settings.name_classification", 
+                    ng-controller="NameCtrl", 
+                    select="instance.onentry()",
+                    deselect="instance.onexit()")
+                  tab-heading(ng-class="{not_loading: progress > 99, loading : loading, single: loading && instance.countCorpora() < 2 }")
+                    | {{'name_classification' | loc}}
+                    tab-preloader(ng-if="loading", value="progress", spinner="instance.countCorpora() < 2")
+                  //- div.wordpic_disabled(ng-if="!word_pic")
+                  //-   | {{'word_pic_warn' | loc}} 
+                  //-   div
+                  //-     button.btn.btn-small.activate_word_pic(ng-click="activate()")
+                  //-       | {{'word_pic_warn_btn' | loc}}
+                  //- warning(ng-if="word_pic && !instance.hasData && !loading && !aborted")
+                  //-   | {{'word_pic_bad_search' | loc}} 
+                  //- warning(ng-if="word_pic && aborted && !loading")
+                  //-   | {{'search_aborted' | loc}}
+                  //- warning(ng-if="word_pic && no_hits")
+                  //-   | {{"no_stats_results" | loc}}
+                  div(constr='NameResults', constr-name='nameResults')
+                    //- #wordclassChkParent(ng-show="word_pic && instance.hasData")
+                    //-   input#wordclassChk(type='checkbox')
+                    //-   label(for='wordclassChk', rel='localize[show_wordclass]')
+                    //- .progress_container
+                    //-   progress(value='{{progress || 0}}', max='100')
+                    .content_target(ng-show="true")
 
                 include includes/dynamic_result_tabs
                 
@@ -195,6 +222,25 @@ html
     //-   {{/each}}
     //-   </li>
 
+    //- Copied and modified from the lemgram templates above
+    //- (Jyrki Niemi 2015-05-29)
+    script#nameTableTmpl(type='text/x-jquery-tmpl').
+      <div class="name_group" data-namegroup="${$data.group}">
+      {{if $data.names.length}}
+      <div class='name_group_heading' />
+      <table>
+      {{tmpl($data.names, {group: $data.group}) '#nameRowTmpl'}}
+      </table>
+      {{/if}}
+      </div>
+    script#nameRowTmpl(type='text/x-jquery-tmpl').
+      <tr>
+      <td><span class="enumerate_names"/></td>
+      <td data-name="${$data.name}">${$data.name}</td>
+      <td class="name_category" data-category="${$data.category}">${$data.category}</td>
+      <td>${$data.freq}</td>
+      <td class="example_link"></td>
+      </tr>
 
     //- scripts
 

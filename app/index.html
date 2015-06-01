@@ -267,6 +267,14 @@
                     <div ng-show="word_pic" class="content_target"></div>
                   </div>
                 </tab>
+                <tab ng-if="_settings.name_classification" ng-controller="NameCtrl" select="instance.onentry()" deselect="instance.onexit()">
+                  <tab-heading ng-class="{not_loading: progress &gt; 99, loading : loading, single: loading &amp;&amp; instance.countCorpora() &lt; 2 }">{{'name_classification' | loc}}
+                    <tab-preloader ng-if="loading" value="progress" spinner="instance.countCorpora() &lt; 2"></tab-preloader>
+                  </tab-heading>
+                  <div constr="NameResults" constr-name="nameResults">
+                    <div ng-show="true" class="content_target"></div>
+                  </div>
+                </tab>
                 <tab active="active" ng-controller="ExampleCtrl" ng-repeat="queryParams in kwicTabs" select="instance.onentry()" deselect="instance.onexit()">
                   <tab-heading ng-class="{not_loading: progress == 100, loading : !instance.hasData}">{{'kwic' | loc}}<span ng-click="kwicTabs.splice($index, 1)" tab-spinner="tab-spinner"></span></tab-heading>
                   <div ng-class="{reading_mode : reading_mode, not_loading: !loading, loading : loading}" constr="ExampleResults" class="results-kwic">
@@ -428,6 +436,26 @@
       <td title="${$.format("mi: %.2f", mi)}">${freq}</td>
       <td class="example_link"></td>
       </tr>
+    </script>
+    <script id="nameTableTmpl" type="text/x-jquery-tmpl">
+      <div class="name_group" data-namegroup="${$data.group}">
+      {{if $data.names.length}}
+      <div class='name_group_heading' />
+      <table>
+      {{tmpl($data.names, {group: $data.group}) '#nameRowTmpl'}}
+      </table>
+      {{/if}}
+      </div>
+    </script>
+    <script id="nameRowTmpl" type="text/x-jquery-tmpl">
+      <tr>
+      <td><span class="enumerate_names"/></td>
+      <td data-name="${$data.name}">${$data.name}</td>
+      <td class="name_category" data-category="${$data.category}">${$data.category}</td>
+      <td>${$data.freq}</td>
+      <td class="example_link"></td>
+      </tr>
+      
     </script>
     <!--[if lte IE 8]>
     <script language="javascript" src="lib/flot/excanvas.min.js"></script>

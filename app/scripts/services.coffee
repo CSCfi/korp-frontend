@@ -178,12 +178,17 @@ korpApp.factory 'searches', (utils, $location, $rootScope, $http, $q) ->
             # kwicResults.@            
             @kwicRequest cqp, isPaging
             statsResults.makeRequest cqp
+            if settings.name_classification
+                nameResults.makeRequest cqp
 
         lemgramSearch : (lemgram, searchPrefix, searchSuffix, isPaging) ->
             #TODO: this is dumb, move the cqp calculations elsewhere
             cqp = new model.LemgramProxy().lemgramSearch(lemgram, searchPrefix, searchSuffix)
             statsResults.makeRequest cqp
             @kwicRequest cqp, isPaging
+
+            if settings.name_classification
+                nameResults.makeRequest cqp
 
             if settings.wordpicture == false then return
             

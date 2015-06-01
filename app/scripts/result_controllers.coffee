@@ -359,3 +359,20 @@ korpApp.controller "compareCtrl", ($scope, $rootScope) ->
 
             }
             $rootScope.kwicTabs.push opts
+
+
+korpApp.controller "NameCtrl", ($scope, $location, utils, searches) ->
+
+    # Copied and modified from korpApp.controller "wordpicCtrl"
+    # (Jyrki Niemi 2015-05-29)
+
+    c.log("NameCtrl")
+    $scope.name_class = $location.search().name_class?
+    $scope.$watch (() -> $location.search().name_class), (val) ->
+        $scope.name_class = Boolean(val)
+
+    $scope.activate = () ->
+        c.log("NameCtrl.activate: $location", $location)
+        # $location.search("word", true)
+        search = searches.activeSearch
+        $scope.instance.makeRequest(search.val, search.type)
