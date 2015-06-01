@@ -375,4 +375,6 @@ korpApp.controller "NameCtrl", ($scope, $location, utils, searches) ->
         c.log("NameCtrl.activate: $location", $location)
         # $location.search("word", true)
         search = searches.activeSearch
+        # FIXME (janiemi): search.type should probably be replaced
+        # with the value for within, but where do we get it?
         $scope.instance.makeRequest(search.val, search.type)

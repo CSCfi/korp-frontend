@@ -1912,7 +1912,7 @@ class view.NameResults extends BaseResults
 
         def.success (data) =>
             safeApply @s, () =>
-                @renderResult(data)
+                @renderResult(data, cqp, within)
 
         def.fail (jqXHR, status, errorThrown) =>
             c.log "def fail", status
@@ -1925,8 +1925,8 @@ class view.NameResults extends BaseResults
                     c.log "aborted true", @s
                     @s.$parent.aborted = true
 
-    renderResult: (data) ->
-        c.log "name renderResult", data
+    renderResult: (data, cqp, within) ->
+        c.log "name renderResult", data, cqp, within
         # @resetView()
         $(".name_content_target", @$result).empty()
         resultError = super(data)
@@ -1938,7 +1938,7 @@ class view.NameResults extends BaseResults
                 # @hasData = false
             @resultDeferred.reject()
         else
-            @renderTables data.name_groups
+            @renderTables data.name_groups, cqp
             @resultDeferred.resolve()
 
     renderHeader: () ->
@@ -1948,17 +1948,21 @@ class view.NameResults extends BaseResults
             $("<span>#{label}</span>").appendTo $parent
         ).append "<div style='clear:both;'/>"
 
-    renderTables: (data) ->
-        @drawTable data
+    renderTables: (data, cqp) ->
+        @drawTable data, cqp
         # $(".lemgram_result .wordclass_suffix").hide()
         @renderHeader()
         @hidePreloader()
 
-    drawTable: (data) ->
+    drawTable: (data, cqp) ->
         c.log "name drawTable", data
         container = $("<div>", class: "tableContainer radialBkg")
         .appendTo(".name_content_target", @$result)
 
+        $(".name_content_target").attr("data-cqp", cqp)
+        c.log "name_content_target cqp", $(".name_content_target").data("cqp")
+
+        data.cqp = cqp
         $("#nameTableTmpl").tmpl(data)
         .find(".example_link")
         .append($("<span>")
@@ -1984,8 +1988,9 @@ class view.NameResults extends BaseResults
             start : 0
             end : 24
             source : data.source.join(",")
-            corpus : data.corpus
+            cqp : $(".name_content_target").data("cqp")
 
+        c.log "names_sentences opts", opts
         @s.$root.kwicTabs.push opts
 
     showWarning: ->

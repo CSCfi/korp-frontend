@@ -2204,7 +2204,7 @@
       def.success((function(_this) {
         return function(data) {
           return safeApply(_this.s, function() {
-            return _this.renderResult(data);
+            return _this.renderResult(data, cqp, within);
           });
         };
       })(this));
@@ -2226,9 +2226,9 @@
       })(this));
     };
 
-    NameResults.prototype.renderResult = function(data) {
+    NameResults.prototype.renderResult = function(data, cqp, within) {
       var resultError;
-      c.log("name renderResult", data);
+      c.log("name renderResult", data, cqp, within);
       $(".name_content_target", this.$result).empty();
       resultError = NameResults.__super__.renderResult.call(this, data);
       this.hidePreloader();
@@ -2240,7 +2240,7 @@
         this.s.$parent.no_hits = true;
         return this.resultDeferred.reject();
       } else {
-        this.renderTables(data.name_groups);
+        this.renderTables(data.name_groups, cqp);
         return this.resultDeferred.resolve();
       }
     };
@@ -2254,18 +2254,21 @@
       }).append("<div style='clear:both;'/>");
     };
 
-    NameResults.prototype.renderTables = function(data) {
-      this.drawTable(data);
+    NameResults.prototype.renderTables = function(data, cqp) {
+      this.drawTable(data, cqp);
       this.renderHeader();
       return this.hidePreloader();
     };
 
-    NameResults.prototype.drawTable = function(data) {
+    NameResults.prototype.drawTable = function(data, cqp) {
       var container;
       c.log("name drawTable", data);
       container = $("<div>", {
         "class": "tableContainer radialBkg"
       }).appendTo(".name_content_target", this.$result);
+      $(".name_content_target").attr("data-cqp", cqp);
+      c.log("name_content_target cqp", $(".name_content_target").data("cqp"));
+      data.cqp = cqp;
       $("#nameTableTmpl").tmpl(data).find(".example_link").append($("<span>").addClass("ui-icon ui-icon-document")).css("cursor", "pointer").click((function(_this) {
         return function(event) {
           return _this.onClickExample(event);
@@ -2288,8 +2291,9 @@
         start: 0,
         end: 24,
         source: data.source.join(","),
-        corpus: data.corpus
+        cqp: $(".name_content_target").data("cqp")
       };
+      c.log("names_sentences opts", opts);
       return this.s.$root.kwicTabs.push(opts);
     };
 
