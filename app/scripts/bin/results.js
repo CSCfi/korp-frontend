@@ -2362,6 +2362,205 @@
 
   })(BaseResults);
 
+  view.NameClassificationResults = (function(superClass) {
+    extend(NameClassificationResults, superClass);
+
+    function NameClassificationResults(tabSelector, resultSelector, scope) {
+      var group, k, len, ref, self;
+      self = this;
+      NameClassificationResults.__super__.constructor.call(this, tabSelector, resultSelector, scope);
+      this.s = scope;
+      this.tabindex = 3;
+      this.resultDeferred = $.Deferred();
+      this.proxy = new model.NameClassificationProxy();
+      window.nameClassificationProxy = this.proxy;
+      this.group_labels = {};
+      ref = settings.name_groups || [];
+      for (k = 0, len = ref.length; k < len; k++) {
+        group = ref[k];
+        this.group_labels[group.regex] = group.label;
+      }
+    }
+
+    NameClassificationResults.prototype.resetView = function() {
+      NameClassificationResults.__super__.resetView.call(this);
+      $(".name_content_target", this.$result).empty();
+      return safeApply(this.s, (function(_this) {
+        return function() {
+          _this.s.$parent.aborted = false;
+          return _this.s.$parent.no_hits = false;
+        };
+      })(this));
+    };
+
+    NameClassificationResults.prototype.makeRequest = function(cqp, within) {
+      var def;
+      c.log("name makeRequest", cqp, within);
+      within = within || "sentence";
+      if (this.proxy.hasPending()) {
+        this.ignoreAbort = true;
+      } else {
+        this.ignoreAbort = false;
+        this.resetView();
+      }
+      this.showPreloader();
+      def = this.proxy.makeRequest(cqp, within, (function(_this) {
+        return function() {
+          var args;
+          args = 1 <= arguments.length ? slice.call(arguments, 0) : [];
+          return _this.onProgress.apply(_this, args);
+        };
+      })(this));
+      def.success((function(_this) {
+        return function(data) {
+          return safeApply(_this.s, function() {
+            return _this.renderResult(data, cqp, within);
+          });
+        };
+      })(this));
+      return def.fail((function(_this) {
+        return function(jqXHR, status, errorThrown) {
+          c.log("def fail", status);
+          if (_this.ignoreAbort) {
+            c.log("name ignoreabort");
+            return;
+          }
+          if (status === "abort") {
+            return safeApply(_this.s, function() {
+              _this.hidePreloader();
+              c.log("aborted true", _this.s);
+              return _this.s.$parent.aborted = true;
+            });
+          }
+        };
+      })(this));
+    };
+
+    NameClassificationResults.prototype.renderResult = function(data, cqp, within) {
+      var locale_key, resultError;
+      c.log("name renderResult", data, cqp, within);
+      $(".name_content_target", this.$result).empty();
+      resultError = NameClassificationResults.__super__.renderResult.call(this, data);
+      this.hidePreloader();
+      this.s.$parent.progress = 100;
+      if (resultError === false) {
+        return;
+      }
+      if (!data.name_groups || data.name_groups.length === 0) {
+        locale_key = !data.name_groups ? "no_name_corpora" : "no_name_results";
+        this.$result.find(".name_content_target").html($("<i />").localeKey(locale_key));
+        this.s.$parent.no_hits = true;
+        return this.resultDeferred.reject();
+      } else {
+        this.renderTables(data.name_groups, cqp);
+        return this.resultDeferred.resolve();
+      }
+    };
+
+    NameClassificationResults.prototype.renderHeader = function() {
+      var group_labels;
+      group_labels = this.group_labels;
+      return $(".name_content_target:last .name_group").each(function(i) {
+        var $parent, label, loc_key, rel_loc;
+        $parent = $(this).find(".name_group_heading");
+        label = $(this).data("namegroup");
+        if (settings.name_groups) {
+          loc_key = "namegroup_" + group_labels[label];
+          rel_loc = " rel='localize[" + loc_key + "]'";
+          label = util.getLocaleString(loc_key);
+        } else {
+          rel_loc = "";
+        }
+        return $("<span " + rel_loc + ">" + label + "</span>").appendTo($parent);
+      }).append("<div style='clear:both;'/>");
+    };
+
+    NameClassificationResults.prototype.renderTables = function(data, cqp) {
+      this.drawTable(data, cqp);
+      this.renderHeader();
+      return this.hidePreloader();
+    };
+
+    NameClassificationResults.prototype.drawTable = function(data, cqp) {
+      var container;
+      c.log("name drawTable", data, cqp);
+      container = $("<div>").appendTo(".name_content_target", this.$result);
+      $(".name_content_target").data("cqp", cqp);
+      c.log("name_content_target cqp", $(".name_content_target").data("cqp"));
+      $("#nameTableTmpl").tmpl(data).localize().find(".example_link").append($("<span>").addClass("ui-icon ui-icon-document")).css("cursor", "pointer").click((function(_this) {
+        return function(event) {
+          return _this.onClickExample(event);
+        };
+      })(this)).end().appendTo(container);
+      return $("td:nth-child(2)", this.$result).each(function() {
+        return $(this).html($(this).data("name"));
+      });
+    };
+
+    NameClassificationResults.prototype.onClickExample = function(event) {
+      var $target, data, opts, self;
+      self = this;
+      $target = $(event.currentTarget);
+      c.log("onClickExample", $target);
+      data = $target.parent().tmplItem().data;
+      opts = {};
+      opts.ajaxParams = {
+        command: "names_sentences",
+        start: 0,
+        end: 24,
+        source: data.source.join(","),
+        cqp: $(".name_content_target").data("cqp")
+      };
+      c.log("names_sentences opts", opts);
+      return this.s.$root.kwicTabs.push(opts);
+    };
+
+    NameClassificationResults.prototype.showWarning = function() {
+      var hasWarned;
+      hasWarned = !!$.jStorage.get("name_warning");
+      if (!hasWarned) {
+        $.jStorage.set("name_warning", true);
+        $("#sidebar").sidebar("refreshContent", "lemgramWarning");
+        safeApply(this.s, (function(_this) {
+          return function() {
+            return _this.s.$root.sidebar_visible = true;
+          };
+        })(this));
+        return self.timeout = setTimeout((function(_this) {
+          return function() {
+            return safeApply(_this.s, function() {
+              _this.s.$root.sidebar_visible = false;
+              return $("#sidebar").sidebar("refreshContent");
+            });
+          };
+        })(this), 5000);
+      }
+    };
+
+    NameClassificationResults.prototype.onentry = function() {
+      c.log("name onentry");
+      NameClassificationResults.__super__.onentry.call(this);
+      this.resultDeferred.done(this.showWarning);
+    };
+
+    NameClassificationResults.prototype.onexit = function() {
+      NameClassificationResults.__super__.onexit.call(this);
+      clearTimeout(self.timeout);
+      safeApply(this.s, (function(_this) {
+        return function() {
+          return _this.s.$root.sidebar_visible = false;
+        };
+      })(this));
+    };
+
+    NameClassificationResults.prototype.showNoResults = function() {
+      return this.hidePreloader();
+    };
+
+    return NameClassificationResults;
+
+  })(BaseResults);
+
 }).call(this);
 
 //# sourceMappingURL=results.js.map
