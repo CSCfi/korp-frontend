@@ -4628,6 +4628,7 @@ var locally_available_corpora =
      "kotus_sananparret",
      "la_murre_.*",
      "(mulcold|legal)_..",
+     "s24",
      "skvr",
      "sks_kivi_fi",
      "v[kn]s_.*",
