@@ -307,5 +307,11 @@
     "corpus_metadata" : "Metadata",
     "corpus_homepage" : "Home page",
     "corpus_compiler" : "Compiler",
-    "corpus_download" : "Download corpus"
+    "corpus_download" : "Download corpus",
+
+    "name_classification" : "Name classification",
+    "namegroup_person" : "Persons",
+    "namegroup_place" : "Places",
+    "namegroup_organization" : "Organizations",
+    "namegroup_other" : "Other"
 }

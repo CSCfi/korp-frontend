@@ -315,5 +315,11 @@
     "corpus_metadata" : "Kuvailutiedot",
     "corpus_homepage" : "Kotisivu",
     "corpus_compiler" : "Koostaja",
-    "corpus_download" : "Lataa aineisto"
+    "corpus_download" : "Lataa aineisto",
+
+    "name_classification" : "Nimiluokittelu",
+    "namegroup_person" : "Henkilöt",
+    "namegroup_place" : "Paikat",
+    "namegroup_organization" : "Organisaatiot",
+    "namegroup_other" : "Muut"
 }

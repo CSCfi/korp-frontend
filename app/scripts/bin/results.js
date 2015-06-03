@@ -2162,14 +2162,20 @@
     __extends(NameResults, _super);
 
     function NameResults(tabSelector, resultSelector, scope) {
-      var self;
+      var group, self, _i, _len, _ref;
       self = this;
       NameResults.__super__.constructor.call(this, tabSelector, resultSelector, scope);
       this.s = scope;
-      this.tabindex = 2;
+      this.tabindex = 3;
       this.resultDeferred = $.Deferred();
       this.proxy = new model.NameProxy();
       window.nameProxy = this.proxy;
+      this.group_labels = {};
+      _ref = settings.name_groups || [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        group = _ref[_i];
+        this.group_labels[group.regex] = group.label;
+      }
     }
 
     NameResults.prototype.resetView = function() {
@@ -2246,11 +2252,20 @@
     };
 
     NameResults.prototype.renderHeader = function() {
-      return $(".tableContainer:last .name_group").each(function(i) {
-        var $parent, label;
+      var group_labels;
+      group_labels = this.group_labels;
+      return $(".name_content_target:last .name_group").each(function(i) {
+        var $parent, label, loc_key, rel_loc;
         $parent = $(this).find(".name_group_heading");
         label = $(this).data("namegroup");
-        return $("<span>" + label + "</span>").appendTo($parent);
+        if (settings.name_groups) {
+          loc_key = "namegroup_" + group_labels[label];
+          rel_loc = " rel='localize[" + loc_key + "]'";
+          label = util.getLocaleString(loc_key);
+        } else {
+          rel_loc = "";
+        }
+        return $("<span " + rel_loc + ">" + label + "</span>").appendTo($parent);
       }).append("<div style='clear:both;'/>");
     };
 
@@ -2262,13 +2277,10 @@
 
     NameResults.prototype.drawTable = function(data, cqp) {
       var container;
-      c.log("name drawTable", data);
-      container = $("<div>", {
-        "class": "tableContainer radialBkg"
-      }).appendTo(".name_content_target", this.$result);
-      $(".name_content_target").attr("data-cqp", cqp);
+      c.log("name drawTable", data, cqp);
+      container = $("<div>").appendTo(".name_content_target", this.$result);
+      $(".name_content_target").data("cqp", cqp);
       c.log("name_content_target cqp", $(".name_content_target").data("cqp"));
-      data.cqp = cqp;
       $("#nameTableTmpl").tmpl(data).find(".example_link").append($("<span>").addClass("ui-icon ui-icon-document")).css("cursor", "pointer").click((function(_this) {
         return function(event) {
           return _this.onClickExample(event);

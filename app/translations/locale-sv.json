@@ -308,5 +308,11 @@
     "corpus_metadata" : "Metadata",
     "corpus_homepage" : "Hemsida",
     "corpus_compiler" : "Sammanställare",
-    "corpus_download" : "Ladda ner korpusen"
+    "corpus_download" : "Ladda ner korpusen",
+
+    "name_classification" : "Namnklassifikation",
+    "namegroup_person" : "Personer",
+    "namegroup_place" : "Platser",
+    "namegroup_organization" : "Organisationer",
+    "namegroup_other" : "Andra"
 }

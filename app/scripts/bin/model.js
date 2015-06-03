@@ -750,9 +750,19 @@
     }
 
     NameProxy.prototype.makeRequest = function(cqp, within, callback) {
-      var def, params, self;
+      var def, group, groups, params, self;
       NameProxy.__super__.makeRequest.call(this);
       self = this;
+      groups = settings.name_groups ? ((function() {
+        var _i, _len, _ref, _results;
+        _ref = settings.name_groups;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          group = _ref[_i];
+          _results.push(group.regex);
+        }
+        return _results;
+      })()).join(",") : null;
       params = {
         command: "names",
         cqp: cqp,
@@ -760,6 +770,7 @@
         defaultwithin: "sentence",
         default_nameswithin: "text_id",
         max: 30,
+        groups: groups,
         incremental: $.support.ajaxProgress,
         cache: true
       };

@@ -1879,11 +1879,14 @@ class view.NameResults extends BaseResults
         self = this
         super tabSelector, resultSelector, scope
         @s = scope
-        @tabindex = 2
+        @tabindex = 3
         #   TODO: figure out what I use this for.
         @resultDeferred = $.Deferred()
         @proxy = new model.NameProxy()
         window.nameProxy = @proxy
+        @group_labels = {}
+        @group_labels[group.regex] = \
+            group.label for group in settings.name_groups or []
         # @$result.find("#wordclassChk").change ->
         #     if $(this).is(":checked")
         #         $(".lemgram_result .wordclass_suffix", self.$result).show()
@@ -1942,10 +1945,17 @@ class view.NameResults extends BaseResults
             @resultDeferred.resolve()
 
     renderHeader: () ->
-        $(".tableContainer:last .name_group").each((i) ->
+        group_labels = @group_labels
+        $(".name_content_target:last .name_group").each((i) ->
             $parent = $(this).find(".name_group_heading")
             label = $(this).data("namegroup")
-            $("<span>#{label}</span>").appendTo $parent
+            if settings.name_groups
+                loc_key = "namegroup_#{group_labels[label]}"
+                rel_loc = " rel='localize[#{loc_key}]'"
+                label = util.getLocaleString(loc_key)
+            else
+                rel_loc = ""
+            $("<span #{rel_loc}>#{label}</span>").appendTo $parent
         ).append "<div style='clear:both;'/>"
 
     renderTables: (data, cqp) ->
@@ -1955,14 +1965,15 @@ class view.NameResults extends BaseResults
         @hidePreloader()
 
     drawTable: (data, cqp) ->
-        c.log "name drawTable", data
-        container = $("<div>", class: "tableContainer radialBkg")
+        c.log "name drawTable", data, cqp
+        container = $("<div>")
         .appendTo(".name_content_target", @$result)
 
-        $(".name_content_target").attr("data-cqp", cqp)
+        # $(".name_content_target").attr("data-cqp", cqp)
+        $(".name_content_target").data("cqp", cqp)
         c.log "name_content_target cqp", $(".name_content_target").data("cqp")
 
-        data.cqp = cqp
+        # data.cqp = cqp
         $("#nameTableTmpl").tmpl(data)
         .find(".example_link")
         .append($("<span>")

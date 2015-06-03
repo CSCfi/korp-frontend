@@ -183,6 +183,15 @@ settings.wordPictureConf = {
     
 }
 
+// Configure the grouping of name categories in name
+// classification results.
+settings.name_groups = [
+    {label : "person", regex : "EnamexPrs.*"},
+    {label : "place", regex : "EnamexLoc.*"},
+    {label : "organization", regex : "EnamexOrg.*"},
+    {label : "other", regex : "(Nu|Ti)mex.*"},
+];
+
 settings.visibleModes = 6
 settings.modeConfig = [
     {

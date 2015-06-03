@@ -661,6 +661,10 @@ class model.NameProxy extends BaseProxy
     makeRequest: (cqp, within, callback) ->
         super()
         self = this
+        groups = if settings.name_groups
+                     (group.regex for group in settings.name_groups).join(",")
+                 else
+                     null
         params =
             command: "names"
             cqp: cqp
@@ -668,6 +672,7 @@ class model.NameProxy extends BaseProxy
             defaultwithin: "sentence"
             default_nameswithin: "text_id"
             max: 30
+            groups: groups
             incremental: $.support.ajaxProgress
             cache: true
         @prevParams = params
