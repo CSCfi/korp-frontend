@@ -257,6 +257,13 @@ settings.corporafolders.europarl = {
 		    "europarl_v7_frfi_fi", "europarl_v7_esfi_fi", "europarl_v7_etfi_fi"]
 };
 
+settings.corporafolders.jrc_acquis = {
+    title : "JRC-Acquis",
+    contents : ["jrc_acquis_itfi_fi", "jrc_acquis_enfi_fi", "jrc_acquis_svfi_fi", "jrc_acquis_defi_fi",
+		"jrc_acquis_frfi_fi", "jrc_acquis_itfi_fi", "jrc_acquis_etfi_fi", "jrc_acquis_hufi_fi",
+		"jrc_acquis_plfi_fi"]
+};
+
 /*
 settings.corporafolders.kfspc = {
     title : "Kotus Finnish-Swedish Parallel Corpus (KFSPC)",
@@ -570,6 +577,26 @@ settings.corpora.jrc_acquis_enfi_en = {
     hide : true
 };
 
+settings.corpora.jrc_acquis_enfi_fi = {
+    title : "JRC-Acquis suomi–englanti",
+    description : "JRC-Acquis suomi–englanti",
+    id : "jrc_acquis_enfi_fi",
+    urn : "unspecified",
+    metadata_urn : "unspecified",
+    lang : "fi",
+    linked_to : ["jrc_acquis_enfi_en"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.jrc_acquis
+};
+
+/*
 settings.corpora.europarl_v7_enfi_fi = {
     title : "EuroParl suomi-englanti",
     description : "EuroParl suomi-englanti-rinnakkaiskorpus (Europarl v7)",
@@ -582,14 +609,13 @@ settings.corpora.europarl_v7_enfi_fi = {
     within: {
         "sentence": "sentence"
     },
-    metadata_urn : "unspecified",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
     },
     struct_attributes : sattrlist.europarl_v7
 };
-
+*/
 settings.corpora.jrc_acquis_hufi_hu = {
     title : "JRC-Acquis unkari",
     description : "jrc_acquis_hufi_hu",
@@ -883,24 +909,23 @@ settings.corpora.jrc_acquis_svfi_sv = {
     hide : true
 };
 
-settings.corpora.europarl_v7_svfi_fi = {
-    title : "EuroParl suomi-ruotsi",
-    description : "EuroParl suomi-ruotsi-rinnakkaiskorpus (Europarl v7)",
-    id : "europarl_v7_svfi_fi",
+ettings.corpora.jrc_acquis_svfi_fi = {
+    title : "JRC-Acquis suomi–ruotsi",
+    description : "jrc_acquis_svfi_fi",
+    id : "jrc_acquis_svfi_fi",
     urn : "unspecified",
     metadata_urn : "unspecified",
     lang : "fi",
-    linked_to : ["europarl_v7_svfi_sv"],
+    linked_to : ["jrc_acquis_svfi_sv"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
     },
-    metadata_urn : "unspecified",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
     },
-    struct_attributes : sattrlist.europarl_v7
+    struct_attributes : sattrlist.jrc_acquis
 };
 
 
