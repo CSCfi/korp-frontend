@@ -257,12 +257,15 @@ settings.corporafolders.europarl = {
 		    "europarl_v7_frfi_fi", "europarl_v7_esfi_fi", "europarl_v7_etfi_fi"]
 };
 
+/*
 settings.corporafolders.jrc_acquis = {
     title : "JRC-Acquis",
     contents : ["jrc_acquis_itfi_fi", "jrc_acquis_enfi_fi", "jrc_acquis_svfi_fi", "jrc_acquis_defi_fi",
 		"jrc_acquis_frfi_fi", "jrc_acquis_esfi_fi", "jrc_acquis_etfi_fi", "jrc_acquis_hufi_fi",
 		"jrc_acquis_plfi_fi"]
 };
+*/
+
 
 /*
 settings.corporafolders.kfspc = {
@@ -909,7 +912,7 @@ settings.corpora.jrc_acquis_svfi_sv = {
     hide : true
 };
 
-ettings.corpora.jrc_acquis_svfi_fi = {
+settings.corpora.jrc_acquis_svfi_fi = {
     title : "JRC-Acquis suomi–ruotsi",
     description : "jrc_acquis_svfi_fi",
     id : "jrc_acquis_svfi_fi",
