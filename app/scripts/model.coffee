@@ -671,7 +671,7 @@ class model.NameProxy extends BaseProxy
             corpus: settings.corpusListing.stringifySelected()
             defaultwithin: "sentence"
             default_nameswithin: "text_id"
-            max: 30
+            max: settings.name_group_max_names or 30
             groups: groups
             incremental: $.support.ajaxProgress
             cache: true

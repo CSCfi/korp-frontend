@@ -191,6 +191,7 @@ settings.name_groups = [
     {label : "organization", regex : "EnamexOrg.*"},
     {label : "other", regex : "(Nu|Ti)mex.*"},
 ];
+settings.name_group_max_names = 30;
 
 settings.visibleModes = 6
 settings.modeConfig = [
