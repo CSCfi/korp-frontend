@@ -257,14 +257,12 @@ settings.corporafolders.europarl = {
 		    "europarl_v7_frfi_fi", "europarl_v7_esfi_fi", "europarl_v7_etfi_fi"]
 };
 
-/*
-settings.corporafolders.jrc_acquis = {
-    title : "JRC-Acquis",
-    contents : ["jrc_acquis_itfi_fi", "jrc_acquis_enfi_fi", "jrc_acquis_svfi_fi", "jrc_acquis_defi_fi",
-		"jrc_acquis_frfi_fi", "jrc_acquis_esfi_fi", "jrc_acquis_etfi_fi", "jrc_acquis_hufi_fi",
-		"jrc_acquis_plfi_fi"]
+settings.corporafolders.jrc = {
+    title : "JRC-ACQUIS",
+    contents : ["jrc_acquis_enfi_fi", "jrc_acquis_svfi_fi", "jrc_acquis_defi_fi",
+		"jrc_acquis_esfi_fi", "jrc_acquis_etfi_fi", "jrc_acquis_frfi_fi",
+		"jrc_acquis_itfi_fi", "jrc_acquis_hufi_fi", "jrc_acquis_plfi_fi"]
 };
-*/
 
 
 /*
@@ -599,26 +597,7 @@ settings.corpora.jrc_acquis_enfi_fi = {
     struct_attributes : sattrlist.jrc_acquis
 };
 
-/*
-settings.corpora.europarl_v7_enfi_fi = {
-    title : "EuroParl suomi-englanti",
-    description : "EuroParl suomi-englanti-rinnakkaiskorpus (Europarl v7)",
-    id : "europarl_v7_enfi_fi",
-    urn : "unspecified",
-    metadata_urn : "unspecified",
-    lang : "fi",
-    linked_to : ["europarl_v7_enfi_en"],
-    context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-    },
-    struct_attributes : sattrlist.europarl_v7
-};
-*/
+
 settings.corpora.jrc_acquis_hufi_hu = {
     title : "JRC-Acquis unkari",
     description : "jrc_acquis_hufi_hu",
@@ -914,7 +893,7 @@ settings.corpora.jrc_acquis_svfi_sv = {
 
 settings.corpora.jrc_acquis_svfi_fi = {
     title : "JRC-Acquis suomi–ruotsi",
-    description : "jrc_acquis_svfi_fi",
+    description : "JRC-Acquis suomi–ruotsi",
     id : "jrc_acquis_svfi_fi",
     urn : "unspecified",
     metadata_urn : "unspecified",
@@ -930,7 +909,6 @@ settings.corpora.jrc_acquis_svfi_fi = {
     },
     struct_attributes : sattrlist.jrc_acquis
 };
-
 
 
 /* */
