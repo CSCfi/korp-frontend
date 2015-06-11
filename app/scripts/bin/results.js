@@ -2281,7 +2281,7 @@
       container = $("<div>").appendTo(".name_content_target", this.$result);
       $(".name_content_target").data("cqp", cqp);
       c.log("name_content_target cqp", $(".name_content_target").data("cqp"));
-      $("#nameTableTmpl").tmpl(data).find(".example_link").append($("<span>").addClass("ui-icon ui-icon-document")).css("cursor", "pointer").click((function(_this) {
+      $("#nameTableTmpl").tmpl(data).localize().find(".example_link").append($("<span>").addClass("ui-icon ui-icon-document")).css("cursor", "pointer").click((function(_this) {
         return function(event) {
           return _this.onClickExample(event);
         };

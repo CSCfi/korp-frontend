@@ -1975,6 +1975,7 @@ class view.NameResults extends BaseResults
 
         # data.cqp = cqp
         $("#nameTableTmpl").tmpl(data)
+        .localize()
         .find(".example_link")
         .append($("<span>")
             .addClass("ui-icon ui-icon-document")
