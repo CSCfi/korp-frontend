@@ -260,7 +260,7 @@ settings.corporafolders.europarl = {
 settings.corporafolders.jrc_acquis = {
     title : "JRC-Acquis",
     contents : ["jrc_acquis_itfi_fi", "jrc_acquis_enfi_fi", "jrc_acquis_svfi_fi", "jrc_acquis_defi_fi",
-		"jrc_acquis_frfi_fi", "jrc_acquis_itfi_fi", "jrc_acquis_etfi_fi", "jrc_acquis_hufi_fi",
+		"jrc_acquis_frfi_fi", "jrc_acquis_esfi_fi", "jrc_acquis_etfi_fi", "jrc_acquis_hufi_fi",
 		"jrc_acquis_plfi_fi"]
 };
 
