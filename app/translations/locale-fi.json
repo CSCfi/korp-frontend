@@ -318,6 +318,8 @@
     "corpus_download" : "Lataa aineisto",
 
     "name_classification" : "Nimiluokittelu",
+    "no_name_corpora" : "Valitut korpukset eivät sisällä nimitietoja.",
+    "no_name_results" : "Nimiä ei löytynyt.",
     "namegroup_person" : "Henkilöt",
     "namegroup_place" : "Paikat",
     "namegroup_organization" : "Organisaatiot",

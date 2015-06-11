@@ -438,14 +438,14 @@
       </tr>
     </script>
     <script id="nameTableTmpl" type="text/x-jquery-tmpl">
-      <div class="name_group table_container" data-namegroup="${$data.group}">
       {{if $data.names.length}}
+      <div class="name_group table_container" data-namegroup="${$data.group}">
       <div class='name_group_heading' />
       <table>
       {{tmpl($data.names, {group: $data.group}) '#nameRowTmpl'}}
       </table>
-      {{/if}}
       </div>
+      {{/if}}
     </script>
     <script id="nameRowTmpl" type="text/x-jquery-tmpl">
       <tr>

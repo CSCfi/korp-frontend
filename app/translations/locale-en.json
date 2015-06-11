@@ -310,6 +310,8 @@
     "corpus_download" : "Download corpus",
 
     "name_classification" : "Name classification",
+    "no_name_corpora" : "The selected corpora lack named-entity data.",
+    "no_name_results" : "No names were found.",
     "namegroup_person" : "Persons",
     "namegroup_place" : "Places",
     "namegroup_organization" : "Organizations",

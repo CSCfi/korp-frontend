@@ -225,14 +225,14 @@ html
     //- Copied and modified from the lemgram templates above
     //- (Jyrki Niemi 2015-05-29)
     script#nameTableTmpl(type='text/x-jquery-tmpl').
-      <div class="name_group table_container" data-namegroup="${$data.group}">
       {{if $data.names.length}}
+      <div class="name_group table_container" data-namegroup="${$data.group}">
       <div class='name_group_heading' />
       <table>
       {{tmpl($data.names, {group: $data.group}) '#nameRowTmpl'}}
       </table>
-      {{/if}}
       </div>
+      {{/if}}
     script#nameRowTmpl(type='text/x-jquery-tmpl').
       <tr>
       <td><span class="enumerate_names"/></td>

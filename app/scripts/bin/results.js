@@ -2233,7 +2233,7 @@
     };
 
     NameResults.prototype.renderResult = function(data, cqp, within) {
-      var resultError;
+      var locale_key, resultError;
       c.log("name renderResult", data, cqp, within);
       $(".name_content_target", this.$result).empty();
       resultError = NameResults.__super__.renderResult.call(this, data);
@@ -2242,7 +2242,9 @@
       if (resultError === false) {
         return;
       }
-      if (!data.name_groups) {
+      if (!data.name_groups || data.name_groups.length === 0) {
+        locale_key = !data.name_groups ? "no_name_corpora" : "no_name_results";
+        this.$result.find(".name_content_target").html($("<i />").localeKey(locale_key));
         this.s.$parent.no_hits = true;
         return this.resultDeferred.reject();
       } else {

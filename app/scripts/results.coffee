@@ -1936,7 +1936,9 @@ class view.NameResults extends BaseResults
         @hidePreloader()
         @s.$parent.progress = 100
         return if resultError is false
-        unless data.name_groups
+        if not data.name_groups or data.name_groups.length == 0
+            locale_key = if not data.name_groups then "no_name_corpora" else "no_name_results" 
+            @$result.find(".name_content_target").html $("<i />").localeKey(locale_key)
             @s.$parent.no_hits = true
                 # @hasData = false
             @resultDeferred.reject()
