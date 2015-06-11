@@ -258,7 +258,7 @@ settings.corporafolders.europarl = {
 };
 
 settings.corporafolders.jrc = {
-    title : "JRC-ACQUIS",
+    title : "JRC-Acquis",
     contents : ["jrc_acquis_enfi_fi", "jrc_acquis_svfi_fi", "jrc_acquis_defi_fi",
 		"jrc_acquis_esfi_fi", "jrc_acquis_etfi_fi", "jrc_acquis_frfi_fi",
 		"jrc_acquis_itfi_fi", "jrc_acquis_hufi_fi", "jrc_acquis_plfi_fi"]
@@ -564,7 +564,7 @@ settings.corpora.jrc_acquis_enfi_en = {
     id : "jrc_acquis_enfi_en",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "en",
+    lang : "eng",
     linked_to : ["jrc_acquis_enfi_fi"],
     context: context.alignAligned,
     within: {
@@ -584,7 +584,7 @@ settings.corpora.jrc_acquis_enfi_fi = {
     id : "jrc_acquis_enfi_fi",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "fi",
+    lang : "fin",
     linked_to : ["jrc_acquis_enfi_en"],
     context: context.alignAligned,
     within: {
@@ -604,7 +604,7 @@ settings.corpora.jrc_acquis_hufi_hu = {
     id : "jrc_acquis_hufi_hu",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "hu",
+    lang : "hun",
     linked_to : ["jrc_acquis_hufi_fi"],
     context: context.alignAligned,
     within: {
@@ -624,7 +624,7 @@ settings.corpora.jrc_acquis_hufi_fi = {
     id : "jrc_acquis_hufi_fi",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "fi",
+    lang : "fin",
     linked_to : ["jrc_acquis_hufi_hu"],
     context: context.alignAligned,
     within: {
@@ -643,7 +643,7 @@ settings.corpora.jrc_acquis_frfi_fr = {
     id : "jrc_acquis_frfi_fr",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "fr",
+    lang : "fra",
     linked_to : ["jrc_acquis_frfi_fi"],
     context: context.alignAligned,
     within: {
@@ -663,7 +663,7 @@ settings.corpora.jrc_acquis_frfi_fi = {
     id : "jrc_acquis_frfi_fi",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "fi",
+    lang : "fin",
     linked_to : ["jrc_acquis_frfi_fr"],
     context: context.alignAligned,
     within: {
@@ -682,7 +682,7 @@ settings.corpora.jrc_acquis_plfi_pl = {
     id : "jrc_acquis_plfi_pl",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "pl",
+    lang : "pol",
     linked_to : ["jrc_acquis_plfi_fi"],
     context: context.alignAligned,
     within: {
@@ -702,7 +702,7 @@ settings.corpora.jrc_acquis_plfi_fi = {
     id : "jrc_acquis_plfi_fi",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "fi",
+    lang : "fin",
     linked_to : ["jrc_acquis_plfi_pl"],
     context: context.alignAligned,
     within: {
@@ -721,7 +721,7 @@ settings.corpora.jrc_acquis_itfi_it = {
     id : "jrc_acquis_itfi_it",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "it",
+    lang : "ita",
     linked_to : ["jrc_acquis_itfi_fi"],
     context: context.alignAligned,
     within: {
@@ -741,7 +741,7 @@ settings.corpora.jrc_acquis_itfi_fi = {
     id : "jrc_acquis_itfi_fi",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "fi",
+    lang : "fin",
     linked_to : ["jrc_acquis_itfi_it"],
     context: context.alignAligned,
     within: {
@@ -760,7 +760,7 @@ settings.corpora.jrc_acquis_esfi_es = {
     id : "jrc_acquis_esfi_es",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "es",
+    lang : "spa",
     linked_to : ["jrc_acquis_esfi_fi"],
     context: context.alignAligned,
     within: {
@@ -780,7 +780,7 @@ settings.corpora.jrc_acquis_esfi_fi = {
     id : "jrc_acquis_esfi_fi",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "fi",
+    lang : "fin",
     linked_to : ["jrc_acquis_esfi_es"],
     context: context.alignAligned,
     within: {
@@ -799,7 +799,7 @@ settings.corpora.jrc_acquis_etfi_et = {
     id : "jrc_acquis_etfi_et",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "et",
+    lang : "est",
     linked_to : ["jrc_acquis_etfi_fi"],
     context: context.alignAligned,
     within: {
@@ -819,7 +819,7 @@ settings.corpora.jrc_acquis_etfi_fi = {
     id : "jrc_acquis_etfi_fi",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "fi",
+    lang : "fin",
     linked_to : ["jrc_acquis_etfi_et"],
     context: context.alignAligned,
     within: {
@@ -838,7 +838,7 @@ settings.corpora.jrc_acquis_defi_de = {
     id : "jrc_acquis_defi_de",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "de",
+    lang : "deu",
     linked_to : ["jrc_acquis_defi_fi"],
     context: context.alignAligned,
     within: {
@@ -858,7 +858,7 @@ settings.corpora.jrc_acquis_defi_fi = {
     id : "jrc_acquis_defi_fi",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "fi",
+    lang : "fin",
     linked_to : ["jrc_acquis_defi_de"],
     context: context.alignAligned,
     within: {
@@ -877,7 +877,7 @@ settings.corpora.jrc_acquis_svfi_sv = {
     id : "jrc_acquis_svfi_sv",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "sv",
+    lang : "swe",
     linked_to : ["jrc_acquis_svfi_fi"],
     context: context.alignAligned,
     within: {
@@ -897,7 +897,7 @@ settings.corpora.jrc_acquis_svfi_fi = {
     id : "jrc_acquis_svfi_fi",
     urn : "unspecified",
     metadata_urn : "unspecified",
-    lang : "fi",
+    lang : "fin",
     linked_to : ["jrc_acquis_svfi_sv"],
     context: context.alignAligned,
     within: {
