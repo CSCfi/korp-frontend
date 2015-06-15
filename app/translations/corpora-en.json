@@ -5,7 +5,7 @@
     "old_swedish_texts" : "Old Swedish",
     "digidaily" : "Digidaily",
     "kubhist" : "Kubhist",
-    "1800_texts" : "Biblical texts",
+    "bible_texts" : "Biblical texts",
     "fisk1800_texts" : "Older Finland Swedish",
     "lb_texts" : "Litteraturbanken",
     "spf_texts" : "Spf 1800–1900",
@@ -52,9 +52,6 @@
     "lemmacomp" : "baseform (compound boundaries)",
     "pos_orig" : "part-of-speech (original)",
     "func" : "function",
-
-    "year_from" : "starting year",
-    "year_to" : "ending year",
 
     "url" : "url",
     "referensnummer" : "reference number",
@@ -353,8 +350,8 @@
     
     "example" : "Example",
     "page_num" : "page number",
-    "year_to"  : "date (to)",
-    "year_from"  : "date (from)",
+    "year_to"  : "year (to)",
+    "year_from"  : "year (from)",
     
     "rel_AT" : "Pre-modifier",
     "rel_ET" : "Post-modifier",
@@ -675,6 +672,8 @@
     "editor" : "editor",
     "printedin" : "printed in",
     "printedby" : "printed by",
-    "commentaries" : "commentaries"
+    "commentaries" : "commentaries",
+
+    "published" : "published"
 }
 

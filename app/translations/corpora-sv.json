@@ -5,7 +5,7 @@
     "old_swedish_texts" : "Fornsvenska",
     "digidaily" : "Digidaily",
     "kubhist" : "Kubhist",
-    "1800_texts" : "Bibelstället",
+    "bible_texts" : "Bibelstället",
     "fisk1800_texts" : "Äldre finlandssvenska",
     "lb_texts" : "Litteraturbanken",
     "spf_texts" : "Spf 1800–1900",
@@ -44,9 +44,6 @@
     "party" : "parti",
     "normalized_wordform" : "normaliserad ordform",
     
-    "year_from" : "startår",
-    "year_to" : "slutår",
-
     "url" : "url",
     "referensnummer" : "referensnummer",
 
@@ -193,8 +190,8 @@
 
     "example" : "Exempel",
     "page_num" : "sidonummer",
-    "year_to"  : "datum (start)",
-    "year_from"  : "datum (slut)",
+    "year_to"  : "år (slut)",
+    "year_from"  : "år (start)",
     
     "rel_AT" : "Attribut",
     "rel_ET" : "Efterställt attribut",
@@ -451,5 +448,7 @@
     "editor" : "redaktör",
     "printedin" : "tryckt i",
     "printedby" : "tryckt av",
-    "commentaries" : "kommentarer"
+    "commentaries" : "kommentarer",
+
+    "published" : "publicerat"
 }

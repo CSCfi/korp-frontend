@@ -78,5 +78,32 @@ settings.corpora.bibel1873dalin = {
     }
 };
 
+settings.corpora["vasabibel-nt"] = {
+    morf : 'swedbergm|dalinm|saldom',
+    id : "vasabibel-nt",
+    title : "Gustaf Vasas bibel - Nya testamentet",
+    description : "'Nya Testamentet i Gustaf Vasas Bibel /under jämförelse med texten av år 1526 utgivet av Natan Lindqvist' från 1941",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        msd : attrs.msd,
+        lemma : attrs.baseform,
+        lex : attrs.lemgram,
+        dalinlex : attrs.dalinlemgram,
+        saldo : attrs.saldo,
+        prefix : attrs.prefix,
+        suffix : attrs.suffix,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel,
+        ref : attrs.ref
+    },
+    struct_attributes : {
+        text_title : {label : "title"},
+        text_publisher : {label : "publisher"},
+        text_published : {label : "published"},
+        text_year : {label : "year"}
+    }
+};
+
 
 settings.corpusListing = new CorpusListing(settings.corpora);
