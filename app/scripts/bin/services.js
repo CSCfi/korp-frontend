@@ -199,7 +199,10 @@
 
       Searches.prototype.kwicSearch = function(cqp, isPaging) {
         this.kwicRequest(cqp, isPaging);
-        return statsResults.makeRequest(cqp);
+        statsResults.makeRequest(cqp);
+        if (settings.name_classification) {
+          return nameResults.makeRequest(cqp);
+        }
       };
 
       Searches.prototype.lemgramSearch = function(lemgram, searchPrefix, searchSuffix, isPaging) {
@@ -207,6 +210,9 @@
         cqp = new model.LemgramProxy().lemgramSearch(lemgram, searchPrefix, searchSuffix);
         statsResults.makeRequest(cqp);
         this.kwicRequest(cqp, isPaging);
+        if (settings.name_classification) {
+          nameResults.makeRequest(cqp);
+        }
         if (settings.wordpicture === false) {
           return;
         }

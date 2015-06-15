@@ -2158,6 +2158,205 @@
 
   })(BaseResults);
 
+  view.NameResults = (function(_super) {
+    __extends(NameResults, _super);
+
+    function NameResults(tabSelector, resultSelector, scope) {
+      var group, self, _i, _len, _ref;
+      self = this;
+      NameResults.__super__.constructor.call(this, tabSelector, resultSelector, scope);
+      this.s = scope;
+      this.tabindex = 3;
+      this.resultDeferred = $.Deferred();
+      this.proxy = new model.NameProxy();
+      window.nameProxy = this.proxy;
+      this.group_labels = {};
+      _ref = settings.name_groups || [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        group = _ref[_i];
+        this.group_labels[group.regex] = group.label;
+      }
+    }
+
+    NameResults.prototype.resetView = function() {
+      NameResults.__super__.resetView.call(this);
+      $(".name_content_target", this.$result).empty();
+      return safeApply(this.s, (function(_this) {
+        return function() {
+          _this.s.$parent.aborted = false;
+          return _this.s.$parent.no_hits = false;
+        };
+      })(this));
+    };
+
+    NameResults.prototype.makeRequest = function(cqp, within) {
+      var def;
+      c.log("name makeRequest", cqp, within);
+      within = within || "sentence";
+      if (this.proxy.hasPending()) {
+        this.ignoreAbort = true;
+      } else {
+        this.ignoreAbort = false;
+        this.resetView();
+      }
+      this.showPreloader();
+      def = this.proxy.makeRequest(cqp, within, (function(_this) {
+        return function() {
+          var args;
+          args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+          return _this.onProgress.apply(_this, args);
+        };
+      })(this));
+      def.success((function(_this) {
+        return function(data) {
+          return safeApply(_this.s, function() {
+            return _this.renderResult(data, cqp, within);
+          });
+        };
+      })(this));
+      return def.fail((function(_this) {
+        return function(jqXHR, status, errorThrown) {
+          c.log("def fail", status);
+          if (_this.ignoreAbort) {
+            c.log("name ignoreabort");
+            return;
+          }
+          if (status === "abort") {
+            return safeApply(_this.s, function() {
+              _this.hidePreloader();
+              c.log("aborted true", _this.s);
+              return _this.s.$parent.aborted = true;
+            });
+          }
+        };
+      })(this));
+    };
+
+    NameResults.prototype.renderResult = function(data, cqp, within) {
+      var locale_key, resultError;
+      c.log("name renderResult", data, cqp, within);
+      $(".name_content_target", this.$result).empty();
+      resultError = NameResults.__super__.renderResult.call(this, data);
+      this.hidePreloader();
+      this.s.$parent.progress = 100;
+      if (resultError === false) {
+        return;
+      }
+      if (!data.name_groups || data.name_groups.length === 0) {
+        locale_key = !data.name_groups ? "no_name_corpora" : "no_name_results";
+        this.$result.find(".name_content_target").html($("<i />").localeKey(locale_key));
+        this.s.$parent.no_hits = true;
+        return this.resultDeferred.reject();
+      } else {
+        this.renderTables(data.name_groups, cqp);
+        return this.resultDeferred.resolve();
+      }
+    };
+
+    NameResults.prototype.renderHeader = function() {
+      var group_labels;
+      group_labels = this.group_labels;
+      return $(".name_content_target:last .name_group").each(function(i) {
+        var $parent, label, loc_key, rel_loc;
+        $parent = $(this).find(".name_group_heading");
+        label = $(this).data("namegroup");
+        if (settings.name_groups) {
+          loc_key = "namegroup_" + group_labels[label];
+          rel_loc = " rel='localize[" + loc_key + "]'";
+          label = util.getLocaleString(loc_key);
+        } else {
+          rel_loc = "";
+        }
+        return $("<span " + rel_loc + ">" + label + "</span>").appendTo($parent);
+      }).append("<div style='clear:both;'/>");
+    };
+
+    NameResults.prototype.renderTables = function(data, cqp) {
+      this.drawTable(data, cqp);
+      this.renderHeader();
+      return this.hidePreloader();
+    };
+
+    NameResults.prototype.drawTable = function(data, cqp) {
+      var container;
+      c.log("name drawTable", data, cqp);
+      container = $("<div>").appendTo(".name_content_target", this.$result);
+      $(".name_content_target").data("cqp", cqp);
+      c.log("name_content_target cqp", $(".name_content_target").data("cqp"));
+      $("#nameTableTmpl").tmpl(data).localize().find(".example_link").append($("<span>").addClass("ui-icon ui-icon-document")).css("cursor", "pointer").click((function(_this) {
+        return function(event) {
+          return _this.onClickExample(event);
+        };
+      })(this)).end().appendTo(container);
+      return $("td:nth-child(2)", this.$result).each(function() {
+        return $(this).html($(this).data("name"));
+      });
+    };
+
+    NameResults.prototype.onClickExample = function(event) {
+      var $target, data, opts, self;
+      self = this;
+      $target = $(event.currentTarget);
+      c.log("onClickExample", $target);
+      data = $target.parent().tmplItem().data;
+      opts = {};
+      opts.ajaxParams = {
+        command: "names_sentences",
+        start: 0,
+        end: 24,
+        source: data.source.join(","),
+        cqp: $(".name_content_target").data("cqp")
+      };
+      c.log("names_sentences opts", opts);
+      return this.s.$root.kwicTabs.push(opts);
+    };
+
+    NameResults.prototype.showWarning = function() {
+      var hasWarned;
+      hasWarned = !!$.jStorage.get("name_warning");
+      if (!hasWarned) {
+        $.jStorage.set("name_warning", true);
+        $("#sidebar").sidebar("refreshContent", "lemgramWarning");
+        safeApply(this.s, (function(_this) {
+          return function() {
+            return _this.s.$root.sidebar_visible = true;
+          };
+        })(this));
+        return self.timeout = setTimeout((function(_this) {
+          return function() {
+            return safeApply(_this.s, function() {
+              _this.s.$root.sidebar_visible = false;
+              return $("#sidebar").sidebar("refreshContent");
+            });
+          };
+        })(this), 5000);
+      }
+    };
+
+    NameResults.prototype.onentry = function() {
+      c.log("name onentry");
+      NameResults.__super__.onentry.call(this);
+      this.resultDeferred.done(this.showWarning);
+    };
+
+    NameResults.prototype.onexit = function() {
+      NameResults.__super__.onexit.call(this);
+      clearTimeout(self.timeout);
+      safeApply(this.s, (function(_this) {
+        return function() {
+          return _this.s.$root.sidebar_visible = false;
+        };
+      })(this));
+    };
+
+    NameResults.prototype.showNoResults = function() {
+      return this.hidePreloader();
+    };
+
+    return NameResults;
+
+  })(BaseResults);
+
 }).call(this);
 
 //# sourceMappingURL=results.js.map

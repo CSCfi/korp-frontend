@@ -742,6 +742,68 @@
 
   })(BaseProxy);
 
+  model.NameProxy = (function(_super) {
+    __extends(NameProxy, _super);
+
+    function NameProxy() {
+      NameProxy.__super__.constructor.call(this);
+    }
+
+    NameProxy.prototype.makeRequest = function(cqp, within, callback) {
+      var def, group, groups, params, self;
+      NameProxy.__super__.makeRequest.call(this);
+      self = this;
+      groups = settings.name_groups ? ((function() {
+        var _i, _len, _ref, _results;
+        _ref = settings.name_groups;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          group = _ref[_i];
+          _results.push(group.regex);
+        }
+        return _results;
+      })()).join(",") : null;
+      params = {
+        command: "names",
+        cqp: cqp,
+        corpus: settings.corpusListing.stringifySelected(),
+        defaultwithin: "sentence",
+        default_nameswithin: "text_id",
+        max: settings.name_group_max_names || 30,
+        groups: groups,
+        incremental: $.support.ajaxProgress,
+        cache: true
+      };
+      this.prevParams = params;
+      def = $.ajax({
+        url: settings.cgi_script,
+        data: params,
+        success: function(data) {
+          c.log("names success", data);
+          return self.prevRequest = params;
+        },
+        progress: function(data, e) {
+          var progressObj;
+          progressObj = self.calcProgress(e);
+          if (progressObj == null) {
+            return;
+          }
+          return callback(progressObj);
+        },
+        beforeSend: function(req, settings) {
+          self.prevRequest = settings;
+          self.addAuthorizationHeader(req);
+          return self.prevUrl = this.url;
+        }
+      });
+      this.pendingRequests.push(def);
+      return def;
+    };
+
+    return NameProxy;
+
+  })(BaseProxy);
+
 }).call(this);
 
 //# sourceMappingURL=model.js.map

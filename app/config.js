@@ -26,6 +26,7 @@ settings.lemgramSelect = true;
 settings.autocomplete = true;
 // settings.wordpicture = false;
 settings.hits_per_page_default = 25
+settings.name_classification = true;
 
 settings.textDateAllowBareYears = true;
 
@@ -181,6 +182,16 @@ settings.wordPictureConf = {
     // preposition : [["_", {rel: "preposition_rel", css_class : "color_green"}]]
     
 }
+
+// Configure the grouping of name categories in name
+// classification results.
+settings.name_groups = [
+    {label : "person", regex : "EnamexPrs.*"},
+    {label : "place", regex : "EnamexLoc.*"},
+    {label : "organization", regex : "EnamexOrg.*"},
+    {label : "other", regex : "(Nu|Ti)mex.*"},
+];
+settings.name_group_max_names = 30;
 
 settings.visibleModes = 6
 settings.modeConfig = [

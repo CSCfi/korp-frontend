@@ -649,3 +649,61 @@ class model.GraphProxy extends BaseProxy
             #     data
 
         return def.promise()
+
+
+class model.NameProxy extends BaseProxy
+
+    # Copied and modified from model.LemgramProxy (Jyrki Niemi 2015-05-29)
+
+    constructor: ->
+        super()
+
+    makeRequest: (cqp, within, callback) ->
+        super()
+        self = this
+        groups = if settings.name_groups
+                     (group.regex for group in settings.name_groups).join(",")
+                 else
+                     null
+        params =
+            command: "names"
+            cqp: cqp
+            corpus: settings.corpusListing.stringifySelected()
+            defaultwithin: "sentence"
+            default_nameswithin: "text_id"
+            max: settings.name_group_max_names or 30
+            groups: groups
+            incremental: $.support.ajaxProgress
+            cache: true
+        @prevParams = params
+        def =  $.ajax
+            url: settings.cgi_script
+            data: params
+            # beforeSend: (jqXHR, settings) ->
+            #   c.log "before relations send", settings
+            #   # self.prevRequest = settings
+
+            # error: (data, status) ->
+            #     c.log "relationsearch abort", arguments
+            #     if status == "abort"
+                    
+            #     else
+            #         lemgramResults.resultError()
+                    
+
+            success: (data) ->
+                c.log "names success", data
+                self.prevRequest = params
+                # lemgramResults.renderResult data, word
+
+            progress: (data, e) ->
+                progressObj = self.calcProgress(e)
+                return unless progressObj?
+                callback progressObj
+
+            beforeSend: (req, settings) ->
+                self.prevRequest = settings
+                self.addAuthorizationHeader req
+                self.prevUrl = this.url
+        @pendingRequests.push def
+        return def
