@@ -13,14 +13,17 @@
 
   korpApp.controller("kwicCtrl", KwicCtrl = (function() {
     KwicCtrl.prototype.setupHash = function() {
-      var _this = this;
+      c.log("setupHash", this.scope.$id);
       return this.utils.setupHash(this.scope, [
         {
           key: "page",
-          post_change: function() {
-            c.log("post_change", _this.scope.page);
-            return _this.scope.pageObj.pager = (_this.scope.page || 0) + 1;
-          },
+          post_change: (function(_this) {
+            return function() {
+              c.log("post_change page hash", _this.scope.page);
+              _this.scope.pageObj.pager = (_this.scope.page || 0) + 1;
+              return c.log("@scope.pageObj.pager", _this.scope.pageObj.pager);
+            };
+          })(this),
           val_in: Number
         }
       ]);
@@ -37,8 +40,7 @@
     KwicCtrl.$inject = ['$scope', "utils", "$location"];
 
     function KwicCtrl(scope, utils, location) {
-      var $location, $scope, findMatchSentence, massageData, punctArray, readingChange, s,
-        _this = this;
+      var $location, $scope, findMatchSentence, massageData, punctArray, readingChange, s;
       this.scope = scope;
       this.utils = utils;
       this.location = location;
@@ -52,8 +54,10 @@
         return s.$root.sidebar_visible = false;
       };
       punctArray = [",", ".", ";", ":", "!", "?", "..."];
-      c.log("$location.search().page", $location.search().page);
       this.initPage();
+      s.$watch("pageObj.pager", function(val) {
+        return c.log("pageobj watch", val);
+      });
       s.pageChange = function($event, page) {
         c.log("pageChange", arguments);
         $event.stopPropagation();
@@ -63,7 +67,7 @@
       s.gotoPage = null;
       s.onPageInput = function($event, page, numPages) {
         if ($event.keyCode === 13) {
-          c.log("page", page, numPages);
+          c.log("page input", page, numPages);
           if (page > numPages) {
             page = numPages;
           }
@@ -84,17 +88,19 @@
           });
         }
       };
-      s.setupReadingHash = function() {
-        return _this.utils.setupHash(s, [
-          {
-            key: "reading_mode",
-            post_change: function(isReading) {
-              c.log("change reading mode", isReading);
-              return readingChange();
+      s.setupReadingHash = (function(_this) {
+        return function() {
+          return _this.utils.setupHash(s, [
+            {
+              key: "reading_mode",
+              post_change: function(isReading) {
+                c.log("change reading mode", isReading);
+                return readingChange();
+              }
             }
-          }
-        ]);
-      };
+          ]);
+        };
+      })(this);
       s.setupReadingWatch = _.once(function() {
         var init;
         c.log("setupReadingWatch");
@@ -407,6 +413,4 @@
 
 }).call(this);
 
-/*
-//@ sourceMappingURL=result_controllers.js.map
-*/
+//# sourceMappingURL=result_controllers.js.map

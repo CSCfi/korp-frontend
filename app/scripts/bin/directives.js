@@ -7,7 +7,7 @@
   korpApp.directive('kwicWord', function() {
     return {
       replace: true,
-      template: "<span class=\"word\" ng-class=\"getClassObj(wd)\"\nset-text=\"wd.word + ' '\" ></span>",
+      template: "<span class=\"word\" ng-class=\"getClassObj(wd)\">\n{{::wd.word}} </span>",
       link: function(scope, element) {
         return scope.getClassObj = function(wd) {
           var output, struct, x, y, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2;
@@ -215,7 +215,7 @@
       link: function(scope, elem, attr) {
         var arg_value, setVal;
         setVal = function(lemgram) {
-          return $(elem).attr("placeholder", scope.stringify(lemgram, true).replace(/<\/?[^>]+>/g, "")).val("").blur().placeholder();
+          return $(elem).attr("placeholder", scope.stringify(lemgram, true).replace(/<\/?[^>]+>/g, "")).val("").blur();
         };
         if (scope.model) {
           setVal(scope.model);
@@ -240,7 +240,7 @@
           input = this;
           return setTimeout((function() {
             if (($(input).val().length && !util.isLemgramId($(input).val())) || $(input).data("value") === null) {
-              return $(input).addClass("invalid_input").attr("placeholder", null).data("value", null).placeholder();
+              return $(input).addClass("invalid_input").attr("placeholder", null).data("value", null);
             } else {
               return $(input).removeClass("invalid_input");
             }
@@ -575,12 +575,10 @@
       replace: true,
       restrict: "E",
       scope: false,
-      template: "<div class=\"pager-wrapper\" ng-show=\"gotFirstKwic\" ng-if=\"hits > $root._searchOpts.hits_per_page\">\n  <pagination\n     total-items=\"hits\"\n     ng-if=\"gotFirstKwic\"\n     ng-model=\"pageObj.pager\"\n     ng-click=\"pageChange($event, pageObj.pager)\"\n     max-size=\"15\"\n     items-per-page=\"::$root._searchOpts.hits_per_page\"\n     previous-text=\"‹\" next-text=\"›\" first-text=\"«\" last-text=\"»\" \n     boundary-links=\"true\" \n     rotate=\"false\" \n     num-pages=\"$parent.numPages\"> </pagination>\n  <div class=\"page_input\"><span>{{'goto_page' | loc}} </span>\n    <input ng-model=\"$parent.$parent.gotoPage\" ng-keyup=\"onPageInput($event, gotoPage, numPages)\" \n        ng-click=\"$event.stopPropagation()\" />\n    {{'of' | loc}} {{numPages}}\n  </div>\n\n</div>"
+      template: "<div class=\"pager-wrapper\" ng-show=\"gotFirstKwic\" >\n  <pagination\n     total-items=\"hits\"\n     ng-if=\"gotFirstKwic\"\n     ng-model=\"pageObj.pager\"\n     ng-click=\"pageChange($event, pageObj.pager)\"\n     max-size=\"15\"\n     items-per-page=\"::$root._searchOpts.hits_per_page\"\n     previous-text=\"‹\" next-text=\"›\" first-text=\"«\" last-text=\"»\" \n     boundary-links=\"true\" \n     rotate=\"false\" \n     num-pages=\"$parent.numPages\"> </pagination>\n  <div class=\"page_input\"><span>{{'goto_page' | loc}} </span>\n    <input ng-model=\"$parent.$parent.gotoPage\" ng-keyup=\"onPageInput($event, gotoPage, numPages)\" \n        ng-click=\"$event.stopPropagation()\" />\n    {{'of' | loc}} {{numPages}}\n  </div>\n\n</div>"
     };
   });
 
 }).call(this);
 
-/*
-//@ sourceMappingURL=directives.js.map
-*/
+//# sourceMappingURL=directives.js.map

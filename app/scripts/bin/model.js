@@ -447,7 +447,7 @@
         success: function(data) {
           var columns, dataset, groups, minWidth, sizeOfDataset, statsWorker, wordArray;
           if (data.ERROR != null) {
-            c.log("gettings stats failed with error", $.dump(data.ERROR));
+            c.log("gettings stats failed with error", data.ERROR);
             def.reject(data);
             return;
           }
