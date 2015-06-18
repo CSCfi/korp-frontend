@@ -291,5 +291,13 @@
     "swedbergm" : "1600-tal",
     "fsvm" : "fornsvenska",
 
-    "newsdesk-header" : "Nyheter"
+    "newsdesk-header" : "Nyheter",
+
+    "in_context_prefix" : " i ",
+    "context_sentences" : "satser",
+    "context_paragraphs" : "stycken",
+    "context_texts" : "texter",
+    "which_contain" : "som innehåller",
+    "baseforms" : "grundformer",
+    "wordforms" : "ordformer"
 }

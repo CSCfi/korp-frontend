@@ -108,6 +108,10 @@
                     <input id="caseChk" type="checkbox" ng-model="isCaseInsensitive">
                     <label for="caseChk"> {{'case_insensitive' | loc:lang}}  </label>
                   </div>
+                  <div class="prequery"><span>{{'in_context_prefix' | loc}}</span>
+                    <select id="prequery_within" ng-model="prequery_within" ng-options="&quot;context_&quot; + elem + &quot;s&quot; | loc for elem in prequery_within_opts track by elem"></select><span> {{'which_contain' | loc}} </span>
+                    <input id="simple_prequery" type="text" size="40" ng-model="simple_prequery" ng-model-options="{ updateOn: &quot;blur&quot; }">
+                  </div>
                 </form>
                 <div id="similar_wrapper" ng-show="relatedObj">
                   <button ng-click="showAllRelated()" ng-if="relatedObj.length != 0" class="btn btn-sm btn-default"><span class="btn_header">{{ 'similar_header' | loc:lang }} (SWE-FN)</span><br><span ng-repeat="wd in relatedObj[0].words | limitTo:relatedDefault">
