@@ -348,30 +348,77 @@
     };
 
     SimpleSearch.prototype.makePrequeryCQPs = function() {
-      var attrname, prequeries, prequery_attrs, prequery_str, word;
-      prequery_str = $.trim($("#simple_prequery", this.$main).val() || "");
-      if (prequery_str) {
-        prequery_attrs = $("#prequery_attr", this.$main).val() || "word|lemma";
-        prequeries = (function() {
+      var makePhraseCQP, phrase, prequery_attrs, prequery_phrases, prequery_str, splitToPhrases;
+      splitToPhrases = function(str) {
+        var phrase, result, word, wordcnt, wordnum, words;
+        words = str.split(/\s+/);
+        result = [];
+        phrase = [];
+        wordcnt = words.length;
+        wordnum = 0;
+        while (wordnum < wordcnt) {
+          word = words[wordnum];
+          if (phrase.length > 0) {
+            if (word.slice(-1) === "\"") {
+              phrase.push(word.slice(0, -1));
+              result.push(phrase.join(" "));
+              phrase = [];
+            } else {
+              phrase.push(word);
+            }
+          } else if (word.charAt(0) === "\"") {
+            if (word.slice(-1) === "\"") {
+              result.push(word.slice(1, -1));
+            } else {
+              phrase.push(word.slice(1));
+            }
+          } else {
+            result.push(word);
+          }
+          wordnum++;
+        }
+        if (phrase.length > 0) {
+          result.push(phrase.join(" "));
+        }
+        return result;
+      };
+      makePhraseCQP = function(phrase, prequery_attrs) {
+        var attrname, result, word;
+        result = ((function() {
           var j, len, ref, results;
-          ref = prequery_str.split(/\s+/);
+          ref = phrase.split(" ");
           results = [];
           for (j = 0, len = ref.length; j < len; j++) {
             word = ref[j];
-            results.push("[" + ((function() {
-              var k, len1, ref1, results1;
-              ref1 = prequery_attrs.split("|");
+            results.push("[" + (word === "*" ? "" : ((function() {
+              var k, len1, results1;
               results1 = [];
-              for (k = 0, len1 = ref1.length; k < len1; k++) {
-                attrname = ref1[k];
-                results1.push($.format("%s = \"%s\"", [attrname, regescape(word)]));
+              for (k = 0, len1 = prequery_attrs.length; k < len1; k++) {
+                attrname = prequery_attrs[k];
+                results1.push($.format("%s = \"%s\"", [attrname, regescape(word).replace("\\*", ".*")]));
               }
               return results1;
-            })()).join(" | ") + "]");
+            })()).join(" | ")) + "]");
+          }
+          return results;
+        })()).join(" ");
+        c.log("makePhraseCQP", phrase, "=>", result);
+        return result;
+      };
+      prequery_str = $.trim($("#simple_prequery", this.$main).val() || "");
+      if (prequery_str) {
+        prequery_attrs = ($("#prequery_attr", this.$main).val() || "word|lemma").split("|");
+        prequery_phrases = splitToPhrases(prequery_str);
+        c.log("prequery phrases", prequery_phrases);
+        return (function() {
+          var j, len, results;
+          results = [];
+          for (j = 0, len = prequery_phrases.length; j < len; j++) {
+            phrase = prequery_phrases[j];
+            results.push(makePhraseCQP(phrase, prequery_attrs));
           }
           return results;
         })();
-        return prequeries;
       } else {
         return null;
       }
