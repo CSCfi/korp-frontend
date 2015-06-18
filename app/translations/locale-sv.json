@@ -316,5 +316,13 @@
     "namegroup_person" : "Personer",
     "namegroup_place" : "Platser",
     "namegroup_organization" : "Organisationer",
-    "namegroup_other" : "Andra"
+    "namegroup_other" : "Andra",
+
+    "in_context_prefix" : " i ",
+    "context_sentences" : "satser",
+    "context_paragraphs" : "stycken",
+    "context_texts" : "texter",
+    "which_contain" : "som innehåller",
+    "baseforms" : "grundformer",
+    "wordforms" : "ordformer"
 }

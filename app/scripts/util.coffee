@@ -1341,3 +1341,32 @@ util.setAttrDisplayOrder = (corpusInfo) ->
                 corpusInfo._sidebar_display_order = {}
             corpusInfo._sidebar_display_order[attr_type] = result.reverse()
     return
+
+
+# Add additional CQP queries ("pre-queries") in cqp to params (Korp
+# backend query parameters). cqp can be either a string of CQP queries
+# joined by || or an object. In a string, the first query is the
+# unnumbered one and the last one is the main query, whose matches
+# will be highlighted. (Jyrki Niemi 2015-06-18)
+
+util.addCQPs = (params, cqp) ->
+    if typeof cqp == "string" or cqp instanceof String
+        if cqp.indexOf("||") != -1
+            cqps = cqp.split("||")
+            params["cqp"] = cqps[0]
+            params["cqp" + i.toString()] = cqps[i] for i in [1...cqps.length]
+        else
+            params.cqp = cqp
+    else
+        params[key] = val for key, val of cqp when key.substr(0, 3) == "cqp"
+    return
+
+# Combine the CQP queries in the properties cqp and cqp[1-9][0-9]* of
+# params into a single string, joined by ||. (Jyrki Niemi 2015-06-18)
+
+util.combineCQPs = (params) ->
+    cqp_keys = (
+        key for key of Object.keys(params) when key.substr(0, 3) == "cqp")
+    cqp_keys = _.sortBy cqp_keys, (key) ->
+        parseInt(key.substr(4) or "0")
+    (params[key] for key in cqp_keys).join("||")

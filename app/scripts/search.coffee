@@ -363,6 +363,21 @@ class view.SimpleSearch extends BaseSearch
     #         $(this).empty()
 
 
+    # Convert the prequery string to an array of CQP queries, by
+    # default either a word form or lemma with the given string.
+    # (Jyrki Niemi 2015-06-18)
+    makePrequeryCQPs : () ->
+        prequery_str = $.trim($("#simple_prequery", @$main).val() or "")
+        if prequery_str
+            prequery_attrs = $("#prequery_attr", @$main).val() or "word|lemma"
+            prequeries = for word in prequery_str.split(/\s+/)
+                "[" + (for attrname in prequery_attrs.split("|")
+                          $.format("%s = \"%s\"", [attrname, regescape(word)])
+                      ).join(" | ") + "]"
+            return prequeries
+        else
+            return null
+
     getCQP : (word) ->
         # c.log "getCQP", word
         currentText = $.trim(word or $("#simple_text", @$main).val() or "", '"')
@@ -396,6 +411,15 @@ class view.SimpleSearch extends BaseSearch
                 $.format "[word = \"%s\"%s]", [regescape(item), suffix]
             )
             val = cqp.join(" ")
+
+        # Make the possible prequeries and add the main CQP query as
+        # the last one.
+        prequeries = @makePrequeryCQPs()
+        c.log("prequeries", prequeries)
+        if prequeries
+            prequeries.push(val)
+        #     val = prequeries
+            val = prequeries.join('||')
 
         return val
 

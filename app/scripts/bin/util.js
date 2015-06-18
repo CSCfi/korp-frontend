@@ -1417,6 +1417,54 @@
     }
   };
 
+  util.addCQPs = function(params, cqp) {
+    var cqps, i, k, key, ref, val;
+    if (typeof cqp === "string" || cqp instanceof String) {
+      if (cqp.indexOf("||") !== -1) {
+        cqps = cqp.split("||");
+        params["cqp"] = cqps[0];
+        for (i = k = 1, ref = cqps.length; 1 <= ref ? k < ref : k > ref; i = 1 <= ref ? ++k : --k) {
+          params["cqp" + i.toString()] = cqps[i];
+        }
+      } else {
+        params.cqp = cqp;
+      }
+    } else {
+      for (key in cqp) {
+        val = cqp[key];
+        if (key.substr(0, 3) === "cqp") {
+          params[key] = val;
+        }
+      }
+    }
+  };
+
+  util.combineCQPs = function(params) {
+    var cqp_keys, key;
+    cqp_keys = (function() {
+      var results;
+      results = [];
+      for (key in Object.keys(params)) {
+        if (key.substr(0, 3) === "cqp") {
+          results.push(key);
+        }
+      }
+      return results;
+    })();
+    cqp_keys = _.sortBy(cqp_keys, function(key) {
+      return parseInt(key.substr(4) || "0");
+    });
+    return ((function() {
+      var k, len, results;
+      results = [];
+      for (k = 0, len = cqp_keys.length; k < len; k++) {
+        key = cqp_keys[k];
+        results.push(params[key]);
+      }
+      return results;
+    })()).join("||");
+  };
+
 }).call(this);
 
 //# sourceMappingURL=util.js.map
