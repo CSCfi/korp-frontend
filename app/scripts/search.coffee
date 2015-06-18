@@ -256,15 +256,70 @@ class view.SimpleSearch extends BaseSearch
         )
         return $("<select id='lemgram_select' />").html(optionElems).data("dataprovider", lemgrams)
 
+    # Convert the prequery string to an array of CQP queries, by
+    # default either a word form or lemma with the given string. Allow
+    # phrases of consecutive words enclosed in double quotation marks,
+    # with an asterisk denoting any single word. (Jyrki Niemi
+    # 2015-06-18)
     makePrequeryCQPs : () ->
+
+        # Split the string str to phrases of either single words or
+        # consecutive words enclosed in double quotes.
+        splitToPhrases = (str) ->
+            words = str.split(/\s+/)
+            result = []
+            phrase = []
+            wordcnt = words.length
+            wordnum = 0
+            while wordnum < wordcnt
+                word = words[wordnum]
+                if phrase.length > 0
+                    if word.slice(-1) == "\""
+                        phrase.push(word.slice(0, -1))
+                        result.push(phrase.join(" "))
+                        phrase = []
+                    else
+                        phrase.push(word)
+                else if word.charAt(0) == "\""
+                    if word.slice(-1) == "\""
+                        result.push(word.slice(1, -1))
+                    else
+                        phrase.push(word.slice(1))
+                else
+                    result.push(word)
+                wordnum++
+            if phrase.length > 0
+                result.push(phrase.join(" "))
+            return result
+
+        # Make CQP expression from phrase, using the attributes in the
+        # array prequery_attrs. An asterisk denotes any single word.
+        # CHECK: Does this work correctly if a phrase contains
+        # multiple consecutive spaces between words?
+        makePhraseCQP = (phrase, prequery_attrs) ->
+            result = (for word in phrase.split(" ")
+                "[" +
+                    (if word == "*"
+                         ""
+                     else
+                         (for attrname in prequery_attrs
+                              $.format("%s = \"%s\"",
+                                       [attrname,
+                                        regescape(word).replace("\\*", ".*")])
+                         ).join(" | ")) +
+                "]"
+            ).join(" ")
+            c.log("makePhraseCQP", phrase, "=>", result)
+            return result
+
         prequery_str = $.trim($("#simple_prequery", @$main).val() or "")
         if prequery_str
-            prequery_attrs = $("#prequery_attr", @$main).val() or "word|lemma"
-            prequeries = for word in prequery_str.split(/\s+/)
-                "[" + (for attrname in prequery_attrs.split("|")
-                          $.format("%s = \"%s\"", [attrname, regescape(word)])
-                      ).join(" | ") + "]"
-            return prequeries
+            prequery_attrs = ($("#prequery_attr", @$main).val() or "word|lemma")
+                             .split("|")
+            prequery_phrases = splitToPhrases(prequery_str)
+            c.log("prequery phrases", prequery_phrases)
+            return (for phrase in prequery_phrases
+                makePhraseCQP(phrase, prequery_attrs))
         else
             return null
 
