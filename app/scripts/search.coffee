@@ -363,12 +363,13 @@ class view.SimpleSearch extends BaseSearch
     #         $(this).empty()
 
 
-    # Convert the prequery string to an array of CQP queries, by
-    # default either a word form or lemma with the given string. Allow
+    # Convert the prequery string prequery_str to an array of CQP
+    # queries, searching for values of the attributes in
+    # prequery_attrs, by default either a word form or lemma. Allow
     # phrases of consecutive words enclosed in double quotation marks,
     # with an asterisk denoting any single word. (Jyrki Niemi
     # 2015-06-18)
-    makePrequeryCQPs : () ->
+    makePrequeryCQPs: (prequery_str, prequery_attrs) ->
 
         # Split the string str to phrases of either single words or
         # consecutive words enclosed in double quotes.
@@ -419,16 +420,16 @@ class view.SimpleSearch extends BaseSearch
             c.log("makePhraseCQP", phrase, "=>", result)
             return result
 
-        prequery_str = $.trim($("#simple_prequery", @$main).val() or "")
+        prequery_str = $.trim(prequery_str or "")
         if prequery_str
-            prequery_attrs = ($("#prequery_attr", @$main).val() or "word|lemma")
-                             .split("|")
+            prequery_attrs = (prequery_attrs or "word|lemma").split("|")
             prequery_phrases = splitToPhrases(prequery_str)
             c.log("prequery phrases", prequery_phrases)
             return (for phrase in prequery_phrases
                 makePhraseCQP(phrase, prequery_attrs))
         else
             return null
+
 
     getCQP : (word) ->
         # c.log "getCQP", word
@@ -466,7 +467,7 @@ class view.SimpleSearch extends BaseSearch
 
         # Make the possible prequeries and add the main CQP query as
         # the last one.
-        prequeries = @makePrequeryCQPs()
+        prequeries = @makePrequeryCQPs($("#simple_prequery", @$main).val())
         c.log("prequeries", prequeries)
         if prequeries
             prequeries.push(val)

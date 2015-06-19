@@ -164,6 +164,14 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             s.placeholder = search.val
             s.simple_text = ""
             cqp = "[lex contains '#{search.val}']"
+            # Add possible prequery CQPs
+            if s.simple_prequery
+                # c.log("lemgram simple_prequery", cqp, s.simple_prequery)
+                cqps = simpleSearch.makePrequeryCQPs(s.simple_prequery)
+                cqps.push(cqp)
+                # c.log("cqps", cqps)
+                cqp = util.combineCQPs(cqps)
+                c.log("searches.activeSearch prequeries cqp", cqp)
             # # Related-word search does not currently work for Finnish,
             # # so commented out. It would be nice if it could be
             # # language- or corpus-specific. (Jyrki Niemi 2015-04-14)

@@ -1441,28 +1441,32 @@
 
   util.combineCQPs = function(params) {
     var cqp_keys, key;
-    cqp_keys = (function() {
-      var results;
-      results = [];
-      for (key in Object.keys(params)) {
-        if (key.substr(0, 3) === "cqp") {
-          results.push(key);
+    if ($.isArray(params)) {
+      return params.join("||");
+    } else {
+      cqp_keys = (function() {
+        var results;
+        results = [];
+        for (key in Object.keys(params)) {
+          if (key.substr(0, 3) === "cqp") {
+            results.push(key);
+          }
         }
-      }
-      return results;
-    })();
-    cqp_keys = _.sortBy(cqp_keys, function(key) {
-      return parseInt(key.substr(4) || "0");
-    });
-    return ((function() {
-      var k, len, results;
-      results = [];
-      for (k = 0, len = cqp_keys.length; k < len; k++) {
-        key = cqp_keys[k];
-        results.push(params[key]);
-      }
-      return results;
-    })()).join("||");
+        return results;
+      })();
+      cqp_keys = _.sortBy(cqp_keys, function(key) {
+        return parseInt(key.substr(4) || "0");
+      });
+      return ((function() {
+        var k, len, results;
+        results = [];
+        for (k = 0, len = cqp_keys.length; k < len; k++) {
+          key = cqp_keys[k];
+          results.push(params[key]);
+        }
+        return results;
+      })()).join("||");
+    }
   };
 
 }).call(this);

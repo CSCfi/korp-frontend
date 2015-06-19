@@ -89,7 +89,7 @@
     s.searches = searches;
     s.$watch("searches.activeSearch", (function(_this) {
       return function(search) {
-        var cqp, page;
+        var cqp, cqps, page;
         if (!search) {
           return;
         }
@@ -120,6 +120,12 @@
           s.placeholder = search.val;
           s.simple_text = "";
           cqp = "[lex contains '" + search.val + "']";
+          if (s.simple_prequery) {
+            cqps = simpleSearch.makePrequeryCQPs(s.simple_prequery);
+            cqps.push(cqp);
+            cqp = util.combineCQPs(cqps);
+            c.log("searches.activeSearch prequeries cqp", cqp);
+          }
           if (s.word_pic) {
             return searches.lemgramSearch(search.val, s.prefix, s.suffix, search.pageOnly);
           } else {
