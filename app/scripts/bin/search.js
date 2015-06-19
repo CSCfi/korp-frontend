@@ -257,8 +257,8 @@
       return $("<select id='lemgram_select' />").html(optionElems).data("dataprovider", lemgrams);
     };
 
-    SimpleSearch.prototype.makePrequeryCQPs = function() {
-      var makePhraseCQP, phrase, prequery_attrs, prequery_phrases, prequery_str, splitToPhrases;
+    SimpleSearch.prototype.makePrequeryCQPs = function(prequery_str, prequery_attrs) {
+      var makePhraseCQP, phrase, prequery_phrases, splitToPhrases;
       splitToPhrases = function(str) {
         var phrase, result, word, wordcnt, wordnum, words;
         words = str.split(/\s+/);
@@ -315,9 +315,9 @@
         c.log("makePhraseCQP", phrase, "=>", result);
         return result;
       };
-      prequery_str = $.trim($("#simple_prequery", this.$main).val() || "");
+      prequery_str = $.trim(prequery_str || "");
       if (prequery_str) {
-        prequery_attrs = ($("#prequery_attr", this.$main).val() || "word|lemma").split("|");
+        prequery_attrs = (prequery_attrs || "word|lemma").split("|");
         prequery_phrases = splitToPhrases(prequery_str);
         c.log("prequery phrases", prequery_phrases);
         return (function() {
@@ -367,7 +367,7 @@
         });
         val = cqp.join(" ");
       }
-      prequeries = this.makePrequeryCQPs();
+      prequeries = this.makePrequeryCQPs($("#simple_prequery", this.$main).val());
       c.log("prequeries", prequeries);
       if (prequeries) {
         prequeries.push(val);

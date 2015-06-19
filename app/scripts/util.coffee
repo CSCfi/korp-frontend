@@ -951,11 +951,15 @@ util.addCQPs = (params, cqp) ->
     return
 
 # Combine the CQP queries in the properties cqp and cqp[1-9][0-9]* of
-# params into a single string, joined by ||. (Jyrki Niemi 2015-06-18)
+# the object params or in the elements of the array params into a
+# single string, joined by ||. (Jyrki Niemi 2015-06-18)
 
 util.combineCQPs = (params) ->
-    cqp_keys = (
-        key for key of Object.keys(params) when key.substr(0, 3) == "cqp")
-    cqp_keys = _.sortBy cqp_keys, (key) ->
-        parseInt(key.substr(4) or "0")
-    (params[key] for key in cqp_keys).join("||")
+    if $.isArray(params)
+        return params.join("||")
+    else
+        cqp_keys = (
+            key for key of Object.keys(params) when key.substr(0, 3) == "cqp")
+        cqp_keys = _.sortBy cqp_keys, (key) ->
+            parseInt(key.substr(4) or "0")
+        return (params[key] for key in cqp_keys).join("||")
