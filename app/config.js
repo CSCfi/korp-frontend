@@ -3148,6 +3148,19 @@ sattrlist.kfspc = {
     text_publisher : sattrs.text_publisher
 };
 
+/* JRC-ACQUIS */
+
+sattrlist.jrc_acquis = {
+    sentence_id : sattrs.sentence_id_hidden,
+    text_year : {
+        label : "year"
+    },
+    text_title : sattrs.text_title,
+    text_filename : {
+        label : "file_name",
+    }
+};
+
 /* TOPLING */
 sattrlist.topling = {
     sentence_id : sattrs.sentence_id_hidden,
