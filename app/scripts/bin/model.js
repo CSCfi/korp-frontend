@@ -121,45 +121,6 @@
 
   })();
 
-  model.SearchProxy = (function(_super) {
-    __extends(SearchProxy, _super);
-
-    function SearchProxy() {}
-
-    SearchProxy.prototype.relatedWordSearch = function(lemgram) {
-      return $.ajax({
-        url: "http://spraakbanken.gu.se/ws/saldo-ws/grel/json/" + lemgram,
-        success: function(data) {
-          var hasAnyFreq, lemgrams;
-          c.log("related words success");
-          lemgrams = [];
-          $.each(data, function(i, item) {
-            return lemgrams = lemgrams.concat(item.rel);
-          });
-          hasAnyFreq = false;
-          return lemgramProxy.lemgramCount(lemgrams).done(function(freqs) {
-            $.each(data, function(i, item) {
-              return item.rel = $.grep(item.rel, function(lemgram) {
-                if (freqs[lemgram]) {
-                  hasAnyFreq = true;
-                }
-                return !!freqs[lemgram];
-              });
-            });
-            if (hasAnyFreq) {
-              return simpleSearch.renderSimilarHeader(lemgram, data);
-            } else {
-              return simpleSearch.removeSimilarHeader();
-            }
-          });
-        }
-      });
-    };
-
-    return SearchProxy;
-
-  })(BaseProxy);
-
   model.KWICProxy = (function(_super) {
     __extends(KWICProxy, _super);
 
@@ -181,7 +142,7 @@
 
     KWICProxy.prototype.makeRequest = function(options, page, progressCallback, kwicCallback) {
       var corpus, data, def, key, o, self, val, _i, _len, _ref, _ref1, _ref2;
-      c.log("kwicproxy.makeRequest");
+      c.log("kwicproxy.makeRequest", page, kwicResults.getPageInterval(Number(page)));
       self = this;
       this.foundKwic = false;
       KWICProxy.__super__.makeRequest.call(this);
@@ -209,7 +170,6 @@
         defaultwithin: _.keys(settings.defaultWithin)[0],
         show: [],
         show_struct: [],
-        incremental: $.support.ajaxProgress,
         cache: true
       };
       $.extend(data, kwicResults.getPageInterval(page), o.ajaxParams);
@@ -219,7 +179,7 @@
         _ref1 = corpus.within;
         for (key in _ref1) {
           val = _ref1[key];
-          data.show.push(key);
+          data.show.push(_.last(key.split(" ")));
         }
         _ref2 = corpus.attributes;
         for (key in _ref2) {
@@ -248,9 +208,11 @@
         data: data,
         beforeSend: function(req, settings) {
           self.prevRequest = settings;
-          return self.addAuthorizationHeader(req);
+          self.addAuthorizationHeader(req);
+          return self.prevUrl = this.url;
         },
         success: function(data, status, jqxhr) {
+          c.log("jqxhr", this);
           self.queryData = data.querydata;
           if (data.incremental === false || !this.foundKwic) {
             return kwicCallback(data);
@@ -317,7 +279,8 @@
         },
         beforeSend: function(req, settings) {
           self.prevRequest = settings;
-          return self.addAuthorizationHeader(req);
+          self.addAuthorizationHeader(req);
+          return self.prevUrl = this.url;
         }
       });
       this.pendingRequests.push(def);
@@ -434,7 +397,7 @@
       this.page_incr = 25;
     }
 
-    StatsProxy.prototype.makeRequest = function(cqp, callback) {
+    StatsProxy.prototype.makeRequest = function(cqp, callback, within) {
       var data, def, reduceval, self, _ref;
       self = this;
       StatsProxy.__super__.makeRequest.call(this);
@@ -458,18 +421,16 @@
           ignore_case: "word"
         });
       }
-      if ($(".within_select").val() !== settings.defaultWithin) {
-        data.within = settings.corpusListing.getWithinQueryString();
-      }
+      data.within = within;
       this.prevParams = data;
       def = $.Deferred();
       this.pendingRequests.push($.ajax({
         url: settings.cgi_script,
         data: data,
         beforeSend: function(req, settings) {
-          c.log("req", req);
           self.prevRequest = settings;
-          return self.addAuthorizationHeader(req);
+          self.addAuthorizationHeader(req);
+          return self.prevUrl = this.url;
         },
         error: function(jqXHR, textStatus, errorThrown) {
           c.log("gettings stats error, status: " + textStatus);
@@ -484,9 +445,9 @@
           return callback(progressObj);
         },
         success: function(data) {
-          var add, columns, combinedWordArray, corpus, dataset, groups, i, minWidth, obj, row, totalRow, valueGetter, word, wordArray, wordGetter, _i, _len, _ref1, _ref2;
+          var columns, dataset, groups, minWidth, sizeOfDataset, statsWorker, wordArray;
           if (data.ERROR != null) {
-            c.log("gettings stats failed with error", $.dump(data.ERROR));
+            c.log("gettings stats failed with error", data.ERROR);
             def.reject(data);
             return;
           }
@@ -518,72 +479,39 @@
               minWidth: minWidth
             });
           });
-          totalRow = {
-            id: "row_total",
-            hit_value: "&Sigma;",
-            total_value: data.total.sums
-          };
-          $.each(data.corpora, function(corpus, obj) {
-            return totalRow[corpus + "_value"] = obj.sums;
-          });
           wordArray = _.keys(data.total.absolute);
-          valueGetter = function(obj, word) {
-            return obj[word];
-          };
-          wordGetter = function(word) {
-            return word;
-          };
           if (reduceval === "lex" || reduceval === "saldo" || reduceval === "baseform") {
             groups = _.groupBy(wordArray, function(item) {
               return item.replace(/:\d+/g, "");
             });
-            combinedWordArray = _.keys(groups);
-            add = function(a, b) {
-              return a + b;
-            };
-            valueGetter = function(obj, word) {
-              return _.reduce(_.map(groups[word], function(wd) {
-                return obj[wd];
-              }), add);
-            };
-            wordGetter = function(word) {
-              return groups[word];
-            };
+            wordArray = _.keys(groups);
           }
-          dataset = [totalRow];
-          _ref1 = combinedWordArray || wordArray;
-          for (i = _i = 0, _len = _ref1.length; _i < _len; i = ++_i) {
-            word = _ref1[i];
-            row = {
-              id: "row" + i,
-              hit_value: wordGetter(word),
-              total_value: {
-                absolute: valueGetter(data.total.absolute, word),
-                relative: valueGetter(data.total.relative, word)
-              }
-            };
-            _ref2 = data.corpora;
-            for (corpus in _ref2) {
-              obj = _ref2[corpus];
-              row[corpus + "_value"] = {
-                absolute: valueGetter(obj.absolute, word),
-                relative: valueGetter(obj.relative, word)
-              };
-            }
-            dataset[i + 1] = row;
-          }
-          c.log("stats resolve");
-          return def.resolve([data, wordArray, columns, dataset]);
+          sizeOfDataset = wordArray.length;
+          dataset = new Array(sizeOfDataset + 1);
+          statsWorker = new Worker("scripts/statistics_worker.js");
+          statsWorker.onmessage = function(e) {
+            c.log("Called back by the worker!\n");
+            c.log(e);
+            return def.resolve([data, wordArray, columns, e.data]);
+          };
+          return statsWorker.postMessage({
+            "total": data.total,
+            "dataset": dataset,
+            "allrows": wordArray,
+            "corpora": data.corpora,
+            "groups": groups,
+            loc: {
+              'sv': "sv-SE",
+              'en': "gb-EN"
+            }[$("body").scope().lang]
+          });
         }
       }));
       return def.promise();
     };
 
     StatsProxy.prototype.valueFormatter = function(row, cell, value, columnDef, dataContext) {
-      if (!value.relative && !value.absolute) {
-        return "";
-      }
-      return "<span>\n      <span class='relStat'>" + (util.formatDecimalString(value.relative.toFixed(1), true)) + "</span>\n      <span class='absStat'>(" + (util.prettyNumbers(String(value.absolute))) + ")</span>\n<span>";
+      return dataContext[columnDef.id + "_display"];
     };
 
     return StatsProxy;
@@ -597,6 +525,7 @@
 
     AuthenticationProxy.prototype.makeRequest = function(usr, pass) {
       var auth, dfd, self;
+      c.log("makeRequest: (usr, pass", usr, pass);
       self = this;
       if (window.btoa) {
         auth = window.btoa(usr + ":" + pass);
@@ -765,8 +694,9 @@
     };
 
     GraphProxy.prototype.makeRequest = function(cqp, subcqps, corpora) {
-      var def, params;
+      var def, params, self;
       GraphProxy.__super__.makeRequest.call(this);
+      self = this;
       params = {
         command: "count_time",
         cqp: cqp,
@@ -784,7 +714,8 @@
         beforeSend: (function(_this) {
           return function(req, settings) {
             _this.prevRequest = settings;
-            return _this.addAuthorizationHeader(req);
+            _this.addAuthorizationHeader(req);
+            return self.prevUrl = _this.url;
           };
         })(this),
         progress: (function(_this) {

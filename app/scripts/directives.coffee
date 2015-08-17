@@ -2,8 +2,8 @@ korpApp = angular.module("korpApp")
 
 korpApp.directive 'kwicWord', ->
     replace: true
-    template : """<span class="word" ng-class="getClassObj(wd)"
-                    set-text="wd.word + ' '" ></span>
+    template : """<span class="word" ng-class="getClassObj(wd)">
+                    {{::wd.word}} </span>
                 """ #ng-click="wordClick($event, wd, sentence)"
     link : (scope, element) ->
         scope.getClassObj = (wd) ->
@@ -69,8 +69,10 @@ korpApp.directive "tabHash", (utils, $location) ->
                 t.onDeselect?()
             if contentScope.tabs[index]
                 contentScope.tabs[index].active = true
+                # contentScope.tabs[index].onSelect()
             else
                 (_.last contentScope.tabs)?.active = true
+                # (_.last contentScope.tabs)?.onSelect()
 
 
 
@@ -173,7 +175,7 @@ korpApp.directive "korpAutocomplete", () ->
         
         setVal = (lemgram) ->
             $(elem).attr("placeholder", scope.stringify(lemgram, true).replace(/<\/?[^>]+>/g, ""))
-                .val("").blur().placeholder()
+                .val("").blur()
         if scope.model
             setVal(scope.model)
         arg_value = elem.korp_autocomplete(
@@ -196,7 +198,7 @@ korpApp.directive "korpAutocomplete", () ->
             setTimeout (->
 
                 if ($(input).val().length and not util.isLemgramId($(input).val())) or $(input).data("value") is null
-                    $(input).addClass("invalid_input").attr("placeholder", null).data("value", null).placeholder()
+                    $(input).addClass("invalid_input").attr("placeholder", null).data("value", null)
                 else
                     $(input).removeClass("invalid_input")
                 # self._trigger "change"
@@ -526,4 +528,30 @@ korpApp.directive "warning", () ->
     restrict : "E"
     transclude : true
     template : "<div class='korp-warning bs-callout bs-callout-warning' ng-transclude></div>"
+
+korpApp.directive "kwicPager", () ->
+    replace: true
+    restrict: "E"
+    scope: false
+    template: """
+    <div class="pager-wrapper" ng-show="gotFirstKwic" >
+      <pagination
+         total-items="hits"
+         ng-if="gotFirstKwic"
+         ng-model="pageObj.pager"
+         ng-click="pageChange($event, pageObj.pager)"
+         max-size="15"
+         items-per-page="::$root._searchOpts.hits_per_page"
+         previous-text="‹" next-text="›" first-text="«" last-text="»" 
+         boundary-links="true" 
+         rotate="false" 
+         num-pages="$parent.numPages"> </pagination>
+      <div class="page_input"><span>{{'goto_page' | loc}} </span>
+        <input ng-model="$parent.$parent.gotoPage" ng-keyup="onPageInput($event, gotoPage, numPages)" 
+            ng-click="$event.stopPropagation()" />
+        {{'of' | loc}} {{numPages}}
+      </div>
+
+    </div>
+    """
 

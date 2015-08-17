@@ -112,18 +112,22 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
     s.$watch "searches.activeSearch", (search) =>
         # if search.type in ["word", "lemgram"]
         unless search then return 
-        c.log "searches.activeSearch", search
-        page = $rootScope.search()["page"] or 0
+        page = Number($location.search().page) or 0
+        c.log "activesearch", search
         s.relatedObj = null
         if search.type == "word"
             s.placeholder = null
             s.simple_text = search.val
             cqp = simpleSearch.getCQP(search.val)
             c.log "simple search cqp", cqp
-            searches.kwicSearch(cqp, page)
+            if search.pageOnly
+                searches.kwicRequest(cqp, true)
+                return
+            else
+                searches.kwicSearch(cqp)
             # simpleSearch.makeLemgramSelect() if settings.lemgramSelect
             if settings.wordpicture != false and s.word_pic and " " not in search.val
-                lemgramResults.makeRequest(search.val, "word");
+                lemgramResults.makeRequest(search.val, "word")
                 # lemgramProxy.makeRequest(search.val, "word", $.proxy(lemgramResults.onProgress, lemgramResults));
             else  
                 lemgramResults.resetView()
@@ -139,9 +143,9 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             #     s.relatedObj = data
             
             if s.word_pic
-                searches.lemgramSearch(search.val, s.prefix, s.suffix, page)
+                searches.lemgramSearch(search.val, s.prefix, s.suffix, search.pageOnly)
             else
-                searches.kwicSearch(cqp, page)
+                searches.kwicSearch(cqp, search.pageOnly)
             
         else 
             s.placeholder = null
@@ -166,7 +170,7 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
 
 korpApp.controller "ExtendedSearch", ($scope, utils, $location, backend, $rootScope, searches, compareSearches, $timeout) ->
     s = $scope
-    s.within = "sentence"
+    s.within = $location.search().within or "sentence"
     s.$on "popover_submit", (event, name) ->
         compareSearches.saveSearch {
             label : name or $rootScope.extendedCQP
@@ -369,6 +373,7 @@ korpApp.controller "AdvancedCtrl", ($scope, compareSearches, $location, $timeout
     $scope.$on "btn_submit", () ->
         c.log "advanced cqp", $scope.cqp
         $location.search("search", null)
+        $location.search("page", null)
         $timeout( () ->
             $location.search("search", "cqp|" + $scope.cqp)
         , 0)

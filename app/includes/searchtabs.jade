@@ -52,7 +52,7 @@ div(ng-controller="SearchCtrl")
   #search_options.ui-widget-content.ui-corner-bottom(click-cover="isCompareSelected")
     div
       span(style='font-size: .9em;') {{'kwic' | loc}}: 
-      select#num_hits.num_hits(data-history='hpp', data-prefix='hits_per_page', rel='localize[hits_per_page]')
+      select#num_hits.num_hits(data-history='hpp', data-prefix='hits_per_page', rel='localize[hits_per_page]', ng-model="$root._searchOpts.hits_per_page")
         option(value='25') 25
         option(value='50') 50
         option(value='75') 75
@@ -66,7 +66,7 @@ div(ng-controller="SearchCtrl")
         option(value='right', rel='localize[right_context]') Högerkontext
         option(value='random', rel='localize[random_context]') Slumpvis
     div(ng-show="showStats()")
-      span(rel='localize[statistics]') Statistik 
+      span(rel='localize[statistics]') Statistik
       | : 
       span#reduceSelect
     div(ng-show="settings.wordpicture !== false")

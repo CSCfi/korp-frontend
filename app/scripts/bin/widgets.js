@@ -264,33 +264,6 @@
           return this.element.addClass("fixed");
         }
       }
-    },
-    show: function(mode) {
-      return $.when(this.element).pipe((function(_this) {
-        return function() {
-          return _this.refreshContent(mode);
-        };
-      })(this)).done((function(_this) {
-        return function() {
-          _this.element.show("slide", {
-            direction: "right"
-          });
-          return $("#left-column").animate({
-            right: 265
-          }, null, null, function() {});
-        };
-      })(this));
-    },
-    hide: function() {
-      if ($("#left-column").css("right") === "0px") {
-        return;
-      }
-      this.element.hide("slide", {
-        direction: "right"
-      });
-      return $("#left-column").animate({
-        right: 0
-      }, null, null, function() {});
     }
   };
 
@@ -366,7 +339,7 @@
     }
     options = $.extend({
       type: "lem",
-      select: $.noop,
+      select: function(e) {},
       labelFunction: util.lemgramToString,
       middleware: function(request, idArray) {
         var dfd, has_morphs, labelArray, listItems;

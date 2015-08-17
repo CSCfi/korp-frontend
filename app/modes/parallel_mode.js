@@ -89,7 +89,8 @@ korpApp.controller("ParallelSearch", function($scope, $location, $rootScope, $ti
 			    within = s.within
 
 		    $location.search("within", within || null)
-		    $location.search("search", "cqp|" + onLangChange())
+		    // $location.search("search", "cqp|" + onLangChange())
+		    util.searchHash("cqp", onLangChange())
 	    	c.log ("onLangChange", onLangChange())
 		}, 300) // <--
 		// TODO: this is a little hacky. 
@@ -103,7 +104,11 @@ korpApp.controller("ParallelSearch", function($scope, $location, $rootScope, $ti
 			var current = $(".arg_value:focus")
 			c.log( "current", current)
 			if(current.length) {
-				s.onSubmit()
+
+				$timeout(function() {
+					s.onSubmit()
+				}, 0)
+				
 			}
 		} 
 	}

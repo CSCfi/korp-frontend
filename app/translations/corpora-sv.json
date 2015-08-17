@@ -5,7 +5,7 @@
     "old_swedish_texts" : "Fornsvenska",
     "digidaily" : "Digidaily",
     "kubhist" : "Kubhist",
-    "1800_texts" : "Bibelstället",
+    "bible_texts" : "Bibelstället",
     "fisk1800_texts" : "Äldre finlandssvenska",
     "lb_texts" : "Litteraturbanken",
     "spf_texts" : "Spf 1800–1900",
@@ -16,6 +16,8 @@
     "interfra": "InterFra",
     "kioping_texts" : "Kiöpings resor",
     "runeberg" : "Runebergtidskrifter",
+    "bellman" : "Bellmans samlade verk",
+    "eddan" : "Äldre Eddan",
 
     "old_finnish_texts" : "Äldre finskt skriftspråk",
     "finnish_national_library_texts" : "Nationalbiblioteket (finska)",
@@ -27,6 +29,7 @@
     "msd" : "msd",
     "baseform" : "grundform",
     "lemgram" : "lemgram",
+    "dalin-lemgram" : "dalin-lemgram",
     "dephead" : "dephead",
     "deprel" : "dependensrelation",
     "sentence" : "mening",
@@ -41,9 +44,6 @@
     "party" : "parti",
     "normalized_wordform" : "normaliserad ordform",
     
-    "year_from" : "startår",
-    "year_to" : "slutår",
-
     "url" : "url",
     "referensnummer" : "referensnummer",
 
@@ -190,8 +190,8 @@
 
     "example" : "Exempel",
     "page_num" : "sidonummer",
-    "year_to"  : "datum (start)",
-    "year_from"  : "datum (slut)",
+    "year_to"  : "år (slut)",
+    "year_from"  : "år (start)",
     
     "rel_AT" : "Attribut",
     "rel_ET" : "Efterställt attribut",
@@ -428,5 +428,27 @@
 
     "show_page_image" : "Visa originalsida",
     "show_page_image_context" : "Visa originalsida med ordkontext i fet stil",
-    "download_publ_pdf" : "Ladda ner publikationen som PDF"
+    "download_publ_pdf" : "Ladda ner publikationen som PDF",
+    
+    "librisid" : "Libris-ID",
+
+    "edition" : "utgåva",
+    "periodofpublication" : "publikationsperiod",
+    "holderofpublicationlicense" : "licenshavare",
+    "publishingfrequency" : "publikationsfrekvens",
+    "publishingdays" : "publikationssdagar",
+    "completetitle" : "fullständig titel",
+    "issn" : "ISSN",
+    "politicaltendency" : "politisk tendens",
+    "annualprice" : "årspris",
+    "editorialplace" : "ort", 
+    "typearea" : "storlek",
+    "numberofpages" : "antal sidor",
+    "publicationtype" : "publikationstyp",
+    "editor" : "redaktör",
+    "printedin" : "tryckt i",
+    "printedby" : "tryckt av",
+    "commentaries" : "kommentarer",
+
+    "published" : "publicerat"
 }
