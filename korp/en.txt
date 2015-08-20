@@ -1,4 +1,13 @@
 
+<!-- Korp updated: trend diagram now works with multiple words 2015-08-20 -->
+
+The update has fixed bugs in the statistics result view; in
+particular, you can now select multiple words or other features in the
+statistics table for the trend diagram. These fixes were already
+present in the <a href="/beta/?lang=en" target="_blank">beta version
+of Korp</a>.
+
+
 <!-- The main Korp installation updated 2015-04-30c -->
 
 New features of the new Korp version 4.0 include this **mewsdesk** and

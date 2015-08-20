@@ -1,4 +1,12 @@
 
+<!-- Korpia päivitetty: mm. trendidiagrammi useasta sanasta 2015-08-20 -->
+
+Päivityksessä on mm. korjattu tilastonäkymää: erityisesti
+trendidiagrammiin voi nyt valita tilastotaulukossa samanaikaisesti
+useita sanoja tai muita piirteitä. Nämä korjaukset olivat jo aiemmin
+mukana <a href="/beta/" target="_blank">Korpin kehitysversiossa</a>.
+
+
 <!-- Korp päivitetty uuteen versioon 2015-04-30c -->
 
 Uuden Korp-version 4.0 uusia ominaisuuksia ovat mm. tämä uutistoiminto
