@@ -231,10 +231,10 @@
 
     "msd_long" : "Morfologinen analyysi",
 
-    "compare_vb" : "Vertaa",
-    "compare_with" : "kanssa",
-    "compare_reduce" : "ja koosta tämän perusteella:",
-    "compare_warning" : "Tallenna kaksi hakua jotta voisit tehdä vertailun. Katso hakupainikkeen viereistä nuolta.",
+    "compare_vb" : "Vertaa hakua",
+    "compare_with" : "hakuun",
+    "compare_reduce" : "seuraavalla perusteella:",
+    "compare_warning" : "Tallenna kaksi hakua, jotta voisit tehdä vertailun. Katso hakupainikkeen viereistä nuolta.",
     "compare_delete" : "Poista tallennetut haut",
     "compare_save_header" : "Tallenna vertailua varten",
     "compare_name" : "Nimi",
