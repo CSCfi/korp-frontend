@@ -12,7 +12,8 @@ var isProductionServerTest =
      && (window.location.pathname.indexOf("test/") != -1
 	 || window.location.pathname.indexOf("test-") != -1));
 var isProductionServerBeta =
-    (isProductionServer && window.location.pathname.indexOf("beta") != -1);
+    (isProductionServer && (window.location.pathname.indexOf("beta") != -1
+			    || window.location.pathname.indexOf("lab") != -1));
 var isProductionServerOld =
     (isProductionServer && window.location.pathname.indexOf("old/") != -1);
 var isPublicServer = (window.location.hostname != "localhost");
@@ -86,6 +87,12 @@ settings.cgi_prefix =
 settings.cgi_script = settings.cgi_prefix + "korp.cgi";
 settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
 settings.download_cgi_script = settings.cgi_prefix + "korp_download.cgi";
+
+// The main Korp and Korp Labs URL for the links in the cog menu
+settings.korp_url = {
+    "main" : (isProductionServer ? "/" : "/korp/"),
+    "lab" : (isProductionServer ? "/lab/" : "/korplab/")
+};
 
 settings.urnResolver = "http://urn.fi/";
 

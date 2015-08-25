@@ -175,6 +175,14 @@ korpApp.controller "headerCtrl", ($scope, $location, $modal, utils) ->
             safeApply s, () ->
                 s.login_err = true
 
+    # Make the Korp and Korp Labs URL for the cog menu links retaining
+    # the current interface language.
+    s.makeKorpUrl = (variant) ->
+        url = settings.korp_url[variant] or settings.korp_url["main"]
+        if s.$root.lang != settings.defaultLanguage
+            url += "#?lang=#{s.$root.lang}"
+        return url
+
 
 korpApp.filter "trust", ($sce) ->
     return (input) ->

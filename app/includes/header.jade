@@ -22,9 +22,9 @@
     li#feedback
       a(href="{{'feedback_url' | loc}}", class="follow_link", target="_blank") {{'feedback_linktext' | loc}}
     li#korplink
-      a.follow_link(href='/korp', rel='localize[korp]')
-    // li#korplablink
-    //   a.follow_link(href='/korplabb', rel='localize[korp_lab]')
+      a.follow_link(ng-href="{{makeKorpUrl('main')}}", rel='localize[korp]')
+    li#korplablink
+      a.follow_link(ng-href="{{makeKorpUrl('lab')}}", rel='localize[korp_lab]')
     li
       a.follow_link(href='https://lat.csc.fi/corpora/Info/CLARIN-Terms_of_Service.html', target='_blank') CLARIN Terms of Service
     li
