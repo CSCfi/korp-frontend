@@ -2145,14 +2145,14 @@ attrs.pos_la = {
 	"a:pron:dem" : "a:pron:dem",
 	"a:pron:int" : "a:pron:int",
 	"a:pron:rel" : "a:pron:rel",
-	"a:q" : "a:q",
+	// "a:q" : "a:q",
 	"adv" : "adv",
 	"adv:pron" : "adv:pron",
 	"adv:pron:dem" : "adv:pron:dem",
 	"adv:pron:int" : "adv:pron:int",
 	"adv:pron:rel" : "adv:pron:rel",
 	"adv:q" : "adv:q",
-	"cnj" : "cnj",
+	// "cnj" : "cnj",
 	"cnj:coord" : "cnj:coord",
 	"cnj:rel" : "cnj:rel",
 	"cnj:sub" : "cnj:sub",
@@ -2176,11 +2176,38 @@ attrs.pos_la = {
 	"pron:rel" : "pron:rel",
 	"punct" : "punct",
 	"q" : "q",
-	"stem" : "stem",
+	// "stem" : "stem",
 	"v" : "v",
     },
     opts : settings.liteOptions
 };
+// pos_las2 is for LAS2, which has codes similar to pos_la for
+// LA-murre, but fewer (and a generic "cnj").
+attrs.pos_las2 = {
+    label : "pos",
+    displayType : "select",
+    translationKey : "posla_",
+    dataset : {
+	"a" : "a",
+	"adv" : "adv",
+	"cnj" : "cnj",
+	"intj" : "intj",
+	"n" : "n",
+	// pos_la uses "n:prop" for only non-person proper names, so
+	// we map "n:prop" here to correspond to any proper name.
+	"n:prop" : "n:prop:any",
+	"neg" : "neg",
+	"num" : "num",
+	"p:post" : "p:post",
+	"p:pre" : "p:pre",
+	// pos_la uses bare "pron" with a more specific meaning, so we
+	// map "pron" here to correspond to any pronoun.
+	"pron" : "pron:any",
+	"UNK" : "UNK",
+	"v" : "v",
+    },
+    opts : settings.liteOptions
+};	
 attrs.func_la = {
     label : "func",
     displayType : "select",
@@ -2477,7 +2504,7 @@ settings.templ.la_murre = {
 		"cw" : "cw",
 		"cw1" : "cw1",
 		"cw2" : "cw2",
-		null : "noncw",
+		"" : "noncw",
 	    },
 	    opts : settings.liteOptions
 	},
@@ -2617,7 +2644,6 @@ settings.templ.la_murre = {
 	    dataset : {
 		"dir" : "dir",
 		"" : "other",
-		null : "other"
 	    },
 	    opts : settings.liteOptions
 	},
@@ -2686,7 +2712,7 @@ settings.corpora.las2 = {
     licence_type : "RES",
     attributes : {
 	lemma : attrs.baseform,
-        pos : attrs.pos_la,
+        pos : attrs.pos_las2,
         msd : attrs.msd,
         fun : attrs.func_la,
         com : {
