@@ -101,8 +101,15 @@ Sidebar =
         else
             output = $("<p><span rel='localize[#{attrs.label}]'>#{key}</span>: </p>")
         output.data("attrs", attrs)
-        if value == "|" or value == ""
-            output.append "<i rel='localize[empty]' style='color : grey'>${util.getLocaleString('empty')}</i>"
+        # Convert an undefined value to the empty string (Jyrki Niemi
+        # 2015-08-26)
+        value ?= ""
+        if (value == "|" or value == "") and
+                not (attrs.translationKey? and attrs.dataset?[value]?)
+            # The original version only appended to the output here
+            # but did not return yet. Would we need further processing
+            # for empty values in some cases? (Jyrki Niemi 2015-08-26)
+            return output.append "<i rel='localize[empty]' style='color : grey'>${util.getLocaleString('empty')}</i>"
 
 
         if attrs.type == "set"
