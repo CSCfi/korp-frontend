@@ -248,6 +248,11 @@ settings.spWithin = {
     "sentence" : "sentence",
     "paragraph" : "paragraph"
 };
+settings.spcWithin = {
+    "sentence" : "sentence",
+    "paragraph" : "paragraph",
+    "clause" : "clause",
+};
 
 settings.defaultLanguage = "fi";
 

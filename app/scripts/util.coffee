@@ -148,15 +148,34 @@ class window.CorpusListing
 
 
     getWithinQueryString: ->
-        output = for corpus in @selected
-            withins = _.keys(corpus.within)
-            for within in withins
-                if within and within not of settings.defaultWithin
-                    corpus.id.toUpperCase() + ":" + within
+        # If the URL parameter within is other than the default, use
+        # it for the corpora that have it in their within property.
+        # (Jyrki Niemi 2015-08-26)
+        prefer_within = search().within
+        if prefer_within and prefer_within not of settings.defaultWithin
+            output = for corpus in @selected
+                if prefer_within of corpus.within
+                    corpus.id.toUpperCase() + ":" + prefer_within
                 else
                     false
+            _(output).flatten().compact().join()
+        else
+            null
 
-        _(output).flatten().compact().join()
+        # The original version was as follows. If a corpus has a
+        # property within with more than one value other than that in
+        # defaultWithin, each of them generates a CORPUS:within pair
+        # to the output. Why? (Jyrki Niemi 2015-08-26)
+
+        # output = for corpus in @selected
+        #     withins = _.keys(corpus.within)
+        #     for within in withins
+        #         if within and within not of settings.defaultWithin
+        #             corpus.id.toUpperCase() + ":" + within
+        #         else
+        #             false
+
+        # _(output).flatten().compact().join()
 
     getMorphology: ->
         _(@selected).map((corpus) ->
