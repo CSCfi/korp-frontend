@@ -12,7 +12,8 @@ var isProductionServerTest =
      && (window.location.pathname.indexOf("test/") != -1
 	 || window.location.pathname.indexOf("test-") != -1));
 var isProductionServerBeta =
-    (isProductionServer && window.location.pathname.indexOf("beta") != -1);
+    (isProductionServer && (window.location.pathname.indexOf("beta") != -1
+			    || window.location.pathname.indexOf("lab") != -1));
 var isProductionServerOld =
     (isProductionServer && window.location.pathname.indexOf("old/") != -1);
 var isPublicServer = (window.location.hostname != "localhost");
@@ -87,6 +88,12 @@ settings.cgi_prefix =
 settings.cgi_script = settings.cgi_prefix + "korp.cgi";
 settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
 settings.download_cgi_script = settings.cgi_prefix + "korp_download.cgi";
+
+// The main Korp and Korp Labs URL for the links in the cog menu
+settings.korp_url = {
+    "main" : (isProductionServer ? "/" : "/korp/"),
+    "lab" : (isProductionServer ? "/lab/" : "/korplab/")
+};
 
 settings.urnResolver = "http://urn.fi/";
 
@@ -252,12 +259,51 @@ settings.spWithin = {
     "sentence" : "sentence",
     "paragraph" : "paragraph"
 };
+settings.spcWithin = {
+    "sentence" : "sentence",
+    "paragraph" : "paragraph",
+    "clause" : "clause",
+};
+settings.scWithin = {
+    "sentence" : "sentence",
+    "clause" : "clause",
+};
 
 settings.defaultLanguage = "fi";
 
 // Corpus id alias mapping: aliases as property keys and actual corpus
 // ids as values. (Jyrki Niemi 2015-04-23)
 settings.corpus_aliases = {};
+
+// Default attribute display order in the sidebar. The missing
+// attributes are shown after the specified ones in the order
+// JavaScript iterates over the attribute properties. The
+// specifications may also be regular expressions: the matching
+// attributes are shown in the JavaScript property iteration order.
+// The defaults can be overridden in the property
+// sidebar_display_order of corpus settings. (Jyrki Niemi 2015-08-27)
+settings.default_sidebar_display_order = {
+    attributes : [
+	"lemma",
+	"lemmacomp",
+	"pos",
+	"posset",
+	"lex",
+	"saldo",
+	"variants",
+	"msd",
+	"deprel",
+    ],
+    struct_attributes : [
+	/^text_/,
+	/^chapter_/,
+	/^speech_/,
+	/^paragraph_/,
+	/^sentence_/,
+	/^clause_/,
+    ]
+};
+
 
 /*
  * ATTRIBUTES
@@ -2144,14 +2190,14 @@ attrs.pos_la = {
 	"a:pron:dem" : "a:pron:dem",
 	"a:pron:int" : "a:pron:int",
 	"a:pron:rel" : "a:pron:rel",
-	"a:q" : "a:q",
+	// "a:q" : "a:q",
 	"adv" : "adv",
 	"adv:pron" : "adv:pron",
 	"adv:pron:dem" : "adv:pron:dem",
 	"adv:pron:int" : "adv:pron:int",
 	"adv:pron:rel" : "adv:pron:rel",
 	"adv:q" : "adv:q",
-	"cnj" : "cnj",
+	// "cnj" : "cnj",
 	"cnj:coord" : "cnj:coord",
 	"cnj:rel" : "cnj:rel",
 	"cnj:sub" : "cnj:sub",
@@ -2175,11 +2221,38 @@ attrs.pos_la = {
 	"pron:rel" : "pron:rel",
 	"punct" : "punct",
 	"q" : "q",
-	"stem" : "stem",
+	// "stem" : "stem",
 	"v" : "v",
     },
     opts : settings.liteOptions
 };
+// pos_las2 is for LAS2, which has codes similar to pos_la for
+// LA-murre, but fewer (and a generic "cnj").
+attrs.pos_las2 = {
+    label : "pos",
+    displayType : "select",
+    translationKey : "posla_",
+    dataset : {
+	"a" : "a",
+	"adv" : "adv",
+	"cnj" : "cnj",
+	"intj" : "intj",
+	"n" : "n",
+	// pos_la uses "n:prop" for only non-person proper names, so
+	// we map "n:prop" here to correspond to any proper name.
+	"n:prop" : "n:prop:any",
+	"neg" : "neg",
+	"num" : "num",
+	"p:post" : "p:post",
+	"p:pre" : "p:pre",
+	// pos_la uses bare "pron" with a more specific meaning, so we
+	// map "pron" here to correspond to any pronoun.
+	"pron" : "pron:any",
+	"UNK" : "UNK",
+	"v" : "v",
+    },
+    opts : settings.liteOptions
+};	
 attrs.func_la = {
     label : "func",
     displayType : "select",
@@ -2266,7 +2339,14 @@ var la_murre_grouping = [
 	    ["vampula", "Vampula"],
 	] ],
 	["SatL", "Länsi-Satakunta", [
-	    ["ahlainen", "Ahlainen"],
+	    // Ahlainen has the whole text as a single paragraph,
+	    // which causes problems in the Korp context view, so
+	    // allow only the sentence context and sentence + clause
+	    // within.
+	    ["ahlainen", "Ahlainen", {
+		context : settings.defaultContext,
+		within : settings.scWithin
+	    }],
 	    ["merikarvia", "Merikarvia"],
 	    ["noormarkku", "Noormarkku"],
 	    ["pori", "Pori"],
@@ -2476,7 +2556,7 @@ settings.templ.la_murre = {
 		"cw" : "cw",
 		"cw1" : "cw1",
 		"cw2" : "cw2",
-		null : "noncw",
+		"" : "noncw",
 	    },
 	    opts : settings.liteOptions
 	},
@@ -2616,7 +2696,6 @@ settings.templ.la_murre = {
 	    dataset : {
 		"dir" : "dir",
 		"" : "other",
-		null : "other"
 	    },
 	    opts : settings.liteOptions
 	},
@@ -2626,7 +2705,28 @@ settings.templ.la_murre = {
 	clause_partnum : {
 	    label : "clause_partnum",
 	}
+    },
+    sidebar_display_order : {
+	attributes : [
+	    "cleanword",
+	    "lemma",
+	    "pos",
+	    "msd",
+	    "func",
+	    "cow",
+	    "note",
+	],
+	struct_attributes : [
+	    "text_dialect_region",
+	    "text_dialect_group",
+	    "text_parish",
+	    /^text_/,
+	    /^paragraph_/,
+	    /^sentence_/,
+	    /^clause_/,
+	],
     }
+
 };
 
 // Recursively make settings.corporafolders and settings.corpora for
@@ -2634,23 +2734,31 @@ settings.templ.la_murre = {
 // la_murre_grouping). main_folder is the folder to which to add the
 // folders or corpora in subfolder_tree. This could perhaps be
 // generalized for other corpora if needed.
-settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree) {
+settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree,
+					      depth, leaf_depth) {
     for (var i = 0; i < subfolder_tree.length; i++) {
 	var subfolder_info = subfolder_tree[i];
 	var descr = "Lauseopin arkiston murrekorpus: " + subfolder_info[1];
-	if (subfolder_info.length > 2) {
+	if (depth < leaf_depth) {
 	    var subfolder = {
 		title : subfolder_info[1],
 		description : descr
 	    };
 	    main_folder[subfolder_info[0]] = subfolder;
-	    settings.fn.make_folders_la_murre(subfolder, subfolder_info[2]);
+	    settings.fn.make_folders_la_murre(subfolder, subfolder_info[2],
+					      depth + 1, leaf_depth);
 	} else {
 	    var templ_fill = {
 		id : subfolder_info[0],
 		title : subfolder_info[1],
 		description : descr
 	    };
+	    // The optional third item in the corpus info list is an
+	    // object that may be used to override the values in the
+	    // template.
+	    if (subfolder_info.length > 2) {
+		$.extend(templ_fill, subfolder_info[2]);
+	    }
 	    settings.fn.add_corpus_settings(
 		settings.templ.la_murre, [templ_fill], main_folder,
 		la_murre_corpus_prefix);
@@ -2660,7 +2768,7 @@ settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree) {
 
 // Call the above recursive function
 settings.fn.make_folders_la_murre(
-    settings.corporafolders.spoken.la_murre, la_murre_grouping);
+    settings.corporafolders.spoken.la_murre, la_murre_grouping, 1, 3);
 
 // Construct a shorthand alias
 settings.corpus_aliases.la_murre = la_murre_corpora.join(",");
@@ -2685,7 +2793,7 @@ settings.corpora.las2 = {
     licence_type : "RES",
     attributes : {
 	lemma : attrs.baseform,
-        pos : attrs.pos_la,
+        pos : attrs.pos_las2,
         msd : attrs.msd,
         fun : attrs.func_la,
         com : {
