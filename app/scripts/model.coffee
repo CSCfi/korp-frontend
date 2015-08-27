@@ -180,7 +180,7 @@ class model.KWICProxy extends BaseProxy
                 $.each corpus.struct_attributes, (key, val) ->
                     data.show_struct.push key if $.inArray(key, data.show_struct) is -1
 
-        @prevCQP = data.cqp
+        @prevCQP = util.combineCQPs data
         data.show = (_.uniq ["sentence"].concat(data.show)).join(",")
         c.log "data.show", data.show
         data.show_struct = (_.uniq data.show_struct).join(",")
@@ -369,11 +369,12 @@ class model.StatsProxy extends BaseProxy
         data =
             command: "count"
             groupby: reduceval
-            cqp: cqp
+            # cqp: cqp
             corpus: settings.corpusListing.stringifySelected(true)
             incremental: $.support.ajaxProgress
             defaultwithin: "sentence"
 
+        util.addCQPs data, cqp
         if settings.corpusListing.getCurrentAttributes()[reduceval]?.type == "set"
             data.split = reduceval
 
@@ -614,11 +615,12 @@ class model.GraphProxy extends BaseProxy
         self = this
         params =
             command : "count_time"
-            cqp : cqp
+            # cqp : cqp
             corpus : corpora
             granularity : @granularity
             incremental: $.support.ajaxProgress
 
+        util.addCQPs params, cqp
         #TODO: fix this for struct attrs
         _.extend params, @expandSubCqps subcqps
         @prevParams = params
@@ -667,7 +669,7 @@ class model.NameProxy extends BaseProxy
                      null
         params =
             command: "names"
-            cqp: cqp
+            # cqp: cqp
             corpus: settings.corpusListing.stringifySelected()
             defaultwithin: "sentence"
             default_nameswithin: "text_id"
@@ -675,6 +677,7 @@ class model.NameProxy extends BaseProxy
             groups: groups
             incremental: $.support.ajaxProgress
             cache: true
+        util.addCQPs params, cqp
         @prevParams = params
         def =  $.ajax
             url: settings.cgi_script

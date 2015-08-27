@@ -315,5 +315,13 @@
     "namegroup_person" : "Persons",
     "namegroup_place" : "Places",
     "namegroup_organization" : "Organizations",
-    "namegroup_other" : "Other"
+    "namegroup_other" : "Other",
+
+    "in_context_prefix" : " in ",
+    "context_sentences" : "sentences",
+    "context_paragraphs" : "paragraphs",
+    "context_texts" : "texts",
+    "which_contain" : "which contain",
+    "baseforms" : "base forms",
+    "wordforms" : "word forms"
 }

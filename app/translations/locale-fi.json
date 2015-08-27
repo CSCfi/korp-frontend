@@ -323,5 +323,13 @@
     "namegroup_person" : "Henkilöt",
     "namegroup_place" : "Paikat",
     "namegroup_organization" : "Organisaatiot",
-    "namegroup_other" : "Muut"
+    "namegroup_other" : "Muut",
+
+    "in_context_prefix" : "",
+    "context_sentences" : "virkkeistä",
+    "context_paragraphs" : "kappaleista",
+    "context_texts" : "teksteistä",
+    "which_contain" : "jotka sisältävät",
+    "baseforms" : "sanan perusmuodot",
+    "wordforms" : "sanan taivutusmuodot"
 }
