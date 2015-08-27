@@ -253,6 +253,10 @@ settings.spcWithin = {
     "paragraph" : "paragraph",
     "clause" : "clause",
 };
+settings.scWithin = {
+    "sentence" : "sentence",
+    "clause" : "clause",
+};
 
 settings.defaultLanguage = "fi";
 
@@ -2294,7 +2298,14 @@ var la_murre_grouping = [
 	    ["vampula", "Vampula"],
 	] ],
 	["SatL", "Länsi-Satakunta", [
-	    ["ahlainen", "Ahlainen"],
+	    // Ahlainen has the whole text as a single paragraph,
+	    // which causes problems in the Korp context view, so
+	    // allow only the sentence context and sentence + clause
+	    // within.
+	    ["ahlainen", "Ahlainen", {
+		context : settings.defaultContext,
+		within : settings.scWithin
+	    }],
 	    ["merikarvia", "Merikarvia"],
 	    ["noormarkku", "Noormarkku"],
 	    ["pori", "Pori"],
@@ -2661,23 +2672,31 @@ settings.templ.la_murre = {
 // la_murre_grouping). main_folder is the folder to which to add the
 // folders or corpora in subfolder_tree. This could perhaps be
 // generalized for other corpora if needed.
-settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree) {
+settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree,
+					      depth, leaf_depth) {
     for (var i = 0; i < subfolder_tree.length; i++) {
 	var subfolder_info = subfolder_tree[i];
 	var descr = "Lauseopin arkiston murrekorpus: " + subfolder_info[1];
-	if (subfolder_info.length > 2) {
+	if (depth < leaf_depth) {
 	    var subfolder = {
 		title : subfolder_info[1],
 		description : descr
 	    };
 	    main_folder[subfolder_info[0]] = subfolder;
-	    settings.fn.make_folders_la_murre(subfolder, subfolder_info[2]);
+	    settings.fn.make_folders_la_murre(subfolder, subfolder_info[2],
+					      depth + 1, leaf_depth);
 	} else {
 	    var templ_fill = {
 		id : subfolder_info[0],
 		title : subfolder_info[1],
 		description : descr
 	    };
+	    // The optional third item in the corpus info list is an
+	    // object that may be used to override the values in the
+	    // template.
+	    if (subfolder_info.length > 2) {
+		$.extend(templ_fill, subfolder_info[2]);
+	    }
 	    settings.fn.add_corpus_settings(
 		settings.templ.la_murre, [templ_fill], main_folder,
 		la_murre_corpus_prefix);
@@ -2687,7 +2706,7 @@ settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree) {
 
 // Call the above recursive function
 settings.fn.make_folders_la_murre(
-    settings.corporafolders.spoken.la_murre, la_murre_grouping);
+    settings.corporafolders.spoken.la_murre, la_murre_grouping, 1, 3);
 
 // Construct a shorthand alias
 settings.corpus_aliases.la_murre = la_murre_corpora.join(",");
