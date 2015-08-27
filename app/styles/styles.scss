@@ -1148,6 +1148,12 @@ table {
     right: 8px;
     position: fixed;
     top: 8px;
+    // Maximum height at most the viewport height, which combined with
+    // "overflow: auto" gives a scorllbar if the content does not fit
+    // to the div otherwise. Note: this does not work on older
+    // browsers (how old?). (Jyrki Niemi 2015-08-27)
+    max-height: calc(100vh - 16px);
+    overflow: auto;
   }
   &:empty {
     padding: 0;
