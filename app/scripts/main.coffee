@@ -312,6 +312,7 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
 
     util.initCorpusSettingsLinkAttrs()
     util.initCorpusSettingsSyntheticAttrs()
+    util.initCorpusSettingsAttrDisplayOrder()
     # initTimeGraph()
 ), ->
     c.log "failed to load some resource at startup.", arguments

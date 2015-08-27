@@ -264,6 +264,36 @@ settings.defaultLanguage = "fi";
 // ids as values. (Jyrki Niemi 2015-04-23)
 settings.corpus_aliases = {};
 
+// Default attribute display order in the sidebar. The missing
+// attributes are shown after the specified ones in the order
+// JavaScript iterates over the attribute properties. The
+// specifications may also be regular expressions: the matching
+// attributes are shown in the JavaScript property iteration order.
+// The defaults can be overridden in the property
+// sidebar_display_order of corpus settings. (Jyrki Niemi 2015-08-27)
+settings.default_sidebar_display_order = {
+    attributes : [
+	"lemma",
+	"lemmacomp",
+	"pos",
+	"posset",
+	"lex",
+	"saldo",
+	"variants",
+	"msd",
+	"deprel",
+    ],
+    struct_attributes : [
+	/^text_/,
+	/^chapter_/,
+	/^speech_/,
+	/^paragraph_/,
+	/^sentence_/,
+	/^clause_/,
+    ]
+};
+
+
 /*
  * ATTRIBUTES
  */

@@ -8,7 +8,7 @@
     },
     _init: function() {},
     updateContent: function(sentenceData, wordData, corpus, tokens) {
-      var corpusObj, formattedCorpusInfo, ref, token_data;
+      var corpusObj, formattedCorpusInfo, ref, ref1, ref2, ref3, token_data;
       this.element.html('<div id="selected_sentence" /><div id="selected_word" /><div id="selected_links" />');
       corpusObj = settings.corpora[corpus];
       formattedCorpusInfo = (typeof settings !== "undefined" && settings !== null ? settings.corpusExtraInfo : void 0) ? util.formatCorpusExtraInfo(corpusObj, (ref = settings.corpusExtraInfo) != null ? ref.sidebar : void 0) : "";
@@ -23,14 +23,14 @@
       };
       if (!$.isEmptyObject(corpusObj.attributes)) {
         $("#selected_word").append($("<h4>").localeKey("word_attr"));
-        this.renderContent(wordData, corpusObj.attributes, corpusObj.synthetic_attr_names.attributes, token_data).appendTo("#selected_word");
+        this.renderContent(wordData, corpusObj.attributes, corpusObj.synthetic_attr_names.attributes, token_data, (ref1 = corpusObj._sidebar_display_order) != null ? ref1.attributes : void 0).appendTo("#selected_word");
       }
       if (!$.isEmptyObject(corpusObj.struct_attributes)) {
         $("#selected_sentence").append($("<h4>").localeKey("sentence_attr"));
-        this.renderContent(sentenceData, corpusObj.struct_attributes, corpusObj.synthetic_attr_names.struct_attributes, token_data).appendTo("#selected_sentence");
+        this.renderContent(sentenceData, corpusObj.struct_attributes, corpusObj.synthetic_attr_names.struct_attributes, token_data, (ref2 = corpusObj._sidebar_display_order) != null ? ref2.struct_attributes : void 0).appendTo("#selected_sentence");
       }
       if (!$.isEmptyObject(corpusObj.link_attributes)) {
-        this.renderContent(sentenceData, corpusObj.link_attributes, corpusObj.synthetic_attr_names.link_attributes, token_data).appendTo("#selected_links");
+        this.renderContent(sentenceData, corpusObj.link_attributes, corpusObj.synthetic_attr_names.link_attributes, token_data, (ref3 = corpusObj._sidebar_display_order) != null ? ref3.link_attributes : void 0).appendTo("#selected_links");
       }
       this.element.localize();
       this.applyEllipse();
@@ -60,10 +60,10 @@
         }).parent().find(".ui-dialog-title").localeKey("dep_tree");
       }).appendTo(this.element);
     },
-    renderContent: function(wordData, corpus_attrs, synthetic_attr_names, token_data) {
+    renderContent: function(wordData, corpus_attrs, synthetic_attr_names, token_data, attr_order) {
       var items, key, order, pairs, synthetic, value;
       pairs = _.pairs(wordData);
-      order = this.options.displayOrder;
+      order = attr_order || this.options.displayOrder;
       pairs.sort(function(arg, arg1) {
         var a, b;
         a = arg[0];

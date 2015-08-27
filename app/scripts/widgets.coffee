@@ -32,16 +32,24 @@ Sidebar =
         unless $.isEmptyObject(corpusObj.attributes)
             $("#selected_word").append $("<h4>").localeKey("word_attr")
 
-            @renderContent(wordData, corpusObj.attributes, corpusObj.synthetic_attr_names.attributes, token_data).appendTo "#selected_word"
+            @renderContent(wordData, corpusObj.attributes,
+                corpusObj.synthetic_attr_names.attributes, token_data,
+                corpusObj._sidebar_display_order?.attributes)
+            .appendTo "#selected_word"
         unless $.isEmptyObject(corpusObj.struct_attributes)
             $("#selected_sentence").append $("<h4>").localeKey("sentence_attr")
 
-            @renderContent(sentenceData, corpusObj.struct_attributes, corpusObj.synthetic_attr_names.struct_attributes, token_data).appendTo "#selected_sentence"
+            @renderContent(sentenceData, corpusObj.struct_attributes,
+                corpusObj.synthetic_attr_names.struct_attributes, token_data,
+                corpusObj._sidebar_display_order?.struct_attributes)
+            .appendTo "#selected_sentence"
 
         # Links in a separate link section
         unless $.isEmptyObject(corpusObj.link_attributes)
-            @renderContent(sentenceData, corpusObj.link_attributes, corpusObj.synthetic_attr_names.link_attributes, token_data)
-                .appendTo "#selected_links"
+            @renderContent(sentenceData, corpusObj.link_attributes,
+                corpusObj.synthetic_attr_names.link_attributes, token_data,
+                corpusObj._sidebar_display_order?.link_attributes)
+            .appendTo "#selected_links"
 
         @element.localize()
         @applyEllipse()
@@ -73,9 +81,10 @@ Sidebar =
 
 
 
-    renderContent: (wordData, corpus_attrs, synthetic_attr_names, token_data) ->
+    renderContent: (wordData, corpus_attrs, synthetic_attr_names, token_data,
+                    attr_order) ->
         pairs = _.pairs(wordData)
-        order = @options.displayOrder
+        order = attr_order or @options.displayOrder
         pairs.sort ([a], [b]) ->
             $.inArray(b, order) - $.inArray(a, order)
         items = for [key, value] in pairs when corpus_attrs[key]

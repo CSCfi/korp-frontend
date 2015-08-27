@@ -1282,3 +1282,62 @@ util.mapHashCorpusAliases = () ->
                 window.location.hash = window.location.hash.replace(
                     "corpus=" + orig_corpus, "corpus=" + corpus)
     return
+
+
+# Initialize the _sidebar_display_order property of all the corpora in
+# settings.corpora.
+
+util.initCorpusSettingsAttrDisplayOrder = () ->
+    for corpus of settings.corpora
+        util.setAttrDisplayOrder settings.corpora[corpus]
+    return
+
+# Initialize the _sidebar_display_order property of corpusInfo to
+# contain the (reverse of the) order in which attributes are to be
+# shown in the sidebar, separately for (positional) attributes,
+# struct_attributes and link_attributes.
+#
+# The order may be specified in corpusInfo.sidebar_display_order
+# (property name without the leading underscore) or the default
+# settings.default_sidebar_display_order. These are objects with the
+# keys attributes, struct_attributes and link_attributes, whose values
+# are lists of attribute names or regular expressions matching
+# attribute names, in the order in which the attributes should be
+# shown. Unlisted attributes are shown after the listed ones in the
+# order JavaScript iterates over the attribute properties. Attributes
+# matching a regular expression are shown in the JavaScript property
+# iteration order. (Jyrki Niemi 2015-08-27)
+
+util.setAttrDisplayOrder = (corpusInfo) ->
+
+    for attr_type in ["attributes", "struct_attributes", "link_attributes"]
+        order = (corpusInfo.sidebar_display_order?[attr_type] or
+                 settings.default_sidebar_display_order?[attr_type])
+        if order
+            attr_names = _.keys(corpusInfo[attr_type])
+            result = []
+            for pattern in order
+                if $.type pattern == "regexp"
+                    index = 0
+                    for attr_name in attr_names
+                        if attr_name.match(pattern)
+                            result.push(attr_name)
+                            attr_names[index] = ""
+                        index += 1
+                else if $.type pattern == "string"
+                    index = $.inArray(pattern, attr_names)
+                    if index != -1
+                        result.push(attr_names[index])
+                        attr_names[index] = ""
+            # if order[order.length() - 1] == "__SORTED__"
+            #     attr_names.sort()
+            for attr_name in attr_names
+                if attr_name != ""
+                    result.push(attr_name)
+            # Internally use the property name prefixed with an
+            # underscore. Reverse to make sorting work with
+            # $.inArray() returning -1 for non-existent values.
+            if not corpusInfo._sidebar_display_order
+                corpusInfo._sidebar_display_order = {}
+            corpusInfo._sidebar_display_order[attr_type] = result.reverse()
+    return

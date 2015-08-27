@@ -1367,6 +1367,56 @@
     }
   };
 
+  util.initCorpusSettingsAttrDisplayOrder = function() {
+    var corpus;
+    for (corpus in settings.corpora) {
+      util.setAttrDisplayOrder(settings.corpora[corpus]);
+    }
+  };
+
+  util.setAttrDisplayOrder = function(corpusInfo) {
+    var attr_name, attr_names, attr_type, index, k, l, len, len1, len2, len3, m, n, order, pattern, ref, ref1, ref2, result;
+    ref = ["attributes", "struct_attributes", "link_attributes"];
+    for (k = 0, len = ref.length; k < len; k++) {
+      attr_type = ref[k];
+      order = ((ref1 = corpusInfo.sidebar_display_order) != null ? ref1[attr_type] : void 0) || ((ref2 = settings.default_sidebar_display_order) != null ? ref2[attr_type] : void 0);
+      if (order) {
+        attr_names = _.keys(corpusInfo[attr_type]);
+        result = [];
+        for (l = 0, len1 = order.length; l < len1; l++) {
+          pattern = order[l];
+          if ($.type(pattern === "regexp")) {
+            index = 0;
+            for (m = 0, len2 = attr_names.length; m < len2; m++) {
+              attr_name = attr_names[m];
+              if (attr_name.match(pattern)) {
+                result.push(attr_name);
+                attr_names[index] = "";
+              }
+              index += 1;
+            }
+          } else if ($.type(pattern === "string")) {
+            index = $.inArray(pattern, attr_names);
+            if (index !== -1) {
+              result.push(attr_names[index]);
+              attr_names[index] = "";
+            }
+          }
+        }
+        for (n = 0, len3 = attr_names.length; n < len3; n++) {
+          attr_name = attr_names[n];
+          if (attr_name !== "") {
+            result.push(attr_name);
+          }
+        }
+        if (!corpusInfo._sidebar_display_order) {
+          corpusInfo._sidebar_display_order = {};
+        }
+        corpusInfo._sidebar_display_order[attr_type] = result.reverse();
+      }
+    }
+  };
+
 }).call(this);
 
 //# sourceMappingURL=util.js.map
