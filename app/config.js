@@ -2694,7 +2694,28 @@ settings.templ.la_murre = {
 	clause_partnum : {
 	    label : "clause_partnum",
 	}
+    },
+    sidebar_display_order : {
+	attributes : [
+	    "cleanword",
+	    "lemma",
+	    "pos",
+	    "msd",
+	    "func",
+	    "cow",
+	    "note",
+	],
+	struct_attributes : [
+	    "text_dialect_region",
+	    "text_dialect_group",
+	    "text_parish",
+	    /^text_/,
+	    /^paragraph_/,
+	    /^sentence_/,
+	    /^clause_/,
+	],
     }
+
 };
 
 // Recursively make settings.corporafolders and settings.corpora for
