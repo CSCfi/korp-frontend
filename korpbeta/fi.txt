@@ -1,4 +1,26 @@
 
+<!-- Nimiluokittelu ja haun rajaaminen 2015-08-28 -->
+
+Tässä Korpin beta-versiossa (eli ”Korp-laboratoriossa”) on nyt
+kokeiltavana kaksi uutta ominaisuutta:
+
+* **Nimiluokittelunäkymä** näyttää 30 yleisintä henkilön-, paikan-,
+  organisaation- ja muuta nimeä, jotka esiintyvät niissä *teksteissä*
+  (dokumenteissa), joista löytyi hakuosumia. Nimiluokittelu toimii
+  tällä hetkellä vain FinnTreeBank 3- ja Suomi24-korpuksilla. Nimet on
+  eristetty ja luokiteltu koneellisesti.
+
+* **Haun rajaaminen**: Yksinkertaisessa haussa on mahdollista rajata
+  varsinainen haku niihin virkkeisiin, kappaleisiin tai teksteihin,
+  jotka sisältävät annetut sanat missä järjestyksessä tahansa.
+  Rajaussanat voivat olla perus- tai taivutusmuodossa. Lainausmerkkien
+  sisällä (`"`&hellip;`"`) olevien sanojen täytyy olla tekstissä
+  peräkkäin, ja tähti `*` lainausmerkkien sisällä tarkoittaa mitä
+  tahansa yksittäistä sanaa. Konkordanssinäkymässä ovat korostettuina
+  vain varsinaisen hakulausekkeen osumat. Haun rajaaminen ei
+  nykyisellään vaikuta nimiluokittelun tulokseen.
+
+
 <!-- Korpin pääasennus päivitetty uuteen versioon 2015-04-30 -->
 
 [Korpin pääasennus](https://korp.csc.fi/) on nyt päivitetty uuteen

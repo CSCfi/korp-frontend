@@ -1,4 +1,26 @@
 
+<!-- Name classification and restricting search context 2015-08-28 -->
+
+This Korp beta installation (or “Korp Labs”) now has two new features
+for testing:
+
+* **Name classification results** show the 30 most common person,
+  place, organization and other names which occur in the *texts*
+  (documents) containing search hits. Name classification currently
+  only works for the FinnTreeBank 3 and Suomi24 corpora. The names
+  have been extracted and classified automatically.
+
+* **Restricting the search context**: In the simple search you can
+  restrict the main search to the sentences, paragraphs or texts that
+  contain given words in any order. The restricting words may be
+  lemmas or word forms. Words between double quotation marks
+  (`"`&hellip;`"`) must occur consecutively in the text, and an
+  asterisk `*` within quotation marks matches any single word. The
+  KWIC view highlights only the hits for the main search expression.
+  Restricting the search context does not currently affect the name
+  classification results.
+
+
 <!-- The main Korp installation updated to the new version 2015-04-30 -->
 
 [The main Korp installation](https://korp.csc.fi/) has now been
