@@ -4778,10 +4778,10 @@ delete locally_available_corpora;
 
 
 // An array of properties of corpus attributes to be added based on
-// other properties. Each element contains is an object with the
-// properties "test" (a function returning true for the attribute
-// object if the extra properties should be added) and "props" (an
-// object containing the extra properties to be added).
+// other properties. Each element is an object with the properties
+// "test" (a function returning true for the attribute object if the
+// extra properties should be added) and "props" (an object containing
+// the extra properties to be added).
 settings.attr_extra_properties = [
     {
 	// If displayType == "select", add properties
@@ -4801,17 +4801,24 @@ settings.attr_extra_properties = [
 settings.fn.add_attr_extra_properties = function (corpora) {
     for (var corpname in corpora) {
 	var corpus = corpora[corpname];
-	if ("attributes" in corpus) {
-	    for (var attrname in corpus.attributes) {
-		for (var i = 0; i < settings.attr_extra_properties.length; i++) {
-		    var attr_extra_props = settings.attr_extra_properties[i];
-		    var attr = corpus.attributes[attrname];
-		    if (attr_extra_props.test(attr)) {
-			var props = attr_extra_props.props;
-			for (var prop in props) {
-			    if (props.hasOwnProperty(prop)
-				&& ! attr.hasOwnProperty(prop)) {
-				attr[prop] = props[prop];
+	var attr_group_names = ["attributes", "struct_attributes"];
+	var attr_group_count = attr_group_names.length;
+	for (var groupnum = 0; groupnum < attr_group_count; groupnum++) {
+	    if (attr_group_names[groupnum] in corpus) {
+		var attrs = corpus[attr_group_names[groupnum]];
+		var extra_props_count = settings.attr_extra_properties.length;
+		for (var attrname in attrs) {
+		    for (var i = 0; i < extra_props_count; i++) {
+			var attr_extra_props =
+			    settings.attr_extra_properties[i];
+			var attr = attrs[attrname];
+			if (attr_extra_props.test(attr)) {
+			    var props = attr_extra_props.props;
+			    for (var prop in props) {
+				if (props.hasOwnProperty(prop)
+				    && ! attr.hasOwnProperty(prop)) {
+				    attr[prop] = props[prop];
+				}
 			    }
 			}
 		    }
