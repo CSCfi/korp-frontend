@@ -108,7 +108,7 @@ settings.reduce_struct_attribute_selector = "intersection"
 settings.news_desk_url = 
     window.location.protocol + "//" + window.location.hostname + "/"
     + window.location.pathname + "news/json/korp"
-    + (isProductionServerBeta ? "beta" : "") + "news.json";
+    + ((isProductionServerBeta || isLab) ? "beta" : "") + "news.json";
 
 // authenticationType: "basic", "shibboleth" or "none"
 settings.authenticationType = (isProductionServer ? "shibboleth" : "basic");
