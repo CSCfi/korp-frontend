@@ -22,7 +22,7 @@ Sidebar =
             else ""
         if formattedCorpusInfo
             formattedCorpusInfo = "<br/>" + formattedCorpusInfo
-        $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>#{corpusObj.title}</p><p>#{formattedCorpusInfo}</p>").prependTo "#selected_sentence"
+        $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>#{corpusObj.title}</p><p id='sidebar-corpus-info'>#{formattedCorpusInfo}</p>").prependTo "#selected_sentence"
         # All token data, to be passed to the function stringify_synthtetic
         # of a synthetic attribute (Jyrki Niemi 2015-02-24)
         token_data =

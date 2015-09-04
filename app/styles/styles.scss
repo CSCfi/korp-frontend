@@ -1202,6 +1202,16 @@ table {
   }
   p {
     margin: 0 0 0 0;
+    // Hanging indent for the attribute values (Jyrki Niemi 2015-09-03)
+    padding-left: 1em;
+    text-indent: -1em;
+  }
+  #sidebar-corpus-info {
+    // But no hanging indent for sidebar corpus info items, which are
+    // in a single paragraph and would thus be indented incorrectly.
+    // (Jyrki Niemi 2015-09-03)
+    padding-left: 0em;
+    text-indent: 0em;
   }
   ul {
     margin-top: 0;

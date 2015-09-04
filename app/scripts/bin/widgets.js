@@ -15,7 +15,7 @@
       if (formattedCorpusInfo) {
         formattedCorpusInfo = "<br/>" + formattedCorpusInfo;
       }
-      $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>" + corpusObj.title + "</p><p>" + formattedCorpusInfo + "</p>").prependTo("#selected_sentence");
+      $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>" + corpusObj.title + "</p><p id='sidebar-corpus-info'>" + formattedCorpusInfo + "</p>").prependTo("#selected_sentence");
       token_data = {
         pos_attrs: wordData,
         struct_attrs: sentenceData,
