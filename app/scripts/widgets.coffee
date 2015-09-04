@@ -202,7 +202,7 @@ Sidebar =
             return output.append _.template(attrs.pattern, {key : key, val : str_value})
 
         else
-            if attrs.translationKey
+            if attrs.translationKey?
                 str_value = attrs?.dataset[value] or str_value
                 return output.append "<span rel='localize[#{attrs.translationKey}#{str_value}]'></span>"
             else

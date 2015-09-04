@@ -193,7 +193,7 @@
           val: str_value
         }));
       } else {
-        if (attrs.translationKey) {
+        if (attrs.translationKey != null) {
           str_value = (attrs != null ? attrs.dataset[value] : void 0) || str_value;
           return output.append("<span rel='localize[" + attrs.translationKey + str_value + "]'></span>");
         } else {
