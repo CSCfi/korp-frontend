@@ -62,7 +62,7 @@
     "article_section" : "article section",
     "article_topic" : "article topic",
     "text_volume" : "volume",
-    "subject" : "subject",
+    "subject" : "aihe",
 
     "sentence_link" : "sentence link",
     "text_issue" : "issue",
@@ -88,10 +88,10 @@
     "gender" : "gender",
     "journalist" : "journalist",
     "reader" : "reader",
-    "male" : "male",
-    "female" : "female",
-    "unknown" : "unknown",
-    "male_female" : "both",
+    "male" : "mies",
+    "female" : "nainen",
+    "unknown" : "tuntematon",
+    "male_female" : "mies ja nainen",
 
     "statistics" : "Tilastoja",
 
@@ -1252,6 +1252,13 @@
     "dialect_group_KarK" : "Keski-Karjala",
 
     "parish" : "paikkakunta",
+
+    "interview_descr" : "haastattelun kuvaus",
+    "original_source" : "alkuperäislähde",
+    "speaker_age" : "puhujan ikä",
+    "speaker_sex" : "puhujan sukupuoli",
+    "speaker_birthdate" : "puhujan syntymäaika",
+    "speaker_descr" : "puhujan kuvaus",
 
     "text_code" : "tekstin tunniste",
     "text_author" : "kirjoittaja",

@@ -2590,6 +2590,16 @@ settings.templ.la_murre = {
 	    label : "file_name",
 	    displayType : "hidden"
 	},
+	text_date : sattrs.date,
+	text_session_descr : {
+	    label : "interview_descr",
+	},
+	text_content_descr : {
+	    label : "subject",
+	},
+	text_source_id : {
+	    label : "original_source",
+	},
 	paragraph_type : {
 	    label : "paragraph_type",
 	    displayType : "select",
@@ -2606,6 +2616,30 @@ settings.templ.la_murre = {
 	},
 	paragraph_speaker : {
 	    label : "speaker",
+	},
+	paragraph_speaker_name : {
+	    label : "speaker_name",
+	    displayType : "hidden",
+	},
+	paragraph_speaker_age : {
+	    label : "speaker_age",
+	},
+	paragraph_speaker_sex : {
+	    label : "speaker_sex",
+	    displayType : "select",
+	    translationKey : "",
+	    dataset : {
+		"male" : "male",
+		"female" : "female",
+		"" : "unknown"
+	    },
+	    opts : settings.liteOptions,
+	},
+	paragraph_speaker_birthdate : {
+	    label : "speaker_birthdate",
+	},
+	paragraph_speaker_descr : {
+	    label : "speaker_descr",
 	},
 	paragraph_begin_time : {
 	    label : "speech_begin_time"
