@@ -170,6 +170,84 @@
       return _.union.apply(_, struct);
     };
 
+    CorpusListing.prototype.getDefaultAndCorpusQueryString = function(type, prefer) {
+      var corp, corpus, default_base_len, default_corpora, default_val, keep_len, prefer_base_len, prefer_corpora, prefer_str, ref, result, swap_len;
+      default_val = _.keys(settings['default' + type.charAt(0).toUpperCase() + type.slice(1)])[0];
+      if (prefer === default_val) {
+        result = {};
+        result['default' + type] = default_val;
+        return result;
+      }
+      prefer_corpora = (function() {
+        var k, len, ref, results;
+        ref = this.selected;
+        results = [];
+        for (k = 0, len = ref.length; k < len; k++) {
+          corpus = ref[k];
+          if (prefer in corpus[type]) {
+            results.push(corpus.id.toUpperCase());
+          }
+        }
+        return results;
+      }).call(this);
+      default_corpora = (function() {
+        var k, len, ref, results;
+        ref = this.selected;
+        results = [];
+        for (k = 0, len = ref.length; k < len; k++) {
+          corpus = ref[k];
+          if (!(prefer in corpus[type])) {
+            results.push(corpus.id.toUpperCase());
+          }
+        }
+        return results;
+      }).call(this);
+      prefer_base_len = prefer_corpora.join(' ').length;
+      default_base_len = default_corpora.join(' ').length;
+      keep_len = default_val.length + prefer_base_len + prefer_corpora.length * prefer.length;
+      swap_len = prefer.length + default_base_len + default_corpora.length * default_val.length;
+      if (swap_len < keep_len) {
+        prefer_corpora = default_corpora;
+        ref = [prefer, default_val], default_val = ref[0], prefer = ref[1];
+      }
+      prefer_str = ((function() {
+        var k, len, results;
+        results = [];
+        for (k = 0, len = prefer_corpora.length; k < len; k++) {
+          corp = prefer_corpora[k];
+          results.push(corp + ':' + prefer);
+        }
+        return results;
+      })()).join(',');
+      result = {};
+      result['default' + type] = default_val;
+      if (prefer_str) {
+        result[type] = prefer_str;
+      }
+      return result;
+    };
+
+    CorpusListing.prototype.getDefaultAndCorpusWithin = function() {
+      return this.getDefaultAndCorpusQueryString('within', search().within || _.keys(settings.defaultWithin)[0]);
+    };
+
+    CorpusListing.prototype.getDefaultAndCorpusContext = function(prefer) {
+      var default_context;
+      if (prefer == null) {
+        if (search().reading_mode != null) {
+          prefer = "1 paragraph";
+        } else {
+          default_context = _.keys(settings.defaultContext)[0];
+          prefer = _(this.selected).map(function(corpus) {
+            return _.keys(corpus.context);
+          }).flatten().uniq().filter(function(context) {
+            return context !== default_context;
+          }).value();
+        }
+      }
+      return this.getDefaultAndCorpusQueryString('context', prefer);
+    };
+
     CorpusListing.prototype.getContextQueryString = function(prefer) {
       var context, contexts, corpus, output;
       output = (function() {
@@ -199,27 +277,7 @@
     };
 
     CorpusListing.prototype.getWithinQueryString = function() {
-      var corpus, output, prefer_within;
-      prefer_within = search().within;
-      if (prefer_within && !(prefer_within in settings.defaultWithin)) {
-        output = (function() {
-          var k, len, ref, results;
-          ref = this.selected;
-          results = [];
-          for (k = 0, len = ref.length; k < len; k++) {
-            corpus = ref[k];
-            if (prefer_within in corpus.within) {
-              results.push(corpus.id.toUpperCase() + ":" + prefer_within);
-            } else {
-              results.push(false);
-            }
-          }
-          return results;
-        }).call(this);
-        return _(output).flatten().compact().join();
-      } else {
-        return null;
-      }
+      return this.getDefaultAndCorpusWithin().within || "";
     };
 
     CorpusListing.prototype.getMorphology = function() {

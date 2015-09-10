@@ -169,6 +169,8 @@ class model.KWICProxy extends BaseProxy
             cache : true
 
         $.extend data, kwicResults.getPageInterval(page), o.ajaxParams
+        $.extend data, settings.corpusListing.getDefaultAndCorpusWithin()
+        $.extend data, settings.corpusListing.getDefaultAndCorpusContext()
         for corpus in settings.corpusListing.selected
             for key, val of corpus.within
                 data.show.push _.last key.split(" ")
@@ -384,7 +386,8 @@ class model.StatsProxy extends BaseProxy
         # data.within = settings.corpusListing.getWithinQueryString() if $.sm.In("extended") and $(".within_select").val() is "paragraph"
         #if within_selection isnt "0" #!= settings.defaultWithin
         #    data.within = settings.corpusListing.getWithinQueryString()
-        data.within = within
+        # data.within = within
+        $.extend data, settings.corpusListing.getDefaultAndCorpusWithin()
         @prevParams = data
         def = $.Deferred()
         @pendingRequests.push $.ajax

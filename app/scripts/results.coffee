@@ -373,6 +373,8 @@ class view.KWICResults extends BaseResults
             incremental: !isPaging and $.support.ajaxProgress
         }
         _.extend opts.ajaxParams, getSortParams()
+        _.extend opts.ajaxParams, settings.corpusListing.getDefaultAndCorpusWithin()
+        _.extend opts.ajaxParams, settings.corpusListing.getDefaultAndCorpusContext()
         return opts
 
 
