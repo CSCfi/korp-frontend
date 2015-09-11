@@ -464,8 +464,6 @@
         incremental: !isPaging && $.support.ajaxProgress
       };
       _.extend(opts.ajaxParams, getSortParams());
-      _.extend(opts.ajaxParams, settings.corpusListing.getDefaultAndCorpusWithin());
-      _.extend(opts.ajaxParams, settings.corpusListing.getDefaultAndCorpusContext());
       return opts;
     };
 

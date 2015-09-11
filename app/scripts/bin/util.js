@@ -170,82 +170,78 @@
       return _.union.apply(_, struct);
     };
 
-    CorpusListing.prototype.getDefaultAndCorpusQueryString = function(type, prefer) {
-      var corp, corpus, default_base_len, default_corpora, default_val, keep_len, prefer_base_len, prefer_corpora, prefer_str, ref, result, swap_len;
-      default_val = _.keys(settings['default' + type.charAt(0).toUpperCase() + type.slice(1)])[0];
-      if (prefer === default_val) {
-        result = {};
-        result['default' + type] = default_val;
-        return result;
+    CorpusListing.prototype.minimizeDefaultAndCorpusQueryString = function(type, params) {
+      var all_corpora, corp, corpname, corpora, corpval, default_corpora, default_val, k, l, len, len1, lengths, lensum, maxval, nondefault_corpora, other_vals, ref, ref1, val, value_corpora;
+      all_corpora = params.corpus.split(',');
+      if (!params[type]) {
+        return params;
       }
-      prefer_corpora = (function() {
-        var k, len, ref, results;
-        ref = this.selected;
-        results = [];
-        for (k = 0, len = ref.length; k < len; k++) {
-          corpus = ref[k];
-          if (prefer in corpus[type]) {
-            results.push(corpus.id.toUpperCase());
-          }
+      c.log('minimize', type, params.corpus, params['default' + type], params[type], params[type].length);
+      default_val = params['default' + type];
+      value_corpora = {};
+      nondefault_corpora = [];
+      ref = params[type].split(',');
+      for (k = 0, len = ref.length; k < len; k++) {
+        corpval = ref[k];
+        ref1 = corpval.split(':'), corpname = ref1[0], val = ref1[1];
+        if (value_corpora[val] == null) {
+          value_corpora[val] = [];
         }
-        return results;
-      }).call(this);
-      default_corpora = (function() {
-        var k, len, ref, results;
-        ref = this.selected;
-        results = [];
-        for (k = 0, len = ref.length; k < len; k++) {
-          corpus = ref[k];
-          if (!(prefer in corpus[type])) {
-            results.push(corpus.id.toUpperCase());
-          }
-        }
-        return results;
-      }).call(this);
-      prefer_base_len = prefer_corpora.join(' ').length;
-      default_base_len = default_corpora.join(' ').length;
-      keep_len = default_val.length + prefer_base_len + prefer_corpora.length * prefer.length;
-      swap_len = prefer.length + default_base_len + default_corpora.length * default_val.length;
-      if (swap_len < keep_len) {
-        prefer_corpora = default_corpora;
-        ref = [prefer, default_val], default_val = ref[0], prefer = ref[1];
+        value_corpora[val].push(corpname);
+        nondefault_corpora.push(corpname);
       }
-      prefer_str = ((function() {
-        var k, len, results;
-        results = [];
-        for (k = 0, len = prefer_corpora.length; k < len; k++) {
-          corp = prefer_corpora[k];
-          results.push(corp + ':' + prefer);
+      default_corpora = _.difference(all_corpora, nondefault_corpora);
+      value_corpora[default_val] = (value_corpora[default_val] || []).concat(default_corpora);
+      lengths = [];
+      for (val in value_corpora) {
+        corpora = value_corpora[val];
+        lensum = 0;
+        for (l = 0, len1 = corpora.length; l < len1; l++) {
+          corp = corpora[l];
+          lensum += corp.length;
         }
-        return results;
-      })()).join(',');
-      result = {};
-      result['default' + type] = default_val;
-      if (prefer_str) {
-        result[type] = prefer_str;
+        lengths.push({
+          value: val,
+          length: lensum + (corpora.length * (val.length + 6)) - (corpora.length === 1 ? 3 : 0)
+        });
       }
-      return result;
+      maxval = _.max(lengths, 'length').value;
+      c.log('minimizing', type, value_corpora, lengths, maxval);
+      if (maxval === default_val && default_corpora.length > 0) {
+        return params;
+      }
+      params['default' + type] = maxval;
+      other_vals = [];
+      for (val in value_corpora) {
+        corpora = value_corpora[val];
+        if (val !== maxval) {
+          other_vals = other_vals.concat([
+            (function() {
+              var len2, m, results;
+              results = [];
+              for (m = 0, len2 = corpora.length; m < len2; m++) {
+                corp = corpora[m];
+                results.push(corp + ':' + val);
+              }
+              return results;
+            })()
+          ]);
+        }
+      }
+      params[type] = other_vals.join(',');
+      c.log('minimized', type, params['default' + type], params[type], params[type].length);
+      if (params[type] === '') {
+        delete params[type];
+      }
+      return params;
     };
 
-    CorpusListing.prototype.getDefaultAndCorpusWithin = function() {
-      return this.getDefaultAndCorpusQueryString('within', search().within || _.keys(settings.defaultWithin)[0]);
+    CorpusListing.prototype.minimizeWithinQueryString = function(params) {
+      return this.minimizeDefaultAndCorpusQueryString('within', params);
     };
 
-    CorpusListing.prototype.getDefaultAndCorpusContext = function(prefer) {
-      var default_context;
-      if (prefer == null) {
-        if (search().reading_mode != null) {
-          prefer = "1 paragraph";
-        } else {
-          default_context = _.keys(settings.defaultContext)[0];
-          prefer = _(this.selected).map(function(corpus) {
-            return _.keys(corpus.context);
-          }).flatten().uniq().filter(function(context) {
-            return context !== default_context;
-          }).value();
-        }
-      }
-      return this.getDefaultAndCorpusQueryString('context', prefer);
+    CorpusListing.prototype.minimizeContextQueryString = function(params) {
+      return this.minimizeDefaultAndCorpusQueryString('context', params);
     };
 
     CorpusListing.prototype.getContextQueryString = function(prefer) {
@@ -277,7 +273,27 @@
     };
 
     CorpusListing.prototype.getWithinQueryString = function() {
-      return this.getDefaultAndCorpusWithin().within || "";
+      var corpus, output, prefer_within;
+      prefer_within = search().within;
+      if (prefer_within && !(prefer_within in settings.defaultWithin)) {
+        output = (function() {
+          var k, len, ref, results;
+          ref = this.selected;
+          results = [];
+          for (k = 0, len = ref.length; k < len; k++) {
+            corpus = ref[k];
+            if (prefer_within in corpus.within) {
+              results.push(corpus.id.toUpperCase() + ":" + prefer_within);
+            } else {
+              results.push(false);
+            }
+          }
+          return results;
+        }).call(this);
+        return _(output).flatten().compact().join();
+      } else {
+        return null;
+      }
     };
 
     CorpusListing.prototype.getMorphology = function() {

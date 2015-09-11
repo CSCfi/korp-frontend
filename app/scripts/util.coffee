@@ -130,70 +130,72 @@ class window.CorpusListing
         )
         _.union struct...
 
-    # FIXME: It would be better to modify (if needed) the values
-    # computed elsewhere for within|context and
-    # default(within|context). That would make it easier to keep the
-    # existing semantics than trying to find out how to compute the
-    # values correctly.
+    # Change the properties type and "default"type of the object
+    # params, where type is "within" or "context", if that results in
+    # a shorter overall value, to be passed to the Korp backend as
+    # query parameters. (This reduces the chance of producing URLs too
+    # long for the server.) The method chooses as the default value
+    # the one that would result in the longest value as the
+    # corpus-specific parameter. Modifying the values computed
+    # elsewhere is simpler than trying to find out exactly how (or
+    # based on what data) the values are computed and to do the same.
+    # (Jyrki Niemi 2015-09-11)
+    minimizeDefaultAndCorpusQueryString: (type, params) ->
+        all_corpora = params.corpus.split(',')
+        if not params[type]
+            return params
+        c.log('minimize', type, params.corpus, params['default' + type],
+              params[type], params[type].length)
+        default_val = params['default' + type]
+        value_corpora = {}
+        nondefault_corpora = []
+        for corpval in params[type].split(',')
+            [corpname, val] = corpval.split(':')
+            value_corpora[val] ?= []
+            value_corpora[val].push(corpname)
+            nondefault_corpora.push(corpname)
+        default_corpora = _.difference(all_corpora, nondefault_corpora)
+        value_corpora[default_val] =
+            (value_corpora[default_val] or []).concat(default_corpora)
+        # Find the longest value
+        lengths = []
+        for val, corpora of value_corpora
+            lensum = 0
+            for corp in corpora
+                lensum += corp.length
+            lengths.push(
+                value: val
+                # Also count URL-encoded commas and colons to be added
+                # between corpus names, and corpus names and parameter
+                # values
+                length: lensum + (corpora.length * (val.length + 6)) -
+                        if corpora.length == 1 then 3 else 0
+            )
+        maxval = _.max(lengths, 'length').value
+        c.log 'minimizing', type, value_corpora, lengths, maxval
+        if maxval == default_val and default_corpora.length > 0
+            return params
+        params['default' + type] = maxval
+        # c.log maxval, params
+        # Construct the non-default value string
+        other_vals = []
+        for val, corpora of value_corpora when val != maxval
+            # c.log val, corpora
+            other_vals = other_vals.concat(
+                [corp + ':' + val for corp in corpora])
+        # c.log other_vals
+        params[type] = other_vals.join(',')
+        c.log('minimized', type, params['default' + type], params[type],
+              params[type].length)
+        if params[type] == ''
+            delete params[type]
+        return params
 
-    # Return an object containing both a default and corpus-specific
-    # values for the parameter type (within or context), to be passed
-    # to the Korp backend as query parameters (e.g., defaultwithin and
-    # within). prefer is the preferred value; if a corpus does not
-    # support it, use the default. The method minimizes the combined
-    # length of the returned value: use the prefer value as the
-    # default and default as the corpus-specific one if that would
-    # result in a shorter value. (Jyrki Niemi 2015-09-10)
-    getDefaultAndCorpusQueryString: (type, prefer) ->
-        default_val = _.keys(settings['default' + type.charAt(0).toUpperCase() +
-                                      type.slice(1)])[0]
-        if prefer == default_val
-            result = {}
-            result['default' + type] = default_val
-            return result
-        prefer_corpora =
-            corpus.id.toUpperCase() for corpus in @selected when prefer of corpus[type]
-        default_corpora =
-            corpus.id.toUpperCase() for corpus in @selected when not (prefer of corpus[type])
-        prefer_base_len = prefer_corpora.join(' ').length
-        default_base_len = default_corpora.join(' ').length
-        keep_len = (default_val.length + prefer_base_len +
-                    prefer_corpora.length * prefer.length)
-        swap_len = (prefer.length + default_base_len +
-                    default_corpora.length * default_val.length)
-        if swap_len < keep_len
-            # Swap the default and preferred values if that would
-            # result in a shorter query string
-            prefer_corpora = default_corpora
-            [default_val, prefer] = [prefer, default_val]
-        prefer_str = ((corp + ':' + prefer) for corp in prefer_corpora).join(',')
-        result = {}
-        result['default' + type] = default_val
-        if prefer_str
-            result[type] = prefer_str
-        return result
+    minimizeWithinQueryString: (params) ->
+        @minimizeDefaultAndCorpusQueryString 'within', params
 
-    getDefaultAndCorpusWithin: () ->
-        @getDefaultAndCorpusQueryString(
-            'within',
-            search().within or _.keys(settings.defaultWithin)[0])
-
-    getDefaultAndCorpusContext: (prefer) ->
-        if not prefer?
-            if search().reading_mode?
-                # FIXME: Hard-coded value
-                prefer = "1 paragraph"
-            else
-                default_context = _.keys(settings.defaultContext)[0]
-                prefer = _(@selected)
-                    .map (corpus) ->
-                        _.keys(corpus.context)
-                    .flatten()
-                    .uniq()
-                    .filter (context) ->
-                        context != default_context
-                    .value()
-        @getDefaultAndCorpusQueryString('context', prefer)
+    minimizeContextQueryString: (params) ->
+        @minimizeDefaultAndCorpusQueryString 'context', params
 
     getContextQueryString: (prefer) ->
         output = for corpus in @selected
@@ -213,20 +215,19 @@ class window.CorpusListing
 
 
     getWithinQueryString: ->
-        @getDefaultAndCorpusWithin().within or ""
-        # # If the URL parameter within is other than the default, use
-        # # it for the corpora that have it in their within property.
-        # # (Jyrki Niemi 2015-08-26)
-        # prefer_within = search().within
-        # if prefer_within and prefer_within not of settings.defaultWithin
-        #     output = for corpus in @selected
-        #         if prefer_within of corpus.within
-        #             corpus.id.toUpperCase() + ":" + prefer_within
-        #         else
-        #             false
-        #     _(output).flatten().compact().join()
-        # else
-        #     null
+        # If the URL parameter within is other than the default, use
+        # it for the corpora that have it in their within property.
+        # (Jyrki Niemi 2015-08-26)
+        prefer_within = search().within
+        if prefer_within and prefer_within not of settings.defaultWithin
+            output = for corpus in @selected
+                if prefer_within of corpus.within
+                    corpus.id.toUpperCase() + ":" + prefer_within
+                else
+                    false
+            _(output).flatten().compact().join()
+        else
+            null
 
         # The original version was as follows. If a corpus has a
         # property within with more than one value other than that in

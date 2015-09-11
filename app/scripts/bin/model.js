@@ -173,8 +173,6 @@
         cache: true
       };
       $.extend(data, kwicResults.getPageInterval(page), o.ajaxParams);
-      $.extend(data, settings.corpusListing.getDefaultAndCorpusWithin());
-      $.extend(data, settings.corpusListing.getDefaultAndCorpusContext());
       ref = settings.corpusListing.selected;
       for (j = 0, len = ref.length; j < len; j++) {
         corpus = ref[j];
@@ -200,6 +198,8 @@
       data.show = (_.uniq(["sentence"].concat(data.show))).join(",");
       c.log("data.show", data.show);
       data.show_struct = (_.uniq(data.show_struct)).join(",");
+      settings.corpusListing.minimizeWithinQueryString(data);
+      settings.corpusListing.minimizeContextQueryString(data);
       this.prevRequest = data;
       this.prevMisc = {
         "hitsPerPage": $("#num_hits").val()
@@ -423,7 +423,8 @@
           ignore_case: "word"
         });
       }
-      $.extend(data, settings.corpusListing.getDefaultAndCorpusWithin());
+      data.within = within;
+      settings.corpusListing.minimizeWithinQueryString(data);
       this.prevParams = data;
       def = $.Deferred();
       this.pendingRequests.push($.ajax({
