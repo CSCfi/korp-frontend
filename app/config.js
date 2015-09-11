@@ -2293,214 +2293,219 @@ attrs.func_la = {
 // structure represented as an array of arrays: the first element is
 // the internal code or id of the item, the second its human-readable
 // name, and the third an array of its child elements (except in leaf
-// nodes).
+// nodes, in which the third element is a longer alias for the parish
+// name and an optional fourth element is an object whose properties
+// are used to override the property values in the tmeplate).
 var la_murre_grouping = [
     ["LOU", "Lounaismurteet", [
 	["VarE", "Eteläinen Varsinais-Suomi", [
-	    ["karuna", "Karuna"],
-	    ["kisko", "Kisko"],
-	    ["muurla", "Muurla"],
-	    ["muurla_halikko", "Muurla/Halikko"],
-	    ["paimio", "Paimio"],
-	    ["pernio", "Perniö"],
-	    ["uskela", "Uskela"],
+	    ["karuna", "Karuna", "karuna"],
+	    ["kisk", "Kisko", "kisko"],
+	    ["muurl", "Muurla", "muurla"],
+	    ["muuhal", "Muurla/Halikko", "muurla_halikko"],
+	    ["paim", "Paimio", "paimio"],
+	    ["pern", "Perniö", "pernio"],
+	    ["uske", "Uskela", "uskela"],
 	] ],
 	["VarP", "Pohjoinen Varsinais-Suomi", [
-	    ["eura", "Eura"],
-	    ["eurajoki", "Eurajoki"],
-	    ["kalanti", "Kalanti"],
-	    ["karjala_tl", "Karjala Tl"],
-	    ["kustavi", "Kustavi"],
-	    ["lappi_tl", "Lappi Tl"],
-	    ["luvia", "Luvia"],
-	    ["masku", "Masku"],
-	    ["pyhamaa", "Pyhämaa"],
-	    ["rauma", "Rauma"],
-	    ["rymattyla", "Rymättylä"],
-	    ["taivassalo", "Taivassalo"],
-	    ["velkua", "Velkua"],
+	    ["eura", "Eura", "eura"],
+	    ["eurj", "Eurajoki", "eurajoki"],
+	    ["kalan", "Kalanti", "kalanti"],
+	    ["kartl", "Karjala Tl", "karjala_tl"],
+	    ["kust", "Kustavi", "kustavi"],
+	    ["laptl", "Lappi Tl", "lappi_tl"],
+	    ["luvi", "Luvia", "luvia"],
+	    ["mask", "Masku", "masku"],
+	    ["pyhm", "Pyhämaa", "pyhamaa"],
+	    ["raum", "Rauma", "rauma"],
+	    ["ryma", "Rymättylä", "rymattyla"],
+	    ["tais", "Taivassalo", "taivassalo"],
+	    ["velk", "Velkua", "velkua"],
 	] ],
     ] ],
     ["LVÄ", "Lounaiset välimurteet", [
 	["SatE", "Etelä-Satakunta", [
-	    ["kokemaki", "Kokemäki"],
-	    ["loimaa", "Loimaa"],
-	    ["vampula", "Vampula"],
+	    ["koke", "Kokemäki", "kokemaki"],
+	    ["loim", "Loimaa", "loimaa"],
+	    ["vamp", "Vampula", "vampula"],
 	] ],
 	["SatL", "Länsi-Satakunta", [
 	    // Ahlainen has the whole text as a single paragraph,
 	    // which causes problems in the Korp context view, so
 	    // allow only the sentence context and sentence + clause
 	    // within.
-	    ["ahlainen", "Ahlainen", {
+	    ["ahla", "Ahlainen", "ahlainen", {
 		context : settings.defaultContext,
 		within : settings.scWithin
 	    }],
-	    ["merikarvia", "Merikarvia"],
-	    ["noormarkku", "Noormarkku"],
-	    ["pori", "Pori"],
+	    ["merk", "Merikarvia", "merikarvia"],
+	    ["noor", "Noormarkku", "noormarkku"],
+	    ["pori", "Pori", "pori"],
 	] ],
 	["VarY", "Varsinais-Suomen ylämaa", [
-	    ["koski_tl", "Koski Tl"],
-	    ["poytya", "Pöytyä"],
-	    ["somero", "Somero"],
-	    ["sakyla", "Säkylä"],
-	    ["tarvasjoki", "Tarvasjoki"],
+	    ["kostl", "Koski Tl", "koski_tl"],
+	    ["poyt", "Pöytyä", "poytya"],
+	    ["somero", "Somero", "somero"],
+	    ["saky", "Säkylä", "sakyla"],
+	    ["tarv", "Tarvasjoki", "tarvasjoki"],
 	] ],
 	["VarU", "Länsi-Uusimaa", [
-	    ["sammatti", "Sammatti"],
-	    ["vihti", "Vihti"],
+	    ["samm", "Sammatti", "sammatti"],
+	    ["viht", "Vihti", "vihti"],
 	] ],
     ] ],
     ["HÄM", "Hämäläismurteet", [
 	["HämE", "Etelä-Häme", [
-	    ["hattula", "Hattula"],
-	    ["hausjarvi", "Hausjärvi"],
-	    ["nurmijarvi", "Nurmijärvi"],
-	    ["renko", "Renko"],
-	    ["saaksmaki", "Sääksmäki"],
-	    ["tammela", "Tammela"],
+	    ["hatt", "Hattula", "hattula"],
+	    ["haus", "Hausjärvi", "hausjarvi"],
+	    ["nurj", "Nurmijärvi", "nurmijarvi"],
+	    ["renk", "Renko", "renko"],
+	    ["saak", "Sääksmäki", "saaksmaki"],
+	    ["tamm", "Tammela", "tammela"],
 	] ],
 	["HämK", "Kaakkois-Häme", [
-	    ["askola", "Askola"],
-	    ["asikkala", "Asikkala"],
-	    ["lammi", "Lammi"],
+	    ["asko", "Askola", "askola"],
+	    ["asik", "Asikkala", "asikkala"],
+	    ["lamm", "Lammi", "lammi"],
 	] ],
 	["HämP", "Pohjois-Häme", [
-	    ["juupajoki", "Juupajoki"],
-	    ["kuru", "Kuru"],
-	    ["luopioinen", "Luopioinen"],
-	    ["pirkkala", "Pirkkala"],
-	    ["pohjaslahti", "Pohjaslahti"],
-	    ["vesilahti", "Vesilahti"],
+	    ["juup", "Juupajoki", "juupajoki"],
+	    ["kuru", "Kuru", "kuru"],
+	    ["luop", "Luopioinen", "luopioinen"],
+	    ["pirk", "Pirkkala", "pirkkala"],
+	    ["pohjasl", "Pohjaslahti", "pohjaslahti"],
+	    ["vesl", "Vesilahti", "vesilahti"],
 	] ],
 	["SatP", "Pohjois-Satakunta", [
-	    ["ikaalinen", "Ikaalinen"],
-	    ["kankaanpaa", "Kankaanpää"],
-	    ["karkku", "Karkku"],
-	    ["kihnio", "Kihniö"],
-	    ["punkalaidun", "Punkalaidun"],
-	    ["suodenniemi", "Suodenniemi"],
+	    ["ikaa", "Ikaalinen", "ikaalinen"],
+	    ["kanp", "Kankaanpää", "kankaanpaa"],
+	    ["kark", "Karkku", "karkku"],
+	    ["kihn", "Kihniö", "kihnio"],
+	    ["punl", "Punkalaidun", "punkalaidun"],
+	    ["suod", "Suodenniemi", "suodenniemi"],
 	] ],
 	["Kym", "Kymenlaakso", [
-	    ["iitti", "Iitti"],
-	    ["lapinjarvi", "Lapinjärvi"],
-	    ["suursaari", "Suursaari"],
-	    ["vehkalahti", "Vehkalahti"],
+	    ["iitt", "Iitti", "iitti"],
+	    ["lapinj", "Lapinjärvi", "lapinjarvi"],
+	    ["suur", "Suursaari", "suursaari"],
+	    ["vehk", "Vehkalahti", "vehkalahti"],
 	] ],
     ] ],
     ["POH", "Pohjalaismurteet", [
 	["PohE", "Etelä-Pohjanmaa", [
-	    ["isojoki", "Isojoki"],
-	    ["kauhava", "Kauhava"],
-	    ["kurikka", "Kurikka"],
-	    ["laihia", "Laihia"],
-	    ["nurmo", "Nurmo"],
-	    ["peraseinajoki", "Peräseinäjoki"],
-	    ["yliharma", "Ylihärmä"],
+	    ["isoj", "Isojoki", "isojoki"],
+	    ["kauhava", "Kauhava", "kauhava"],
+	    ["kuri", "Kurikka", "kurikka"],
+	    ["laih", "Laihia", "laihia"],
+	    ["nrmo", "Nurmo", "nurmo"],
+	    ["pers", "Peräseinäjoki", "peraseinajoki"],
+	    ["yhar", "Ylihärmä", "yliharma"],
 	] ],
 	["PohK", "Keski-Pohjanmaa", [
-	    ["haapajarvi", "Haapajärvi"],
-	    ["haapavesi", "Haapavesi"],
-	    ["himanka", "Himanka"],
-	    ["kestila", "Kestilä"],
-	    ["lestijarvi", "Lestijärvi"],
-	    ["pyhajoki", "Pyhäjoki"],
-	    ["toholampi", "Toholampi"],
-	    ["veteli", "Veteli"],
-	    ["ylivieska", "Ylivieska"],
+	    ["haaj", "Haapajärvi", "haapajarvi"],
+	    ["haav", "Haapavesi", "haapavesi"],
+	    ["hima", "Himanka", "himanka"],
+	    ["kest", "Kestilä", "kestila"],
+	    ["lest", "Lestijärvi", "lestijarvi"],
+	    ["pyhj", "Pyhäjoki", "pyhajoki"],
+	    ["toho", "Toholampi", "toholampi"],
+	    ["vete", "Veteli", "veteli"],
+	    ["yvie", "Ylivieska", "ylivieska"],
 	] ],
 	["PohP", "Pohjois-Pohjanmaa", [
-	    ["hailuoto", "Hailuoto"],
-	    ["paavola", "Paavola"],
-	    ["temmes", "Temmes"],
-	    ["yli_ii", "Yli-Ii"],
-	    ["ylikiiminki", "Ylikiiminki"],
+	    ["hail", "Hailuoto", "hailuoto"],
+	    ["paav", "Paavola", "paavola"],
+	    ["temm", "Temmes", "temmes"],
+	    ["ylii", "Yli-Ii", "yli_ii"],
+	    ["ykii", "Ylikiiminki", "ylikiiminki"],
 	] ],
 	["LänP", "Länsipohja", [
-	    ["alatornio", "Alatornio"],
-	    ["muonio", "Muonio"],
+	    ["ator", "Alatornio", "alatornio"],
+	    ["muon", "Muonio", "muonio"],
 	] ],
 	["PerP", "Peräpohjola", [
-	    ["kemi", "Kemi"],
-	    ["rovaniemi", "Rovaniemi"],
-	    ["salla", "Salla"],
-	    ["sodankyla", "Sodankylä"],
+	    ["kemi", "Kemi", "kemi"],
+	    ["rova", "Rovaniemi", "rovaniemi"],
+	    ["sall", "Salla", "salla"],
+	    ["soda", "Sodankylä", "sodankyla"],
 	] ],
     ] ],
     ["SAV", "Savolaismurteet", [
 	["KesE", "Eteläinen Keski-Suomi", [
-	    ["joutsa", "Joutsa"],
-	    ["jamsa", "Jämsä"],
-	    ["sysma", "Sysmä"],
+	    ["joutsa", "Joutsa", "joutsa"],
+	    ["jams", "Jämsä", "jamsa"],
+	    ["sysm", "Sysmä", "sysma"],
 	] ],
 	["KesL", "Läntinen Keski-Suomi", [
-	    ["lappajarvi", "Lappajärvi"],
-	    ["pihlajavesi", "Pihlajavesi"],
-	    ["soini", "Soini"],
+	    ["lappa", "Lappajärvi", "lappajarvi"],
+	    ["pihl", "Pihlajavesi", "pihlajavesi"],
+	    ["soin", "Soini", "soini"],
 	] ],
 	["KesP", "Pohjoinen Keski-Suomi", [
-	    ["konginkangas", "Konginkangas"],
-	    ["laukaa", "Laukaa"],
-	    ["multia", "Multia"],
-	    ["pihtipudas", "Pihtipudas"],
+	    ["kong", "Konginkangas", "konginkangas"],
+	    ["lauk", "Laukaa", "laukaa"],
+	    ["mult", "Multia", "multia"],
+	    ["piht", "Pihtipudas", "pihtipudas"],
 	] ],
 	["SavE", "Etelä-Savo", [
-	    ["enonkoski", "Enonkoski"],
-	    ["mikkeli", "Mikkeli"],
-	    ["mantyharju", "Mäntyharju"],
-	    ["punkaharju", "Punkaharju"],
+	    ["enok", "Enonkoski", "enonkoski"],
+	    ["mikk", "Mikkeli", "mikkeli"],
+	    ["manh", "Mäntyharju", "mantyharju"],
+	    ["punh", "Punkaharju", "punkaharju"],
 	] ],
 	["SavP", "Pohjois-Savo", [
-	    ["haukivuori", "Haukivuori"],
-	    ["lapinlahti", "Lapinlahti"],
-	    ["leppavirta", "Leppävirta"],
-	    ["nilsia", "Nilsiä"],
-	    ["rantasalmi", "Rantasalmi"],
-	    ["rautalampi", "Rautalampi"],
-	    ["riistavesi", "Riistavesi"],
-	    ["tervo", "Tervo"],
-	    ["vierema", "Vieremä"],
+	    ["hauv", "Haukivuori", "haukivuori"],
+	    ["lapl", "Lapinlahti", "lapinlahti"],
+	    ["lepp", "Leppävirta", "leppavirta"],
+	    ["nils", "Nilsiä", "nilsia"],
+	    ["rans", "Rantasalmi", "rantasalmi"],
+	    ["raul", "Rautalampi", "rautalampi"],
+	    ["riis", "Riistavesi", "riistavesi"],
+	    ["tervo", "Tervo", "tervo"],
+	    ["vier", "Vieremä", "vierema"],
 	] ],
 	["KarP", "Pohjois-Karjala", [
-	    ["ilomantsi", "Ilomantsi"],
-	    ["juuka", "Juuka"],
-	    ["kiihtelysvaara", "Kiihtelysvaara"],
-	    ["kitee", "Kitee"],
-	    ["kontiolahti", "Kontiolahti"],
-	    ["liperi", "Liperi"],
+	    ["ilom", "Ilomantsi", "ilomantsi"],
+	    ["juuk", "Juuka", "juuka"],
+	    ["kiih", "Kiihtelysvaara", "kiihtelysvaara"],
+	    ["kite", "Kitee", "kitee"],
+	    ["kont", "Kontiolahti", "kontiolahti"],
+	    ["lipe", "Liperi", "liperi"],
 	] ],
 	["Kai", "Kainuu", [
-	    ["posio", "Posio"],
-	    ["sotkamo", "Sotkamo"],
-	    ["suomussalmi", "Suomussalmi"],
+	    ["posi", "Posio", "posio"],
+	    ["sotk", "Sotkamo", "sotkamo"],
+	    ["suos", "Suomussalmi", "suomussalmi"],
 	] ],
     ] ],
     ["KAA", "Kaakkoismurteet", [
 	["KarE", "Etelä-Karjala", [
-	    ["antrea", "Antrea"],
-	    ["koivisto", "Koivisto"],
-	    ["lappee", "Lappee"],
-	    ["luumaki", "Luumäki"],
-	    ["muolaa", "Muolaa"],
-	    ["nuijamaa", "Nuijamaa"],
-	    ["ruokolahti", "Ruokolahti"],
-	    ["savitaipale", "Savitaipale"],
-	    ["seiskari", "Seiskari"],
-	    ["taipalsaari", "Taipalsaari"],
+	    ["antr", "Antrea", "antrea"],
+	    ["koiv", "Koivisto", "koivisto"],
+	    ["lappe", "Lappee", "lappee"],
+	    ["luum", "Luumäki", "luumaki"],
+	    ["muol", "Muolaa", "muolaa"],
+	    ["nuij", "Nuijamaa", "nuijamaa"],
+	    ["ruok", "Ruokolahti", "ruokolahti"],
+	    ["savt", "Savitaipale", "savitaipale"],
+	    ["seis", "Seiskari", "seiskari"],
+	    ["taip", "Taipalsaari", "taipalsaari"],
 	] ],
 	["KarK", "Keski-Karjala", [
-	    ["lumivaara", "Lumivaara"],
-	    ["parikkala", "Parikkala"],
-	    ["rautu", "Rautu"],
-	    ["raisala", "Räisälä"],
-	    ["sortavala", "Sortavala"],
+	    ["lumv", "Lumivaara", "lumivaara"],
+	    ["pari", "Parikkala", "parikkala"],
+	    ["rautu", "Rautu", "rautu"],
+	    ["raisa", "Räisälä", "raisala"],
+	    ["sort", "Sortavala", "sortavala"],
 	] ],
     ] ]
 ];
 
 // LA-murre corpus name prefix, prefixed to a parish name
-var la_murre_corpus_prefix = "la_murre_"
+var la_murre_corpus_prefix = "lam_";
+// Corpus name alias prefix, for redirecting the old, longer names to
+// the new, shorter ones
+var la_murre_alias_prefix = "la_murre_";
 
 // Extract dialect regions, groups, parishes and corpus names from
 // la_murre_grouping
@@ -2516,7 +2521,10 @@ for (var i = 0; i < la_murre_grouping.length; i++) {
 	var parishes = groups[j][2];
 	for (var k = 0; k < parishes.length; k++) {
 	    la_murre_parishes.push(parishes[k][1]);
-	    la_murre_corpora.push(la_murre_corpus_prefix + parishes[k][0]);
+	    var corpname = la_murre_corpus_prefix + parishes[k][0]
+	    la_murre_corpora.push(corpname);
+	    settings.corpus_aliases[la_murre_alias_prefix + parishes[k][2]] =
+		corpname;
 	}
     }
 }
@@ -2776,11 +2784,11 @@ settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree,
 		title : subfolder_info[1] + " (LA-murre)",
 		description : descr
 	    };
-	    // The optional third item in the corpus info list is an
+	    // The optional fourth item in the corpus info list is an
 	    // object that may be used to override the values in the
 	    // template.
-	    if (subfolder_info.length > 2) {
-		$.extend(templ_fill, subfolder_info[2]);
+	    if (subfolder_info.length > 3) {
+		$.extend(templ_fill, subfolder_info[3]);
 	    }
 	    settings.fn.add_corpus_settings(
 		settings.templ.la_murre, [templ_fill], main_folder,
@@ -4781,7 +4789,7 @@ var locally_available_corpora =
      "kotus_ns_presidentti_.*",
      "kotus_klassikot",
      "kotus_sananparret",
-     "la_murre_.*",
+     "lam_.*",
      "(mulcold|legal)_..",
      "s24",
      "skvr",
