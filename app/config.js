@@ -2773,7 +2773,7 @@ settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree,
 	} else {
 	    var templ_fill = {
 		id : subfolder_info[0],
-		title : subfolder_info[1],
+		title : subfolder_info[1] + " (LA-murre)",
 		description : descr
 	    };
 	    // The optional third item in the corpus info list is an
