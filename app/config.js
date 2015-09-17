@@ -4902,7 +4902,14 @@ settings.reduce_stringify = function(type) {
             return value[1] != null; // value[1] is an optimized value.relative
         });
         corpora = $.map($.keys(corpora), function(item) {
-            return item.split("_")[0].toLowerCase();
+	    // Leave out only the last underscore-separated component
+	    // of the corpus name (probably "value", set in
+	    // statistics_worker.js), to support corpus names (ids)
+	    // containing underscores. (Jyrki Niemi 2015-09-17)
+	    var lastUscore = item.lastIndexOf("_");
+	    return ((lastUscore == -1 ? item : item.slice(0, lastUscore))
+		    .toLowerCase());
+            // return item.split("_")[0].toLowerCase();
         });
         return corpora;
     }
