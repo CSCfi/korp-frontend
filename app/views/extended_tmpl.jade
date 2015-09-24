@@ -6,10 +6,11 @@ div(ng-controller='ExtendedSearch')
   //- label(for='strict_chk') {{'strict' | loc}}
              
   search-submit(pos='right')
-  span(rel='localize[within]')
+  span {{'within' | loc}}
 
   select.within_select(ng-model="within"
                        ng-options="item.value as ('within_' + item.value | loc) for item in withins")
+  span {{'within_postp' | loc}}
 
   //- select.within_select
   //-   option(value='sentence', rel='localize[within_sentence]') Mening

@@ -164,6 +164,7 @@
     "kwic" : "KWIC",
     "sort_default" : "sort within corpora",
     "within" : "within",
+    "within_postp" : "",
     "context" : "contex",
     "only_support" : "Only for supported corpora.",
     "no_context_support" : "does not support extended context",
