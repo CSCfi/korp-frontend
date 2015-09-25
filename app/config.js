@@ -2761,8 +2761,10 @@ settings.templ.la_murre = {
 	    /^sentence_/,
 	    /^clause_/,
 	],
-    }
-
+    },
+    // Ignore any number of punctuation tokens between tokens in the
+    // extended search
+    ignore_between_tokens_cqp : '[pos="punct"]*',
 };
 
 // Recursively make settings.corporafolders and settings.corpora for
