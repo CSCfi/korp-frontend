@@ -4976,7 +4976,7 @@ settings.reduce_stringify = function(type) {
             if(value == "&Sigma;") return appendDiagram(value, corpora, value);
 
             var query = $.map(dataContext.hit_value.split(" "), function(item) {
-                return $.format('[word="%s"]', item);
+                return $.format('[word="%s"]', window.regescape(item));
             }).join(" ");
 
             output = $("<span>",
@@ -4994,7 +4994,7 @@ settings.reduce_stringify = function(type) {
             var corpora = getCorpora(dataContext);
             if(value == "&Sigma;") return appendDiagram(value, corpora, value);
             var query = $.map(dataContext.hit_value.split(" "), function(item) {
-                return $.format('[pos="%s"]', item);
+                return $.format('[pos="%s"]', window.regescape(item));
             }).join(" ");
             output =  _.map(value.split(" "), function(token) {
                 return $("<span>")
@@ -5041,7 +5041,8 @@ settings.reduce_stringify = function(type) {
                            ? " = " : " contains ");
             var cqp = _.map(_.zip.apply(null, _.invoke(value, "split", " ")), function(tup) {
                 return "[" + _.map(_.uniq(tup), function(item) {
-                    return "(" + type + comp_op + "'" + item + "')"
+                    return ("(" + type + comp_op + "'" + window.regescape(item)
+			    + "')")
                 }).join(" | ") + "]"
 
             }).join(" ")
@@ -5073,7 +5074,7 @@ settings.reduce_stringify = function(type) {
             var corpora = getCorpora(dataContext);
             if(value == "&Sigma;") return appendDiagram(value, corpora, value);
             var query = $.map(dataContext.hit_value.split(" "), function(item) {
-                return $.format('[deprel="%s"]', item);
+                return $.format('[deprel="%s"]', window.regescape(item));
             }).join(" ");
             output = $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ",
                     [query, JSON.stringify(corpora),"deprel_" + value, util.getLocaleString("deprel_" + value)]);
@@ -5096,7 +5097,7 @@ settings.reduce_stringify = function(type) {
                 query_format = '[%s="%s"]';
             }
             var query = $.map(dataContext.hit_value.split(" "), function(item) {
-                return $.format(query_format, [type, item]);
+                return $.format(query_format, [type, window.regescape(item)]);
             }).join(" ");
 
             // if(type in cl.getStructAttrs())
