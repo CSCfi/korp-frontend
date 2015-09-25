@@ -196,6 +196,7 @@
       }
       try {
         $rootScope.extendedCQP = CQP.expandOperators(val);
+        $rootScope.extendedCQP = util.addIgnoreCQPBetweenTokens($rootScope.extendedCQP);
       } catch (_error) {
         e = _error;
         c.log("cqp parse error:", e);

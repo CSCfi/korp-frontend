@@ -224,6 +224,14 @@ korpApp.controller "ExtendedSearch", ($scope, utils, $location, backend, $rootSc
         unless val then return
         try 
             $rootScope.extendedCQP = CQP.expandOperators(val)
+            # c.log "cqp expanded ops", $rootScope.extendedCQP
+            # Add the possible ignorable tokens between tokens. This
+            # makes the modified version to be shown in the advanced
+            # search as the extended search expression.
+            # (Jyrki Niemi 2015-09-25)
+            $rootScope.extendedCQP =
+                util.addIgnoreCQPBetweenTokens($rootScope.extendedCQP)
+            # c.log "cqp added ignore", $rootScope.extendedCQP
         catch e
             c.log "cqp parse error:", e
         $location.search("cqp", val)
