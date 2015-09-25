@@ -306,7 +306,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, input:pla
 //   display : none;
 // }
 
-.extended .search_submit {
+.extended .search_submit, #advanced .search_submit {
   display: inline;
   vertical-align: super;
   .btn-group {

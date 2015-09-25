@@ -96,6 +96,11 @@ settings.korp_url = {
 
 settings.urnResolver = "http://urn.fi/";
 
+// Set advanced_search_within to false to disable the within selection
+// in the advanced search. If the value is undefined, assume true.
+// (Jyrki Niemi 2015-09-24)
+settings.advanced_search_within = true;
+
 // for extended search dropdown, can be 'union' or 'intersection'
 settings.word_attribute_selector = "union"
 settings.struct_attribute_selector = "union"

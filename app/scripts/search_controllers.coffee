@@ -25,6 +25,27 @@ korpApp.controller "SearchCtrl", ($scope, $location, utils, searches) ->
         return settings.statistics != false
         # Boolean(settings.statistics) != false
 
+    # $scope.getWithins was copied from "ExtendedSearch", so that it
+    # can also be used in "AdvancedCtrl" (Jyrki Niemi 2015-09-24)
+    $scope.getWithins = () ->
+        intersect = settings.corpusListing.getAttrIntersection("within")
+        union = settings.corpusListing.getAttrUnion("within")
+        # opts = $(".#{withinOrContext}_select option")
+        # opts.data("locSuffix", null).attr("disabled", null).removeClass "limited"
+
+        # return union
+        output = _.map union, (item) -> {value : item}
+
+        # all support enhanced context
+        if union.length > intersect.length
+            for obj in output
+                if obj.value not in intersect
+                    obj.partial = true
+                else
+                    obj.partial = false
+
+        return output
+
     # utils.setupHash $scope, [
     #         key : "word_pic"
     #         val_out : Boolean
@@ -342,6 +363,7 @@ korpApp.controller "ExtendedToken", ($scope, utils, $location) ->
 
 
 korpApp.controller "AdvancedCtrl", ($scope, compareSearches, $location, $timeout) ->
+    s = $scope
     expr = ""
     if $location.search().search
         [type, expr...] = $location.search().search?.split("|")
@@ -356,6 +378,17 @@ korpApp.controller "AdvancedCtrl", ($scope, compareSearches, $location, $timeout
     #     out = simpleSearch.getCQP()
     #     c.log "getSimpleCQP", out
     #     out
+
+    # Show the within selection list unless settings.advanced_search_within
+    # is false. (Jyrki Niemi 2015-09-24)
+    s.showWithin = if settings.advanced_search_within?
+                       settings.advanced_search_within
+                   else
+                       true
+    s.within = if s.showWithin
+                   $location.search().within or "sentence"
+               else
+                   "sentence"
 
     $scope.$watch () -> 
         simpleSearch?.getCQP()
@@ -375,9 +408,17 @@ korpApp.controller "AdvancedCtrl", ($scope, compareSearches, $location, $timeout
         $location.search("search", null)
         $location.search("page", null)
         $timeout( () ->
+            # Copied from "ExtendedSearch" (Jyrki Niemi 2015-09-24)
+            within = s.within unless s.within in _.keys settings.defaultWithin
+            $location.search("within", within or null)
             $location.search("search", "cqp|" + $scope.cqp)
         , 0)
 
+    if s.showWithin
+        # Copied from "ExtendedSearch" (Jyrki Niemi 2015-09-24)
+        s.withins = []
+        s.$on "corpuschooserchange", () ->
+            s.withins = s.getWithins()
 
 
 korpApp.filter "mapper", () ->

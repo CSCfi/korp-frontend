@@ -2492,12 +2492,12 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, input:pla
 }
 
 /* line 309, styles.scss */
-.extended .search_submit {
+.extended .search_submit, #advanced .search_submit {
   display: inline;
   vertical-align: super;
 }
 /* line 312, styles.scss */
-.extended .search_submit .btn-group {
+.extended .search_submit .btn-group, #advanced .search_submit .btn-group {
   display: inline;
 }
 
