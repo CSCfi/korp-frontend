@@ -1398,6 +1398,16 @@
     "iclfi_limitedtime" : "rajattu aika",
     "iclfi_wherewritten" : "kirjoituspaikka",
     "iclfi_aids" : "apuvälineet",
-    "iclfi_filename" : "tiedostonimi"
-
+    "iclfi_filename" : "tiedostonimi",
+    "klk_lang" : "kieli",
+    "klk_editor" : "toimittaja",
+    "klk_lang_izh" : "inkeroinen",
+    "klk_lang_kca" : "hanti",
+    "klk_lang_mdf" : "mokša",
+    "klk_lang_mns" : "mansi",
+    "klk_lang_mrj" : "länsimari",
+    "klk_lang_myv" : "ersä",
+    "klk_lang_sel" : "selkuppi",
+    "klk_lang_vep" : "vepsä",
+    "klk_lang_yrk" : "tundranenetsi"
 }

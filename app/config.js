@@ -3290,6 +3290,49 @@ attrlist.fennougrica_veps = {
         }
 };
 
+attrlist.fennougrica = {};
+
+sattrlist.fennougrica = {
+    within : settings.spWithin,
+    context : settings.spContext,
+    text_datefrom : sattrs.date,
+    text_author : {
+        label : "text_author"
+    },
+    text_title : {
+        label : "text_title"
+    },
+    text_editor : {
+        label : "klk_editor"
+    },
+    text_lang : {
+        label : "klk_lang",
+        displayType : "select",
+        translationKey : "klk_lang_",
+        dataset : {
+            "izh" : "izh",
+            "kca" : "kca",
+            "mdf" : "mdf",
+            "mns" : "mns",
+            "mrj" : "mrj",
+            "myv" : "myv",
+            "sel" : "sel",
+            "vep" : "vep",
+            "yrk" : "yrk"
+        },
+        opts : settings.liteOptions
+
+    },
+    text_link : {
+        url_opts : sattrs.link_url_opts,
+        label : "klk_img_url",
+        type : "url"
+    }
+};
+
+
+
+
 /* KFSPC */
 sattrlist.kfspc = {
     sentence_id : sattrs.sentence_id_hidden,

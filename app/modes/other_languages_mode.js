@@ -45,6 +45,21 @@ settings.corporafolders.russian = {
 };
 
 
+
+settings.corpora.fennougrica = {
+    id : "fennougrica",
+    title : "Fenno-Ugrica",
+    description : "Fenno-Ugrica",
+    metadata_urn : "urn:nbn:fi:lb-2014073056",
+    homepage_url : "http://fennougrica.kansalliskirjasto.fi/",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.fennougrica,
+    struct_attributes : sattrlist.fennougrica,
+    unselected : true
+};
+
+
 settings.corpora.mulcold_en = {
     id : "mulcold_en",
     title: "MULCOLD englanti",
