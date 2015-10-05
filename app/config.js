@@ -2004,6 +2004,8 @@ settings.templ.kotus_ns_presidentti = {
 
 settings.fn.make_president_corpora = function () {
 
+    var corpus_id_prefix = "kotus_ns_presidentti_";
+
     var make_homepage_info = function (id) {
 	return {
 	    name : "Korpus Kaino-palvelussa",
@@ -2047,8 +2049,10 @@ settings.fn.make_president_corpora = function () {
 	["svinhufvud", "P. E.", "Svinhufvudin", "1935–1937"]
     ];
     var president_templ_fill = [];
+    var corpus_ids = [];
     for (var i = 0; i < president_info_items.length; i++) {
 	president_templ_fill.push(make_info(president_info_items[i]));
+	corpus_ids.push(corpus_id_prefix + president_info_items[i][0]);
     }
     president_templ_fill.push(
 	{ id : "muut",
@@ -2056,12 +2060,16 @@ settings.fn.make_president_corpora = function () {
 	  description : "Muiden kuin tasavallan presidenttien pitämät uudenvuodenpuheet: pääministeri Esko Aho (1993), eduskunnan puhemies Väinö Hakkila (1942), pääministeri Edwin Linkomies (1944), ministeri Mauno Pekkala (1945).",
 	  homepage : make_homepage_info("muut") }
     );
+    corpus_ids.push(corpus_id_prefix + "muut");
     settings.fn.add_corpus_settings(
 	settings.templ.kotus_ns_presidentti,
 	president_templ_fill,
 	settings.corporafolders.other_texts.kotus_ns_presidentti,
-	"kotus_ns_presidentti_"
+	corpus_id_prefix
     );
+    var joined_corpus_ids = corpus_ids.join(",");
+    settings.corpus_aliases["ns_presidentti"] = joined_corpus_ids;
+    settings.corpus_aliases["kotus_ns_presidentti"] = joined_corpus_ids;
 }
 
 settings.fn.make_president_corpora();
