@@ -269,6 +269,16 @@ settings.corporafolders.jrc = {
 		"jrc_acquis_itfi_fi", "jrc_acquis_hufi_fi", "jrc_acquis_plfi_fi"]
 };
 
+settings.corporafolders.opus_etfi = {
+    title : "OPUS ET–FI",
+    contents : ['opus_dgt_etfi_fi',
+		'opus_emea_etfi_fi',
+		'opus_kde4_etfi_fi',
+		'opus_opensubtitles2012_etfi_fi',
+                'opus_opensubtitles2011_etfi_fi',
+		'opus_opensubtitles2013_etfi_fi']
+};
+
 settings.corporafolders.opus_fipt = {
     title : "OPUS FI–PT",
     contents : ['opus_dgt_fipt_fi',
@@ -278,6 +288,40 @@ settings.corporafolders.opus_fipt = {
 		'opus_opensubtitles_fipt_fi',
 		'opus_emea_fipt_fi',
 		'opus_ecb_fipt_fi']
+};
+
+settings.corporafolders.opus_dafi = {
+    title : "OPUS FI–DA",
+    contents : ['opus_dgt_dafi_fi',
+		'opus_eubookshop_dafi_fi',
+		'opus_opensubtitles2012_dafi_fi',
+		'opus_opensubtitles2013_dafi_fi',
+		'opus_kde4_dafi_fi',
+		'opus_ecb_dafi_fi']
+};
+
+settings.corporafolders.opus_fipl = {
+    title : "OPUS FI–PL",
+    contents : ['opus_dgt_fipl_fi',
+		'opus_opensubtitles2011_fipl_fi',
+		'opus_opensubtitles2012_fipl_fi',
+		'opus_opensubtitles2013_fipl_fi',
+		'opus_emea_fipl_fi',
+		'opus_ecb_fipl_fi']
+};
+
+settings.corporafolders.opus_fifr = {
+    title : "OPUS FI–FR",
+    contents : ['opus_dgt_fifr_fi', 'opus_emea_fifr_fi', 'opus_ecb_fifr_fi',
+		'opus_eubookshop_fifr_fi', 'opus_opensubtitles2013_fifr_fi', 'opus_opensubtitles2011_fifr_fi']
+};
+
+settings.corporafolders.opus_esfi = {
+    title : "OPUS FI–ES",
+    contents : ['opus_dgt_esfi_fi',
+		'opus_eubookshop_esfi_fi',
+		'opus_opensubtitles2012_esfi_fi',
+		'opus_opensubtitles2013_esfi_fi']
 };
 
 
@@ -316,6 +360,874 @@ var wordlink = {
 }
 
 /* Opus */
+
+
+/* OPUS SPANISH */
+
+settings.corpora.opus_dgt_esfi_fi = {
+    title : "DGT - A collection of EU Translation Memories provided by the JRC",
+    description : "DGT",
+    id : "opus_dgt_esfi_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_dgt_esfi_es"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_dgt_esfi_es = {
+    title : "DGT - A collection of EU Translation Memories provided by the JRC",
+    description : "DGT",
+    id : "opus_dgt_esfi_es",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "spa",
+    linked_to : ["opus_dgt_esfi_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_opensubtitles2012_esfi_fi = {
+    title : "OpenSubtitles 2012",
+    description : "OpenSubtitles2012",
+    id : "opus_opensubtitles2012_esfi_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_opensubtitles2012_esfi_es"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_opensubtitles2012_esfi_es = {
+    title : "OpenSubtitles 2012",
+    description : "OpenSubtitles2012",
+    id : "opus_opensubtitles2012_esfi_es",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "spa",
+    linked_to : ["opus_opensubtitles2012_esfi_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_opensubtitles2013_esfi_fi = {
+    title : "OpenSubtitles 2013",
+    description : "OpenSubtitles2013",
+    id : "opus_opensubtitles2013_esfi_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_opensubtitles2013_esfi_es"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_opensubtitles2013_esfi_es = {
+    title : "OpenSubtitles 2013",
+    description : "OpenSubtitles2013",
+    id : "opus_opensubtitles2013_esfi_es",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "spa",
+    linked_to : ["opus_opensubtitles2013_esfi_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_eubookshop_esfi_fi = {
+    title : "The EU bookshop corpus",
+    description : "EUbookshop",
+    id : "opus_eubookshop_esfi_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_eubookshop_esfi_es"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_eubookshop_esfi_es = {
+    title : "The EU bookshop corpus",
+    description : "EUbookshop",
+    id : "opus_eubookshop_esfi_es",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "spa",
+    linked_to : ["opus_eubookshop_esfi_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+/* OPUS FRENCH */
+
+settings.corpora.opus_ecb_fifr_fr = {
+    title : "ECB - European Central Bank corpus",
+    description : "ECB",
+    id : "opus_ecb_fifr_fr",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fra",
+    linked_to : ["opus_ecb_fifr_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_ecb_fifr_fi = {
+    title : "ECB - European Central Bank corpus",
+    description : "ECB",
+    id : "opus_ecb_fifr_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_ecb_fifr_fr"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_emea_fifr_fr = {
+    title : "EMEA - European Medicines Agency documents",
+    description : "EMEA",
+    id : "opus_emea_fifr_fr",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fra",
+    linked_to : ["opus_emea_fifr_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_emea_fifr_fi = {
+    title : "EMEA - European Medicines Agency documents",
+    description : "EMEA",
+    id : "opus_emea_fifr_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_emea_fifr_fr"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_opensubtitles2013_fifr_fr = {
+    title : "OpenSubtitles 2013",
+    description : "OpenSubtitles2013",
+    id : "opus_opensubtitles2013_fifr_fr",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fra",
+    linked_to : ["opus_opensubtitles2013_fifr_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_opensubtitles2013_fifr_fi = {
+    title : "OpenSubtitles 2013",
+    description : "OpenSubtitles 2013",
+    id : "opus_opensubtitles2013_fifr_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_opensubtitles2013_fifr_fr"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_opensubtitles2011_fifr_fr = {
+    title : "OpenSubtitles 2011",
+    description : "OpenSubtitles2011",
+    id : "opus_opensubtitles2011_fifr_fr",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fra",
+    linked_to : ["opus_opensubtitles2011_fifr_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_opensubtitles2011_fifr_fi = {
+    title : "OpenSubtitles 2011",
+    description : "OpenSubtitles2011",
+    id : "opus_opensubtitles2011_fifr_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_opensubtitles2011_fifr_fr"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_eubookshop_fifr_fr = {
+    title : "The EU bookshop corpus",
+    description : "EUbookshop",
+    id : "opus_eubookshop_fifr_fr",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fra",
+    linked_to : ["opus_eubookshop_fifr_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_eubookshop_fifr_fi = {
+    title : "The EU bookshop corpus",
+    description : "EUbookshop",
+    id : "opus_eubookshop_fifr_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_eubookshop_fifr_fr"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_dgt_fifr_fr = {
+    title : "DGT - A collection of EU Translation Memories provided by the JRC",
+    description : "DGT",
+    id : "opus_dgt_fifr_fr",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fra",
+    linked_to : ["opus_dgt_fifr_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_dgt_fifr_fi = {
+    title : "DGT - A collection of EU Translation Memories provided by the JRC",
+    description : "DGT",
+    id : "opus_dgt_fifr_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_dgt_fifr_fr"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+
+/* OPUS POLISH */
+
+settings.corpora.opus_emea_fipl_pl = {
+    title : "EMEA",
+    description : "EMEA - European Medicines Agency documents",
+    id : "opus_emea_fipl_pl",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "pol",
+    linked_to : ["opus_emea_fipl_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_emea_fipl_fi = {
+    title : "EMEA",
+    description : "EMEA - European Medicines Agency documents",
+    id : "opus_emea_fipl_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fim",
+    linked_to : ["opus_emea_fipl_pl"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_ecb_fipl_pl = {
+    title : "ECB",
+    description : "ECB - European Central Bank corpus",
+    id : "opus_ecb_fipl_pl",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "pol",
+    linked_to : ["opus_ecb_fipl_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_ecb_fipl_fi = {
+    title : "ECB",
+    description : "ECB - European Central Bank corpus",
+    id : "opus_ecb_fipl_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fim",
+    linked_to : ["opus_ecb_fipl_pl"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_dgt_fipl_pl = {
+    title : "DGT",
+    description : "DGT - A collection of EU Translation Memories provided by the JRC",
+    id : "opus_dgt_fipl_pl",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "pol",
+    linked_to : ["opus_dgt_fipl_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_dgt_fipl_fi = {
+    title : "DGT",
+    description : "DGT - A collection of EU Translation Memories provided by the JRC",
+    id : "opus_dgt_fipl_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_dgt_fipl_pl"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_opensubtitles2012_fipl_pl = {
+    title : "OpenSubtitles2012",
+    description : "OpenSubtitles 2012",
+    id : "opus_opensubtitles2012_fipl_pl",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "pol",
+    linked_to : ["opus_opensubtitles2012_fipl_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_opensubtitles2012_fipl_fi = {
+    title : "OpenSubtitles2012",
+    description : "OpenSubtitles 2012",
+    id : "opus_opensubtitles2012_fipl_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_opensubtitles2012_fipl_pl"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_opensubtitles2013_fipl_pl = {
+    title : "OpenSubtitles2013",
+    description : "OpenSubtitles 2013",
+    id : "opus_opensubtitles2013_fipl_pl",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "pol",
+    linked_to : ["opus_opensubtitles2013_fipl_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_opensubtitles2013_fipl_fi = {
+    title : "OpenSubtitles2013",
+    description : "OpenSubtitles 2013",
+    id : "opus_opensubtitles2013_fipl_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_opensubtitles2013_fipl_pl"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_opensubtitles2011_fipl_pl = {
+    title : "OpenSubtitles2011",
+    description : "OpenSubtitles 2011",
+    id : "opus_opensubtitles2011_fipl_pl",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "pol",
+    linked_to : ["opus_opensubtitles2011_fipl_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_opensubtitles2011_fipl_fi = {
+    title : "OpenSubtitles2011",
+    description : "OpenSubtitles 2011",
+    id : "opus_opensubtitles2011_fipl_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_opensubtitles2011_fipl_pl"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+/* OPUS DANISH */
+
+settings.corpora.opus_dgt_dafi_fi = {
+    title : "DGT - A collection of EU Translation Memories provided by the JRC",
+    description : "DGT",
+    id : "opus_dgt_dafi_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_dgt_dafi_da"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_dgt_dafi_da = {
+    title : "DGT - A collection of EU Translation Memories provided by the JRC",
+    description : "DGT",
+    id : "opus_dgt_dafi_da",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "dan",
+    linked_to : ["opus_dgt_dafi_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_eubookshop_dafi_fi = {
+    title : "The EU bookshop corpus",
+    description : "EUbookshop",
+    id : "opus_eubookshop_dafi_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_eubookshop_dafi_da"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_eubookshop_dafi_da = {
+    title : "The EU bookshop corpus",
+    description : "EUbookshop",
+    id : "opus_eubookshop_dafi_da",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "dan",
+    linked_to : ["opus_eubookshop_dafi_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_opensubtitles2012_dafi_fi = {
+    title : "OpenSubtitles 2012",
+    description : "OpenSubtitles2012",
+    id : "opus_opensubtitles2012_dafi_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_opensubtitles2012_dafi_da"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_opensubtitles2012_dafi_da = {
+    title : "OpenSubtitles 2012",
+    description : "OpenSubtitles2012",
+    id : "opus_opensubtitles2012_dafi_da",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "dan",
+    linked_to : ["opus_opensubtitles2012_dafi_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_opensubtitles2013_dafi_fi = {
+    title : "OpenSubtitles 2013",
+    description : "OpenSubtitles2013",
+    id : "opus_opensubtitles2013_dafi_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_opensubtitles2013_dafi_da"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_opensubtitles2013_dafi_da = {
+    title : "OpenSubtitles 2013",
+    description : "OpenSubtitles2013",
+    id : "opus_opensubtitles2013_dafi_da",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "dan",
+    linked_to : ["opus_opensubtitles2013_dafi_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_kde4_dafi_fi = {
+    title : "KDE4 - KDE4 localization files (v.2)",
+    description : "KDE4",
+    id : "opus_kde4_dafi_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_kde4_dafi_da"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_kde4_dafi_da = {
+    title : "KDE4 - KDE4 localization files (v.2)",
+    description : "KDE4",
+    id : "opus_kde4_dafi_da",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "dan",
+    linked_to : ["opus_kde4_dafi_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_ecb_dafi_fi = {
+    title : "ECB - European Central Bank corpus",
+    description : "ECB",
+    id : "opus_ecb_dafi_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_ecb_dafi_da"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_ecb_dafi_da = {
+    title : "ECB - European Central Bank corpus",
+    description : "ECB",
+    id : "opus_ecb_dafi_da",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "dan",
+    linked_to : ["opus_ecb_dafi_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
 
 /* OPUS ESTONIAN */
 
