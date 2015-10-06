@@ -317,6 +317,261 @@ var wordlink = {
 
 /* Opus */
 
+/* OPUS ESTONIAN */
+
+settings.corpora.opus_dgt_fipt_fi = {
+    title : "DGT",
+    description : "DGT - A collection of EU Translation Memories provided by the JRC",
+    id : "opus_dgt_fipt_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_dgt_fipt_pt"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_opensubtitles2011_etfi_fi = {
+    title : "OpenSubtitles2011",
+    description : "OpenSubtitles 2011",
+    id : "opus_opensubtitles2011_etfi_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_opensubtitles2011_etfi_et"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_opensubtitles2011_etfi_et = {
+    title : "OpenSubtitles2011",
+    description : "OpenSubtitles 2011",
+    id : "opus_opensubtitles2011_etfi_et",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "est",
+    linked_to : ["opus_opensubtitles2011_etfi_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_emea_etfi_fi = {
+    title : "EMEA",
+    description : "EMEA - European Medicines Agency documents",
+    id : "opus_emea_etfi_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_emea_etfi_et"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+settings.corpora.opus_kde4_etfi_fi = {
+    title : "KDE4",
+    description : "KDE4 - KDE4 localization files (v.2)",
+    id : "opus_kde4_etfi_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_kde4_etfi_et"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_kde4_etfi_et = {
+    title : "KDE4",
+    description : "KDE4 - KDE4 localization files (v.2)",
+    id : "opus_kde4_etfi_et",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "est",
+    linked_to : ["opus_kde4_etfi_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_emea_etfi_et = {
+    title : "EMEA",
+    description : "EMEA - European Medicines Agency documents",
+    id : "opus_emea_etfi_et",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "est",
+    linked_to : ["opus_emea_etfi_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_dgt_etfi_fi = {
+    title : "DGT",
+    description : "DGT - A collection of EU Translation Memories provided by the JRC",
+    id : "opus_dgt_etfi_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_dgt_etfi_et"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_dgt_etfi_et = {
+    title : "DGT",
+    description : "DGT - A collection of EU Translation Memories provided by the JRC",
+    id : "opus_dgt_etfi_et",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "est",
+    linked_to : ["opus_dgt_etfi_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_opensubtitles2012_etfi_fi = {
+    title : "OpenSubtitles2012",
+    description : "OpenSubtitles 2012",
+    id : "opus_opensubtitles2012_etfi_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_opensubtitles2012_etfi_et"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_opensubtitles2012_etfi_et = {
+    title : "OpenSubtitles2012",
+    description : "OpenSubtitles 2012",
+    id : "opus_opensubtitles2012_etfi_et",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "est",
+    linked_to : ["opus_opensubtitles2012_etfi_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+settings.corpora.opus_opensubtitles2013_etfi_fi = {
+    title : "OpenSubtitles2013",
+    description : "OpenSubtitles 2013",
+    id : "opus_opensubtitles2013_etfi_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_opensubtitles2013_etfi_et"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_opensubtitles2013_etfi_et = {
+    title : "OpenSubtitles2013",
+    description : "OpenSubtitles 2013",
+    id : "opus_opensubtitles2013_etfi_et",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "est",
+    linked_to : ["opus_opensubtitles2013_etfi_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+
+/* OPUS PORTUGUESE */
 settings.corpora.opus_ecb_fipt_pt = {
     title : "ECB",
     description : "ECB - European Central Bank corpus",
