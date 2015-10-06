@@ -269,6 +269,17 @@ settings.corporafolders.jrc = {
 		"jrc_acquis_itfi_fi", "jrc_acquis_hufi_fi", "jrc_acquis_plfi_fi"]
 };
 
+settings.corporafolders.opus_fipt = {
+    title : "OPUS FI–PT",
+    contents : ['opus_dgt_fipt_fi',
+		'opus_eubookshop_fipt_fi',
+		'opus_opensubtitles2011_fipt_fi',
+		'opus_opensubtitles2013_fipt_fi',
+		'opus_opensubtitles_fipt_fi',
+		'opus_emea_fipt_fi',
+		'opus_ecb_fipt_fi']
+};
+
 
 /*
 settings.corporafolders.kfspc = {
@@ -305,6 +316,281 @@ var wordlink = {
 }
 
 /* Opus */
+
+settings.corpora.opus_ecb_fipt_pt = {
+    title : "ECB",
+    description : "ECB - European Central Bank corpus",
+    id : "opus_ecb_fipt_pt",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "por",
+    linked_to : ["opus_ecb_fipt_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_ecb_fipt_fi = {
+    title : "ECB",
+    description : "ECB - European Central Bank corpus",
+    id : "opus_ecb_fipt_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_ecb_fipt_pt"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_emea_fipt_pt = {
+    title : "EMEA",
+    description : "EMEA - European Medicines Agency documents",
+    id : "opus_emea_fipt_pt",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "por",
+    linked_to : ["opus_emea_fipt_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_emea_fipt_fi = {
+    title : "EMEA",
+    description : "EMEA - European Medicines Agency documents",
+    id : "opus_emea_fipt_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_emea_fipt_pt"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_opensubtitles2011_fipt_pt = {
+    title : "OpenSubtitles2011",
+    description : "OpenSubtitles 2011",
+    id : "opus_opensubtitles2011_fipt_pt",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "por",
+    linked_to : ["opus_opensubtitles2011_fipt_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_opensubtitles2011_fipt_fi = {
+    title : "OpenSubtitles2011",
+    description : "OpenSubtitles 2011",
+    id : "opus_opensubtitles2011_fipt_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_opensubtitles2011_fipt_pt"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_opensubtitles2013_fipt_pt = {
+    title : "OpenSubtitles2013",
+    description : "OpenSubtitles 2013",
+    id : "opus_opensubtitles2013_fipt_pt",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "por",
+    linked_to : ["opus_opensubtitles2013_fipt_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_opensubtitles2013_fipt_fi = {
+    title : "OpenSubtitles2013",
+    description : "OpenSubtitles 2013",
+    id : "opus_opensubtitles2013_fipt_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_opensubtitles2013_fipt_pt"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+
+
+settings.corpora.opus_eubookshop_fipt_pt = {
+    title : "EUbookshop",
+    description : "The EU bookshop corpus",
+    id : "opus_eubookshop_fipt_pt",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "por",
+    linked_to : ["opus_eubookshop_fipt_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_eubookshop_fipt_fi = {
+    title : "EUbookshop",
+    description : "The EU bookshop corpus",
+    id : "opus_eubookshop_fipt_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_eubookshop_fipt_pt"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_opensubtitles_fipt_pt = {
+    title : "OpenSubtitles2012",
+    description : "OpenSubtitles 2012",
+    id : "opus_opensubtitles_fipt_pt",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "por",
+    linked_to : ["opus_opensubtitles_fipt_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_opensubtitles_fipt_fi = {
+    title : "OpenSubtitles2012",
+    description : "OpenSubtitles 2012",
+    id : "opus_opensubtitles_fipt_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_opensubtitles_fipt_pt"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+settings.corpora.opus_dgt_fipt_pt = {
+    title : "DGT",
+    description : "DGT - A collection of EU Translation Memories provided by the JRC",
+    id : "opus_dgt_fipt_pt",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "por",
+    linked_to : ["opus_dgt_fipt_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_dgt_fipt_fi = {
+    title : "DGT",
+    description : "DGT - A collection of EU Translation Memories provided by the JRC",
+    id : "opus_dgt_fipt_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fin",
+    linked_to : ["opus_dgt_fipt_pt"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
 
 settings.corpora.opus_ecb_fipl_pl = {
     title : "ECB",
