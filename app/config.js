@@ -3197,6 +3197,15 @@ attrlist.topling = {
     type : attrs.wordtype
 };
 
+/* OPUS */
+
+sattrlist.opus = {
+    sentence_id : sattrs.sentence_id_hidden,
+    text_title : {
+        label : "title"
+    }
+};
+
 sattrlist = {};
 
 sattrlist.europarl_v7 = {

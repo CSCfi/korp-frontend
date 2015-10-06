@@ -304,6 +304,49 @@ var wordlink = {
 	displayType : "hidden"
 }
 
+/* Opus */
+
+settings.corpora.opus_ecb_fipl_pl = {
+    title : "ECB",
+    description : "ECB - European Central Bank corpus",
+    id : "opus_ecb_fipl_pl",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "pol",
+    linked_to : ["opus_ecb_fipl_fi"],
+    context: context.alignAligned,
+    within: {
+	"sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus,
+    hide : true
+};
+
+settings.corpora.opus_ecb_fipl_fi = {
+    title : "ECB",
+    description : "ECB - European Central Bank corpus",
+    id : "opus_ecb_fipl_fi",
+    urn : "unspecified",
+    metadata_urn : "",
+    lang : "fim",
+    linked_to : ["opus_ecb_fipl_pl"],
+    context: context.alignAligned,
+    within: {
+        "sentence": "sentence"
+    },
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.opus
+};
+
+
+
 /* Europarl V7 */
 
 settings.corpora.europarl_v7_enfi_en = {
