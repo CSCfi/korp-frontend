@@ -3199,12 +3199,14 @@ attrlist.topling = {
 
 /* OPUS */
 
+/*
 sattrlist.opus = {
     sentence_id : sattrs.sentence_id_hidden,
     text_title : {
         label : "title"
     }
 };
+*/
 
 sattrlist = {};
 

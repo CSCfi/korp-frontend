@@ -332,7 +332,7 @@ settings.corpora.opus_ecb_fipl_fi = {
     id : "opus_ecb_fipl_fi",
     urn : "unspecified",
     metadata_urn : "",
-    lang : "fim",
+    lang : "fin",
     linked_to : ["opus_ecb_fipl_pl"],
     context: context.alignAligned,
     within: {
