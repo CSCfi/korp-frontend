@@ -112,7 +112,7 @@
       if (value == null) {
         value = "";
       }
-      if ((value === "|" || value === "") && !((attrs.translationKey != null) && (((ref1 = attrs.dataset) != null ? ref1[value] : void 0) != null))) {
+      if ((value === "|" || value === "") && !((attrs.translationKey != null) && (((ref1 = attrs.dataset) != null ? ref1[value] : void 0) != null)) && (attrs.stringify_synthetic == null)) {
         return output.append("<i rel='localize[empty]' style='color : grey'>${util.getLocaleString('empty')}</i>");
       }
       if (attrs.type === "set") {

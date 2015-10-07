@@ -114,7 +114,8 @@ Sidebar =
         # 2015-08-26)
         value ?= ""
         if (value == "|" or value == "") and
-                not (attrs.translationKey? and attrs.dataset?[value]?)
+                not (attrs.translationKey? and attrs.dataset?[value]?) and
+                not attrs.stringify_synthetic?
             # The original version only appended to the output here
             # but did not return yet. Would we need further processing
             # for empty values in some cases? (Jyrki Niemi 2015-08-26)
