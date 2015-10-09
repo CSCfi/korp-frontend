@@ -1409,5 +1409,18 @@
     "klk_lang_myv" : "ersä",
     "klk_lang_sel" : "selkuppi",
     "klk_lang_vep" : "vepsä",
-    "klk_lang_yrk" : "tundranenetsi"
+    "klk_lang_yrk" : "tundranenetsi",
+    "scotscorr_largeregion" : "alue",
+    "scotscorr_bi" : "aiempi julkaisu",
+    "scotscorr_ms" : "NLS/NRS-tunniste",
+    "scotscorr_lcinf" : "kirjoittajan paikkatiedot",
+    "scotscorr_lclet" : "kirjeen paikkatiedot",
+    "scotscorr_wc" : "sanamäärä",
+    "scotscorr_arg" : "vastaanottajan sukupuoli/asema",
+    "scotscorr_srg" : "lähettäjän sukupuoli/asema",
+    "scotscorr_lettertype" : "kirjeen tyyppi",
+    "scotscorr_scripttype" : "käsiala",
+    "scotscorr_year" : "vuosi",
+    "scotscorr_st" : "transkription tiedot",
+    "scotscorr_fraser" : "kuvaus"
 }
