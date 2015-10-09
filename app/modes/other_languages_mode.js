@@ -137,14 +137,13 @@ settings.corpora.fennougrica_veps = {
     // unselected : true
 };
 
-
 settings.corpora.scots_f1550_1599 = {
     id : "scots_f1550_1599",
     title : "Female 1550–1599",
     description : "Female 1550–1599",
     context : settings.defaultContext,
     within : settings.defaultWithin,
-    attributes : attrlist.scotscorr,
+    attributes : {},
     struct_attributes : sattrlist.scotscorr
 };
 
@@ -154,7 +153,7 @@ settings.corpora.scots_f1600_1649 = {
     description : "Female 1600–1649",
     context : settings.defaultContext,
     within : settings.defaultWithin,
-    attributes : attrlist.scotscorr,
+    attributes : {},
     struct_attributes : sattrlist.scotscorr
 };
 
@@ -164,7 +163,7 @@ settings.corpora.scots_f1650_1699 = {
     description : "Female 1650–1699",
     context : settings.defaultContext,
     within : settings.defaultWithin,
-    attributes : attrlist.scotscorr,
+    attributes : {},
     struct_attributes : sattrlist.scotscorr
 };
 
@@ -174,7 +173,7 @@ settings.corpora.scots_f1700_1749 = {
     description : "Female 1700–1749",
     context : settings.defaultContext,
     within : settings.defaultWithin,
-    attributes : attrlist.scotscorr,
+    attributes : {},
     struct_attributes : sattrlist.scotscorr
 };
 
@@ -184,7 +183,7 @@ settings.corpora.scots_m1550_1599 = {
     description : "Male 1550–1599",
     context : settings.defaultContext,
     within : settings.defaultWithin,
-    attributes : attrlist.scotscorr,
+    attributes : {},
     struct_attributes : sattrlist.scotscorr
 };
 
@@ -194,7 +193,7 @@ settings.corpora.scots_m1600_1649 = {
     description : "Male 1600–1649",
     context : settings.defaultContext,
     within : settings.defaultWithin,
-    attributes : attrlist.scotscorr,
+    attributes : {},
     struct_attributes : sattrlist.scotscorr
 };
 
@@ -204,7 +203,7 @@ settings.corpora.scots_m1650_1699 = {
     description : "Male 1650–1699",
     context : settings.defaultContext,
     within : settings.defaultWithin,
-    attributes : attrlist.scotscorr,
+    attributes : {},
     struct_attributes : sattrlist.scotscorr
 };
 
@@ -214,7 +213,7 @@ settings.corpora.scots_m1700_1749 = {
     description : "Male 1700–1749",
     context : settings.defaultContext,
     within : settings.defaultWithin,
-    attributes : attrlist.scotscorr,
+    attributes : {},
     struct_attributes : sattrlist.scotscorr
 };
 
@@ -224,7 +223,7 @@ settings.corpora.scots_royal = {
     description : "Royal",
     context : settings.defaultContext,
     within : settings.defaultWithin,
-    attributes : attrlist.scotscorr,
+    attributes : {},
     struct_attributes : sattrlist.scotscorr
 };
 

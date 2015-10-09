@@ -3250,7 +3250,6 @@ sattrlist.scotscorr = {
     text_largeregion : { label : "scotscorr_largeregion"}
 };
 
-
 sattrlist.europarl_v7 = {
     text_title : sattrs.text_title,
     sentence_id : sattrs.sentence_id_hidden,
