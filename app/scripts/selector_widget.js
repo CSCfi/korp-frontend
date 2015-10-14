@@ -191,7 +191,10 @@ var hp_corpusChooser = {
 			$(".corpusInfoSpace").css({"left": (pos.toString() + "px")})
 			.click(function(event) {
 				var target = event.target;
-				if(!$(target).is("a"))
+			        // Also allow "a" as a parent, so that
+			        // the target may be a localized
+			        // "span". (Jyrki Niemi 2015-10-13)
+				if(!($(target).is("a") || $(target).parent().is("a")))
 					return false;
 			});
 
