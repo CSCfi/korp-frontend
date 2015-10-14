@@ -32,7 +32,7 @@
     li#import
       a.follow_link(href='/cgi-bin/annlab/parse', target='_blank', rel='localize[import_chain]')
     li
-      a.follow_link(href='http://www.kielipankki.fi', rel='localize[language_bank]') Kielipankki
+      a.follow_link(href="{{'language_bank_url' | loc}}", target="_blank") {{'language_bank' | loc}}
     li#login
       a(href='javascript:', rel='localize[log_in]')
   #news_area

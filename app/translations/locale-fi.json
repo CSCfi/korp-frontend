@@ -28,6 +28,7 @@
     "korp_lab" : "Korp-laboratorio (Korp beta)",
     "university" : "Helsingin yliopisto",
     "language_bank" : "Kielipankki",
+    "language_bank_url" : "http://www.kielipankki.fi",
     "feedback_link" : "<a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html' target='_blank'>Palaute</a>",
     "feedback_url" : "https://elomake.helsinki.fi/lomakkeet/56593/lomake.html",
     "feedback_linktext" : "Palaute",
