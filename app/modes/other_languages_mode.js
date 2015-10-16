@@ -26,7 +26,7 @@ settings.spContext = {
     "1 paragraph" : "1 paragraph"
 };
 
-
+/*
 settings.corporafolders.fennougrica = {
     title : "Fenno-Ugrica",
     contents : ["fennougrica_myv",
@@ -41,7 +41,7 @@ settings.corporafolders.fennougrica = {
                 "fennougrica_mns",
                 "fennougrica_mrj"]
 };
-
+*/
 settings.corporafolders.english = {
     title : "Englanninkielisiä tekstejä",
     contents : ["mulcold_en", "topling"]
@@ -87,6 +87,7 @@ settings.corpora.fennougrica = {
 };
 */
 
+/*
 settings.corpora.fennougrica_izh = {
     id : "fennougrica_izh",
     title : "Inkeroinen",
@@ -203,7 +204,7 @@ settings.corpora.fennougrica_yrk = {
     struct_attributes : sattrlist.fennougrica,
     unselected : true
 };
-
+*/
 settings.corpora.mulcold_en = {
     id : "mulcold_en",
     title: "MULCOLD englanti",
