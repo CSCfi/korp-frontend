@@ -257,6 +257,7 @@ settings.corpora.topling = {
     struct_attributes : sattrlist.topling
 };
 
+/*
 settings.corpora.fennougrica_veps = {
     id : "fennougrica_veps",
     title : "Fenno-Ugrica: Vepsä (näyte)",
@@ -269,6 +270,7 @@ settings.corpora.fennougrica_veps = {
     struct_attributes : sattrlist.fennougrica_veps,
     // unselected : true
 };
+*/
 
 settings.corpora.scots_f1550_1599 = {
     id : "scots_f1550_1599",
