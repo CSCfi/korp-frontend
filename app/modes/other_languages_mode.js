@@ -27,6 +27,21 @@ settings.spContext = {
 };
 
 
+settings.corporafolders.fennougrica = {
+    title : "Fenno-Ugrica",
+    contents : ["fennougrica_myv",
+                "fennougrica_izh",
+                "fennougrica_sel",
+                "fennougrica_kca",
+                "fennougrica_vep",
+                "fennougrica_mdf",
+                "fennougrica_vep",
+                "fennougrica_mhr",
+                "fennougrica_yrk",
+                "fennougrica_mns",
+                "fennougrica_mrj"]
+};
+
 settings.corporafolders.english = {
     title : "Englanninkielisiä tekstejä",
     contents : ["mulcold_en", "topling"]
@@ -57,6 +72,7 @@ settings.corporafolders.scotscorr = {
                 "scots_royal"]
 };
 
+/*
 settings.corpora.fennougrica = {
     id : "fennougrica",
     title : "Fenno-Ugrica",
@@ -69,7 +85,124 @@ settings.corpora.fennougrica = {
     struct_attributes : sattrlist.fennougrica,
     unselected : true
 };
+*/
 
+settings.corpora.fennougrica_izh = {
+    id : "fennougrica_izh",
+    title : "Inkeroinen",
+    description : "Fenno-Ugrica, inkeroinen",
+    metadata_urn : "urn:nbn:fi:lb-2014073056",
+    homepage_url : "http://fennougrica.kansalliskirjasto.fi/",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.fennougrica,
+    struct_attributes : sattrlist.fennougrica,
+    unselected : true
+};
+
+settings.corpora.fennougrica_kca = {
+    id : "fennougrica_kca",
+    title : "Hanti",
+    description : "Fenno-Ugrica, hanti",
+    metadata_urn : "urn:nbn:fi:lb-2014073056",
+    homepage_url : "http://fennougrica.kansalliskirjasto.fi/",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.fennougrica,
+    struct_attributes : sattrlist.fennougrica,
+    unselected : true
+};
+
+settings.corpora.fennougrica_mdf = {
+    id : "fennougrica_mdf",
+    title : "Mokša",
+    description : "Fenno-Ugrica, mokša",
+    metadata_urn : "urn:nbn:fi:lb-2014073056",
+    homepage_url : "http://fennougrica.kansalliskirjasto.fi/",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.fennougrica,
+    struct_attributes : sattrlist.fennougrica,
+    unselected : true
+};
+
+settings.corpora.fennougrica_mns = {
+    id : "fennougrica_mns",
+    title : "Mansi",
+    description : "Fenno-Ugrica, mansi",
+    metadata_urn : "urn:nbn:fi:lb-2014073056",
+    homepage_url : "http://fennougrica.kansalliskirjasto.fi/",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.fennougrica,
+    struct_attributes : sattrlist.fennougrica,
+    unselected : true
+};
+
+settings.corpora.fennougrica_mrj = {
+    id : "fennougrica_mrj",
+    title : "Länsimari",
+    description : "Fenno-Ugrica, länsimari",
+    metadata_urn : "urn:nbn:fi:lb-2014073056",
+    homepage_url : "http://fennougrica.kansalliskirjasto.fi/",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.fennougrica,
+    struct_attributes : sattrlist.fennougrica,
+    unselected : true
+};
+
+settings.corpora.fennougrica_myv = {
+    id : "fennougrica_myv",
+    title : "Ersä",
+    description : "Fenno-Ugrica, ersä",
+    metadata_urn : "urn:nbn:fi:lb-2014073056",
+    homepage_url : "http://fennougrica.kansalliskirjasto.fi/",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.fennougrica,
+    struct_attributes : sattrlist.fennougrica,
+    unselected : true
+};
+
+settings.corpora.fennougrica_sel = {
+    id : "fennougrica_sel",
+    title : "Selkuppi",
+    description : "Fenno-Ugrica, selkuppi",
+    metadata_urn : "urn:nbn:fi:lb-2014073056",
+    homepage_url : "http://fennougrica.kansalliskirjasto.fi/",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.fennougrica,
+    struct_attributes : sattrlist.fennougrica,
+    unselected : true
+};
+
+settings.corpora.fennougrica_vep = {
+    id : "fennougrica_vep",
+    title : "Vepsä",
+    description : "Fenno-Ugrica, vepsä",
+    metadata_urn : "urn:nbn:fi:lb-2014073056",
+    homepage_url : "http://fennougrica.kansalliskirjasto.fi/",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.fennougrica,
+    struct_attributes : sattrlist.fennougrica,
+    unselected : true
+};
+
+settings.corpora.fennougrica_yrk = {
+    id : "fennougrica_yrk",
+    title : "Tundranenetsi",
+    description : "Fenno-Ugrica, tundranenetsi",
+    metadata_urn : "urn:nbn:fi:lb-2014073056",
+    homepage_url : "http://fennougrica.kansalliskirjasto.fi/",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.fennougrica,
+    struct_attributes : sattrlist.fennougrica,
+    unselected : true
+};
 
 settings.corpora.mulcold_en = {
     id : "mulcold_en",
