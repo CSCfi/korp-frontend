@@ -3522,91 +3522,102 @@ settings.corpora.mulcold_fi = {
  * Previously in Finnish National Library mode
  */
 
-sattrlist.klk_fi = {
+sattrlist.klk = {
     text_label : {
+	// The label has the prefix klk_ because it might not have the
+	// same meaning as "label" in some other contexts.
         label : "klk_label",
         opts : settings.defaultOptions,
     },
     text_publ_title : {
-        label : "klk_publ_title",
+        label : "publication",
         opts : settings.defaultOptions,
     },
     /*
     text_publ_part : {
-        label : "klk_publ_part",
+        label : "part",
         opts : settings.defaultOptions,
     },
     */
     text_publ_id : {
-        label : "klk_publ_id",
+        label : "issn",
         opts : settings.defaultOptions,
     },
     text_issue_date : {
-        label : "klk_issue_date",
+        label : "date",
         opts : settings.defaultOptions,
     },
     text_issue_no : {
-        label : "klk_issue_no",
+        label : "issue_num",
         opts : settings.defaultOptions,
     },
     text_issue_title : {
-        label : "klk_issue_title",
+        label : "issue_title",
         opts : settings.defaultOptions,
     },
     /*
     text_part_name : {
-        label : "klk_part_name",
+        label : "part_name",
         opts : settings.defaultOptions,
     },
     */
     text_elec_date : {
-        label : "klk_elec_date",
+        label : "digitization_date",
         opts : settings.defaultOptions,
     },
     text_language : {
-        label : "klk_language",
-        opts : settings.defaultOptions,
+        label : "lang",
+        displayType : "select",
+        translationKey : "",
+        opts : settings.liteOptions,
+        dataset : {
+            "fi" : "fin",
+            "sv" : "swe",
+            "et" : "est",
+        }
     },
     /*
     text_page_id : {
-        label : "klk_page_id",
+        label : "page_id",
         opts : settings.defaultOptions,
     },
     */
     text_page_no : {
-        label : "klk_page_no",
+        label : "page_num",
         opts : settings.defaultOptions,
     },
     text_sentcount : {
-        label : "klk_sentcount",
+        label : "sentence_count",
         displayType : "hidden",
     },
     text_tokencount : {
-        label : "klk_tokencount",
+        label : "token_count",
         displayType : "hidden",
     },
     text_img_url : {
-        label : "klk_img_url",
+        label : "image_url",
         type : "url",
 	displayType : "hidden",
     },
+    /*
     text_dateto : {
-        label : "klk_dateto",
+        label : "dateto",
         displayType : "hidden",
     },
     text_datefrom : {
-        label : "klk_datefrom",
+        label : "datefrom",
         displayType : "hidden",
     },
+    */
     text_publ_type : {
 	label : "publication_type",
 	displayType : "select",
 	translationKey : "publtype_",
 	opts : settings.liteOptions,
-	dataset : [
-	    "aikakausi",
-	    "sanomalehti"
-	]
+	dataset : {
+	    "aikakausi" : "journal",
+	    "sanomalehti" : "newspaper"
+	}
     },
     paragraph_id : {
         label : "paragraph_id",
@@ -3615,24 +3626,25 @@ sattrlist.klk_fi = {
     sentence_id : sattrs.sentence_id_hidden
 };
 
-sattrlist.klk_fi_parsed = $.extend({}, sattrlist.klk_fi);
-$.extend(sattrlist.klk_fi_parsed,
-	 {
-	     sentence_parse_state : {
-		 label : "klk_parse_state",
-		 displayType : "select",
-		 translationKey : "parse_state_",
-		 opts : settings.liteOptions,
-		 dataset : {
-		     "parsed" : "parsed",
-		     "tagged" : "tagged"
-		 }
-	     },
-	     sentence_local_id : {
-		 label : "local_id",
-		 displayType : "hidden"
-	     }
-	 });
+sattrlist.klk_fi = $.extend({}, sattrlist.klk);
+sattrlist.klk_fi_parsed = $.extend(
+    {}, sattrlist.klk_fi,
+    {
+	sentence_parse_state : {
+	    label : "parse_state",
+	    displayType : "select",
+	    translationKey : "parse_state_",
+	    opts : settings.liteOptions,
+	    dataset : {
+		"parsed" : "parsed",
+		"tagged" : "tagged"
+	    }
+	},
+	sentence_local_id : {
+	    label : "local_id",
+	    displayType : "hidden"
+	}
+    });
 
 
 // Functions used to make page URL attribute values
@@ -3733,8 +3745,8 @@ sattrlist.klk_pagelinks = {
     },
 };
 
-sattrlist.klk_fi_parsed_pagelinks = $.extend({}, sattrlist.klk_fi_parsed);
-$.extend(sattrlist.klk_fi_parsed_pagelinks, sattrlist.klk_pagelinks);
+sattrlist.klk_fi_parsed_pagelinks = $.extend(
+    {}, sattrlist.klk_fi_parsed, sattrlist.klk_pagelinks);
 
 attrlist.klk_fi = {
     ocr : {

@@ -423,8 +423,8 @@
     "coctaill_language_example_skill" : "language_example_skill",
 
     "publication_type" : "publikationstyp",
-    "publtype_aikakausi" : "tidskrift",
-    "publtype_sanomalehti" : "tidning",
+    "publtype_journal" : "tidskrift",
+    "publtype_newspaper" : "tidning",
 
     "show_page_image" : "Visa originalsida",
     "show_page_image_context" : "Visa originalsida med ordkontext i fet stil",

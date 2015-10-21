@@ -588,14 +588,14 @@
 
     "year_published" : "year published",
 
-    "klk_parse_state" : "parse state",
+    "parse_state" : "parse state",
 
     "parse_state_parsed" : "parsed",
     "parse_state_tagged" : "tagged",
 
     "publication_type" : "type of publication",
-    "publtype_aikakausi" : "periodical",
-    "publtype_sanomalehti" : "newspaper",
+    "publtype_journal" : "journal",
+    "publtype_newspaper" : "newspaper",
 
     "show_page_image" : "Show page image",
     "show_page_image_context" : "Show page image, word context highlighted",
