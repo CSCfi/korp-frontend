@@ -87,7 +87,7 @@ settings.corpora.fennougrica = {
 };
 */
 
-/*
+
 settings.corpora.fennougrica_izh = {
     id : "fennougrica_izh",
     title : "Inkeroinen",
@@ -204,7 +204,7 @@ settings.corpora.fennougrica_yrk = {
     struct_attributes : sattrlist.fennougrica,
     unselected : true
 };
-*/
+
 settings.corpora.mulcold_en = {
     id : "mulcold_en",
     title: "MULCOLD englanti",
