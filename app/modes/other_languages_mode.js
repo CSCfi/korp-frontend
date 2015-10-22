@@ -26,7 +26,7 @@ settings.spContext = {
     "1 paragraph" : "1 paragraph"
 };
 
-/*
+
 settings.corporafolders.fennougrica = {
     title : "Fenno-Ugrica",
     contents : ["fennougrica_myv",
@@ -41,7 +41,7 @@ settings.corporafolders.fennougrica = {
                 "fennougrica_mns",
                 "fennougrica_mrj"]
 };
-*/
+
 settings.corporafolders.english = {
     title : "Englanninkielisiä tekstejä",
     contents : ["mulcold_en", "topling"]
