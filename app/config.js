@@ -1202,7 +1202,9 @@ sattrs.paragraph_type = {
     label : "paragraph_type"
 };
 
-sattrs.text_genre = {
+// Text genre values specifically for Mikhail Mikhailov's (UTA)
+// corpora (MULCOLD, FiRuLex, ParFin, ParRus)
+sattrs.mikhailov_text_genre = {
     label : "text_genre",
     displayType : "select",
     translationKey : "textgenre_",
@@ -3452,46 +3454,46 @@ sattrlist.topling = {
 
 sattrlist.mulcold = {
     align_text_code : {
-	label : "text_code"
+	label : "text_id"
     },
     align_text_author : {
-	label : "text_author"
+	label : "author"
     },
     align_text_title : {
-	label : "text_title"
+	label : "title"
     },
     align_text_typeoftext : {
-	label : "text_typeoftext"
+	label : "text_type"
     },
-    align_text_genre : sattrs.text_genre,
+    align_text_genre : sattrs.mikhailov_text_genre,
     align_text_period : {
-	label : "text_period"
+	label : "year"
     },
     align_text_publisher : {
-	label : "text_publisher"
+	label : "publisher"
     },
     sentence_id : sattrs.sentence_id_hidden
 };
 
 sattrlist.legal = {
     text_code : {
-	label : "text_code"
+	label : "text_id"
     },
     text_author : {
-	label : "text_author"
+	label : "author"
     },
     text_title : {
-	label : "text_title"
+	label : "title"
     },
     text_typeoftext : {
-	label : "text_typeoftext"
+	label : "text_type"
     },
-    text_genre : sattrs.text_genre,
+    text_genre : sattrs.mikhailov_text_genre,
     text_period : {
 	label : "text_period"
     },
     text_publisher : {
-	label : "text_publisher"
+	label : "publisher"
     },
     sentence_id : sattrs.sentence_id_hidden
 };

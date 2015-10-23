@@ -7538,67 +7538,7 @@ settings.corpora.europarl_en = {
 };
 */
 
-attrlist = {};
-attrlist.mulcold_fi = {
-    lemma : attrs.baseform,
-    lemmacomp : attrs.baseform_compound,
-    pos : attrs.pos_mulcold_fi,
-    msd : attrs.msd,
-    amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos,
-    ambmsd : attrs.ambiguous_msd
-};
-attrlist.mulcold_ru = {
-    lemma : attrs.baseform,
-    pos : attrs.pos_mulcold_ru,
-    msd : attrs.msd,
-    amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos,
-    ambmsd : attrs.ambiguous_msd
-};
-attrlist.mulcold_en = {
-    lemma : attrs.baseform,
-    pos : attrs.pos_mulcold_en,
-    msd : attrs.msd,
-    amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos,
-    ambmsd : attrs.ambiguous_msd
-};
-attrlist.mulcold_sv = {
-    lemma : attrs.baseform,
-    lemmacomp : attrs.baseform_compound,
-    pos : attrs.pos_mulcold_sv,
-    msd : attrs.msd,
-    amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos,
-    ambmsd : attrs.ambiguous_msd
-};
-attrlist.mulcold_de = {
-};
 
-sattrlist = {};
-sattrlist.mulcold = {
-    align_text_code : {
-	label : "text_code"
-    },
-    align_text_author : {
-	label : "text_author"
-    },
-    align_text_title : {
-	label : "text_title"
-    },
-    align_text_typeoftext : {
-	label : "text_typeoftext"
-    },
-    align_text_genre : sattrs.text_genre,
-    align_text_period : {
-	label : "text_period"
-    },
-    align_text_publisher : {
-	label : "text_publisher"
-    },
-    sentence_id : sattrs.sentence_id_hidden
-};
 // Make a deep copy of sattrlist.mulcold and then extend it
 sattrlist.parfin = $.extend(
     true, {}, sattrlist.mulcold,
