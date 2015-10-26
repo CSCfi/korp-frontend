@@ -7,7 +7,7 @@ settings.lemgramSelect = true;
 settings.wordpicture = false;
 
 
-settings.preselected_corpora = ["mulcold_sv"];
+settings.preselected_corpora = ["mulcold_sv", "kfspc_sv"];
 
 
 $("#lemgram_list_item").remove();
@@ -104,6 +104,19 @@ settings.corpora.mulcold_sv = {
     within : settings.defaultWithin,
     attributes: attrlist.mulcold_sv,
     struct_attributes : sattrlist.mulcold,
+};
+
+
+settings.corpora.kfspc_sv = {
+    title : "KFSPC svenska",
+    description : "Kotus Finnish-Swedish Parallel Corpus, svenskspråkiga delen",
+    id : "kfspc_sv",
+    lang : "swe",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes : {
+    },
+    struct_attributes : sattrlist.kfspc,
 };
 
 

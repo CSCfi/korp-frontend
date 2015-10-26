@@ -1262,6 +1262,8 @@
     "text_genre" : "tekstilaji",
     "text_period" : "tekstin ajankohta",
 
+    "publication_date" : "julkaisuajankohta",
+
     "author_birthyear" : "tekijän syntymävuosi",
     "author_deathyear" : "tekijän kuolinvuosi",
     "original_url" : "alkuperäisteksti",

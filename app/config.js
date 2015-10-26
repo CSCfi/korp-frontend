@@ -1234,11 +1234,11 @@ sattrs.text_translator = {
 /* KFSCP --- */
 
 sattrs.text_pubdate = {
-    label : "text_pubdate2"
+    label : "publication_date"
 };
 
 sattrs.text_publisher = {
-    label : "text_publisher"
+    label : "publisher"
 };
 
 /* --------- */
@@ -1389,6 +1389,7 @@ settings.corporafolders.internet = {
 
 settings.corporafolders.other_texts = {
     title : "Muita tekstejä",
+    contents : ["kfspc_fi"]
 };
 
 settings.corporafolders.other_texts.kotus_ns_presidentti = {
@@ -3409,6 +3410,19 @@ sattrlist.kfspc = {
     text_pubdate2 : sattrs.text_pubdate,
     text_publisher : sattrs.text_publisher
 };
+
+settings.corpora.kfspc_fi = {
+    title : "KFSPC suomi",
+    description : "Kotus Finnish-Swedish Parallel Corpus, suomenkielinen osuus",
+    id : "kfspc_fi",
+    lang : "fin",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes : {
+    },
+    struct_attributes : sattrlist.kfspc
+};
+
 
 /* JRC-ACQUIS */
 

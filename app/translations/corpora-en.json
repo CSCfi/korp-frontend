@@ -528,6 +528,8 @@
     "text_genre" : "text genre",
     "text_period" : "text period",
 
+    "publication_date" : "publication date",
+
     "textgenre_fiction" : "fiction",
     "textgenre_law" : "legal text",
 

@@ -406,6 +406,8 @@
     "text_genre" : "genre",
     "text_period" : "textperiod",
 
+    "publication_date" : "publikationsdatum",
+
     "textgenre_fiction" : "skönlitteratur",
     "textgenre_law" : "juridisk text",
 
