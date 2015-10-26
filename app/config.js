@@ -696,7 +696,12 @@ attrs.msd = {
     // Empty taginfo_url disables the info link to MSD tags in the
     // used sidebar; another value would link to the given URL; and an
     // undefined value would link to the default markup/msd.html.
-    taginfo_url : ""
+    taginfo_url : "",
+    // Add a zero-width space character after each vertical bar to
+    // allow breaking the line there in the sidebar.
+    transform : function(val) {
+	return val.replace(/\|/g, "|\u200b");
+    }
 };
 attrs.msd_sv = {
     label : "msd",
