@@ -1079,7 +1079,7 @@ sattrs.date = {
 };
 
 sattrs.text_title = {
-    label : "text_title"
+    label : "title"
 };
 sattrs.title = sattrs.text_title;
 sattrs.text_distributor = {
@@ -1792,6 +1792,14 @@ settings.corpora.hsfi = {
 	description : "Vain ei-kaupalliseen tutkimuskäyttöön. Nimimerkit tulee anonymisoida korpukseen viittaavissa julkaisuissa."
     },
     attributes : {
+        lemma : attrs.baseform,
+        lemmacomp : attrs.baseform_compound,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        lex : attrs.lemgram_hidden
     },
     struct_attributes : {
         sentence_id : sattrs.sentence_id_hidden,
@@ -1811,9 +1819,7 @@ settings.corpora.hsfi = {
 	text_publicnick : {
 	    label : "text_publicnick",
 	},
-	text_title : {
-	    label : "text_title"
-	}
+	text_title : sattrs.text_title
     }
 
 };
