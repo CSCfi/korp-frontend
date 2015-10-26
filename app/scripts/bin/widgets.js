@@ -115,6 +115,9 @@
       if ((value === "|" || value === "") && !((attrs.translationKey != null) && (((ref1 = attrs.dataset) != null ? ref1[value] : void 0) != null)) && (attrs.stringify_synthetic == null)) {
         return output.append("<i rel='localize[empty]' style='color : grey'>${util.getLocaleString('empty')}</i>");
       }
+      if (attrs.transform != null) {
+        value = attrs.transform(value);
+      }
       if (attrs.type === "set") {
         pattern = attrs.pattern || '<span data-key="<% key %>"><%= val %></span>';
         ul = $("<ul>");

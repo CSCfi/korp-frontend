@@ -121,6 +121,10 @@ Sidebar =
             # for empty values in some cases? (Jyrki Niemi 2015-08-26)
             return output.append "<i rel='localize[empty]' style='color : grey'>${util.getLocaleString('empty')}</i>"
 
+        # Transform the value if a transformation function has been
+        # specified. (Jyrki Niemi 2015-10-26)
+        if attrs.transform?
+            value = attrs.transform(value)
 
         if attrs.type == "set"
             pattern = attrs.pattern or '<span data-key="<% key %>"><%= val %></span>'
