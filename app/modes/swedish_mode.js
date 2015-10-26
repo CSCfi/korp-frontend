@@ -61,7 +61,8 @@ settings.corporafolders = {};
 
 
 settings.corporafolders.klk_sv = {
-    title : "Kansalliskirjaston lehtikokoelman (KLK) ruotsinkieliset lehdet"
+    title : "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter",
+    description : "Svenskspråkiga tidningar och tidskrifter i Nationalbibliotekets digitala samlingar, Kielipankki-version",
 };
 
 
@@ -74,12 +75,12 @@ var klk_sv_parsed_years = settings.fn.make_yearlist(1771, 1948);
 settings.fn.make_corpus_settings_by_year_decade(
     settings.corporafolders.klk_sv, "sv_{decade}", "klk_sv_{year}",
     function(decade) {
-        return { title : decade.toString() + "-luku" };
+        return { title : decade.toString() + "-talet" };
     },
     function(year) {
         return settings.fn.make_klk_corpus_settings(
-            "KLK ruotsi {year}",
-            "Kansalliskirjaston ruotsinkielisiä sanoma- ja aikakauslehtiä vuodelta {year}",
+            "Nationalbiblioteket svenska {year}",
+            "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter från {year}",
             "sv",
             year,
             klk_sv_parsed_years.indexOf(year) != -1);
@@ -97,8 +98,8 @@ delete klk_sv_parsed_years;
 
 settings.corpora.mulcold_sv = {
     id : "mulcold_sv",
-    title: "MULCOLD ruotsi",
-    description : "Multilingual Corpus of Legal Documents, ruotsinkielinen osa",
+    title: "MULCOLD svenska",
+    description : "Multilingual Corpus of Legal Documents, svenskspråkiga delen",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     attributes: attrlist.mulcold_sv,
