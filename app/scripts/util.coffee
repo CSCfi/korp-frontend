@@ -141,9 +141,9 @@ class window.CorpusListing
     # based on what data) the values are computed and to do the same.
     # (Jyrki Niemi 2015-09-11)
     minimizeDefaultAndCorpusQueryString: (type, params) ->
-        all_corpora = params.corpus.split(',')
-        if not params[type]
+        if not (params.corpus? and params[type])
             return params
+        all_corpora = params.corpus.split(',')
         c.log('minimize', type, params.corpus, params['default' + type],
               params[type], params[type].length)
         default_val = params['default' + type]

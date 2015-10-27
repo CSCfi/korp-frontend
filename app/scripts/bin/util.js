@@ -172,10 +172,10 @@
 
     CorpusListing.prototype.minimizeDefaultAndCorpusQueryString = function(type, params) {
       var all_corpora, corp, corpname, corpora, corpval, default_corpora, default_val, k, l, len, len1, lengths, lensum, maxval, nondefault_corpora, other_vals, ref, ref1, val, value_corpora;
-      all_corpora = params.corpus.split(',');
-      if (!params[type]) {
+      if (!((params.corpus != null) && params[type])) {
         return params;
       }
+      all_corpora = params.corpus.split(',');
       c.log('minimize', type, params.corpus, params['default' + type], params[type], params[type].length);
       default_val = params['default' + type];
       value_corpora = {};
