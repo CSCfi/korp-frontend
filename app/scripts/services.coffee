@@ -228,7 +228,7 @@ korpApp.factory 'searches', (utils, $location, $rootScope, $http, $q) ->
         getInfoData : () ->
             def = $q.defer()
             $http(
-                method : "GET"
+                method : "POST"
                 url : settings.cgi_script
                 params:
                     command : "info"

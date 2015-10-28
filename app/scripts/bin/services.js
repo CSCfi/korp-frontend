@@ -249,7 +249,7 @@
         var def;
         def = $q.defer();
         $http({
-          method: "GET",
+          method: "POST",
           url: settings.cgi_script,
           params: {
             command: "info",

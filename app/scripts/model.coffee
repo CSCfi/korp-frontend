@@ -530,7 +530,7 @@ class model.TimeProxy extends BaseProxy
 
         xhr = $.ajax
             url: settings.cgi_script
-            type: "GET"
+            type: "POST"
             data:
                 command: "timespan"
                 granularity: "y"

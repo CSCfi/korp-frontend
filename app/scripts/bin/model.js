@@ -587,7 +587,7 @@
       dfd = $.Deferred();
       xhr = $.ajax({
         url: settings.cgi_script,
-        type: "GET",
+        type: "POST",
         data: {
           command: "timespan",
           granularity: "y",
