@@ -270,7 +270,7 @@ settings.corporafolders.jrc = {
 };
 
 settings.corporafolders.opus_enfi = {
-    title : "OPUS FI–EN",
+    title : "OPUS Finnish–English",
     contents : ['opus_opensub2011enfi_fi', 'opus_opensub2012enfi_fi',
 		'opus_opensub2013enfi_fi', 'opus_opensub2015enfi_fi',
 		'opus_ecb_enfi_fi', 'opus_emea_enfi_fi', 'opus_eubookshop_enfi_fi',
@@ -280,7 +280,7 @@ settings.corporafolders.opus_enfi = {
 };
 
 settings.corporafolders.opus_firu = {
-    title : "OPUS FI–RU",
+    title : "OPUS Finnish–Russian",
     contents : ['opus_opensubtitles2011_firu_fi', 'opus_opensubtitles2012_firu_fi',
 		'opus_eubookshop_firu_fi', 'opus_kde4_firu_fi', 'opus_opensubtitles_firu_fi',
 		'opus_tatoeba_firu_fi', 'opus_php_firu_fi',
@@ -289,7 +289,7 @@ settings.corporafolders.opus_firu = {
 };
 
 settings.corporafolders.opus_fisv = {
-    title : "OPUS FI–SV",
+    title : "OPUS Finnish–Swedish",
     contents : ['opus_opensubtitles2011_fisv_fi', 'opus_opensubtitles2012_fisv_fi',
 		'opus_opensubtitles2013_fisv_fi', 'opus_dgt_fisv_fi',
 		'opus_kde4_fisv_fi', 'opus_emea_fisv_fi', 'opus_eubookshop_fisv_fi',
@@ -298,7 +298,7 @@ settings.corporafolders.opus_fisv = {
 };
 
 settings.corporafolders.opus_defi = {
-    title : "OPUS FI–DE",
+    title : "OPUS Finnish–German",
     contents : ['opus_opensubtitles2012_defi_fi', 'opus_opensubtitles2011_defi_fi',
 		'opus_opensubtitles2013_defi_fi', 'opus_eubookshop_defi_fi', 'opus_dgt_defi_fi',
 		'opus_kde4_defi_fi', 'opus_emea_defi_fi', 'opus_ecb_defi_fi', 'opus_ubuntu_defi_fi',
@@ -307,7 +307,7 @@ settings.corporafolders.opus_defi = {
 };
 
 settings.corporafolders.opus_fifr = {
-    title : "OPUS FI–FR",
+    title : "OPUS Finnish–French",
     contents : ['opus_dgt_fifr_fi',
 		'opus_emea_fifr_fi',
 		'opus_ecb_fifr_fi',
@@ -326,7 +326,7 @@ settings.corporafolders.opus_fifr = {
 };
 
 settings.corporafolders.opus_dafi = {
-    title : "OPUS FI–DA",
+    title : "OPUS Finnish–Danish",
     contents : ['opus_dgt_dafi_fi',
 		'opus_eubookshop_dafi_fi',
 		'opus_opensubtitles2012_dafi_fi',
@@ -336,7 +336,7 @@ settings.corporafolders.opus_dafi = {
 };
 
 settings.corporafolders.opus_fipl = {
-    title : "OPUS FI–PL",
+    title : "OPUS Finnish–Polish",
     contents : ['opus_dgt_fipl_fi',
 		'opus_opensubtitles2011_fipl_fi',
 		'opus_opensubtitles2012_fipl_fi',
@@ -346,7 +346,7 @@ settings.corporafolders.opus_fipl = {
 };
 
 settings.corporafolders.opus_esfi = {
-    title : "OPUS FI–ES",
+    title : "OPUS Finnish–Spanish",
     contents : ['opus_dgt_esfi_fi',
 		'opus_eubookshop_esfi_fi',
 		'opus_opensubtitles2012_esfi_fi',
@@ -365,7 +365,7 @@ settings.corporafolders.opus_esfi = {
 };
 
 settings.corporafolders.opus_fipt = {
-    title : "OPUS FI–PT",
+    title : "OPUS Finnish–Portuguese",
     contents : ['opus_dgt_fipt_fi',
 		'opus_eubookshop_fipt_fi',
 		'opus_opensubtitles2011_fipt_fi',
@@ -376,7 +376,7 @@ settings.corporafolders.opus_fipt = {
 };
 
 settings.corporafolders.opus_etfi = {
-    title : "OPUS FI-ET",
+    title : "OPUS Finnish–Estonian",
     contents : ['opus_dgt_etfi_fi',
 		'opus_emea_etfi_fi',
 		'opus_kde4_etfi_fi',
@@ -386,7 +386,7 @@ settings.corporafolders.opus_etfi = {
 };
 
 settings.corporafolders.opus_fiit = {
-    title : "OPUS FI-IT",
+    title : "OPUS Finnish–Italian",
     contents : ['opus_dgt_fiit_fi',
 		'opus_emea_fiit_fi',
 		'opus_ecb_fiit_fi',
@@ -397,7 +397,7 @@ settings.corporafolders.opus_fiit = {
 };
 
 settings.corporafolders.opus_fihu = {
-    title : "OPUS FI-HU",
+    title : "OPUS Finnish–Hungarian",
     contents : ['opus_dgt_fihu_fi',
 		'opus_emea_fihu_fi',
 		'opus_ecb_fihu_fi',
@@ -409,7 +409,7 @@ settings.corporafolders.opus_fihu = {
 };
 
 settings.corporafolders.opus_finl = {
-    title : "OPUS FI-NL",
+    title : "OPUS Finnish–Dutch",
     contents : ['opus_dgt_finl_fi',
 		'opus_ecb_finl_fi',
 		'opus_emea_finl_fi',
@@ -426,7 +426,7 @@ settings.corporafolders.opus_finl = {
 };
 
 settings.corporafolders.opus_fitrl = {
-    title : "OPUS FI-TR",
+    title : "OPUS Finnish–Turkish",
     contents : ['opus_eubookshop_fitr_fi',
 		'opus_gnome_fitr_fi',
 		'opus_kde4_fitr_fi',
@@ -438,7 +438,7 @@ settings.corporafolders.opus_fitrl = {
 };
 
 settings.corporafolders.opus_csfi = {
-    title : "OPUS FI-CS",
+    title : "OPUS Finnish–Czech",
     contents : ['opus_dgt_csfi_fi',
 		'opus_ecb_csfi_fi',
 		'opus_emea_csfi_fi',
@@ -456,7 +456,7 @@ settings.corporafolders.opus_csfi = {
 };
 
 settings.corporafolders.opus_elfi = {
-    title : "OPUS FI-EL",
+    title : "OPUS Finnish–Greek",
     contents : ['opus_dgt_elfi_fi',
 		'opus_ecb_elfi_fi',
 		'opus_emea_elfi_fi',
@@ -6343,8 +6343,8 @@ settings.corpora.opus_eubookshop_fisv_sv = {
 };
 
 settings.corpora.opus_eubookshop_fisv_fi = {
-    title : "EUbookshop FI–SV",
-    description : "EUbookshop FI–SV",
+    title : "EUbookshop",
+    description : "EUbookshop",
     id : "opus_eubookshop_fisv_fi",
     urn : "urn_placeholder",
     metadata_urn : "urn:nbn:fi:lb-2015102201",
@@ -6362,8 +6362,8 @@ settings.corpora.opus_eubookshop_fisv_fi = {
 };
 
 settings.corpora.opus_opensubtitles2012_fisv_fi = {
-    title : "OpenSubtitles2012 FI–SV",
-    description : "OpenSubtitles2012 FI–SV",
+    title : "OpenSubtitles2012",
+    description : "OpenSubtitles 2012",
     id : "opus_opensubtitles2012_fisv_fi",
     lang : "fin",
     linked_to : ["opus_opensubtitles2012_fisv_sv"],
@@ -6391,8 +6391,8 @@ settings.corpora.opus_opensubtitles2012_fisv_sv = {
 };
 
 settings.corpora.opus_opensubtitles2013_fisv_fi = {
-    title : "OpenSubtitles2013 FI–SV",
-    description : "OpenSubtitles2013 FI–SV",
+    title : "OpenSubtitles2013",
+    description : "OpenSubtitles 2013",
     id : "opus_opensubtitles2013_fisv_fi",
     lang : "fin",
     linked_to : ["opus_opensubtitles2013_fisv_sv"],
@@ -6420,8 +6420,8 @@ settings.corpora.opus_opensubtitles2013_fisv_sv = {
 };
 
 settings.corpora.opus_opensubtitles2011_fisv_fi = {
-    title : "OpenSubtitles2011 FI–SV",
-    description : "OpenSubtitles2011 FI–SV",
+    title : "OpenSubtitles2011",
+    description : "OpenSubtitles 2011",
     id : "opus_opensubtitles2011_fisv_fi",
     lang : "fin",
     linked_to : ["opus_opensubtitles2011_fisv_sv"],
@@ -6489,7 +6489,7 @@ settings.corpora.opus_kde4_fisv_fi = {
 
 
 settings.corpora.opus_dgt_enfi_fi = {
-    title : "DGT EN–FI",
+    title : "DGT",
     description : "A collection of EU Translation Memories provided by the JRC",
     id : "opus_dgt_enfi_fi",
     urn : "urn_placeholder",
