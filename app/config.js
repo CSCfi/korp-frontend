@@ -1348,7 +1348,8 @@ settings.corporafolders.ftb.ftb3 = {
 };
 
 settings.corporafolders.klk_fi = {
-    title : "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet"
+    title : "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet",
+    description : "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio, suomenkieliset lehdet",
 };
 
 /*
@@ -4509,7 +4510,7 @@ settings.corpora.vns_renvall = {
 };
 
 settings.corpora.gutenberg = {
-    title : "Gutenberg",
+    title : "Suomenkielinen Gutenberg -korpus",
     description : "Project Gutenbergin sisältämiä suomenkielisiä teoksia, joiden tekijänoikeus on päättynyt",
     id : "gutenberg",
     within : settings.spWithin,
@@ -4694,8 +4695,8 @@ settings.corpora.ylilauta = {
 };
 
 settings.corpora.s24 = {
-    title : "Suomi24",
-    description : "Suomi24-keskustelut (2002–2014)",
+    title : "Suomi24 poimintoja",
+    description : "Suomi24-keskustelut (2002–2014), poimintoja",
     id : "s24",
     urn : "urn:nbn:fi:lb-201412171",
     metadata_urn : "urn:nbn:fi:lb-201412171",

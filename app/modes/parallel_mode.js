@@ -257,16 +257,32 @@ settings.preselected_corpora = ["europarl_v7_enfi_fi", "mulcold_fi"];
 settings.corporafolders = {};
 
 settings.corporafolders.europarl = {
-	title : "EuroParl 7",
-	contents : ["europarl_v7_enfi_fi", "europarl_v7_svfi_fi", "europarl_v7_defi_fi",
-		    "europarl_v7_frfi_fi", "europarl_v7_esfi_fi", "europarl_v7_etfi_fi"]
+    title : "HeKo-EuroParl 7",
+    description : "Helsinki Korp EuroParl v7 -aineistokokoelma",
+    contents : [
+	"europarl_v7_enfi_fi",
+	"europarl_v7_svfi_fi",
+	"europarl_v7_defi_fi",
+	"europarl_v7_frfi_fi",
+	"europarl_v7_esfi_fi",
+	"europarl_v7_etfi_fi",
+    ],
 };
 
 settings.corporafolders.jrc = {
-    title : "JRC-Acquis",
-    contents : ["jrc_acquis_enfi_fi", "jrc_acquis_svfi_fi", "jrc_acquis_defi_fi",
-		"jrc_acquis_esfi_fi", "jrc_acquis_etfi_fi", "jrc_acquis_frfi_fi",
-		"jrc_acquis_itfi_fi", "jrc_acquis_hufi_fi", "jrc_acquis_plfi_fi"]
+    title : "HeKo-JRC-Acquis",
+    description : "Helsinki Korp JRC-Acquis -aineistokokoelma",
+    contents : [
+	"jrc_acquis_enfi_fi",
+	"jrc_acquis_svfi_fi",
+	"jrc_acquis_defi_fi",
+	"jrc_acquis_esfi_fi",
+	"jrc_acquis_etfi_fi",
+	"jrc_acquis_frfi_fi",
+	"jrc_acquis_itfi_fi",
+	"jrc_acquis_hufi_fi",
+	"jrc_acquis_plfi_fi",
+    ],
 };
 
 settings.corporafolders.opus_enfi = {
