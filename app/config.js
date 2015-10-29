@@ -231,7 +231,8 @@ settings.languages = ["fi", "sv", "en"];
 settings.fn = {};
 // Namespace for corpus configuration templates
 settings.templ = {};
-
+// Namespace for extra corpus info used in multiple corpora
+settings.corpusinfo = {};
 
 var karpLemgramLink = "http://spraakbanken.gu.se/karp/#search=cql%7C(lemgram+%3D+%22<%= val.replace(/:\\d+/, '') %>%22)+sortBy+lemgram";
 
@@ -1324,6 +1325,63 @@ var modernAttrs = {
 };
 
 
+// Recurring corpus licence information (name + URL)
+settings.licenceinfo = {
+    CC0 : {
+	name : "CC ZERO (CC0) (CLARIN PUB)",
+	description : "Public Domain Dedication",
+	url : "http://creativecommons.org/publicdomain/zero/1.0/",
+    },
+    CC_BY : {
+	name : "CC BY (CLARIN PUB)",
+	description : "Creative Commons Attribution",
+	url : "https://creativecommons.org/licenses/by/4.0/",
+    },
+    CC_BY_30 : {
+	name : "CC BY 3.0 (CLARIN PUB)",
+	description : "Creative Commons Attribution 3.0",
+	url : "https://creativecommons.org/licenses/by/3.0/",
+    },
+    CC_BY_40 : {
+	name : "CC BY 4.0 (CLARIN PUB)",
+	description : "Creative Commons Attribution",
+	url : "https://creativecommons.org/licenses/by/4.0/",
+    },
+    CC_BY_NC : {
+	name : "CC BY-NC (CLARIN PUB)",
+	description : "Creative Commons Attribution-NonCommercial",
+	url : "https://creativecommons.org/licenses/by-nc/4.0/",
+    },
+    CC_BY_ND : {
+	name : "CC BY-ND (CLARIN PUB)",
+	description : "Creative Commons Attribution-NoDerivatives",
+	url : "https://creativecommons.org/licenses/by-nd/4.0/",
+    },
+    CC_BY_ND_40 : {
+	name : "CC BY-ND 4.0 (CLARIN PUB)",
+	description : "Creative Commons Attribution-NoDerivatives 4.0",
+	url : "https://creativecommons.org/licenses/by-nd/4.0/",
+    },
+    EUPL_11 : {
+	name : "EUPL v1.1 (CLARIN PUB)",
+	description : "European Union Public Licence, version 1.1",
+	url : "http://ec.europa.eu/idabc/en/document/7774.html",
+	// An alternative URL:
+	// url : "https://joinup.ec.europa.eu/community/eupl/og_page/european-union-public-licence-eupl-v11",
+    },
+};
+
+
+// Homepage in Kotus's Kaino service
+settings.fn.kaino_homepage = function(urlbase) {
+    return {
+        name : "Kokoelman etusivu",
+        url : "http://kaino.kotus.fi/korpus/" + urlbase + "_coll_rdf.xml",
+        no_label : true
+    };
+};
+
+
 /*
  * FOLDERS
  */
@@ -1344,12 +1402,22 @@ settings.corporafolders.ftb = {
 
 settings.corporafolders.ftb.ftb3 = {
     title : "FinnTreeBank 3",
+    info : {
+	urn : "urn:nbn:fi:lb-201406021",
+	metadata_urn : "urn:nbn:fi:lb-201406022",
+	licence : settings.licenceinfo.CC_BY_30,
+    },
     contents : ["ftb3_europarl", "ftb3_jrcacquis"]
 };
 
 settings.corporafolders.klk_fi = {
     title : "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet",
     description : "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio, suomenkieliset lehdet",
+    info : {
+	urn : "urn:nbn:fi:lb-201405275",
+	metadata_urn : "urn:nbn:fi:lb-201405276",
+	licence : settings.licenceinfo.CC_BY,
+    }
 };
 
 /*
@@ -1405,23 +1473,13 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
     // settings
     contents : [],
     info : {
-    	// // An example of URN, metadata and licence information
-    	// urn : "urn:folder_urn",
-    	// metadata_url : "http://example.org/metadata_url",
-    	// licence : {
-    	//      name : "CLARIN PUB",
-    	//      urn : "urn:licence_urn"
-    	// },
+	// URN information also in the corpus .info files; if you need
+	// to update the URNs, you should also check them.
+	urn : "urn:nbn:fi:lb-20151001",
     	metadata_urn : "urn:nbn:fi:lb-20140730150",
-    	licence : {
-    	    name : "EUPL",
-    	    url : "http://ec.europa.eu/idabc/en/document/7774.html"
-    	},
-    	homepage : {
-    	    name : "Kokoelman etusivu",
-    	    url : "http://kaino.kotus.fi/korpus/teko/meta/presidentti/presidentti_coll_rdf.xml",
-    	    no_label : true
-    	},
+	licence : settings.licenceinfo.EUPL_11,
+	homepage : settings.fn.kaino_homepage(
+	    "teko/meta/presidentti/presidentti"),
     	compiler : {
     	    name : "Kotimaisten kielten keskus",
     	    url : "http://www.kotus.fi/",
@@ -1443,10 +1501,7 @@ settings.corporafolders.spoken.la_murre = {
     info : {
 	urn : "urn:nbn:fi:lb-2014052715",
 	metadata_urn : "urn:nbn:fi:lb-2014052716",
-	licence : {
-	    name : "CC BY ND 4.0",
-	    url : "https://creativecommons.org/licenses/by-nd/4.0/"
-	},
+	licence : settings.licenceinfo.CC_BY_ND_40,
 	homepage : {
 	    name : "Aineiston tietosivu Kielipankissa",
 	    url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotLAmurre",
@@ -1477,12 +1532,24 @@ settings.corporafolders.vks = {
 	"vks_varia",
 	"vks_virret"
     ],
+    info : {
+	urn : "urn:nbn:fi:lb-201407166",
+	metadata_urn : "urn:nbn:fi:lb-201407165",
+	licence : settings.licenceinfo.EUPL_11,
+	homepage : settings.fn.kaino_homepage("vks/meta/vks")
+    },
     // unselected : true
 };
 
 settings.corporafolders.vns = {
     title : "Varhaisnykysuomen korpus (näytteitä)",
     contents : ["vns_asetus", "vns_renqvist", "vns_renvall"],
+    info : {
+	// No Korp URN yet
+	metadata_urn : "urn:nbn:fi:lb-20140730147",
+	licence : settings.licenceinfo.EUPL_11,
+	homepage : settings.fn.kaino_homepage("1800/meta/1800")
+    },
     // unselected : true
 };
 
@@ -1524,6 +1591,13 @@ settings.fn.add_corpus_settings = function (template, infolist, folder,
 	    folder.contents = [];
 	}
 	folder.contents = folder.contents.concat(ids);
+    }
+};
+
+// Add properties to the settings of the listed corpora.
+settings.fn.extend_corpus_settings = function (props, corpus_ids) {
+    for (var i = 0; i < corpus_ids.length; i++) {
+	$.extend(settings.corpora[corpus_ids[i]], props);
     }
 };
 
@@ -1593,6 +1667,9 @@ settings.corpora.ftb2 = {
     title : "FinnTreeBank 2",
     description : "Finnish tree bank, version 2",
     id : "ftb2",
+    urn : "urn:nbn:fi:lb-201407164",
+    metadata_urn : "urn:nbn:fi:lb-201407163",
+    licence : settings.licenceinfo.CC_BY_30,
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
@@ -1786,17 +1863,17 @@ settings.corpora.hsfi = {
     title : "HS.fi",
     description : "HS.fi uutiskommenttiaineisto",
     id : "hsfi",
-    within : settings.spWithin,
-    context : settings.spContext,
-    limited_access : true,
-    licence_type : "ACA",
     urn : "urn:nbn:fi:lb-2014052717",
     metadata_urn : "urn:nbn:fi:lb-2014052718",
     licence : {
-	url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaEngACANc",
+	urn : "urn:nbn:fi:lb-20150304140",
 	name : "CLARIN ACA +NC +anonymisointi",
 	description : "Vain ei-kaupalliseen tutkimuskäyttöön. Nimimerkit tulee anonymisoida korpukseen viittaavissa julkaisuissa."
     },
+    limited_access : true,
+    licence_type : "ACA",
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : {
         lemma : attrs.baseform,
         lemmacomp : attrs.baseform_compound,
@@ -1835,14 +1912,11 @@ settings.corpora.reittidemo = {
     title : "Reitti A-siipeen",
     description : "Kahdenkeskisen videoidun keskustelun ”Reitti A-siipeen” yleiskielistetty litteraatti. Keskustelussa selvitetään reittiä tiettyyn Helsingin yliopiston Metsätalossa sijaitsevaan huoneeseen. Vapaasti käytettäväksi tarkoitettu näyteaineisto.",
     id : "reittidemo",
-    within : settings.spWithin,
-    context : settings.spContext,
     urn : "urn:nbn:fi:lb-100110012817",
     metadata_urn : "urn:nbn:fi:lb-2014101401",
-    licence : {
-	url : "http://creativecommons.org/publicdomain/zero/1.0/legalcode.txt",
-	name : "CC-ZERO (CC0)"
-    },
+    licence : settings.licenceinfo.CC0,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : {
 	lemma : attrs.baseform,
 	lemmacomp : attrs.baseform_compound,
@@ -1889,6 +1963,10 @@ settings.corpora.kotus_klassikot = {
     title : "Suomalaisen kirjallisuuden klassikoita (näyte)",
     description : "Suomalaisen kirjallisuuden klassikoita (Kotimaisten kielten keskuksen aineisto)",
     id : "kotus_klassikot",
+    urn : "urn:nbn:fi:lb-2015022401",
+    metadata_urn : "urn:nbn:fi:lb-20140730186",
+    licence : settings.licenceinfo.EUPL_11,
+    homepage : settings.fn.kaino_homepage("klassikot/meta/klassikot"),
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
@@ -2094,6 +2172,10 @@ settings.corpora.ns_saadokset = {
     title : "Lakeja ja direktiivejä (näyte)",
     description : "Lakeja ja direktiivejä vuosilta 2002–2003 (Kotimaisten kielten keskuksen aineisto)",
     id : "ns_saadokset",
+    // No Korp URN yet
+    metadata_urn : "urn:nbn:fi:lb-20140730126",
+    licence : settings.licenceinfo.EUPL_11,
+    homepage : settings.fn.kaino_homepage("teko/meta/saadokset/saadokset"),
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -2156,6 +2238,10 @@ settings.corpora.kotus_sananparret = {
     title : "Sananparsikokoelma (näyte)",
     description : "Suomen murteiden Sananparsikokoelma (1930-luvulta) (Kotimaisten kielten keskuksen aineisto)",
     id : "kotus_sananparret",
+    // No Korp URN yet
+    metadata_urn : "urn:nbn:fi:lb-20140730176",
+    licence : settings.licenceinfo.EUPL_11,
+    homepage : settings.fn.kaino_homepage("sp/meta/sp"),
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
@@ -2848,10 +2934,17 @@ settings.corpora.las2 = {
     title : "LAS2",
     description : "Edistyneiden suomenoppijoiden korpus",
     id : "las2",
-    within : settings.spWithin,
-    context : settings.spContext,
+    urn : "urn:nbn:fi:lb-2015050504",
+    metadata_urn : "urn:nbn:fi:lb-201407167",
+    homepage_url : "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
+    licence : {
+	name : "CLARIN RES +PLAN +NC +LOC +ND",
+	urn : "urn:nbn:fi:lb-20150304111"
+    },
     limited_access : true,
     licence_type : "RES",
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : {
 	lemma : attrs.baseform,
         pos : attrs.pos_las2,
@@ -2950,6 +3043,10 @@ settings.corpora.sks_kivi_fi = {
     description : "Aleksis Kiven painetut teokset, kirjeet ja muu tunnettu tuotanto. Toimittaneet Sakari Katajamäki, Ossi Kokko ja Elina Kela. <a href='http://www.edith.fi/kivikorpus/index.htm'>Infosivu</a>",
     id : "sks_kivi_fi",
     // unselected : true,
+    urn : "urn:nbn:fi:lb-201405273",
+    metadata_urn : "urn:nbn:fi:lb-201405274",
+    licence : settings.licenceinfo.CC_BY_NC,
+    homepage_url : "http://www.edith.fi/kivikorpus/index.htm",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -3069,6 +3166,10 @@ settings.corpora.skvr = {
     description : "SKS:n Suomen Kansan Vanhat Runot -korpus",
     id : "skvr",
     // unselected : true,
+    urn : "urn:nbn:fi:lb-2014052711",
+    metadata_urn : "urn:nbn:fi:lb-2014052712",
+    licence : settings.licenceinfo.CC_BY_NC,
+    homepage_url : "http://dbgw.finlit.fi/skvr/",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -3423,6 +3524,12 @@ sattrlist.kfspc = {
     text_publisher : sattrs.text_publisher
 };
 
+settings.corpusinfo.kfspc = {
+    urn : "urn:nbn:fi:lb-201406035",
+    metadata_urn : "urn:nbn:fi:lb-201406036",
+    licence : settings.licenceinfo.CC_BY
+};
+
 settings.corpora.kfspc_fi = {
     title : "KFSPC suomi",
     description : "Kotus Finnish-Swedish Parallel Corpus, suomenkielinen osuus",
@@ -3434,6 +3541,8 @@ settings.corpora.kfspc_fi = {
     },
     struct_attributes : sattrlist.kfspc
 };
+
+settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_fi"]);
 
 
 /* JRC-ACQUIS */
@@ -3525,6 +3634,13 @@ sattrlist.legal = {
 };
 
 
+settings.corpusinfo.firulex = {
+    urn : "urn:nbn:fi:lb-201407162",
+    metadata_urn : "urn:nbn:fi:lb-201407161",
+    licence : settings.licenceinfo.CC_BY_ND,
+    homepage_url : "https://mustikka.uta.fi/",
+};
+
 settings.corpora.legal_fi = {
     id : "legal_fi",
     title : "FiRuLex suomi",
@@ -3533,6 +3649,17 @@ settings.corpora.legal_fi = {
     within : settings.defaultWithin,
     attributes: attrlist.mulcold_fi,
     struct_attributes : sattrlist.legal
+};
+
+settings.fn.extend_corpus_settings(settings.corpusinfo.firulex,
+				   ["legal_fi"]);
+
+
+settings.corpusinfo.mulcold = {
+    urn : "urn:nbn:fi:lb-201405277",
+    metadata_urn : "urn:nbn:fi:lb-201405278",
+    licence : settings.licenceinfo.CC_BY_ND,
+    homepage_url : "https://mustikka.uta.fi/",
 };
 
 settings.corpora.mulcold_fi = {
@@ -3544,6 +3671,9 @@ settings.corpora.mulcold_fi = {
     attributes: attrlist.mulcold_fi,
     struct_attributes : sattrlist.mulcold
 };
+
+settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
+				   ["mulcold_fi"]);
 
 
 /*
@@ -4513,12 +4643,19 @@ settings.corpora.gutenberg = {
     title : "Suomenkielinen Gutenberg -korpus",
     description : "Project Gutenbergin sisältämiä suomenkielisiä teoksia, joiden tekijänoikeus on päättynyt",
     id : "gutenberg",
-    within : settings.spWithin,
-    context : settings.spContext,
     urn : "urn:nbn:fi:lb-2014102101",
     metadata_urn : "urn:nbn:fi:lb-2014100301",
-    homepage_url : "http://www.gutenberg.org/",
-    licence_url : "http://www.gutenberg.org/wiki/Gutenberg:The_Project_Gutenberg_License",
+    homepage : {
+	url : "http://www.gutenberg.org/",
+	name : "Project Gutenberg",
+	no_label : true
+    },
+    // Is the following correct? According to META-SHARE, licence
+    // would be CC BY.
+    // licence_url : "http://www.gutenberg.org/wiki/Gutenberg:The_Project_Gutenberg_License",
+    licence : settings.licenceinfo.CC_BY,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : {
     },
     struct_attributes : {
@@ -4596,6 +4733,7 @@ settings.corpora.skn = {
     id : "skn",
     urn : "urn:nbn:fi:lb-201407141",
     metadata_urn : "urn:nbn:fi:lb-201407141",
+    licence : settings.licenceinfo.CC_BY_40,
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -4666,6 +4804,8 @@ settings.corpora.ylilauta = {
     id : "ylilauta",
     urn : "urn:nbn:fi:lb-2015031802",
     metadata_urn : "urn:nbn:fi:lb-2015031802",
+    licence : settings.licenceinfo.CC_BY_NC,
+    homepage_url : "https://ylilauta.org",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -4698,8 +4838,12 @@ settings.corpora.s24 = {
     title : "Suomi24 poimintoja",
     description : "Suomi24-keskustelut (2002–2014), poimintoja",
     id : "s24",
-    urn : "urn:nbn:fi:lb-201412171",
-    metadata_urn : "urn:nbn:fi:lb-201412171",
+    // URN information also in the corpus .info file; if you need to
+    // update the URNs, you should also check it.
+    urn : "urn:nbn:fi:lb-2015040102",
+    metadata_urn : "urn:nbn:fi:lb-2015091701",
+    licence : settings.licenceinfo.CC_BY_NC,
+    homepage_url : "http://keskustelu.suomi24.fi",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -4760,6 +4904,11 @@ settings.corpora.iclfi = {
     id : "iclfi",
     urn : "urn:nbn:fi:lb-20140730163",
     metadata_urn : "urn:nbn:fi:lb-20140730163",
+    licence : {
+	name : "CLARIN RES +PLAN +NC +INF +PRIV +DEP",
+	urn : "urn:nbn:fi:lb-2015050501"
+    },
+    homepage_url : "http://www.oulu.fi/suomitoisenakielena/node/16078",
     limited_access : true,
     licence_type : "RES",
     within : settings.spWithin,

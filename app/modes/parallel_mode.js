@@ -267,6 +267,11 @@ settings.corporafolders.europarl = {
 	"europarl_v7_esfi_fi",
 	"europarl_v7_etfi_fi",
     ],
+    info : {
+	urn : "urn:nbn:fi:lb-2015043012",
+	metadata_urn : "urn:nbn:fi:lb-2015043011",
+	licence : settings.licenceinfo.CC_BY,
+    }
 };
 
 settings.corporafolders.jrc = {
@@ -283,6 +288,11 @@ settings.corporafolders.jrc = {
 	"jrc_acquis_hufi_fi",
 	"jrc_acquis_plfi_fi",
     ],
+    info : {
+	urn : "urn:nbn:fi:lb-2015062301",
+	metadata_urn : "urn:nbn:fi:lb-2015061210",
+	licence : settings.licenceinfo.CC_BY,
+    }
 };
 
 settings.corporafolders.opus_enfi = {
@@ -7130,32 +7140,13 @@ settings.corpora.europarl_v7_svfi_fi = {
 };
 
 
-/* KFSPC */
-settings.corpora.kfspc_sv = {
-    title : "Kotus Finnish-Swedish Parallel Corpus (ruotsi)",
-    description : "KFSPC (ruotsi)",
-    id : "kfspc_sv",
-    urn : "urn:nbn:fi:lb-201406035",
-    metadata_urn : "urn:nbn:fi:lb-201406036",
-    lang : "swe",
-    linked_to : ["kfspc_fi"],
-    context: context.defaultAligned,
-    within: {
-        "sentence": "sentence"
-        },
-    attributes : {
-    },
-    struct_attributes : sattrlist.kfspc,
-    hide : true
-};
-
 /* JRC */
 
 settings.corpora.jrc_acquis_enfi_en = {
     title : "JRC-Acquis englanti",
     description : "jrc_acquis_enfi_en",
     id : "jrc_acquis_enfi_en",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062302",
     metadata_urn : "urn:nbn:fi:lb-2015061201",
     lang : "eng",
     linked_to : ["jrc_acquis_enfi_fi"],
@@ -7175,7 +7166,7 @@ settings.corpora.jrc_acquis_enfi_fi = {
     title : "JRC-Acquis suomi–englanti",
     description : "JRC-Acquis suomi–englanti",
     id : "jrc_acquis_enfi_fi",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062302",
     metadata_urn : "urn:nbn:fi:lb-2015061201",
     lang : "fin",
     linked_to : ["jrc_acquis_enfi_en"],
@@ -7195,7 +7186,7 @@ settings.corpora.jrc_acquis_hufi_hu = {
     title : "JRC-Acquis unkari",
     description : "jrc_acquis_hufi_hu",
     id : "jrc_acquis_hufi_hu",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062309",
     metadata_urn : "urn:nbn:fi:lb-2015061205",
     lang : "hun",
     linked_to : ["jrc_acquis_hufi_fi"],
@@ -7215,7 +7206,7 @@ settings.corpora.jrc_acquis_hufi_fi = {
     title : "JRC-Acquis suomi–unkari",
     description : "JRC-Acquis suomi–unkari",
     id : "jrc_acquis_hufi_fi",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062309",
     metadata_urn : "urn:nbn:fi:lb-2015061205",
     lang : "fin",
     linked_to : ["jrc_acquis_hufi_hu"],
@@ -7234,7 +7225,7 @@ settings.corpora.jrc_acquis_frfi_fr = {
     title : "JRC-Acquis ranska",
     description : "jrc_acquis_frfi_fr",
     id : "jrc_acquis_frfi_fr",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062307",
     metadata_urn : "urn:nbn:fi:lb-2015061203",
     lang : "fra",
     linked_to : ["jrc_acquis_frfi_fi"],
@@ -7254,7 +7245,7 @@ settings.corpora.jrc_acquis_frfi_fi = {
     title : "JRC-Acquis suomi–ranska",
     description : "JRC-Acquis suomi–ranska",
     id : "jrc_acquis_frfi_fi",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062307",
     metadata_urn : "urn:nbn:fi:lb-2015061203",
     lang : "fin",
     linked_to : ["jrc_acquis_frfi_fr"],
@@ -7273,7 +7264,7 @@ settings.corpora.jrc_acquis_plfi_pl = {
     title : "JRC-Acquis puola",
     description : "jrc_acquis_plfi_pl",
     id : "jrc_acquis_plfi_pl",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062310",
     metadata_urn : "urn:nbn:fi:lb-2015061207",
     lang : "pol",
     linked_to : ["jrc_acquis_plfi_fi"],
@@ -7293,7 +7284,7 @@ settings.corpora.jrc_acquis_plfi_fi = {
     title : "JRC-Acquis suomi–puola",
     description : "JRC-Acquis suomi–puola",
     id : "jrc_acquis_plfi_fi",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062310",
     metadata_urn : "urn:nbn:fi:lb-2015061207",
     lang : "fin",
     linked_to : ["jrc_acquis_plfi_pl"],
@@ -7312,7 +7303,7 @@ settings.corpora.jrc_acquis_itfi_it = {
     title : "JRC-Acquis italia",
     description : "jrc_acquis_itfi_it",
     id : "jrc_acquis_itfi_it",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062308",
     metadata_urn : "urn:nbn:fi:lb-2015061206",
     lang : "ita",
     linked_to : ["jrc_acquis_itfi_fi"],
@@ -7332,7 +7323,7 @@ settings.corpora.jrc_acquis_itfi_fi = {
     title : "JRC-Acquis suomi–italia",
     description : "JRC-Acquis suomi–italia",
     id : "jrc_acquis_itfi_fi",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062308",
     metadata_urn : "urn:nbn:fi:lb-2015061206",
     lang : "fin",
     linked_to : ["jrc_acquis_itfi_it"],
@@ -7351,7 +7342,7 @@ settings.corpora.jrc_acquis_esfi_es = {
     title : "JRC-Acquis espanja",
     description : "jrc_acquis_esfi_es",
     id : "jrc_acquis_esfi_es",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062305",
     metadata_urn : "urn:nbn:fi:lb-2015061208",
     lang : "spa",
     linked_to : ["jrc_acquis_esfi_fi"],
@@ -7371,7 +7362,7 @@ settings.corpora.jrc_acquis_esfi_fi = {
     title : "JRC-Acquis suomi–espanja",
     description : "JRC-Acquis suomi–espanja",
     id : "jrc_acquis_esfi_fi",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062305",
     metadata_urn : "urn:nbn:fi:lb-2015061208",
     lang : "fin",
     linked_to : ["jrc_acquis_esfi_es"],
@@ -7390,7 +7381,7 @@ settings.corpora.jrc_acquis_etfi_et = {
     title : "JRC-Acquis viro",
     description : "jrc_acquis_etfi_et",
     id : "jrc_acquis_etfi_et",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062306",
     metadata_urn : "urn:nbn:fi:lb-2015061202",
     lang : "est",
     linked_to : ["jrc_acquis_etfi_fi"],
@@ -7410,7 +7401,7 @@ settings.corpora.jrc_acquis_etfi_fi = {
     title : "JRC-Acquis suomi–viro",
     description : "JRC-Acquis suomi–viro",
     id : "jrc_acquis_etfi_fi",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062306",
     metadata_urn : "urn:nbn:fi:lb-2015061202",
     lang : "fin",
     linked_to : ["jrc_acquis_etfi_et"],
@@ -7429,7 +7420,7 @@ settings.corpora.jrc_acquis_defi_de = {
     title : "JRC-Acquis saksa",
     description : "jrc_acquis_defi_de",
     id : "jrc_acquis_defi_de",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062304",
     metadata_urn : "urn:nbn:fi:lb-2015061204",
     lang : "deu",
     linked_to : ["jrc_acquis_defi_fi"],
@@ -7449,7 +7440,7 @@ settings.corpora.jrc_acquis_defi_fi = {
     title : "JRC-Acquis suomi–saksa",
     description : "JRC-Acquis suomi–saksa",
     id : "jrc_acquis_defi_fi",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062304",
     metadata_urn : "urn:nbn:fi:lb-2015061204",
     lang : "fin",
     linked_to : ["jrc_acquis_defi_de"],
@@ -7468,7 +7459,7 @@ settings.corpora.jrc_acquis_svfi_sv = {
     title : "JRC-Acquis ruotsi",
     description : "jrc_acquis_svfi_sv",
     id : "jrc_acquis_svfi_sv",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062303",
     metadata_urn : "urn:nbn:fi:lb-2015061209",
     lang : "swe",
     linked_to : ["jrc_acquis_svfi_fi"],
@@ -7488,7 +7479,7 @@ settings.corpora.jrc_acquis_svfi_fi = {
     title : "JRC-Acquis suomi–ruotsi",
     description : "JRC-Acquis suomi–ruotsi",
     id : "jrc_acquis_svfi_fi",
-    urn : "unspecified",
+    urn : "urn:nbn:fi:lb-2015062303",
     metadata_urn : "urn:nbn:fi:lb-2015061209",
     lang : "fin",
     linked_to : ["jrc_acquis_svfi_sv"],
@@ -7504,16 +7495,12 @@ settings.corpora.jrc_acquis_svfi_fi = {
 };
 
 
-/* */
-
-
 /* KFSPC */
+
 settings.corpora.kfspc_fi = {
     title : "Kotus Finnish-Swedish Parallel Corpus (suomi)",
     description : "KFSPC (suomi)",
     id : "kfspc_fi",
-    urn : "urn:nbn:fi:lb-201406035",
-    metadata_urn : "urn:nbn:fi:lb-201406036",
     lang : "fin",
     linked_to : ["kfspc_sv"],
     context : context.defaultAligned,
@@ -7524,6 +7511,26 @@ settings.corpora.kfspc_fi = {
     },
     struct_attributes : sattrlist.kfspc
 };
+
+settings.corpora.kfspc_sv = {
+    title : "Kotus Finnish-Swedish Parallel Corpus (ruotsi)",
+    description : "KFSPC (ruotsi)",
+    id : "kfspc_sv",
+    lang : "swe",
+    linked_to : ["kfspc_fi"],
+    context: context.defaultAligned,
+    within: {
+        "sentence": "sentence"
+        },
+    attributes : {
+    },
+    struct_attributes : sattrlist.kfspc,
+    hide : true
+};
+
+settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc,
+				   ["kfspc_fi", "kfspc_sv"]);
+
 
 /*
 settings.corpora.europarl_fi = {
@@ -7640,6 +7647,20 @@ settings.corpora.mulcold_de = {
     hide : true
 };
 
+settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
+				   ["mulcold_fi", "mulcold_en", "mulcold_sv",
+				    "mulcold_ru", "mulcold_de"]);
+
+
+settings.corpusinfo.parfin = {
+    urn : "urn:nbn:fi:lb-2015050506",
+    metadata_urn : "urn:nbn:fi:lb-2014052710",
+    licence : {
+	name : "CLARIN RES +NC +PLAN +INF",
+	urn : "urn:nbn:fi:lb-2015041306"
+    },
+    homepage_url : "https://mustikka.uta.fi/",
+};
 
 settings.corpora.parfin_fi = {
     id : "parfin_fi",
@@ -7673,6 +7694,9 @@ settings.corpora.parfin_ru = {
     licence_type : "RES",
     hide : true
 };
+
+settings.fn.extend_corpus_settings(settings.corpusinfo.parfin,
+				   ["parfin_fi", "parfin_ru"]);
 
 
 /*

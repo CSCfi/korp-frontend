@@ -63,6 +63,11 @@ settings.corporafolders = {};
 settings.corporafolders.klk_sv = {
     title : "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter",
     description : "Svenskspråkiga tidningar och tidskrifter i Nationalbibliotekets digitala samlingar, Kielipankki-version",
+    info : {
+	urn : "urn:nbn:fi:lb-2014091901",
+	metadata_urn : "urn:nbn:fi:lb-201405276",
+	licence : settings.licenceinfo.CC_BY,
+    }
 };
 
 
@@ -106,6 +111,9 @@ settings.corpora.mulcold_sv = {
     struct_attributes : sattrlist.mulcold,
 };
 
+settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
+				   ["mulcold_sv"]);
+
 
 settings.corpora.kfspc_sv = {
     title : "KFSPC svenska",
@@ -118,6 +126,8 @@ settings.corpora.kfspc_sv = {
     },
     struct_attributes : sattrlist.kfspc,
 };
+
+settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_sv"]);
 
 
 if (! isPublicServer) {

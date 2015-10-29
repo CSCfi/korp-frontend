@@ -238,6 +238,9 @@ settings.corpora.mulcold_ru = {
     struct_attributes : sattrlist.mulcold,
 };
 
+settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
+				   ["mulcold_en", "mulcold_de", "mulcold_ru"]);
+
 settings.corpora.legal_ru = {
     id : "legal_ru",
     title: "FiRuLex venäjä",
@@ -248,14 +251,24 @@ settings.corpora.legal_ru = {
     struct_attributes : sattrlist.legal
 };
 
+settings.fn.extend_corpus_settings(settings.corpusinfo.firulex,
+				   ["legal_ru"]);
+
 settings.corpora.topling = {
     id : "topling",
     title : "TOPLING (näytteitä)",
     description : "TOPLING (näytteitä)",
-    context : settings.spContext,
-    within : settings.spWithin,
+    // No Korp URN yet
+    metadata_urn : "urn:nbn:fi:lb-20140730168",
+    licence : {
+	name : "CLARIN RES +PLAN +NC +DEP",
+	urn : "urn:nbn:fi:lb-20150304138"
+    },
+    homepage_url : "https://www.jyu.fi//topling",
     limited_access : true,
     licence_type : "RES",
+    context : settings.spContext,
+    within : settings.spWithin,
     // unselected : true,
     attributes : attrlist.topling,
     struct_attributes : sattrlist.topling
