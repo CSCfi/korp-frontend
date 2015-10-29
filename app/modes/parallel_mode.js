@@ -7763,7 +7763,7 @@ settings.parallel_corpora.testpar4 = {
 */
 
 
-var locally_available_corpora = ["europarl_.*"];
+var locally_available_corpora = ["mulcold_.*"];
 
 if (! isPublicServer) {
     settings.fn.remove_matching_corpora(locally_available_corpora, true);
