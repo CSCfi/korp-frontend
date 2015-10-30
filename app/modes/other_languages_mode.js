@@ -30,15 +30,15 @@ settings.spContext = {
 settings.corporafolders.fennougrica = {
     title : "Fenno-Ugrica",
     contents : ["fennougrica_myv",
-                "fennougrica_izh",
-                "fennougrica_sel",
                 "fennougrica_kca",
-                "fennougrica_vep",
-                "fennougrica_mdf",
+                "fennougrica_izh",
                 "fennougrica_mhr",
-                "fennougrica_yrk",
+                "fennougrica_mrj",
                 "fennougrica_mns",
-                "fennougrica_mrj"]
+                "fennougrica_mdf",
+                "fennougrica_sel",
+                "fennougrica_yrk",
+                "fennougrica_vep"]
 };
 
 settings.corporafolders.english = {
@@ -94,6 +94,19 @@ settings.corpora.fennougrica_izh = {
     id : "fennougrica_izh",
     title : "Inkeroinen",
     description : "Fenno-Ugrica, inkeroinen",
+    metadata_urn : "urn:nbn:fi:lb-2014073056",
+    homepage_url : "http://fennougrica.kansalliskirjasto.fi/",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.fennougrica,
+    struct_attributes : sattrlist.fennougrica,
+    unselected : true
+};
+
+settings.corpora.fennougrica_mhr = {
+    id : "fennougrica_mhr",
+    title : "Itämari",
+    description : "Fenno-Ugrica, itämari",
     metadata_urn : "urn:nbn:fi:lb-2014073056",
     homepage_url : "http://fennougrica.kansalliskirjasto.fi/",
     within : settings.spWithin,
