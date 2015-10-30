@@ -35,7 +35,6 @@ settings.corporafolders.fennougrica = {
                 "fennougrica_kca",
                 "fennougrica_vep",
                 "fennougrica_mdf",
-                "fennougrica_vep",
                 "fennougrica_mhr",
                 "fennougrica_yrk",
                 "fennougrica_mns",
