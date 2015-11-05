@@ -396,7 +396,141 @@ settings.corpora.scots_royal = {
 */
 
 
-var locally_available_corpora = ["(mulcold|legal)_.."];
+settings.corpora.kildin_sample = {
+    id : "kildin_sample",
+    title : "Kildin Saami (sample)",
+    description : "A test sample of the Corpus of Written Kildin Saami (2015)",
+    metadata_urn : "urn:nbn:fi:lb-2015102001",
+    licence : settings.licenceinfo.CC_BY,
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes : {},
+    struct_attributes : {
+	text_style : {
+	    label : "style",
+	    displayType : "select",
+	    translationKey : "style_",
+	    dataset : [
+		"fiction",
+		"non-fiction",
+	    ],
+            opts : settings.liteOptions,
+	},
+	text_medium : {
+	    label : "medium",
+	    displayType : "select",
+	    translationKey : "medium_",
+	    dataset : [
+		"book",
+		"periodical",
+		"internet",
+	    ],
+            opts : settings.liteOptions,
+	},
+	text_language : {
+	    label : "lang",
+	    displayType : "select",
+	    translationKey : "",
+	    dataset : [
+		"sjd",
+	    ],
+            opts : settings.liteOptions,
+	},
+	text_author : {
+	    label : "author",
+	},
+	text_annotator : {
+	    label : "annotator",
+	},
+	text_translator : {
+	    label : "translator",
+	},
+	text_source : {
+	    label : "source",
+	},
+	text_place : {
+	    label : "place",
+	},
+	text_modus : {
+	    label : "text_modus",
+	    displayType : "select",
+	    translationKey : "modus_",
+	    dataset : [
+		"written",
+	    ],
+            opts : settings.liteOptions,
+	},
+	text_year : {
+	    label : "year",
+	},
+	text_genre : {
+	    label : "genre",
+	    displayType : "select",
+	    translationKey : "genre_",
+	    dataset : [
+		"biography",
+		"novel",
+		"story",
+	    ],
+            opts : settings.liteOptions,
+	},
+	text_session_name : {
+	    label : "session_name",
+	},
+	text_session_title : {
+	    label : "session_title",
+	},
+	text_channel : {
+	    label : "channel",
+	    displayType : "select",
+	    translationKey : "channel_",
+	    dataset : [
+		"original",
+		"translation",
+	    ],
+            opts : settings.liteOptions,
+	},
+	text_editor : {
+	    label : "editor",
+	},
+	sentence_orth_orig : {
+	    label : "orig_orthography",
+	},
+	sentence_transl : {
+	    label : "translation",
+	},
+	sentence_transl_lang : {
+	    label : "translation_lang",
+	    displayType : "select",
+	    translationKey : "",
+	    dataset : [
+		"eng",
+		"rus",
+		"sms",
+		"kpv",
+	    ],
+            opts : settings.liteOptions,
+	},
+	// sentence_id : {
+	//     label : "",
+	// },
+	sentence_paragraph_boundary : {
+	    label : "in_paragraph",
+	    displayType : "select",
+	    translationKey : "paraplace_",
+	    dataset : {
+		"begin" : "begin",
+		"end" : "end",
+		"begin+end" : "lone",
+		"" : "middle",
+	    },
+            opts : settings.liteOptions,
+	},
+    }
+};
+
+
+var locally_available_corpora = ["(mulcold|legal)_..", "kildin_sample"];
 
 if (! isPublicServer) {
     settings.fn.remove_matching_corpora(locally_available_corpora, true);
