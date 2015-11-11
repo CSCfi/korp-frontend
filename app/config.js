@@ -1395,6 +1395,11 @@ settings.corporafolders.sv = {
 };
 */
 
+settings.corporafolders.suomi24 = {
+    title : "Suomi24",
+    contents : ["s24_001", "s24_002", "s24_003", "s24_004", "s24_005", "s24_006", "s24_007", "s24_008", "s24_009"]
+};
+
 settings.corporafolders.ftb = {
     title : "FinnTreeBank: suomen puupankki",
     contents : ["ftb2"]
@@ -3342,6 +3347,35 @@ sattrlist.opus = {
 
 sattrlist = {};
 
+sattrlist.s24_update = {
+    text_urlmsg : {
+        label : "suomi24fi_urlmsg",
+        type : "url",
+        url_opts : sattrs.link_url_opts
+    },
+    text_urlboard : {
+        label : "suomi24fi_urlboard",
+        type : "url",
+        url_opts : sattrs.link_url_opts
+    },
+    sentence_id : sattrs.sentence_id_hidden,
+    text_title : sattrs.text_title,
+    text_date : sattrs.date,
+    text_time : sattrs.text_time,
+    text_cid : {
+        label : "suomi24fi_cid",
+    },
+    text_discussionarea : {
+        label : "suomi24fi_sect",
+    },
+    text_subsections : {
+        label : "suomi24fi_sub",
+    },
+    text_anonnick : {
+        label : "suomi24fi_user",
+    }
+};
+
 sattrlist.scotscorr = {
     sentence_id : sattrs.sentence_id_hidden,
     text_year : {label : "scotscorr_year"},
@@ -4834,6 +4868,182 @@ settings.corpora.ylilauta = {
     }
 };
 
+/* SUOMI 24 */
+
+settings.corpora.s24_001 = {
+    title : "Suomi24 1/9",
+    description : "Suomi24-keskustelut 1/9",
+    id : "s24_001",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref
+    },
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpora.s24_002 = {
+    title : "Suomi24 2/9",
+    description : "Suomi24-keskustelut 2/9",
+    id : "s24_002",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref
+
+    },
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpora.s24_003 = {
+    title : "Suomi24 3/9",
+    description : "Suomi24-keskustelut 3/9",
+    id : "s24_003",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref
+
+    },
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpora.s24_004 = {
+    title : "Suomi24 4/9",
+    description : "Suomi24-keskustelut 4/9",
+    id : "s24_004",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref
+
+    },
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpora.s24_005 = {
+    title : "Suomi24 5/9",
+    description : "Suomi24-keskustelut 5/9",
+    id : "s24_005",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref
+
+    },
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpora.s24_006 = {
+    title : "Suomi24 6/9",
+    description : "Suomi24-keskustelut 6/9",
+    id : "s24_006",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref
+
+    },
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpora.s24_007 = {
+    title : "Suomi24 7/9",
+    description : "Suomi24-keskustelut 7/9",
+    id : "s24_007",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref
+
+    },
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpora.s24_008 = {
+    title : "Suomi24 8/9",
+    description : "Suomi24-keskustelut 8/9",
+    id : "s24_008",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref
+
+    },
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpora.s24_009 = {
+    title : "Suomi24 9/9 (ei jäsennetty)",
+    description : "Suomi24-keskustelut 9/9",
+    id : "s24_009",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : sattrlist.s24_update
+};
+
+
+/*
+
 settings.corpora.s24 = {
     title : "Suomi24 poimintoja",
     description : "Suomi24-keskustelut (2002–2014), poimintoja",
@@ -4860,6 +5070,8 @@ settings.corpora.s24 = {
         },
         syn : attrs.deprel_tdt,
         unk : attrs.ner_tags*/
+
+/*
         lemma : attrs.baseform,
         lemmacomp : attrs.baseform_compound,
         pos : attrs.pos_klk,
@@ -4897,6 +5109,8 @@ settings.corpora.s24 = {
         }
     }
 };
+*/
+
 
 settings.corpora.iclfi = {
     title : "ICLFI – Kansainvälinen oppijansuomen korpus",
