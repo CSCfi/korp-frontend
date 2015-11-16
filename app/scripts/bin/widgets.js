@@ -15,7 +15,7 @@
       if (formattedCorpusInfo) {
         formattedCorpusInfo = "<br/>" + formattedCorpusInfo;
       }
-      $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>" + corpusObj.title + "</p><p>" + formattedCorpusInfo + "</p>").prependTo("#selected_sentence");
+      $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>" + corpusObj.title + "</p><p id='sidebar-corpus-info'>" + formattedCorpusInfo + "</p>").prependTo("#selected_sentence");
       token_data = {
         pos_attrs: wordData,
         struct_attrs: sentenceData,
@@ -112,8 +112,11 @@
       if (value == null) {
         value = "";
       }
-      if ((value === "|" || value === "") && !((attrs.translationKey != null) && (((ref1 = attrs.dataset) != null ? ref1[value] : void 0) != null))) {
+      if ((value === "|" || value === "") && !((attrs.translationKey != null) && (((ref1 = attrs.dataset) != null ? ref1[value] : void 0) != null)) && (attrs.stringify_synthetic == null)) {
         return output.append("<i rel='localize[empty]' style='color : grey'>${util.getLocaleString('empty')}</i>");
+      }
+      if (attrs.transform != null) {
+        value = attrs.transform(value);
       }
       if (attrs.type === "set") {
         pattern = attrs.pattern || '<span data-key="<% key %>"><%= val %></span>';
@@ -193,7 +196,7 @@
           val: str_value
         }));
       } else {
-        if (attrs.translationKey) {
+        if (attrs.translationKey != null) {
           str_value = (attrs != null ? attrs.dataset[value] : void 0) || str_value;
           return output.append("<span rel='localize[" + attrs.translationKey + str_value + "]'></span>");
         } else {

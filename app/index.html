@@ -49,7 +49,7 @@
             <li><a href="https://lat.csc.fi/corpora/Info/CLARIN-Terms_of_Service.html" target="_blank" class="follow_link">CLARIN Terms of Service</a></li>
             <li><a href="privacy-policy.html" target="_blank" rel="localize[privacy]" class="follow_link">Privacy policy</a></li>
             <li id="import"><a href="/cgi-bin/annlab/parse" target="_blank" rel="localize[import_chain]" class="follow_link"></a></li>
-            <li><a href="http://www.kielipankki.fi" rel="localize[language_bank]" class="follow_link">Kielipankki</a></li>
+            <li><a href="{{'language_bank_url' | loc}}" target="_blank" class="follow_link">{{'language_bank' | loc}}</a></li>
             <li id="login"><a href="javascript:" rel="localize[log_in]"></a></li>
           </ul>
           <div id="news_area">
@@ -135,7 +135,8 @@
                       {{'cqp_docs' | loc}}</a></div>
                   <textarea id="cqp_string" ng-model="cqp"></textarea>
                 </div>
-                <search-submit pos="right"></search-submit>
+                <search-submit pos="right"></search-submit><span ng-show="showWithin">{{'within' | loc}}</span>
+                <select ng-show="showWithin" ng-model="within" ng-options="item.value as ('within_' + item.value | loc) for item in withins" class="within_select"></select><span ng-show="showWithin">{{'within_postp' | loc}}</span>
               </div>
             </tab>
             <tab ng-if="visibleTabs[3]" ng-controller="CompareSearchCtrl">

@@ -198,6 +198,8 @@
       data.show = (_.uniq(["sentence"].concat(data.show))).join(",");
       c.log("data.show", data.show);
       data.show_struct = (_.uniq(data.show_struct)).join(",");
+      settings.corpusListing.minimizeWithinQueryString(data);
+      settings.corpusListing.minimizeContextQueryString(data);
       this.prevRequest = data;
       this.prevMisc = {
         "hitsPerPage": $("#num_hits").val()
@@ -422,6 +424,7 @@
         });
       }
       data.within = within;
+      settings.corpusListing.minimizeWithinQueryString(data);
       this.prevParams = data;
       def = $.Deferred();
       this.pendingRequests.push($.ajax({
@@ -584,7 +587,7 @@
       dfd = $.Deferred();
       xhr = $.ajax({
         url: settings.cgi_script,
-        type: "GET",
+        type: "POST",
         data: {
           command: "timespan",
           granularity: "y",

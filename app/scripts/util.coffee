@@ -130,6 +130,73 @@ class window.CorpusListing
         )
         _.union struct...
 
+    # Change the properties type and "default"type of the object
+    # params, where type is "within" or "context", if that results in
+    # a shorter overall value, to be passed to the Korp backend as
+    # query parameters. (This reduces the chance of producing URLs too
+    # long for the server.) The method chooses as the default value
+    # the one that would result in the longest value as the
+    # corpus-specific parameter. Modifying the values computed
+    # elsewhere is simpler than trying to find out exactly how (or
+    # based on what data) the values are computed and to do the same.
+    # (Jyrki Niemi 2015-09-11)
+    minimizeDefaultAndCorpusQueryString: (type, params) ->
+        if not (params.corpus? and params[type])
+            return params
+        all_corpora = params.corpus.split(',')
+        c.log('minimize', type, params.corpus, params['default' + type],
+              params[type], params[type].length)
+        default_val = params['default' + type]
+        value_corpora = {}
+        nondefault_corpora = []
+        for corpval in params[type].split(',')
+            [corpname, val] = corpval.split(':')
+            value_corpora[val] ?= []
+            value_corpora[val].push(corpname)
+            nondefault_corpora.push(corpname)
+        default_corpora = _.difference(all_corpora, nondefault_corpora)
+        value_corpora[default_val] =
+            (value_corpora[default_val] or []).concat(default_corpora)
+        # Find the longest value
+        lengths = []
+        for val, corpora of value_corpora
+            lensum = 0
+            for corp in corpora
+                lensum += corp.length
+            lengths.push(
+                value: val
+                # Also count URL-encoded commas and colons to be added
+                # between corpus names, and corpus names and parameter
+                # values
+                length: lensum + (corpora.length * (val.length + 6)) -
+                        if corpora.length == 1 then 3 else 0
+            )
+        maxval = _.max(lengths, 'length').value
+        c.log 'minimizing', type, value_corpora, lengths, maxval
+        if maxval == default_val and default_corpora.length > 0
+            return params
+        params['default' + type] = maxval
+        # c.log maxval, params
+        # Construct the non-default value string
+        other_vals = []
+        for val, corpora of value_corpora when val != maxval
+            # c.log val, corpora
+            other_vals = other_vals.concat(
+                [corp + ':' + val for corp in corpora])
+        # c.log other_vals
+        params[type] = other_vals.join(',')
+        c.log('minimized', type, params['default' + type], params[type],
+              params[type].length)
+        if params[type] == ''
+            delete params[type]
+        return params
+
+    minimizeWithinQueryString: (params) ->
+        @minimizeDefaultAndCorpusQueryString 'within', params
+
+    minimizeContextQueryString: (params) ->
+        @minimizeDefaultAndCorpusQueryString 'context', params
+
     getContextQueryString: (prefer) ->
         output = for corpus in @selected
             contexts = _.keys(corpus.context)
@@ -229,6 +296,14 @@ class window.CorpusListing
 
         return [word].concat(attrs, sent_attrs)
 
+    # List the unique values of the property ignore_between_tokens_cqp
+    # of the selected corpora. (Jyrki Niemi 2015-09-25)
+    getIgnoreBetweenTokens : ->
+        _(@selected)
+        .pluck("ignore_between_tokens_cqp")
+        .uniq()
+        .compact()
+        .value()
 
 
 class window.ParallelCorpusListing extends CorpusListing
@@ -1341,6 +1416,51 @@ util.setAttrDisplayOrder = (corpusInfo) ->
                 corpusInfo._sidebar_display_order = {}
             corpusInfo._sidebar_display_order[attr_type] = result.reverse()
     return
+
+
+# Add a CQP token expression to be ignored between the individual
+# token expressions in cqp, based on the property
+# ignore_between_tokens_cqp of the corpus configuration. The
+# expression to be ignored is added only if all the selected corpora
+# have the same ignore expression.
+#
+# TODO: It would be more appropriate and efficient to set the ignore
+# expression in the model and change it when the set of chosen corpora
+# changes, so we would not need to recompute it here every time.
+# (Jyrki Niemi 2015-09-25)
+
+util.addIgnoreCQPBetweenTokens = (cqp) ->
+
+    insertBetweenCQPTokens = (base_cqp, insert_cqp) ->
+        # Split the original CQP expression so that each token
+        # expression [...] and each string between them is a separate
+        # string.
+        cqp_tokens = base_cqp.match(
+            /\[([^\]\"\']*("([^\\\"]|\\.)*"|'([^\\\']|\\.)*'))*[^\]\"\']*\]|([^\[]+)/g)
+        # Find the last token proper, which need not be followed by
+        # the insert expression, although it does not make a
+        # difference in the result if it is optional.
+        last_token_num = _(cqp_tokens)
+                         .map((token) -> token.charAt(0) == '[')
+                         .lastIndexOf(true)
+        # Append the insert expression to each token expression and
+        # enclose them together in parentheses, so that repetition and
+        # other regexp operators work correctly for the augmented
+        # token expression.
+        insert_cqp_lpar = " " + insert_cqp + ")"
+        result = for token, token_num in cqp_tokens
+                     if token.charAt(0) == '[' and token_num < last_token_num
+                         "(" + token + insert_cqp_lpar
+                     else
+                         token
+        result.join("")
+
+    ignore_cqps = settings.corpusListing.getIgnoreBetweenTokens()
+    c.log "ignore_cqps", ignore_cqps
+    if ignore_cqps.length == 1
+        insertBetweenCQPTokens cqp, ignore_cqps[0]
+    else
+        cqp
 
 
 # Add additional CQP queries ("pre-queries") in cqp to params (Korp

@@ -167,16 +167,27 @@ korpApp.factory 'searches', (utils, $location, $rootScope, $http, $q) ->
                 def.resolve()
                 initTimeGraph(timedef)
 
-        kwicRequest : (cqp, isPaging) ->
+        # If extended search, add CQP expressions between tokens if
+        # defined in the configuration. (Jyrki Niemi 2015-09-25)
+        addIgnoreCQP : (cqp) ->
+            if $location.search().search_tab == 1
+                util.addIgnoreCQPBetweenTokens(cqp)
+            else
+                cqp
+
+        kwicRequest : (cqp, isPaging, hasIgnores) ->
             
             c.log "kwicRequest", cqp
+            if not hasIgnores
+                cqp = @addIgnoreCQP(cqp)
             kwicResults.makeRequest(cqp, isPaging)
 
         
         kwicSearch : (cqp, isPaging) ->
             # simpleSearch.resetView()
-            # kwicResults.@            
-            @kwicRequest cqp, isPaging
+            # kwicResults.@
+            cqp = @addIgnoreCQP(cqp)
+            @kwicRequest cqp, isPaging, true
             statsResults.makeRequest cqp
             if settings.name_classification
                 nameResults.makeRequest cqp
@@ -222,7 +233,7 @@ korpApp.factory 'searches', (utils, $location, $rootScope, $http, $q) ->
         getInfoData : () ->
             def = $q.defer()
             $http(
-                method : "GET"
+                method : "POST"
                 url : settings.cgi_script
                 params:
                     command : "info"

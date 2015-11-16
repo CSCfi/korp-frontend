@@ -25,6 +25,18 @@ div(ng-controller="SearchCtrl")
               | {{'cqp_docs' | loc}}
           textarea#cqp_string(ng-model="cqp")
         search-submit(pos='right')
+        //- Add a "within" selection also to the advanced search unless
+        //- disabled in the configuration.
+        //- ngIf might be more appropriate than ngShow, since showWithin gets
+        //- its value from a configuration variable, which does not change.
+        //- However, using ngIf would require wrapping "within" in an
+        //- object, making the controller code differ more from that of the
+        //- extended search controller. (Jyrki Niemi 2015-09-24)
+        span(ng-show="showWithin") {{'within' | loc}}
+        select.within_select(ng-show="showWithin"
+                             ng-model="within"
+                             ng-options="item.value as ('within_' + item.value | loc) for item in withins")
+        span(ng-show="showWithin") {{'within_postp' | loc}}
         //- button.btn.btn-small#sendBtn {{'search' | loc}}
     tab(ng-if="visibleTabs[3]", ng-controller='CompareSearchCtrl')
       tab-heading

@@ -1,8 +1,12 @@
 from __future__ import unicode_literals
 import os, json
 from glob import glob
+import sys
+import codecs
 
 fileset = ("locale", "corpora")
+
+sys.stdout = codecs.getwriter("utf-8")(sys.stdout)
 
 
 def check(setname):
@@ -13,7 +17,7 @@ def check(setname):
         for fName, json_set in mapping.items():
             if fromLang != fName:
                 if key not in json_set:
-                    print "The key '%s' is in file %s but not in file %s" % (key, fromLang, fName)
+                    print u"The key '%s' is in file %s but not in file %s" % (key, fromLang, fName)
     
     
     for fName, json_set in mapping.items():

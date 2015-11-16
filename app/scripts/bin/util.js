@@ -170,6 +170,80 @@
       return _.union.apply(_, struct);
     };
 
+    CorpusListing.prototype.minimizeDefaultAndCorpusQueryString = function(type, params) {
+      var all_corpora, corp, corpname, corpora, corpval, default_corpora, default_val, k, l, len, len1, lengths, lensum, maxval, nondefault_corpora, other_vals, ref, ref1, val, value_corpora;
+      if (!((params.corpus != null) && params[type])) {
+        return params;
+      }
+      all_corpora = params.corpus.split(',');
+      c.log('minimize', type, params.corpus, params['default' + type], params[type], params[type].length);
+      default_val = params['default' + type];
+      value_corpora = {};
+      nondefault_corpora = [];
+      ref = params[type].split(',');
+      for (k = 0, len = ref.length; k < len; k++) {
+        corpval = ref[k];
+        ref1 = corpval.split(':'), corpname = ref1[0], val = ref1[1];
+        if (value_corpora[val] == null) {
+          value_corpora[val] = [];
+        }
+        value_corpora[val].push(corpname);
+        nondefault_corpora.push(corpname);
+      }
+      default_corpora = _.difference(all_corpora, nondefault_corpora);
+      value_corpora[default_val] = (value_corpora[default_val] || []).concat(default_corpora);
+      lengths = [];
+      for (val in value_corpora) {
+        corpora = value_corpora[val];
+        lensum = 0;
+        for (l = 0, len1 = corpora.length; l < len1; l++) {
+          corp = corpora[l];
+          lensum += corp.length;
+        }
+        lengths.push({
+          value: val,
+          length: lensum + (corpora.length * (val.length + 6)) - (corpora.length === 1 ? 3 : 0)
+        });
+      }
+      maxval = _.max(lengths, 'length').value;
+      c.log('minimizing', type, value_corpora, lengths, maxval);
+      if (maxval === default_val && default_corpora.length > 0) {
+        return params;
+      }
+      params['default' + type] = maxval;
+      other_vals = [];
+      for (val in value_corpora) {
+        corpora = value_corpora[val];
+        if (val !== maxval) {
+          other_vals = other_vals.concat([
+            (function() {
+              var len2, m, results;
+              results = [];
+              for (m = 0, len2 = corpora.length; m < len2; m++) {
+                corp = corpora[m];
+                results.push(corp + ':' + val);
+              }
+              return results;
+            })()
+          ]);
+        }
+      }
+      params[type] = other_vals.join(',');
+      c.log('minimized', type, params['default' + type], params[type], params[type].length);
+      if (params[type] === '') {
+        delete params[type];
+      }
+      return params;
+    };
+
+    CorpusListing.prototype.minimizeWithinQueryString = function(params) {
+      return this.minimizeDefaultAndCorpusQueryString('within', params);
+    };
+
+    CorpusListing.prototype.minimizeContextQueryString = function(params) {
+      return this.minimizeDefaultAndCorpusQueryString('context', params);
+    };
+
     CorpusListing.prototype.getContextQueryString = function(prefer) {
       var context, contexts, corpus, output;
       output = (function() {
@@ -301,6 +375,10 @@
         return util.getLocaleString(item.label);
       });
       return [word].concat(attrs, sent_attrs);
+    };
+
+    CorpusListing.prototype.getIgnoreBetweenTokens = function() {
+      return _(this.selected).pluck("ignore_between_tokens_cqp").uniq().compact().value();
     };
 
     return CorpusListing;
@@ -1414,6 +1492,39 @@
         }
         corpusInfo._sidebar_display_order[attr_type] = result.reverse();
       }
+    }
+  };
+
+  util.addIgnoreCQPBetweenTokens = function(cqp) {
+    var ignore_cqps, insertBetweenCQPTokens;
+    insertBetweenCQPTokens = function(base_cqp, insert_cqp) {
+      var cqp_tokens, insert_cqp_lpar, last_token_num, result, token, token_num;
+      cqp_tokens = base_cqp.match(/\[([^\]\"\']*("([^\\\"]|\\.)*"|'([^\\\']|\\.)*'))*[^\]\"\']*\]|([^\[]+)/g);
+      last_token_num = _(cqp_tokens).map(function(token) {
+        return token.charAt(0) === '[';
+      }).lastIndexOf(true);
+      insert_cqp_lpar = " " + insert_cqp + ")";
+      result = (function() {
+        var k, len, results;
+        results = [];
+        for (token_num = k = 0, len = cqp_tokens.length; k < len; token_num = ++k) {
+          token = cqp_tokens[token_num];
+          if (token.charAt(0) === '[' && token_num < last_token_num) {
+            results.push("(" + token + insert_cqp_lpar);
+          } else {
+            results.push(token);
+          }
+        }
+        return results;
+      })();
+      return result.join("");
+    };
+    ignore_cqps = settings.corpusListing.getIgnoreBetweenTokens();
+    c.log("ignore_cqps", ignore_cqps);
+    if (ignore_cqps.length === 1) {
+      return insertBetweenCQPTokens(cqp, ignore_cqps[0]);
+    } else {
+      return cqp;
     }
   };
 

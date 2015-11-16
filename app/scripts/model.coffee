@@ -184,6 +184,8 @@ class model.KWICProxy extends BaseProxy
         data.show = (_.uniq ["sentence"].concat(data.show)).join(",")
         c.log "data.show", data.show
         data.show_struct = (_.uniq data.show_struct).join(",")
+        settings.corpusListing.minimizeWithinQueryString data
+        settings.corpusListing.minimizeContextQueryString data
         @prevRequest = data
         @prevMisc = {"hitsPerPage" : $("#num_hits").val()}
         @prevParams = data
@@ -386,6 +388,7 @@ class model.StatsProxy extends BaseProxy
         #if within_selection isnt "0" #!= settings.defaultWithin
         #    data.within = settings.corpusListing.getWithinQueryString()
         data.within = within
+        settings.corpusListing.minimizeWithinQueryString data
         @prevParams = data
         def = $.Deferred()
         @pendingRequests.push $.ajax
@@ -528,7 +531,7 @@ class model.TimeProxy extends BaseProxy
 
         xhr = $.ajax
             url: settings.cgi_script
-            type: "GET"
+            type: "POST"
             data:
                 command: "timespan"
                 granularity: "y"

@@ -22,7 +22,7 @@ Sidebar =
             else ""
         if formattedCorpusInfo
             formattedCorpusInfo = "<br/>" + formattedCorpusInfo
-        $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>#{corpusObj.title}</p><p>#{formattedCorpusInfo}</p>").prependTo "#selected_sentence"
+        $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>#{corpusObj.title}</p><p id='sidebar-corpus-info'>#{formattedCorpusInfo}</p>").prependTo "#selected_sentence"
         # All token data, to be passed to the function stringify_synthtetic
         # of a synthetic attribute (Jyrki Niemi 2015-02-24)
         token_data =
@@ -114,12 +114,17 @@ Sidebar =
         # 2015-08-26)
         value ?= ""
         if (value == "|" or value == "") and
-                not (attrs.translationKey? and attrs.dataset?[value]?)
+                not (attrs.translationKey? and attrs.dataset?[value]?) and
+                not attrs.stringify_synthetic?
             # The original version only appended to the output here
             # but did not return yet. Would we need further processing
             # for empty values in some cases? (Jyrki Niemi 2015-08-26)
             return output.append "<i rel='localize[empty]' style='color : grey'>${util.getLocaleString('empty')}</i>"
 
+        # Transform the value if a transformation function has been
+        # specified. (Jyrki Niemi 2015-10-26)
+        if attrs.transform?
+            value = attrs.transform(value)
 
         if attrs.type == "set"
             pattern = attrs.pattern or '<span data-key="<% key %>"><%= val %></span>'
@@ -202,7 +207,7 @@ Sidebar =
             return output.append _.template(attrs.pattern, {key : key, val : str_value})
 
         else
-            if attrs.translationKey
+            if attrs.translationKey?
                 str_value = attrs?.dataset[value] or str_value
                 return output.append "<span rel='localize[#{attrs.translationKey}#{str_value}]'></span>"
             else

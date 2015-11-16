@@ -25,8 +25,29 @@
       return $location.search("word_pic", Boolean(val) || null);
     });
     $scope.settings = settings;
-    return $scope.showStats = function() {
+    $scope.showStats = function() {
       return settings.statistics !== false;
+    };
+    return $scope.getWithins = function() {
+      var intersect, j, len, obj, output, ref, union;
+      intersect = settings.corpusListing.getAttrIntersection("within");
+      union = settings.corpusListing.getAttrUnion("within");
+      output = _.map(union, function(item) {
+        return {
+          value: item
+        };
+      });
+      if (union.length > intersect.length) {
+        for (j = 0, len = output.length; j < len; j++) {
+          obj = output[j];
+          if (ref = obj.value, indexOf.call(intersect, ref) < 0) {
+            obj.partial = true;
+          } else {
+            obj.partial = false;
+          }
+        }
+      }
+      return output;
     };
   });
 
@@ -197,6 +218,7 @@
       }
       try {
         $rootScope.extendedCQP = CQP.expandOperators(val);
+        $rootScope.extendedCQP = util.addIgnoreCQPBetweenTokens($rootScope.extendedCQP);
       } catch (_error) {
         e = _error;
         c.log("cqp parse error:", e);
@@ -320,7 +342,8 @@
   });
 
   korpApp.controller("AdvancedCtrl", function($scope, compareSearches, $location, $timeout) {
-    var expr, ref, ref1, type;
+    var expr, ref, ref1, s, type;
+    s = $scope;
     expr = "";
     if ($location.search().search) {
       ref1 = (ref = $location.search().search) != null ? ref.split("|") : void 0, type = ref1[0], expr = 2 <= ref1.length ? slice.call(ref1, 1) : [];
@@ -331,6 +354,8 @@
     } else {
       $scope.cqp = "[]";
     }
+    s.showWithin = settings.advanced_search_within != null ? settings.advanced_search_within : true;
+    s.within = s.showWithin ? $location.search().within || "sentence" : "sentence";
     $scope.$watch(function() {
       return typeof simpleSearch !== "undefined" && simpleSearch !== null ? simpleSearch.getCQP() : void 0;
     }, function(val) {
@@ -343,14 +368,25 @@
         corpora: settings.corpusListing.getSelectedCorpora()
       });
     });
-    return $scope.$on("btn_submit", function() {
+    $scope.$on("btn_submit", function() {
       c.log("advanced cqp", $scope.cqp);
       $location.search("search", null);
       $location.search("page", null);
       return $timeout(function() {
+        var ref2, within;
+        if (ref2 = s.within, indexOf.call(_.keys(settings.defaultWithin), ref2) < 0) {
+          within = s.within;
+        }
+        $location.search("within", within || null);
         return $location.search("search", "cqp|" + $scope.cqp);
       }, 0);
     });
+    if (s.showWithin) {
+      s.withins = [];
+      return s.$on("corpuschooserchange", function() {
+        return s.withins = s.getWithins();
+      });
+    }
   });
 
   korpApp.filter("mapper", function() {

@@ -146,6 +146,11 @@ korpApp.directive "tokenValue", ($compile, $controller) ->
             unless valueObj then return
             # c.log "$scope tokenValue link", valueObj
             if valueObj.value == current?.value then return
+            # Delete the properties of the current (previous) value
+            # from scope, so that the values of properties absent from
+            # the new valueObj are cleared. (Jyrki Niemi 2015-09-02)
+            for own key of current
+                delete scope[key]
             current = valueObj
 
             
