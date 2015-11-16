@@ -749,6 +749,10 @@
     "paraplace_lone" : "lone sentence",
     "paraplace_middle" : "middle",
 
+    "gloss" : "gloss",
+    "syntactic_function" : "syntactic function",
+    "verb_features" : "verb features",
+
     "published" : "published"
 }
 

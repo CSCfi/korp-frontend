@@ -530,7 +530,73 @@ settings.corpora.kildin_sample = {
 };
 
 
-var locally_available_corpora = ["(mulcold|legal)_..", "kildin_sample"];
+settings.corpora.swahili_sample = {
+    id : "swahili_sample",
+    title : "Swahili (sample)",
+    description : "A test sample of the new Swahili corpus",
+    // metadata_urn : "urn:nbn:fi:lb-",
+    // licence : settings.licenceinfo.CC_BY,
+    limited_access : true,
+    licence_type : "ACA",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes : {
+	lemma : attrs.baseform,
+	pos : {
+	    label : "pos",
+	    displayType : "select",
+	    // translationKey : "pos_",
+	    localize : "false",
+	    dataset : [
+		"ADJ",
+		"ADJ-POST",
+		"ADJ-PRE",
+		"ADV",
+		"AG-PART",
+		"CC",
+		"COLON",
+		"COMMA",
+		"CONJ",
+		"DEM",
+		"DOUBLE-QUOTE-OPENING",
+		"GEN-CON",
+		"GEN-CON-KWA",
+		"LEFT-PARENTHESIS",
+		"N",
+		"NUM",
+		"PREP",
+		"PRON",
+		"PROPNAME",
+		"RIGHT-PARENTHESIS",
+		"SINGLE-QUOTE-OPENING",
+		"V",
+		"V-BE",
+		"_",
+	    ],
+	    opts : settings.liteOptions,
+	},
+	msd : {
+	    label : "msd",
+	    taginfo_url : "",
+	},
+	gloss : {
+	    label : "gloss",
+	},
+	syntax : {
+	    label : "syntactic_function",
+	},
+	verbextra : {
+	    label : "verb_features",
+	},
+    },
+    struct_attributes : {
+	sentence_id : sattrs.sentence_id_hidden,
+    },
+};
+
+
+var locally_available_corpora = ["(mulcold|legal)_..", "kildin_sample",
+				 "swahili_sample"];
 
 if (! isPublicServer) {
     settings.fn.remove_matching_corpora(locally_available_corpora, true);
