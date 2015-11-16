@@ -2648,6 +2648,40 @@ for (var i = 0; i < la_murre_grouping.length; i++) {
     }
 }
 
+// It would actually suffice to have the /korp-prefixed name now that
+// /var/www/html/korp is a link to /var/www/html on the public server.
+var la_murre_fulltext_url_prefix =
+    ((! isPublicServer) ? "/korp" : "") + "/fulltext/la_murre/";
+
+// Make LA-murre fulltext URLs with the sentence id as a fragment
+// identifier and the number of the first and last token of the match
+// as the query string. This function is used as a stringify_synthetic
+// function for the fulltext URLs.
+settings.fn.make_la_murre_fulltext_url = function (token_data) {
+    var tokencnt = token_data.tokens.length;
+    var match_start = 0;
+    var match_end = 0;
+    var in_match = false;
+    for (var tokennum = 0; tokennum < tokencnt; tokennum++) {
+	if (token_data.tokens[tokennum]._match) {
+	    if (! in_match) {
+		match_start = tokennum + 1;
+		in_match = true;
+	    }
+	} else if (in_match) {
+	    match_end = tokennum;
+	    in_match = false;
+	}
+    }
+    if (in_match) {
+	match_end = tokencnt;
+    }
+    return (la_murre_fulltext_url_prefix
+	    + token_data.struct_attrs.text_filename + ".html"
+	    + "?" + match_start.toString() + "-" + match_end.toString()
+	    + "#s" + token_data.struct_attrs.sentence_num);
+};
+
 // The corpus settings template for the LA-murre corpora
 settings.templ.la_murre = {
     // title : "Lauseopin arkiston murrekorpus",
@@ -2799,6 +2833,13 @@ settings.templ.la_murre = {
 	sentence_annex_link : sattrs.link_prefixed(
 	    "listen_sentence",
 	    "https://lat.csc.fi/ds/annex/runLoader?"),
+	sentence_fulltext_link :  {
+	    label : "show_fulltext",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts,
+	    synthetic : true,
+	    stringify_synthetic : settings.fn.make_la_murre_fulltext_url,
+	},
 	clause_clnum : {
 	    label : "clause_clnum",
 	},
