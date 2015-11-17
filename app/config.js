@@ -101,12 +101,15 @@ settings.urnResolver = "http://urn.fi/";
 // (Jyrki Niemi 2015-09-24)
 settings.advanced_search_within = true;
 
+settings.languages = ["fi", "sv", "en"];
+settings.defaultLanguage = "fi";
+
 // for extended search dropdown, can be 'union' or 'intersection'
 settings.word_attribute_selector = "union"
 settings.struct_attribute_selector = "union"
 
 // for 'compile statistics by' selector, can be 'union' or 'intersection'
-settings.reduce_word_attribute_selector = "union" 
+settings.reduce_word_attribute_selector = "union"
 settings.reduce_struct_attribute_selector = "intersection"
 
 // settings.news_desk_url = "https://svn.spraakdata.gu.se/sb-arkiv/pub/component_news/json/korpnews.json";
@@ -174,24 +177,24 @@ settings.wordpictureTagset = {
 
 settings.wordPictureConf = {
     verb : [[
-        {rel : "subject", css_class : "color_blue"}, 
+        {rel : "subject", css_class : "color_blue"},
         "_",
         {rel : "object", css_class : "color_purple"},
         {rel : "adverbial", css_class : "color_green"}
     ]],
     noun : [
-        [ // {rel : "preposition_rel", css_class : "color_yellow", field_reverse: true}, 
-         {rel : "pre_modifier", css_class : "color_azure"}, 
-         "_", 
-         {rel : "post_modifier", css_class : "color_red"}], 
+        [ // {rel : "preposition_rel", css_class : "color_yellow", field_reverse: true},
+         {rel : "pre_modifier", css_class : "color_azure"},
+         "_",
+         {rel : "post_modifier", css_class : "color_red"}],
 
-        ["_", {rel : "subject", css_class : "color_blue", field_reverse: true, alt_label : "vb"}], 
+        ["_", {rel : "subject", css_class : "color_blue", field_reverse: true, alt_label : "vb"}],
         [{rel : "object", css_class : "color_purple", field_reverse: true, alt_label : "vb"}, "_"]
     ],
     adjective : [["_", {rel: "pre_modifier", css_class : "color_yellow", field_reverse : true}]],
     adverb : [["_", {rel: "adverbial", css_class : "color_yellow", field_reverse : true}]],
     // preposition : [["_", {rel: "preposition_rel", css_class : "color_green"}]]
-    
+
 }
 
 settings.visibleModes = 6
@@ -222,10 +225,20 @@ settings.modeConfig = [
         localekey: "parallel_texts",
         mode: "parallel"
     }
- 
+
 ];
 
-settings.languages = ["fi", "sv", "en"];
+/*
+// Not applicable to Kielipankki's Korp
+if(isLab) {
+    settings.modeConfig.splice(1, 0,
+        {
+            localekey: "swedish_texts",
+            mode: "swedish"
+        }
+    );
+}
+*/
 
 // Namespace for functions used in configuring corpora
 settings.fn = {};
@@ -264,8 +277,6 @@ settings.scWithin = {
     "clause" : "clause",
 };
 
-settings.defaultLanguage = "fi";
-
 // Corpus id alias mapping: aliases as property keys and actual corpus
 // ids as values. (Jyrki Niemi 2015-04-23)
 settings.corpus_aliases = {};
@@ -298,6 +309,7 @@ settings.default_sidebar_display_order = {
 	/^clause_/,
     ]
 };
+
 
 
 /*
@@ -341,7 +353,7 @@ var selectType = {
         $scope.translationKey = $scope.translationKey || "";
         var dataset;
         if(_.isArray($scope.dataset)) {
-            // convert array datasets into objects 
+            // convert array datasets into objects
             dataset = _.object(_.map($scope.dataset, function(item) {
                 return [item, item];
             }));
@@ -708,7 +720,7 @@ attrs.msd_sv = {
     label : "msd",
     opts : settings.defaultOptions,
     extended_template : '<input class="arg_value" ng-model="input" escaper>' +
-    '<span ng-click="onIconClick()" class="ui-icon ui-icon-info"></span>',
+    '<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
     controller : function($scope, $modal) {
         var modal = null;
 
@@ -716,7 +728,7 @@ attrs.msd_sv = {
             modal = $modal.open({
                 template : '<div>' +
                                 '<div class="modal-header">' +
-                                    '<h3 class="modal-title">{{\'msd_long\' | loc}}</h3>' +
+                                    '<h3 class="modal-title">{{\'msd_long\' | loc:lang}}</h3>' +
                                     '<span ng-click="clickX()" class="close-x">×</span>' +
                                 '</div>' +
                                 '<div class="modal-body" ng-click="msdClick($event)" ng-include="\'markup/msd.html\'"></div>' +
@@ -740,17 +752,8 @@ attrs.msd_sv = {
 attrs.baseform_sv = {
     label : "baseform",
     type : "set",
-    displayType : "autocomplete",
-    stringify : function(baseform) {
-        return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
-    },
     opts : settings.setOptions,
-    extended_template : "<input korp-autocomplete model='model' stringify='stringify' sorter='sorter' type='baseform' >",
-    controller : function($scope) {
-        $scope.stringify = util.lemgramToString;
-        $scope.sorter = view.lemgramSort;
-    }
-
+    extended_template : "<input ng-model='model' >"
 };
 attrs.baseform = {
     label : "baseform",
@@ -792,17 +795,27 @@ attrs.lemgram = {
     },
     externalSearch : karpLemgramLink,
     internalSearch : true,
-    extended_template : "<input korp-autocomplete model='model' stringify='stringify' sorter='sorter' type='lem' >",
-    controller : function($scope) {
-        $scope.stringify = util.lemgramToString;
-        $scope.sorter = view.lemgramSort;
-    }
+    extended_template : "<autoc model='model' placeholder='placeholder' type='lemgram'/>",
 };
 attrs.lemgram_hidden = {
     label : "lemgram",
     type : "set",    // Seems to work only if this is "set" even if "hidden"
     displayType : "hidden",
     // opts : settings.liteOptions
+};
+attrs.dalinlemgram = {
+    label : "dalin-lemgram",
+    type : "set",
+    displayType : "autocomplete",
+    opts : settings.setOptions,
+    stringify : function(lemgram) {
+        // if(_.contains(lemgram, " "))
+        // TODO: what if we're getting more than one consequtive lemgram back?
+        return util.lemgramToString(_.str.trim(lemgram), true);
+    },
+    externalSearch : karpLemgramLink,
+    internalSearch : true,
+    extended_template : "<autoc model='model' placeholder='placeholder' type='lemgram' variant='dalin'/>",
 };
 
 attrs.saldo = {
@@ -815,11 +828,7 @@ attrs.saldo = {
     },
     externalSearch : "http://spraakbanken.gu.se/karp/#search-tab-1&search=cql|(saldo+%3D+<%= val %>)",
     internalSearch : true,
-    extended_template : "<input korp-autocomplete model='model' stringify='stringify' sorter='sorter' type='saldo' >",
-    controller : function($scope) {
-        $scope.stringify = util.saldoToString;
-        $scope.sorter = view.saldoSort;
-    }
+    extended_template : "<autoc model='model' placeholder='placeholder' type='sense'/>",
 };
 attrs.dephead = {
     label : "dephead",
@@ -998,11 +1007,7 @@ attrs.prefix = {
     },
     externalSearch : karpLemgramLink,
     internalSearch : true,
-    extended_template : "<input korp-autocomplete model='model' stringify='stringify' sorter='sorter' type='lem' >",
-    controller : function($scope) {
-        $scope.stringify = util.lemgramToString;
-        $scope.sorter = view.lemgramSort;
-    }
+    extended_template : "<autoc model='model' placeholder='placeholder' type='lemgram' variant='affix'/>"
 };
 attrs.suffix = {
     label : "suffix",
@@ -1014,11 +1019,7 @@ attrs.suffix = {
     },
     externalSearch : karpLemgramLink,
     internalSearch : true,
-    extended_template : "<input korp-autocomplete model='model' stringify='stringify' sorter='sorter' type='lem' >",
-    controller : function($scope) {
-        $scope.stringify = util.lemgramToString;
-        $scope.sorter = view.lemgramSort;
-    }
+    extended_template : "<autoc model='model' placeholder='placeholder' type='lemgram' variant='affix'/>"
 };
 attrs.ref = {
     label : "ref",
@@ -1079,6 +1080,104 @@ attrs.wordtype = {
     opts : settings.defaultOptions
 };
 
+attrs.ne_ex = {
+    label: "ne_expr",
+    translationKey : "ne_expr_",
+    extended_template : selectType.extended_template,
+    controller : selectType.controller,
+    isStructAttr : true,
+    dataset: [
+       "ENAMEX",
+       "TIMEX",
+       "NUMEX",
+   ]
+};
+attrs.ne_type = {
+    label: "ne_type",
+    translationKey : "ne_type_",
+    extended_template : selectType.extended_template,
+    controller : selectType.controller,
+    isStructAttr : true,
+    dataset: [
+       "LOC",
+       "PRS",
+       "ORG",
+       "EVN",
+       "WRK",
+       "OBJ",
+       "MSR",
+       "TME"
+   ]
+};
+attrs.ne_subtype = {
+    label: "ne_subtype",
+    translationKey : "ne_subtype_",
+    extended_template : selectType.extended_template,
+    controller : selectType.controller,
+    isStructAttr : true,
+    dataset: [
+        "AST",
+        "GPL",
+        "PPL",
+        "FNC",
+        "STR",
+        "HUM",
+        "MTH",
+        "ANM",
+        "CLC",
+        "FIN",
+        "ATH",
+        "CLT",
+        "PLT",
+        "TVR",
+        "EDU",
+        "TRN",
+        "CRP",
+        "HPL",
+        "WTH",
+        "CLU",
+        "ATL",
+        "RLG",
+        "WRT",
+        "RTV",
+        "WAO",
+        "PRJ",
+        "WMD",
+        "WAE",
+        "MDC",
+        "FWP",
+        "CMP",
+        "VHA",
+        "VHG",
+        "VHW",
+        "PRZ",
+        "PRD",
+        "VLM",
+        "TMP",
+        "INX",
+        "DST",
+        "PRC",
+        "CUR",
+        "DEN",
+        "DSG",
+        "SPD",
+        "FRQ",
+        "AGE",
+        "MSU",
+        "WMU",
+        "CMU",
+        "WEB",
+        "PSS",
+        "CVU",
+        "IDX",
+        "LST",
+        "DAT",
+        "PER"
+   ],
+   stringify : function(val) {
+       return util.getLocaleString("ne_subtype_" + val);
+   }
+};
 sattrs.date = {
     label : "date",
     displayType : "date"
@@ -1249,6 +1348,9 @@ sattrs.text_publisher = {
 
 /* --------- */
 
+
+
+/*
 settings.common_struct_types = {
     date_interval : {
         label: "date_interval",
@@ -1261,7 +1363,7 @@ settings.common_struct_types = {
         controller : function($scope, searches, $timeout) {
             c.log( "searches", searches)
             var s = $scope
-            
+
             searches.timeDef.then(function() {
                 var all_years = _(settings.corpusListing.selected)
                             .pluck("time")
@@ -1276,7 +1378,7 @@ settings.common_struct_types = {
 
                 $timeout(function() {
                     s.floor = Math.min.apply(null, all_years)
-                    s.ceiling = Math.max.apply(null, all_years) 
+                    s.ceiling = Math.max.apply(null, all_years)
                     if(!s.model) {
                         s.values.low = s.floor;
                         s.values.high = s.ceiling;
@@ -1299,17 +1401,19 @@ settings.common_struct_types = {
                         s.values.high.toString() + "1231"
                     ].join(",")
                 })
-                
+
                 s.$on("$destroy", function() {
                     w();
                 })
-                
+
             })
-                
+
         }
     }
 
 }
+
+*/
 
 var modernAttrs = {
     pos : attrs.pos,
@@ -1564,7 +1668,8 @@ settings.corporafolders.test = {
 };
 
 
-/* 
+
+/*
  * PRESELECTED CORPORA
  * Folders will be expanded to all corpora. Optionally prefix folders with __ , which will be ignored.
  */
@@ -5429,6 +5534,12 @@ settings.fn.add_attr_extra_properties(settings.corpora);
 
 
 /*
+ * TODO add all other copora settings here
+ */
+
+
+
+/*
  * MISC
  */
 
@@ -5454,7 +5565,7 @@ settings.reduce_stringify = function(type) {
         var corpora = $.grepObj(filterCorpora(dataContext), function(value, key) {
             return value[1] != null; // value[1] is an optimized value.relative
         });
-        corpora = $.map($.keys(corpora), function(item) {
+        corpora = $.map(_.keys(corpora), function(item) {
 	    // Leave out only the last underscore-separated component
 	    // of the corpus name (probably "value", set in
 	    // statistics_worker.js), to support corpus names (ids)
@@ -5526,7 +5637,7 @@ settings.reduce_stringify = function(type) {
             if(type == "saldo") stringify = util.saldoToString
             else if(type == "lemma") stringify = function(lemma) {return lemma.replace(/_/g, " ")}
             else stringify = util.lemgramToString
-            
+
             // c.log ("value", value)
             if(!_.isArray(value)) value = [value]
             var html = _.map(value[0].split(" "), function(token) {
@@ -5552,7 +5663,7 @@ settings.reduce_stringify = function(type) {
 
             }).join(" ")
 
-            
+
             output = $("<span class='link'>")
                 .attr("data-query", cqp)
                 .attr("data-corpora", JSON.stringify(corpora))
@@ -5560,7 +5671,7 @@ settings.reduce_stringify = function(type) {
 
             return appendDiagram(output, corpora, value);
         };
-    
+
     // case "lemma":
     //     return function(row, cell, value, columnDef, dataContext) {
     //         var corpora = getCorpora(dataContext);
@@ -5572,7 +5683,7 @@ settings.reduce_stringify = function(type) {
     //             .attr("data-query", cqp)
     //             .attr("data-corpora", JSON.stringify(corpora))
     //             .append(html.join(" ")).outerHTML()
-            
+
     //         return appendDiagram(output, corpora, stringify(value));
     case "deprel":
         return function(row, cell, value, columnDef, dataContext) {
@@ -5607,7 +5718,6 @@ settings.reduce_stringify = function(type) {
 
             // if(type in cl.getStructAttrs())
             // var attrObj = cl.getStructAttrs()[type]
-            c.log ("attrObj", attrObj)
 
             var prefix = ""
             var relLocalize = ""
@@ -5640,7 +5750,7 @@ delete ref;
 
 settings.posset = {
    type : "set",
-   label : "pos",
+   label : "posset",
    displayType : "select",
    opts : settings.setOptions,
    translationKey : "pos_",
@@ -5673,33 +5783,17 @@ settings.posset = {
             }
 };
 settings.fsvlemma = {
-    //pattern : "<a href='http://spraakbanken.gu.se/karp/#search=cql%7C(gf+%3D+%22<%= key %>%22)+sortBy+wf'><%= val %></a>",
     type : "set",
     label : "baseform",
-    displayType : "autocomplete",
     opts : settings.setOptions,
-    stringify : function(baseform) {
-        return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
-    },
-    extended_template : "<input korp-autocomplete model='model' stringify='stringify' sorter='sorter' type='lem' >",
-    controller : function($scope) {
-        $scope.stringify = util.lemgramToString;
-        $scope.sorter = view.lemgramSort;
-    },
-//      externalSearch : "http://spraakbanken.gu.se/karp/#search=cql%7C(gf+%3D+%22<%= val %>%22)+sortBy+lemgram",
-//  internalSearch : true
-
+    extended_template : "<input ng-model='model' >"
 };
 settings.fsvlex = {
     type : "set",
     label : "lemgram",
     displayType : "autocomplete",
     opts : settings.setOptions,
-    extended_template : "<input korp-autocomplete model='model' stringify='stringify' sorter='sorter' type='lem' >",
-    controller : function($scope) {
-        $scope.stringify = util.lemgramToString;
-        $scope.sorter = view.lemgramSort;
-    },
+    extended_template : "<autoc model='model' placeholder='placeholder' type='lemgram'/>",
     stringify : function(str) {
         return util.lemgramToString(str, true);
     },
@@ -5713,12 +5807,97 @@ settings.fsvvariants = {
         return util.lemgramToString(str, true);
     },
     displayType : "autocomplete",
-    extended_template : "<input korp-autocomplete model='model' stringify='stringify' sorter='sorter' type='lem' >",
-    controller : function($scope) {
-        $scope.stringify = util.lemgramToString;
-        $scope.sorter = view.lemgramSort;
-    },
+    extended_template : "<autoc model='model' placeholder='placeholder' type='lemgram'/>",
     opts : settings.setOptions,
     externalSearch : karpLemgramLink,
     internalSearch : true
+};
+
+
+settings.fsvdescription ='<a target="_blank" href="http://project2.sol.lu.se/fornsvenska/">Fornsvenska textbanken</a> är ett projekt som digitaliserar fornsvenska texter och gör dem tillgängliga över webben. Projektet leds av Lars-Olof Delsing vid Lunds universitet.';
+
+var fsv_yngrelagar = {
+    morf : 'fsvm',
+    id : "fsv-yngrelagar",
+    title : "Yngre lagar – Fornsvenska textbankens material",
+    description : settings.fsvdescription,
+    within : settings.defaultWithin,
+    context : settings.spContext,
+    attributes : {
+        posset : settings.posset,
+        lemma : settings.fsvlemma,
+        lex : settings.fsvlex,
+        variants : settings.fsvvariants
+        },
+    struct_attributes : {
+        text_title : {
+            label : "title",
+            displayType : "select",
+            localize : false,
+            extended_template : selectType.extended_template,
+            controller : selectType.controller,
+            dataset : [
+                "Kristoffers Landslag, nyskrivna flockar i förhållande till MEL",
+                "Kristoffers Landslag, innehållsligt ändrade flockar i förhållande til MEL",
+                "Kristoffers Landslag, flockar direkt hämtade från MEL",
+                "Kristoffers Landslag"
+                ],
+        },
+        text_date : {label : "date"}
+    }
+};
+
+var fsv_aldrelagar = {
+    morf : 'fsvm',
+    id : "fsv-aldrelagar",
+    title : "Äldre lagar – Fornsvenska textbankens material",
+    description : settings.fsvdescription,
+    within : settings.defaultWithin,
+    context : settings.spContext,
+    attributes : {
+        posset : settings.posset,
+        lemma : settings.fsvlemma,
+        lex : settings.fsvlex,
+        variants : settings.fsvvariants
+                },
+    struct_attributes : {
+        text_title : {
+            label : "title",
+            displayType : "select",
+            localize : false,
+            extended_template : selectType.extended_template,
+            controller : selectType.controller,
+            dataset : [
+                "Yngre Västgötalagens äldsta fragment, Lydekini excerpter och anteckningar",
+                "Tillägg till Upplandslagen, hskr A (Ups B 12)",
+                "Södermannalagen, enligt Codex iuris Sudermannici",
+                "Östgötalagen, fragment H, ur Kyrkobalken ur Skokloster Avdl I 145",
+                "Yngre Västmannalagen, enl Holm B 57",
+                "Vidhemsprästens anteckningar",
+                "Magnus Erikssons Stadslag, exklusiva stadslagsflockar",
+                "Södermannalagens additamenta, efter NKS 2237",
+                "Hälsingelagen",
+                "Yngre Västgötalagen, tillägg, enligt Holm B 58",
+                "Östgötalagen, fragment C, ur Holm B 1709",
+                "Yngre Västgötalagen, enligt Holm B 58",
+                "Upplandslagen enl Schlyters utgåva och Codex Ups C 12, hskr A",
+                "Skånelagen, enligt Holm B 76",
+                "Östgötalagen, fragment D, ur Holm B 24",
+                "Östgötalagen A, ur Holm B 50",
+                "Äldre Västgötalagen",
+                "Östgötalagen, fragment M, ur Holm B 196",
+                "Gutalagen enligt Holm B 64",
+                "Upplandslagen enligt Codex Holm B 199, Schlyters hskr B",
+                "Smålandslagens kyrkobalk",
+                "Dalalagen (Äldre Västmannalagen)",
+                "Gutalagens additamenta enligt AM 54",
+                "Bjärköarätten",
+                "Magnus Erikssons Landslag",
+                "Östgötalagen, fragment N, ur Köpenhamn AM 1056",
+                "Södermannalagen stadsfästelse - Confirmatio, enligt NKS 2237",
+                "Östgötalagen, fragment E, ur Ups B 22"
+                            ],
+        },
+        text_date : {label : "date"}
+    }
 };

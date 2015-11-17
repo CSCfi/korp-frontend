@@ -2,17 +2,17 @@ tab(active="active", ng-controller='ExampleCtrl', ng-repeat='queryParams in kwic
   tab-heading(ng-class="{not_loading: progress == 100, loading : !instance.hasData}")
     | {{'kwic' | loc}}
 
-    span(ng-click='kwicTabs.splice($index, 1)', tab-spinner='tab-spinner')
+    span(ng-click='$event.preventDefault();kwicTabs.splice($index, 1)', tab-spinner='tab-spinner')
   .results-kwic(ng-class="{reading_mode : reading_mode, not_loading: !loading, loading : loading}", constr='ExampleResults' )
     include kwicresult
 tab(active="active", ng-repeat='data in graphTabs', ng-controller='graphCtrl')
   tab-heading(ng-class="{not_loading: progress > 99}")
-    | {{'graph' | loc}}
+    | {{'graph' | loc:lang}}
     .tab_progress(style="width:{{progress || 0}}%", ng-show="loading")
-    span(ng-click='graphTabs.splice($index, 1)', tab-spinner='tab-spinner')
-  div(constr='GraphResults')
+    span(ng-click='$event.preventDefault();graphTabs.splice($index, 1)', tab-spinner='tab-spinner')
+  div.graph_tab(constr='GraphResults')
     .graph_header
-      .controls(ng-show="!loading")
+      .controls()
         //- .form_switch
         //-   input#line_input(type='radio', name='form_switch', value='line', checked='checked')
         //-   label(for='line_input') Linje
@@ -23,9 +23,9 @@ tab(active="active", ng-repeat='data in graphTabs', ng-controller='graphCtrl')
 
 
         .btn-group.form_switch
-          label.btn.btn-default.btn-small(ng-model="$parent.mode", btn-radio="'line'") {{'line' | loc}}
-          label.btn.btn-default.btn-small(ng-model="$parent.mode", btn-radio="'bar'") {{'bar' | loc}}
-          label.btn.btn-default.btn-small(ng-model="$parent.mode", btn-radio="'table'") {{'table' | loc}}
+          label.btn.btn-default.btn-sm(ng-model="$parent.mode", btn-radio="'line'") {{'line' | loc:lang}}
+          label.btn.btn-default.btn-sm(ng-model="$parent.mode", btn-radio="'bar'") {{'bar' | loc:lang}}
+          label.btn.btn-default.btn-sm(ng-model="$parent.mode", btn-radio="'table'") {{'table' | loc:lang}}
 
         //- label.smoothing_label(for='smoothing_switch') Utjämna
         //- input#smoothing_switch.smoothing_switch(type='checkbox')
@@ -33,17 +33,20 @@ tab(active="active", ng-repeat='data in graphTabs', ng-controller='graphCtrl')
           span(rel='localize[non_time_before]')
           span.non_time
           span(rel='localize[non_time_after]')
-      .legend(ng-show="!loading && isGraph()")
-        .line(ng-show="hasEmptyIntervals", tooltip="{{'graph_material_tooltip' | loc}}")
+      .legend(ng-style='{visibility : !loading && isGraph() ? "visible" : "hidden"}')
+        .line(ng-show="hasEmptyIntervals", tooltip="{{'graph_material_tooltip' | loc:lang}}")
           a.action
           .swatch(style="background-color: #999")
           span.label 
-            em {{'graph_material' | loc}} 
+            em {{'graph_material' | loc:lang}} 
       div(style='clear: both;')
-      .drawing(ng-show="loading")
-        | {{'drawing' | loc}}
-    .chart(ng-show="isGraph()")
-    .zoom_slider(ng-show="isGraph()")
+      //- .drawing(ng-show="loading")
+      //-   | {{'drawing' | loc}}
+    .chart_container
+      .preloader(ng-class="{loading: loading}")
+        i.fa.fa-spinner.fa-spin.fa-5x
+      .chart(ng-show="isGraph()")
+    .preview
     .time_table(style="margin-top:20px", ng-show="isTable()")
     .exportTimeStatsSection(ng-show="isTable()")
       select.timeKindOfData
@@ -52,11 +55,11 @@ tab(active="active", ng-repeat='data in graphTabs', ng-controller='graphCtrl')
       select.timeKindOfFormat
         option(value='CSV', rel='localize[statstable_exp_csv]') CSV (kommaseparerade värden)
         option(value='TSV', rel='localize[statstable_exp_tsv]') TSV (tabseparerade värden)
-      a.export.btn.btn-default.btn-small {{'statstable_export' | loc}}
+      a.export.btn.btn-default.btn-sm {{'statstable_export' | loc:lang}}
 tab(active="active", ng-repeat='promise in compareTabs', ng-controller='compareCtrl')
   tab-heading.compare_tab(ng-class='{loading : loading}')
-    | {{'compare_vb' | loc}}
-    span(tab-spinner='tab-spinner', ng-click='compareTabs.splice($index, 1)')
+    | {{'compare_vb' | loc:lang}}
+    span(tab-spinner='tab-spinner', ng-click='$event.preventDefault();compareTabs.splice($index, 1)')
   .compare_result(ng-class='{loading : loading}')
     .error_msg(ng-if="error")
       object.korp_fail.inline_block(type='image/svg+xml', data='img/korp_fail.svg')
@@ -66,14 +69,14 @@ tab(active="active", ng-repeat='promise in compareTabs', ng-controller='compareC
 
     .column.column_1(ng-if="!error")
       h2
-        | {{'compare_distinctive' | loc}} 
+        | {{'compare_distinctive' | loc:lang}} 
         em {{cmp1.label}}
       ul
         li(ng-repeat='tuple in tables.negative', ng-click="rowClick(tuple, 0)")
           .meter(meter='tuple', max='max[1]', stringify='stringify')
     .column.column_2
       h2
-        | {{'compare_distinctive' | loc}} 
+        | {{'compare_distinctive' | loc:lang}} 
         em {{cmp2.label}}
       ul
         li(ng-repeat='tuple in tables.positive', ng-click="rowClick(tuple, 1)")

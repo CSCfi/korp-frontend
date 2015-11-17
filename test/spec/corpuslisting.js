@@ -34,5 +34,3 @@
   });
 
 }).call(this);
-
-//# sourceMappingURL=corpuslisting.js.map

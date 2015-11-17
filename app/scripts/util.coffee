@@ -77,8 +77,11 @@ class window.CorpusListing
         attrs = @mapSelectedCorpora((corpus) ->
             for key, value of corpus.struct_attributes
                 value["isStructAttr"] = true
-
-            corpus.struct_attributes
+            
+            # if a position attribute is declared as structural, include here
+            pos_attrs = _.pick corpus.attributes, (val, key) ->
+                val.isStructAttr
+            _.extend {}, pos_attrs, corpus.struct_attributes
         )
         rest = @_invalidateAttrs(attrs)
 
@@ -93,6 +96,8 @@ class window.CorpusListing
                 if origStruct[key]?.dataset
                     ds = origStruct[key].dataset
                     ds = _.object(ds, ds) if $.isArray(ds)
+
+                    val.dataset = (_.object val.dataset, val.dataset) if _.isArray val.dataset
                     $.extend val.dataset, ds
 
 
@@ -263,6 +268,36 @@ class window.CorpusListing
 
 
         return [_.first(all), _.last(all)]
+        
+
+    getMomentInterval : () ->
+        toUnix = (item) -> item.unix()
+
+        infoGetter = (prop) =>
+            return _(@selected) 
+            .pluck("info")
+            .pluck(prop)
+            .compact()
+            .map((item) -> moment(item))
+            .value()
+        
+
+
+        froms = infoGetter("FirstDate")
+        tos = infoGetter("LastDate")
+
+        unless froms.length
+            from = null
+        else
+            from = _.min froms, toUnix
+        unless tos.length
+            to = null
+        else
+            to = _.max tos, toUnix
+        
+        # c.log "first", infoGetter("FirstDate")
+        [from, to]
+
 
     getNonProtected : () ->
         _.filter @corpora, (item) ->
@@ -539,12 +574,15 @@ util.SelectionManager::deselect = ->
 util.SelectionManager::hasSelected = ->
     @selected.length > 0
 
-util.getLocaleString = (key) ->
-    # lang = (if $("body").scope() then $("body").scope().lang or "sv" else "sv")
-    lang = search().lang or settings.defaultLanguage or "sv"
-    output = loc_data[lang][key] if loc_data and loc_data[lang]
-    return key if not output? and key?
-    output
+util.getLocaleString = (key, lang) ->
+    # lang = (if $("body").scope() then $("body").scope().lang) or settings.defaultLanguage or "sv"
+    unless lang
+        lang = window.lang or settings.defaultLanguage or "sv"
+
+    try
+        return loc_data[lang][key] or key
+    catch e
+        return key
 
 
 util.localize = (root) ->
@@ -555,20 +593,15 @@ util.localize = (root) ->
 util.lemgramToString = (lemgram, appendIndex) ->
     lemgram = _.str.trim(lemgram)
     infixIndex = ""
+    concept = lemgram
+    infixIndex = ""
+    type = ""
     if util.isLemgramId(lemgram)
         match = util.splitLemgram(lemgram)
         infixIndex = $.format("<sup>%s</sup>", match.index) if appendIndex? and match.index isnt "1"
         concept = match.form.replace(/_/g, " ")
         type = match.pos.slice(0, 2)
-    else # missing from saldo, and has the form word_NN instead.
-        concept = ""
-        type = ""
-        try
-            concept = lemgram.split("_")[0]
-            type = lemgram.split("_")[1].toLowerCase()
-        catch e
-            c.log "lemgramToString broken for ", lemgram
-    $.format "%s%s <span class='wordclass_suffix'>(<span rel='localize[%s]'>%s</span>)</span>", [
+    return $.format "%s%s <span class='wordclass_suffix'>(<span rel='localize[%s]'>%s</span>)</span>", [
         concept
         infixIndex
         type
@@ -614,17 +647,6 @@ util.splitLemgram = (lemgram) ->
 
 util.splitSaldo = (saldo) ->
     saldo.match util.saldoRegExp
-
-util.setJsonLink = (settings) ->
-    unless settings?
-        c.log "failed to update json link"
-        return
-    $("#json-link").attr "href", settings.url
-    $("#json-link").attr "title", "JSON"
-    $("#json-link").attr "rel", "localize[formatdescr_json]"
-    $("#json-link").localize()
-    $("#json-link").show()
-    return
 
 # Add download links for other formats, defined in
 # settings.downloadFormats (Jyrki Niemi <jyrki.niemi@helsinki.fi>
@@ -1461,3 +1483,98 @@ util.addIgnoreCQPBetweenTokens = (cqp) ->
         insertBetweenCQPTokens cqp, ignore_cqps[0]
     else
         cqp
+
+
+settings.common_struct_types = 
+    date_interval:
+        label: "date_interval"
+        displayType: "date_interval"
+        opts: false
+        # extended_template: "<slider floor=\"{{floor}}\" ceiling=\"{{ceiling}}\" " + "ng-model-low=\"values.low\" ng-model-high=\"values.high\"></slider>" + "<div><input ng-model=\"values.low\" class=\"from\"> <input class=\"to\" ng-model=\"values.high\"></div>"
+        extended_template : '<div class="date_interval_arg_type">
+            <div class="section">
+                <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top">
+                    <i class="fa fa-calendar"></i>
+                    Från    
+                </button>
+                    {{combined.format("YYYY-MM-DD HH:mm")}}
+                <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" 
+                    date-model="from_date" time-model="from_time" model="combined" 
+                    min-date="minDate" max-date="maxDate">
+                </time-interval>
+            </div>
+            
+            <div class="section">
+                <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top">
+                    <i class="fa fa-calendar"></i>
+                    Till    
+                </button>
+                    {{combined2.format("YYYY-MM-DD HH:mm")}}
+                <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" 
+                    date-model="to_date" time-model="to_time" model="combined2" my="left top" at="right top"
+                    min-date="minDate" max-date="maxDate">
+                </time-interval>
+            </div>
+        </div>'
+        
+
+        controller: ["$scope", "searches", "$timeout", ($scope, searches, $timeout) ->
+
+            s = $scope
+            cl = settings.corpusListing
+            updateIntervals = () ->
+                moments = cl.getMomentInterval()
+                if moments.length
+                    [s.minDate, s.maxDate] = _.invoke moments, "toDate"
+                else 
+                    # TODO: ideally, all corpora should have momentinterval soon and this block may be removed
+                    [from, to] = cl.getTimeInterval()
+                    s.minDate = moment(from.toString(), "YYYY").toDate()
+                    s.maxDate = moment(to.toString(), "YYYY").toDate()
+
+            s.$on "corpuschooserchange", () ->
+                updateIntervals()
+
+
+            updateIntervals()
+
+            s.from_click = (event) ->
+                event.originalEvent.preventDefault()
+                event.originalEvent.stopPropagation()
+
+            c.log "model", s.model
+
+            getYear = (val) ->
+                moment(val.toString(), "YYYYMMDD").toDate()
+
+            getTime = (val) ->
+                c.log "getTime", val, moment(val.toString(), "HHmmss").toDate()
+                moment(val.toString(), "HHmmss").toDate()
+
+            unless s.model
+                s.from_date = s.minDate
+
+                s.to_date = s.maxDate
+                [s.from_time, s.to_time] = _.invoke cl.getMomentInterval(), "toDate"
+                # s.from_time = moment("0", "h").toDate()
+                # s.to_time = moment("23:59", "hh:mm").toDate()
+            else if s.model.length == 4
+                [s.from_date, s.to_date] = _.map s.model[..2], getYear
+                [s.from_time, s.to_time] = _.map s.model[2..], getTime
+
+
+            
+                    # moment(item.toString(), )
+            # s.from_date = moment()
+
+            s.$watchGroup ["combined", "combined2"], ([combined, combined2]) ->
+                c.log "combined", combined
+                c.log "combined2", combined2
+                s.model = [
+                    moment(s.from_date).format("YYYYMMDD"),
+                    moment(s.to_date).format("YYYYMMDD"),
+                    moment(s.from_time).format("HHmmss"),
+                    moment(s.to_time).format("HHmmss")
+                ]
+                c.log "s.model", s.model
+        ]

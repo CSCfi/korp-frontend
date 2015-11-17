@@ -32,21 +32,29 @@ Sidebar =
         unless $.isEmptyObject(corpusObj.attributes)
             $("#selected_word").append $("<h4>").localeKey("word_attr")
 
-            @renderContent(wordData, corpusObj.attributes,
+            @renderCorpusContent("pos", wordData, sentenceData,
+                corpusObj.attributes,
                 corpusObj.synthetic_attr_names.attributes, token_data,
                 corpusObj._sidebar_display_order?.attributes)
             .appendTo "#selected_word"
         unless $.isEmptyObject(corpusObj.struct_attributes)
             $("#selected_sentence").append $("<h4>").localeKey("sentence_attr")
 
-            @renderContent(sentenceData, corpusObj.struct_attributes,
+            @renderCorpusContent("struct", wordData, sentenceData,
+                corpusObj.struct_attributes,
                 corpusObj.synthetic_attr_names.struct_attributes, token_data,
                 corpusObj._sidebar_display_order?.struct_attributes)
             .appendTo "#selected_sentence"
 
+        unless $.isEmptyObject(corpusObj.custom_attributes)
+            [word, sentence] = @renderCustomContent(wordData, sentenceData, corpusObj.custom_attributes)
+            word.appendTo "#selected_word"
+            sentence.appendTo "#selected_sentence"
+
         # Links in a separate link section
         unless $.isEmptyObject(corpusObj.link_attributes)
-            @renderContent(sentenceData, corpusObj.link_attributes,
+            @renderCorpusContent("link", wordData, sentenceData,
+                corpusObj.link_attributes,
                 corpusObj.synthetic_attr_names.link_attributes, token_data,
                 corpusObj._sidebar_display_order?.link_attributes)
             .appendTo "#selected_links"
@@ -77,28 +85,44 @@ Sidebar =
 
         ).appendTo(@element)
 
+    renderCorpusContent: (type, wordData, sentenceData, corpus_attrs,
+                          synthetic_attr_names, token_data, attr_order) ->
+        if type == "struct" or type == "link"
+            pairs = _.pairs(sentenceData)
+        else if type == "pos"
+            pairs = _.pairs(wordData)
+            for item in (wordData._struct or [])
+                [key, val] = item.split(" ")
+                if key of corpus_attrs
+                    pairs.push([key, val])
 
-
-
-
-    renderContent: (wordData, corpus_attrs, synthetic_attr_names, token_data,
-                    attr_order) ->
-        pairs = _.pairs(wordData)
+          # c.log "wordData", wordData._struct
         order = attr_order or @options.displayOrder
         pairs.sort ([a], [b]) ->
             $.inArray(b, order) - $.inArray(a, order)
         items = for [key, value] in pairs when corpus_attrs[key]
-            @renderItem key, value, corpus_attrs[key], token_data
+            @renderItem key, value, corpus_attrs[key], wordData, sentenceData, token_data
 
         # Append possible synthetic attributes (Jyrki Niemi 2015-02-24)
         if synthetic_attr_names.length
             synthetic = for key in synthetic_attr_names
-                @renderItem key, null, corpus_attrs[key], token_data
+                @renderItem key, null, corpus_attrs[key], wordData, sentenceData, token_data
             items = items.concat(synthetic)
 
         return $(items)
 
-    renderItem: (key, value, attrs, token_data) ->
+    renderCustomContent: (wordData, sentenceData, corpus_attrs) ->
+        struct_items = []
+        pos_items = []
+        for key, attrs of corpus_attrs
+            output = @renderItem(key, null, attrs, wordData, sentenceData)
+            if attrs.custom_type == "struct"
+                struct_items.push output
+            else if attrs.custom_type == "pos"
+                pos_items.push output
+        return [$(pos_items), $(struct_items)]
+
+    renderItem: (key, value, attrs, wordData, sentenceData, token_data) ->
         if attrs.displayType == "hidden" or attrs.displayType == "date_interval"
             return ""
         if attrs.type == "url" and attrs?.url_opts?.hide_url
@@ -108,7 +132,7 @@ Sidebar =
                 return ""
             output = $("<p></p>")
         else
-            output = $("<p><span rel='localize[#{attrs.label}]'>#{key}</span>: </p>")
+            output = $("<p><span rel='localize[#{attrs.label}]'></span>: </p>")
         output.data("attrs", attrs)
         # Convert an undefined value to the empty string (Jyrki Niemi
         # 2015-08-26)
@@ -119,7 +143,8 @@ Sidebar =
             # The original version only appended to the output here
             # but did not return yet. Would we need further processing
             # for empty values in some cases? (Jyrki Niemi 2015-08-26)
-            return output.append "<i rel='localize[empty]' style='color : grey'>${util.getLocaleString('empty')}</i>"
+            output.append "<i rel='localize[empty]' style='color : grey'>${util.getLocaleString('empty')}</i>"
+            return output
 
         # Transform the value if a transformation function has been
         # specified. (Jyrki Niemi 2015-10-26)
@@ -204,7 +229,7 @@ Sidebar =
                                     </span>
                                 """
         else if attrs.pattern
-            return output.append _.template(attrs.pattern, {key : key, val : str_value})
+            return output.append _.template attrs.pattern, {key : key, val : str_value, pos_attrs : wordData, struct_attrs : sentenceData }
 
         else
             if attrs.translationKey?
@@ -212,7 +237,6 @@ Sidebar =
                 return output.append "<span rel='localize[#{attrs.translationKey}#{str_value}]'></span>"
             else
                 return output.append "<span>#{str_value || ''}</span>"
-
 
     applyEllipse: ->
         # oldDisplay = @element.css("display")
@@ -223,7 +247,7 @@ Sidebar =
         @element.find(".sidebar_url").css("white-space", "nowrap").each ->
             while $(this).width() > totalWidth
                 oldtext = $(this).text()
-                a = $.trim(oldtext, "/").replace("...", "").split("/")
+                a = _.str.trim(oldtext, "/").replace("...", "").split("/")
                 domain = a.slice(2, 3)
                 midsection = a.slice(3).join("/")
                 midsection = "..." + midsection.slice(2)
@@ -321,100 +345,100 @@ $.extend $.ui.autocomplete.prototype,
             that._renderItem ul, item
 
 
-
-$.fn.korp_autocomplete = (options) ->
-    selector = $(this)
-    proxy = new model.LemgramProxy()
-    if typeof options is "string" and options is "abort"
-        proxy.abort()
-        selector.preloader "hide"
-        return
-    options = $.extend(
-        type: "lem"
-        select: (e) ->
-            # c.log "select", arguments
-            # return false
-        labelFunction: util.lemgramToString
-        middleware: (request, idArray) ->
-
-            dfd = $.Deferred()
-            has_morphs = settings.corpusListing.getMorphology().split("|").length > 1
-            if has_morphs
-                idArray.sort (a, b) ->
-                    first = (if a.split("--").length > 1 then a.split("--")[0] else "saldom")
-                    second = (if b.split("--").length > 1 then b.split("--")[0] else "saldom")
-                    second < first
-
-            else
-                idArray.sort options.sortFunction or view.lemgramSort
-            labelArray = util.sblexArraytoString(idArray, options.labelFunction)
-            listItems = $.map(idArray, (item, i) ->
-                out =
-                    label: labelArray[i]
-                    value: item
-                    input: request.term
-                    enabled: true
-
-                out["category"] = (if item.split("--").length > 1 then item.split("--")[0] else "saldom") if has_morphs
-                out
-            )
-            dfd.resolve listItems
-            
-            dfd.promise()
-    , options)
-    selector.preloader(
-        timeout: 500
-        position:
-            my: "right center"
-            at: "right center"
-            offset: "-1 0"
-            collision: "none"
-    ).autocomplete
-        html: true
-        source: (request, response) ->
-            c.log "autocomplete request", request
-            c.log "autocomplete type", options.type
-            promise = if options.type is "saldo"
-            then proxy.saldoSearch(request.term, options["sw-forms"])
-            else proxy.karpSearch(request.term, options["sw-forms"])
-            promise.done((idArray, textstatus, xhr) ->
-                c.log "idArray", idArray.length
-                idArray = $.unique(idArray)
-                options.middleware(request, idArray).done (listItems) ->
-                    
-                    
-                    selector.data "dataArray", listItems
-                    response listItems
-                    if selector.autocomplete("widget").height() > 300
-                        selector.autocomplete("widget").addClass "ui-autocomplete-tall"
-                    $("#autocomplete_header").remove()
-                    $("<li id='autocomplete_header' />")
-                        .localeKey("autocomplete_header")
-                        .css("font-weight", "bold")
-                        .css("font-size", 10)
-                        .prependTo selector.autocomplete("widget")
-                    selector.preloader "hide"
-                    
-
-            ).fail ->
-                c.log "sblex fail", arguments
-                selector.preloader "hide"
-
-            selector.data "promise", promise
-
-        search: ->
-            selector.preloader "show"
-
-        minLength: 1
-        select: (event, ui) ->
-            event.preventDefault()
-            selectedItem = ui.item.value
-            $.proxy(options.select, selector) selectedItem
-
-        close: (event) ->
-            false
-
-        focus: ->
-            false
-
-    selector
+#$.fn.korp_autocomplete = (options) ->
+#    selector = $(this)
+#    proxy = new model.LemgramProxy()
+#    if typeof options is "string" and options is "abort"
+#        proxy.abort()
+#        selector.preloader "hide"
+#        return
+#    options = $.extend(
+#        type: "lem"
+#        select: (e) ->
+#            # c.log "select", arguments
+#            # return false
+#        labelFunction: util.lemgramToString
+#        middleware: (request, idArray) ->
+#
+#            dfd = $.Deferred()
+#            has_morphs = settings.corpusListing.getMorphology().split("|").length > 1
+#            if has_morphs
+#                idArray.sort (a, b) ->
+#                    first = (if a.split("--").length > 1 then a.split("--")[0] else "saldom")
+#                    second = (if b.split("--").length > 1 then b.split("--")[0] else "saldom")
+#                    second < first
+#
+#            else
+#                idArray.sort options.sortFunction or view.lemgramSort
+#            labelArray = util.sblexArraytoString(idArray, options.labelFunction)
+#            listItems = $.map(idArray, (item, i) ->
+#                out =
+#                    label: labelArray[i]
+#                    value: item
+#                    input: request.term
+#                    enabled: true
+#
+#                out["category"] = (if item.split("--").length > 1 then item.split("--")[0] else "saldom") if has_morphs
+#                out
+#            )
+#            dfd.resolve listItems
+#
+#            dfd.promise()
+#    , options)
+#    selector.preloader(
+#        timeout: 500
+#        position:
+#            my: "right center"
+#            at: "right center"
+#            offset: "-1 0"
+#            collision: "none"
+#    ).autocomplete
+#        html: true
+#        source: (request, response) ->
+#            c.log "autocomplete request", request
+#            c.log "autocomplete type", options.type
+#            promise = if options.type is "saldo"
+#            then proxy.saldoSearch(request.term, options["sw-forms"])
+#            else proxy.karpSearch(request.term, options["sw-forms"])
+#            promise.done((idArray, textstatus, xhr) ->
+#                c.log "idArray", idArray.length
+#                idArray = $.unique(idArray)
+#                options.middleware(request, idArray).done (listItems) ->
+#
+#
+#                    selector.data "dataArray", listItems
+#                    response listItems
+#                    if selector.autocomplete("widget").height() > 300
+#                        selector.autocomplete("widget").addClass "ui-autocomplete-tall"
+#                    $("#autocomplete_header").remove()
+#                    $("<li id='autocomplete_header' />")
+#                        .localeKey("autocomplete_header")
+#                        .css("font-weight", "bold")
+#                        .css("font-size", 10)
+#                        .prependTo selector.autocomplete("widget")
+#                    selector.preloader "hide"
+#
+#
+#            ).fail ->
+#                c.log "sblex fail", arguments
+#                selector.preloader "hide"
+#
+#            selector.data "promise", promise
+#
+#        search: ->
+#            selector.preloader "show"
+#
+#        minLength: 1
+#        select: (event, ui) ->
+#            event.preventDefault()
+#            selectedItem = ui.item.value
+#            $.proxy(options.select, selector) selectedItem
+#
+#        close: (event) ->
+#            false
+#
+#        focus: ->
+#            false
+#
+#    selector
+#

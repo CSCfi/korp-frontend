@@ -1,4 +1,4 @@
-window.korpApp = angular.module('korpApp', [
+window.korpApp = angular.module 'korpApp', [
                                             'ui.bootstrap',
                                             "template/tabs/tabset.html"
                                             "template/tabs/tab.html"
@@ -8,19 +8,27 @@ window.korpApp = angular.module('korpApp', [
                                             "template/typeahead/typeahead-popup.html"
                                             "template/pagination/pagination.html"
                                             "angularSpinner"
-                                            "uiSlider"
+                                            # "ui.slider"
                                             "ui.sortable"
                                             "newsdesk"
-                                        ])
+                                            "sbMap"
+                                            "tmh.dynamicLocale"
+                                        ]
 
 
-korpApp.run ($rootScope, $location, utils, searches) ->
+korpApp.config (tmhDynamicLocaleProvider) ->
+    tmhDynamicLocaleProvider.localeLocationPattern("translations/angular-locale_{{locale}}.js")
+
+korpApp.config ($tooltipProvider) ->
+    $tooltipProvider.options
+        appendToBody: true
+
+korpApp.run ($rootScope, $location, utils, searches, tmhDynamicLocale, $timeout) ->
     s = $rootScope
     s._settings = settings
-    s.lang = settings.defaultLanguage
+    window.lang = s.lang = $location.search().lang or settings.defaultLanguage
     s.word_selected = null
     s.isLab = window.isLab;
-
 
     s.sidebar_visible = false
 
@@ -30,6 +38,7 @@ korpApp.run ($rootScope, $location, utils, searches) ->
     s.searchtabs = () ->
         $(".search_tabs > ul").scope().tabs
 
+    tmhDynamicLocale.set("en")
 
     s._loc = $location
     s._searchOpts = {}
@@ -37,12 +46,17 @@ korpApp.run ($rootScope, $location, utils, searches) ->
         c.log "loc.search() change", $location.search()
         _.defer () -> window.onHashChange?()
 
+        tmhDynamicLocale.set($location.search().lang or "sv")
+
 
 
     $rootScope.kwicTabs = []
     $rootScope.compareTabs = []
     $rootScope.graphTabs = []
     isInit = true
+                
+        
+    s.searchDisabled = false
     s.$on "corpuschooserchange", (event, corpora) ->
         c.log "corpuschooserchange", corpora
         settings.corpusListing.select corpora
@@ -60,6 +74,7 @@ korpApp.run ($rootScope, $location, utils, searches) ->
 
         isInit = false
 
+        s.searchDisabled = settings.corpusListing.selected.length == 0
 
     searches.infoDef.then () ->
         corpus = $location.search().corpus
@@ -88,8 +103,9 @@ korpApp.controller "headerCtrl", ($scope, $location, $modal, utils) ->
     s = $scope
 
     s.citeClick = () ->
-        $location.search("display", "about")
-        onHashChange()
+        s.show_modal = 'about'
+        # $location.search("display", "about")
+        # onHashChange()
 
     N_VISIBLE = settings.visibleModes
 
@@ -116,13 +132,13 @@ korpApp.controller "headerCtrl", ($scope, $location, $modal, utils) ->
 
     s.select(currentMode)
     s.getUrl = (modeId) ->
-        if modeId is "default" then return location.pathname
-        return location.pathname + "?mode=#{modeId}#lang=#{s.$root.lang}"
-    s.onSelect = (modeId) ->
-        $location.search("corpus", null)
-        
+        langParam = "#lang=#{s.$root.lang}"
+        if modeId is "default" 
+            return location.pathname + langParam
+        return location.pathname + "?mode=#{modeId}" + langParam
+
     s.onModeMenuClick = (modeId) ->
-        window.location = location.pathname + "?mode=" + modeId
+        window.location = s.getUrl modeId
 
     s.show_modal = false
 
@@ -147,6 +163,12 @@ korpApp.controller "headerCtrl", ($scope, $location, $modal, utils) ->
     closeModals = () ->
         s.login_err = false
         s.show_modal = false
+
+    #hack for buggy backdrop, remove when angular bootstrap fixes bug
+    $("body").on "click", ".modal-backdrop", () -> 
+        scp = $(this).next().scope()
+        scp.$apply () ->
+            scp.$close()
 
     showModal = (key) ->
         tmpl = {about: 'markup/about.html', login: 'login_modal'}[key]

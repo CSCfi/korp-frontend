@@ -1,8 +1,8 @@
 (function() {
   var BaseSearch,
-    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+    indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
+    extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    hasProp = {}.hasOwnProperty;
 
   window.view = {};
 
@@ -27,7 +27,7 @@
   };
 
   view.updateSearchHistory = function(value, href) {
-    var clear, filterParam, opts, placeholder, searchLocations, searches, _ref;
+    var clear, filterParam, opts, placeholder, ref, searchLocations, searches;
     filterParam = function(url) {
       return $.grep($.param.fragment(url).split("&"), function(item) {
         return item.split("=")[0] === "search" || item.split("=")[0] === "corpus";
@@ -38,7 +38,7 @@
     searchLocations = $.map(searches, function(item) {
       return filterParam(item.location);
     });
-    if ((value != null) && (_ref = filterParam(href), __indexOf.call(searchLocations, _ref) < 0)) {
+    if ((value != null) && (ref = filterParam(href), indexOf.call(searchLocations, ref) < 0)) {
       searches.splice(0, 0, {
         label: value,
         location: href
@@ -178,11 +178,10 @@
 
   })();
 
-  view.SimpleSearch = (function(_super) {
-    __extends(SimpleSearch, _super);
+  view.SimpleSearch = (function(superClass) {
+    extend(SimpleSearch, superClass);
 
     function SimpleSearch(mainDivId, _mainDiv, scope) {
-      var textinput;
       SimpleSearch.__super__.constructor.call(this, mainDivId, scope);
       $("#similar_lemgrams").css("background-color", settings.primaryColor);
       $("#simple_text").keyup((function(_this) {
@@ -195,73 +194,13 @@
       $("#similar_lemgrams").hide();
       this.savedSelect = null;
       this.lemgramProxy = new model.LemgramProxy();
-      textinput = $("#simple_text");
+      this.s.$watch("textInField", (function(_this) {
+        return function() {
+          return c.log("textInField", _this.s.textInField);
+        };
+      })(this));
       if (settings.autocomplete) {
-        textinput.korp_autocomplete({
-          type: "lem",
-          select: (function(_this) {
-            return function(lemgram) {
-              return _this.s.$apply(function() {
-                _this.s.placeholder = lemgram;
-                return _this.s.simple_text = "";
-              });
-            };
-          })(this),
-          middleware: (function(_this) {
-            return function(request, idArray) {
-              var dfd;
-              dfd = $.Deferred();
-              _this.lemgramProxy.lemgramCount(idArray, _this.isSearchPrefix(), _this.isSearchSuffix()).done(function(freqs) {
-                var has_morphs, labelArray, listItems, t;
-                delete freqs["time"];
-                if (currentMode === "law") {
-                  idArray = _.filter(idArray, function(item) {
-                    return item in freqs;
-                  });
-                }
-                has_morphs = settings.corpusListing.getMorphology().split("|").length > 1;
-                if (has_morphs) {
-                  idArray.sort(function(a, b) {
-                    var first, second;
-                    first = (a.split("--").length > 1 ? a.split("--")[0] : "saldom");
-                    second = (b.split("--").length > 1 ? b.split("--")[0] : "saldom");
-                    if (first === second) {
-                      return (freqs[b] || 0) - (freqs[a] || 0);
-                    }
-                    return second < first;
-                  });
-                } else {
-                  idArray.sort(function(first, second) {
-                    return (freqs[second] || 0) - (freqs[first] || 0);
-                  });
-                }
-                t = $.now();
-                window.idArray = idArray;
-                labelArray = util.sblexArraytoString(idArray, util.lemgramToString);
-                listItems = $.map(idArray, function(item, i) {
-                  var out;
-                  out = {
-                    label: labelArray[i],
-                    value: item,
-                    input: request.term,
-                    enabled: item in freqs
-                  };
-                  if (has_morphs) {
-                    out["category"] = (item.split("--").length > 1 ? item.split("--")[0] : "saldom");
-                  }
-                  return out;
-                });
-                return dfd.resolve(listItems);
-              }).fail(function() {
-                c.log("reject");
-                dfd.reject();
-                return textinput.preloader("hide");
-              });
-              return dfd.promise();
-            };
-          })(this),
-          "sw-forms": false
-        });
+        null;
       }
       $("#prefixChk, #suffixChk, #caseChk").click((function(_this) {
         return function() {
@@ -282,48 +221,17 @@
       return $("#suffixChk").is(":checked");
     };
 
-    SimpleSearch.prototype.makeLemgramSelect = function(lemgram) {
-      var promise, self;
-      self = this;
-      promise = $("#simple_text").data("promise") || this.lemgramProxy.karpSearch(lemgram || $("#simple_text").val(), false);
-      return promise.done((function(_this) {
-        return function(lemgramArray) {
-          var label, select;
-          $("#lemgram_select").prev("label").andSelf().remove();
-          _this.savedSelect = null;
-          if (lemgramArray.length === 0) {
-            return;
-          }
-          lemgramArray.sort(view.lemgramSort);
-          lemgramArray = $.map(lemgramArray, function(item) {
-            return {
-              label: util.lemgramToString(item, true),
-              value: item
-            };
-          });
-          select = _this.buildLemgramSelect(lemgramArray).appendTo("#korp-simple").addClass("lemgram_select").prepend($("<option>").localeKey("none_selected")).change(function() {
-            if (self.selectedIndex !== 0) {
-              self.savedSelect = lemgramArray;
-              self.selectLemgram($(this).val());
-            }
-            return $(this).prev("label").andSelf().remove();
-          });
-          label = $("<label />", {
-            "for": "lemgram_select"
-          }).html("<i>" + ($("#simple_text").val()) + "</i> <span rel='localize[autocomplete_header]'>" + (util.getLocaleString("autocomplete_header")) + "</span>").css("margin-right", 8);
-          return select.before(label);
-        };
-      })(this));
-    };
-
     SimpleSearch.prototype.onSubmit = function() {
+      var wordInput;
       SimpleSearch.__super__.onSubmit.call(this);
       c.log("onSubmit");
-      $("#simple_text.ui-autocomplete-input").korp_autocomplete("abort");
-      if ($("#simple_text").val() !== "") {
-        return util.searchHash("word", $("#simple_text").val());
+      wordInput = $("#simple_text > div > .new_simple_text").val();
+      if (wordInput !== "") {
+        return util.searchHash("word", wordInput);
       } else {
-        return this.selectLemgram(this.s.placeholder);
+        if (this.s.model) {
+          return this.selectLemgram(this.s.model);
+        }
       }
     };
 
@@ -348,7 +256,7 @@
 
     SimpleSearch.prototype.getCQP = function(word) {
       var cqp, currentText, lemgram, query, suffix, val, wordArray;
-      currentText = $.trim(word || $("#simple_text", this.$main).val() || "", '"');
+      currentText = $.trim(word || $(".new_simple_text", this.$main).val() || "", '"');
       suffix = ($("#caseChk").is(":checked") ? " %c" : "");
       if (util.isLemgramId(currentText)) {
         val = "[lex contains \"" + currentText + "\"]";
@@ -410,5 +318,3 @@
   })(BaseSearch);
 
 }).call(this);
-
-//# sourceMappingURL=search.js.map

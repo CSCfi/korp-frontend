@@ -60,7 +60,7 @@ module.exports = function (grunt) {
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
           '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
-          '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
+          '{.tmp,<%= yeoman.app %>}/scripts/**/*.js',
           '{.tmp,<%= yeoman.app %>}/modes/{,*/}*.js',
           '{.tmp,<%= yeoman.app %>}/config.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
@@ -131,13 +131,11 @@ module.exports = function (grunt) {
       },
       e2e : {
         options: {
-          middleware: function (connect) {
-            return [
-              // proxySnippet, 
-              mountFolder(connect, '.tmp'),
-              mountFolder(connect, yeomanConfig.app)
-            ];
-          }
+          base: [
+            '.tmp',
+            'test',
+            '<%= yeoman.app %>'
+          ]
         }
       },
       dist: {
@@ -173,7 +171,19 @@ module.exports = function (grunt) {
           ]
         }]
       },
-      server: '.tmp'
+      server: {
+        files: {
+          src: [
+          '.tmp',
+          "app/scripts/bin/**/*",
+          "app/index.html",
+          "app/styles/styles.css",
+          "app/styles/bootstrap.css"
+          ]
+        }
+
+
+      }
     },
     autoprefixer: {
       options: {
@@ -201,7 +211,7 @@ module.exports = function (grunt) {
     },
     coffee: {
       options: {
-        sourceMap: true,
+        sourceMap: false,
         sourceRoot: '..'
       },
       dist: {
@@ -388,7 +398,7 @@ module.exports = function (grunt) {
             '.htaccess',
             'components/jquery-ui/themes/smoothness/images/*',
             'components/SlickGrid/images/*',
-            'translations/*.json',
+            'translations/*',
             // 'markup/*',
             'modes/*',
             'img/*',
@@ -399,7 +409,10 @@ module.exports = function (grunt) {
             'components/d3/d3.min.js',
             'components/rickshaw/rickshaw.min.js',
             'lib/jquery.tooltip.pack.js',
-            'components/jquery-ui/themes/smoothness/jquery-ui.min.css'
+            'components/jquery-ui/themes/smoothness/jquery-ui.min.css',
+            'components/geokorp/dist/data/places.json',
+            'components/geokorp/dist/data/name_mapping.json',
+            'components/leaflet/dist/images/layers.png' 
           ]
         },
         {
@@ -467,7 +480,7 @@ module.exports = function (grunt) {
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
       return grunt.task.run([
-        // 'build', 
+        // 'build',
         'connect:dist:keepalive'
       ]);
     }
@@ -500,12 +513,14 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'clean:server',
     // 'configureProxies',
+    "jade",
     'concurrent:test',
+    'copy:dev',
     'concurrent:server',
     'autoprefixer',
     // 'connect:test',
     // 'karma'
-    
+
     'connect:e2e',
     "protractor_webdriver",
     'protractor'

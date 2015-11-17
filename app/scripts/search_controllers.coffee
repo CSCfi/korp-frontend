@@ -20,10 +20,15 @@ korpApp.controller "SearchCtrl", ($scope, $location, utils, searches) ->
     $scope.$watch "word_pic", (val) ->
         $location.search("word_pic", Boolean(val) or null)
 
+    $scope.$watch (() -> $location.search().show_map), (val) ->
+        $scope.show_map = Boolean(val)
+
+    $scope.$watch "show_map", (val) ->
+        $location.search("show_map", Boolean(val) or null)
+
     $scope.settings = settings
-    $scope.showStats = () -> 
+    $scope.showStats = () ->
         return settings.statistics != false
-        # Boolean(settings.statistics) != false
 
     # $scope.getWithins was copied from "ExtendedSearch", so that it
     # can also be used in "AdvancedCtrl" (Jyrki Niemi 2015-09-24)
@@ -46,19 +51,6 @@ korpApp.controller "SearchCtrl", ($scope, $location, utils, searches) ->
 
         return output
 
-    # utils.setupHash $scope, [
-    #         key : "word_pic"
-    #         val_out : Boolean
-    #         val_in : Boolean
-    #         default : false
-    #         post_change : () ->
-    #             c.log "post_change word_pic", $scope.word_pic
-    # ]
-
-korpApp.config ($tooltipProvider) ->
-    $tooltipProvider.options
-        appendToBody: true
-
 
 korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope, searches, compareSearches, $modal) ->
     s = $scope
@@ -70,7 +62,7 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             cqp : cqp
             corpora : settings.corpusListing.getSelectedCorpora()
         }
-    
+
 
     s.stringifyRelatedHeader = (wd) ->
         wd.replace(/_/g, " ")
@@ -94,7 +86,7 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
         modalInstance = $modal.open(
             template: """
             <div class="modal-header">
-                <h3 class="modal-title">{{'similar_header' | loc}} (SWE-FN)</h3> 
+                <h3 class="modal-title">{{'similar_header' | loc:lang}} (SWE-FN)</h3>
                 <span ng-click="clickX()" class="close-x">×</span>
             </div>
             <div class="modal-body">
@@ -126,13 +118,14 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
         #     # $log.info "Modal dismissed at: " + new Date()
         #     return
 
-    
+
 
 
     s.searches = searches
     s.$watch "searches.activeSearch", (search) =>
         # if search.type in ["word", "lemgram"]
-        unless search then return 
+        c.log "search", search
+        unless search then return
         page = Number($location.search().page) or 0
         c.log "activesearch", search
         s.relatedObj = null
@@ -150,13 +143,14 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             if settings.wordpicture != false and s.word_pic and " " not in search.val
                 lemgramResults.makeRequest(search.val, "word")
                 # lemgramProxy.makeRequest(search.val, "word", $.proxy(lemgramResults.onProgress, lemgramResults));
-            else  
+            else
                 lemgramResults.resetView()
 
         else if search.type == "lemgram"
             s.placeholder = search.val
             s.simple_text = ""
-            cqp = "[lex contains '#{search.val}']"
+            # cqp = "[lex contains '#{search.val}']"
+            cqp = simpleSearch.getCQP()
             # # Related-word search does not currently work for Finnish,
             # # so commented out. It would be nice if it could be
             # # language- or corpus-specific. (Jyrki Niemi 2015-04-14)
@@ -167,11 +161,11 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
                 searches.lemgramSearch(search.val, s.prefix, s.suffix, search.pageOnly)
             else
                 searches.kwicSearch(cqp, search.pageOnly)
-            
-        else 
+
+        else
             s.placeholder = null
             s.simple_text = ""
-            lemgramResults.resetView()
+            lemgramResults?.resetView()
 
 
     s.lemgramToString = (lemgram) ->
@@ -222,7 +216,7 @@ korpApp.controller "ExtendedSearch", ($scope, utils, $location, backend, $rootSc
     s.$watch "cqp", (val) ->
         c.log "cqp change", val
         unless val then return
-        try 
+        try
             $rootScope.extendedCQP = CQP.expandOperators(val)
             # c.log "cqp expanded ops", $rootScope.extendedCQP
             # Add the possible ignorable tokens between tokens. This
@@ -272,9 +266,9 @@ korpApp.controller "ExtendedToken", ($scope, utils, $location) ->
     cqp = '[]'
 
     s.valfilter = utils.valfilter
-    
+
     s.setDefault = (or_obj) ->
-        # assign the first value from the opts 
+        # assign the first value from the opts
         opts = s.getOpts(or_obj.type)
 
         unless opts
@@ -285,18 +279,20 @@ korpApp.controller "ExtendedToken", ($scope, utils, $location) ->
 
         or_obj.val = ""
 
-    s.getOpts = (type) ->
+    # returning new array each time kills angular, hence the memoizing
+    s.getOpts = _.memoize (type) ->
+        unless type of s.typeMapping then return
         confObj = s.typeMapping?[type]
         unless confObj
             c.log "confObj missing", type, s.typeMapping
             return
 
-        optObj = _.extend {}, (confObj?.opts or settings.defaultOptions)
+        confObj = _.extend {}, (confObj?.opts or settings.defaultOptions)
+
         if confObj.type == "set"
-            optObj.is = "contains"
-
-        _.pairs optObj
-
+            confObj.is = "contains"
+        
+        return _.pairs confObj
 
 
     onCorpusChange = (event, selected) ->
@@ -312,10 +308,14 @@ korpApp.controller "ExtendedToken", ($scope, utils, $location) ->
         lang = s.$parent.$parent?.l?.lang
         # c.log "lang", lang
         s.types = settings.corpusListing.getAttributeGroups(lang)
-        s.typeMapping = _.object _.map s.types, (item) -> 
+        # "obj | mapper:valfilter as obj.label | loc:lang group by obj.group | loc:lang for obj in types"
+        # s.typeOpts = []
+        # for obj in types
+        #     utils.valfilter obj
+        s.typeMapping = _.object _.map s.types, (item) ->
             if item.isStructAttr
                 ["_." + item.value, item]
-            else 
+            else
                 [item.value, item]
 
 
@@ -328,7 +328,7 @@ korpApp.controller "ExtendedToken", ($scope, utils, $location) ->
 
     onCorpusChange()
 
-        
+
     s.removeOr = (token, and_array, i) ->
         if and_array.length > 1
             and_array.splice(i, 1)
@@ -337,7 +337,7 @@ korpApp.controller "ExtendedToken", ($scope, utils, $location) ->
 
 
     s.addAnd = (token) ->
-        # c.log "s", s, s.token, 
+        # c.log "s", s, s.token,
         token.and_block.push s.addOr([])
 
     toggleBound = (token, bnd) ->
@@ -345,7 +345,7 @@ korpApp.controller "ExtendedToken", ($scope, utils, $location) ->
             boundObj = {}
             boundObj[bnd] = true
             token.bound = _.extend (token.bound or {}), boundObj
-        else 
+        else
             delete token.bound?[bnd]
 
     s.toggleStart = (token) ->
@@ -356,7 +356,7 @@ korpApp.controller "ExtendedToken", ($scope, utils, $location) ->
     s.toggleRepeat = (token) ->
         unless token.repeat
             token.repeat = [1,1]
-        else 
+        else
             delete token.repeat
 
 
@@ -376,13 +376,13 @@ korpApp.controller "AdvancedCtrl", ($scope, compareSearches, $location, $timeout
     if $location.search().search
         [type, expr...] = $location.search().search?.split("|")
         expr = expr.join("|")
-    
-    if type == "cqp" 
+
+    if type == "cqp"
         $scope.cqp = expr or "[]"
     else
         $scope.cqp = "[]"
 
-    # $scope.getSimpleCQP = () -> 
+    # $scope.getSimpleCQP = () ->
     #     out = simpleSearch.getCQP()
     #     c.log "getSimpleCQP", out
     #     out
@@ -398,7 +398,7 @@ korpApp.controller "AdvancedCtrl", ($scope, compareSearches, $location, $timeout
                else
                    "sentence"
 
-    $scope.$watch () -> 
+    $scope.$watch () ->
         simpleSearch?.getCQP()
     , (val) ->
         $scope.simpleCQP = val
@@ -455,31 +455,24 @@ korpApp.controller "CompareSearchCtrl", ($scope, utils, $location, backend, $roo
     s.$watch "savedSearches.length", () ->
         s.cmp1 = compareSearches.savedSearches[0]
         s.cmp2 = compareSearches.savedSearches[1]
-        
-
-
-    s.reduce = 'word'
-
-    s.getAttrs = () ->
         unless s.cmp1 and s.cmp2 then return
         listing = settings.corpusListing.subsetFactory(_.uniq ([].concat s.cmp1.corpora, s.cmp2.corpora))
-        return listing.getAttributeGroups()
+        s.currentAttrs = listing.getAttributeGroups()
 
+    s.reduce = 'word'
+    s.currentAttrs = []
 
     s.sendCompare = () ->
         $rootScope.compareTabs.push backend.requestCompare(s.cmp1, s.cmp2, s.reduce)
-        # tab = $("#results-wrapper .nav.nav-tabs").scope().tabs[-1..][0]
 
     s.deleteCompares = () ->
         compareSearches.flush()
 
-    # s.sendCompare()
 
 
 
 
 korpApp.filter "loc", ($rootScope) ->
-    (translationKey) ->
-        return util.getLocaleString translationKey
-
+    (translationKey, lang) ->
+        return util.getLocaleString translationKey, lang
 

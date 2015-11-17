@@ -24,7 +24,6 @@ korpApp.directive 'kwicWord', ->
 
             return (x for [x, y] in _.pairs output when y).join " "
 
-
 korpApp.directive "tabHash", (utils, $location) ->
     scope : true
     link : (scope, elem, attr) ->
@@ -93,25 +92,28 @@ korpApp.directive "escaper", () ->
                 val
 
         $scope.input = unescape $scope.model
-        $scope.$watch "orObj.op + input", () ->
+        $scope.inputChange = () ->
+            $scope.model = escape($scope.input)
+        
+        $scope.$watch "orObj.op", () ->
             $scope.model = escape($scope.input)
 
 
 
 korpApp.directive "tokenValue", ($compile, $controller) ->
     # defaultTmpl = "<input ng-model='model' 
-    #             placeholder='{{tokenValue.value == \"word\" && !model.length && \"any\" | loc}} '>"
+    #             placeholder='{{tokenValue.value == \"word\" && !model.length && \"any\" | loc:lang}} '>"
     
     getDefaultTmpl = _.template """
-                <input ng-model='input' class='arg_value' escaper ng-model-options='{debounce : {default : 300, blur : 0}, updateOn: "default blur"}'
+                <input ng-model='input' ng-change="inputChange()" class='arg_value' escaper ng-model-options='{debounce : {default : 300, blur : 0}, updateOn: "default blur"}'
                 <%= maybe_placeholder %>>
                 <span class='val_mod' popper
                     ng-class='{sensitive : case == "sensitive", insensitive : case == "insensitive"}'>
                         Aa
                 </span> 
                 <ul class='mod_menu popper_menu dropdown-menu'>
-                    <li><a ng-click='makeSensitive()'>{{'case_sensitive' | loc}}</a></li>
-                    <li><a ng-click='makeInsensitive()'>{{'case_insensitive' | loc}}</a></li>
+                    <li><a ng-click='makeSensitive()'>{{'case_sensitive' | loc:lang}}</a></li>
+                    <li><a ng-click='makeInsensitive()'>{{'case_insensitive' | loc:lang}}</a></li>
                 </ul>
                 """
     defaultController = ["$scope", ($scope) ->
@@ -135,80 +137,91 @@ korpApp.directive "tokenValue", ($compile, $controller) ->
     # require:'ngModel',
     scope :
         tokenValue : "="
-        model : "=ngModel"
+        model : "=model"
         orObj : "=orObj"
     template : """
         <div>{{tokenValue.label}}</div>
     """
     link : (scope, elem, attr) ->
         current = null
+        prevScope = null
+        childWatch = null
         scope.$watch "tokenValue", (valueObj) ->
             unless valueObj then return
-            # c.log "$scope tokenValue link", valueObj
             if valueObj.value == current?.value then return
-            # Delete the properties of the current (previous) value
-            # from scope, so that the values of properties absent from
-            # the new valueObj are cleared. (Jyrki Niemi 2015-09-02)
-            for own key of current
-                delete scope[key]
+            # # Delete the properties of the current (previous) value
+            # # from scope, so that the values of properties absent from
+            # # the new valueObj are cleared. (Jyrki Niemi 2015-09-02)
+            # for own key of current
+            #     delete scope[key]
+            # Does the new code below achieve the same?
+            prevScope?.$destroy()
+            childWatch?()
+            prevScope = null
             current = valueObj
 
             
 
-            # _.extend scope, (_.pick valueObj, "dataset", "translationKey")
-            locals = {$scope : _.extend scope, valueObj} 
+            childScope = scope.$new(false, scope)
+            childWatch = childScope.$watch "model", (val) ->
+                scope.model = val
+            childScope.orObj = scope.orObj
+            _.extend childScope, valueObj
+
+            locals = {$scope : childScope} 
+            prevScope = childScope
             $controller(valueObj.controller or defaultController, locals)
 
             # valueObj.controller?(scope, _.omit valueObj)
             if valueObj.value == "word"
-                tmplObj = {maybe_placeholder : """placeholder='<{{"any" | loc}}>'"""}
+                tmplObj = {maybe_placeholder : """placeholder='<{{"any" | loc:lang}}>'"""}
             else
                 tmplObj = {maybe_placeholder : ""}
 
             defaultTmpl = getDefaultTmpl(tmplObj)
-            tmplElem = $compile(valueObj.extended_template or defaultTmpl)(scope)
+            tmplElem = $compile(valueObj.extended_template or defaultTmpl)(childScope)
             elem.html(tmplElem).addClass("arg_value")
 
 
-korpApp.directive "korpAutocomplete", () ->
-    scope : 
-        model : "="
-        stringify : "="
-        sorter : "="
-        type : "@"
-    link : (scope, elem, attr) ->
-        
-        setVal = (lemgram) ->
-            $(elem).attr("placeholder", scope.stringify(lemgram, true).replace(/<\/?[^>]+>/g, ""))
-                .val("").blur()
-        if scope.model
-            setVal(scope.model)
-        arg_value = elem.korp_autocomplete(
-            labelFunction: scope.stringify
-            sortFunction: scope.sorter
-            type: scope.type
-            select: (lemgram) ->
-                # $(this).data "value", (if data.label is "baseform" then lemgram.split(".")[0] else lemgram)
-                setVal(lemgram)
-                scope.$apply () ->
-                    if scope.type == "baseform"
-                        scope.model = lemgram.split(".")[0]
-                    else 
-                        scope.model = lemgram
-
-            "sw-forms": true
-        )
-        .blur(->
-            input = this
-            setTimeout (->
-
-                if ($(input).val().length and not util.isLemgramId($(input).val())) or $(input).data("value") is null
-                    $(input).addClass("invalid_input").attr("placeholder", null).data("value", null)
-                else
-                    $(input).removeClass("invalid_input")
-                # self._trigger "change"
-            ), 100
-        )
+#korpApp.directive "korpAutocomplete", () ->
+#    scope : 
+#        model : "="
+#        stringify : "="
+#        sorter : "="
+#        type : "@"
+#    link : (scope, elem, attr) ->
+#        
+#        setVal = (lemgram) ->
+#            $(elem).attr("placeholder", scope.stringify(lemgram, true).replace(/<\/?[^>]+>/g, ""))
+#                .val("").blur()
+#        if scope.model
+#            setVal(scope.model)
+#        arg_value = elem.korp_autocomplete(
+#            labelFunction: scope.stringify
+#            sortFunction: scope.sorter
+#            type: scope.type
+#            select: (lemgram) ->
+#                # $(this).data "value", (if data.label is "baseform" then lemgram.split(".")[0] else lemgram)
+#                setVal(lemgram)
+#                scope.$apply () ->
+#                    if scope.type == "baseform"
+#                        scope.model = lemgram.split(".")[0]
+#                    else 
+#                        scope.model = lemgram
+#
+#            "sw-forms": true
+#        )
+#        .blur(->
+#            input = this
+#            setTimeout (->
+#
+#                if ($(input).val().length and not util.isLemgramId($(input).val())) or $(input).data("value") is null
+#                    $(input).addClass("invalid_input").attr("placeholder", null).data("value", null)
+#                else
+#                    $(input).removeClass("invalid_input")
+#                # self._trigger "change"
+#            ), 100
+#        )
 
 
 
@@ -217,16 +230,14 @@ korpApp.directive "constr", ($window, searches) ->
     scope : true
 
     link : (scope, elem, attr) ->
-        # searches.modeDef.then () ->
         instance = new $window.view[attr.constr](elem, elem, scope)
         if attr.constrName
+            c.log "attr.constrName", attr.constrName
             $window[attr.constrName] = instance
 
         scope.instance = instance
         scope.$parent.instance = instance
             
-
-        # c.log "$window[attr.constrName]", $window[attr.constrName], elem
 
 
 
@@ -235,20 +246,20 @@ korpApp.directive "searchSubmit", ($window, $document, $rootElement) ->
     template : '''
     <div class="search_submit">
         <div class="btn-group">
-            <button class="btn btn-small" id="sendBtn" ng-click="onSendClick()">{{'search' | loc}}</button>
-            <button class="btn btn-small opener" ng-click="togglePopover($event)">
+            <button class="btn btn-sm btn-default" id="sendBtn" ng-click="onSendClick()" ng-disabled="searchDisabled">{{'search' | loc:lang}}</button>
+            <button class="btn btn-sm btn-default opener" ng-click="togglePopover($event)" ng-disabled="searchDisabled">
                 <span class="caret"></span>
             </button>
         </div>
         <div class="popover compare {{pos}}" ng-click="onPopoverClick($event)">
             <div class="arrow"></div>
-            <h3 class="popover-title">{{'compare_save_header' | loc}}</h3>
+            <h3 class="popover-title">{{'compare_save_header' | loc:lang}}</h3>
             <form class="popover-content" ng-submit="onSubmit()">
                 <div>
-                    <label for="cmp_input">{{'compare_name' | loc}} :</label> <input id="cmp_input" ng-model="name">
+                    <label for="cmp_input">{{'compare_name' | loc:lang}} :</label> <input id="cmp_input" ng-model="name">
                 </div>
                 <div class="btn_container">
-                    <button class="btn btn-primary btn-small">{{'compare_save' | loc}}</button>
+                    <button class="btn btn-primary btn-sm">{{'compare_save' | loc:lang}}</button>
                 </div>
             </form>
         </div>
@@ -366,11 +377,15 @@ korpApp.directive "popper", ($rootElement) ->
         closePopup = () ->
             popup.hide()
         
-        popup.on "click", (event) ->
-            closePopup()
-            return false
+        if !attrs.noCloseOnClick?
+            popup.on "click", (event) ->
+                closePopup()
+                return false
 
         elem.on "click", (event) ->
+            other = $(".popper_menu:visible").not(popup)
+            if other.length
+                other.hide()
             if popup.is(":visible") then closePopup()
             else popup.show()
 
@@ -551,12 +566,284 @@ korpApp.directive "kwicPager", () ->
          boundary-links="true" 
          rotate="false" 
          num-pages="$parent.numPages"> </pagination>
-      <div class="page_input"><span>{{'goto_page' | loc}} </span>
-        <input ng-model="$parent.$parent.gotoPage" ng-keyup="onPageInput($event, gotoPage, numPages)" 
+      <div class="page_input"><span>{{'goto_page' | loc:lang}} </span>
+        <input ng-model="gotoPage" ng-keyup="onPageInput($event, gotoPage, numPages)" 
             ng-click="$event.stopPropagation()" />
-        {{'of' | loc}} {{numPages}}
+        {{'of' | loc:lang}} {{numPages}}
       </div>
 
     </div>
     """
 
+korpApp.directive "autoc", ($q, $http, lexicons) ->
+    replace: true
+    restrict: "E"
+    scope:
+        "placeholder" : "="
+        "model" : "="
+        "type" : "@"
+        "variant" : "@"
+    template: """
+        <div>
+            <script type="text/ng-template" id="lemgramautocomplete.html">
+                <a style="cursor:pointer">
+                    <span ng-class="{'autocomplete-item-disabled' : match.model.count == 0, 'none-to-find' : match.model.count == 0 && noVariant()}">
+                        <span ng-if="match.model.parts.namespace" class="label">{{match.model.parts.namespace | loc}}</span>
+                        <span>{{match.model.parts.main}}</span>
+                        <sup ng-if="match.model.parts.index != 1">{{match.model.parts.index}}</sup>
+                        <span ng-if="match.model.parts.pos">({{match.model.parts.pos}})</span>
+                        <span ng-if="match.model.desc" style="color:gray;margin-left:6px">{{match.model.desc.main}}</span>
+                        <sup ng-if="match.model.desc && match.model.desc.index != 1" style="color:gray">{{match.model.desc.index}}</sup>
+                        <span class="num-to-find" ng-if="match.model.count && match.model.count > 0">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{match.model.count}}
+                        </span>
+                    </span>
+                </a>
+            </script>
+            <div style="float:left"><input
+                class="new_simple_text"
+                autofocus
+                type="text" class="form-control"
+                ng-model="textInField"
+                typeahead="row for row in getRows($viewValue)"
+                typeahead-wait-ms="500"
+                typeahead-template-url="lemgramautocomplete.html"
+                typeahead-loading="isLoading"
+                typeahead-on-select="selectedItem($item, $model, $label)"
+                placeholder="{{lemgramToString(placeholder)}}"></div>
+            <div style="margin-left:-20px;margin-top:2px;float:left" ng-if="isLoading"><i class="fa fa-spinner fa-pulse"></i></div>
+        </div>
+    """
+    link : (scope, elem, attr) ->
+        c.log "autoc link", scope.model
+
+        scope.noVariant = () ->
+            return variant isnt 'dalin'
+        scope.lemgramify = (lemgram) ->
+            lemgramRegExp = /([^_\.-]*--)?([^-]*)\.\.(\w+)\.(\d\d?)/
+            match = lemgram.match lemgramRegExp
+            unless match then return false
+            return {
+                "main" : match[2].replace(/_/g, " "),
+                "pos" : util.getLocaleString(match[3].slice(0, 2)),
+                "index" : match[4],
+                "namespace" : if match[1] then match[1].slice(0, -2) else "" }
+
+        scope.sensify = (sense) ->
+            senseParts = sense.split ".."
+            return {
+                "main" : senseParts[0].replace(/_/g, " "),
+                "index" : senseParts[1]
+            }
+
+        scope.lemgramToString = (lemgram) ->
+            unless lemgram then return
+            util.lemgramToString(lemgram).replace(/<.*?>/g, "")
+
+        scope.formatPlaceholder = (input) ->
+            lemgramRegExp = /([^_\.-]*--)?([^-]*)\.\.(\w+)\.(\d\d?)/
+            match = input.match lemgramRegExp
+            if match # Lemgram
+                return scope.lemgramToString(input)
+            else # Sense
+                return input
+
+        scope.selectedItem = (item, model, label) ->
+            scope.placeholder = model.lemgram
+            scope.model = model.lemgram
+            scope.textInField = ""
+
+        if scope.model
+            scope.selectedItem null, {lemgram : scope.model }
+
+        scope.getMorphologies = (corporaIDs) ->
+            morphologies = []
+            if scope.variant is "dalin"
+                morphologies.push "dalinm"
+            else
+                for corporaID in corporaIDs
+                    morfs = settings.corpora[corporaID].morf?.split("|") or []
+                    for morf in morfs
+                        unless morf in morphologies then morphologies.push morf
+                if morphologies.length is 0 then morphologies.push "saldom"
+            return morphologies
+
+        scope.getRows = (input) ->
+            corporaIDs = _.pluck settings.corpusListing.selected, "id"
+            morphologies = scope.getMorphologies corporaIDs
+            if scope.type is "lemgram"
+                lemgrams = scope.getLemgrams input, morphologies, corporaIDs
+                return lemgrams
+            else if scope.type is "sense"
+                return scope.getSenses input, morphologies, corporaIDs
+        scope.getLemgrams = (input, morphologies, corporaIDs) ->
+            deferred = $q.defer()
+            http = lexicons.getLemgrams input, (morphologies.join "|"), corporaIDs, (scope.variant is "affix")
+            http.then (data) ->
+                data.forEach (item) ->
+                    if scope.variant is 'affix' then item.count = -1
+                    item.parts = scope.lemgramify(item.lemgram)
+                data.sort (a, b) -> b.count - a.count
+                deferred.resolve data
+            return deferred.promise
+
+        scope.getSenses = (input, morphologies, corporaIDs) ->
+            deferred = $q.defer()
+            http = lexicons.getSenses input, (morphologies.join "|"), corporaIDs
+            http.then (data) ->
+                data.forEach (item) ->
+                    item.parts = scope.sensify(item.sense)
+                    if item.desc then item.desc = scope.sensify(item.desc)
+                data.sort (a, b) -> b.count - a.count
+                deferred.resolve data
+            return deferred.promise
+
+
+
+korpApp.directive "timeInterval", () ->
+    scope : 
+        dateModel : "="
+        timeModel : "="
+        model : "="
+        minDate : "="
+        maxDate : "="
+
+    restrict : "E"
+    template : """
+        <div>
+            <datepicker class="well well-sm" ng-model="dateModel" 
+                min-date="minDate" max-date="maxDate" init-date="minDate"
+                show-weeks="true" starting-day="1"></datepicker>
+
+            <div class="time">
+                <i class="fa fa-3x fa-clock-o"></i><timepicker class="timepicker" ng-model="timeModel" 
+                    hour-step="1" minute-step="1" show-meridian="false"></timepicker>
+            </div>
+        </div>
+        """
+
+    link : (s, elem, attr) ->
+        s.isOpen = false
+        s.open = (event) ->
+            event.preventDefault()
+            event.stopPropagation()
+            s.isOpen = true 
+
+           # s.model = null
+
+        time_units = ["hour", "minute"]
+        w = s.$watchGroup ["dateModel", "timeModel"], ([date, time]) ->
+            if date and time
+                m = moment(moment(date).format("YYYY-MM-DD"))
+                # c.log "time", time, date, s
+                for t in time_units
+                    m_time = moment(time)
+                    # c.log "add", m_time[t](), t
+                    m.add(m_time[t](), t)
+
+                s.model = m
+                # c.log "s.model", s.model
+
+
+angular.module("template/datepicker/day.html", []).run ($templateCache) ->
+    $templateCache.put "template/datepicker/day.html", """
+        <table role="grid" aria-labelledby="{{uniqueId}}-title" aria-activedescendant="{{activeDateId}}"
+          <thead>
+            <tr>
+              <th><button type="button" class="btn btn-default btn-sm pull-left" ng-click="move(-1)" tabindex="-1"><i class="fa fa-chevron-left"></i></button></th>
+              <th colspan="{{5 + showWeeks}}">
+                <button id="{{uniqueId}}-title" role="heading" aria-live="assertive" aria-atomic="true" type="button" class="btn btn-default btn-sm" ng-click="toggleMode()" tabindex="-1" style="width:100%;">
+                    <strong>{{title}}</strong>
+                </button>
+              </th>
+              <th><button type="button" class="btn btn-default btn-sm pull-right" ng-click="move(1)" tabindex="-1"><i class="fa fa-chevron-right"></i></button></th>
+            </tr>
+            <tr>
+              <th ng-show="showWeeks" class="text-center"></th>
+              <th ng-repeat="label in labels track by $index" class="text-center"><small aria-label="{{label.full}}">{{label.abbr}}</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="row in rows track by $index">
+              <td ng-show="showWeeks" class="text-center h6"><em>{{ weekNumbers[$index] }}</em></td>
+              <td ng-repeat="dt in row track by dt.date" class="text-center" role="gridcell" id="{{dt.uid}}" aria-disabled="{{!!dt.disabled}}">
+                <button type="button" style="width:100%;" class="btn btn-default btn-sm" ng-class="{'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1">
+                    <span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}">{{dt.label}}</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table
+    """
+
+angular.module("template/datepicker/month.html", []).run ($templateCache) ->
+  $templateCache.put "template/datepicker/month.html", """
+    <table role="grid" aria-labelledby="{{uniqueId}}-title" aria-activedescendant="{{activeDateId}}">
+      <thead>
+        <tr>
+          <th><button type="button" class="btn btn-default btn-sm pull-left" ng-click="move(-1)" tabindex="-1"><i class="fa fa-chevron-left"></i></button></th>
+          <th><button id="{{uniqueId}}-title" role="heading" aria-live="assertive" aria-atomic="true" type="button" class="btn btn-default btn-sm" ng-click="toggleMode()" tabindex="-1" style="width:100%;"><strong>{{title}}</strong></button></th>
+          <th><button type="button" class="btn btn-default btn-sm pull-right" ng-click="move(1)" tabindex="-1"><i class="fa fa-chevron-right"></i></button></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="row in rows track by $index">
+          <td ng-repeat="dt in row track by dt.date" class="text-center" role="gridcell" id="{{dt.uid}}" aria-disabled="{{!!dt.disabled}}">
+            <button type="button" style="width:100%;" class="btn btn-default" ng-class="{'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-info': dt.current}">{{dt.label}}</span></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    """
+
+
+angular.module("template/datepicker/year.html", []).run ($templateCache) ->
+  $templateCache.put "template/datepicker/year.html", """
+    <table role="grid" aria-labelledby="{{uniqueId}}-title" aria-activedescendant="{{activeDateId}}">
+      <thead>
+        <tr>
+          <th><button type="button" class="btn btn-default btn-sm pull-left" ng-click="move(-1)" tabindex="-1"><i class="fa fa-chevron-left"></i></button></th>
+          <th colspan="3"><button id="{{uniqueId}}-title" role="heading" aria-live="assertive" aria-atomic="true" type="button" class="btn btn-default btn-sm" ng-click="toggleMode()" tabindex="-1" style="width:100%;"><strong>{{title}}</strong></button></th>
+          <th><button type="button" class="btn btn-default btn-sm pull-right" ng-click="move(1)" tabindex="-1"><i class="fa fa-chevron-right"></i></button></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="row in rows track by $index">
+          <td ng-repeat="dt in row track by dt.date" class="text-center" role="gridcell" id="{{dt.uid}}" aria-disabled="{{!!dt.disabled}}">
+            <button type="button" style="width:100%;" class="btn btn-default" ng-class="{'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-info': dt.current}">{{dt.label}}</span></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    """
+
+
+angular.module("template/timepicker/timepicker.html", []).run ($templateCache) ->
+  $templateCache.put "template/timepicker/timepicker.html", """
+    <table>
+       <tbody>
+           <tr class="text-center">
+               <td><a ng-click="incrementHours()" class="btn btn-link"><span class="fa fa-chevron-up"></span></a></td>
+               <td>&nbsp;</td>
+               <td><a ng-click="incrementMinutes()" class="btn btn-link"><span class="fa fa-chevron-up"></span></a></td>
+               <td ng-show="showMeridian"></td>
+           </tr>
+           <tr>
+               <td style="width:50px;" class="form-group" ng-class="{'has-error': invalidHours}">
+                   <input type="text" ng-model="hours" ng-change="updateHours()" class="form-control text-center" ng-mousewheel="incrementHours()" ng-readonly="readonlyInput" maxlength="2">
+               </td>
+               <td>:</td>
+               <td style="width:50px;" class="form-group" ng-class="{'has-error': invalidMinutes}">
+                   <input type="text" ng-model="minutes" ng-change="updateMinutes()" class="form-control text-center" ng-readonly="readonlyInput" maxlength="2">
+               </td>
+               <td ng-show="showMeridian"><button type="button" class="btn btn-default text-center" ng-click="toggleMeridian()">{{meridian}}</button></td>
+           </tr>
+           <tr class="text-center">
+               <td><a ng-click="decrementHours()" class="btn btn-link"><span class="fa fa-chevron-down"></span></a></td>
+               <td>&nbsp;</td>
+               <td><a ng-click="decrementMinutes()" class="btn btn-link"><span class="fa fa-chevron-down"></span></a></td>
+               <td ng-show="showMeridian"></td>
+           </tr>
+       </tbody>
+    </table>
+    """

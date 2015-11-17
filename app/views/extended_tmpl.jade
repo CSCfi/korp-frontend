@@ -3,14 +3,14 @@ div(ng-controller='ExtendedSearch')
 
           
   //- input#strict_chk(type='checkbox')
-  //- label(for='strict_chk') {{'strict' | loc}}
+  //- label(for='strict_chk') {{'strict' | loc:lang}}
              
   search-submit(pos='right')
   span {{'within' | loc}}
 
   select.within_select(ng-model="within"
-                       ng-options="item.value as ('within_' + item.value | loc) for item in withins")
-  span {{'within_postp' | loc}}
+      ng-options="item.value as ('within_' + item.value | loc:lang) for item in withins")
+  span {{'within_postp' | loc:lang}}
 
   //- select.within_select
   //-   option(value='sentence', rel='localize[within_sentence]') Mening

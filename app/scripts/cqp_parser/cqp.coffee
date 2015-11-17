@@ -2,7 +2,55 @@ window.c = console
 
 prio = settings.cqp_prio or ['deprel', 'pos', 'msd', 'suffix', 'prefix', 'grundform', 'lemgram', 'saldo', 'word']
 
-stringifyCqp = (cqp_obj, translate_ops = false) ->
+
+parseDateInterval = (op, val, expanded_format) ->
+    val = _.invoke val, "toString"
+    unless expanded_format
+        return "$date_interval #{op} '#{val.join(",")}'"
+
+    [fromdate, todate, fromtime, totime] = val
+
+    m_from = moment(fromdate, "YYYYMMDD")
+    m_to = moment(todate, "YYYYMMDD")
+
+    fieldMapping = 
+        text_datefrom : fromdate
+        text_dateto : todate
+        text_timefrom : fromtime
+        text_timeto : totime
+
+    op = (field, operator, valfield) ->
+        val = if valfield then fieldMapping[valfield] else fieldMapping[field]
+        "int(_.#{field}) #{operator} #{val}"
+
+
+    days_diff = m_from.diff(m_to, "days")
+    c.log "days_diff", days_diff
+
+    if days_diff == 0  # same day
+        out = "#{op('text_datefrom', '=')} &
+        #{op('text_timefrom', '>=')} &
+        #{op('text_dateto', '=')} &
+        #{op('text_timeto', '<=')}"
+        
+    else if days_diff == -1 # one day apart
+        out = "((#{op('text_datefrom', '=')} & #{op('text_timefrom', '>=')}) | #{op('text_datefrom', '=', 'text_dateto')}) &
+        (#{op('text_dateto', '=', 'text_datefrom')} | (#{op('text_dateto', '=')} & #{op('text_timeto', '<=')}))"
+        
+
+    else
+        out = "((#{op('text_datefrom', '=')} & #{op('text_timefrom', '>=')}) | 
+        (#{op('text_datefrom', '>')} & #{op('text_datefrom', '<=', 'text_dateto')})) &
+        (#{op('text_dateto', '<')} | (#{op('text_dateto', '=')} & #{op('text_timeto', '<=')}))"
+        
+
+    out = out.replace(/\s+/g, " ")
+
+    unless fromdate and todate then out = ""
+
+    return out
+
+stringifyCqp = (cqp_obj, expanded_format = false) ->
     output = []
     cqp_obj = CQP.prioSort _.cloneDeep cqp_obj
 
@@ -15,7 +63,7 @@ stringifyCqp = (cqp_obj, translate_ops = false) ->
             for {type, op, val, flags} in and_array
                 # if op != "*="
                 #     val = regescape val
-                if translate_ops
+                if expanded_format
                     [val, op] = {
                         "^=" : [val + ".*", "="]
                         "_=" : [".*" + val + ".*", "="]
@@ -31,23 +79,8 @@ stringifyCqp = (cqp_obj, translate_ops = false) ->
                 if type == "word" and val == ""
                     out = ""
                 else if type == "date_interval"
-                    [from, to] = val.split(",")
-                    operator1 = ">="
-                    operator2 = "<="
-                    bool = "&"
-                    if op == "!="
-                        operator1 = "<"
-                        operator2 = ">"
-                        bool = "|"
-
-                    tmpl = _.template("(int(_.text_datefrom) <%= op1 %> <%= from %> <%= bool %> int(_.text_dateto) <%= op2 %> <%= to %>)")
-                    out = tmpl
-                         op1 : operator1,
-                         op2 : operator2,
-                         bool : bool,
-                         from : from,
-                         to : to
-                    unless from and to then out = ""
+                    out = parseDateInterval(op, val, expanded_format)
+                    
                 else 
                     out = "#{type} #{op} \"#{val}\"" 
 
@@ -101,6 +134,26 @@ window.CQP =
 
     concat : (cqpObjs...) ->
         [].concat cqpObjs...
+
+    getTimeInterval : (obj) ->
+        from = []
+        to = []
+        for token in obj
+            for or_block in token.and_block
+                for item in or_block
+                    if item.type == "date_interval"
+                        from.push moment("#{item.val[0]}#{item.val[2]}", "YYYYMMDDhhmmss")
+                        to.push moment("#{item.val[1]}#{item.val[3]}", "YYYYMMDDhhmmss")
+
+        unless from.length then return
+        from = _.min from, (mom) -> mom.toDate()
+        to = _.max to, (mom) -> mom.toDate()
+
+        return [from, to]
+
+
+
+
 
     prioSort : (cqpObjs) ->
         getPrio = (and_array) ->

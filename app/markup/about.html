@@ -1,20 +1,13 @@
 <div class="modal-header">
-	<h2>Korp version 4.0</h2>
+	<h2>Korp version 5.0</h2>
 	<span ng-click="clickX()" class="close-x">×</span>
 
 </div>
 <div id="about_body" class="modal-body" >
-	<p rel="localize[about_body]">
-	  {{'about_body_begin' | loc}}
-	  <a id="feedback" class="follow_link" href="{{'feedback_url' | loc}}" target='_blank'>{{'about_feedback_linktext' | loc}}</a>.
-	</p>
-	<b rel="localize[about_cite_header]">
-	  {{'about_cite_header' | loc}}
-	</b>
-	<p rel="localize[about_cite]">
-          Lars Borin, Markus Forsberg and Johan Roxendal. 2012.
-          <a href='http://spraakbanken.gu.se/eng/publikationer/korp-–-corpus-infrastructure-språkbanken'>Korp – the corpus infrastructure of Språkbanken</a><br><a href='http://spraakbanken.gu.se/publikationer/bibtex/1822'><img src='http://spraakbanken.gu.se/sites/spraakbanken.gu.se/themes/gu_sb/img/bibtex.png' alt='BibTeX'></a>
-	</p>
+	<p ng-bind-html="'about_body' | loc:lang | trust" ></p>
+	
+	<b ng-bind-html="'about_cite_header' | loc:lang | trust"></b>
+	<p ng-bind-html="'about_cite' | loc:lang | trust"></p>
 
 	<div>
 		<b rel="localize[about_man]">
@@ -38,6 +31,9 @@
 		    </li>
     	    <li>
     	        <a href="http://språkbanken.gu.se/eng/personal/jonupp">Jonatan Uppström</a>
+            </li>
+    	    <li>
+    	        <a href="http://språkbanken.gu.se/swe/personal/mariao">Maria Öhrman</a>
             </li>
 		    <li>
 		        <a href="http://spraakbanken.gu.se/swe/personal/anne">Anne Schumacher</a>

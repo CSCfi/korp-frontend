@@ -1,8 +1,5 @@
-<div>
-    <div ui-sortable="{ items: '> .token' }" ng-model="data" ng-controller="ExtendedToken">
-    <!-- <div>{{data}}</div>
-    <div>{{data}}</div>
-    <div>{{data}}</div> -->
+<div ng-controller="ExtendedToken">
+    <div ui-sortable="{ items: '> .token', delay : 100 }" ng-model="data" >
         <div class="token query_token" ng-repeat="token in data track by $index" >
             <div class="token_header">
                 <i class="close_btn fa fa-times-circle-o fa-1"
@@ -21,21 +18,21 @@
                                 <img class="image_button remove_arg" src="img/minus.png" ng-click="removeOr(token, and, $index)">
                             </div>
                             <div class="right_col inline_block" style="margin-left: 5px;">
-                                <div class="arg_selects">
+                                <div class="arg_selects {{or.type}}">
                                     <select class="arg_type" 
-                                        ng-options="obj | mapper:valfilter as obj.label | loc group by obj.group | loc for obj in types" ng-model="or.type" ng-change="setDefault(or)"></select>
+                                        ng-options="obj | mapper:valfilter as obj.label | loc:lang group by obj.group | loc:lang for obj in types" 
+                                        ng-model="or.type" ng-change="setDefault(or)"></select>
                                     
-                                    <select class="arg_opts" 
-                                        ng-options="pair[1] as pair[0] | loc for pair in getOpts(or.type)" 
+                                    <select class="arg_opts"
+                                        ng-options="pair[1] as pair[0] | loc:lang for pair in getOpts(or.type)" 
                                         ng-model="or.op" ></select>
                                 </div>
-                                <!-- <input class="arg_value" ng-model="or.val"> -->
-                                <div token-value="typeMapping[or.type]" ng-model="or.val" or-obj="or" class="arg_val_container"></div>
+                                <div token-value="typeMapping[or.type]" model="or.val" or-obj="or" class="arg_val_container"></div>
                             </div>
                         </div>
                     </div>
                     <div class="arg_footer">
-                        <span class="link" ng-click="addOr(and)">{{'or' | loc}}</span>
+                        <span class="link" ng-click="addOr(and)">{{'or' | loc:lang}}</span>
                         <div style="clear:both;"></div>
                     </div>
                 </div>
@@ -45,22 +42,22 @@
                 <div>
                     <img src="img/plus.png" class="image_button insert_arg" ng-click="addAnd(token)">
         
-                    <button popper class="btn btn-mini"><i class="fa fa-cog"></i></button>
+                    <button popper class="btn btn-xs btn-default"><i class="fa fa-cog"></i></button>
                     <ul class="popper_menu dropdown-menu">
                         <li>
-                            <a ng-click="toggleRepeat(token)" rel="localize[repeat]">{{'repeat' | loc}}</a>
+                            <a ng-click="toggleRepeat(token)" rel="localize[repeat]">{{'repeat' | loc:lang}}</a>
                         </li>
-                        <li><a ng-click="toggleStart(token)" rel="localize[sent_start]">{{'sent_start' | loc}}</a></li>
-                        <li><a ng-click="toggleEnd(token)" rel="localize[sent_end]">{{'sent_end' | loc}}</a></li>
+                        <li><a ng-click="toggleStart(token)" rel="localize[sent_start]">{{'sent_start' | loc:lang}}</a></li>
+                        <li><a ng-click="toggleEnd(token)" rel="localize[sent_end]">{{'sent_end' | loc:lang}}</a></li>
                     </ul>
         
             
                     <div class="repeat" ng-show="token.repeat">
-                        <span rel="localize[repeat]">{{'repeat' | loc}}</span>
+                        <span rel="localize[repeat]">{{'repeat' | loc:lang}}</span>
                         <input type="number" ng-model="token.repeat[0]" >
-                        <span rel="localize[to]">{{'to' | loc}}</span>
+                        <span rel="localize[to]">{{'to' | loc:lang}}</span>
                         <input type="number" ng-model="token.repeat[1]">
-                        <span rel="localize[times]">{{'times' | loc}}</span>
+                        <span rel="localize[times]">{{'times' | loc:lang}}</span>
                     </div>
             
                     <div style="clear:both;"></div>
@@ -68,18 +65,16 @@
             
                 <div class="lower_footer">
                     <span  class="lbound close_token" ng-show="token.bound.lbound">
-                        <span rel="localize[sent_start]">{{'sent_start' | loc}}</span>
+                        <span rel="localize[sent_start]">{{'sent_start' | loc:lang}}</span>
                         <i class="fa fa-1 fa-times" ng-click="toggleStart(token)"></i>
                     </span>
                     <span class="rbound close_token" ng-show="token.bound.rbound">
-                        <span rel="localize[sent_end]">{{'sent_end' | loc}}</span>
+                        <span rel="localize[sent_end]">{{'sent_end' | loc:lang}}</span>
                         <i class="fa fa-1 fa-times" ng-click="toggleEnd(token)"></i>
                     </span>
                 </div>
             
-                <!-- <button  ng-click="addAnd()">and</button> -->
             </div>
-        <!-- <button ng-click="addToken()">+</button> -->
         </div>
     <img src="img/plus.png" class="image_button insert_token" ng-click="addToken()" ng-mousedown="onInsertMousedown($event)">
     </div>

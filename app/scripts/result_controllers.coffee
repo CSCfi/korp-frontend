@@ -1,24 +1,7 @@
 korpApp = angular.module("korpApp")
 
-# korpApp.controller "resultTabCtrl", ($scope) ->
-#     s = $scope
-    
-#     s.selectTab = (i) ->
-#         s.$broadcast "tabselect", i
-
-#     s.$watch "getSelected()", (val) ->
-#         s.$root.result_tab = val
-
-
 korpApp.controller "resultContainerCtrl", ($scope, searches, $location) ->
     $scope.searches = searches
-    # $scope.json_url = ""
-    # $scope.tabclick = () ->
-    #     c.log "click tab", $location.search().result_tab, $scope
-        
-
-
-
 
 korpApp.controller "kwicCtrl", class KwicCtrl
     setupHash : () ->
@@ -34,12 +17,12 @@ korpApp.controller "kwicCtrl", class KwicCtrl
     initPage : () ->
         # @scope.pager = Number(@location.search().page) + 1 or 1
         c.log "initPage", @location.search().page
-        @scope.pageObj = 
+        @scope.pageObj =
             pager: Number(@location.search().page) + 1 or 1
         @scope.page = @scope.pageObj.pager - 1
 
 
-    @$inject: ['$scope', "utils", "$location"] 
+    @$inject: ['$scope', "utils", "$location"]
     constructor: (@scope, @utils, @location) ->
         s = @scope
         $scope = @scope
@@ -69,22 +52,18 @@ korpApp.controller "kwicCtrl", class KwicCtrl
 
 
         @setupHash()
-        s.gotoPage = null
         s.onPageInput = ($event, page, numPages) ->
             if $event.keyCode == 13
-                c.log "page input", page, numPages
                 if page > numPages then page = numPages
                 s.pageObj.pager = page
                 s.page = Number(page) - 1
-                s.gotoPage = null
-                c.log "s.$id", s.$id
 
         readingChange = () ->
             c.log "reading change"
 
             if s.instance?.getProxy().pendingRequests.length
                 window.pending = s.instance.getProxy().pendingRequests
-                
+
                 $.when(s.instance.getProxy().pendingRequests...).then () ->
                     c.log "readingchange makeRequest"
                     s.instance.makeRequest()
@@ -102,7 +81,7 @@ korpApp.controller "kwicCtrl", class KwicCtrl
             init = true
             s.$watch "reading_mode", () ->
                 if not init
-                    readingChange()   
+                    readingChange()
                 init = false
 
 
@@ -119,6 +98,7 @@ korpApp.controller "kwicCtrl", class KwicCtrl
             currentStruct = []
             prevCorpus = ""
             output = []
+            isOpen = false
             for sentence, i in sentenceArray
                 [matchSentenceStart, matchSentenceEnd] = findMatchSentence sentence
                 {start, end} = sentence.match
@@ -134,14 +114,22 @@ korpApp.controller "kwicCtrl", class KwicCtrl
                     if wd.structs?.open
                         wd._open = wd.structs.open
                         currentStruct = [].concat(currentStruct, wd.structs.open)
-                    else if wd.structs?.close
+                        # c.log "currentStruct open", currentStruct
+                        isOpen = true
+                    else if isOpen and wd.structs?.close
                         wd._close = wd.structs.close
                         currentStruct = _.without currentStruct, wd.structs.close...
+                        # c.log "currentStruct close", currentStruct, wd.structs.close
+
+                    if isOpen
+                        _.extend wd, {_struct : currentStruct} if currentStruct.length
 
 
-                    _.extend wd, {_struct : currentStruct} if currentStruct.length
+                    if wd.structs?.close
+                        currentStruct = []
+                        isOpen = false
 
-                
+
                 if currentMode == "parallel"
                     mainCorpusId = sentence.corpus.split("|")[0].toLowerCase()
                     linkCorpusId = sentence.corpus.split("|")[1].toLowerCase()
@@ -226,19 +214,24 @@ korpApp.controller "kwicCtrl", class KwicCtrl
 
 
 korpApp.controller "ExampleCtrl", class ExampleCtrl extends KwicCtrl
-    @$inject: ['$scope', "utils", "$location"] 
+    @$inject: ['$scope', "utils", "$location"]
     constructor: (@scope, utils, $location) ->
         super(@scope, utils, $location)
         s = @scope
 
+        s.hitspictureClick = (pageNumber) ->
+            s.page = Number(pageNumber)
+            s.pageChange(null, pageNumber)
+
+
         s.pageChange = ($event, page) ->
-            $event.stopPropagation()
+            $event?.stopPropagation()
             s.instance.current_page = page
             s.instance.makeRequest()
 
 
     initPage : () ->
-        @scope.pageObj = 
+        @scope.pageObj =
             pager : 0
         @scope.page = 0
     setupHash : () ->
@@ -262,7 +255,7 @@ korpApp.controller "wordpicCtrl", ($scope, $location, utils, searches) ->
         $location.search("word_pic", true)
         search = searches.activeSearch
         $scope.instance.makeRequest(search.val, search.type)
-        
+
 
 korpApp.controller "graphCtrl", ($scope) ->
     s = $scope
@@ -332,24 +325,24 @@ korpApp.controller "compareCtrl", ($scope, $rootScope) ->
             c.log "triple", triple, cmp
 
             cqps = []
-            
+
             for token in triple[0].split(" ")
                 if type == "set" and token == "|"
                     cqps.push "[ambiguity(#{reduce}) = 0]"
                 else
-                    cqps.push CQP.fromObj 
+                    cqps.push CQP.fromObj
                         type : reduce
                         op : op
                         val : token
-            
+
             cqpobj = CQP.concat cqps...
 
             cl = settings.corpusListing.subsetFactory cmp.corpora
-            
+
             opts = {
                 start : 0
                 end : 24
-                ajaxParams : 
+                ajaxParams :
                     command : "query"
                     cqp : cmp.cqp
                     cqp2 : CQP.stringify cqpobj
@@ -359,3 +352,133 @@ korpApp.controller "compareCtrl", ($scope, $rootScope) ->
 
             }
             $rootScope.kwicTabs.push opts
+
+korpApp.controller "MapCtrl", ($scope, $rootScope, $location, $timeout, searches, nameEntitySearch, markers, nameMapper) ->
+    s = $scope
+    s.loading = false
+    s.hasResult = false
+    s.aborted = false
+
+    $(document).keyup (event) ->
+        if event.keyCode == 27 and s.showMap and s.loading
+            s.proxy?.abort()
+            $timeout (() ->
+                s.aborted = true
+                s.loading = false), 0
+
+    s.$watch (() -> $location.search().result_tab), (val) ->
+        $timeout (() -> s.tabVisible = val == 1), 0
+
+    s.showMap = $location.search().show_map?
+    s.$watch (() -> $location.search().show_map), (val) ->
+        if val == s.showMap
+            return
+
+        s.showMap = Boolean(val)
+        if s.showMap
+            currentCqp = getCqpExpr()
+            currentCorpora = settings.corpusListing.stringifySelected(true)
+            if currentCqp != s.lastSearch?.cqp or currentCorpora != s.lastSearch?.corpora
+                s.hasResult = false
+
+    s.activate = () ->
+        $location.search("show_map", true)
+        s.showMap = true
+        cqpExpr = getCqpExpr()
+        if cqpExpr
+            nameEntitySearch.request cqpExpr
+
+    getCqpExpr = () ->
+        # TODO currently copy pasted from watch on "searches.activeSearch"
+        search = searches.activeSearch
+        cqpExpr = null
+        if search
+            if search.type == "word" or search.type == "lemgram"
+                cqpExpr = simpleSearch.getCQP(search.val)
+            else
+                cqpExpr = search.val
+        return cqpExpr
+
+    s.center =
+        lat: 62.99515845212052
+        lng: 16.69921875
+        zoom: 4
+
+    s.hoverTemplate = """<div class="hover-info" ng-repeat="(name, values) in names">
+                          <div><span>{{ 'map_name' | loc }}: </span> <span>{{name}}</span></div>
+                          <div><span>{{ 'map_abs_occurrences' | loc }}: </span> <span>{{values.abs_occurrences}}</span></div>
+                          <div><span>{{ 'map_rel_occurrences' | loc }}: </span> <span>{{values.rel_occurrences}}</span></div>
+                       </div>"""
+    s.markers = {}
+    s.mapSettings = 
+        baseLayer : "Open Street Map"
+    s.numResults = 0
+    s.showTime = true
+
+    s.$on "map_progress", (event, progress) ->
+        s.progress = Math.round(progress["stats"])
+
+    s.$on "map_data_available", (event, cqp, corpora) ->
+        s.aborted = false
+        if s.showMap
+            s.proxy = nameEntitySearch.proxy
+            s.lastSearch = { cqp: cqp, corpora: corpora }
+            s.loading = true
+            updateMapData()
+            s.hasResult = true
+
+    s.countCorpora = () ->
+        s.proxy.prevParams?.corpus.split(",").length
+
+    fixData = (data) ->
+        fixedData = {}
+        abs = data.total.absolute
+        rel = data.total.relative
+        names = _.keys abs
+        for name in names
+            fixedData[name] = {
+                rel_occurrences : (Math.round((data.total.relative[name] + 0.00001) * 1000) / 1000)
+                abs_occurrences : data.total.absolute[name]
+            }
+        return fixedData
+
+    updateMapData = () ->
+        nameEntitySearch.promise.then (data) ->
+            if data.count != 0
+
+                fixedData = fixData data
+
+                markers(fixedData).then (markers) ->
+                    for own key, value of markers
+                        do (key, value) ->
+                            html = ""
+                            msgScope = value.getMessageScope()
+                            for name of msgScope.names
+                                html += '<div class="link" ng-click="newKWICSearch(\'' + name + '\')">' + name + '</div>'
+
+                            msgScope.newKWICSearch = (query) ->
+                                cl = settings.corpusListing
+
+                                opts = {
+                                    start : 0
+                                    end : 24
+                                    ajaxParams :
+                                        command : "query"
+                                        cqp : getCqpExpr()
+                                        cqp2 : "[word='" + query + "' & pos='PM']"
+                                        corpus : cl.stringifySelected()
+                                        show_struct : _.keys cl.getStructAttrs()
+                                        expand_prequeries : true
+                                }
+                                $rootScope.kwicTabs.push opts
+                            markers[key]["message"] = html
+
+                    s.markers = markers
+                    s.numResults = _.keys(markers).length
+                    s.loading = false
+            else
+                s.markers = {}
+                s.numResults = 0
+                s.loading = false
+
+

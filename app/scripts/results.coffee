@@ -34,11 +34,10 @@ class BaseResults
     renderResult: (data) ->
         #       this.resetView();
         @$result.find(".error_msg").remove()
-        # util.setJsonLink @proxy.prevRequest if @$result.is(":visible")
         if data.ERROR
             safeApply @s, () =>
                 @firstResultDef.reject()
-            
+
             @resultError data
             return false
         else
@@ -58,11 +57,10 @@ class BaseResults
             .addClass("inline_block")
             .prependTo(@$result)
             .wrapAll "<div class='error_msg'>"
-        # util.setJsonLink @proxy.prevRequest
 
     showPreloader : () ->
         @s.$parent.loading = true
-    
+
     hidePreloader : () ->
         @s.$parent.loading = false
 
@@ -77,7 +75,7 @@ class BaseResults
         @s.$root.jsonUrl = null
         @firstResultDef.promise.then () =>
             c.log "firstResultDef.then", @isActive()
-            if @isActive() 
+            if @isActive()
                 @s.$root.jsonUrl = @proxy?.prevUrl
     onexit : () ->
         @s.$root.jsonUrl = null
@@ -100,7 +98,7 @@ class view.KWICResults extends BaseResults
         @tabindex = 0
 
         @s = scope
-        
+
         @selectionManager = scope.selectionManager
         @setupReadingHash()
         @$result.click =>
@@ -133,7 +131,7 @@ class view.KWICResults extends BaseResults
         # $.sm.send("word.select")
         if $("#sidebar").data().korpSidebar?
             $("#sidebar").sidebar "updateContent", sent.structs, obj, sent.corpus.toLowerCase(), sent.tokens
-        
+
         @selectWord word, scope, sent
 
 
@@ -164,7 +162,7 @@ class view.KWICResults extends BaseResults
         scope.selectionManager.select word, aux
         safeApply @s.$root, (s) ->
             s.$root.word_selected = word
-        
+
 
 
     resetView: ->
@@ -278,9 +276,9 @@ class view.KWICResults extends BaseResults
             setTimeout(() =>
                 safeApply @s, () =>
                     @s.gotFirstKwic = true
-                
+
             , 0)
-            # @hidePreloader()    
+            # @hidePreloader()
 
         if currentMode == "parallel" and not isReading
             scrollLeft = $(".table_scrollarea", @$result).scrollLeft() or 0
@@ -343,11 +341,54 @@ class view.KWICResults extends BaseResults
         else newX -= offset if wordLeft < area.offset().left
         area.stop(true, true).animate scrollLeft: newX
 
+    buildPager: (number_of_hits) ->
+        items_per_page = @optionWidget.find(".num_hits").val()
+        # @movePager "up"
+        # $.onScrollOut "unbind"
+        @$result.find(".pager-wrapper").unbind().empty()
+        if number_of_hits > items_per_page
+            @$result.find(".pager-wrapper").pagination number_of_hits,
+                items_per_page: items_per_page
+                callback: $.proxy(@handlePaginationClick, this)
+                next_text: util.getLocaleString("next")
+                prev_text: util.getLocaleString("prev")
+                link_to: "javascript:void(0)"
+                num_edge_entries: 2
+                ellipse_text: ".."
+                current_page: @current_page or 0
+
+            @$result.find(".next").attr "rel", "localize[next]"
+            @$result.find(".prev").attr "rel", "localize[prev]"
+    
+    # pagination_container is used by the pagination lib
+    handlePaginationClick: (new_page_index, pagination_container, force_click) ->
+        page = search().page or 0
+        c.log "handlePaginationClick", new_page_index, page
+        self = this
+        if new_page_index isnt page or !!force_click
+            isReading = @isReadingMode()
+            kwicCallback = @renderResult
+
+            # this.showPreloader();
+
+            @getProxy().makeRequest @buildQueryOptions(), new_page_index, ((progressObj) ->
+
+                #progress
+                self.$tab.find(".tab_progress").css "width", Math.round(progressObj["stats"]).toString() + "%"
+            ), ((data) ->
+                #success
+                self.buildPager data.hits
+            ), $.proxy(kwicCallback, this)
+            # $.bbq.pushState page: new_page_index
+            safeApply @s, () ->
+                search page: new_page_index
+            @current_page = new_page_index
+        false
 
     buildQueryOptions: (cqp, isPaging) ->
         c.log "buildQueryOptions", cqp
         opts = {}
-        getSortParams = () -> 
+        getSortParams = () ->
             sort = search().sort
             unless sort then return {}
             if sort == "random"
@@ -380,7 +421,7 @@ class view.KWICResults extends BaseResults
         c.log "kwicResults.makeRequest", cqp, isPaging
 
         page = Number(search().page) or 0
-        
+
         if !@hasInitialized?
             c.log "not init set page", page + 1
             @s.$parent.pageObj.pager = page + 1
@@ -406,7 +447,7 @@ class view.KWICResults extends BaseResults
         req = @getProxy().makeRequest params,
                             page,
                             progressCallback,
-                            (data) => 
+                            (data) =>
                                 @renderResult data
         req.success (data) =>
             @hidePreloader()
@@ -421,7 +462,7 @@ class view.KWICResults extends BaseResults
                     @hidePreloader()
                     @s.aborted = true
 
-        
+
 
     getActiveData : () ->
         if @isReadingMode()
@@ -516,7 +557,7 @@ class view.ExampleResults extends view.KWICResults
         c.log "ExampleResults constructor", tabSelector, resultSelector, scope
         super tabSelector, resultSelector, scope
         @proxy = new model.KWICProxy()
-        
+
         @current_page = 0
         if @s.$parent.queryParams
             @makeRequest().then () =>
@@ -530,6 +571,7 @@ class view.ExampleResults extends view.KWICResults
         c.log "ExampleResults.makeRequest()", @current_page
         items_per_page = parseInt(@optionWidget.find(".num_hits").val())
         opts = @s.$parent.queryParams
+        c.log "opts", opts
         @resetView()
         opts.ajaxParams.incremental = false
 
@@ -543,13 +585,12 @@ class view.ExampleResults extends view.KWICResults
 
         #   this.proxy.makeRequest(opts, $.proxy(this.onProgress, this));
         progress = if opts.command == "query" then $.proxy(this.onProgress, this) else $.noop
-        def = @proxy.makeRequest opts, null, progress, (data) => 
+        def = @proxy.makeRequest opts, null, progress, (data) =>
             c.log "first part done", data
             @renderResult data, opts.cqp
             @renderCompleteResult data
             safeApply @s, () =>
                 @hidePreloader()
-            # util.setJsonLink @proxy.prevRequest
             util.setDownloadLinks @proxy.prevRequest, data
             # @$result.find(".num-result").html util.prettyNumbers(data.hits)
 
@@ -577,7 +618,7 @@ class view.LemgramResults extends BaseResults
         self = this
         super tabSelector, resultSelector, scope
         @s = scope
-        @tabindex = 2
+        @tabindex = 3
         #   TODO: figure out what I use this for.
         @resultDeferred = $.Deferred()
         @proxy = new model.LemgramProxy()
@@ -588,7 +629,7 @@ class view.LemgramResults extends BaseResults
             else
                 $(".lemgram_result .wordclass_suffix", self.$result).hide()
 
-        
+
 
     resetView: ->
         super()
@@ -603,7 +644,7 @@ class view.LemgramResults extends BaseResults
         else
             @ignoreAbort = false
             @resetView()
-        
+
         @showPreloader()
         def = @proxy.makeRequest word, type, (args...) =>
             @onProgress args...
@@ -685,14 +726,14 @@ class view.LemgramResults extends BaseResults
             word + pos
 
         tagsetTrans = _.invert settings.wordpictureTagset
-        unique_words = _.filter unique_words, ([currentWd, pos]) -> 
+        unique_words = _.filter unique_words, ([currentWd, pos]) ->
             settings.wordPictureConf[tagsetTrans[pos]]?
         if not unique_words.length
             @showNoResults()
             return
-            
-        
-        
+
+
+
         $.each unique_words, (i, [currentWd, pos]) =>
             self.drawTable currentWd, pos, data
             self.renderHeader pos, false
@@ -702,7 +743,7 @@ class view.LemgramResults extends BaseResults
             $(".tableContainer:last").prepend($("<div>",
                 class: "header"
             ).html(content)).find(".hit .wordclass_suffix").hide()
-                
+
         $(".lemgram_result .wordclass_suffix").hide()
         @hidePreloader()
 
@@ -722,14 +763,14 @@ class view.LemgramResults extends BaseResults
     drawTable: (token, wordClass, data) ->
         # c.log "token, wordClass", token, wordClass
         inArray = (rel, orderList) ->
-            i = _.findIndex orderList, (item) -> 
+            i = _.findIndex orderList, (item) ->
                 (item.field_reverse or false) == (rel.field_reverse or false) and item.rel == rel.rel
             type = (if rel.field_reverse then "head" else "dep")
             i : i
             type : type
 
 
-        
+
         tagsetTrans = _.invert settings.wordpictureTagset
         getRelType = (item) ->
             return {rel : tagsetTrans[item.rel.toLowerCase()] , field_reverse : item.dep == token}
@@ -799,7 +840,7 @@ class view.LemgramResults extends BaseResults
             data = $(this).tmplItem().data
             if not data.dep
                 label = "&mdash;"
-            else 
+            else
                 label = util.lemgramToString($(this).data("lemgram"), hasHomograph)
             $(this).html prefix + label
 
@@ -811,14 +852,13 @@ class view.LemgramResults extends BaseResults
         $target = $(event.currentTarget)
         c.log "onClickExample", $target
         data = $target.parent().tmplItem().data
-        
+
         opts = {}
         opts.ajaxParams =
             start : 0
             end : 24
             command : "relations_sentences"
             source : data.source.join(",")
-            corpus : null
             head: data.head
             dep: data.dep
             rel: data.rel
@@ -870,10 +910,14 @@ class view.LemgramResults extends BaseResults
 class view.StatsResults extends BaseResults
     constructor: (resultSelector, tabSelector, scope) ->
         super resultSelector, tabSelector, scope
-        c.log "StatsResults constr", 
+        c.log "StatsResults constr",
         self = this
-        @tabindex = 1
+        @tabindex = 2
         @gridData = null
+        
+        @doSort = true
+        @sortColumn = null 
+        
         @proxy = new model.StatsProxy()
         window.statsProxy = @proxy
         @$result.on "click", ".arcDiagramPicture", (event) =>
@@ -886,7 +930,7 @@ class view.StatsResults extends BaseResults
 
         @$result.on "click", ".slick-cell.l1.r1 .link", () ->
             query = $(this).data("query")
-            
+
             opts = {}
             opts.ajaxParams =
                 start : 0
@@ -896,7 +940,7 @@ class view.StatsResults extends BaseResults
                 cqp : decodeURIComponent self.proxy.prevParams.cqp
                 cqp2: decodeURIComponent query
                 expand_prequeries : false
-            
+
             safeApply scope.$root, () ->
                 scope.$root.kwicTabs.push opts
 
@@ -904,13 +948,7 @@ class view.StatsResults extends BaseResults
 
 
         $(window).resize _.debounce( () =>
-            $("#myGrid:visible").width($(window).width() - 40)
-            nRows = @gridData?.length or 2
-            h = (nRows * 2) + 4
-            h = Math.min h, 40
-            
-            $("#myGrid:visible").height $("#myGrid .slick-viewport").height() + 40
-
+            @resizeGrid()
         , 100)
 
         $("#kindOfData,#kindOfFormat").change () =>
@@ -934,9 +972,8 @@ class view.StatsResults extends BaseResults
 
             subExprs = []
             labelMapping = {}
-            
+
             showTotal = false
-            mainCQP = params.cqp
 
             console.log "DOING GRAPH CHECKING"
             # THIS IS FLAWED AND SHOULD USE 'getSelectedRows()' INSTEAD.
@@ -960,7 +997,7 @@ class view.StatsResults extends BaseResults
 
             @s.$apply () =>
                 @s.onGraphShow
-                    cqp : mainCQP
+                    cqp : @proxy.prevNonExpandedCQP
                     subcqps : subExprs
                     labelMapping : labelMapping
                     showTotal : showTotal
@@ -975,7 +1012,7 @@ class view.StatsResults extends BaseResults
         cl = settings.corpusListing.subsetFactory(_.keys @savedData.corpora)
 
         header = [
-            util.getLocaleString("stats_hit"), 
+            util.getLocaleString("stats_hit"),
             util.getLocaleString("stats_total")
         ]
         header = header.concat _.pluck cl.corpora, "title"
@@ -997,12 +1034,12 @@ class view.StatsResults extends BaseResults
             row = [wd, fmt @savedData.total[selVal][wd]]
             values = for corp in _.pluck cl.corpora, "id"
                 val = @savedData.corpora[corp.toUpperCase()][selVal][wd]
-                if val 
+                if val
                     val = fmt val
-                else 
+                else
                     val = "0"
 
-            
+
             output.push row.concat values
 
 
@@ -1019,7 +1056,7 @@ class view.StatsResults extends BaseResults
 
         $("#exportButton", @$result).attr({
             download : "export.#{selType}"
-            href : csvUrl    
+            href : csvUrl
         })
 
     makeRequest : (cqp) ->
@@ -1064,14 +1101,12 @@ class view.StatsResults extends BaseResults
                 else
                     @resultError err
 
-
     renderResult: (columns, data) ->
         refreshHeaders = ->
             #$(".slick-header-column:nth(2)").click().click()
             $(".slick-column-name:nth(1),.slick-column-name:nth(2)").not("[rel^=localize]").each ->
                 $(this).localeKey $(this).text()
 
-        
         @gridData = data
         resultError = super(data)
         return if resultError is false
@@ -1095,36 +1130,52 @@ class view.StatsResults extends BaseResults
         grid = new Slick.Grid $("#myGrid"), data, columns,
             enableCellNavigation: false
             enableColumnReorder: false
-        
+
         grid.setSelectionModel(new Slick.RowSelectionModel({selectActiveRow: false}))
         grid.registerPlugin(checkboxSelector)
         @grid = grid
         @grid.autosizeColumns()
         #$("#myGrid").width("100%")
-        
+
         sortCol = columns[2]
         log = _.debounce () ->
             c.log "grid sort"
         , 200
-        grid.onSort.subscribe (e, args) ->
-            sortCol = args.sortCol  
-            data.sort (a, b) ->
-                log()
-                if sortCol.field is "hit_value"
-                    x = a[sortCol.field]
-                    y = b[sortCol.field]
+        grid.onSort.subscribe (e, args) =>
+            if @doSort
+                sortColumns = grid.getSortColumns()[0]
+                @sortColumn = sortColumns.columnId
+                @sortAsc = sortColumns.sortAsc
+                sortCol = args.sortCol  
+                data.sort (a, b) ->
+                    log()
+                    if sortCol.field is "hit_value"
+                        x = a[sortCol.field]
+                        y = b[sortCol.field]
+                    else
+                        x = a[sortCol.field][0] or 0
+                        y = b[sortCol.field][0] or 0
+                    ret = ((if x is y then 0 else ((if x > y then 1 else -1))))
+                    ret *= -1 unless args.sortAsc
+                    ret
+    
+                grid.setData data
+                grid.updateRowCount()
+                grid.render()
+            else
+                if @sortColumn
+                    grid.setSortColumn @sortColumn, @sortAsc
                 else
-                    #x = a[sortCol.field].absolute or 0
-                    #y = b[sortCol.field].absolute or 0
-                    x = a[sortCol.field][0] or 0
-                    y = b[sortCol.field][0] or 0
-                ret = ((if x is y then 0 else ((if x > y then 1 else -1))))
-                ret *= -1 unless args.sortAsc
-                ret
+                    grid.setSortColumns []
 
-            grid.setData data
-            grid.updateRowCount()
-            grid.render()
+        grid.onColumnsResized.subscribe (e, args) =>
+            @doSort = false # if sort event triggered, sorting will not occur
+            @resizeGrid()
+            e.stopImmediatePropagation()
+            
+        grid.onHeaderClick.subscribe (e, args) =>
+            @doSort = true # enable sorting again, resize is done
+            e.stopImmediatePropagation()
 
         grid.onHeaderCellRendered.subscribe (e, args) ->
             refreshHeaders()
@@ -1137,7 +1188,7 @@ class view.StatsResults extends BaseResults
 
         $.when(timeDeferred).then =>
             safeApply @s, () =>
-                @updateGraphBtnState()            
+                @updateGraphBtnState()
         safeApply @s, () =>
             @hidePreloader()
 
@@ -1148,6 +1199,25 @@ class view.StatsResults extends BaseResults
 
         if not (_.compact cl.getTimeInterval()).length
             @s.graphEnabled = false
+
+    resizeGrid : () ->
+        height = $(window).height() - 600
+        $("#myGrid:visible").height height
+        
+        # adding 20 px to width if vertical scrollbar appears
+        if @gridData?.length * 20 >= height
+            width = 20
+        else
+            width = 0
+
+        $('.slick-header-column').each () ->
+            width += $(this).outerWidth true
+        if width > ($(window).width() - 40)
+            width = $(window).width() - 40
+        $("#myGrid:visible").width width
+        
+        @grid?.resizeCanvas()
+        @grid?.invalidate()
 
     newDataInGraph : (dataName) ->
         dataItems = []
@@ -1318,16 +1388,35 @@ class view.GraphResults extends BaseResults
     constructor : (tabSelector, resultSelector, scope) ->
         super(tabSelector, resultSelector, scope)
 
+
+        @validZoomLevels = [
+            "year"
+            "month"
+            "day"
+            "hour"
+            "minute"
+            "second"
+        ]
+        @granularities = {
+            "year" : "y"
+            "month" : "m"
+            "day" : "d"
+            "hour" : "h"
+            "minute" : "n"
+            "second" : "s"
+        }
+
         @zoom = "year"
-        @granularity = @zoom[0]
+        # values: y m d h n s
+        # @granularity = @zoom[0]
         # @corpora = null
         @proxy = new model.GraphProxy()
 
-        @makeRequest @s.data.cqp,
-            @s.data.subcqps,
-            @s.data.corpusListing,
-            @s.data.labelMapping,
-            @s.data.showTotal
+        [from, to] = settings.corpusListing.getMomentInterval()
+        c.log "from, to", from, to
+
+        @checkZoomLevel(from, to, true)
+
 
         c.log "adding chart listener", @$result
 
@@ -1338,19 +1427,39 @@ class view.GraphResults extends BaseResults
             cqp = $(".detail .item.active > span", target).data("cqp")
             c.log "chart click", cqp, target, @s.data.subcqps, @s.data.cqp
             # time =
+
+
             if cqp
+                cqp = CQP.expandOperators decodeURIComponent cqp
+                c.log "cqp", cqp
                 m = moment(val * 1000)
 
-                start = m.format("YYYYMMDD")
-                end = m.add(1, "year").subtract(1, "day").format("YYYYMMDD")
-                timecqp = "(int(_.text_datefrom) >= #{start} & int(_.text_dateto) <= #{end})"
-                # If specified, allow bare years in text_datefrom and
-                # text_dateto for backward compatibility
-                # (Jyrki Niemi 2013-12-12)
-                if settings.textDateAllowBareYears
-                    year = m.format("YYYY")
-                    timecqp = "(" + timecqp + " | (int(_.text_datefrom) = #{year} & int(_.text_dateto) = #{year}))"
-                timecqp = "[" + timecqp + "]"
+
+                datefrom = moment(m).startOf(@zoom).format("YYYYMMDD")
+                dateto = moment(m).endOf(@zoom).format("YYYYMMDD")
+                if (@validZoomLevels.indexOf @zoom) < 3 # year, month, day
+                    timecqp = """(int(_.text_datefrom) >= #{datefrom} & int(_.text_dateto) <= #{dateto}) | 
+                        (int(_.text_datefrom) <= #{datefrom} & int(_.text_dateto) >= #{dateto})"""
+                    # If specified, allow bare years in text_datefrom and
+                    # text_dateto for backward compatibility
+                    # (Jyrki Niemi 2013-12-12)
+                    if settings.textDateAllowBareYears
+                        year = m.format("YYYY")
+                        timecqp = "(" + timecqp + " | (int(_.text_datefrom) = #{year} & int(_.text_dateto) = #{year}))"
+                    timecqp = "[" + timecqp + "]"
+
+
+                else # hour, minute, second
+                    timefrom = moment(m).startOf(@zoom).format("HHmmss")
+                    timeto = moment(m).endOf(@zoom).format("HHmmss")
+                    c.log "timefrom", timefrom, timeto
+                    
+                    timecqp = """[(int(_.text_datefrom) = #{datefrom} & int(_.text_timefrom) >= #{timefrom} & int(_.text_dateto) <= #{dateto} & int(_.text_timeto) <= #{timeto}) |
+                     ((int(_.text_datefrom) < #{datefrom} | (int(_.text_datefrom) = #{datefrom} & int(_.text_timefrom) <= #{timefrom})) & (int(_.text_dateto) > #{dateto} | (int(_.text_dateto) = #{dateto} & int(_.text_timeto) >= #{timeto})))]"""
+
+                    # (datefrom == 20140101 & timefrom >= 120000 & dateto == 20140101 & timeto <= 160000)
+                    # |
+                    # ((datefrom < 20140101 | (datefrom == 20140101 & timefrom <= 120000)) & (dateto > 20140101 | (dateto == 20140101 & timeto >= 160000)))
 
                 n_tokens = @s.data.cqp.split("]").length - 2
 
@@ -1363,8 +1472,8 @@ class view.GraphResults extends BaseResults
                     command : "query"
                     corpus: @s.data.corpusListing.stringifySelected()
                     cqp: @s.data.cqp
-                    cqp2 : decodeURIComponent cqp
-                    cqp3 : timecqp
+                    # cqp2 : cqp
+                    cqp2 : timecqp
                     expand_prequeries : false
 
 
@@ -1377,19 +1486,94 @@ class view.GraphResults extends BaseResults
     #     super
     # onexit : ->
 
-    parseDate : (granularity, time) ->
-        [year,month,day] = [null,0,1]
-        switch granularity
-            when "y" then year = time
-            when "m"
-                year = time[0...4]
-                month = time[4...6]
-            when "d"
-                year = time[0...4]
-                month = time[4...6]
-                day = time[6...8]
+    # getNextZoom : () ->
+    #     i = @validZoomLevels.indexOf @zoom
+    #     return @validZoomLevels[i + 1]
+    # getPrevZoom : () ->
+    #     i = @validZoomLevels.indexOf @zoom
+    #     return @validZoomLevels[i - 1]
 
-        return moment([Number(year), Number(month), Number(day)])
+
+    resetPreloader : () ->
+        # $(".preloader", @$result).css
+        #     width : 0;
+        
+    drawPreloader : (from, to) ->
+        if @graph
+            left = @graph.x from.unix()
+            width = (@graph.x to.unix()) - left
+        else 
+            left = 0
+            width = "100%"
+
+        $(".preloader", @$result).css
+            left : left
+            width : width
+
+    setZoom : (zoom, from, to) ->
+        @zoom = zoom
+        fmt = "YYYYMMDDHHmmss"
+
+        @drawPreloader from, to
+        @proxy.granularity = @granularities[zoom]
+        @makeRequest @s.data.cqp,
+            @s.data.subcqps,
+            @s.data.corpusListing,
+            @s.data.labelMapping,
+            @s.data.showTotal,
+            from.format(fmt),
+            to.format(fmt)
+
+
+    checkZoomLevel : (from, to, forceSearch) ->
+        unless from?
+            {x : [from, to]} = @graph.renderer.domain()
+            from = moment.unix(from)
+            from.start
+            to = moment.unix(to)
+        
+
+        oldZoom = @zoom
+
+        newZoom = null
+        idealNumHits = 1000
+        newZoom = _.min @validZoomLevels, (zoom) ->
+            nPoints = to.diff(from, zoom)
+            return Math.abs(idealNumHits - nPoints)
+
+
+        # for zoom in @validZoomLevels
+        #     nPoints = to.diff(from, zoom)
+        #     c.log "nPoints", nPoints
+        #     if 3600 > nPoints > 100
+        #         c.log "zoom sweet spot:", zoom, nPoints
+        #         newZoom = zoom
+        #         break
+
+        c.log "newZoom", newZoom
+        if (newZoom and (oldZoom != newZoom) or forceSearch)
+            @setZoom(newZoom, from, to)
+
+
+
+    parseDate : (zoom, time) ->
+        switch zoom
+            when "year"
+                return moment(time, "YYYY")
+            when "month"
+                return moment(time, "YYYYMM")
+            when "day"
+                return moment(time, "YYYYMMDD")
+            when "hour"
+                return moment(time, "YYYYMMDDHH")
+            when "minute"
+                return moment(time, "YYYYMMDDHHmm")
+            when "second"
+                return moment(time, "YYYYMMDDHHmmss")
+
+
+
+        # return moment([Number(year), Number(month) - 1, Number(day) - 1])
 
 
     fillMissingDate : (data) ->
@@ -1397,67 +1581,71 @@ class view.GraphResults extends BaseResults
         min = _.min dateArray, (mom) -> mom.toDate()
         max = _.max dateArray, (mom) -> mom.toDate()
 
+        min.startOf(@zoom)
+        max.endOf(@zoom)
 
-        duration = switch @granularity
-            when "y"
-                duration = moment.duration year :  1
-                diff = "year"
-            when "m"
-                duration = moment.duration month :  1
-                diff = "month"
-            when "d"
-                duration = moment.duration day :  1
-                diff = "day"
+        n_diff = moment(max).diff min, @zoom
+        # c.log "n_diff", n_diff
 
-        n_diff = moment(max).diff min, diff
-
-        momentMapping = _.object _.map data, (item) ->
-            [moment(item.x).unix(), item.y]
+        momentMapping = _.object _.map data, (item) =>
+            mom = moment(item.x)
+            mom.startOf(@zoom)
+            [mom.unix(), item.y]
 
         newMoments = []
         for i in [0..n_diff]
-            newMoment = moment(min).add(diff, i)
+            newMoment = moment(min).add(i, @zoom)
+
             maybeCurrent = momentMapping[newMoment.unix()]
             if typeof maybeCurrent != 'undefined'
                 lastYVal = maybeCurrent
             else
                 newMoments.push {x : newMoment, y : lastYVal}
-                
+
 
         return [].concat data, newMoments
 
 
 
 
-    getSeriesData : (data) ->
+    getSeriesData : (data, showSelectedCorporasStartDate, zoom) ->
         delete data[""]
         # TODO: getTimeInterval should take the corpora of this parent tab instead of the global ones.
-        [first, last] = settings.corpusListing.getTimeInterval()
-        firstVal = @parseDate "y", first
-        lastVal = @parseDate "y", last.toString()
+        # [first, last] = settings.corpusListing.getTimeInterval()
+        [firstVal, lastVal] = settings.corpusListing.getMomentInterval()
+        # firstVal = @parseDate @granularity, first
+        # lastVal = @parseDate @granularity, last.toString()
 
-        hasFirstValue = false
-        hasLastValue = false
+        # hasFirstValue = false
+        # hasLastValue = false
         output = for [x, y] in (_.pairs data)
-            mom = (@parseDate @granularity, x)
-            if mom.isSame firstVal then hasFirstValue = true
-            if mom.isSame lastVal then hasLastValue = true
+            mom = (@parseDate @zoom, x)
+            # if mom.isSame firstVal then hasFirstValue = true
+            # if mom.isSame lastVal then hasLastValue = true
             {x : mom, y : y}
 
-        unless hasFirstValue
-            output.push {x : firstVal, y:0}
+        # if (not hasFirstValue) and showSelectedCorporasStartDate
+        # if showSelectedCorporasStartDate # Don't remove first value for now
+            # output.push {x : firstVal, y:0}
 
+        prettyDate = (item) ->
+            moment(item.x).format("YYYYMMDD:HHmmss")
+        # c.log "firstVal", prettyDate(firstVal)
+
+        # c.log "output before", (_.map output, prettyDate).join(" | ")
         output = @fillMissingDate output
-
+        # c.log "output before", (_.map output, prettyDate).join(" | ")
+        
 
         output =  output.sort (a, b) ->
             a.x.unix() - b.x.unix()
 
-        #remove last element
-        output.splice(output.length-1, 1)
+        #remove last element WHY WOULD I DO THIS
+        # output.splice(output.length-1, 1)
 
         for tuple in output
             tuple.x = tuple.x.unix()
+            tuple.zoom = zoom
 
         return output
 
@@ -1465,7 +1653,7 @@ class view.GraphResults extends BaseResults
     hideNthTick : (graphDiv) ->
         $(".x_tick:visible", graphDiv).hide()
         .filter((n) ->
-            return n % 2 == 0
+            return ((n % 2) or (n % 3) or (n % 5)) == 0
             # return Number($(this).text()) % 5 == 0
         ).show()
 
@@ -1475,11 +1663,11 @@ class view.GraphResults extends BaseResults
         secondTick = ticks.eq(1)
 
         margin = 5
-        
+
         if not firstTick.length or not secondTick.length then return
         if firstTick.offset().left + firstTick.width() + margin > secondTick.offset().left
             @hideNthTick $(".chart", @$result)
-            @updateTicks()  
+            @updateTicks()
 
 
     getNonTime : () ->
@@ -1523,25 +1711,23 @@ class view.GraphResults extends BaseResults
         return intervals
 
 
-    drawIntervals : (graph, intervals) ->
-        # c.log "unitWidth", unitWidth
-        unless $(".zoom_slider", @$result).is ".ui-slider"
-            return
-        [from, to] = $('.zoom_slider', @$result).slider("values")
-        
+    drawIntervals : (graph) ->
+        # emptyIntervals = @getEmptyIntervals(graph.series[0].data)
+        emptyIntervals = graph.series[0].emptyIntervals
+        @s.hasEmptyIntervals = emptyIntervals.length
+        {x : [from, to]} = graph.renderer.domain()
+
         unitSpan = moment.unix(to).diff(moment.unix(from), @zoom)
         unitWidth = graph.width / unitSpan
 
         $(".empty_area", @$result).remove()
-        for list in intervals
+        for list in emptyIntervals
             max = _.max list, "x"
             min = _.min list, "x"
-            from = Math.round graph.x min.x
-            to = Math.round graph.x max.x
+            from = graph.x min.x
+            to = graph.x max.x
             # c.log "from", from, to
-            offset = 8
             $("<div>", {class : "empty_area"}).css
-                # left : ((from + unitWidth / 2) - offset)
                 left : from - unitWidth / 2
                 # width : (to - from) - unitWidth / 2
                 width : (to - from) + unitWidth
@@ -1556,14 +1742,235 @@ class view.GraphResults extends BaseResults
         return
     setLineMode : () ->
 
-    setTableMode : () ->
+    setTableMode : (series) ->
+        $(".chart,.legend", @$result).hide()
+        $(".time_table", @$result.parent()).show()
+        nRows = series.length or 2
+        h = (nRows * 2) + 4
+        h = Math.min h, 40
+        $(".time_table:visible", @$result).height "#{h}.1em"
+        @time_grid?.resizeCanvas()
+        $(".exportTimeStatsSection", @$result).show()
+        
+        setExportUrl = () =>
+            selVal = $(".timeKindOfData option:selected", @$result).val()
+            selType = $(".timeKindOfFormat option:selected", @$result).val()
+            dataDelimiter = if selType is "TSV" then "%09" else ";"
 
-    makeRequest : (cqp, subcqps, corpora, labelMapping, showTotal) ->
+            header = [ util.getLocaleString("stats_hit") ]
+
+            for cell in series[0].data
+                stampformat = @zoomLevelToFormat(cell.zoom)
+                header.push moment(cell.x * 1000).format(stampformat)
+
+            output = [header]
+
+            for row in series
+                cells = [ if row.name is "&Sigma;" then "Σ" else row.name ]
+                for cell in row.data
+                    if selVal is "relative"
+                        cells.push cell.y
+                    else
+                        i = _.indexOf (_.pluck row.abs_data, "x"), cell.x, true
+                        cells.push row.abs_data[i].y
+                output.push cells
+            
+            csv = new CSV(output, {
+                #header : header
+                delimiter : dataDelimiter
+                # line : escape(String.fromCharCode(0x0D) + String.fromCharCode(0x0A))
+            })
+            csvstr = csv.encode()
+            blob = new Blob([csvstr], { type: "text/#{selType}"})
+            csvUrl = URL.createObjectURL(blob)
+            $(".exportTimeStatsSection .btn.export", @$result).attr({
+                download : "export.#{selType}"
+                href : csvUrl    
+            })
+
+        setExportUrl()
+
+    zoomLevelToFormat : (zoom) ->
+        stampFormats =
+            "second" : "YYYY-MM-DD hh:mm:ss"
+            "minute" : "YYYY-MM-DD hh:mm"
+            "hour" : "YYYY-MM-DD hh"
+            "day" : "YYYY-MM-DD"
+            "month" : "YYYY-MM"
+            "year" : "YYYY"
+        return stampFormats[zoom]
+
+    renderTable : (series) ->
+        console.log "**************** series", series
+        HTMLFormatter = (row, cell, value, columnDef, dataContext) -> value
+
+
+        time_table_data = []
+        time_table_columns_intermediate = {}
+        for row in series
+            new_time_row = {"label" : row.name}
+            for item in row.data
+                stampformat = @zoomLevelToFormat(item.zoom)
+                timestamp = moment(item.x * 1000).format(stampformat) # this needs to be fixed for other resolutions
+                time_table_columns_intermediate[timestamp] =
+                    "name" : timestamp
+                    "field" : timestamp
+                    "formatter" : (row, cell, value, columnDef, dataContext) ->
+                        loc = {
+                            'sv' : "sv-SE"
+                            'en' : "gb-EN"
+                        }[$("body").scope().lang]
+                        fmt = (valTup) ->
+                            if typeof valTup[0] == "undefined" then return ""
+                            return "<span>" +
+                                    "<span class='relStat'>" + Number(valTup[1].toFixed(1)).toLocaleString(loc) + "</span> " + 
+                                    "<span class='absStat'>(" + valTup[0].toLocaleString(loc) + ")</span> " +
+                              "<span>"
+                        return fmt(value)
+                i = _.indexOf (_.pluck row.abs_data, "x"), item.x, true
+                #new_time_row[timestamp] = {"relative" : item.y, "absolute" : row.abs_data[i].y}
+                new_time_row[timestamp] = [item.y, row.abs_data[i].y]
+            time_table_data.push new_time_row
+        # Sort columns
+        time_table_columns = [
+                            "name" : "Hit"
+                            "field" : "label"
+                            "formatter" : HTMLFormatter
+                            ]
+        for key in _.keys(time_table_columns_intermediate).sort()
+            time_table_columns.push(time_table_columns_intermediate[key])
+
+        time_grid = new Slick.Grid $(".time_table", @$result), time_table_data, time_table_columns,
+            enableCellNavigation: false
+            enableColumnReorder: false
+        #time_grid.autosizeColumns()
+        $(".time_table", @$result).width("100%")
+        @time_grid = time_grid
+
+
+    makeSeries : (data, cqp, labelMapping, zoom) ->
+        [from, to] = CQP.getTimeInterval(CQP.parse(cqp)) or [null, null]
+        showSelectedCorporasStartDate = !from
+        if _.isArray data.combined
+            palette = new Rickshaw.Color.Palette("colorwheel")
+            series = []
+            for item in data.combined
+                color = palette.color()
+                # @colorToCqp[color] = item.cqp
+                series.push {
+                    data : @getSeriesData item.relative, showSelectedCorporasStartDate, zoom
+                    color : color
+                    # name : item.cqp?.replace(/(\\)|\|/g, "") || "&Sigma;"
+                    name : if item.cqp then @s.data.labelMapping[item.cqp] else "&Sigma;"
+                    cqp : item.cqp or cqp
+                    abs_data : @getSeriesData item.absolute, showSelectedCorporasStartDate, zoom
+                }
+        else # TODO: get rid of code doubling and use seriesData variable
+            # @colorToCqp['steelblue'] = cqp
+            series = [{
+                        data: @getSeriesData data.combined.relative, showSelectedCorporasStartDate, zoom
+                        color: 'steelblue'
+                        name : "&Sigma;"
+                        cqp : cqp
+                        abs_data : @getSeriesData data.combined.absolute, showSelectedCorporasStartDate, zoom
+                    }]
+        Rickshaw.Series.zeroFill(series)
+        # window.data = series[0].data
+        
+        # c.log "emptyIntervals", emptyIntervals
+
+        emptyIntervals = @getEmptyIntervals(series[0].data)
+        series[0].emptyIntervals = emptyIntervals
+
+        for s in series
+            s.data = _.filter s.data, (item) -> item.y != null
+            s.abs_data = _.filter s.abs_data, (item) -> item.y != null
+
+        return series
+
+
+
+    spliceData : (newSeries) ->
+        for seriesObj, seriesIndex in @graph.series
+            first = newSeries[seriesIndex].data[0].x
+            c.log "first", first, moment.unix(first).format()
+            last = (_.last newSeries[seriesIndex].data).x
+            c.log "last", moment.unix(last).format()
+            startSplice = false
+            from = 0
+            n_elems = seriesObj.data.length + newSeries[seriesIndex].data.length
+            for {x}, i in seriesObj.data
+                if (x >= first) and (not startSplice)
+                    startSplice = true
+                    from = i
+                    c.log "from", from, moment.unix(seriesObj.data[from].x).format()
+                    j = 0
+                if startSplice
+                    if x >= last
+                        n_elems = (j + 1)
+                        c.log "n_elems", n_elems
+                        # c.log "to", to, moment.unix(seriesObj.data[to].x).format()
+                        break
+                    # seriesObj.data[i] = newSeries[seriesIndex].data[j]
+                    j++
+
+
+            # c.log "splicing from, to", from, to, moment.unix(seriesObj.data[from].x).format(), moment.unix(seriesObj.data[to].x).format()
+            c.log "n_elems after", n_elems #, moment.unix(seriesObj.data[to].x).format()
+            c.log "seriesObj.data", seriesObj.data.length
+            seriesObj.data.splice(from, n_elems, newSeries[seriesIndex].data...)
+            seriesObj.abs_data.splice(from, n_elems, newSeries[seriesIndex].abs_data...)
+            # seriesObj.data[..] = _.sortBy seriesObj.data, "x"
+            # seriesObj.abs_data[from..to] = newSeries[seriesIndex].abs_data
+            c.log "seriesObj.data", seriesObj.data.length
+
+
+    previewPanStop : () ->
+        c.log "pan stop"
+
+        # {x : [from, to]} = graph.renderer.domain()
+
+        visibleData = @graph.stackData()
+        c.log "visibleData", visibleData
+
+        count = _.countBy visibleData[0], (coor) ->
+            coor.zoom
+        c.log "count", count
+
+        # @validZoomLevels.indexOf z
+
+        grouped = _.groupBy visibleData[0], "zoom"
+
+        for zoomLevel, points of grouped
+            if zoomLevel != @zoom
+                from = moment.unix(points[0].x)
+                from.startOf(@zoom)
+                to = moment.unix((_.last points).x)
+                to.endOf(@zoom)
+                # to.add(3, @zoom)
+                @setZoom @zoom, from, to
+
+        # _.filter visibleData[0], (item) ->
+        #     item
+
+
+
+
+        #if we have dots in graph of wrong granularity
+            # fetch and splice
+
+
+
+
+
+    makeRequest : (cqp, subcqps, corpora, labelMapping, showTotal, from, to) ->
         c.log "makeRequest", cqp, subcqps, corpora, labelMapping, showTotal
         # hidden = $(".progress_container", @$result).nextAll().hide()
         @s.loading = true
         @showPreloader()
-        @proxy.makeRequest(cqp, subcqps, corpora.stringifySelected()).progress( (data) =>
+        currentZoom = @zoom
+        # @proxy.granularity = @granularity
+        @proxy.makeRequest(cqp, subcqps, corpora.stringifySelected(), from, to).progress( (data) =>
             @onProgress(data)
 
 
@@ -1576,71 +1983,73 @@ class view.GraphResults extends BaseResults
 
         ).done (data) =>
             c.log "graph data", data
+
+            c.log "graph cqp", cqp
                 
+
+            
+            done = () =>
+                @resetPreloader()
+                @hidePreloader()
+                safeApply @s, () =>
+                    @s.loading = false
+
+                $(window).trigger("resize")
+
             if data.ERROR
                 @resultError data
                 return
+            # if data.combined.sums.absolute == 0 and data.combined.sums.relative == 0
+            #     c.log "no results from graph", data
+            #     done()
+            #     return
+
+            if @graph
+                series = @makeSeries(data, cqp, labelMapping, currentZoom)
+                @spliceData series
+                # @graph.series[...] = series
+                @drawIntervals(@graph)
+                @graph.render()
+                done()
+                return
+
+
             nontime = @getNonTime()
             
             if nontime
-                $(".non_time", @$result).text(nontime.toFixed(2) + "%").parent().localize()
+                $(".non_time", @$result).empty().text(nontime.toFixed(2) + "%").parent().localize()
             else
                 $(".non_time_div", @$result).hide()
 
-            if _.isArray data.combined
-                palette = new Rickshaw.Color.Palette("colorwheel")
-                series = []
-                for item in data.combined
-                    color = palette.color()
-                    # @colorToCqp[color] = item.cqp
-                    series.push {
-                        data : @getSeriesData item.relative
-                        color : color
-                        # name : item.cqp?.replace(/(\\)|\|/g, "") || "&Sigma;"
-                        name : if item.cqp then labelMapping[item.cqp] else "&Sigma;"
-                        cqp : item.cqp or cqp
-                        abs_data : @getSeriesData item.absolute
-                    }
-            else # TODO: get rid of code doubling and use seriesData variable
-                # @colorToCqp['steelblue'] = cqp
-                series = [{
-                            data: @getSeriesData data.combined.relative
-                            color: 'steelblue'
-                            name : "&Sigma;"
-                            cqp : cqp
-                            abs_data : @getSeriesData data.combined.absolute
-                        }]
-            Rickshaw.Series.zeroFill(series)
-            # window.data = series[0].data
-            emptyIntervals = @getEmptyIntervals(series[0].data)
-            @s.hasEmptyIntervals = emptyIntervals.length
-            # c.log "emptyIntervals", emptyIntervals
-
-            for s in series
-                s.data = _.filter s.data, (item) -> item.y != null
+            series = @makeSeries(data, cqp, labelMapping, currentZoom)
 
 
             graph = new Rickshaw.Graph
-                element: $(".chart", @$result).get(0)
+                element: $(".chart", @$result).empty().get(0)
                 renderer: 'line'
                 interpolation : "linear"
                 series: series
                 padding :
                     top : 0.1
                     right : 0.01
-                # min : "auto"
+                # min : 
             graph.render()
-            window._graph = graph
+            window._graph = @graph = graph
             
             
-
-            @drawIntervals(graph, emptyIntervals)
+            @drawIntervals(graph)
 
 
             $(window).on "resize", _.throttle(() =>
                 if @$result.is(":visible")
                     graph.setSize()
                     graph.render()
+
+                    # @preview.configure
+                    #     width : @$result.width() - 20
+                    #     height : 80
+
+                    # @preview.render()
             , 200)
 
             $(".form_switch", @$result).click (event) =>
@@ -1648,117 +2057,20 @@ class view.GraphResults extends BaseResults
                 for cls in @$result.attr("class").split(" ")
                     if cls.match(/^form-/) then @$result.removeClass(cls)
                 @$result.addClass("form-" +val)
-                $(".chart,.zoom_slider,.legend", @$result.parent()).show()
+                $(".chart,.legend", @$result.parent()).show()
                 $(".time_table", @$result.parent()).hide()
                 if val == "bar"
-                    if $(".legend .line", @$result).length > 1
-                        $(".legend li:last:not(.disabled) .action", @$result).click()
-                        if (_.all _.map $(".legend .line", @$result), (item) -> $(item).is(".disabled"))
-                            $(".legend li:first .action", @$result).click()
+                    @setBarMode()
                 else if val == "table"
-                    $(".chart,.zoom_slider,.legend", @$result).hide()
-                    $(".time_table", @$result.parent()).show()
-                    nRows = series.length or 2
-                    h = (nRows * 2) + 4
-                    h = Math.min h, 40
-                    $(".time_table:visible", @$result).height "#{h}.1em"
-                    @time_grid?.resizeCanvas()
-                    $(".exportTimeStatsSection", @$result).show()
-                    
-                    setExportUrl = () ->
-                        selVal = $(".timeKindOfData option:selected", @$result).val()
-                        selType = $(".timeKindOfFormat option:selected", @$result).val()
-                        dataDelimiter = if selType is "TSV" then "%09" else ";"
-
-                        header = [ util.getLocaleString("stats_hit") ]
-
-                        for cell in series[0].data
-                            header.push moment(cell.x * 1000).format("YYYY")
-
-                        output = [header]
-
-                        for row in series
-                            cells = [ if row.name is "&Sigma;" then "Σ" else row.name ]
-                            for cell in row.data
-                                if selVal is "relative"
-                                    cells.push cell.y
-                                else
-                                    i = _.indexOf (_.pluck row.abs_data, "x"), cell.x, true
-                                    cells.push row.abs_data[i].y
-                            output.push cells
-                        
-                        csv = new CSV(output, {
-                            header : header
-                            delimiter : dataDelimiter
-                            # line : escape(String.fromCharCode(0x0D) + String.fromCharCode(0x0A))
-                        })
-                        csvstr = csv.encode()
-                        blob = new Blob([csvstr], { type: "text/#{selType}"})
-                        csvUrl = URL.createObjectURL(blob)
-                        $(".exportTimeStatsSection .btn.export", @$result).attr({
-                            download : "export.#{selType}"
-                            href : csvUrl    
-                        })
-
-                    setExportUrl()
-
-                    # $(".timeExportButton", @$result).unbind "click"
-                    # $(".timeExportButton", @$result).click =>
-
-
+                    @renderTable(series)
+                    @setTableMode(series)
 
                 unless val == "table"
                     graph.setRenderer val
                     graph.render()
                     $(".exportTimeStatsSection", @$result).hide()
 
-            HTMLFormatter = (row, cell, value, columnDef, dataContext) -> value
-
-
-            time_table_data = []
-            time_table_columns_intermediate = {}
-            for row in series
-                new_time_row = {"label" : row.name}
-                for item in row.data
-                    timestamp = moment(item.x * 1000).format("YYYY") # this needs to be fixed for other resolutions
-                    time_table_columns_intermediate[timestamp] =
-                        "name" : timestamp
-                        "field" : timestamp
-                        "formatter" : (row, cell, value, columnDef, dataContext) ->
-                            loc = {
-                                'sv' : "sv-SE"
-                                'en' : "gb-EN"
-                            }[$("body").scope().lang]
-                            fmt = (valTup) ->
-                                if typeof valTup[0] == "undefined" then return ""
-                                return "<span>" +
-                                        "<span class='relStat'>" + Number(valTup[1].toFixed(1)).toLocaleString(loc) + "</span> " + 
-                                        "<span class='absStat'>(" + valTup[0].toLocaleString(loc) + ")</span> " +
-                                  "<span>"
-                            return fmt(value)
-                    i = _.indexOf (_.pluck row.abs_data, "x"), item.x, true
-                    #new_time_row[timestamp] = {"relative" : item.y, "absolute" : row.abs_data[i].y}
-                    new_time_row[timestamp] = [item.y, row.abs_data[i].y]
-                time_table_data.push new_time_row
-            # Sort columns
-            time_table_columns = [
-                                "name" : "Hit"
-                                "field" : "label"
-                                "formatter" : HTMLFormatter
-                                ]
-            for key in _.keys(time_table_columns_intermediate).sort()
-                time_table_columns.push(time_table_columns_intermediate[key])
-
-            time_grid = new Slick.Grid $(".time_table", @$result), time_table_data, time_table_columns,
-                enableCellNavigation: false
-                enableColumnReorder: false
-            #time_grid.autosizeColumns()
-            $(".time_table", @$result).width("100%")
-            @time_grid = time_grid
-            # $(".smoothing_label .ui-button-text", @$result.parent()).localeKey("smoothing")
-            # $(".form_switch .ui-button:first .ui-button-text", @$result).localeKey("line")
-            # $(".form_switch .ui-button:eq(1) .ui-button-text", @$result).localeKey("bar")
-            # $(".form_switch .ui-button:last .ui-button-text", @$result).localeKey("table")
+            
             legend = new Rickshaw.Graph.Legend
                 element: $(".legend", @$result).get(0)
                 graph: graph
@@ -1773,17 +2085,20 @@ class view.GraphResults extends BaseResults
             hoverDetail = new Rickshaw.Graph.HoverDetail( {
                 graph: graph
                 xFormatter: (x) =>
-                    d = new Date(x * 1000)
-                    output = ["<span rel='localize[year]'>#{util.getLocaleString('year')}</span>: <span class='currently'>#{d.getFullYear()}</span>",
-                              "<span rel='localize[month]'>#{util.getLocaleString('month')}</span>: <span class='currently'>#{d.getMonth()}</span>",
-                              "<span rel='localize[day]'>#{util.getLocaleString('day')}</span>: <span class='currently'>#{d.getDay()}</span>"
-                              ]
-                    out = switch @granularity
-                        when "y" then output[0]
-                        when "m" then output[0..1].join("\n")
-                        when "d" then output.join("\n")
+                    # d = new Date(x * 1000)
+                    # m = moment()
+                    # m = @parseDate(@zoom, String(x))
+                    m = moment.unix(String(x))
+                    # output = ["<span rel='localize[year]'>#{util.getLocaleString('year')}</span>: <span class='currently'>#{m.year()}</span>",
+                    #           "<span rel='localize[month]'>#{util.getLocaleString('month')}</span>: <span class='currently'>#{m.month() + 1}</span>",
+                    #           "<span rel='localize[day]'>#{util.getLocaleString('day')}</span>: <span class='currently'>#{m.date() + 1}</span>"
+                    #           ]
+                    # out = switch @granularity
+                    #     when "y" then output[0]
+                    #     when "m" then output[0..1].join("\n")
+                    #     when "d" then output.join("\n")
 
-                    return "<span data-val='#{x}'>#{out}</span>"
+                    return "<span data-val='#{x}'>#{m.format('YYYY-MM-DD HH:mm:ss')}</span>"
 
 
                 yFormatter: (y) ->
@@ -1791,9 +2106,14 @@ class view.GraphResults extends BaseResults
 
                     "<br><span rel='localize[rel_hits_short]'>#{util.getLocaleString 'rel_hits_short'}</span> " + val
                 formatter : (series, x, y, formattedX, formattedY, d) ->
-                    i = _.indexOf (_.pluck series.abs_data, "x"), x, true
-                    abs_y = series.abs_data[i].y
-
+                    i = _.indexOf (_.pluck series.data, "x"), x, true
+                    try 
+                        abs_y = series.abs_data[i].y
+                    catch e
+                        c.log "i", i, x
+                    
+                    if not abs_y
+                        c.log "abs_y", i, x
 
                     rel = series.name + ':&nbsp;' + formattedY
                     return """<span data-cqp="#{encodeURIComponent(series.cqp)}">
@@ -1804,9 +2124,11 @@ class view.GraphResults extends BaseResults
                 # , 100)
             } )
 
-            [first, last] = settings.corpusListing.getTimeInterval()
+            # [first, last] = settings.corpusListing.getTimeInterval()
+            # [firstVal, lastVal] = settings.corpusListing.getMomentInterval()
 
-            timeunit = if last - first > 100 then "decade" else @zoom
+            # TODO: fix decade again
+            # timeunit = if last - first > 100 then "decade" else @zoom
 
             toDate = (sec) ->
                 moment(sec * 1000).toDate()
@@ -1820,42 +2142,68 @@ class view.GraphResults extends BaseResults
                     if mom.date() == 31
                         mom.add("day", 1)
                     return mom.unix()
-                else 
+                else
                     return old_ceil(time, unit)
 
             xAxis = new Rickshaw.Graph.Axis.Time
                 graph: graph
-                timeUnit: time.unit(timeunit)
+                # timeUnit: time.unit("month") # TODO: bring back decade
+                # timeFixture: new Rickshaw.Fixtures.Time()
 
-            slider = new Rickshaw.Graph.RangeSlider
-                graph: graph,
-                element: $('.zoom_slider', @$result)
+            # slider = new Rickshaw.Graph.RangeSlider
+            #     graph: graph,
+            #     element: $('.zoom_slider', @$result)
+
+
+            @preview = new Rickshaw.Graph.RangeSlider.Preview
+                graph: graph
+                element: $(".preview", @$result).get(0)
+
+
+            $("body").on "mouseup", ".preview .middle_handle", () =>
+                @previewPanStop()
+
+            $("body").on "mouseup", ".preview .left_handle, .preview .right_handle", () =>
+                if not @s.loading
+                    @previewPanStop()
+
+
+
+
+            # expanedCQP = CQP.expandOperators cqp
+
+            window._xaxis = xAxis
 
             old_render = xAxis.render
-            xAxis.render = () =>
+            xAxis.render = _.throttle () =>
                 old_render.call xAxis
-                @updateTicks()
-                @drawIntervals(graph, emptyIntervals)
+                # @updateTicks()
+                @drawIntervals(graph)
+
+                
+                @checkZoomLevel()
+
+            , 20
             
 
-            old_tickOffsets = xAxis.tickOffsets
-            xAxis.tickOffsets = () =>
-                domain = xAxis.graph.x.domain()
+            # old_tickOffsets = xAxis.tickOffsets
+            # xAxis.tickOffsets = () =>
+            #     domain = xAxis.graph.x.domain()
 
-                unit = xAxis.fixedTimeUnit or xAxis.appropriateTimeUnit()
-                count = Math.ceil((domain[1] - domain[0]) / unit.seconds)
+            #     unit = xAxis.fixedTimeUnit or xAxis.appropriateTimeUnit()
+            #     count = Math.ceil((domain[1] - domain[0]) / unit.seconds)
 
-                runningTick = domain[0]
+            #     runningTick = domain[0]
 
-                offsets = []
+            #     offsets = []
 
-                for i in [0...count]
-                    tickValue = time.ceil(runningTick, unit)
-                    runningTick = tickValue + unit.seconds / 2
+            #     for i in [0...count]
+            #         tickValue = time.ceil(runningTick, unit)
+            #         runningTick = tickValue + unit.seconds / 2
 
-                    offsets.push( { value: tickValue, unit: unit, _date: moment(tickValue * 1000).toDate() } )
+            #         offsets.push( { value: tickValue, unit: unit, _date: moment(tickValue * 1000).toDate() } )
 
-                return offsets
+            #     return offsets
 
             xAxis.render()
 
@@ -1864,15 +2212,5 @@ class view.GraphResults extends BaseResults
 
             yAxis.render()
             # hidden.fadeIn()
-            @hidePreloader()
-            safeApply @s, () =>
-                @s.loading = false
 
-            $(window).trigger("resize")
-
-
-
-
-
-
-
+            done()

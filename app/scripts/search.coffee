@@ -163,62 +163,71 @@ class view.SimpleSearch extends BaseSearch
 
         @lemgramProxy = new model.LemgramProxy()
         
+        @s.$watch "textInField", () =>
+            c.log "textInField", @s.textInField
 
-        textinput = $("#simple_text")
+
+        # [type, val] = search().search.split("|")
+
+        # if type == "word"
+            # TODO: bring back word to input field
+            # input_field = val
+
         
         if settings.autocomplete
-            textinput.korp_autocomplete
-                type: "lem"
-                # select: $.proxy(@selectLemgram, this)
-                select: (lemgram) =>
-                    @s.$apply () =>
-                        @s.placeholder = lemgram
-                        @s.simple_text = ""
-
-                middleware: (request, idArray) =>
-                    dfd = $.Deferred()
-                    
-                    @lemgramProxy.lemgramCount(idArray, @isSearchPrefix(), @isSearchSuffix()).done((freqs) ->
-                        delete freqs["time"]
-
-                        if currentMode is "law"
-                            idArray = _.filter(idArray, (item) ->
-                                item of freqs
-                            )
-                        has_morphs = settings.corpusListing.getMorphology().split("|").length > 1
-                        if has_morphs
-                            idArray.sort (a, b) ->
-                                first = (if a.split("--").length > 1 then a.split("--")[0] else "saldom")
-                                second = (if b.split("--").length > 1 then b.split("--")[0] else "saldom")
-                                return (freqs[b] or 0) - (freqs[a] or 0) if first is second
-                                second < first
-
-                        else
-                            idArray.sort (first, second) ->
-                                (freqs[second] or 0) - (freqs[first] or 0)
-
-                        t = $.now()
-                        window.idArray = idArray
-                        labelArray = util.sblexArraytoString(idArray, util.lemgramToString)
-                        listItems = $.map(idArray, (item, i) ->
-                            out =
-                                label: labelArray[i]
-                                value: item
-                                input: request.term
-                                enabled: item of freqs
-
-                            out["category"] = (if item.split("--").length > 1 then item.split("--")[0] else "saldom") if has_morphs
-                            out
-                        )
-                        dfd.resolve listItems
-                    ).fail ->
-                        c.log "reject"
-                        dfd.reject()
-                        textinput.preloader "hide"
-
-                    dfd.promise()
-
-                "sw-forms": false
+            null
+            #textinput.korp_autocomplete
+            #    type: "lem"
+            #    # select: $.proxy(@selectLemgram, this)
+            #    select: (lemgram) =>
+            #        @s.$apply () =>
+            #            @s.placeholder = lemgram
+            #            @s.simple_text = ""
+            #
+            #    middleware: (request, idArray) =>
+            #        dfd = $.Deferred()
+            #        
+            #        @lemgramProxy.lemgramCount(idArray, @isSearchPrefix(), @isSearchSuffix()).done((freqs) ->
+            #            delete freqs["time"]
+            #
+            #            if currentMode is "law"
+            #                idArray = _.filter(idArray, (item) ->
+            #                    item of freqs
+            #                )
+            #            has_morphs = settings.corpusListing.getMorphology().split("|").length > 1
+            #            if has_morphs
+            #                idArray.sort (a, b) ->
+            #                    first = (if a.split("--").length > 1 then a.split("--")[0] else "saldom")
+            #                    second = (if b.split("--").length > 1 then b.split("--")[0] else "saldom")
+            #                    return (freqs[b] or 0) - (freqs[a] or 0) if first is second
+            #                    second < first
+            #
+            #            else
+            #                idArray.sort (first, second) ->
+            #                    (freqs[second] or 0) - (freqs[first] or 0)
+            #
+            #            t = $.now()
+            #            window.idArray = idArray
+            #            labelArray = util.sblexArraytoString(idArray, util.lemgramToString)
+            #            listItems = $.map(idArray, (item, i) ->
+            #                out =
+            #                    label: labelArray[i]
+            #                    value: item
+            #                    input: request.term
+            #                    enabled: item of freqs
+            #
+            #                out["category"] = (if item.split("--").length > 1 then item.split("--")[0] else "saldom") if has_morphs
+            #                out
+            #            )
+            #            dfd.resolve listItems
+            #        ).fail ->
+            #            c.log "reject"
+            #            dfd.reject()
+            #            textinput.preloader "hide"
+            #
+            #        dfd.promise()
+            #
+            #    "sw-forms": false
 
         $("#prefixChk, #suffixChk, #caseChk").click =>
             if $("#simple_text").attr("placeholder") and $("#simple_text").text() is ""
@@ -242,43 +251,46 @@ class view.SimpleSearch extends BaseSearch
     isSearchSuffix: ->
         $("#suffixChk").is ":checked"
 
-    makeLemgramSelect: (lemgram) ->
-        self = this
-        promise = $("#simple_text").data("promise") or @lemgramProxy.karpSearch(lemgram or $("#simple_text").val(), false)
-        promise.done (lemgramArray) =>
-            $("#lemgram_select").prev("label").andSelf().remove()
-            @savedSelect = null
-            return if lemgramArray.length is 0
-            lemgramArray.sort view.lemgramSort
-            lemgramArray = $.map(lemgramArray, (item) ->
-                label: util.lemgramToString(item, true)
-                value: item
-            )
-            select = @buildLemgramSelect(lemgramArray)
-            .appendTo("#korp-simple")
-            .addClass("lemgram_select")
-            .prepend($("<option>").localeKey("none_selected"))
-            .change ->
-                unless self.selectedIndex is 0
-                    self.savedSelect = lemgramArray
-                    self.selectLemgram $(this).val()
-                $(this).prev("label").andSelf().remove()
-
-            # select.get(0).selectedIndex = 0
-            label = $("<label />", for: "lemgram_select")
-            .html("<i>#{$("#simple_text").val()}</i> <span rel='localize[autocomplete_header]'>#{util.getLocaleString("autocomplete_header")}</span>")
-            .css("margin-right", 8)
-            select.before label
+    #makeLemgramSelect: (lemgram) ->
+    #    self = this
+    #    promise = $("#simple_text").data("promise") or @lemgramProxy.karpSearch(lemgram or $("#simple_text").val(), false)
+    #    promise.done (lemgramArray) =>
+    #        $("#lemgram_select").prev("label").andSelf().remove()
+    #        @savedSelect = null
+    #        return if lemgramArray.length is 0
+    #        lemgramArray.sort view.lemgramSort
+    #        lemgramArray = $.map(lemgramArray, (item) ->
+    #            label: util.lemgramToString(item, true)
+    #            value: item
+    #        )
+    #        select = @buildLemgramSelect(lemgramArray)
+    #        .appendTo("#korp-simple")
+    #        .addClass("lemgram_select")
+    #        .prepend($("<option>").localeKey("none_selected"))
+    #        .change ->
+    #            unless self.selectedIndex is 0
+    #                self.savedSelect = lemgramArray
+    #                self.selectLemgram $(this).val()
+    #            $(this).prev("label").andSelf().remove()
+    #
+    #        # select.get(0).selectedIndex = 0
+    #        label = $("<label />", for: "lemgram_select")
+    #        .html("<i>#{$("#simple_text").val()}</i> <span rel='localize[autocomplete_header]'>#{util.getLocaleString("autocomplete_header")}</span>")
+    #        .css("margin-right", 8)
+    #        select.before label
 
 
     onSubmit: ->
         super()
         c.log "onSubmit"
-        $("#simple_text.ui-autocomplete-input").korp_autocomplete "abort"
-        unless $("#simple_text").val() is ""
-            util.searchHash "word", $("#simple_text").val()
+        #$("#simple_text.ui-autocomplete-input").korp_autocomplete "abort"
+        wordInput = $("#simple_text > div > .new_simple_text").val()
+        unless wordInput is ""
+            util.searchHash "word", wordInput
+            #console.log "modily", @s.model
         else
-            @selectLemgram @s.placeholder
+            if @s.model
+                @selectLemgram @s.model 
 
     selectLemgram: (lemgram) ->
         return if $("#search-tab").data("cover")?
@@ -365,7 +377,7 @@ class view.SimpleSearch extends BaseSearch
 
     getCQP : (word) ->
         # c.log "getCQP", word
-        currentText = $.trim(word or $("#simple_text", @$main).val() or "", '"')
+        currentText = $.trim(word or $(".new_simple_text", @$main).val() or "", '"')
         suffix = (if $("#caseChk").is(":checked") then " %c" else "")
         if util.isLemgramId(currentText) # if the input is a lemgram, do lemgram search.
             val = "[lex contains \"#{currentText}\"]"
