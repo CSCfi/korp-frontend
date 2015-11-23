@@ -5083,7 +5083,7 @@ settings.corpora.s24_009 = {
 };
 
 
-/*
+
 
 settings.corpora.s24 = {
     title : "Suomi24 poimintoja",
@@ -5112,7 +5112,6 @@ settings.corpora.s24 = {
         syn : attrs.deprel_tdt,
         unk : attrs.ner_tags*/
 
-/*
         lemma : attrs.baseform,
         lemmacomp : attrs.baseform_compound,
         pos : attrs.pos_klk,
@@ -5150,7 +5149,6 @@ settings.corpora.s24 = {
         }
     }
 };
-*/
 
 
 settings.corpora.iclfi = {
