@@ -1395,11 +1395,6 @@ settings.corporafolders.sv = {
 };
 */
 
-settings.corporafolders.suomi24 = {
-    title : "Suomi24",
-    contents : ["s24_001", "s24_002", "s24_003", "s24_004", "s24_005", "s24_006", "s24_007", "s24_008", "s24_009"]
-};
-
 settings.corporafolders.ftb = {
     title : "FinnTreeBank: suomen puupankki",
     contents : ["ftb2"]
@@ -1464,6 +1459,28 @@ settings.corporafolders.legal = {
 settings.corporafolders.internet = {
     title : "Internet-keskusteluaineistoja",
     contents : ["s24", "ylilauta", "hsfi"]
+};
+
+settings.corporafolders.internet.suomi24 = {
+    title : "Suomi24 poimintoja 2001–2015",
+    description : "<a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut 1.1.2001–18.11.2015.<br/>Poimintoja-aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla, ei kokonaisina kommentteina (viesteinä) tai kommenttiketjuina.<br/>Aineisto on jaettu useaan osakorpukseen suuren kokonsa vuoksi.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-201412171' target='_blank' title='Kuvailutiedot'>koko Suomi24-aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2015040801' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).",
+    contents : [
+	"s24_001",
+	"s24_002",
+	"s24_003",
+	"s24_004",
+	"s24_005",
+	"s24_006",
+	"s24_007",
+	"s24_008",
+	"s24_009",
+    ],
+    info : {
+	urn : "urn:nbn:fi:lb-2015040102",
+	metadata_urn : "urn:nbn:fi:lb-2015091701",
+	licence : settings.licenceinfo.CC_BY_NC,
+	homepage_url : "http://keskustelu.suomi24.fi",
+    }
 };
 
 settings.corporafolders.other_texts = {
@@ -4911,12 +4928,15 @@ settings.corpora.ylilauta = {
 
 /* SUOMI 24 */
 
+// Properties urn, metadata_urn, licence and homepage_url of
+// settings.corpora.s24_??? come from
+// settings.corporafolders.internet.suomi24, so they should not be
+// specified in the settings of the individual subcorpora.
+
 settings.corpora.s24_001 = {
-    title : "Suomi24 1/9",
-    description : "Suomi24-keskustelut 1/9",
+    title : "Suomi24 poimintoja 2001–2015 (1/9)",
+    description : "Suomi24-keskustelut 2001–2015, poimintoja (1/9)",
     id : "s24_001",
-    urn : "",
-    metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -4931,11 +4951,9 @@ settings.corpora.s24_001 = {
 };
 
 settings.corpora.s24_002 = {
-    title : "Suomi24 2/9",
-    description : "Suomi24-keskustelut 2/9",
+    title : "Suomi24 poimintoja 2001–2015 (2/9)",
+    description : "Suomi24-keskustelut 2001–2015, poimintoja (2/9)",
     id : "s24_002",
-    urn : "",
-    metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -4951,11 +4969,9 @@ settings.corpora.s24_002 = {
 };
 
 settings.corpora.s24_003 = {
-    title : "Suomi24 3/9",
-    description : "Suomi24-keskustelut 3/9",
+    title : "Suomi24 poimintoja 2001–2015 (3/9)",
+    description : "Suomi24-keskustelut 2001–2015, poimintoja (3/9)",
     id : "s24_003",
-    urn : "",
-    metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -4971,11 +4987,9 @@ settings.corpora.s24_003 = {
 };
 
 settings.corpora.s24_004 = {
-    title : "Suomi24 4/9",
-    description : "Suomi24-keskustelut 4/9",
+    title : "Suomi24 poimintoja 2001–2015 (4/9)",
+    description : "Suomi24-keskustelut 2001–2015, poimintoja (4/9)",
     id : "s24_004",
-    urn : "",
-    metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -4991,11 +5005,9 @@ settings.corpora.s24_004 = {
 };
 
 settings.corpora.s24_005 = {
-    title : "Suomi24 5/9",
-    description : "Suomi24-keskustelut 5/9",
+    title : "Suomi24 poimintoja 2001–2015 (5/9)",
+    description : "Suomi24-keskustelut 2001–2015, poimintoja (5/9)",
     id : "s24_005",
-    urn : "",
-    metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -5011,11 +5023,9 @@ settings.corpora.s24_005 = {
 };
 
 settings.corpora.s24_006 = {
-    title : "Suomi24 6/9",
-    description : "Suomi24-keskustelut 6/9",
+    title : "Suomi24 poimintoja 2001–2015 (6/9)",
+    description : "Suomi24-keskustelut 2001–2015, poimintoja (6/9)",
     id : "s24_006",
-    urn : "",
-    metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -5031,11 +5041,9 @@ settings.corpora.s24_006 = {
 };
 
 settings.corpora.s24_007 = {
-    title : "Suomi24 7/9",
-    description : "Suomi24-keskustelut 7/9",
+    title : "Suomi24 poimintoja 2001–2015 (7/9)",
+    description : "Suomi24-keskustelut 2001–2015, poimintoja (7/9)",
     id : "s24_007",
-    urn : "",
-    metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -5051,11 +5059,9 @@ settings.corpora.s24_007 = {
 };
 
 settings.corpora.s24_008 = {
-    title : "Suomi24 8/9",
-    description : "Suomi24-keskustelut 8/9",
+    title : "Suomi24 poimintoja 2001–2015 (8/9)",
+    description : "Suomi24-keskustelut 2001–2015, poimintoja (8/9)",
     id : "s24_008",
-    urn : "",
-    metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -5071,11 +5077,9 @@ settings.corpora.s24_008 = {
 };
 
 settings.corpora.s24_009 = {
-    title : "Suomi24 9/9 (ei jäsennetty)",
-    description : "Suomi24-keskustelut 9/9",
+    title : "Suomi24 poimintoja 2001–2015 (9/9)",
+    description : "Suomi24-keskustelut 2001–2015, poimintoja (9/9) (ei jäsennetty)",
     id : "s24_009",
-    urn : "",
-    metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {},
@@ -5086,13 +5090,14 @@ settings.corpora.s24_009 = {
 
 
 settings.corpora.s24 = {
-    title : "Suomi24 poimintoja",
-    description : "Suomi24-keskustelut (2002–2014), poimintoja",
+    title : "Suomi24 poimintoja 2001–2014",
+    description : "Suomi24-keskusteluja (2001–2014), poimintoja.<br/>Tämä korpus sisältää vain osan <a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskusteluista vuosilta 2001–2014; kaikki keskustelut ovat mukana korpuksessa <i>Suomi24 poimintoja 2001–2015</i>.",
     id : "s24",
     // URN information also in the corpus .info file; if you need to
     // update the URNs, you should also check it.
-    urn : "urn:nbn:fi:lb-2015040102",
-    metadata_urn : "urn:nbn:fi:lb-2015091701",
+    // TODO: Update the URNs when the new URNs are available. (2015-12-01)
+    // urn : "urn:nbn:fi:lb-2015040102",
+    // metadata_urn : "urn:nbn:fi:lb-2015091701",
     licence : settings.licenceinfo.CC_BY_NC,
     homepage_url : "http://keskustelu.suomi24.fi",
     within : settings.spWithin,
