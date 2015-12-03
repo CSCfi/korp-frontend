@@ -162,10 +162,6 @@ class view.SimpleSearch extends BaseSearch
         @savedSelect = null
 
         @lemgramProxy = new model.LemgramProxy()
-        
-        @s.$watch "textInField", () =>
-            c.log "textInField", @s.textInField
-
 
         # [type, val] = search().search.split("|")
 
@@ -173,61 +169,7 @@ class view.SimpleSearch extends BaseSearch
             # TODO: bring back word to input field
             # input_field = val
 
-        
-        if settings.autocomplete
-            null
-            #textinput.korp_autocomplete
-            #    type: "lem"
-            #    # select: $.proxy(@selectLemgram, this)
-            #    select: (lemgram) =>
-            #        @s.$apply () =>
-            #            @s.placeholder = lemgram
-            #            @s.simple_text = ""
-            #
-            #    middleware: (request, idArray) =>
-            #        dfd = $.Deferred()
-            #        
-            #        @lemgramProxy.lemgramCount(idArray, @isSearchPrefix(), @isSearchSuffix()).done((freqs) ->
-            #            delete freqs["time"]
-            #
-            #            if currentMode is "law"
-            #                idArray = _.filter(idArray, (item) ->
-            #                    item of freqs
-            #                )
-            #            has_morphs = settings.corpusListing.getMorphology().split("|").length > 1
-            #            if has_morphs
-            #                idArray.sort (a, b) ->
-            #                    first = (if a.split("--").length > 1 then a.split("--")[0] else "saldom")
-            #                    second = (if b.split("--").length > 1 then b.split("--")[0] else "saldom")
-            #                    return (freqs[b] or 0) - (freqs[a] or 0) if first is second
-            #                    second < first
-            #
-            #            else
-            #                idArray.sort (first, second) ->
-            #                    (freqs[second] or 0) - (freqs[first] or 0)
-            #
-            #            t = $.now()
-            #            window.idArray = idArray
-            #            labelArray = util.sblexArraytoString(idArray, util.lemgramToString)
-            #            listItems = $.map(idArray, (item, i) ->
-            #                out =
-            #                    label: labelArray[i]
-            #                    value: item
-            #                    input: request.term
-            #                    enabled: item of freqs
-            #
-            #                out["category"] = (if item.split("--").length > 1 then item.split("--")[0] else "saldom") if has_morphs
-            #                out
-            #            )
-            #            dfd.resolve listItems
-            #        ).fail ->
-            #            c.log "reject"
-            #            dfd.reject()
-            #            textinput.preloader "hide"
-            #
-            #        dfd.promise()
-            #
-            #    "sw-forms": false
+        @s.autocSettings = { enableLemgramSuggestion : settings.autocomplete }
 
         $("#prefixChk, #suffixChk, #caseChk").click =>
             if $("#simple_text").attr("placeholder") and $("#simple_text").text() is ""
@@ -282,15 +224,19 @@ class view.SimpleSearch extends BaseSearch
 
     onSubmit: ->
         super()
-        c.log "onSubmit"
-        #$("#simple_text.ui-autocomplete-input").korp_autocomplete "abort"
-        wordInput = $("#simple_text > div > .new_simple_text").val()
+        wordInput = @getWordInput()
         unless wordInput is ""
             util.searchHash "word", wordInput
             #console.log "modily", @s.model
         else
             if @s.model
                 @selectLemgram @s.model 
+    
+    getWordInput: () ->
+        if settings.autocomplete
+            return $("#simple_text > div > div > .autocomplete_searchbox").val()
+        else
+            return $("#simple_text > div > div > .standard_searchbox").val()
 
     selectLemgram: (lemgram) ->
         return if $("#search-tab").data("cover")?
@@ -310,74 +256,9 @@ class view.SimpleSearch extends BaseSearch
         )
         return $("<select id='lemgram_select' />").html(optionElems).data("dataprovider", lemgrams)
 
-    # renderSimilarHeader: (selectedItem, data) ->
-    #     c.log "renderSimilarHeader"
-    #     self = this
-    #     $("#similar_lemgrams").empty().append "<div id='similar_header' />"
-    #     $("<p/>").localeKey("similar_header").css("float", "left").appendTo "#similar_header"
-    #     lemgrams = @savedSelect or $("#simple_text").data("dataArray")
-    #     @savedSelect = null
-    #     if lemgrams? and lemgrams.length
-    #         @buildLemgramSelect(lemgrams).appendTo("#similar_header").css("float", "right").change(->
-    #             self.savedSelect = lemgrams
-    #             self.selectLemgram $(this).val()
-    #         ).val selectedItem
-    #         $("#simple_text").data "dataArray", null
-    #     $("<div name='wrapper' style='clear : both;' />").appendTo "#similar_header"
-
-    #     # wordlist
-    #     data = $.grep(data, (item) ->
-    #         !!item.rel.length
-    #     )
-
-    #     # find the first 30 words
-    #     count = 0
-    #     index = 0
-    #     sliced = $.extend(true, [], data)
-    #     isSliced = false
-    #     $.each sliced, (i, item) ->
-    #         index = i
-    #         if count + item.rel.length > 30
-    #             item.rel = item.rel.slice(0, 30 - count)
-    #             isSliced = true
-    #             return false
-    #         count += item.rel.length
-
-    #     list = $("<ul />").appendTo("#similar_lemgrams")
-    #     $("#similarTmpl").tmpl(sliced.slice(0, index + 1)).appendTo(list).find("a").click ->
-    #         self.selectLemgram $(this).data("lemgram")
-
-    #     $("#show_more").remove()
-    #     div = $("#similar_lemgrams").show().height("auto").slideUp(0)
-    #     if isSliced
-    #         div.after $("<div id='show_more' />")
-    #         .css("background-color", settings.primaryColor)
-    #         .append($("<a href='javascript:' />").localeKey("show_more"))
-    #         .click ->
-
-    #             $(this).remove()
-    #             h = $("#similar_lemgrams").outerHeight()
-    #             list.html($("#similarTmpl").tmpl(data)).find("a").click ->
-    #                 #TODO: what does the lemgram data do?
-    #                 self.selectLemgram $(this).data("lemgram")
-
-    #             $("#similar_lemgrams").height "auto"
-    #             newH = $("#similar_lemgrams").outerHeight()
-    #             $("#similar_lemgrams").height h
-    #             $("#similar_lemgrams").animate
-    #                 height: newH
-    #             , "fast"
-
-    #     div.slideDown "fast"
-
-    # removeSimilarHeader: ->
-    #     $("#similar_lemgrams").slideUp ->
-    #         $(this).empty()
-
-
     getCQP : (word) ->
         # c.log "getCQP", word
-        currentText = $.trim(word or $(".new_simple_text", @$main).val() or "", '"')
+        currentText = $.trim(word or @getWordInput() or "", '"')
         suffix = (if $("#caseChk").is(":checked") then " %c" else "")
         if util.isLemgramId(currentText) # if the input is a lemgram, do lemgram search.
             val = "[lex contains \"#{currentText}\"]"

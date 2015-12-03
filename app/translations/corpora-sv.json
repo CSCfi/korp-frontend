@@ -19,6 +19,7 @@
     "runeberg" : "Runebergtidskrifter",
     "bellman" : "Bellmans samlade verk",
     "eddan" : "Äldre Eddan",
+    "somali" : "Somaliska",
 
     "old_finnish_texts" : "Äldre finskt skriftspråk",
     "finnish_national_library_texts" : "Nationalbiblioteket (finska)",
@@ -125,6 +126,7 @@
     "oneSentence" : "en mening",
 
     "source" : "källa",
+    "pagesource" : "sidkälla",
     "age" : "ålder",
 
     "blog_title" : "bloggtitel",
@@ -543,6 +545,9 @@
     "commentaries" : "kommentarer",
 
     "published" : "publicerat",
+    
+    "sponsor" : "sponsor",
+    "place" : "plats",
 
     "ne_expr" : "namnentitet",
     "ne_type" : "namnentitetstyp",

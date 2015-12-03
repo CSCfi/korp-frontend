@@ -33,22 +33,8 @@ korpApp.controller "SearchCtrl", ($scope, $location, utils, searches) ->
     # $scope.getWithins was copied from "ExtendedSearch", so that it
     # can also be used in "AdvancedCtrl" (Jyrki Niemi 2015-09-24)
     $scope.getWithins = () ->
-        intersect = settings.corpusListing.getAttrIntersection("within")
-        union = settings.corpusListing.getAttrUnion("within")
-        # opts = $(".#{withinOrContext}_select option")
-        # opts.data("locSuffix", null).attr("disabled", null).removeClass "limited"
-
-        # return union
+        union = settings.corpusListing.getWithinKeys()
         output = _.map union, (item) -> {value : item}
-
-        # all support enhanced context
-        if union.length > intersect.length
-            for obj in output
-                if obj.value not in intersect
-                    obj.partial = true
-                else
-                    obj.partial = false
-
         return output
 
 
@@ -79,9 +65,9 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
         $location.search("search", "cqp|" + "[saldo contains '#{wd}']")
 
     s.relatedDefault = 3
-    # s.relatedLimit = s.relatedDefault
     s.clickX = () ->
         modalInstance.dismiss()
+
     s.showAllRelated = () ->
         modalInstance = $modal.open(
             template: """
@@ -90,7 +76,7 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
                 <span ng-click="clickX()" class="close-x">×</span>
             </div>
             <div class="modal-body">
-                <div ng-repeat="obj in relatedObj" class="col"><a target="_blank" ng-href="http://spraakbanken.gu.se/karp/#lexicon=swefn&amp;search=sense%7Cswefn--{{obj.label}}" class="header">{{stringifyRelatedHeader(obj.label)}}</a>
+                <div ng-repeat="obj in relatedObj" class="col"><a target="_blank" ng-href="http://spraakbanken.gu.se/karp/#?lexicon=swefn&amp;search=extended||and|sense|equals|swefn--{{obj.label}}" class="header">{{stringifyRelatedHeader(obj.label)}}</a>
                   <div class="list_wrapper">
                       <ul>
                         <li ng-repeat="wd in obj.words"> <a ng-click="clickRelated(wd)" class="link">{{stringifyRelated(wd) + " "}}</a></li>
@@ -99,27 +85,10 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
                 </div>
             </div>
             """
-            # <div ng-show="relatedLimit != 9999" ng-click="relatedLimit = 9999"><i class="circle_icon fa fa-long-arrow-down"></i></div>
-            # <div ng-show="relatedLimit == 9999" ng-click="relatedLimit = relatedDefault"><i class="circle_icon fa fa-long-arrow-up"></i></div>
             scope : s
             size : 'lg'
             windowClass : "related"
-            # controller: "ModalInstanceCtrl"
-            # size: size
-            # resolve:
-            #     items: ->
-            #         $scope.items
         )
-        # modalInstance.result.then (() ->
-        #     # $scope.selected = selectedItem
-        #     c.log "modalInstance.result.then"
-        #     return
-        # ), ->
-        #     # $log.info "Modal dismissed at: " + new Date()
-        #     return
-
-
-
 
     s.searches = searches
     s.$watch "searches.activeSearch", (search) =>
@@ -130,7 +99,7 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
         c.log "activesearch", search
         s.relatedObj = null
         if search.type == "word"
-            s.placeholder = null
+            $("#simple_text input").val(search.val) # Necessary for displaying the wordform if it came from the URL
             s.simple_text = search.val
             cqp = simpleSearch.getCQP(search.val)
             c.log "simple search cqp", cqp
@@ -180,12 +149,12 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             key : "isCaseInsensitive"
     ]
 
-
+    $scope.$on "btn_submit", () ->
+        $location.search "within", null
 
 
 korpApp.controller "ExtendedSearch", ($scope, utils, $location, backend, $rootScope, searches, compareSearches, $timeout) ->
     s = $scope
-    s.within = $location.search().within or "sentence"
     s.$on "popover_submit", (event, name) ->
         compareSearches.saveSearch {
             label : name or $rootScope.extendedCQP
@@ -200,9 +169,9 @@ korpApp.controller "ExtendedSearch", ($scope, utils, $location, backend, $rootSc
         $location.search("search", null)
         $location.search("page", null)
         $timeout( () ->
-            within = s.within unless s.within in _.keys settings.defaultWithin
-            $location.search("within", within or null)
             $location.search("search", "cqp")
+            within = s.within if s.within not in _.keys settings.defaultWithin
+            $location.search "within", within
         , 0)
 
 
@@ -236,28 +205,13 @@ korpApp.controller "ExtendedSearch", ($scope, utils, $location, backend, $rootSc
     s.withins = []
 
     s.getWithins = () ->
-        intersect = settings.corpusListing.getAttrIntersection("within")
-        union = settings.corpusListing.getAttrUnion("within")
-        # opts = $(".#{withinOrContext}_select option")
-        # opts.data("locSuffix", null).attr("disabled", null).removeClass "limited"
-
-        # return union
+        union = settings.corpusListing.getWithinKeys()
         output = _.map union, (item) -> {value : item}
-
-        # all support enhanced context
-        if union.length > intersect.length
-            for obj in output
-                if obj.value not in intersect
-                    obj.partial = true
-                else
-                    obj.partial = false
-
         return output
 
     s.$on "corpuschooserchange", () ->
         s.withins = s.getWithins()
-
-
+        s.within = s.withins[0]?.value
 
 
 korpApp.controller "ExtendedToken", ($scope, utils, $location) ->
@@ -413,13 +367,14 @@ korpApp.controller "AdvancedCtrl", ($scope, compareSearches, $location, $timeout
 
     $scope.$on "btn_submit", () ->
         c.log "advanced cqp", $scope.cqp
-        $location.search("search", null)
-        $location.search("page", null)
+        $location.search "search", null
+        $location.search "page", null
+        $location.search "within", null
         $timeout( () ->
             # Copied from "ExtendedSearch" (Jyrki Niemi 2015-09-24)
             within = s.within unless s.within in _.keys settings.defaultWithin
             $location.search("within", within or null)
-            $location.search("search", "cqp|" + $scope.cqp)
+            $location.search "search", "cqp|" + $scope.cqp
         , 0)
 
     if s.showWithin

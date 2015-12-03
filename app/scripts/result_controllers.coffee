@@ -2,6 +2,7 @@ korpApp = angular.module("korpApp")
 
 korpApp.controller "resultContainerCtrl", ($scope, searches, $location) ->
     $scope.searches = searches
+    $scope.enableMap = settings.enableMap
 
 korpApp.controller "kwicCtrl", class KwicCtrl
     setupHash : () ->
@@ -411,7 +412,7 @@ korpApp.controller "MapCtrl", ($scope, $rootScope, $location, $timeout, searches
                        </div>"""
     s.markers = {}
     s.mapSettings = 
-        baseLayer : "Open Street Map"
+        baseLayer : "Stamen Watercolor"
     s.numResults = 0
     s.showTime = true
 

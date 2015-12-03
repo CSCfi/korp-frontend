@@ -194,14 +194,9 @@
       $("#similar_lemgrams").hide();
       this.savedSelect = null;
       this.lemgramProxy = new model.LemgramProxy();
-      this.s.$watch("textInField", (function(_this) {
-        return function() {
-          return c.log("textInField", _this.s.textInField);
-        };
-      })(this));
-      if (settings.autocomplete) {
-        null;
-      }
+      this.s.autocSettings = {
+        enableLemgramSuggestion: settings.autocomplete
+      };
       $("#prefixChk, #suffixChk, #caseChk").click((function(_this) {
         return function() {
           if ($("#simple_text").attr("placeholder") && $("#simple_text").text() === "") {
@@ -224,14 +219,21 @@
     SimpleSearch.prototype.onSubmit = function() {
       var wordInput;
       SimpleSearch.__super__.onSubmit.call(this);
-      c.log("onSubmit");
-      wordInput = $("#simple_text > div > .new_simple_text").val();
+      wordInput = this.getWordInput();
       if (wordInput !== "") {
         return util.searchHash("word", wordInput);
       } else {
         if (this.s.model) {
           return this.selectLemgram(this.s.model);
         }
+      }
+    };
+
+    SimpleSearch.prototype.getWordInput = function() {
+      if (settings.autocomplete) {
+        return $("#simple_text > div > div > .autocomplete_searchbox").val();
+      } else {
+        return $("#simple_text > div > div > .standard_searchbox").val();
       }
     };
 
@@ -256,7 +258,7 @@
 
     SimpleSearch.prototype.getCQP = function(word) {
       var cqp, currentText, lemgram, query, suffix, val, wordArray;
-      currentText = $.trim(word || $(".new_simple_text", this.$main).val() || "", '"');
+      currentText = $.trim(word || this.getWordInput() || "", '"');
       suffix = ($("#caseChk").is(":checked") ? " %c" : "");
       if (util.isLemgramId(currentText)) {
         val = "[lex contains \"" + currentText + "\"]";

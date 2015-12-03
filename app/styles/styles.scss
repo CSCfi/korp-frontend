@@ -1846,14 +1846,9 @@ body.modal-open {
 }
 
 .related.modal {
-  // max-height : initial;
-  margin-left : -400px;
-  width : 800px;
-
-  
 
   .modal-body {
-
+    overflow: auto;
     ul {
       display : flex;
       flex-direction : column;
@@ -1862,7 +1857,6 @@ body.modal-open {
       justify-content: flex-start;
       align-content : flex-start;
       li {
-        // flex : 1 1 auto;
         margin-right : 1em;
       }
     }
@@ -2225,6 +2219,10 @@ warning ~ * {
 
 .slick-viewport .slick-cell-checkboxsel input {
   margin-left : 6px;
+}
+
+#myGrid .slick-header-column input[type="checkbox"] {
+  margin-left : 4px;
 }
 
 .graph_btn_icon {
@@ -2735,6 +2733,12 @@ li.active a span .num-to-find {
     margin-left:-20px;margin-top:2px;float:left
 }
 
+/* Map */
+
 .name_map {
     max-width: 1000px;
+}
+
+.leaflet-control-layers-toggle {
+    background-image: url(../components/leaflet/dist/images/layers.png);
 }

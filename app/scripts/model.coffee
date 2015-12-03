@@ -19,7 +19,11 @@ class BaseProxy
         @pendingRequests = []
 
     expandCQP : (cqp) ->
-        return CQP.expandOperators cqp
+        try
+            return CQP.expandOperators cqp
+        catch e
+            c.warn "CQP expansion failed", cqp
+            return cqp
 
     makeRequest: ->
         @abort()
@@ -97,32 +101,6 @@ class BaseProxy
         stats: stats
         total_results: @total_results
 
-# class model.SearchProxy extends BaseProxy
-#     constructor: ->
-
-#     relatedWordSearch: (lemgram) ->
-#         $.ajax
-#             url: "http://spraakbanken.gu.se/ws/saldo-ws/grel/json/" + lemgram
-#             success: (data) ->
-#                 c.log "related words success"
-#                 lemgrams = []
-#                 $.each data, (i, item) ->
-#                     lemgrams = lemgrams.concat(item.rel)
-
-#                 hasAnyFreq = false
-#                 lemgramProxy.lemgramCount(lemgrams).done (freqs) ->
-#                     $.each data, (i, item) ->
-#                         item.rel = $.grep(item.rel, (lemgram) ->
-#                             hasAnyFreq = true if freqs[lemgram]
-#                             !!freqs[lemgram]
-#                         )
-
-                    # if hasAnyFreq
-                    #     simpleSearch.renderSimilarHeader lemgram, data
-                    # else
-                    #     simpleSearch.removeSimilarHeader()
-
-
 
 class model.KWICProxy extends BaseProxy
     constructor: ->
@@ -142,8 +120,6 @@ class model.KWICProxy extends BaseProxy
         self = this
         @foundKwic = false
         super()
-        # successCallback = successCallback or $.proxy(kwicResults.renderCompleteResult, kwicResults)
-        # kwicCallback = kwicCallback or $.proxy(kwicResults.renderKwicResult, kwicResults)
         kwicCallback = kwicCallback or $.proxy(kwicResults.renderResult, kwicResults)
         self.progress = 0
         
@@ -155,19 +131,18 @@ class model.KWICProxy extends BaseProxy
                 progressObj = self.calcProgress(e)
                 return unless progressObj?
 
-                #               c.log("progressObj", progressObj)
                 progressCallback progressObj
                 if progressObj["struct"].kwic
                     c.log "found kwic!"
                     @foundKwic = true
                     kwicCallback progressObj["struct"]
         , options)
+        
+        _.extend options.ajaxParams, settings.corpusListing.getWithinParameters()
 
         data =
             command: "query"
-            # corpus: settings.corpusListing.stringifySelected()
-            defaultcontext: _.keys(settings.defaultContext)[0]
-            defaultwithin: _.keys(settings.defaultWithin)[0]
+            defaultcontext: settings.defaultOverviewContext
             show: []
             show_struct: []
             cache : true
@@ -184,7 +159,6 @@ class model.KWICProxy extends BaseProxy
                 $.each corpus.struct_attributes, (key, val) ->
                     data.show_struct.push key if $.inArray(key, data.show_struct) is -1
 
-        # c.log "data.cqp", data.cqp
         if data.cqp
             data.cqp = @expandCQP(data.cqp)
         @prevCQP = data.cqp
@@ -424,10 +398,10 @@ class model.StatsProxy extends BaseProxy
             cqp: @expandCQP cqp
             corpus: settings.corpusListing.stringifySelected(true)
             incremental: $.support.ajaxProgress
-            defaultwithin: "sentence"
+        _.extend parameters, settings.corpusListing.getWithinParameters()
         return parameters
 
-    makeRequest: (cqp, callback, within) ->
+    makeRequest: (cqp, callback) ->
         self = this
         super()
         reduceval = search().stats_reduce or "word"
@@ -442,10 +416,6 @@ class model.StatsProxy extends BaseProxy
             $.extend data,
                 ignore_case: "word"
 
-        # data.within = settings.corpusListing.getWithinQueryString() if $.sm.In("extended") and $(".within_select").val() is "paragraph"
-        #if within_selection isnt "0" #!= settings.defaultWithin
-        #    data.within = settings.corpusListing.getWithinQueryString()
-        data.within = within
         settings.corpusListing.minimizeWithinQueryString data
         @prevNonExpandedCQP = cqp
         @prevParams = data
@@ -490,8 +460,9 @@ class model.NameProxy extends model.StatsProxy
     constructor: ->
         super()    
         
-    makeParameters: (reduceval, cqp) ->
-        parameters = super(reduceval, cqp)
+    makeParameters: (reduceVal, cqp) ->
+        # ignore reduceVal, map only works for word
+        parameters = super("word", cqp)
         parameters.cqp2 = "[pos='PM']"
         return parameters
     

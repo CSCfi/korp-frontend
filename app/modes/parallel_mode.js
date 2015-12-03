@@ -83,12 +83,6 @@ korpApp.controller("ParallelSearch", function($scope, $location, $rootScope, $ti
 	s.onSubmit = function() {
 		$location.search("search", null)
 		$timeout( function() {
-		    // within = s.within unless s.within in _.keys settings.defaultWithin
-		    var within;
-		    if(!s.within in _.keys(settings.defaultWithin))
-			    within = s.within
-
-		    $location.search("within", within || null)
 		    // $location.search("search", "cqp|" + onLangChange())
 		    util.searchHash("cqp", onLangChange())
 	    	c.log ("onLangChange", onLangChange())
@@ -253,6 +247,11 @@ var context = {
 };
 
 settings.preselected_corpora = ["europarl_v7_enfi_fi", "mulcold_fi"];
+
+settings.defaultOverviewContext = "1 link"
+settings.defaultReadingContext = "1 link"
+
+settings.defaultWithin = { "link": "link" };
 
 settings.corporafolders = {};
 

@@ -103,7 +103,7 @@
             <tab heading="{{&quot;simple&quot; | loc:lang}}" ng-if="visibleTabs[0]">
               <div id="korp-simple" constr="SimpleSearch" constr-name="simpleSearch" ng-controller="SimpleCtrl">
                 <form class="simple_form">
-                  <autoc id="simple_text" placeholder="placeholder" type="lemgram" model="model"></autoc>
+                  <autoc id="simple_text" placeholder="placeholder" type="lemgram" model="model" disable-lemgram-autocomplete="! settings.autocomplete"></autoc>
                   <search-submit></search-submit>
                   <div class="opts"><span>
                        
@@ -179,7 +179,7 @@
               <input id="word_pic" type="checkbox" ng-model="word_pic">
               <label for="word_pic">{{'show_word_pic' | loc:lang}}</label>
             </div>
-            <div>
+            <div ng-show="settings.enableMap">
               <input id="show_map" type="checkbox" ng-model="show_map">
               <label for="show_map">{{'show_map' | loc:lang}}      </label>
             </div>
@@ -274,25 +274,27 @@
                     <div ng-show="word_pic" class="content_target"></div>
                   </div>
                 </tab>
-                <tab ng-controller="MapCtrl">
+                <tab ng-show="enableMap" ng-controller="MapCtrl">
                   <tab-heading ng-class="{not_loading: progress &gt; 99, loading : loading, single: loading &amp;&amp; countCorpora() &lt; 2 }">{{'map' | loc:lang }}
                     <tab-preloader ng-if="loading" value="progress" spinner="countCorpora() &lt; 2"></tab-preloader>
                   </tab-heading>
                   <div>
-                    <div ng-if="!showMap">{{'map_activate' | loc:lang}}
-                      <div>
-                        <button ng-click="activate()" class="btn btn-sm btn-default activate_word_pic">{{'map_activate_btn' | loc:lang}}</button>
+                    <div id="mapTab">
+                      <div ng-if="!showMap">{{'map_activate' | loc:lang}}
+                        <div>
+                          <button ng-click="activate()" class="btn btn-sm btn-default activate_word_pic">{{'map_activate_btn' | loc:lang}}</button>
+                        </div>
                       </div>
-                    </div>
-                    <div ng-if="showMap &amp;&amp; !hasResult">{{'map_warn' | loc:lang}}
-                      <div>
-                        <button ng-click="activate()" class="btn btn-sm btn-default activate_word_pic">{{'map_warn_btn' | loc:lang}}</button>
+                      <div ng-if="showMap &amp;&amp; !hasResult">{{'map_warn' | loc:lang}}
+                        <div>
+                          <button ng-click="activate()" class="btn btn-sm btn-default activate_word_pic">{{'map_warn_btn' | loc:lang}}</button>
+                        </div>
                       </div>
-                    </div>
-                    <warning ng-if="aborted &amp;&amp; !loading">{{'search_aborted' | loc:lang}}</warning>
-                    <div ng-if="showMap &amp;&amp; tabVisible &amp;&amp; hasResult &amp;&amp; !loading"><span>{{'map_num_results' | loc:lang}}: </span><span>{{numResults}}</span></div>
-                    <div ng-if="showMap &amp;&amp; tabVisible &amp;&amp; hasResult &amp;&amp; !loading &amp;&amp; numResults != 0">
-                      <sb-map sb-center="center" sb-markers="markers" sb-show-time="showTime" sb-hover-template="hoverTemplate" sb-base-layer="mapSettings.baseLayer"></sb-map>
+                      <warning ng-if="aborted &amp;&amp; !loading">{{'search_aborted' | loc:lang}}</warning>
+                      <div id="mapHits" ng-if="showMap &amp;&amp; tabVisible &amp;&amp; hasResult &amp;&amp; !loading"><span>{{'map_num_results' | loc:lang}}: </span><span>{{numResults}}</span></div>
+                      <div ng-if="showMap &amp;&amp; tabVisible &amp;&amp; hasResult &amp;&amp; !loading &amp;&amp; numResults != 0">
+                        <sb-map sb-center="center" sb-markers="markers" sb-show-time="showTime" sb-hover-template="hoverTemplate" sb-base-layer="mapSettings.baseLayer"></sb-map>
+                      </div>
                     </div>
                   </div>
                 </tab>

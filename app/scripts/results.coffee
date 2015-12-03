@@ -404,18 +404,27 @@ class view.KWICResults extends BaseResults
                 }
             return {sort : sort}
 
+        if @isReadingMode()
+            preferredContext = settings.defaultReadingContext
+            avoidContext = settings.defaultOverviewContext
+        else
+            preferredContext = settings.defaultOverviewContext
+            avoidContext = settings.defaultReadingContext
+
+        context = settings.corpusListing.getContextQueryString(preferredContext, avoidContext)
+
         opts.ajaxParams = {
             command : "query"
             corpus : settings.corpusListing.stringifySelected()
             cqp : cqp or @proxy.prevCQP
             queryData : @proxy.queryData if @proxy.queryData
-            context : settings.corpusListing.getContextQueryString() if @isReadingMode() or currentMode == "parallel"
-            within : settings.corpusListing.getWithinQueryString() if search().within
+            context : context
+            defaultcontext : preferredContext
             incremental: !isPaging and $.support.ajaxProgress
         }
+
         _.extend opts.ajaxParams, getSortParams()
         return opts
-
 
     makeRequest: (cqp, isPaging) ->
         c.log "kwicResults.makeRequest", cqp, isPaging
@@ -439,11 +448,9 @@ class view.KWICResults extends BaseResults
         else
             @ignoreAbort = false
 
-        isReading = @isReadingMode()
-
         params = @buildQueryOptions(cqp, isPaging)
         progressCallback = if ((not params.ajaxParams.incremental)) then $.noop else $.proxy(@onProgress, this)
-        # c.log "params.incremental", params.ajaxParams.incremental, isReading
+
         req = @getProxy().makeRequest params,
                             page,
                             progressCallback,
@@ -1072,8 +1079,7 @@ class view.StatsResults extends BaseResults
             @resetView()
 
         @showPreloader()
-        withinArg = settings.corpusListing.getWithinQueryString() if search().within
-        @proxy.makeRequest(cqp, ((args...) => @onProgress(args...)), withinArg
+        @proxy.makeRequest(cqp, ((args...) => @onProgress(args...))
         ).done( ([data, wordArray, columns, dataset]) =>
             # @s.aborted = false
             c.log "dataset.length", dataset.length
@@ -1121,12 +1127,7 @@ class view.StatsResults extends BaseResults
             cssClass: "slick-cell-checkboxsel"
 
         columns = [checkboxSelector.getColumnDefinition()].concat(columns)
-        #$("#myGrid").width($(document).width())
-        $("#myGrid").width(800)
-        $("#myGrid").height(600)
 
-        #return false
-        console.log "grad data", data
         grid = new Slick.Grid $("#myGrid"), data, columns,
             enableCellNavigation: false
             enableColumnReorder: false
@@ -1135,7 +1136,6 @@ class view.StatsResults extends BaseResults
         grid.registerPlugin(checkboxSelector)
         @grid = grid
         @grid.autosizeColumns()
-        #$("#myGrid").width("100%")
 
         sortCol = columns[2]
         log = _.debounce () ->
@@ -1201,11 +1201,14 @@ class view.StatsResults extends BaseResults
             @s.graphEnabled = false
 
     resizeGrid : () ->
-        height = $(window).height() - 600
-        $("#myGrid:visible").height height
+        height = 0
+        $('.slick-row').each () ->
+            height += $(this).outerHeight true
+        c.log "## height ", height
+        $("#myGrid:visible.slick-viewport").height height
         
         # adding 20 px to width if vertical scrollbar appears
-        if @gridData?.length * 20 >= height
+        if @gridData?.length * 25 >= height
             width = 20
         else
             width = 0
@@ -1214,7 +1217,8 @@ class view.StatsResults extends BaseResults
             width += $(this).outerWidth true
         if width > ($(window).width() - 40)
             width = $(window).width() - 40
-        $("#myGrid:visible").width width
+        c.log "## width ", width
+        $("#myGrid:visible.slick-viewport").width width
         
         @grid?.resizeCanvas()
         @grid?.invalidate()

@@ -19,6 +19,7 @@
     "runeberg" : "Runeberg journal",
     "bellman" : "Bellman's collected works",
     "eddan" : "Poetic Edda",
+    "somali" : "Somali",
 
     "old_finnish_texts" : "Old Literary Finnish",
     "finnish_national_library_texts" : "Finnish National Library",
@@ -123,6 +124,7 @@
     "oneSentence" : "one sentence",
 
     "source" : "source",
+    "pagesource" : "page source",
     "age" : "age",
 
     "blog_title" : "blog title",
@@ -756,6 +758,9 @@
     "verb_features" : "verb features",
 
     "published" : "published",
+    
+    "sponsor" : "sponsor",
+    "place" : "place",
 
     "ne_expr" : "named entity",
     "ne_type" : "named entity type",

@@ -25,6 +25,7 @@ var baseURL = (window.location.protocol + "//" + window.location.hostname
 
 settings.lemgramSelect = true;
 settings.autocomplete = true;
+settings.enableMap = true;
 // settings.wordpicture = false;
 settings.hits_per_page_default = 25
 
@@ -247,12 +248,16 @@ settings.templ = {};
 // Namespace for extra corpus info used in multiple corpora
 settings.corpusinfo = {};
 
-var karpLemgramLink = "http://spraakbanken.gu.se/karp/#search=cql%7C(lemgram+%3D+%22<%= val.replace(/:\\d+/, '') %>%22)+sortBy+lemgram";
+var karpLemgramLink = "http://spraakbanken.gu.se/karp/#?search=extended||and|lemgram|equals|<%= val.replace(/:\\d+/, '') %>";
 
 settings.primaryColor = "rgb(221, 233, 255)";
 settings.primaryLight = "rgb(242, 247, 255)";
 settings.secondaryColor = "";
 settings.corpora = {};
+
+settings.defaultOverviewContext = "1 sentence"
+settings.defaultReadingContext = "1 paragraph"
+
 settings.defaultContext = {
     "1 sentence" : "1 sentence"
 };
@@ -826,7 +831,7 @@ attrs.saldo = {
     stringify : function(saldo) {
         return util.saldoToString(saldo, true);
     },
-    externalSearch : "http://spraakbanken.gu.se/karp/#search-tab-1&search=cql|(saldo+%3D+<%= val %>)",
+    externalSearch : "http://spraakbanken.gu.se/karp/#?search=extended||and|sense|equals|<%= val %>",
     internalSearch : true,
     extended_template : "<autoc model='model' placeholder='placeholder' type='sense'/>",
 };
@@ -5729,7 +5734,6 @@ settings.reduce_stringify = function(type) {
             output = $.format("<span class='link' data-query='%s' data-corpora='%s'%s>%s</span> ",
                     [query, JSON.stringify(corpora), relLocalize,
                      util.getLocaleString(prefix + value)]);
-            c.log("stringify default", prefix, value)
             if(value == "&Sigma;") return appendDiagram(output, corpora, value);
 
             return appendDiagram(output, corpora, value);

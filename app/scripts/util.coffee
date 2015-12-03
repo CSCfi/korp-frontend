@@ -113,9 +113,9 @@ class window.CorpusListing
                 delete value["disabled"]
 
         union
-
+        
     corpusHasAttr: (corpus, attr) ->
-        attr of $.extend({}, @struct[corpus].attributes, @struct[corpus].struct_attributes)
+        return attr == "word" or attr of $.extend({}, @struct[corpus].attributes, @struct[corpus].struct_attributes)
 
     stringifySelected: ->
         _(@selected).pluck("id").invoke("toUpperCase").join ","
@@ -123,15 +123,9 @@ class window.CorpusListing
     stringifyAll: ->
         _(@corpora).pluck("id").invoke("toUpperCase").join ","
 
-    getAttrIntersection: (attr) ->
+    getWithinKeys: () ->
         struct = _.map(@selected, (corpus) ->
-            _.keys corpus[attr]
-        )
-        _.intersection.apply null, struct
-
-    getAttrUnion: (attr) ->
-        struct = _.map(@selected, (corpus) ->
-            _.keys corpus[attr]
+            _.keys corpus.within
         )
         _.union struct...
 
@@ -202,23 +196,29 @@ class window.CorpusListing
     minimizeContextQueryString: (params) ->
         @minimizeDefaultAndCorpusQueryString 'context', params
 
-    getContextQueryString: (prefer) ->
+    getContextQueryString: (prefer, avoid) ->
         output = for corpus in @selected
-            contexts = _.keys(corpus.context)
+            contexts = _.keys corpus.context
+            if prefer not in contexts
+                if contexts.length > 1 and avoid in contexts
+                    contexts.splice (contexts.indexOf avoid), 1
+                corpus.id.toUpperCase() + ":" + contexts[0]
+        return _(output).compact().join()
 
-            # if prefer in contexts and prefer not of settings.defaultContext
-            #     corpus.id.toUpperCase() + ":" + prefer
+    getWithinParameters: () ->
+        defaultWithin = search().within or _.keys(settings.defaultWithin)[0]
 
-            for context in contexts
-                if context and context not of settings.defaultContext
-                    corpus.id.toUpperCase() + ":" + context
-                else
-                    false
+        output = for corpus in @selected
+            withins = _.keys corpus.within
+            if defaultWithin not in withins
+                corpus.id.toUpperCase() + ":" + withins[0]
+        within = _(output).compact().join()
+        return { defaultwithin : defaultWithin, within : within }
 
-        _(output).flatten().compact().join()
-
-
-
+    # The above getWithinParameters replaces getWithinQueryString as
+    # 2015-11. Should we modify getWithinParameters similarly, or does
+    # it work as the modified getWithinQueryString?
+    # (Jyrki Niemi 2015-11-19)
     getWithinQueryString: ->
         # If the URL parameter within is other than the default, use
         # it for the corpora that have it in their within property.
@@ -415,38 +415,6 @@ class window.ParallelCorpusListing extends CorpusListing
                 output = output.concat _.map linked, (item) -> [item, cps]
 
         output
-
-
-    getAttributeQuery : (attr) ->
-      
-      #gets the within and context queries
-
-      struct = @getLinksFromLangs(@activeLangs)
-      output = []
-      $.each struct, (i, corps) ->
-
-        mainId = corps[0].id.toUpperCase()
-        mainIsPivot = !!corps[0].pivot
-
-        other = corps.slice(1)
-
-        pair = _.map(other, (corp) ->
-            if mainIsPivot
-                a = _.keys(corp[attr])[0]
-            else
-                a = _.keys(corps[0][attr])[0]
-            mainId + "|" + corp.id.toUpperCase() + ":" + a
-        )
-        output.push pair
-
-      output.join ","
-
-    getContextQueryString: ->
-        @getAttributeQuery("context")
-
-    getWithinQueryString: ->
-        @getAttributeQuery("within")
-
 
     stringifySelected : (onlyMain) ->
 

@@ -8,7 +8,8 @@
   korpApp = angular.module("korpApp");
 
   korpApp.controller("resultContainerCtrl", function($scope, searches, $location) {
-    return $scope.searches = searches;
+    $scope.searches = searches;
+    return $scope.enableMap = settings.enableMap;
   });
 
   korpApp.controller("kwicCtrl", KwicCtrl = (function() {
@@ -493,7 +494,7 @@
     s.hoverTemplate = "<div class=\"hover-info\" ng-repeat=\"(name, values) in names\">\n   <div><span>{{ 'map_name' | loc }}: </span> <span>{{name}}</span></div>\n   <div><span>{{ 'map_abs_occurrences' | loc }}: </span> <span>{{values.abs_occurrences}}</span></div>\n   <div><span>{{ 'map_rel_occurrences' | loc }}: </span> <span>{{values.rel_occurrences}}</span></div>\n</div>";
     s.markers = {};
     s.mapSettings = {
-      baseLayer: "Open Street Map"
+      baseLayer: "Stamen Watercolor"
     };
     s.numResults = 0;
     s.showTime = true;

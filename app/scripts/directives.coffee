@@ -583,11 +583,12 @@ korpApp.directive "autoc", ($q, $http, lexicons) ->
         "model" : "="
         "type" : "@"
         "variant" : "@"
+        "disableLemgramAutocomplete" : "=" 
     template: """
         <div>
             <script type="text/ng-template" id="lemgramautocomplete.html">
                 <a style="cursor:pointer">
-                    <span ng-class="{'autocomplete-item-disabled' : match.model.count == 0, 'none-to-find' : match.model.count == 0 && noVariant()}">
+                    <span ng-class="{'autocomplete-item-disabled' : match.model.count == 0, 'none-to-find' : (match.model.variant != 'dalin' && match.model.count == 0)}">
                         <span ng-if="match.model.parts.namespace" class="label">{{match.model.parts.namespace | loc}}</span>
                         <span>{{match.model.parts.main}}</span>
                         <sup ng-if="match.model.parts.index != 1">{{match.model.parts.index}}</sup>
@@ -600,25 +601,30 @@ korpApp.directive "autoc", ($q, $http, lexicons) ->
                     </span>
                 </a>
             </script>
-            <div style="float:left"><input
-                class="new_simple_text"
-                autofocus
-                type="text" class="form-control"
-                ng-model="textInField"
-                typeahead="row for row in getRows($viewValue)"
-                typeahead-wait-ms="500"
-                typeahead-template-url="lemgramautocomplete.html"
-                typeahead-loading="isLoading"
-                typeahead-on-select="selectedItem($item, $model, $label)"
-                placeholder="{{lemgramToString(placeholder)}}"></div>
-            <div style="margin-left:-20px;margin-top:2px;float:left" ng-if="isLoading"><i class="fa fa-spinner fa-pulse"></i></div>
+            <div ng-show="!disableLemgramAutocomplete">
+                <div style="float:left"><input
+                    class="autocomplete_searchbox"
+                    autofocus
+                    type="text" 
+                    ng-model="textInField"
+                    typeahead="row for row in getRows($viewValue)"
+                    typeahead-wait-ms="500"
+                    typeahead-template-url="lemgramautocomplete.html"
+                    typeahead-loading="isLoading"
+                    typeahead-on-select="selectedItem($item, $model, $label)"
+                    placeholder="{{placeholderToString(placeholder)}}"></div>
+                <div style="margin-left:-20px;margin-top:2px;float:left" ng-if="isLoading"><i class="fa fa-spinner fa-pulse"></i></div>
+            </div>
+            <div ng-show="disableLemgramAutocomplete">
+                <div style="float:left"> 
+                    <input class="standard_searchbox" autofocus type="text">
+                </div>
+            </div>
         </div>
     """
     link : (scope, elem, attr) ->
         c.log "autoc link", scope.model
 
-        scope.noVariant = () ->
-            return variant isnt 'dalin'
         scope.lemgramify = (lemgram) ->
             lemgramRegExp = /([^_\.-]*--)?([^-]*)\.\.(\w+)\.(\d\d?)/
             match = lemgram.match lemgramRegExp
@@ -636,9 +642,12 @@ korpApp.directive "autoc", ($q, $http, lexicons) ->
                 "index" : senseParts[1]
             }
 
-        scope.lemgramToString = (lemgram) ->
-            unless lemgram then return
-            util.lemgramToString(lemgram).replace(/<.*?>/g, "")
+        scope.placeholderToString = (placeholder) ->
+            unless placeholder then return
+            if scope.type is "lemgram"
+                util.lemgramToString(placeholder).replace(/<.*?>/g, "")
+            else
+                util.saldoToString(placeholder)
 
         scope.formatPlaceholder = (input) ->
             lemgramRegExp = /([^_\.-]*--)?([^-]*)\.\.(\w+)\.(\d\d?)/
@@ -649,8 +658,12 @@ korpApp.directive "autoc", ($q, $http, lexicons) ->
                 return input
 
         scope.selectedItem = (item, model, label) ->
-            scope.placeholder = model.lemgram
-            scope.model = model.lemgram
+            if scope.type is "lemgram"
+                scope.placeholder = model.lemgram
+                scope.model = model.lemgram
+            else
+                scope.placeholder = model.sense
+                scope.model = model.sense
             scope.textInField = ""
 
         if scope.model
@@ -672,17 +685,17 @@ korpApp.directive "autoc", ($q, $http, lexicons) ->
             corporaIDs = _.pluck settings.corpusListing.selected, "id"
             morphologies = scope.getMorphologies corporaIDs
             if scope.type is "lemgram"
-                lemgrams = scope.getLemgrams input, morphologies, corporaIDs
-                return lemgrams
+                return scope.getLemgrams input, morphologies, corporaIDs
             else if scope.type is "sense"
                 return scope.getSenses input, morphologies, corporaIDs
         scope.getLemgrams = (input, morphologies, corporaIDs) ->
             deferred = $q.defer()
-            http = lexicons.getLemgrams input, (morphologies.join "|"), corporaIDs, (scope.variant is "affix")
+            http = lexicons.getLemgrams input, morphologies, corporaIDs, (scope.variant is "affix")
             http.then (data) ->
                 data.forEach (item) ->
                     if scope.variant is 'affix' then item.count = -1
                     item.parts = scope.lemgramify(item.lemgram)
+                    item.variant = scope.variant
                 data.sort (a, b) -> b.count - a.count
                 deferred.resolve data
             return deferred.promise
@@ -694,7 +707,12 @@ korpApp.directive "autoc", ($q, $http, lexicons) ->
                 data.forEach (item) ->
                     item.parts = scope.sensify(item.sense)
                     if item.desc then item.desc = scope.sensify(item.desc)
-                data.sort (a, b) -> b.count - a.count
+                    item.variant = scope.variant
+                data.sort (a, b) ->
+                    if a.parts.main is b.parts.main
+                        b.parts.index < a.parts.index
+                    else
+                        a.sense.length - b.sense.length
                 deferred.resolve data
             return deferred.promise
 
