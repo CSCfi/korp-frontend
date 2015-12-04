@@ -439,18 +439,34 @@ korpApp.factory "lexicons", ($q, $http) ->
         args =
             "q" : wf
             "resource" : if $.isArray(resources) then resources.join(",") else resources
-
+        # Support an alternative lemgram service. TODO: Make the
+        # service CGI script take the same arguments and return a
+        # similar output as Karp, so that it would not need to be
+        # special-cased here. (Jyrki Niemi 2015-12-04)
+        if settings.lemgramService == "FIN-CLARIN"
+            _.extend args, {wf: wf}
+            url = settings.lemgrams_cgi_script
+        else
+            url = "#{karpURL}/autocomplete"
         $http(
             method : "GET"
-            url : "#{karpURL}/autocomplete"
+            url : url
             params : args
         ).success((data, status, headers, config) ->
             if data is null
                 deferred.resolve []
             else
 
-                # Pick the lemgrams. Would be nice if this was done by the backend instead.
-                karpLemgrams = _.map data.hits.hits, (entry) -> entry._source.FormRepresentations[0].lemgram
+                # Support an alternative lemgram service (Jyrki Niemi
+                # 2015-12-04)
+                if settings.lemgramService == "FIN-CLARIN"
+                    div = (if $.isPlainObject(data.div) then [data.div] else data.div)
+                    karpLemgrams = $.map(div.slice(0, Number(data.count)), (item) ->
+                        item.LexicalEntry.lem
+                    )
+                else
+                    # Pick the lemgrams. Would be nice if this was done by the backend instead.
+                    karpLemgrams = _.map data.hits.hits, (entry) -> entry._source.FormRepresentations[0].lemgram
 
                 if karpLemgrams.length is 0
                     deferred.resolve []

@@ -29,6 +29,10 @@ settings.enableMap = true;
 // settings.wordpicture = false;
 settings.hits_per_page_default = 25
 
+// The lemgram service to use for autocompletion. If not specified,
+// use Språkbanken's Karp. (Jyrki Niemi 2015-12-04)
+settings.lemgramService = "FIN-CLARIN";
+
 settings.textDateAllowBareYears = true;
 
 settings.downloadFormats = [

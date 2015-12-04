@@ -445,24 +445,39 @@
     karpURL = "https://ws.spraakbanken.gu.se/ws/karp/v1";
     return {
       getLemgrams: function(wf, resources, corporaIDs) {
-        var args, deferred;
+        var args, deferred, url;
         deferred = $q.defer();
         args = {
           "q": wf,
           "resource": $.isArray(resources) ? resources.join(",") : resources
         };
+        if (settings.lemgramService === "FIN-CLARIN") {
+          _.extend(args, {
+            wf: wf
+          });
+          url = settings.lemgrams_cgi_script;
+        } else {
+          url = karpURL + "/autocomplete";
+        }
         $http({
           method: "GET",
-          url: karpURL + "/autocomplete",
+          url: url,
           params: args
         }).success(function(data, status, headers, config) {
-          var corpora, karpLemgrams, lemgram;
+          var corpora, div, karpLemgrams, lemgram;
           if (data === null) {
             return deferred.resolve([]);
           } else {
-            karpLemgrams = _.map(data.hits.hits, function(entry) {
-              return entry._source.FormRepresentations[0].lemgram;
-            });
+            if (settings.lemgramService === "FIN-CLARIN") {
+              div = ($.isPlainObject(data.div) ? [data.div] : data.div);
+              karpLemgrams = $.map(div.slice(0, Number(data.count)), function(item) {
+                return item.LexicalEntry.lem;
+              });
+            } else {
+              karpLemgrams = _.map(data.hits.hits, function(entry) {
+                return entry._source.FormRepresentations[0].lemgram;
+              });
+            }
             if (karpLemgrams.length === 0) {
               deferred.resolve([]);
               return;
