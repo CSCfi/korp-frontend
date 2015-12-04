@@ -396,7 +396,7 @@
     "rel_PA" : "Preposition",
     "rel_head" : "Head",
 
-    "deprel_ROOT" : "ROOT",
+    "deprel_ROOT" : "Root",
     "deprel_++" : "Coordinating conjunction",
     "deprel_+A" : "Conjunctional adverbial",
     "deprel_+F" : "Coordination at main clause level",
@@ -758,7 +758,7 @@
     "verb_features" : "verb features",
 
     "published" : "published",
-    
+
     "sponsor" : "sponsor",
     "place" : "place",
 

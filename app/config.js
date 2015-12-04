@@ -160,6 +160,7 @@ settings.wordPictureMaxWords = 30;
 settings.wordpictureTagset = {
     // supported pos-tags
     verb : "vb",
+
     noun : "nn",
     adjective : "jj",
     adverb : "ab",
@@ -724,7 +725,7 @@ attrs.msd = {
 attrs.msd_sv = {
     label : "msd",
     opts : settings.defaultOptions,
-    extended_template : '<input class="arg_value" ng-model="input" escaper>' +
+    extended_template : '<input class="arg_value" ng-model="model" escaper>' +
     '<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
     controller : function($scope, $modal) {
         var modal = null;
@@ -910,7 +911,8 @@ attrs.deprel = {
         "IF" : "IF",
         "PA" : "PA",
         "UA" : "UA",
-        "VG" : "VG"
+        "VG" : "VG",
+        "ROOT" : "ROOT"
     },
     opts : settings.liteOptions
 };
@@ -5556,18 +5558,14 @@ settings.arg_groups = {
     }
 };
 
-
-settings.reduce_stringify = function(type) {
-
-    function filterCorpora(rowObj) {
+settings.reduce_helpers = {
+    filterCorpora: function(rowObj) {
         return $.grepObj(rowObj, function(value, key) {
-            return key != "total_value" && $.isArray(value);
-            //return key != "total_value" && $.isPlainObject(value);
+            return key != "total_value" && key != "hit_value" && $.isArray(value);
         });
-    }
-
-    function getCorpora(dataContext) {
-        var corpora = $.grepObj(filterCorpora(dataContext), function(value, key) {
+    },
+    getCorpora: function (dataContext) {
+        var corpora = $.grepObj(settings.reduce_helpers.filterCorpora(dataContext), function(value, key) {
             return value[1] != null; // value[1] is an optimized value.relative
         });
         corpora = $.map(_.keys(corpora), function(item) {
@@ -5582,165 +5580,171 @@ settings.reduce_stringify = function(type) {
         });
         return corpora;
     }
+};
 
-    function appendDiagram(output, corpora, value) {
-        //if(corpora.length > 1)
-            return output + $.format('<img id="circlediagrambutton__%s" src="img/stats2.png" class="arcDiagramPicture"/>', value);
-        //else
-        //    return output;
+settings.reduce_statistics_pie_chart = function(row, cell, value, columnDef, dataContext) {
+    if(value != "&Sigma;")
+        value = value[0].replace(/:\d+/g, "")
+    return $.format('<img id="circlediagrambutton__%s" src="img/stats2.png" class="arcDiagramPicture"/>', value);
+};
+
+settings.reduce_statistics = function(types, ignoreCase) {
+
+    return function(row, cell, value, columnDef, dataContext) {
+
+        var corpora = settings.reduce_helpers.getCorpora(dataContext);
+
+        if(value == "&Sigma;")
+            return "&Sigma;";
+
+        var tokenLists = _.map(value, function(val) {
+            return _.map(val.split('/'), function(as) {
+                return as.split(" ");
+            });
+        });
+
+        var typeIdx = types.indexOf(columnDef.id);
+        var linkInnerHTML = settings.reduce_stringify(columnDef.id, tokenLists[0][typeIdx], corpora);
+
+        var totalQuery = []
+
+        // create one query part for each token
+        for(var tokenIdx = 0; tokenIdx < tokenLists[0][0].length; tokenIdx++) {
+
+            var andParts = []
+            // for each reduce attribute: create a query part and then join all with &
+            for(var typeIdx = 0; typeIdx < types.length; typeIdx++) {
+                var type = types[typeIdx];
+                var elems = _.map(tokenLists, function(tokenList) {
+                    return tokenList[typeIdx][tokenIdx];
+                });
+                andParts.push(settings.reduce_cqp(type, _.unique(elems), ignoreCase));
+            }
+            totalQuery.push("[" + andParts.join(" & ") + "]");
+        }
+        var query = totalQuery.join(" ");
+
+        var output = $("<span>",
+            {
+            "class" : "link",
+            "data-query" : encodeURIComponent(query),
+            "data-corpora" : JSON.stringify(corpora)
+            }).html(linkInnerHTML).outerHTML();
+
+        return output;
     }
-    var output = "";
+
+};
+
+
+// Get the html (no linking) representation of the result for the statistics table
+settings.reduce_stringify = function(type, values, corpora) {
     switch(type) {
-    case "word":
-        return function(row, cell, value, columnDef, dataContext) {
-            var corpora = getCorpora(dataContext);
-            if(value == "&Sigma;") return appendDiagram(value, corpora, value);
-
-            var query = $.map(dataContext.hit_value.split(" "), function(item) {
-                return $.format('[word="%s"]', window.regescape(item));
-            }).join(" ");
-
-            output = $("<span>",
-                    {
-                    "class" : "link",
-                    "data-query" : encodeURIComponent(query),
-                    "data-corpora" : JSON.stringify(corpora)
-                    }).text(value).outerHTML();
-            return appendDiagram(output, corpora, value);
-
-        };
-
-    case "pos":
-        return function(row, cell, value, columnDef, dataContext) {
-            var corpora = getCorpora(dataContext);
-            if(value == "&Sigma;") return appendDiagram(value, corpora, value);
-            var query = $.map(dataContext.hit_value.split(" "), function(item) {
-                return $.format('[pos="%s"]', window.regescape(item));
-            }).join(" ");
-            output =  _.map(value.split(" "), function(token) {
+        case "word":
+        case "msd":
+            return values.join(" ");
+        case "pos":
+            var output =  _.map(values, function(token) {
                 return $("<span>")
                 .localeKey("pos_" + token)
                 .outerHTML()
-            })
-            var link = $("<span>").addClass("link")
-                .attr("data-query", query)
-                .attr("data-corpora", JSON.stringify(corpora))
-                .html(output.join(" "))
-            return appendDiagram(link.outerHTML(), corpora, value);
-        };
-    case "saldo":
-    case "prefix":
-    case "suffix":
-    case "lex":
-    case "lemma":
-        return function(row, cell, value, columnDef, dataContext) {
-            var corpora = getCorpora(dataContext);
-            if(value == "&Sigma;") return appendDiagram(value, corpora, value);
-            // else if(value == "|") return "-";
+            }).join(" ");
+            return output;
+        case "saldo":
+        case "prefix":
+        case "suffix":
+        case "lex":
+        case "lemma":
 
-            // var stringify = type == "saldo" ? util.saldoToString : util.lemgramToString;
-            if(type == "saldo") stringify = util.saldoToString
-            else if(type == "lemma") stringify = function(lemma) {return lemma.replace(/_/g, " ")}
-            else stringify = util.lemgramToString
+            if(type == "saldo")
+                stringify = util.saldoToString
+            else if(type == "lemma")
+                stringify = function(lemma) {return lemma.replace(/_/g, " ")}
+            else
+                stringify = util.lemgramToString
 
-            // c.log ("value", value)
-            if(!_.isArray(value)) value = [value]
-            var html = _.map(value[0].split(" "), function(token) {
-                if(token == "|") return "–";
-                return _(token.split("|"))
-                    .filter(Boolean)
-                    .map(function(item) {
-                        return stringify(item.replace(/:\d+/g, ""), true)
-                    })
-                    .join(", ");
+            var html = _.map(values, function(token) {
+                if(token == "|")
+                    return "–";
+                return stringify(token.replace(/:\d+/g, ""), true);
             });
 
-            // Assume simple values (instead of feature set values)
-            // for lemmas in other modes than "swedish" and thus use
-            // the operator = instead of contains.
-            var comp_op = (type == "lemma" && window.currentMode != "swedish"
-                           ? " = " : " contains ");
-            var cqp = _.map(_.zip.apply(null, _.invoke(value, "split", " ")), function(tup) {
-                return "[" + _.map(_.uniq(tup), function(item) {
-                    return ("(" + type + comp_op + "'" + window.regescape(item)
-			    + "')")
-                }).join(" | ") + "]"
+            return html.join(" ")
 
-            }).join(" ")
-
-
-            output = $("<span class='link'>")
-                .attr("data-query", cqp)
-                .attr("data-corpora", JSON.stringify(corpora))
-                .append(html.join(" ")).outerHTML()
-
-            return appendDiagram(output, corpora, value);
-        };
-
-    // case "lemma":
-    //     return function(row, cell, value, columnDef, dataContext) {
-    //         var corpora = getCorpora(dataContext);
-    //         if(value == "&Sigma;") return appendDiagram(value, corpora, value);
-
-    //         stringify = function(lemma) {return lemma.replace("_", " "))}
-
-    //         output = $("<span class='link'>")
-    //             .attr("data-query", cqp)
-    //             .attr("data-corpora", JSON.stringify(corpora))
-    //             .append(html.join(" ")).outerHTML()
-
-    //         return appendDiagram(output, corpora, stringify(value));
-    case "deprel":
-        return function(row, cell, value, columnDef, dataContext) {
-            var corpora = getCorpora(dataContext);
-            if(value == "&Sigma;") return appendDiagram(value, corpora, value);
-            var query = $.map(dataContext.hit_value.split(" "), function(item) {
-                return $.format('[deprel="%s"]', window.regescape(item));
+        case "deprel":
+            var output =  _.map(values, function(token) {
+                return $("<span>")
+                .localeKey("deprel_" + token)
+                .outerHTML()
             }).join(" ");
-            output = $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ",
-                    [query, JSON.stringify(corpora),"deprel_" + value, util.getLocaleString("deprel_" + value)]);
-            return appendDiagram(output, corpora, value);
-
-        };
-    default: // structural attributes and non-standard positional attributes
-        return function(row, cell, value, columnDef, dataContext) {
-            var corpora = getCorpora(dataContext);
-            var cl = settings.corpusListing.subsetFactory(corpora);
-            var attrObj;
-            var query_format;
-            // Prefix the name of the attribute with an underscore in
-            // the CQP expression only for structural attributes.
-            if (type in cl.getStructAttrs()) {
-                attrObj = cl.getStructAttrs()[type];
-                query_format = '[_.%s="%s"]';
-            } else {
-                attrObj = cl.getCurrentAttributes()[type];
-                query_format = '[%s="%s"]';
-            }
-            var query = $.map(dataContext.hit_value.split(" "), function(item) {
-                return $.format(query_format, [type, window.regescape(item)]);
-            }).join(" ");
-
-            // if(type in cl.getStructAttrs())
-            // var attrObj = cl.getStructAttrs()[type]
-
+            return output;
+        default: // structural attributes
+	    // TODO (Jyrki Niemi 2015-12-03): Handle "non-standard"
+	    // positional attributes
+            var cl = settings.corpusListing.subsetFactory(corpora)
+            var attrObj = cl.getStructAttrs()[type]
             var prefix = ""
-            var relLocalize = ""
-            if(!_.isUndefined(attrObj) && value != "&Sigma;" && attrObj.translationKey ) {
+            if(!_.isUndefined(attrObj) && attrObj.translationKey )
                 prefix = attrObj.translationKey
-                relLocalize = " rel='localize[" + prefix + value + "]'"
-            }
-
-            output = $.format("<span class='link' data-query='%s' data-corpora='%s'%s>%s</span> ",
-                    [query, JSON.stringify(corpora), relLocalize,
-                     util.getLocaleString(prefix + value)]);
-            if(value == "&Sigma;") return appendDiagram(output, corpora, value);
-
-            return appendDiagram(output, corpora, value);
-        };
+            var mapped = _.map(values, function (value) {
+                return util.getLocaleString(prefix + value)
+            });
+            return mapped.join(" ");
     }
 
-    return output;
+};
+
+// Get the cqp (part of) expression for linking in the statistics table
+// input type [{type:?,value:? }]
+settings.reduce_cqp = function(type, tokens, ignoreCase) {
+
+    // TODO to restore the modifications made to Kielipankki's Korp
+    // (Jyrki Niemi 2015-12-03):
+    // - Escape all regex metacharacters.
+    // - Assume simple values (instead of feature set values) for
+    //   lemmas in other modes than "swedish" and thus use the
+    //   operator = instead of contains.
+    // - Handle "non-standard" positional attributes: prefix the name
+    //   of the attribute with an underscore in the CQP expression
+    //   only for structural attributes.
+
+    if(!tokens) {
+        return "";
+    }
+    switch(type) {
+        case "saldo":
+        case "prefix":
+        case "suffix":
+        case "lex":
+        case "lemma":
+            if(tokens[0] == "|")
+                return "ambiguity(" + type + ") = 0";
+            else
+                var res;
+                if(tokens.length > 1) {
+                    var key = tokens[0].split(":")[0];
+                    var variants = _.flatten(_.map(tokens, function(val) {
+                        return val.split(":")[1];
+                    }));
+                    res = key + ":" + "(" + variants.join("|") + ")";
+                }
+                else {
+                    res = tokens[0];
+                }
+                return type + " contains '" + res + "'";
+        case "word":
+            s = $.format('word="%s"', [tokens[0]]);
+            if(ignoreCase)
+                s = s + ' %c'
+            return s
+        case "pos":
+        case "deprel":
+        case "msd":
+            val = tokens[0].replace(/\+/g, "\\+");
+            return $.format('%s="%s"', [type, val]);
+        default: // structural attributes
+            return $.format('_.%s="%s"', [type, tokens[0]]);
+    }
 };
 
 
@@ -5748,9 +5752,6 @@ delete attrs;
 delete sattrs;
 delete context;
 delete ref;
-
-
-
 
 settings.posset = {
    type : "set",

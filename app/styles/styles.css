@@ -4873,7 +4873,7 @@ label[for=lemgram_select]:before {
 }
 
 /* line 1760, styles.scss */
-.msd {
+.msd_sidebar {
   font-size: 0.8em;
 }
 
@@ -5595,16 +5595,26 @@ line.tick {
 }
 
 /* line 2398, styles.scss */
+#myGrid .parameter-column {
+  background-color: #f2f7ff;
+}
+
+/* line 2402, styles.scss */
+#myGrid .slick-row:hover .parameter-column {
+  background-color: #e6ebff;
+}
+
+/* line 2406, styles.scss */
 .ui-widget-header {
   background: url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") repeat-x scroll 50% 50% #CCCCCC;
 }
 
-/* line 2401, styles.scss */
+/* line 2409, styles.scss */
 .ui-state-hover {
   background: #e6e6e6 url(images/ui-bg_glass_75_dadada_1x400.png) 50% 50% repeat-x;
 }
 
-/* line 2404, styles.scss */
+/* line 2412, styles.scss */
 .nav.nav-tabs {
   background: url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") repeat-x scroll 50% 50% #CCCCCC;
   border: 1px solid #AAAAAA;
@@ -5612,42 +5622,42 @@ line.tick {
   color: #222222;
   padding-top: 0.2em;
 }
-/* line 2412, styles.scss */
+/* line 2420, styles.scss */
 .nav.nav-tabs li {
   cursor: pointer;
   margin-right: 0.2em;
 }
-/* line 2416, styles.scss */
+/* line 2424, styles.scss */
 .nav.nav-tabs .badge {
   margin-left: 1em;
 }
 
-/* line 2425, styles.scss */
+/* line 2433, styles.scss */
 .tabbable {
   border: 1px solid #AAAAAA;
   border-radius: 2px 2px 2px 2px;
   color: #222222;
   padding: 3px;
 }
-/* line 2430, styles.scss */
+/* line 2438, styles.scss */
 .tabbable .single {
   margin-right: 1em;
 }
-/* line 2433, styles.scss */
+/* line 2441, styles.scss */
 .tabbable .tab-content {
   padding: 1em;
 }
-/* line 2436, styles.scss */
+/* line 2444, styles.scss */
 .tabbable .close_icon {
   cursor: pointer;
   padding-left: 5px;
 }
-/* line 2440, styles.scss */
+/* line 2448, styles.scss */
 .tabbable .nav.nav-tabs {
   margin: 0;
   padding-left: 0;
 }
-/* line 2443, styles.scss */
+/* line 2451, styles.scss */
 .tabbable .nav.nav-tabs li {
   background: url("images/ui-bg_glass_75_e6e6e6_1x400.png") repeat-x scroll 50% 50% #E6E6E6;
   border: 1px solid #D3D3D3;
@@ -5655,11 +5665,11 @@ line.tick {
   font-weight: normal;
   margin-bottom: -1px;
 }
-/* line 2449, styles.scss */
+/* line 2457, styles.scss */
 .tabbable .nav.nav-tabs li:first-child {
   margin-left: 0.5em;
 }
-/* line 2452, styles.scss */
+/* line 2460, styles.scss */
 .tabbable .nav.nav-tabs li a {
   padding-bottom: 0.3em !important;
   padding-top: 0.3em !important;
@@ -5667,39 +5677,39 @@ line.tick {
   color: #555555;
   margin-bottom: -1px;
 }
-/* line 2459, styles.scss */
+/* line 2467, styles.scss */
 .tabbable .nav.nav-tabs li.active {
   border-bottom-color: transparent;
 }
 
-/* line 2466, styles.scss */
+/* line 2474, styles.scss */
 .search_tabs.tabbable {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-/* line 2471, styles.scss */
+/* line 2479, styles.scss */
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover {
   border-radius: 0;
   border-color: transparent;
 }
 
-/* line 2476, styles.scss */
+/* line 2484, styles.scss */
 .nav-tabs > li > a, .nav-pills > li > a {
   margin-right: 0;
 }
 
-/* line 2482, styles.scss */
+/* line 2490, styles.scss */
 .modal-header_left {
   display: none;
 }
 
-/* line 2487, styles.scss */
+/* line 2495, styles.scss */
 .compare_result.loading {
   visibility: hidden;
 }
-/* line 2490, styles.scss */
+/* line 2498, styles.scss */
 .compare_result .column {
   display: inline-block;
   vertical-align: top;
@@ -5707,7 +5717,7 @@ line.tick {
   *zoom: 1;
   *display: inline;
 }
-/* line 2493, styles.scss */
+/* line 2501, styles.scss */
 .compare_result .meter {
   cursor: pointer;
   position: relative;
@@ -5717,111 +5727,111 @@ line.tick {
   -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
 }
-/* line 2498, styles.scss */
+/* line 2506, styles.scss */
 .compare_result .meter:hover {
   color: navy;
   border: 1px solid #aac8ff;
 }
-/* line 2503, styles.scss */
+/* line 2511, styles.scss */
 .compare_result .badge {
   position: absolute;
   right: 0;
   top: 4px;
 }
-/* line 2508, styles.scss */
+/* line 2516, styles.scss */
 .compare_result .background {
   padding: 5px 0;
 }
-/* line 2512, styles.scss */
+/* line 2520, styles.scss */
 .compare_result .column_1 ul {
   background-color: #f1f6ff;
   border: 1px solid #dde9ff;
 }
-/* line 2515, styles.scss */
+/* line 2523, styles.scss */
 .compare_result .column_1 ul .background {
   background-color: #dde9ff;
 }
-/* line 2519, styles.scss */
+/* line 2527, styles.scss */
 .compare_result .column_2 ul {
   background-color: #fff9ec;
   border: 1px solid #FFF3D8;
 }
-/* line 2522, styles.scss */
+/* line 2530, styles.scss */
 .compare_result .column_2 ul .background {
   background-color: #FFF3D8;
 }
-/* line 2526, styles.scss */
+/* line 2534, styles.scss */
 .compare_result ul {
   padding: 2px;
   margin-right: 2em;
   width: 400px;
   font-size: 1.1em;
 }
-/* line 2533, styles.scss */
+/* line 2541, styles.scss */
 .compare_result ul li {
   margin-bottom: 0.5em;
   white-space: nowrap;
 }
 
-/* line 2548, styles.scss */
+/* line 2556, styles.scss */
 .popover {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
-/* line 2550, styles.scss */
+/* line 2558, styles.scss */
 .popover .popover-content {
   padding: 5px;
 }
-/* line 2553, styles.scss */
+/* line 2561, styles.scss */
 .popover .btn_container {
   margin-top: 1em;
   text-align: right;
 }
 
-/* line 2559, styles.scss */
+/* line 2567, styles.scss */
 .tab_preloaders {
   display: inline-block;
 }
-/* line 2561, styles.scss */
+/* line 2569, styles.scss */
 .tab_preloaders .preloader_spinner {
   width: 9px;
   display: inline;
 }
 
-/* line 2570, styles.scss */
+/* line 2578, styles.scss */
 .close_icon {
   display: inline;
 }
 
-/* line 2573, styles.scss */
+/* line 2581, styles.scss */
 .tab_spinner {
   display: none;
   width: 13px;
 }
 
-/* line 2577, styles.scss */
+/* line 2585, styles.scss */
 .loading .tab_spinner {
   display: inline-block;
 }
 
-/* line 2580, styles.scss */
+/* line 2588, styles.scss */
 .loading .close_icon {
   display: none;
 }
 
-/* line 2585, styles.scss */
+/* line 2593, styles.scss */
 .badge {
   padding-right: 6px;
   padding-left: 6px;
 }
 
-/* line 2590, styles.scss */
+/* line 2598, styles.scss */
 .popper_menu {
   width: 130px;
 }
 
-/* line 2594, styles.scss */
+/* line 2602, styles.scss */
 .tab-content {
   overflow: hidden;
 }
@@ -5829,49 +5839,49 @@ line.tick {
 /* Side notes for calling out things
 -------------------------------------------------- */
 /* Base styles (regardless of theme) */
-/* line 2606, styles.scss */
+/* line 2614, styles.scss */
 .bs-callout {
   margin: 20px 0;
   padding: 15px 30px 15px 15px;
   border-left: 5px solid #eee;
 }
 
-/* line 2611, styles.scss */
+/* line 2619, styles.scss */
 .bs-callout h4 {
   margin-top: 0;
 }
 
-/* line 2614, styles.scss */
+/* line 2622, styles.scss */
 .bs-callout p:last-child {
   margin-bottom: 0;
 }
 
-/* line 2617, styles.scss */
+/* line 2625, styles.scss */
 .bs-callout code,
 .bs-callout .highlight {
   background-color: #fff;
 }
 
 /* Themes for different contexts */
-/* line 2623, styles.scss */
+/* line 2631, styles.scss */
 .bs-callout-danger {
   background-color: #fcf2f2;
   border-color: #dFb5b4;
 }
 
-/* line 2627, styles.scss */
+/* line 2635, styles.scss */
 .bs-callout-warning {
   background-color: #fefbed;
   border-color: #f1e7bc;
 }
 
-/* line 2631, styles.scss */
+/* line 2639, styles.scss */
 .bs-callout-info {
   background-color: #f0f7fd;
   border-color: #d0e3f0;
 }
 
-/* line 2636, styles.scss */
+/* line 2644, styles.scss */
 .dropdown-menu {
   border-radius: 2px;
   max-height: 575px;
@@ -5879,19 +5889,19 @@ line.tick {
 }
 
 /* ----------- Newsdesk ----------- */
-/* line 2644, styles.scss */
+/* line 2652, styles.scss */
 #news_area {
   float: right;
   margin-right: 4px;
 }
 
-/* line 2648, styles.scss */
+/* line 2656, styles.scss */
 .newsdesk-new-news {
   font-weight: bold;
   color: #428bca;
 }
 
-/* line 2652, styles.scss */
+/* line 2660, styles.scss */
 .newsdesk-new-news div {
   background-color: red;
   color: red;
@@ -5899,7 +5909,7 @@ line.tick {
   background: #ff0000;
 }
 
-/* line 2658, styles.scss */
+/* line 2666, styles.scss */
 .newsdesk-new-news div:after {
   right: 100%;
   top: 50%;
@@ -5915,43 +5925,43 @@ line.tick {
   margin-top: -4px;
 }
 
-/* line 2672, styles.scss */
+/* line 2680, styles.scss */
 .newsdesk-no-new-news {
   font-weight: normal;
   color: #ddd;
 }
 
-/* line 2676, styles.scss */
+/* line 2684, styles.scss */
 .newsdesk-no-new-news div {
   background-color: #ddd;
 }
 
-/* line 2679, styles.scss */
+/* line 2687, styles.scss */
 .newsdesk-new-news-item {
   background-color: #ffeeee;
   border-radius: 5px;
 }
 
-/* line 2683, styles.scss */
+/* line 2691, styles.scss */
 .newsdesk-new-news-item h4 {
   color: red;
 }
 
-/* line 2686, styles.scss */
+/* line 2694, styles.scss */
 .newsdesk-popover {
   width: 440px;
   max-height: 95%;
   overflow-y: auto;
 }
 
-/* line 2691, styles.scss */
+/* line 2699, styles.scss */
 .newsdesk-bell {
   float: left;
   margin-top: 4px;
   margin-right: 3px;
 }
 
-/* line 2696, styles.scss */
+/* line 2704, styles.scss */
 .newsdesk-arrow-box {
   float: left;
   padding-left: 4px;
@@ -5959,51 +5969,51 @@ line.tick {
   border-radius: 3px;
 }
 
-/* line 2702, styles.scss */
+/* line 2710, styles.scss */
 .newsdesk-arrow-box span {
   color: #fff;
 }
 
-/* line 2705, styles.scss */
+/* line 2713, styles.scss */
 .newsdesk-news-item {
   padding-left: 4px;
   margin-bottom: 4px;
 }
 
-/* line 2709, styles.scss */
+/* line 2717, styles.scss */
 .newsdesk-opener {
   cursor: pointer;
 }
 
-/* line 2712, styles.scss */
+/* line 2720, styles.scss */
 .newsdesk-around-items {
   margin: 10px;
 }
 
-/* line 2715, styles.scss */
+/* line 2723, styles.scss */
 .newsdesk-item-date {
   font-style: italic;
   color: gray;
 }
 
 /* ----------- Autocompletion ----------- */
-/* line 2722, styles.scss */
+/* line 2730, styles.scss */
 .none-to-find {
   color: #aaa;
 }
 
-/* line 2725, styles.scss */
+/* line 2733, styles.scss */
 .num-to-find {
   visibility: hidden;
   font-size: x-small;
 }
 
-/* line 2729, styles.scss */
+/* line 2737, styles.scss */
 li.active a span .num-to-find {
   visibility: visible;
 }
 
-/* line 2732, styles.scss */
+/* line 2740, styles.scss */
 .autoc-spinner {
   margin-left: -20px;
   margin-top: 2px;
@@ -6011,12 +6021,12 @@ li.active a span .num-to-find {
 }
 
 /* Map */
-/* line 2738, styles.scss */
+/* line 2746, styles.scss */
 .name_map {
   max-width: 1000px;
 }
 
-/* line 2742, styles.scss */
+/* line 2750, styles.scss */
 .leaflet-control-layers-toggle {
   background-image: url(../components/leaflet/dist/images/layers.png);
 }

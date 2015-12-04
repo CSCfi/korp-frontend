@@ -208,6 +208,7 @@
       }
       if (data.cqp) {
         data.cqp = this.expandCQP(data.cqp);
+        data.cqp = data.cqp.replace(/\+/g, "\\+");
       }
       this.prevCQP = data.cqp;
       data.show = (_.uniq(["sentence"].concat(data.show))).join(",");
@@ -386,6 +387,17 @@
       });
     };
 
+    LemgramProxy.prototype.lemgramSearch = function(lemgram, searchPrefix, searchSuffix) {
+      return $.format("[(lex contains \"%s\")%s%s]", [lemgram, this.buildAffixQuery(searchPrefix, "prefix", lemgram), this.buildAffixQuery(searchSuffix, "suffix", lemgram)]);
+    };
+
+    LemgramProxy.prototype.buildAffixQuery = function(isValid, key, value) {
+      if (!isValid) {
+        return "";
+      }
+      return $.format("| (%s contains \"%s\")", [key, value]);
+    };
+
     return LemgramProxy;
 
   })(BaseProxy);
@@ -401,26 +413,42 @@
       this.page_incr = 25;
     }
 
-    StatsProxy.prototype.processData = function(def, data, reduceval) {
-      var columns, dataset, groups, minWidth, sizeOfDataset, statsWorker, wordArray;
+    StatsProxy.prototype.processData = function(def, data, reduceVals, reduceValLabels, ignoreCase) {
+      var columns, corpus, corpusData, dataset, groups, j, len, minWidth, newAbsolute, newRelative, reduceVal, reduceValLabel, ref, ref1, ref2, sizeOfDataset, statsWorker, summarizedData, wordArray;
       minWidth = 100;
-      columns = [
-        {
-          id: "hit",
-          name: "stats_hit",
+      columns = [];
+      ref = _.zip(reduceVals, reduceValLabels);
+      for (j = 0, len = ref.length; j < len; j++) {
+        ref1 = ref[j], reduceVal = ref1[0], reduceValLabel = ref1[1];
+        columns.push({
+          id: reduceVal,
+          name: reduceValLabel,
           field: "hit_value",
           sortable: true,
-          formatter: settings.reduce_stringify(reduceval),
-          minWidth: minWidth
-        }, {
-          id: "total",
-          name: "stats_total",
-          field: "total_value",
-          sortable: true,
-          formatter: this.valueFormatter,
-          minWidth: minWidth
-        }
-      ];
+          formatter: settings.reduce_statistics(reduceVals, ignoreCase),
+          minWidth: minWidth,
+          cssClass: "parameter-column",
+          headerCssClass: "localized-header"
+        });
+      }
+      columns.push({
+        id: "pieChart",
+        name: "",
+        field: "hit_value",
+        sortable: false,
+        formatter: settings.reduce_statistics_pie_chart,
+        maxWidth: 25,
+        minWidth: 25
+      });
+      columns.push({
+        id: "total",
+        name: "stats_total",
+        field: "total_value",
+        sortable: true,
+        formatter: this.valueFormatter,
+        minWidth: minWidth,
+        headerCssClass: "localized-header"
+      });
       $.each(_.keys(data.corpora).sort(), (function(_this) {
         return function(i, corpus) {
           return columns.push({
@@ -433,20 +461,40 @@
           });
         };
       })(this));
-      wordArray = _.keys(data.total.absolute);
-      if (reduceval === "lex" || reduceval === "saldo" || reduceval === "baseform") {
-        groups = _.groupBy(wordArray, function(item) {
-          return item.replace(/:\d+/g, "");
-        });
-        wordArray = _.keys(groups);
-      }
+      groups = _.groupBy(_.keys(data.total.absolute), function(item) {
+        return item.replace(/:\d+/g, "");
+      });
+      wordArray = _.keys(groups);
       sizeOfDataset = wordArray.length;
       dataset = new Array(sizeOfDataset + 1);
+      summarizedData = {};
+      ref2 = data.corpora;
+      for (corpus in ref2) {
+        corpusData = ref2[corpus];
+        newAbsolute = _.reduce(corpusData.absolute, (function(result, value, key) {
+          var currentValue, newKey;
+          newKey = key.replace(/:\d+/g, "");
+          currentValue = result[newKey] || 0;
+          result[newKey] = currentValue + value;
+          return result;
+        }), {});
+        newRelative = _.reduce(corpusData.relative, (function(result, value, key) {
+          var currentValue, newKey;
+          newKey = key.replace(/:\d+/g, "");
+          currentValue = result[newKey] || 0;
+          result[newKey] = currentValue + value;
+          return result;
+        }), {});
+        summarizedData[corpus] = {
+          absolute: newAbsolute,
+          relative: newRelative
+        };
+      }
       statsWorker = new Worker("scripts/statistics_worker.js");
       statsWorker.onmessage = function(e) {
         c.log("Called back by the worker!\n");
         c.log(e);
-        return def.resolve([data, wordArray, columns, e.data]);
+        return def.resolve([data, wordArray, columns, e.data, summarizedData]);
       };
       return statsWorker.postMessage({
         "total": data.total,
@@ -461,11 +509,11 @@
       });
     };
 
-    StatsProxy.prototype.makeParameters = function(reduceval, cqp) {
+    StatsProxy.prototype.makeParameters = function(reduceVals, cqp) {
       var parameters;
       parameters = {
         command: "count",
-        groupby: reduceval,
+        groupby: reduceVals.join(','),
         cqp: this.expandCQP(cqp),
         corpus: settings.corpusListing.stringifySelected(true),
         incremental: $.support.ajaxProgress
@@ -475,18 +523,32 @@
     };
 
     StatsProxy.prototype.makeRequest = function(cqp, callback) {
-      var data, def, reduceval, ref, self;
+      var data, def, ignoreCase, reduceValLabels, reduceVals, reduceval, self;
       self = this;
       StatsProxy.__super__.makeRequest.call(this);
       reduceval = search().stats_reduce || "word";
+      ignoreCase = false;
       if (reduceval === "word_insensitive") {
+        ignoreCase = true;
         reduceval = "word";
       }
-      data = this.makeParameters(reduceval, cqp);
-      if (((ref = settings.corpusListing.getCurrentAttributes()[reduceval]) != null ? ref.type : void 0) === "set") {
-        data.split = reduceval;
-      }
-      if ($("#reduceSelect select").val() === "word_insensitive") {
+      reduceVals = reduceval.split(",");
+      reduceValLabels = _.map(reduceVals, function(reduceVal) {
+        if (reduceVal === "word") {
+          return "word";
+        }
+        if (settings.corpusListing.getCurrentAttributes()[reduceVal]) {
+          return settings.corpusListing.getCurrentAttributes()[reduceVal].label;
+        } else {
+          return settings.corpusListing.getStructAttrs()[reduceVal].label;
+        }
+      });
+      data = this.makeParameters(reduceVals, cqp);
+      data.split = _.filter(reduceVals, function(reduceVal) {
+        var ref;
+        return ((ref = settings.corpusListing.getCurrentAttributes()[reduceVal]) != null ? ref.type : void 0) === "set";
+      }).join(',');
+      if (ignoreCase) {
         $.extend(data, {
           ignore_case: "word"
         });
@@ -517,14 +579,12 @@
         },
         success: (function(_this) {
           return function(data) {
-            var wordArray;
             if (data.ERROR != null) {
               c.log("gettings stats failed with error", data.ERROR);
               def.reject(data);
               return;
             }
-            _this.processData(def, data, reduceval);
-            return wordArray = _.keys(data.total.absolute);
+            return _this.processData(def, data, reduceVals, reduceValLabels, ignoreCase);
           };
         })(this)
       }));
@@ -548,7 +608,7 @@
 
     NameProxy.prototype.makeParameters = function(reduceVal, cqp) {
       var parameters;
-      parameters = NameProxy.__super__.makeParameters.call(this, "word", cqp);
+      parameters = NameProxy.__super__.makeParameters.call(this, ["word"], cqp);
       parameters.cqp2 = "[pos='PM']";
       return parameters;
     };

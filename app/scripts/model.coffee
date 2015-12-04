@@ -161,6 +161,9 @@ class model.KWICProxy extends BaseProxy
 
         if data.cqp
             data.cqp = @expandCQP(data.cqp)
+            # escape +
+            data.cqp = data.cqp.replace /\+/g, "\\+"
+
         @prevCQP = data.cqp
         data.show = (_.uniq ["sentence"].concat(data.show)).join(",")
         c.log "data.show", data.show
@@ -325,6 +328,13 @@ class model.LemgramProxy extends BaseProxy
                 self.addAuthorizationHeader req
 
             method: "POST"
+            
+    lemgramSearch: (lemgram, searchPrefix, searchSuffix) ->
+        return $.format("[(lex contains \"%s\")%s%s]", [lemgram, @buildAffixQuery(searchPrefix, "prefix", lemgram), @buildAffixQuery(searchSuffix, "suffix", lemgram)])
+        
+    buildAffixQuery: (isValid, key, value) ->
+        return "" unless isValid
+        $.format "| (%s contains \"%s\")", [key, value]
 
 
 class model.StatsProxy extends BaseProxy
@@ -335,23 +345,40 @@ class model.StatsProxy extends BaseProxy
         @currentPage = 0
         @page_incr = 25
 
-    processData: (def, data, reduceval) ->
+    processData: (def, data, reduceVals, reduceValLabels, ignoreCase) ->
         minWidth = 100
-        columns = [
-            id: "hit"
-            name: "stats_hit"
+
+        columns = []
+
+        for [reduceVal, reduceValLabel] in _.zip reduceVals, reduceValLabels
+            columns.push
+                id: reduceVal
+                name: reduceValLabel
+                field: "hit_value"
+                sortable: true
+                formatter: settings.reduce_statistics reduceVals, ignoreCase 
+                minWidth: minWidth
+                cssClass: "parameter-column"
+                headerCssClass: "localized-header"
+
+        columns.push
+            id: "pieChart"
+            name: ""
             field: "hit_value"
-            sortable: true
-            formatter: settings.reduce_stringify(reduceval)
-            minWidth : minWidth
-        ,
+            sortable: false
+            formatter: settings.reduce_statistics_pie_chart
+            maxWidth: 25
+            minWidth: 25
+            
+        columns.push  
             id: "total"
             name: "stats_total"
             field: "total_value"
             sortable: true
             formatter: @valueFormatter
             minWidth : minWidth
-        ]
+            headerCssClass: "localized-header"
+        
         $.each _.keys(data.corpora).sort(), (i, corpus) =>
             columns.push
                 id: corpus
@@ -361,23 +388,35 @@ class model.StatsProxy extends BaseProxy
                 formatter: @valueFormatter
                 minWidth : minWidth
 
-        
+        groups = _.groupBy _.keys(data.total.absolute), (item) ->
+            item.replace(/:\d+/g, "")
 
-        wordArray = _.keys(data.total.absolute)
-        if reduceval in ["lex", "saldo", "baseform"]
-            groups = _.groupBy wordArray, (item) ->
-                item.replace(/:\d+/g, "")
-
-            wordArray = _.keys groups
+        wordArray = _.keys groups
 
         sizeOfDataset = wordArray.length
         dataset = new Array(sizeOfDataset + 1)
+
+        summarizedData = {}
+        for corpus, corpusData of data.corpora
+            newAbsolute = _.reduce corpusData.absolute, ((result, value, key) ->
+                    newKey = key.replace(/:\d+/g, "")
+                    currentValue = result[newKey] or 0
+                    result[newKey] = currentValue + value
+                    return result;
+                ), {}
+            newRelative = _.reduce corpusData.relative, ((result, value, key) ->
+                    newKey = key.replace(/:\d+/g, "")
+                    currentValue = result[newKey] or 0
+                    result[newKey] = currentValue + value
+                    return result;
+                ), {}
+            summarizedData[corpus] = { absolute: newAbsolute, relative: newRelative }
         
         statsWorker = new Worker "scripts/statistics_worker.js"
         statsWorker.onmessage = (e) ->
             c.log "Called back by the worker!\n"
             c.log e
-            def.resolve [data, wordArray, columns, e.data]
+            def.resolve [data, wordArray, columns, e.data, summarizedData]
 
         statsWorker.postMessage {
             "total" : data.total
@@ -391,10 +430,10 @@ class model.StatsProxy extends BaseProxy
             }[$("body").scope().lang]
         }
 
-    makeParameters: (reduceval, cqp) ->
+    makeParameters: (reduceVals, cqp) ->
         parameters = 
             command: "count"
-            groupby: reduceval
+            groupby: reduceVals.join ','
             cqp: @expandCQP cqp
             corpus: settings.corpusListing.stringifySelected(true)
             incremental: $.support.ajaxProgress
@@ -405,14 +444,26 @@ class model.StatsProxy extends BaseProxy
         self = this
         super()
         reduceval = search().stats_reduce or "word"
-        reduceval = "word" if reduceval is "word_insensitive"
+        ignoreCase = false
+        if reduceval is "word_insensitive"
+            ignoreCase = true
+            reduceval = "word" 
+        
+        ## todo: now supports multipe reduce parameters to backend 
+        reduceVals = reduceval.split ","
+        reduceValLabels = _.map reduceVals, (reduceVal) ->
+            return "word" if reduceVal == "word"
+            if settings.corpusListing.getCurrentAttributes()[reduceVal]
+                return settings.corpusListing.getCurrentAttributes()[reduceVal].label
+            else
+                return settings.corpusListing.getStructAttrs()[reduceVal].label
 
-        data = @makeParameters(reduceval, cqp)
+        data = @makeParameters(reduceVals, cqp)
 
-        if settings.corpusListing.getCurrentAttributes()[reduceval]?.type == "set"
-            data.split = reduceval
+        data.split = _.filter(reduceVals, (reduceVal) -> 
+            settings.corpusListing.getCurrentAttributes()[reduceVal]?.type == "set").join(',')
 
-        if $("#reduceSelect select").val() is "word_insensitive"
+        if ignoreCase
             $.extend data,
                 ignore_case: "word"
 
@@ -442,14 +493,7 @@ class model.StatsProxy extends BaseProxy
                     c.log "gettings stats failed with error", data.ERROR
                     def.reject(data)
                     return
-                @processData(def, data, reduceval)
-                
-                # $.each data.corpora, (corpus, obj) ->
-                    # totalRow[corpus + "_value"] = obj.sums
-
-                wordArray = _.keys(data.total.absolute)
-
-                # dataset = [totalRow]
+                @processData(def, data, reduceVals, reduceValLabels, ignoreCase)
 
         return def.promise()
 
@@ -462,7 +506,7 @@ class model.NameProxy extends model.StatsProxy
         
     makeParameters: (reduceVal, cqp) ->
         # ignore reduceVal, map only works for word
-        parameters = super("word", cqp)
+        parameters = super(["word"], cqp)
         parameters.cqp2 = "[pos='PM']"
         return parameters
     

@@ -1757,7 +1757,7 @@ label[for=lemgram_select]:before {
   display: none !important;
 }
 
-.msd {
+.msd_sidebar {
   font-size: 0.8em;
 }
 
@@ -2393,6 +2393,14 @@ line.tick {
 }
 .loading .exportStatsSection {
   display : none;
+}
+
+#myGrid .parameter-column {
+  background-color: rgb(242, 247, 255);
+}
+
+#myGrid .slick-row:hover .parameter-column {
+  background-color: rgb(230, 235, 255);
 }
 
 .ui-widget-header {

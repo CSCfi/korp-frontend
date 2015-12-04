@@ -222,7 +222,7 @@
         return output.append("<a href='" + url + "' class='exturl sidebar_url'" + target + ">" + link_text + "</a>");
       } else if (key === "msd" && attrs.taginfo_url !== "") {
         taginfo_url = attrs.taginfo_url || "markup/msdtags.html";
-        return output.append("<span class='msd'>" + str_value + "</span>\n    <a href='" + taginfo_url + "' target='_blank'>\n        <span id='sidbar_info' class='ui-icon ui-icon-info'></span>\n    </a>\n</span>");
+        return output.append("<span class='msd_sidebar'>" + str_value + "</span>\n    <a href='" + taginfo_url + "' target='_blank'>\n        <span id='sidbar_info' class='ui-icon ui-icon-info'></span>\n    </a>\n</span>");
       } else if (attrs.pattern) {
         return output.append(_.template(attrs.pattern, {
           key: key,
@@ -260,25 +260,6 @@
         }
         return results;
       });
-    },
-    _parseLemma: function(attr, tmplVal) {
-      var seq;
-      seq = [];
-      if (attr != null) {
-        seq = $.map(attr.split("|"), function(item) {
-          var lemma;
-          lemma = item.split(":")[0];
-          if (tmplVal.pattern) {
-            return $.format(tmplVal.pattern, [lemma, lemma]);
-          } else {
-            return lemma;
-          }
-        });
-      }
-      seq = $.grep(seq, function(itm) {
-        return itm && itm.length;
-      });
-      return $.arrayToHTMLList(seq).outerHTML();
     },
     refreshContent: function(mode) {
       if (mode === "lemgramWarning") {
@@ -343,29 +324,6 @@
     },
     getSelected: function() {
       return this.element.find(".radioList_selected");
-    }
-  });
-
-  $.extend($.ui.autocomplete.prototype, {
-    _renderItem: function(ul, item) {
-      var li;
-      li = $("<li></li>").data("ui-autocomplete-item", item).append($("<a></a>")[(this.options.html ? "html" : "text")](item.label)).appendTo(ul);
-      if (!item["enabled"]) {
-        li.addClass("autocomplete-item-disabled");
-      }
-      return li;
-    },
-    _renderMenu: function(ul, items) {
-      var currentCategory, that;
-      that = this;
-      currentCategory = "";
-      return $.each(items, function(index, item) {
-        if (item.category && item.category !== currentCategory) {
-          ul.append($("<li class='ui-autocomplete-category'></li>").localeKey(item.category));
-          currentCategory = item.category;
-        }
-        return that._renderItem(ul, item);
-      });
     }
   });
 

@@ -182,50 +182,6 @@ korpApp.directive "tokenValue", ($compile, $controller) ->
             tmplElem = $compile(valueObj.extended_template or defaultTmpl)(childScope)
             elem.html(tmplElem).addClass("arg_value")
 
-
-#korpApp.directive "korpAutocomplete", () ->
-#    scope : 
-#        model : "="
-#        stringify : "="
-#        sorter : "="
-#        type : "@"
-#    link : (scope, elem, attr) ->
-#        
-#        setVal = (lemgram) ->
-#            $(elem).attr("placeholder", scope.stringify(lemgram, true).replace(/<\/?[^>]+>/g, ""))
-#                .val("").blur()
-#        if scope.model
-#            setVal(scope.model)
-#        arg_value = elem.korp_autocomplete(
-#            labelFunction: scope.stringify
-#            sortFunction: scope.sorter
-#            type: scope.type
-#            select: (lemgram) ->
-#                # $(this).data "value", (if data.label is "baseform" then lemgram.split(".")[0] else lemgram)
-#                setVal(lemgram)
-#                scope.$apply () ->
-#                    if scope.type == "baseform"
-#                        scope.model = lemgram.split(".")[0]
-#                    else 
-#                        scope.model = lemgram
-#
-#            "sw-forms": true
-#        )
-#        .blur(->
-#            input = this
-#            setTimeout (->
-#
-#                if ($(input).val().length and not util.isLemgramId($(input).val())) or $(input).data("value") is null
-#                    $(input).addClass("invalid_input").attr("placeholder", null).data("value", null)
-#                else
-#                    $(input).removeClass("invalid_input")
-#                # self._trigger "change"
-#            ), 100
-#        )
-
-
-
-
 korpApp.directive "constr", ($window, searches) ->
     scope : true
 
@@ -334,7 +290,7 @@ korpApp.directive "meter", () ->
     template: '''
         <div>
             <div class="background" ng-bind-html="displayWd | trust"></div>
-            <div class="abs badge" tooltip-html-unsafe="{{tooltipHTML}}">{{meter[2]}}</div>
+            <div class="abs badge" tooltip-html-unsafe="{{tooltipHTML}}">{{meter.abs}}</div>
         </div>
     '''
     replace: true
@@ -343,20 +299,19 @@ korpApp.directive "meter", () ->
         max : "="
         stringify : "="
     link : (scope, elem, attr) ->
-        wds = scope.meter[0]
 
-        bkg = elem.find(".background")
-        # bkg.html (_.map (_.compact wds.split("|")), scope.stringify).join(", ")
-        if wds == "|"
-            scope.displayWd = "&mdash;"
-        else
-            scope.displayWd = (_.map (_.compact wds.split("|")), scope.stringify).join(", ")
-        
-        scope.loglike = Math.abs scope.meter[1]
+        zipped = _.zip scope.meter.tokenLists, scope.stringify
+        scope.displayWd = (_.map zipped, ([tokens, stringify]) ->
+            (_.map tokens, (token) ->
+                if token == "|"
+                    return "&mdash;"
+                else
+                    return stringify(token)).join " ").join ";"
 
+        scope.loglike = Math.abs scope.meter.loglike
 
         scope.tooltipHTML = """
-            #{util.getLocaleString('statstable_absfreq')}: #{scope.meter[2]}
+            #{util.getLocaleString('statstable_absfreq')}: #{scope.meter.abs}
             <br>
             loglike: #{scope.loglike}
         """
@@ -364,6 +319,7 @@ korpApp.directive "meter", () ->
         w = elem.parent().width()
         part = ((scope.loglike) / (Math.abs scope.max))
 
+        bkg = elem.find(".background")
         bkg.width Math.round (part * w)
 
 

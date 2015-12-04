@@ -7,11 +7,25 @@ exports.config = {
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
     'browserName': 'chrome',
-    'chromeOptions': {'args': ['--disable-extensions']}
+    'chromeOptions': {
+        'args': ['--disable-extensions'],
+        prefs: {
+            download: {
+                prompt_for_download: false, 
+                directory_upgrade: true,
+                default_directory: 'test/e2e/bin'
+            }
+        }
+    }
   },
 
   // Spec patterns are relative to the current working directly when protractor is called.
-  specs: ['bin/misc.js','bin/map.js', 'bin/autocomplete.js'],
+  specs: ['bin/misc.js',
+          'bin/map.js',
+          'bin/autocomplete.js',
+          'bin/statistics.js',
+          'bin/compare.js',
+          'bin/statistics_export.js'],
 
   // Options to be passed to Jasmine-node.
   jasmineNodeOpts: {
