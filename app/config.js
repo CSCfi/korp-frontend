@@ -5608,6 +5608,9 @@ settings.reduce_statistics = function(types, ignoreCase) {
 
         var totalQuery = []
 
+        var structAttrs =
+	    settings.corpusListing.subsetFactory(corpora).getStructAttrs();
+
         // create one query part for each token
         for(var tokenIdx = 0; tokenIdx < tokenLists[0][0].length; tokenIdx++) {
 
@@ -5618,7 +5621,9 @@ settings.reduce_statistics = function(types, ignoreCase) {
                 var elems = _.map(tokenLists, function(tokenList) {
                     return tokenList[typeIdx][tokenIdx];
                 });
-                andParts.push(settings.reduce_cqp(type, _.unique(elems), ignoreCase));
+                andParts.push(settings.reduce_cqp(
+                    type, _.unique(elems), ignoreCase,
+                    ! (type in structAttrs)));
             }
             totalQuery.push("[" + andParts.join(" & ") + "]");
         }
@@ -5678,11 +5683,17 @@ settings.reduce_stringify = function(type, values, corpora) {
                 .outerHTML()
             }).join(" ");
             return output;
-        default: // structural attributes
-	    // TODO (Jyrki Niemi 2015-12-03): Handle "non-standard"
-	    // positional attributes
+        default: // structural and "non-standard" positional attributes
             var cl = settings.corpusListing.subsetFactory(corpora)
-            var attrObj = cl.getStructAttrs()[type]
+            var attrObj;
+            var structAttrs = cl.getStructAttrs();
+            // Also handle "non-standard" positional attributes (Jyrki
+            // Niemi 2015-12-04)
+            if (type in structAttrs) {
+                attrObj = structAttrs[type];
+            } else {
+                attrObj = cl.getCurrentAttributes()[type];
+            }
             var prefix = ""
             if(!_.isUndefined(attrObj) && attrObj.translationKey )
                 prefix = attrObj.translationKey
@@ -5696,17 +5707,7 @@ settings.reduce_stringify = function(type, values, corpora) {
 
 // Get the cqp (part of) expression for linking in the statistics table
 // input type [{type:?,value:? }]
-settings.reduce_cqp = function(type, tokens, ignoreCase) {
-
-    // TODO to restore the modifications made to Kielipankki's Korp
-    // (Jyrki Niemi 2015-12-03):
-    // - Escape all regex metacharacters.
-    // - Assume simple values (instead of feature set values) for
-    //   lemmas in other modes than "swedish" and thus use the
-    //   operator = instead of contains.
-    // - Handle "non-standard" positional attributes: prefix the name
-    //   of the attribute with an underscore in the CQP expression
-    //   only for structural attributes.
+settings.reduce_cqp = function(type, tokens, ignoreCase, isPosAttr) {
 
     if(!tokens) {
         return "";
@@ -5724,26 +5725,38 @@ settings.reduce_cqp = function(type, tokens, ignoreCase) {
                 if(tokens.length > 1) {
                     var key = tokens[0].split(":")[0];
                     var variants = _.flatten(_.map(tokens, function(val) {
-                        return val.split(":")[1];
+                        return window.regescape(val.split(":")[1]);
                     }));
                     res = key + ":" + "(" + variants.join("|") + ")";
                 }
                 else {
-                    res = tokens[0];
+                    res = window.regescape(tokens[0]);
                 }
-                return type + " contains '" + res + "'";
+                // Assume simple values (instead of feature set
+                // values) for lemmas in other modes than "swedish"
+                // and thus use the operator = instead of contains.
+                // FIXME: This does not work for the MULCOLD corpus.
+                // (Jyrki Niemi 2015-12-04)
+                var comp_op = (type == "lemma"
+                               && window.currentMode != "swedish"
+                               ? " = " : " contains ");
+                return type + comp_op + "'" + res + "'";
         case "word":
-            s = $.format('word="%s"', [tokens[0]]);
+            s = $.format('word="%s"', [window.regescape(tokens[0])]);
             if(ignoreCase)
                 s = s + ' %c'
             return s
         case "pos":
         case "deprel":
         case "msd":
-            val = tokens[0].replace(/\+/g, "\\+");
-            return $.format('%s="%s"', [type, val]);
-        default: // structural attributes
-            return $.format('_.%s="%s"', [type, tokens[0]]);
+            // val = tokens[0].replace(/\+/g, "\\+");
+            // Escape all regex metacharacters (Jyrki Niemi 2015-12-04)
+            return $.format('%s="%s"', [type, window.regescape(val)]);
+        default: // structural and "non-standard" positional attributes
+            // Prefix the name of the attribute with an underscore
+            // only for structural attributes (Jyrki Niemi 2015-12-04)
+            return $.format((isPosAttr ? '' : '_.') + '%s="%s"',
+			    [type, window.regescape(tokens[0])]);
     }
 };
 
