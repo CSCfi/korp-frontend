@@ -56,6 +56,7 @@ angular.module('newsdesk', []).directive "newsDesk", ($window, $document, $rootE
                         # Johan Roxendal's suggestion. (Jyrki Niemi 2015-04-27)
                         # s.$apply(() -> s.numNewNews = n)
                         safeApply s, (() -> s.numNewNews = n)
+
                     error: (e) ->
                        console.log "error, couldn't fetch news", e.message
                 });
