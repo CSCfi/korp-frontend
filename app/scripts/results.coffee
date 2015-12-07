@@ -1878,7 +1878,7 @@ class view.GraphResults extends BaseResults
             $(window).trigger("resize")
 
 
-class view.NameResults extends BaseResults
+class view.NameClassificationResults extends BaseResults
 
     # Copied and modified from view.LemgramResults (Jyrki Niemi 2015-05-29)
 
@@ -1889,8 +1889,8 @@ class view.NameResults extends BaseResults
         @tabindex = 3
         #   TODO: figure out what I use this for.
         @resultDeferred = $.Deferred()
-        @proxy = new model.NameProxy()
-        window.nameProxy = @proxy
+        @proxy = new model.NameClassificationProxy()
+        window.nameClassificationProxy = @proxy
         @group_labels = {}
         @group_labels[group.regex] = \
             group.label for group in settings.name_groups or []

@@ -213,7 +213,7 @@
         this.kwicRequest(cqp, isPaging, true);
         statsResults.makeRequest(cqp);
         if (settings.name_classification) {
-          return nameResults.makeRequest(cqp);
+          return nameClassificationResults.makeRequest(cqp);
         }
       };
 
@@ -223,7 +223,7 @@
         statsResults.makeRequest(cqp);
         this.kwicRequest(cqp, isPaging);
         if (settings.name_classification) {
-          nameResults.makeRequest(cqp);
+          nameClassificationResults.makeRequest(cqp);
         }
         if (settings.wordpicture === false) {
           return;

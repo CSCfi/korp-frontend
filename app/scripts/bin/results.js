@@ -2162,18 +2162,18 @@
 
   })(BaseResults);
 
-  view.NameResults = (function(superClass) {
-    extend(NameResults, superClass);
+  view.NameClassificationResults = (function(superClass) {
+    extend(NameClassificationResults, superClass);
 
-    function NameResults(tabSelector, resultSelector, scope) {
+    function NameClassificationResults(tabSelector, resultSelector, scope) {
       var group, k, len, ref, self;
       self = this;
-      NameResults.__super__.constructor.call(this, tabSelector, resultSelector, scope);
+      NameClassificationResults.__super__.constructor.call(this, tabSelector, resultSelector, scope);
       this.s = scope;
       this.tabindex = 3;
       this.resultDeferred = $.Deferred();
-      this.proxy = new model.NameProxy();
-      window.nameProxy = this.proxy;
+      this.proxy = new model.NameClassificationProxy();
+      window.nameClassificationProxy = this.proxy;
       this.group_labels = {};
       ref = settings.name_groups || [];
       for (k = 0, len = ref.length; k < len; k++) {
@@ -2182,8 +2182,8 @@
       }
     }
 
-    NameResults.prototype.resetView = function() {
-      NameResults.__super__.resetView.call(this);
+    NameClassificationResults.prototype.resetView = function() {
+      NameClassificationResults.__super__.resetView.call(this);
       $(".name_content_target", this.$result).empty();
       return safeApply(this.s, (function(_this) {
         return function() {
@@ -2193,7 +2193,7 @@
       })(this));
     };
 
-    NameResults.prototype.makeRequest = function(cqp, within) {
+    NameClassificationResults.prototype.makeRequest = function(cqp, within) {
       var def;
       c.log("name makeRequest", cqp, within);
       within = within || "sentence";
@@ -2236,11 +2236,11 @@
       })(this));
     };
 
-    NameResults.prototype.renderResult = function(data, cqp, within) {
+    NameClassificationResults.prototype.renderResult = function(data, cqp, within) {
       var locale_key, resultError;
       c.log("name renderResult", data, cqp, within);
       $(".name_content_target", this.$result).empty();
-      resultError = NameResults.__super__.renderResult.call(this, data);
+      resultError = NameClassificationResults.__super__.renderResult.call(this, data);
       this.hidePreloader();
       this.s.$parent.progress = 100;
       if (resultError === false) {
@@ -2257,7 +2257,7 @@
       }
     };
 
-    NameResults.prototype.renderHeader = function() {
+    NameClassificationResults.prototype.renderHeader = function() {
       var group_labels;
       group_labels = this.group_labels;
       return $(".name_content_target:last .name_group").each(function(i) {
@@ -2275,13 +2275,13 @@
       }).append("<div style='clear:both;'/>");
     };
 
-    NameResults.prototype.renderTables = function(data, cqp) {
+    NameClassificationResults.prototype.renderTables = function(data, cqp) {
       this.drawTable(data, cqp);
       this.renderHeader();
       return this.hidePreloader();
     };
 
-    NameResults.prototype.drawTable = function(data, cqp) {
+    NameClassificationResults.prototype.drawTable = function(data, cqp) {
       var container;
       c.log("name drawTable", data, cqp);
       container = $("<div>").appendTo(".name_content_target", this.$result);
@@ -2297,7 +2297,7 @@
       });
     };
 
-    NameResults.prototype.onClickExample = function(event) {
+    NameClassificationResults.prototype.onClickExample = function(event) {
       var $target, data, opts, self;
       self = this;
       $target = $(event.currentTarget);
@@ -2315,7 +2315,7 @@
       return this.s.$root.kwicTabs.push(opts);
     };
 
-    NameResults.prototype.showWarning = function() {
+    NameClassificationResults.prototype.showWarning = function() {
       var hasWarned;
       hasWarned = !!$.jStorage.get("name_warning");
       if (!hasWarned) {
@@ -2337,14 +2337,14 @@
       }
     };
 
-    NameResults.prototype.onentry = function() {
+    NameClassificationResults.prototype.onentry = function() {
       c.log("name onentry");
-      NameResults.__super__.onentry.call(this);
+      NameClassificationResults.__super__.onentry.call(this);
       this.resultDeferred.done(this.showWarning);
     };
 
-    NameResults.prototype.onexit = function() {
-      NameResults.__super__.onexit.call(this);
+    NameClassificationResults.prototype.onexit = function() {
+      NameClassificationResults.__super__.onexit.call(this);
       clearTimeout(self.timeout);
       safeApply(this.s, (function(_this) {
         return function() {
@@ -2353,11 +2353,11 @@
       })(this));
     };
 
-    NameResults.prototype.showNoResults = function() {
+    NameClassificationResults.prototype.showNoResults = function() {
       return this.hidePreloader();
     };
 
-    return NameResults;
+    return NameClassificationResults;
 
   })(BaseResults);
 
