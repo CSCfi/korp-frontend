@@ -13,7 +13,26 @@
       span  {{'and' | loc}} 
       input#caseChk(type='checkbox', ng-model="isCaseInsensitive") 
       label(for='caseChk')  {{'case_insensitive' | loc}}  
-
+    //- TODO: Show the prequery div only if configured to be shown
+    .prequery
+      span
+        | {{'in_context_prefix' | loc}}
+      select#prequery_within(
+        ng-model='prequery_within'
+        ng-options='"context_" + elem + "s" | loc for elem in prequery_within_opts track by elem'
+      )
+      span
+        |  {{'which_contain' | loc}}
+      //- select#prequery_attr(
+      //-   ng-model='prequery_attr'
+      //-   ng-options='elem[1] | loc for elem in prequery_attr_opts track by elem[0]'
+      //- )
+      input#simple_prequery(
+        type='text'
+        size='40'
+        ng-model='simple_prequery'
+        ng-model-options='{ updateOn: "blur" }'
+      )
   //- //- Related-word search does not currently work for Finnish,
   //- //- so commented out. It would be nice if it could be
   //- //- language- or corpus-specific. (Jyrki Niemi 2015-04-14)

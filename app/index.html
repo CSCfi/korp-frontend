@@ -44,13 +44,12 @@
             <li><a id="about" ng-click="show_about = 'about'" rel="localize[about]">About Korp</a></li>
             <li><a id="docs" href="https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiOhjeetKorp" target="_blank" rel="localize[docs]" class="follow_link"></a></li>
             <li id="feedback"><a href="{{'feedback_url' | loc}}" target="_blank" class="follow_link">{{'feedback_linktext' | loc}}</a></li>
-            <li id="korplink"><a href="/korp" rel="localize[korp]" class="follow_link"></a></li>
-            <!-- li#korplablink-->
-            <!--   a.follow_link(href='/korplabb', rel='localize[korp_lab]')-->
+            <li id="korplink"><a ng-href="{{makeKorpUrl('main')}}" rel="localize[korp]" class="follow_link"></a></li>
+            <li id="korplablink"><a ng-href="{{makeKorpUrl('lab')}}" rel="localize[korp_lab]" class="follow_link"></a></li>
             <li><a href="https://lat.csc.fi/corpora/Info/CLARIN-Terms_of_Service.html" target="_blank" class="follow_link">CLARIN Terms of Service</a></li>
             <li><a href="privacy-policy.html" target="_blank" rel="localize[privacy]" class="follow_link">Privacy policy</a></li>
             <li id="import"><a href="/cgi-bin/annlab/parse" target="_blank" rel="localize[import_chain]" class="follow_link"></a></li>
-            <li><a href="http://www.kielipankki.fi" rel="localize[language_bank]" class="follow_link">Kielipankki</a></li>
+            <li><a href="{{'language_bank_url' | loc}}" target="_blank" class="follow_link">{{'language_bank' | loc}}</a></li>
             <li id="login"><a href="javascript:" rel="localize[log_in]"></a></li>
           </ul>
           <div id="news_area">
@@ -111,6 +110,10 @@
                     <input id="caseChk" type="checkbox" ng-model="isCaseInsensitive">
                     <label for="caseChk"> {{'case_insensitive' | loc}}  </label>
                   </div>
+                  <div class="prequery"><span>{{'in_context_prefix' | loc}}</span>
+                    <select id="prequery_within" ng-model="prequery_within" ng-options="&quot;context_&quot; + elem + &quot;s&quot; | loc for elem in prequery_within_opts track by elem"></select><span> {{'which_contain' | loc}} </span>
+                    <input id="simple_prequery" type="text" size="40" ng-model="simple_prequery" ng-model-options="{ updateOn: &quot;blur&quot; }">
+                  </div>
                 </form>
                 <div class="clearfix"></div>
               </div>
@@ -132,7 +135,8 @@
                       {{'cqp_docs' | loc}}</a></div>
                   <textarea id="cqp_string" ng-model="cqp"></textarea>
                 </div>
-                <search-submit pos="right"></search-submit>
+                <search-submit pos="right"></search-submit><span ng-show="showWithin">{{'within' | loc}}</span>
+                <select ng-show="showWithin" ng-model="within" ng-options="item.value as ('within_' + item.value | loc) for item in withins" class="within_select"></select><span ng-show="showWithin">{{'within_postp' | loc}}</span>
               </div>
             </tab>
             <tab ng-if="visibleTabs[3]" ng-controller="CompareSearchCtrl">
@@ -461,7 +465,12 @@
     <script language="javascript" src="lib/flot/excanvas.min.js"></script>
     <![endif]-->
     <script>
-      var isLab = window.location.pathname.split("/")[1] == "korplabb";
+      var locationLastComponent = window.location.pathname.split("/")[1];
+      var isLab = (locationLastComponent == "korplabb"
+                   || locationLastComponent == "korplab"
+                   || locationLastComponent == "lab"
+                   || locationLastComponent == "beta"
+                   || locationLastComponent == "korp-beta");
       if(window.console == null) window.console = {"log" : $.noop, "error" : $.noop};
       window.c = window.console;
       

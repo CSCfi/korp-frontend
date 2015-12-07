@@ -306,12 +306,16 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, input:pla
 //   display : none;
 // }
 
-.extended .search_submit {
+.extended .search_submit, #advanced .search_submit {
   display: inline;
   vertical-align: super;
   .btn-group {
     display: inline;
   }
+}
+
+.within_select {
+  margin-right: 5px;
 }
 
 #advanced pre {
@@ -1148,6 +1152,12 @@ table {
     right: 8px;
     position: fixed;
     top: 8px;
+    // Maximum height at most the viewport height, which combined with
+    // "overflow: auto" gives a scorllbar if the content does not fit
+    // to the div otherwise. Note: this does not work on older
+    // browsers (how old?). (Jyrki Niemi 2015-08-27)
+    max-height: calc(100vh - 16px);
+    overflow: auto;
   }
   &:empty {
     padding: 0;
@@ -1196,6 +1206,16 @@ table {
   }
   p {
     margin: 0 0 0 0;
+    // Hanging indent for the attribute values (Jyrki Niemi 2015-09-03)
+    padding-left: 1em;
+    text-indent: -1em;
+  }
+  #sidebar-corpus-info {
+    // But no hanging indent for sidebar corpus info items, which are
+    // in a single paragraph and would thus be indented incorrectly.
+    // (Jyrki Niemi 2015-09-03)
+    padding-left: 0em;
+    text-indent: 0em;
   }
   ul {
     margin-top: 0;

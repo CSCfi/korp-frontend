@@ -130,6 +130,73 @@ class window.CorpusListing
         )
         _.union struct...
 
+    # Change the properties type and "default"type of the object
+    # params, where type is "within" or "context", if that results in
+    # a shorter overall value, to be passed to the Korp backend as
+    # query parameters. (This reduces the chance of producing URLs too
+    # long for the server.) The method chooses as the default value
+    # the one that would result in the longest value as the
+    # corpus-specific parameter. Modifying the values computed
+    # elsewhere is simpler than trying to find out exactly how (or
+    # based on what data) the values are computed and to do the same.
+    # (Jyrki Niemi 2015-09-11)
+    minimizeDefaultAndCorpusQueryString: (type, params) ->
+        if not (params.corpus? and params[type])
+            return params
+        all_corpora = params.corpus.split(',')
+        c.log('minimize', type, params.corpus, params['default' + type],
+              params[type], params[type].length)
+        default_val = params['default' + type]
+        value_corpora = {}
+        nondefault_corpora = []
+        for corpval in params[type].split(',')
+            [corpname, val] = corpval.split(':')
+            value_corpora[val] ?= []
+            value_corpora[val].push(corpname)
+            nondefault_corpora.push(corpname)
+        default_corpora = _.difference(all_corpora, nondefault_corpora)
+        value_corpora[default_val] =
+            (value_corpora[default_val] or []).concat(default_corpora)
+        # Find the longest value
+        lengths = []
+        for val, corpora of value_corpora
+            lensum = 0
+            for corp in corpora
+                lensum += corp.length
+            lengths.push(
+                value: val
+                # Also count URL-encoded commas and colons to be added
+                # between corpus names, and corpus names and parameter
+                # values
+                length: lensum + (corpora.length * (val.length + 6)) -
+                        if corpora.length == 1 then 3 else 0
+            )
+        maxval = _.max(lengths, 'length').value
+        c.log 'minimizing', type, value_corpora, lengths, maxval
+        if maxval == default_val and default_corpora.length > 0
+            return params
+        params['default' + type] = maxval
+        # c.log maxval, params
+        # Construct the non-default value string
+        other_vals = []
+        for val, corpora of value_corpora when val != maxval
+            # c.log val, corpora
+            other_vals = other_vals.concat(
+                [corp + ':' + val for corp in corpora])
+        # c.log other_vals
+        params[type] = other_vals.join(',')
+        c.log('minimized', type, params['default' + type], params[type],
+              params[type].length)
+        if params[type] == ''
+            delete params[type]
+        return params
+
+    minimizeWithinQueryString: (params) ->
+        @minimizeDefaultAndCorpusQueryString 'within', params
+
+    minimizeContextQueryString: (params) ->
+        @minimizeDefaultAndCorpusQueryString 'context', params
+
     getContextQueryString: (prefer) ->
         output = for corpus in @selected
             contexts = _.keys(corpus.context)
@@ -148,15 +215,34 @@ class window.CorpusListing
 
 
     getWithinQueryString: ->
-        output = for corpus in @selected
-            withins = _.keys(corpus.within)
-            for within in withins
-                if within and within not of settings.defaultWithin
-                    corpus.id.toUpperCase() + ":" + within
+        # If the URL parameter within is other than the default, use
+        # it for the corpora that have it in their within property.
+        # (Jyrki Niemi 2015-08-26)
+        prefer_within = search().within
+        if prefer_within and prefer_within not of settings.defaultWithin
+            output = for corpus in @selected
+                if prefer_within of corpus.within
+                    corpus.id.toUpperCase() + ":" + prefer_within
                 else
                     false
+            _(output).flatten().compact().join()
+        else
+            null
 
-        _(output).flatten().compact().join()
+        # The original version was as follows. If a corpus has a
+        # property within with more than one value other than that in
+        # defaultWithin, each of them generates a CORPUS:within pair
+        # to the output. Why? (Jyrki Niemi 2015-08-26)
+
+        # output = for corpus in @selected
+        #     withins = _.keys(corpus.within)
+        #     for within in withins
+        #         if within and within not of settings.defaultWithin
+        #             corpus.id.toUpperCase() + ":" + within
+        #         else
+        #             false
+
+        # _(output).flatten().compact().join()
 
     getMorphology: ->
         _(@selected).map((corpus) ->
@@ -210,6 +296,14 @@ class window.CorpusListing
 
         return [word].concat(attrs, sent_attrs)
 
+    # List the unique values of the property ignore_between_tokens_cqp
+    # of the selected corpora. (Jyrki Niemi 2015-09-25)
+    getIgnoreBetweenTokens : ->
+        _(@selected)
+        .pluck("ignore_between_tokens_cqp")
+        .uniq()
+        .compact()
+        .value()
 
 
 class window.ParallelCorpusListing extends CorpusListing
@@ -1263,3 +1357,140 @@ util.mapHashCorpusAliases = () ->
                 window.location.hash = window.location.hash.replace(
                     "corpus=" + orig_corpus, "corpus=" + corpus)
     return
+
+
+# Initialize the _sidebar_display_order property of all the corpora in
+# settings.corpora.
+
+util.initCorpusSettingsAttrDisplayOrder = () ->
+    for corpus of settings.corpora
+        util.setAttrDisplayOrder settings.corpora[corpus]
+    return
+
+# Initialize the _sidebar_display_order property of corpusInfo to
+# contain the (reverse of the) order in which attributes are to be
+# shown in the sidebar, separately for (positional) attributes,
+# struct_attributes and link_attributes.
+#
+# The order may be specified in corpusInfo.sidebar_display_order
+# (property name without the leading underscore) or the default
+# settings.default_sidebar_display_order. These are objects with the
+# keys attributes, struct_attributes and link_attributes, whose values
+# are lists of attribute names or regular expressions matching
+# attribute names, in the order in which the attributes should be
+# shown. Unlisted attributes are shown after the listed ones in the
+# order JavaScript iterates over the attribute properties. Attributes
+# matching a regular expression are shown in the JavaScript property
+# iteration order. (Jyrki Niemi 2015-08-27)
+
+util.setAttrDisplayOrder = (corpusInfo) ->
+
+    for attr_type in ["attributes", "struct_attributes", "link_attributes"]
+        order = (corpusInfo.sidebar_display_order?[attr_type] or
+                 settings.default_sidebar_display_order?[attr_type])
+        if order
+            attr_names = _.keys(corpusInfo[attr_type])
+            result = []
+            for pattern in order
+                if $.type pattern == "regexp"
+                    index = 0
+                    for attr_name in attr_names
+                        if attr_name.match(pattern)
+                            result.push(attr_name)
+                            attr_names[index] = ""
+                        index += 1
+                else if $.type pattern == "string"
+                    index = $.inArray(pattern, attr_names)
+                    if index != -1
+                        result.push(attr_names[index])
+                        attr_names[index] = ""
+            # if order[order.length() - 1] == "__SORTED__"
+            #     attr_names.sort()
+            for attr_name in attr_names
+                if attr_name != ""
+                    result.push(attr_name)
+            # Internally use the property name prefixed with an
+            # underscore. Reverse to make sorting work with
+            # $.inArray() returning -1 for non-existent values.
+            if not corpusInfo._sidebar_display_order
+                corpusInfo._sidebar_display_order = {}
+            corpusInfo._sidebar_display_order[attr_type] = result.reverse()
+    return
+
+
+# Add a CQP token expression to be ignored between the individual
+# token expressions in cqp, based on the property
+# ignore_between_tokens_cqp of the corpus configuration. The
+# expression to be ignored is added only if all the selected corpora
+# have the same ignore expression.
+#
+# TODO: It would be more appropriate and efficient to set the ignore
+# expression in the model and change it when the set of chosen corpora
+# changes, so we would not need to recompute it here every time.
+# (Jyrki Niemi 2015-09-25)
+
+util.addIgnoreCQPBetweenTokens = (cqp) ->
+
+    insertBetweenCQPTokens = (base_cqp, insert_cqp) ->
+        # Split the original CQP expression so that each token
+        # expression [...] and each string between them is a separate
+        # string.
+        cqp_tokens = base_cqp.match(
+            /\[([^\]\"\']*("([^\\\"]|\\.)*"|'([^\\\']|\\.)*'))*[^\]\"\']*\]|([^\[]+)/g)
+        # Find the last token proper, which need not be followed by
+        # the insert expression, although it does not make a
+        # difference in the result if it is optional.
+        last_token_num = _(cqp_tokens)
+                         .map((token) -> token.charAt(0) == '[')
+                         .lastIndexOf(true)
+        # Append the insert expression to each token expression and
+        # enclose them together in parentheses, so that repetition and
+        # other regexp operators work correctly for the augmented
+        # token expression.
+        insert_cqp_lpar = " " + insert_cqp + ")"
+        result = for token, token_num in cqp_tokens
+                     if token.charAt(0) == '[' and token_num < last_token_num
+                         "(" + token + insert_cqp_lpar
+                     else
+                         token
+        result.join("")
+
+    ignore_cqps = settings.corpusListing.getIgnoreBetweenTokens()
+    c.log "ignore_cqps", ignore_cqps
+    if ignore_cqps.length == 1
+        insertBetweenCQPTokens cqp, ignore_cqps[0]
+    else
+        cqp
+
+
+# Add additional CQP queries ("pre-queries") in cqp to params (Korp
+# backend query parameters). cqp can be either a string of CQP queries
+# joined by || or an object. In a string, the first query is the
+# unnumbered one and the last one is the main query, whose matches
+# will be highlighted. (Jyrki Niemi 2015-06-18)
+
+util.addCQPs = (params, cqp) ->
+    if typeof cqp == "string" or cqp instanceof String
+        if cqp.indexOf("||") != -1
+            cqps = cqp.split("||")
+            params["cqp"] = cqps[0]
+            params["cqp" + i.toString()] = cqps[i] for i in [1...cqps.length]
+        else
+            params.cqp = cqp
+    else
+        params[key] = val for key, val of cqp when key.substr(0, 3) == "cqp"
+    return
+
+# Combine the CQP queries in the properties cqp and cqp[1-9][0-9]* of
+# the object params or in the elements of the array params into a
+# single string, joined by ||. (Jyrki Niemi 2015-06-18)
+
+util.combineCQPs = (params) ->
+    if $.isArray(params)
+        return params.join("||")
+    else
+        cqp_keys = (
+            key for key of Object.keys(params) when key.substr(0, 3) == "cqp")
+        cqp_keys = _.sortBy cqp_keys, (key) ->
+            parseInt(key.substr(4) or "0")
+        return (params[key] for key in cqp_keys).join("||")

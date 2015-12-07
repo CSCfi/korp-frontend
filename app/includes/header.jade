@@ -22,9 +22,9 @@
     li#feedback
       a(href="{{'feedback_url' | loc}}", class="follow_link", target="_blank") {{'feedback_linktext' | loc}}
     li#korplink
-      a.follow_link(href='/korp', rel='localize[korp]')
-    // li#korplablink
-    //   a.follow_link(href='/korplabb', rel='localize[korp_lab]')
+      a.follow_link(ng-href="{{makeKorpUrl('main')}}", rel='localize[korp]')
+    li#korplablink
+      a.follow_link(ng-href="{{makeKorpUrl('lab')}}", rel='localize[korp_lab]')
     li
       a.follow_link(href='https://lat.csc.fi/corpora/Info/CLARIN-Terms_of_Service.html', target='_blank') CLARIN Terms of Service
     li
@@ -32,7 +32,7 @@
     li#import
       a.follow_link(href='/cgi-bin/annlab/parse', target='_blank', rel='localize[import_chain]')
     li
-      a.follow_link(href='http://www.kielipankki.fi', rel='localize[language_bank]') Kielipankki
+      a.follow_link(href="{{'language_bank_url' | loc}}", target="_blank") {{'language_bank' | loc}}
     li#login
       a(href='javascript:', rel='localize[log_in]')
   #news_area

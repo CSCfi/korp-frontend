@@ -25,6 +25,27 @@ korpApp.controller "SearchCtrl", ($scope, $location, utils, searches) ->
         return settings.statistics != false
         # Boolean(settings.statistics) != false
 
+    # $scope.getWithins was copied from "ExtendedSearch", so that it
+    # can also be used in "AdvancedCtrl" (Jyrki Niemi 2015-09-24)
+    $scope.getWithins = () ->
+        intersect = settings.corpusListing.getAttrIntersection("within")
+        union = settings.corpusListing.getAttrUnion("within")
+        # opts = $(".#{withinOrContext}_select option")
+        # opts.data("locSuffix", null).attr("disabled", null).removeClass "limited"
+
+        # return union
+        output = _.map union, (item) -> {value : item}
+
+        # all support enhanced context
+        if union.length > intersect.length
+            for obj in output
+                if obj.value not in intersect
+                    obj.partial = true
+                else
+                    obj.partial = false
+
+        return output
+
     # utils.setupHash $scope, [
     #         key : "word_pic"
     #         val_out : Boolean
@@ -42,6 +63,22 @@ korpApp.config ($tooltipProvider) ->
 korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope, searches, compareSearches, $modal) ->
     s = $scope
 
+    # Simple prequery, prequery within and prequery attribute
+    s.simple_prequery = ""
+    s.prequery_within_opts = [
+        "sentence"
+        "paragraph"
+        "text"
+    ]
+    s.prequery_within = s.prequery_within_opts[0]
+    s.prequery_attr_opts = [
+        # Word attribute name, localization key
+        ["lemma", "baseforms"]
+        ["word", "wordforms"]
+    ]
+    # s.prequery_attr = s.prequery_attr_opts[0][0]
+    s.prequery_attr = "lemma|word"
+
     s.$on "popover_submit", (event, name) ->
         cqp = s.instance.getCQP()
         compareSearches.saveSearch {
@@ -49,7 +86,12 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             cqp : cqp
             corpora : settings.corpusListing.getSelectedCorpora()
         }
-    
+
+    # Set the value of simple_prequery based on the URL parameter
+    # simple_prequery
+    s.$watch( (() -> $location.search().simple_prequery),
+        (val) -> s.simple_prequery = val
+    )
 
     s.stringifyRelatedHeader = (wd) ->
         wd.replace(/_/g, " ")
@@ -115,6 +157,13 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
         page = Number($location.search().page) or 0
         c.log "activesearch", search
         s.relatedObj = null
+
+        # Set URL parameters based on simple prequery variables
+        if s.simple_prequery
+            $location.search("simple_prequery", s.simple_prequery)
+            $location.search("prequery_within", s.prequery_within)
+            # $location.search("prequery_attr", s.prequery_attr)
+
         if search.type == "word"
             s.placeholder = null
             s.simple_text = search.val
@@ -136,6 +185,14 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             s.placeholder = search.val
             s.simple_text = ""
             cqp = "[lex contains '#{search.val}']"
+            # Add possible prequery CQPs
+            if s.simple_prequery
+                # c.log("lemgram simple_prequery", cqp, s.simple_prequery)
+                cqps = simpleSearch.makePrequeryCQPs(s.simple_prequery)
+                cqps.push(cqp)
+                # c.log("cqps", cqps)
+                cqp = util.combineCQPs(cqps)
+                c.log("searches.activeSearch prequeries cqp", cqp)
             # # Related-word search does not currently work for Finnish,
             # # so commented out. It would be nice if it could be
             # # language- or corpus-specific. (Jyrki Niemi 2015-04-14)
@@ -163,6 +220,10 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             key : "suffix"
         ,
             key : "isCaseInsensitive"
+        ,
+            key : "prequery_within"
+        # ,
+        #     key : "prequery_attr"
     ]
 
 
@@ -203,6 +264,14 @@ korpApp.controller "ExtendedSearch", ($scope, utils, $location, backend, $rootSc
         unless val then return
         try 
             $rootScope.extendedCQP = CQP.expandOperators(val)
+            # c.log "cqp expanded ops", $rootScope.extendedCQP
+            # Add the possible ignorable tokens between tokens. This
+            # makes the modified version to be shown in the advanced
+            # search as the extended search expression.
+            # (Jyrki Niemi 2015-09-25)
+            $rootScope.extendedCQP =
+                util.addIgnoreCQPBetweenTokens($rootScope.extendedCQP)
+            # c.log "cqp added ignore", $rootScope.extendedCQP
         catch e
             c.log "cqp parse error:", e
         $location.search("cqp", val)
@@ -342,6 +411,7 @@ korpApp.controller "ExtendedToken", ($scope, utils, $location) ->
 
 
 korpApp.controller "AdvancedCtrl", ($scope, compareSearches, $location, $timeout) ->
+    s = $scope
     expr = ""
     if $location.search().search
         [type, expr...] = $location.search().search?.split("|")
@@ -356,6 +426,17 @@ korpApp.controller "AdvancedCtrl", ($scope, compareSearches, $location, $timeout
     #     out = simpleSearch.getCQP()
     #     c.log "getSimpleCQP", out
     #     out
+
+    # Show the within selection list unless settings.advanced_search_within
+    # is false. (Jyrki Niemi 2015-09-24)
+    s.showWithin = if settings.advanced_search_within?
+                       settings.advanced_search_within
+                   else
+                       true
+    s.within = if s.showWithin
+                   $location.search().within or "sentence"
+               else
+                   "sentence"
 
     $scope.$watch () -> 
         simpleSearch?.getCQP()
@@ -375,9 +456,17 @@ korpApp.controller "AdvancedCtrl", ($scope, compareSearches, $location, $timeout
         $location.search("search", null)
         $location.search("page", null)
         $timeout( () ->
+            # Copied from "ExtendedSearch" (Jyrki Niemi 2015-09-24)
+            within = s.within unless s.within in _.keys settings.defaultWithin
+            $location.search("within", within or null)
             $location.search("search", "cqp|" + $scope.cqp)
         , 0)
 
+    if s.showWithin
+        # Copied from "ExtendedSearch" (Jyrki Niemi 2015-09-24)
+        s.withins = []
+        s.$on "corpuschooserchange", () ->
+            s.withins = s.getWithins()
 
 
 korpApp.filter "mapper", () ->

@@ -12,7 +12,8 @@ var isProductionServerTest =
      && (window.location.pathname.indexOf("test/") != -1
 	 || window.location.pathname.indexOf("test-") != -1));
 var isProductionServerBeta =
-    (isProductionServer && window.location.pathname.indexOf("beta") != -1);
+    (isProductionServer && (window.location.pathname.indexOf("beta") != -1
+			    || window.location.pathname.indexOf("lab") != -1));
 var isProductionServerOld =
     (isProductionServer && window.location.pathname.indexOf("old/") != -1);
 var isPublicServer = (window.location.hostname != "localhost");
@@ -88,7 +89,18 @@ settings.cgi_script = settings.cgi_prefix + "korp.cgi";
 settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
 settings.download_cgi_script = settings.cgi_prefix + "korp_download.cgi";
 
+// The main Korp and Korp Labs URL for the links in the cog menu
+settings.korp_url = {
+    "main" : (isProductionServer ? "/" : "/korp/"),
+    "lab" : (isProductionServer ? "/lab/" : "/korplab/")
+};
+
 settings.urnResolver = "http://urn.fi/";
+
+// Set advanced_search_within to false to disable the within selection
+// in the advanced search. If the value is undefined, assume true.
+// (Jyrki Niemi 2015-09-24)
+settings.advanced_search_within = true;
 
 // for extended search dropdown, can be 'union' or 'intersection'
 settings.word_attribute_selector = "union"
@@ -102,7 +114,7 @@ settings.reduce_struct_attribute_selector = "intersection"
 settings.news_desk_url = 
     window.location.protocol + "//" + window.location.hostname + "/"
     + window.location.pathname + "news/json/korp"
-    + (isProductionServerBeta ? "beta" : "") + "news.json";
+    + ((isProductionServerBeta || isLab) ? "beta" : "") + "news.json";
 
 // authenticationType: "basic", "shibboleth" or "none"
 settings.authenticationType = (isProductionServer ? "shibboleth" : "basic");
@@ -230,7 +242,8 @@ settings.languages = ["fi", "sv", "en"];
 settings.fn = {};
 // Namespace for corpus configuration templates
 settings.templ = {};
-
+// Namespace for extra corpus info used in multiple corpora
+settings.corpusinfo = {};
 
 var karpLemgramLink = "http://spraakbanken.gu.se/karp/#search=cql%7C(lemgram+%3D+%22<%= val.replace(/:\\d+/, '') %>%22)+sortBy+lemgram";
 
@@ -252,12 +265,51 @@ settings.spWithin = {
     "sentence" : "sentence",
     "paragraph" : "paragraph"
 };
+settings.spcWithin = {
+    "sentence" : "sentence",
+    "paragraph" : "paragraph",
+    "clause" : "clause",
+};
+settings.scWithin = {
+    "sentence" : "sentence",
+    "clause" : "clause",
+};
 
 settings.defaultLanguage = "fi";
 
 // Corpus id alias mapping: aliases as property keys and actual corpus
 // ids as values. (Jyrki Niemi 2015-04-23)
 settings.corpus_aliases = {};
+
+// Default attribute display order in the sidebar. The missing
+// attributes are shown after the specified ones in the order
+// JavaScript iterates over the attribute properties. The
+// specifications may also be regular expressions: the matching
+// attributes are shown in the JavaScript property iteration order.
+// The defaults can be overridden in the property
+// sidebar_display_order of corpus settings. (Jyrki Niemi 2015-08-27)
+settings.default_sidebar_display_order = {
+    attributes : [
+	"lemma",
+	"lemmacomp",
+	"pos",
+	"posset",
+	"lex",
+	"saldo",
+	"variants",
+	"msd",
+	"deprel",
+    ],
+    struct_attributes : [
+	/^text_/,
+	/^chapter_/,
+	/^speech_/,
+	/^paragraph_/,
+	/^sentence_/,
+	/^clause_/,
+    ]
+};
+
 
 /*
  * ATTRIBUTES
@@ -656,7 +708,12 @@ attrs.msd = {
     // Empty taginfo_url disables the info link to MSD tags in the
     // used sidebar; another value would link to the given URL; and an
     // undefined value would link to the default markup/msd.html.
-    taginfo_url : ""
+    taginfo_url : "",
+    // Add a zero-width space character after each vertical bar to
+    // allow breaking the line there in the sidebar.
+    transform : function(val) {
+	return val.replace(/\|/g, "|\u200b");
+    }
 };
 attrs.msd_sv = {
     label : "msd",
@@ -1039,7 +1096,7 @@ sattrs.date = {
 };
 
 sattrs.text_title = {
-    label : "text_title"
+    label : "title"
 };
 sattrs.title = sattrs.text_title;
 sattrs.text_distributor = {
@@ -1162,7 +1219,9 @@ sattrs.paragraph_type = {
     label : "paragraph_type"
 };
 
-sattrs.text_genre = {
+// Text genre values specifically for Mikhail Mikhailov's (UTA)
+// corpora (MULCOLD, FiRuLex, ParFin, ParRus)
+sattrs.mikhailov_text_genre = {
     label : "text_genre",
     displayType : "select",
     translationKey : "textgenre_",
@@ -1192,11 +1251,11 @@ sattrs.text_translator = {
 /* KFSCP --- */
 
 sattrs.text_pubdate = {
-    label : "text_pubdate2"
+    label : "publication_date"
 };
 
 sattrs.text_publisher = {
-    label : "text_publisher"
+    label : "publisher"
 };
 
 /* --------- */
@@ -1277,6 +1336,63 @@ var modernAttrs = {
 };
 
 
+// Recurring corpus licence information (name + URL)
+settings.licenceinfo = {
+    CC0 : {
+	name : "CC ZERO (CC0) (CLARIN PUB)",
+	description : "Public Domain Dedication",
+	url : "http://creativecommons.org/publicdomain/zero/1.0/",
+    },
+    CC_BY : {
+	name : "CC BY (CLARIN PUB)",
+	description : "Creative Commons Attribution",
+	url : "https://creativecommons.org/licenses/by/4.0/",
+    },
+    CC_BY_30 : {
+	name : "CC BY 3.0 (CLARIN PUB)",
+	description : "Creative Commons Attribution 3.0",
+	url : "https://creativecommons.org/licenses/by/3.0/",
+    },
+    CC_BY_40 : {
+	name : "CC BY 4.0 (CLARIN PUB)",
+	description : "Creative Commons Attribution",
+	url : "https://creativecommons.org/licenses/by/4.0/",
+    },
+    CC_BY_NC : {
+	name : "CC BY-NC (CLARIN PUB)",
+	description : "Creative Commons Attribution-NonCommercial",
+	url : "https://creativecommons.org/licenses/by-nc/4.0/",
+    },
+    CC_BY_ND : {
+	name : "CC BY-ND (CLARIN PUB)",
+	description : "Creative Commons Attribution-NoDerivatives",
+	url : "https://creativecommons.org/licenses/by-nd/4.0/",
+    },
+    CC_BY_ND_40 : {
+	name : "CC BY-ND 4.0 (CLARIN PUB)",
+	description : "Creative Commons Attribution-NoDerivatives 4.0",
+	url : "https://creativecommons.org/licenses/by-nd/4.0/",
+    },
+    EUPL_11 : {
+	name : "EUPL v1.1 (CLARIN PUB)",
+	description : "European Union Public Licence, version 1.1",
+	url : "http://ec.europa.eu/idabc/en/document/7774.html",
+	// An alternative URL:
+	// url : "https://joinup.ec.europa.eu/community/eupl/og_page/european-union-public-licence-eupl-v11",
+    },
+};
+
+
+// Homepage in Kotus's Kaino service
+settings.fn.kaino_homepage = function(urlbase) {
+    return {
+        name : "Kokoelman etusivu",
+        url : "http://kaino.kotus.fi/korpus/" + urlbase + "_coll_rdf.xml",
+        no_label : true
+    };
+};
+
+
 /*
  * FOLDERS
  */
@@ -1297,11 +1413,22 @@ settings.corporafolders.ftb = {
 
 settings.corporafolders.ftb.ftb3 = {
     title : "FinnTreeBank 3",
+    info : {
+	urn : "urn:nbn:fi:lb-201406021",
+	metadata_urn : "urn:nbn:fi:lb-201406022",
+	licence : settings.licenceinfo.CC_BY_30,
+    },
     contents : ["ftb3_europarl", "ftb3_jrcacquis"]
 };
 
 settings.corporafolders.klk_fi = {
-    title : "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet"
+    title : "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet",
+    description : "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio, suomenkieliset lehdet",
+    info : {
+	urn : "urn:nbn:fi:lb-201405275",
+	metadata_urn : "urn:nbn:fi:lb-201405276",
+	licence : settings.licenceinfo.CC_BY,
+    }
 };
 
 /*
@@ -1345,8 +1472,31 @@ settings.corporafolders.internet = {
     contents : ["s24", "ylilauta", "hsfi"]
 };
 
+settings.corporafolders.internet.suomi24 = {
+    title : "Suomi24",
+    description : "<a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut 1.1.2001–18.11.2015.<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu useaan osakorpukseen suuren kokonsa vuoksi.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-201412171' target='_blank' title='Kuvailutiedot'>koko Suomi24-aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2015040801' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).",
+    contents : [
+	"s24_001",
+	"s24_002",
+	"s24_003",
+	"s24_004",
+	"s24_005",
+	"s24_006",
+	"s24_007",
+	"s24_008",
+	"s24_009",
+    ],
+    info : {
+	urn : "urn:nbn:fi:lb-2015040102",
+	metadata_urn : "urn:nbn:fi:lb-2015091701",
+	licence : settings.licenceinfo.CC_BY_NC,
+	homepage_url : "http://keskustelu.suomi24.fi",
+    }
+};
+
 settings.corporafolders.other_texts = {
     title : "Muita tekstejä",
+    contents : ["kfspc_fi"]
 };
 
 settings.corporafolders.other_texts.kotus_ns_presidentti = {
@@ -1356,23 +1506,13 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
     // settings
     contents : [],
     info : {
-    	// // An example of URN, metadata and licence information
-    	// urn : "urn:folder_urn",
-    	// metadata_url : "http://example.org/metadata_url",
-    	// licence : {
-    	//      name : "CLARIN PUB",
-    	//      urn : "urn:licence_urn"
-    	// },
+	// URN information also in the corpus .info files; if you need
+	// to update the URNs, you should also check them.
+	urn : "urn:nbn:fi:lb-20151001",
     	metadata_urn : "urn:nbn:fi:lb-20140730150",
-    	licence : {
-    	    name : "EUPL",
-    	    url : "http://ec.europa.eu/idabc/en/document/7774.html"
-    	},
-    	homepage : {
-    	    name : "Kokoelman etusivu",
-    	    url : "http://kaino.kotus.fi/korpus/teko/meta/presidentti/presidentti_coll_rdf.xml",
-    	    no_label : true
-    	},
+	licence : settings.licenceinfo.EUPL_11,
+	homepage : settings.fn.kaino_homepage(
+	    "teko/meta/presidentti/presidentti"),
     	compiler : {
     	    name : "Kotimaisten kielten keskus",
     	    url : "http://www.kotus.fi/",
@@ -1394,10 +1534,7 @@ settings.corporafolders.spoken.la_murre = {
     info : {
 	urn : "urn:nbn:fi:lb-2014052715",
 	metadata_urn : "urn:nbn:fi:lb-2014052716",
-	licence : {
-	    name : "CC BY ND 4.0",
-	    url : "https://creativecommons.org/licenses/by-nd/4.0/"
-	},
+	licence : settings.licenceinfo.CC_BY_ND_40,
 	homepage : {
 	    name : "Aineiston tietosivu Kielipankissa",
 	    url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotLAmurre",
@@ -1428,12 +1565,24 @@ settings.corporafolders.vks = {
 	"vks_varia",
 	"vks_virret"
     ],
+    info : {
+	urn : "urn:nbn:fi:lb-201407166",
+	metadata_urn : "urn:nbn:fi:lb-201407165",
+	licence : settings.licenceinfo.EUPL_11,
+	homepage : settings.fn.kaino_homepage("vks/meta/vks")
+    },
     // unselected : true
 };
 
 settings.corporafolders.vns = {
     title : "Varhaisnykysuomen korpus (näytteitä)",
     contents : ["vns_asetus", "vns_renqvist", "vns_renvall"],
+    info : {
+	// No Korp URN yet
+	metadata_urn : "urn:nbn:fi:lb-20140730147",
+	licence : settings.licenceinfo.EUPL_11,
+	homepage : settings.fn.kaino_homepage("1800/meta/1800")
+    },
     // unselected : true
 };
 
@@ -1475,6 +1624,13 @@ settings.fn.add_corpus_settings = function (template, infolist, folder,
 	    folder.contents = [];
 	}
 	folder.contents = folder.contents.concat(ids);
+    }
+};
+
+// Add properties to the settings of the listed corpora.
+settings.fn.extend_corpus_settings = function (props, corpus_ids) {
+    for (var i = 0; i < corpus_ids.length; i++) {
+	$.extend(settings.corpora[corpus_ids[i]], props);
     }
 };
 
@@ -1544,6 +1700,9 @@ settings.corpora.ftb2 = {
     title : "FinnTreeBank 2",
     description : "Finnish tree bank, version 2",
     id : "ftb2",
+    urn : "urn:nbn:fi:lb-201407164",
+    metadata_urn : "urn:nbn:fi:lb-201407163",
+    licence : settings.licenceinfo.CC_BY_30,
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
@@ -1737,18 +1896,26 @@ settings.corpora.hsfi = {
     title : "HS.fi",
     description : "HS.fi uutiskommenttiaineisto",
     id : "hsfi",
-    within : settings.spWithin,
-    context : settings.spContext,
-    limited_access : true,
-    licence_type : "ACA",
     urn : "urn:nbn:fi:lb-2014052717",
     metadata_urn : "urn:nbn:fi:lb-2014052718",
     licence : {
-	url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaEngACANc",
+	urn : "urn:nbn:fi:lb-20150304140",
 	name : "CLARIN ACA +NC +anonymisointi",
 	description : "Vain ei-kaupalliseen tutkimuskäyttöön. Nimimerkit tulee anonymisoida korpukseen viittaavissa julkaisuissa."
     },
+    limited_access : true,
+    licence_type : "ACA",
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : {
+        lemma : attrs.baseform,
+        lemmacomp : attrs.baseform_compound,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        lex : attrs.lemgram_hidden
     },
     struct_attributes : {
         sentence_id : sattrs.sentence_id_hidden,
@@ -1768,9 +1935,7 @@ settings.corpora.hsfi = {
 	text_publicnick : {
 	    label : "text_publicnick",
 	},
-	text_title : {
-	    label : "text_title"
-	}
+	text_title : sattrs.text_title
     }
 
 };
@@ -1780,14 +1945,11 @@ settings.corpora.reittidemo = {
     title : "Reitti A-siipeen",
     description : "Kahdenkeskisen videoidun keskustelun ”Reitti A-siipeen” yleiskielistetty litteraatti. Keskustelussa selvitetään reittiä tiettyyn Helsingin yliopiston Metsätalossa sijaitsevaan huoneeseen. Vapaasti käytettäväksi tarkoitettu näyteaineisto.",
     id : "reittidemo",
-    within : settings.spWithin,
-    context : settings.spContext,
     urn : "urn:nbn:fi:lb-100110012817",
     metadata_urn : "urn:nbn:fi:lb-2014101401",
-    licence : {
-	url : "http://creativecommons.org/publicdomain/zero/1.0/legalcode.txt",
-	name : "CC-ZERO (CC0)"
-    },
+    licence : settings.licenceinfo.CC0,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : {
 	lemma : attrs.baseform,
 	lemmacomp : attrs.baseform_compound,
@@ -1834,6 +1996,10 @@ settings.corpora.kotus_klassikot = {
     title : "Suomalaisen kirjallisuuden klassikoita (näyte)",
     description : "Suomalaisen kirjallisuuden klassikoita (Kotimaisten kielten keskuksen aineisto)",
     id : "kotus_klassikot",
+    urn : "urn:nbn:fi:lb-2015022401",
+    metadata_urn : "urn:nbn:fi:lb-20140730186",
+    licence : settings.licenceinfo.EUPL_11,
+    homepage : settings.fn.kaino_homepage("klassikot/meta/klassikot"),
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
@@ -1964,6 +2130,8 @@ settings.templ.kotus_ns_presidentti = {
 
 settings.fn.make_president_corpora = function () {
 
+    var corpus_id_prefix = "kotus_ns_presidentti_";
+
     var make_homepage_info = function (id) {
 	return {
 	    name : "Korpus Kaino-palvelussa",
@@ -2007,8 +2175,10 @@ settings.fn.make_president_corpora = function () {
 	["svinhufvud", "P. E.", "Svinhufvudin", "1935–1937"]
     ];
     var president_templ_fill = [];
+    var corpus_ids = [];
     for (var i = 0; i < president_info_items.length; i++) {
 	president_templ_fill.push(make_info(president_info_items[i]));
+	corpus_ids.push(corpus_id_prefix + president_info_items[i][0]);
     }
     president_templ_fill.push(
 	{ id : "muut",
@@ -2016,12 +2186,16 @@ settings.fn.make_president_corpora = function () {
 	  description : "Muiden kuin tasavallan presidenttien pitämät uudenvuodenpuheet: pääministeri Esko Aho (1993), eduskunnan puhemies Väinö Hakkila (1942), pääministeri Edwin Linkomies (1944), ministeri Mauno Pekkala (1945).",
 	  homepage : make_homepage_info("muut") }
     );
+    corpus_ids.push(corpus_id_prefix + "muut");
     settings.fn.add_corpus_settings(
 	settings.templ.kotus_ns_presidentti,
 	president_templ_fill,
 	settings.corporafolders.other_texts.kotus_ns_presidentti,
-	"kotus_ns_presidentti_"
+	corpus_id_prefix
     );
+    var joined_corpus_ids = corpus_ids.join(",");
+    settings.corpus_aliases["ns_presidentti"] = joined_corpus_ids;
+    settings.corpus_aliases["kotus_ns_presidentti"] = joined_corpus_ids;
 }
 
 settings.fn.make_president_corpora();
@@ -2031,6 +2205,10 @@ settings.corpora.ns_saadokset = {
     title : "Lakeja ja direktiivejä (näyte)",
     description : "Lakeja ja direktiivejä vuosilta 2002–2003 (Kotimaisten kielten keskuksen aineisto)",
     id : "ns_saadokset",
+    // No Korp URN yet
+    metadata_urn : "urn:nbn:fi:lb-20140730126",
+    licence : settings.licenceinfo.EUPL_11,
+    homepage : settings.fn.kaino_homepage("teko/meta/saadokset/saadokset"),
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -2093,6 +2271,10 @@ settings.corpora.kotus_sananparret = {
     title : "Sananparsikokoelma (näyte)",
     description : "Suomen murteiden Sananparsikokoelma (1930-luvulta) (Kotimaisten kielten keskuksen aineisto)",
     id : "kotus_sananparret",
+    // No Korp URN yet
+    metadata_urn : "urn:nbn:fi:lb-20140730176",
+    licence : settings.licenceinfo.EUPL_11,
+    homepage : settings.fn.kaino_homepage("sp/meta/sp"),
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
@@ -2144,14 +2326,14 @@ attrs.pos_la = {
 	"a:pron:dem" : "a:pron:dem",
 	"a:pron:int" : "a:pron:int",
 	"a:pron:rel" : "a:pron:rel",
-	"a:q" : "a:q",
+	// "a:q" : "a:q",
 	"adv" : "adv",
 	"adv:pron" : "adv:pron",
 	"adv:pron:dem" : "adv:pron:dem",
 	"adv:pron:int" : "adv:pron:int",
 	"adv:pron:rel" : "adv:pron:rel",
 	"adv:q" : "adv:q",
-	"cnj" : "cnj",
+	// "cnj" : "cnj",
 	"cnj:coord" : "cnj:coord",
 	"cnj:rel" : "cnj:rel",
 	"cnj:sub" : "cnj:sub",
@@ -2175,11 +2357,38 @@ attrs.pos_la = {
 	"pron:rel" : "pron:rel",
 	"punct" : "punct",
 	"q" : "q",
-	"stem" : "stem",
+	// "stem" : "stem",
 	"v" : "v",
     },
     opts : settings.liteOptions
 };
+// pos_las2 is for LAS2, which has codes similar to pos_la for
+// LA-murre, but fewer (and a generic "cnj").
+attrs.pos_las2 = {
+    label : "pos",
+    displayType : "select",
+    translationKey : "posla_",
+    dataset : {
+	"a" : "a",
+	"adv" : "adv",
+	"cnj" : "cnj",
+	"intj" : "intj",
+	"n" : "n",
+	// pos_la uses "n:prop" for only non-person proper names, so
+	// we map "n:prop" here to correspond to any proper name.
+	"n:prop" : "n:prop:any",
+	"neg" : "neg",
+	"num" : "num",
+	"p:post" : "p:post",
+	"p:pre" : "p:pre",
+	// pos_la uses bare "pron" with a more specific meaning, so we
+	// map "pron" here to correspond to any pronoun.
+	"pron" : "pron:any",
+	"UNK" : "UNK",
+	"v" : "v",
+    },
+    opts : settings.liteOptions
+};	
 attrs.func_la = {
     label : "func",
     displayType : "select",
@@ -2231,207 +2440,219 @@ attrs.func_la = {
 // structure represented as an array of arrays: the first element is
 // the internal code or id of the item, the second its human-readable
 // name, and the third an array of its child elements (except in leaf
-// nodes).
+// nodes, in which the third element is a longer alias for the parish
+// name and an optional fourth element is an object whose properties
+// are used to override the property values in the tmeplate).
 var la_murre_grouping = [
     ["LOU", "Lounaismurteet", [
 	["VarE", "Eteläinen Varsinais-Suomi", [
-	    ["karuna", "Karuna"],
-	    ["kisko", "Kisko"],
-	    ["muurla", "Muurla"],
-	    ["muurla_halikko", "Muurla/Halikko"],
-	    ["paimio", "Paimio"],
-	    ["pernio", "Perniö"],
-	    ["uskela", "Uskela"],
+	    ["karuna", "Karuna", "karuna"],
+	    ["kisk", "Kisko", "kisko"],
+	    ["muurl", "Muurla", "muurla"],
+	    ["muuhal", "Muurla/Halikko", "muurla_halikko"],
+	    ["paim", "Paimio", "paimio"],
+	    ["pern", "Perniö", "pernio"],
+	    ["uske", "Uskela", "uskela"],
 	] ],
 	["VarP", "Pohjoinen Varsinais-Suomi", [
-	    ["eura", "Eura"],
-	    ["eurajoki", "Eurajoki"],
-	    ["kalanti", "Kalanti"],
-	    ["karjala_tl", "Karjala Tl"],
-	    ["kustavi", "Kustavi"],
-	    ["lappi_tl", "Lappi Tl"],
-	    ["luvia", "Luvia"],
-	    ["masku", "Masku"],
-	    ["pyhamaa", "Pyhämaa"],
-	    ["rauma", "Rauma"],
-	    ["rymattyla", "Rymättylä"],
-	    ["taivassalo", "Taivassalo"],
-	    ["velkua", "Velkua"],
+	    ["eura", "Eura", "eura"],
+	    ["eurj", "Eurajoki", "eurajoki"],
+	    ["kalan", "Kalanti", "kalanti"],
+	    ["kartl", "Karjala Tl", "karjala_tl"],
+	    ["kust", "Kustavi", "kustavi"],
+	    ["laptl", "Lappi Tl", "lappi_tl"],
+	    ["luvi", "Luvia", "luvia"],
+	    ["mask", "Masku", "masku"],
+	    ["pyhm", "Pyhämaa", "pyhamaa"],
+	    ["raum", "Rauma", "rauma"],
+	    ["ryma", "Rymättylä", "rymattyla"],
+	    ["tais", "Taivassalo", "taivassalo"],
+	    ["velk", "Velkua", "velkua"],
 	] ],
     ] ],
     ["LVÄ", "Lounaiset välimurteet", [
 	["SatE", "Etelä-Satakunta", [
-	    ["kokemaki", "Kokemäki"],
-	    ["loimaa", "Loimaa"],
-	    ["vampula", "Vampula"],
+	    ["koke", "Kokemäki", "kokemaki"],
+	    ["loim", "Loimaa", "loimaa"],
+	    ["vamp", "Vampula", "vampula"],
 	] ],
 	["SatL", "Länsi-Satakunta", [
-	    ["ahlainen", "Ahlainen"],
-	    ["merikarvia", "Merikarvia"],
-	    ["noormarkku", "Noormarkku"],
-	    ["pori", "Pori"],
+	    // Ahlainen has the whole text as a single paragraph,
+	    // which causes problems in the Korp context view, so
+	    // allow only the sentence context and sentence + clause
+	    // within.
+	    ["ahla", "Ahlainen", "ahlainen", {
+		context : settings.defaultContext,
+		within : settings.scWithin
+	    }],
+	    ["merk", "Merikarvia", "merikarvia"],
+	    ["noor", "Noormarkku", "noormarkku"],
+	    ["pori", "Pori", "pori"],
 	] ],
 	["VarY", "Varsinais-Suomen ylämaa", [
-	    ["koski_tl", "Koski Tl"],
-	    ["poytya", "Pöytyä"],
-	    ["somero", "Somero"],
-	    ["sakyla", "Säkylä"],
-	    ["tarvasjoki", "Tarvasjoki"],
+	    ["kostl", "Koski Tl", "koski_tl"],
+	    ["poyt", "Pöytyä", "poytya"],
+	    ["somero", "Somero", "somero"],
+	    ["saky", "Säkylä", "sakyla"],
+	    ["tarv", "Tarvasjoki", "tarvasjoki"],
 	] ],
 	["VarU", "Länsi-Uusimaa", [
-	    ["sammatti", "Sammatti"],
-	    ["vihti", "Vihti"],
+	    ["samm", "Sammatti", "sammatti"],
+	    ["viht", "Vihti", "vihti"],
 	] ],
     ] ],
     ["HÄM", "Hämäläismurteet", [
 	["HämE", "Etelä-Häme", [
-	    ["hattula", "Hattula"],
-	    ["hausjarvi", "Hausjärvi"],
-	    ["nurmijarvi", "Nurmijärvi"],
-	    ["renko", "Renko"],
-	    ["saaksmaki", "Sääksmäki"],
-	    ["tammela", "Tammela"],
+	    ["hatt", "Hattula", "hattula"],
+	    ["haus", "Hausjärvi", "hausjarvi"],
+	    ["nurj", "Nurmijärvi", "nurmijarvi"],
+	    ["renk", "Renko", "renko"],
+	    ["saak", "Sääksmäki", "saaksmaki"],
+	    ["tamm", "Tammela", "tammela"],
 	] ],
 	["HämK", "Kaakkois-Häme", [
-	    ["askola", "Askola"],
-	    ["asikkala", "Asikkala"],
-	    ["lammi", "Lammi"],
+	    ["asko", "Askola", "askola"],
+	    ["asik", "Asikkala", "asikkala"],
+	    ["lamm", "Lammi", "lammi"],
 	] ],
 	["HämP", "Pohjois-Häme", [
-	    ["juupajoki", "Juupajoki"],
-	    ["kuru", "Kuru"],
-	    ["luopioinen", "Luopioinen"],
-	    ["pirkkala", "Pirkkala"],
-	    ["pohjaslahti", "Pohjaslahti"],
-	    ["vesilahti", "Vesilahti"],
+	    ["juup", "Juupajoki", "juupajoki"],
+	    ["kuru", "Kuru", "kuru"],
+	    ["luop", "Luopioinen", "luopioinen"],
+	    ["pirk", "Pirkkala", "pirkkala"],
+	    ["pohjasl", "Pohjaslahti", "pohjaslahti"],
+	    ["vesl", "Vesilahti", "vesilahti"],
 	] ],
 	["SatP", "Pohjois-Satakunta", [
-	    ["ikaalinen", "Ikaalinen"],
-	    ["kankaanpaa", "Kankaanpää"],
-	    ["karkku", "Karkku"],
-	    ["kihnio", "Kihniö"],
-	    ["punkalaidun", "Punkalaidun"],
-	    ["suodenniemi", "Suodenniemi"],
+	    ["ikaa", "Ikaalinen", "ikaalinen"],
+	    ["kanp", "Kankaanpää", "kankaanpaa"],
+	    ["kark", "Karkku", "karkku"],
+	    ["kihn", "Kihniö", "kihnio"],
+	    ["punl", "Punkalaidun", "punkalaidun"],
+	    ["suod", "Suodenniemi", "suodenniemi"],
 	] ],
 	["Kym", "Kymenlaakso", [
-	    ["iitti", "Iitti"],
-	    ["lapinjarvi", "Lapinjärvi"],
-	    ["suursaari", "Suursaari"],
-	    ["vehkalahti", "Vehkalahti"],
+	    ["iitt", "Iitti", "iitti"],
+	    ["lapinj", "Lapinjärvi", "lapinjarvi"],
+	    ["suur", "Suursaari", "suursaari"],
+	    ["vehk", "Vehkalahti", "vehkalahti"],
 	] ],
     ] ],
     ["POH", "Pohjalaismurteet", [
 	["PohE", "Etelä-Pohjanmaa", [
-	    ["isojoki", "Isojoki"],
-	    ["kauhava", "Kauhava"],
-	    ["kurikka", "Kurikka"],
-	    ["laihia", "Laihia"],
-	    ["nurmo", "Nurmo"],
-	    ["peraseinajoki", "Peräseinäjoki"],
-	    ["yliharma", "Ylihärmä"],
+	    ["isoj", "Isojoki", "isojoki"],
+	    ["kauhava", "Kauhava", "kauhava"],
+	    ["kuri", "Kurikka", "kurikka"],
+	    ["laih", "Laihia", "laihia"],
+	    ["nrmo", "Nurmo", "nurmo"],
+	    ["pers", "Peräseinäjoki", "peraseinajoki"],
+	    ["yhar", "Ylihärmä", "yliharma"],
 	] ],
 	["PohK", "Keski-Pohjanmaa", [
-	    ["haapajarvi", "Haapajärvi"],
-	    ["haapavesi", "Haapavesi"],
-	    ["himanka", "Himanka"],
-	    ["kestila", "Kestilä"],
-	    ["lestijarvi", "Lestijärvi"],
-	    ["pyhajoki", "Pyhäjoki"],
-	    ["toholampi", "Toholampi"],
-	    ["veteli", "Veteli"],
-	    ["ylivieska", "Ylivieska"],
+	    ["haaj", "Haapajärvi", "haapajarvi"],
+	    ["haav", "Haapavesi", "haapavesi"],
+	    ["hima", "Himanka", "himanka"],
+	    ["kest", "Kestilä", "kestila"],
+	    ["lest", "Lestijärvi", "lestijarvi"],
+	    ["pyhj", "Pyhäjoki", "pyhajoki"],
+	    ["toho", "Toholampi", "toholampi"],
+	    ["vete", "Veteli", "veteli"],
+	    ["yvie", "Ylivieska", "ylivieska"],
 	] ],
 	["PohP", "Pohjois-Pohjanmaa", [
-	    ["hailuoto", "Hailuoto"],
-	    ["paavola", "Paavola"],
-	    ["temmes", "Temmes"],
-	    ["yli_ii", "Yli-Ii"],
-	    ["ylikiiminki", "Ylikiiminki"],
+	    ["hail", "Hailuoto", "hailuoto"],
+	    ["paav", "Paavola", "paavola"],
+	    ["temm", "Temmes", "temmes"],
+	    ["ylii", "Yli-Ii", "yli_ii"],
+	    ["ykii", "Ylikiiminki", "ylikiiminki"],
 	] ],
 	["LänP", "Länsipohja", [
-	    ["alatornio", "Alatornio"],
-	    ["muonio", "Muonio"],
+	    ["ator", "Alatornio", "alatornio"],
+	    ["muon", "Muonio", "muonio"],
 	] ],
 	["PerP", "Peräpohjola", [
-	    ["kemi", "Kemi"],
-	    ["rovaniemi", "Rovaniemi"],
-	    ["salla", "Salla"],
-	    ["sodankyla", "Sodankylä"],
+	    ["kemi", "Kemi", "kemi"],
+	    ["rova", "Rovaniemi", "rovaniemi"],
+	    ["sall", "Salla", "salla"],
+	    ["soda", "Sodankylä", "sodankyla"],
 	] ],
     ] ],
     ["SAV", "Savolaismurteet", [
 	["KesE", "Eteläinen Keski-Suomi", [
-	    ["joutsa", "Joutsa"],
-	    ["jamsa", "Jämsä"],
-	    ["sysma", "Sysmä"],
+	    ["joutsa", "Joutsa", "joutsa"],
+	    ["jams", "Jämsä", "jamsa"],
+	    ["sysm", "Sysmä", "sysma"],
 	] ],
 	["KesL", "Läntinen Keski-Suomi", [
-	    ["lappajarvi", "Lappajärvi"],
-	    ["pihlajavesi", "Pihlajavesi"],
-	    ["soini", "Soini"],
+	    ["lappa", "Lappajärvi", "lappajarvi"],
+	    ["pihl", "Pihlajavesi", "pihlajavesi"],
+	    ["soin", "Soini", "soini"],
 	] ],
 	["KesP", "Pohjoinen Keski-Suomi", [
-	    ["konginkangas", "Konginkangas"],
-	    ["laukaa", "Laukaa"],
-	    ["multia", "Multia"],
-	    ["pihtipudas", "Pihtipudas"],
+	    ["kong", "Konginkangas", "konginkangas"],
+	    ["lauk", "Laukaa", "laukaa"],
+	    ["mult", "Multia", "multia"],
+	    ["piht", "Pihtipudas", "pihtipudas"],
 	] ],
 	["SavE", "Etelä-Savo", [
-	    ["enonkoski", "Enonkoski"],
-	    ["mikkeli", "Mikkeli"],
-	    ["mantyharju", "Mäntyharju"],
-	    ["punkaharju", "Punkaharju"],
+	    ["enok", "Enonkoski", "enonkoski"],
+	    ["mikk", "Mikkeli", "mikkeli"],
+	    ["manh", "Mäntyharju", "mantyharju"],
+	    ["punh", "Punkaharju", "punkaharju"],
 	] ],
 	["SavP", "Pohjois-Savo", [
-	    ["haukivuori", "Haukivuori"],
-	    ["lapinlahti", "Lapinlahti"],
-	    ["leppavirta", "Leppävirta"],
-	    ["nilsia", "Nilsiä"],
-	    ["rantasalmi", "Rantasalmi"],
-	    ["rautalampi", "Rautalampi"],
-	    ["riistavesi", "Riistavesi"],
-	    ["tervo", "Tervo"],
-	    ["vierema", "Vieremä"],
+	    ["hauv", "Haukivuori", "haukivuori"],
+	    ["lapl", "Lapinlahti", "lapinlahti"],
+	    ["lepp", "Leppävirta", "leppavirta"],
+	    ["nils", "Nilsiä", "nilsia"],
+	    ["rans", "Rantasalmi", "rantasalmi"],
+	    ["raul", "Rautalampi", "rautalampi"],
+	    ["riis", "Riistavesi", "riistavesi"],
+	    ["tervo", "Tervo", "tervo"],
+	    ["vier", "Vieremä", "vierema"],
 	] ],
 	["KarP", "Pohjois-Karjala", [
-	    ["ilomantsi", "Ilomantsi"],
-	    ["juuka", "Juuka"],
-	    ["kiihtelysvaara", "Kiihtelysvaara"],
-	    ["kitee", "Kitee"],
-	    ["kontiolahti", "Kontiolahti"],
-	    ["liperi", "Liperi"],
+	    ["ilom", "Ilomantsi", "ilomantsi"],
+	    ["juuk", "Juuka", "juuka"],
+	    ["kiih", "Kiihtelysvaara", "kiihtelysvaara"],
+	    ["kite", "Kitee", "kitee"],
+	    ["kont", "Kontiolahti", "kontiolahti"],
+	    ["lipe", "Liperi", "liperi"],
 	] ],
 	["Kai", "Kainuu", [
-	    ["posio", "Posio"],
-	    ["sotkamo", "Sotkamo"],
-	    ["suomussalmi", "Suomussalmi"],
+	    ["posi", "Posio", "posio"],
+	    ["sotk", "Sotkamo", "sotkamo"],
+	    ["suos", "Suomussalmi", "suomussalmi"],
 	] ],
     ] ],
     ["KAA", "Kaakkoismurteet", [
 	["KarE", "Etelä-Karjala", [
-	    ["antrea", "Antrea"],
-	    ["koivisto", "Koivisto"],
-	    ["lappee", "Lappee"],
-	    ["luumaki", "Luumäki"],
-	    ["muolaa", "Muolaa"],
-	    ["nuijamaa", "Nuijamaa"],
-	    ["ruokolahti", "Ruokolahti"],
-	    ["savitaipale", "Savitaipale"],
-	    ["seiskari", "Seiskari"],
-	    ["taipalsaari", "Taipalsaari"],
+	    ["antr", "Antrea", "antrea"],
+	    ["koiv", "Koivisto", "koivisto"],
+	    ["lappe", "Lappee", "lappee"],
+	    ["luum", "Luumäki", "luumaki"],
+	    ["muol", "Muolaa", "muolaa"],
+	    ["nuij", "Nuijamaa", "nuijamaa"],
+	    ["ruok", "Ruokolahti", "ruokolahti"],
+	    ["savt", "Savitaipale", "savitaipale"],
+	    ["seis", "Seiskari", "seiskari"],
+	    ["taip", "Taipalsaari", "taipalsaari"],
 	] ],
 	["KarK", "Keski-Karjala", [
-	    ["lumivaara", "Lumivaara"],
-	    ["parikkala", "Parikkala"],
-	    ["rautu", "Rautu"],
-	    ["raisala", "Räisälä"],
-	    ["sortavala", "Sortavala"],
+	    ["lumv", "Lumivaara", "lumivaara"],
+	    ["pari", "Parikkala", "parikkala"],
+	    ["rautu", "Rautu", "rautu"],
+	    ["raisa", "Räisälä", "raisala"],
+	    ["sort", "Sortavala", "sortavala"],
 	] ],
     ] ]
 ];
 
 // LA-murre corpus name prefix, prefixed to a parish name
-var la_murre_corpus_prefix = "la_murre_"
+var la_murre_corpus_prefix = "lam_";
+// Corpus name alias prefix, for redirecting the old, longer names to
+// the new, shorter ones
+var la_murre_alias_prefix = "la_murre_";
 
 // Extract dialect regions, groups, parishes and corpus names from
 // la_murre_grouping
@@ -2447,10 +2668,47 @@ for (var i = 0; i < la_murre_grouping.length; i++) {
 	var parishes = groups[j][2];
 	for (var k = 0; k < parishes.length; k++) {
 	    la_murre_parishes.push(parishes[k][1]);
-	    la_murre_corpora.push(la_murre_corpus_prefix + parishes[k][0]);
+	    var corpname = la_murre_corpus_prefix + parishes[k][0]
+	    la_murre_corpora.push(corpname);
+	    settings.corpus_aliases[la_murre_alias_prefix + parishes[k][2]] =
+		corpname;
 	}
     }
 }
+
+// It would actually suffice to have the /korp-prefixed name now that
+// /var/www/html/korp is a link to /var/www/html on the public server.
+var la_murre_fulltext_url_prefix =
+    ((! isPublicServer) ? "/korp" : "") + "/fulltext/la_murre/";
+
+// Make LA-murre fulltext URLs with the sentence id as a fragment
+// identifier and the number of the first and last token of the match
+// as the query string. This function is used as a stringify_synthetic
+// function for the fulltext URLs.
+settings.fn.make_la_murre_fulltext_url = function (token_data) {
+    var tokencnt = token_data.tokens.length;
+    var match_start = 0;
+    var match_end = 0;
+    var in_match = false;
+    for (var tokennum = 0; tokennum < tokencnt; tokennum++) {
+	if (token_data.tokens[tokennum]._match) {
+	    if (! in_match) {
+		match_start = tokennum + 1;
+		in_match = true;
+	    }
+	} else if (in_match) {
+	    match_end = tokennum;
+	    in_match = false;
+	}
+    }
+    if (in_match) {
+	match_end = tokencnt;
+    }
+    return (la_murre_fulltext_url_prefix
+	    + token_data.struct_attrs.text_filename + ".html"
+	    + "?" + match_start.toString() + "-" + match_end.toString()
+	    + "#s" + token_data.struct_attrs.sentence_num);
+};
 
 // The corpus settings template for the LA-murre corpora
 settings.templ.la_murre = {
@@ -2476,7 +2734,7 @@ settings.templ.la_murre = {
 		"cw" : "cw",
 		"cw1" : "cw1",
 		"cw2" : "cw2",
-		null : "noncw",
+		"" : "noncw",
 	    },
 	    opts : settings.liteOptions
 	},
@@ -2521,6 +2779,16 @@ settings.templ.la_murre = {
 	    label : "file_name",
 	    displayType : "hidden"
 	},
+	text_date : sattrs.date,
+	text_session_descr : {
+	    label : "interview_descr",
+	},
+	text_content_descr : {
+	    label : "subject",
+	},
+	text_source_id : {
+	    label : "original_source",
+	},
 	paragraph_type : {
 	    label : "paragraph_type",
 	    displayType : "select",
@@ -2537,6 +2805,30 @@ settings.templ.la_murre = {
 	},
 	paragraph_speaker : {
 	    label : "speaker",
+	},
+	paragraph_speaker_name : {
+	    label : "speaker_name",
+	    displayType : "hidden",
+	},
+	paragraph_speaker_age : {
+	    label : "speaker_age",
+	},
+	paragraph_speaker_sex : {
+	    label : "speaker_sex",
+	    displayType : "select",
+	    translationKey : "",
+	    dataset : {
+		"male" : "male",
+		"female" : "female",
+		"" : "unknown"
+	    },
+	    opts : settings.liteOptions,
+	},
+	paragraph_speaker_birthdate : {
+	    label : "speaker_birthdate",
+	},
+	paragraph_speaker_descr : {
+	    label : "speaker_descr",
 	},
 	paragraph_begin_time : {
 	    label : "speech_begin_time"
@@ -2569,6 +2861,13 @@ settings.templ.la_murre = {
 	sentence_annex_link : sattrs.link_prefixed(
 	    "listen_sentence",
 	    "https://lat.csc.fi/ds/annex/runLoader?"),
+	sentence_fulltext_link :  {
+	    label : "show_fulltext",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts,
+	    synthetic : true,
+	    stringify_synthetic : settings.fn.make_la_murre_fulltext_url,
+	},
 	clause_clnum : {
 	    label : "clause_clnum",
 	},
@@ -2616,7 +2915,6 @@ settings.templ.la_murre = {
 	    dataset : {
 		"dir" : "dir",
 		"" : "other",
-		null : "other"
 	    },
 	    opts : settings.liteOptions
 	},
@@ -2626,7 +2924,30 @@ settings.templ.la_murre = {
 	clause_partnum : {
 	    label : "clause_partnum",
 	}
-    }
+    },
+    sidebar_display_order : {
+	attributes : [
+	    "cleanword",
+	    "lemma",
+	    "pos",
+	    "msd",
+	    "func",
+	    "cow",
+	    "note",
+	],
+	struct_attributes : [
+	    "text_dialect_region",
+	    "text_dialect_group",
+	    "text_parish",
+	    /^text_/,
+	    /^paragraph_/,
+	    /^sentence_/,
+	    /^clause_/,
+	],
+    },
+    // Ignore any number of punctuation tokens between tokens in the
+    // extended search
+    ignore_between_tokens_cqp : '[pos="punct"]*',
 };
 
 // Recursively make settings.corporafolders and settings.corpora for
@@ -2634,23 +2955,31 @@ settings.templ.la_murre = {
 // la_murre_grouping). main_folder is the folder to which to add the
 // folders or corpora in subfolder_tree. This could perhaps be
 // generalized for other corpora if needed.
-settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree) {
+settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree,
+					      depth, leaf_depth) {
     for (var i = 0; i < subfolder_tree.length; i++) {
 	var subfolder_info = subfolder_tree[i];
 	var descr = "Lauseopin arkiston murrekorpus: " + subfolder_info[1];
-	if (subfolder_info.length > 2) {
+	if (depth < leaf_depth) {
 	    var subfolder = {
 		title : subfolder_info[1],
 		description : descr
 	    };
 	    main_folder[subfolder_info[0]] = subfolder;
-	    settings.fn.make_folders_la_murre(subfolder, subfolder_info[2]);
+	    settings.fn.make_folders_la_murre(subfolder, subfolder_info[2],
+					      depth + 1, leaf_depth);
 	} else {
 	    var templ_fill = {
 		id : subfolder_info[0],
-		title : subfolder_info[1],
+		title : subfolder_info[1] + " (LA-murre)",
 		description : descr
 	    };
+	    // The optional fourth item in the corpus info list is an
+	    // object that may be used to override the values in the
+	    // template.
+	    if (subfolder_info.length > 3) {
+		$.extend(templ_fill, subfolder_info[3]);
+	    }
 	    settings.fn.add_corpus_settings(
 		settings.templ.la_murre, [templ_fill], main_folder,
 		la_murre_corpus_prefix);
@@ -2660,7 +2989,7 @@ settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree) {
 
 // Call the above recursive function
 settings.fn.make_folders_la_murre(
-    settings.corporafolders.spoken.la_murre, la_murre_grouping);
+    settings.corporafolders.spoken.la_murre, la_murre_grouping, 1, 3);
 
 // Construct a shorthand alias
 settings.corpus_aliases.la_murre = la_murre_corpora.join(",");
@@ -2679,13 +3008,20 @@ settings.corpora.las2 = {
     title : "LAS2",
     description : "Edistyneiden suomenoppijoiden korpus",
     id : "las2",
-    within : settings.spWithin,
-    context : settings.spContext,
+    urn : "urn:nbn:fi:lb-2015050504",
+    metadata_urn : "urn:nbn:fi:lb-201407167",
+    homepage_url : "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
+    licence : {
+	name : "CLARIN RES +PLAN +NC +LOC +ND",
+	urn : "urn:nbn:fi:lb-20150304111"
+    },
     limited_access : true,
     licence_type : "RES",
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : {
 	lemma : attrs.baseform,
-        pos : attrs.pos_la,
+        pos : attrs.pos_las2,
         msd : attrs.msd,
         fun : attrs.func_la,
         com : {
@@ -2781,6 +3117,10 @@ settings.corpora.sks_kivi_fi = {
     description : "Aleksis Kiven painetut teokset, kirjeet ja muu tunnettu tuotanto. Toimittaneet Sakari Katajamäki, Ossi Kokko ja Elina Kela. <a href='http://www.edith.fi/kivikorpus/index.htm'>Infosivu</a>",
     id : "sks_kivi_fi",
     // unselected : true,
+    urn : "urn:nbn:fi:lb-201405273",
+    metadata_urn : "urn:nbn:fi:lb-201405274",
+    licence : settings.licenceinfo.CC_BY_NC,
+    homepage_url : "http://www.edith.fi/kivikorpus/index.htm",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -2900,6 +3240,10 @@ settings.corpora.skvr = {
     description : "SKS:n Suomen Kansan Vanhat Runot -korpus",
     id : "skvr",
     // unselected : true,
+    urn : "urn:nbn:fi:lb-2014052711",
+    metadata_urn : "urn:nbn:fi:lb-2014052712",
+    licence : settings.licenceinfo.CC_BY_NC,
+    homepage_url : "http://dbgw.finlit.fi/skvr/",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -3043,7 +3387,87 @@ attrlist.topling = {
     type : attrs.wordtype
 };
 
+attrlist.scotscorr = {
+    w_note : attrs.word_note,
+    w_supplement : attrs.word_supplement,
+    w_full : attrs.word_correction,
+    w_spacing : {
+        label : "word_spacing",
+        opts : settings.defaultOptions
+    },
+    w_typography : attrs.word_typography,
+    w_state : {
+        label : "word_state",
+        opts : settings.defaultOptions
+    }
+};
+
+
+/* OPUS */
+
+/*
+sattrlist.opus = {
+    sentence_id : sattrs.sentence_id_hidden,
+    text_title : {
+        label : "title"
+    }
+};
+*/
+
 sattrlist = {};
+
+sattrlist.s24_update = {
+    text_urlmsg : {
+        label : "suomi24fi_urlmsg",
+        type : "url",
+        url_opts : sattrs.link_url_opts
+    },
+    text_urlboard : {
+        label : "suomi24fi_urlboard",
+        type : "url",
+        url_opts : sattrs.link_url_opts
+    },
+    sentence_id : sattrs.sentence_id_hidden,
+    text_title : sattrs.text_title,
+    text_date : sattrs.date,
+    text_time : sattrs.text_time,
+    text_cid : {
+        label : "suomi24fi_cid",
+    },
+    text_discussionarea : {
+        label : "suomi24fi_sect",
+    },
+    text_subsections : {
+        label : "suomi24fi_sub",
+    },
+    text_anonnick : {
+        label : "suomi24fi_user",
+    }
+};
+
+sattrlist.scotscorr = {
+    sentence_id : sattrs.sentence_id_hidden,
+    text_year : {label : "scotscorr_year"},
+    text_fraser : {label : "scotscorr_fraser"},
+    text_datefrom : sattrs.date,
+    text_from : { label : "topling_from" },
+    text_to : { label : "topling_to"},
+    text_bi : { label : "scotscorr_bi"},
+    text_id : { label : "text_id" },
+    text_fn : { label : "file_name"},
+    text_ms : { label : "scotscorr_ms"},
+    text_lcinf : { label : "scotscorr_lcinf"},
+    text_lclet : { label : "scotscorr_lclet"},
+    text_arg : { label : "scotscorr_arg"},
+    text_srg : { label : "scotscorr_srg"},
+    text_lettertype : { label : "scotscorr_lettertype"},
+    text_scripttype : { label : "scotscorr_scripttype"},
+    text_lettertypetwo : { label : "scotscorr_lettertype"},
+    text_scripttypetwo : { label : "scotscorr_scripttype"},
+    text_st : {label :  "scotscorr_st"},
+    text_wc : { label : "scotscorr_wc"},
+    text_largeregion : { label : "scotscorr_largeregion"}
+};
 
 sattrlist.europarl_v7 = {
     text_title : sattrs.text_title,
@@ -3151,6 +3575,49 @@ attrlist.fennougrica_veps = {
         }
 };
 
+attrlist.fennougrica = {};
+
+sattrlist.fennougrica = {
+    within : settings.spWithin,
+    context : settings.spContext,
+    text_datefrom : sattrs.date,
+    text_author : {
+        label : "text_author"
+    },
+    text_title : {
+        label : "text_title"
+    },
+    text_editor : {
+        label : "klk_editor"
+    },
+    text_lang : {
+        label : "klk_lang",
+        displayType : "select",
+        translationKey : "klk_lang_",
+        dataset : {
+            "izh" : "izh",
+            "kca" : "kca",
+            "mdf" : "mdf",
+            "mns" : "mns",
+            "mrj" : "mrj",
+            "myv" : "myv",
+            "sel" : "sel",
+            "vep" : "vep",
+            "yrk" : "yrk"
+        },
+        opts : settings.liteOptions
+
+    },
+    text_link : {
+        url_opts : sattrs.link_url_opts,
+        label : "klk_img_url",
+        type : "url"
+    }
+};
+
+
+
+
 /* KFSPC */
 sattrlist.kfspc = {
     sentence_id : sattrs.sentence_id_hidden,
@@ -3158,6 +3625,40 @@ sattrlist.kfspc = {
     text_h_title2 : sattrs.text_title,
     text_pubdate2 : sattrs.text_pubdate,
     text_publisher : sattrs.text_publisher
+};
+
+settings.corpusinfo.kfspc = {
+    urn : "urn:nbn:fi:lb-201406035",
+    metadata_urn : "urn:nbn:fi:lb-201406036",
+    licence : settings.licenceinfo.CC_BY
+};
+
+settings.corpora.kfspc_fi = {
+    title : "KFSPC suomi",
+    description : "Kotus Finnish-Swedish Parallel Corpus, suomenkielinen osuus",
+    id : "kfspc_fi",
+    lang : "fin",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes : {
+    },
+    struct_attributes : sattrlist.kfspc
+};
+
+settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_fi"]);
+
+
+/* JRC-ACQUIS */
+
+sattrlist.jrc_acquis = {
+    sentence_id : sattrs.sentence_id_hidden,
+    text_year : {
+        label : "year"
+    },
+    text_title : sattrs.text_title,
+    text_filename : {
+        label : "file_name",
+    }
 };
 
 /* TOPLING */
@@ -3191,50 +3692,57 @@ sattrlist.topling = {
 
 sattrlist.mulcold = {
     align_text_code : {
-	label : "text_code"
+	label : "text_id"
     },
     align_text_author : {
-	label : "text_author"
+	label : "author"
     },
     align_text_title : {
-	label : "text_title"
+	label : "title"
     },
     align_text_typeoftext : {
-	label : "text_typeoftext"
+	label : "text_type"
     },
-    align_text_genre : sattrs.text_genre,
+    align_text_genre : sattrs.mikhailov_text_genre,
     align_text_period : {
-	label : "text_period"
+	label : "year"
     },
     align_text_publisher : {
-	label : "text_publisher"
+	label : "publisher"
     },
     sentence_id : sattrs.sentence_id_hidden
 };
 
 sattrlist.legal = {
     text_code : {
-	label : "text_code"
+	label : "text_id"
     },
     text_author : {
-	label : "text_author"
+	label : "author"
     },
     text_title : {
-	label : "text_title"
+	label : "title"
     },
     text_typeoftext : {
-	label : "text_typeoftext"
+	label : "text_type"
     },
-    text_genre : sattrs.text_genre,
+    text_genre : sattrs.mikhailov_text_genre,
     text_period : {
 	label : "text_period"
     },
     text_publisher : {
-	label : "text_publisher"
+	label : "publisher"
     },
     sentence_id : sattrs.sentence_id_hidden
 };
 
+
+settings.corpusinfo.firulex = {
+    urn : "urn:nbn:fi:lb-201407162",
+    metadata_urn : "urn:nbn:fi:lb-201407161",
+    licence : settings.licenceinfo.CC_BY_ND,
+    homepage_url : "https://mustikka.uta.fi/",
+};
 
 settings.corpora.legal_fi = {
     id : "legal_fi",
@@ -3244,6 +3752,17 @@ settings.corpora.legal_fi = {
     within : settings.defaultWithin,
     attributes: attrlist.mulcold_fi,
     struct_attributes : sattrlist.legal
+};
+
+settings.fn.extend_corpus_settings(settings.corpusinfo.firulex,
+				   ["legal_fi"]);
+
+
+settings.corpusinfo.mulcold = {
+    urn : "urn:nbn:fi:lb-201405277",
+    metadata_urn : "urn:nbn:fi:lb-201405278",
+    licence : settings.licenceinfo.CC_BY_ND,
+    homepage_url : "https://mustikka.uta.fi/",
 };
 
 settings.corpora.mulcold_fi = {
@@ -3256,96 +3775,110 @@ settings.corpora.mulcold_fi = {
     struct_attributes : sattrlist.mulcold
 };
 
+settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
+				   ["mulcold_fi"]);
+
 
 /*
  * Previously in Finnish National Library mode
  */
 
-sattrlist.klk_fi = {
+sattrlist.klk = {
     text_label : {
+	// The label has the prefix klk_ because it might not have the
+	// same meaning as "label" in some other contexts.
         label : "klk_label",
         opts : settings.defaultOptions,
     },
     text_publ_title : {
-        label : "klk_publ_title",
+        label : "publication",
         opts : settings.defaultOptions,
     },
     /*
     text_publ_part : {
-        label : "klk_publ_part",
+        label : "part",
         opts : settings.defaultOptions,
     },
     */
     text_publ_id : {
-        label : "klk_publ_id",
+        label : "issn",
         opts : settings.defaultOptions,
     },
     text_issue_date : {
-        label : "klk_issue_date",
+        label : "date",
         opts : settings.defaultOptions,
     },
     text_issue_no : {
-        label : "klk_issue_no",
+        label : "issue_num",
         opts : settings.defaultOptions,
     },
     text_issue_title : {
-        label : "klk_issue_title",
+        label : "issue_title",
         opts : settings.defaultOptions,
     },
     /*
     text_part_name : {
-        label : "klk_part_name",
+        label : "part_name",
         opts : settings.defaultOptions,
     },
     */
     text_elec_date : {
-        label : "klk_elec_date",
+        label : "digitization_date",
         opts : settings.defaultOptions,
     },
     text_language : {
-        label : "klk_language",
-        opts : settings.defaultOptions,
+        label : "lang",
+        displayType : "select",
+        translationKey : "",
+        opts : settings.liteOptions,
+        dataset : {
+            "fi" : "fin",
+            "sv" : "swe",
+            "et" : "est",
+        }
     },
     /*
     text_page_id : {
-        label : "klk_page_id",
+        label : "page_id",
         opts : settings.defaultOptions,
     },
     */
     text_page_no : {
-        label : "klk_page_no",
+        label : "page_num",
         opts : settings.defaultOptions,
     },
     text_sentcount : {
-        label : "klk_sentcount",
+        label : "sentence_count",
         displayType : "hidden",
     },
     text_tokencount : {
-        label : "klk_tokencount",
+        label : "token_count",
         displayType : "hidden",
     },
     text_img_url : {
-        label : "klk_img_url",
+        label : "image_url",
         type : "url",
 	displayType : "hidden",
     },
+    /*
     text_dateto : {
-        label : "klk_dateto",
+        label : "dateto",
         displayType : "hidden",
     },
     text_datefrom : {
-        label : "klk_datefrom",
+        label : "datefrom",
         displayType : "hidden",
     },
+    */
     text_publ_type : {
 	label : "publication_type",
 	displayType : "select",
 	translationKey : "publtype_",
 	opts : settings.liteOptions,
-	dataset : [
-	    "aikakausi",
-	    "sanomalehti"
-	]
+	dataset : {
+	    "aikakausi" : "journal",
+	    "sanomalehti" : "newspaper"
+	}
     },
     paragraph_id : {
         label : "paragraph_id",
@@ -3354,24 +3887,25 @@ sattrlist.klk_fi = {
     sentence_id : sattrs.sentence_id_hidden
 };
 
-sattrlist.klk_fi_parsed = $.extend({}, sattrlist.klk_fi);
-$.extend(sattrlist.klk_fi_parsed,
-	 {
-	     sentence_parse_state : {
-		 label : "klk_parse_state",
-		 displayType : "select",
-		 translationKey : "parse_state_",
-		 opts : settings.liteOptions,
-		 dataset : {
-		     "parsed" : "parsed",
-		     "tagged" : "tagged"
-		 }
-	     },
-	     sentence_local_id : {
-		 label : "local_id",
-		 displayType : "hidden"
-	     }
-	 });
+sattrlist.klk_fi = $.extend({}, sattrlist.klk);
+sattrlist.klk_fi_parsed = $.extend(
+    {}, sattrlist.klk_fi,
+    {
+	sentence_parse_state : {
+	    label : "parse_state",
+	    displayType : "select",
+	    translationKey : "parse_state_",
+	    opts : settings.liteOptions,
+	    dataset : {
+		"parsed" : "parsed",
+		"tagged" : "tagged"
+	    }
+	},
+	sentence_local_id : {
+	    label : "local_id",
+	    displayType : "hidden"
+	}
+    });
 
 
 // Functions used to make page URL attribute values
@@ -3472,8 +4006,8 @@ sattrlist.klk_pagelinks = {
     },
 };
 
-sattrlist.klk_fi_parsed_pagelinks = $.extend({}, sattrlist.klk_fi_parsed);
-$.extend(sattrlist.klk_fi_parsed_pagelinks, sattrlist.klk_pagelinks);
+sattrlist.klk_fi_parsed_pagelinks = $.extend(
+    {}, sattrlist.klk_fi_parsed, sattrlist.klk_pagelinks);
 
 attrlist.klk_fi = {
     ocr : {
@@ -4209,15 +4743,22 @@ settings.corpora.vns_renvall = {
 };
 
 settings.corpora.gutenberg = {
-    title : "Gutenberg",
+    title : "Suomenkielinen Gutenberg -korpus",
     description : "Project Gutenbergin sisältämiä suomenkielisiä teoksia, joiden tekijänoikeus on päättynyt",
     id : "gutenberg",
-    within : settings.spWithin,
-    context : settings.spContext,
     urn : "urn:nbn:fi:lb-2014102101",
     metadata_urn : "urn:nbn:fi:lb-2014100301",
-    homepage_url : "http://www.gutenberg.org/",
-    licence_url : "http://www.gutenberg.org/wiki/Gutenberg:The_Project_Gutenberg_License",
+    homepage : {
+	url : "http://www.gutenberg.org/",
+	name : "Project Gutenberg",
+	no_label : true
+    },
+    // Is the following correct? According to META-SHARE, licence
+    // would be CC BY.
+    // licence_url : "http://www.gutenberg.org/wiki/Gutenberg:The_Project_Gutenberg_License",
+    licence : settings.licenceinfo.CC_BY,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : {
     },
     struct_attributes : {
@@ -4295,6 +4836,7 @@ settings.corpora.skn = {
     id : "skn",
     urn : "urn:nbn:fi:lb-201407141",
     metadata_urn : "urn:nbn:fi:lb-201407141",
+    licence : settings.licenceinfo.CC_BY_40,
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -4365,6 +4907,8 @@ settings.corpora.ylilauta = {
     id : "ylilauta",
     urn : "urn:nbn:fi:lb-2015031802",
     metadata_urn : "urn:nbn:fi:lb-2015031802",
+    licence : settings.licenceinfo.CC_BY_NC,
+    homepage_url : "https://ylilauta.org",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -4393,12 +4937,181 @@ settings.corpora.ylilauta = {
     }
 };
 
+/* SUOMI 24 */
+
+// Properties urn, metadata_urn, licence and homepage_url of
+// settings.corpora.s24_??? come from
+// settings.corporafolders.internet.suomi24, so they should not be
+// specified in the settings of the individual subcorpora.
+
+settings.corpora.s24_001 = {
+    title : "Suomi24 (1/9)",
+    description : "Suomi24-keskustelut (1/9)",
+    id : "s24_001",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref
+    },
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpora.s24_002 = {
+    title : "Suomi24 (2/9)",
+    description : "Suomi24-keskustelut (2/9)",
+    id : "s24_002",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref
+
+    },
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpora.s24_003 = {
+    title : "Suomi24 (3/9)",
+    description : "Suomi24-keskustelut (3/9)",
+    id : "s24_003",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref
+
+    },
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpora.s24_004 = {
+    title : "Suomi24 (4/9)",
+    description : "Suomi24-keskustelut (4/9)",
+    id : "s24_004",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref
+
+    },
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpora.s24_005 = {
+    title : "Suomi24 (5/9)",
+    description : "Suomi24-keskustelut (5/9)",
+    id : "s24_005",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref
+
+    },
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpora.s24_006 = {
+    title : "Suomi24 (6/9)",
+    description : "Suomi24-keskustelut (6/9)",
+    id : "s24_006",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref
+
+    },
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpora.s24_007 = {
+    title : "Suomi24 (7/9)",
+    description : "Suomi24-keskustelut (7/9)",
+    id : "s24_007",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref
+
+    },
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpora.s24_008 = {
+    title : "Suomi24 (8/9)",
+    description : "Suomi24-keskustelut (8/9)",
+    id : "s24_008",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref
+
+    },
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpora.s24_009 = {
+    title : "Suomi24 (9/9)",
+    description : "Suomi24-keskustelut (9/9) (ei jäsennetty)",
+    id : "s24_009",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpus_aliases.suomi24 =
+    "s24_001,s24_002,s24_003,s24_004,s24_005,s24_006,s24_007,s24_008,s24_009";
+
+
 settings.corpora.s24 = {
-    title : "Suomi24",
-    description : "Suomi24-keskustelut (2002–2014)",
+    title : "Suomi24 2001–2014 (näyte)",
+    description : "Suomi24-keskusteluja 2001–2014 (näyte).<br/>Tämä korpus sisältää osan <a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskusteluista vuosilta 2001–2014; kaikki keskustelut (myös tämän korpuksen sisältämät) sisältyvät korpukseen <i>Suomi24</i>.<br/>(Tämä korpus näkyi aiemmin nimellä <i>Suomi24</i>.)",
     id : "s24",
-    urn : "urn:nbn:fi:lb-201412171",
-    metadata_urn : "urn:nbn:fi:lb-201412171",
+    // URN information also in the corpus .info file; if you need to
+    // update the URNs, you should also check it.
+    // TODO: Update the URNs when the new URNs are available. (2015-12-01)
+    // urn : "urn:nbn:fi:lb-2015040102",
+    // metadata_urn : "urn:nbn:fi:lb-2015091701",
+    licence : settings.licenceinfo.CC_BY_NC,
+    homepage_url : "http://keskustelu.suomi24.fi",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -4415,6 +5128,7 @@ settings.corpora.s24 = {
         },
         syn : attrs.deprel_tdt,
         unk : attrs.ner_tags*/
+
         lemma : attrs.baseform,
         lemmacomp : attrs.baseform_compound,
         pos : attrs.pos_klk,
@@ -4453,12 +5167,18 @@ settings.corpora.s24 = {
     }
 };
 
+
 settings.corpora.iclfi = {
     title : "ICLFI – Kansainvälinen oppijansuomen korpus",
     description : "ICLFI – International Corpus of Learner Finnish – Kansainvälinen oppijansuomen korpus",
     id : "iclfi",
     urn : "urn:nbn:fi:lb-20140730163",
     metadata_urn : "urn:nbn:fi:lb-20140730163",
+    licence : {
+	name : "CLARIN RES +PLAN +NC +INF +PRIV +DEP",
+	urn : "urn:nbn:fi:lb-2015050501"
+    },
+    homepage_url : "http://www.oulu.fi/suomitoisenakielena/node/16078",
     limited_access : true,
     licence_type : "RES",
     within : settings.spWithin,
@@ -4637,7 +5357,7 @@ var locally_available_corpora =
      "kotus_ns_presidentti_.*",
      "kotus_klassikot",
      "kotus_sananparret",
-     "la_murre_.*",
+     "lam_.*",
      "(mulcold|legal)_..",
      "s24",
      "skvr",
@@ -4668,10 +5388,10 @@ delete locally_available_corpora;
 
 
 // An array of properties of corpus attributes to be added based on
-// other properties. Each element contains is an object with the
-// properties "test" (a function returning true for the attribute
-// object if the extra properties should be added) and "props" (an
-// object containing the extra properties to be added).
+// other properties. Each element is an object with the properties
+// "test" (a function returning true for the attribute object if the
+// extra properties should be added) and "props" (an object containing
+// the extra properties to be added).
 settings.attr_extra_properties = [
     {
 	// If displayType == "select", add properties
@@ -4691,17 +5411,24 @@ settings.attr_extra_properties = [
 settings.fn.add_attr_extra_properties = function (corpora) {
     for (var corpname in corpora) {
 	var corpus = corpora[corpname];
-	if ("attributes" in corpus) {
-	    for (var attrname in corpus.attributes) {
-		for (var i = 0; i < settings.attr_extra_properties.length; i++) {
-		    var attr_extra_props = settings.attr_extra_properties[i];
-		    var attr = corpus.attributes[attrname];
-		    if (attr_extra_props.test(attr)) {
-			var props = attr_extra_props.props;
-			for (var prop in props) {
-			    if (props.hasOwnProperty(prop)
-				&& ! attr.hasOwnProperty(prop)) {
-				attr[prop] = props[prop];
+	var attr_group_names = ["attributes", "struct_attributes"];
+	var attr_group_count = attr_group_names.length;
+	for (var groupnum = 0; groupnum < attr_group_count; groupnum++) {
+	    if (attr_group_names[groupnum] in corpus) {
+		var attrs = corpus[attr_group_names[groupnum]];
+		var extra_props_count = settings.attr_extra_properties.length;
+		for (var attrname in attrs) {
+		    for (var i = 0; i < extra_props_count; i++) {
+			var attr_extra_props =
+			    settings.attr_extra_properties[i];
+			var attr = attrs[attrname];
+			if (attr_extra_props.test(attr)) {
+			    var props = attr_extra_props.props;
+			    for (var prop in props) {
+				if (props.hasOwnProperty(prop)
+				    && ! attr.hasOwnProperty(prop)) {
+				    attr[prop] = props[prop];
+				}
 			    }
 			}
 		    }
@@ -4743,7 +5470,14 @@ settings.reduce_stringify = function(type) {
             return value[1] != null; // value[1] is an optimized value.relative
         });
         corpora = $.map($.keys(corpora), function(item) {
-            return item.split("_")[0].toLowerCase();
+	    // Leave out only the last underscore-separated component
+	    // of the corpus name (probably "value", set in
+	    // statistics_worker.js), to support corpus names (ids)
+	    // containing underscores. (Jyrki Niemi 2015-09-17)
+	    var lastUscore = item.lastIndexOf("_");
+	    return ((lastUscore == -1 ? item : item.slice(0, lastUscore))
+		    .toLowerCase());
+            // return item.split("_")[0].toLowerCase();
         });
         return corpora;
     }
@@ -4762,7 +5496,7 @@ settings.reduce_stringify = function(type) {
             if(value == "&Sigma;") return appendDiagram(value, corpora, value);
 
             var query = $.map(dataContext.hit_value.split(" "), function(item) {
-                return $.format('[word="%s"]', item);
+                return $.format('[word="%s"]', window.regescape(item));
             }).join(" ");
 
             output = $("<span>",
@@ -4780,7 +5514,7 @@ settings.reduce_stringify = function(type) {
             var corpora = getCorpora(dataContext);
             if(value == "&Sigma;") return appendDiagram(value, corpora, value);
             var query = $.map(dataContext.hit_value.split(" "), function(item) {
-                return $.format('[pos="%s"]', item);
+                return $.format('[pos="%s"]', window.regescape(item));
             }).join(" ");
             output =  _.map(value.split(" "), function(token) {
                 return $("<span>")
@@ -4827,7 +5561,8 @@ settings.reduce_stringify = function(type) {
                            ? " = " : " contains ");
             var cqp = _.map(_.zip.apply(null, _.invoke(value, "split", " ")), function(tup) {
                 return "[" + _.map(_.uniq(tup), function(item) {
-                    return "(" + type + comp_op + "'" + item + "')"
+                    return ("(" + type + comp_op + "'" + window.regescape(item)
+			    + "')")
                 }).join(" | ") + "]"
 
             }).join(" ")
@@ -4859,7 +5594,7 @@ settings.reduce_stringify = function(type) {
             var corpora = getCorpora(dataContext);
             if(value == "&Sigma;") return appendDiagram(value, corpora, value);
             var query = $.map(dataContext.hit_value.split(" "), function(item) {
-                return $.format('[deprel="%s"]', item);
+                return $.format('[deprel="%s"]', window.regescape(item));
             }).join(" ");
             output = $.format("<span class='link' data-query='%s' data-corpora='%s' rel='localize[%s]'>%s</span> ",
                     [query, JSON.stringify(corpora),"deprel_" + value, util.getLocaleString("deprel_" + value)]);
@@ -4882,7 +5617,7 @@ settings.reduce_stringify = function(type) {
                 query_format = '[%s="%s"]';
             }
             var query = $.map(dataContext.hit_value.split(" "), function(item) {
-                return $.format(query_format, [type, item]);
+                return $.format(query_format, [type, window.regescape(item)]);
             }).join(" ");
 
             // if(type in cl.getStructAttrs())

@@ -250,7 +250,12 @@ html
     //if lte IE 8
       script(language='javascript', src='lib/flot/excanvas.min.js')
     script.
-      var isLab = window.location.pathname.split("/")[1] == "korplabb";
+      var locationLastComponent = window.location.pathname.split("/")[1];
+      var isLab = (locationLastComponent == "korplabb"
+                   || locationLastComponent == "korplab"
+                   || locationLastComponent == "lab"
+                   || locationLastComponent == "beta"
+                   || locationLastComponent == "korp-beta");
       if(window.console == null) window.console = {"log" : $.noop, "error" : $.noop};
       window.c = window.console;
 

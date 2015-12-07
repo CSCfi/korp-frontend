@@ -22,7 +22,7 @@ Sidebar =
             else ""
         if formattedCorpusInfo
             formattedCorpusInfo = "<br/>" + formattedCorpusInfo
-        $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>#{corpusObj.title}</p><p>#{formattedCorpusInfo}</p>").prependTo "#selected_sentence"
+        $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>#{corpusObj.title}</p><p id='sidebar-corpus-info'>#{formattedCorpusInfo}</p>").prependTo "#selected_sentence"
         # All token data, to be passed to the function stringify_synthtetic
         # of a synthetic attribute (Jyrki Niemi 2015-02-24)
         token_data =
@@ -32,16 +32,24 @@ Sidebar =
         unless $.isEmptyObject(corpusObj.attributes)
             $("#selected_word").append $("<h4>").localeKey("word_attr")
 
-            @renderContent(wordData, corpusObj.attributes, corpusObj.synthetic_attr_names.attributes, token_data).appendTo "#selected_word"
+            @renderContent(wordData, corpusObj.attributes,
+                corpusObj.synthetic_attr_names.attributes, token_data,
+                corpusObj._sidebar_display_order?.attributes)
+            .appendTo "#selected_word"
         unless $.isEmptyObject(corpusObj.struct_attributes)
             $("#selected_sentence").append $("<h4>").localeKey("sentence_attr")
 
-            @renderContent(sentenceData, corpusObj.struct_attributes, corpusObj.synthetic_attr_names.struct_attributes, token_data).appendTo "#selected_sentence"
+            @renderContent(sentenceData, corpusObj.struct_attributes,
+                corpusObj.synthetic_attr_names.struct_attributes, token_data,
+                corpusObj._sidebar_display_order?.struct_attributes)
+            .appendTo "#selected_sentence"
 
         # Links in a separate link section
         unless $.isEmptyObject(corpusObj.link_attributes)
-            @renderContent(sentenceData, corpusObj.link_attributes, corpusObj.synthetic_attr_names.link_attributes, token_data)
-                .appendTo "#selected_links"
+            @renderContent(sentenceData, corpusObj.link_attributes,
+                corpusObj.synthetic_attr_names.link_attributes, token_data,
+                corpusObj._sidebar_display_order?.link_attributes)
+            .appendTo "#selected_links"
 
         @element.localize()
         @applyEllipse()
@@ -73,9 +81,10 @@ Sidebar =
 
 
 
-    renderContent: (wordData, corpus_attrs, synthetic_attr_names, token_data) ->
+    renderContent: (wordData, corpus_attrs, synthetic_attr_names, token_data,
+                    attr_order) ->
         pairs = _.pairs(wordData)
-        order = @options.displayOrder
+        order = attr_order or @options.displayOrder
         pairs.sort ([a], [b]) ->
             $.inArray(b, order) - $.inArray(a, order)
         items = for [key, value] in pairs when corpus_attrs[key]
@@ -101,9 +110,21 @@ Sidebar =
         else
             output = $("<p><span rel='localize[#{attrs.label}]'>#{key}</span>: </p>")
         output.data("attrs", attrs)
-        if value == "|" or value == ""
-            output.append "<i rel='localize[empty]' style='color : grey'>${util.getLocaleString('empty')}</i>"
+        # Convert an undefined value to the empty string (Jyrki Niemi
+        # 2015-08-26)
+        value ?= ""
+        if (value == "|" or value == "") and
+                not (attrs.translationKey? and attrs.dataset?[value]?) and
+                not attrs.stringify_synthetic?
+            # The original version only appended to the output here
+            # but did not return yet. Would we need further processing
+            # for empty values in some cases? (Jyrki Niemi 2015-08-26)
+            return output.append "<i rel='localize[empty]' style='color : grey'>${util.getLocaleString('empty')}</i>"
 
+        # Transform the value if a transformation function has been
+        # specified. (Jyrki Niemi 2015-10-26)
+        if attrs.transform?
+            value = attrs.transform(value)
 
         if attrs.type == "set"
             pattern = attrs.pattern or '<span data-key="<% key %>"><%= val %></span>'
@@ -186,7 +207,7 @@ Sidebar =
             return output.append _.template(attrs.pattern, {key : key, val : str_value})
 
         else
-            if attrs.translationKey
+            if attrs.translationKey?
                 str_value = attrs?.dataset[value] or str_value
                 return output.append "<span rel='localize[#{attrs.translationKey}#{str_value}]'></span>"
             else
