@@ -190,7 +190,7 @@ korpApp.factory 'searches', (utils, $location, $rootScope, $http, $q) ->
             @kwicRequest cqp, isPaging, true
             statsResults.makeRequest cqp
             if settings.name_classification
-                nameResults.makeRequest cqp
+                nameClassificationResults.makeRequest cqp
 
         lemgramSearch : (lemgram, searchPrefix, searchSuffix, isPaging) ->
             #TODO: this is dumb, move the cqp calculations elsewhere
@@ -199,7 +199,7 @@ korpApp.factory 'searches', (utils, $location, $rootScope, $http, $q) ->
             @kwicRequest cqp, isPaging
 
             if settings.name_classification
-                nameResults.makeRequest cqp
+                nameClassificationResults.makeRequest cqp
 
             if settings.wordpicture == false then return
             

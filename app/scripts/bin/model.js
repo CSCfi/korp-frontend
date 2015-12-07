@@ -745,16 +745,16 @@
 
   })(BaseProxy);
 
-  model.NameProxy = (function(superClass) {
-    extend(NameProxy, superClass);
+  model.NameClassificationProxy = (function(superClass) {
+    extend(NameClassificationProxy, superClass);
 
-    function NameProxy() {
-      NameProxy.__super__.constructor.call(this);
+    function NameClassificationProxy() {
+      NameClassificationProxy.__super__.constructor.call(this);
     }
 
-    NameProxy.prototype.makeRequest = function(cqp, within, callback) {
+    NameClassificationProxy.prototype.makeRequest = function(cqp, within, callback) {
       var def, group, groups, params, self;
-      NameProxy.__super__.makeRequest.call(this);
+      NameClassificationProxy.__super__.makeRequest.call(this);
       self = this;
       groups = settings.name_groups ? ((function() {
         var j, len, ref, results;
@@ -803,7 +803,7 @@
       return def;
     };
 
-    return NameProxy;
+    return NameClassificationProxy;
 
   })(BaseProxy);
 

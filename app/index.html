@@ -111,7 +111,7 @@
                     <label for="caseChk"> {{'case_insensitive' | loc}}  </label>
                   </div>
                   <div class="prequery"><span>{{'in_context_prefix' | loc}}</span>
-                    <select id="prequery_within" ng-model="prequery_within" ng-options="&quot;context_&quot; + elem + &quot;s&quot; | loc for elem in prequery_within_opts track by elem"></select><span> {{'which_contain' | loc}} </span>
+                    <select id="prequery_within" ng-model="prequery_within" ng-options="&quot;context_&quot; + elem + &quot;s&quot; | loc for elem in prequery_within_opts track by elem"></select><span> {{'which_contain' | loc}}</span>
                     <input id="simple_prequery" type="text" size="40" ng-model="simple_prequery" ng-model-options="{ updateOn: &quot;blur&quot; }">
                   </div>
                 </form>
@@ -275,7 +275,7 @@
                   <tab-heading ng-class="{not_loading: progress &gt; 99, loading : loading, single: loading &amp;&amp; instance.countCorpora() &lt; 2 }">{{'name_classification' | loc}}
                     <tab-preloader ng-if="loading" value="progress" spinner="instance.countCorpora() &lt; 2"></tab-preloader>
                   </tab-heading>
-                  <div constr="NameResults" constr-name="nameResults">
+                  <div constr="NameClassificationResults" constr-name="nameClassificationResults">
                     <div ng-show="true" class="name_content_target"></div>
                   </div>
                 </tab>

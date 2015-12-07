@@ -656,7 +656,7 @@ class model.GraphProxy extends BaseProxy
         return def.promise()
 
 
-class model.NameProxy extends BaseProxy
+class model.NameClassificationProxy extends BaseProxy
 
     # Copied and modified from model.LemgramProxy (Jyrki Niemi 2015-05-29)
 
