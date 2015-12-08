@@ -317,7 +317,6 @@ class view.SimpleSearch extends BaseSearch
         if prequery_str
             prequery_attrs = (prequery_attrs or "word|lemma").split("|")
             prequery_phrases = splitToPhrases(prequery_str)
-            c.log("prequery phrases", prequery_phrases)
             return (for phrase in prequery_phrases
                 makePhraseCQP(phrase, prequery_attrs))
         else
@@ -361,7 +360,6 @@ class view.SimpleSearch extends BaseSearch
         # Make the possible prequeries and add the main CQP query as
         # the last one.
         prequeries = @makePrequeryCQPs($("#simple_prequery", @$main).val())
-        c.log("prequeries", prequeries)
         if prequeries
             prequeries.push(val)
         #     val = prequeries
