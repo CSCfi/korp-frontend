@@ -164,7 +164,8 @@ class model.KWICProxy extends BaseProxy
             # escape +
             data.cqp = data.cqp.replace /\+/g, "\\+"
 
-        @prevCQP = data.cqp
+        # @prevCQP = data.cqp
+        @prevCQP = util.combineCQPs data
         data.show = (_.uniq ["sentence"].concat(data.show)).join(",")
         c.log "data.show", data.show
         data.show_struct = (_.uniq data.show_struct).join(",")
@@ -452,8 +453,10 @@ class model.StatsProxy extends BaseProxy
             else
                 return settings.corpusListing.getStructAttrs()[reduceVal].label
 
+        # TODO: Make sure this works with util.addCQPs
         data = @makeParameters(reduceVals, cqp)
 
+        util.addCQPs data, cqp
         data.split = _.filter(reduceVals, (reduceVal) -> 
             settings.corpusListing.getCurrentAttributes()[reduceVal]?.type == "set").join(',')
 
@@ -656,6 +659,7 @@ class model.GraphProxy extends BaseProxy
         if to
             params.to = to
 
+        util.addCQPs params, cqp
         #TODO: fix this for struct attrs
         _.extend params, @expandSubCqps subcqps
         @prevParams = params

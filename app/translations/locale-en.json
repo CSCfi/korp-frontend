@@ -292,5 +292,13 @@
     "swedbergm" : "17th century",
     "fsvm" : "old swedish",
 
-    "newsdesk-header" : "News"
+    "newsdesk-header" : "News",
+
+    "in_context_prefix" : " in ",
+    "context_sentences" : "sentences",
+    "context_paragraphs" : "paragraphs",
+    "context_texts" : "texts",
+    "which_contain" : "which contain",
+    "baseforms" : "base forms",
+    "wordforms" : "word forms"
 }

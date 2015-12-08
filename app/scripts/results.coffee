@@ -413,13 +413,19 @@ class view.KWICResults extends BaseResults
         opts.ajaxParams = {
             command : "query"
             corpus : settings.corpusListing.stringifySelected()
-            cqp : cqp or @proxy.prevCQP
+            # cqp : cqp or @proxy.prevCQP
             queryData : @proxy.queryData if @proxy.queryData
             context : context
             defaultcontext : preferredContext
             incremental: !isPaging and $.support.ajaxProgress
         }
-
+        util.addCQPs opts.ajaxParams, cqp or @proxy.prevCQP or @proxy.prevParams
+        pq_within = if "cqp1" of opts.ajaxParams
+                        $("#prequery_within").val()
+        # FIXME: The backend probably should have a separate prequery
+        # within parameter, so that it could be used independently of
+        # the (default)within parameter of the main query.
+        _.extend opts.ajaxParams, defaultwithin: pq_within
         _.extend opts.ajaxParams, getSortParams()
         return opts
 
