@@ -504,3 +504,20 @@ korpApp.controller "MapCtrl", ($scope, $rootScope, $location, $timeout, searches
                 s.loading = false
 
 
+korpApp.controller "NameClassificationCtrl", ($scope, $location, utils, searches) ->
+
+    # Copied and modified from korpApp.controller "wordpicCtrl"
+    # (Jyrki Niemi 2015-05-29)
+
+    c.log("NameClassificationCtrl")
+    $scope.name_class = $location.search().name_class?
+    $scope.$watch (() -> $location.search().name_class), (val) ->
+        $scope.name_class = Boolean(val)
+
+    $scope.activate = () ->
+        c.log("NameClassificationCtrl.activate: $location", $location)
+        # $location.search("word", true)
+        search = searches.activeSearch
+        # FIXME (janiemi): search.type should probably be replaced
+        # with the value for within, but where do we get it?
+        $scope.instance.makeRequest(search.val, search.type)
