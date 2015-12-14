@@ -4999,7 +4999,7 @@ line.tick {
 
 /* line 2537, styles.scss */
 .popper_menu {
-  width: 130px;
+  min-width: 130px;
 }
 
 /* line 2541, styles.scss */
