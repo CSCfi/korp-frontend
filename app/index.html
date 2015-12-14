@@ -45,12 +45,13 @@
           <ul id="cog_menu" class="dropdown-menu popper_menu">
             <li><a id="about" ng-click="show_about = 'about'" rel="localize[about]">About Korp</a></li>
             <li><a id="docs" href="https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiOhjeetKorp" target="_blank" rel="localize[docs]" class="follow_link"></a></li>
-            <li id="feedback"><a href="{{'feedback_url' | loc}}" target="_blank" class="follow_link">{{'feedback_linktext' | loc}}</a></li>
             <li id="korplink"><a ng-href="{{makeKorpUrl('main')}}" rel="localize[korp]" class="follow_link"></a></li>
             <li id="korplablink"><a ng-href="{{makeKorpUrl('lab')}}" rel="localize[korp_lab]" class="follow_link"></a></li>
-            <li><a href="https://lat.csc.fi/corpora/Info/CLARIN-Terms_of_Service.html" target="_blank" class="follow_link">CLARIN Terms of Service</a></li>
-            <li><a href="privacy-policy.html" target="_blank" rel="localize[privacy]" class="follow_link">Privacy policy</a></li>
             <li id="import"><a href="/cgi-bin/annlab/parse" target="_blank" rel="localize[import_chain]" class="follow_link"></a></li>
+            <li><a ng-href="http://spraakbanken.gu.se/korp/annoteringslabb/#{{'annotlab_multilingual_url_params' | loc}}" target="_blank" rel="localize[annotlab_multilingual]" class="follow_link"></a></li>
+            <li id="feedback"><a href="{{'feedback_url' | loc}}" target="_blank" class="follow_link">{{'feedback_linktext' | loc}}</a></li>
+            <li><a href="privacy-policy.html" target="_blank" rel="localize[privacy]" class="follow_link">Privacy policy</a></li>
+            <li><a href="https://lat.csc.fi/corpora/Info/CLARIN-Terms_of_Service.html" target="_blank" class="follow_link">CLARIN Terms of Service</a></li>
             <li><a href="{{'language_bank_url' | loc}}" target="_blank" class="follow_link">{{'language_bank' | loc}}</a></li>
             <li id="login"><a href="javascript:" rel="localize[log_in]"></a></li>
           </ul>
@@ -343,6 +344,7 @@
                   <div constr="GraphResults" class="graph_tab">
                     <div class="graph_header">
                       <div class="controls">
+                        
                         <div class="btn-group form_switch">
                           <label ng-model="$parent.mode" btn-radio="'line'" class="btn btn-default btn-sm">{{'line' | loc:lang}}</label>
                           <label ng-model="$parent.mode" btn-radio="'bar'" class="btn btn-default btn-sm">{{'bar' | loc:lang}}</label>
@@ -417,7 +419,7 @@
       <div class="modal-header">
         <h2>{{'log_in' | loc:lang}}</h2>
         <span ng-click="clickX()" class="close-x">×</span>
-        
+      
       </div>
       <div id="login_popup" class="modal-body">
         <form ng-submit="loginSubmit(login_usr, login_pass)">
@@ -462,9 +464,12 @@
       <td class="example_link"></td>
       </tr>
     </script>
-    <!--[if lte IE 8]>
-    <script language="javascript" src="lib/flot/excanvas.min.js"></script>
-    <![endif]-->
+    
+    
+    
+    
+    <!--if lte IE 8script(language='javascript', src='lib/flot/excanvas.min.js')
+    -->
     <script>
       var locationLastComponent = window.location.pathname.split("/")[1];
       var isLab = (locationLastComponent == "korplabb"
@@ -498,8 +503,7 @@
     <script src="lib/jquery.localize.js"></script>
     <script src="components/raphael/raphael.js"></script>
     <script src="components/jReject/js/jquery.reject.js"></script>
-    <!-- <script src="components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script> -->
-    <script src="lib/tmhDynamicLocale.js"></script>
+    <script src="components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
     <script src="lib/jquery.raphael.spinner.js"></script>
     <script src="lib/jquery.format.js"></script>
     <script src="components/modernizr/modernizr.js"></script>

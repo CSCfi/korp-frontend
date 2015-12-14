@@ -5828,7 +5828,7 @@ line.tick {
 
 /* line 2598, styles.scss */
 .popper_menu {
-  width: 130px;
+  min-width: 130px;
 }
 
 /* line 2602, styles.scss */

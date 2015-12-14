@@ -33,6 +33,8 @@
     "feedback_link" : "<a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html' target='_blank'>Palaute</a>",
     "feedback_url" : "https://elomake.helsinki.fi/lomakkeet/56593/lomake.html",
     "feedback_linktext" : "Palaute",
+    "annotlab_multilingual" : "Monikielinen<br />annotointilaboratorio",
+    "annotlab_multilingual_url_params" : "lang=en&language=fi",
     "search_history" : "Hakuhistoria",
     "search_history_clear" : "✘ Tyhjennä hakuhistoria",
     "add_lang" : "Lisää kieli",

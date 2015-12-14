@@ -19,18 +19,20 @@
       a#about(ng-click="show_about = 'about'", rel='localize[about]') About Korp
     li
       a#docs.follow_link(href='https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiOhjeetKorp', target='_blank', rel='localize[docs]')
-    li#feedback
-      a(href="{{'feedback_url' | loc}}", class="follow_link", target="_blank") {{'feedback_linktext' | loc}}
     li#korplink
       a.follow_link(ng-href="{{makeKorpUrl('main')}}", rel='localize[korp]')
     li#korplablink
       a.follow_link(ng-href="{{makeKorpUrl('lab')}}", rel='localize[korp_lab]')
-    li
-      a.follow_link(href='https://lat.csc.fi/corpora/Info/CLARIN-Terms_of_Service.html', target='_blank') CLARIN Terms of Service
-    li
-      a.follow_link(href='privacy-policy.html', target='_blank', rel='localize[privacy]') Privacy policy
     li#import
       a.follow_link(href='/cgi-bin/annlab/parse', target='_blank', rel='localize[import_chain]')
+    li
+      a.follow_link(ng-href="http://spraakbanken.gu.se/korp/annoteringslabb/#{{'annotlab_multilingual_url_params' | loc}}", target="_blank", rel='localize[annotlab_multilingual]')
+    li#feedback
+      a.follow_link(href="{{'feedback_url' | loc}}", target="_blank") {{'feedback_linktext' | loc}}
+    li
+      a.follow_link(href='privacy-policy.html', target='_blank', rel='localize[privacy]') Privacy policy
+    li
+      a.follow_link(href='https://lat.csc.fi/corpora/Info/CLARIN-Terms_of_Service.html', target='_blank') CLARIN Terms of Service
     li
       a.follow_link(href="{{'language_bank_url' | loc}}", target="_blank") {{'language_bank' | loc}}
     li#login
