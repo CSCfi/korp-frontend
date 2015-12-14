@@ -43,12 +43,13 @@
           <ul id="cog_menu" class="dropdown-menu popper_menu">
             <li><a id="about" ng-click="show_about = 'about'" rel="localize[about]">About Korp</a></li>
             <li><a id="docs" href="https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiOhjeetKorp" target="_blank" rel="localize[docs]" class="follow_link"></a></li>
-            <li id="feedback"><a href="{{'feedback_url' | loc}}" target="_blank" class="follow_link">{{'feedback_linktext' | loc}}</a></li>
             <li id="korplink"><a ng-href="{{makeKorpUrl('main')}}" rel="localize[korp]" class="follow_link"></a></li>
             <li id="korplablink"><a ng-href="{{makeKorpUrl('lab')}}" rel="localize[korp_lab]" class="follow_link"></a></li>
-            <li><a href="https://lat.csc.fi/corpora/Info/CLARIN-Terms_of_Service.html" target="_blank" class="follow_link">CLARIN Terms of Service</a></li>
-            <li><a href="privacy-policy.html" target="_blank" rel="localize[privacy]" class="follow_link">Privacy policy</a></li>
             <li id="import"><a href="/cgi-bin/annlab/parse" target="_blank" rel="localize[import_chain]" class="follow_link"></a></li>
+            <li><a ng-href="http://spraakbanken.gu.se/korp/annoteringslabb/#{{'annotlab_multilingual_url_params' | loc}}" target="_blank" rel="localize[annotlab_multilingual]" class="follow_link"></a></li>
+            <li id="feedback"><a href="{{'feedback_url' | loc}}" target="_blank" class="follow_link">{{'feedback_linktext' | loc}}</a></li>
+            <li><a href="privacy-policy.html" target="_blank" rel="localize[privacy]" class="follow_link">Privacy policy</a></li>
+            <li><a href="https://lat.csc.fi/corpora/Info/CLARIN-Terms_of_Service.html" target="_blank" class="follow_link">CLARIN Terms of Service</a></li>
             <li><a href="{{'language_bank_url' | loc}}" target="_blank" class="follow_link">{{'language_bank' | loc}}</a></li>
             <li id="login"><a href="javascript:" rel="localize[log_in]"></a></li>
           </ul>

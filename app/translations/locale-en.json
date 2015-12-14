@@ -32,6 +32,8 @@
     "feedback_link" : "<a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback' target='_blank'>Feedback</a>",
     "feedback_url" : "https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback",
     "feedback_linktext" : "Feedback",
+    "annotlab_multilingual" : "Multilingual Annotation Lab",
+    "annotlab_multilingual_url_params" : "lang=en&language=en",
     "search_history" : "Search history",
     "search_history_clear" : "✘ Clear search history",
     "add_lang" : "Add lang",
