@@ -1249,6 +1249,15 @@ sattrs.text_publisher = {
     label : "publisher"
 };
 
+/* LEHDET */
+
+sattrs.link_lehdet = {
+    label : "show_gutenberg",
+    type : "url",
+    url_opts : sattrs.link_url_opts
+};
+
+
 
 // Common positional attributes for corpora parsed with the Turku
 // Dependency Treebank parser (with lemgrams and lemmas without
@@ -1904,6 +1913,21 @@ settings.corpora.ftb3_jrcacquis = {
     }
 };
 
+settings.corpora.lehdet_koskinen = {
+    title : "Koskinen",
+    description : "Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996-2013)",
+    id : "lehdet_koskinen",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_date : sattrs.date,
+        text_url : sattrs.link_lehdet
+    }
+};
 
 settings.corpora.hsfi = {
     title : "HS.fi",
