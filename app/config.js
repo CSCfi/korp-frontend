@@ -1252,7 +1252,7 @@ sattrs.text_publisher = {
 /* LEHDET */
 
 sattrs.link_lehdet = {
-    label : "show_gutenberg",
+    label : "link_to_original",
     type : "url",
     url_opts : sattrs.link_url_opts
 };
@@ -1514,6 +1514,12 @@ settings.corporafolders.internet.suomi24 = {
 	licence : settings.licenceinfo.CC_BY_NC,
 	homepage_url : "http://keskustelu.suomi24.fi",
     }
+};
+
+settings.corporafolders.lehdet = {
+    title : "Lehdet",
+    description : "Lehtikokoelma",
+    contents : ["lehdet_koskinen", "lehdet_ekonomi"]
 };
 
 settings.corporafolders.other_texts = {
@@ -1909,6 +1915,25 @@ settings.corpora.ftb3_jrcacquis = {
 	sentence_id : sattrs.sentence_id_hidden,
 	sentence_line : {
 	    label : "sentence_line",
+	}
+    }
+};
+
+settings.corpora.lehdet_ekonomi = {
+    title : "Ekonomi",
+    description : "Ekonomi (2013-2014)",
+    id : "lehdet_ekonomi",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_date : sattrs.date,
+        text_url : sattrs.link_lehdet,
+	text_issue : {
+	    label : "issue"
 	}
     }
 };
