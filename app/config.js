@@ -1939,8 +1939,8 @@ settings.corpora.lehdet_ekonomi = {
 };
 
 settings.corpora.lehdet_koskinen = {
-    title : "Koskinen",
-    description : "Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996-2013)",
+    title : "Verkkolehti Koskinen",
+    description : "Verkkolehti Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996-2013)",
     id : "lehdet_koskinen",
     urn : "",
     metadata_urn : "",
