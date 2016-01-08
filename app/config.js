@@ -1517,8 +1517,8 @@ settings.corporafolders.internet.suomi24 = {
 };
 
 settings.corporafolders.lehdet = {
-    title : "Lehdet",
-    description : "Lehtikokoelma",
+    title : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
     contents : ["lehdet_koskinen", "lehdet_ekonomi"]
 };
 
