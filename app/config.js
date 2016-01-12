@@ -1524,7 +1524,7 @@ settings.corporafolders.lehdet = {
 
 settings.corporafolders.tiedelehdet = {
     title : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
+    description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
     contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aluejaymparisto"]
 };
 
@@ -1941,7 +1941,7 @@ settings.corpora.tiedelehdet_aluejaymparisto = {
         text_date : sattrs.date,
         /*text_url : sattrs.link_lehdet,*/
         text_issue : {
-            label : "lehdet_issue"
+            label : "issue"
         }
     }
 };
@@ -1960,7 +1960,7 @@ settings.corpora.tiedelehdet_aakusti = {
         text_date : sattrs.date,
         /*text_url : sattrs.link_lehdet,*/
         text_issue : {
-            label : "lehdet_issue"
+            label : "issue"
         }
     }
 };
@@ -1979,7 +1979,7 @@ settings.corpora.tiedelehdet_30paivaa = {
         text_date : sattrs.date,
         /*text_url : sattrs.link_lehdet,*/
         text_issue : {
-            label : "lehdet_issue"
+            label : "issue"
         }
     }
 };
@@ -1998,7 +1998,7 @@ settings.corpora.tiedelehdet_aidinkieli = {
         text_date : sattrs.date,
         /*text_url : sattrs.link_lehdet,*/
         text_issue : {
-            label : "lehdet_issue"
+            label : "issue"
         }
     }
 };
