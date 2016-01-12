@@ -1,6 +1,6 @@
 tab(active="active", ng-controller='ExampleCtrl', ng-repeat='queryParams in kwicTabs', select="instance.onentry()", deselect="instance.onexit()")
   tab-heading(ng-class="{not_loading: progress == 100, loading : !instance.hasData}")
-    | {{'kwic' | loc}}
+    | {{'kwic' | loc:lang}}
 
     span(ng-click='$event.preventDefault();kwicTabs.splice($index, 1)', tab-spinner='tab-spinner')
   .results-kwic(ng-class="{reading_mode : reading_mode, not_loading: !loading, loading : loading}", constr='ExampleResults' )
