@@ -210,7 +210,7 @@
         data.cqp = this.expandCQP(data.cqp);
         data.cqp = data.cqp.replace(/\+/g, "\\+");
       }
-      this.prevCQP = data.cqp;
+      this.prevCQP = util.combineCQPs(data);
       data.show = (_.uniq(["sentence"].concat(data.show))).join(",");
       c.log("data.show", data.show);
       data.show_struct = (_.uniq(data.show_struct)).join(",");
@@ -544,6 +544,7 @@
         }
       });
       data = this.makeParameters(reduceVals, cqp);
+      util.addCQPs(data, cqp);
       data.split = _.filter(reduceVals, function(reduceVal) {
         var ref;
         return ((ref = settings.corpusListing.getCurrentAttributes()[reduceVal]) != null ? ref.type : void 0) === "set";
@@ -813,6 +814,7 @@
       if (to) {
         params.to = to;
       }
+      util.addCQPs(params, cqp);
       _.extend(params, this.expandSubCqps(subcqps));
       this.prevParams = params;
       def = $.Deferred();
@@ -848,6 +850,68 @@
     };
 
     return GraphProxy;
+
+  })(BaseProxy);
+
+  model.NameClassificationProxy = (function(superClass) {
+    extend(NameClassificationProxy, superClass);
+
+    function NameClassificationProxy() {
+      NameClassificationProxy.__super__.constructor.call(this);
+    }
+
+    NameClassificationProxy.prototype.makeRequest = function(cqp, within, callback) {
+      var def, group, groups, params, self;
+      NameClassificationProxy.__super__.makeRequest.call(this);
+      self = this;
+      groups = settings.name_groups ? ((function() {
+        var j, len, ref, results;
+        ref = settings.name_groups;
+        results = [];
+        for (j = 0, len = ref.length; j < len; j++) {
+          group = ref[j];
+          results.push(group.regex);
+        }
+        return results;
+      })()).join(",") : null;
+      params = {
+        command: "names",
+        corpus: settings.corpusListing.stringifySelected(),
+        defaultwithin: "sentence",
+        default_nameswithin: "text_id",
+        max: settings.name_group_max_names || 30,
+        groups: groups,
+        incremental: $.support.ajaxProgress,
+        cache: true
+      };
+      util.addCQPs(params, cqp);
+      this.prevParams = params;
+      def = $.ajax({
+        url: settings.cgi_script,
+        data: params,
+        success: function(data) {
+          c.log("names success", data);
+          return self.prevRequest = params;
+        },
+        progress: function(data, e) {
+          var progressObj;
+          progressObj = self.calcProgress(e);
+          if (progressObj == null) {
+            return;
+          }
+          return callback(progressObj);
+        },
+        beforeSend: function(req, settings) {
+          self.prevRequest = settings;
+          self.addAuthorizationHeader(req);
+          return self.prevUrl = this.url;
+        }
+      });
+      this.pendingRequests.push(def);
+      return def;
+    };
+
+    return NameClassificationProxy;
 
   })(BaseProxy);
 

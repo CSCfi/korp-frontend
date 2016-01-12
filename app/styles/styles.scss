@@ -1674,6 +1674,34 @@ label[for=lemgram_select]:before {
   }
 }
 
+.name_group {
+  @include inline-block(top);
+  float: left;
+  padding-top: 4px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: solid 1px lightgray;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  counter-reset: names;
+  table {
+    padding: 0 0;
+    margin: 0 0;
+    td {
+      padding-left: 5px;
+    }
+  }
+}
+
+.name_group_heading {
+  font-weight: bold;
+}
+
+.name_category {
+  font-style: italic;
+}
+
 .explanation {
   font-size: 12px;
   padding: 0 20px;
@@ -2035,6 +2063,13 @@ slider {
   counter-increment: wordpic;
   &:before {
     content: counter(wordpic) ".";
+  }
+}
+
+.enumerate_names {
+  counter-increment: names;
+  &:before {
+    content: counter(names) ".";
   }
 }
 

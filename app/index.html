@@ -116,6 +116,10 @@
                     <input id="caseChk" type="checkbox" ng-model="isCaseInsensitive">
                     <label for="caseChk"> {{'case_insensitive' | loc:lang}}  </label>
                   </div>
+                  <div class="prequery"><span>{{'in_context_prefix' | loc:lang}}</span>
+                    <select id="prequery_within" ng-model="prequery_within" ng-options="&quot;context_&quot; + elem + &quot;s&quot; | loc for elem in prequery_within_opts track by elem"></select><span> {{'which_contain' | loc:lang}}</span>
+                    <input id="simple_prequery" type="text" size="40" ng-model="simple_prequery" ng-model-options="{ updateOn: &quot;blur&quot; }">
+                  </div>
                 </form>
                 <div class="clearfix"></div>
               </div>
@@ -299,6 +303,14 @@
                     </div>
                   </div>
                 </tab>
+                <tab ng-if="_settings.name_classification" ng-controller="NameCtrl" select="instance.onentry()" deselect="instance.onexit()">
+                  <tab-heading ng-class="{not_loading: progress &gt; 99, loading : loading, single: loading &amp;&amp; instance.countCorpora() &lt; 2 }">{{'name_classification' | loc:lang}}
+                    <tab-preloader ng-if="loading" value="progress" spinner="instance.countCorpora() &lt; 2"></tab-preloader>
+                  </tab-heading>
+                  <div constr="NameClassificationResults" constr-name="nameClassificationResults">
+                    <div ng-show="true" class="name_content_target"></div>
+                  </div>
+                </tab>
                 <tab active="active" ng-controller="ExampleCtrl" ng-repeat="queryParams in kwicTabs" select="instance.onentry()" deselect="instance.onexit()">
                   <tab-heading ng-class="{not_loading: progress == 100, loading : !instance.hasData}">{{'kwic' | loc}}<span ng-click="$event.preventDefault();kwicTabs.splice($index, 1)" tab-spinner="tab-spinner"></span></tab-heading>
                   <div ng-class="{reading_mode : reading_mode, not_loading: !loading, loading : loading}" constr="ExampleResults" class="results-kwic">
@@ -464,7 +476,26 @@
       <td class="example_link"></td>
       </tr>
     </script>
-    
+    <script id="nameTableTmpl" type="text/x-jquery-tmpl">
+      {{if $data.names.length}}
+      <div class="name_group table_container" data-namegroup="${$data.group}">
+      <div class='name_group_heading' />
+      <table>
+      {{tmpl($data.names, {group: $data.group}) '#nameRowTmpl'}}
+      </table>
+      </div>
+      {{/if}}
+    </script>
+    <script id="nameRowTmpl" type="text/x-jquery-tmpl">
+      <tr>
+      <td><span class="enumerate_names"/></td>
+      <td data-name="${$data.name}">${$data.name}</td>
+      <td class="name_category" data-category="${$data.category}" rel="localize[namecat_${$data.category}]" title="${$data.category}">${$data.category}</td>
+      <td>${$data.freq}</td>
+      <td class="example_link"></td>
+      </tr>
+      
+    </script>
     
     
     

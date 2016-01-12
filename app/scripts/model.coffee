@@ -164,7 +164,8 @@ class model.KWICProxy extends BaseProxy
             # escape +
             data.cqp = data.cqp.replace /\+/g, "\\+"
 
-        @prevCQP = data.cqp
+        # @prevCQP = data.cqp
+        @prevCQP = util.combineCQPs data
         data.show = (_.uniq ["sentence"].concat(data.show)).join(",")
         c.log "data.show", data.show
         data.show_struct = (_.uniq data.show_struct).join(",")
@@ -459,6 +460,7 @@ class model.StatsProxy extends BaseProxy
                 return settings.corpusListing.getStructAttrs()[reduceVal].label
 
         data = @makeParameters(reduceVals, cqp)
+        util.addCQPs data, cqp
 
         data.split = _.filter(reduceVals, (reduceVal) -> 
             settings.corpusListing.getCurrentAttributes()[reduceVal]?.type == "set").join(',')
@@ -668,6 +670,7 @@ class model.GraphProxy extends BaseProxy
         if to
             params.to = to
 
+        util.addCQPs params, cqp
         #TODO: fix this for struct attrs
         _.extend params, @expandSubCqps subcqps
         @prevParams = params
@@ -698,3 +701,62 @@ class model.GraphProxy extends BaseProxy
             #     data
 
         return def.promise()
+
+
+class model.NameClassificationProxy extends BaseProxy
+
+    # Copied and modified from model.LemgramProxy (Jyrki Niemi 2015-05-29)
+
+    constructor: ->
+        super()
+
+    makeRequest: (cqp, within, callback) ->
+        super()
+        self = this
+        groups = if settings.name_groups
+                     (group.regex for group in settings.name_groups).join(",")
+                 else
+                     null
+        params =
+            command: "names"
+            # cqp: cqp
+            corpus: settings.corpusListing.stringifySelected()
+            defaultwithin: "sentence"
+            default_nameswithin: "text_id"
+            max: settings.name_group_max_names or 30
+            groups: groups
+            incremental: $.support.ajaxProgress
+            cache: true
+        util.addCQPs params, cqp
+        @prevParams = params
+        def =  $.ajax
+            url: settings.cgi_script
+            data: params
+            # beforeSend: (jqXHR, settings) ->
+            #   c.log "before relations send", settings
+            #   # self.prevRequest = settings
+
+            # error: (data, status) ->
+            #     c.log "relationsearch abort", arguments
+            #     if status == "abort"
+                    
+            #     else
+            #         lemgramResults.resultError()
+                    
+
+            success: (data) ->
+                c.log "names success", data
+                self.prevRequest = params
+                # lemgramResults.renderResult data, word
+
+            progress: (data, e) ->
+                progressObj = self.calcProgress(e)
+                return unless progressObj?
+                callback progressObj
+
+            beforeSend: (req, settings) ->
+                self.prevRequest = settings
+                self.addAuthorizationHeader req
+                self.prevUrl = this.url
+        @pendingRequests.push def
+        return def

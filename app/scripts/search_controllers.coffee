@@ -41,6 +41,22 @@ korpApp.controller "SearchCtrl", ($scope, $location, utils, searches) ->
 korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope, searches, compareSearches, $modal) ->
     s = $scope
 
+    # Simple prequery, prequery within and prequery attribute
+    s.simple_prequery = ""
+    s.prequery_within_opts = [
+        "sentence"
+        "paragraph"
+        "text"
+    ]
+    s.prequery_within = s.prequery_within_opts[0]
+    s.prequery_attr_opts = [
+        # Word attribute name, localization key
+        ["lemma", "baseforms"]
+        ["word", "wordforms"]
+    ]
+    # s.prequery_attr = s.prequery_attr_opts[0][0]
+    s.prequery_attr = "lemma|word"
+
     s.$on "popover_submit", (event, name) ->
         cqp = s.instance.getCQP()
         compareSearches.saveSearch {
@@ -49,6 +65,11 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             corpora : settings.corpusListing.getSelectedCorpora()
         }
 
+    # Set the value of simple_prequery based on the URL parameter
+    # simple_prequery
+    s.$watch( (() -> $location.search().simple_prequery),
+        (val) -> s.simple_prequery = val
+    )
 
     s.stringifyRelatedHeader = (wd) ->
         wd.replace(/_/g, " ")
@@ -98,6 +119,13 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
         page = Number($location.search().page) or 0
         c.log "activesearch", search
         s.relatedObj = null
+
+        # Set URL parameters based on simple prequery variables
+        if s.simple_prequery
+            $location.search("simple_prequery", s.simple_prequery)
+            $location.search("prequery_within", s.prequery_within)
+            # $location.search("prequery_attr", s.prequery_attr)
+
         if search.type == "word"
             $("#simple_text input").val(search.val) # Necessary for displaying the wordform if it came from the URL
             s.simple_text = search.val
@@ -120,6 +148,14 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             s.simple_text = ""
             # cqp = "[lex contains '#{search.val}']"
             cqp = simpleSearch.getCQP()
+            # Add possible prequery CQPs
+            if s.simple_prequery
+                # c.log("lemgram simple_prequery", cqp, s.simple_prequery)
+                cqps = simpleSearch.makePrequeryCQPs(s.simple_prequery)
+                cqps.push(cqp)
+                # c.log("cqps", cqps)
+                cqp = util.combineCQPs(cqps)
+                c.log("searches.activeSearch prequeries cqp", cqp)
             # # Related-word search does not currently work for Finnish,
             # # so commented out. It would be nice if it could be
             # # language- or corpus-specific. (Jyrki Niemi 2015-04-14)
@@ -147,6 +183,10 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             key : "suffix"
         ,
             key : "isCaseInsensitive"
+        ,
+            key : "prequery_within"
+        # ,
+        #     key : "prequery_attr"
     ]
 
     $scope.$on "btn_submit", () ->

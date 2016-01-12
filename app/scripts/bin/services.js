@@ -272,7 +272,10 @@
         cqp = this.addIgnoreCQP(cqp);
         this.kwicRequest(cqp, isPaging, true);
         statsResults.makeRequest(cqp);
-        return this.nameEntitySearch(cqp);
+        this.nameEntitySearch(cqp);
+        if (settings.name_classification) {
+          return nameClassificationResults.makeRequest(cqp);
+        }
       };
 
       Searches.prototype.lemgramSearch = function(lemgram, searchPrefix, searchSuffix, isPaging) {
@@ -281,6 +284,9 @@
         statsResults.makeRequest(cqp);
         this.kwicRequest(cqp, isPaging);
         this.nameEntitySearch(cqp);
+        if (settings.name_classification) {
+          nameClassificationResults.makeRequest(cqp);
+        }
         if (settings.wordpicture === false) {
           return;
         }

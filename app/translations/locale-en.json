@@ -328,5 +328,21 @@
     "corpus_metadata" : "Metadata",
     "corpus_homepage" : "Home page",
     "corpus_compiler" : "Compiler",
-    "corpus_download" : "Download corpus"
+    "corpus_download" : "Download corpus",
+
+    "name_classification" : "Name classification",
+    "no_name_corpora" : "The selected corpora lack named-entity data.",
+    "no_name_results" : "No names were found.",
+    "namegroup_person" : "Persons",
+    "namegroup_place" : "Places",
+    "namegroup_organization" : "Organizations",
+    "namegroup_other" : "Other",
+
+    "in_context_prefix" : " in ",
+    "context_sentences" : "sentences",
+    "context_paragraphs" : "paragraphs",
+    "context_texts" : "texts",
+    "which_contain" : "which contain",
+    "baseforms" : "base forms",
+    "wordforms" : "word forms"
 }

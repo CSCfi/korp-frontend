@@ -51,6 +51,11 @@
   korpApp.controller("SimpleCtrl", function($scope, utils, $location, backend, $rootScope, searches, compareSearches, $modal) {
     var modalInstance, s;
     s = $scope;
+    s.simple_prequery = "";
+    s.prequery_within_opts = ["sentence", "paragraph", "text"];
+    s.prequery_within = s.prequery_within_opts[0];
+    s.prequery_attr_opts = [["lemma", "baseforms"], ["word", "wordforms"]];
+    s.prequery_attr = "lemma|word";
     s.$on("popover_submit", function(event, name) {
       var cqp;
       cqp = s.instance.getCQP();
@@ -59,6 +64,11 @@
         cqp: cqp,
         corpora: settings.corpusListing.getSelectedCorpora()
       });
+    });
+    s.$watch((function() {
+      return $location.search().simple_prequery;
+    }), function(val) {
+      return s.simple_prequery = val;
     });
     s.stringifyRelatedHeader = function(wd) {
       return wd.replace(/_/g, " ");
@@ -91,7 +101,7 @@
     s.searches = searches;
     s.$watch("searches.activeSearch", (function(_this) {
       return function(search) {
-        var cqp, page;
+        var cqp, cqps, page;
         c.log("search", search);
         if (!search) {
           return;
@@ -99,6 +109,10 @@
         page = Number($location.search().page) || 0;
         c.log("activesearch", search);
         s.relatedObj = null;
+        if (s.simple_prequery) {
+          $location.search("simple_prequery", s.simple_prequery);
+          $location.search("prequery_within", s.prequery_within);
+        }
         if (search.type === "word") {
           $("#simple_text input").val(search.val);
           s.simple_text = search.val;
@@ -119,6 +133,12 @@
           s.placeholder = search.val;
           s.simple_text = "";
           cqp = simpleSearch.getCQP();
+          if (s.simple_prequery) {
+            cqps = simpleSearch.makePrequeryCQPs(s.simple_prequery);
+            cqps.push(cqp);
+            cqp = util.combineCQPs(cqps);
+            c.log("searches.activeSearch prequeries cqp", cqp);
+          }
           if (s.word_pic) {
             return searches.lemgramSearch(search.val, s.prefix, s.suffix, search.pageOnly);
           } else {
@@ -144,6 +164,8 @@
         key: "suffix"
       }, {
         key: "isCaseInsensitive"
+      }, {
+        key: "prequery_within"
       }
     ]);
     return $scope.$on("btn_submit", function() {
@@ -206,7 +228,6 @@
           value: item
         };
       });
-      c.log('getWithins', union, output);
       return output;
     };
     return s.$on("corpuschooserchange", function() {
