@@ -1522,6 +1522,12 @@ settings.corporafolders.lehdet = {
     contents : ["lehdet_koskinen", "lehdet_ekonomi"]
 };
 
+settings.corporafolders.tiedelehdet = {
+    title : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aluejaymparisto"]
+};
+
 settings.corporafolders.other_texts = {
     title : "Muita tekstejä",
     contents : ["kfspc_fi"]
@@ -1996,12 +2002,6 @@ settings.corpora.tiedelehdet_aidinkieli = {
         }
     }
 };
-
-
-
-
-
-
 
 /* ===== LEHTIÄ ===== */
 
