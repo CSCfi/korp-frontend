@@ -380,6 +380,10 @@ var selectType = {
 var attrs = {};  // positional attributes
 var sattrs = {}; // structural attributes
 
+var attrlist = {};   // List of positional attributes
+var sattrlist = {};  // List of structural attributes
+
+
 // TODO: Replace the corpus- or annotation-specific translationKeys in
 // pos and deprel attributes with the generic pos_ and deprel_, so
 // that the translations need not be specified twice in the
@@ -1290,8 +1294,6 @@ sattrs.text_link_gutenberg = {
     url_opts : sattrs.link_url_opts
 };
 
-
-
 sattrs.sentence_id_hidden = {
     label : "sentence_id",
     displayType : "hidden"
@@ -1356,6 +1358,37 @@ sattrs.text_pubdate = {
 sattrs.text_publisher = {
     label : "publisher"
 };
+
+/* LEHDET */
+
+sattrs.link_lehdet = {
+    label : "link_to_original",
+    type : "url",
+    url_opts : sattrs.link_url_opts
+};
+
+
+
+// Common positional attributes for corpora parsed with the Turku
+// Dependency Treebank parser (with lemgrams and lemmas without
+// compound boundaries added)
+attrlist.parsed_tdt = {
+    lemma : attrs.baseform,
+    lemmacomp : attrs.baseform_compound,
+    pos : attrs.pos_klk,
+    msd : attrs.msd,
+    dephead : attrs.dephead,
+    deprel : attrs.deprel_tdt,
+    ref : attrs.ref,
+    lex : attrs.lemgram_hidden,
+};
+
+// Corpora parsed with TDT and run through FiNER
+attrlist.parsed_tdt_ner =
+    $.extend({}, attrlist.parsed_tdt, {
+	nertag : attrs.ner_tags
+    });
+
 
 /* --------- */
 
@@ -1596,6 +1629,12 @@ settings.corporafolders.internet.suomi24 = {
 	licence : settings.licenceinfo.CC_BY_NC,
 	homepage_url : "http://keskustelu.suomi24.fi",
     }
+};
+
+settings.corporafolders.lehdet = {
+    title : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
+    contents : ["lehdet_koskinen", "lehdet_ekonomi"]
 };
 
 settings.corporafolders.other_texts = {
@@ -1996,6 +2035,40 @@ settings.corpora.ftb3_jrcacquis = {
     }
 };
 
+settings.corpora.lehdet_ekonomi = {
+    title : "Ekonomi",
+    description : "Ekonomi (2013-2014)",
+    id : "lehdet_ekonomi",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_date : sattrs.date,
+        text_url : sattrs.link_lehdet,
+	text_issue : {
+	    label : "issue"
+	}
+    }
+};
+
+settings.corpora.lehdet_koskinen = {
+    title : "Verkkolehti Koskinen",
+    description : "Verkkolehti Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996-2013)",
+    id : "lehdet_koskinen",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_date : sattrs.date,
+        text_url : sattrs.link_lehdet
+    }
+};
 
 settings.corpora.hsfi = {
     title : "HS.fi",
@@ -3446,7 +3519,6 @@ settings.corpora.skvr = {
 };
 
 
-attrlist = {};
 attrlist.mulcold_fi = {
     lemma : attrs.baseform,
     lemmacomp : attrs.baseform_compound,
@@ -3518,8 +3590,6 @@ sattrlist.opus = {
     }
 };
 */
-
-sattrlist = {};
 
 sattrlist.s24_update = {
     text_urlmsg : {
@@ -5055,14 +5125,7 @@ settings.corpora.s24_001 = {
     id : "s24_001",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref
-    },
+    attributes : attrlist.parsed_tdt,
     struct_attributes : sattrlist.s24_update
 };
 
@@ -5072,15 +5135,7 @@ settings.corpora.s24_002 = {
     id : "s24_002",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref
-
-    },
+    attributes : attrlist.parsed_tdt,
     struct_attributes : sattrlist.s24_update
 };
 
@@ -5090,15 +5145,7 @@ settings.corpora.s24_003 = {
     id : "s24_003",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref
-
-    },
+    attributes : attrlist.parsed_tdt,
     struct_attributes : sattrlist.s24_update
 };
 
@@ -5108,15 +5155,7 @@ settings.corpora.s24_004 = {
     id : "s24_004",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref
-
-    },
+    attributes : attrlist.parsed_tdt,
     struct_attributes : sattrlist.s24_update
 };
 
@@ -5126,15 +5165,7 @@ settings.corpora.s24_005 = {
     id : "s24_005",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref
-
-    },
+    attributes : attrlist.parsed_tdt,
     struct_attributes : sattrlist.s24_update
 };
 
@@ -5144,15 +5175,7 @@ settings.corpora.s24_006 = {
     id : "s24_006",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref
-
-    },
+    attributes : attrlist.parsed_tdt,
     struct_attributes : sattrlist.s24_update
 };
 
@@ -5162,15 +5185,7 @@ settings.corpora.s24_007 = {
     id : "s24_007",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref
-
-    },
+    attributes : attrlist.parsed_tdt,
     struct_attributes : sattrlist.s24_update
 };
 
@@ -5180,15 +5195,7 @@ settings.corpora.s24_008 = {
     id : "s24_008",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref
-
-    },
+    attributes : attrlist.parsed_tdt,
     struct_attributes : sattrlist.s24_update
 };
 
