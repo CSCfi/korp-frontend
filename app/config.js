@@ -1919,6 +1919,92 @@ settings.corpora.ftb3_jrcacquis = {
     }
 };
 
+/* ==== TIEDELEHTIÄ ==== */
+
+settings.corpora.tiedelehdet_aluejaymparisto = {
+    title : "Alue ja ympäristö",
+    description : "Alue ja ympäristö (2005–2015)",
+    id : "tiedelehdet_aluejaymparisto",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_date : sattrs.date,
+        /*text_url : sattrs.link_lehdet,*/
+        text_issue : {
+            label : "lehdet_issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_aakusti = {
+    title : "Aakusti",
+    description : "Aakusti (2008–2013)",
+    id : "tiedelehdet_aakusti",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_date : sattrs.date,
+        /*text_url : sattrs.link_lehdet,*/
+        text_issue : {
+            label : "lehdet_issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_30paivaa = {
+    title : "30 Päivää",
+    description : "30 Päivää",
+    id : "tiedelehdet_30paivaa",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_date : sattrs.date,
+        /*text_url : sattrs.link_lehdet,*/
+        text_issue : {
+            label : "lehdet_issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_aidinkieli = {
+    title : "Aikakauskirja Äidinkielen opetustiede",
+    description : "Aikakauskirja Äidinkielen opetustiede (2008–2012)",
+    id : "tiedelehdet_aidinkieli",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_date : sattrs.date,
+        /*text_url : sattrs.link_lehdet,*/
+        text_issue : {
+            label : "lehdet_issue"
+        }
+    }
+};
+
+
+
+
+
+
+
+/* ===== LEHTIÄ ===== */
+
 settings.corpora.lehdet_ekonomi = {
     title : "Ekonomi",
     description : "Ekonomi (2013-2014)",
