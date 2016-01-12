@@ -1434,5 +1434,6 @@
     "scotscorr_scripttype" : "käsiala",
     "scotscorr_year" : "vuosi",
     "scotscorr_st" : "transkription tiedot",
-    "scotscorr_fraser" : "kuvaus"
+    "scotscorr_fraser" : "kuvaus",
+    "link_to_original" : "linkki alkuperäiseen"
 }
