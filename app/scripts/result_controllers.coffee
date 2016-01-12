@@ -427,9 +427,9 @@ korpApp.controller "MapCtrl", ($scope, $rootScope, $location, $timeout, searches
         zoom: 4
 
     s.hoverTemplate = """<div class="hover-info" ng-repeat="(name, values) in names">
-                          <div><span>{{ 'map_name' | loc }}: </span> <span>{{name}}</span></div>
-                          <div><span>{{ 'map_abs_occurrences' | loc }}: </span> <span>{{values.abs_occurrences}}</span></div>
-                          <div><span>{{ 'map_rel_occurrences' | loc }}: </span> <span>{{values.rel_occurrences}}</span></div>
+                          <div><span>{{ 'map_name' | loc:lang }}: </span> <span>{{name}}</span></div>
+                          <div><span>{{ 'map_abs_occurrences' | loc:lang }}: </span> <span>{{values.abs_occurrences}}</span></div>
+                          <div><span>{{ 'map_rel_occurrences' | loc:lang }}: </span> <span>{{values.rel_occurrences}}</span></div>
                        </div>"""
     s.markers = {}
     s.mapSettings = 

@@ -41,7 +41,7 @@ tab(active="active", ng-repeat='data in graphTabs', ng-controller='graphCtrl')
             em {{'graph_material' | loc:lang}} 
       div(style='clear: both;')
       //- .drawing(ng-show="loading")
-      //-   | {{'drawing' | loc}}
+      //-   | {{'drawing' | loc:lang}}
     .chart_container
       .preloader(ng-class="{loading: loading}")
         i.fa.fa-spinner.fa-spin.fa-5x
