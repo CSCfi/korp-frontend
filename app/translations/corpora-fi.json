@@ -662,6 +662,8 @@
     "page_n" : "page number",
     "paragraph_marginal" : "margin notes",
     "date_interval" : "aikaväli",
+    "date_from" : "Alku",
+    "date_to" : "Loppu",
 
     "variants" : "similar lemgram",
 

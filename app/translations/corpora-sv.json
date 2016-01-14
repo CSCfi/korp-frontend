@@ -349,6 +349,8 @@
     "page_n" : "sidonummer",
     "paragraph_marginal" : "marginalnoter",
     "date_interval" : "tidsintervall",
+    "date_from" : "Från",
+    "date_to" : "Till",
 
     "variants" : "närliggande lemgram",
 

@@ -471,6 +471,8 @@
     "page_n" : "page number",
     "paragraph_marginal" : "margin notes",
     "date_interval" : "time interval",
+    "date_from" : "From",
+    "date_to" : "To",
 
     "variants" : "similar lemgram",
 
