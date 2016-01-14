@@ -1939,7 +1939,7 @@ settings.corpora.tiedelehdet_aluejaymparisto = {
     struct_attributes : {
         text_title : sattrs.text_title,
         text_date : sattrs.date,
-        /*text_url : sattrs.link_lehdet,*/
+        text_url : sattrs.link_lehdet,
         text_issue : {
             label : "issue"
         }
@@ -1977,7 +1977,7 @@ settings.corpora.tiedelehdet_30paivaa = {
     struct_attributes : {
         text_title : sattrs.text_title,
         text_date : sattrs.date,
-        /*text_url : sattrs.link_lehdet,*/
+        text_url : sattrs.link_lehdet,
         text_issue : {
             label : "issue"
         }
@@ -1996,7 +1996,7 @@ settings.corpora.tiedelehdet_aidinkieli = {
     struct_attributes : {
         text_title : sattrs.text_title,
         text_date : sattrs.date,
-        /*text_url : sattrs.link_lehdet,*/
+        text_url : sattrs.link_lehdet,
         text_issue : {
             label : "issue"
         }
