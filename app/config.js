@@ -206,15 +206,17 @@ settings.wordPictureConf = {
 
 // The positional attribute in which to find place names, typically
 // word or lemma
-settings.placenameAttr = "word";
+settings.placenameAttr = "lemma";
 // Additional CQP attribute constraints for place names:
-// the word is tagged as a proper name
-settings.placenameConstraint = "pos='PM'";
+// different annotations for a proper name in different corpora
+settings.placenameConstraint =
+    "pos='PM' | msd='.*(SUBCAT_)?(Prop|PROP).*' | pos='n:prop'";
 
 // Initial map centre: latitude, longitude and zoom level
 settings.mapCenter = {
-    lat : 62.99515845212052,
-    lng : 16.69921875,
+    // A geographical centre of Finland
+    lat : 64.180708,
+    lng : 25.803222,
     zoom : 4
 };
 
