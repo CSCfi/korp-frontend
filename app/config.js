@@ -203,6 +203,22 @@ settings.wordPictureConf = {
 
 }
 
+
+// The positional attribute in which to find place names, typically
+// word or lemma
+settings.placenameAttr = "word";
+// Additional CQP attribute constraints for place names:
+// the word is tagged as a proper name
+settings.placenameConstraint = "pos='PM'";
+
+// Initial map centre: latitude, longitude and zoom level
+settings.mapCenter = {
+    lat : 62.99515845212052,
+    lng : 16.69921875,
+    zoom : 4
+};
+
+
 settings.visibleModes = 6
 settings.modeConfig = [
     {

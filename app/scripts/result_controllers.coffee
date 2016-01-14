@@ -421,10 +421,7 @@ korpApp.controller "MapCtrl", ($scope, $rootScope, $location, $timeout, searches
                 cqpExpr = search.val
         return cqpExpr
 
-    s.center =
-        lat: 62.99515845212052
-        lng: 16.69921875
-        zoom: 4
+    s.center = settings.mapCenter
 
     s.hoverTemplate = """<div class="hover-info" ng-repeat="(name, values) in names">
                           <div><span>{{ 'map_name' | loc:lang }}: </span> <span>{{name}}</span></div>
@@ -480,14 +477,15 @@ korpApp.controller "MapCtrl", ($scope, $rootScope, $location, $timeout, searches
 
                             msgScope.newKWICSearch = (query) ->
                                 cl = settings.corpusListing
-
                                 opts = {
                                     start : 0
                                     end : 24
                                     ajaxParams :
                                         command : "query"
                                         cqp : getCqpExpr()
-                                        cqp2 : "[word='" + query + "' & pos='PM']"
+                                        cqp2 : ("[" + settings.placenameAttr +
+                                                "='" + query + "' & (" +
+                                                settings.placenameConstraint + ")]")
                                         corpus : cl.stringifySelected()
                                         show_struct : _.keys cl.getStructAttrs()
                                         expand_prequeries : true

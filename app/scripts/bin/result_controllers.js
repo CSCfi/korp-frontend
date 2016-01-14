@@ -502,11 +502,7 @@
       }
       return cqpExpr;
     };
-    s.center = {
-      lat: 62.99515845212052,
-      lng: 16.69921875,
-      zoom: 4
-    };
+    s.center = settings.mapCenter;
     s.hoverTemplate = "<div class=\"hover-info\" ng-repeat=\"(name, values) in names\">\n   <div><span>{{ 'map_name' | loc:lang }}: </span> <span>{{name}}</span></div>\n   <div><span>{{ 'map_abs_occurrences' | loc:lang }}: </span> <span>{{values.abs_occurrences}}</span></div>\n   <div><span>{{ 'map_rel_occurrences' | loc:lang }}: </span> <span>{{values.rel_occurrences}}</span></div>\n</div>";
     s.markers = {};
     s.mapSettings = {
@@ -572,7 +568,7 @@
                   ajaxParams: {
                     command: "query",
                     cqp: getCqpExpr(),
-                    cqp2: "[word='" + query + "' & pos='PM']",
+                    cqp2: "[" + settings.placenameAttr + "='" + query + "' & (" + settings.placenameConstraint + ")]",
                     corpus: cl.stringifySelected(),
                     show_struct: _.keys(cl.getStructAttrs()),
                     expand_prequeries: true
