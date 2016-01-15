@@ -28,6 +28,9 @@ settings.autocomplete = true;
 settings.enableMap = true;
 // settings.wordpicture = false;
 settings.hits_per_page_default = 25
+// If settings.show_related_words is not defined, it is considered
+// true.
+settings.show_related_words = true;
 settings.name_classification = true;
 
 // The lemgram service to use for autocompletion. If not specified,

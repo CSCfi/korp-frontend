@@ -32,32 +32,30 @@
         ng-model='simple_prequery'
         ng-model-options='{ updateOn: "blur" }'
       )
-  //- //- Related-word search does not currently work for Finnish,
-  //- //- so commented out. It would be nice if it could be
-  //- //- language- or corpus-specific. (Jyrki Niemi 2015-04-14)
-  //- #similar_wrapper(ng-show="relatedObj")
-  //-   button.btn.btn-sm.btn-default(ng-click="showAllRelated()" ng-if="relatedObj.length != 0")
-  //-     span.btn_header
-  //-       | {{ 'similar_header' | loc:lang }} (SWE-FN)
-  //-     br
-  //-     span(ng-repeat="wd in relatedObj[0].words | limitTo:relatedDefault") 
-  //-       | {{stringifyRelated(wd)}}
-  //-       span(ng-if="!$last") , 
-  //-     br
-  //-     span(ng-repeat="wd in relatedObj[0].words.slice(relatedDefault) | limitTo:relatedDefault") 
-  //-       | {{stringifyRelated(wd)}}
-  //-       span(ng-if="!$last") , 
-  //-     span(ng-if="relatedObj[0].words.length > relatedDefault || relatedObj.length > 1") 
-  //-       | ...
-  //-   div.btn.btn-sm.btn-default(ng-if="relatedObj.length == 0")
-  //-     span.btn_header
-  //-       | {{ 'similar_header' | loc:lang }} (SWE-FN)
-  //-     br
-  //-     span
-  //-       | {{'no_related_words' | loc:lang}}
+
+  #similar_wrapper(ng-show="relatedObj")
+    button.btn.btn-sm.btn-default(ng-click="showAllRelated()" ng-if="relatedObj.length != 0")
+      span.btn_header
+        | {{ 'similar_header' | loc:lang }} (SWE-FN)
+      br
+      span(ng-repeat="wd in relatedObj[0].words | limitTo:relatedDefault") 
+        | {{stringifyRelated(wd)}}
+        span(ng-if="!$last") , 
+      br
+      span(ng-repeat="wd in relatedObj[0].words.slice(relatedDefault) | limitTo:relatedDefault") 
+        | {{stringifyRelated(wd)}}
+        span(ng-if="!$last") , 
+      span(ng-if="relatedObj[0].words.length > relatedDefault || relatedObj.length > 1") 
+        | ...
+    div.btn.btn-sm.btn-default(ng-if="relatedObj.length == 0")
+      span.btn_header
+        | {{ 'similar_header' | loc:lang }} (SWE-FN)
+      br
+      span
+        | {{'no_related_words' | loc:lang}}
   
-  //-   label(for='simple_text') {{'search_for' | loc:lang}}
-  //-   span#keyboard.ui-state-default.specialkey ð
+    //- label(for='simple_text') {{'search_for' | loc:lang}}
+    //- span#keyboard.ui-state-default.specialkey ð
   //- table#char_table
   //-   tbody
   //-     tr

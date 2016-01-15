@@ -156,11 +156,11 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
                 # c.log("cqps", cqps)
                 cqp = util.combineCQPs(cqps)
                 c.log("searches.activeSearch prequeries cqp", cqp)
-            # # Related-word search does not currently work for Finnish,
-            # # so commented out. It would be nice if it could be
-            # # language- or corpus-specific. (Jyrki Niemi 2015-04-14)
-            # backend.relatedWordSearch(search.val).then (data) ->
-            #     s.relatedObj = data
+            # Show related words if show_related_words is undefined or
+            # true (Jyrki Niemi 2016-01-15)
+            if settings.show_related_words != false
+                backend.relatedWordSearch(search.val).then (data) ->
+                    s.relatedObj = data
             
             if s.word_pic
                 searches.lemgramSearch(search.val, s.prefix, s.suffix, search.pageOnly)
