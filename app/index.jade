@@ -63,7 +63,7 @@ html
                     ng-controller='kwicCtrl'
                 )
                   tab-heading(ng-class="{not_loading: progress > 99, loading : loading, single: loading && instance.countCorpora() < 2 }")
-                    | {{'kwic' | loc}}
+                    | {{'kwic' | loc:lang}}
                     tab-preloader(ng-if="loading", value="progress", spinner="instance.countCorpora() < 2")
                   .results-kwic(ng-class="{reading_mode : reading_mode, loading: loading}", constr='KWICResults', constr-name='kwicResults')
                     include includes/kwicresult
@@ -297,7 +297,8 @@ html
     script(src='lib/jquery.localize.js')
     script(src='components/raphael/raphael.js')
     script(src='components/jReject/js/jquery.reject.js')
-    script(src='components/angular-dynamic-locale/src/tmhDynamicLocale.js')
+    //- script(src='components/angular-dynamic-locale/src/tmhDynamicLocale.js')
+    script(src='lib/tmhDynamicLocale.js')
     script(src='lib/jquery.raphael.spinner.js')
     script(src='lib/jquery.format.js')
     //- script(src='lib/angular-locale_sv-se.js')

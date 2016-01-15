@@ -48,11 +48,11 @@
             <li id="korplink"><a ng-href="{{makeKorpUrl('main')}}" rel="localize[korp]" class="follow_link"></a></li>
             <li id="korplablink"><a ng-href="{{makeKorpUrl('lab')}}" rel="localize[korp_lab]" class="follow_link"></a></li>
             <li id="import"><a href="/cgi-bin/annlab/parse" target="_blank" rel="localize[import_chain]" class="follow_link"></a></li>
-            <li><a ng-href="http://spraakbanken.gu.se/korp/annoteringslabb/#{{'annotlab_multilingual_url_params' | loc}}" target="_blank" rel="localize[annotlab_multilingual]" class="follow_link"></a></li>
-            <li id="feedback"><a href="{{'feedback_url' | loc}}" target="_blank" class="follow_link">{{'feedback_linktext' | loc}}</a></li>
+            <li><a ng-href="http://spraakbanken.gu.se/korp/annoteringslabb/#{{'annotlab_multilingual_url_params' | loc:lang}}" target="_blank" class="follow_link"><span ng-bind-html="'annotlab_multilingual' | loc:lang | trust"></span></a></li>
+            <li id="feedback"><a href="{{'feedback_url' | loc:lang}}" target="_blank" class="follow_link">{{'feedback_linktext' | loc:lang}}</a></li>
             <li><a href="privacy-policy.html" target="_blank" rel="localize[privacy]" class="follow_link">Privacy policy</a></li>
             <li><a href="https://lat.csc.fi/corpora/Info/CLARIN-Terms_of_Service.html" target="_blank" class="follow_link">CLARIN Terms of Service</a></li>
-            <li><a href="{{'language_bank_url' | loc}}" target="_blank" class="follow_link">{{'language_bank' | loc}}</a></li>
+            <li><a href="{{'language_bank_url' | loc:lang}}" target="_blank" class="follow_link">{{'language_bank' | loc:lang}}</a></li>
             <li id="login"><a href="javascript:" rel="localize[log_in]"></a></li>
           </ul>
           <div id="news_area">
@@ -135,7 +135,7 @@
                 <div class="well well-small">{{'active_cqp_extended' | loc:lang}}:
                   <pre>{{extendedCQP}}</pre>
                 </div>
-                <div class="well well-small">{{'cqp_query' | loc}}:
+                <div class="well well-small">{{'cqp_query' | loc:lang}}:
                   <div class="pull-right"><i class="fa fa-file-o"></i><a href="http://cwb.sourceforge.net/files/CQP_Tutorial.pdf">
                        
                       {{'cqp_docs' | loc:lang}}</a></div>
@@ -162,7 +162,7 @@
             </tab>
           </tabset>
           <div id="search_options" click-cover="isCompareSelected" class="ui-widget-content ui-corner-bottom">
-            <div><span style="font-size: .9em;">{{'kwic' | loc}}: </span>
+            <div><span style="font-size: .9em;">{{'kwic' | loc:lang}}: </span>
               <select id="num_hits" data-history="hpp" data-prefix="hits_per_page" rel="localize[hits_per_page]" ng-model="$root._searchOpts.hits_per_page" class="num_hits">
                 <option value="25">25</option>
                 <option value="50">50</option>
@@ -195,7 +195,7 @@
             <div id="left-column" ng-class="{sidebar_visible : word_selected &amp;&amp; sidebar_visible}">
               <tabset tab-hash="result_tab" ng-click="tabclick()" class="tabbable result_tabs">
                 <tab disabled="!instance.hasData" select="instance.onentry()" deselect="instance.onexit()" ng-controller="kwicCtrl">
-                  <tab-heading ng-class="{not_loading: progress &gt; 99, loading : loading, single: loading &amp;&amp; instance.countCorpora() &lt; 2 }">{{'kwic' | loc}}
+                  <tab-heading ng-class="{not_loading: progress &gt; 99, loading : loading, single: loading &amp;&amp; instance.countCorpora() &lt; 2 }">{{'kwic' | loc:lang}}
                     <tab-preloader ng-if="loading" value="progress" spinner="instance.countCorpora() &lt; 2"></tab-preloader>
                   </tab-heading>
                   <div ng-class="{reading_mode : reading_mode, loading: loading}" constr="KWICResults" constr-name="kwicResults" class="results-kwic">
@@ -312,7 +312,7 @@
                   </div>
                 </tab>
                 <tab active="active" ng-controller="ExampleCtrl" ng-repeat="queryParams in kwicTabs" select="instance.onentry()" deselect="instance.onexit()">
-                  <tab-heading ng-class="{not_loading: progress == 100, loading : !instance.hasData}">{{'kwic' | loc}}<span ng-click="$event.preventDefault();kwicTabs.splice($index, 1)" tab-spinner="tab-spinner"></span></tab-heading>
+                  <tab-heading ng-class="{not_loading: progress == 100, loading : !instance.hasData}">{{'kwic' | loc:lang}}<span ng-click="$event.preventDefault();kwicTabs.splice($index, 1)" tab-spinner="tab-spinner"></span></tab-heading>
                   <div ng-class="{reading_mode : reading_mode, not_loading: !loading, loading : loading}" constr="ExampleResults" class="results-kwic">
                     <div class="result_controls">
                       <warning ng-if="aborted &amp;&amp; !loading">{{'search_aborted' | loc:lang}}</warning>
@@ -534,7 +534,7 @@
     <script src="lib/jquery.localize.js"></script>
     <script src="components/raphael/raphael.js"></script>
     <script src="components/jReject/js/jquery.reject.js"></script>
-    <script src="components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+    <script src="lib/tmhDynamicLocale.js"></script>
     <script src="lib/jquery.raphael.spinner.js"></script>
     <script src="lib/jquery.format.js"></script>
     <script src="components/modernizr/modernizr.js"></script>

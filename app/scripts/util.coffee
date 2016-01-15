@@ -1467,7 +1467,7 @@ settings.common_struct_types =
             <div class="section">
                 <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top">
                     <i class="fa fa-calendar"></i>
-                    Från    
+                    {{"date_from" | loc:lang}}
                 </button>
                     {{combined.format("YYYY-MM-DD HH:mm")}}
                 <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" 
@@ -1479,7 +1479,7 @@ settings.common_struct_types =
             <div class="section">
                 <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top">
                     <i class="fa fa-calendar"></i>
-                    Till    
+                    {{"date_to" | loc:lang}}
                 </button>
                     {{combined2.format("YYYY-MM-DD HH:mm")}}
                 <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" 
