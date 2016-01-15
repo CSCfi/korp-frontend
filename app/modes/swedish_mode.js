@@ -5,6 +5,7 @@ settings.primaryLight = "#f7fceb";
 settings.autocomplete = true;
 settings.lemgramSelect = true;
 settings.wordpicture = false;
+settings.show_related_words = true;
 
 
 settings.preselected_corpora = ["mulcold_sv", "kfspc_sv"];

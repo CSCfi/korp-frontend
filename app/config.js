@@ -30,7 +30,7 @@ settings.enableMap = true;
 settings.hits_per_page_default = 25
 // If settings.show_related_words is not defined, it is considered
 // true.
-settings.show_related_words = true;
+settings.show_related_words = false;
 settings.name_classification = true;
 
 // The lemgram service to use for autocompletion. If not specified,
