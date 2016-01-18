@@ -1942,7 +1942,7 @@ settings.corpora.tiedelehdet_aikuiskasvatus = {
         text_author : sattrs.text_author,
         text_url : sattrs.link_lehdet,
         text_issue : {
-            label : "lehdet_issue"
+            label : "issue"
         }
     }
 };
