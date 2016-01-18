@@ -1525,7 +1525,7 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.tiedelehdet = {
     title : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aluejaymparisto"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aluejaymparisto", "tiedelehdet_aikuiskasvatus"]
 };
 
 settings.corporafolders.other_texts = {
@@ -1927,6 +1927,26 @@ settings.corpora.ftb3_jrcacquis = {
 
 /* ==== TIEDELEHTIÄ ==== */
 
+settings.corpora.tiedelehdet_aikuiskasvatus = {
+    title : "Aikuiskasvatus",
+    description : "Aikuiskasvatus (2008–2013)",
+    id : "tiedelehdet_aikuiskasvatus",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_atitle : sattrs.text_title,
+        /*text_date : sattrs.date,*/
+        text_author : sattrs.text_author,
+        text_url : sattrs.link_lehdet,
+        text_issue : {
+            label : "lehdet_issue"
+        }
+    }
+};
+
 settings.corpora.tiedelehdet_aluejaymparisto = {
     title : "Alue ja ympäristö",
     description : "Alue ja ympäristö (2005–2015)",
@@ -1938,7 +1958,7 @@ settings.corpora.tiedelehdet_aluejaymparisto = {
     attributes : {},
     struct_attributes : {
         text_title : sattrs.text_title,
-        text_date : sattrs.date,
+        /*text_date : sattrs.date,*/
         text_url : sattrs.link_lehdet,
         text_issue : {
             label : "issue"
@@ -1957,8 +1977,8 @@ settings.corpora.tiedelehdet_aakusti = {
     attributes : {},
     struct_attributes : {
         text_title : sattrs.text_title,
-        text_date : sattrs.date,
-        /*text_url : sattrs.link_lehdet,*/
+        /*text_date : sattrs.date,*/
+        text_url : sattrs.link_lehdet,
         text_issue : {
             label : "issue"
         }
@@ -1976,7 +1996,7 @@ settings.corpora.tiedelehdet_30paivaa = {
     attributes : {},
     struct_attributes : {
         text_title : sattrs.text_title,
-        text_date : sattrs.date,
+        /*text_date : sattrs.date,*/
         text_url : sattrs.link_lehdet,
         text_issue : {
             label : "issue"
@@ -1995,7 +2015,7 @@ settings.corpora.tiedelehdet_aidinkieli = {
     attributes : {},
     struct_attributes : {
         text_title : sattrs.text_title,
-        text_date : sattrs.date,
+        /*text_date : sattrs.date,*/
         text_url : sattrs.link_lehdet,
         text_issue : {
             label : "issue"
