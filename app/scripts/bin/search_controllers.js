@@ -147,6 +147,12 @@
           if (s.word_pic) {
             return searches.lemgramSearch(search.val, s.prefix, s.suffix, search.pageOnly);
           } else {
+            if (s.simple_prequery) {
+              cqps = simpleSearch.makePrequeryCQPs(s.simple_prequery);
+              cqps.push(cqp);
+              cqp = util.combineCQPs(cqps);
+              c.log("searches.activeSearch prequeries cqp", cqp);
+            }
             return searches.kwicSearch(cqp, search.pageOnly);
           }
         } else {

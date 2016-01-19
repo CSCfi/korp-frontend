@@ -319,7 +319,6 @@
       if (prequery_str) {
         prequery_attrs = (prequery_attrs || "word|lemma").split("|");
         prequery_phrases = splitToPhrases(prequery_str);
-        c.log("prequery phrases", prequery_phrases);
         return (function() {
           var j, len, results;
           results = [];
@@ -368,7 +367,6 @@
         val = cqp.join(" ");
       }
       prequeries = this.makePrequeryCQPs($("#simple_prequery", this.$main).val());
-      c.log("prequeries", prequeries);
       if (prequeries) {
         prequeries.push(val);
         val = prequeries.join('||');

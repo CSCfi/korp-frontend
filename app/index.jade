@@ -143,7 +143,7 @@ html
                 //- Copied and modified from the word picture tab
                 //- (Jyrki Niemi 2015-05-29)
                 tab(ng-if="_settings.name_classification", 
-                    ng-controller="NameCtrl", 
+                    ng-controller="NameClassificationCtrl",
                     select="instance.onentry()",
                     deselect="instance.onexit()")
                   tab-heading(ng-class="{not_loading: progress > 99, loading : loading, single: loading && instance.countCorpora() < 2 }")

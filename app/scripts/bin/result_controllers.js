@@ -596,8 +596,8 @@
     };
   });
 
-  korpApp.controller("NameCtrl", function($scope, $location, utils, searches) {
-    c.log("NameCtrl");
+  korpApp.controller("NameClassificationCtrl", function($scope, $location, utils, searches) {
+    c.log("NameClassificationCtrl");
     $scope.name_class = $location.search().name_class != null;
     $scope.$watch((function() {
       return $location.search().name_class;
@@ -606,7 +606,7 @@
     });
     return $scope.activate = function() {
       var search;
-      c.log("NameCtrl.activate: $location", $location);
+      c.log("NameClassificationCtrl.activate: $location", $location);
       search = searches.activeSearch;
       return $scope.instance.makeRequest(search.val, search.type);
     };

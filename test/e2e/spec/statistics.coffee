@@ -11,7 +11,7 @@ describe "stats table", () ->
 
         rows = element.all (By.css '.slick-row')
         browser.sleep 500
-        expect(rows.count()).toBe 11
+        expect(browser.executeScript("return window.statsResults.grid.getData().length")).toBe 11
         
         # expect a column for hit, total, suc2, suc3
         columns = element.all (By.css '.slick-column-name')

@@ -1156,7 +1156,7 @@ table {
   }
 }
 
-#download-links-container {
+.loading #download-links-container {
   display: none;
 }
 
@@ -1168,6 +1168,10 @@ table {
   img {
     border: 0px;
   }
+}
+
+.loading .download_link {
+  display: none;
 }
 
 #download-heading {

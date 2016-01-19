@@ -312,6 +312,14 @@
 
     "newsdesk-header" : "News",
 
+    "in_context_prefix" : " in ",
+    "context_sentences" : "sentences",
+    "context_paragraphs" : "paragraphs",
+    "context_texts" : "texts",
+    "which_contain" : "which contain",
+    "baseforms" : "base forms",
+    "wordforms" : "word forms",
+
     "formatdescr_json" : "JavaScript Object Notation (raw format)",
     "formatdescr_csv" : "Comma-Separated Values, sentence per row, e.g., for importing to a spreadsheet. Each row has a corpus id, match position, left context, matching tokens, right context and text attributes. The match and contexts contain tokens without attributes.",
     "formatdescr_csvp" : "Comma-Separated Values, token per row, e.g., for importing to a spreadsheet. Each row has one text token with attributes and a potential search hit indicator. Each found sentence is preceded by a line with a corpus ID, corpus position and text attributes for the sentence.",
@@ -322,15 +330,6 @@
     "formatdescr_nooj" : "XML import format for the NooJ software",
     "formatdescr_ref" : "Bibliographical references as an Excel spreadsheet (XLS) with each matching sentence on its own line, followed by the text attributes of the sentence on their own lines",
 
-    "privacy" : "Privacy policy",
-
-    "corpus_urn" : "URN",
-    "corpus_licence" : "Licence",
-    "corpus_metadata" : "Metadata",
-    "corpus_homepage" : "Home page",
-    "corpus_compiler" : "Compiler",
-    "corpus_download" : "Download corpus",
-
     "name_classification" : "Name classification",
     "no_name_corpora" : "The selected corpora lack named-entity data.",
     "no_name_results" : "No names were found.",
@@ -339,11 +338,12 @@
     "namegroup_organization" : "Organizations",
     "namegroup_other" : "Other",
 
-    "in_context_prefix" : " in ",
-    "context_sentences" : "sentences",
-    "context_paragraphs" : "paragraphs",
-    "context_texts" : "texts",
-    "which_contain" : "which contain",
-    "baseforms" : "base forms",
-    "wordforms" : "word forms"
+    "privacy" : "Privacy policy",
+
+    "corpus_urn" : "URN",
+    "corpus_licence" : "Licence",
+    "corpus_metadata" : "Metadata",
+    "corpus_homepage" : "Home page",
+    "corpus_compiler" : "Compiler",
+    "corpus_download" : "Download corpus"
 }

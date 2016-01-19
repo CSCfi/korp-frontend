@@ -311,6 +311,14 @@
 
     "newsdesk-header" : "Nyheter",
 
+    "in_context_prefix" : " i ",
+    "context_sentences" : "satser",
+    "context_paragraphs" : "stycken",
+    "context_texts" : "texter",
+    "which_contain" : "som innehåller",
+    "baseforms" : "grundformer",
+    "wordforms" : "ordformer",
+
     "formatdescr_json" : "JavaScript Object Notation",
     "formatdescr_csv" : "Kommaseparerade värden, en mening per rad, t ex for att importera till ett kalkylbladsprogram. Varje rad har en korpusidentifierare, träffens korpusposition, vänsterkontext, träffen, högerkontext och textattribut. Träffen och kontexter innehåller token utan attribut.",
     "formatdescr_csvp" : "Kommaseparerade värden, ett token per rad, t ex for att importera till ett kalkylbladsprogram. Varje rad har ett token med attribut och potentiellt en markör för sökträffen. Varje träffad mening föregås av en rad med korpus-ID, träffens korpusposition och textattribut för meningen.",
@@ -321,15 +329,6 @@
     "formatdescr_nooj" : "XML-importformat för NooJ",
     "formatdescr_ref" : "Källhänvisningar som ett Excel-kalkylblad (XLS) med varje sökträffmening på sin egen rad, efterträdd av meningens textattribut på sina egna rader",
 
-    "privacy" : "Dataskyddsbeskrivning",
-
-    "corpus_urn" : "URN",
-    "corpus_licence" : "Lisens",
-    "corpus_metadata" : "Metadata",
-    "corpus_homepage" : "Hemsida",
-    "corpus_compiler" : "Sammanställare",
-    "corpus_download" : "Ladda ner korpusen",
-
     "name_classification" : "Namnklassifikation",
     "no_name_corpora" : "De valda korpusarna innehåller ingen namndata.",
     "no_name_results" : "Hittade inga namn.",
@@ -338,11 +337,12 @@
     "namegroup_organization" : "Organisationer",
     "namegroup_other" : "Andra",
 
-    "in_context_prefix" : " i ",
-    "context_sentences" : "satser",
-    "context_paragraphs" : "stycken",
-    "context_texts" : "texter",
-    "which_contain" : "som innehåller",
-    "baseforms" : "grundformer",
-    "wordforms" : "ordformer"
+    "privacy" : "Dataskyddsbeskrivning",
+
+    "corpus_urn" : "URN",
+    "corpus_licence" : "Lisens",
+    "corpus_metadata" : "Metadata",
+    "corpus_homepage" : "Hemsida",
+    "corpus_compiler" : "Sammanställare",
+    "corpus_download" : "Ladda ner korpusen"
 }

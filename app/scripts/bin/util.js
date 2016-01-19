@@ -839,8 +839,6 @@
       i++;
     }
     $('#download-links').localize();
-    $('#download-links').show();
-    $('#download-links-container').show();
   };
 
   util.searchHash = function(type, value) {

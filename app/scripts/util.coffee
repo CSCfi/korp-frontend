@@ -698,8 +698,6 @@ util.setDownloadLinks = (xhr_settings, result_data) ->
         )(download_params)
         i++
     $('#download-links').localize()
-    $('#download-links').show()
-    $('#download-links-container').show()
     return
 
 util.searchHash = (type, value) ->

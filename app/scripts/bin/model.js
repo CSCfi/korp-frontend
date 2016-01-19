@@ -545,6 +545,7 @@
       });
       data = this.makeParameters(reduceVals, cqp);
       util.addCQPs(data, cqp);
+      util.addCQPs(data, cqp);
       data.split = _.filter(reduceVals, function(reduceVal) {
         var ref;
         return ((ref = settings.corpusListing.getCurrentAttributes()[reduceVal]) != null ? ref.type : void 0) === "set";
@@ -876,6 +877,7 @@
       })()).join(",") : null;
       params = {
         command: "names",
+        cqp: cqp,
         corpus: settings.corpusListing.stringifySelected(),
         defaultwithin: "sentence",
         default_nameswithin: "text_id",
@@ -884,7 +886,6 @@
         incremental: $.support.ajaxProgress,
         cache: true
       };
-      util.addCQPs(params, cqp);
       this.prevParams = params;
       def = $.ajax({
         url: settings.cgi_script,

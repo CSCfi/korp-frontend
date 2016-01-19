@@ -459,9 +459,10 @@ class model.StatsProxy extends BaseProxy
             else
                 return settings.corpusListing.getStructAttrs()[reduceVal].label
 
+        # TODO: Make sure this works with util.addCQPs
         data = @makeParameters(reduceVals, cqp)
-        util.addCQPs data, cqp
 
+        util.addCQPs data, cqp
         data.split = _.filter(reduceVals, (reduceVal) -> 
             settings.corpusListing.getCurrentAttributes()[reduceVal]?.type == "set").join(',')
 
@@ -719,7 +720,7 @@ class model.NameClassificationProxy extends BaseProxy
                      null
         params =
             command: "names"
-            # cqp: cqp
+            cqp: cqp
             corpus: settings.corpusListing.stringifySelected()
             defaultwithin: "sentence"
             default_nameswithin: "text_id"
@@ -727,7 +728,6 @@ class model.NameClassificationProxy extends BaseProxy
             groups: groups
             incremental: $.support.ajaxProgress
             cache: true
-        util.addCQPs params, cqp
         @prevParams = params
         def =  $.ajax
             url: settings.cgi_script
