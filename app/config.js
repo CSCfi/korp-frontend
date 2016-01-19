@@ -1525,7 +1525,7 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.tiedelehdet = {
     title : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aluejaymparisto", "tiedelehdet_aikuiskasvatus", "tiedelehdet_auraica"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aluejaymparisto", "tiedelehdet_aikuiskasvatus", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_ats", "tiedelehdet_bryobrotherella"]
 };
 
 settings.corporafolders.other_texts = {
@@ -1926,6 +1926,57 @@ settings.corpora.ftb3_jrcacquis = {
 };
 
 /* ==== TIEDELEHTIÄ ==== */
+
+settings.corpora.tiedelehdet_bryobrotherella = {
+    title : "Bryobrotherella",
+    description : "Bryobrotherella (2008-2012)",
+    id : "tiedelehdet_bryobrotherella",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_diakonia = {
+    title : "Diakonian tutkimus –aikakauskirja",
+    description : "Diakonian tutkimus –aikakauskirja (2004-2013)",
+    id : "tiedelehdet_diakonia",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        /*text_url : sattrs.link_lehdet,*/
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_ats = {
+    title : "ATS-Ydintekniikka",
+    description : "ATS-Ydintekniikka 2000-2013",
+    id : "tiedelehdet_ats",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        /*text_url : sattrs.link_lehdet,*/
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
 
 settings.corpora.tiedelehdet_auraica = {
     title : "Auraica",
