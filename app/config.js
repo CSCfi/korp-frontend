@@ -1525,7 +1525,7 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.tiedelehdet = {
     title : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aluejaymparisto", "tiedelehdet_aikuiskasvatus", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_ats", "tiedelehdet_bryobrotherella"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aluejaymparisto", "tiedelehdet_aikuiskasvatus", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_ats", "tiedelehdet_diakonia"]
 };
 
 settings.corporafolders.other_texts = {
