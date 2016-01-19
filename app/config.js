@@ -1525,7 +1525,7 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.tiedelehdet = {
     title : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aluejaymparisto", "tiedelehdet_aikuiskasvatus"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aluejaymparisto", "tiedelehdet_aikuiskasvatus", "tiedelehdet_auraica"]
 };
 
 settings.corporafolders.other_texts = {
@@ -1926,6 +1926,24 @@ settings.corpora.ftb3_jrcacquis = {
 };
 
 /* ==== TIEDELEHTIÄ ==== */
+
+settings.corpora.tiedelehdet_auraica = {
+    title : "Auraica",
+    description : "Auraica 2008-2012",
+    id : "tiedelehdet_auraica",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_url : sattrs.link_lehdet,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
 
 settings.corpora.tiedelehdet_aikuiskasvatus = {
     title : "Aikuiskasvatus",
