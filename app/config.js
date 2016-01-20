@@ -1667,13 +1667,18 @@ settings.corporafolders.internet.suomi24 = {
 settings.corporafolders.lehdet = {
     title : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
-    contents : ["lehdet_koskinen", "lehdet_ekonomi"]
 };
 
-settings.corporafolders.tiedelehdet = {
-    title : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
+settings.corporafolders.lehdet.tiedelehdet = {
+    title : "Tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aluejaymparisto"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aluejaymparisto", "tiedelehdet_aikuiskasvatus", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_ats", "tiedelehdet_diakonia"]
+};
+
+settings.corporafolders.lehdet.muut_lehdet = {
+    title : "Muita lehtiä",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
+    contents : ["lehdet_koskinen", "lehdet_ekonomi"]
 };
 
 settings.corporafolders.other_texts = {
@@ -2076,6 +2081,95 @@ settings.corpora.ftb3_jrcacquis = {
 
 /* ==== TIEDELEHTIÄ ==== */
 
+settings.corpora.tiedelehdet_bryobrotherella = {
+    title : "Bryobrotherella",
+    description : "Bryobrotherella (2008-2012)",
+    id : "tiedelehdet_bryobrotherella",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_diakonia = {
+    title : "Diakonian tutkimus –aikakauskirja",
+    description : "Diakonian tutkimus –aikakauskirja (2004-2013)",
+    id : "tiedelehdet_diakonia",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        /*text_url : sattrs.link_lehdet,*/
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_ats = {
+    title : "ATS-Ydintekniikka",
+    description : "ATS-Ydintekniikka 2000-2013",
+    id : "tiedelehdet_ats",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        /*text_url : sattrs.link_lehdet,*/
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+
+settings.corpora.tiedelehdet_auraica = {
+    title : "Auraica",
+    description : "Auraica 2008-2012",
+    id : "tiedelehdet_auraica",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_url : sattrs.link_lehdet,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_aikuiskasvatus = {
+    title : "Aikuiskasvatus",
+    description : "Aikuiskasvatus (2008–2013)",
+    id : "tiedelehdet_aikuiskasvatus",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_atitle : sattrs.text_title,
+        /*text_date : sattrs.date,*/
+        text_author : sattrs.text_author,
+        text_url : sattrs.link_lehdet,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
 settings.corpora.tiedelehdet_aluejaymparisto = {
     title : "Alue ja ympäristö",
     description : "Alue ja ympäristö (2005–2015)",
@@ -2087,7 +2181,7 @@ settings.corpora.tiedelehdet_aluejaymparisto = {
     attributes : {},
     struct_attributes : {
         text_title : sattrs.text_title,
-        text_date : sattrs.date,
+        /*text_date : sattrs.date,*/
         text_url : sattrs.link_lehdet,
         text_issue : {
             label : "issue"
@@ -2106,8 +2200,8 @@ settings.corpora.tiedelehdet_aakusti = {
     attributes : {},
     struct_attributes : {
         text_title : sattrs.text_title,
-        text_date : sattrs.date,
-        /*text_url : sattrs.link_lehdet,*/
+        /*text_date : sattrs.date,*/
+        text_url : sattrs.link_lehdet,
         text_issue : {
             label : "issue"
         }
@@ -2125,7 +2219,7 @@ settings.corpora.tiedelehdet_30paivaa = {
     attributes : {},
     struct_attributes : {
         text_title : sattrs.text_title,
-        text_date : sattrs.date,
+        /*text_date : sattrs.date,*/
         text_url : sattrs.link_lehdet,
         text_issue : {
             label : "issue"
@@ -2144,7 +2238,7 @@ settings.corpora.tiedelehdet_aidinkieli = {
     attributes : {},
     struct_attributes : {
         text_title : sattrs.text_title,
-        text_date : sattrs.date,
+        /*text_date : sattrs.date,*/
         text_url : sattrs.link_lehdet,
         text_issue : {
             label : "issue"
