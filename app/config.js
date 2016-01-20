@@ -1519,13 +1519,18 @@ settings.corporafolders.internet.suomi24 = {
 settings.corporafolders.lehdet = {
     title : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
-    contents : ["lehdet_koskinen", "lehdet_ekonomi"]
 };
 
-settings.corporafolders.tiedelehdet = {
-    title : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
+settings.corporafolders.lehdet.tiedelehdet = {
+    title : "Tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
     contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aluejaymparisto", "tiedelehdet_aikuiskasvatus", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_ats", "tiedelehdet_diakonia"]
+};
+
+settings.corporafolders.lehdet.muut_lehdet = {
+    title : "Muita lehtiä",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
+    contents : ["lehdet_koskinen", "lehdet_ekonomi"]
 };
 
 settings.corporafolders.other_texts = {
