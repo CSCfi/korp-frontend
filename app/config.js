@@ -1535,7 +1535,7 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.lehdet.tiedelehdet = {
     title : "Tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aluejaymparisto", "tiedelehdet_aikuiskasvatus", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_ats", "tiedelehdet_diakonia"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia"]
 };
 
 settings.corporafolders.lehdet.muut_lehdet = {
@@ -1945,7 +1945,7 @@ settings.corpora.ftb3_jrcacquis = {
 
 settings.corpora.tiedelehdet_bryobrotherella = {
     title : "Bryobrotherella",
-    description : "Bryobrotherella (2008-2012)",
+    description : "Bryobrotherella (2008–2012)",
     id : "tiedelehdet_bryobrotherella",
     urn : "",
     metadata_urn : "",
@@ -1961,7 +1961,7 @@ settings.corpora.tiedelehdet_bryobrotherella = {
 
 settings.corpora.tiedelehdet_diakonia = {
     title : "Diakonian tutkimus –aikakauskirja",
-    description : "Diakonian tutkimus –aikakauskirja (2004-2013)",
+    description : "Diakonian tutkimus -aikakauskirja (2004–2013)",
     id : "tiedelehdet_diakonia",
     urn : "",
     metadata_urn : "",
@@ -1978,7 +1978,7 @@ settings.corpora.tiedelehdet_diakonia = {
 
 settings.corpora.tiedelehdet_ats = {
     title : "ATS-Ydintekniikka",
-    description : "ATS-Ydintekniikka 2000-2013",
+    description : "ATS-Ydintekniikka (2000–2013)",
     id : "tiedelehdet_ats",
     urn : "",
     metadata_urn : "",
@@ -1996,7 +1996,7 @@ settings.corpora.tiedelehdet_ats = {
 
 settings.corpora.tiedelehdet_auraica = {
     title : "Auraica",
-    description : "Auraica 2008-2012",
+    description : "Auraica (2008–2012)",
     id : "tiedelehdet_auraica",
     urn : "",
     metadata_urn : "",
@@ -2072,7 +2072,7 @@ settings.corpora.tiedelehdet_aakusti = {
 
 settings.corpora.tiedelehdet_30paivaa = {
     title : "30 Päivää",
-    description : "30 Päivää",
+    description : "30 Päivää (2013)",
     id : "tiedelehdet_30paivaa",
     urn : "",
     metadata_urn : "",
@@ -2112,7 +2112,7 @@ settings.corpora.tiedelehdet_aidinkieli = {
 
 settings.corpora.lehdet_ekonomi = {
     title : "Ekonomi",
-    description : "Ekonomi (2013-2014)",
+    description : "Ekonomi (2013–2014)",
     id : "lehdet_ekonomi",
     urn : "",
     metadata_urn : "",
@@ -2131,7 +2131,7 @@ settings.corpora.lehdet_ekonomi = {
 
 settings.corpora.lehdet_koskinen = {
     title : "Verkkolehti Koskinen",
-    description : "Verkkolehti Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996-2013)",
+    description : "Verkkolehti Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996–2013)",
     id : "lehdet_koskinen",
     urn : "",
     metadata_urn : "",
