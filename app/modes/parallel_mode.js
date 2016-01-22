@@ -273,6 +273,9 @@ settings.corporafolders.europarl = {
     }
 };
 
+settings.corpus_aliases.europarl_v7 = "europarl_v7_.*_fi";
+settings.corpus_aliases.europarl = settings.corpus_aliases.europarl_v7;
+
 settings.corporafolders.jrc = {
     title : "HeKo-JRC-Acquis",
     description : "Helsinki Korp JRC-Acquis -aineistokokoelma",
@@ -294,6 +297,8 @@ settings.corporafolders.jrc = {
     }
 };
 
+settings.corpus_aliases.jrc_acquis = "jrc_acquis_.*fi";
+
 settings.corporafolders.opus = {
     title : "OPUS",
     description : "OPUS – an open source parallel corpus"
@@ -309,6 +314,9 @@ settings.corporafolders.opus.enfi = {
 	       'opus_ubuntu_enfi_fi']
 };
 
+settings.corpus_aliases.opus_enfi = "opus_.*enfi_fi";
+settings.corpus_aliases.opus_fien = "opus_.*enfi_fi";
+
 settings.corporafolders.opus.firu = {
     title : "OPUS Finnish–Russian",
     contents : ['opus_opensubtitles2011_firu_fi', 'opus_opensubtitles2012_firu_fi',
@@ -317,6 +325,8 @@ settings.corporafolders.opus.firu = {
 		'opus_gnome_firu_fi',
 		'opus_ubuntu_firu_fi']
 };
+
+settings.corpus_aliases.opus_firu = "opus_.*firu_fi";
 
 settings.corporafolders.opus.fisv = {
     title : "OPUS Finnish–Swedish",
@@ -327,6 +337,8 @@ settings.corporafolders.opus.fisv = {
 		'opus_ubuntu_fisv_fi', 'opus_tatoeba_fisv_fi', 'opus_opensubtitles_fisv_fi']
 };
 
+settings.corpus_aliases.opus_fisv = "opus_.*fisv_fi";
+
 settings.corporafolders.opus.defi = {
     title : "OPUS Finnish–German",
     contents : ['opus_opensubtitles2012_defi_fi', 'opus_opensubtitles2011_defi_fi',
@@ -335,6 +347,9 @@ settings.corporafolders.opus.defi = {
 	        'opus_gnome_defi_fi', 'opus_tatoeba_defi_fi', 'opus_opensubtitles_defi_fi',
 	        'opus_php_defi_fi',  'opus_euconst_defi_fi']
 };
+
+settings.corpus_aliases.opus_defi = "opus_.*defi_fi";
+settings.corpus_aliases.opus_fide = "opus_.*defi_fi";
 
 settings.corporafolders.opus.fifr = {
     title : "OPUS Finnish–French",
@@ -355,6 +370,8 @@ settings.corporafolders.opus.fifr = {
 	        'opus_tatoeba_fifr_fi']
 };
 
+settings.corpus_aliases.opus_fifr = "opus_.*fifr_fi";
+
 settings.corporafolders.opus.dafi = {
     title : "OPUS Finnish–Danish",
     contents : ['opus_dgt_dafi_fi',
@@ -365,6 +382,9 @@ settings.corporafolders.opus.dafi = {
 		'opus_ecb_dafi_fi']
 };
 
+settings.corpus_aliases.opus_dafi = "opus_.*dafi_fi";
+settings.corpus_aliases.opus_fida = "opus_.*dafi_fi";
+
 settings.corporafolders.opus.fipl = {
     title : "OPUS Finnish–Polish",
     contents : ['opus_dgt_fipl_fi',
@@ -374,6 +394,8 @@ settings.corporafolders.opus.fipl = {
 		'opus_emea_fipl_fi',
 	       'opus_ecb_fipl_fi']
 };
+
+settings.corpus_aliases.opus_fipl = "opus_.*fipl_fi";
 
 settings.corporafolders.opus.esfi = {
     title : "OPUS Finnish–Spanish",
@@ -394,6 +416,9 @@ settings.corporafolders.opus.esfi = {
 	       'opus_books_esfi_fi']
 };
 
+settings.corpus_aliases.opus_esfi = "opus_.*esfi_fi";
+settings.corpus_aliases.opus_fies = "opus_.*esfi_fi";
+
 settings.corporafolders.opus.fipt = {
     title : "OPUS Finnish–Portuguese",
     contents : ['opus_dgt_fipt_fi',
@@ -405,6 +430,8 @@ settings.corporafolders.opus.fipt = {
 		'opus_ecb_fipt_fi']
 };
 
+settings.corpus_aliases.opus_fipt = "opus_.*fipt_fi";
+
 settings.corporafolders.opus.etfi = {
     title : "OPUS Finnish–Estonian",
     contents : ['opus_dgt_etfi_fi',
@@ -414,6 +441,9 @@ settings.corporafolders.opus.etfi = {
                 'opus_opensubtitles2011_etfi_fi',
 		'opus_opensubtitles2013_etfi_fi']
 };
+
+settings.corpus_aliases.opus_etfi = "opus_.*etfi_fi";
+settings.corpus_aliases.opus_fiet = "opus_.*etfi_fi";
 
 settings.corporafolders.opus.fiit = {
     title : "OPUS Finnish–Italian",
@@ -426,6 +456,8 @@ settings.corporafolders.opus.fiit = {
 		'opus_eubookshop_fiit_fi']
 };
 
+settings.corpus_aliases.opus_fiit = "opus_.*fiit_fi";
+
 settings.corporafolders.opus.fihu = {
     title : "OPUS Finnish–Hungarian",
     contents : ['opus_dgt_fihu_fi',
@@ -437,6 +469,8 @@ settings.corporafolders.opus.fihu = {
 		'opus_eubookshop_fihu_fi',
 		'opus_kde4_fihu_fi']
 };
+
+settings.corpus_aliases.opus_fihu = "opus_.*fihu_fi";
 
 settings.corporafolders.opus.finl = {
     title : "OPUS Finnish–Dutch",
@@ -455,6 +489,8 @@ settings.corporafolders.opus.finl = {
 		'opus_ubuntu_finl_fi']
 };
 
+settings.corpus_aliases.opus_finl = "opus_.*finl_fi";
+
 settings.corporafolders.opus.fitrl = {
     title : "OPUS Finnish–Turkish",
     contents : ['opus_eubookshop_fitr_fi',
@@ -466,6 +502,8 @@ settings.corporafolders.opus.fitrl = {
 		'opus_php_fitr_fi',
 		'opus_opensubtitles_fitr_fi']
 };
+
+settings.corpus_aliases.opus_fitr = "opus_.*fitr_fi";
 
 settings.corporafolders.opus.csfi = {
     title : "OPUS Finnish–Czech",
@@ -485,6 +523,9 @@ settings.corporafolders.opus.csfi = {
 	       'opus_europarl_csfi_fi']
 };
 
+settings.corpus_aliases.opus_csfi = "opus_.*csfi_fi";
+settings.corpus_aliases.opus_fics = "opus_.*csfi_fi";
+
 settings.corporafolders.opus.elfi = {
     title : "OPUS Finnish–Greek",
     contents : ['opus_dgt_elfi_fi',
@@ -501,6 +542,9 @@ settings.corporafolders.opus.elfi = {
 		'opus_opensubtitles_elfi_fi',
 		'opus_ubuntu_elfi_fi']
 };
+
+settings.corpus_aliases.opus_elfi = "opus_.*elfi_fi";
+settings.corpus_aliases.opus_fiel = "opus_.*elfi_fi";
 
 
 /*
@@ -538,6 +582,8 @@ var wordlink = {
 }
 
 /* OPUS – Open Source Paraller Corpus */
+
+settings.corpus_aliases.opus = "opus_.*_fi";
 
 settings.corpora.opus_opensubtitles2011_fitr_tr = {
     title : "OpenSubtitles2011",

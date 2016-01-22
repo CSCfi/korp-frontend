@@ -1418,8 +1418,26 @@
     }
   };
 
+  util.listMatchingCorpora = function(regex) {
+    var corp_re, corpus, inverse, match, opts, result;
+    corp_re = RegExp("^(" + regex + ")$");
+    opts = arguments.length > 1 ? arguments[1] : {};
+    inverse = opts.inverse;
+    result = [];
+    for (corpus in settings.corpora) {
+      match = corp_re.test(corpus);
+      if ((match && !inverse) || (inverse && !match)) {
+        result.push(corpus);
+      }
+    }
+    if (opts.sort) {
+      result.sort();
+    }
+    return result;
+  };
+
   util.mapHashCorpusAliases = function() {
-    var corpus, getUrlParam, mapCorpusAliasList, orig_corpus;
+    var corpus, expandAlias, getUrlParam, mapCorpusAliasList, orig_corpus;
     getUrlParam = function(name) {
       var matches, param_re;
       param_re = RegExp("\\b" + name + "=([^&;]*)");
@@ -1430,16 +1448,37 @@
         return null;
       }
     };
+    expandAlias = function(alias) {
+      var corp_spec, corp_specs, corpora, k, len;
+      if (/[^a-z0-9_,-]/.test(alias)) {
+        corpora = [];
+        corp_specs = alias.split(",");
+        for (k = 0, len = corp_specs.length; k < len; k++) {
+          corp_spec = corp_specs[k];
+          if (/[^a-z0-9_,-]/.test(corp_spec)) {
+            corpora = corpora.concat(util.listMatchingCorpora(corp_spec));
+          }
+        }
+        return corpora.join(",");
+      } else {
+        return alias;
+      }
+    };
     mapCorpusAliasList = function(corpus) {
       return _.map(corpus.split(","), function(corpus_id) {
-        return settings.corpus_aliases[corpus_id] || corpus_id;
-      });
+        if (corpus_id in settings.corpus_aliases) {
+          return expandAlias(settings.corpus_aliases[corpus_id]);
+        } else {
+          return corpus_id;
+        }
+      }).join(",");
     };
     if (settings.corpus_aliases != null) {
       orig_corpus = getUrlParam("corpus");
       if (orig_corpus) {
         corpus = mapCorpusAliasList(orig_corpus);
         if (corpus !== orig_corpus) {
+          c.log("mapHashCorpusAliases", orig_corpus, "->", corpus);
           window.location.hash = window.location.hash.replace("corpus=" + orig_corpus, "corpus=" + corpus);
         }
       }

@@ -1672,7 +1672,7 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.lehdet.tiedelehdet = {
     title : "Tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aluejaymparisto", "tiedelehdet_aikuiskasvatus", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_ats", "tiedelehdet_diakonia"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia"]
 };
 
 settings.corporafolders.lehdet.muut_lehdet = {
@@ -2081,9 +2081,11 @@ settings.corpora.ftb3_jrcacquis = {
 
 /* ==== TIEDELEHTIÄ ==== */
 
+settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
+
 settings.corpora.tiedelehdet_bryobrotherella = {
     title : "Bryobrotherella",
-    description : "Bryobrotherella (2008-2012)",
+    description : "Bryobrotherella (2008–2012)<br/>Julkaisija: Suomen Sammalseura",
     id : "tiedelehdet_bryobrotherella",
     urn : "",
     metadata_urn : "",
@@ -2099,7 +2101,7 @@ settings.corpora.tiedelehdet_bryobrotherella = {
 
 settings.corpora.tiedelehdet_diakonia = {
     title : "Diakonian tutkimus –aikakauskirja",
-    description : "Diakonian tutkimus –aikakauskirja (2004-2013)",
+    description : "Diakonian tutkimus -aikakauskirja (2004–2013)<br/>Julkaisija: Diakonian Tutkimuksen Seura",
     id : "tiedelehdet_diakonia",
     urn : "",
     metadata_urn : "",
@@ -2116,7 +2118,7 @@ settings.corpora.tiedelehdet_diakonia = {
 
 settings.corpora.tiedelehdet_ats = {
     title : "ATS-Ydintekniikka",
-    description : "ATS-Ydintekniikka 2000-2013",
+    description : "ATS-Ydintekniikka (2000–2013)<br/>Julkaisija: Suomen Atomiteknillinen Seura",
     id : "tiedelehdet_ats",
     urn : "",
     metadata_urn : "",
@@ -2134,7 +2136,7 @@ settings.corpora.tiedelehdet_ats = {
 
 settings.corpora.tiedelehdet_auraica = {
     title : "Auraica",
-    description : "Auraica 2008-2012",
+    description : "Auraica (2008–2012)<br/>Julkaisija: Porthan-Seura ry",
     id : "tiedelehdet_auraica",
     urn : "",
     metadata_urn : "",
@@ -2152,7 +2154,7 @@ settings.corpora.tiedelehdet_auraica = {
 
 settings.corpora.tiedelehdet_aikuiskasvatus = {
     title : "Aikuiskasvatus",
-    description : "Aikuiskasvatus (2008–2013)",
+    description : "Aikuiskasvatus (2008–2013)<br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura",
     id : "tiedelehdet_aikuiskasvatus",
     urn : "",
     metadata_urn : "",
@@ -2172,7 +2174,7 @@ settings.corpora.tiedelehdet_aikuiskasvatus = {
 
 settings.corpora.tiedelehdet_aluejaymparisto = {
     title : "Alue ja ympäristö",
-    description : "Alue ja ympäristö (2005–2015)",
+    description : "Alue ja ympäristö (2005–2015)<br/>Julkaisija: Alue- ja ympäristötutkimuksen seura",
     id : "tiedelehdet_aluejaymparisto",
     urn : "",
     metadata_urn : "",
@@ -2191,7 +2193,7 @@ settings.corpora.tiedelehdet_aluejaymparisto = {
 
 settings.corpora.tiedelehdet_aakusti = {
     title : "Aakusti",
-    description : "Aakusti (2008–2013)",
+    description : "Aakusti (2008–2013)<br/>Julkaisija: Savon kielen seura ry",
     id : "tiedelehdet_aakusti",
     urn : "",
     metadata_urn : "",
@@ -2210,7 +2212,7 @@ settings.corpora.tiedelehdet_aakusti = {
 
 settings.corpora.tiedelehdet_30paivaa = {
     title : "30 Päivää",
-    description : "30 Päivää",
+    description : "30 Päivää (2013)<br/>Julkaisija: Sosiaalialan korkeakoulutettujen ammattijärjestö Talentia ry",
     id : "tiedelehdet_30paivaa",
     urn : "",
     metadata_urn : "",
@@ -2229,7 +2231,7 @@ settings.corpora.tiedelehdet_30paivaa = {
 
 settings.corpora.tiedelehdet_aidinkieli = {
     title : "Aikakauskirja Äidinkielen opetustiede",
-    description : "Aikakauskirja Äidinkielen opetustiede (2008–2012)",
+    description : "Aikakauskirja Äidinkielen opetustiede (2008–2012)<br/>Julkaisija: Äidinkielen Opetustieteen Seura ry",
     id : "tiedelehdet_aidinkieli",
     urn : "",
     metadata_urn : "",
@@ -2248,9 +2250,11 @@ settings.corpora.tiedelehdet_aidinkieli = {
 
 /* ===== LEHTIÄ ===== */
 
+settings.corpus_aliases.muut_lehdet = "lehdet_.*";
+
 settings.corpora.lehdet_ekonomi = {
     title : "Ekonomi",
-    description : "Ekonomi (2013-2014)",
+    description : "Ekonomi (2013–2014)",
     id : "lehdet_ekonomi",
     urn : "",
     metadata_urn : "",
@@ -2269,7 +2273,7 @@ settings.corpora.lehdet_ekonomi = {
 
 settings.corpora.lehdet_koskinen = {
     title : "Verkkolehti Koskinen",
-    description : "Verkkolehti Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996-2013)",
+    description : "Verkkolehti Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996–2013)",
     id : "lehdet_koskinen",
     urn : "",
     metadata_urn : "",
