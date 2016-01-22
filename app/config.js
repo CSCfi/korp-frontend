@@ -1945,7 +1945,7 @@ settings.corpora.ftb3_jrcacquis = {
 
 settings.corpora.tiedelehdet_bryobrotherella = {
     title : "Bryobrotherella",
-    description : "Bryobrotherella (2008–2012)",
+    description : "Bryobrotherella (2008–2012)<br/>Julkaisija: Suomen Sammalseura",
     id : "tiedelehdet_bryobrotherella",
     urn : "",
     metadata_urn : "",
@@ -1961,7 +1961,7 @@ settings.corpora.tiedelehdet_bryobrotherella = {
 
 settings.corpora.tiedelehdet_diakonia = {
     title : "Diakonian tutkimus –aikakauskirja",
-    description : "Diakonian tutkimus -aikakauskirja (2004–2013)",
+    description : "Diakonian tutkimus -aikakauskirja (2004–2013)<br/>Julkaisija: Diakonian Tutkimuksen Seura",
     id : "tiedelehdet_diakonia",
     urn : "",
     metadata_urn : "",
@@ -1978,7 +1978,7 @@ settings.corpora.tiedelehdet_diakonia = {
 
 settings.corpora.tiedelehdet_ats = {
     title : "ATS-Ydintekniikka",
-    description : "ATS-Ydintekniikka (2000–2013)",
+    description : "ATS-Ydintekniikka (2000–2013)<br/>Julkaisija: Suomen Atomiteknillinen Seura",
     id : "tiedelehdet_ats",
     urn : "",
     metadata_urn : "",
@@ -1996,7 +1996,7 @@ settings.corpora.tiedelehdet_ats = {
 
 settings.corpora.tiedelehdet_auraica = {
     title : "Auraica",
-    description : "Auraica (2008–2012)",
+    description : "Auraica (2008–2012)<br/>Julkaisija: Porthan-Seura ry",
     id : "tiedelehdet_auraica",
     urn : "",
     metadata_urn : "",
@@ -2014,7 +2014,7 @@ settings.corpora.tiedelehdet_auraica = {
 
 settings.corpora.tiedelehdet_aikuiskasvatus = {
     title : "Aikuiskasvatus",
-    description : "Aikuiskasvatus (2008–2013)",
+    description : "Aikuiskasvatus (2008–2013)<br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura",
     id : "tiedelehdet_aikuiskasvatus",
     urn : "",
     metadata_urn : "",
@@ -2034,7 +2034,7 @@ settings.corpora.tiedelehdet_aikuiskasvatus = {
 
 settings.corpora.tiedelehdet_aluejaymparisto = {
     title : "Alue ja ympäristö",
-    description : "Alue ja ympäristö (2005–2015)",
+    description : "Alue ja ympäristö (2005–2015)<br/>Julkaisija: Alue- ja ympäristötutkimuksen seura",
     id : "tiedelehdet_aluejaymparisto",
     urn : "",
     metadata_urn : "",
@@ -2053,7 +2053,7 @@ settings.corpora.tiedelehdet_aluejaymparisto = {
 
 settings.corpora.tiedelehdet_aakusti = {
     title : "Aakusti",
-    description : "Aakusti (2008–2013)",
+    description : "Aakusti (2008–2013)<br/>Julkaisija: Savon kielen seura ry",
     id : "tiedelehdet_aakusti",
     urn : "",
     metadata_urn : "",
@@ -2072,7 +2072,7 @@ settings.corpora.tiedelehdet_aakusti = {
 
 settings.corpora.tiedelehdet_30paivaa = {
     title : "30 Päivää",
-    description : "30 Päivää (2013)",
+    description : "30 Päivää (2013)<br/>Julkaisija: Sosiaalialan korkeakoulutettujen ammattijärjestö Talentia ry",
     id : "tiedelehdet_30paivaa",
     urn : "",
     metadata_urn : "",
@@ -2091,7 +2091,7 @@ settings.corpora.tiedelehdet_30paivaa = {
 
 settings.corpora.tiedelehdet_aidinkieli = {
     title : "Aikakauskirja Äidinkielen opetustiede",
-    description : "Aikakauskirja Äidinkielen opetustiede (2008–2012)",
+    description : "Aikakauskirja Äidinkielen opetustiede (2008–2012)<br/>Julkaisija: Äidinkielen Opetustieteen Seura ry",
     id : "tiedelehdet_aidinkieli",
     urn : "",
     metadata_urn : "",
