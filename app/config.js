@@ -1943,6 +1943,8 @@ settings.corpora.ftb3_jrcacquis = {
 
 /* ==== TIEDELEHTIÄ ==== */
 
+settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
+
 settings.corpora.tiedelehdet_bryobrotherella = {
     title : "Bryobrotherella",
     description : "Bryobrotherella (2008–2012)<br/>Julkaisija: Suomen Sammalseura",
@@ -2109,6 +2111,8 @@ settings.corpora.tiedelehdet_aidinkieli = {
 };
 
 /* ===== LEHTIÄ ===== */
+
+settings.corpus_aliases.muut_lehdet = "lehdet_.*";
 
 settings.corpora.lehdet_ekonomi = {
     title : "Ekonomi",
