@@ -17,8 +17,6 @@
     location.hash = "#?" + _.str.lstrip(location.hash, "#");
   }
 
-  util.mapHashCorpusAliases();
-
   t = $.now();
 
   isDev = window.location.host === "localhost";
@@ -66,6 +64,7 @@
   $.when(loc_dfd, deferred_domReady).then((function(loc_data) {
     var corpus, make_shibboleth_link, prevFragment, tab_a_selector;
     c.log("preloading done, t = ", $.now() - t);
+    util.mapHashCorpusAliases();
     angular.bootstrap(document, ['korpApp']);
     corpus = search()["corpus"];
     if (corpus) {
