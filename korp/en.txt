@@ -1,4 +1,54 @@
 
+<!-- Name classification and restricting search context 2016-01-25b -->
+
+This Korp main installation now has two features that were previously
+in test use in the Korp Labs:
+
+* **Name classification results** show the 30 most common person,
+  place, organization and other names which occur in the *texts*
+  (documents) containing search hits. Name classification currently
+  only works for the corpora [FinnTreeBank
+  3](?mode=default#?corpus=ftb3_europarl,ftb3_jrcacquis&lang=en) and
+  [Suomi24 2001–2014 (sample)](?mode=default#?corpus=s24&lang=en). The
+  names have been extracted and classified automatically.
+
+* **Restricting the search context**: In the simple search you can
+  restrict the main search to the sentences, paragraphs or texts that
+  contain given words in any order. The restricting words may be
+  lemmas or word forms. Words between double quotation marks
+  (`"`&hellip;`"`) must occur consecutively in the text, and an
+  asterisk `*` within quotation marks matches any single word. The
+  KWIC view highlights only the hits for the main search expression.
+  Restricting the search context does not currently affect the name
+  classification results.
+
+If these features are not present, please reload the Korp page in the
+Web browser.
+
+The <a href="/lab/#?lang=en" target="_blank">Korp Labs</a> in turn has
+now a finer-grained trend diagram and a map showing place names found
+in the search results. In addition, a few bugs have been fixed.
+
+
+<!-- New corpora: Suomi24, OPUS and Finnish journals and magazines 2016-01-25a -->
+
+The Finnish mode has for some time had the full version of the
+[Suomi24 Internet discussion forum
+corpus](?mode=default#?corpus=suomi24&lang=en) with over 2 billion
+tokens. For technical reasons, the corpus has been split into nine
+parts in Korp.
+
+The parallel mode has for some time had parts of the [OPUS open source
+parallel corpus](?mode=parallel#?corpus=opus&lang=en) (Finnish as one
+language).
+
+A recent addition is a collection of Finnish [scholarly
+journals](?mode=default#?corpus=tiedelehdet&lang=en) and [other
+journals and magazines](?mode=default#?corpus=muut_lehdet&lang=en)
+from the 1990s and 2000s. This collection will grow in the near
+future.
+
+
 <!-- Korp updated: trend diagram now works with multiple words 2015-08-20 -->
 
 The update has fixed bugs in the statistics result view; in

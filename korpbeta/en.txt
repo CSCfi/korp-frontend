@@ -1,4 +1,21 @@
 
+<!-- Trend diagram zoom and place name map 2016-01-25 -->
+
+This Korp Labs (or “Korp beta”) now has in test use a new version of
+Korp with two significant new features:
+
+* **Zooming the trend diagram** down to the level of days in corpora
+  with date information at the granularity of days.
+
+* **A map** showing places (towns, municipalities, villages) whose
+  names occur in the search result. Korp interprets as place names all
+  proper names found in a place-name gazetteer even if they were
+  person names in the text. The map currently shows places only in
+  Finland and Sweden.
+
+In addition, some bugs have been fixed.
+
+
 <!-- Name classification and restricting search context 2015-08-28 -->
 
 This Korp beta installation (or “Korp Labs”) now has two new features

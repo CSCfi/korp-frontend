@@ -1,4 +1,21 @@
 
+<!-- Trendidiagrammin tarkentaminen ja paikannimikartta 2016-01-25 -->
+
+Tässä Korp-laboratoriossa (eli Korp betassa) on nyt testikäytössä
+Korpin uusi versio, jossa on kaksi merkittävää uutta ominaisuutta:
+
+* **Trendidiagrammin tarkentaminen** päivien tasolle niillä
+  aineistoilla, joissa on ajoitustiedot päivän tarkkuudella.
+
+* **Kartta**, jossa näkyy paikkoja (kaupunkeja, kuntia, kyliä), joiden
+  nimet esiintyvät hakutuloksessa. Korp tulkitsee paikannimiksi kaikki
+  erisnimet, jotka löytyvät paikannimiluettelosta, vaikka ne tekstissä
+  olisivatkin esim. henkilönnimiä. Kartassa näkyy toistaiseksi vain
+  Suomen ja Ruotsin paikkoja.
+
+Lisäksi joitain bugeja on korjattu.
+
+
 <!-- Nimiluokittelu ja haun rajaaminen 2015-08-28 -->
 
 Tässä Korpin beta-versiossa (eli ”Korp-laboratoriossa”) on nyt

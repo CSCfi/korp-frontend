@@ -1,4 +1,53 @@
 
+<!-- Nimiluokittelu ja haun rajaaminen 2016-01-25b -->
+
+Tässä Kielipankin pää-Korpissa on nyt kaksi aiemmin beta-versiossa eli
+”Korp-laboratoriossa” käytössä ollutta ominaisuutta:
+
+* **Nimiluokittelunäkymä** näyttää 30 yleisintä henkilön-, paikan-,
+  organisaation- ja muuta nimeä, jotka esiintyvät niissä *teksteissä*
+  (dokumenteissa), joista löytyi hakuosumia. Nimiluokittelu toimii
+  tällä hetkellä vain korpuksilla [FinnTreeBank
+  3](?mode=default#?corpus=ftb3_europarl,ftb3_jrcacquis)- ja [Suomi24
+  2001–2014 (näyte)](?mode=default#?corpus=s24). Nimet on eristetty ja
+  luokiteltu koneellisesti.
+
+* **Haun rajaaminen**: Yksinkertaisessa haussa on mahdollista rajata
+  varsinainen haku niihin virkkeisiin, kappaleisiin tai teksteihin,
+  jotka sisältävät annetut sanat missä järjestyksessä tahansa.
+  Rajaussanat voivat olla perus- tai taivutusmuodossa. Lainausmerkkien
+  sisällä (`"`&hellip;`"`) olevien sanojen täytyy olla tekstissä
+  peräkkäin, ja tähti `*` lainausmerkkien sisällä tarkoittaa mitä
+  tahansa yksittäistä sanaa. Konkordanssinäkymässä ovat korostettuina
+  vain varsinaisen hakulausekkeen osumat. Haun rajaaminen ei
+  nykyisellään vaikuta nimiluokittelun tulokseen.
+
+Jos nämä ominaisuudet eivät näy, lataa Korp-sivu selaimessa uudelleen.
+
+<a href="/lab/" target="_blank">Korp-laboratoriossa</a> puolestaan on
+nyt testikäytössä trendidiagrammin tarkentaminen sekä kartta, joka
+näyttää hakutuloksesta esiintyviä paikannimiä. Lisäksi joitain vikoja
+on korjattu.
+
+
+<!-- Uusia aineistoja: Suomi24, OPUS sekä tiede- ja muita lehtiä 2016-01-25a -->
+
+Korpissa on jo jonkin aikaa ollut käytettävissä
+[Suomi24-Internet-keskusteluaineiston
+täysversio](?mode=default#?corpus=suomi24), jossa on yli 2 miljardia
+sanetta. Aineisto on jaettu Korpissa yhdeksään osaan teknisistä
+syistä.
+
+Samoin rinnakkaisteksteissä on jo jonkin aikaa ollut käytettävissä
+[OPUS –rinnakkaiskorpuksen](?mode=parallel#?corpus=opus) osia, joissa
+toisena kielenä on suomi.
+
+Viime aikoina Korpiin on lisätty myös suomalaisia
+[tiedelehtiä](?mode=default#?corpus=tiedelehdet) ja [muita
+lehtiä](?mode=default#?corpus=muut_lehdet) 1990- ja 2000-luvuilta.
+Tämä lehtikokoelma täydentyy lähiaikoina.
+
+
 <!-- Korpia päivitetty: mm. trendidiagrammi useasta sanasta 2015-08-20 -->
 
 Päivityksessä on mm. korjattu tilastonäkymää: erityisesti
