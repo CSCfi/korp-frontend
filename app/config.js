@@ -1535,7 +1535,7 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.lehdet.tiedelehdet = {
     title : "Tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_geofoorumi"]
 };
 
 settings.corporafolders.lehdet.muut_lehdet = {
@@ -1955,6 +1955,43 @@ settings.corpora.tiedelehdet_bryobrotherella = {
     context : settings.spContext,
     attributes : {},
     struct_attributes : {
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_geofoorumi = {
+    title : "GeoFoorumi",
+    description : "GeoFoorumi (2006-2013)<br/>Julkaisija: Geologian tutkimuskeskus (GTK)",
+    id : "tiedelehdet_geofoorumi",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        /*text_url : sattrs.link_lehdet,*/
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_agricola = {
+    title : "Agricolan Tietosanomat",
+    description : "Agricolan Tietosanomat 2000",
+    id : "tiedelehdet_agricola",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_atitle : sattrs.text_title,
+        text_url : sattrs.link_lehdet,
+        text_author : sattrs.text_author,
         text_issue : {
             label : "issue"
         }
