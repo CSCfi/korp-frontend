@@ -2017,7 +2017,7 @@ settings.corpora.tiedelehdet_diakonia = {
 
 settings.corpora.tiedelehdet_areiopagi = {
     title : "Areiopagi",
-    description : "Areiopagi 2013",
+    description : "Areiopagi (2013))<br/>Julkaisija: <br/>Kotisivu: <a href='http://www.areiopagi.fi/'>http://www.areiopagi.fi/</a>",
     id : "tiedelehdet_areiopagi",
     urn : "",
     metadata_urn : "",
@@ -2037,7 +2037,7 @@ settings.corpora.tiedelehdet_areiopagi = {
 
 settings.corpora.tiedelehdet_ats = {
     title : "ATS-Ydintekniikka",
-    description : "ATS-Ydintekniikka (2000–2013)<br/>Julkaisija: Suomen Atomiteknillinen Seura",
+    description : "ATS-Ydintekniikka (2000–2013)<br/>Julkaisija: Suomen Atomiteknillinen Seura<br/>Kotisivu: <a href='http://www.ats-fns.fi/fi/ats-ydintekniikka/lehdet'>http://www.ats-fns.fi/fi/ats-ydintekniikka/lehdet</a>",
     id : "tiedelehdet_ats",
     urn : "",
     metadata_urn : "",
@@ -2055,7 +2055,7 @@ settings.corpora.tiedelehdet_ats = {
 
 settings.corpora.tiedelehdet_auraica = {
     title : "Auraica",
-    description : "Auraica (2008–2012)<br/>Julkaisija: Porthan-Seura ry",
+    description : "Auraica (2008–2012)<br/>Julkaisija: Porthan-Seura ry<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/Aur/issue/archive'>http://ojs.tsv.fi/index.php/Aur/issue/archive</a>",
     id : "tiedelehdet_auraica",
     urn : "",
     metadata_urn : "",
@@ -2073,7 +2073,7 @@ settings.corpora.tiedelehdet_auraica = {
 
 settings.corpora.tiedelehdet_aikuiskasvatus = {
     title : "Aikuiskasvatus",
-    description : "Aikuiskasvatus (2008–2013)<br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura",
+    description : "Aikuiskasvatus (2008–2013)<br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura<br/>Kotisivu: <a href='http://www.doria.fi/handle/10024/7300'>http://www.doria.fi/handle/10024/7300</a>",
     id : "tiedelehdet_aikuiskasvatus",
     urn : "",
     metadata_urn : "",
@@ -2093,7 +2093,7 @@ settings.corpora.tiedelehdet_aikuiskasvatus = {
 
 settings.corpora.tiedelehdet_aluejaymparisto = {
     title : "Alue ja ympäristö",
-    description : "Alue ja ympäristö (2005–2015)<br/>Julkaisija: Alue- ja ympäristötutkimuksen seura",
+    description : "Alue ja ympäristö (2005–2015)<br/>Julkaisija: Alue- ja ympäristötutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/aluejaymparisto'>http://www.ays.fi/aluejaymparisto</a>",
     id : "tiedelehdet_aluejaymparisto",
     urn : "",
     metadata_urn : "",
@@ -2112,7 +2112,7 @@ settings.corpora.tiedelehdet_aluejaymparisto = {
 
 settings.corpora.tiedelehdet_aakusti = {
     title : "Aakusti",
-    description : "Aakusti (2008–2013)<br/>Julkaisija: Savon kielen seura ry",
+    description : "Aakusti (2008–2013)<br/>Julkaisija: Savon kielen seura ry<br/>Kotisivu: <a href='http://savonkielenseura.fi/arkistosivu/'>http://savonkielenseura.fi/arkistosivu/</a>",
     id : "tiedelehdet_aakusti",
     urn : "",
     metadata_urn : "",
@@ -2131,7 +2131,7 @@ settings.corpora.tiedelehdet_aakusti = {
 
 settings.corpora.tiedelehdet_30paivaa = {
     title : "30 Päivää",
-    description : "30 Päivää (2013)<br/>Julkaisija: Sosiaalialan korkeakoulutettujen ammattijärjestö Talentia ry",
+    description : "30 Päivää (2013)<br/>Julkaisija: Sosiaalialan korkeakoulutettujen ammattijärjestö Talentia ry<br/>Kotisivu: <a href='http://www.talentia.isinteksas.com/julkaisut/'>http://www.talentia.isinteksas.com/julkaisut/</a>",
     id : "tiedelehdet_30paivaa",
     urn : "",
     metadata_urn : "",
@@ -2150,7 +2150,7 @@ settings.corpora.tiedelehdet_30paivaa = {
 
 settings.corpora.tiedelehdet_aidinkieli = {
     title : "Aikakauskirja Äidinkielen opetustiede",
-    description : "Aikakauskirja Äidinkielen opetustiede (2008–2012)<br/>Julkaisija: Äidinkielen Opetustieteen Seura ry",
+    description : "Aikakauskirja Äidinkielen opetustiede (2008–2012)<br/>Julkaisija: Äidinkielen Opetustieteen Seura ry<br/>Kotisivu: <a href='http://www.aidinkielenopetustieteenseurary.com/'>http://www.aidinkielenopetustieteenseurary.com/</a>",
     id : "tiedelehdet_aidinkieli",
     urn : "",
     metadata_urn : "",
@@ -2173,7 +2173,7 @@ settings.corpus_aliases.muut_lehdet = "lehdet_.*";
 
 settings.corpora.lehdet_ekonomi = {
     title : "Ekonomi",
-    description : "Ekonomi (2013–2014)",
+    description : "Ekonomi (2013–2014)<br/>Julkaisija: Suomen Ekonomiliitto<br/>Kotisivu: <a href='http://www.ekonomilehti.fi/'>http://www.ekonomilehti.fi/</a>",
     id : "lehdet_ekonomi",
     urn : "",
     metadata_urn : "",
@@ -2192,7 +2192,7 @@ settings.corpora.lehdet_ekonomi = {
 
 settings.corpora.lehdet_koskinen = {
     title : "Verkkolehti Koskinen",
-    description : "Verkkolehti Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996–2013)",
+    description : "Verkkolehti Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996–2013)<br/>Julkaisija: Kymenlaakson ammattikorkeakoulu<br/>Kotisivu: <a href='http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/'>http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/</a>",
     id : "lehdet_koskinen",
     urn : "",
     metadata_urn : "",
