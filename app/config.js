@@ -1535,7 +1535,7 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.lehdet.tiedelehdet = {
     title : "Tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_geofoorumi"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_geofoorumi"]
 };
 
 settings.corporafolders.lehdet.muut_lehdet = {
@@ -1947,7 +1947,7 @@ settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
 
 settings.corpora.tiedelehdet_bryobrotherella = {
     title : "Bryobrotherella",
-    description : "Bryobrotherella (2008–2012)<br/>Julkaisija: Suomen Sammalseura",
+    description : "Bryobrotherella (2008–2012)<br/>Julkaisija: Suomen Sammalseura<br/>Kotisivu: <a href='http://www.suomensammalseura.fi/'>http://www.suomensammalseura.fi</a>",
     id : "tiedelehdet_bryobrotherella",
     urn : "",
     metadata_urn : "",
@@ -1963,7 +1963,7 @@ settings.corpora.tiedelehdet_bryobrotherella = {
 
 settings.corpora.tiedelehdet_geofoorumi = {
     title : "GeoFoorumi",
-    description : "GeoFoorumi (2006-2013)<br/>Julkaisija: Geologian tutkimuskeskus (GTK)",
+    description : "GeoFoorumi (2006-2013)<br/>Julkaisija: Geologian tutkimuskeskus (GTK)<br/><a href='http://www.gtk.fi/ajankohtaista/painotuotteet/geofoorumi/'>http://www.gtk.fi/ajankohtaista/painotuotteet/geofoorumi/</a>",
     id : "tiedelehdet_geofoorumi",
     urn : "",
     metadata_urn : "",
@@ -1972,7 +1972,7 @@ settings.corpora.tiedelehdet_geofoorumi = {
     attributes : {},
     struct_attributes : {
         text_title : sattrs.text_title,
-        /*text_url : sattrs.link_lehdet,*/
+        text_url : sattrs.link_lehdet,
         text_issue : {
             label : "issue"
         }
@@ -1981,7 +1981,7 @@ settings.corpora.tiedelehdet_geofoorumi = {
 
 settings.corpora.tiedelehdet_agricola = {
     title : "Agricolan Tietosanomat",
-    description : "Agricolan Tietosanomat 2000",
+    description : "Agricolan Tietosanomat 2000<br/>Julkaisija: <br/>Kotisivu: <a href='http://agricola.utu.fi/julkaisut/tietosanomat/'>http://agricola.utu.fi/julkaisut/tietosanomat/</a>",
     id : "tiedelehdet_agricola",
     urn : "",
     metadata_urn : "",
@@ -1991,7 +1991,7 @@ settings.corpora.tiedelehdet_agricola = {
     struct_attributes : {
         text_atitle : sattrs.text_title,
         text_url : sattrs.link_lehdet,
-        text_author : sattrs.text_author,
+        text_author : sattrs.article_author,
         text_issue : {
             label : "issue"
         }
@@ -2000,7 +2000,7 @@ settings.corpora.tiedelehdet_agricola = {
 
 settings.corpora.tiedelehdet_diakonia = {
     title : "Diakonian tutkimus –aikakauskirja",
-    description : "Diakonian tutkimus -aikakauskirja (2004–2013)<br/>Julkaisija: Diakonian Tutkimuksen Seura",
+    description : "Diakonian tutkimus -aikakauskirja (2004–2013)<br/>Julkaisija: Diakonian Tutkimuksen Seura<br/>Kotisivu: <a href='http://dts.fi/aikakauskirja/'>http://dts.fi/aikakauskirja/</a>",
     id : "tiedelehdet_diakonia",
     urn : "",
     metadata_urn : "",
@@ -2014,6 +2014,26 @@ settings.corpora.tiedelehdet_diakonia = {
         }
     }
 };
+
+settings.corpora.tiedelehdet_areiopagi = {
+    title : "Areiopagi",
+    description : "Areiopagi 2013",
+    id : "tiedelehdet_areiopagi",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_atitle : sattrs.text_title,
+        /*text_url : sattrs.link_lehdet,*/
+        text_author : sattrs.article_author,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
 
 settings.corpora.tiedelehdet_ats = {
     title : "ATS-Ydintekniikka",
@@ -2063,7 +2083,7 @@ settings.corpora.tiedelehdet_aikuiskasvatus = {
     struct_attributes : {
         text_atitle : sattrs.text_title,
         /*text_date : sattrs.date,*/
-        text_author : sattrs.text_author,
+        text_author : sattrs.article_author,
         text_url : sattrs.link_lehdet,
         text_issue : {
             label : "issue"
