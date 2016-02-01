@@ -1535,7 +1535,7 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.lehdet.tiedelehdet = {
     title : "Tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_geofoorumi"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_geofoorumi", "tiedelehdet_musiikkikasv", "tiedelehdet_ruralia"]
 };
 
 settings.corporafolders.lehdet.muut_lehdet = {
@@ -2014,6 +2014,24 @@ settings.corpora.tiedelehdet_diakonia = {
         }
     }
 };
+
+settings.corpora.tiedelehdet_ruralia = {
+    title : "Ruralia-lehti",
+    description : "Ruralia-lehti (2014)<br/>Julkaisijat: Ruralia-instituutti<br/>Kotisivu: <a href='http://www.helsinki.fi/ruralia/'>http://www.helsinki.fi/ruralia/</a>",
+    id : "tiedelehdet_ruralia",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
 
 settings.corpora.tiedelehdet_musiikkikasv = {
     title : "Musiikkikasvatuslehti",
