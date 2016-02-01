@@ -1981,7 +1981,7 @@ settings.corpora.tiedelehdet_geofoorumi = {
 
 settings.corpora.tiedelehdet_agricola = {
     title : "Agricolan Tietosanomat",
-    description : "Agricolan Tietosanomat 2000<br/>Julkaisija: <br/>Kotisivu: <a href='http://agricola.utu.fi/julkaisut/tietosanomat/'>http://agricola.utu.fi/julkaisut/tietosanomat/</a>",
+    description : "Agricolan Tietosanomat (2000)<br/>Julkaisija: <br/>Kotisivu: <a href='http://agricola.utu.fi/julkaisut/tietosanomat/'>http://agricola.utu.fi/julkaisut/tietosanomat/</a>",
     id : "tiedelehdet_agricola",
     urn : "",
     metadata_urn : "",
@@ -2009,6 +2009,23 @@ settings.corpora.tiedelehdet_diakonia = {
     attributes : {},
     struct_attributes : {
         /*text_url : sattrs.link_lehdet,*/
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_musiikkikasv = {
+    title : "Musiikkikasvatuslehti",
+    description : "Musiikkikasvatuslehti (2014)<br/>Julkaisijat: Sibelius-Akatemia & Suomen Taidekasvatuksen tutkimusseura<br/>Kotisivu: <a href='http://www2.siba.fi/musiikkikasvatuslehti/'>http://www2.siba.fi/musiikkikasvatuslehti/</a>",
+    id : "tiedelehdet_musiikkikasv",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
         text_issue : {
             label : "issue"
         }
