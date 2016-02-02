@@ -1597,21 +1597,22 @@ settings.common_struct_types =
 
 
 # Add additional CQP queries ("pre-queries") in cqp to params (Korp
-# backend query parameters). cqp can be either a string of CQP queries
+# backend query parameters), after mapping them via cqp_mapper
+# (default: identity). cqp can be either a string of CQP queries
 # joined by || or an object. In a string, the first query is the
 # unnumbered one and the last one is the main query, whose matches
 # will be highlighted. (Jyrki Niemi 2015-06-18)
 
-util.addCQPs = (params, cqp) ->
+util.addCQPs = (params, cqp, cqp_mapper = (cqp) -> cqp) ->
     if typeof cqp == "string" or cqp instanceof String
         if cqp.indexOf("||") != -1
             cqps = cqp.split("||")
-            params["cqp"] = cqps[0]
-            params["cqp" + i.toString()] = cqps[i] for i in [1...cqps.length]
+            params["cqp"] = cqp_mapper(cqps[0])
+            params["cqp" + i.toString()] = cqp_mapper(cqps[i]) for i in [1...cqps.length]
         else
-            params.cqp = cqp
+            params.cqp = cqp_mapper(cqp)
     else
-        params[key] = val for key, val of cqp when key.substr(0, 3) == "cqp"
+        params[key] = cqp_mapper(val) for key, val of cqp when key.substr(0, 3) == "cqp"
     return
 
 # Combine the CQP queries in the properties cqp and cqp[1-9][0-9]* of

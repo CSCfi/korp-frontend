@@ -38,6 +38,16 @@
       }
     };
 
+    BaseProxy.prototype.addExpandedCQP = function(data, cqp) {
+      if (cqp == null) {
+        cqp = null;
+      }
+      if (cqp === null && "cqp" in data) {
+        cqp = data.cqp;
+      }
+      return util.addCQPs(data, cqp, this.expandCQP);
+    };
+
     BaseProxy.prototype.makeRequest = function() {
       this.abort();
       this.prev = "";
@@ -207,7 +217,7 @@
         }
       }
       if (data.cqp) {
-        data.cqp = this.expandCQP(data.cqp);
+        this.addExpandedCQP(data, data.cqp);
         data.cqp = data.cqp.replace(/\+/g, "\\+");
       }
       this.prevCQP = util.combineCQPs(data);
@@ -514,10 +524,10 @@
       parameters = {
         command: "count",
         groupby: reduceVals.join(','),
-        cqp: this.expandCQP(cqp),
         corpus: settings.corpusListing.stringifySelected(true),
         incremental: $.support.ajaxProgress
       };
+      this.addExpandedCQP(parameters, cqp);
       _.extend(parameters, settings.corpusListing.getWithinParameters());
       return parameters;
     };
@@ -544,8 +554,6 @@
         }
       });
       data = this.makeParameters(reduceVals, cqp);
-      util.addCQPs(data, cqp);
-      util.addCQPs(data, cqp);
       data.split = _.filter(reduceVals, function(reduceVal) {
         var ref;
         return ((ref = settings.corpusListing.getCurrentAttributes()[reduceVal]) != null ? ref.type : void 0) === "set";
@@ -804,7 +812,6 @@
       self = this;
       params = {
         command: "count_time",
-        cqp: this.expandCQP(cqp),
         corpus: corpora,
         granularity: this.granularity,
         incremental: $.support.ajaxProgress
@@ -815,7 +822,7 @@
       if (to) {
         params.to = to;
       }
-      util.addCQPs(params, cqp);
+      this.addExpandedCQP(params, cqp);
       _.extend(params, this.expandSubCqps(subcqps));
       this.prevParams = params;
       def = $.Deferred();
@@ -877,7 +884,6 @@
       })()).join(",") : null;
       params = {
         command: "names",
-        cqp: cqp,
         corpus: settings.corpusListing.stringifySelected(),
         defaultwithin: "sentence",
         default_nameswithin: "text_id",
@@ -886,6 +892,7 @@
         incremental: $.support.ajaxProgress,
         cache: true
       };
+      this.addExpandedCQP(params, cqp);
       this.prevParams = params;
       def = $.ajax({
         url: settings.cgi_script,

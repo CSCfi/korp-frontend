@@ -1627,23 +1627,28 @@
     }
   };
 
-  util.addCQPs = function(params, cqp) {
+  util.addCQPs = function(params, cqp, cqp_mapper) {
     var cqps, i, k, key, ref, val;
+    if (cqp_mapper == null) {
+      cqp_mapper = function(cqp) {
+        return cqp;
+      };
+    }
     if (typeof cqp === "string" || cqp instanceof String) {
       if (cqp.indexOf("||") !== -1) {
         cqps = cqp.split("||");
-        params["cqp"] = cqps[0];
+        params["cqp"] = cqp_mapper(cqps[0]);
         for (i = k = 1, ref = cqps.length; 1 <= ref ? k < ref : k > ref; i = 1 <= ref ? ++k : --k) {
-          params["cqp" + i.toString()] = cqps[i];
+          params["cqp" + i.toString()] = cqp_mapper(cqps[i]);
         }
       } else {
-        params.cqp = cqp;
+        params.cqp = cqp_mapper(cqp);
       }
     } else {
       for (key in cqp) {
         val = cqp[key];
         if (key.substr(0, 3) === "cqp") {
-          params[key] = val;
+          params[key] = cqp_mapper(val);
         }
       }
     }

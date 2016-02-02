@@ -25,6 +25,16 @@ class BaseProxy
             c.warn "CQP expansion failed", cqp
             return cqp
 
+    # Add the possibly combined and unexpanded CQP query cqp (or
+    # data.cqp) to data, splitting prequeries into separate parameters
+    # and expanding all CQP queries. (Jyrki Niemi 2016-02-02)
+    addExpandedCQP : (data, cqp = null) ->
+        # c.log "addExpandedCQP", data, data.cqp, cqp
+        if cqp is null and "cqp" of data
+            cqp = data.cqp
+        util.addCQPs(data, cqp, @expandCQP)
+        # c.log "addExpandedCQP result", data, data.cqp
+
     makeRequest: ->
         @abort()
         @prev = ""
@@ -160,7 +170,8 @@ class model.KWICProxy extends BaseProxy
                     data.show_struct.push key if $.inArray(key, data.show_struct) is -1
 
         if data.cqp
-            data.cqp = @expandCQP(data.cqp)
+            # data.cqp = @expandCQP(data.cqp)
+            @addExpandedCQP data, data.cqp
             # escape +
             data.cqp = data.cqp.replace /\+/g, "\\+"
 
@@ -435,9 +446,10 @@ class model.StatsProxy extends BaseProxy
         parameters = 
             command: "count"
             groupby: reduceVals.join ','
-            cqp: @expandCQP cqp
+            # cqp: @expandCQP cqp
             corpus: settings.corpusListing.stringifySelected(true)
             incremental: $.support.ajaxProgress
+        @addExpandedCQP parameters, cqp
         _.extend parameters, settings.corpusListing.getWithinParameters()
         return parameters
 
@@ -460,9 +472,11 @@ class model.StatsProxy extends BaseProxy
                 return settings.corpusListing.getStructAttrs()[reduceVal].label
 
         # TODO: Make sure this works with util.addCQPs
+        # Seems it didn't but with addExpandedCQP it would seem to
+        # work. (Jyrki Niemi 2016-02-02)
         data = @makeParameters(reduceVals, cqp)
 
-        util.addCQPs data, cqp
+        # util.addCQPs data, cqp
         data.split = _.filter(reduceVals, (reduceVal) -> 
             settings.corpusListing.getCurrentAttributes()[reduceVal]?.type == "set").join(',')
 
@@ -661,7 +675,7 @@ class model.GraphProxy extends BaseProxy
         self = this
         params =
             command : "count_time"
-            cqp : @expandCQP cqp
+            # cqp : @expandCQP cqp
             corpus : corpora
             granularity : @granularity
             incremental: $.support.ajaxProgress
@@ -671,7 +685,8 @@ class model.GraphProxy extends BaseProxy
         if to
             params.to = to
 
-        util.addCQPs params, cqp
+        # util.addCQPs params, cqp
+        @addExpandedCQP params, cqp
         #TODO: fix this for struct attrs
         _.extend params, @expandSubCqps subcqps
         @prevParams = params
@@ -720,7 +735,7 @@ class model.NameClassificationProxy extends BaseProxy
                      null
         params =
             command: "names"
-            cqp: cqp
+            # cqp: cqp
             corpus: settings.corpusListing.stringifySelected()
             defaultwithin: "sentence"
             default_nameswithin: "text_id"
@@ -728,6 +743,7 @@ class model.NameClassificationProxy extends BaseProxy
             groups: groups
             incremental: $.support.ajaxProgress
             cache: true
+        @addExpandedCQP params, cqp
         @prevParams = params
         def =  $.ajax
             url: settings.cgi_script
