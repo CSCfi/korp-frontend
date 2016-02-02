@@ -1238,6 +1238,10 @@ sattrs.text_author = {
     label : "text_author"
 };
 
+sattrs.article_author = {
+    label : "article_author"
+};
+
 sattrs.text_producers = {
     label : "text_producers"
 };
