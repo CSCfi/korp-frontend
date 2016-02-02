@@ -30,7 +30,7 @@
     "korp_lab" : "Korplabbet (Korp beta)",
     "university" : "Helsingfors universitet",
     "language_bank" : "Språkbanken i Finland",
-    "language_bank_url" : "http://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiHem",
+    "language_bank_url" : "https://www.kielipankki.fi/sprakbanken/",
     "feedback_link" : "<a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback_sv' target='_blank'>Feedback</a>",
     "feedback_url" : "https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback_sv",
     "feedback_linktext" : "Feedback",
