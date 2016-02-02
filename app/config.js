@@ -1540,7 +1540,7 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.lehdet.tiedelehdet = {
     title : "Tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_geofoorumi", "tiedelehdet_glossae", "tiedelehdet_musiikkikasv", "tiedelehdet_psykologia", "tiedelehdet_ruralia"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_geofoorumi", "tiedelehdet_glossae", "tiedelehdet_harukaze", "tiedelehdet_musiikkikasv", "tiedelehdet_psykologia", "tiedelehdet_ruralia"]
 };
 
 settings.corporafolders.lehdet.muut_lehdet = {
@@ -2054,6 +2054,26 @@ settings.corpora.tiedelehdet_ruralia = {
     }
 };
 
+settings.corpora.tiedelehdet_harukaze = {
+    title : "Harukaze",
+    description : "Harukaze (2000-2013)<br/>Julkaisija: Japani-opinnot, Oulun yliopisto, Oulu<br/>Kotisivu: <a href='http://www.oulu.fi/Harukaze/'>http://www.oulu.fi/Harukaze/</a>",
+    id : "tiedelehdet_harukaze",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_atitle : sattrs.text_title,
+        text_url : sattrs.link_lehdet,
+        text_author : sattrs.article_author,
+        text_date : sattrs.date,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
 settings.corpora.tiedelehdet_glossae = {
     title : "Glossae",
     description : "Glossae (2000-2012)<br/>Julkaisija: Keskiajan opinto- ja tutkimusyhdistys<br/>Kotisivu: <a href='http://www.glossa.fi/glossae/arkisto.php'>http://www.glossa.fi/glossae/arkisto.php</a>",
@@ -2091,7 +2111,7 @@ settings.corpora.tiedelehdet_musiikkikasv = {
 
 settings.corpora.tiedelehdet_areiopagi = {
     title : "Areiopagi",
-    description : "Areiopagi (2013))<br/>Julkaisija: <br/>Kotisivu: <a href='http://www.areiopagi.fi/'>http://www.areiopagi.fi/</a>",
+    description : "Areiopagi (2013)<br/>Julkaisija: <br/>Kotisivu: <a href='http://www.areiopagi.fi/'>http://www.areiopagi.fi/</a>",
     id : "tiedelehdet_areiopagi",
     urn : "",
     metadata_urn : "",
@@ -2100,7 +2120,7 @@ settings.corpora.tiedelehdet_areiopagi = {
     attributes : {},
     struct_attributes : {
         text_atitle : sattrs.text_title,
-        /*text_url : sattrs.link_lehdet,*/
+        text_url : sattrs.link_lehdet,
         text_author : sattrs.article_author,
         text_issue : {
             label : "issue"
