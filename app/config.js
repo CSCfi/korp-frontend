@@ -13,7 +13,8 @@ var isProductionServerTest =
 	 || window.location.pathname.indexOf("test-") != -1));
 var isProductionServerBeta =
     (isProductionServer && (window.location.pathname.indexOf("beta") != -1
-			    || window.location.pathname.indexOf("lab") != -1));
+			    || window.location.pathname.indexOf("lab") != -1
+			    || window.location.pathname.indexOf("-jn5") != -1));
 var isProductionServerOld =
     (isProductionServer && window.location.pathname.indexOf("old/") != -1);
 var isPublicServer = (window.location.hostname != "localhost");
