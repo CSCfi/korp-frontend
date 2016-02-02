@@ -148,14 +148,6 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             s.simple_text = ""
             # cqp = "[lex contains '#{search.val}']"
             cqp = simpleSearch.getCQP()
-            # Add possible prequery CQPs
-            if s.simple_prequery
-                # c.log("lemgram simple_prequery", cqp, s.simple_prequery)
-                cqps = simpleSearch.makePrequeryCQPs(s.simple_prequery)
-                cqps.push(cqp)
-                # c.log("cqps", cqps)
-                cqp = util.combineCQPs(cqps)
-                c.log("searches.activeSearch prequeries cqp", cqp)
             # Show related words if show_related_words is undefined or
             # true (Jyrki Niemi 2016-01-15)
             if settings.show_related_words != false
@@ -166,13 +158,16 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
                 searches.lemgramSearch(search.val, s.prefix, s.suffix, search.pageOnly)
             else
                 # Add possible prequery CQPs
-                if s.simple_prequery
+                # TODO: Check if the prequeries are always added
+                # before coming here, in which case this code would
+                # not be needed.
+                if s.simple_prequery and cqp.indexOf("||") < 0
                     # c.log("lemgram simple_prequery", cqp, s.simple_prequery)
                     cqps = simpleSearch.makePrequeryCQPs(s.simple_prequery)
                     cqps.push(cqp)
                     # c.log("cqps", cqps)
                     cqp = util.combineCQPs(cqps)
-                    c.log("searches.activeSearch prequeries cqp", cqp)
+                    # c.log("searches.activeSearch prequeries cqp", cqp)
                 searches.kwicSearch(cqp, search.pageOnly)
 
         else

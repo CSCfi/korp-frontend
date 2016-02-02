@@ -312,7 +312,6 @@
           }
           return results;
         })()).join(" ");
-        c.log("makePhraseCQP", phrase, "=>", result);
         return result;
       };
       prequery_str = $.trim(prequery_str || "");

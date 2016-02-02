@@ -295,8 +295,6 @@ class view.SimpleSearch extends BaseSearch
 
         # Make CQP expression from phrase, using the attributes in the
         # array prequery_attrs. An asterisk denotes any single word.
-        # CHECK: Does this work correctly if a phrase contains
-        # multiple consecutive spaces between words?
         makePhraseCQP = (phrase, prequery_attrs) ->
             result = (for word in phrase.split(" ")
                 "[" +
@@ -310,7 +308,7 @@ class view.SimpleSearch extends BaseSearch
                          ).join(" | ")) +
                 "]"
             ).join(" ")
-            c.log("makePhraseCQP", phrase, "=>", result)
+            # c.log("makePhraseCQP", phrase, "=>", result)
             return result
 
         prequery_str = $.trim(prequery_str or "")

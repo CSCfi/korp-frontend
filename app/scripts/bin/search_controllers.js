@@ -133,12 +133,6 @@
           s.placeholder = search.val;
           s.simple_text = "";
           cqp = simpleSearch.getCQP();
-          if (s.simple_prequery) {
-            cqps = simpleSearch.makePrequeryCQPs(s.simple_prequery);
-            cqps.push(cqp);
-            cqp = util.combineCQPs(cqps);
-            c.log("searches.activeSearch prequeries cqp", cqp);
-          }
           if (settings.show_related_words !== false) {
             backend.relatedWordSearch(search.val).then(function(data) {
               return s.relatedObj = data;
@@ -147,11 +141,10 @@
           if (s.word_pic) {
             return searches.lemgramSearch(search.val, s.prefix, s.suffix, search.pageOnly);
           } else {
-            if (s.simple_prequery) {
+            if (s.simple_prequery && cqp.indexOf("||") < 0) {
               cqps = simpleSearch.makePrequeryCQPs(s.simple_prequery);
               cqps.push(cqp);
               cqp = util.combineCQPs(cqps);
-              c.log("searches.activeSearch prequeries cqp", cqp);
             }
             return searches.kwicSearch(cqp, search.pageOnly);
           }
