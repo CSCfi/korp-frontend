@@ -2022,7 +2022,7 @@ settings.corpora.tiedelehdet_diakonia = {
 
 settings.corpora.tiedelehdet_psykologia = {
     title : "Psykologia-lehti",
-    description : "Psykologia-lehti (2009-2010)<br/>Julkaisija: <br/>Kotisivu:",
+    description : "Psykologia-lehti (2009-2010)<br/>Julkaisija: Suomen psykologinen seura<br/>Kotisivu: <a href='http://www.psykologia.fi/'>http://www.psykologia.fi/</a>",
     id : "tiedelehdet_psykologia",
     urn : "",
     metadata_urn : "",
@@ -2039,7 +2039,7 @@ settings.corpora.tiedelehdet_psykologia = {
 
 settings.corpora.tiedelehdet_ruralia = {
     title : "Ruralia-lehti",
-    description : "Ruralia-lehti (2014)<br/>Julkaisija: Ruralia-instituutti<br/>Kotisivu: <a href='http://www.helsinki.fi/ruralia/'>http://www.helsinki.fi/ruralia/</a>",
+    description : "Ruralia-lehti (2006-2014)<br/>Julkaisija: Ruralia-instituutti<br/>Kotisivu: <a href='http://www.helsinki.fi/ruralia/'>http://www.helsinki.fi/ruralia/</a>",
     id : "tiedelehdet_ruralia",
     urn : "",
     metadata_urn : "",
@@ -2111,7 +2111,7 @@ settings.corpora.tiedelehdet_musiikkikasv = {
 
 settings.corpora.tiedelehdet_areiopagi = {
     title : "Areiopagi",
-    description : "Areiopagi (2013)<br/>Julkaisija: <br/>Kotisivu: <a href='http://www.areiopagi.fi/'>http://www.areiopagi.fi/</a>",
+    description : "Areiopagi (2013)<br/>Julkaisija: Areiopagi ry<br/>Kotisivu: <a href='http://www.areiopagi.fi/'>http://www.areiopagi.fi/</a>",
     id : "tiedelehdet_areiopagi",
     urn : "",
     metadata_urn : "",
