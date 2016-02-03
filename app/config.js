@@ -2067,7 +2067,7 @@ settings.corpora.tiedelehdet_havina = {
         text_atitle : sattrs.text_title,
         text_date : sattrs.date,
         text_url : sattrs.link_lehdet,
-        text_author : sattrs.text_author,
+        text_author : sattrs.article_author,
         text_issue : {
             label : "issue"
         }
