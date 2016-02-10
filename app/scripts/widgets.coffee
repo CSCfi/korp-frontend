@@ -182,13 +182,25 @@ Sidebar =
 
 
         if attrs.type == "url"
-            # If url_prefix is specified, prepend it to the URL
-            url = (attrs.url_prefix or "") + str_value
             # If url_opts.new_window, open the link to a new window
             target = if attrs?.url_opts?.new_window
                          " target='_blank'"
                      else
                          ""
+            # If the function attrs.url_opts.stringify_link is
+            # defined, use it to make the complete link (HTML "a"
+            # element(s)). The function takes as arguments the name of
+            # the current attribute, its stringified value, its
+            # configuration properties, and HTML attributes for the a
+            # element. stringify_link is useful e.g. when a link
+            # attribute contains more than one URL. (Jyrki Niemi
+            # 2016-02-10)
+            if attrs?.url_opts?.stringify_link
+                return output.append attrs.url_opts.stringify_link(
+                        key, str_value, attrs,
+                        "class='exturl' sidebar_url'#{target}")
+            # If url_prefix is specified, prepend it to the URL
+            url = (attrs.url_prefix or "") + str_value
             # If url_opts.hide_url, use the localized label as the
             # link text, otherwise the URL
             link_text = if attrs?.url_opts?.hide_url
