@@ -119,6 +119,9 @@
         value = attrs.transform(value);
       }
       if (attrs.type === "set") {
+        if (attrs.taginfo_url) {
+          output.append("<a href='" + attrs.taginfo_url + "' target='_blank'>\n    <span id='sidbar_info' class='ui-icon ui-icon-info'></span>\n</a>");
+        }
         pattern = attrs.pattern || '<span data-key="<% key %>"><%= val %></span>';
         ul = $("<ul>");
         getStringVal = function(str) {
@@ -187,7 +190,7 @@
         target = (attrs != null ? (ref2 = attrs.url_opts) != null ? ref2.new_window : void 0 : void 0) ? " target='_blank'" : "";
         link_text = (attrs != null ? (ref3 = attrs.url_opts) != null ? ref3.hide_url : void 0 : void 0) ? "<span rel='localize[" + attrs.label + "]'>" + key + "</span>" : decodeURI(str_value);
         return output.append("<a href='" + url + "' class='exturl sidebar_url'" + target + ">" + link_text + "</a>");
-      } else if (key === "msd" && attrs.taginfo_url !== "") {
+      } else if (attrs.taginfo_url || (key === "msd" && attrs.taginfo_url !== "")) {
         taginfo_url = attrs.taginfo_url || "markup/msdtags.html";
         return output.append("<span class='msd'>" + str_value + "</span>\n    <a href='" + taginfo_url + "' target='_blank'>\n        <span id='sidbar_info' class='ui-icon ui-icon-info'></span>\n    </a>\n</span>");
       } else if (attrs.pattern) {

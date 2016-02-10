@@ -127,6 +127,13 @@ Sidebar =
             value = attrs.transform(value)
 
         if attrs.type == "set"
+            # For a set-valued attribute, add the taginfo link right
+            # after the attribute label (Jyrki Niemi 2016-02-10)
+            if attrs.taginfo_url
+                output.append """<a href='#{attrs.taginfo_url}' target='_blank'>
+                                                <span id='sidbar_info' class='ui-icon ui-icon-info'></span>
+                                            </a>
+                                    """
             pattern = attrs.pattern or '<span data-key="<% key %>"><%= val %></span>'
             ul = $("<ul>")
             getStringVal = (str) ->
@@ -190,12 +197,13 @@ Sidebar =
                             decodeURI(str_value)
             return output.append "<a href='#{url}' class='exturl sidebar_url'#{target}>#{link_text}</a>"
 
-        else if key == "msd" and attrs.taginfo_url != ""
-            # An empty taginfo_url disables the info link; a non-empty value
-            # is used as an URL to link to; and an undefined value links to
-            # the default URL markup/msdtags.html.
-            # This probably could be generalized to other attributes as well.
-            # (Jyrki Niemi 2015-02-04)
+        else if attrs.taginfo_url or (key == "msd" and attrs.taginfo_url != "")
+            # For msd, an empty taginfo_url disables the info link, a
+            # non-empty value is used as an URL to link to, and an
+            # undefined value links to the default URL
+            # markup/msdtags.html. For other attributes, require that
+            # taginfo_url is defined and non-empty.(Jyrki Niemi
+            # 2015-02-04, 2016-02-10)
             taginfo_url = attrs.taginfo_url or "markup/msdtags.html"
             return output.append """<span class='msd'>#{str_value}</span>
                                         <a href='#{taginfo_url}' target='_blank'>
