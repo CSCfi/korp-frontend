@@ -6086,3 +6086,28 @@ li.active a span .num-to-find {
 .leaflet-control-layers-toggle {
   background-image: url(../components/leaflet/dist/images/layers.png);
 }
+
+/* Styles specific to Kielipankki's corpora */
+/* DMA signum lists represented as tables */
+/* line 2803, styles.scss */
+.dma-signumlist td {
+  vertical-align: top;
+}
+/* line 2806, styles.scss */
+.dma-signumlist .sgo0, .dma-signumlist .sgo5 {
+  font-weight: bold;
+}
+/* line 2809, styles.scss */
+.dma-signumlist .sgo3 {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+/* line 2813, styles.scss */
+.dma-signumlist .sgo4 {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+/* line 2818, styles.scss */
+.dma-signumlist tr.vspacer {
+  font-size: 0.3em;
+}
