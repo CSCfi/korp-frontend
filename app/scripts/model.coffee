@@ -436,10 +436,7 @@ class model.StatsProxy extends BaseProxy
             "allrows" : (wordArray)
             "corpora" : data.corpora
             "groups" : groups
-            loc : {
-                'sv' : "sv-SE"
-                'en' : "gb-EN"
-            }[$("body").scope().lang]
+            loc : settings.locales[$("body").scope().lang]
         }
 
     makeParameters: (reduceVals, cqp) ->

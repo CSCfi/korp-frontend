@@ -2033,10 +2033,7 @@
             "field": timestamp,
             "formatter": function(row, cell, value, columnDef, dataContext) {
               var fmt, loc;
-              loc = {
-                'sv': "sv-SE",
-                'en': "gb-EN"
-              }[$("body").scope().lang];
+              loc = settings.locales[$("body").scope().lang];
               fmt = function(valTup) {
                 if (typeof valTup[0] === "undefined") {
                   return "";

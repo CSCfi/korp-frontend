@@ -46,7 +46,8 @@ korpApp.run ($rootScope, $location, utils, searches, tmhDynamicLocale, $timeout)
         c.log "loc.search() change", $location.search()
         _.defer () -> window.onHashChange?()
 
-        tmhDynamicLocale.set($location.search().lang or "sv")
+        tmhDynamicLocale.set($location.search().lang or
+                             settings.defaultLanguage or "sv")
 
 
 

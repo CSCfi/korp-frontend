@@ -1804,10 +1804,7 @@ class view.GraphResults extends BaseResults
                     "name" : timestamp
                     "field" : timestamp
                     "formatter" : (row, cell, value, columnDef, dataContext) ->
-                        loc = {
-                            'sv' : "sv-SE"
-                            'en' : "gb-EN"
-                        }[$("body").scope().lang]
+                        loc = settings.locales[$("body").scope().lang]
                         fmt = (valTup) ->
                             if typeof valTup[0] == "undefined" then return ""
                             return "<span>" +

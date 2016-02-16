@@ -60,14 +60,14 @@
               }
             });
           };
-          s.currentLang = $location.search().lang || "sv";
+          s.currentLang = $location.search().lang || settings.defaultLanguage || "sv";
           s.numNewNews = 0;
           s.initData();
           s.togglePopover = function(event) {
             if (s.isPopoverVisible) {
               s.popHide();
             } else {
-              s.currentLang = $location.search().lang || "sv";
+              s.currentLang = $location.search().lang || settings.defaultLanguage || "sv";
               s.popShow();
               s.numNewNews = 0;
             }

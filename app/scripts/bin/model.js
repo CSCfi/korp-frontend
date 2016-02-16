@@ -512,10 +512,7 @@
         "allrows": wordArray,
         "corpora": data.corpora,
         "groups": groups,
-        loc: {
-          'sv': "sv-SE",
-          'en': "gb-EN"
-        }[$("body").scope().lang]
+        loc: settings.locales[$("body").scope().lang]
       });
     };
 

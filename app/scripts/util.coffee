@@ -901,9 +901,10 @@ util.localizeFloat = (float, nDec) ->
     lang = $("#languages").radioList("getSelected").data("lang")
     sep = null
     nDec = nDec or float.toString().split(".")[1].length
-    if lang is "sv"
-        sep = ","
-    else sep = "." if lang is "en"
+    # if lang is "sv"
+    #     sep = ","
+    # else sep = "." if lang is "en"
+    sep = util.getLocaleString("util_decimalseparator")
     $.format("%." + nDec + "f", float).replace ".", sep
 
 util.formatDecimalString = (x, mode, statsmode, stringOnly) ->

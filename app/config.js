@@ -114,6 +114,12 @@ settings.advanced_search_within = true;
 settings.languages = ["fi", "sv", "en"];
 settings.defaultLanguage = "fi";
 
+// Locales corresponding to languages (Jyrki Niemi 2016-02-16)
+settings.locales = {
+    "sv" : "sv-SE",
+    "en" : "gb-EN",
+};
+
 // for extended search dropdown, can be 'union' or 'intersection'
 settings.word_attribute_selector = "union"
 settings.struct_attribute_selector = "union"

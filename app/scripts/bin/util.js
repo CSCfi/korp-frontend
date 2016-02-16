@@ -1028,13 +1028,7 @@
     lang = $("#languages").radioList("getSelected").data("lang");
     sep = null;
     nDec = nDec || float.toString().split(".")[1].length;
-    if (lang === "sv") {
-      sep = ",";
-    } else {
-      if (lang === "en") {
-        sep = ".";
-      }
-    }
+    sep = util.getLocaleString("util_decimalseparator");
     return $.format("%." + nDec + "f", float).replace(".", sep);
   };
 
