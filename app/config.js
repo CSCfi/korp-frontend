@@ -6197,7 +6197,7 @@ settings.reduce_cqp = function(type, tokens, ignoreCase, isPosAttr) {
         case "msd":
             // val = tokens[0].replace(/\+/g, "\\+");
             // Escape all regex metacharacters (Jyrki Niemi 2015-12-04)
-            return $.format('%s="%s"', [type, window.regescape(val)]);
+            return $.format('%s="%s"', [type, window.regescape(tokens[0])]);
         default: // structural and "non-standard" positional attributes
             // Prefix the name of the attribute with an underscore
             // only for structural attributes (Jyrki Niemi 2015-12-04)
