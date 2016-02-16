@@ -118,6 +118,7 @@ settings.defaultLanguage = "fi";
 settings.locales = {
     "sv" : "sv-SE",
     "en" : "gb-EN",
+    "fi" : "fi-FI",
 };
 
 // for extended search dropdown, can be 'union' or 'intersection'
