@@ -128,7 +128,7 @@
       return [$(pos_items), $(struct_items)];
     },
     renderItem: function(key, value, attrs, wordData, sentenceData, token_data) {
-      var address, getStringVal, inner, itr, li, link_text, lis, output, pattern, prefix, ref, ref1, ref2, ref3, str_value, taginfo_url, target, ul, url, val, valueArray, x;
+      var address, getStringVal, inner, itr, li, link_text, lis, output, pattern, prefix, ref, ref1, ref2, ref3, ref4, str_value, taginfo_url, target, ul, url, val, valueArray, x;
       if (attrs.displayType === "hidden" || attrs.displayType === "date_interval") {
         return "";
       }
@@ -152,6 +152,9 @@
         value = attrs.transform(value);
       }
       if (attrs.type === "set") {
+        if (attrs.taginfo_url) {
+          output.append("<a href='" + attrs.taginfo_url + "' target='_blank'>\n    <span id='sidbar_info' class='ui-icon ui-icon-info'></span>\n</a>");
+        }
         pattern = attrs.pattern || '<span data-key="<% key %>"><%= val %></span>';
         ul = $("<ul>");
         getStringVal = function(str) {
@@ -216,11 +219,14 @@
       }
       str_value = attrs.stringify_synthetic ? attrs.stringify_synthetic(token_data) : (attrs.stringify || _.identity)(value);
       if (attrs.type === "url") {
-        url = (attrs.url_prefix || "") + str_value;
         target = (attrs != null ? (ref2 = attrs.url_opts) != null ? ref2.new_window : void 0 : void 0) ? " target='_blank'" : "";
-        link_text = (attrs != null ? (ref3 = attrs.url_opts) != null ? ref3.hide_url : void 0 : void 0) ? "<span rel='localize[" + attrs.label + "]'>" + key + "</span>" : decodeURI(str_value);
+        if (attrs != null ? (ref3 = attrs.url_opts) != null ? ref3.stringify_link : void 0 : void 0) {
+          return output.append(attrs.url_opts.stringify_link(key, str_value, attrs, "class='exturl' sidebar_url'" + target));
+        }
+        url = (attrs.url_prefix || "") + str_value;
+        link_text = (attrs != null ? (ref4 = attrs.url_opts) != null ? ref4.hide_url : void 0 : void 0) ? "<span rel='localize[" + attrs.label + "]'>" + key + "</span>" : decodeURI(str_value);
         return output.append("<a href='" + url + "' class='exturl sidebar_url'" + target + ">" + link_text + "</a>");
-      } else if (key === "msd" && attrs.taginfo_url !== "") {
+      } else if (attrs.taginfo_url || (key === "msd" && attrs.taginfo_url !== "")) {
         taginfo_url = attrs.taginfo_url || "markup/msdtags.html";
         return output.append("<span class='msd_sidebar'>" + str_value + "</span>\n    <a href='" + taginfo_url + "' target='_blank'>\n        <span id='sidbar_info' class='ui-icon ui-icon-info'></span>\n    </a>\n</span>");
       } else if (attrs.pattern) {

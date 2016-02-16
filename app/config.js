@@ -1677,7 +1677,7 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.lehdet.tiedelehdet = {
     title : "Tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_geofoorumi", "tiedelehdet_glossae", "tiedelehdet_musiikkikasv", "tiedelehdet_psykologia", "tiedelehdet_ruralia"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_geofoorumi", "tiedelehdet_glossae", "tiedelehdet_harukaze", "tiedelehdet_havina", "tiedelehdet_historiallinen", "tiedelehdet_kognitiivinen", "tiedelehdet_musiikkikasv", "tiedelehdet_psykologia", "tiedelehdet_ruralia"]
 };
 
 settings.corporafolders.lehdet.muut_lehdet = {
@@ -2160,7 +2160,7 @@ settings.corpora.tiedelehdet_diakonia = {
 
 settings.corpora.tiedelehdet_psykologia = {
     title : "Psykologia-lehti",
-    description : "Psykologia-lehti (2009-2010)<br/>Julkaisija: <br/>Kotisivu:",
+    description : "Psykologia-lehti (2009-2010)<br/>Julkaisija: Suomen psykologinen seura<br/>Kotisivu: <a href='http://www.psykologia.fi/'>http://www.psykologia.fi/</a>",
     id : "tiedelehdet_psykologia",
     urn : "",
     metadata_urn : "",
@@ -2177,7 +2177,7 @@ settings.corpora.tiedelehdet_psykologia = {
 
 settings.corpora.tiedelehdet_ruralia = {
     title : "Ruralia-lehti",
-    description : "Ruralia-lehti (2014)<br/>Julkaisija: Ruralia-instituutti<br/>Kotisivu: <a href='http://www.helsinki.fi/ruralia/'>http://www.helsinki.fi/ruralia/</a>",
+    description : "Ruralia-lehti (2006-2014)<br/>Julkaisija: Ruralia-instituutti<br/>Kotisivu: <a href='http://www.helsinki.fi/ruralia/'>http://www.helsinki.fi/ruralia/</a>",
     id : "tiedelehdet_ruralia",
     urn : "",
     metadata_urn : "",
@@ -2186,6 +2186,75 @@ settings.corpora.tiedelehdet_ruralia = {
     attributes : {},
     struct_attributes : {
         text_url : sattrs.link_lehdet,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_historiallinen = {
+    title : "Historiallinen Aikakauskirja",
+    description : "Historiallinen Aikakauskirja (2001-2013)<br/>Julkaisija: Suomen Historiallinen Seura & Historian Ystäväin Liitto<br/>Kotisivu: <a href='http://www.historiallinenaikakauskirja.fi/'>http://www.historiallinenaikakauskirja.fi/</a>",
+    id : "tiedelehdet_historiallinen",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        },
+        text_citation : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_havina = {
+    title : "Havina",
+    description : "Havina (2009-2013)<br/>Julkaisija: Oulun yliopisto, Historiatieteet</br>Kotisivu: <a href='http://www.havina.net/'>http://www.havina.net/</a>",
+    id : "tiedelehdet_havina",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_atitle : sattrs.text_title,
+        text_date : sattrs.date,
+        text_url : sattrs.link_lehdet,
+        text_author : sattrs.article_author,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_harukaze = {
+    title : "Harukaze",
+    description : "Harukaze (2000-2013)<br/>Julkaisija: Japani-opinnot, Oulun yliopisto, Oulu<br/>Kotisivu: <a href='http://www.oulu.fi/Harukaze/'>http://www.oulu.fi/Harukaze/</a>",
+    id : "tiedelehdet_harukaze",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_atitle : sattrs.text_title,
+        text_url : sattrs.link_lehdet,
+        text_author : sattrs.article_author,
+        text_date : sattrs.date,
         text_issue : {
             label : "issue"
         }
@@ -2229,7 +2298,7 @@ settings.corpora.tiedelehdet_musiikkikasv = {
 
 settings.corpora.tiedelehdet_areiopagi = {
     title : "Areiopagi",
-    description : "Areiopagi (2013))<br/>Julkaisija: <br/>Kotisivu: <a href='http://www.areiopagi.fi/'>http://www.areiopagi.fi/</a>",
+    description : "Areiopagi (2013)<br/>Julkaisija: Areiopagi ry<br/>Kotisivu: <a href='http://www.areiopagi.fi/'>http://www.areiopagi.fi/</a>",
     id : "tiedelehdet_areiopagi",
     urn : "",
     metadata_urn : "",
@@ -2238,7 +2307,7 @@ settings.corpora.tiedelehdet_areiopagi = {
     attributes : {},
     struct_attributes : {
         text_atitle : sattrs.text_title,
-        /*text_url : sattrs.link_lehdet,*/
+        text_url : sattrs.link_lehdet,
         text_author : sattrs.article_author,
         text_issue : {
             label : "issue"
@@ -2376,6 +2445,20 @@ settings.corpora.tiedelehdet_aidinkieli = {
         text_issue : {
             label : "issue"
         }
+    }
+};
+
+settings.corpora.tiedelehdet_kognitiivinen = {
+    title : "Kognitiivinen psykoterapia",
+    description : "Kognitiivinen psykoterapia (2003-2013)<br/>Julkaisija: Kognitiivisen psykoterapian yhdistys<br/>Kotisivu: <a href='http://www.kognitiivinenpsykoterapia.fi/'>http://www.kognitiivinenpsykoterapia.fi/</a>",
+    id : "tiedelehdet_kognitiivinen",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet
     }
 };
 
