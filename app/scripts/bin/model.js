@@ -220,6 +220,7 @@
         this.addExpandedCQP(data, data.cqp);
         data.cqp = data.cqp.replace(/\+/g, "\\+");
       }
+      util.addPrequeryWithin(data);
       this.prevCQP = util.combineCQPs(data);
       data.show = (_.uniq(["sentence"].concat(data.show))).join(",");
       c.log("data.show", data.show);
@@ -526,6 +527,7 @@
       };
       this.addExpandedCQP(parameters, cqp);
       _.extend(parameters, settings.corpusListing.getWithinParameters());
+      util.addPrequeryWithin(parameters);
       return parameters;
     };
 

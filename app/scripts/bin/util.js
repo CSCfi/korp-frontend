@@ -1678,6 +1678,12 @@
     }
   };
 
+  util.addPrequeryWithin = function(params) {
+    if (params.cqp1 && search().prequery_within) {
+      return params.defaultwithin = search().prequery_within;
+    }
+  };
+
 }).call(this);
 
 //# sourceMappingURL=util.js.map

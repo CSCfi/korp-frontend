@@ -1629,3 +1629,18 @@ util.combineCQPs = (params) ->
         cqp_keys = _.sortBy cqp_keys, (key) ->
             parseInt(key.substr(4) or "0")
         return (params[key] for key in cqp_keys).join("||")
+
+
+# Modify the defaultwithin parameter in params based on
+# prequery_within. (Jyrki Niemi 2016-02-19)
+
+util.addPrequeryWithin = (params) ->
+    # FIXME/TODO: This will have to be changed if prequeries are
+    # implemented in the extended search, as then the backend should
+    # have a separate prequery_within parameter. Moreover, the query
+    # for the map expands the main search to defaultwithin and
+    # searches for place names in the expanded text. To correct that,
+    # we might need to be able to tell the backend which prequeries
+    # should be expanded and which should not.
+    if params.cqp1 and search().prequery_within
+        params.defaultwithin = search().prequery_within
