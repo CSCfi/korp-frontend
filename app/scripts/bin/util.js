@@ -343,7 +343,7 @@
         results = [];
         for (key in ref) {
           obj = ref[key];
-          if (obj.displayType !== "hidden") {
+          if (obj.displayType !== "hidden" && obj.displayOnly !== "sidebar") {
             results.push(_.extend({
               group: "word_attr",
               value: key
@@ -362,7 +362,7 @@
         results = [];
         for (key in ref) {
           obj = ref[key];
-          if (obj.displayType !== "hidden") {
+          if (obj.displayType !== "hidden" && obj.displayOnly !== "sidebar") {
             results.push(_.extend({
               group: "sentence_attr",
               value: key
