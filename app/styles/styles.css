@@ -5513,11 +5513,16 @@ warning ~ * {
 }
 
 /* line 2324, styles.scss */
+#statsNumValues {
+  margin-bottom: 0.5em;
+}
+
+/* line 2328, styles.scss */
 .form-table .preview {
   display: none;
 }
 
-/* line 2329, styles.scss */
+/* line 2333, styles.scss */
 .rickshaw_graph .empty_area {
   background-color: #999;
   position: absolute;
@@ -5526,50 +5531,50 @@ warning ~ * {
   opacity: 0.2;
   z-index: 1;
 }
-/* line 2337, styles.scss */
+/* line 2341, styles.scss */
 .rickshaw_graph .detail .x_label {
   top: -26px;
 }
-/* line 2340, styles.scss */
+/* line 2344, styles.scss */
 .rickshaw_graph .x_tick {
   border-left: none;
 }
-/* line 2342, styles.scss */
+/* line 2346, styles.scss */
 .rickshaw_graph .x_tick .title {
   bottom: -1.1em !important;
   left: -1.3em;
 }
-/* line 2349, styles.scss */
+/* line 2353, styles.scss */
 .rickshaw_graph .detail {
   z-index: 101;
 }
-/* line 2353, styles.scss */
+/* line 2357, styles.scss */
 .rickshaw_graph svg {
   position: relative;
   z-index: 100;
 }
 
-/* line 2360, styles.scss */
+/* line 2364, styles.scss */
 .rickshaw_legend .line {
   white-space: nowrap;
 }
 
-/* line 2365, styles.scss */
+/* line 2369, styles.scss */
 .form-bar .rickshaw_graph .x_tick .title {
   left: 0;
 }
 
-/* line 2370, styles.scss */
+/* line 2374, styles.scss */
 .y_ticks.plain g:first-of-type text {
   display: none;
 }
 
-/* line 2374, styles.scss */
+/* line 2378, styles.scss */
 .form-bar .legend li:last-child:not(:only-child) {
   display: none;
 }
 
-/* line 2377, styles.scss */
+/* line 2381, styles.scss */
 .form_switch {
   display: inline-block;
   vertical-align: bottom;
@@ -5578,94 +5583,94 @@ warning ~ * {
   *display: inline;
 }
 
-/* line 2381, styles.scss */
+/* line 2385, styles.scss */
 line.tick {
   display: none;
 }
 
-/* line 2385, styles.scss */
+/* line 2389, styles.scss */
 .dot.active {
   cursor: pointer;
 }
 
-/* line 2396, styles.scss */
+/* line 2400, styles.scss */
 .preview {
   margin-top: 30px;
 }
 
-/* line 2400, styles.scss */
+/* line 2404, styles.scss */
 #main > #msd_popup {
   display: none !important;
 }
 
-/* line 2404, styles.scss */
+/* line 2408, styles.scss */
 .popupchecks .header {
   white-space: nowrap;
 }
 
-/* line 2408, styles.scss */
+/* line 2412, styles.scss */
 .ui-button-text-only .ui-button-text {
   padding: 0;
 }
 
-/* line 2411, styles.scss */
+/* line 2415, styles.scss */
 .ui-button-text-only > .ui-button-text {
   padding: 0.4em 1em;
 }
 
-/* line 2414, styles.scss */
+/* line 2418, styles.scss */
 .ui-button-text-icon-primary .ui-button-text, .ui-button-text-icons .ui-button-text {
   padding: 0.4em 1em 0.4em 2.1em;
 }
 
-/* line 2418, styles.scss */
+/* line 2422, styles.scss */
 .time_table {
   width: 100%;
   height: 500px;
 }
 
-/* line 2422, styles.scss */
+/* line 2426, styles.scss */
 .time_table, .time_table * {
   box-sizing: content-box;
 }
 
-/* line 2425, styles.scss */
+/* line 2429, styles.scss */
 #myGrid {
   width: 100%;
   height: 500px;
 }
 
-/* line 2430, styles.scss */
+/* line 2434, styles.scss */
 #myGrid, #myGrid * {
   box-sizing: content-box;
 }
 
-/* line 2433, styles.scss */
+/* line 2437, styles.scss */
 .loading .exportStatsSection {
   display: none;
 }
 
-/* line 2437, styles.scss */
+/* line 2441, styles.scss */
 #myGrid .parameter-column {
   background-color: #f2f7ff;
 }
 
-/* line 2441, styles.scss */
+/* line 2445, styles.scss */
 #myGrid .slick-row:hover .parameter-column {
   background-color: #e6ebff;
 }
 
-/* line 2445, styles.scss */
+/* line 2449, styles.scss */
 .ui-widget-header {
   background: url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") repeat-x scroll 50% 50% #CCCCCC;
 }
 
-/* line 2448, styles.scss */
+/* line 2452, styles.scss */
 .ui-state-hover {
   background: #e6e6e6 url(images/ui-bg_glass_75_dadada_1x400.png) 50% 50% repeat-x;
 }
 
-/* line 2451, styles.scss */
+/* line 2455, styles.scss */
 .nav.nav-tabs {
   background: url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") repeat-x scroll 50% 50% #CCCCCC;
   border: 1px solid #AAAAAA;
@@ -5673,42 +5678,42 @@ line.tick {
   color: #222222;
   padding-top: 0.2em;
 }
-/* line 2459, styles.scss */
+/* line 2463, styles.scss */
 .nav.nav-tabs li {
   cursor: pointer;
   margin-right: 0.2em;
 }
-/* line 2463, styles.scss */
+/* line 2467, styles.scss */
 .nav.nav-tabs .badge {
   margin-left: 1em;
 }
 
-/* line 2472, styles.scss */
+/* line 2476, styles.scss */
 .tabbable {
   border: 1px solid #AAAAAA;
   border-radius: 2px 2px 2px 2px;
   color: #222222;
   padding: 3px;
 }
-/* line 2477, styles.scss */
+/* line 2481, styles.scss */
 .tabbable .single {
   margin-right: 1em;
 }
-/* line 2480, styles.scss */
+/* line 2484, styles.scss */
 .tabbable .tab-content {
   padding: 1em;
 }
-/* line 2483, styles.scss */
+/* line 2487, styles.scss */
 .tabbable .close_icon {
   cursor: pointer;
   padding-left: 5px;
 }
-/* line 2487, styles.scss */
+/* line 2491, styles.scss */
 .tabbable .nav.nav-tabs {
   margin: 0;
   padding-left: 0;
 }
-/* line 2490, styles.scss */
+/* line 2494, styles.scss */
 .tabbable .nav.nav-tabs li {
   background: url("images/ui-bg_glass_75_e6e6e6_1x400.png") repeat-x scroll 50% 50% #E6E6E6;
   border: 1px solid #D3D3D3;
@@ -5716,11 +5721,11 @@ line.tick {
   font-weight: normal;
   margin-bottom: -1px;
 }
-/* line 2496, styles.scss */
+/* line 2500, styles.scss */
 .tabbable .nav.nav-tabs li:first-child {
   margin-left: 0.5em;
 }
-/* line 2499, styles.scss */
+/* line 2503, styles.scss */
 .tabbable .nav.nav-tabs li a {
   padding-bottom: 0.3em !important;
   padding-top: 0.3em !important;
@@ -5728,39 +5733,39 @@ line.tick {
   color: #555555;
   margin-bottom: -1px;
 }
-/* line 2506, styles.scss */
+/* line 2510, styles.scss */
 .tabbable .nav.nav-tabs li.active {
   border-bottom-color: transparent;
 }
 
-/* line 2513, styles.scss */
+/* line 2517, styles.scss */
 .search_tabs.tabbable {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-/* line 2518, styles.scss */
+/* line 2522, styles.scss */
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover {
   border-radius: 0;
   border-color: transparent;
 }
 
-/* line 2523, styles.scss */
+/* line 2527, styles.scss */
 .nav-tabs > li > a, .nav-pills > li > a {
   margin-right: 0;
 }
 
-/* line 2529, styles.scss */
+/* line 2533, styles.scss */
 .modal-header_left {
   display: none;
 }
 
-/* line 2534, styles.scss */
+/* line 2538, styles.scss */
 .compare_result.loading {
   visibility: hidden;
 }
-/* line 2537, styles.scss */
+/* line 2541, styles.scss */
 .compare_result .column {
   display: inline-block;
   vertical-align: top;
@@ -5768,7 +5773,7 @@ line.tick {
   *zoom: 1;
   *display: inline;
 }
-/* line 2540, styles.scss */
+/* line 2544, styles.scss */
 .compare_result .meter {
   cursor: pointer;
   position: relative;
@@ -5778,111 +5783,111 @@ line.tick {
   -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
 }
-/* line 2545, styles.scss */
+/* line 2549, styles.scss */
 .compare_result .meter:hover {
   color: navy;
   border: 1px solid #aac8ff;
 }
-/* line 2550, styles.scss */
+/* line 2554, styles.scss */
 .compare_result .badge {
   position: absolute;
   right: 0;
   top: 4px;
 }
-/* line 2555, styles.scss */
+/* line 2559, styles.scss */
 .compare_result .background {
   padding: 5px 0;
 }
-/* line 2559, styles.scss */
+/* line 2563, styles.scss */
 .compare_result .column_1 ul {
   background-color: #f1f6ff;
   border: 1px solid #dde9ff;
 }
-/* line 2562, styles.scss */
+/* line 2566, styles.scss */
 .compare_result .column_1 ul .background {
   background-color: #dde9ff;
 }
-/* line 2566, styles.scss */
+/* line 2570, styles.scss */
 .compare_result .column_2 ul {
   background-color: #fff9ec;
   border: 1px solid #FFF3D8;
 }
-/* line 2569, styles.scss */
+/* line 2573, styles.scss */
 .compare_result .column_2 ul .background {
   background-color: #FFF3D8;
 }
-/* line 2573, styles.scss */
+/* line 2577, styles.scss */
 .compare_result ul {
   padding: 2px;
   margin-right: 2em;
   width: 400px;
   font-size: 1.1em;
 }
-/* line 2580, styles.scss */
+/* line 2584, styles.scss */
 .compare_result ul li {
   margin-bottom: 0.5em;
   white-space: nowrap;
 }
 
-/* line 2595, styles.scss */
+/* line 2599, styles.scss */
 .popover {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
-/* line 2597, styles.scss */
+/* line 2601, styles.scss */
 .popover .popover-content {
   padding: 5px;
 }
-/* line 2600, styles.scss */
+/* line 2604, styles.scss */
 .popover .btn_container {
   margin-top: 1em;
   text-align: right;
 }
 
-/* line 2606, styles.scss */
+/* line 2610, styles.scss */
 .tab_preloaders {
   display: inline-block;
 }
-/* line 2608, styles.scss */
+/* line 2612, styles.scss */
 .tab_preloaders .preloader_spinner {
   width: 9px;
   display: inline;
 }
 
-/* line 2617, styles.scss */
+/* line 2621, styles.scss */
 .close_icon {
   display: inline;
 }
 
-/* line 2620, styles.scss */
+/* line 2624, styles.scss */
 .tab_spinner {
   display: none;
   width: 13px;
 }
 
-/* line 2624, styles.scss */
+/* line 2628, styles.scss */
 .loading .tab_spinner {
   display: inline-block;
 }
 
-/* line 2627, styles.scss */
+/* line 2631, styles.scss */
 .loading .close_icon {
   display: none;
 }
 
-/* line 2632, styles.scss */
+/* line 2636, styles.scss */
 .badge {
   padding-right: 6px;
   padding-left: 6px;
 }
 
-/* line 2637, styles.scss */
+/* line 2641, styles.scss */
 .popper_menu {
   min-width: 130px;
 }
 
-/* line 2641, styles.scss */
+/* line 2645, styles.scss */
 .tab-content {
   overflow: hidden;
 }
@@ -5890,49 +5895,49 @@ line.tick {
 /* Side notes for calling out things
 -------------------------------------------------- */
 /* Base styles (regardless of theme) */
-/* line 2653, styles.scss */
+/* line 2657, styles.scss */
 .bs-callout {
   margin: 20px 0;
   padding: 15px 30px 15px 15px;
   border-left: 5px solid #eee;
 }
 
-/* line 2658, styles.scss */
+/* line 2662, styles.scss */
 .bs-callout h4 {
   margin-top: 0;
 }
 
-/* line 2661, styles.scss */
+/* line 2665, styles.scss */
 .bs-callout p:last-child {
   margin-bottom: 0;
 }
 
-/* line 2664, styles.scss */
+/* line 2668, styles.scss */
 .bs-callout code,
 .bs-callout .highlight {
   background-color: #fff;
 }
 
 /* Themes for different contexts */
-/* line 2670, styles.scss */
+/* line 2674, styles.scss */
 .bs-callout-danger {
   background-color: #fcf2f2;
   border-color: #dFb5b4;
 }
 
-/* line 2674, styles.scss */
+/* line 2678, styles.scss */
 .bs-callout-warning {
   background-color: #fefbed;
   border-color: #f1e7bc;
 }
 
-/* line 2678, styles.scss */
+/* line 2682, styles.scss */
 .bs-callout-info {
   background-color: #f0f7fd;
   border-color: #d0e3f0;
 }
 
-/* line 2683, styles.scss */
+/* line 2687, styles.scss */
 .dropdown-menu {
   border-radius: 2px;
   max-height: 575px;
@@ -5940,19 +5945,19 @@ line.tick {
 }
 
 /* ----------- Newsdesk ----------- */
-/* line 2691, styles.scss */
+/* line 2695, styles.scss */
 #news_area {
   float: right;
   margin-right: 4px;
 }
 
-/* line 2695, styles.scss */
+/* line 2699, styles.scss */
 .newsdesk-new-news {
   font-weight: bold;
   color: #428bca;
 }
 
-/* line 2699, styles.scss */
+/* line 2703, styles.scss */
 .newsdesk-new-news div {
   background-color: red;
   color: red;
@@ -5960,7 +5965,7 @@ line.tick {
   background: #ff0000;
 }
 
-/* line 2705, styles.scss */
+/* line 2709, styles.scss */
 .newsdesk-new-news div:after {
   right: 100%;
   top: 50%;
@@ -5976,43 +5981,43 @@ line.tick {
   margin-top: -4px;
 }
 
-/* line 2719, styles.scss */
+/* line 2723, styles.scss */
 .newsdesk-no-new-news {
   font-weight: normal;
   color: #ddd;
 }
 
-/* line 2723, styles.scss */
+/* line 2727, styles.scss */
 .newsdesk-no-new-news div {
   background-color: #ddd;
 }
 
-/* line 2726, styles.scss */
+/* line 2730, styles.scss */
 .newsdesk-new-news-item {
   background-color: #ffeeee;
   border-radius: 5px;
 }
 
-/* line 2730, styles.scss */
+/* line 2734, styles.scss */
 .newsdesk-new-news-item h4 {
   color: red;
 }
 
-/* line 2733, styles.scss */
+/* line 2737, styles.scss */
 .newsdesk-popover {
   width: 440px;
   max-height: 95%;
   overflow-y: auto;
 }
 
-/* line 2738, styles.scss */
+/* line 2742, styles.scss */
 .newsdesk-bell {
   float: left;
   margin-top: 4px;
   margin-right: 3px;
 }
 
-/* line 2743, styles.scss */
+/* line 2747, styles.scss */
 .newsdesk-arrow-box {
   float: left;
   padding-left: 4px;
@@ -6020,51 +6025,51 @@ line.tick {
   border-radius: 3px;
 }
 
-/* line 2749, styles.scss */
+/* line 2753, styles.scss */
 .newsdesk-arrow-box span {
   color: #fff;
 }
 
-/* line 2752, styles.scss */
+/* line 2756, styles.scss */
 .newsdesk-news-item {
   padding-left: 4px;
   margin-bottom: 4px;
 }
 
-/* line 2756, styles.scss */
+/* line 2760, styles.scss */
 .newsdesk-opener {
   cursor: pointer;
 }
 
-/* line 2759, styles.scss */
+/* line 2763, styles.scss */
 .newsdesk-around-items {
   margin: 10px;
 }
 
-/* line 2762, styles.scss */
+/* line 2766, styles.scss */
 .newsdesk-item-date {
   font-style: italic;
   color: gray;
 }
 
 /* ----------- Autocompletion ----------- */
-/* line 2769, styles.scss */
+/* line 2773, styles.scss */
 .none-to-find {
   color: #aaa;
 }
 
-/* line 2772, styles.scss */
+/* line 2776, styles.scss */
 .num-to-find {
   visibility: hidden;
   font-size: x-small;
 }
 
-/* line 2776, styles.scss */
+/* line 2780, styles.scss */
 li.active a span .num-to-find {
   visibility: visible;
 }
 
-/* line 2779, styles.scss */
+/* line 2783, styles.scss */
 .autoc-spinner {
   margin-left: -20px;
   margin-top: 2px;
@@ -6072,12 +6077,12 @@ li.active a span .num-to-find {
 }
 
 /* Map */
-/* line 2785, styles.scss */
+/* line 2789, styles.scss */
 .name_map {
   max-width: 1000px;
 }
 
-/* line 2789, styles.scss */
+/* line 2793, styles.scss */
 .leaflet-control-layers-toggle {
   background-image: url(../components/leaflet/dist/images/layers.png);
 }
