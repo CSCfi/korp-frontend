@@ -2004,7 +2004,7 @@ settings.corpora.tiedelehdet_lounaishame = {
 
 settings.corpora.tiedelehdet_kompositio = {
     title : "Kompositio",
-    description : "Kompositio (2002-2013)<br/>Julkaisija: Suomen Säveltäjät ry<br/>Kotisivu: <a href='http://www.composers.fi/tietoa-yhdistyksesta/kompositio/'>http://www.composers.fi/tietoa-yhdistyksesta/kompositio/</a>",
+    description : "Kompositio (2007-2013)<br/>Julkaisija: Suomen Säveltäjät ry<br/>Kotisivu: <a href='http://www.composers.fi/tietoa-yhdistyksesta/kompositio/'>http://www.composers.fi/tietoa-yhdistyksesta/kompositio/</a>",
     id : "tiedelehdet_kompositio",
     urn : "",
     metadata_urn : "",
