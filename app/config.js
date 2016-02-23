@@ -2002,6 +2002,23 @@ settings.corpora.tiedelehdet_lounaishame = {
     }
 };
 
+settings.corpora.tiedelehdet_kompositio = {
+    title : "Kompositio",
+    description : "Kompositio (2002-2013)<br/>Julkaisija: Suomen Säveltäjät ry<br/>Kotisivu: <a href='http://www.composers.fi/tietoa-yhdistyksesta/kompositio/'>http://www.composers.fi/tietoa-yhdistyksesta/kompositio/</a>",
+    id : "tiedelehdet_kompositio",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_url : sattrs.link_lehdet,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
 
 settings.corpora.tiedelehdet_liiketalous = {
     title : "Liiketaloudellinen Aikakauskirja",
