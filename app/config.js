@@ -2128,7 +2128,7 @@ settings.corpora.tiedelehdet_kompositio = {
 
 settings.corpora.tiedelehdet_liiketalous = {
     title : "Liiketaloudellinen Aikakauskirja",
-    description : "Liiketaloudellinen Aikakauskirja (2000-2013)<br/>Julkaisija: Liiketaloustieteellinen Yhdistys ry<br/>Kotisivu: <a href='http://lta.hse.fi'>http://lta.hse.fi</a>",
+    description : "Liiketaloudellinen Aikakauskirja (2000-2013)<br/>Julkaisija: Liiketaloustieteellinen Yhdistys ry<br/>Kotisivu: <a href='http://lta.hse.fi/'>http://lta.hse.fi/</a>",
     id : "tiedelehdet_liiketalous",
     urn : "",
     metadata_urn : "",
