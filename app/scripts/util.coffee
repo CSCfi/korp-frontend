@@ -321,13 +321,13 @@ class window.CorpusListing
             value : "word"
             label : "word"
         
-        attrs = for key, obj of @getCurrentAttributes(lang) when obj.displayType != "hidden"
+        attrs = for key, obj of @getCurrentAttributes(lang) when obj.displayType != "hidden" and obj.displayOnly != "sidebar"
             _.extend({group : "word_attr", value : key}, obj)
 
         common_keys = _.compact _.flatten _.map @selected, (corp) -> _.keys corp.common_attributes
         common = _.pick settings.common_struct_types, common_keys...
 
-        sent_attrs = for key, obj of (_.extend {}, common, @getStructAttrs(lang)) when obj.displayType != "hidden"
+        sent_attrs = for key, obj of (_.extend {}, common, @getStructAttrs(lang)) when obj.displayType != "hidden" and obj.displayOnly != "sidebar"
             _.extend({group : "sentence_attr", value : key}, obj)
 
         sent_attrs = _.sortBy sent_attrs, (item) ->
