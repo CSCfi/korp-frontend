@@ -1540,7 +1540,7 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.lehdet.tiedelehdet = {
     title : "Tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_elo", "tiedelehdet_geofoorumi", "tiedelehdet_glossae", "tiedelehdet_harukaze", "tiedelehdet_havina", "tiedelehdet_historiallinen", "tiedelehdet_kognitiivinen", "tiedelehdet_kompositio", "tiedelehdet_kulttuurintutkimus", "tiedelehdet_kunnallistiede", "tiedelehdet_liiketalous", "tiedelehdet_lounaishame", "tiedelehdet_maaseudunuusiaika", "tiedelehdet_matkailututkimus", "tiedelehdet_metsatiede", "tiedelehdet_musiikkikasv", "tiedelehdet_prologi", "tiedelehdet_psykologia", "tiedelehdet_ruralia"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_elo", "tiedelehdet_geofoorumi", "tiedelehdet_glossae", "tiedelehdet_harukaze", "tiedelehdet_havina", "tiedelehdet_historiallinen", "tiedelehdet_kognitiivinen", "tiedelehdet_kompositio", "tiedelehdet_kulttuurintutkimus", "tiedelehdet_kunnallistiede", "tiedelehdet_liiketalous", "tiedelehdet_lounaishame", "tiedelehdet_maaseudunuusiaika", "tiedelehdet_matkailututkimus", "tiedelehdet_metsatiede", "tiedelehdet_musiikkikasv", "tiedelehdet_nimi", "tiedelehdet_prologi", "tiedelehdet_psykologia", "tiedelehdet_ruralia"]
 };
 
 settings.corporafolders.lehdet.muut_lehdet = {
@@ -1949,6 +1949,21 @@ settings.corpora.ftb3_jrcacquis = {
 /* ==== TIEDELEHTIÄ ==== */
 
 settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
+
+settings.corpora.tiedelehdet_nimi = {
+    title : "NMI-Bulletin",
+    description : "NMI-Bulletin (2000-2012)<br/>Julkaisija: Niilo Mäki instituutti<br/>Kotisivu: <a href='http://bulletin.nmi.fi/arkisto/'>http://bulletin.nmi.fi/arkisto/</a>",
+    id : "tiedelehdet_nimi",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_url : sattrs.link_lehdet
+    }
+};
 
 settings.corpora.tiedelehdet_prologi = {
     title : "Prologi",
