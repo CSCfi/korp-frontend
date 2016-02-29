@@ -1966,8 +1966,8 @@ settings.corpora.tiedelehdet_prologi = {
 };
 
 settings.corpora.tiedelehdet_metsatiede = {
-    title : "Metsätieteellinen aikakauskirja",
-    description : "Metsätieteellinen aikakauskirja (2000-2013)<br/>Julkaisija: Luonnonvarakeskus & Suomen Metsätieteellinen Seura<br/>Kotisivu: <a href='http://www.metla.fi/aikakauskirja/'>http://www.metla.fi/aikakauskirja/</a>",
+    title : "Metsätieteen aikakauskirja",
+    description : "Metsätieteen aikakauskirja (2000-2013)<br/>Julkaisija: Luonnonvarakeskus & Suomen Metsätieteellinen Seura<br/>Kotisivu: <a href='http://www.metla.fi/aikakauskirja/'>http://www.metla.fi/aikakauskirja/</a>",
     id : "tiedelehdet_metsatiede",
     urn : "",
     metadata_urn : "",
