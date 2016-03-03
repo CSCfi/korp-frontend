@@ -1,6 +1,6 @@
 {
-  function makeObj(type, op, val) {
-    return {type : type, op : op, val: val}
+  function makeObj(type, op, val, flags) {
+    return {type : type, op : op, val: val, flags: flags}
   }
 
   function unpack(target, source) {
@@ -17,14 +17,14 @@
     var _ = window._
 
   var c = console
-  
+
 }
 
 
 start
   = tokens
 
-tokens 
+tokens
   = t1:token t2:(" " t2:token)*
   {
     return unpack([t1], t2)
@@ -35,18 +35,13 @@ token
   = "[" "]" // empty token
     {return {"and_block":[[{type:"word",op:"=",val:""}]]}}
   / "[" left:and right:(" & " and)* "]" repeat:repeat? {
-    // var output = {and_block : unpack([left], right)}
     var output = left
-    // c.log("token", unpack([left], right))
-
     right.forEach(function(item) {
       var val = item[1]
       output = _.merge(output, val, function(a, b) {
         return _.isArray(a) ? a.concat(b) : undefined;
       })
-      
     })
-
 
     if(repeat)
       output.repeat = repeat
@@ -59,7 +54,6 @@ repeat
       var output = [Number(from.join(""))]
       if(to.length)
         output.push(Number(to.join("")))
-
       return output
     }
 
@@ -75,10 +69,9 @@ bound_block
     return unpack([first], rest)
   }
 
-and 
+and
   =  left:or right:(" | " or)* {
-    // c.log("and", unpack([left], right))
-    return {and_block : [unpack([left], right)]} 
+    return {and_block : [unpack([left], right)]}
   }
   / bound:bound_block {
     bound = _.object(bound.map(function(item) {
@@ -90,29 +83,30 @@ and
 
 
 or
-  = lhs:("_."? [A-Za-z_]+) " "? infix_op:infix_op " "? ["'] rhs:(!["'] .)* ["'] {
+  = lhs:("_."? [A-Za-z_]+) " "? infix_op:infix_op " "? rhs:value_expr flags:(" %"[cd]+)? {
     var prefix = ""
     if(lhs[0])
       prefix = lhs[0]
-    console.log("rhs", rhs)
-    rhs = _.map(rhs, _.last)
-    return makeObj(prefix + lhs[1].join(""), infix_op, rhs.join("")) 
-  }
-  // / "(" first:date_expr rest:(bool date_expr)* ")" {
-  // / "%" first:date_expr rest:(bool date_expr)* "%%" {
-  // / "%" des:date_expr_seq "%%" {
-  // / "(" des:date_expr_seq ")" {
-  //   console.log("dates", des)
 
-  //   return des
-  //   // return _.extend.apply(null, unpack([first], rest))
-  // }
+    if(flags)
+      flags = _.zipObject(flags[1], _.map(flags[1], function() { return true; }));
+    return makeObj(prefix + lhs[1].join(""), infix_op, rhs, flags)
+  }
   / date
 
+value_expr
+    = ["] rhs:(!["] .)* ["] {
+        rhs = _.map(rhs, _.last);
+        return rhs.join("");
+    }
+    / ['] rhs:(!['] .)* ['] {
+        rhs = _.map(rhs, _.last);
+        return rhs.join("");
+    }
 
 // date_expr
 
-date 
+date
   = "$" "date_interval" " "? op:("!=" / "=") " "? ["'] val:([0-9]+ "," [0-9]+ "," [0-9]+ "," [0-9]+) ['"]
 {
 
@@ -122,30 +116,6 @@ date
   return makeObj("date_interval", op, val)
 }
 
-// date_expr_seq
-//  = first:date_expr rest:(bool date_expr)* {
-//   return unpack([first], rest)
-//  }
-//  / "(" des:date_expr_seq ")" {return des}
-
-// date_expr
-//   = first:date rest:(bool date)* {
-//     var list = unpack([first], rest)
-//     c.log ("list", list)
-//     // c.log ("_.extend.apply(list)", _.extend.apply(null, list))
-//     return _.extend.apply(null, list)
-//   }
-//   / "(" de:date_expr ")" {return de}
-
-
-// date
-//   = "int(" date_type:("_."[A-Za-z]+) ")" op:date_op val:[0-9]+ {
-//     var output = {}
-//     output[date_type[1].join("")] = [op, Number(val.join(""))]
-//     return output
-//   }
-
-
 infix_op
   = "^="
   / "&="
@@ -153,6 +123,7 @@ infix_op
   / "*="
   / "!="
   / "="
+  / "!*="
   / "not contains"
   / "contains"
 
@@ -161,7 +132,7 @@ date_op
   / " => "
   / " > "
   / " = "
-  / " < " 
+  / " < "
 
 
 bool

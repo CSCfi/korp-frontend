@@ -786,7 +786,7 @@ attrs.msd_sv = {
                                     '<h3 class="modal-title">{{\'msd_long\' | loc:lang}}</h3>' +
                                     '<span ng-click="clickX()" class="close-x">×</span>' +
                                 '</div>' +
-                                '<div class="modal-body" ng-click="msdClick($event)" ng-include="\'markup/msd.html\'"></div>' +
+                                '<div class="modal-body msd-modal" ng-click="msdClick($event)" ng-include="\'markup/msd.html\'"></div>' +
                             '</div>',
                 scope : $scope
             })
@@ -797,7 +797,7 @@ attrs.msd_sv = {
         $scope.msdClick = function(event) {
             val = $(event.target).parent().data("value")
             if(!val) return;
-            $scope.input = val;
+            $scope.model = val;
 
 
             modal.close();
@@ -6041,7 +6041,7 @@ settings.reduce_statistics_pie_chart = function(row, cell, value, columnDef, dat
     return $.format('<img id="circlediagrambutton__%s" src="img/stats2.png" class="arcDiagramPicture"/>', value);
 };
 
-settings.reduce_statistics = function(types, ignoreCase) {
+settings.reduce_statistics = function(types, ignoreCase, tokensLength) {
 
     return function(row, cell, value, columnDef, dataContext) {
 
@@ -6052,7 +6052,25 @@ settings.reduce_statistics = function(types, ignoreCase) {
 
         var tokenLists = _.map(value, function(val) {
             return _.map(val.split('/'), function(as) {
-                return as.split(" ");
+                parts = as.split(" ");
+                if(tokensLength == parts.length) {
+                    return parts;
+                } else {
+                    // Trying to match against expected number of tokens
+                    // in case token length and length if splitted tokens differ
+                    var newParts = []
+                    var chunkSize = parts.length / tokensLength
+                    if(chunkSize == 0) {
+                        // Give up
+                        return parts;
+                    }
+                    for (var i = 0, j = parts.length; i < j; i += chunkSize) {
+                        res = parts.slice(i, i + chunkSize).join(" ");
+                        newParts.push(res);
+                    }
+                    return newParts;
+                }
+
             });
         });
 
@@ -6084,7 +6102,7 @@ settings.reduce_statistics = function(types, ignoreCase) {
 
         var output = $("<span>",
             {
-            "class" : "link",
+            "class" : "statistics-link",
             "data-query" : encodeURIComponent(query),
             "data-corpora" : JSON.stringify(corpora)
             }).html(linkInnerHTML).outerHTML();

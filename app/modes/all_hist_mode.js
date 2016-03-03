@@ -5,8 +5,8 @@ settings.lemgramSelect = false;
 settings.wordpicture = false;
 
 settings.struct_attribute_selector = "intersection"
-settings.word_attribute_selector   = "intersection" 
-settings.reduce_word_attribute_selector = "intersection" 
+settings.word_attribute_selector   = "intersection"
+settings.reduce_word_attribute_selector = "intersection"
 
 // FSV
 settings.fsvattributes = {
@@ -85,7 +85,7 @@ settings.aftonbladstruct_attributes = {
 	page_no : {label : "page"}
 };
 
-digidailydescription = '<a href="http://digidaily.kb.se/">Digidaily</a> är ett utvecklingsprojekt där Riksarkivet, Kungliga biblioteket och Mittuniversitetet tillsammans ska utveckla rationella metoder och processer för digitalisering av dagstidningar.'	
+digidailydescription = '<a href="http://digidaily.kb.se/">Digidaily</a> är ett utvecklingsprojekt där Riksarkivet, Kungliga biblioteket och Mittuniversitetet tillsammans ska utveckla rationella metoder och processer för digitalisering av dagstidningar.'
 
 
 //UB-KVT
@@ -257,7 +257,7 @@ settings.corporafolders.kubhist.norraskane = {
 settings.corporafolders.kubhist.postochinrikestidning = {
 	title : "Post- och Inrikes Tidningar",
 	contents : ["kubhist-postochinrikestidning-1770", "kubhist-postochinrikestidning-1780", "kubhist-postochinrikestidning-1790", "kubhist-postochinrikestidning-1800",
-		"kubhist-postochinrikestidning-1810", "kubhist-postochinrikestidning-1820", "kubhist-postochinrikestidning-1830", "kubhist-postochinrikestidning-1840", 
+		"kubhist-postochinrikestidning-1810", "kubhist-postochinrikestidning-1820", "kubhist-postochinrikestidning-1830", "kubhist-postochinrikestidning-1840",
 		"kubhist-postochinrikestidning-1850", "kubhist-postochinrikestidning-1860",]
 };
 
@@ -341,6 +341,7 @@ settings.corpora['bellman'] = {
 		msd : attrs.msd,
  		lemma : attrs.baseform,
  		lex : attrs.lemgram,
+		dalinlex : attrs.dalinlemgram,
  		saldo : attrs.saldo,
  		prefix : attrs.prefix,
  		suffix : attrs.suffix,
@@ -352,6 +353,37 @@ settings.corpora['bellman'] = {
 		text_author : {label : "author"},
 		text_title : {label : "title"},
 		page_n : {label : "page"}
+	}
+};
+
+settings.corpora['betankande'] = {
+	morf : 'swedbergm|dalinm|saldom',
+	id : "betankande",
+	title : "Betänkande angående likformig uppställning av grammatiska läroböcker",
+	description : "",
+	within : settings.spWithin,
+	context : {
+	    "1 sentence" : "1 sentence",
+	    "1 page" : "1 page"
+	},
+	attributes : {
+		msd : attrs.msd,
+ 		lemma : attrs.baseform,
+		lex : attrs.lemgram,
+ 		dalinlex : attrs.dalinlemgram,
+ 		saldo : attrs.saldo,
+ 		prefix : attrs.prefix,
+ 		suffix : attrs.suffix,
+ 		dephead : attrs.dephead,
+ 		deprel : attrs.deprel,
+ 		ref : attrs.ref
+	},
+	struct_attributes : {
+		text_title : {label : "title"},
+		text_year : {label : "year"},
+		text_place : {label : "place"},
+		text_publisher : {label : "publisher"},
+		page_nr : {label : "page"}
 	}
 };
 
@@ -402,6 +434,44 @@ settings.corpora.ekeblad = {
 	}
 };
 
+if(isLab){
+settings.corpora.fragelistor = {
+	id : "fragelistor",
+	title : "Etnologiska frågelistor",
+	description : "Nordiska museets etnologiska frågelistor",
+	within : settings.defaultWithin,
+	context : settings.spContext,
+	attributes : {
+		msd : attrs.msd,
+ 		lemma : attrs.baseform,
+ 		lex : attrs.lemgram,
+		dalinlex : attrs.dalinlemgram,
+ 		saldo : attrs.saldo,
+ 		prefix : attrs.prefix,
+ 		suffix : attrs.suffix,
+ 		dephead : attrs.dephead,
+ 		deprel : attrs.deprel,
+ 		ref : attrs.ref
+	},
+	struct_attributes : {
+		"text_topicname" : {label : "topic"},
+		"text_topicid" : {label : "topicid"},
+		"document_id" : {label : "document_id"},
+		"text_source" : {
+			label : "source",
+			displayType : "select",
+			localize : false,
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
+			dataset : [
+				"frågelistor",
+				"specialfrågelistor"
+			]
+		}
+	}
+};
+} // end if(isLab)
+
 settings.corpora.lb = {
 	id : "lb",
 	title : "Litteraturbanken",
@@ -446,6 +516,8 @@ settings.corpora["fsv-aldrereligiosprosa"] = {
 			label : "title",
 			displayType : "select",
 			localize : false,
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
 				"Birgittaautograferna",
 				"Fornsvenska legendariet enligt Codex Bureanus",
@@ -471,6 +543,8 @@ settings.corpora["fsv-profanprosa"] = {
 			label : "title",
 			displayType : "select",
 			localize : false,
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
 				"Barlaam och Josaphat, ur Codex Holm A 49 Nådendals klosterbok",
 				"Sju vise mästare B, Nådendals klosterbok, Codex Holm A 49",
@@ -501,6 +575,8 @@ settings.corpora["fsv-verser"] = {
 			label : "title",
 			displayType : "select",
 			localize : false,
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
 				"Fornsvenska Ordspråk",
 				"Erikskrönikan, ur Spegelbergs bok, Codex Holm D2" ,
@@ -529,6 +605,8 @@ settings.corpora["fsv-yngrereligiosprosa"] = {
 			label : "title",
 			displayType : "select",
 			localize : false,
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
 				"Johannes döparens födelse ur Codex Bildstenianus Ups C 528",
 				"Jesu lidandes bägare och hans blods utgjutelse",
@@ -639,6 +717,8 @@ settings.corpora["fsv-yngretankebocker"] = {
 			label : "title",
 			displayType : "select",
 			localize : false,
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
 				"Läkebok 1: blandad läkedom, ur Codex AM",
 				"Läkebok 11: Månaderna, efter KBs handskrift med gammal signatur K 45, supplerad på Danska ur codex Grensholmensis",
@@ -658,7 +738,7 @@ settings.corpora["fsv-yngretankebocker"] = {
 };
 
 settings.corpora["fsv-nysvenskbibel"] = {
- 
+
 	id : "fsv-nysvenskbibel",
 	title : "Nysvenska bibelböcker – Fornsvenska textbankens material",
 	description : settings.fsvdescription,
@@ -670,6 +750,8 @@ settings.corpora["fsv-nysvenskbibel"] = {
 			label : "title",
 			displayType : "select",
 			localize : false,
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
 				"Gustav Vasas Bibel, Markusevanguliet",
 				"Gustav Vasas Bibel, Lukasevangeliet"
@@ -691,6 +773,8 @@ settings.corpora["fsv-nysvenskdalin"] = {
 			label : "title",
 			displayType : "select",
 			localize : false,
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
 				"Dalin: Then Swänska Argus"
 			],
@@ -711,6 +795,8 @@ settings.corpora["fsv-nysvenskkronikor"] = {
 			label : "title",
 			displayType : "select",
 			localize : false,
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
 				"Peder Swarts krönika",
 				"Per Brahes krönika",
@@ -735,6 +821,8 @@ settings.corpora["fsv-nysvenskovrigt"] = {
 			label : "title",
 			displayType : "select",
 			localize : false,
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
 				"Runius: Prosastycken",
 				"Mag. Joh. Qvirfelds himmelska örtegårds-sällskap",
@@ -768,6 +856,8 @@ settings.corpora["fsv-nysvensklagar"] = {
 			label : "title",
 			displayType : "select",
 			localize : false,
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
 				"Missgiernings Balk",
 				"Giftermåls balk \\(1734\\)",
@@ -1852,6 +1942,8 @@ settings.corpora["lag1734"] = {
             type : "set",
 			displayType : "select",
 			translationKey : "fab_",
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
 				"bold",
 				"smallcaps",
@@ -1872,6 +1964,8 @@ settings.corpora["lag1734"] = {
 			label : "title",
 			displayType : "select",
 			localize : false,
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
 				"1734 års lag Förord",
 				"1734 års lag Domareregler",
@@ -1897,6 +1991,8 @@ settings.corpora["forarbeten1734"] = {
             type : "set",
 			displayType : "select",
 			translationKey : "fab_",
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
 				"bold",
 				"smallcaps",
@@ -1917,6 +2013,8 @@ settings.corpora["forarbeten1734"] = {
 			label : "title",
 			displayType : "select",
 			localize : false,
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
 				"1734 års lag Förarbeten vol 1",
 				"1734 års lag Förarbeten vol 2",
@@ -1953,6 +2051,8 @@ settings.corpora["lag1800"] = {
 			localize : false,
 			label : "title",
 			displayType : "select",
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
 				"Författningssamling 1800 Låssa kyrkas arkiv",
 				"Regeringsformen 1809 "
@@ -2007,7 +2107,7 @@ settings.corpora.bibel1873dalin = {
 		dephead : attrs.dephead,
 		deprel : attrs.deprel,
 		ref : attrs.ref
-		
+
 	},
 	struct_attributes : {
 		"text_title" : {label : "title"},
@@ -2150,6 +2250,8 @@ settings.corpora.kioping = {
         	    type : "set",
 				displayType : "select",
 				translationKey : "fab_",
+				extended_template : selectType.extended_template,
+				controller : selectType.controller,
 				dataset : [
 					"antikva",
 					"smallcaps",
@@ -2160,7 +2262,7 @@ settings.corpora.kioping = {
 					//"kustod"
 				],
 				opts : settings.liteOptions
-        	
+
                 }
 	},
 
@@ -2170,6 +2272,8 @@ settings.corpora.kioping = {
 			label : "title",
 			displayType : "select",
 			localize : false,
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
 				"Een kort Beskriffning Uppå Trenne Reesor och Peregrinationer, sampt Konungarijket Japan",
 				"BESKRIFNING Om En RESA GENOM ASIA, AFRICA Och många andra HEDNA LÄNDER "
@@ -2208,11 +2312,13 @@ settings.corpora['akerbruk'] = {
 			label : "title",
 			displayType : "select",
 			localize : false,
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
                                 "Engelska Åker-Mannen.",
                                 "En kort beskrifning om jordförbättring med gräsfröen.",
                                 "En Grundelig Kundskap Om Swenska Åkerbruket / Först I Gemen."
-	
+
 		],
 			opts : settings.liteOptions
 		},
@@ -2247,6 +2353,8 @@ settings.corpora['kvah'] = {
 			label : "title",
 			displayType : "select",
 			localize : false,
+			extended_template : selectType.extended_template,
+			controller : selectType.controller,
 			dataset : [
 				"Swar på den andra frågan, i 2. Qvartalet : huruledes säden på en åker må ständigt kunna ökas til 40 kornet.",
 				"Herr Inspectoren BRANDBERGS RÖN och Försök til Landtbrukets förbättrande.Framgifne Af SAM: SCHULTZE",
@@ -2264,7 +2372,7 @@ settings.corpora['kvah'] = {
 				"Rön om Åkerbrukets nyttiga främjande medelst Utsädets och Gödslens wissa besparning. Framgifwit af SACHARIAS WESTBECK, Kyrkoherde uti Öst-Löfsta Församling i .",
 				" Försök til Säds utsåning med Machine, anstälde på Fullerö Sätesgård, år 1759, Af CARL JOHAN CRONSTEDT.",
 				"Om en ny påfunnen Tuf-Plog."
-	
+
 		],
 			opts : settings.liteOptions
 		},
@@ -2304,4 +2412,3 @@ settings.corpora.romg = {
 };
 
 settings.corpusListing = new CorpusListing(settings.corpora);
-

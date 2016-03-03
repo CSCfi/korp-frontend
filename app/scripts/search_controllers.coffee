@@ -23,8 +23,7 @@ korpApp.controller "SearchCtrl", ($scope, $location, utils, searches) ->
     $scope.$watch (() -> $location.search().show_map), (val) ->
         $scope.show_map = Boolean(val)
 
-    $scope.$watch "show_map", (val) ->
-        $location.search("show_map", Boolean(val) or null)
+    $scope.$watch "show_map", (val) -> $location.search("show_map", Boolean(val) or null)
 
     $scope.settings = settings
     $scope.showStats = () ->
@@ -36,6 +35,29 @@ korpApp.controller "SearchCtrl", ($scope, $location, utils, searches) ->
         union = settings.corpusListing.getWithinKeys()
         output = _.map union, (item) -> {value : item}
         return output
+
+    unless $location.search().stats_reduce
+        $location.search 'stats_reduce', ("word")
+
+    $scope.$on "corpuschooserchange", () ->
+        $scope.statCurrentAttrs = settings.corpusListing.getStatsAttributeGroups()
+        $scope.statSelectedAttrs = $location.search().stats_reduce.split ','
+        insensitiveAttrs = $location.search().stats_reduce_insensitive
+        if insensitiveAttrs
+            $scope.statInsensitiveAttrs = insensitiveAttrs.split ','
+
+    $scope.$watch 'statSelectedAttrs', ((selected) ->
+        if selected and selected.length > 0
+            $location.search 'stats_reduce', ($scope.statSelectedAttrs.join ',')
+    ), true
+
+    $scope.$watch 'statInsensitiveAttrs', ((insensitive) ->
+        if insensitive and insensitive.length > 0
+            $location.search 'stats_reduce_insensitive', ($scope.statInsensitiveAttrs.join ',')
+        else if insensitive
+            $location.search 'stats_reduce_insensitive', null
+    ), true
+
 
 
 korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope, searches, compareSearches, $modal) ->
@@ -113,11 +135,9 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
 
     s.searches = searches
     s.$watch "searches.activeSearch", (search) =>
-        # if search.type in ["word", "lemgram"]
         c.log "search", search
         unless search then return
         page = Number($location.search().page) or 0
-        c.log "activesearch", search
         s.relatedObj = null
 
         # Set URL parameters based on simple prequery variables
@@ -136,17 +156,15 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
                 return
             else
                 searches.kwicSearch(cqp)
-            # simpleSearch.makeLemgramSelect() if settings.lemgramSelect
             if settings.wordpicture != false and s.word_pic and " " not in search.val
                 lemgramResults.makeRequest(search.val, "word")
-                # lemgramProxy.makeRequest(search.val, "word", $.proxy(lemgramResults.onProgress, lemgramResults));
             else
                 lemgramResults.resetView()
 
         else if search.type == "lemgram"
             s.placeholder = search.val
             s.simple_text = ""
-            # cqp = "[lex contains '#{search.val}']"
+            s.model = search.val
             cqp = simpleSearch.getCQP()
             # Show related words if show_related_words is undefined or
             # true (Jyrki Niemi 2016-01-15)
@@ -288,7 +306,7 @@ korpApp.controller "ExtendedToken", ($scope, utils, $location) ->
 
         if confObj.type == "set"
             confObj.is = "contains"
-        
+
         return _.pairs confObj
 
 
@@ -454,15 +472,14 @@ korpApp.controller "CompareSearchCtrl", ($scope, utils, $location, backend, $roo
         s.cmp1 = compareSearches.savedSearches[0]
         s.cmp2 = compareSearches.savedSearches[1]
         unless s.cmp1 and s.cmp2 then return
+
         listing = settings.corpusListing.subsetFactory(_.uniq ([].concat s.cmp1.corpora, s.cmp2.corpora))
         s.currentAttrs = listing.getAttributeGroups()
 
-    
+    # s.selectedAttrs = ['word']
     s.reduce = 'word'
-    s.currentAttrs = []
 
     s.sendCompare = () ->
-        ## todo backend supports multiple reduce parameters
         $rootScope.compareTabs.push backend.requestCompare(s.cmp1, s.cmp2, [s.reduce])
 
     s.deleteCompares = () ->
@@ -475,4 +492,3 @@ korpApp.controller "CompareSearchCtrl", ($scope, utils, $location, backend, $roo
 korpApp.filter "loc", ($rootScope) ->
     (translationKey, lang) ->
         return util.getLocaleString translationKey, lang
-

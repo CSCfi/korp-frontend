@@ -150,14 +150,19 @@
 
   korpApp.directive("tokenValue", function($compile, $controller) {
     var defaultController, getDefaultTmpl;
-    getDefaultTmpl = _.template("<input ng-model='input' ng-change=\"inputChange()\" class='arg_value' escaper ng-model-options='{debounce : {default : 300, blur : 0}, updateOn: \"default blur\"}'\n<%= maybe_placeholder %>>\n<span class='val_mod' popper\n    ng-class='{sensitive : case == \"sensitive\", insensitive : case == \"insensitive\"}'>\n        Aa\n</span> \n<ul class='mod_menu popper_menu dropdown-menu'>\n    <li><a ng-click='makeSensitive()'>{{'case_sensitive' | loc:lang}}</a></li>\n    <li><a ng-click='makeInsensitive()'>{{'case_insensitive' | loc:lang}}</a></li>\n</ul>");
+    getDefaultTmpl = _.template("<input ng-model='input' ng-change=\"inputChange()\" class='arg_value' escaper ng-model-options='{debounce : {default : 300, blur : 0}, updateOn: \"default blur\"}'\n<%= maybe_placeholder %>>\n<span class='val_mod' popper\n    ng-class='{sensitive : case == \"sensitive\", insensitive : case == \"insensitive\"}'>\n        Aa\n</span>\n<ul class='mod_menu popper_menu dropdown-menu'>\n    <li><a ng-click='makeSensitive()'>{{'case_sensitive' | loc:lang}}</a></li>\n    <li><a ng-click='makeInsensitive()'>{{'case_insensitive' | loc:lang}}</a></li>\n</ul>");
     defaultController = [
       "$scope", function($scope) {
-        $scope["case"] = "sensitive";
-        $scope.makeSensitive = function() {
-          var ref;
+        var ref;
+        if ((ref = $scope.orObj.flags) != null ? ref.c : void 0) {
+          $scope["case"] = "insensitive";
+        } else {
           $scope["case"] = "sensitive";
-          return (ref = $scope.orObj.flags) != null ? delete ref["c"] : void 0;
+        }
+        $scope.makeSensitive = function() {
+          var ref1;
+          $scope["case"] = "sensitive";
+          return (ref1 = $scope.orObj.flags) != null ? delete ref1["c"] : void 0;
         };
         return $scope.makeInsensitive = function() {
           var flags;
@@ -393,7 +398,7 @@
 
   korpApp.directive("tabSpinner", function($rootElement) {
     return {
-      template: "<i class=\"fa fa-times-circle close_icon\"></i> \n<span class=\"tab_spinner\" \n    us-spinner=\"{lines : 8 ,radius:4, width:1.5, length: 2.5, left : 4, top : -12}\"></span>"
+      template: "<i class=\"fa fa-times-circle close_icon\"></i>\n<span class=\"tab_spinner\"\n    us-spinner=\"{lines : 8 ,radius:4, width:1.5, length: 2.5, left : 4, top : -12}\"></span>"
     };
   });
 
@@ -494,7 +499,7 @@
         spinner: "="
       },
       replace: true,
-      template: "<div class=\"tab_preloaders\">\n    <div ng-if=\"!spinner\" class=\"tab_progress\" style=\"width:{{value || 0}}%\"></div>\n        <span ng-if=\"spinner\" class=\"preloader_spinner\" \n            us-spinner=\"{lines : 8 ,radius:4, width:1.5, length: 2.5, left : 7, top : -12}\"></span>\n</div>",
+      template: "<div class=\"tab_preloaders\">\n    <div ng-if=\"!spinner\" class=\"tab_progress\" style=\"width:{{value || 0}}%\"></div>\n        <span ng-if=\"spinner\" class=\"preloader_spinner\"\n            us-spinner=\"{lines : 8 ,radius:4, width:1.5, length: 2.5, left : 7, top : -12}\"></span>\n</div>",
       link: function(scope, elem, attr) {}
     };
   });
@@ -518,9 +523,11 @@
         }, function(val) {
           if (val) {
             elem.prepend(cover);
+            elem.css("pointer-events", "none");
             return elem.css("position", "relative").addClass("covered");
           } else {
             cover.remove();
+            elem.css("pointer-events", "");
             return elem.css("position", pos).removeClass("covered");
           }
         });
@@ -562,7 +569,7 @@
       replace: true,
       restrict: "E",
       scope: false,
-      template: "<div class=\"pager-wrapper\" ng-show=\"gotFirstKwic\" >\n  <pagination\n     total-items=\"hits\"\n     ng-if=\"gotFirstKwic\"\n     ng-model=\"pageObj.pager\"\n     ng-click=\"pageChange($event, pageObj.pager)\"\n     max-size=\"15\"\n     items-per-page=\"::$root._searchOpts.hits_per_page\"\n     previous-text=\"‹\" next-text=\"›\" first-text=\"«\" last-text=\"»\" \n     boundary-links=\"true\" \n     rotate=\"false\" \n     num-pages=\"$parent.numPages\"> </pagination>\n  <div class=\"page_input\"><span>{{'goto_page' | loc:lang}} </span>\n    <input ng-model=\"gotoPage\" ng-keyup=\"onPageInput($event, gotoPage, numPages)\" \n        ng-click=\"$event.stopPropagation()\" />\n    {{'of' | loc:lang}} {{numPages}}\n  </div>\n\n</div>"
+      template: "<div class=\"pager-wrapper\" ng-show=\"gotFirstKwic && hits > 0\" >\n  <pagination\n     total-items=\"hits\"\n     ng-if=\"gotFirstKwic\"\n     ng-model=\"pageObj.pager\"\n     ng-click=\"pageChange($event, pageObj.pager)\"\n     max-size=\"15\"\n     items-per-page=\"::$root._searchOpts.hits_per_page\"\n     previous-text=\"‹\" next-text=\"›\" first-text=\"«\" last-text=\"»\"\n     boundary-links=\"true\"\n     rotate=\"false\"\n     num-pages=\"$parent.numPages\"> </pagination>\n  <div class=\"page_input\"><span>{{'goto_page' | loc:lang}} </span>\n    <input ng-model=\"gotoPage\" ng-keyup=\"onPageInput($event, gotoPage, numPages)\"\n        ng-click=\"$event.stopPropagation()\" />\n    {{'of' | loc:lang}} {{numPages}}\n  </div>\n\n</div>"
     };
   });
 
@@ -577,7 +584,7 @@
         "variant": "@",
         "disableLemgramAutocomplete": "="
       },
-      template: "<div>\n    <script type=\"text/ng-template\" id=\"lemgramautocomplete.html\">\n        <a style=\"cursor:pointer\">\n            <span ng-class=\"{'autocomplete-item-disabled' : match.model.count == 0, 'none-to-find' : (match.model.variant != 'dalin' && match.model.count == 0)}\">\n                <span ng-if=\"match.model.parts.namespace\" class=\"label\">{{match.model.parts.namespace | loc}}</span>\n                <span>{{match.model.parts.main}}</span>\n                <sup ng-if=\"match.model.parts.index != 1\">{{match.model.parts.index}}</sup>\n                <span ng-if=\"match.model.parts.pos\">({{match.model.parts.pos}})</span>\n                <span ng-if=\"match.model.desc\" style=\"color:gray;margin-left:6px\">{{match.model.desc.main}}</span>\n                <sup ng-if=\"match.model.desc && match.model.desc.index != 1\" style=\"color:gray\">{{match.model.desc.index}}</sup>\n                <span class=\"num-to-find\" ng-if=\"match.model.count && match.model.count > 0\">\n                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{match.model.count}}\n                </span>\n            </span>\n        </a>\n    </script>\n    <div ng-show=\"!disableLemgramAutocomplete\">\n        <div style=\"float:left\"><input\n            class=\"autocomplete_searchbox\"\n            autofocus\n            type=\"text\" \n            ng-model=\"textInField\"\n            typeahead=\"row for row in getRows($viewValue)\"\n            typeahead-wait-ms=\"500\"\n            typeahead-template-url=\"lemgramautocomplete.html\"\n            typeahead-loading=\"isLoading\"\n            typeahead-on-select=\"selectedItem($item, $model, $label)\"\n            placeholder=\"{{placeholderToString(placeholder)}}\"></div>\n        <div style=\"margin-left:-20px;margin-top:2px;float:left\" ng-if=\"isLoading\"><i class=\"fa fa-spinner fa-pulse\"></i></div>\n    </div>\n    <div ng-show=\"disableLemgramAutocomplete\">\n        <div style=\"float:left\"> \n            <input class=\"standard_searchbox\" autofocus type=\"text\">\n        </div>\n    </div>\n</div>",
+      template: "<div>\n    <script type=\"text/ng-template\" id=\"lemgramautocomplete.html\">\n        <a style=\"cursor:pointer\">\n            <span ng-class=\"{'autocomplete-item-disabled' : match.model.count == 0, 'none-to-find' : (match.model.variant != 'dalin' && match.model.count == 0)}\">\n                <span ng-if=\"match.model.parts.namespace\" class=\"label\">{{match.model.parts.namespace | loc}}</span>\n                <span>{{match.model.parts.main}}</span>\n                <sup ng-if=\"match.model.parts.index != 1\">{{match.model.parts.index}}</sup>\n                <span ng-if=\"match.model.parts.pos\">({{match.model.parts.pos}})</span>\n                <span ng-if=\"match.model.desc\" style=\"color:gray;margin-left:6px\">{{match.model.desc.main}}</span>\n                <sup ng-if=\"match.model.desc && match.model.desc.index != 1\" style=\"color:gray\">{{match.model.desc.index}}</sup>\n                <span class=\"num-to-find\" ng-if=\"match.model.count && match.model.count > 0\">\n                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{match.model.count}}\n                </span>\n            </span>\n        </a>\n    </script>\n    <div ng-show=\"!disableLemgramAutocomplete\">\n        <div style=\"float:left\"><input\n            class=\"autocomplete_searchbox\"\n            autofocus\n            type=\"text\"\n            ng-model=\"textInField\"\n            typeahead=\"row for row in getRows($viewValue)\"\n            typeahead-wait-ms=\"500\"\n            typeahead-template-url=\"lemgramautocomplete.html\"\n            typeahead-loading=\"isLoading\"\n            typeahead-on-select=\"selectedItem($item, $model, $label)\"\n            placeholder=\"{{placeholderToString(placeholder)}}\"></div>\n        <div style=\"margin-left:-20px;margin-top:2px;float:left\" ng-if=\"isLoading\"><i class=\"fa fa-spinner fa-pulse\"></i></div>\n    </div>\n    <div ng-show=\"disableLemgramAutocomplete\">\n        <div style=\"float:left\">\n            <input class=\"standard_searchbox\" autofocus type=\"text\">\n        </div>\n    </div>\n</div>",
       link: function(scope, elem, attr) {
         c.log("autoc link", scope.model);
         scope.lemgramify = function(lemgram) {
@@ -725,7 +732,7 @@
         maxDate: "="
       },
       restrict: "E",
-      template: "<div>\n    <datepicker class=\"well well-sm\" ng-model=\"dateModel\" \n        min-date=\"minDate\" max-date=\"maxDate\" init-date=\"minDate\"\n        show-weeks=\"true\" starting-day=\"1\"></datepicker>\n\n    <div class=\"time\">\n        <i class=\"fa fa-3x fa-clock-o\"></i><timepicker class=\"timepicker\" ng-model=\"timeModel\" \n            hour-step=\"1\" minute-step=\"1\" show-meridian=\"false\"></timepicker>\n    </div>\n</div>",
+      template: "<div>\n    <datepicker class=\"well well-sm\" ng-model=\"dateModel\"\n        min-date=\"minDate\" max-date=\"maxDate\" init-date=\"minDate\"\n        show-weeks=\"true\" starting-day=\"1\"></datepicker>\n\n    <div class=\"time\">\n        <i class=\"fa fa-3x fa-clock-o\"></i><timepicker class=\"timepicker\" ng-model=\"timeModel\"\n            hour-step=\"1\" minute-step=\"1\" show-meridian=\"false\"></timepicker>\n    </div>\n</div>",
       link: function(s, elem, attr) {
         var time_units, w;
         s.isOpen = false;
@@ -748,6 +755,95 @@
             return s.model = m;
           }
         });
+      }
+    };
+  });
+
+  korpApp.directive('reduceSelect', function($timeout) {
+    return {
+      restrict: 'AE',
+      scope: {
+        items: '=reduceItems',
+        selected: '=reduceSelected',
+        insensitive: '=reduceInsensitive',
+        lang: '=reduceLang'
+      },
+      replace: true,
+      template: '<div dropdown auto-close="outsideClick" class="reduce-attr-select" on-toggle="toggled(open)">\n  <div dropdown-toggle class="reduce-dropdown-button inline_block ui-state-default">\n    <div class="reduce-dropdown-button-text">\n      <span>{{ "reduce_text" | loc:lang }}:</span>\n      <span>\n        {{keyItems[selected[0]].label | loc:lang}}\n      </span>\n      <span ng-if="selected.length > 1">\n        (+{{ numberAttributes - 1 }})\n      </span>\n      <span class="caret"></span>\n    </div>\n  </div>\n  <div class="reduce-dropdown-menu dropdown-menu">\n    <ul>\n      <li ng-click="toggleSelected(\'word\')" ng-class="keyItems[\'word\'].selected ? \'selected\':\'\'" class="attribute">\n        <input type="checkbox" class="reduce-check" ng-checked="keyItems[\'word\'].selected">\n        <span class="reduce-label">{{keyItems[\'word\'].label | loc:lang }}</span>\n        <span ng-class="keyItems[\'word\'].insensitive ? \'selected\':\'\'"\n              class="insensitive-toggle"\n              ng-click="toggleWordInsensitive($event)"><b>Aa</b></span>\n      </li>\n      <b ng-if="hasWordAttrs">{{\'word_attr\' | loc:lang}}</b>\n      <li ng-repeat="item in items | filter:{ group: \'word_attr\' }"\n          ng-click="toggleSelected(item.value)"\n          ng-class="item.selected ? \'selected\':\'\'" class="attribute">\n        <input type="checkbox" class="reduce-check" ng-checked="item.selected">\n        <span class="reduce-label">{{item.label | loc:lang }}</span>\n      </li>\n      <b ng-if="hasStructAttrs">{{\'sentence_attr\' | loc:lang}}</b>\n      <li ng-repeat="item in items | filter:{ group: \'sentence_attr\' }"\n          ng-click="toggleSelected(item.value)"\n          ng-class="item.selected ? \'selected\':\'\'" class="attribute">\n        <input type="checkbox" class="reduce-check" ng-checked="item.selected">\n        <span class="reduce-label">{{item.label | loc:lang }}</span>\n      </li>\n    </ul>\n  </div>\n</div>',
+      link: function(scope, element, attribute) {
+        var updateSelected;
+        scope.$watchCollection('items', (function() {
+          var insensitive, item, j, k, l, len1, len2, len3, ref, ref1, ref2, select;
+          if (scope.items) {
+            scope.keyItems = {};
+            ref = scope.items;
+            for (j = 0, len1 = ref.length; j < len1; j++) {
+              item = ref[j];
+              scope.keyItems[item.value] = item;
+            }
+            scope.hasWordAttrs = _.filter(scope.keyItems, {
+              'group': 'word_attr'
+            }).length > 0;
+            scope.hasStructAttrs = _.filter(scope.keyItems, {
+              'group': 'sentence_attr'
+            }).length > 0;
+            if (scope.selected && scope.selected.length > 0) {
+              ref1 = scope.selected;
+              for (k = 0, len2 = ref1.length; k < len2; k++) {
+                select = ref1[k];
+                item = scope.keyItems[select];
+                if (item) {
+                  item.selected = true;
+                }
+              }
+            } else {
+              scope.keyItems["word"].selected = true;
+            }
+            if (scope.insensitive) {
+              ref2 = scope.insensitive;
+              for (l = 0, len3 = ref2.length; l < len3; l++) {
+                insensitive = ref2[l];
+                scope.keyItems[insensitive].insensitive = true;
+              }
+            }
+            return updateSelected(scope);
+          }
+        }));
+        updateSelected = function(scope) {
+          scope.selected = _.pluck(_.filter(scope.keyItems, function(item, key) {
+            return item.selected;
+          }), "value");
+          return scope.numberAttributes = scope.selected.length;
+        };
+        scope.toggleSelected = function(value) {
+          var item;
+          item = scope.keyItems[value];
+          item.selected = !item.selected;
+          if (value === "word" && !item.selected) {
+            item.insensitive = false;
+            scope.insensitive = [];
+          }
+          return updateSelected(scope);
+        };
+        scope.toggleWordInsensitive = function(event) {
+          event.stopPropagation();
+          scope.keyItems["word"].insensitive = !scope.keyItems["word"].insensitive;
+          if (scope.keyItems["word"].insensitive) {
+            scope.insensitive = ["word"];
+          } else {
+            scope.insensitive = [];
+          }
+          if (!scope.keyItems["word"].selected) {
+            return scope.toggleSelected("word");
+          }
+        };
+        return scope.toggled = function(open) {
+          if (!open && scope.numberAttributes === 0) {
+            return $timeout((function() {
+              return scope.toggleSelected("word");
+            }), 0);
+          }
+        };
       }
     };
   });

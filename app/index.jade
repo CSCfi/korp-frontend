@@ -16,7 +16,7 @@ html
     //- link(rel='stylesheet', type='text/css', href='components/font-awesome/css/font-awesome.css')
 
     link(rel='stylesheet', type='text/css', href='components/leaflet/dist/leaflet.css')
-    link(rel='stylesheet', type='text/css', href='components/geokorp/dist/styles/geokorp.min.css')
+    link(rel='stylesheet', type='text/css', href='components/geokorp/dist/styles/geokorp.css')
     //- bower:css
     //- endbower
     // endbuild
@@ -287,7 +287,9 @@ html
 
     script(src='components/angular/angular.js')
 
-    script(src='components/angular-bootstrap/ui-bootstrap-tpls.js')
+    // warning: modified version of ui-bootstrap, see README in lib/angular-bootstrap
+    script(src='lib/angular-bootstrap/ui-bootstrap-tpls.js')
+    
     script(src='components/spin.js/spin.js')
     script(src='components/angular-spinner/angular-spinner.js')
     //- script(src='components/angular-slider/angular-slider.js')
@@ -336,11 +338,14 @@ html
     //- bower:js
     //- endbower
     script(src='components/angular-simple-logger/dist/index.js')
+    script(src='lib/leaflet-settings.js')
     script(src='components/leaflet/dist/leaflet.js')
     script(src='components/leaflet/dist/leaflet-src.js')
     script(src='components/angular-leaflet-directive/dist/angular-leaflet-directive.js')
     script(src='components/leaflet-providers/leaflet-providers.js')
-    script(src='components/geokorp/dist/scripts/geokorp.min.js')
+    script(src='components/geokorp/dist/scripts/geokorp-templates.js')
+    script(src='components/geokorp/dist/scripts/geokorp.js')
+    script(src='components/angular-filter/dist/angular-filter.js')
     // endbuild
     script(src='lib/jquery.tooltip.pack.js')
     script(src='components/d3/d3.min.js')
