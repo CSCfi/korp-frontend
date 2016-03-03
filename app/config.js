@@ -222,7 +222,7 @@ settings.placenameAttr = "lemma";
 // Additional CQP attribute constraints for place names:
 // different annotations for a proper name in different corpora
 settings.placenameConstraint =
-    "pos='PM' | msd='.*(SUBCAT_)?(Prop|PROP).*' | pos='n:prop'";
+    "pos='PM' | pos='NNP' | pos='NNPS' | msd='.*(SUBCAT_)?(Prop|PROP).*' | pos='n:prop'";
 
 // Initial map centre: latitude, longitude and zoom level
 settings.mapCenter = {
@@ -776,11 +776,11 @@ attrs.msd_sv = {
     opts : settings.defaultOptions,
     extended_template : '<input class="arg_value" ng-model="model" escaper>' +
     '<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
-    controller : function($scope, $modal) {
+    controller : function($scope, $uibModal) {
         var modal = null;
 
         $scope.onIconClick = function() {
-            modal = $modal.open({
+            modal = $uibModal.open({
                 template : '<div>' +
                                 '<div class="modal-header">' +
                                     '<h3 class="modal-title">{{\'msd_long\' | loc:lang}}</h3>' +
@@ -6633,3 +6633,9 @@ var fsv_aldrelagar = {
         text_date : {label : "date"}
     }
 };
+
+settings.mapCenter = {
+  lat: 62.99515845212052,
+  lng: 16.69921875,
+  zoom: 4
+}

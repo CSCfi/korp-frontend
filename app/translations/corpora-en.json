@@ -78,7 +78,7 @@
     "website": "website",
 
     "id": "id",
-    
+
     "organization": "organization",
 
     "imprintyear": "imprint year",
@@ -129,11 +129,11 @@
     "source": "source",
     "pagesource": "page source",
     "age": "age",
-    
+
     "language": "language",
     "languagefamily": "language family",
     "iso_code": "ISO code",
-    
+
     "lsi_classification": "LSI classification",
     "ethnologue_classification": "Ethnologue classification",
     "glottolog_classification": "Glottolog classification",
@@ -1374,5 +1374,14 @@
 
     "sendername" : "sender (name)",
     "sendermail" : "sender (e-mail)",
-    "receivername" : "receiver"
+    "receivername" : "receiver",
+
+    "country": "country",
+    "mediatype": "media type",
+    "consentid": "consent ID",
+    "speakerrole1": "speaker role (1)",
+    "speakerrole2": "speaker role (2)",
+    "speakerage": "speaker age",
+    "speakerregion": "speaker region",
+    "speakergender": "speaker gender"
 }

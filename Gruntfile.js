@@ -163,6 +163,9 @@ module.exports = function (grunt) {
         }]
       },
       server: {
+        options : {
+          force : true
+        },
         files: {
           src: [
           '.tmp',
@@ -409,7 +412,8 @@ module.exports = function (grunt) {
             'components/jquery-ui/themes/smoothness/jquery-ui.min.css',
             'components/geokorp/dist/data/places.json',
             'components/geokorp/dist/data/name_mapping.json',
-            'components/leaflet/dist/images/layers.png'
+            'components/leaflet/dist/images/layers.png',
+            'LICENSE'
           ]
         },
         {
