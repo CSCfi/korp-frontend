@@ -91,11 +91,11 @@
     "any_word_placeholder" : "<mikä tahansa sana>",
     "case_insensitive" : "samaista pien- ja suuraakkoset",
     "case_sensitive" : "erottele pien- ja suuraakkoset",
-    "reduce_text" : "laske tilastot tämän perusteella",
+    "reduce_text" : "laskentaperuste",
     "show_word_pic" : "Näytä sanakuva",
     "word_pic_warn" : "Sanakuva on poissa käytöstä. ",
     "word_pic_warn_btn" : "Aktivoi ja hae",
-    "word_pic_bad_search" : "Haustasi ei voi tuottaa sanakuvaa. Vain yksittäisten sanojen ja lemgrammien haut ovat tuettuja.",
+    "word_pic_bad_search" : "Haustasi ei voi tuottaa sanakuvaa. Sanakuvan saa vain yksinkertaisessa haussa yksittäisestä sananmuodosta tai lemgrammista (sanan perusmuodosta ja sanaluokasta).",
     "search_aborted" : "Haku keskeytettiin",
 
     "show_map" : "Näytä kartta",
@@ -229,6 +229,7 @@
     "word_insensitive" : "sana (pien- ja suuraakkoset samaistettu)",	
     "sentence_attr" : "Tekstin ominaisuudet",
     "word_attr" : "Sanan ominaisuudet",
+    "attr" : "ominaisuudet",
 
     "similar_header" : "Lähimerkityksisiä sanoja",
     "show_wordclass" : "Näytä sanaluokka",
