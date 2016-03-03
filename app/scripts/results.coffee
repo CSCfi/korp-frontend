@@ -1127,6 +1127,9 @@ class view.StatsResults extends BaseResults
                 @s.no_hits = true
             return
 
+        # The number of rows in the statistics table, excluding the sum
+        @s.stats_num_values = data.length - 1
+
         checkboxSelector = new Slick.CheckboxSelectColumn
             cssClass: "slick-cell-checkboxsel"
 

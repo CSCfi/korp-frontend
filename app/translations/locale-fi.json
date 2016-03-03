@@ -224,6 +224,8 @@
     "graph_material" : "Ajanjaksolta ei ole tietoja",
     "graph_material_tooltip" : "Valituissa korpuksissa ei ole aikatietoja harmaana näkyvillä ajanjaksoilla.",
 
+    "stats_num_results" : "Arvoja",
+
     "word_insensitive" : "sana (pien- ja suuraakkoset samaistettu)",	
     "sentence_attr" : "Tekstin ominaisuudet",
     "word_attr" : "Sanan ominaisuudet",

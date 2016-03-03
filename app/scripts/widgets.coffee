@@ -124,7 +124,8 @@ Sidebar =
 
     renderItem: (key, value, attrs, wordData, sentenceData, token_data) ->
 
-        if attrs.displayType == "hidden" or attrs.displayType == "date_interval"
+        if attrs.displayType in ["hidden", "date_interval"] or
+                attrs.displayOnly == "search"
             return ""
         if attrs.type == "url" and attrs?.url_opts?.hide_url
             # If url_opts.hide_url, hide the url and show the localized

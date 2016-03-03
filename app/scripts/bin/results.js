@@ -1374,6 +1374,7 @@
         })(this));
         return;
       }
+      this.s.stats_num_values = data.length - 1;
       checkboxSelector = new Slick.CheckboxSelectColumn({
         cssClass: "slick-cell-checkboxsel"
       });

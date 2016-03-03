@@ -172,6 +172,9 @@ class model.KWICProxy extends BaseProxy
         if data.cqp
             # data.cqp = @expandCQP(data.cqp)
             @addExpandedCQP data, data.cqp
+
+        util.addPrequeryWithin data
+
         # @prevCQP = data.cqp
         @prevCQP = util.combineCQPs data
         data.show = (_.uniq ["sentence"].concat(data.show)).join(",")
@@ -430,6 +433,7 @@ class model.StatsProxy extends BaseProxy
             incremental: $.support.ajaxProgress
         @addExpandedCQP parameters, cqp
         _.extend parameters, settings.corpusListing.getWithinParameters()
+        util.addPrequeryWithin parameters
         return parameters
 
     makeRequest: (cqp, callback) ->

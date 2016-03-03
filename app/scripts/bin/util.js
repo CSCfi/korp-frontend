@@ -413,7 +413,7 @@
         results = [];
         for (key in allAttrs) {
           obj = allAttrs[key];
-          if (obj.displayType !== "hidden") {
+          if (obj.displayType !== "hidden" && obj.displayOnly !== "sidebar") {
             results.push(_.extend({
               group: "word_attr",
               value: key
@@ -442,7 +442,7 @@
         results = [];
         for (key in ref) {
           obj = ref[key];
-          if (obj.displayType !== "hidden") {
+          if (obj.displayType !== "hidden" && obj.displayOnly !== "sidebar") {
             results.push(_.extend({
               group: "sentence_attr",
               value: key
@@ -455,6 +455,10 @@
         return util.getLocaleString(item.label);
       });
       return sentAttrs;
+    };
+
+    CorpusListing.prototype.getIgnoreBetweenTokens = function() {
+      return _(this.selected).pluck("ignore_between_tokens_cqp").uniq().compact().value();
     };
 
     CorpusListing.prototype.getAttributeGroups = function(lang) {
@@ -476,10 +480,6 @@
         return attr.displayType !== "date_interval";
       });
       return words.concat(attrs, sentAttrs);
-    };
-
-    CorpusListing.prototype.getIgnoreBetweenTokens = function() {
-      return _(this.selected).pluck("ignore_between_tokens_cqp").uniq().compact().value();
     };
 
     return CorpusListing;
@@ -1724,6 +1724,12 @@
         }
         return results;
       })()).join("||");
+    }
+  };
+
+  util.addPrequeryWithin = function(params) {
+    if (params.cqp1 && search().prequery_within) {
+      return params.defaultwithin = search().prequery_within;
     }
   };
 
