@@ -321,6 +321,7 @@
 
     "newsdesk-header" : "Uutisia",
 
+    "download_kwic" : "Lataa konkordanssi tiedostona …",
     "formatdescr_json" : "JavaScript Object Notation (raakamuoto)",
     "formatdescr_csv" : "Comma-Separated Values: pilkuilla erotetut arvot, virke per rivi, esim. taulukkolaskentaohjelmassa käsiteltäväksi. Joka rivillä on korpustunniste, osuman korpussijainti, vasen konteksti, hakuosuma, oikea konteksti sekä tekstin ominaisuudet. Hakuosuma ja kontekstit sisältävät saneet ilman attribuutteja.",
     "formatdescr_csvp" : "Comma-Separated Values: pilkuilla erotetut arvot, sane per rivi, esim. taulukkolaskentaohjelmassa käsiteltäväksi. Joka rivillä on sane attribuutteineen sekä mahdollinen hakuosumailmaisin. Osumavirkettä edeltää rivi, joka sisältää korpustunnisteen, osuman korpussijainnin ja virkkeen tekstiominaisuudet.",
