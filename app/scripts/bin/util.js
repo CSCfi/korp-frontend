@@ -834,7 +834,7 @@
   };
 
   util.setDownloadLinks = function(xhr_settings, result_data) {
-    var corpus_id, corpus_ids, download_params, format, get_corpus_num, i, j, link_id, result_corpora, result_corpora_settings;
+    var corpus_id, corpus_ids, download_params, format, get_corpus_num, i, j, option, result_corpora, result_corpora_settings;
     if (!((xhr_settings != null) && (result_data != null) && (result_data.corpus_order != null) && (result_data.kwic != null))) {
       c.log('failed to do setDownloadLinks');
       return;
@@ -857,11 +857,11 @@
       }
       i++;
     }
+    $('#download-links').append("<option value='init' rel='localize[download_kwic]'></option>");
     i = 0;
     while (i < settings.downloadFormats.length) {
       format = settings.downloadFormats[i];
-      link_id = format + '-link';
-      $('#download-links').append('<a href="javascript:" ' + ' id="' + link_id + '"' + ' title="' + format + '"' + ' rel="localize[formatdescr_' + format + ']"' + ' class="download_link"><img src="img/' + format + '.png" alt="' + format.toUpperCase() + '" /></a>');
+      option = $("<option \n    value=\"" + format + "\"\n    title=\"" + (util.getLocaleString('formatdescr_' + format)) + "\"\n    class=\"download_link\">" + (format.toUpperCase()) + "</option>");
       download_params = {
         query_params: JSON.stringify($.deparam.querystring(xhr_settings.url)),
         format: format,
@@ -879,15 +879,21 @@
           $.extend(download_params, settings.downloadFormatParams[format]);
         }
       }
-      $('#' + link_id).click((function(params) {
-        return function(e) {
-          $.generateFile(settings.download_cgi_script, params);
-          e.preventDefault();
-        };
-      })(download_params));
+      option.appendTo('#download-links').data("params", download_params);
       i++;
     }
-    $('#download-links').localize();
+    $('#download-links').localize().click(false).change(function(event) {
+      var params, self;
+      params = $(":selected", this).data("params");
+      if (!params) {
+        return;
+      }
+      $.generateFile(settings.download_cgi_script, params);
+      self = $(this);
+      return setTimeout(function() {
+        return self.val("init");
+      }, 1000);
+    });
   };
 
   util.searchHash = function(type, value) {

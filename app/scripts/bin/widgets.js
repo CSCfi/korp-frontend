@@ -23,14 +23,14 @@
       };
       if (!$.isEmptyObject(corpusObj.attributes)) {
         $("#selected_word").append($("<h4>").localeKey("word_attr"));
-        this.renderCorpusContent("pos", wordData, sentenceData, corpusObj.attributes, corpusObj.synthetic_attr_names.attributes, token_data, (ref1 = corpusObj._sidebar_display_order) != null ? ref1.attributes : void 0).appendTo("#selected_word");
+        this.renderCorpusContent("pos", wordData, sentenceData, corpusObj.attributes, tokens, corpusObj.synthetic_attr_names.attributes, token_data, (ref1 = corpusObj._sidebar_display_order) != null ? ref1.attributes : void 0).appendTo("#selected_word");
       }
       if (!$.isEmptyObject(corpusObj.struct_attributes)) {
         $("#selected_sentence").append($("<h4>").localeKey("sentence_attr"));
-        this.renderCorpusContent("struct", wordData, sentenceData, corpusObj.struct_attributes, corpusObj.synthetic_attr_names.struct_attributes, token_data, (ref2 = corpusObj._sidebar_display_order) != null ? ref2.struct_attributes : void 0).appendTo("#selected_sentence");
+        this.renderCorpusContent("struct", wordData, sentenceData, corpusObj.struct_attributes, tokens, corpusObj.synthetic_attr_names.struct_attributes, token_data, (ref2 = corpusObj._sidebar_display_order) != null ? ref2.struct_attributes : void 0).appendTo("#selected_sentence");
       }
       if (!$.isEmptyObject(corpusObj.custom_attributes)) {
-        ref3 = this.renderCustomContent(wordData, sentenceData, corpusObj.custom_attributes), word = ref3[0], sentence = ref3[1];
+        ref3 = this.renderCustomContent(wordData, sentenceData, corpusObj.custom_attributes, tokens), word = ref3[0], sentence = ref3[1];
         word.appendTo("#selected_word");
         sentence.appendTo("#selected_sentence");
       }
@@ -65,7 +65,7 @@
         }).parent().find(".ui-dialog-title").localeKey("dep_tree");
       }).appendTo(this.element);
     },
-    renderCorpusContent: function(type, wordData, sentenceData, corpus_attrs, synthetic_attr_names, token_data, attr_order) {
+    renderCorpusContent: function(type, wordData, sentenceData, corpus_attrs, tokens, synthetic_attr_names, token_data, attr_order) {
       var i, item, items, key, len, order, pairs, ref, ref1, synthetic, val, value;
       if (type === "struct" || type === "link") {
         pairs = _.pairs(sentenceData);
@@ -93,7 +93,7 @@
         for (j = 0, len1 = pairs.length; j < len1; j++) {
           ref2 = pairs[j], key = ref2[0], value = ref2[1];
           if (corpus_attrs[key]) {
-            results.push(this.renderItem(key, value, corpus_attrs[key], wordData, sentenceData, token_data));
+            results.push(this.renderItem(key, value, corpus_attrs[key], wordData, sentenceData, tokens, token_data));
           }
         }
         return results;
@@ -104,7 +104,7 @@
           results = [];
           for (j = 0, len1 = synthetic_attr_names.length; j < len1; j++) {
             key = synthetic_attr_names[j];
-            results.push(this.renderItem(key, null, corpus_attrs[key], wordData, sentenceData, token_data));
+            results.push(this.renderItem(key, null, corpus_attrs[key], wordData, sentenceData, tokens, token_data));
           }
           return results;
         }).call(this);
@@ -112,13 +112,13 @@
       }
       return $(items);
     },
-    renderCustomContent: function(wordData, sentenceData, corpus_attrs) {
+    renderCustomContent: function(wordData, sentenceData, corpus_attrs, tokens) {
       var attrs, key, output, pos_items, struct_items;
       struct_items = [];
       pos_items = [];
       for (key in corpus_attrs) {
         attrs = corpus_attrs[key];
-        output = this.renderItem(key, null, attrs, wordData, sentenceData);
+        output = this.renderItem(key, null, attrs, wordData, sentenceData, tokens);
         if (attrs.custom_type === "struct") {
           struct_items.push(output);
         } else if (attrs.custom_type === "pos") {
@@ -127,7 +127,7 @@
       }
       return [$(pos_items), $(struct_items)];
     },
-    renderItem: function(key, value, attrs, wordData, sentenceData, token_data) {
+    renderItem: function(key, value, attrs, wordData, sentenceData, tokens, token_data) {
       var address, getStringVal, inner, itr, li, link_text, lis, output, pattern, prefix, ref, ref1, ref2, ref3, ref4, ref5, str_value, taginfo_url, target, ul, url, val, valueArray, x;
       if (((ref = attrs.displayType) === "hidden" || ref === "date_interval") || attrs.displayOnly === "search") {
         return "";
@@ -141,7 +141,7 @@
         output = $("<p><span rel='localize[" + attrs.label + "]'></span>: </p>");
       }
       if (attrs.renderItem) {
-        return output.append(attrs.renderItem(key, value, attrs, wordData, sentenceData));
+        return output.append(attrs.renderItem(key, value, attrs, wordData, sentenceData, tokens));
       }
       output.data("attrs", attrs);
       if (value == null) {

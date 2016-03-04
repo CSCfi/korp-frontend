@@ -1,6 +1,4 @@
-
 settings.wordpicture = false;
-// settings.statistics = false;
 var start_lang = "fin";
 
 korpApp.controller("SearchCtrl", function($scope) {
@@ -9,128 +7,127 @@ korpApp.controller("SearchCtrl", function($scope) {
 
     $scope.settings = settings
     $scope.showStats = function() {
-        // c.log "showstats", settings.statistics, settings.statistics != false
         return settings.statistics != false
-    	
     }
 });
+
 korpApp.controller("ParallelSearch", function($scope, $location, $rootScope, $timeout, searches) {
-	var s = $scope;
-	s.negates = [];
+    var s = $scope;
+    s.negates = [];
 
-	if($location.search().parallel_corpora)
-		s.langs = _.map($location.search().parallel_corpora.split(","), function(lang) {
-			var obj = {lang : lang};
-			if(search()["cqp_" + lang])
-				obj.cqp = search()["cqp_" + lang];
-			return obj;
-		})
+    if($location.search().parallel_corpora)
+        s.langs = _.map($location.search().parallel_corpora.split(","), function(lang) {
+            var obj = {lang : lang};
+            if(search()["cqp_" + lang])
+                obj.cqp = search()["cqp_" + lang];
+            return obj;
+        })
 
-	else
-		s.langs = [{lang : "fin"}];
-	s.negChange = function() {
-		$location.search("search", null)
-	}
-	c.log ("add langs watch")
-	var onLangChange = function() {
-		var currentLangList = _.pluck(s.langs, "lang");
-		c.log("lang change", currentLangList)
-		settings.corpusListing.setActiveLangs(currentLangList);
-		$location.search("parallel_corpora", currentLangList.join(","))
-		var struct = settings.corpusListing.getLinksFromLangs(currentLangList);
-		function getLangMapping(excludeLangs) {
-			return _(struct)
-				.flatten()
-				.filter(function(item) {
-					return !_.contains(excludeLangs, item.lang);
-				}).groupBy("lang").value()
-		}
+    else
+        s.langs = [{lang : "fin"}];
+    s.negChange = function() {
+        $location.search("search", null)
+    }
+    c.log ("add langs watch")
+    var onLangChange = function() {
+        var currentLangList = _.pluck(s.langs, "lang");
+        c.log("lang change", currentLangList)
+        settings.corpusListing.setActiveLangs(currentLangList);
+        $location.search("parallel_corpora", currentLangList.join(","))
+        var struct = settings.corpusListing.getLinksFromLangs(currentLangList);
+        function getLangMapping(excludeLangs) {
+            return _(struct)
+                .flatten()
+                .filter(function(item) {
+                    return !_.contains(excludeLangs, item.lang);
+                }).groupBy("lang").value()
+        }
 
-		try {
-			var output = CQP.expandOperators(s.langs[0].cqp);
-		} catch(e) {
-			c.log("parallel cqp parsing error", e)
-			return
-		}
-		output += _.map(s.langs.slice(1), function(langobj, i) {
-			var neg = s.negates[i + 1] ? "!" : "";
-			var langMapping = getLangMapping(currentLangList.slice(0, i + 1));
-			var linkedCorpus = _(langMapping[langobj.lang]).pluck("id").invoke("toUpperCase").join("|");
-			
-			try {
-				var expanded = CQP.expandOperators(langobj.cqp);
-			} catch(e) {
-				c.log("parallel cqp parsing error", e)
-				return
-			}
-			return ":LINKED_CORPUS:" + linkedCorpus + " " + neg + " " + expanded; 
-		}).join("");
+        try {
+            var output = CQP.expandOperators(s.langs[0].cqp);
+        } catch(e) {
+            c.log("parallel cqp parsing error", e)
+            return
+        }
+        output += _.map(s.langs.slice(1), function(langobj, i) {
+            var neg = s.negates[i + 1] ? "!" : "";
+            var langMapping = getLangMapping(currentLangList.slice(0, i + 1));
+            var linkedCorpus = _(langMapping[langobj.lang]).pluck("id").invoke("toUpperCase").join("|");
 
-		_.each(s.langs, function(langobj, i) {
-			search("cqp_" + langobj.lang , langobj.cqp);
-		})
-		$rootScope.extendedCQP = output;
-		s.$broadcast("corpuschooserchange")
-		searches.langDef.resolve()
-		return output
-	}
-	s.$watch("langs", function() {
-		onLangChange()
-		
-	}, true);
+            try {
+                var expanded = CQP.expandOperators(langobj.cqp);
+            } catch(e) {
+                c.log("parallel cqp parsing error", e)
+                return
+            }
+            return ":LINKED_CORPUS:" + linkedCorpus + " " + neg + " " + expanded;
+        }).join("");
 
+        _.each(s.langs, function(langobj, i) {
+            search("cqp_" + langobj.lang , langobj.cqp);
+        })
+        $rootScope.extendedCQP = output;
+        s.$broadcast("corpuschooserchange")
+        searches.langDef.resolve()
+        return output
+    }
+    s.$watch("langs", function() {
+        onLangChange()
 
-	s.onSubmit = function() {
-		$location.search("search", null)
-		$timeout( function() {
-		    // $location.search("search", "cqp|" + onLangChange())
-		    util.searchHash("cqp", onLangChange())
-	    	c.log ("onLangChange", onLangChange())
-		}, 300) // <--
-		// TODO: this is a little hacky. 
-		// if changed, look at ng-model-option debounce value as well
-	}	
+    }, true);
 
 
-	s.keydown = function($event) {
-		if($event.keyCode == 13) { // enter
-			// _.defer()
-			var current = $(".arg_value:focus")
-			c.log( "current", current)
-			if(current.length) {
+    s.onSubmit = function() {
+        $location.search("search", null)
+        $timeout( function() {
+            // $location.search("search", "cqp|" + onLangChange())
+            util.searchHash("cqp", onLangChange())
+            c.log ("onLangChange", onLangChange())
+        }, 300) // <--
+        // TODO: this is a little hacky.
+        // if changed, look at ng-model-option debounce value as well
+    }
 
-				$timeout(function() {
-					s.onSubmit()
-				}, 0)
-				
-			}
-		} 
-	}
 
-	s.getEnabledLangs = function(i) {
-		if(i === 0) {
-			return _(settings.corpusListing.getLinksFromLangs([start_lang])).flatten()
-			.pluck("lang").unique().value();
-			
-		}
-		var currentLangList = _.pluck(s.langs, "lang");
-		delete currentLangList[i];
-		var firstlang;
-		if(s.langs.length)
-			 firstlang = s.langs[0].lang
-		var other =  _(settings.corpusListing.getLinksFromLangs([firstlang || start_lang]))
-			.flatten()
-			.pluck("lang").unique().value();
+    s.keydown = function($event) {
+        if($event.keyCode == 13) { // enter
+            // _.defer()
+            var current = $(".arg_value:focus")
+            c.log( "current", current)
+            if(current.length) {
 
-		return _.difference(other, currentLangList);
+                $timeout(function() {
+                    s.onSubmit()
+                }, 0)
 
-	};
-	s.addLangRow = function() {
-		s.langs.push({lang : s.getEnabledLangs()[0]})
-	}
-	s.removeLangRow = function(i) {
-		s.langs.pop();
-	}
+            }
+        }
+    }
+
+    s.getEnabledLangs = function(i) {
+        if(i === 0) {
+            return _(settings.corpusListing.getLinksFromLangs([start_lang])).flatten()
+            .pluck("lang").unique().value();
+
+        }
+        var currentLangList = _.pluck(s.langs, "lang");
+        delete currentLangList[i];
+        var firstlang;
+        if(s.langs.length)
+             firstlang = s.langs[0].lang
+        var other =  _(settings.corpusListing.getLinksFromLangs([firstlang || start_lang]))
+            .flatten()
+            .pluck("lang").unique().value();
+
+        return _.difference(other, currentLangList);
+
+    };
+    s.addLangRow = function() {
+        s.langs.push({lang : s.getEnabledLangs()[0]})
+    }
+    s.removeLangRow = function(i) {
+        s.langs.pop();
+    }
 
 });
 
@@ -139,88 +136,87 @@ $("#num_hits").prepend("<option value='10'>10</option>");
 
 var c3 = view.KWICResults.prototype.constructor
 view.KWICResults = Subclass(view.KWICResults, function() {
-	c3.apply(this, arguments);
-	this.selected = []
+    c3.apply(this, arguments);
+    this.selected = []
 }, {
 
-	selectWord : function(word, scope, sentence) {
-		// c.log ("word, scope, sentence", word, scope, sentence)
-		c3.prototype.selectWord.apply(this, arguments)
-		this.clearLinks()
-		var self = this
-		var obj = scope.wd
+    selectWord : function(word, scope, sentence) {
+        // c.log ("word, scope, sentence", word, scope, sentence)
+        c3.prototype.selectWord.apply(this, arguments)
+        this.clearLinks()
+        var self = this
+        var obj = scope.wd
 
-		if(!obj.linkref) return
+        if(!obj.linkref) return
 
-		var corpus = settings.corpusListing.get(sentence.corpus)
+        var corpus = settings.corpusListing.get(sentence.corpus)
 
-		function findRef(ref, sentence) {
-			var out = null
-			_.each(sentence, function(word) {
-				if(word.linkref == ref.toString()) {
-					out = word
-					return false
-				}
-			})
-			return out
-		}
+        function findRef(ref, sentence) {
+            var out = null
+            _.each(sentence, function(word) {
+                if(word.linkref == ref.toString()) {
+                    out = word
+                    return false
+                }
+            })
+            return out
+        }
 
 
-		if(sentence.isLinked){ // a secondary language was clicked
-			var sent_index = scope.$parent.$index
-			// c.log ("sent_index", sent_index)
-			var data = this.getActiveData()
-			var mainSent = null
-			while(data[sent_index]) {
-			 	var sent = data[sent_index]
-			 	if(!sent.isLinked) {
-			 		mainSent = sent
-			 		break
-			 	}
-				sent_index--
-			}
+        if(sentence.isLinked){ // a secondary language was clicked
+            var sent_index = scope.$parent.$index
+            // c.log ("sent_index", sent_index)
+            var data = this.getActiveData()
+            var mainSent = null
+            while(data[sent_index]) {
+                 var sent = data[sent_index]
+                 if(!sent.isLinked) {
+                     mainSent = sent
+                     break
+                 }
+                sent_index--
+            }
 
- 			// c.log( "mainSent", mainSent)
- 			var linkNum = Number(obj.linkref)
- 			var lang = corpus.id.split("-")[1]
- 			var mainCorpus = mainSent.corpus.split("-")[0]
+             // c.log( "mainSent", mainSent)
+             var linkNum = Number(obj.linkref)
+             var lang = corpus.id.split("-")[1]
+             var mainCorpus = mainSent.corpus.split("-")[0]
 
-			_.each(mainSent.tokens, function(token) {
-				var refs = _.map(_.compact(token["wordlink-" + lang].split("|")), Number)
-				if(_.contains(refs, linkNum)) {
-					token._link_selected = true
-					self.selected.push(token)
-				}
-			})
+            _.each(mainSent.tokens, function(token) {
+                var refs = _.map(_.compact(token["wordlink-" + lang].split("|")), Number)
+                if(_.contains(refs, linkNum)) {
+                    token._link_selected = true
+                    self.selected.push(token)
+                }
+            })
 
-		} else {
-			var links = _.pick(obj, function(val, key) {
-				return _.str.startsWith(key, "wordlink")
-			})
-			_.each(links, function(val, key) {
-				var wordsToLink = _.each(_.compact(val.split("|")), function(num) {
-					var lang = key.split("-")[1]
-					var mainCorpus = corpus.id.split("-")[0]
+        } else {
+            var links = _.pick(obj, function(val, key) {
+                return _.str.startsWith(key, "wordlink")
+            })
+            _.each(links, function(val, key) {
+                var wordsToLink = _.each(_.compact(val.split("|")), function(num) {
+                    var lang = key.split("-")[1]
+                    var mainCorpus = corpus.id.split("-")[0]
 
-					var link = findRef(num, sentence.aligned[mainCorpus + "-" + lang])
-					link._link_selected = true
-					self.selected.push(link)
-					
-				})
-			})
+                    var link = findRef(num, sentence.aligned[mainCorpus + "-" + lang])
+                    link._link_selected = true
+                    self.selected.push(link)
 
-		}
+                })
+            })
 
-		safeApply($("body").scope(), $.noop)
-		
-	},
+        }
+        safeApply($("body").scope(), $.noop)
 
-	clearLinks : function() {
-		_.each(this.selected, function(word) {
-			delete word._link_selected
-		})
-		this.selected = []
-	}
+    },
+
+    clearLinks : function() {
+        _.each(this.selected, function(word) {
+            delete word._link_selected
+        })
+        this.selected = []
+    }
 });
 
 // model.StatsProxy.prototype.makeRequest = function(){};
@@ -229,21 +225,22 @@ settings.primaryColor = "#FFF3D8";
 settings.primaryLight = "#FFF9EE";
 
 var context = {
-	"defaultAligned" : {
-		"1 sentence" : "1 sentence"
-	},
+    "defaultAligned" : {
+        // "1 link" : "1 link"
+        "1 sentence" : "1 sentence"
+    },
 /*
-    	"sentenceAligned" : {
-    	    "1 sentence" : "1 sentence"
-    	},
+    "sentenceAligned" : {
+        "1 sentence" : "1 sentence"
+    },
     "spContext" : {
-    	"1 sentence" : "1 sentence",
-    	"1 paragraph" : "1 paragraph"
+        "1 sentence" : "1 sentence",
+        "1 paragraph" : "1 paragraph"
     },
 */
-    	"alignAligned" : {
-    		"1 align" : "1 align"
-    	}
+    "alignAligned" : {
+        "1 align" : "1 align"
+    }
 };
 
 settings.preselected_corpora = ["europarl_v7_enfi_fi", "mulcold_fi"];

@@ -25,6 +25,8 @@ Sidebar =
         $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>#{corpusObj.title}</p><p id='sidebar-corpus-info'>#{formattedCorpusInfo}</p>").prependTo "#selected_sentence"
         # All token data, to be passed to the function stringify_synthtetic
         # of a synthetic attribute (Jyrki Niemi 2015-02-24)
+        # TODO (Jyrki Niemi): This could now be removed as Språkbanken's code
+        # also passes tokens to @renderCorpusContent and @renderCustomContent
         token_data =
             pos_attrs : wordData
             struct_attrs : sentenceData
@@ -33,7 +35,7 @@ Sidebar =
             $("#selected_word").append $("<h4>").localeKey("word_attr")
 
             @renderCorpusContent("pos", wordData, sentenceData,
-                corpusObj.attributes,
+                corpusObj.attributes, tokens,
                 corpusObj.synthetic_attr_names.attributes, token_data,
                 corpusObj._sidebar_display_order?.attributes)
             .appendTo "#selected_word"
@@ -41,13 +43,13 @@ Sidebar =
             $("#selected_sentence").append $("<h4>").localeKey("sentence_attr")
 
             @renderCorpusContent("struct", wordData, sentenceData,
-                corpusObj.struct_attributes,
+                corpusObj.struct_attributes, tokens,
                 corpusObj.synthetic_attr_names.struct_attributes, token_data,
                 corpusObj._sidebar_display_order?.struct_attributes)
             .appendTo "#selected_sentence"
 
         unless $.isEmptyObject(corpusObj.custom_attributes)
-            [word, sentence] = @renderCustomContent(wordData, sentenceData, corpusObj.custom_attributes)
+            [word, sentence] = @renderCustomContent(wordData, sentenceData, corpusObj.custom_attributes, tokens)
             word.appendTo "#selected_word"
             sentence.appendTo "#selected_sentence"
 
@@ -85,7 +87,7 @@ Sidebar =
 
         ).appendTo(@element)
 
-    renderCorpusContent: (type, wordData, sentenceData, corpus_attrs,
+    renderCorpusContent: (type, wordData, sentenceData, corpus_attrs, tokens,
                           synthetic_attr_names, token_data, attr_order) ->
         if type == "struct" or type == "link"
             pairs = _.pairs(sentenceData)
@@ -101,28 +103,28 @@ Sidebar =
         pairs.sort ([a], [b]) ->
             $.inArray(b, order) - $.inArray(a, order)
         items = for [key, value] in pairs when corpus_attrs[key]
-            @renderItem key, value, corpus_attrs[key], wordData, sentenceData, token_data
+            @renderItem key, value, corpus_attrs[key], wordData, sentenceData, tokens, token_data
 
         # Append possible synthetic attributes (Jyrki Niemi 2015-02-24)
         if synthetic_attr_names.length
             synthetic = for key in synthetic_attr_names
-                @renderItem key, null, corpus_attrs[key], wordData, sentenceData, token_data
+                @renderItem key, null, corpus_attrs[key], wordData, sentenceData, tokens, token_data
             items = items.concat(synthetic)
 
         return $(items)
 
-    renderCustomContent: (wordData, sentenceData, corpus_attrs) ->
+    renderCustomContent: (wordData, sentenceData, corpus_attrs, tokens) ->
         struct_items = []
         pos_items = []
         for key, attrs of corpus_attrs
-            output = @renderItem(key, null, attrs, wordData, sentenceData)
+            output = @renderItem(key, null, attrs, wordData, sentenceData, tokens)
             if attrs.custom_type == "struct"
                 struct_items.push output
             else if attrs.custom_type == "pos"
                 pos_items.push output
         return [$(pos_items), $(struct_items)]
 
-    renderItem: (key, value, attrs, wordData, sentenceData, token_data) ->
+    renderItem: (key, value, attrs, wordData, sentenceData, tokens, token_data) ->
 
         if attrs.displayType in ["hidden", "date_interval"] or
                 attrs.displayOnly == "search"
@@ -136,7 +138,7 @@ Sidebar =
         else
             output = $("<p><span rel='localize[#{attrs.label}]'></span>: </p>")
         if attrs.renderItem
-            return output.append(attrs.renderItem key, value, attrs, wordData, sentenceData)
+            return output.append(attrs.renderItem key, value, attrs, wordData, sentenceData, tokens)
 
         output.data("attrs", attrs)
         # Convert an undefined value to the empty string (Jyrki Niemi

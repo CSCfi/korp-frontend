@@ -1371,6 +1371,8 @@
     "topic" : "topic",
     "topicid" : "topic ID",
     "document_id" : "document ID",
+    "author_signature" : "author signature",
+    "amount_answers" : "amount of answers",
 
     "sendername" : "sender (name)",
     "sendermail" : "sender (e-mail)",
@@ -1383,5 +1385,11 @@
     "speakerrole2": "speaker role (2)",
     "speakerage": "speaker age",
     "speakerregion": "speaker region",
-    "speakergender": "speaker gender"
+    "speakergender": "speaker gender",
+    "video": "video",
+    "video_restart": "Restart",
+    "video_continue": "Continue",
+    "video_start_time": "Start time",
+    "video_end_time": "End time",
+    "video_utterance": "Utterance"
 }

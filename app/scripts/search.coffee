@@ -293,7 +293,7 @@ class view.SimpleSearch extends BaseSearch
             val = "[lex contains '#{lemgram}'"
 
             if @isSearchPrefix()
-                val += " | prefix contains '#{lemgram}' "
+                val += " | prefix contains '#{lemgram}'"
             if @isSearchSuffix()
                 val += " | suffix contains '#{lemgram}'"
 

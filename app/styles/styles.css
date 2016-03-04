@@ -6179,3 +6179,57 @@ li.active a span .num-to-find {
 .reduce-attr-select .reduce-dropdown-menu .insensitive-toggle.selected {
   color: grey;
 }
+
+/* sidebar video */
+/* line 2875, styles.scss */
+#video-container {
+  height: 320px;
+  width: 568px;
+  position: relative;
+}
+/* line 2879, styles.scss */
+#video-container #extra-controls {
+  height: 320px;
+  width: 568px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+/* line 2887, styles.scss */
+#video-container #extra-controls > * {
+  width: 75px;
+  height: 75px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+/* line 2897, styles.scss */
+#video-container #extra-controls .restart {
+  top: 35%;
+  left: 25%;
+}
+/* line 2901, styles.scss */
+#video-container #extra-controls .continue {
+  top: 35%;
+  right: 25%;
+  float: right;
+}
+/* line 2906, styles.scss */
+#video-container #extra-controls .restart-icon, #video-container #extra-controls .continue-icon {
+  font-size: 3em;
+  display: block;
+}
+
+/* line 2913, styles.scss */
+#video-meta-container .utterance, #video-meta-container .time {
+  font-weight: bold;
+}
+/* line 2916, styles.scss */
+#video-meta-container .time-div {
+  padding-top: 15px;
+}
