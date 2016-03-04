@@ -145,11 +145,11 @@ html
                     include includes/mapresult
                 //- Copied and modified from the word picture tab
                 //- (Jyrki Niemi 2015-05-29)
-                tab(ng-if="_settings.name_classification", 
-                    ng-controller="NameClassificationCtrl",
+                uib-tab(ng-if="_settings.name_classification",
+                    name-classification-ctrl,
                     select="instance.onentry()",
                     deselect="instance.onexit()")
-                  tab-heading(ng-class="{not_loading: progress > 99, loading : loading, single: loading && instance.countCorpora() < 2 }")
+                  uib-tab-heading(ng-class="{not_loading: progress > 99, loading : loading, single: loading && instance.countCorpora() < 2 }")
                     | {{'name_classification' | loc:lang}}
                     tab-preloader(ng-if="loading", value="progress", spinner="instance.countCorpora() < 2")
                   //- div.wordpic_disabled(ng-if="!word_pic")

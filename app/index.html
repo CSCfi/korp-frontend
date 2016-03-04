@@ -316,14 +316,14 @@
                     </div>
                   </div>
                 </uib-tab>
-                <tab ng-if="_settings.name_classification" ng-controller="NameClassificationCtrl" select="instance.onentry()" deselect="instance.onexit()">
-                  <tab-heading ng-class="{not_loading: progress &gt; 99, loading : loading, single: loading &amp;&amp; instance.countCorpora() &lt; 2 }">{{'name_classification' | loc:lang}}
+                <uib-tab ng-if="_settings.name_classification" name-classification-ctrl select="instance.onentry()" deselect="instance.onexit()">
+                  <uib-tab-heading ng-class="{not_loading: progress &gt; 99, loading : loading, single: loading &amp;&amp; instance.countCorpora() &lt; 2 }">{{'name_classification' | loc:lang}}
                     <tab-preloader ng-if="loading" value="progress" spinner="instance.countCorpora() &lt; 2"></tab-preloader>
-                  </tab-heading>
+                  </uib-tab-heading>
                   <div constr="NameClassificationResults" constr-name="nameClassificationResults">
                     <div ng-show="true" class="name_content_target"></div>
                   </div>
-                </tab>
+                </uib-tab>
                 <uib-tab active="active" example-ctrl ng-repeat="queryParams in kwicTabs" select="instance.onentry()" deselect="instance.onexit()">
                   <uib-tab-heading ng-class="{not_loading: progress == 100, loading : !instance.hasData}">{{'kwic' | loc:lang}}<span ng-click="$event.preventDefault();kwicTabs.splice($index, 1)" tab-spinner="tab-spinner"></span></uib-tab-heading>
                   <div ng-class="{reading_mode : reading_mode, not_loading: !loading, loading : loading}" constr="ExampleResults" class="results-kwic">

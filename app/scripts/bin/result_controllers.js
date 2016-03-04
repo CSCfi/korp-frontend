@@ -661,19 +661,23 @@
     };
   });
 
-  korpApp.controller("NameClassificationCtrl", function($scope, $location, utils, searches) {
-    c.log("NameClassificationCtrl");
-    $scope.name_class = $location.search().name_class != null;
-    $scope.$watch((function() {
-      return $location.search().name_class;
-    }), function(val) {
-      return $scope.name_class = Boolean(val);
-    });
-    return $scope.activate = function() {
-      var search;
-      c.log("NameClassificationCtrl.activate: $location", $location);
-      search = searches.activeSearch;
-      return $scope.instance.makeRequest(search.val, search.type);
+  korpApp.directive("nameClassificationCtrl", function() {
+    return {
+      controller: function($scope, $location, utils, searches) {
+        c.log("NameClassificationCtrl");
+        $scope.name_class = $location.search().name_class != null;
+        $scope.$watch((function() {
+          return $location.search().name_class;
+        }), function(val) {
+          return $scope.name_class = Boolean(val);
+        });
+        return $scope.activate = function() {
+          var search;
+          c.log("NameClassificationCtrl.activate: $location", $location);
+          search = searches.activeSearch;
+          return $scope.instance.makeRequest(search.val, search.type);
+        };
+      }
     };
   });
 
