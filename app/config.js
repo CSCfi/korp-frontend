@@ -2022,7 +2022,15 @@ settings.corpora.tiedelehdet_kulttuurintutkimus = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_citationabstracthtmlurl : sattrs.link_lehdet,
         text_citationauthors : {
@@ -2051,7 +2059,15 @@ settings.corpora.tiedelehdet_matkailututkimus = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_citationabstracthtmlurl : sattrs.link_lehdet,
         text_citationauthors : {
@@ -2080,7 +2096,15 @@ settings.corpora.tiedelehdet_kunnallistiede = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_citationabstracthtmlurl : sattrs.link_lehdet,
         text_citationauthors : {
@@ -2109,7 +2133,15 @@ settings.corpora.tiedelehdet_maaseudunuusiaika = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         /*text_title : sattrs.text_title,*/
         text_url : sattrs.link_lehdet,
@@ -2170,7 +2202,15 @@ settings.corpora.tiedelehdet_lounaishame = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet,
@@ -2206,7 +2246,15 @@ settings.corpora.tiedelehdet_liiketalous = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet,
@@ -2353,7 +2401,15 @@ settings.corpora.tiedelehdet_historiallinen = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_citationabstracthtmlurl : sattrs.link_lehdet,
         text_citationauthors : {
@@ -2705,7 +2761,15 @@ settings.corpora.tiedelehdet_kognitiivinen = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_url : sattrs.link_lehdet
     }
