@@ -248,10 +248,10 @@ var context = {
 
 settings.preselected_corpora = ["europarl_v7_enfi_fi", "mulcold_fi"];
 
-settings.defaultOverviewContext = "1 link"
-settings.defaultReadingContext = "1 link"
+settings.defaultOverviewContext = "1 sentence"
+settings.defaultReadingContext = "1 sentence"
 
-settings.defaultWithin = { "link": "link" };
+settings.defaultWithin = { "sentence": "sentence" };
 
 settings.corporafolders = {};
 
