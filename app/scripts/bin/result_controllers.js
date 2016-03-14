@@ -360,9 +360,13 @@
       return s.rowClick = function(row, cmp_index) {
         var cmp, cqp, cqps, k, opts, ref, results, splitTokens, tokenLength, tokens;
         cmp = cmps[cmp_index];
-        splitTokens = _.map(row.elems, function(elem) {
+        splitTokens = _.map(row.elems, function(elem, elemIdx) {
           return _.map(elem.split("/"), function(tokens) {
-            return tokens.split(" ");
+            if (attributes[reduce[elemIdx]].isStructAttr) {
+              return [tokens];
+            } else {
+              return tokens.split(" ");
+            }
           });
         });
         tokenLength = splitTokens[0][0].length;
