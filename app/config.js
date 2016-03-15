@@ -1684,7 +1684,7 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.lehdet.tiedelehdet = {
     title : "Tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_elo", "tiedelehdet_geofoorumi", "tiedelehdet_glossae", "tiedelehdet_harukaze", "tiedelehdet_havina", "tiedelehdet_historiallinen", "tiedelehdet_kognitiivinen", "tiedelehdet_kompositio", "tiedelehdet_kulttuurintutkimus", "tiedelehdet_kunnallistiede", "tiedelehdet_liiketalous", "tiedelehdet_lounaishame", "tiedelehdet_maaseudunuusiaika", "tiedelehdet_matkailututkimus", "tiedelehdet_metsatiede", "tiedelehdet_musiikkikasv", "tiedelehdet_nimi", "tiedelehdet_prologi", "tiedelehdet_psykologia", "tiedelehdet_rakmek", "tiedelehdet_ruralia", "tiedelehdet_thanatos", "tiedelehdet_toksikologi", "tiedelehdet_transmitteri", "tiedelehdet_trio", "tiedelehdet_tyoelama", "tiedelehdet_ura", "tiedelehdet_walbum", "tiedelehdet_virittaja", "tiedelehdet_ymparistohistoria"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_elo", "tiedelehdet_geofoorumi", "tiedelehdet_glossae", "tiedelehdet_harukaze", "tiedelehdet_havina", "tiedelehdet_historiallinen", "tiedelehdet_kognitiivinen", "tiedelehdet_kompositio", "tiedelehdet_kulttuurintutkimus", "tiedelehdet_kulutustutkimus", "tiedelehdet_kunnallistiede", "tiedelehdet_liiketalous", "tiedelehdet_lounaishame", "tiedelehdet_maaseudunuusiaika", "tiedelehdet_matkailututkimus", "tiedelehdet_metsatiede", "tiedelehdet_musiikkikasv", "tiedelehdet_nimi", "tiedelehdet_prologi", "tiedelehdet_psykologia", "tiedelehdet_rakmek", "tiedelehdet_ravitsemuskatsaus", "tiedelehdet_ruralia", "tiedelehdet_sananjalka", "tiedelehdet_siirtolaisuus", "tiedelehdet_skholion", "tiedelehdet_kirkkohistoria", "tiedelehdet_taimiuutiset", "tiedelehdet_thanatos", "tiedelehdet_toksikologi", "tiedelehdet_transmitteri", "tiedelehdet_trio", "tiedelehdet_tyoelama", "tiedelehdet_ura", "tiedelehdet_walbum", "tiedelehdet_virittaja", "tiedelehdet_ymparistohistoria"]
 };
 
 settings.corporafolders.lehdet.muut_lehdet = {
@@ -2156,6 +2156,159 @@ settings.corpora.tiedelehdet_metsatiede = {
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
+    }
+};
+
+settings.corpora.tiedelehdet_ravitsemus = {
+    title : "Ravitsemuskatsaus",
+    description : "Ravitsemuskatsaus (2000-2013)<br/>Julkaisija: Maito ja Terveys ry<br/>Kotisivu: <a href='http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php'>http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php</a>",
+    id : "tiedelehdet_ravitsemus",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        }
+
+    }
+};
+
+settings.corpora.tiedelehdet_kulutustutkimus = {
+    title : "Kulutustutkimus.Nyt",
+    description : "Kulutustutkimus.Nyt (2007-2014)<br/>Julkaisija: Kulutustutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulutustutkimus.net/nyt/'>http://www.kulutustutkimus.net/nyt/</a>",
+    id : "tiedelehdet_kulutustutkimus",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        }
+
+    }
+};
+
+settings.corpora.tiedelehdet_sananjalka = {
+    title : "Sananjalka",
+    description : "Sananjalka (2000-2013)<br/>Julkaisija: Suomen kielen seura<br/>Kotisivu: <a href='http://www.suomenkielenseura.fi/sananjalka/'>http://www.suomenkielenseura.fi/sananjalka/</a>",
+    id : "tiedelehdet_sananjalka",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attribute : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "text_publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        },
+        text_citation : {
+            label : "issue"
+        }
+    }
+};
+
+
+settings.corpora.tiedelehdet_kirkkohistoria = {
+    title : "Suomen kirkkohistoriallisen seuran vuosikirja",
+    description : "Suomen kirkkohistoriallisen seuran vuosikirja (2000-2014)<br/>Julkaisija: Suomen kirkkohistoriallinen seura<br/>Kotisivu: <a href='http://www.skhs.fi/julkaisut/vuosikirja/'>http://www.skhs.fi/julkaisut/vuosikirja/</a>",
+    id : "tiedelehdet_kirkkohistoria",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attribute : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "text_publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        },
+        text_citation : {
+            label : "issue"
+        }
+    }
+};
+
+
+settings.corpora.tiedelehdet_skholion = {
+    title : "Skholion",
+    description : "Skholion (2000-2013)<br/>Julkaisija: Suomen Bysantin tutkimuksen seura ry<br/>Kotisivu: <a href='http://www.protsv.fi/bts/BTSskholion.html'>http://www.protsv.fi/bts/BTSskholion.html</a>",
+    id : "tiedelehdet_skholion",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_issue : {
+            label : "issue"
+        }
+
+    }
+};
+
+
+settings.corpora.tiedelehdet_siirtolaisuus = {
+    title : "Siirtolaisuus-Migration",
+    description : "Siirtolaisuus-Migration (2000-2013)<br/>Julkaisija: Siirtolaisuusinstituutti<br/>Kotisivu: <a href='http://www.migrationinstitute.fi/fi/julkaisut/siirtolaisuus-migration'>http://www.migrationinstitute.fi/fi/julkaisut/siirtolaisuus-migration</a>",
+    id : "tiedelehdet_siirtolaisuus",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_issue : {
+            label : "issue"
+        }
+
+    }
+};
+
+
+
+settings.corpora.tiedelehdet_taimiuutiset = {
+    title : "Taimiuutiset",
+    description : "Taimiuutiset (2000-2013)<br/>Julkaisija: Luonnonvarakeskus Suonenjoki<br/>Kotisivu: <a href='http://www.metla.fi/taimiuutiset/'>http://www.metla.fi/taimiuutiset/</a>",
+    id : "tiedelehdet_taimiuutiset",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        }
+
     }
 };
 
