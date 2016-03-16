@@ -4805,6 +4805,14 @@ sattrlist.s24_update = {
     text_subsections : {
         label : "suomi24fi_sub",
     },
+    text_discussionarea_alias : {
+        label : "suomi24fi_sect_old",
+        displayOnly : "search",
+    },
+    text_subsections_alias : {
+        label : "suomi24fi_sub_old",
+        displayOnly : "search",
+    },
     text_anonnick : {
         label : "suomi24fi_user",
     }
