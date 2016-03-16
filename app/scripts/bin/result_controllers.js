@@ -405,12 +405,12 @@
             op = type === "set" ? "contains" : "=";
             if (type === "set" && attrVal.length > 1) {
               variants = _.flatten(_.map(attrVal, function(val) {
-                return val.split(":")[1];
+                return regescape(val.split(":")[1]);
               }));
               key = attrVal[0].split(":")[0];
               val = key + ":" + "(" + variants.join("|") + ")";
             } else {
-              val = attrVal[0];
+              val = regescape(attrVal[0]);
             }
             if (type === "set" && val === "|") {
               return "ambiguity(" + attrKey + ") = 0";
