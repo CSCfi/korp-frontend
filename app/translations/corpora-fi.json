@@ -1330,6 +1330,7 @@
     "suomi24fi_sect" : "keskustelualue",
     "suomi24fi_urlmsg" : "alkuperäinen viesti",
     "suomi24fi_urlboard" : "alkuperäinen keskustelu",
+    "suomi24fi_cid" : "viestin tunniste",
 
     "publication_type" : "julkaisutyyppi",
     "publtype_journal" : "aikakauslehti",

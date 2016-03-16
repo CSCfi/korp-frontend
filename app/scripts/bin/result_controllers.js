@@ -386,9 +386,13 @@
           return s.rowClick = function(row, cmp_index) {
             var cmp, cqp, cqps, k, opts, ref, results, splitTokens, tokenLength, tokens;
             cmp = cmps[cmp_index];
-            splitTokens = _.map(row.elems, function(elem) {
+            splitTokens = _.map(row.elems, function(elem, elemIdx) {
               return _.map(elem.split("/"), function(tokens) {
-                return tokens.split(" ");
+                if (attributes[reduce[elemIdx]].isStructAttr) {
+                  return [tokens];
+                } else {
+                  return tokens.split(" ");
+                }
               });
             });
             tokenLength = splitTokens[0][0].length;
@@ -427,12 +431,12 @@
                 op = type === "set" ? "contains" : "=";
                 if (type === "set" && attrVal.length > 1) {
                   variants = _.flatten(_.map(attrVal, function(val) {
-                    return val.split(":")[1];
+                    return regescape(val.split(":")[1]);
                   }));
                   key = attrVal[0].split(":")[0];
                   val = key + ":" + "(" + variants.join("|") + ")";
                 } else {
-                  val = attrVal[0];
+                  val = regescape(attrVal[0]);
                 }
                 if (type === "set" && val === "|") {
                   return "ambiguity(" + attrKey + ") = 0";

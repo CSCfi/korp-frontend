@@ -310,7 +310,7 @@ korpApp.directive "compareCtrl", () ->
             cl = settings.corpusListing.subsetFactory([].concat cmp1.corpora, cmp2.corpora)
             attributes = (_.extend {}, cl.getCurrentAttributes(), cl.getStructAttrs())
 
-            s.stringify = _.map reduce, (item) ->
+            s.stringify = _.map reduce, (item) -> 
                 return attributes[_.str.strip item, "_."]?.stringify or angular.identity
 
             s.max = max
@@ -320,12 +320,25 @@ korpApp.directive "compareCtrl", () ->
 
             cmps = [cmp1, cmp2]
 
+            # c.log 'compare: tables', tables, 'max', max, 'reduce', reduce
+
             s.rowClick = (row, cmp_index) ->
                 cmp = cmps[cmp_index]
 
-                splitTokens = _.map row.elems, (elem) ->
+                splitTokens = _.map row.elems, (elem, elemIdx) ->
                     _.map (elem.split "/"), (tokens) ->
-                        tokens.split " "
+                        # If the attribute is a structural attribute, its
+                        # value should not be split at spaces, since the
+                        # same structural attribute value holds for all
+                        # the tokens of the sentence (at least usually).
+                        # This does not cover cases in which a positional
+                        # (token) attribute may contain spaces.
+                        if attributes[reduce[elemIdx]].isStructAttr
+                            [tokens]
+                        else
+                            tokens.split " "
+
+                # c.log 'compare rowClick:', 'row', row, 'cmp', cmp, 'splitTokens', splitTokens
 
                 # number of tokens in search
                 tokenLength = splitTokens[0][0].length
@@ -337,18 +350,21 @@ korpApp.directive "compareCtrl", () ->
                                    return res[attrIdx][tokenIdx])
                            return tokens
 
+                # c.log 'compare rowClick:', 'tokenLength', tokenLength, 'tokens', tokens
 
                 cqps = _.map tokens, (token) ->
+                    # c.log 'compare rowClick cqps map: token', token
                     cqpAnd = _.map [0..token.length-1], (attrI) ->
                         attrKey = reduce[attrI]
                         attrVal = token[attrI]
+                        # c.log 'compare rowClick cqps map: attrI', attrI, 'attrKey', attrKey, 'attrVal', attrVal
 
 
                         if "_." in attrKey
                             c.log "error, attribute key contains _."
 
                         attribute = attributes[attrKey]
-                        if attribute
+                        if attribute 
                             type = attribute.type
                             attrKey = "_." + attrKey if attribute.isStructAttr
 
@@ -357,11 +373,11 @@ korpApp.directive "compareCtrl", () ->
 
                         if type == "set" and attrVal.length > 1
                             variants = _.flatten _.map(attrVal, (val) ->
-                                val.split(":")[1])
+                                regescape(val.split(":")[1]))
                             key  = attrVal[0].split(":")[0]
                             val = key + ":" + "(" + variants.join("|") + ")"
                         else
-                            val = attrVal[0]
+                            val = regescape(attrVal[0])
 
                         if type == "set" and val == "|"
                             return "ambiguity(#{attrKey}) = 0"
@@ -369,6 +385,8 @@ korpApp.directive "compareCtrl", () ->
                             return "#{attrKey} #{op} \"#{val}\""
 
                     return "[" + cqpAnd.join(" & ") + "]"
+
+                # c.log 'compare rowClick: cqps', cqps
 
                 cqp = cqps.join " "
 
