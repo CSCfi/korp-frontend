@@ -2257,7 +2257,7 @@ settings.corpora.tiedelehdet_kirkkohistoria = {
 
 settings.corpora.tiedelehdet_skholion = {
     title : "Skholion",
-    description : "Skholion (2000-2013)<br/>Julkaisija: Suomen Bysantin tutkimuksen seura ry<br/>Kotisivu: <a href='http://www.protsv.fi/bts/BTSskholion.html'>http://www.protsv.fi/bts/BTSskholion.html</a>",
+    description : "Skholion (2001-2012)<br/>Julkaisija: Suomen Bysantin tutkimuksen seura ry<br/>Kotisivu: <a href='http://www.protsv.fi/bts/BTSskholion.html'>http://www.protsv.fi/bts/BTSskholion.html</a>",
     id : "tiedelehdet_skholion",
     urn : "",
     metadata_urn : "",
@@ -2388,7 +2388,7 @@ settings.corpora.tiedelehdet_matkailututkimus = {
 
 settings.corpora.tiedelehdet_kunnallistiede = {
     title : "Kunnallistieteellinen aikakauskirja",
-    description : "Kunnallistieteellinen aikakauskirja (2000-2013)<br/>Julkaisija: Kunnallistieteen yhdistys<br/>Kotisivu: <a href='http://www.kunnallistiede.fi/aikakauskirja/'>http://www.kunnallistiede.fi/aikakauskirja/</a>",
+    description : "Kunnallistieteellinen aikakauskirja (2002-2013)<br/>Julkaisija: Kunnallistieteen yhdistys<br/>Kotisivu: <a href='http://www.kunnallistiede.fi/aikakauskirja/'>http://www.kunnallistiede.fi/aikakauskirja/</a>",
     id : "tiedelehdet_kunnallistiede",
     urn : "",
     metadata_urn : "",
@@ -2975,7 +2975,7 @@ settings.corpora.tiedelehdet_walbum = {
 
 settings.corpora.tiedelehdet_tyoelama = {
     title : "Työelämän tutkimus",
-    description : "Työelämän tutkimus (2000-2012)<br/>Julkaisija: Työelämän tutkimusyhdistys<br/>Kotisivu: <a href='http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/'>http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/</a>",
+    description : "Työelämän tutkimus (2003-2012)<br/>Julkaisija: Työelämän tutkimusyhdistys<br/>Kotisivu: <a href='http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/'>http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/</a>",
     id : "tiedelehdet_tyoelama",
     urn : "",
     metadata_urn : "",
