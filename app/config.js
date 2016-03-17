@@ -2989,8 +2989,8 @@ settings.corpora.tiedelehdet_tyoelama = {
 };
 
 settings.corpora.tiedelehdet_ura = {
-    title : "Ura",
-    description : "Ura (2009-2013)<br/>Julkaisija: Yhteiskunta-alan korkeakoulutetut ry<br/>Kotisivu: <a href='http://uralehti.fi/arkisto/'>http://uralehti.fi/arkisto/</a>",
+    title : "Ura/Valtiotieteilijä",
+    description : "Valtiotieteilijä (2009-2011), Ura (2012-2013)<br/>Julkaisija: Yhteiskunta-alan korkeakoulutetut ry<br/>Kotisivu: <a href='http://uralehti.fi/arkisto/'>http://uralehti.fi/arkisto/</a>",
     id : "tiedelehdet_ura",
     urn : "",
     metadata_urn : "",
