@@ -45,7 +45,11 @@
       if (cqp === null && "cqp" in data) {
         cqp = data.cqp;
       }
-      return util.addCQPs(data, cqp, this.expandCQP);
+      return util.addCQPs(data, cqp, (function(_this) {
+        return function(cqp) {
+          return settings.corpusListing.addIgnoreBetweenTokensCQP(_this.expandCQP(cqp));
+        };
+      })(this));
     };
 
     BaseProxy.prototype.makeRequest = function() {

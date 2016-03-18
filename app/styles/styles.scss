@@ -2754,6 +2754,8 @@ line.tick {
 }
 .newsdesk-popover {
     width:440px;
+    // width seems to be overridden by max-width in .popover (Jyrki Niemi)
+    max-width:440px;
     max-height:95%;
     overflow-y : auto;
 }
@@ -2915,5 +2917,31 @@ li.active a span .num-to-find {
     }
     .time-div {
         padding-top: 15px;
+    }
+}
+
+
+/* Styles specific to Kielipankki's corpora */
+
+/* DMA signum lists represented as tables */
+
+.dma-signumlist {
+    td {
+        vertical-align: top;
+    }
+    .sgo0, .sgo5 {
+        font-weight: bold;
+    }
+    .sgo3 {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    .sgo4 {
+        font-weight: bold;
+        font-size: 1.4em;
+    }
+    // Vertical spacer row
+    tr.vspacer {
+	font-size: 0.3em;
     }
 }

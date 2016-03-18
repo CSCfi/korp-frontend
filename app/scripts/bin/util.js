@@ -15,6 +15,7 @@
       this.selected = _.filter(this.corpora, function(corp) {
         return !corp.limited_access;
       });
+      this.ignore_between_tokens_cqp = this.updateIgnoreBetweenTokensCQP();
     }
 
     CorpusListing.prototype.get = function(key) {
@@ -42,7 +43,10 @@
     };
 
     CorpusListing.prototype.select = function(idArray) {
-      return this.selected = _.values(_.pick.apply(this, [this.struct].concat(idArray)));
+      c.log("CorpusListing.select", idArray);
+      this.selected = _.values(_.pick.apply(this, [this.struct].concat(idArray)));
+      this.updateIgnoreBetweenTokensCQP();
+      return this.selected;
     };
 
     CorpusListing.prototype.mapSelectedCorpora = function(f) {
@@ -457,8 +461,45 @@
       return sentAttrs;
     };
 
-    CorpusListing.prototype.getIgnoreBetweenTokens = function() {
-      return _(this.selected).pluck("ignore_between_tokens_cqp").uniq().compact().value();
+    CorpusListing.prototype.updateIgnoreBetweenTokensCQP = function() {
+      var ignore_cqps;
+      ignore_cqps = _(this.selected).pluck("ignore_between_tokens_cqp").uniq().value();
+      this.ignore_between_tokens_cqp = ignore_cqps.length === 1 ? ignore_cqps[0] : "";
+      c.log("ignore_between_tokens_cqp", this.ignore_between_tokens_cqp);
+      return this.ignore_between_tokens_cqp;
+    };
+
+    CorpusListing.prototype.addIgnoreBetweenTokensCQP = function(cqp, force) {
+      if (force == null) {
+        force = false;
+      }
+      if (this.ignore_between_tokens_cqp && (force || Number(search().search_tab) === 1)) {
+        cqp = this.insertBetweenCQPTokens(cqp, this.ignore_between_tokens_cqp);
+        c.log("addIgnoreCQPBetweenTokens after:", cqp);
+      }
+      return cqp;
+    };
+
+    CorpusListing.prototype.insertBetweenCQPTokens = function(base_cqp, insert_cqp) {
+      var cqp_tokens, last_token_num, result, token, token_num;
+      cqp_tokens = base_cqp.match(/\[([^\]\"\']*("([^\\\"]|\\.)*"|'([^\\\']|\\.)*'))*[^\]\"\']*\]|([^\[]+)/g);
+      last_token_num = _(cqp_tokens).map(function(token) {
+        return token.charAt(0) === "[";
+      }).lastIndexOf(true);
+      result = (function() {
+        var k, len, results;
+        results = [];
+        for (token_num = k = 0, len = cqp_tokens.length; k < len; token_num = ++k) {
+          token = cqp_tokens[token_num];
+          if (token.charAt(0) === "[" && token_num < last_token_num) {
+            results.push("(" + token + " " + insert_cqp + ")");
+          } else {
+            results.push(token);
+          }
+        }
+        return results;
+      })();
+      return result.join("");
     };
 
     CorpusListing.prototype.getAttributeGroups = function(lang) {
@@ -1581,39 +1622,6 @@
         }
         corpusInfo._sidebar_display_order[attr_type] = result.reverse();
       }
-    }
-  };
-
-  util.addIgnoreCQPBetweenTokens = function(cqp) {
-    var ignore_cqps, insertBetweenCQPTokens;
-    insertBetweenCQPTokens = function(base_cqp, insert_cqp) {
-      var cqp_tokens, insert_cqp_lpar, last_token_num, result, token, token_num;
-      cqp_tokens = base_cqp.match(/\[([^\]\"\']*("([^\\\"]|\\.)*"|'([^\\\']|\\.)*'))*[^\]\"\']*\]|([^\[]+)/g);
-      last_token_num = _(cqp_tokens).map(function(token) {
-        return token.charAt(0) === '[';
-      }).lastIndexOf(true);
-      insert_cqp_lpar = " " + insert_cqp + ")";
-      result = (function() {
-        var k, len, results;
-        results = [];
-        for (token_num = k = 0, len = cqp_tokens.length; k < len; token_num = ++k) {
-          token = cqp_tokens[token_num];
-          if (token.charAt(0) === '[' && token_num < last_token_num) {
-            results.push("(" + token + insert_cqp_lpar);
-          } else {
-            results.push(token);
-          }
-        }
-        return results;
-      })();
-      return result.join("");
-    };
-    ignore_cqps = settings.corpusListing.getIgnoreBetweenTokens();
-    c.log("ignore_cqps", ignore_cqps);
-    if (ignore_cqps.length === 1) {
-      return insertBetweenCQPTokens(cqp, ignore_cqps[0]);
-    } else {
-      return cqp;
     }
   };
 

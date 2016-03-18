@@ -1251,6 +1251,20 @@
     "dialect_group_KarK" : "Keski-Karjala",
 
     "parish" : "paikkakunta",
+    "village" : "kylä",
+
+    "search_word" : "hakusana",
+    "comment" : "kommentti",
+    "informant" : "informantti",
+    "informant_sex" : "informantin sukupuoli",
+    "informant_birthyear" : "informantin syntymävuosi",
+    "signum" : "signumi",
+    "signum_list" : "signumilista",
+    "original_location" : "alkuperäistiedon sijainti",
+    "show_wordnote" : "Näytä sanalippu",
+    "signum_long" : "Signumi",
+    "clause_any_wordform" : "lauseen jokin sananmuoto",
+    "clause_any_search_word" : "lauseen jokin hakusana",
 
     "interview_descr" : "haastattelun kuvaus",
     "original_source" : "alkuperäislähde",

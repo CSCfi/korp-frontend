@@ -6,6 +6,10 @@ class window.CorpusListing
         @struct = corpora
         @corpora = _.values(corpora)
         @selected = _.filter @corpora, (corp) -> not corp.limited_access
+        # The CQP expression to be inserted between token expressions
+        # (and thus effectively ignored), currently only in the
+        # extended search. (Jyrki Niemi 2016-03-17)
+        @ignore_between_tokens_cqp = @updateIgnoreBetweenTokensCQP()
 
     get: (key) ->
         @struct[key]
@@ -29,7 +33,13 @@ class window.CorpusListing
         corpusChooserInstance.corpusChooser "selectedItems"
 
     select: (idArray) ->
+        c.log "CorpusListing.select", idArray
         @selected = _.values(_.pick.apply(this, [@struct].concat(idArray)))
+        # CHECK: Is updating the ignorable tokens needed both here and
+        # in controller "ExtendedSearch": $on "corpuschooserchange"
+        # (search_controllers)? (Jyrki Niemi 2016-03-18)
+        @updateIgnoreBetweenTokensCQP()
+        @selected
 
     mapSelectedCorpora: (f) ->
         _.map @selected, f
@@ -355,14 +365,71 @@ class window.CorpusListing
 
         return sentAttrs
 
-    # List the unique values of the property ignore_between_tokens_cqp
-    # of the selected corpora. (Jyrki Niemi 2015-09-25)
-    getIgnoreBetweenTokens : ->
-        _(@selected)
-        .pluck("ignore_between_tokens_cqp")
-        .uniq()
-        .compact()
-        .value()
+
+    # Update the CQP token expression to be ignored between tokens: it
+    # takes effect only if all the selected corpora have the same
+    # ignore expression (property ignore_between_tokens_cqp).
+    # (Jyrki Niemi 2015-09-25, 2016-03-17)
+    updateIgnoreBetweenTokensCQP : ->
+        ignore_cqps =
+            _(@selected)
+            .pluck("ignore_between_tokens_cqp")
+            .uniq()
+            .value()
+        # c.log "ignore_cqps", ignore_cqps
+        @ignore_between_tokens_cqp =
+            if ignore_cqps.length == 1
+                ignore_cqps[0]
+            else
+                ""
+        c.log "ignore_between_tokens_cqp", @ignore_between_tokens_cqp
+        @ignore_between_tokens_cqp
+
+    # Add a CQP token expression to be ignored between the individual
+    # token expressions in cqp, based on the property
+    # ignore_between_tokens_cqp of the corpus configuration. The
+    # expression to be ignored is added only if all the selected
+    # corpora have the same ignore expression and only in the extended
+    # search (could be in the simple search as well) or if the
+    # argument force is true.
+    # CHECK: Is this the proper place to have this functionality?
+    # (Jyrki Niemi 2015-09-25, 2016-03-17)
+    addIgnoreBetweenTokensCQP : (cqp, force = false) ->
+        # c.log "addIgnoreCQPBetweenTokens called", cqp, @ignore_between_tokens_cqp, search().search_tab
+        # The value of search_tab seems to be sometimes an integer and
+        # sometimes a string.
+        if @ignore_between_tokens_cqp and
+                (force or Number(search().search_tab) == 1)
+            # c.log "addIgnoreCQPBetweenTokens before:", cqp
+            cqp = @insertBetweenCQPTokens cqp, @ignore_between_tokens_cqp
+            c.log "addIgnoreCQPBetweenTokens after:", cqp
+        cqp
+
+    # Insert the CQP expression insert_cqp between each pair of token
+    # expressions in the CQP expression base_cqp (Jyrki Niemi
+    # 2015-09-25, 2016-03-17)
+    insertBetweenCQPTokens : (base_cqp, insert_cqp) ->
+        # Split the original CQP expression so that each token
+        # expression [...] and each string between them is a separate
+        # string.
+        cqp_tokens = base_cqp.match(
+            /\[([^\]\"\']*("([^\\\"]|\\.)*"|'([^\\\']|\\.)*'))*[^\]\"\']*\]|([^\[]+)/g)
+        # Find the last token proper, which need not be followed by
+        # the insert expression, although it does not make a
+        # difference in the result if it is optional.
+        last_token_num = _(cqp_tokens)
+                         .map((token) -> token.charAt(0) == "[")
+                         .lastIndexOf(true)
+        # Append the insert expression to each token expression and
+        # enclose them together in parentheses, so that repetition and
+        # other regexp operators work correctly for the augmented
+        # token expression.
+        result = for token, token_num in cqp_tokens
+                     if token.charAt(0) == "[" and token_num < last_token_num
+                         "(" + token + " " + insert_cqp + ")"
+                     else
+                         token
+        result.join("")
 
     getAttributeGroups : (lang) ->
         words = @getWordGroup false
@@ -1501,51 +1568,6 @@ util.setAttrDisplayOrder = (corpusInfo) ->
                 corpusInfo._sidebar_display_order = {}
             corpusInfo._sidebar_display_order[attr_type] = result.reverse()
     return
-
-
-# Add a CQP token expression to be ignored between the individual
-# token expressions in cqp, based on the property
-# ignore_between_tokens_cqp of the corpus configuration. The
-# expression to be ignored is added only if all the selected corpora
-# have the same ignore expression.
-#
-# TODO: It would be more appropriate and efficient to set the ignore
-# expression in the model and change it when the set of chosen corpora
-# changes, so we would not need to recompute it here every time.
-# (Jyrki Niemi 2015-09-25)
-
-util.addIgnoreCQPBetweenTokens = (cqp) ->
-
-    insertBetweenCQPTokens = (base_cqp, insert_cqp) ->
-        # Split the original CQP expression so that each token
-        # expression [...] and each string between them is a separate
-        # string.
-        cqp_tokens = base_cqp.match(
-            /\[([^\]\"\']*("([^\\\"]|\\.)*"|'([^\\\']|\\.)*'))*[^\]\"\']*\]|([^\[]+)/g)
-        # Find the last token proper, which need not be followed by
-        # the insert expression, although it does not make a
-        # difference in the result if it is optional.
-        last_token_num = _(cqp_tokens)
-                         .map((token) -> token.charAt(0) == '[')
-                         .lastIndexOf(true)
-        # Append the insert expression to each token expression and
-        # enclose them together in parentheses, so that repetition and
-        # other regexp operators work correctly for the augmented
-        # token expression.
-        insert_cqp_lpar = " " + insert_cqp + ")"
-        result = for token, token_num in cqp_tokens
-                     if token.charAt(0) == '[' and token_num < last_token_num
-                         "(" + token + insert_cqp_lpar
-                     else
-                         token
-        result.join("")
-
-    ignore_cqps = settings.corpusListing.getIgnoreBetweenTokens()
-    c.log "ignore_cqps", ignore_cqps
-    if ignore_cqps.length == 1
-        insertBetweenCQPTokens cqp, ignore_cqps[0]
-    else
-        cqp
 
 
 settings.common_struct_types = 

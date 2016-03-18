@@ -1722,7 +1722,7 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
 
 settings.corporafolders.spoken = {
     title : "Puhuttua kieltä (tekstiksi litteroituna)",
-    contents : ["kotus_sananparret", "skn"],
+    contents : ["kotus_sananparret", "skn", "dma"],
     // unselected : true
 };
 
@@ -2257,7 +2257,7 @@ settings.corpora.tiedelehdet_kirkkohistoria = {
 
 settings.corpora.tiedelehdet_skholion = {
     title : "Skholion",
-    description : "Skholion (2000-2013)<br/>Julkaisija: Suomen Bysantin tutkimuksen seura ry<br/>Kotisivu: <a href='http://www.protsv.fi/bts/BTSskholion.html'>http://www.protsv.fi/bts/BTSskholion.html</a>",
+    description : "Skholion (2001-2012)<br/>Julkaisija: Suomen Bysantin tutkimuksen seura ry<br/>Kotisivu: <a href='http://www.protsv.fi/bts/BTSskholion.html'>http://www.protsv.fi/bts/BTSskholion.html</a>",
     id : "tiedelehdet_skholion",
     urn : "",
     metadata_urn : "",
@@ -2388,7 +2388,7 @@ settings.corpora.tiedelehdet_matkailututkimus = {
 
 settings.corpora.tiedelehdet_kunnallistiede = {
     title : "Kunnallistieteellinen aikakauskirja",
-    description : "Kunnallistieteellinen aikakauskirja (2000-2013)<br/>Julkaisija: Kunnallistieteen yhdistys<br/>Kotisivu: <a href='http://www.kunnallistiede.fi/aikakauskirja/'>http://www.kunnallistiede.fi/aikakauskirja/</a>",
+    description : "Kunnallistieteellinen aikakauskirja (2002-2013)<br/>Julkaisija: Kunnallistieteen yhdistys<br/>Kotisivu: <a href='http://www.kunnallistiede.fi/aikakauskirja/'>http://www.kunnallistiede.fi/aikakauskirja/</a>",
     id : "tiedelehdet_kunnallistiede",
     urn : "",
     metadata_urn : "",
@@ -2975,7 +2975,7 @@ settings.corpora.tiedelehdet_walbum = {
 
 settings.corpora.tiedelehdet_tyoelama = {
     title : "Työelämän tutkimus",
-    description : "Työelämän tutkimus (2000-2012)<br/>Julkaisija: Työelämän tutkimusyhdistys<br/>Kotisivu: <a href='http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/'>http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/</a>",
+    description : "Työelämän tutkimus (2003-2012)<br/>Julkaisija: Työelämän tutkimusyhdistys<br/>Kotisivu: <a href='http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/'>http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/</a>",
     id : "tiedelehdet_tyoelama",
     urn : "",
     metadata_urn : "",
@@ -2989,8 +2989,8 @@ settings.corpora.tiedelehdet_tyoelama = {
 };
 
 settings.corpora.tiedelehdet_ura = {
-    title : "Ura",
-    description : "Ura (2009-2013)<br/>Julkaisija: Yhteiskunta-alan korkeakoulutetut ry<br/>Kotisivu: <a href='http://uralehti.fi/arkisto/'>http://uralehti.fi/arkisto/</a>",
+    title : "Ura/Valtiotieteilijä",
+    description : "Valtiotieteilijä (2009-2011), Ura (2012-2013)<br/>Julkaisija: Yhteiskunta-alan korkeakoulutetut ry<br/>Kotisivu: <a href='http://uralehti.fi/arkisto/'>http://uralehti.fi/arkisto/</a>",
     id : "tiedelehdet_ura",
     urn : "",
     metadata_urn : "",
@@ -6274,6 +6274,564 @@ settings.corpora.skn = {
 };
 
 
+/* DMA – Digitaalinen muoto-opin arkisto (Digital Morphology Archives) */
+
+// Return a stringify function for a dataset attribute attrname in the
+// DMA corpus. The stringify function returns the value as mapped
+// through the dataset, without localization.
+settings.fn.dma_stringify_dataset_value = function (attrname) {
+    return function (value) {
+	return settings.corpora.dma.struct_attributes[attrname].dataset[value];
+    };
+};
+
+settings.corpora.dma = {
+    title : "DMA – Digitaalinen muoto-opin arkisto",
+    description : "DMA – Digitaalinen muoto-opin arkisto<br/><a href='https://www.kielipankki.fi/tuki/korp-dma/' target='_blank'>Ohjeita DMA:n käyttämiseen Korpissa</a>, erityisesti verrattuna vanhaan CSC:n Tutkijan käyttöliittymän DMA:han",
+    id : "dma",
+    urn : "urn:nbn:fi:lb-2014052720",
+    metadata_urn : "urn:nbn:fi:lb-201403261",
+    homepage_url : "http://www.helsinki.fi/fus/research/ma.html",
+    // TODO (util.coffee): Allow an array of values for licence.
+    licence : {
+	name : "CC BY 4.0 (teksti) / CLARIN RES PRIV DEP (PDF-sanaliput)",
+	urn : "urn:nbn:fi:lb-20150304110"
+    },
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+	searchword : {
+	    label : "search_word",
+	    opts : settings.defaultOptions,
+	}
+    },
+    struct_attributes : {
+	text_dialect_region : {
+	    label : "dialect_region",
+	    displayType : "select",
+	    localize : false,
+	    // The values of the dataset are shown for the keys
+	    // without localization.
+	    stringify : settings.fn.dma_stringify_dataset_value(
+		"text_dialect_region"),
+	    dataset : {
+		"1" : "1 Lounaismurteet",
+		"2" : "2 Lounaiset välimurteet",
+		"3" : "3 Hämäläismurteet",
+		"4" : "4 Etelä-Pohjanmaan murteet",
+		"5" : "5 Keski- ja Pohjois-Pohjanmaan murteet",
+		"6" : "6 Peräpohjolan murteet",
+		"7" : "7 Savolaismurteet",
+		"8" : "8 Kaakkoismurteet",
+	    },
+	    opts : settings.liteOptions,
+	},
+	text_dialect_group : {
+            label : "dialect_group",
+	    displayType : "select",
+	    localize : false,
+	    stringify : function (value) {
+		return (settings.corpora.dma.struct_attributes
+			.text_dialect_group.dataset[value]
+			.replace(/[\x00-\x1F ]+/g, ""));
+	    },
+	    dataset : {
+		// The control characters \x01–\x08 are used to get
+		// the desired sorting order. They are invisible in
+		// the output, but could they cause problems in some
+		// cases?
+		"[1-6].?" : "\x011–6 Länsimurteet",
+		"1." : "\x01  1 Lounaismurteet",
+		"1a" : "\x01    1a pohjoisryhmä",
+		"1b" : "\x01    1b itäryhmä",
+		"2." : "\x02  2 Lounaiset välimurteet",
+		"2a" : "\x02    2a Porin seudun murteet",
+		"2b" : "\x02    2b Ala-Satakunnan murteet",
+		"2c" : "\x02    2c Turun ylämaan murteet",
+		"2d" : "\x02    2d Someron murre",
+		"2e" : "\x02    2e Länsi-Uudenmaan murteet",
+		"3." : "\x03  3 Hämäläismurteet",
+		"3a" : "\x03    3a Ylä-Satakunnan murteet",
+		"3b" : "\x03    3b perihämäläiset murteet",
+		"3c" : "\x03    3c etelähämäläiset murteet",
+		"3[d-f]" : "\x03    3d–f kaakkoishämäläiset murteet",
+		"3d" : "\x03      3d Hollolan ryhmä",
+		"3e" : "\x03      3e Porvoon ryhmä",
+		"3f" : "\x03      3f Kymenlaakson ryhmä",
+		"4" : "\x04  4 Etelä-Pohjanmaan murteet",
+		"5." : "\x05  5 Keski- ja Pohjois-Pohjanmaan murteet",
+		"5a" : "\x05    5a Keski-Pohjanmaan murteet",
+		"5b" : "\x05    5b Pohjois-Pohjanmaan murteet",
+		"6." : "\x06  6 Peräpohjolan murteet",
+		"6a" : "\x06    6a Tornion murre",
+		"6b" : "\x06    6b Jällivaaran murre",
+		"6c" : "\x06    6c Kemin murre",
+		"6d" : "\x06    6d Kemijärven murre",
+		"6e" : "\x06    6e Ruijan murre",
+		"[7-8]." : "\x077–8 Itämurteet",
+		"7." : "\x07  7 Savolaismurteet",
+		"7a" : "\x07    7a Päijät-Hämeen murteet",
+		"7b" : "\x07    7b Etelä-Savon murteet",
+		"7c" : "\x07    7c Säämingin–Kerimäen ryhmä",
+		"7d" : "\x07    7d itäiset savolaismurteet",
+		"7e" : "\x07    7e Pohjois-Savon murteet",
+		"7f" : "\x07    7f Keski-Suomen murteet",
+		"7g" : "\x07    7g savolaiskiilan murteet",
+		"7h" : "\x07    7h Kainuun murteet",
+		"7i" : "\x07    7i Vermlannin murteet",
+		"8." : "\x08  8 Kaakkoismurteet",
+		"8[a–b]" : "\x08    \x018a–b varsinaiset kaakkoismurteet",
+		"8a" : "\x08    \x01  8a Länsi-Kannaksen murteet",
+		"8b" : "\x08    \x01  8b Itä-Kannaksen murteet",
+		"8c" : "\x08    8c Inkerin suomalaismurteet",
+		"8d" : "\x08    8d Lemin murre",
+		"8e" : "\x08    8e Sortavalan seudun murteet",
+	    },
+	    opts : settings.liteOptions,
+	},
+	text_parish_name : {
+            label : "parish",
+	    displayType : "select",
+	    localize : false,
+	    // translationKey : "",
+	    dataset : [
+		"Artjärvi",
+		"Asikkala",
+		"Askola",
+		"Eurajoki",
+		"Haapavesi",
+		"Halikko",
+		"Halsua",
+		"Hausjärvi",
+		"Heinjoki",
+		"Heinävesi",
+		"Himanka",
+		"Hinnerjoki",
+		"Hirvensalmi",
+		"Honkajoki",
+		"Honkilahti",
+		"Ilmajoki",
+		"Ilomantsi",
+		"Isojoki",
+		"Itä-Ruija",
+		"Jalasjärvi",
+		"Joutsa",
+		"Joutseno",
+		"Juupajoki",
+		"Jällivaara",
+		"Järvisaari",
+		"Kaarina",
+		"Kajaani",
+		"Kalajoki",
+		"Kalvola",
+		"Kangasala",
+		"Kankaanpää",
+		"Kannonkoski",
+		"Karstula",
+		"Karttula",
+		"Kauhava",
+		"Kaustinen",
+		"Kemijärvi",
+		"Keminmlk",
+		"Kerimäki",
+		"Kesälahti",
+		"Keuruu",
+		"Kiikka",
+		"Kitee",
+		"Kittilä",
+		"Kiuruvesi",
+		"Kivennapa",
+		"Koivisto",
+		"Kolari",
+		"Kontiolahti",
+		"Korpilahti",
+		"Kuhmoinen",
+		"Kuivaniemi",
+		"Kurikka",
+		"Kuru",
+		"Kymi",
+		"Käkisalmi",
+		"Kälviä",
+		"Kärsämäki",
+		"Laihia",
+		"Laitila",
+		"Lapinlahti",
+		"Lappajärvi",
+		"Lappee",
+		"Laukaa",
+		"Lavansaari",
+		"Lemi",
+		"Leppävirta",
+		"Liperi",
+		"Loimaa",
+		"Luhanka",
+		"Lumivaara",
+		"Luumäki",
+		"Markkova",
+		"Masku",
+		"Merikarvia",
+		"Merimasku",
+		"Miehikkälä",
+		"Mietoinen",
+		"Mikkelinmlk",
+		"Myrskylä",
+		"Mäntyharju",
+		"Nivala",
+		"Nousiainen",
+		"Nummi",
+		"Nurmes",
+		"Orimattila",
+		"Oulujoki",
+		"Paavola",
+		"Parkano",
+		"Pattijoki",
+		"Perho",
+		"Pieksämäki",
+		"Pielisjärvi",
+		"Pihtipudas",
+		"Polvijärvi",
+		"Pori",
+		"Pornainen",
+		"Pudasjärvi",
+		"Pyhäjoki",
+		"Pyhäjärvi Ol.",
+		"Pöytyä",
+		"Raisi",
+		"Rauma",
+		"Rautio",
+		"Reisjärvi",
+		"Ristiina",
+		"Ruokolahti",
+		"Ruovesi",
+		"Rymättylä",
+		"Saarijärvi",
+		"Salla",
+		"Sauvo",
+		"Savitaipale",
+		"Siilinjärvi",
+		"Simo",
+		"Sodankylä",
+		"Somero",
+		"Sonkajärvi",
+		"Sortavala",
+		"Sumiainen",
+		"Suomusjärvi",
+		"Suomussalmi",
+		"Sysmä",
+		"Sääksmäki",
+		"Sääminki",
+		"Taivassalo",
+		"Tammela",
+		"Teisko",
+		"Tuulos",
+		"Tuusniemi",
+		"Tuutari",
+		"Töysä",
+		"Uukuniemi",
+		"Uurainen",
+		"Uusikirkko Vpl.",
+		"Valkeala",
+		"Vehkalahti",
+		"Vehmersalmi",
+		"Vermlanti",
+		"Vesanto",
+		"Veteli",
+		"Vihti",
+		"Viipurin mlk.",
+		"Virolahti",
+		"Virrat",
+		"Vähäkyrö",
+		"Yli-Ii",
+		"Ylihärmä",
+		"Ylitornio",
+		"Ypäjä",
+		"Ähtäri",
+	    ],
+	    // // An alternative with dialect group code preprended
+	    // stringify : settings.fn.dma_stringify_dataset_value(
+	    // 	"text_parish_name"),
+	    // dataset : {
+	    // 	"Eurajoki" : "1a Eurajoki",
+	    // 	"Hinnerjoki" : "1a Hinnerjoki",
+	    // 	"Honkilahti" : "1a Honkilahti",
+	    // 	"Laitila" : "1a Laitila",
+	    // 	"Masku" : "1a Masku",
+	    // 	"Merimasku" : "1a Merimasku",
+	    // 	"Mietoinen" : "1a Mietoinen",
+	    // 	"Nousiainen" : "1a Nousiainen",
+	    // 	"Rauma" : "1a Rauma",
+	    // 	"Rymättylä" : "1a Rymättylä",
+	    // 	"Taivassalo" : "1a Taivassalo",
+	    // 	"Halikko" : "1b Halikko",
+	    // 	"Kaarina" : "1b Kaarina",
+	    // 	"Sauvo" : "1b Sauvo",
+	    // 	"Suomusjärvi" : "1b Suomusjärvi",
+	    // 	"Merikarvia" : "2a Merikarvia",
+	    // 	"Pori" : "2a Pori",
+	    // 	"Loimaa" : "2b Loimaa",
+	    // 	"Pöytyä" : "2c Pöytyä",
+	    // 	"Somero" : "2d Somero",
+	    // 	"Nummi" : "2e Nummi",
+	    // 	"Vihti" : "2e Vihti",
+	    // 	"Honkajoki" : "3a Honkajoki",
+	    // 	"Kankaanpää" : "3a Kankaanpää",
+	    // 	"Kiikka" : "3a Kiikka",
+	    // 	"Parkano" : "3a Parkano",
+	    // 	"Virrat" : "3a Virrat",
+	    // 	"Juupajoki" : "3b Juupajoki",
+	    // 	"Kalvola" : "3b Kalvola",
+	    // 	"Kangasala" : "3b Kangasala",
+	    // 	"Kuru" : "3b Kuru",
+	    // 	"Ruovesi" : "3b Ruovesi",
+	    // 	"Sääksmäki" : "3b Sääksmäki",
+	    // 	"Teisko" : "3b Teisko",
+	    // 	"Tuulos" : "3b Tuulos",
+	    // 	"Hausjärvi" : "3c Hausjärvi",
+	    // 	"Tammela" : "3c Tammela",
+	    // 	"Ypäjä" : "3c Ypäjä",
+	    // 	"Asikkala" : "3d Asikkala",
+	    // 	"Orimattila" : "3d Orimattila",
+	    // 	"Askola" : "3e Askola",
+	    // 	"Myrskylä" : "3e Myrskylä",
+	    // 	"Pornainen" : "3e Pornainen",
+	    // 	"Artjärvi" : "3f Artjärvi",
+	    // 	"Kymi" : "3f Kymi",
+	    // 	"Valkeala" : "3f Valkeala",
+	    // 	"Vehkalahti" : "3f Vehkalahti",
+	    // 	"Ilmajoki" : "4 Ilmajoki",
+	    // 	"Isojoki" : "4 Isojoki",
+	    // 	"Jalasjärvi" : "4 Jalasjärvi",
+	    // 	"Kauhava" : "4 Kauhava",
+	    // 	"Kurikka" : "4 Kurikka",
+	    // 	"Laihia" : "4 Laihia",
+	    // 	"Töysä" : "4 Töysä",
+	    // 	"Vähäkyrö" : "4 Vähäkyrö",
+	    // 	"Ylihärmä" : "4 Ylihärmä",
+	    // 	"Haapavesi" : "5a Haapavesi",
+	    // 	"Halsua" : "5a Halsua",
+	    // 	"Himanka" : "5a Himanka",
+	    // 	"Kalajoki" : "5a Kalajoki",
+	    // 	"Kälviä" : "5a Kälviä",
+	    // 	"Kärsämäki" : "5a Kärsämäki",
+	    // 	"Kaustinen" : "5a Kaustinen",
+	    // 	"Nivala" : "5a Nivala",
+	    // 	"Perho" : "5a Perho",
+	    // 	"Pyhäjoki" : "5a Pyhäjoki",
+	    // 	"Rautio" : "5a Rautio",
+	    // 	"Reisjärvi" : "5a Reisjärvi",
+	    // 	"Veteli" : "5a Veteli",
+	    // 	"Kuivaniemi" : "5b Kuivaniemi",
+	    // 	"Oulujoki" : "5b Oulujoki",
+	    // 	"Paavola" : "5b Paavola",
+	    // 	"Pattijoki" : "5b Pattijoki",
+	    // 	"Yli-Ii" : "5b Yli-Ii",
+	    // 	"Kolari" : "6a Kolari",
+	    // 	"Ylitornio" : "6a Ylitornio",
+	    // 	"Jällivaara" : "6b Jällivaara",
+	    // 	"Keminmlk" : "6c Keminmlk",
+	    // 	"Kittilä" : "6c Kittilä",
+	    // 	"Simo" : "6c Simo",
+	    // 	"Sodankylä" : "6c Sodankylä",
+	    // 	"Kemijärvi" : "6d Kemijärvi",
+	    // 	"Salla" : "6d Salla",
+	    // 	"Itä-Ruija" : "6e Itä-Ruija",
+	    // 	"Raisi" : "6e Raisi",
+	    // 	"Joutsa" : "7a Joutsa",
+	    // 	"Korpilahti" : "7a Korpilahti",
+	    // 	"Kuhmoinen" : "7a Kuhmoinen",
+	    // 	"Luhanka" : "7a Luhanka",
+	    // 	"Sysmä" : "7a Sysmä",
+	    // 	"Hirvensalmi" : "7b Hirvensalmi",
+	    // 	"Mäntyharju" : "7b Mäntyharju",
+	    // 	"Mikkelinmlk" : "7b Mikkelinmlk",
+	    // 	"Ristiina" : "7b Ristiina",
+	    // 	"Kerimäki" : "7c Kerimäki",
+	    // 	"Sääminki" : "7c Sääminki",
+	    // 	"Ilomantsi" : "7d Ilomantsi",
+	    // 	"Kesälahti" : "7d Kesälahti",
+	    // 	"Kitee" : "7d Kitee",
+	    // 	"Kontiolahti" : "7d Kontiolahti",
+	    // 	"Liperi" : "7d Liperi",
+	    // 	"Nurmes" : "7d Nurmes",
+	    // 	"Pielisjärvi" : "7d Pielisjärvi",
+	    // 	"Polvijärvi" : "7d Polvijärvi",
+	    // 	"Heinävesi" : "7e Heinävesi",
+	    // 	"Karttula" : "7e Karttula",
+	    // 	"Kiuruvesi" : "7e Kiuruvesi",
+	    // 	"Lapinlahti" : "7e Lapinlahti",
+	    // 	"Leppävirta" : "7e Leppävirta",
+	    // 	"Pieksämäki" : "7e Pieksämäki",
+	    // 	"Pyhäjärvi Ol." : "7e Pyhäjärvi Ol.",
+	    // 	"Siilinjärvi" : "7e Siilinjärvi",
+	    // 	"Sonkajärvi" : "7e Sonkajärvi",
+	    // 	"Tuusniemi" : "7e Tuusniemi",
+	    // 	"Vehmersalmi" : "7e Vehmersalmi",
+	    // 	"Vesanto" : "7e Vesanto",
+	    // 	"Kannonkoski" : "7f Kannonkoski",
+	    // 	"Karstula" : "7f Karstula",
+	    // 	"Laukaa" : "7f Laukaa",
+	    // 	"Pihtipudas" : "7f Pihtipudas",
+	    // 	"Saarijärvi" : "7f Saarijärvi",
+	    // 	"Sumiainen" : "7f Sumiainen",
+	    // 	"Uurainen" : "7f Uurainen",
+	    // 	"Ähtäri" : "7g Ähtäri",
+	    // 	"Keuruu" : "7g Keuruu",
+	    // 	"Lappajärvi" : "7g Lappajärvi",
+	    // 	"Kajaani" : "7h Kajaani",
+	    // 	"Pudasjärvi" : "7h Pudasjärvi",
+	    // 	"Suomussalmi" : "7h Suomussalmi",
+	    // 	"Vermlanti" : "7i Vermlanti",
+	    // 	"Heinjoki" : "8a Heinjoki",
+	    // 	"Kivennapa" : "8a Kivennapa",
+	    // 	"Koivisto" : "8a Koivisto",
+	    // 	"Lappee" : "8a Lappee",
+	    // 	"Lavansaari" : "8a Lavansaari",
+	    // 	"Luumäki" : "8a Luumäki",
+	    // 	"Miehikkälä" : "8a Miehikkälä",
+	    // 	"Uusikirkko Vpl." : "8a Uusikirkko Vpl.",
+	    // 	"Viipurin mlk." : "8a Viipurin mlk.",
+	    // 	"Virolahti" : "8a Virolahti",
+	    // 	"Joutseno" : "8b Joutseno",
+	    // 	"Käkisalmi" : "8b Käkisalmi",
+	    // 	"Lumivaara" : "8b Lumivaara",
+	    // 	"Ruokolahti" : "8b Ruokolahti",
+	    // 	"Järvisaari" : "8c Järvisaari",
+	    // 	"Markkova" : "8c Markkova",
+	    // 	"Tuutari" : "8c Tuutari",
+	    // 	"Lemi" : "8d Lemi",
+	    // 	"Savitaipale" : "8d Savitaipale",
+	    // 	"Sortavala" : "8e Sortavala",
+	    // 	"Uukuniemi" : "8e Uukuniemi",
+	    // },
+	    opts : settings.liteOptions,
+	},
+	text_village : {
+	    label : "village",
+	},
+	text_parish : {
+	    // Should we have this separately? The attribute parish
+	    // contains the parish name with the dialect group code
+	    // prepended. Or should "parish_name" actually be simply
+	    // "parish"?
+	    label : "parish",
+	    displayType : "hidden",
+	},
+	sentence_comment : {
+            label : "comment",
+	},
+	sentence_informant : {
+	    label : "informant",
+	},
+	sentence_informant_sex : {
+	    label : "informant_sex",
+	    displayType : "select",
+	    translationKey : "",
+	    dataset : {
+		"m" : "male",
+		"n" : "female",
+		"" : "unknown"
+	    },
+	    opts : settings.liteOptions,
+	},
+	sentence_informant_birthyear : {
+            label : "informant_birthyear",
+	},
+	sentence_signum : {
+            label : "signum",
+	    type : "set",
+	    opts : settings.setOptions,
+	    // This URL is in the sidebar (i) link
+	    taginfo_url : "markup/dma_signumlist.html",
+	    // The input field also has an (i) link opening a list of
+	    // signums as links from which one can select. This has
+	    // been copied and modified from the code for the the
+	    // Swedish msd attribute.
+	    extended_template : '<input class="arg_value" ng-model="input" escaper>' +
+		'<span ng-click="onIconClick()" class="ui-icon ui-icon-info"></span>',
+	    controller : function($scope, $modal) {
+		var modal = null;
+		$scope.onIconClick = function() {
+		    modal = $modal.open({
+			template : '<div>' +
+			    '<div class="modal-header">' +
+			    '<h3 class="modal-title">{{\'signum\' | loc:lang}}</h3>' +
+			    '<span ng-click="clickX()" class="close-x">×</span>' +
+			    '</div>' +
+			    '<div class="modal-body" ng-click="handleClick($event)" ng-include="\'markup/dma_signumlist_links.html\'"></div>' +
+			    '</div>',
+			scope : $scope
+		    })
+		}
+		$scope.clickX = function(event) {
+		    modal.close()
+		}
+		$scope.handleClick = function(event) {
+		    val = $(event.target).parent().data("value")
+		    if(!val) return;
+		    $scope.input = val;
+		    modal.close();
+		}
+	    },
+	},
+	sentence_signumlist : {
+	    label : "signum_list",
+	    opts : settings.defaultOptions,
+	},
+	sentence_updated : {
+	    displayType : "hidden",
+	},
+	sentence_location : {
+	    label : "original_location",
+	    opts : settings.defaultOptions,
+	},
+	sentence_text_words : {
+	    label : "clause_any_wordform",
+	    type : "set",
+	    // This would benefit from having also other options than
+	    // "is" and "is not" for a set-valued attribute, but that
+	    // is not (yet) possible.
+	    opts : settings.setOptions,
+	    displayOnly : "search",
+	},
+	sentence_search_words : {
+	    label : "clause_any_search_word",
+	    type : "set",
+	    // The same applies here as in sentence_text_words.
+	    opts : settings.setOptions,
+	    displayOnly : "search",
+	},
+	sentence_pdf : {
+            label : "show_wordnote",
+            opts : settings.defaultOptions,
+            type : "url",
+            url_opts : $.extend({}, sattrs.link_url_opts, {
+                stringify_link : function (key, filename, attrs, html_attrs) {
+		    if (! filename) {
+			return "";
+		    }
+                    var fnames = filename.split(" ");
+                    var output = ("<span rel='localize[" + attrs.label + "]'>"
+				  + key + "</span> [RES]:");
+                    for (var i = 0; i < fnames.length; i++) {
+                        var fname = (fnames[i]
+				     .replace(/ä/g, 'a')
+				     .replace(/Ä/g, 'A')
+				     .replace(/ö/g, 'o'));
+                        var url = ("/dma/pdf/"
+                                   + fname.slice(0, fname.lastIndexOf("_"))
+                                   + "/" + fname);
+                        output += ("<br/><a href='" + url + "' " + html_attrs
+				   + ">" + fname + "</a>");
+                    }
+                    return output;
+                }
+            }),
+	},
+	sentence_id : sattrs.sentence_id,
+    }
+};
+
+
 settings.corpora.ylilauta = {
     title : "Ylilauta",
     description : "Ylilauta",
@@ -6662,7 +7220,8 @@ settings.fn.remove_matching_corpora = function (corplist) {
 
 // Corpora available locally on the development laptop
 var locally_available_corpora =
-    ["ftb(2|3_.*)",
+    ["dma",
+     "ftb(2|3_.*)",
      "reittidemo",
      "kotus_ns_presidentti_.*",
      "kotus_klassikot",

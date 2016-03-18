@@ -6027,18 +6027,19 @@ line.tick {
 /* line 2755, styles.scss */
 .newsdesk-popover {
   width: 440px;
+  max-width: 440px;
   max-height: 95%;
   overflow-y: auto;
 }
 
-/* line 2760, styles.scss */
+/* line 2762, styles.scss */
 .newsdesk-bell {
   float: left;
   margin-top: 4px;
   margin-right: 3px;
 }
 
-/* line 2765, styles.scss */
+/* line 2767, styles.scss */
 .newsdesk-arrow-box {
   float: left;
   padding-left: 4px;
@@ -6046,51 +6047,51 @@ line.tick {
   border-radius: 3px;
 }
 
-/* line 2771, styles.scss */
+/* line 2773, styles.scss */
 .newsdesk-arrow-box span {
   color: #fff;
 }
 
-/* line 2774, styles.scss */
+/* line 2776, styles.scss */
 .newsdesk-news-item {
   padding-left: 4px;
   margin-bottom: 4px;
 }
 
-/* line 2778, styles.scss */
+/* line 2780, styles.scss */
 .newsdesk-opener {
   cursor: pointer;
 }
 
-/* line 2781, styles.scss */
+/* line 2783, styles.scss */
 .newsdesk-around-items {
   margin: 10px;
 }
 
-/* line 2784, styles.scss */
+/* line 2786, styles.scss */
 .newsdesk-item-date {
   font-style: italic;
   color: gray;
 }
 
 /* ----------- Autocompletion ----------- */
-/* line 2791, styles.scss */
+/* line 2793, styles.scss */
 .none-to-find {
   color: #aaa;
 }
 
-/* line 2794, styles.scss */
+/* line 2796, styles.scss */
 .num-to-find {
   visibility: hidden;
   font-size: x-small;
 }
 
-/* line 2798, styles.scss */
+/* line 2800, styles.scss */
 li.active a span .num-to-find {
   visibility: visible;
 }
 
-/* line 2801, styles.scss */
+/* line 2803, styles.scss */
 .autoc-spinner {
   margin-left: -20px;
   margin-top: 2px;
@@ -6098,23 +6099,23 @@ li.active a span .num-to-find {
 }
 
 /* Map */
-/* line 2807, styles.scss */
+/* line 2809, styles.scss */
 .name_map {
   max-width: 1000px;
 }
 
-/* line 2811, styles.scss */
+/* line 2813, styles.scss */
 .leaflet-control-layers-toggle {
   background-image: url(../components/leaflet/dist/images/layers.png);
 }
 
 /* korp multi select directive */
-/* line 2817, styles.scss */
+/* line 2819, styles.scss */
 .reduce-attr-select {
   color: #000;
   display: inline-block;
 }
-/* line 2820, styles.scss */
+/* line 2822, styles.scss */
 .reduce-attr-select .reduce-dropdown-button {
   cursor: pointer;
   width: 100%;
@@ -6122,72 +6123,72 @@ li.active a span .num-to-find {
   overflow: hidden;
   transition: border-color 200ms;
 }
-/* line 2825, styles.scss */
+/* line 2827, styles.scss */
 .reduce-attr-select .reduce-dropdown-button .caret {
   right: 7px;
   position: absolute;
   top: 10px;
 }
-/* line 2831, styles.scss */
+/* line 2833, styles.scss */
 .reduce-attr-select .reduce-dropdown-button:hover {
   border-color: #999;
 }
-/* line 2835, styles.scss */
+/* line 2837, styles.scss */
 .reduce-attr-select .reduce-dropdown-button-text {
   width: 1000px;
   padding: 2px 5px;
 }
-/* line 2839, styles.scss */
+/* line 2841, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu {
   width: 100%;
   max-height: 400px;
 }
-/* line 2842, styles.scss */
+/* line 2844, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .selected {
   background: #f2f7ff;
 }
-/* line 2845, styles.scss */
+/* line 2847, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .attribute {
   cursor: pointer;
   padding: 2px 1px;
 }
-/* line 2847, styles.scss */
+/* line 2849, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .attribute:hover {
   background-color: #e6e6e6;
 }
-/* line 2852, styles.scss */
+/* line 2854, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .reduce-check {
   margin: 0px;
   margin-top: 4px;
   margin-right: 4px;
 }
-/* line 2857, styles.scss */
+/* line 2859, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .reduce-label {
   position: absolute;
 }
-/* line 2860, styles.scss */
+/* line 2862, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu ul {
   margin: 0;
   padding: 2px;
 }
-/* line 2864, styles.scss */
+/* line 2866, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .insensitive-toggle {
   float: right;
   color: black;
 }
-/* line 2868, styles.scss */
+/* line 2870, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .insensitive-toggle.selected {
   color: grey;
 }
 
 /* sidebar video */
-/* line 2875, styles.scss */
+/* line 2877, styles.scss */
 #video-container {
   height: 320px;
   width: 568px;
   position: relative;
 }
-/* line 2879, styles.scss */
+/* line 2881, styles.scss */
 #video-container #extra-controls {
   height: 320px;
   width: 568px;
@@ -6197,7 +6198,7 @@ li.active a span .num-to-find {
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.7);
 }
-/* line 2887, styles.scss */
+/* line 2889, styles.scss */
 #video-container #extra-controls > * {
   width: 75px;
   height: 75px;
@@ -6208,28 +6209,53 @@ li.active a span .num-to-find {
   color: white;
   font-weight: bold;
 }
-/* line 2897, styles.scss */
+/* line 2899, styles.scss */
 #video-container #extra-controls .restart {
   top: 35%;
   left: 25%;
 }
-/* line 2901, styles.scss */
+/* line 2903, styles.scss */
 #video-container #extra-controls .continue {
   top: 35%;
   right: 25%;
   float: right;
 }
-/* line 2906, styles.scss */
+/* line 2908, styles.scss */
 #video-container #extra-controls .restart-icon, #video-container #extra-controls .continue-icon {
   font-size: 3em;
   display: block;
 }
 
-/* line 2913, styles.scss */
+/* line 2915, styles.scss */
 #video-meta-container .utterance, #video-meta-container .time {
   font-weight: bold;
 }
-/* line 2916, styles.scss */
+/* line 2918, styles.scss */
 #video-meta-container .time-div {
   padding-top: 15px;
+}
+
+/* Styles specific to Kielipankki's corpora */
+/* DMA signum lists represented as tables */
+/* line 2929, styles.scss */
+.dma-signumlist td {
+  vertical-align: top;
+}
+/* line 2932, styles.scss */
+.dma-signumlist .sgo0, .dma-signumlist .sgo5 {
+  font-weight: bold;
+}
+/* line 2935, styles.scss */
+.dma-signumlist .sgo3 {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+/* line 2939, styles.scss */
+.dma-signumlist .sgo4 {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+/* line 2944, styles.scss */
+.dma-signumlist tr.vspacer {
+  font-size: 0.3em;
 }
