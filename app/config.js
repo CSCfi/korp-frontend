@@ -6279,17 +6279,16 @@ settings.fn.dma_stringify_dataset_value = function (attrname) {
 
 settings.corpora.dma = {
     title : "DMA – Digitaalinen muoto-opin arkisto",
-    description : "DMA – Digitaalinen muoto-opin arkisto",
+    description : "DMA – Digitaalinen muoto-opin arkisto<br/><a href='https://www.kielipankki.fi/tuki/korp-dma/' target='_blank'>Ohjeita DMA:n käyttämiseen Korpissa</a>, erityisesti verrattuna vanhaan CSC:n Tutkijan käyttöliittymän DMA:han",
     id : "dma",
     urn : "urn:nbn:fi:lb-2014052720",
     metadata_urn : "urn:nbn:fi:lb-201403261",
     homepage_url : "http://www.helsinki.fi/fus/research/ma.html",
+    // TODO (util.coffee): Allow an array of values for licence.
     licence : {
-	name : "CLARIN RES +PLAN +NC +LOC +ND",
+	name : "CC BY 4.0 (teksti) / CLARIN RES PRIV DEP (PDF-sanaliput)",
 	urn : "urn:nbn:fi:lb-20150304110"
     },
-    limited_access : true,
-    licence_type : "RES",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
@@ -6777,7 +6776,7 @@ settings.corpora.dma = {
 	    label : "original_location",
 	    opts : settings.defaultOptions,
 	},
-        sentence_pdf : {
+	sentence_pdf : {
             label : "show_wordnote",
             opts : settings.defaultOptions,
             type : "url",
@@ -6788,7 +6787,7 @@ settings.corpora.dma = {
 		    }
                     var fnames = filename.split(" ");
                     var output = ("<span rel='localize[" + attrs.label + "]'>"
-				  + key + "</span>:");
+				  + key + "</span> [RES]:");
                     for (var i = 0; i < fnames.length; i++) {
                         var fname = (fnames[i]
 				     .replace(/ä/g, 'a')
