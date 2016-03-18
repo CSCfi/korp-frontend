@@ -225,22 +225,27 @@ korpApp.controller "ExtendedSearch", ($scope, utils, $location, backend, $rootSc
     if $location.search().cqp
         s.cqp = $location.search().cqp
 
-    s.$watch "cqp", (val) ->
-        c.log "cqp change", val
-        unless val then return
+    s.setExtendedCQP = (val) ->
+        # c.log "setExtendedCQP", val
         try
             $rootScope.extendedCQP = CQP.expandOperators(val)
             # c.log "cqp expanded ops", $rootScope.extendedCQP
-            # Add the possible ignorable tokens between tokens. This
-            # makes the modified version to be shown in the advanced
-            # search as the extended search expression.
-            # (Jyrki Niemi 2015-09-25)
+            # Add the possible ignorable tokens between tokens
+            # (regardless of the current search tab). This makes the
+            # modified version to be shown in the advanced search as
+            # the extended search expression.
+            # (Jyrki Niemi 2015-09-25, 2016-03-18)
             $rootScope.extendedCQP =
                 settings.corpusListing.addIgnoreBetweenTokensCQP(
-                    $rootScope.extendedCQP)
+                    $rootScope.extendedCQP, true)
             # c.log "cqp added ignore", $rootScope.extendedCQP
         catch e
             c.log "cqp parse error:", e
+
+    s.$watch "cqp", (val) ->
+        c.log "cqp change", val
+        unless val then return
+        s.setExtendedCQP val
         $location.search("cqp", val)
 
 
@@ -256,8 +261,11 @@ korpApp.controller "ExtendedSearch", ($scope, utils, $location, backend, $rootSc
     s.$on "corpuschooserchange", () ->
         s.withins = s.getWithins()
         s.within = s.withins[0]?.value
-        # Update the ignorable tokens between tokens
+        # Update the ignorable tokens between tokens and set the CQP
+        # expression shown in the advanced search for the extended
+        # search.
         settings.corpusListing.updateIgnoreBetweenTokensCQP()
+        s.setExtendedCQP $location.search().cqp
 
 
 korpApp.controller "ExtendedToken", ($scope, utils, $location) ->

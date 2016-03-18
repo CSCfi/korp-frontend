@@ -43,7 +43,10 @@
     };
 
     CorpusListing.prototype.select = function(idArray) {
-      return this.selected = _.values(_.pick.apply(this, [this.struct].concat(idArray)));
+      c.log("CorpusListing.select", idArray);
+      this.selected = _.values(_.pick.apply(this, [this.struct].concat(idArray)));
+      this.updateIgnoreBetweenTokensCQP();
+      return this.selected;
     };
 
     CorpusListing.prototype.mapSelectedCorpora = function(f) {
@@ -438,8 +441,11 @@
       return this.ignore_between_tokens_cqp;
     };
 
-    CorpusListing.prototype.addIgnoreBetweenTokensCQP = function(cqp) {
-      if (this.ignore_between_tokens_cqp && Number(search().search_tab) === 1) {
+    CorpusListing.prototype.addIgnoreBetweenTokensCQP = function(cqp, force) {
+      if (force == null) {
+        force = false;
+      }
+      if (this.ignore_between_tokens_cqp && (force || Number(search().search_tab) === 1)) {
         cqp = this.insertBetweenCQPTokens(cqp, this.ignore_between_tokens_cqp);
         c.log("addIgnoreCQPBetweenTokens after:", cqp);
       }

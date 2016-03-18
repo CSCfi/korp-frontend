@@ -33,7 +33,13 @@ class window.CorpusListing
         corpusChooserInstance.corpusChooser "selectedItems"
 
     select: (idArray) ->
+        c.log "CorpusListing.select", idArray
         @selected = _.values(_.pick.apply(this, [@struct].concat(idArray)))
+        # CHECK: Is updating the ignorable tokens needed both here and
+        # in controller "ExtendedSearch": $on "corpuschooserchange"
+        # (search_controllers)? (Jyrki Niemi 2016-03-18)
+        @updateIgnoreBetweenTokensCQP()
+        @selected
 
     mapSelectedCorpora: (f) ->
         _.map @selected, f
@@ -364,14 +370,16 @@ class window.CorpusListing
     # ignore_between_tokens_cqp of the corpus configuration. The
     # expression to be ignored is added only if all the selected
     # corpora have the same ignore expression and only in the extended
-    # search (could be in simple search as well).
+    # search (could be in the simple search as well) or if the
+    # argument force is true.
     # CHECK: Is this the proper place to have this functionality?
     # (Jyrki Niemi 2015-09-25, 2016-03-17)
-    addIgnoreBetweenTokensCQP : (cqp) ->
+    addIgnoreBetweenTokensCQP : (cqp, force = false) ->
         # c.log "addIgnoreCQPBetweenTokens called", cqp, @ignore_between_tokens_cqp, search().search_tab
         # The value of search_tab seems to be sometimes an integer and
         # sometimes a string.
-        if @ignore_between_tokens_cqp and Number(search().search_tab) == 1
+        if @ignore_between_tokens_cqp and
+                (force or Number(search().search_tab) == 1)
             # c.log "addIgnoreCQPBetweenTokens before:", cqp
             cqp = @insertBetweenCQPTokens cqp, @ignore_between_tokens_cqp
             c.log "addIgnoreCQPBetweenTokens after:", cqp
