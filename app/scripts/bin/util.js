@@ -432,9 +432,10 @@
 
     CorpusListing.prototype.updateIgnoreBetweenTokensCQP = function() {
       var ignore_cqps;
-      ignore_cqps = _(this.selected).pluck("ignore_between_tokens_cqp").uniq().compact().value();
-      c.log("ignore_cqps", ignore_cqps);
-      return this.ignore_between_tokens_cqp = ignore_cqps.length === 1 ? ignore_cqps[0] : "";
+      ignore_cqps = _(this.selected).pluck("ignore_between_tokens_cqp").uniq().value();
+      this.ignore_between_tokens_cqp = ignore_cqps.length === 1 ? ignore_cqps[0] : "";
+      c.log("ignore_between_tokens_cqp", this.ignore_between_tokens_cqp);
+      return this.ignore_between_tokens_cqp;
     };
 
     CorpusListing.prototype.addIgnoreBetweenTokensCQP = function(cqp) {

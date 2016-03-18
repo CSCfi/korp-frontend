@@ -349,14 +349,15 @@ class window.CorpusListing
             _(@selected)
             .pluck("ignore_between_tokens_cqp")
             .uniq()
-            .compact()
             .value()
-        c.log "ignore_cqps", ignore_cqps
+        # c.log "ignore_cqps", ignore_cqps
         @ignore_between_tokens_cqp =
             if ignore_cqps.length == 1
                 ignore_cqps[0]
             else
                 ""
+        c.log "ignore_between_tokens_cqp", @ignore_between_tokens_cqp
+        @ignore_between_tokens_cqp
 
     # Add a CQP token expression to be ignored between the individual
     # token expressions in cqp, based on the property
