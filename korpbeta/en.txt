@@ -1,4 +1,16 @@
 
+<!-- Compiling statistics based on multiple attributes 2016-03-18 -->
+
+This Korp Labs now has in test use an updated version of Korp, in
+which the statistics results can be compiled based on more than one
+word or text attribute. Some bugs have also been fixed.
+
+If a previously working feature no longer works or if you notice other
+bugs, please send a bug report via the <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback"
+target="_blank">Korp feedback form</a>.
+
+
 <!-- Trend diagram zoom and place name map 2016-01-25 -->
 
 This Korp Labs (or “Korp beta”) now has in test use a new version of

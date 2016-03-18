@@ -1,4 +1,50 @@
 
+<!-- Uusi aineisto: Digitaalinen muoto-opin arkisto (DMA) 2016-03-18b -->
+
+[Digitaalinen muoto-opin arkisto (DMA)](?mode=default#?corpus=dma) on
+nyt käytettävissä Korpissa. Korpuksen tekstiosat ovat kaikkien
+nähtävissä, mutta PDF-muotoisten sanalippujen katseleminen edellyttää
+edelleen erillistä käyttölupaa (<a
+href="https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource=urn:nbn:fi:lb-201403261&target=application"
+target="_blank">hae lupaa</a>).
+
+CSC:n Tutkijan käyttöliittymässä oleva DMA on poistumassa käytöstä
+kevään 2016 aikana. Katso <a
+href="https://www.kielipankki.fi/tuki/korp-dma/"
+target="_blank">ohjeita DMA:n käyttämiseksi Korpissa</a>.
+
+
+<!-- Trendidiagrammin tarkentaminen ja paikannimikartta 2016-03-18a -->
+
+Tässä Kielipankin pää-Korpissa on nyt kaksi aiemmin beta-versiossa eli
+”Korp-laboratoriossa” käytössä ollutta ominaisuutta:
+
+* **Trendidiagrammin tarkentaminen** päivien tasolle niillä
+  aineistoilla, joissa on ajoitustiedot päivän tarkkuudella.
+
+* **Kartta**, jossa näkyy paikkoja (kaupunkeja, kuntia, kyliä), joiden
+  nimet esiintyvät hakutuloksessa. Korp tulkitsee paikannimiksi kaikki
+  erisnimet, jotka löytyvät paikannimiluettelosta, vaikka ne tekstissä
+  olisivatkin esim. henkilönnimiä.
+
+Lisäksi **ruotsin osastossa** näkyy yksinkertaisessa haussa haetun
+sanan **lähimerkityksisiä sanoja** ruotsin FrameNetin (SWE-FN)
+pohjalta.
+
+Myös joitain bugeja on korjattu.
+
+<a href="/lab/" target="_blank">Korp-laboratoriossa</a> puolestaan on
+nyt testikäytössä tilastojen laskeminen useamman kuin yhden piirteen
+perusteella.
+
+Jos jokin aiemmin toiminut ominaisuus ei toimi tai jos huomaat muita
+vikoja, ilmoita niistä <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html"
+target="_blank">Korp-palautelomakkeen</a> kautta. (Joidenkin Lauseopin
+arkiston murrekorpuksen monisanaisten hakuehtojen aiheuttama virhe
+pitäisi nyt olla korjattu.)
+
+
 <!-- Nimiluokittelu ja haun rajaaminen 2016-01-25b -->
 
 Tässä Kielipankin pää-Korpissa on nyt kaksi aiemmin beta-versiossa eli

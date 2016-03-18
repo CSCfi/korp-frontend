@@ -1,4 +1,42 @@
 
+<!-- New corpus: Digital Morphology Archives (DMA) 2016-03-18b -->
+
+The Finnish [Digital Morphology Archives
+(DMA)](?mode=default#?corpus=dma&lang=en) is now available in Korp.
+The text is publicly available, but the access to the scanned word
+notes is restricted (<a
+href="https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource=urn:nbn:fi:lb-201403261&target=application"
+target="_blank">apply for access rights</a>).
+
+
+<!-- Trend diagram zoom and place name map 2016-03-18a -->
+
+This Korp main installation now has two features that were previously
+in test use in the Korp Labs:
+
+* **Zooming the trend diagram** down to the level of days in corpora
+  with date information at the granularity of days.
+
+* **A map** showing places (towns, municipalities, villages) whose
+  names occur in the search result. Korp interprets as place names all
+  proper names found in a place-name gazetteer even if they were
+  person names in the text.
+
+In addition, the **Swedish mode** shows **words related** to the
+search word in the simple search, based on the Swedish FrameNet
+(SWE-FN).
+
+Some bugs have also been fixed.
+
+The <a href="/lab/#?lang=en" target="_blank">Korp Labs</a> in turn can
+now compile statistics based on multiple attributes.
+
+If a previously working feature no longer works or if you notice other
+bugs, please send a bug report via the <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback"
+target="_blank">Korp feedback form</a>.
+
+
 <!-- Name classification and restricting search context 2016-01-25b -->
 
 This Korp main installation now has two features that were previously

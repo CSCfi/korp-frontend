@@ -1,4 +1,17 @@
 
+<!-- Tilastojen laskeminen usean piirteen perusteella 2016-03-18 -->
+
+Tässä Korp-laboratoriossa on nyt testikäytössä Korpin päivitetty
+versio, jossa haun tilastotuloksen voi laskea useamman kuin yhden
+piirteen (sanan tai tekstin ominaisuuden) perusteella. Lisäksi on
+korjattu joitain vikoja.
+
+Jos jokin aiemmin toiminut ominaisuus ei toimi tai jos huomaat muita
+vikoja, ilmoita niistä <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html"
+target="_blank">Korp-palautelomakkeen</a> kautta.
+
+
 <!-- Trendidiagrammin tarkentaminen ja paikannimikartta 2016-01-25 -->
 
 Tässä Korp-laboratoriossa (eli Korp betassa) on nyt testikäytössä
