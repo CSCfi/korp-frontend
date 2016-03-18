@@ -6776,6 +6776,22 @@ settings.corpora.dma = {
 	    label : "original_location",
 	    opts : settings.defaultOptions,
 	},
+	sentence_text_words : {
+	    label : "clause_any_wordform",
+	    type : "set",
+	    // This would benefit from having also other options than
+	    // "is" and "is not" for a set-valued attribute, but that
+	    // is not (yet) possible.
+	    opts : settings.setOptions,
+	    displayOnly : "search",
+	},
+	sentence_search_words : {
+	    label : "clause_any_search_word",
+	    type : "set",
+	    // The same applies here as in sentence_text_words.
+	    opts : settings.setOptions,
+	    displayOnly : "search",
+	},
 	sentence_pdf : {
             label : "show_wordnote",
             opts : settings.defaultOptions,

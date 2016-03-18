@@ -1263,6 +1263,8 @@
     "original_location" : "alkuperäistiedon sijainti",
     "show_wordnote" : "Näytä sanalippu",
     "signum_long" : "Signumi",
+    "clause_any_wordform" : "lauseen jokin sananmuoto",
+    "clause_any_search_word" : "lauseen jokin hakusana",
 
     "interview_descr" : "haastattelun kuvaus",
     "original_source" : "alkuperäislähde",
