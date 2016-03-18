@@ -2736,6 +2736,8 @@ line.tick {
 }
 .newsdesk-popover {
     width:440px;
+    // width seems to be overridden by max-width in .popover (Jyrki Niemi)
+    max-width:440px;
     max-height:95%;
     overflow-y : auto;
 }

@@ -6006,18 +6006,19 @@ line.tick {
 /* line 2737, styles.scss */
 .newsdesk-popover {
   width: 440px;
+  max-width: 440px;
   max-height: 95%;
   overflow-y: auto;
 }
 
-/* line 2742, styles.scss */
+/* line 2744, styles.scss */
 .newsdesk-bell {
   float: left;
   margin-top: 4px;
   margin-right: 3px;
 }
 
-/* line 2747, styles.scss */
+/* line 2749, styles.scss */
 .newsdesk-arrow-box {
   float: left;
   padding-left: 4px;
@@ -6025,51 +6026,51 @@ line.tick {
   border-radius: 3px;
 }
 
-/* line 2753, styles.scss */
+/* line 2755, styles.scss */
 .newsdesk-arrow-box span {
   color: #fff;
 }
 
-/* line 2756, styles.scss */
+/* line 2758, styles.scss */
 .newsdesk-news-item {
   padding-left: 4px;
   margin-bottom: 4px;
 }
 
-/* line 2760, styles.scss */
+/* line 2762, styles.scss */
 .newsdesk-opener {
   cursor: pointer;
 }
 
-/* line 2763, styles.scss */
+/* line 2765, styles.scss */
 .newsdesk-around-items {
   margin: 10px;
 }
 
-/* line 2766, styles.scss */
+/* line 2768, styles.scss */
 .newsdesk-item-date {
   font-style: italic;
   color: gray;
 }
 
 /* ----------- Autocompletion ----------- */
-/* line 2773, styles.scss */
+/* line 2775, styles.scss */
 .none-to-find {
   color: #aaa;
 }
 
-/* line 2776, styles.scss */
+/* line 2778, styles.scss */
 .num-to-find {
   visibility: hidden;
   font-size: x-small;
 }
 
-/* line 2780, styles.scss */
+/* line 2782, styles.scss */
 li.active a span .num-to-find {
   visibility: visible;
 }
 
-/* line 2783, styles.scss */
+/* line 2785, styles.scss */
 .autoc-spinner {
   margin-left: -20px;
   margin-top: 2px;
@@ -6077,12 +6078,12 @@ li.active a span .num-to-find {
 }
 
 /* Map */
-/* line 2789, styles.scss */
+/* line 2791, styles.scss */
 .name_map {
   max-width: 1000px;
 }
 
-/* line 2793, styles.scss */
+/* line 2795, styles.scss */
 .leaflet-control-layers-toggle {
   background-image: url(../components/leaflet/dist/images/layers.png);
 }
