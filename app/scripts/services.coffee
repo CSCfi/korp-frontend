@@ -241,27 +241,16 @@ korpApp.factory 'searches', (utils, $location, $rootScope, $http, $q, nameEntity
                 def.resolve()
                 initTimeGraph(timedef)
 
-        # If extended search, add CQP expressions between tokens if
-        # defined in the configuration. (Jyrki Niemi 2015-09-25)
-        addIgnoreCQP : (cqp) ->
-            if $location.search().search_tab == 1
-                util.addIgnoreCQPBetweenTokens(cqp)
-            else
-                cqp
-
-        kwicRequest : (cqp, isPaging, hasIgnores) ->
+        kwicRequest : (cqp, isPaging) ->
 
             c.log "kwicRequest", cqp
-            if not hasIgnores
-                cqp = @addIgnoreCQP(cqp)
             kwicResults.makeRequest(cqp, isPaging)
 
 
         kwicSearch : (cqp, isPaging) ->
             # simpleSearch.resetView()
             # kwicResults.@
-            cqp = @addIgnoreCQP(cqp)
-            @kwicRequest cqp, isPaging, true
+            @kwicRequest cqp, isPaging
             statsResults.makeRequest cqp
             @nameEntitySearch cqp
 

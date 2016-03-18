@@ -236,7 +236,8 @@ korpApp.controller "ExtendedSearch", ($scope, utils, $location, backend, $rootSc
             # search as the extended search expression.
             # (Jyrki Niemi 2015-09-25)
             $rootScope.extendedCQP =
-                util.addIgnoreCQPBetweenTokens($rootScope.extendedCQP)
+                settings.corpusListing.addIgnoreBetweenTokensCQP(
+                    $rootScope.extendedCQP)
             # c.log "cqp added ignore", $rootScope.extendedCQP
         catch e
             c.log "cqp parse error:", e
@@ -255,6 +256,8 @@ korpApp.controller "ExtendedSearch", ($scope, utils, $location, backend, $rootSc
     s.$on "corpuschooserchange", () ->
         s.withins = s.getWithins()
         s.within = s.withins[0]?.value
+        # Update the ignorable tokens between tokens
+        settings.corpusListing.updateIgnoreBetweenTokensCQP()
 
 
 korpApp.controller "ExtendedToken", ($scope, utils, $location) ->

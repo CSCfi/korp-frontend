@@ -26,13 +26,15 @@ class BaseProxy
             return cqp
 
     # Add the possibly combined and unexpanded CQP query cqp (or
-    # data.cqp) to data, splitting prequeries into separate parameters
-    # and expanding all CQP queries. (Jyrki Niemi 2016-02-02)
+    # data.cqp) to data, splitting prequeries into separate
+    # parameters, expanding all CQP queries and adding the ignorable
+    # token expressions between tokens. (Jyrki Niemi 2016-02-02)
     addExpandedCQP : (data, cqp = null) ->
         # c.log "addExpandedCQP", data, data.cqp, cqp
         if cqp is null and "cqp" of data
             cqp = data.cqp
-        util.addCQPs(data, cqp, @expandCQP)
+        util.addCQPs(data, cqp, (cqp) =>
+            settings.corpusListing.addIgnoreBetweenTokensCQP @expandCQP cqp)
         # c.log "addExpandedCQP result", data, data.cqp
 
     makeRequest: ->

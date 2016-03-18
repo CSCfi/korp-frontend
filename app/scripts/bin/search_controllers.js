@@ -216,7 +216,7 @@
       }
       try {
         $rootScope.extendedCQP = CQP.expandOperators(val);
-        $rootScope.extendedCQP = util.addIgnoreCQPBetweenTokens($rootScope.extendedCQP);
+        $rootScope.extendedCQP = settings.corpusListing.addIgnoreBetweenTokensCQP($rootScope.extendedCQP);
       } catch (_error) {
         e = _error;
         c.log("cqp parse error:", e);
@@ -237,7 +237,8 @@
     return s.$on("corpuschooserchange", function() {
       var ref;
       s.withins = s.getWithins();
-      return s.within = (ref = s.withins[0]) != null ? ref.value : void 0;
+      s.within = (ref = s.withins[0]) != null ? ref.value : void 0;
+      return settings.corpusListing.updateIgnoreBetweenTokensCQP();
     });
   });
 

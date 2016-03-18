@@ -252,25 +252,13 @@
         });
       }
 
-      Searches.prototype.addIgnoreCQP = function(cqp) {
-        if ($location.search().search_tab === 1) {
-          return util.addIgnoreCQPBetweenTokens(cqp);
-        } else {
-          return cqp;
-        }
-      };
-
-      Searches.prototype.kwicRequest = function(cqp, isPaging, hasIgnores) {
+      Searches.prototype.kwicRequest = function(cqp, isPaging) {
         c.log("kwicRequest", cqp);
-        if (!hasIgnores) {
-          cqp = this.addIgnoreCQP(cqp);
-        }
         return kwicResults.makeRequest(cqp, isPaging);
       };
 
       Searches.prototype.kwicSearch = function(cqp, isPaging) {
-        cqp = this.addIgnoreCQP(cqp);
-        this.kwicRequest(cqp, isPaging, true);
+        this.kwicRequest(cqp, isPaging);
         statsResults.makeRequest(cqp);
         this.nameEntitySearch(cqp);
         if (settings.name_classification) {
