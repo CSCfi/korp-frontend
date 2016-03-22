@@ -4428,8 +4428,8 @@ settings.corpora.las2_esseet = {
     id : "las2_esseet",
     within : settings.spWithin,
     context : settings.spContext,
-    /*limited_access : true,
-      licence_type : "RES",*/
+    limited_access : true,
+    licence_type : "RES",
     attributes : {
         lemma : attrs.baseform,
         pos : attrs.pos_las2,
