@@ -1133,5 +1133,18 @@
     "ogl_msd_V-3spxm----i": "verb oklart modus 3e person singularis presens s-form",
     "ogl_msd_V-3suxa----i": "verb oklart modus 3e person singularis preteritum aktiv",
     "ogl_msd_V-3ppxa----i": "verb oklart modus 3e person pluralis presens aktiv",
-    "ogl_msd_V-3pxxa----i": "verb oklart modus 3e person pluralis oklart tempus aktiv"
+    "ogl_msd_V-3pxxa----i": "verb oklart modus 3e person pluralis oklart tempus aktiv",
+
+    "studentsvenska_code" : "syntaktisk funktion",
+    "studentsvenska_properties" : "satstyp",
+    "studentsvenska_textnumber" : "textnummer",
+    "studentsvenska_gradeteacher" : "betyg i poäng (lärare)",
+    "studentsvenska_gradeexam" : "betyg i poäng (examensnämnden)",
+    "studentsvenska_gradeword" : "betyg i ord",
+    "studentsvenska_schoolnumber" : "skolans nummer",
+    "studentsvenska_errorother" : "antal fel minus ordföljdsfel",
+    "studentsvenska_gender" : "kön",
+    "studentsvenska_gradegrammar" : "betyg i grammatikstestet",
+    "studentsvenska_errorwordorder" : "antal ordföljdsfel",
+    "studentsvenska_subject" : "uppsatsämne"
 }

@@ -1412,6 +1412,56 @@ sattrs.link_lehdet = {
     url_opts : sattrs.link_url_opts
 };
 
+/* STUDENTSVENSKA */
+
+attrlist.studentsvenska = {
+    lemma : attrs.baseform,
+    code : {
+        label : "studentsvenska_code",
+        opts : settings.defaultOptions
+    },
+    properties : {
+        label : "studentsvenska_properties",
+        opts : settings.defaultOptions
+    }
+
+
+};
+
+sattrlist.studentsvenska = {
+    sentence_id : sattrs.sentence_id_hidden,
+    text_textnumber : {
+        label : "studentsvenska_textnumber"
+    },
+    text_gradeteacher : {
+        label : "studentsvenska_gradeteacher"
+    },
+    text_gradeexam : {
+        label : "studentsvenska_gradeexam"
+    },
+    text_gradeword : {
+        label : "studentsvenska_gradeword"
+    },
+    text_schoolnumber : {
+        label : "studentsvenska_schoolnumber"
+    },
+    text_errorother : {
+        label : "studentsvenska_errorother"
+    },
+    text_gender : {
+        label : "studentsvenska_gender"
+    },
+    text_gradegrammar : {
+        label : "studentsvenska_gradegrammar"
+    },
+    text_errorwordorder : {
+        label : "studentsvenska_errorwordorder"
+    },
+    text_subject : {
+        label : "studentsvenska_subject"
+    }
+};
+
 
 
 // Common positional attributes for corpora parsed with the Turku
