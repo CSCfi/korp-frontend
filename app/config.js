@@ -1794,7 +1794,7 @@ settings.corporafolders.spoken.la_murre = {
 
 settings.corporafolders.learner = {
     title : "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
-    contents : ["las2", "iclfi"],
+    contents : ["las2", "las2_esseet", "iclfi"],
     // unselected : true
 };
 
@@ -4420,6 +4420,104 @@ delete la_murre_groups;
 delete la_murre_parishes;
 delete la_murre_corpora;
 delete la_murre_corpus_prefix;
+
+
+settings.corpora.las2_esseet = {
+    title : "LAS2 (esseet)",
+    description : "Edistyneiden suomenoppijoiden korpus (esseet)",
+    id : "las2_esseet",
+    within : settings.spWithin,
+    context : settings.spContext,
+    /*limited_access : true,
+      licence_type : "RES",*/
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_las2,
+        msd : attrs.msd,
+        fun : attrs.func_la,
+        com : {
+            label : "note",
+        },
+        lex : attrs.lemgram_hidden
+    },
+    struct_attributes : {
+        text_dateto : {
+            label : "text_date",
+        },
+        text_datefrom : {
+            label : "datefrom",
+            displayType : "hidden",
+        },
+        text_num : {
+            label : "exam_num",
+        },
+        text_inf : {
+            label : "text_inf",
+        },
+        text_tt : {
+            label : "text_tt",
+        },
+        text_te : {
+            label : "text_te",
+        },
+        text_lo : {
+            label : "text_lo",
+        },
+        text_l1 : {
+            label : "text_l1",
+        },
+        text_alin_cefr : {
+            label : "text_alin_cefr",
+        },
+        text_ylin_cefr : {
+            label : "text_ylin_cefr",
+        },
+        text_tekstin_cefr : {
+            label : "text_tekstin_cefr",
+        },
+        div_id : {
+            displayType : "hidden",
+        },
+        div_question : {
+            label : "div_question",
+        },
+        paragraph_id : {
+            displayType : "hidden",
+        },
+        paragraph_type : {
+            displayType : "hidden",
+        },
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_type : {
+            displayType : "hidden",
+        },
+        clause_id : {
+            displayType : "hidden",
+        },
+        clause_type : {
+            label : "clause_type",
+            displayType : "select",
+            translationKey : "clausetype_",
+            dataset : {
+                "affdecl" : "affdecl",
+                "negdecl" : "negdecl",
+                "affint" : "affint",
+                "negint" : "negint",
+                "affopt" : "affopt",
+                "negopt" : "negopt",
+                "muu" : "muu",
+            },
+            opts : settings.liteOptions
+        },
+        clause_fun : {
+            label : "clause_fun",
+        },
+        clause_com : {
+            label : "note",
+        }
+    }
+};
+
 
 
 settings.corpora.las2 = {
