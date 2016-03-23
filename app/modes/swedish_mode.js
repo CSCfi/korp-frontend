@@ -108,6 +108,8 @@ settings.corpora.studentsvenska = {
     description : "Studentsvenska 79/80",
     context : settings.defaultContext,
     within : settings.defaultWithin,
+    limited_access : true,
+    licence_type : "RES",
     attributes: attrlist.studentsvenska,
     struct_attributes : sattrlist.studentsvenska
 };
