@@ -6427,14 +6427,14 @@ settings.fn.dma_stringify_dataset_value = function (attrname) {
 
 settings.corpora.dma = {
     title : "DMA – Digitaalinen muoto-opin arkisto",
-    description : "DMA – Digitaalinen muoto-opin arkisto<br/><a href='https://www.kielipankki.fi/tuki/korp-dma/' target='_blank'>Ohjeita DMA:n käyttämiseen Korpissa</a>, erityisesti verrattuna vanhaan CSC:n Tutkijan käyttöliittymän DMA:han",
+    description : "DMA – Digitaalinen muoto-opin arkisto<br/><a href='https://www.kielipankki.fi/tuki/korp-dma/' target='_blank'>Ohjeita DMA:n käyttämiseen Korpissa</a>, erityisesti verrattuna vanhaan CSC:n Tutkijan käyttöliittymän DMA:han<br/><strong>Huomaa</strong>, että vaikka aineiston tekstiosa on kaikkien käytettävisssä, PDF-muotoisten sanalippujen katseleminen edellyttää Kielipankin oikeudet -sovelluksen kautta haettua <a href='https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource=urn:nbn:fi:lb-201403261&target=application' target='_blank'>DMA:n käyttölupaa</a>.",
     id : "dma",
-    urn : "urn:nbn:fi:lb-2014052720",
+    urn : "urn:nbn:fi:lb-2016032102",
     metadata_urn : "urn:nbn:fi:lb-201403261",
     homepage_url : "http://www.helsinki.fi/fus/research/ma.html",
     // TODO (util.coffee): Allow an array of values for licence.
     licence : {
-	name : "CC BY 4.0 (teksti) / CLARIN RES PRIV DEP (PDF-sanaliput)",
+	name : "CC BY 4.0 (teksti) / CLARIN RES +PRIV +DEP (PDF-sanaliput)",
 	urn : "urn:nbn:fi:lb-20150304110"
     },
     within : settings.defaultWithin,
