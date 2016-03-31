@@ -1412,6 +1412,34 @@ sattrs.link_lehdet = {
     url_opts : sattrs.link_url_opts
 };
 
+/* FINSTUD */
+
+sattrlist.finstud = {
+    sentence_id : sattrs.sentence_id_hidden,
+    text_textnumber : {
+        label : "studentsvenska_textnumber"
+    },
+    text_gradeexam : {
+        label : "studentsvenska_gradeexam"
+    },
+    text_subject : {
+        label : "studentsvenska_subject"
+    }
+};
+
+attrlist.finstud = {
+    code : {
+        label : "studentsvenska_code",
+        opts : settings.defaultOptions
+    },
+    properties : {
+        label : "studentsvenska_properties",
+        opts : settings.defaultOptions
+    }
+};
+
+
+
 /* STUDENTSVENSKA */
 
 attrlist.studentsvenska = {
@@ -1794,7 +1822,7 @@ settings.corporafolders.spoken.la_murre = {
 
 settings.corporafolders.learner = {
     title : "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
-    contents : ["las2", "las2_esseet", "iclfi"],
+    contents : ["las2", "las2_esseet", "iclfi", "finstud"],
     // unselected : true
 };
 
@@ -1945,6 +1973,19 @@ settings.corpora.testcorp_deptree = {
     }
 };
 */
+
+settings.corpora.finstud = {
+    id : "finstud",
+    title: "Finstud 86",
+    description : "Finstud 86",
+    limited_access : true,
+    licence_type : "RES",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes: attrlist.finstud,
+    struct_attributes : sattrlist.finstud
+};
+
 
 settings.corpora.ftb2 = {
     title : "FinnTreeBank 2",
