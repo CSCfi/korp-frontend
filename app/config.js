@@ -1822,8 +1822,22 @@ settings.corporafolders.spoken.la_murre = {
 
 settings.corporafolders.learner = {
     title : "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
-    contents : ["las2", "las2_esseet", "iclfi", "finstud"],
+    contents : ["iclfi", "finstud"],
     // unselected : true
+};
+
+settings.corporafolders.learner.las2 = {
+    title : "LAS2 – Edistyneiden suomenoppijoiden korpus",
+    info : {
+        urn : "urn:nbn:fi:lb-2015050504",
+        metadata_urn : "urn:nbn:fi:lb-201407167",
+        homepage_url : "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
+        licence : {
+            name : "CLARIN RES +PLAN +NC +LOC +ND",
+            urn : "urn:nbn:fi:lb-20150304111"
+        },
+    },
+    contents : ["las2", "las2_esseet"]
 };
 
 settings.corporafolders.vks = {
@@ -4562,8 +4576,8 @@ settings.corpora.las2_esseet = {
 
 
 settings.corpora.las2 = {
-    title : "LAS2",
-    description : "Edistyneiden suomenoppijoiden korpus",
+    title : "LAS2 (tentit)",
+    description : "Edistyneiden suomenoppijoiden korpus (tentit)",
     id : "las2",
     urn : "urn:nbn:fi:lb-2015050504",
     metadata_urn : "urn:nbn:fi:lb-201407167",
