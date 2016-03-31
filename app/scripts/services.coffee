@@ -301,12 +301,14 @@ korpApp.factory 'searches', (utils, $location, $rootScope, $http, $q, nameEntity
 
         getInfoData : () ->
             def = $q.defer()
+            corpora = _(settings.corpusListing.corpora).pluck("id")
+                      .invoke("toUpperCase").join ","
             $http(
                 method : "POST"
                 url : settings.cgi_script
-                params:
-                    command : "info"
-                    corpus : _(settings.corpusListing.corpora).pluck("id").invoke("toUpperCase").join ","
+                data : "command=info&corpus=#{corpora}"
+                headers :
+                    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
             ).success (data) ->
                 c.log "data", data
                 for corpus in settings.corpusListing.corpora
