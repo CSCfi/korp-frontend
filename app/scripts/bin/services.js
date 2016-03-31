@@ -308,14 +308,15 @@
       };
 
       Searches.prototype.getInfoData = function() {
-        var def;
+        var corpora, def;
         def = $q.defer();
+        corpora = _(settings.corpusListing.corpora).pluck("id").invoke("toUpperCase").join(",");
         $http({
           method: "POST",
           url: settings.cgi_script,
-          params: {
-            command: "info",
-            corpus: _(settings.corpusListing.corpora).pluck("id").invoke("toUpperCase").join(",")
+          data: "command=info&corpus=" + corpora,
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
           }
         }).success(function(data) {
           var corpus, folder_name, i, len, ref;

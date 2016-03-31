@@ -1454,5 +1454,19 @@
     "scotscorr_year" : "vuosi",
     "scotscorr_st" : "transkription tiedot",
     "scotscorr_fraser" : "kuvaus",
-    "link_to_original" : "linkki alkuperäiseen"
+    "link_to_original" : "linkki alkuperäiseen",
+
+    "studentsvenska_code" : "syntaktinen funktio",
+    "studentsvenska_properties" : "lausetyyppi",
+    "studentsvenska_textnumber" : "tekstin numero",
+    "studentsvenska_gradeteacher" : "opettajan antama arvosana",
+    "studentsvenska_gradeexam" : "koearvosana",
+    "studentsvenska_gradeword" : "sanakokeen arvosana",
+    "studentsvenska_schoolnumber" : "koulun numero",
+    "studentsvenska_errorother" : "virheet",
+    "studentsvenska_gender" : "sukupuoli",
+    "studentsvenska_gradegrammar" : "kielioppiarvosana",
+    "studentsvenska_errorwordorder" : "sanajärjestysvirheet",
+    "studentsvenska_subject" : "aineen vaihe"
+
 }

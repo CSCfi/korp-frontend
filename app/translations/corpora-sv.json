@@ -1177,5 +1177,18 @@
     "video_continue": "Fortsätt",
     "video_start_time": "Starttid",
     "video_end_time": "Sluttid",
-    "video_utterance": "Yttrande"
+    "video_utterance": "Yttrande",
+
+    "studentsvenska_code" : "syntaktisk funktion",
+    "studentsvenska_properties" : "satstyp",
+    "studentsvenska_textnumber" : "textnummer",
+    "studentsvenska_gradeteacher" : "betyg i poäng (lärare)",
+    "studentsvenska_gradeexam" : "betyg i poäng (examensnämnden)",
+    "studentsvenska_gradeword" : "betyg i ord",
+    "studentsvenska_schoolnumber" : "skolans nummer",
+    "studentsvenska_errorother" : "antal fel minus ordföljdsfel",
+    "studentsvenska_gender" : "kön",
+    "studentsvenska_gradegrammar" : "betyg i grammatikstestet",
+    "studentsvenska_errorwordorder" : "antal ordföljdsfel",
+    "studentsvenska_subject" : "uppsatsämne"
 }

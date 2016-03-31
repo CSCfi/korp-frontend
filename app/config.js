@@ -1412,6 +1412,84 @@ sattrs.link_lehdet = {
     url_opts : sattrs.link_url_opts
 };
 
+/* FINSTUD */
+
+sattrlist.finstud = {
+    sentence_id : sattrs.sentence_id_hidden,
+    text_textnumber : {
+        label : "studentsvenska_textnumber"
+    },
+    text_gradeexam : {
+        label : "studentsvenska_gradeexam"
+    },
+    text_subject : {
+        label : "studentsvenska_subject"
+    }
+};
+
+attrlist.finstud = {
+    code : {
+        label : "studentsvenska_code",
+        opts : settings.defaultOptions
+    },
+    properties : {
+        label : "studentsvenska_properties",
+        opts : settings.defaultOptions
+    }
+};
+
+
+
+/* STUDENTSVENSKA */
+
+attrlist.studentsvenska = {
+    lemma : attrs.baseform,
+    code : {
+        label : "studentsvenska_code",
+        opts : settings.defaultOptions
+    },
+    properties : {
+        label : "studentsvenska_properties",
+        opts : settings.defaultOptions
+    }
+
+
+};
+
+sattrlist.studentsvenska = {
+    sentence_id : sattrs.sentence_id_hidden,
+    text_textnumber : {
+        label : "studentsvenska_textnumber"
+    },
+    text_gradeteacher : {
+        label : "studentsvenska_gradeteacher"
+    },
+    text_gradeexam : {
+        label : "studentsvenska_gradeexam"
+    },
+    text_gradeword : {
+        label : "studentsvenska_gradeword"
+    },
+    text_schoolnumber : {
+        label : "studentsvenska_schoolnumber"
+    },
+    text_errorother : {
+        label : "studentsvenska_errorother"
+    },
+    text_gender : {
+        label : "studentsvenska_gender"
+    },
+    text_gradegrammar : {
+        label : "studentsvenska_gradegrammar"
+    },
+    text_errorwordorder : {
+        label : "studentsvenska_errorwordorder"
+    },
+    text_subject : {
+        label : "studentsvenska_subject"
+    }
+};
+
 
 
 // Common positional attributes for corpora parsed with the Turku
@@ -1744,8 +1822,22 @@ settings.corporafolders.spoken.la_murre = {
 
 settings.corporafolders.learner = {
     title : "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
-    contents : ["las2", "iclfi"],
+    contents : ["iclfi", "finstud"],
     // unselected : true
+};
+
+settings.corporafolders.learner.las2 = {
+    title : "LAS2 – Edistyneiden suomenoppijoiden korpus",
+    info : {
+        urn : "urn:nbn:fi:lb-2015050504",
+        metadata_urn : "urn:nbn:fi:lb-201407167",
+        homepage_url : "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
+        licence : {
+            name : "CLARIN RES +PLAN +NC +LOC +ND",
+            urn : "urn:nbn:fi:lb-20150304111"
+        },
+    },
+    contents : ["las2", "las2_esseet"]
 };
 
 settings.corporafolders.vks = {
@@ -1895,6 +1987,19 @@ settings.corpora.testcorp_deptree = {
     }
 };
 */
+
+settings.corpora.finstud = {
+    id : "finstud",
+    title: "Finstud 86",
+    description : "Finstud 86",
+    limited_access : true,
+    licence_type : "RES",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes: attrlist.finstud,
+    struct_attributes : sattrlist.finstud
+};
+
 
 settings.corpora.ftb2 = {
     title : "FinnTreeBank 2",
@@ -4372,9 +4477,107 @@ delete la_murre_corpora;
 delete la_murre_corpus_prefix;
 
 
+settings.corpora.las2_esseet = {
+    title : "LAS2 (esseet)",
+    description : "Edistyneiden suomenoppijoiden korpus (esseet)",
+    id : "las2_esseet",
+    within : settings.spWithin,
+    context : settings.spContext,
+    limited_access : true,
+    licence_type : "RES",
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_las2,
+        msd : attrs.msd,
+        fun : attrs.func_la,
+        com : {
+            label : "note",
+        },
+        lex : attrs.lemgram_hidden
+    },
+    struct_attributes : {
+        text_dateto : {
+            label : "text_date",
+        },
+        text_datefrom : {
+            label : "datefrom",
+            displayType : "hidden",
+        },
+        text_num : {
+            label : "exam_num",
+        },
+        text_inf : {
+            label : "text_inf",
+        },
+        text_tt : {
+            label : "text_tt",
+        },
+        text_te : {
+            label : "text_te",
+        },
+        text_lo : {
+            label : "text_lo",
+        },
+        text_l1 : {
+            label : "text_l1",
+        },
+        text_alin_cefr : {
+            label : "text_alin_cefr",
+        },
+        text_ylin_cefr : {
+            label : "text_ylin_cefr",
+        },
+        text_tekstin_cefr : {
+            label : "text_tekstin_cefr",
+        },
+        div_id : {
+            displayType : "hidden",
+        },
+        div_question : {
+            label : "div_question",
+        },
+        paragraph_id : {
+            displayType : "hidden",
+        },
+        paragraph_type : {
+            displayType : "hidden",
+        },
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_type : {
+            displayType : "hidden",
+        },
+        clause_id : {
+            displayType : "hidden",
+        },
+        clause_type : {
+            label : "clause_type",
+            displayType : "select",
+            translationKey : "clausetype_",
+            dataset : {
+                "affdecl" : "affdecl",
+                "negdecl" : "negdecl",
+                "affint" : "affint",
+                "negint" : "negint",
+                "affopt" : "affopt",
+                "negopt" : "negopt",
+                "muu" : "muu",
+            },
+            opts : settings.liteOptions
+        },
+        clause_fun : {
+            label : "clause_fun",
+        },
+        clause_com : {
+            label : "note",
+        }
+    }
+};
+
+
+
 settings.corpora.las2 = {
-    title : "LAS2",
-    description : "Edistyneiden suomenoppijoiden korpus",
+    title : "LAS2 (tentit)",
+    description : "Edistyneiden suomenoppijoiden korpus (tentit)",
     id : "las2",
     urn : "urn:nbn:fi:lb-2015050504",
     metadata_urn : "urn:nbn:fi:lb-201407167",
@@ -6287,14 +6490,14 @@ settings.fn.dma_stringify_dataset_value = function (attrname) {
 
 settings.corpora.dma = {
     title : "DMA – Digitaalinen muoto-opin arkisto",
-    description : "DMA – Digitaalinen muoto-opin arkisto<br/><a href='https://www.kielipankki.fi/tuki/korp-dma/' target='_blank'>Ohjeita DMA:n käyttämiseen Korpissa</a>, erityisesti verrattuna vanhaan CSC:n Tutkijan käyttöliittymän DMA:han",
+    description : "DMA – Digitaalinen muoto-opin arkisto<br/><a href='https://www.kielipankki.fi/tuki/korp-dma/' target='_blank'>Ohjeita DMA:n käyttämiseen Korpissa</a>, erityisesti verrattuna vanhaan CSC:n Tutkijan käyttöliittymän DMA:han<br/><strong>Huomaa</strong>, että vaikka aineiston tekstiosa on kaikkien käytettävisssä, PDF-muotoisten sanalippujen katseleminen edellyttää Kielipankin oikeudet -sovelluksen kautta haettua <a href='https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource=urn:nbn:fi:lb-201403261&target=application' target='_blank'>DMA:n käyttölupaa</a>.",
     id : "dma",
-    urn : "urn:nbn:fi:lb-2014052720",
+    urn : "urn:nbn:fi:lb-2016032102",
     metadata_urn : "urn:nbn:fi:lb-201403261",
     homepage_url : "http://www.helsinki.fi/fus/research/ma.html",
     // TODO (util.coffee): Allow an array of values for licence.
     licence : {
-	name : "CC BY 4.0 (teksti) / CLARIN RES PRIV DEP (PDF-sanaliput)",
+	name : "CC BY 4.0 (teksti) / CLARIN RES +PRIV +DEP (PDF-sanaliput)",
 	urn : "urn:nbn:fi:lb-20150304110"
     },
     within : settings.defaultWithin,

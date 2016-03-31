@@ -102,6 +102,19 @@ settings.fn.make_corpus_settings_by_year_decade(
 delete klk_sv_parsed_years;
 
 
+settings.corpora.studentsvenska = {
+    id : "studentsvenska",
+    title: "Studentsvenska 79/80",
+    description : "Studentsvenska 79/80",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    limited_access : true,
+    licence_type : "RES",
+    attributes: attrlist.studentsvenska,
+    struct_attributes : sattrlist.studentsvenska
+};
+
+
 settings.corpora.mulcold_sv = {
     id : "mulcold_sv",
     title: "MULCOLD svenska",
