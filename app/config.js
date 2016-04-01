@@ -4477,106 +4477,103 @@ delete la_murre_corpora;
 delete la_murre_corpus_prefix;
 
 
-settings.corpora.las2_esseet = {
-    title : "LAS2 (esseet)",
-    description : "Edistyneiden suomenoppijoiden korpus (esseet)",
-    id : "las2_esseet",
-    within : settings.spWithin,
-    context : settings.spContext,
-    limited_access : true,
-    licence_type : "RES",
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_las2,
-        msd : attrs.msd,
-        fun : attrs.func_la,
-        com : {
-            label : "note",
-        },
-        lex : attrs.lemgram_hidden
+// LAS2
+
+attrlist.las2 = {
+    lemma : attrs.baseform,
+    pos : attrs.pos_las2,
+    msd : attrs.msd,
+    fun : attrs.func_la,
+    com : {
+        label : "note",
     },
-    struct_attributes : {
-        text_dateto : {
-            label : "text_date",
+    lex : attrs.lemgram_hidden
+};
+
+sattrlist.las2 = {
+    text_dateto : {
+        label : "text_date",
+    },
+    text_datefrom : {
+        label : "datefrom",
+	displayType : "hidden",
+    },
+    text_num : {
+        label : "exam_num",
+    },
+    text_inf : {
+        label : "text_inf",
+    },
+    text_tt : {
+        label : "text_tt",
+    },
+    text_te : {
+        label : "text_te",
+    },
+    text_lo : {
+        label : "text_lo",
+    },
+    text_l1 : {
+        label : "text_l1",
+    },
+    text_alin_cefr : {
+        label : "text_alin_cefr",
+    },
+    text_ylin_cefr : {
+        label : "text_ylin_cefr",
+    },
+    text_tekstin_cefr : {
+        label : "text_tekstin_cefr",
+    },
+    // // Uncomment when showing info pages is implemented
+    // text_inf_url : {
+    //     label : "text_inf_url",
+    //     type : "url",
+    // },
+    div_id : {
+        displayType : "hidden",
+    },
+    div_question : {
+        label : "div_question",
+    },
+    paragraph_id : {
+        displayType : "hidden",
+    },
+    paragraph_type : {
+        displayType : "hidden",
+    },
+    sentence_id : sattrs.sentence_id_hidden,
+    sentence_type : {
+        displayType : "hidden",
+    },
+    clause_id : {
+        displayType : "hidden",
+    },
+    clause_type : {
+        label : "clause_type",
+        displayType : "select",
+        translationKey : "clausetype_",
+        dataset : {
+            "affdecl" : "affdecl",
+            "negdecl" : "negdecl",
+            "affint" : "affint",
+            "negint" : "negint",
+            "affopt" : "affopt",
+            "negopt" : "negopt",
+            "muu" : "muu",
         },
-        text_datefrom : {
-            label : "datefrom",
-            displayType : "hidden",
-        },
-        text_num : {
-            label : "exam_num",
-        },
-        text_inf : {
-            label : "text_inf",
-        },
-        text_tt : {
-            label : "text_tt",
-        },
-        text_te : {
-            label : "text_te",
-        },
-        text_lo : {
-            label : "text_lo",
-        },
-        text_l1 : {
-            label : "text_l1",
-        },
-        text_alin_cefr : {
-            label : "text_alin_cefr",
-        },
-        text_ylin_cefr : {
-            label : "text_ylin_cefr",
-        },
-        text_tekstin_cefr : {
-            label : "text_tekstin_cefr",
-        },
-        div_id : {
-            displayType : "hidden",
-        },
-        div_question : {
-            label : "div_question",
-        },
-        paragraph_id : {
-            displayType : "hidden",
-        },
-        paragraph_type : {
-            displayType : "hidden",
-        },
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_type : {
-            displayType : "hidden",
-        },
-        clause_id : {
-            displayType : "hidden",
-        },
-        clause_type : {
-            label : "clause_type",
-            displayType : "select",
-            translationKey : "clausetype_",
-            dataset : {
-                "affdecl" : "affdecl",
-                "negdecl" : "negdecl",
-                "affint" : "affint",
-                "negint" : "negint",
-                "affopt" : "affopt",
-                "negopt" : "negopt",
-                "muu" : "muu",
-            },
-            opts : settings.liteOptions
-        },
-        clause_fun : {
-            label : "clause_fun",
-        },
-        clause_com : {
-            label : "note",
-        }
+        opts : settings.liteOptions
+    },
+    clause_fun : {
+        label : "clause_fun",
+    },
+    clause_com : {
+        label : "note",
     }
 };
 
-settings.corpora.las2_tentit = {
-    title : "LAS2 (tentit)",
-    description : "Edistyneiden suomenoppijoiden korpus (tentit)",
-    id : "las2_tentit",
+// Properties common to the LAS2 subcorpora
+las2_common_props = {
     urn : "urn:nbn:fi:lb-2015050504",
     metadata_urn : "urn:nbn:fi:lb-201407167",
     homepage_url : "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
@@ -4588,98 +4585,28 @@ settings.corpora.las2_tentit = {
     licence_type : "RES",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {
-	lemma : attrs.baseform,
-        pos : attrs.pos_las2,
-        msd : attrs.msd,
-        fun : attrs.func_la,
-        com : {
-            label : "note",
-        },
-	lex : attrs.lemgram_hidden
-    },
-    struct_attributes : {
-        text_dateto : {
-            label : "text_date",
-        },
-        text_datefrom : {
-            label : "datefrom",
-	    displayType : "hidden",
-        },
-        text_num : {
-            label : "exam_num",
-        },
-        text_inf : {
-            label : "text_inf",
-        },
-        text_tt : {
-            label : "text_tt",
-        },
-        text_te : {
-            label : "text_te",
-        },
-        text_lo : {
-            label : "text_lo",
-        },
-        text_l1 : {
-            label : "text_l1",
-        },
-        text_alin_cefr : {
-            label : "text_alin_cefr",
-        },
-        text_ylin_cefr : {
-            label : "text_ylin_cefr",
-        },
-        text_tekstin_cefr : {
-            label : "text_tekstin_cefr",
-        },
-	// // Uncomment when showing info pages is implemented
-	// text_inf_url : {
-	//     label : "text_inf_url",
-	//     type : "url",
-	// },
-        div_id : {
-            displayType : "hidden",
-        },
-        div_question : {
-            label : "div_question",
-        },
-        paragraph_id : {
-            displayType : "hidden",
-        },
-        paragraph_type : {
-            displayType : "hidden",
-        },
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_type : {
-            displayType : "hidden",
-        },
-	clause_id : {
-            displayType : "hidden",
-        },
-        clause_type : {
-            label : "clause_type",
-            displayType : "select",
-            translationKey : "clausetype_",
-            dataset : {
-                "affdecl" : "affdecl",
-                "negdecl" : "negdecl",
-                "affint" : "affint",
-                "negint" : "negint",
-                "affopt" : "affopt",
-                "negopt" : "negopt",
-                "muu" : "muu",
-            },
-            opts : settings.liteOptions
-        },
-        clause_fun : {
-            label : "clause_fun",
-        },
-        clause_com : {
-            label : "note",
-        }
-    }
+    attributes : attrlist.las2,
+    struct_attributes : sattrlist.las2,
 };
+
+settings.corpora.las2_tentit = {
+    title : "LAS2 (tentit)",
+    description : "Edistyneiden suomenoppijoiden korpus (tentit)",
+    id : "las2_tentit",
+};
+
+settings.corpora.las2_esseet = {
+    title : "LAS2 (esseet)",
+    description : "Edistyneiden suomenoppijoiden korpus (esseet)",
+    id : "las2_esseet",
+};
+
+// Add the common properties to the corpus settings of las2_tentit and
+// las2_esseet
+settings.fn.extend_corpus_settings(
+    las2_common_props, ["las2_tentit", "las2_esseet"]);
+
+delete las2_common_props;
 
 settings.corpus_aliases.las2 = "las2_tentit,las2_esseet";
 
