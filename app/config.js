@@ -1837,7 +1837,7 @@ settings.corporafolders.learner.las2 = {
             urn : "urn:nbn:fi:lb-20150304111"
         },
     },
-    contents : ["las2", "las2_esseet"]
+    contents : ["las2_tentit", "las2_esseet"]
 };
 
 settings.corporafolders.vks = {
@@ -4573,12 +4573,10 @@ settings.corpora.las2_esseet = {
     }
 };
 
-
-
-settings.corpora.las2 = {
+settings.corpora.las2_tentit = {
     title : "LAS2 (tentit)",
     description : "Edistyneiden suomenoppijoiden korpus (tentit)",
-    id : "las2",
+    id : "las2_tentit",
     urn : "urn:nbn:fi:lb-2015050504",
     metadata_urn : "urn:nbn:fi:lb-201407167",
     homepage_url : "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
@@ -4682,6 +4680,9 @@ settings.corpora.las2 = {
         }
     }
 };
+
+settings.corpus_aliases.las2 = "las2_tentit,las2_esseet";
+
 
 settings.corpora.sks_kivi_fi = {
     title : "Aleksis Kivi (SKS)",
