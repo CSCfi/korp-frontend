@@ -2302,7 +2302,7 @@ settings.corpora.tiedelehdet_kulutustutkimus = {
 
 settings.corpora.tiedelehdet_sananjalka = {
     title : "Sananjalka",
-    description : "Sananjalka (2000-2013)<br/>Julkaisija: Suomen kielen seura<br/>Kotisivu: <a href='http://www.suomenkielenseura.fi/sananjalka/'>http://www.suomenkielenseura.fi/sananjalka/</a>",
+    description : "Sananjalka (2006-2013)<br/>Julkaisija: Suomen kielen seura<br/>Kotisivu: <a href='http://www.suomenkielenseura.fi/sananjalka/'>http://www.suomenkielenseura.fi/sananjalka/</a>",
     id : "tiedelehdet_sananjalka",
     urn : "",
     metadata_urn : "",
