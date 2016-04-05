@@ -1768,7 +1768,7 @@ settings.corporafolders.lehdet.tiedelehdet = {
 settings.corporafolders.lehdet.muut_lehdet = {
     title : "Muita lehtiä",
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
-    contents : ["lehdet_koskinen", "lehdet_ekonomi"]
+    contents : ["lehdet_koskinen", "lehdet_ekonomi", "lehdet_selkouutiset", "lehdet_selkosanomat"]
 };
 
 settings.corporafolders.other_texts = {
@@ -3359,6 +3359,40 @@ settings.corpora.tiedelehdet_kognitiivinen = {
 /* ===== LEHTIÄ ===== */
 
 settings.corpus_aliases.muut_lehdet = "lehdet_.*";
+
+settings.corpora.lehdet_selkosanomat = {
+    title : "Selkosanomat",
+    description : "Selkosanomat (2012-2013)<br/>Julkaisija: Selkokeskus / Kehitysvammaliitto<br/>Kotisivu: <a href='http://selkosanomat.fi/'>http://selkosanomat.fi/</a>",
+    id : "lehdet_selkosanomat",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.lehdet_selkouutiset = {
+    title : "Selkouutiset",
+    description : "Selkouutiset (2010-2011)<br/>Julkaisija: Selkokeskus / Kehitysvammaliitto<br/>Kotisivu: <a href='http://selkosanomat.fi/'>http://selkosanomat.fi/</a>",
+    id : "lehdet_selkouutiset",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
 
 settings.corpora.lehdet_ekonomi = {
     title : "Ekonomi",
