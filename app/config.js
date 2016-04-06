@@ -1773,7 +1773,7 @@ settings.corporafolders.lehdet.muut_lehdet = {
 
 settings.corporafolders.other_texts = {
     title : "Muita tekstejä",
-    contents : ["kfspc_fi"]
+    contents : ["finstud", "kfspc_fi"]
 };
 
 settings.corporafolders.other_texts.kotus_ns_presidentti = {
@@ -1822,7 +1822,7 @@ settings.corporafolders.spoken.la_murre = {
 
 settings.corporafolders.learner = {
     title : "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
-    contents : ["iclfi", "finstud"],
+    contents : ["iclfi"],
     // unselected : true
 };
 
