@@ -3361,7 +3361,7 @@ settings.corpora.tiedelehdet_kognitiivinen = {
 settings.corpus_aliases.muut_lehdet = "lehdet_.*";
 
 settings.corpora.lehdet_selkosanomat = {
-    title : "Selkouutiset/Selkosanomat",
+    title : "Selkosanomat/Selkouutiset",
     description : "Selkouutiset (25/2006-2011), Selkosanomat (2012-2013)<br/>Julkaisija: Selkokeskus / Kehitysvammaliitto<br/>Kotisivu: <a href='http://selkosanomat.fi/'>http://selkosanomat.fi/</a>",
     id : "lehdet_selkosanomat",
     urn : "",
