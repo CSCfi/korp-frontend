@@ -222,7 +222,6 @@
       }
       if (data.cqp) {
         this.addExpandedCQP(data, data.cqp);
-        data.cqp = data.cqp.replace(/\+/g, "\\+");
       }
       util.addPrequeryWithin(data);
       this.prevCQP = util.combineCQPs(data);

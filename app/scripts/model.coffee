@@ -175,7 +175,7 @@ class model.KWICProxy extends BaseProxy
             # data.cqp = @expandCQP(data.cqp)
             @addExpandedCQP data, data.cqp
             # escape +
-            data.cqp = data.cqp.replace /\+/g, "\\+"
+            # data.cqp = data.cqp.replace /\+/g, "\\+"
 
         util.addPrequeryWithin data
 
