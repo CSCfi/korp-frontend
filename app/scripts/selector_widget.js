@@ -99,7 +99,9 @@ var hp_corpusChooser = {
 			this.setStatus(theBox, "checked"); // Checked
 		}
 
-		var numDisabled = element.find('.disabled').length;
+		// Count only disabled boxdivs (corpora), not other
+		// elements (corpus folders)
+		var numDisabled = element.find('.boxdiv.disabled').length;
 		if(element.find('.boxdiv').length === numDisabled && numDisabled > 0 ) {
 			element.addClass("disabled");
 		} else {
