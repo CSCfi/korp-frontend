@@ -97,6 +97,7 @@
     "text_party" : "party",
     "date" : "date",
     "author" : "author",
+    "writer" : "writer",
     "title" : "title",
     "section" : "section",
     "genre" : "genre",
@@ -118,6 +119,7 @@
     "text_issue" : "issue",
 
     "sender" : "sender",
+    "addressee" : "addressee",
     "archivecode" : "archive code",
     "text_recipient" : "recipient",
     "text_sv" : "work number",
@@ -686,6 +688,9 @@
     "date_from" : "From",
     "date_to" : "To",
 
+    "num_words" : "number of words",
+    "file_name" : "file name",
+
     "variants" : "similar lemgram",
 
     "typography" : "typographic information",
@@ -998,6 +1003,20 @@
     "iclfi_wherewritten" : "where written",
     "iclfi_aids" : "writing aids",
     "iclfi_filename" : "file name",
+
+    "scotscorr_largeregion" : "larger region",
+    "scotscorr_bi" : "previous editions",
+    "scotscorr_ms" : "NLS/NRS catalogue number",
+    "scotscorr_lcinf" : "writer's origin (region)",
+    "scotscorr_lclet" : "place of writing",
+    "scotscorr_arg" : "gender/rank of addressee",
+    "scotscorr_srg" : "gender/rank of writer",
+    "scotscorr_lettertype" : "type of letter (primary)",
+    "scotscorr_lettertype2" : "type of letter (secondary)",
+    "scotscorr_scripttype" : "script type (primary)",
+    "scotscorr_scripttype2" : "script type (secondary)",
+    "scotscorr_st" : "transcription information",
+    "scotscorr_fraser" : "description",
 
     "librisid" : "Libris-ID",
 

@@ -208,17 +208,29 @@ settings.corporafolders.sust = {
     contents : ["sust_myv", "sust_kpv", "sust_mdf"]
 };
 
-settings.corporafolders.scotscorr = {
+settings.corporafolders.english.scotscorr = {
     title : "ScotsCorr",
-    contents : ["scots_f1550_1599",
-                "scots_f1600_1649",
-                "scots_f1650_1699",
-                "scots_f1700_1749",
-                "scots_m1550_1599",
-                "scots_m1600_1649",
-                "scots_m1650_1699",
-                "scots_m1700_1749",
-                "scots_royal"]
+    // Description copied from META-SHARE
+    description : "Helsinki Corpus of Scottish Correspondence (1540–1750)<br/><br/>The corpus comprises circa 0,5 million words of early Scottish correspondence by male and female writers dating from the period 1540–1750. The corpus consists of transcripts of original letter manuscripts, which reproduce the text disallowing any modernisation, normalisation or emendation. Language-external variables such as date, region, gender, addressee, hand and script type have been coded into the database. The writers originate from fifteen different regions of Scotland; these can be grouped to represent the areas of North, North-East, Central, South-East, and South-West. In addition, there are two categories of informants that have not been defined by geographical origin: representatives of the court and professional people such as members of the clergy. The proportion of female informants in the corpus is 21 per cent.",
+    info : {
+	urn : "[to be added]",
+	metadata_urn : "urn:nbn:fi:lb-201411071",
+	licence : settings.licenceinfo.ACA_NC,
+	compiler : {
+	    name : "Anneli Meurman-Solin",
+	},
+    },
+    contents : [
+        "scots_f1550_1599",
+        "scots_f1600_1649",
+        "scots_f1650_1699",
+        "scots_f1700_1749",
+        "scots_m1550_1599",
+        "scots_m1600_1649",
+        "scots_m1650_1699",
+        "scots_m1700_1749",
+        "scots_royal"
+    ],
 };
 
 
@@ -1533,6 +1545,7 @@ settings.corpora.fennougrica_veps = {
 */
 
 
+/* attrlist.scotscorr is currently not used */
 attrlist.scotscorr = {
     w_note : attrs.word_note,
     w_supplement : attrs.word_supplement,
@@ -1550,117 +1563,239 @@ attrlist.scotscorr = {
 
 sattrlist.scotscorr = {
     sentence_id : sattrs.sentence_id_hidden,
-    text_year : {label : "scotscorr_year"},
-    text_fraser : {label : "scotscorr_fraser"},
+    text_from : { label : "writer" },
+    text_to : { label : "addressee" },
+    text_year : { label : "year" },
     text_datefrom : sattrs.date,
-    text_from : { label : "topling_from" },
-    text_to : { label : "topling_to"},
-    text_bi : { label : "scotscorr_bi"},
+    text_fraser : { label : "scotscorr_fraser" },
+    text_lcinf : {
+	label : "scotscorr_lcinf",
+	displayType : "select",
+	opts : settings.liteOptions,
+	localize : false,
+	dataset : {
+	    // The control characters \x01–\x08 are used to get the
+	    // desired sorting order in the selection list. They are
+	    // invisible in the output, but could they cause problems
+	    // in some cases?
+	    "Moray|Invernessshire|Sutherland|Ross" : "\x01North",
+	    "Moray" : "\x01    Moray",
+	    "Invernessshire" : "\x01    Invernessshire",
+	    "Sutherland" : "\x01    Sutherland",
+	    "Ross" : "\x01    Ross",
+	    "Aberdeenshire|Angus" : "\x02North-East",
+	    "Aberdeenshire" : "\x02    Aberdeenshire",
+	    "Angus" : "\x02    Angus",
+	    "Perthshire|Lanarkshire" : "\x03Central",
+	    "Perthshire" : "\x03    Perthshire",
+	    "Lanarkshire" : "\x03    Lanarkshire",
+	    "Fife|Lothian|East Lothian|Stirlingshire|Borders" : "\x04South-East",
+	    "Fife" : "\x04    Fife",
+	    "Lothian" : "\x04    Lothian",
+	    "East Lothian" : "\x04    East Lothian",
+	    "Stirlingshire" : "\x04    Stirlingshire",
+	    "Borders" : "\x04    Borders",
+	    "Argyllshire|Ayrshire|South-West" : "\x05South-West",
+	    "Argyllshire" : "\x05    Argyllshire",
+	    "Ayrshire" : "\x05    Ayrshire",
+	    "South-West" : "\x05    South-West",
+	    "Court" : "\x06Court",
+	    "Professional" : "\x07Professional",
+	    "unlocalised" : "\x08unlocalised",
+	},
+    },
+    text_largeregion : {
+	label : "scotscorr_largeregion",
+	displayType : "select",
+	opts : settings.liteOptions,
+	localize : false,
+	dataset : {
+	    // The control characters \x01–\x08 are used to get the
+	    // desired sorting order in the selection list. They are
+	    // invisible in the output, but could they cause problems
+	    // in some cases?
+	    "North" : "\x01North",
+	    "North-East" : "\x02North-East",
+	    "Central" : "\x03Central",
+	    "South-East" : "\x04South-East",
+	    "South-West" : "\x05South-West",
+	    "Court" : "\x06Court",
+	    "Professional" : "\x07Professional",
+	    "Unlocalised" : "\x08Unlocalised",
+	},
+    },
+    text_lclet : { label : "scotscorr_lclet" },
+    text_srg : {
+	label : "scotscorr_srg",
+	displayType : "select",
+	opts : settings.liteOptions,
+	localize : false,
+	dataset : [
+	    "female",
+	    "male",
+	    "royal",
+	    "unspecified",
+	],
+    },
+    text_arg : {
+	label : "scotscorr_arg",
+	displayType : "select",
+	opts : settings.liteOptions,
+	localize : false,
+	dataset : [
+	    "female",
+	    "male",
+	    "royal",
+	    "unspecified",
+	],
+    },
+    text_lettertype : {
+	label : "scotscorr_lettertype",
+	displayType : "select",
+	opts : settings.liteOptions,
+	localize : false,
+	dataset : [
+	    "autograph",
+	    "information unavailable",
+	    "non-autograph",
+	],
+    },
+    text_scripttype : {
+	label : "scotscorr_scripttype",
+	displayType : "select",
+	opts : settings.liteOptions,
+	localize : false,
+	dataset : [
+	    "information unavailable",
+	    "initial and final formulae and signature",
+	    "italic",
+	    "letter-closing formula",
+	    "letter-closing formula and signature",
+	    "non-secretary",
+	    "secretary",
+	    "signature",
+	    "signatures",
+	    "signature and insertion",
+	    "the letter-closing formula and the signature",
+	    "the signature",
+	    "unspecified",
+	],
+    },
+    text_lettertypetwo : {
+	label : "scotscorr_lettertype2",
+	displayType : "select",
+	opts : settings.liteOptions,
+	localize : false,
+	dataset : [
+	    "autograph",
+	    "information unavailable",
+	    "non-autograph",
+	],
+    },
+    text_scripttypetwo : {
+	label : "scotscorr_scripttype",
+	displayType : "select",
+	opts : settings.liteOptions,
+	localize : false,
+	dataset : [
+	    "copy",
+	    "information unavailable",
+	    "non-secretary",
+	    "secretary",
+	],
+    },
+    text_wc : { label : "num_words" },
     text_id : { label : "text_id" },
-    text_fn : { label : "file_name"},
-    text_ms : { label : "scotscorr_ms"},
-    text_lcinf : { label : "scotscorr_lcinf"},
-    text_lclet : { label : "scotscorr_lclet"},
-    text_arg : { label : "scotscorr_arg"},
-    text_srg : { label : "scotscorr_srg"},
-    text_lettertype : { label : "scotscorr_lettertype"},
-    text_scripttype : { label : "scotscorr_scripttype"},
-    text_lettertypetwo : { label : "scotscorr_lettertype"},
-    text_scripttypetwo : { label : "scotscorr_scripttype"},
-    text_st : {label :  "scotscorr_st"},
-    text_wc : { label : "scotscorr_wc"},
-    text_largeregion : { label : "scotscorr_largeregion"}
+    text_fn : { label : "file_name" },
+    text_ms : { label : "scotscorr_ms" },
+    text_bi : { label : "scotscorr_bi" },
+    text_st : { label : "scotscorr_st" },
 };
+
 
 settings.corpora.scots_f1550_1599 = {
     id : "scots_f1550_1599",
-    title : "Female 1550–1599",
-    description : "Female 1550–1599",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+    title : "ScotsCorr: Female 1550–1599",
+    description : "Helsinki Corpus of Scottish Correspondence: Female 1550–1599",
 };
 
 settings.corpora.scots_f1600_1649 = {
     id : "scots_f1600_1649",
-    title : "Female 1600–1649",
-    description : "Female 1600–1649",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+    title : "ScotsCorr: Female 1600–1649",
+    description : "Helsinki Corpus of Scottish Correspondence: Female 1600–1649",
 };
 
 settings.corpora.scots_f1650_1699 = {
     id : "scots_f1650_1699",
-    title : "Female 1650–1699",
-    description : "Female 1650–1699",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+    title : "ScotsCorr: Female 1650–1699",
+    description : "Helsinki Corpus of Scottish Correspondence: Female 1650–1699",
 };
 
 settings.corpora.scots_f1700_1749 = {
     id : "scots_f1700_1749",
-    title : "Female 1700–1749",
-    description : "Female 1700–1749",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+    title : "ScotsCorr: Female 1700–1749",
+    description : "Helsinki Corpus of Scottish Correspondence: Female 1700–1749",
 };
 
 settings.corpora.scots_m1550_1599 = {
     id : "scots_m1550_1599",
-    title : "Male 1550–1599",
-    description : "Male 1550–1599",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+    title : "ScotsCorr: Male 1550–1599",
+    description : "Helsinki Corpus of Scottish Correspondence: Male 1550–1599",
 };
 
 settings.corpora.scots_m1600_1649 = {
     id : "scots_m1600_1649",
-    title : "Male 1600–1649",
-    description : "Male 1600–1649",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+    title : "ScotsCorr: Male 1600–1649",
+    description : "Helsinki Corpus of Scottish Correspondence: Male 1600–1649",
 };
 
 settings.corpora.scots_m1650_1699 = {
     id : "scots_m1650_1699",
-    title : "Male 1650–1699",
-    description : "Male 1650–1699",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+    title : "ScotsCorr: Male 1650–1699",
+    description : "Helsinki Corpus of Scottish Correspondence: Male 1650–1699",
 };
 
 settings.corpora.scots_m1700_1749 = {
     id : "scots_m1700_1749",
-    title : "Male 1700–1749",
-    description : "Male 1700–1749",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+    title : "ScotsCorr: Male 1700–1749",
+    description : "Helsinki Corpus of Scottish Correspondence: Male 1700–1749",
 };
 
 settings.corpora.scots_royal = {
     id : "scots_royal",
-    title : "Royal",
-    description : "Royal",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+    title : "ScotsCorr: Royal",
+    description : "Helsinki Corpus of Scottish Correspondence: Royal",
 };
+
+settings.fn.extend_corpus_settings(
+    {
+	context : {
+	    "20 word" : "20 word",
+	    // In ScotsCorr, sentence, paragraph and text are all the
+	    // same regions, but only paragraph works here, since it
+	    // is the default "reading mode" context.
+	    "1 paragraph" : "1 paragraph"
+	},
+	within : settings.defaultWithin,
+	limited_access : isPublicServer,
+	licence_type : "ACA",
+	attributes : {},
+	struct_attributes : sattrlist.scotscorr,
+	ignore_between_tokens_cqp : '[word="[^a-zA-Z0-9]+|\\{.*"]*',
+    },
+    [
+	"scots_f1550_1599",
+	"scots_m1550_1599",
+	"scots_f1600_1649",
+	"scots_m1600_1649",
+	"scots_f1650_1699",
+	"scots_m1650_1699",
+	"scots_f1700_1749",
+	"scots_m1700_1749",
+	"scots_royal",
+    ]);
+
+settings.corpus_aliases.scotscorr = "scots_.*";
 
 
 /*
@@ -2457,7 +2592,8 @@ var locally_available_corpora = ["(mulcold|legal)_..",
 				 "elfa",
 				 "kildin_sample",
 				 "sust_.*",
-				 "swahili_sample"];
+				 "swahili_sample",
+				 "scots_.*",];
 
 if (! isPublicServer) {
     settings.fn.remove_matching_corpora(locally_available_corpora, true);

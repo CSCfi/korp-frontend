@@ -2327,6 +2327,11 @@ settings.licenceinfo = {
 	name : "CLARIN RES +NC +INF +ND 1.0",
 	urn : "urn:nbn:fi:lb-2017020612",
     },
+    ACA_NC : {
+	name : "CLARIN ACA +NC",
+	description : "CLARIN ACA (Academic) End-User License 1.0, Non-commercial",
+	url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
+    }
 };
 
 
