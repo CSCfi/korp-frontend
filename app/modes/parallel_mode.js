@@ -231,8 +231,8 @@ view.KWICResults = Subclass(view.KWICResults, function() {
 
 // model.StatsProxy.prototype.makeRequest = function(){};
 
-settings.primaryColor = "#FFF3D8";
-settings.primaryLight = "#FFF9EE";
+settings.primaryColor = "#7A90C3";
+settings.primaryLight = "#CAD2E6";
 
 var context = {
 	"defaultAligned" : {
