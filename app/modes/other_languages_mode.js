@@ -42,18 +42,21 @@ settings.corporafolders.fennougrica = {
 };
 
 settings.corporafolders.english = {
-    title : "Englanninkielisiä tekstejä",
+    title : "English / Englanti",
+    description : "Texts in English<br/>Englanninkielisiä tekstejä",
     contents : ["mulcold_en", "topling"]
 };
 
 settings.corporafolders.german = {
-    title : "Saksankielisiä tekstejä",
+    title : "Deutsch / Saksa / German",
+    description : "Texte auf Deutsch<br/>Saksankielisiä tekstejä<br/>Texts in German",
     contents : ["mulcold_de"],
     // unselected : true
 };
 
 settings.corporafolders.russian = {
-    title : "Venäjänkielisiä tekstejä",
+    title : "По-русски / Venäjä / Russian",
+    description : "Tексты по-русски<br/>Venäjänkielisiä tekstejä<br/>Texts in Russian",
     contents : ["legal_ru", "mulcold_ru"],
     // unselected : true
 };
