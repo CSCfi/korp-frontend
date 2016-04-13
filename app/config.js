@@ -7961,20 +7961,6 @@ attrlist.topling = {
     type : attrs.wordtype
 };
 
-attrlist.scotscorr = {
-    w_note : attrs.word_note,
-    w_supplement : attrs.word_supplement,
-    w_full : attrs.word_correction,
-    w_spacing : {
-        label : "word_spacing",
-        opts : settings.defaultOptions
-    },
-    w_typography : attrs.word_typography,
-    w_state : {
-        label : "word_state",
-        opts : settings.defaultOptions
-    }
-};
 
 /* SINEBRYCHOFF */
 
@@ -7989,7 +7975,6 @@ sattrlist.sinebrychoff = {
     text_receiver : { label : "topling_to"},
     text_id : { label : "text_id" }
 };
-
 
 
 /* OPUS */
@@ -8036,31 +8021,6 @@ sattrlist.s24_update = {
     text_anonnick_lemmas : {
 	label : "suomi24fi_user_lemmas",
     },
-};
-
-sattrlist.scotscorr = {
-    sentence_id : sattrs.sentence_id_hidden,
-    text_year : {label : "scotscorr_year"},
-    text_fraser : {label : "scotscorr_fraser"},
-    text_datefrom : sattrs.date,
-    text_date : { label : "scotscorr_original_date" },
-    text_from : { label : "topling_from" },
-    text_to : { label : "topling_to"},
-    text_bi : { label : "scotscorr_bi"},
-    text_id : { label : "text_id" },
-    text_fn : { label : "file_name"},
-    text_ms : { label : "scotscorr_ms"},
-    text_lcinf : { label : "scotscorr_lcinf"},
-    text_lclet : { label : "scotscorr_lclet"},
-    text_arg : { label : "scotscorr_arg"},
-    text_srg : { label : "scotscorr_srg"},
-    text_lettertype : { label : "scotscorr_lettertype"},
-    text_scripttype : { label : "scotscorr_scripttype"},
-    text_lettertypetwo : { label : "scotscorr_lettertype"},
-    text_scripttypetwo : { label : "scotscorr_scripttype"},
-    text_st : {label :  "scotscorr_st"},
-    text_wc : { label : "scotscorr_wc"},
-    text_largeregion : { label : "scotscorr_largeregion"}
 };
 
 sattrlist.europarl_v7 = {
