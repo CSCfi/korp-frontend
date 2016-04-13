@@ -661,6 +661,7 @@ attrs.pos_kotus = {
     },
     opts : settings.liteOptions
 };
+
 attrs.pos_mulcold_fi = {
     label : "pos",
     displayType : "select",
@@ -1221,16 +1222,27 @@ attrs.id_hidden = {
 };
 attrs.ambiguous_lemma = {
     label : "ambiguous_lemma",
-    opts : settings.defaultOptions
+    type : "set",
+    opts : settings.setOptions
 };
 attrs.ambiguous_pos = {
     label : "ambiguous_pos",
-    opts : settings.defaultOptions
+    type : "set",
+    opts : settings.setOptions
 };
 attrs.ambiguous_msd = {
     label : "ambiguous_msd",
-    opts : settings.defaultOptions
+    type : "set",
+    opts : settings.setOptions
 };
+
+var mulcold_pos_langs = ["fi", "ru", "en", "sv"];
+for (var i = 0; i < mulcold_pos_langs.length; i++) {
+    var lang = mulcold_pos_langs[i];
+    attrs["ambiguous_pos_mulcold_" + lang] = $.extend(
+	true, {}, attrs["pos_mulcold_" + lang], attrs.ambiguous_pos);
+}
+delete mulcold_pos_langs;
 
 attrs.wordtype = {
     label : "type",
@@ -6923,7 +6935,7 @@ attrlist.mulcold_fi = {
     pos : attrs.pos_mulcold_fi,
     msd : attrs.msd,
     amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos,
+    ambpos : attrs.ambiguous_pos_mulcold_fi,
     ambmsd : attrs.ambiguous_msd,
     lex : attrs.lemgram_hidden
 };
@@ -6932,7 +6944,7 @@ attrlist.mulcold_ru = {
     pos : attrs.pos_mulcold_ru,
     msd : attrs.msd,
     amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos,
+    ambpos : attrs.ambiguous_pos_mulcold_ru,
     ambmsd : attrs.ambiguous_msd,
     lex : attrs.lemgram_hidden
 };
@@ -6941,7 +6953,7 @@ attrlist.mulcold_en = {
     pos : attrs.pos_mulcold_en,
     msd : attrs.msd,
     amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos,
+    ambpos : attrs.ambiguous_pos_mulcold_en,
     ambmsd : attrs.ambiguous_msd,
     lex : attrs.lemgram_hidden
 };
@@ -6951,7 +6963,7 @@ attrlist.mulcold_sv = {
     pos : attrs.pos_mulcold_sv,
     msd : attrs.msd,
     amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos,
+    ambpos : attrs.ambiguous_pos_mulcold_sv,
     ambmsd : attrs.ambiguous_msd,
     lex : attrs.lemgram_hidden
 };

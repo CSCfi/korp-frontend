@@ -241,6 +241,9 @@ var context = {
     	"1 paragraph" : "1 paragraph"
     },
 */
+	"linkAligned" : {
+		"1 link" : "1 link"
+	},
     	"alignAligned" : {
     		"1 align" : "1 align"
     	}
@@ -248,10 +251,11 @@ var context = {
 
 settings.preselected_corpora = ["europarl_v7_enfi_fi", "mulcold_fi"];
 
-settings.defaultOverviewContext = "1 sentence"
-settings.defaultReadingContext = "1 sentence"
+settings.defaultOverviewContext = "1 link";
+settings.defaultReadingContext = "1 link";
 
 settings.defaultWithin = { "sentence": "sentence" };
+settings.linkWithin = { "link": "link" };
 
 settings.corporafolders = {};
 
@@ -7747,6 +7751,204 @@ settings.corpora.parfin_ru = {
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.parfin,
 				   ["parfin_fi", "parfin_ru"]);
+
+
+/* ParFin (updated version) */
+
+sattrlist.parfin_test_base = {
+    link_text_code : {
+	label : "text_id"
+    },
+    link_txtnumber : {
+	label : "text_number"
+    },
+    link_text_author : {
+	label : "author"
+    },
+    link_text_title : {
+	label : "title"
+    },
+    link_text_typeoftext : {
+	label : "text_type"
+    },
+    link_text_genre : sattrs.mikhailov_text_genre,
+    link_text_period : {
+	label : "year"
+    },
+    link_text_publisher : {
+	label : "publisher"
+    },
+    sentence_id : sattrs.sentence_id_hidden
+};
+
+sattrlist.parfin_test_fi = $.extend(
+    true, {}, sattrlist.parfin_test_base,
+    {
+	link_text_author : {
+	    label : "author",
+	    displayType : "select",
+	    dataset : [
+		"Haahtela Joel",
+		"Hotakainen Kari",
+		"Konkka Anita",
+		"Krohn Leena",
+		"Lassila Maiju",
+		"Lehtolainen Leena",
+		"Mäkelä Hannu",
+		"Oksanen Sofi",
+		"Rimminen Mikko",
+		"Sillanpää Frans Emil",
+		"Sinisalo Johanna",
+		"Tuuri Antti",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_translator : {
+	    label : "translator",
+	    displayType : "select",
+	    dataset : [
+		"Djafarova Taissia",
+		"Džafarova-Viitala Taisja",
+		"Ioffe Eleonora",
+		"Melnik Tatjana",
+		"Muravin Gennadi, Kamenskaja J",
+		"Muravin, Gennadi",
+		"Priležajev Ivan",
+		"Sidorova Anna",
+		"Sidorova Anna, Tinovitskaja Jevgenija",
+		"Tinovitskaja Evgenija",
+		"Uretskij Ilja",
+		"Virolainen Laura A.",
+		"Zoštšenko Mihail",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_title : {
+	    label : "title",
+	    displayType : "select",
+	    dataset : [
+		"Ennen päivänlaskua ei voi",
+		"Ensimmäinen murhani",
+		"Harmin paikka",
+		"Hullun taivaassa",
+		"Ihmisen vaatteissa",
+		"Ihmiset suviyössä",
+		"Joki virtaa läpi kaupungin",
+		"Juoksuhaudantie",
+		"Kuparisydän",
+		"Pekka Peloton",
+		"Perhoskerääjä",
+		"Puhdistus",
+		"Pussikaljaromaani",
+		"Sfinksi vai robotti",
+		"Tulitikkuja lainaamassa",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_publisher : {
+	    label : "publisher",
+	    displayType : "select",
+	    dataset : {
+		"Kansa" : "Kansa",
+		"Otava" : "Otava",
+		"[Tt]ammi" : "Tammi",
+		"Teos" : "Teos",
+		"WSOY" : "WSOY",
+	    },
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+    }
+);
+
+sattrlist.parfin_test_ru = $.extend(
+    true, {}, sattrlist.parfin_test_fi,
+    {
+	link_text_title : {
+	    label : "title",
+	    displayType : "select",
+	    dataset : [
+		"Бесстрашный Пекка  В одежде человека",
+		"В одежде человека",
+		"В сумасшедших небесах",
+		"До заката нельзя",
+		"За спичками",
+		"Змеи в раю",
+		"Люди в летней ночи",
+		"Медное сердце",
+		"Мое первое убийство",
+		"Очищение",
+		"Река течет через город",
+		"Роман с пивом",
+		"Собиратель бабочек",
+		"Сфинкс или робот  В одежде человека",
+		"Улица окопная",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_publisher : {
+	    label : "publisher",
+	    displayType : "select",
+	    dataset : [
+		"Азбука-классика",
+		"Амфора",
+		"Астрель",
+		"Государственное издательство художественной литературы",
+		"Едиториал УРСС",
+		"КомКнига",
+		"Лимбус Пресс, Издательство К. Тублина",
+		"Самокат",
+		"Текст",
+		"Художественная литература",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+    }
+);
+
+attrlist.parfin_test_fi = $.extend(
+    true, {}, attrlist.mulcold_fi);
+
+attrlist.parfin_test_ru = $.extend(
+    true, {}, attrlist.mulcold_ru);
+
+settings.corpora.parfin_test_fi = {
+    id : "parfin_test_fi",
+    lang : "fin",
+    linked_to : ["parfin_test_ru"],
+    title: "ParFin 2014 fi",
+    attributes: attrlist.parfin_test_fi,
+    struct_attributes : sattrlist.parfin_test_fi,
+};
+
+settings.corpora.parfin_test_ru = {
+    id : "parfin_test_ru",
+    lang : "rus",
+    linked_to : ["parfin_test_fi"],
+    title: "ParFin 2014 ru",
+    attributes: attrlist.parfin_test_ru,
+    struct_attributes : sattrlist.parfin_test_ru,
+    hide : true,
+};
+
+settings.fn.extend_corpus_settings(
+    {
+	// Properties common to parfin_test_fi and parfin_test_ru
+	description : "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1990–2010 ja niiden käännöksiä venäjäksi virketasolla kohdistettuina",
+	context: context.linkAligned,
+	within: settings.linkWithin,
+	limited_access : true,
+	licence_type : "RES",
+    },
+    ["parfin_test_fi", "parfin_test_ru"]
+);
+settings.fn.extend_corpus_settings(settings.corpusinfo.parfin,
+				   ["parfin_test_fi", "parfin_test_ru"]);
 
 
 /*
