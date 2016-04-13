@@ -1829,7 +1829,7 @@ settings.corporafolders.learner = {
 settings.corporafolders.learner.las2 = {
     title : "LAS2 – Edistyneiden suomenoppijoiden korpus",
     info : {
-        urn : "urn:nbn:fi:lb-2015050504",
+        urn : "urn:nbn:fi:lb-201604120",
         metadata_urn : "urn:nbn:fi:lb-201407167",
         homepage_url : "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
         licence : {
