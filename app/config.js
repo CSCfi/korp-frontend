@@ -5090,6 +5090,60 @@ sattrlist.europarl_v7 = {
     }
 };
 
+attrlist.testerzya = {};
+
+sattrlist.testerzya = {
+    text_author : {
+        label : "text_author"
+    },
+    text_title : {
+        label : "text_title"
+    },
+    text_publisher : {
+        label : "text_publisher"
+    },
+    text_corrector : {
+        label : "text_corrector"
+    },
+    text_usage : {
+        label : "text_usage"
+    },
+    text_year : {
+        label : "text_year"
+    },
+    text_lang : {
+        label : "klk_lang",
+        displayType : "select",
+        translationKey : "klk_lang_",
+        dataset : {
+            "izh" : "izh",
+            "kca" : "kca",
+            "mdf" : "mdf",
+            "mns" : "mns",
+            "mrj" : "mrj",
+            "myv" : "myv",
+            "sel" : "sel",
+            "vep" : "vep",
+            "yrk" : "yrk"
+        },
+        opts : settings.liteOptions
+    },
+    sentence_id : sattrs.sentence_id_hidden,
+	sentence_section : {
+        label : "sentence_section"
+	    },
+	sentence_chapno : {
+        label : "sentence_chapno",
+	    },
+	paragraph_class : {
+        label : "paragraph_class",
+	    },
+	paragraph_lang : {
+        label : "paragraph_lang",
+	    }
+};
+
+
 
 sattrlist.fennougrica_veps = {
     sentence_id : sattrs.sentence_id_hidden,
