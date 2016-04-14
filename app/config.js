@@ -1833,8 +1833,8 @@ settings.corporafolders.learner.las2 = {
         metadata_urn : "urn:nbn:fi:lb-201407167",
         homepage_url : "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
         licence : {
-            name : "CLARIN RES +PLAN +NC +LOC +ND",
-            urn : "urn:nbn:fi:lb-20150304111"
+            name : "CLARIN RES +PLAN +NC +INF +LOC +ND",
+            urn : "urn:nbn:fi:lb-2015041305"
         },
     },
     contents : ["las2_tentit", "las2_esseet"]
