@@ -2741,7 +2741,15 @@ settings.corpora.tiedelehdet_kompositio = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet,
