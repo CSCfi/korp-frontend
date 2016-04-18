@@ -221,15 +221,15 @@ settings.corporafolders.english.scotscorr = {
 	},
     },
     contents : [
-        "scots_f1550_1599",
-        "scots_f1600_1649",
-        "scots_f1650_1699",
-        "scots_f1700_1749",
-        "scots_m1550_1599",
+        "scots_royal",
+        "scots_m1540_1599",
+        "scots_f1540_1599",
         "scots_m1600_1649",
+        "scots_f1600_1649",
         "scots_m1650_1699",
+        "scots_f1650_1699",
         "scots_m1700_1749",
-        "scots_royal"
+        "scots_f1700_1749",
     ],
 };
 
@@ -1650,7 +1650,7 @@ sattrlist.scotscorr = {
 	],
     },
     text_lettertype : {
-	label : "scotscorr_lettertype",
+	label : "scotscorr_hand",
 	displayType : "select",
 	opts : settings.liteOptions,
 	localize : false,
@@ -1682,7 +1682,7 @@ sattrlist.scotscorr = {
 	],
     },
     text_lettertypetwo : {
-	label : "scotscorr_lettertype2",
+	label : "scotscorr_hand2",
 	displayType : "select",
 	opts : settings.liteOptions,
 	localize : false,
@@ -1713,10 +1713,10 @@ sattrlist.scotscorr = {
 };
 
 
-settings.corpora.scots_f1550_1599 = {
-    id : "scots_f1550_1599",
-    title : "ScotsCorr: Female 1550–1599",
-    description : "Helsinki Corpus of Scottish Correspondence: Female 1550–1599",
+settings.corpora.scots_f1540_1599 = {
+    id : "scots_f1540_1599",
+    title : "ScotsCorr: Female 1540–1599",
+    description : "Helsinki Corpus of Scottish Correspondence: Female 1540–1599",
 };
 
 settings.corpora.scots_f1600_1649 = {
@@ -1737,10 +1737,10 @@ settings.corpora.scots_f1700_1749 = {
     description : "Helsinki Corpus of Scottish Correspondence: Female 1700–1749",
 };
 
-settings.corpora.scots_m1550_1599 = {
-    id : "scots_m1550_1599",
-    title : "ScotsCorr: Male 1550–1599",
-    description : "Helsinki Corpus of Scottish Correspondence: Male 1550–1599",
+settings.corpora.scots_m1540_1599 = {
+    id : "scots_m1540_1599",
+    title : "ScotsCorr: Male 1540–1599",
+    description : "Helsinki Corpus of Scottish Correspondence: Male 1540–1599",
 };
 
 settings.corpora.scots_m1600_1649 = {
@@ -1784,8 +1784,8 @@ settings.fn.extend_corpus_settings(
 	ignore_between_tokens_cqp : '[word="[^a-zA-Z0-9]+|\\{.*"]*',
     },
     [
-	"scots_f1550_1599",
-	"scots_m1550_1599",
+	"scots_f1540_1599",
+	"scots_m1540_1599",
 	"scots_f1600_1649",
 	"scots_m1600_1649",
 	"scots_f1650_1699",
