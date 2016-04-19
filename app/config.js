@@ -7113,7 +7113,7 @@ settings.corpora.dma = {
             label : "informant_birthyear",
 	},
 	sentence_signum : {
-            label : "signum",
+	    label : "signum",
 	    type : "set",
 	    opts : settings.setOptions,
 	    // This URL is in the sidebar (i) link
@@ -7122,8 +7122,8 @@ settings.corpora.dma = {
 	    // signums as links from which one can select. This has
 	    // been copied and modified from the code for the the
 	    // Swedish msd attribute.
-	    extended_template : '<input class="arg_value" ng-model="input" escaper>' +
-		'<span ng-click="onIconClick()" class="ui-icon ui-icon-info"></span>',
+	    extended_template : '<input class="arg_value" ng-model="model">' +
+		'<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
 	    controller : function($scope, $modal) {
 		var modal = null;
 		$scope.onIconClick = function() {
@@ -7142,9 +7142,11 @@ settings.corpora.dma = {
 		    modal.close()
 		}
 		$scope.handleClick = function(event) {
-		    val = $(event.target).parent().data("value")
+		    val = $(event.target).parents("td").data("value");
+		    // c.log ("signum selected:", val);
 		    if(!val) return;
-		    $scope.input = val;
+		    $scope.model = val;
+		    // c.log ("signum updated $scope:", $scope);
 		    modal.close();
 		}
 	    },
