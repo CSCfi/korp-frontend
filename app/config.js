@@ -1926,6 +1926,117 @@ settings.fn.extend_corpus_settings = function (props, corpus_ids) {
     }
 };
 
+// Recursively create a corpus folder hierarchy under parent_folder
+// and the configurations for its corpora. The hierarchy is specified
+// in subfolder_tree, and options control how the data is mapped to
+// the configuration. The function returns an object with the
+// properties id (folder or corpus id) and data (folder or corpus
+// configuration object).
+//
+// The subfolder_tree is an array of the format:
+// [[ folder1_data, [[ subfolder11_data, [ corpus111_data, corpus112_data ]],
+//                   [ subfolder12_data, [ corpus121_data, corpus122_data ]]],
+// [[ folder2_data, [ corpus21_data, corpus22_data, corpus23_data ]]]
+// Folder and corpus data may be an object containing the essential
+// properties for the item, or one to four array elements, the last of
+// which may be a composite object and the preceding ones strings. The
+// strings are the (base) values for the properties id, title and
+// description. These values will be modified as specified in options.
+// If one is not specified, the previous one is used. The possible
+// final composite object is used to override other properties in the
+// configuration template specified in options.
+//
+// options is an object that may contain the following properties:
+// - folder_template, corpus_template: An object to be used as the
+//   base configuration properties for folders and corpora,
+//   respectively (default: {})
+// - ({folder,corpus}_){id,title,description}_{prefix,suffix}: A
+//   string to be prefixed or suffixed to the id, title or description
+//   of folders and/or corpora (default: empty)
+// - make_{folder,corpus}_{id,title,description}: A function to use to
+//   make the id, title or description of a folder or corpus;
+//   arguments info (the folder or corpus data in subfolder_tree),
+//   parent_folder (settings.corporafolders subobject),
+//   ancestor_folder_ids (an array of strings containing the ancestor
+//   folder ids from the top to the parent); should return a string.
+//   The function is used in preference to the prefix and suffix
+//   properties above
+//
+// TODO: Would this function be better in the util module? Or maybe a
+// separate util_config?
+
+settings.fn.make_folder_hierarchy = function (parent_folder, subfolder_tree,
+					      options) {
+
+    // Return a function for making the folder or corpus (depending on
+    // the argumet "type") config object with the given options.
+    function get_make_info_fn (type, options) {
+	var info_strings = ["id", "title", "description"];
+	return function (info, parent_folder, ancestor_folder_ids) {
+	    var result = {};
+	    result.data = $.extend(true, {}, options[type + "_template"] || {});
+	    var last_infoitem = info[info.length - 1];
+	    var last_stringinfo_nr = info.length - 1;
+	    if (typeof last_infoitem != "string") {
+		result.data = $.extend(result.data, last_infoitem);
+		last_stringinfo_nr--;
+	    }
+	    for (var itemnr = 0; itemnr < info_strings.length; itemnr++) {
+		var infostr = info_strings[itemnr];
+		var make_fn = options["make_" + type + "_" + infostr];
+		if (make_fn) {
+		    result.data[infostr] = make_fn (info, parent_folder,
+						    ancestor_folder_ids)
+		} else {
+		    info_itemnr = (itemnr <= last_stringinfo_nr
+				   ? itemnr : last_stringinfo_nr);
+		    result.data[infostr] =
+			(options[type + "_" + infostr + "_prefix"]
+			 || options[infostr + "_prefix"] || "")
+			+ info[info_itemnr]
+			+ (options[type + "_" + infostr + "_suffix"]
+			   || options[infostr + "_suffix"] || "");
+		}
+	    }
+	    result.id = result.data.id;
+	    if (type == "folder") {
+		delete result.data.id;
+	    }
+	    // c.log('folder hierarchy:', type, parent_folder, info, '->', result);
+	    return result;
+	}
+    }
+
+    var make_folder_fn = options.make_folder || get_make_info_fn("folder",
+								 options);
+    var make_corpus_fn = options.make_corpus || get_make_info_fn("corpus",
+								 options);
+    var ancestor_ids = (arguments.length > 3 ? arguments[3] : []);
+    for (var i = 0; i < subfolder_tree.length; i++) {
+	var subfolder_info = subfolder_tree[i];
+	var subsubfolders = subfolder_info[subfolder_info.length - 1];
+	if (_.isArray(subsubfolders) && subsubfolders.length) {
+	    var folder_info = make_folder_fn(subfolder_info.slice(0, -1),
+					     parent_folder, ancestor_ids)
+	    var subfolder = folder_info.data;
+	    parent_folder[folder_info.id] = subfolder;
+	    settings.fn.make_folder_hierarchy(
+		subfolder, subsubfolders, options,
+		ancestor_ids.concat([folder_info.id]));
+	} else {
+	    var corpus_info = $.extend(
+		true, {}, make_corpus_fn(subfolder_info, parent_folder,
+					 ancestor_ids));
+	    if (! ("contents" in parent_folder)) {
+		parent_folder.contents = [];
+	    }
+	    parent_folder.contents
+		= parent_folder.contents.concat([corpus_info.id]);
+	    settings.corpora[corpus_info.id] = corpus_info.data;
+	}
+    }
+};
+
 
 /*
 settings.corpora.testcorpus = {
@@ -4875,46 +4986,62 @@ settings.templ.la_murre = {
     ignore_between_tokens_cqp : '[pos="punct"]*',
 };
 
-// Recursively make settings.corporafolders and settings.corpora for
-// the (sub)corpora of the la_murre corpus (based on
-// la_murre_grouping). main_folder is the folder to which to add the
-// folders or corpora in subfolder_tree. This could perhaps be
-// generalized for other corpora if needed.
-settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree,
-					      depth, leaf_depth) {
-    for (var i = 0; i < subfolder_tree.length; i++) {
-	var subfolder_info = subfolder_tree[i];
-	var descr = "Lauseopin arkiston murrekorpus: " + subfolder_info[1];
-	if (depth < leaf_depth) {
-	    var subfolder = {
-		title : subfolder_info[1],
-		description : descr
-	    };
-	    main_folder[subfolder_info[0]] = subfolder;
-	    settings.fn.make_folders_la_murre(subfolder, subfolder_info[2],
-					      depth + 1, leaf_depth);
-	} else {
-	    var templ_fill = {
-		id : subfolder_info[0],
-		title : subfolder_info[1] + " (LA-murre)",
-		description : descr
-	    };
-	    // The optional fourth item in the corpus info list is an
-	    // object that may be used to override the values in the
-	    // template.
-	    if (subfolder_info.length > 3) {
-		$.extend(templ_fill, subfolder_info[3]);
-	    }
-	    settings.fn.add_corpus_settings(
-		settings.templ.la_murre, [templ_fill], main_folder,
-		la_murre_corpus_prefix);
-	}
-    }
-};
+// The following is now superseded with the more general
+// settings.fn.make_folder_hierarchy.
 
-// Call the above recursive function
-settings.fn.make_folders_la_murre(
-    settings.corporafolders.spoken.la_murre, la_murre_grouping, 1, 3);
+// // Recursively make settings.corporafolders and settings.corpora for
+// // the (sub)corpora of the la_murre corpus (based on
+// // la_murre_grouping). main_folder is the folder to which to add the
+// // folders or corpora in subfolder_tree. This could perhaps be
+// // generalized for other corpora if needed.
+// settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree,
+// 					      depth, leaf_depth) {
+//     for (var i = 0; i < subfolder_tree.length; i++) {
+// 	var subfolder_info = subfolder_tree[i];
+// 	var descr = "Lauseopin arkiston murrekorpus: " + subfolder_info[1];
+// 	if (depth < leaf_depth) {
+// 	    var subfolder = {
+// 		title : subfolder_info[1],
+// 		description : descr
+// 	    };
+// 	    main_folder[subfolder_info[0]] = subfolder;
+// 	    settings.fn.make_folders_la_murre(subfolder, subfolder_info[2],
+// 					      depth + 1, leaf_depth);
+// 	} else {
+// 	    var templ_fill = {
+// 		id : subfolder_info[0],
+// 		title : subfolder_info[1] + " (LA-murre)",
+// 		description : descr
+// 	    };
+// 	    // The optional fourth item in the corpus info list is an
+// 	    // object that may be used to override the values in the
+// 	    // template.
+// 	    if (subfolder_info.length > 3) {
+// 		$.extend(templ_fill, subfolder_info[3]);
+// 	    }
+// 	    settings.fn.add_corpus_settings(
+// 		settings.templ.la_murre, [templ_fill], main_folder,
+// 		la_murre_corpus_prefix);
+// 	}
+//     }
+// };
+
+// // Call the above recursive function
+// settings.fn.make_folders_la_murre(
+//     settings.corporafolders.spoken.la_murre, la_murre_grouping, 1, 3);
+
+settings.fn.make_folder_hierarchy(
+    settings.corporafolders.spoken.la_murre, la_murre_grouping,
+    {
+	id_prefix : la_murre_corpus_prefix,
+	folder_description_prefix : "Lauseopin arkiston murrekorpus: ",
+	corpus_title_suffix : " (LA-murre)",
+	make_corpus_description : function (data) {
+	    return "Lauseopin arkiston murrekorpus: " + data[1];
+	},
+	corpus_template : settings.templ.la_murre,
+    });
+
 
 // Construct a shorthand alias
 settings.corpus_aliases.la_murre = la_murre_corpora.join(",");
