@@ -2200,6 +2200,230 @@ settings.corpora.ftb3_jrcacquis = {
 
 settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
 
+settings.corpora.tiedelehdet_avain = {
+    title : "Avain",
+    description : "Avain (2004-2015)<br/>Julkaisija: Kirjallisuudentutkijain Seura<br/>Kotisivu: <a href=''></a>",
+    id : "tiedelehdet_avain",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_ennenjanyt = {
+    title : "Ennen ja nyt",
+    description : "Ennen ja nyt (2001-2016)<br/>Julkaisijat: Agricola -Suomen historiaverkko, Historiallinen Yhdistys ry, Suomen Historiallinen Seura ry ja Turun Historiallinen Yhdistys ry.<br/>Kotisivu: <a href='http://www.ennenjanyt.net/'>http://www.ennenjanyt.net/</a>",
+    id : "tiedelehdet_ennenjanyt",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_url : sattrs.link_lehdet
+    }
+};
+
+settings.corpora.tiedelehdet_historianystava = {
+    title : "Historian ystävä",
+    description : "Historian ystävä (2010-1/2016)<br/>Julkaisija: Historian Ystäväin Liitto<br/>Kotisivu: <a href='http://www.historianyst.fi/historianystava/'>http://www.historianyst.fi/historianystava/</a>",
+    id : "tiedelehdet_historianystava",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet
+    }
+};
+
+settings.corpora.tiedelehdet_ilmansuojelu = {
+    title : "Ilmansuojelulehti",
+    description : "Ilmansuojelulehti (2007-2015)<br/>Julkaisija: Ilmansuojeluyhdistys ry<br/>Kotisivu: <a href='https://isy.fi/julkaisut/ilmansuojelulehti/'>https://isy.fi/julkaisut/ilmansuojelulehti/</a>",
+    id : "tiedelehdet_ilmansuojelu",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet
+    }
+};
+
+settings.corpora.tiedelehdet_kieliskooppi = {
+    title : "Kieliskooppi",
+    description : "Kieliskooppi (2012-2014)<br/>Julkaisija: Jyväskylän yliopiston kielikampus<br/>Kotisivu:<a href='http://research.jyu.fi/kieliskooppi/journals/'>http://research.jyu.fi/kieliskooppi/journals/</a>",
+    id : "tiedelehdet_kieliskooppi",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title
+    }
+};
+
+settings.corpora.tiedelehdet_kosmopolis = {
+title : "Kosmopolis",
+    description : "Kosmopolis (2000-2013)<br/>Julkaisija: Suomen rauhantutkimusyhdistys<br/>Kotisivu: <a href='http://rauhantutkimus.fi/content/kosmopolis/'>http://rauhantutkimus.fi/content/kosmopolis/</a>",
+    id : "tiedelehdet_kosmopolis",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+    text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+	label : "text_author"
+	    },
+        text_citationpublisher : {
+	label : "text_publisher"
+	    },
+        text_citationtitle : {
+	label : "text_title"
+	    },
+        text_citationdate : {
+	label : "year"
+	    },
+        text_citation : {
+	label : "issue"
+	    }
+    }
+};
+
+settings.corpora.tiedelehdet_poliittinentalous = {
+    title : "Poliittinen talous",
+    description : "Poliittinen talous (2013-2014)<br/>Julkaisija: Poliittisen talouden tutkimuksen seura<br/>Kotisivu: <a href='http://poliittinentalous.fi/ojs/'>http://poliittinentalous.fi/ojs/</a>",
+    id : "tiedelehdet_poliittinentalous",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet
+    }
+};
+
+
+settings.corpora.tiedelehdet_skas = {
+    title : "SKAS",
+    description : "SKAS (2007-2013)<br/>Julkaisija: Suomen keskiajan arkeologian seura<br/>Kotisivu: <a href='http://www.skas.fi/skas-lehti/'>http://www.skas.fi/skas-lehti/</a>",
+    id : "tiedelehdet_skas",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_tahiti = {
+    title : "TAHITI",
+    description : "TAHITI – Taidehistoria tieteenä (2011-2013)<br/>Julkaisija: Taidehistorian seura<br/>Kotisivu: <a href='http://tahiti.fi/'>http://tahiti.fi/</a>",
+    id : "tiedelehdet_tahiti",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_vartija = {
+    title : "Vartija-lehti",
+    description : "Vartija-lehti (2006-2/2015)<br/>Julkaisija: Vartija-lehden kannatusyhdistys<br/>Kotisivu: <a href='http://www.vartija-lehti.fi/'>http://www.vartija-lehti.fi/</a>",
+    id : "tiedelehdet_vartija",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_yhteiskuntapolitiikka = {
+    title : "Yhteiskuntapolitiikka",
+    description : "Yhteiskuntapolitiikka (1998-2013)<br/>Julkaisija: Terveyden ja hyvinvoinnin laitos<br/>Kotisivu: <a href='https://www.thl.fi/fi/web/yhteiskuntapolitiikka/'>https://www.thl.fi/fi/web/yhteiskuntapolitiikka/</a> ",
+    id : "tiedelehdet_yhteiskuntapolitiikka",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "text_publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        },
+        text_citation : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_tietolinja = {
+    title : "Tietolinja",
+    description : "Tietolinja (2000-2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='http://tietolinja.kansalliskirjasto.fi/'>http://tietolinja.kansalliskirjasto.fi/</a>",
+    id : "tiedelehdet_tietolinja",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_mediajaviestinta = {
+    title : "Media & Viestintä/Tiedotustutkimus",
+    description : "Tiedotustutkimus (2000-2009) / Media & Viestintä (2010-2014)<br/>Julkaisija: Media- ja viestintätieteellinen seura<br/>Kotisivu: <a href='http://mediaviestinta.fi/blogi/'>http://mediaviestinta.fi/blogi/</a>",
+    id : "tiedelehdet_mediajaviestinta",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {}
+};
+
+
 settings.corpora.tiedelehdet_terra = {
     title : "Terra",
     description : "Terra (2000-2013)<br/>Julkaisija: Suomen maantieteellinen seura<br/>Kotisivu: <a href='http://www.helsinki.fi/maantiede/geofi/terra/'>http://www.helsinki.fi/maantiede/geofi/terra/</a>",
@@ -3252,7 +3476,7 @@ settings.corpora.tiedelehdet_ura = {
         }
     }
 };
-
+/*
 settings.corpora.tiedelehdet_virittaja = {
     title : "Virittäjä",
     description : "Virittäjä (2009-2013)<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
@@ -3273,6 +3497,35 @@ settings.corpora.tiedelehdet_virittaja = {
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
+    }
+    };*/
+
+settings.corpora.tiedelehdet_virittaja = {
+    title : "Virittäjä",
+    description : "Virittäjä (2016-2013)<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
+    id : "tiedelehdet_virittaja",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "text_publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        },
+        text_citation : {
+            label : "lehdet_issue"
+        }
     }
 };
 
