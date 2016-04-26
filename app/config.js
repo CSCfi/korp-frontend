@@ -758,6 +758,33 @@ attrs.pos_klk = {
     opts : settings.liteOptions
 };
 
+// TextMorfo parts of speech, used in FTC
+attrs.pos_textmorfo = {
+    label : "pos",
+    displayType : "select",
+    opts : settings.liteOptions,
+    translationKey : "pos_",
+    dataset : {
+	"-|null" : "Unknown",
+	"Abbrev" : "Abbr",
+	"Adjective" : "Adj",
+	"Adjective-Noun|Adjective-No" : "AdjNoun",
+	"Adverb" : "Adv",
+	"Code" : "Code",
+	"CompPart" : "CompPart",
+	"Conjunction" : "Conj",
+	"Delimiter" : "Punct",
+	"Interjection" : "Interj",
+	"Noun" : "Noun",
+	"Noun-Noun" : "NounNoun",
+	"Numeral" : "Num",
+	"Preposition" : "Prep",
+	"Pronoun" : "Pron",
+	"Proper" : "Prop",
+	"Verb" : "Verb",
+    },
+};
+
 attrs.msd = {
     label : "msd",
     opts : settings.defaultOptions,
@@ -1769,6 +1796,24 @@ settings.corporafolders.lehdet.muut_lehdet = {
     title : "Muita lehtiä",
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
     contents : ["lehdet_koskinen", "lehdet_ekonomi", "lehdet_selkosanomat"]
+};
+
+settings.corporafolders.ftc = {
+    title : "Suomen kielen tekstikokoelma (SKTP/FTC)",
+    description : "Suomen kielen tekstikokoelma: Lemmie-palvelussa olleet osakorpukset",
+    info : {
+	urn : "urn:nbn:fi:lb-2014052719",
+	metadata_urn : "urn:nbn:fi:lb-201403268",
+	licence : {
+	    name : "CLARIN RES +PLAN +NC +ND",
+	    urn : "urn:nbn:fi:lb-20150304137",
+	},
+	homepage : {
+	    name : "Aineiston kuvaus",
+	    url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFtc",
+	    no_label : true,
+	}
+    },
 };
 
 settings.corporafolders.other_texts = {
@@ -4071,6 +4116,223 @@ settings.corpora.kotus_klassikot = {
 	}
     }
 };
+
+
+/* FTC (Finnish Text Collection) aka SKTP */
+
+// FTC (sub)corpus hierarchy
+ftc_hierarchy = [
+    ["lehdet", "Lehdet", [
+	["aamu", "Aamulehti 1995, 1999", [
+	    ["aamu1995", "Aamulehti 1995",],
+	    ["aamu1999", "Aamulehti 1999",],
+	] ],
+	["demari", "Demari 1995, 1997–2000", [
+	    ["demari1995", "Demari 1995",],
+	    ["demari1997", "Demari 1997",],
+	    ["demari1998", "Demari 1998",],
+	    ["demari1999", "Demari 1999",],
+	    ["demari2000", "Demari 2000",],
+	] ],
+	["hs1995", "Helsingin Sanomat 1995", [
+	    ["hs1995ae", "Helsingin Sanomat 1995 Osasto AE",],
+	    ["hs1995ak", "Helsingin Sanomat 1995 Osasto AK",],
+	    ["hs1995et", "Helsingin Sanomat 1995 Osasto ET",],
+	    ["hs1995hu", "Helsingin Sanomat 1995 Osasto HU",],
+	    ["hs1995ka", "Helsingin Sanomat 1995 Osasto KA",],
+	    ["hs1995kn", "Helsingin Sanomat 1995 Osasto KN",],
+	    ["hs1995ku", "Helsingin Sanomat 1995 Osasto KU",],
+	    ["hs1995ma_mn", "Helsingin Sanomat 1995 Osasto MA_MN",],
+	    ["hs1995misc", "Helsingin Sanomat 1995 Osasto MISC",],
+	    ["hs1995mp", "Helsingin Sanomat 1995 Osasto MP",],
+	    ["hs1995nh", "Helsingin Sanomat 1995 Osasto NH",],
+	    ["hs1995po", "Helsingin Sanomat 1995 Osasto PO",],
+	    ["hs1995ro", "Helsingin Sanomat 1995 Osasto RO",],
+	    ["hs1995rt", "Helsingin Sanomat 1995 Osasto RT",],
+	    ["hs1995sp", "Helsingin Sanomat 1995 Osasto SP",],
+	    ["hs1995st", "Helsingin Sanomat 1995 Osasto ST",],
+	    ["hs1995ta_te", "Helsingin Sanomat 1995 Osasto TA_TE",],
+	    ["hs1995tr", "Helsingin Sanomat 1995 Osasto TR",],
+	    ["hs1995ul", "Helsingin Sanomat 1995 Osasto UL",],
+	    ["hs1995vk", "Helsingin Sanomat 1995 Osasto VK",],
+	    ["hs1995vs", "Helsingin Sanomat 1995 Osasto VS",],
+	    ["hs1995yo", "Helsingin Sanomat 1995 Osasto YO",],
+	] ],
+	["hysa", "Hyvinkään Sanomat 1994, 1997", [
+	    ["hysa1994", "Hyvinkään Sanomat 1994",],
+	    ["hysa1997", "Hyvinkään Sanomat 1997",],
+	] ],
+	["hasa", "Hämeen Sanomat 1999–2000", [
+	    ["hasa1999", "Hämeen Sanomat 1999",],
+	    ["hasa2000", "Hämeen Sanomat 2000",],
+	] ],
+	["ilta1996", "Iltalehti 1996",],
+	["kaleva1998_1999", "Kaleva 1998–1999",],
+	["kangasa", "Kangasalan Sanomat",],
+	["karj", "Karjalainen 1991–95, 1997–99", [
+	    ["karj1991", "Karjalainen 1991",],
+	    ["karj1992", "Karjalainen 1992",],
+	    ["karj1993", "Karjalainen 1993",],
+	    ["karj1994", "Karjalainen 1994",],
+	    ["karj1995", "Karjalainen 1995",],
+	    ["karj1997", "Karjalainen 1997",],
+	    ["karj1998", "Karjalainen 1998",],
+	    ["karj1999", "Karjalainen 1999",],
+	    ["karj_unspec", "Karjalainen Määrittelemättömät",],
+	] ],
+	["kesu1999", "Keskisuomalainen 1999",],
+	["tm1995_1997", "Tekniikan Maailma 1995–1997",],
+	["tusa", "Turun Sanomat 1998–1999", [
+	    ["tusa1998", "Turun Sanomat 1998",],
+	    ["tusa1999", "Turun Sanomat 1999",],
+	] ],
+    ] ],
+    ["otava1993", "Kustannusosakeyhtiö Otava 1993",],
+];
+
+// Common settings template for FTC, FSTC and Svenska Parole (may be
+// overridden)
+settings.templ.lemmie_common = {
+    title : "",
+    description : "",
+    id : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    limited_access : true,
+    licence_type : "RES",
+    attributes : {
+    },
+    struct_attributes : {
+	text_title : sattrs.text_title,
+	text_creator : sattrs.author,
+	text_publisher : sattrs.publisher,
+	text_wordcount : {
+	    label : "text_word_count",
+	},
+	text_lemmie_id : {
+	    label : "lemmie_text_id",
+	},
+	text_lang : {
+	    label : "lang",
+	    displayType : "select",
+	    opts : settings.liteOptions,
+	    translationKey : "",
+	    dataset : [
+		"fin",
+		"eng",
+		"swe",
+	    ]
+	},
+	text_date : sattrs.date,
+	text_filename : {
+	    label : "file_name",
+	},
+	text_rights : {
+	    label : "access_rights_cat",
+	},
+	text_contributor : {
+	    label : "contributor",
+	},
+	text_source : {
+	    label : "source",
+	    displayType : "select",
+	    localize : false,
+	    opts : settings.liteOptions,
+	    // dataset : [],
+	},
+	text_lemmie_corpus : {
+	    label : "lemmie_corpus",
+	},
+	// // Always empty
+	// text_type : {
+	//     label : "text_type",
+	// },
+	text_subject : {
+	    label : "subject",
+	},
+	// paragraph_id : sattrs.paragraph_id,
+	paragraph_type : {
+	    label : "paragraph_type",
+	    displayType : "select",
+	    translationKey : "paragraphtype_",
+	    dataset : {},
+	    opts : settings.liteOptions
+	},
+	sentence_id : sattrs.sentence_id_hidden,
+	sentence_within : {
+	    label : "enclosing_elems",
+	},
+    }
+};
+
+// Settings template for FTC subcorpora
+settings.templ.ftc = $.extend(true, {}, settings.templ.lemmie_common, {
+    attributes : {
+	lemma : attrs.baseform,
+	pos : attrs.pos_textmorfo,
+	msd : attrs.msd,
+	id : attrs.id_hidden,
+	lex : attrs.lemgram_hidden,
+    },
+    struct_attributes : {
+	text_source : {
+	    dataset : [
+		"Aamulehti",
+		"Demari",
+		"Helsingin Sanomat",
+		"Hyvinkään Sanomat",
+		"Hämeen Sanomat",
+		"Iltalehti",
+		"Kaleva",
+		"Kangasalan Sanomat",
+		"Karjalainen",
+		"Keskisuomalainen",
+		"Otava",
+		"Tekniikan Maailma",
+		"Turun Sanomat",
+	    ],
+	},
+	paragraph_type : {
+	    dataset : {
+		"author|docAuthor" : "author",
+		"byline" : "byline",
+		"caption" : "caption",
+		"closer" : "closer",
+		"date" : "date",
+		"head" : "head",
+		"hi" : "hi",
+		"name" : "name",
+		"num" : "num",
+		"opener" : "opener",
+		"p" : "p",
+		"q" : "q",
+		"quote" : "quote",
+		"rs" : "rs",
+		"signed" : "signed",
+	    },
+	},
+    }
+});
+
+// Create the FTC corpus folder hierarchy and corpus settings
+settings.fn.make_folder_hierarchy(
+    settings.corporafolders.ftc, ftc_hierarchy,
+    {
+	id_prefix : "ftc_",
+	description_prefix : "Suomen kielen tekstikokoelma: ",
+	corpus_title_suffix : " (SKTP)",
+	corpus_template : settings.templ.ftc,
+    });
+
+delete ftc_hierarchy;
+
+// TODO: Add aliases for subcorpora, such as ftc_aamu (or
+// ftc_aamulehti). Maybe integrate creating aliases to
+// settings.fn.make_folder_hierarchy(), or maybe better yet, add a
+// facility to take the alias property from corporafolder if the alias
+// should cover all the corpora of a folder.
+settings.corpus_aliases.ftc = "ftc_.*";
+
 
 /*
 settings.corpora.ns_presidentti = {

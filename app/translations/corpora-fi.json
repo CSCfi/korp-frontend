@@ -73,8 +73,8 @@
 
     "oneSentence" : "one sentence",
 
-    "source" : "source",
-    "age" : "age",
+    "source" : "lähde",
+    "age" : "ikä",
 
     "blog_title" : "blog title",
     "blog_url" : "blog address",
@@ -401,6 +401,12 @@
     "pos_Punct" : "välimerkki",
     "pos_Symb" : "symboli",
     "pos_V" : "verbi",
+
+    "pos_AdjNoun" : "adjektiivi/substantiivi",
+    "pos_Code" : "koodi",
+    "pos_CompPart" : "yhdyssanan osa",
+    "pos_NounNoun" : "substantiivi/substantiivi",
+    "pos_Prep" : "prepositio",
 
     "deprelftb2_advl" : "adverbiaali",
     "deprelftb2_attr" : "attribuutti",
@@ -879,6 +885,13 @@
     "parse_state_parsed" : "jäsennetty",
     "parse_state_tagged" : "tagattu",
 
+    "lemmie_corpus" : "korpuksen tunniste Lemmiessä",
+    "lemmie_text_id" : "tekstin tunniste Lemmiessä",
+    "access_rights_cat" : "käyttöoikeusluokka",
+    "text_word_count" : "tekstin sanamäärä",
+    "contributor" : "avustaja",
+    "enclosing_elems" : "sisältävät elementit",
+
     "vks_work_code" : "lisäehto: teos",
     "vksbib_book_code" : "lisäehto: kirja",
     "vksbib_chapter_code" : "lisäehto: luku",
@@ -959,6 +972,17 @@
     "paragraphtype_head" : "otsikko",
     "paragraphtype_opener" : "aloitus",
     "paragraphtype_closer" : "lopetus",
+    "paragraphtype_author" : "tekijä",
+    "paragraphtype_byline" : "kirjoittaja (byline)",
+    "paragraphtype_caption" : "kuvateksti",
+    "paragraphtype_date" : "päiväys",
+    "paragraphtype_hi" : "korostus",
+    "paragraphtype_name" : "nimi",
+    "paragraphtype_num" : "numero",
+    "paragraphtype_q" : "teksti lainausmerkeissä",
+    "paragraphtype_quote" : "lainaus",
+    "paragraphtype_rs" : "nimi tai muu viittaus",
+    "paragraphtype_signed" : "allekirjoitus",
     "paragraph_topic" : "kappaleen aihe",
     "paragraph_span" : "kappaleen viittaama aika",
     "div_type" : "jakson tyyppi",
