@@ -7050,8 +7050,8 @@ settings.corpora.dma = {
     homepage_url : "http://www.helsinki.fi/fus/research/ma.html",
     // TODO (util.coffee): Allow an array of values for licence.
     licence : {
-	name : "CC BY 4.0 (teksti) / CLARIN RES +PRIV +DEP (PDF-sanaliput)",
-	urn : "urn:nbn:fi:lb-20150304110"
+	name : "CC BY 4.0 (teksti) / CLARIN RES +PRIV +ND (PDF-sanaliput)",
+	urn : "urn:nbn:fi:lb-2016042202",
     },
     within : settings.defaultWithin,
     context : settings.defaultContext,
