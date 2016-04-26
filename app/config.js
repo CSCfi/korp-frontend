@@ -2313,7 +2313,7 @@ settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
 
 settings.corpora.tiedelehdet_avain = {
     title : "Avain",
-    description : "Avain (2004-2015)<br/>Julkaisija: Kirjallisuudentutkijain Seura<br/>Kotisivu: <a href=''></a>",
+    description : "Kirjallisuudentutkimuksen aikakauslehti Avain (2004-2015)<br/>Julkaisija: Kirjallisuudentutkijain Seura<br/>Kotisivu: <a href='http://pro.tsv.fi/skts/avain.html'>http://pro.tsv.fi/skts/avain.html</a>",
     id : "tiedelehdet_avain",
     urn : "",
     metadata_urn : "",
@@ -2356,8 +2356,8 @@ settings.corpora.tiedelehdet_historianystava = {
 };
 
 settings.corpora.tiedelehdet_ilmansuojelu = {
-    title : "Ilmansuojelulehti",
-    description : "Ilmansuojelulehti (2007-2015)<br/>Julkaisija: Ilmansuojeluyhdistys ry<br/>Kotisivu: <a href='https://isy.fi/julkaisut/ilmansuojelulehti/'>https://isy.fi/julkaisut/ilmansuojelulehti/</a>",
+    title : "Ilmansuojelu-lehti",
+    description : "Ilmansuojelu-lehti (2007-2015)<br/>Julkaisija: Ilmansuojeluyhdistys ry<br/>Kotisivu: <a href='https://isy.fi/julkaisut/ilmansuojelulehti/'>https://isy.fi/julkaisut/ilmansuojelulehti/</a>",
     id : "tiedelehdet_ilmansuojelu",
     metadata_urn : "",
     within : settings.spWithin,
@@ -2525,7 +2525,7 @@ settings.corpora.tiedelehdet_tietolinja = {
 
 settings.corpora.tiedelehdet_mediajaviestinta = {
     title : "Media & Viestintä/Tiedotustutkimus",
-    description : "Tiedotustutkimus (2000-2009) / Media & Viestintä (2010-2014)<br/>Julkaisija: Media- ja viestintätieteellinen seura<br/>Kotisivu: <a href='http://mediaviestinta.fi/blogi/'>http://mediaviestinta.fi/blogi/</a>",
+    description : "Tiedotustutkimus (2005-2009) / Media & Viestintä (2010-2014)<br/>Julkaisija: Media- ja viestintätieteellinen seura<br/>Kotisivu: <a href='http://mediaviestinta.fi/blogi/'>http://mediaviestinta.fi/blogi/</a>",
     id : "tiedelehdet_mediajaviestinta",
     metadata_urn : "",
     within : settings.spWithin,
@@ -3613,7 +3613,7 @@ settings.corpora.tiedelehdet_virittaja = {
 
 settings.corpora.tiedelehdet_virittaja = {
     title : "Virittäjä",
-    description : "Virittäjä (2016-2013)<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
+    description : "Virittäjä (2006-2013)<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
     id : "tiedelehdet_virittaja",
     urn : "",
     metadata_urn : "",
