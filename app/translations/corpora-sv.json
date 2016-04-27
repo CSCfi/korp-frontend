@@ -518,6 +518,15 @@
     "parse_state_parsed" : "parsad",
     "parse_state_tagged" : "taggad",
 
+    "paragraph_type" : "styckets typ",
+    "file_name" : "filnamn",
+    "lemmie_corpus" : "korpusidentifierare i Lemmie",
+    "lemmie_text_id" : "textidentifierare i Lemmie",
+    "access_rights_cat" : "åtkomsträttighetskategori",
+    "text_word_count" : "antal ord i text",
+    "contributor" : "bidragsgivare",
+    "enclosing_elems" : "innehållande element",
+
     "publication_type" : "publikationstyp",
     "publtype_journal" : "tidskrift",
     "publtype_newspaper" : "tidning",
