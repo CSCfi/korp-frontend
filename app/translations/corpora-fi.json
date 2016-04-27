@@ -1467,6 +1467,11 @@
     "studentsvenska_gender" : "sukupuoli",
     "studentsvenska_gradegrammar" : "kielioppiarvosana",
     "studentsvenska_errorwordorder" : "sanajärjestysvirheet",
-    "studentsvenska_subject" : "aineen vaihe"
-
+    "studentsvenska_subject" : "aineen vaihe",
+    "text_corrector" : "editoija",
+    "text_usage" : "käyttötarkoitus",
+    "sentence_chapno" : "luku",
+    "sentence_section" : "luvun nimi",
+    "paragraph_class" : "kappaleen tyyli",
+    "paragraph_lang" : "kappaleen kieli"
 }

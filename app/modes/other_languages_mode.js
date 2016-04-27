@@ -395,6 +395,15 @@ settings.corpora.scots_royal = {
 };
 */
 
+settings.corpora.erzya = {
+    id : "erzya",
+    title : "Ersä (testikorpus)",
+    description : "Ersä (testikorpus)",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.testerzya,
+    struct_attributes : sattrlist.testerzya
+};
 
 settings.corpora.kildin_sample = {
     id : "kildin_sample",

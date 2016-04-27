@@ -1762,18 +1762,18 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.lehdet.tiedelehdet = {
     title : "Tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_elo", "tiedelehdet_geofoorumi", "tiedelehdet_glossae", "tiedelehdet_harukaze", "tiedelehdet_havina", "tiedelehdet_historiallinen", "tiedelehdet_kognitiivinen", "tiedelehdet_kompositio", "tiedelehdet_kulttuurintutkimus", "tiedelehdet_kulutustutkimus", "tiedelehdet_kunnallistiede", "tiedelehdet_liiketalous", "tiedelehdet_lounaishame", "tiedelehdet_maaseudunuusiaika", "tiedelehdet_matkailututkimus", "tiedelehdet_metsatiede", "tiedelehdet_musiikkikasv", "tiedelehdet_nimi", "tiedelehdet_prologi", "tiedelehdet_psykologia", "tiedelehdet_rakmek", "tiedelehdet_ravitsemus", "tiedelehdet_ruralia", "tiedelehdet_sananjalka", "tiedelehdet_siirtolaisuus", "tiedelehdet_skholion", "tiedelehdet_kirkkohistoria", "tiedelehdet_taimiuutiset", "tiedelehdet_thanatos", "tiedelehdet_toksikologi", "tiedelehdet_transmitteri", "tiedelehdet_trio", "tiedelehdet_tyoelama", "tiedelehdet_ura", "tiedelehdet_walbum", "tiedelehdet_virittaja", "tiedelehdet_ymparistohistoria"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_avain", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_elo", "tiedelehdet_ennenjanyt", "tiedelehdet_geofoorumi", "tiedelehdet_glossae", "tiedelehdet_harukaze", "tiedelehdet_havina", "tiedelehdet_historiallinen", "tiedelehdet_historianystava", "tiedelehdet_ilmansuojelu", "tiedelehdet_kieliskooppi", "tiedelehdet_kognitiivinen", "tiedelehdet_kompositio", "tiedelehdet_kosmopolis", "tiedelehdet_kulttuurintutkimus", "tiedelehdet_kulutustutkimus", "tiedelehdet_kunnallistiede", "tiedelehdet_liiketalous", "tiedelehdet_lounaishame", "tiedelehdet_maaseudunuusiaika", "tiedelehdet_matkailututkimus", "tiedelehdet_mediajaviestinta", "tiedelehdet_metsatiede", "tiedelehdet_musiikkikasv", "tiedelehdet_nimi", "tiedelehdet_poliittinentalous", "tiedelehdet_prologi", "tiedelehdet_psykologia", "tiedelehdet_rakmek", "tiedelehdet_ravitsemus", "tiedelehdet_ruralia", "tiedelehdet_sananjalka", "tiedelehdet_siirtolaisuus", "tiedelehdet_skas", "tiedelehdet_skholion", "tiedelehdet_kirkkohistoria", "tiedelehdet_tahiti", "tiedelehdet_taimiuutiset", "tiedelehdet_terra", "tiedelehdet_thanatos", "tiedelehdet_tietolinja", "tiedelehdet_toksikologi", "tiedelehdet_transmitteri", "tiedelehdet_trio", "tiedelehdet_tyoelama", "tiedelehdet_ura", "tiedelehdet_walbum", "tiedelehdet_vartija", "tiedelehdet_virittaja", "tiedelehdet_yhteiskuntapolitiikka", "tiedelehdet_ymparistohistoria"]
 };
 
 settings.corporafolders.lehdet.muut_lehdet = {
     title : "Muita lehtiä",
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
-    contents : ["lehdet_koskinen", "lehdet_ekonomi"]
+    contents : ["lehdet_koskinen", "lehdet_ekonomi", "lehdet_selkosanomat"]
 };
 
 settings.corporafolders.other_texts = {
     title : "Muita tekstejä",
-    contents : ["kfspc_fi"]
+    contents : ["finstud", "kfspc_fi"]
 };
 
 settings.corporafolders.other_texts.kotus_ns_presidentti = {
@@ -1822,22 +1822,22 @@ settings.corporafolders.spoken.la_murre = {
 
 settings.corporafolders.learner = {
     title : "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
-    contents : ["iclfi", "finstud"],
+    contents : ["iclfi"],
     // unselected : true
 };
 
 settings.corporafolders.learner.las2 = {
     title : "LAS2 – Edistyneiden suomenoppijoiden korpus",
     info : {
-        urn : "urn:nbn:fi:lb-2015050504",
+        urn : "urn:nbn:fi:lb-201604120",
         metadata_urn : "urn:nbn:fi:lb-201407167",
         homepage_url : "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
         licence : {
-            name : "CLARIN RES +PLAN +NC +LOC +ND",
-            urn : "urn:nbn:fi:lb-20150304111"
+            name : "CLARIN RES +PLAN +NC +INF +LOC +ND",
+            urn : "urn:nbn:fi:lb-2015041305"
         },
     },
-    contents : ["las2", "las2_esseet"]
+    contents : ["las2_tentit", "las2_esseet"]
 };
 
 settings.corporafolders.vks = {
@@ -1923,6 +1923,117 @@ settings.fn.add_corpus_settings = function (template, infolist, folder,
 settings.fn.extend_corpus_settings = function (props, corpus_ids) {
     for (var i = 0; i < corpus_ids.length; i++) {
 	$.extend(settings.corpora[corpus_ids[i]], props);
+    }
+};
+
+// Recursively create a corpus folder hierarchy under parent_folder
+// and the configurations for its corpora. The hierarchy is specified
+// in subfolder_tree, and options control how the data is mapped to
+// the configuration. The function returns an object with the
+// properties id (folder or corpus id) and data (folder or corpus
+// configuration object).
+//
+// The subfolder_tree is an array of the format:
+// [[ folder1_data, [[ subfolder11_data, [ corpus111_data, corpus112_data ]],
+//                   [ subfolder12_data, [ corpus121_data, corpus122_data ]]],
+// [[ folder2_data, [ corpus21_data, corpus22_data, corpus23_data ]]]
+// Folder and corpus data may be an object containing the essential
+// properties for the item, or one to four array elements, the last of
+// which may be a composite object and the preceding ones strings. The
+// strings are the (base) values for the properties id, title and
+// description. These values will be modified as specified in options.
+// If one is not specified, the previous one is used. The possible
+// final composite object is used to override other properties in the
+// configuration template specified in options.
+//
+// options is an object that may contain the following properties:
+// - folder_template, corpus_template: An object to be used as the
+//   base configuration properties for folders and corpora,
+//   respectively (default: {})
+// - ({folder,corpus}_){id,title,description}_{prefix,suffix}: A
+//   string to be prefixed or suffixed to the id, title or description
+//   of folders and/or corpora (default: empty)
+// - make_{folder,corpus}_{id,title,description}: A function to use to
+//   make the id, title or description of a folder or corpus;
+//   arguments info (the folder or corpus data in subfolder_tree),
+//   parent_folder (settings.corporafolders subobject),
+//   ancestor_folder_ids (an array of strings containing the ancestor
+//   folder ids from the top to the parent); should return a string.
+//   The function is used in preference to the prefix and suffix
+//   properties above
+//
+// TODO: Would this function be better in the util module? Or maybe a
+// separate util_config?
+
+settings.fn.make_folder_hierarchy = function (parent_folder, subfolder_tree,
+					      options) {
+
+    // Return a function for making the folder or corpus (depending on
+    // the argumet "type") config object with the given options.
+    function get_make_info_fn (type, options) {
+	var info_strings = ["id", "title", "description"];
+	return function (info, parent_folder, ancestor_folder_ids) {
+	    var result = {};
+	    result.data = $.extend(true, {}, options[type + "_template"] || {});
+	    var last_infoitem = info[info.length - 1];
+	    var last_stringinfo_nr = info.length - 1;
+	    if (typeof last_infoitem != "string") {
+		result.data = $.extend(result.data, last_infoitem);
+		last_stringinfo_nr--;
+	    }
+	    for (var itemnr = 0; itemnr < info_strings.length; itemnr++) {
+		var infostr = info_strings[itemnr];
+		var make_fn = options["make_" + type + "_" + infostr];
+		if (make_fn) {
+		    result.data[infostr] = make_fn (info, parent_folder,
+						    ancestor_folder_ids)
+		} else {
+		    info_itemnr = (itemnr <= last_stringinfo_nr
+				   ? itemnr : last_stringinfo_nr);
+		    result.data[infostr] =
+			(options[type + "_" + infostr + "_prefix"]
+			 || options[infostr + "_prefix"] || "")
+			+ info[info_itemnr]
+			+ (options[type + "_" + infostr + "_suffix"]
+			   || options[infostr + "_suffix"] || "");
+		}
+	    }
+	    result.id = result.data.id;
+	    if (type == "folder") {
+		delete result.data.id;
+	    }
+	    // c.log('folder hierarchy:', type, parent_folder, info, '->', result);
+	    return result;
+	}
+    }
+
+    var make_folder_fn = options.make_folder || get_make_info_fn("folder",
+								 options);
+    var make_corpus_fn = options.make_corpus || get_make_info_fn("corpus",
+								 options);
+    var ancestor_ids = (arguments.length > 3 ? arguments[3] : []);
+    for (var i = 0; i < subfolder_tree.length; i++) {
+	var subfolder_info = subfolder_tree[i];
+	var subsubfolders = subfolder_info[subfolder_info.length - 1];
+	if (_.isArray(subsubfolders) && subsubfolders.length) {
+	    var folder_info = make_folder_fn(subfolder_info.slice(0, -1),
+					     parent_folder, ancestor_ids)
+	    var subfolder = folder_info.data;
+	    parent_folder[folder_info.id] = subfolder;
+	    settings.fn.make_folder_hierarchy(
+		subfolder, subsubfolders, options,
+		ancestor_ids.concat([folder_info.id]));
+	} else {
+	    var corpus_info = $.extend(
+		true, {}, make_corpus_fn(subfolder_info, parent_folder,
+					 ancestor_ids));
+	    if (! ("contents" in parent_folder)) {
+		parent_folder.contents = [];
+	    }
+	    parent_folder.contents
+		= parent_folder.contents.concat([corpus_info.id]);
+	    settings.corpora[corpus_info.id] = corpus_info.data;
+	}
     }
 };
 
@@ -2200,6 +2311,260 @@ settings.corpora.ftb3_jrcacquis = {
 
 settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
 
+settings.corpora.tiedelehdet_avain = {
+    title : "Avain",
+    description : "Kirjallisuudentutkimuksen aikakauslehti Avain (2004-2015)<br/>Julkaisija: Kirjallisuudentutkijain Seura<br/>Kotisivu: <a href='http://pro.tsv.fi/skts/avain.html'>http://pro.tsv.fi/skts/avain.html</a>",
+    id : "tiedelehdet_avain",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_ennenjanyt = {
+    title : "Ennen ja nyt",
+    description : "Ennen ja nyt (2001-2016)<br/>Julkaisijat: Agricola -Suomen historiaverkko, Historiallinen Yhdistys ry, Suomen Historiallinen Seura ry ja Turun Historiallinen Yhdistys ry.<br/>Kotisivu: <a href='http://www.ennenjanyt.net/'>http://www.ennenjanyt.net/</a>",
+    id : "tiedelehdet_ennenjanyt",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_url : sattrs.link_lehdet
+    }
+};
+
+settings.corpora.tiedelehdet_historianystava = {
+    title : "Historian ystävä",
+    description : "Historian ystävä (2010-1/2016)<br/>Julkaisija: Historian Ystäväin Liitto<br/>Kotisivu: <a href='http://www.historianyst.fi/historianystava/'>http://www.historianyst.fi/historianystava/</a>",
+    id : "tiedelehdet_historianystava",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet
+    }
+};
+
+settings.corpora.tiedelehdet_ilmansuojelu = {
+    title : "Ilmansuojelu-lehti",
+    description : "Ilmansuojelu-lehti (2007-2015)<br/>Julkaisija: Ilmansuojeluyhdistys ry<br/>Kotisivu: <a href='https://isy.fi/julkaisut/ilmansuojelulehti/'>https://isy.fi/julkaisut/ilmansuojelulehti/</a>",
+    id : "tiedelehdet_ilmansuojelu",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet
+    }
+};
+
+settings.corpora.tiedelehdet_kieliskooppi = {
+    title : "Kieliskooppi",
+    description : "Kieliskooppi (2012-2014)<br/>Julkaisija: Jyväskylän yliopiston kielikampus<br/>Kotisivu:<a href='http://research.jyu.fi/kieliskooppi/journals/'>http://research.jyu.fi/kieliskooppi/journals/</a>",
+    id : "tiedelehdet_kieliskooppi",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title
+    }
+};
+
+settings.corpora.tiedelehdet_kosmopolis = {
+title : "Kosmopolis",
+    description : "Kosmopolis (2000-2013)<br/>Julkaisija: Suomen rauhantutkimusyhdistys<br/>Kotisivu: <a href='http://rauhantutkimus.fi/content/kosmopolis/'>http://rauhantutkimus.fi/content/kosmopolis/</a>",
+    id : "tiedelehdet_kosmopolis",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+    text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+	label : "text_author"
+	    },
+        text_citationpublisher : {
+	label : "text_publisher"
+	    },
+        text_citationtitle : {
+	label : "text_title"
+	    },
+        text_citationdate : {
+	label : "year"
+	    },
+        text_citation : {
+	label : "issue"
+	    }
+    }
+};
+
+settings.corpora.tiedelehdet_poliittinentalous = {
+    title : "Poliittinen talous",
+    description : "Poliittinen talous (2013-2014)<br/>Julkaisija: Poliittisen talouden tutkimuksen seura<br/>Kotisivu: <a href='http://poliittinentalous.fi/ojs/'>http://poliittinentalous.fi/ojs/</a>",
+    id : "tiedelehdet_poliittinentalous",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet
+    }
+};
+
+
+settings.corpora.tiedelehdet_skas = {
+    title : "SKAS",
+    description : "SKAS (2007-2013)<br/>Julkaisija: Suomen keskiajan arkeologian seura<br/>Kotisivu: <a href='http://www.skas.fi/skas-lehti/'>http://www.skas.fi/skas-lehti/</a>",
+    id : "tiedelehdet_skas",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_tahiti = {
+    title : "TAHITI",
+    description : "TAHITI – Taidehistoria tieteenä (2011-2013)<br/>Julkaisija: Taidehistorian seura<br/>Kotisivu: <a href='http://tahiti.fi/'>http://tahiti.fi/</a>",
+    id : "tiedelehdet_tahiti",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_vartija = {
+    title : "Vartija-lehti",
+    description : "Vartija-lehti (2006-2/2015)<br/>Julkaisija: Vartija-lehden kannatusyhdistys<br/>Kotisivu: <a href='http://www.vartija-lehti.fi/'>http://www.vartija-lehti.fi/</a>",
+    id : "tiedelehdet_vartija",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_yhteiskuntapolitiikka = {
+    title : "Yhteiskuntapolitiikka",
+    description : "Yhteiskuntapolitiikka (1998-2013)<br/>Julkaisija: Terveyden ja hyvinvoinnin laitos<br/>Kotisivu: <a href='https://www.thl.fi/fi/web/yhteiskuntapolitiikka/'>https://www.thl.fi/fi/web/yhteiskuntapolitiikka/</a> ",
+    id : "tiedelehdet_yhteiskuntapolitiikka",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "text_publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        },
+        text_citation : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_tietolinja = {
+    title : "Tietolinja",
+    description : "Tietolinja (2000-2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='http://tietolinja.kansalliskirjasto.fi/'>http://tietolinja.kansalliskirjasto.fi/</a>",
+    id : "tiedelehdet_tietolinja",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_mediajaviestinta = {
+    title : "Media & Viestintä/Tiedotustutkimus",
+    description : "Tiedotustutkimus (2005-2009) / Media & Viestintä (2010-2014)<br/>Julkaisija: Media- ja viestintätieteellinen seura<br/>Kotisivu: <a href='http://mediaviestinta.fi/blogi/'>http://mediaviestinta.fi/blogi/</a>",
+    id : "tiedelehdet_mediajaviestinta",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {}
+};
+
+
+settings.corpora.tiedelehdet_terra = {
+    title : "Terra",
+    description : "Terra (2000-2013)<br/>Julkaisija: Suomen maantieteellinen seura<br/>Kotisivu: <a href='http://www.helsinki.fi/maantiede/geofi/terra/'>http://www.helsinki.fi/maantiede/geofi/terra/</a>",
+    id : "tiedelehdet_terra",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attribute : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "text_publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        },
+        text_citation : {
+            label : "issue"
+        }
+    }
+};
+
+
 settings.corpora.tiedelehdet_rakmek = {
     title : "Rakenteiden mekaniikka",
     description : "Rakenteiden mekaniikka (2000-2014)<br/>Julkaisija: Rakenteiden mekaniikan seura<br/>Kotisivu: <a href='http://rmseura.tkk.fi/rmlehti/'>http://rmseura.tkk.fi/rmlehti/</a>",
@@ -2208,7 +2573,15 @@ settings.corpora.tiedelehdet_rakmek = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet,
@@ -2227,7 +2600,15 @@ settings.corpora.tiedelehdet_nimi = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
@@ -2257,7 +2638,15 @@ settings.corpora.tiedelehdet_metsatiede = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
@@ -2272,7 +2661,15 @@ settings.corpora.tiedelehdet_ravitsemus = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_issue : {
@@ -2290,7 +2687,15 @@ settings.corpora.tiedelehdet_kulutustutkimus = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_issue : {
@@ -2302,13 +2707,21 @@ settings.corpora.tiedelehdet_kulutustutkimus = {
 
 settings.corpora.tiedelehdet_sananjalka = {
     title : "Sananjalka",
-    description : "Sananjalka (2000-2013)<br/>Julkaisija: Suomen kielen seura<br/>Kotisivu: <a href='http://www.suomenkielenseura.fi/sananjalka/'>http://www.suomenkielenseura.fi/sananjalka/</a>",
+    description : "Sananjalka (2006-2013)<br/>Julkaisija: Suomen kielen seura<br/>Kotisivu: <a href='http://www.suomenkielenseura.fi/sananjalka/'>http://www.suomenkielenseura.fi/sananjalka/</a>",
     id : "tiedelehdet_sananjalka",
     urn : "",
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attribute : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_citationabstracthtmlurl : sattrs.link_lehdet,
         text_citationauthors : {
@@ -2338,7 +2751,15 @@ settings.corpora.tiedelehdet_kirkkohistoria = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attribute : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_citationabstracthtmlurl : sattrs.link_lehdet,
         text_citationauthors : {
@@ -2368,7 +2789,15 @@ settings.corpora.tiedelehdet_skholion = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_url : sattrs.link_lehdet,
         text_issue : {
@@ -2387,7 +2816,15 @@ settings.corpora.tiedelehdet_siirtolaisuus = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_url : sattrs.link_lehdet,
         text_issue : {
@@ -2407,7 +2844,15 @@ settings.corpora.tiedelehdet_taimiuutiset = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_issue : {
@@ -2631,7 +3076,15 @@ settings.corpora.tiedelehdet_kompositio = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet,
@@ -3056,7 +3509,15 @@ settings.corpora.tiedelehdet_toksikologi = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
@@ -3071,7 +3532,15 @@ settings.corpora.tiedelehdet_walbum = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
@@ -3086,7 +3555,15 @@ settings.corpora.tiedelehdet_tyoelama = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
@@ -3110,7 +3587,7 @@ settings.corpora.tiedelehdet_ura = {
         }
     }
 };
-
+/*
 settings.corpora.tiedelehdet_virittaja = {
     title : "Virittäjä",
     description : "Virittäjä (2009-2013)<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
@@ -3119,10 +3596,47 @@ settings.corpora.tiedelehdet_virittaja = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
+    }
+    };*/
+
+settings.corpora.tiedelehdet_virittaja = {
+    title : "Virittäjä",
+    description : "Virittäjä (2006-2013)<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
+    id : "tiedelehdet_virittaja",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "text_publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        },
+        text_citation : {
+            label : "lehdet_issue"
+        }
     }
 };
 
@@ -3134,7 +3648,15 @@ settings.corpora.tiedelehdet_ymparistohistoria = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet,
@@ -3153,7 +3675,15 @@ settings.corpora.tiedelehdet_trio = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_issue : {
@@ -3171,7 +3701,15 @@ settings.corpora.tiedelehdet_transmitteri = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
@@ -3187,7 +3725,15 @@ settings.corpora.tiedelehdet_thanatos = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
@@ -3329,6 +3875,23 @@ settings.corpora.tiedelehdet_kognitiivinen = {
 /* ===== LEHTIÄ ===== */
 
 settings.corpus_aliases.muut_lehdet = "lehdet_.*";
+
+settings.corpora.lehdet_selkosanomat = {
+    title : "Selkosanomat/Selkouutiset",
+    description : "Selkouutiset (25/2006-2011), Selkosanomat (2012-2013)<br/>Julkaisija: Selkokeskus / Kehitysvammaliitto<br/>Kotisivu: <a href='http://selkosanomat.fi/'>http://selkosanomat.fi/</a>",
+    id : "lehdet_selkosanomat",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        }
+    }
+};
 
 settings.corpora.lehdet_ekonomi = {
     title : "Ekonomi",
@@ -4423,46 +4986,62 @@ settings.templ.la_murre = {
     ignore_between_tokens_cqp : '[pos="punct"]*',
 };
 
-// Recursively make settings.corporafolders and settings.corpora for
-// the (sub)corpora of the la_murre corpus (based on
-// la_murre_grouping). main_folder is the folder to which to add the
-// folders or corpora in subfolder_tree. This could perhaps be
-// generalized for other corpora if needed.
-settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree,
-					      depth, leaf_depth) {
-    for (var i = 0; i < subfolder_tree.length; i++) {
-	var subfolder_info = subfolder_tree[i];
-	var descr = "Lauseopin arkiston murrekorpus: " + subfolder_info[1];
-	if (depth < leaf_depth) {
-	    var subfolder = {
-		title : subfolder_info[1],
-		description : descr
-	    };
-	    main_folder[subfolder_info[0]] = subfolder;
-	    settings.fn.make_folders_la_murre(subfolder, subfolder_info[2],
-					      depth + 1, leaf_depth);
-	} else {
-	    var templ_fill = {
-		id : subfolder_info[0],
-		title : subfolder_info[1] + " (LA-murre)",
-		description : descr
-	    };
-	    // The optional fourth item in the corpus info list is an
-	    // object that may be used to override the values in the
-	    // template.
-	    if (subfolder_info.length > 3) {
-		$.extend(templ_fill, subfolder_info[3]);
-	    }
-	    settings.fn.add_corpus_settings(
-		settings.templ.la_murre, [templ_fill], main_folder,
-		la_murre_corpus_prefix);
-	}
-    }
-};
+// The following is now superseded with the more general
+// settings.fn.make_folder_hierarchy.
 
-// Call the above recursive function
-settings.fn.make_folders_la_murre(
-    settings.corporafolders.spoken.la_murre, la_murre_grouping, 1, 3);
+// // Recursively make settings.corporafolders and settings.corpora for
+// // the (sub)corpora of the la_murre corpus (based on
+// // la_murre_grouping). main_folder is the folder to which to add the
+// // folders or corpora in subfolder_tree. This could perhaps be
+// // generalized for other corpora if needed.
+// settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree,
+// 					      depth, leaf_depth) {
+//     for (var i = 0; i < subfolder_tree.length; i++) {
+// 	var subfolder_info = subfolder_tree[i];
+// 	var descr = "Lauseopin arkiston murrekorpus: " + subfolder_info[1];
+// 	if (depth < leaf_depth) {
+// 	    var subfolder = {
+// 		title : subfolder_info[1],
+// 		description : descr
+// 	    };
+// 	    main_folder[subfolder_info[0]] = subfolder;
+// 	    settings.fn.make_folders_la_murre(subfolder, subfolder_info[2],
+// 					      depth + 1, leaf_depth);
+// 	} else {
+// 	    var templ_fill = {
+// 		id : subfolder_info[0],
+// 		title : subfolder_info[1] + " (LA-murre)",
+// 		description : descr
+// 	    };
+// 	    // The optional fourth item in the corpus info list is an
+// 	    // object that may be used to override the values in the
+// 	    // template.
+// 	    if (subfolder_info.length > 3) {
+// 		$.extend(templ_fill, subfolder_info[3]);
+// 	    }
+// 	    settings.fn.add_corpus_settings(
+// 		settings.templ.la_murre, [templ_fill], main_folder,
+// 		la_murre_corpus_prefix);
+// 	}
+//     }
+// };
+
+// // Call the above recursive function
+// settings.fn.make_folders_la_murre(
+//     settings.corporafolders.spoken.la_murre, la_murre_grouping, 1, 3);
+
+settings.fn.make_folder_hierarchy(
+    settings.corporafolders.spoken.la_murre, la_murre_grouping,
+    {
+	id_prefix : la_murre_corpus_prefix,
+	folder_description_prefix : "Lauseopin arkiston murrekorpus: ",
+	corpus_title_suffix : " (LA-murre)",
+	make_corpus_description : function (data) {
+	    return "Lauseopin arkiston murrekorpus: " + data[1];
+	},
+	corpus_template : settings.templ.la_murre,
+    });
+
 
 // Construct a shorthand alias
 settings.corpus_aliases.la_murre = la_murre_corpora.join(",");
@@ -4477,108 +5056,103 @@ delete la_murre_corpora;
 delete la_murre_corpus_prefix;
 
 
-settings.corpora.las2_esseet = {
-    title : "LAS2 (esseet)",
-    description : "Edistyneiden suomenoppijoiden korpus (esseet)",
-    id : "las2_esseet",
-    within : settings.spWithin,
-    context : settings.spContext,
-    limited_access : true,
-    licence_type : "RES",
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_las2,
-        msd : attrs.msd,
-        fun : attrs.func_la,
-        com : {
-            label : "note",
-        },
-        lex : attrs.lemgram_hidden
+// LAS2
+
+attrlist.las2 = {
+    lemma : attrs.baseform,
+    pos : attrs.pos_las2,
+    msd : attrs.msd,
+    fun : attrs.func_la,
+    com : {
+        label : "note",
     },
-    struct_attributes : {
-        text_dateto : {
-            label : "text_date",
+    lex : attrs.lemgram_hidden
+};
+
+sattrlist.las2 = {
+    text_dateto : {
+        label : "text_date",
+    },
+    text_datefrom : {
+        label : "datefrom",
+	displayType : "hidden",
+    },
+    text_num : {
+        label : "exam_num",
+    },
+    text_inf : {
+        label : "text_inf",
+    },
+    text_tt : {
+        label : "text_tt",
+    },
+    text_te : {
+        label : "text_te",
+    },
+    text_lo : {
+        label : "text_lo",
+    },
+    text_l1 : {
+        label : "text_l1",
+    },
+    text_alin_cefr : {
+        label : "text_alin_cefr",
+    },
+    text_ylin_cefr : {
+        label : "text_ylin_cefr",
+    },
+    text_tekstin_cefr : {
+        label : "text_tekstin_cefr",
+    },
+    // // Uncomment when showing info pages is implemented
+    // text_inf_url : {
+    //     label : "text_inf_url",
+    //     type : "url",
+    // },
+    div_id : {
+        displayType : "hidden",
+    },
+    div_question : {
+        label : "div_question",
+    },
+    paragraph_id : {
+        displayType : "hidden",
+    },
+    paragraph_type : {
+        displayType : "hidden",
+    },
+    sentence_id : sattrs.sentence_id_hidden,
+    sentence_type : {
+        displayType : "hidden",
+    },
+    clause_id : {
+        displayType : "hidden",
+    },
+    clause_type : {
+        label : "clause_type",
+        displayType : "select",
+        translationKey : "clausetype_",
+        dataset : {
+            "affdecl" : "affdecl",
+            "negdecl" : "negdecl",
+            "affint" : "affint",
+            "negint" : "negint",
+            "affopt" : "affopt",
+            "negopt" : "negopt",
+            "muu" : "muu",
         },
-        text_datefrom : {
-            label : "datefrom",
-            displayType : "hidden",
-        },
-        text_num : {
-            label : "exam_num",
-        },
-        text_inf : {
-            label : "text_inf",
-        },
-        text_tt : {
-            label : "text_tt",
-        },
-        text_te : {
-            label : "text_te",
-        },
-        text_lo : {
-            label : "text_lo",
-        },
-        text_l1 : {
-            label : "text_l1",
-        },
-        text_alin_cefr : {
-            label : "text_alin_cefr",
-        },
-        text_ylin_cefr : {
-            label : "text_ylin_cefr",
-        },
-        text_tekstin_cefr : {
-            label : "text_tekstin_cefr",
-        },
-        div_id : {
-            displayType : "hidden",
-        },
-        div_question : {
-            label : "div_question",
-        },
-        paragraph_id : {
-            displayType : "hidden",
-        },
-        paragraph_type : {
-            displayType : "hidden",
-        },
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_type : {
-            displayType : "hidden",
-        },
-        clause_id : {
-            displayType : "hidden",
-        },
-        clause_type : {
-            label : "clause_type",
-            displayType : "select",
-            translationKey : "clausetype_",
-            dataset : {
-                "affdecl" : "affdecl",
-                "negdecl" : "negdecl",
-                "affint" : "affint",
-                "negint" : "negint",
-                "affopt" : "affopt",
-                "negopt" : "negopt",
-                "muu" : "muu",
-            },
-            opts : settings.liteOptions
-        },
-        clause_fun : {
-            label : "clause_fun",
-        },
-        clause_com : {
-            label : "note",
-        }
+        opts : settings.liteOptions
+    },
+    clause_fun : {
+        label : "clause_fun",
+    },
+    clause_com : {
+        label : "note",
     }
 };
 
-
-
-settings.corpora.las2 = {
-    title : "LAS2 (tentit)",
-    description : "Edistyneiden suomenoppijoiden korpus (tentit)",
-    id : "las2",
+// Properties common to the LAS2 subcorpora
+las2_common_props = {
     urn : "urn:nbn:fi:lb-2015050504",
     metadata_urn : "urn:nbn:fi:lb-201407167",
     homepage_url : "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
@@ -4590,98 +5164,31 @@ settings.corpora.las2 = {
     licence_type : "RES",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {
-	lemma : attrs.baseform,
-        pos : attrs.pos_las2,
-        msd : attrs.msd,
-        fun : attrs.func_la,
-        com : {
-            label : "note",
-        },
-	lex : attrs.lemgram_hidden
-    },
-    struct_attributes : {
-        text_dateto : {
-            label : "text_date",
-        },
-        text_datefrom : {
-            label : "datefrom",
-	    displayType : "hidden",
-        },
-        text_num : {
-            label : "exam_num",
-        },
-        text_inf : {
-            label : "text_inf",
-        },
-        text_tt : {
-            label : "text_tt",
-        },
-        text_te : {
-            label : "text_te",
-        },
-        text_lo : {
-            label : "text_lo",
-        },
-        text_l1 : {
-            label : "text_l1",
-        },
-        text_alin_cefr : {
-            label : "text_alin_cefr",
-        },
-        text_ylin_cefr : {
-            label : "text_ylin_cefr",
-        },
-        text_tekstin_cefr : {
-            label : "text_tekstin_cefr",
-        },
-	// // Uncomment when showing info pages is implemented
-	// text_inf_url : {
-	//     label : "text_inf_url",
-	//     type : "url",
-	// },
-        div_id : {
-            displayType : "hidden",
-        },
-        div_question : {
-            label : "div_question",
-        },
-        paragraph_id : {
-            displayType : "hidden",
-        },
-        paragraph_type : {
-            displayType : "hidden",
-        },
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_type : {
-            displayType : "hidden",
-        },
-	clause_id : {
-            displayType : "hidden",
-        },
-        clause_type : {
-            label : "clause_type",
-            displayType : "select",
-            translationKey : "clausetype_",
-            dataset : {
-                "affdecl" : "affdecl",
-                "negdecl" : "negdecl",
-                "affint" : "affint",
-                "negint" : "negint",
-                "affopt" : "affopt",
-                "negopt" : "negopt",
-                "muu" : "muu",
-            },
-            opts : settings.liteOptions
-        },
-        clause_fun : {
-            label : "clause_fun",
-        },
-        clause_com : {
-            label : "note",
-        }
-    }
+    attributes : attrlist.las2,
+    struct_attributes : sattrlist.las2,
 };
+
+settings.corpora.las2_tentit = {
+    title : "LAS2 (tentit)",
+    description : "Edistyneiden suomenoppijoiden korpus (tentit)",
+    id : "las2_tentit",
+};
+
+settings.corpora.las2_esseet = {
+    title : "LAS2 (esseet)",
+    description : "Edistyneiden suomenoppijoiden korpus (esseet)",
+    id : "las2_esseet",
+};
+
+// Add the common properties to the corpus settings of las2_tentit and
+// las2_esseet
+settings.fn.extend_corpus_settings(
+    las2_common_props, ["las2_tentit", "las2_esseet"]);
+
+delete las2_common_props;
+
+settings.corpus_aliases.las2 = "las2_tentit,las2_esseet";
+
 
 settings.corpora.sks_kivi_fi = {
     title : "Aleksis Kivi (SKS)",
@@ -5122,6 +5629,60 @@ sattrlist.europarl_v7 = {
         opts : settings.liteOptions
     }
 };
+
+attrlist.testerzya = {};
+
+sattrlist.testerzya = {
+    text_author : {
+        label : "text_author"
+    },
+    text_title : {
+        label : "text_title"
+    },
+    text_publisher : {
+        label : "text_publisher"
+    },
+    text_corrector : {
+        label : "text_corrector"
+    },
+    text_usage : {
+        label : "text_usage"
+    },
+    text_year : {
+        label : "text_year"
+    },
+    text_lang : {
+        label : "klk_lang",
+        displayType : "select",
+        translationKey : "klk_lang_",
+        dataset : {
+            "izh" : "izh",
+            "kca" : "kca",
+            "mdf" : "mdf",
+            "mns" : "mns",
+            "mrj" : "mrj",
+            "myv" : "myv",
+            "sel" : "sel",
+            "vep" : "vep",
+            "yrk" : "yrk"
+        },
+        opts : settings.liteOptions
+    },
+    sentence_id : sattrs.sentence_id_hidden,
+	sentence_section : {
+        label : "sentence_section"
+	    },
+	sentence_chapno : {
+        label : "sentence_chapno",
+	    },
+	paragraph_class : {
+        label : "paragraph_class",
+	    },
+	paragraph_lang : {
+        label : "paragraph_lang",
+	    }
+};
+
 
 
 sattrlist.fennougrica_veps = {
@@ -6497,8 +7058,8 @@ settings.corpora.dma = {
     homepage_url : "http://www.helsinki.fi/fus/research/ma.html",
     // TODO (util.coffee): Allow an array of values for licence.
     licence : {
-	name : "CC BY 4.0 (teksti) / CLARIN RES +PRIV +DEP (PDF-sanaliput)",
-	urn : "urn:nbn:fi:lb-20150304110"
+	name : "CC BY 4.0 (teksti) / CLARIN RES +PRIV +ND (PDF-sanaliput)",
+	urn : "urn:nbn:fi:lb-2016042202",
     },
     within : settings.defaultWithin,
     context : settings.defaultContext,
@@ -6940,7 +7501,7 @@ settings.corpora.dma = {
             label : "informant_birthyear",
 	},
 	sentence_signum : {
-            label : "signum",
+	    label : "signum",
 	    type : "set",
 	    opts : settings.setOptions,
 	    // This URL is in the sidebar (i) link
@@ -6949,8 +7510,8 @@ settings.corpora.dma = {
 	    // signums as links from which one can select. This has
 	    // been copied and modified from the code for the the
 	    // Swedish msd attribute.
-	    extended_template : '<input class="arg_value" ng-model="input" escaper>' +
-		'<span ng-click="onIconClick()" class="ui-icon ui-icon-info"></span>',
+	    extended_template : '<input class="arg_value" ng-model="model">' +
+		'<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
 	    controller : function($scope, $modal) {
 		var modal = null;
 		$scope.onIconClick = function() {
@@ -6969,9 +7530,11 @@ settings.corpora.dma = {
 		    modal.close()
 		}
 		$scope.handleClick = function(event) {
-		    val = $(event.target).parent().data("value")
+		    val = $(event.target).parents("td").data("value");
+		    // c.log ("signum selected:", val);
 		    if(!val) return;
-		    $scope.input = val;
+		    $scope.model = val;
+		    // c.log ("signum updated $scope:", $scope);
 		    modal.close();
 		}
 	    },
