@@ -2447,7 +2447,7 @@ settings.corpora.tiedelehdet_avain = {
 
 settings.corpora.tiedelehdet_ennenjanyt = {
     title : "Ennen ja nyt",
-    description : "Ennen ja nyt (2001-2016)<br/>Julkaisijat: Agricola -Suomen historiaverkko, Historiallinen Yhdistys ry, Suomen Historiallinen Seura ry ja Turun Historiallinen Yhdistys ry.<br/>Kotisivu: <a href='http://www.ennenjanyt.net/'>http://www.ennenjanyt.net/</a>",
+    description : "Ennen ja nyt (2001-1/2016)<br/>Julkaisijat: Agricola -Suomen historiaverkko, Historiallinen Yhdistys ry, Suomen Historiallinen Seura ry ja Turun Historiallinen Yhdistys ry.<br/>Kotisivu: <a href='http://www.ennenjanyt.net/'>http://www.ennenjanyt.net/</a>",
     id : "tiedelehdet_ennenjanyt",
     urn : "",
     metadata_urn : "",
@@ -2532,7 +2532,7 @@ title : "Kosmopolis",
 
 settings.corpora.tiedelehdet_poliittinentalous = {
     title : "Poliittinen talous",
-    description : "Poliittinen talous (2013-2014)<br/>Julkaisija: Poliittisen talouden tutkimuksen seura<br/>Kotisivu: <a href='http://poliittinentalous.fi/ojs/'>http://poliittinentalous.fi/ojs/</a>",
+    description : "Poliittinen talous (1/2013-1/2014)<br/>Julkaisija: Poliittisen talouden tutkimuksen seura<br/>Kotisivu: <a href='http://poliittinentalous.fi/ojs/'>http://poliittinentalous.fi/ojs/</a>",
     id : "tiedelehdet_poliittinentalous",
     urn : "",
     metadata_urn : "",
@@ -2564,7 +2564,7 @@ settings.corpora.tiedelehdet_skas = {
 
 settings.corpora.tiedelehdet_tahiti = {
     title : "TAHITI",
-    description : "TAHITI – Taidehistoria tieteenä (2011-2013)<br/>Julkaisija: Taidehistorian seura<br/>Kotisivu: <a href='http://tahiti.fi/'>http://tahiti.fi/</a>",
+    description : "TAHITI – Taidehistoria tieteenä (1/2011-4/2013)<br/>Julkaisija: Taidehistorian seura<br/>Kotisivu: <a href='http://tahiti.fi/'>http://tahiti.fi/</a>",
     id : "tiedelehdet_tahiti",
     urn : "",
     metadata_urn : "",
@@ -2626,7 +2626,7 @@ settings.corpora.tiedelehdet_yhteiskuntapolitiikka = {
 
 settings.corpora.tiedelehdet_tietolinja = {
     title : "Tietolinja",
-    description : "Tietolinja (2000-2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='http://tietolinja.kansalliskirjasto.fi/'>http://tietolinja.kansalliskirjasto.fi/</a>",
+    description : "Tietolinja (1/2000-2/2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='http://tietolinja.kansalliskirjasto.fi/'>http://tietolinja.kansalliskirjasto.fi/</a>",
     id : "tiedelehdet_tietolinja",
     urn : "",
     metadata_urn : "",
