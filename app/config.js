@@ -114,6 +114,14 @@ settings.advanced_search_within = true;
 settings.languages = ["fi", "sv", "en"];
 settings.defaultLanguage = "fi";
 
+// If a localization key does not have a translation in some language,
+// use the translation in the first language in
+// settings.defaultTranslations that has a translation, or the
+// localization key itself if the language is "KEY" (makes sense only
+// as the last element of the list, since the key is always present).
+// (Jyrki Niemi 2016-04-28)
+settings.defaultTranslations = ["en", "KEY"];
+
 // Locales corresponding to languages (Jyrki Niemi 2016-02-16)
 settings.locales = {
     "sv" : "sv-SE",

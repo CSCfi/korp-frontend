@@ -694,6 +694,37 @@
     return def;
   };
 
+  util.addDefaultTranslations = function() {
+    var all_keys, k, key, l, lang, lang2, len, len1, len2, loc_data, m, ref, ref1;
+    if ((settings.defaultTranslations == null) || settings.defaultTranslations.length === 0) {
+      return;
+    }
+    loc_data = window.loc_data;
+    all_keys = _(loc_data).map(_.keys).flatten().uniq().value();
+    ref = settings.languages;
+    for (k = 0, len = ref.length; k < len; k++) {
+      lang = ref[k];
+      for (l = 0, len1 = all_keys.length; l < len1; l++) {
+        key = all_keys[l];
+        if (!(key in loc_data[lang])) {
+          ref1 = settings.defaultTranslations;
+          for (m = 0, len2 = ref1.length; m < len2; m++) {
+            lang2 = ref1[m];
+            if (lang2 !== lang) {
+              if (lang2 === 'KEY') {
+                loc_data[lang][key] = key;
+                break;
+              } else if (key in loc_data[lang2]) {
+                loc_data[lang][key] = loc_data[lang2][key];
+                break;
+              }
+            }
+          }
+        }
+      }
+    }
+  };
+
   window.safeApply = function(scope, fn) {
     if (scope.$$phase || scope.$root.$$phase) {
       return fn(scope);

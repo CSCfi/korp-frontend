@@ -569,6 +569,35 @@ window.initLocales = () ->
     return def
 
 
+# Add default translations for localization keys missing missing a
+# translation in some language if settings.defaultTranslations is
+# defined and non-empty. Use the translation in the first language in
+# settings.defaultTranslations that has a translation, or the
+# localization key itself if the language is "KEY" (makes sense only
+# as the last element of the list, since the key is always present).
+# (Jyrki Niemi 2016-04-28)
+
+util.addDefaultTranslations = () ->
+    if not settings.defaultTranslations? or
+            settings.defaultTranslations.length == 0
+        return
+    loc_data = window.loc_data
+    all_keys = _(loc_data).map(_.keys).flatten().uniq().value()
+    for lang in settings.languages
+        # Could this be written more concisely using lodash methods?
+        for key in all_keys
+            if not (key of loc_data[lang])
+                for lang2 in settings.defaultTranslations
+                    if lang2 != lang
+                        if lang2 == 'KEY'
+                            loc_data[lang][key] = key
+                            break
+                        else if key of loc_data[lang2]
+                            loc_data[lang][key] = loc_data[lang2][key]
+                            break
+    return
+
+
 window.safeApply = (scope, fn) ->
     if (scope.$$phase || scope.$root.$$phase) then fn(scope) else scope.$apply(fn)
 

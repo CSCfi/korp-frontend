@@ -49,6 +49,8 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
     # parameter "corpus". (Jyrki Niemi 2015-04-23)
     util.mapHashCorpusAliases()
 
+    util.addDefaultTranslations()
+
     angular.bootstrap(document, ['korpApp'])
 
     try 
