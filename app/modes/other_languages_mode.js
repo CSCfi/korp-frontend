@@ -55,7 +55,7 @@ settings.corporafolders.german = {
 };
 
 settings.corporafolders.russian = {
-    title : "По-русски / Venäjä / Russian",
+    title : "Русский / Venäjä / Russian",
     description : "Tексты по-русски<br/>Venäjänkielisiä tekstejä<br/>Texts in Russian",
     contents : ["legal_ru", "mulcold_ru"],
     // unselected : true
