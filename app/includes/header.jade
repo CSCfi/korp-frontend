@@ -18,7 +18,7 @@
     li
       a#about(ng-click="show_about = 'about'", rel='localize[about]') About Korp
     li
-      a#docs.follow_link(href='https://www.kielipankki.fi/tuki/korp/', target='_blank', rel='localize[docs]')
+      a#docs.follow_link(href="{{'docs_url' | loc:lang}}", target='_blank', rel='localize[docs]')
     li#korplink
       a.follow_link(ng-href="{{makeKorpUrl('main')}}", rel='localize[korp]')
     li#korplablink

@@ -20,7 +20,8 @@
     "lang_SK" : "Slovak",
     "lang_ET" : "Estonian",
 
-    "docs" : "Help (mostly in Finnish)",
+    "docs" : "Help",
+    "docs_url" : "https://www.kielipankki.fi/support/korp/",
     "swedish" : "Svenska",
     "english" : "English",
     "finnish" : "Suomi",
