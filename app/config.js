@@ -2649,7 +2649,11 @@ settings.corpora.tiedelehdet_mediajaviestinta = {
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {},
-    struct_attributes : {}
+    struct_attributes : {
+	text_issue : {
+	    label : "issue"
+        }
+    }
 };
 
 
