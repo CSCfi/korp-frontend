@@ -274,8 +274,8 @@ settings.corpora.parole_sv = $.extend(true, {}, settings.templ.fstc, {
     title : "Svenska Parole",
     description : "Svenska Parole: sammanställd av Språkbanken vid Göteborgs unversitet, morfosyntaktiskt analyserad med SWECG",
     id : "parole_sv",
-    urn : "[to be added]",
-    metadata_urn : "[to be added]",
+    urn : "urn:nbn:fi:lb-2016050208",
+    metadata_urn : "urn:nbn:fi:lb-2016050211",
     licence : {},
     text_source : {
 	dataset : ["Språkbanken, Göteborgs universitet"],
