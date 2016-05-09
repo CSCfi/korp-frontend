@@ -340,6 +340,16 @@ settings.scWithin = {
 // ids as values. (Jyrki Niemi 2015-04-23)
 settings.corpus_aliases = {};
 
+// Functions to configure "short URLs": if the function
+// settings.short_url_config[shorturl] exists, it is executed whenever
+// the last part of the URL path name component is shorturl. The
+// functions typically set preselected corpora and perhaps the mode,
+// but they may also disable corpora and modes. Note that if you
+// disable some corpora, currently the time graph in the corpus
+// selector is still shown as if all the corpora were enabled. (Jyrki
+// Niemi 2016-05-09)
+settings.short_url_config = {};
+
 // Default attribute display order in the sidebar. The missing
 // attributes are shown after the specified ones in the order
 // JavaScript iterates over the attribute properties. The

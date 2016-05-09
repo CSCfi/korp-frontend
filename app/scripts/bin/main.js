@@ -32,12 +32,15 @@
     }
   });
 
+  util.applyShortUrlConfig();
+
   deferred_domReady = $.Deferred(function(dfd) {
     $(function() {
       var mode;
       mode = $.deparam.querystring().mode;
       if ((mode != null) && mode !== "default") {
         return $.getScript("modes/" + mode + "_mode.js").done(function() {
+          util.applyShortUrlConfig();
           return dfd.resolve();
         });
       } else {
@@ -308,6 +311,9 @@
         struct = dataByCorpus[corpus];
         if (corpus !== "time") {
           cor = settings.corpora[corpus.toLowerCase()];
+          if (!cor) {
+            continue;
+          }
           timeProxy.expandTimeStruct(struct);
           cor.non_time = struct[""];
           struct = _.omit(struct, "");

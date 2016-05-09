@@ -1723,6 +1723,25 @@
     }
   };
 
+  util.applyShortUrlConfig = function() {
+    var last_path_comp;
+    if (settings.short_url_config) {
+      last_path_comp = _.last(_.compact(window.location.pathname.split("/")));
+      if (last_path_comp && settings.short_url_config[last_path_comp]) {
+        return settings.short_url_config[last_path_comp]();
+      }
+    }
+  };
+
+  util.setMode = function(mode) {
+    var params;
+    if (mode !== window.currentMode) {
+      params = $.deparam.querystring();
+      params.mode = mode;
+      return window.location.search = "?" + $.param(params);
+    }
+  };
+
 }).call(this);
 
 //# sourceMappingURL=util.js.map

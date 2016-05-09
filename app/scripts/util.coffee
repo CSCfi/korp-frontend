@@ -1695,3 +1695,24 @@ util.addPrequeryWithin = (params) ->
     # should be expanded and which should not.
     if params.cqp1 and search().prequery_within
         params.defaultwithin = search().prequery_within
+
+
+# Execute the function settings.short_url_config[shorturl] to modify
+# the configuration as desired if the last part of the URL path name
+# component is shorturl. (Jyrki Niemi 2016-05-09)
+
+util.applyShortUrlConfig = () ->
+    if settings.short_url_config
+        last_path_comp = _.last(_.compact(window.location.pathname.split("/")))
+        if last_path_comp and settings.short_url_config[last_path_comp]
+            settings.short_url_config[last_path_comp]()
+
+
+# Set the current mode to mode and change the URL search parameter
+# accordingly. (Jyrki Niemi 2016-05-09)
+
+util.setMode = (mode) ->
+    if mode != window.currentMode
+        params = $.deparam.querystring()
+        params.mode = mode
+        window.location.search = "?" + $.param(params)
