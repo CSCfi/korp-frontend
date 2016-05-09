@@ -1725,20 +1725,27 @@
 
   util.applyShortUrlConfig = function() {
     var last_path_comp;
+    window.short_url = null;
     if (settings.short_url_config) {
       last_path_comp = _.last(_.compact(window.location.pathname.split("/")));
       if (last_path_comp && settings.short_url_config[last_path_comp]) {
-        return settings.short_url_config[last_path_comp]();
+        settings.short_url_config[last_path_comp](last_path_comp);
+        return window.short_url = last_path_comp;
       }
     }
   };
 
-  util.setMode = function(mode) {
+  util.setMode = function(mode, override_explicit) {
     var params;
+    if (override_explicit == null) {
+      override_explicit = false;
+    }
     if (mode !== window.currentMode) {
       params = $.deparam.querystring();
-      params.mode = mode;
-      return window.location.search = "?" + $.param(params);
+      if (override_explicit || !params.mode) {
+        params.mode = mode;
+        return window.location.search = "?" + $.param(params);
+      }
     }
   };
 

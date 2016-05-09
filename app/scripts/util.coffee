@@ -1699,20 +1699,27 @@ util.addPrequeryWithin = (params) ->
 
 # Execute the function settings.short_url_config[shorturl] to modify
 # the configuration as desired if the last part of the URL path name
-# component is shorturl. (Jyrki Niemi 2016-05-09)
+# component is shorturl. Also set window.short_url to shorturl.
+# (Jyrki Niemi 2016-05-09)
 
 util.applyShortUrlConfig = () ->
+    window.short_url = null
     if settings.short_url_config
         last_path_comp = _.last(_.compact(window.location.pathname.split("/")))
         if last_path_comp and settings.short_url_config[last_path_comp]
-            settings.short_url_config[last_path_comp]()
+            settings.short_url_config[last_path_comp](last_path_comp)
+            window.short_url = last_path_comp
+    # c.log("short URL", window.short_url)
 
 
 # Set the current mode to mode and change the URL search parameter
-# accordingly. (Jyrki Niemi 2016-05-09)
+# accordingly. Do not change mode if the search parameters already
+# contains a mode parameter, unless override_explicit is true.
+# (Jyrki Niemi 2016-05-09)
 
-util.setMode = (mode) ->
+util.setMode = (mode, override_explicit = false) ->
     if mode != window.currentMode
         params = $.deparam.querystring()
-        params.mode = mode
-        window.location.search = "?" + $.param(params)
+        if override_explicit or not params.mode
+            params.mode = mode
+            window.location.search = "?" + $.param(params)

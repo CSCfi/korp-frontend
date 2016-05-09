@@ -130,7 +130,7 @@
     s.getUrl = function(modeId) {
       var langParam;
       langParam = "#lang=" + s.$root.lang;
-      if (modeId === "default") {
+      if (modeId === "default" && !window.short_url) {
         return location.pathname + langParam;
       }
       return location.pathname + ("?mode=" + modeId) + langParam;
@@ -206,6 +206,12 @@
     return s.makeKorpUrl = function(variant) {
       var url;
       url = settings.korp_url[variant] || settings.korp_url["main"];
+      if (window.short_url) {
+        if (url.slice(-1) !== "/") {
+          url += "/";
+        }
+        url += window.short_url + "/";
+      }
       if (s.$root.lang !== settings.defaultLanguage) {
         url += "#?lang=" + s.$root.lang;
       }
