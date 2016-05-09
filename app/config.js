@@ -5396,6 +5396,17 @@ settings.fn.make_folder_hierarchy(
 settings.corpus_aliases.la_murre = la_murre_corpora.join(",");
 settings.corpus_aliases["la-murre"] = settings.corpus_aliases.la_murre;
 
+// Configure a short URL: preselect only the LA-murre corpus folder
+// (all its subcorpora)
+settings.short_url_config.la_murre =
+    function () {
+        settings.preselected_corpora = ["__spoken.la_murre"];
+        // // Other modes and corpora could be excluded
+        // settings.modeConfig = settings.modeConfig.slice(0, 1);
+        // settings.fn.remove_matching_corpora(["lam_.*"], true);
+    }
+settings.short_url_config["la-murre"] = settings.short_url_config.la_murre;
+
 // Delete the variables used for constructing the settings
 delete la_murre_grouping;
 delete la_murre_regions;
@@ -8074,6 +8085,13 @@ settings.corpora.s24_009 = {
 
 settings.corpus_aliases.suomi24 =
     "s24_001,s24_002,s24_003,s24_004,s24_005,s24_006,s24_007,s24_008,s24_009";
+
+// Configure a short URL: preselect only the Suomi24 corpus folder
+// (all its subcorpora)
+settings.short_url_config.suomi24 =
+    function () {
+	settings.preselected_corpora = ["__internet.suomi24"];
+    };
 
 
 settings.corpora.s24 = {
