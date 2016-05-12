@@ -1622,7 +1622,6 @@ attrlist.parsed_tdt_ner =
 	nertag : attrs.ner_tags
     });
 
-
 /* --------- */
 
 
@@ -8075,11 +8074,19 @@ settings.corpora.s24_008 = {
 
 settings.corpora.s24_009 = {
     title : "Suomi24 (9/9)",
-    description : "Suomi24-keskustelut (9/9) (ei jäsennetty)",
+    description : "Suomi24-keskustelut (9/9)",
     id : "s24_009",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : {
+	lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
     struct_attributes : sattrlist.s24_update
 };
 
