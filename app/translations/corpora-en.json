@@ -535,6 +535,7 @@
     "text_period" : "text period",
 
     "publication_date" : "publication date",
+    "publication_place" : "place of publication",
 
     "textgenre_fiction" : "fiction",
     "textgenre_law" : "legal text",
@@ -774,6 +775,10 @@
     "gloss" : "gloss",
     "syntactic_function" : "syntactic function",
     "verb_features" : "verb features",
+    "extra_attr1" : "extra attribute 1",
+    "extra_attr2" : "extra attribute 2",
+    "extra_attr3" : "extra attribute 3",
+    "rest_attrs" : "rest of attributes",
 
     "published" : "published",
 

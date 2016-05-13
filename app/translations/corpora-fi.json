@@ -1304,6 +1304,7 @@
     "text_period" : "tekstin ajankohta",
 
     "publication_date" : "julkaisuajankohta",
+    "publication_place" : "julkaisupaikka",
 
     "author_birthyear" : "tekijän syntymävuosi",
     "author_deathyear" : "tekijän kuolinvuosi",
@@ -1569,6 +1570,14 @@
     "scotscorr_st" : "transkription tiedot",
     "scotscorr_fraser" : "kuvaus",
     "link_to_original" : "linkki alkuperäiseen",
+
+    "gloss" : "glossi",
+    "syntactic_function" : "syntaktinen funktio",
+    "verb_features" : "verbin piirteet",
+    "extra_attr1" : "lisäattribuutti 1",
+    "extra_attr2" : "lisäattribuutti 2",
+    "extra_attr3" : "lisäattribuutti 3",
+    "rest_attrs" : "loput attribuutit",
 
     "studentsvenska_code" : "syntaktinen funktio",
     "studentsvenska_properties" : "lausetyyppi",

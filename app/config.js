@@ -1624,7 +1624,7 @@ sattrs.mikhailov_text_genre = {
 };
 
 sattrs.text_author = {
-    label : "text_author"
+    label : "author"
 };
 
 sattrs.article_author = {
@@ -1642,6 +1642,27 @@ sattrs.text_ebook_id = {
 sattrs.text_translator = {
     label : "text_translator"
 };
+
+sattrs.text_publ_place = {
+    label : "publication_place"
+};
+
+sattrs.filename = {
+    label : "file_name"
+};
+
+sattrs.year = {
+    label : "year"
+};
+
+sattrs.month = {
+    label : "month"
+};
+
+sattrs.day_of_month = {
+    label : "day"
+};
+
 
 /* KFSCP --- */
 
