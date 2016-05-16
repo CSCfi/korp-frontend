@@ -609,6 +609,35 @@ window.initLocales = () ->
     return def
 
 
+# Add default translations for localization keys missing missing a
+# translation in some language if settings.defaultTranslations is
+# defined and non-empty. Use the translation in the first language in
+# settings.defaultTranslations that has a translation, or the
+# localization key itself if the language is "KEY" (makes sense only
+# as the last element of the list, since the key is always present).
+# (Jyrki Niemi 2016-04-28)
+
+util.addDefaultTranslations = () ->
+    if not settings.defaultTranslations? or
+            settings.defaultTranslations.length == 0
+        return
+    loc_data = window.loc_data
+    all_keys = _(loc_data).map(_.keys).flatten().uniq().value()
+    for lang in settings.languages
+        # Could this be written more concisely using lodash methods?
+        for key in all_keys
+            if not (key of loc_data[lang])
+                for lang2 in settings.defaultTranslations
+                    if lang2 != lang
+                        if lang2 == 'KEY'
+                            loc_data[lang][key] = key
+                            break
+                        else if key of loc_data[lang2]
+                            loc_data[lang][key] = loc_data[lang2][key]
+                            break
+    return
+
+
 window.safeApply = (scope, fn) ->
     if (scope.$$phase || scope.$root.$$phase) then fn(scope) else scope.$apply(fn)
 
@@ -1712,3 +1741,31 @@ util.addPrequeryWithin = (params) ->
     # should be expanded and which should not.
     if params.cqp1 and search().prequery_within
         params.defaultwithin = search().prequery_within
+
+
+# Execute the function settings.short_url_config[shorturl] to modify
+# the configuration as desired if the last part of the URL path name
+# component is shorturl. Also set window.short_url to shorturl.
+# (Jyrki Niemi 2016-05-09)
+
+util.applyShortUrlConfig = () ->
+    window.short_url = null
+    if settings.short_url_config
+        last_path_comp = _.last(_.compact(window.location.pathname.split("/")))
+        if last_path_comp and settings.short_url_config[last_path_comp]
+            settings.short_url_config[last_path_comp](last_path_comp)
+            window.short_url = last_path_comp
+    # c.log("short URL", window.short_url)
+
+
+# Set the current mode to mode and change the URL search parameter
+# accordingly. Do not change mode if the search parameters already
+# contains a mode parameter, unless override_explicit is true.
+# (Jyrki Niemi 2016-05-09)
+
+util.setMode = (mode, override_explicit = false) ->
+    if mode != window.currentMode
+        params = $.deparam.querystring()
+        if override_explicit or not params.mode
+            params.mode = mode
+            window.location.search = "?" + $.param(params)

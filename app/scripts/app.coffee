@@ -133,7 +133,7 @@ korpApp.controller "headerCtrl", ($scope, $location, $uibModal, utils) ->
     s.select(currentMode)
     s.getUrl = (modeId) ->
         langParam = "#lang=#{s.$root.lang}"
-        if modeId is "default"
+        if modeId is "default" and not window.short_url
             return location.pathname + langParam
         return location.pathname + "?mode=#{modeId}" + langParam
 
@@ -201,6 +201,10 @@ korpApp.controller "headerCtrl", ($scope, $location, $uibModal, utils) ->
     # the current interface language.
     s.makeKorpUrl = (variant) ->
         url = settings.korp_url[variant] or settings.korp_url["main"]
+        if window.short_url
+            if url.slice(-1) != "/"
+                url += "/"
+            url += window.short_url + "/"
         if s.$root.lang != settings.defaultLanguage
             url += "#?lang=#{s.$root.lang}"
         return url

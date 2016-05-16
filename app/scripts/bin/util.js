@@ -743,6 +743,37 @@
     return def;
   };
 
+  util.addDefaultTranslations = function() {
+    var all_keys, k, key, l, lang, lang2, len, len1, len2, loc_data, m, ref, ref1;
+    if ((settings.defaultTranslations == null) || settings.defaultTranslations.length === 0) {
+      return;
+    }
+    loc_data = window.loc_data;
+    all_keys = _(loc_data).map(_.keys).flatten().uniq().value();
+    ref = settings.languages;
+    for (k = 0, len = ref.length; k < len; k++) {
+      lang = ref[k];
+      for (l = 0, len1 = all_keys.length; l < len1; l++) {
+        key = all_keys[l];
+        if (!(key in loc_data[lang])) {
+          ref1 = settings.defaultTranslations;
+          for (m = 0, len2 = ref1.length; m < len2; m++) {
+            lang2 = ref1[m];
+            if (lang2 !== lang) {
+              if (lang2 === 'KEY') {
+                loc_data[lang][key] = key;
+                break;
+              } else if (key in loc_data[lang2]) {
+                loc_data[lang][key] = loc_data[lang2][key];
+                break;
+              }
+            }
+          }
+        }
+      }
+    }
+  };
+
   window.safeApply = function(scope, fn) {
     if (scope.$$phase || scope.$root.$$phase) {
       return fn(scope);
@@ -1744,6 +1775,32 @@
   util.addPrequeryWithin = function(params) {
     if (params.cqp1 && search().prequery_within) {
       return params.defaultwithin = search().prequery_within;
+    }
+  };
+
+  util.applyShortUrlConfig = function() {
+    var last_path_comp;
+    window.short_url = null;
+    if (settings.short_url_config) {
+      last_path_comp = _.last(_.compact(window.location.pathname.split("/")));
+      if (last_path_comp && settings.short_url_config[last_path_comp]) {
+        settings.short_url_config[last_path_comp](last_path_comp);
+        return window.short_url = last_path_comp;
+      }
+    }
+  };
+
+  util.setMode = function(mode, override_explicit) {
+    var params;
+    if (override_explicit == null) {
+      override_explicit = false;
+    }
+    if (mode !== window.currentMode) {
+      params = $.deparam.querystring();
+      if (override_explicit || !params.mode) {
+        params.mode = mode;
+        return window.location.search = "?" + $.param(params);
+      }
     }
   };
 

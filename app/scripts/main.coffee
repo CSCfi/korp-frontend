@@ -21,11 +21,17 @@ $.ajaxSetup
 $.ajaxPrefilter "json", (options, orig, jqXHR) ->
     "jsonp" if options.crossDomain and not $.support.cors
 
+# If using a short URL, execute the corresponding function
+util.applyShortUrlConfig()
+
 deferred_domReady = $.Deferred((dfd) ->
     $ ->
         mode = $.deparam.querystring().mode
         if mode? and mode isnt "default"
             $.getScript("modes/#{mode}_mode.js").done () ->
+                # If using a short URL, execute the corresponding
+                # function for mode-specific configuration
+                util.applyShortUrlConfig()
                 dfd.resolve()
         else
             dfd.resolve()
@@ -48,6 +54,8 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
     # Map possible corpus id aliases to actual corpus ids in the URL hash
     # parameter "corpus". (Jyrki Niemi 2015-04-23)
     util.mapHashCorpusAliases()
+
+    util.addDefaultTranslations()
 
     angular.bootstrap(document, ['korpApp'])
 
@@ -325,6 +333,16 @@ window.initTimeGraph = (def) ->
             for corpus, struct of dataByCorpus
                 if corpus isnt "time"
                     cor = settings.corpora[corpus.toLowerCase()]
+                    # Handle cases in which the settings do not
+                    # contain all corpora for which the time
+                    # information has been retrieved (for example, if
+                    # some corpora have been disabled by a short URL
+                    # configuration). FIXME: Retrieve time data only
+                    # for the enabled corpora, so that the time graph
+                    # would show data only for the enabled corpora.
+                    # (Jyrki Niemi 2016-05-09)
+                    if not cor
+                        continue
                     timeProxy.expandTimeStruct struct
                     cor.non_time = struct[""]
                     struct = _.omit struct, ""
