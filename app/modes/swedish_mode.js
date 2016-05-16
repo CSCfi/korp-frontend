@@ -276,7 +276,10 @@ settings.corpora.parole_sv = $.extend(true, {}, settings.templ.fstc, {
     id : "parole_sv",
     urn : "urn:nbn:fi:lb-2016050208",
     metadata_urn : "urn:nbn:fi:lb-2016050211",
-    licence : {},
+    licence : {
+	name : "CLARIN RES +PLAN +NC +LOC +ND",
+	urn : "urn:nbn:fi:lb-2015101602",
+    },
     text_source : {
 	dataset : ["Språkbanken, Göteborgs universitet"],
     },
