@@ -85,7 +85,8 @@ html
                       | {{'search_aborted' | loc:lang}}
                     .stats_header
                       #statsNumValues
-                        | {{'stats_num_results' | loc:lang}}: {{stats_num_values}}
+                        span {{'stats_num_results' | loc:lang}}: 
+                        span.num-result(ng-bind-html="stats_num_values_display | trust")
                       br
                       button#showGraph.btn.btn-sm.btn-default(ng-class="{disabled: !graphEnabled}",
                         tooltip="{{graphEnabled ? '' : ('material_warn' | loc:lang)}} ", tooltip-placement="right"
