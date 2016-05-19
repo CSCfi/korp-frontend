@@ -1037,7 +1037,7 @@ util.loadCorpora = ->
     return
 
 window.regescape = (s) ->
-    s.replace /[\.|\?|\+|\*|\|\'|\"\(\)\^\$]/g, "\\$&"
+    s.replace /[\\.|?+*\'\"()^${}\[\]]/g, "\\$&"
 
 util.localizeFloat = (float, nDec) ->
     lang = $("#languages").radioList("getSelected").data("lang")
