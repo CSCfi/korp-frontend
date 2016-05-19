@@ -1092,7 +1092,7 @@
   };
 
   window.regescape = function(s) {
-    return s.replace(/[\.|\?|\+|\*|\|\'|\"\(\)\^\$]/g, "\\$&");
+    return s.replace(/[\\.|?+*\'\"()^${}\[\]]/g, "\\$&");
   };
 
   util.localizeFloat = function(float, nDec) {
