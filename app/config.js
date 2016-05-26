@@ -5983,6 +5983,25 @@ sattrlist.europarl_v7 = {
 
 attrlist.testerzya = {};
 
+sattrlist.erme = {
+    text_author : {
+        label : "text_author"
+    },
+    text_title : {
+        label : "text_title"
+    },
+    text_corrector : {
+        label : "text_corrector"
+    },
+    text_year : {
+        label : "text_year"
+    },
+    sentence_id : sattrs.sentence_id_hidden,
+    sentence_pgno : {
+        label : "page_num"
+    }
+};
+
 sattrlist.testerzya = {
     text_author : {
         label : "text_author"

@@ -26,6 +26,11 @@ settings.spContext = {
     "1 paragraph" : "1 paragraph"
 };
 
+settings.corporafolders.testikansio = {
+    title : "ERME",
+    description : "ERME",
+    contents : ["erme_mdf", "erme_myv"]
+};
 
 settings.corporafolders.fennougrica = {
     title : "Fenno-Ugrica",
@@ -407,6 +412,27 @@ settings.corpora.erzya = {
     attributes : attrlist.testerzya,
     struct_attributes : sattrlist.testerzya
 };
+
+settings.corpora.erme_myv = {
+    id : "erme_myv",
+    title : "ERME: Ersä",
+    description : "ERME: Ersä",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.testerzya,
+    struct_attributes : sattrlist.erme
+};
+
+settings.corpora.erme_mdf = {
+    id : "erme_mdf",
+    title : "ERME: Mokša",
+    description : "ERME: Mokša",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.testerzya,
+    struct_attributes : sattrlist.erme
+};
+
 
 settings.corpora.kildin_sample = {
     id : "kildin_sample",
