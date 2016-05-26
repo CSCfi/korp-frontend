@@ -5988,7 +5988,7 @@ sattrlist.erme = {
         label : "text_author"
     },
     text_title : {
-        label : "text_title"
+        label : "text_booktitle"
     },
     text_corrector : {
         label : "text_corrector"
