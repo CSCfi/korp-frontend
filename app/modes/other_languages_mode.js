@@ -27,7 +27,7 @@ settings.spContext = {
 };
 
 settings.corporafolders.testikansio = {
-    title : "ERME",
+    title : "ERME [ACA]",
     description : "ERME",
     contents : ["erme_mdf", "erme_myv"]
 };
@@ -402,7 +402,7 @@ settings.corpora.scots_royal = {
     struct_attributes : sattrlist.scotscorr
 };
 */
-
+/*
 settings.corpora.erzya = {
     id : "erzya",
     title : "Ersä (testikorpus)",
@@ -411,12 +411,12 @@ settings.corpora.erzya = {
     context : settings.spContext,
     attributes : attrlist.testerzya,
     struct_attributes : sattrlist.testerzya
-};
+    };*/
 
 settings.corpora.erme_myv = {
     id : "erme_myv",
-    title : "ERME: Ersä",
-    description : "ERME: Ersä",
+    title : "ERME (Ersä/Erzya)",
+    description : "ERME (Ersä/Erzya)",
     limited_access : true,
     licence_type : "ACA",
     within : settings.spWithin,
@@ -427,8 +427,8 @@ settings.corpora.erme_myv = {
 
 settings.corpora.erme_mdf = {
     id : "erme_mdf",
-    title : "ERME: Mokša",
-    description : "ERME: Mokša",
+    title : "ERME (Mokša/Moksha)",
+    description : "ERME (Mokša/Moksha)",
     limited_access : true,
     licence_type : "ACA",
     within : settings.spWithin,
