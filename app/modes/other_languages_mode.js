@@ -27,7 +27,7 @@ settings.spContext = {
 };
 
 settings.corporafolders.testikansio = {
-    title : "ERME [ACA]",
+    title : "ERME",
     description : "ERME",
     contents : ["erme_mdf", "erme_myv"]
 };
