@@ -8261,15 +8261,24 @@ settings.corpora.iclfi = {
         text_levelhour : {
             label : "iclfi_levelhour"
 	},
-        text_levelcerfone : {
-            label : "iclfi_levelcerfone"
+        text_levelcefrone : {
+            label : "iclfi_levelcefrone"
 	},
-        text_levelcerftwo : {
-            label : "iclfi_levelcerftwo"
+        text_levelcefrtwo : {
+            label : "iclfi_levelcefrtwo"
 	},
         text_otherlangs : {
             label : "iclfi_otherlangs"
 	},
+        text_levelcefrthree : {
+            label : "iclfi_levelcefrthree"
+        },
+        text_levelcefrfour : {
+            label : "iclfi_levelcefrfour"
+        },
+        text_cefrlevel : {
+            label : "iclfi_cefrlevel"
+        },
         text_texttype : {
             label : "iclfi_texttype"
 	},
