@@ -417,6 +417,7 @@ settings.corpora.erme_myv = {
     id : "erme_myv",
     title : "ERME (Ersä/Erzya)",
     description : "ERME (Ersä/Erzya)",
+    licence : settings.licenceinfo.CC_BY,
     /*limited_access : true,
       licence_type : "ACA",*/
     within : settings.spWithin,
@@ -430,6 +431,7 @@ settings.corpora.erme_mdf = {
     id : "erme_mdf",
     title : "ERME (Mokša/Moksha)",
     description : "ERME (Mokša/Moksha)",
+    licence : settings.licenceinfo.CC_BY,
     /*limited_access : true,
     licence_type : "ACA",*/
     within : settings.spWithin,
