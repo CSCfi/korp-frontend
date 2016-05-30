@@ -2481,7 +2481,7 @@ settings.corpora.tiedelehdet_tutkivasos = {
 settings.corpora.tiedelehdet_tiedejaase = {
     title : "Tiede ja Ase",
     description : "Tiede ja Ase (2000-2013)<br/>Julkaisija: Suomen sotatieteellinen seura<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/ta'>http://ojs.tsv.fi/index.php/ta</a>",
-    id : "tiedelehdet_tiedejaaase",
+    id : "tiedelehdet_tiedejaase",
     urn : "",
     metadata_urn : "",
     within : settings.spWithin,
