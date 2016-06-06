@@ -57,10 +57,10 @@ span.reading_btn.hide_reading.link(ng-hide="loading", ng-click="toggleReading()"
 kwic-pager
 #kwic-download-container(ng-if='kwic.length > 0')
   button.btn.btn-default#kwic-download-button(
-    ng-click="downloadKwic(downloadFormat)")
+    ng-click="downloadKwic()")
     | {{'download_kwic' | loc:lang}}
   |  {{'download_kwic_format_prefix' | loc:lang}} 
-  select#kwic-download-format(ng-model='downloadFormat')
+  select#kwic-download-format
     option(
       ng-repeat='fmt in downloadFormats'
       value='{{fmt}}'
