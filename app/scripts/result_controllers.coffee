@@ -214,6 +214,13 @@ class KwicCtrl
             len = sentence.tokens.length
             sentence.tokens.slice from, len
 
+        s.downloadFormats = settings.downloadFormats
+        s.downloadFormat = s.downloadFormats[0]
+
+        s.downloadKwic = (format) ->
+            s.instance.downloadKwic format
+
+
 korpApp.directive "kwicCtrl", () ->
     controller: KwicCtrl
 

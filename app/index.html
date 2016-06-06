@@ -241,8 +241,11 @@
                       </div>
                     </div>
                     <kwic-pager></kwic-pager>
-                    <div id="download-links-container">
-                      <select id="download-links"></select>
+                    <div id="download-links-container" ng-if="kwic.length &gt; 0">
+                      <select id="download-format" ng-model="downloadFormat">
+                        <option ng-repeat="fmt in downloadFormats" value="{{fmt}}" title="{{ &quot;formatdescr_&quot; + fmt | loc:lang }}" ng-selected="downloadFormats.indexOf(fmt) == 0">{{fmt.toUpperCase()}}</option>
+                      </select>
+                      <button ng-click="downloadKwic(downloadFormat)" class="btn btn-sm btn-default">{{ 'download_kwic' | loc:lang }}</button>
                     </div>
                   </div>
                 </uib-tab>
@@ -357,8 +360,11 @@
                       </div>
                     </div>
                     <kwic-pager></kwic-pager>
-                    <div id="download-links-container">
-                      <select id="download-links"></select>
+                    <div id="download-links-container" ng-if="kwic.length &gt; 0">
+                      <select id="download-format" ng-model="downloadFormat">
+                        <option ng-repeat="fmt in downloadFormats" value="{{fmt}}" title="{{ &quot;formatdescr_&quot; + fmt | loc:lang }}" ng-selected="downloadFormats.indexOf(fmt) == 0">{{fmt.toUpperCase()}}</option>
+                      </select>
+                      <button ng-click="downloadKwic(downloadFormat)" class="btn btn-sm btn-default">{{ 'download_kwic' | loc:lang }}</button>
                     </div>
                   </div>
                 </uib-tab>

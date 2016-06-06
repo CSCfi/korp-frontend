@@ -51,7 +51,7 @@
         this.resultError(data);
         return false;
       } else {
-        safeApply(this.s, (function(_this) {
+        return safeApply(this.s, (function(_this) {
           return function() {
             c.log("firstResultDef.resolve");
             _this.firstResultDef.resolve();
@@ -59,7 +59,6 @@
           };
         })(this));
       }
-      return util.setDownloadLinks(this.proxy.prevRequest, data);
     };
 
     BaseResults.prototype.resultError = function(data) {
@@ -356,8 +355,9 @@
       this.$result.localize();
       this.centerScrollbar();
       if (!this.selectionManager.hasSelected() && !isReading) {
-        return this.$result.find(".match").children().first().click();
+        this.$result.find(".match").children().first().click();
       }
+      return this.resultData = data;
     };
 
     KWICResults.prototype.showNoResults = function() {
@@ -688,6 +688,10 @@
         }
       });
       return output;
+    };
+
+    KWICResults.prototype.downloadKwic = function(format) {
+      return util.downloadKwic(format, this.proxy.prevRequest.url, this.resultData);
     };
 
     return KWICResults;
