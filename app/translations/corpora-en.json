@@ -780,6 +780,80 @@
     "sponsor" : "sponsor",
     "place" : "place",
 
+    "token_type" : "token type",
+
+    "token_subtype" : "token subtype",
+    "action_type" : "type of action",
+    "voice_quality" : "quality of voice",
+    "overlap_id" : "id of overlapping segments",
+    "overlap_speaker_id" : "overlapping speaker",
+    "overlap_content" : "overlapping content",
+
+    "academic_domain" : "academic domain",
+    "academic_domain_behavioural_sciences" : "behavioural sciences",
+    "academic_domain_economics_and_administration" : "economics and administration",
+    "academic_domain_humanities" : "humanities",
+    "academic_domain_medicine" : "medicine",
+    "academic_domain_natural_sciences" : "natural sciences",
+    "academic_domain_other" : "other",
+    "academic_domain_social_sciences" : "social sciences",
+    "academic_domain_technology" : "technology",
+
+    "academic_discipline" : "academic discipline",
+
+    "event_type" : "event type",
+
+    "event_purpose" : "event purpose",
+    "event_purpose_discuss" : "discuss",
+    "event_purpose_inform" : "inform",
+
+    "event_num" : "event number",
+    "event_part" : "event part",
+
+    "preparedness" : "preparedness",
+    "preparedness_true" : "prepared",
+    "preparedness_false" : "unprepared",
+
+    "interaction_degree" : "degree of interaction",
+    "interaction_degree_complete" : "complete",
+    "interaction_degree_partial" : "partial",
+    "interaction_degree_none" : "none",
+
+    "recording_duration" : "recording duration",
+    "recording_type" : "recording type",
+    "num_speakers" : "number of speakers",
+    "num_participants" : "number of participants",
+
+    "academic_role" : "academic role",
+    "academic_role_junior staff" : "junior staff",
+    "academic_role_junior staff and research student" : "junior staff and research student",
+    "academic_role_masters student" : "masters student",
+    "academic_role_other" : "other",
+    "academic_role_research student" : "research student",
+    "academic_role_senior staff" : "senior staff",
+    "academic_role_undergraduate" : "undergraduate",
+    "academic_role_unknown" : "unknown",
+
+    "speaker_identification" : "speaker identification",
+    "speaker_ident_identified" : "single, identified speaker",
+    "speaker_ident_several" : "several simultaneous speakers",
+    "speaker_ident_unidentified" : "unidentified speaker",
+
+    "speaker_l1" : "speaker's first language",
+
+    "age_17-23" : "17–23",
+    "age_24-30" : "24–30",
+    "age_31-50" : "31–50",
+    "age_51-over" : "over 51",
+    "age_unknown" : "unknown",
+
+    "speaker_id" : "speaker id",
+
+    "speech_event_type" : "speech event type",
+    "speech_event_type_utterance" : "utterance",
+    "speech_event_type_incident" : "incident",
+    "speech_event_type_pause" : "pause",
+
     "ne_expr" : "named entity",
     "ne_type" : "named entity type",
     "ne_subtype" : "named entity subtype",
