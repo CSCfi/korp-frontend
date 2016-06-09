@@ -784,10 +784,10 @@
 
     "token_subtype" : "token subtype",
     "action_type" : "type of action",
-    "voice_quality" : "quality of voice",
-    "overlap_id" : "id of overlapping segments",
-    "overlap_speaker_id" : "overlapping speaker",
-    "overlap_content" : "overlapping content",
+    "speaking_mode" : "speaking mode",
+    "synch_id" : "synchronized segment id",
+    "other_speaker_id" : "other speaker",
+    "other_speaker_content" : "other speaker content",
 
     "academic_domain" : "academic domain",
     "academic_domain_behavioural_sciences" : "behavioural sciences",
@@ -853,6 +853,8 @@
     "speech_event_type_utterance" : "utterance",
     "speech_event_type_incident" : "incident",
     "speech_event_type_pause" : "pause",
+
+    "turn_id" : "turn id",
 
     "ne_expr" : "named entity",
     "ne_type" : "named entity type",

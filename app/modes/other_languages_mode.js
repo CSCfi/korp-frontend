@@ -49,7 +49,7 @@ settings.corporafolders.fennougrica = {
 settings.corporafolders.english = {
     title : "English / Englanti",
     description : "Texts in English<br/>Englanninkielisiä tekstejä",
-    contents : ["mulcold_en", "topling", "elfa"]
+    contents : ["mulcold_en", "elfa", "topling"]
 };
 
 settings.corporafolders.german = {
@@ -298,17 +298,19 @@ settings.corpora.topling = {
 settings.corpora.elfa = {
     id : "elfa",
     title : "ELFA",
-    description : "ELFA – The Corpus of English as a Lingua Franca in Academic Settings (anonymised transcriptions)<br>The ELFA corpus contains 1 million words of transcribed spoken academic ELF (approximately 131 hours of recorded speech). The recordings were made at the University of Tampere, the University of Helsinki, Tampere University of Technology, and Helsinki University of Technology.",
+    description : "ELFA – The Corpus of English as a Lingua Franca in Academic Settings (anonymised transcriptions), preliminary Korp version<br>The ELFA corpus contains 1 million words of transcribed spoken academic ELF (approximately 131 hours of recorded speech). The recordings were made at the University of Tampere, the University of Helsinki, Tampere University of Technology, and Helsinki University of Technology.<br/>IPR holder: Professor Anna Mauranen, University of Helsinki",
     urn : "[to be added]",
     // FIXME: This is the top-level ELFA metadata URN; change it to
     // the one for the Korp version when available
     metadata_urn : "urn:nbn:fi:lb-201403262",
     licence : settings.licenceinfo.CC_BY,
-    compiler : {
-	name : "Anna Mauranen",
-    },
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
+    // TODO: Add an IPR holder item (or something like that) to the
+    // standard info fields
+    // compiler : {
+    // 	name : "Anna Mauranen",
+    // },
+    context : settings.spContext,
+    within : settings.spWithin,
     ignore_between_tokens_cqp : '[type != "word"]*',
     attributes : {
 	type : {
@@ -376,7 +378,7 @@ settings.corpora.elfa = {
 	    },
 	},
 	voice : {
-	    label : "voice_quality",
+	    label : "speaking_mode",
 	    displayType : "select",
 	    // translationKey : "",
 	    localize : false,
@@ -395,17 +397,22 @@ settings.corpora.elfa = {
 		"null" : "unspecified",
 	    },
 	},
-	elemstack : {
+	tags : {
+	    label : "enclosing_elements",
+	    type : "set",
 	    displayType : "hidden",
 	},
-	synch : {
-	    label : "overlap_id",
+	synch_id : {
+	    label : "synch_id",
+	    isStructAttr : true,
 	},
-	overlap_speaker : {
-	    label : "overlap_speaker_id",
+	synch_speaker_id : {
+	    label : "other_speaker_id",
+	    isStructAttr : true,
 	},
-	overlap_content : {
-	    label : "overlap_content",
+	synch_content : {
+	    label : "other_speaker_content",
+	    isStructAttr : true,
 	},
     },
     struct_attributes : {
@@ -567,7 +574,7 @@ settings.corpora.elfa = {
 	text_publisher : {
 	    displayType : "hidden",
 	},
-	sentence_speaker_type : {
+	paragraph_speaker_type : {
 	    label : "speaker_identification",
 	    displayType : "select",
 	    translationKey : "speaker_ident_",
@@ -578,7 +585,7 @@ settings.corpora.elfa = {
 		"unidentified",
 	    ],
 	},
-	sentence_speaker_l1 : {
+	paragraph_speaker_l1 : {
 	    label : "speaker_l1",
 	    type : "set",
 	    displayType : "select",
@@ -672,7 +679,7 @@ settings.corpora.elfa = {
 		"zho" : "zho",
 	    },
 	},
-	sentence_speaker_role : {
+	paragraph_speaker_role : {
 	    label : "academic_role",
 	    displayType : "select",
 	    translationKey : "academic_role_",
@@ -688,7 +695,7 @@ settings.corpora.elfa = {
 		"unknown",
 	    ],
 	},
-	sentence_speaker_age : {
+	paragraph_speaker_age : {
 	    label : "age",
 	    displayType : "select",
 	    translationKey : "age_",
@@ -701,7 +708,7 @@ settings.corpora.elfa = {
 		"unknown",
 	    ],
 	},
-	sentence_speaker_sex : {
+	paragraph_speaker_sex : {
 	    label : "gender",
 	    displayType : "select",
 	    translationKey : "",
@@ -712,10 +719,10 @@ settings.corpora.elfa = {
 		"unknown|null" : "unknown",
 	    }
 	},
-	sentence_speaker_id : {
+	paragraph_speaker_id : {
 	    label : "speaker_id",
 	},
-	sentence_type : {
+	paragraph_type : {
 	    label : "speech_event_type",
 	    displayType : "select",
 	    translationKey : "speech_event_type_",
@@ -725,6 +732,9 @@ settings.corpora.elfa = {
 		"incident",
 		"pause",
 	    ],
+	},
+	paragraph_id : {
+	    label : "turn_id",
 	},
 	sentence_id : sattrs.sentence_id_hidden,
     },
