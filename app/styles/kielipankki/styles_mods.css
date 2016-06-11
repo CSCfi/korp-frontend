@@ -1,0 +1,204 @@
+
+/*
+ * Modifications to styles.css for the Kielipankki style of Korp
+ *
+ * Extracted by Jyrki Niemi from styles.css modified by Tero Aalto.
+ * This file is included read in index.html after styles.css to
+ * override definitions in styles.css.
+ *
+ * This could be converted to an SCSS stylesheet, so that some rules
+ * could be generalized.
+ */
+
+
+@font-face {
+  font-family: 'Lato';
+  src: url(//fonts.googleapis.com/css?family=Lato);
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url(//fonts.googleapis.com/css?family=Lato);
+  font-weight: bold;
+}
+
+
+body {
+  font-family: 'Lato', Helvetica, Arial, Verdana, sans-serif;
+}
+
+
+a:link {
+  color: #4D5A91;
+}
+a:visited {
+  color: #4D5A91;
+}
+a:hover {
+  color: #F16522;
+  text-decoration: underline;
+}
+
+.link {
+  color: #4D5A91 !important;
+}
+.link:hover {
+  color: #F16522 !important;
+}
+
+
+.radialBkg {
+  background-image: -moz-radial-gradient(center, ellipse cover, #f9fdff 56%, #E1EEFF 100%);
+  background-image: -webkit-radial-gradient(center, ellipse cover, #f9fdff 56%, #E1EEFF 100%);
+  background-image: radial-gradient(ellipse cover at center, #f9fdff 56%, #E1EEFF 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9fdff', endColorstr='#E1EEFF',GradientType=1 );
+}
+
+
+.color_blue {
+  /* background-color: ##B8D5FD; */
+  background-color: #B8D5FD;
+}
+.color_blue_light {
+  background-color: #F0F2F6;
+}
+.color_azure_light {
+  background-color: #EEF1F6;
+}
+
+
+#top_bar {
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #fff), color-stop(100%, #CAD2E6));
+  background-image: -moz-linear-gradient(bottom, #fff 0%, #CAD2E6 100%);
+  background-image: -webkit-linear-gradient(bottom, #fff 0%, #CAD2E6 100%);
+  background-image: linear-gradient(to top, #fff 0%, #CAD2E6 100%);
+}
+
+
+.close_token {
+  background-color: #E4E9F3;
+}
+.query_token {
+  background-color: #EEBA94;
+}
+
+
+.hits_picture .odd {
+  background-color: #CAD2E6;
+}
+.hits_picture .even {
+  background-color: #E4E9F3;
+}
+
+.results_table .odd {
+  background-color: #CAD2E6;
+}
+.results_table .even {
+  background-color: #E4E9F3;
+}
+
+
+.alt {
+  background-color: #CAD2E6;
+}
+
+
+.word:hover {
+  color: #F16522;
+}
+.word_selected:hover {
+  color: #F16522;
+}
+
+.link_selected {
+  background-color: #4D588F;
+}
+
+.aux_selected {
+  background-color: #EEBA94;
+}
+
+a.absStat:hover {
+  color: #F16522;
+}
+a.relStat:hover {
+  color: #F16522;
+}
+
+#mode_switch a:hover {
+  color: #F16522;
+}
+
+
+.query_arg {
+  background-color: #F5D4BB;
+}
+
+
+.tableContainer > .header {
+  font-family: 'Lato', Helvetica, Arial, Verdana, sans-serif;
+}
+
+
+.autocomplete-item-disabled a {
+  color: #F16522;
+}
+
+
+.fail_text {
+  font-family: 'Lato', Helvetica, Arial, Verdana, sans-serif;
+}
+
+
+.ui-widget-header {
+  /* The URL is relative to the styles/kielipankki directory. */
+  background: url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") repeat-x scroll 50% 50% #CCCCCC;
+}
+
+
+.nav.nav-tabs {
+  /* The URL is relative to the styles/kielipankki directory. */
+  background: url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") repeat-x scroll 50% 50% #CCCCCC;
+}
+
+
+.compare_result .meter:hover {
+  /* Only the colour is different; could we use border-color? */
+  border: 1px solid #B8D5FD;
+}
+.compare_result .column_1 ul {
+  background-color: #F1F7FF;
+  border: 1px solid #CAD2E6;
+}
+.compare_result .column_1 ul .background {
+  background-color: #CAD2E6;
+}
+
+
+.bs-callout-warning {
+  background-color: #F5D4BB;
+  border-color: #EEBA94;
+}
+.bs-callout-info {
+  background-color: #EFF6FF;
+  border-color: #B8D5FD;
+}
+
+
+.newsdesk-new-news {
+  color: #4D5A91;
+}
+
+.newsdesk-new-news div {
+  background: #F16522;
+}
+.newsdesk-new-news div:after {
+  border-right-color: #F16522;
+}
+
+.newsdesk-new-news-item {
+  background-color: #ffffee;
+}
+.newsdesk-new-news-item h4 {
+  color: #F16522;
+}
