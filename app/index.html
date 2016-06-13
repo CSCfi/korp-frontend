@@ -192,7 +192,8 @@
               <label for="word_pic">{{'show_word_pic' | loc}}</label>
             </div>
           </div>
-        </div><a href="https://assessment.datasealofapproval.org/assessment_155/seal/html/" target="_blank"><img src="img/DSA 14-17.png" align="right" width="100"></a>
+        </div>
+        <div id="dsa-logo" ng-show="! (searches.activeSearch || compareTabs.length || graphTabs.length)" ng-controller="resultContainerCtrl"><a href="https://assessment.datasealofapproval.org/assessment_155/seal/html/" target="_blank"><img src="img/DSA 14-17.png" align="right" width="100"></a></div>
         <div id="results-wrapper" ng-show="searches.activeSearch || compareTabs.length || graphTabs.length" ng-controller="resultContainerCtrl">
           <div id="columns">
             <div id="left-column" ng-class="{sidebar_visible : word_selected &amp;&amp; sidebar_visible}"> 
