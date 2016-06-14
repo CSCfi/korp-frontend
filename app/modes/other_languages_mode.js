@@ -1712,6 +1712,215 @@ sattrlist.scotscorr = {
     text_st : { label : "scotscorr_st" },
 };
 
+attrs.scotscorr_word = {
+    label : "word",
+    opts : settings.defaultOptions,
+    // The input field also has an (i) link opening a list of
+    // signums as links from which one can select. This has
+    // been copied and modified from the code for the the
+    // Swedish msd attribute.
+    extended_template : '<input class="arg_value" ng-model="model">' +
+	'<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
+    controller : function($scope, $modal) {
+	var modal = null;
+	c.log($scope.$parent);
+	// var words0 = [
+	//     {"w": "18=th=", "f": 2},
+	//     {"w": "Anna??", "f": 1},
+	//     {"w": "Boig", "f": 1},
+	//     {"w": "Charity", "f": 4},
+	//     {"w": "Contine?wed", "f": 1},
+	//     {"w": "Defend", "f": 2},
+	//     {"w": "Enay", "f": 1},
+	//     {"w": "Grand", "f": 1},
+	//     {"w": "Imbreas*s%", "f": 1},
+	//     {"w": "Intres", "f": 1},
+	//     {"w": "L=d=ps", "f": 1},
+	//     {"w": "Lowlands", "f": 2},
+	//     {"w": "Merits", "f": 2},
+	//     {"w": "November:", "f": 1},
+	//     {"w": "Redie", "f": 1},
+	//     {"w": "Scarceity", "f": 1},
+	//     {"w": "Synod", "f": 1},
+	//     {"w": "Word", "f": 2},
+	//     {"w": "a?s?s", "f": 1},
+	//     {"w": "ad\\verteis", "f": 1},
+	//     {"w": "affectione~", "f": 2},
+	//     {"w": "alouit", "f": 1},
+	//     {"w": "apoi?nt", "f": 2},
+	//     {"w": "assigne", "f": 2},
+	//     {"w": "ballaloune", "f": 1},
+	//     {"w": "beleeve", "f": 6},
+	//     {"w": "blu?i?d", "f": 2},
+	//     {"w": "bukingam", "f": 1},
+	//     {"w": "casione", "f": 1},
+	//     {"w": "ciuilitie", "f": 1},
+	//     {"w": "colonel", "f": 2},
+	//     {"w": "conditioned", "f": 2},
+	//     {"w": "conuoy", "f": 2},
+	//     {"w": "cromertye", "f": 1},
+	//     {"w": "debarred", "f": 1},
+	//     {"w": "dereccts", "f": 1},
+	//     {"w": "dimited", "f": 1},
+	//     {"w": "dochters", "f": 2},
+	//     {"w": "during", "f": 13},
+	//     {"w": "enaibling", "f": 1},
+	//     {"w": "evidentis", "f": 1},
+	//     {"w": "fach", "f": 1},
+	//     {"w": "feirst", "f": 1},
+	//     {"w": "followers", "f": 5},
+	//     {"w": "freynd*is%", "f": 18},
+	//     {"w": "gentle\\men", "f": 1},
+	//     {"w": "gracius", "f": 1},
+	//     {"w": "haiing", "f": 1},
+	//     {"w": "heat", "f": 1},
+	//     {"w": "holde", "f": 1},
+	//     {"w": "hunder", "f": 27},
+	//     {"w": "inclyned", "f": 1},
+	//     {"w": "in{ins}forme{ins}{ins}d{ins}", "f": 1},
+	//     {"w": "kirkpatriks", "f": 1},
+	//     {"w": "lavely", "f": 1},
+	//     {"w": "lipned", "f": 1},
+	//     {"w": "lykuayes", "f": 1},
+	//     {"w": "manyfold", "f": 2},
+	//     {"w": "mentioned", "f": 7},
+	//     {"w": "mongest", "f": 1},
+	//     {"w": "nawyis", "f": 1},
+	//     {"w": "notuer", "f": 1},
+	//     {"w": "occurrit", "f": 10},
+	//     {"w": "ordourlie", "f": 1},
+	//     {"w": "pacquets", "f": 1},
+	//     {"w": "peid", "f": 1},
+	//     {"w": "planting", "f": 4},
+	//     {"w": "praiand", "f": 2},
+	//     {"w": "pritie", "f": 2},
+	//     {"w": "pryces", "f": 5},
+	//     {"w": "quheying*is%", "f": 2},
+	//     {"w": "receauit", "f": 11},
+	//     {"w": "relish", "f": 1},
+	//     {"w": "resolffitt", "f": 1},
+	//     {"w": "rueles", "f": 1},
+	//     {"w": "satlement", "f": 1},
+	//     {"w": "secundlie", "f": 1},
+	//     {"w": "sessione", "f": 5},
+	//     {"w": "sinceer", "f": 1},
+	//     {"w": "souldioures", "f": 1},
+	//     {"w": "sti\\pend", "f": 1},
+	//     {"w": "sufferede", "f": 1},
+	//     {"w": "taking", "f": 38},
+	//     {"w": "themselwes", "f": 1},
+	//     {"w": "touards", "f": 4},
+	//     {"w": "tumult", "f": 1},
+	//     {"w": "upone", "f": 10},
+	//     {"w": "vncle~", "f": 1},
+	//     {"w": "waird", "f": 5},
+	//     {"w": "wexit", "f": 1},
+	//     {"w": "wnconseid\\dirat", "f": 1},
+	//     {"w": "wryttyngis", "f": 2},
+	//     {"w": "yo=r=", "f": 88},
+	//     {"w": "{<ambiguous}", "f": 11},
+	//     {"w": "{a_word_damaged_except_for_word_final_<s>}", "f": 1},
+	//     {"w": "{torn_except_for_final_<using>;_perhaps_<Refusing>}", "f": 1}
+	// ];
+	$scope.words = [];
+	// for (var i = 0; i < words0.length; i++) {
+	//     $scope.words.push({word: words0[i].w,
+	// 		       freq: words0[i].f,
+	// 		       selected: false});
+	// }
+	$.getJSON(
+	    "corpus_info/scotscorr-words.json",
+	    function (data) {
+		c.log(data);
+		for (var i = 0; i < data.length; i++) {
+		    $scope.words.push({word: data[i].w,
+				       freq: data[i].f,
+				       selected: false});
+		}
+	    }
+	);
+	c.log($scope.words);
+	// for (var i = 0; i < 2000; i++) {
+	//     $scope.words.push({word: i.toString(),
+	// 		       selected: false});
+	// }
+	$scope.onIconClick = function() {
+	    $scope.setSelected();
+	    modal = $modal.open({
+		template : '<div>' +
+		    '<div class="modal-header">' +
+		    '<h3 class="modal-title">{{\'words\' | loc:lang}}</h3>' +
+		    '<span ng-click="clickX()" class="close-x">×</span>' +
+		    '</div>' +
+		    '<div class="modal-value" style="font-size: 80%">' +
+		    '<p>Selected: <span id="scotscorr-selected-words"></span></p>' +
+		    '</div>' +
+		    '<button type="button" ng-click="clickX()">Done</button>' +
+		    '<button type="button" ng-click="clearSelected()">Clear</button>' +
+		    '<button type="button" ng-click="cancel()">Cancel</button>' +
+		    '<div class="modal-body" style="overflow-y: auto; font-size: 80%">' +
+		    '<ul class="unstyled" style="list-style: none; line-height: 80%">' +
+		    '<li ng-repeat="word in words">' +
+		    '<input type="checkbox" ng-model="word.selected" ng-click="update(e, word.word)">{{word.word}} ({{word.freq}})</input>' +
+		    '</li>' +
+		    '</ul>' +
+		    '</div>' +
+		    '</div>',
+		scope : $scope
+	    });
+	};
+	$scope.setSelected = function() {
+	    var selected = _.map($scope.model.split("|"),
+				 function (s) {
+				     return s.replace(/\\(.)/g, "$1");
+				 });
+	    c.log("setSelected", selected);
+	    var selected_obj = {};
+	    for (var i = 0; i < selected.length; i++) {
+		selected_obj[selected[i]] = true;
+	    }
+	    for (var i = 0; i < $scope.words.length; i++) {
+		$scope.words[i].selected = ($scope.words[i].word in selected_obj);
+		if ($scope.words[i].selected) {c.log("selected:", $scope.words[i].word);}
+	    }
+	    c.log("selected words", $scope.words);
+	    $scope.update();
+	};
+	$scope.clickX = function(event) {
+	    modal.close();
+	    $scope.model = (_($scope.words)
+			    .filter("selected")
+			    .pluck("word")
+			    .map(window.regescape)
+			    .value()).join("|");
+	    c.log ("word model", $scope.model);
+	};
+	$scope.clearSelected = function(event) {
+	    for (var i = 0; i < $scope.words.length; i++) {
+		$scope.words[i].selected = false;
+	    }
+	    $scope.update();
+	};
+	$scope.cancel = function(event) {
+	    modal.close();
+	};
+	$scope.update = function(event, word) {
+	    c.log ("update", word, event, _.filter($scope.words, "selected"));
+	    $("#scotscorr-selected-words").html(
+		_($scope.words)
+		    .filter("selected")
+		    .pluck("word")
+		    .map(
+			function (s) {
+			    return s.replace(/&/, "&amp;").replace(/</, "&lt;");
+			})
+		    .value()
+		    .join(", "));
+	    $scope.$parent.orObj.op = "*=";
+	};
+    },
+};
+
 
 settings.corpora.scots_f1540_1599 = {
     id : "scots_f1540_1599",
@@ -1779,7 +1988,9 @@ settings.fn.extend_corpus_settings(
 	within : settings.defaultWithin,
 	limited_access : isPublicServer,
 	licence_type : "ACA",
-	attributes : {},
+	attributes : {
+	    word : attrs.scotscorr_word
+	},
 	struct_attributes : sattrlist.scotscorr,
 	ignore_between_tokens_cqp : '[word="[^a-zA-Z0-9]+|\\{.*"]*',
     },
