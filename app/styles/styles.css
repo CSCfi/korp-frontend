@@ -6223,3 +6223,66 @@ li.active a span .num-to-find {
 .dma-signumlist tr.vspacer {
   font-size: 0.3em;
 }
+
+/* ScotsCorr word selector modal */
+/* line 2908, styles.scss */
+.modal-value {
+  font-size: 0.8em;
+  width: 100%;
+}
+
+/* line 2913, styles.scss */
+.modal-value-heading {
+  font-weight: bold;
+}
+
+/* line 2917, styles.scss */
+#wordselector-selected-words {
+  display: block;
+}
+
+/* line 2921, styles.scss */
+.modal-buttons, .modal-value {
+  display: block;
+}
+
+/* line 2925, styles.scss */
+.modal-buttons button {
+  margin-right: 0.5em;
+}
+
+/* line 2929, styles.scss */
+.modal-wordselector {
+  overflow-y: auto;
+  font-size: 1em;
+  margin: 0.5em 1em 0.5em 1em;
+}
+/* line 2933, styles.scss */
+.modal-wordselector ul {
+  list-style: none;
+}
+/* line 2935, styles.scss */
+.modal-wordselector ul li ul {
+  margin-left: 2em;
+  line-height: 70%;
+}
+
+/* line 2942, styles.scss */
+.wordselector-group-heading {
+  font-weight: bold;
+  cursor: pointer;
+}
+/* line 2945, styles.scss */
+.wordselector-group-heading:hover {
+  color: darkgrey;
+}
+
+/* line 2950, styles.scss */
+.wordselector-word-unselected {
+  font-weight: normal;
+}
+
+/* line 2954, styles.scss */
+.wordselector-word-selected {
+  font-weight: bold;
+}

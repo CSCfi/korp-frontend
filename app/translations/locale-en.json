@@ -438,6 +438,12 @@
     "accessres_login" : "log in to Korp",
     "accessres_apply" : "apply for corpus access rights",
     "accessres_postamble_aca" : "If Korp does not recognize you as an active member of an academic institution for technical reasons, you can also",
-    "accessres_postamble_aca_linktext" : "apply for recognition as an academic user"
+    "accessres_postamble_aca_linktext" : "apply for recognition as an academic user",
+
+    "wordlist" : "Word list",
+    "selected_words" : "Selected words",
+    "button_done" : "Done",
+    "button_clear" : "Clear",
+    "button_cancel" : "Cancel"
 
 }

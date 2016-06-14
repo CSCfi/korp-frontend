@@ -2939,3 +2939,55 @@ li.active a span .num-to-find {
 	font-size: 0.3em;
     }
 }
+
+/* ScotsCorr word selector modal */
+
+.modal-value {
+    font-size: 0.8em;
+    width: 100%;
+}
+
+.modal-value-heading {
+    font-weight: bold;
+}
+
+#wordselector-selected-words {
+    display: block;
+}
+
+.modal-buttons, .modal-value {
+    display: block;
+}
+
+.modal-buttons button {
+    margin-right: 0.5em;
+}
+
+.modal-wordselector {
+    overflow-y: auto;
+    font-size: 1em;
+    margin: 0.5em 1em 0.5em 1em;
+    ul {
+        list-style: none;
+	li ul {
+	    margin-left: 2em;
+	    line-height: 70%;
+	}
+    }
+}
+
+.wordselector-group-heading {
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      color : darkgrey;
+    }
+}
+
+.wordselector-word-unselected {
+    font-weight: normal;
+}
+
+.wordselector-word-selected {
+    font-weight: bold;
+}
