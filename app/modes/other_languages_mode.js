@@ -1724,9 +1724,17 @@ attrs.scotscorr_word = {
     // list of words with checkboxes from which the user can select.
     // This has been copied and modified from the code for the the
     // Swedish msd attribute.
-    extended_template : '<input class="arg_value" ng-model="model">' +
-	'<span ng-click="onIconClick()" class="fa fa-list list-link-icon">' +
-	'</span>',
+    extended_template : '<input class="arg_value arg_value_wordselector"' +
+	' ng-model="model" placeholder=\'<{{"any" | loc:lang}}>\'>' +
+	'<span ng-click="onIconClick()" class="fa fa-list list-link-icon"></span>' +
+        '<span class="val_mod" popper' +
+        ' ng-class=\'{sensitive : case == "sensitive", insensitive : case == "insensitive"}\'>' +
+	' Aa ' +
+	'</span>' +
+        '<ul class="mod_menu popper_menu dropdown-menu">' +
+        '<li><a ng-click="makeSensitive()">{{"case_sensitive" | loc:lang}}</a></li>' +
+        '<li><a ng-click="makeInsensitive()">{{"case_insensitive" | loc:lang}}</a></li>' +
+        '</ul>',
     controller : function($scope, $modal) {
 	var modal = null;
 	$scope.words = [];
@@ -1734,6 +1742,7 @@ attrs.scotscorr_word = {
 	$scope.group_words = {};
 	$scope.selected_words = [];
 	$scope.selected_words_str = "";
+        $scope["case"] = "sensitive";
 	// Read the word data (words and their frequencies) and create
 	// $scope.words, $scope.groups and $scope.group_words.
 	// Grouping is based case-insensitively on the first character
@@ -1825,6 +1834,20 @@ attrs.scotscorr_word = {
 	    $scope.selected_words_str = $scope.selected_words.join("\u2000");
 	    // $scope.update();
 	};
+	// Clear the case-insensitive flag (restore the default)
+        $scope.makeSensitive = function() {
+            $scope["case"] = "sensitive";
+	    if ($scope.orObj.flags != null) {
+		delete $scope.orObj.flags.c;
+	    }
+        };
+	// Set the case-insensitive flag
+        $scope.makeInsensitive = function() {
+            var flags = $scope.orObj.flags || {};
+            flags["c"] = true;
+            $scope.orObj.flags = flags;
+            $scope["case"] = "insensitive";
+        };
 	// Update $scope.selected_words based on the selected property
 	// in the elements of $scope.words. The arguments are
 	// currently not used.

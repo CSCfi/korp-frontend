@@ -2999,3 +2999,8 @@ li.active a span .num-to-find {
       color : darkgrey;
     }
 }
+
+.arg_value_wordselector {
+    // Allow space for the word selector list icon
+    width: 90% !important;
+}

@@ -6296,3 +6296,8 @@ li.active a span .num-to-find {
 .list-link-icon:hover {
   color: darkgrey;
 }
+
+/* line 2885, styles.scss */
+.arg_value_wordselector {
+  width: 90% !important;
+}
