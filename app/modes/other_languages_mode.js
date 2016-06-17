@@ -1810,17 +1810,25 @@ attrs.scotscorr_word = {
 	// Set the selected property of words based on the current
 	// input value
 	$scope.setSelected = function() {
-	    // FIXME: This assumes that the input value is a regular
-	    // expression consisting of a list of words separated by
-	    // vertical bars (and that vertical bars do not occur
-	    // anywhere else, such as in separating sub-word
-	    // alternatives or literally). What if that is not the
-	    // case?
-	    $scope.selected_words = _.map(
-		$scope.model.split("|"),
-		function (s) {
-		    return s.replace(/\\(.)/g, "$1");
-		});
+	    $scope.model_prev = $scope.model;
+	    if ($scope.$parent.orObj.op == "*=") {
+		// FIXME: This assumes that the input value is list of
+		// words separated by vertical bars (that is, vertical
+		// bars do not occur anywhere else, such as in
+		// separating sub-word alternatives or literally).
+		// What if that is not the case? One option might be
+		// to select words by matching the regular expression.
+		// It does not seem to be too slow.
+		$scope.selected_words = _.map(
+		    $scope.model.split("|"),
+		    function (s) {
+			return s.replace(/\\(.)/g, "$1");
+		    });
+	    } else if ($scope.$parent.orObj.op == "=") {
+		$scope.selected_words = [$scope.model];
+	    } else {
+		$scope.selected.words = [];
+	    }
 	    c.log("scotscorr_word setSelected", $scope.selected_words);
 	    var selected_obj = {};
 	    for (var i = 0; i < $scope.selected_words.length; i++) {
@@ -1831,8 +1839,8 @@ attrs.scotscorr_word = {
 		    = selected_obj.hasOwnProperty($scope.words[i].word);
 		// if ($scope.words[i].selected) {c.log("selected:", $scope.words[i].word);}
 	    }
-	    $scope.selected_words_str = $scope.selected_words.join("\u2000");
-	    // $scope.update();
+	    // $scope.selected_words_str = $scope.selected_words.join("\u2000");
+	    $scope.update();
 	};
 	// Clear the case-insensitive flag (restore the default)
         $scope.makeSensitive = function() {
@@ -1874,12 +1882,22 @@ attrs.scotscorr_word = {
 	// Set the input value based on the selected words
 	$scope.done = function(event) {
 	    modal.close();
-	    $scope.model = (
-		_.map($scope.selected_words, window.regescape)
-		    .join("|"));
-	    // Force regular expression (for a single word, we might
-	    // use simple "is")
-	    $scope.$parent.orObj.op = "*=";
+	    if ($scope.selected_words.length > 1) {
+		$scope.model = (
+		    _.map($scope.selected_words, window.regescape)
+			.join("|"));
+		// Force regular expression
+		$scope.$parent.orObj.op = "*=";
+	    } else {
+		$scope.model = ($scope.selected_words.length == 1
+				? $scope.selected_words[0]
+				: "");
+		// For a single word, use "=" unless the word is the
+		// same as before
+		if ($scope.model != $scope.model_prev) {
+		    $scope.$parent.orObj.op = "=";
+		}
+	    }
 	    c.log("scotscorr_word model", $scope.model);
 	};
 	// Clear the selected words
