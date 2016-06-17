@@ -1811,32 +1811,43 @@ attrs.scotscorr_word = {
 	// input value
 	$scope.setSelected = function() {
 	    $scope.model_prev = $scope.model;
-	    if ($scope.$parent.orObj.op == "*=") {
-		// FIXME: This assumes that the input value is list of
-		// words separated by vertical bars (that is, vertical
-		// bars do not occur anywhere else, such as in
-		// separating sub-word alternatives or literally).
-		// What if that is not the case? One option might be
-		// to select words by matching the regular expression.
-		// It does not seem to be too slow.
-		$scope.selected_words = _.map(
-		    $scope.model.split("|"),
-		    function (s) {
-			return s.replace(/\\(.)/g, "$1");
-		    });
-	    } else if ($scope.$parent.orObj.op == "=") {
+	    var op = $scope.$parent.orObj.op;
+	    var select_fn = null;
+	    if ($scope.model == "" || op == "!=" || op == "!*=") {
+		// Nothing selected for the empty word nor the negated
+		// operations
+		$scope.selected_words = [];
+		select_fn = function (word) { return false; };
+	    } else if (op == "=") {
+		// Select only the word literally
 		$scope.selected_words = [$scope.model];
+		select_fn = function (word) { return word == $scope.model };
 	    } else {
-		$scope.selected.words = [];
+		// Construct a regular expression for testing if a
+		// word matches the condition. This assumes that the
+		// CQP regular expressions are are compatible with
+		// JavaScript RegExps, as they (mostly) are.
+		var word_re = "";
+		if (op == "*=") {
+		    // Regular expression
+		    word_re = "^(" + $scope.model + ")$";
+		} else if (op == "^=") {
+		    // Starts with
+		    word_re = "^(" + window.regescape($scope.model) + ")";
+		} else if (op == "&=") {
+		    // Ends with
+		    word_re = "(" + window.regescape($scope.model) + ")$";
+		} else if (op == "_=") {
+		    // Contains
+		    word_re = window.regescape($scope.model)
+		}
+		// c.log("matching", word_re);
+		word_re = RegExp(word_re);
+		select_fn = function (word) { return word_re.test(word); };
 	    }
-	    c.log("scotscorr_word setSelected", $scope.selected_words);
-	    var selected_obj = {};
-	    for (var i = 0; i < $scope.selected_words.length; i++) {
-		selected_obj[$scope.selected_words[i]] = true;
-	    }
+	    // c.log("scotscorr_word setSelected", $scope.selected_words);
 	    for (var i = 0; i < $scope.words.length; i++) {
-		$scope.words[i].selected
-		    = selected_obj.hasOwnProperty($scope.words[i].word);
+		$scope.words[i].selected = select_fn($scope.words[i].word);
 		// if ($scope.words[i].selected) {c.log("selected:", $scope.words[i].word);}
 	    }
 	    // $scope.selected_words_str = $scope.selected_words.join("\u2000");
