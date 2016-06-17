@@ -1712,13 +1712,18 @@ sattrlist.scotscorr = {
     text_st : { label : "scotscorr_st" },
 };
 
+// Add a multiple-selection list to the word, with one level of
+// collapsible grouping by the first character of the word (required
+// to make the list work reasonably fast for a large number of words).
+// The resulting value is a regular expression. This could be
+// generalized, maybe to an Angular directive.
 attrs.scotscorr_word = {
     label : "word",
     opts : settings.defaultOptions,
-    // The input field also has an (i) link opening a list of words
-    // with checkboxes from which the user can select. This has been
-    // copied and modified from the code for the the Swedish msd
-    // attribute.
+    // The input field also has "list" icon, which is a link opening a
+    // list of words with checkboxes from which the user can select.
+    // This has been copied and modified from the code for the the
+    // Swedish msd attribute.
     extended_template : '<input class="arg_value" ng-model="model">' +
 	'<span ng-click="onIconClick()" class="fa fa-list list-link-icon">' +
 	'</span>',
@@ -1729,6 +1734,10 @@ attrs.scotscorr_word = {
 	$scope.group_words = {};
 	$scope.selected_words = [];
 	$scope.selected_words_str = "";
+	// Read the word data (words and their frequencies) and create
+	// $scope.words, $scope.groups and $scope.group_words.
+	// Grouping is based case-insensitively on the first character
+	// of the word, assumed to be in alphabetical order.
 	$.getJSON(
 	    "corpus_info/scotscorr-words.json",
 	    function (data) {
@@ -1751,6 +1760,7 @@ attrs.scotscorr_word = {
 		//       $scope.group_words);
 	    }
 	);
+	// Executed on clicking the list icon
 	$scope.onIconClick = function() {
 	    $scope.setSelected();
 	    modal = $modal.open({
@@ -1788,10 +1798,15 @@ attrs.scotscorr_word = {
 		scope : $scope
 	    });
 	};
-	$scope.toggleGroup = function (group, event) {
-	    group.shown = ! group.shown;
-	}
+	// Set the selected property of words based on the current
+	// input value
 	$scope.setSelected = function() {
+	    // FIXME: This assumes that the input value is a regular
+	    // expression consisting of a list of words separated by
+	    // vertical bars (and that vertical bars do not occur
+	    // anywhere else, such as in separating sub-word
+	    // alternatives or literally). What if that is not the
+	    // case?
 	    $scope.selected_words = _.map(
 		$scope.model.split("|"),
 		function (s) {
@@ -1810,25 +1825,9 @@ attrs.scotscorr_word = {
 	    $scope.selected_words_str = $scope.selected_words.join("\u2000");
 	    // $scope.update();
 	};
-	$scope.done = function(event) {
-	    modal.close();
-	    $scope.model = (
-		_.map($scope.selected_words, window.regescape)
-		    .join("|"));
-	    $scope.$parent.orObj.op = "*=";
-	    c.log("scotscorr_word model", $scope.model);
-	};
-	$scope.clearSelected = function(event) {
-	    for (var i = 0; i < $scope.words.length; i++) {
-		$scope.words[i].selected = false;
-	    }
-	    $scope.selected_words = [];
-	    $scope.selected_words_str = "";
-	    // $scope.update();
-	};
-	$scope.cancel = function(event) {
-	    modal.close();
-	};
+	// Update $scope.selected_words based on the selected property
+	// in the elements of $scope.words. The arguments are
+	// currently not used.
 	$scope.update = function(event, word) {
 	    c.log("scotscorr_word update", word, event,
 		  _.filter($scope.words, "selected"));
@@ -1844,6 +1843,34 @@ attrs.scotscorr_word = {
 	    // Join with an en quad
 	    $scope.selected_words_str = $scope.selected_words.join("\u2000");
 	    c.log("scotscorr_word selected", $scope.selected_words);
+	};
+	// Toggle a group
+	$scope.toggleGroup = function (group, event) {
+	    group.shown = ! group.shown;
+	}
+	// Set the input value based on the selected words
+	$scope.done = function(event) {
+	    modal.close();
+	    $scope.model = (
+		_.map($scope.selected_words, window.regescape)
+		    .join("|"));
+	    // Force regular expression (for a single word, we might
+	    // use simple "is")
+	    $scope.$parent.orObj.op = "*=";
+	    c.log("scotscorr_word model", $scope.model);
+	};
+	// Clear the selected words
+	$scope.clearSelected = function(event) {
+	    for (var i = 0; i < $scope.words.length; i++) {
+		$scope.words[i].selected = false;
+	    }
+	    $scope.selected_words = [];
+	    $scope.selected_words_str = "";
+	    // $scope.update();
+	};
+	// Cancel: retain the original input value
+	$scope.cancel = function(event) {
+	    modal.close();
 	};
     },
 };
@@ -1916,6 +1943,9 @@ settings.fn.extend_corpus_settings(
 	limited_access : isPublicServer,
 	licence_type : "ACA",
 	attributes : {
+	    // This currently adds "word" also as a word attribute in
+	    // attribute selection list, but it works in the same way
+	    // as the word itself.
 	    word : attrs.scotscorr_word
 	},
 	struct_attributes : sattrlist.scotscorr,
