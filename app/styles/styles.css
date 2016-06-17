@@ -6286,3 +6286,13 @@ li.active a span .num-to-find {
 .wordselector-word-selected {
   font-weight: bold;
 }
+
+/* line 2877, styles.scss */
+.list-link-icon {
+  margin-left: 0.25em;
+  cursor: pointer;
+}
+/* line 2880, styles.scss */
+.list-link-icon:hover {
+  color: darkgrey;
+}

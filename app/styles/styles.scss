@@ -2991,3 +2991,11 @@ li.active a span .num-to-find {
 .wordselector-word-selected {
     font-weight: bold;
 }
+
+.list-link-icon {
+    margin-left: 0.25em;
+    cursor: pointer;
+    &:hover {
+      color : darkgrey;
+    }
+}

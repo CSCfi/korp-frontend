@@ -1720,7 +1720,8 @@ attrs.scotscorr_word = {
     // copied and modified from the code for the the Swedish msd
     // attribute.
     extended_template : '<input class="arg_value" ng-model="model">' +
-	'<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
+	'<span ng-click="onIconClick()" class="fa fa-list list-link-icon">' +
+	'</span>',
     controller : function($scope, $modal) {
 	var modal = null;
 	$scope.words = [];
