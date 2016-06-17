@@ -1727,6 +1727,8 @@ attrs.scotscorr_word = {
 	$scope.words = [];
 	$scope.groups = [];
 	$scope.group_words = {};
+	$scope.selected_words = [];
+	$scope.selected_words_str = "";
 	$.getJSON(
 	    "corpus_info/scotscorr-words.json",
 	    function (data) {
@@ -1759,7 +1761,7 @@ attrs.scotscorr_word = {
 		    '</div>' +
 		    '<div class="modal-header">' +
 		    '<div class="modal-value">' +
-		    '<p><span class="modal-value-heading">{{\'selected_words\' | loc:lang}}:</span> <span id="wordselector-selected-words"></span></p>' +
+		    '<p><span class="modal-value-heading">{{\'selected_words\' | loc:lang}}:</span> <span id="wordselector-selected-words">{{selected_words_str}}</span></p>' +
 		    '</div>' +
 		    '<div class="modal-buttons">' +
 		    '<button type="button" class="btn btn-default" ng-click="done()">{{\'button_done\' | loc:lang}}</button>' +
@@ -1790,37 +1792,39 @@ attrs.scotscorr_word = {
 	    group.shown = ! group.shown;
 	}
 	$scope.setSelected = function() {
-	    var selected = _.map($scope.model.split("|"),
-				 function (s) {
-				     return s.replace(/\\(.)/g, "$1");
-				 });
-	    c.log("scotscorr_word setSelected", selected);
+	    $scope.selected_words = _.map(
+		$scope.model.split("|"),
+		function (s) {
+		    return s.replace(/\\(.)/g, "$1");
+		});
+	    c.log("scotscorr_word setSelected", $scope.selected_words);
 	    var selected_obj = {};
-	    for (var i = 0; i < selected.length; i++) {
-		selected_obj[selected[i]] = true;
+	    for (var i = 0; i < $scope.selected_words.length; i++) {
+		selected_obj[$scope.selected_words[i]] = true;
 	    }
 	    for (var i = 0; i < $scope.words.length; i++) {
 		$scope.words[i].selected
 		    = selected_obj.hasOwnProperty($scope.words[i].word);
 		// if ($scope.words[i].selected) {c.log("selected:", $scope.words[i].word);}
 	    }
-	    c.log("scotscorr_word selected words", $scope.words);
-	    $scope.update();
+	    $scope.selected_words_str = $scope.selected_words.join("\u2000");
+	    // $scope.update();
 	};
 	$scope.done = function(event) {
 	    modal.close();
-	    $scope.model = (_($scope.words)
-			    .filter("selected")
-			    .pluck("word")
-			    .map(window.regescape)
-			    .value()).join("|");
+	    $scope.model = (
+		_.map($scope.selected_words, window.regescape)
+		    .join("|"));
+	    $scope.$parent.orObj.op = "*=";
 	    c.log("scotscorr_word model", $scope.model);
 	};
 	$scope.clearSelected = function(event) {
 	    for (var i = 0; i < $scope.words.length; i++) {
 		$scope.words[i].selected = false;
 	    }
-	    $scope.update();
+	    $scope.selected_words = [];
+	    $scope.selected_words_str = "";
+	    // $scope.update();
 	};
 	$scope.cancel = function(event) {
 	    modal.close();
@@ -1828,18 +1832,18 @@ attrs.scotscorr_word = {
 	$scope.update = function(event, word) {
 	    c.log("scotscorr_word update", word, event,
 		  _.filter($scope.words, "selected"));
-	    $("#wordselector-selected-words").html(
+	    // We could use the words in $scope.selected_words, but
+	    // how could we retain the order of the words, that is,
+	    // how could an added word be added at the right position
+	    // in the list?
+	    $scope.selected_words = (
 		_($scope.words)
 		    .filter("selected")
 		    .pluck("word")
-		    .map(
-			function (s) {
-			    return s.replace(/&/, "&amp;").replace(/</, "&lt;");
-			})
-		    .value()
-		    // Join with an en quad
-		    .join("&#x2000;"));
-	    $scope.$parent.orObj.op = "*=";
+		    .value());
+	    // Join with an en quad
+	    $scope.selected_words_str = $scope.selected_words.join("\u2000");
+	    c.log("scotscorr_word selected", $scope.selected_words);
 	};
     },
 };
