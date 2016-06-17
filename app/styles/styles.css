@@ -6239,65 +6239,66 @@ li.active a span .num-to-find {
 /* line 2917, styles.scss */
 #wordselector-selected-words {
   display: block;
+  line-height: 95%;
 }
 
-/* line 2921, styles.scss */
+/* line 2922, styles.scss */
 .modal-buttons, .modal-value {
   display: block;
 }
 
-/* line 2925, styles.scss */
+/* line 2926, styles.scss */
 .modal-buttons button {
   margin-right: 0.5em;
 }
 
-/* line 2929, styles.scss */
+/* line 2930, styles.scss */
 .modal-wordselector {
   overflow-y: auto;
   font-size: 1em;
   margin: 0.5em 1em 0.5em 1em;
 }
-/* line 2933, styles.scss */
+/* line 2934, styles.scss */
 .modal-wordselector ul {
   list-style: none;
 }
-/* line 2935, styles.scss */
+/* line 2936, styles.scss */
 .modal-wordselector ul li ul {
   margin-left: 2em;
   line-height: 70%;
 }
 
-/* line 2942, styles.scss */
+/* line 2943, styles.scss */
 .wordselector-group-heading {
   font-weight: bold;
   cursor: pointer;
 }
-/* line 2945, styles.scss */
+/* line 2946, styles.scss */
 .wordselector-group-heading:hover {
   color: darkgrey;
 }
 
-/* line 2950, styles.scss */
+/* line 2951, styles.scss */
 .wordselector-word-unselected {
   font-weight: normal;
 }
 
-/* line 2954, styles.scss */
+/* line 2955, styles.scss */
 .wordselector-word-selected {
   font-weight: bold;
 }
 
-/* line 2877, styles.scss */
+/* line 2959, styles.scss */
 .list-link-icon {
   margin-left: 0.25em;
   cursor: pointer;
 }
-/* line 2880, styles.scss */
+/* line 2962, styles.scss */
 .list-link-icon:hover {
   color: darkgrey;
 }
 
-/* line 2885, styles.scss */
+/* line 2967, styles.scss */
 .arg_value_wordselector {
   width: 90% !important;
 }

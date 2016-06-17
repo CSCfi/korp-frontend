@@ -1780,7 +1780,7 @@ attrs.scotscorr_word = {
 		    '</div>' +
 		    '<div class="modal-header">' +
 		    '<div class="modal-value">' +
-		    '<p><span class="modal-value-heading">{{\'selected_words\' | loc:lang}}:</span> <span id="wordselector-selected-words">{{selected_words_str}}</span></p>' +
+		    '<p><span class="modal-value-heading">{{\'selected_words\' | loc:lang}} ({{selected_words.length}}):</span> <span id="wordselector-selected-words">{{selected_words_str}}</span></p>' +
 		    '</div>' +
 		    '<div class="modal-buttons">' +
 		    '<button type="button" class="btn btn-default" ng-click="done()">{{\'button_done\' | loc:lang}}</button>' +
