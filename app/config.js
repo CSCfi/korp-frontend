@@ -1871,7 +1871,7 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.lehdet.tiedelehdet = {
     title : "Tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_avain", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_elo", "tiedelehdet_ennenjanyt", "tiedelehdet_geofoorumi", "tiedelehdet_glossae", "tiedelehdet_harukaze", "tiedelehdet_havina", "tiedelehdet_historiallinen", "tiedelehdet_historianystava", "tiedelehdet_ilmansuojelu", "tiedelehdet_kieliskooppi", "tiedelehdet_kognitiivinen", "tiedelehdet_kompositio", "tiedelehdet_kosmopolis", "tiedelehdet_kulttuurintutkimus", "tiedelehdet_kulutustutkimus", "tiedelehdet_kunnallistiede", "tiedelehdet_liiketalous", "tiedelehdet_lounaishame", "tiedelehdet_maaseudunuusiaika", "tiedelehdet_matkailututkimus", "tiedelehdet_mediajaviestinta", "tiedelehdet_metsatiede", "tiedelehdet_muinaistutkija", "tiedelehdet_musiikkikasv", "tiedelehdet_nimi", "tiedelehdet_poliittinentalous", "tiedelehdet_prologi", "tiedelehdet_psykologia", "tiedelehdet_rakmek", "tiedelehdet_ravitsemus", "tiedelehdet_ruralia", "tiedelehdet_sananjalka", "tiedelehdet_siirtolaisuus", "tiedelehdet_skas", "tiedelehdet_skholion", "tiedelehdet_kirkkohistoria", "tiedelehdet_tahiti", "tiedelehdet_taimiuutiset", "tiedelehdet_terra", "tiedelehdet_thanatos", "tiedelehdet_tiedejaase", "tiedelehdet_tietolinja", "tiedelehdet_toksikologi", "tiedelehdet_transmitteri", "tiedelehdet_trio", "tiedelehdet_tutkivasos", "tiedelehdet_tyoelama", "tiedelehdet_ura", "tiedelehdet_walbum", "tiedelehdet_vartija", "tiedelehdet_virittaja", "tiedelehdet_yhteiskuntapolitiikka", "tiedelehdet_ymparistohistoria"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_avain", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_elo", "tiedelehdet_ennenjanyt", "tiedelehdet_geofoorumi", "tiedelehdet_glossae", "tiedelehdet_harukaze", "tiedelehdet_havina", "tiedelehdet_historiallinen", "tiedelehdet_historianystava", "tiedelehdet_ilmansuojelu", "tiedelehdet_kieliskooppi", "tiedelehdet_kognitiivinen", "tiedelehdet_kompositio", "tiedelehdet_kosmopolis", "tiedelehdet_kulttuurintutkimus", "tiedelehdet_kulutustutkimus", "tiedelehdet_kunnallistiede", "tiedelehdet_liiketalous", "tiedelehdet_lounaishame", "tiedelehdet_maaseudunuusiaika", "tiedelehdet_matkailututkimus", "tiedelehdet_mediajaviestinta", "tiedelehdet_metsatiede", "tiedelehdet_muinaistutkija", "tiedelehdet_musiikkikasv", "tiedelehdet_nimi", "tiedelehdet_poliittinentalous", "tiedelehdet_prologi", "tiedelehdet_psykologia", "tiedelehdet_rakmek", "tiedelehdet_ravitsemus", "tiedelehdet_ruralia", "tiedelehdet_sananjalka", "tiedelehdet_siirtolaisuus", "tiedelehdet_skas", "tiedelehdet_skholion", "tiedelehdet_kirkkohistoria", "tiedelehdet_synnyt", "tiedelehdet_tahiti", "tiedelehdet_taimiuutiset", "tiedelehdet_teologinen", "tiedelehdet_terminfo", "tiedelehdet_terra", "tiedelehdet_thanatos", "tiedelehdet_tiedejaase", "tiedelehdet_tieteessatapahtuu", "tiedelehdet_tktlehti", "tiedelehdet_tietolinja", "tiedelehdet_toksikologi", "tiedelehdet_transmitteri", "tiedelehdet_trio", "tiedelehdet_tutkivasos", "tiedelehdet_tyoelama", "tiedelehdet_ura", "tiedelehdet_walbum", "tiedelehdet_vartija", "tiedelehdet_virittaja", "tiedelehdet_yhteiskuntapolitiikka", "tiedelehdet_ymparistohistoria"]
 };
 
 settings.corporafolders.lehdet.muut_lehdet = {
@@ -2439,6 +2439,119 @@ settings.corpora.ftb3_jrcacquis = {
 settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
 
 
+settings.corpora.tiedelehdet_teologinen = {
+    title : "Teologinen Aikakauskirja",
+    description : "Teologinen Aikakauskirja (2004-2013)<br/>Julkaisija:<br/>Kotisivu:<a href=''></a>",
+    id : "tiedelehdet_teologinen",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        },
+        text_year : {
+            label : "year"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_tieteessatapahtuu = {
+    title : "Tieteessä tapahtuu",
+    description : "Tieteessä tapahtuu (2000-2015)<br/>Julkaisija: Tieteellisten seurain valtuuskunta<br/><a href='http://www.tieteessatapahtuu.fi/'>http://www.tieteessatapahtuu.fi/</a>",
+    id : "tiedelehdet_tieteessatapahtuu",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "text_publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "date"
+        },
+        text_citation : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_terminfo = {
+    title : "Terminfo",
+    description : "Terminfo (2010-2015)<br/>Julkaisija: Sanastokeskus TSK<br/>Kotisivu: <a href='http://www.terminfo.fi/'>http://www.terminfo.fi/</a>",
+    id : "tiedelehdet_terminfo",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        },
+        text_year : {
+            label : "year"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_tktlehti = {
+    title : "Tietojenkäsittelytiede",
+    description : "Tietojenkäsittelytiede (2003-2015)<br/>Julkaisija: Tieojenkäsittelytieteen seura<br/>Kotisivu: <a href='http://www.cse.tkk.fi/fi/tkt-lehti/'>http://www.cse.tkk.fi/fi/tkt-lehti/</a>",
+    id : "tiedelehdet_tktlehti",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        },
+        text_year : {
+            label : "year"
+        },
+        text_date : sattrs.date
+    }
+};
+
+settings.corpora.tiedelehdet_synnyt = {
+    title : "Synnyt",
+    description : "Synnyt (2004-2013)<br/>Julkaisija: Synnyt/Origins<br/>Kotisivu: <a href='https://wiki.aalto.fi/display/Synnyt/Home'>https://wiki.aalto.fi/display/Synnyt/Home</a>",
+    id : "tiedelehdet_synnyt",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        },
+        text_year : {
+            label : "year"
+        }
+    }
+};
 
 settings.corpora.tiedelehdet_muinaistutkija = {
     title : "Muinaistutkija",
