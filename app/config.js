@@ -1871,7 +1871,7 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.lehdet.tiedelehdet = {
     title : "Tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_avain", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_elo", "tiedelehdet_ennenjanyt", "tiedelehdet_geofoorumi", "tiedelehdet_glossae", "tiedelehdet_harukaze", "tiedelehdet_havina", "tiedelehdet_historiallinen", "tiedelehdet_historianystava", "tiedelehdet_ilmansuojelu", "tiedelehdet_kieliskooppi", "tiedelehdet_kognitiivinen", "tiedelehdet_kompositio", "tiedelehdet_kosmopolis", "tiedelehdet_kulttuurintutkimus", "tiedelehdet_kulutustutkimus", "tiedelehdet_kunnallistiede", "tiedelehdet_liiketalous", "tiedelehdet_lounaishame", "tiedelehdet_maaseudunuusiaika", "tiedelehdet_matkailututkimus", "tiedelehdet_mediajaviestinta", "tiedelehdet_metsatiede", "tiedelehdet_muinaistutkija", "tiedelehdet_musiikkikasv", "tiedelehdet_niinnain", "tiedelehdet_nimi", "tiedelehdet_poliittinentalous", "tiedelehdet_prologi", "tiedelehdet_psykologia", "tiedelehdet_rakmek", "tiedelehdet_ravitsemus", "tiedelehdet_ruralia", "tiedelehdet_sananjalka", "tiedelehdet_siirtolaisuus", "tiedelehdet_skas", "tiedelehdet_skeptikko", "tiedelehdet_skholion", "tiedelehdet_sosiaalilaaketiede", "tiedelehdet_suo", "tiedelehdet_susa", "tiedelehdet_kirkkohistoria", "tiedelehdet_synnyt", "tiedelehdet_tahiti", "tiedelehdet_taimiuutiset", "tiedelehdet_teologinen", "tiedelehdet_terminfo", "tiedelehdet_terra", "tiedelehdet_thanatos", "tiedelehdet_tiedejaase", "tiedelehdet_tieteessatapahtuu", "tiedelehdet_tktlehti", "tiedelehdet_tietolinja", "tiedelehdet_toksikologi", "tiedelehdet_transmitteri", "tiedelehdet_trio", "tiedelehdet_tutkivasos", "tiedelehdet_tyoelama", "tiedelehdet_ura", "tiedelehdet_walbum", "tiedelehdet_vartija", "tiedelehdet_virittaja", "tiedelehdet_yhteiskuntapolitiikka", "tiedelehdet_ymparistohistoria"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_avain", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_elo", "tiedelehdet_ennenjanyt", "tiedelehdet_geofoorumi", "tiedelehdet_geologi", "tiedelehdet_glossae", "tiedelehdet_harukaze", "tiedelehdet_havina", "tiedelehdet_hykirjasto", "tiedelehdet_historiallinen", "tiedelehdet_historianystava", "tiedelehdet_ilmansuojelu", "tiedelehdet_informaatio", "tiedelehdet_kieliskooppi", "tiedelehdet_kognitiivinen", "tiedelehdet_kompositio", "tiedelehdet_kosmopolis", "tiedelehdet_kulttuurintutkimus", "tiedelehdet_kulutustutkimus", "tiedelehdet_kunnallistiede", "tiedelehdet_liiketalous", "tiedelehdet_liikenteensuunta", "tiedelehdet_liikuntajatiede", "tiedelehdet_lounaishame", "tiedelehdet_maaseudunuusiaika", "tiedelehdet_matkailututkimus", "tiedelehdet_mediajaviestinta", "tiedelehdet_metsatiede", "tiedelehdet_muinaistutkija", "tiedelehdet_musiikkikasv", "tiedelehdet_niinnain", "tiedelehdet_nimi", "tiedelehdet_poliittinentalous", "tiedelehdet_prologi", "tiedelehdet_psykologia", "tiedelehdet_rakmek", "tiedelehdet_ravitsemus", "tiedelehdet_ruralia", "tiedelehdet_sananjalka", "tiedelehdet_siirtolaisuus", "tiedelehdet_skas", "tiedelehdet_skeptikko", "tiedelehdet_skholion", "tiedelehdet_sosiaalilaaketiede", "tiedelehdet_suo", "tiedelehdet_susa", "tiedelehdet_kirkkohistoria", "tiedelehdet_synnyt", "tiedelehdet_tahiti", "tiedelehdet_taimiuutiset", "tiedelehdet_teologinen", "tiedelehdet_terminfo", "tiedelehdet_terra", "tiedelehdet_thanatos", "tiedelehdet_tiedejaase", "tiedelehdet_tieteessatapahtuu", "tiedelehdet_tktlehti", "tiedelehdet_tietolinja", "tiedelehdet_toksikologi", "tiedelehdet_transmitteri", "tiedelehdet_trio", "tiedelehdet_tutkivasos", "tiedelehdet_tyoelama", "tiedelehdet_ura", "tiedelehdet_walbum", "tiedelehdet_vartija", "tiedelehdet_virittaja", "tiedelehdet_yhteiskuntapolitiikka", "tiedelehdet_ymparistohistoria"]
 };
 
 settings.corporafolders.lehdet.muut_lehdet = {
@@ -2438,6 +2438,156 @@ settings.corpora.ftb3_jrcacquis = {
 
 settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
 
+settings.corpora.tiedelehdet_liikuntajatiede = {
+    title : "Liikunta ja tiede (tutkimusartikkelit)",
+    description : "Liikunta ja tiede (2008-2013)<br/>Julkaisija: Liikuntatieteellinen Seura ry<br/>Kotisivu: <a href='http://www.lts.fi/liikunta-tiede-lehti'>http://www.lts.fi/liikunta-tiede-lehti</a>",
+    id : "tiedelehdet_liikuntajatiede",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        },
+        text_year : {
+            label : "year"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_liikenteensuunta = {
+    title : "Liikenteen suunta",
+    description : "Liikenteen suunta (2012-2013)<br/>Julkaisija: Liikennevirasto<br/>Kotisivu: <a href='http://www.liikenteensuunta.fi/fi/'>http://www.liikenteensuunta.fi/fi/</a>",
+    id : "tiedelehdet_liikenteensuunta",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        },
+        text_year : {
+            label : "year"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_informaatio = {
+    title : "Informaatiotutkimus",
+    description : "Informaatiotutkimus (2000-2015)<br/>Julkaisija: Informaatiotutkimuksen yhdistys<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/inf'>http://ojs.tsv.fi/index.php/inf</a>",
+    id : "tiedelehdet_informaatio",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "text_publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        },
+        text_citation : {
+            label : "issue"
+        }
+    }
+};
+
+
+settings.corpora.tiedelehdet_hykirjasto = {
+    title : "HYn kirjaston tiedotuslehti ja Kansalliskirjasto-lehti",
+    description : "HYn kirjaston tiedotuslehti ja Kansalliskirjasto-lehti (2000-2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='https://www.kansalliskirjasto.fi/fi/search?keys=yleistieto%20tiedotus%20kansalliskirjastolehti'>https://www.kansalliskirjasto.fi/</a>",
+    id : "tiedelehdet_hykirjasto",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "text_publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        },
+        text_citation : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_geologi = {
+    title : "Geologi",
+    description : "Geologi (2000, 2006-2013)<br/>Julkaisija: Suomen Geologinen Seura<br/>Kotisivu: <a href='http://www.geologinenseura.fi/geologi-lehti/'>http://www.geologinenseura.fi/geologi-lehti/</a>",
+    id : "tiedelehdet_geologi",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_musiikinsuunta = {
+    title : "Musiikin suunta",
+    description : "Musiikin suunta (2000-2013)<br/>Julkaisija: Suomen etnomusikologinen seura<br/>Kotisivu: <a href='http://www.etnomusikologia.fi/julkaisut/Mus.suunta.htm'>http://www.etnomusikologia.fi/julkaisut/</a>",
+    id : "tiedelehdet_musiikinsuunta",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "text_publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        },
+        text_citation : {
+            label : "issue"
+        }
+    }
+};
+
 
 settings.corpora.tiedelehdet_susa = {
     title : "Suomalais-Ugrilaisen Seuran Aikakauskirja",
@@ -2458,8 +2608,8 @@ settings.corpora.tiedelehdet_susa = {
 };
 
 settings.corpora.tiedelehdet_sosiaalilaaketiede = {
-    title : "Sosiaalilääketiede",
-    description : "Sosiaalilääketiede (2005-2013)<br/>Julkaisija: Sosiaalilääketieteellinen yhdistys ry<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/SA/index'>http://ojs.tsv.fi/index.php/SA/index</a>",
+    title : "Sosiaalilääketieteellinen Aikakauslehti",
+    description : "Sosiaalilääketieteellinen Aikakauslehti (2006-2013)<br/>Julkaisija: Sosiaalilääketieteellinen yhdistys ry<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/SA/index'>http://ojs.tsv.fi/index.php/SA/index</a>",
     id : "tiedelehdet_sosiaalilaaketiede",
     urn : "",
     metadata_urn : "",
@@ -2487,8 +2637,8 @@ settings.corpora.tiedelehdet_sosiaalilaaketiede = {
 };
 
 settings.corpora.tiedelehdet_niinnain = {
-    title : "Niin & Näin",
-    description : "Niin & Näin (2000-4/2013)<br/>Julkaisija: <br/>Kotisivu: <a href='http://netn.fi/lehti'>http://netn.fi/</a>",
+    title : "niin & näin",
+    description : "niin & näin (2000-4/2013)<br/>Julkaisija: Eurooppalaisen filosofian seura ry<br/>Kotisivu: <a href='http://netn.fi/lehti'>http://netn.fi/</a>",
     id : "tiedelehdet_niinnain",
     urn : "",
     metadata_urn : "",
@@ -2548,7 +2698,7 @@ settings.corpora.tiedelehdet_suo = {
 
 settings.corpora.tiedelehdet_teologinen = {
     title : "Teologinen Aikakauskirja",
-    description : "Teologinen Aikakauskirja (2004-2013)<br/>Julkaisija:<br/>Kotisivu:<a href=''></a>",
+    description : "Teologinen Aikakauskirja (2004-2013)<br/>Julkaisija: Teologinen Julkaisuseura ry<br/>Kotisivu: <a href='http://www.tatt.fi/'>http://www.tatt.fi/</a>",
     id : "tiedelehdet_teologinen",
     urn : "",
     metadata_urn : "",
@@ -2787,7 +2937,7 @@ settings.corpora.tiedelehdet_ilmansuojelu = {
 
 settings.corpora.tiedelehdet_kieliskooppi = {
     title : "Kieliskooppi",
-    description : "Kieliskooppi (2012-2014)<br/>Julkaisija: Jyväskylän yliopiston kielikampus<br/>Kotisivu:<a href='http://research.jyu.fi/kieliskooppi/journals/'>http://research.jyu.fi/kieliskooppi/journals/</a>",
+    description : "Kieliskooppi (2012-2013)<br/>Julkaisija: Jyväskylän yliopiston kielikampus<br/>Kotisivu:<a href='http://research.jyu.fi/kieliskooppi/journals/'>http://research.jyu.fi/kieliskooppi/journals/</a>",
     id : "tiedelehdet_kieliskooppi",
     urn : "",
     metadata_urn : "",
@@ -3015,7 +3165,7 @@ settings.corpora.tiedelehdet_rakmek = {
 
 settings.corpora.tiedelehdet_nimi = {
     title : "NMI-Bulletin",
-    description : "NMI-Bulletin (2000-2012)<br/>Julkaisija: Niilo Mäki instituutti<br/>Kotisivu: <a href='http://bulletin.nmi.fi/arkisto/'>http://bulletin.nmi.fi/arkisto/</a>",
+    description : "NMI-Bulletin (2002-2003, 2007-2012)<br/>Julkaisija: Niilo Mäki instituutti<br/>Kotisivu: <a href='http://bulletin.nmi.fi/arkisto/'>http://bulletin.nmi.fi/arkisto/</a>",
     id : "tiedelehdet_nimi",
     urn : "",
     metadata_urn : "",
@@ -3204,7 +3354,7 @@ settings.corpora.tiedelehdet_kirkkohistoria = {
 
 settings.corpora.tiedelehdet_skholion = {
     title : "Skholion",
-    description : "Skholion (2001-2012)<br/>Julkaisija: Suomen Bysantin tutkimuksen seura ry<br/>Kotisivu: <a href='http://www.protsv.fi/bts/BTSskholion.html'>http://www.protsv.fi/bts/BTSskholion.html</a>",
+    description : "Skholion (2009-1/2012)<br/>Julkaisija: Suomen Bysantin tutkimuksen seura ry<br/>Kotisivu: <a href='http://www.protsv.fi/bts/BTSskholion.html'>http://www.protsv.fi/bts/BTSskholion.html</a>",
     id : "tiedelehdet_skholion",
     urn : "",
     metadata_urn : "",
@@ -3465,7 +3615,7 @@ settings.corpora.tiedelehdet_bryobrotherella = {
 
 settings.corpora.tiedelehdet_lounaishame = {
     title : "Lounais-Hämeen Luonto",
-    description : "Lounais-Hämeen Luonto (2000-2013)<br/>Julkaisija: Lounais-Hämeen Luonnonsuojeluyhdistys ry<br/>Kotisivu: <a href='http://www.lounaisluonto.net/'>http://www.lounaisluonto.net/</a>",
+    description : "Lounais-Hämeen Luonto (2000-2010)<br/>Julkaisija: Lounais-Hämeen Luonnonsuojeluyhdistys ry<br/>Kotisivu: <a href='http://www.lounaisluonto.net/'>http://www.lounaisluonto.net/</a>",
     id : "tiedelehdet_lounaishame",
     urn : "",
     metadata_urn : "",
@@ -4165,7 +4315,7 @@ settings.corpora.tiedelehdet_thanatos = {
 
 settings.corpora.tiedelehdet_aluejaymparisto = {
     title : "Alue ja ympäristö",
-    description : "Alue ja ympäristö (2005–2015)<br/>Julkaisija: Alue- ja ympäristötutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/aluejaymparisto'>http://www.ays.fi/aluejaymparisto</a>",
+    description : "Alue ja ympäristö (2005–2014)<br/>Julkaisija: Alue- ja ympäristötutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/aluejaymparisto'>http://www.ays.fi/aluejaymparisto</a>",
     id : "tiedelehdet_aluejaymparisto",
     urn : "",
     metadata_urn : "",
