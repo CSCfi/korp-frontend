@@ -68,7 +68,7 @@ settings.corporafolders.german = {
 settings.corporafolders.russian = {
     title : "Русский / Venäjä / Russian",
     description : "Tексты по-русски<br/>Venäjänkielisiä tekstejä<br/>Texts in Russian",
-    contents : ["legal_ru", "mulcold_ru"],
+    contents : ["legal_ru", "mulcold_ru", "parrus_ru", "parfin_ru"],
     // unselected : true
 };
 
@@ -309,6 +309,39 @@ settings.corpora.legal_ru = {
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.firulex,
 				   ["legal_ru"]);
+
+/* ParRus ru */
+
+settings.corpora.parrus_ru = {
+    id : "parrus_ru",
+    title : "ParRus (venäjä)",
+    description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (venäjänkieliset alkuperäistekstit)<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta)",
+    // TODO: Add paragraphs corresponding to link elements
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    limited_access : true,
+    licence_type : "RES",
+    attributes : attrlist.parrus_ru,
+    struct_attributes : sattrlist.parrus_ru,
+};
+settings.fn.extend_corpus_settings(settings.corpusinfo.parrus, ["parrus_ru"]);
+
+
+/* ParFin ru */
+
+settings.corpora.parfin_ru = {
+    id : "parfin_ru",
+    title : "ParFin (venäjä)",
+    description : "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (venäjänkieliset käännökset)<br/>Suomenkielisten kaunokirjallisten tekstien (vuosilta 1990–2010) käännöksiä venäjäksi",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    limited_access : true,
+    licence_type : "RES",
+    attributes : attrlist.parfin_ru,
+    struct_attributes : sattrlist.parfin_ru,
+};
+settings.fn.extend_corpus_settings(settings.corpusinfo.parfin, ["parfin_ru"]);
+
 
 settings.corpora.topling = {
     id : "topling",

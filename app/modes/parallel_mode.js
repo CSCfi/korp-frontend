@@ -7616,6 +7616,7 @@ settings.corpora.europarl_en = {
 */
 
 
+/*
 // Make a deep copy of sattrlist.mulcold and then extend it
 sattrlist.parfin = $.extend(
     true, {}, sattrlist.mulcold,
@@ -7625,7 +7626,7 @@ sattrlist.parfin = $.extend(
 	}
     }
 );
-
+*/
 
 settings.corpora.mulcold_fi = {
     id : "mulcold_fi",
@@ -7706,16 +7707,7 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
 				    "mulcold_ru", "mulcold_de"]);
 
 
-settings.corpusinfo.parfin = {
-    urn : "urn:nbn:fi:lb-2015050506",
-    metadata_urn : "urn:nbn:fi:lb-2014052710",
-    licence : {
-	name : "CLARIN RES +NC +PLAN +INF",
-	urn : "urn:nbn:fi:lb-2015041306"
-    },
-    homepage_url : "https://mustikka.uta.fi/",
-};
-
+/*
 settings.corpora.parfin_fi = {
     id : "parfin_fi",
     lang : "fin",
@@ -7751,592 +7743,45 @@ settings.corpora.parfin_ru = {
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.parfin,
 				   ["parfin_fi", "parfin_ru"]);
+*/
 
 
 /* ParFin (updated version) */
 
-sattrlist.parfin_test_base = {
-    link_text_code : {
-	label : "text_id"
-    },
-    link_txtnumber : {
-	label : "text_number"
-    },
-    link_text_author : {
-	label : "author"
-    },
-    link_text_title : {
-	label : "title"
-    },
-    link_text_typeoftext : {
-	label : "text_type"
-    },
-    link_text_genre : sattrs.mikhailov_text_genre,
-    link_text_period : {
-	label : "year"
-    },
-    link_text_publisher : {
-	label : "publisher"
-    },
-    sentence_id : sattrs.sentence_id_hidden
-};
-
-sattrlist.parfin_test_fi = $.extend(
-    true, {}, sattrlist.parfin_test_base,
-    {
-	link_text_author : {
-	    label : "author",
-	    displayType : "select",
-	    dataset : [
-		"Haahtela Joel",
-		"Hotakainen Kari",
-		"Konkka Anita",
-		"Krohn Leena",
-		"Lassila Maiju",
-		"Lehtolainen Leena",
-		"Mäkelä Hannu",
-		"Oksanen Sofi",
-		"Rimminen Mikko",
-		"Sillanpää Frans Emil",
-		"Sinisalo Johanna",
-		"Tuuri Antti",
-	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
-	},
-	link_text_translator : {
-	    label : "translator",
-	    displayType : "select",
-	    dataset : [
-		"Djafarova Taissia",
-		"Džafarova-Viitala Taisja",
-		"Ioffe Eleonora",
-		"Melnik Tatjana",
-		"Muravin Gennadi, Kamenskaja J",
-		"Muravin, Gennadi",
-		"Priležajev Ivan",
-		"Sidorova Anna",
-		"Sidorova Anna, Tinovitskaja Jevgenija",
-		"Tinovitskaja Evgenija",
-		"Uretskij Ilja",
-		"Virolainen Laura A.",
-		"Zoštšenko Mihail",
-	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
-	},
-	link_text_title : {
-	    label : "title",
-	    displayType : "select",
-	    dataset : [
-		"Ennen päivänlaskua ei voi",
-		"Ensimmäinen murhani",
-		"Harmin paikka",
-		"Hullun taivaassa",
-		"Ihmisen vaatteissa",
-		"Ihmiset suviyössä",
-		"Joki virtaa läpi kaupungin",
-		"Juoksuhaudantie",
-		"Kuparisydän",
-		"Pekka Peloton",
-		"Perhoskerääjä",
-		"Puhdistus",
-		"Pussikaljaromaani",
-		"Sfinksi vai robotti",
-		"Tulitikkuja lainaamassa",
-	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
-	},
-	link_text_publisher : {
-	    label : "publisher",
-	    displayType : "select",
-	    dataset : {
-		"Kansa" : "Kansa",
-		"Otava" : "Otava",
-		"[Tt]ammi" : "Tammi",
-		"Teos" : "Teos",
-		"WSOY" : "WSOY",
-	    },
-	    localize : false,
-	    opts : settings.liteOptions,
-	},
-    }
-);
-
-sattrlist.parfin_test_ru = $.extend(
-    true, {}, sattrlist.parfin_test_fi,
-    {
-	link_text_title : {
-	    label : "title",
-	    displayType : "select",
-	    dataset : [
-		"Бесстрашный Пекка  В одежде человека",
-		"В одежде человека",
-		"В сумасшедших небесах",
-		"До заката нельзя",
-		"За спичками",
-		"Змеи в раю",
-		"Люди в летней ночи",
-		"Медное сердце",
-		"Мое первое убийство",
-		"Очищение",
-		"Река течет через город",
-		"Роман с пивом",
-		"Собиратель бабочек",
-		"Сфинкс или робот  В одежде человека",
-		"Улица окопная",
-	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
-	},
-	link_text_publisher : {
-	    label : "publisher",
-	    displayType : "select",
-	    dataset : [
-		"Азбука-классика",
-		"Амфора",
-		"Астрель",
-		"Государственное издательство художественной литературы",
-		"Едиториал УРСС",
-		"КомКнига",
-		"Лимбус Пресс, Издательство К. Тублина",
-		"Самокат",
-		"Текст",
-		"Художественная литература",
-	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
-	},
-    }
-);
-
-attrlist.parfin_test_fi = $.extend(
-    true, {}, attrlist.mulcold_fi);
-
-attrlist.parfin_test_ru = $.extend(
-    true, {}, attrlist.mulcold_ru);
-
-settings.corpora.parfin_test_fi = {
-    id : "parfin_test_fi",
+settings.corpora.parfin_fi = {
+    id : "parfin_fi",
     lang : "fin",
-    linked_to : ["parfin_test_ru"],
-    title: "ParFin 2014 fi",
-    attributes: attrlist.parfin_test_fi,
-    struct_attributes : sattrlist.parfin_test_fi,
+    linked_to : ["parfin_ru"],
+    attributes: attrlist.parfin_fi,
+    struct_attributes : sattrlist.parfin_fi,
 };
 
-settings.corpora.parfin_test_ru = {
-    id : "parfin_test_ru",
+settings.corpora.parfin_ru = {
+    id : "parfin_ru",
     lang : "rus",
-    linked_to : ["parfin_test_fi"],
-    title: "ParFin 2014 ru",
-    attributes: attrlist.parfin_test_ru,
-    struct_attributes : sattrlist.parfin_test_ru,
+    linked_to : ["parfin_fi"],
+    attributes: attrlist.parfin_ru,
+    struct_attributes : sattrlist.parfin_ru,
     hide : true,
 };
 
 settings.fn.extend_corpus_settings(
     {
-	// Properties common to parfin_test_fi and parfin_test_ru
+	// Properties common to parfin_fi and parfin_ru
+	title: "ParFin",
 	description : "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1990–2010 ja niiden käännöksiä venäjäksi virketasolla kohdistettuina",
 	context: context.linkAligned,
 	within: settings.linkWithin,
 	limited_access : true,
 	licence_type : "RES",
     },
-    ["parfin_test_fi", "parfin_test_ru"]
+    ["parfin_fi", "parfin_ru"]
 );
 settings.fn.extend_corpus_settings(settings.corpusinfo.parfin,
-				   ["parfin_test_fi", "parfin_test_ru"]);
+				   ["parfin_fi", "parfin_ru"]);
 
 
 /* ParRus */
-
-attrlist.parrus_fi = $.extend(
-    true, {}, attrlist.mulcold_fi);
-
-attrlist.parrus_ru = $.extend(
-    true, {}, attrlist.mulcold_ru);
-
-sattrlist.parrus_fi = $.extend(
-    true, {}, sattrlist.parfin_test_base,
-    {
-	link_text_author : {
-	    label : "author",
-	    displayType : "select",
-	    dataset : [
-		"Adrian E.",
-		"Heino U.-L.",
-		"Konkka J.",
-		"Orlov V.",
-		"Бабель И.",
-		"Гоголь Н.В.",
-		"Горький М.",
-		"Достоевский Ф.М.",
-		"Зощенко М.",
-		"Лермонтов М.Ю.",
-		"Лесков Н.",
-		"Маринина А.",
-		"Пушкин А.С.",
-		"Семенов Ю.",
-		"Толстой Л.Н.",
-		"Трифонов Ю.",
-		"Троепольский Г.",
-		"Тургенев И.С.",
-		"Фадеев А.",
-		"Чехов А.П.",
-		"Шолохов М.А.",
-	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
-	},
-	link_text_translator : {
-	    label : "translator",
-	    displayType : "select",
-	    dataset : [
-		"Adrian, Esa",
-		"Ahava, Juho, Hameen-anttila, Vaino",
-		"Anhava M.",
-		"Heino U.-L.",
-		"Heino, Ulla-Liisa",
-		"Hollo J.A.",
-		"Hollo, Juho Anselmi",
-		"Iranto L.",
-		"Juhani Konkka",
-		"Kallama, Valto",
-		"Konkka J.",
-		"Konkka, Juhani",
-		"Koskinen M.",
-		"Kuukasjärvi Olli",
-		"Losowitch K.",
-		"Mitrošin A.",
-		"Pienimäki N.",
-		"Pyykkö L.",
-		"Pyykkö Lea",
-		"Viitanen Liisa",
-		"null",
-	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
-	},
-	link_text_title : {
-	    label : "title",
-	    displayType : "select",
-	    dataset : [
-		"Aateliskoti",
-		"Aatelisneiti talonpoikaistyttönä / Laukaus ja y. m. kertomuksia.",
-		"Agafja / Valitut novelit 1.",
-		"Aikamme sankari",
-		"Albionin tytär / Valitut novellit 1.",
-		"Alustava tilinpäätös",
-		"Anna Karenina",
-		"Aristokraatti / Kireähermoista väkeä.",
-		"Asemanhoitaja / Romaanit ja kertomukset.",
-		"Bim mustakorva",
-		"Ei onnistunut! / Valitut novellit 1.",
-		"Elämän pikkuseikka / Valitut novellit 1.",
-		"Griša / Valitut novellit 1.",
-		"Haaveita / Valitut novelit 1.",
-		"Hammaskirurgi / Valitut novellit 1.",
-		"Herra salaneuvos / Valitut novellit 1.",
-		"Hevosenkaltainen sukunimi / Valitut novelit 1.",
-		"Hiljaa virtaa Don",
-		"Huvila-asukkaita / Valitut novelit 1.",
-		"Häät kenraalin kera / Valitut novellit 1.",
-		"Ilkeä poika / Valitut novellit 1.",
-		"Isergil-muori",
-		"Isä-kulta / Valitut novellit 1.",
-		"Jeesuksen synti",
-		"Kaikesta täytyy maksaa",
-		"Kalliita kielitunteja / Valitut novellit 1.",
-		"Kameleontti / Valitut novellit 1.",
-		"Kapteenintytär / Romaanit ja kertomukset.",
-		"Karamazovin veljekset",
-		"Karkuri / Valitut novellit 1.",
-		"Karviaismarjoja / Suuret kertomukset 2.",
-		"Kauhunyö / Valitut novellit 1.",
-		"Keittäjätär menee naimisiin / Valitut novelit 1.",
-		"Kellariloukko",
-		"Kerjäläinen / Valittuja kertomuksia ja novelleja 1.",
-		"Kevään seitsemäntoista hetkeä",
-		"Kireähermoista väkeä / Kireähermoista väkeä.",
-		"Kirje isoisälle / Valitut novellit 1.",
-		"Koiran sydän",
-		"Kostaja / Valitut novellit 1.",
-		"Kuningas / Odessalaisia ja muita novelleja",
-		"Kunnon saksalainen / Valitut novellit 1.",
-		"Kuolema ja vähän rakkautta",
-		"Kuorotyttö / Valitut novellit 1.",
-		"Lapsia / Valitut novellit 1.",
-		"Laukaus / Laukaus ja y. m. kertomuksia.",
-		"Liikaa suolaa / Valitut novellit 1.",
-		"Lumimyrsky / Romaanit ja kertomukset.",
-		"Lumottu vaeltaja",
-		"Made / Valettuja kertomuksia ja novellija 1.",
-		"Makar Tšudra",
-		"Nainen ja sylikoira / Suuret kertomukset 2.",
-		"Noita / Valitut novellit 1.",
-		"Näyttelijän lähtö / Valitut novelit 1.",
-		"Onnenpoika / Valitut novellit 1.",
-		"Onnettomuus / Valitut novellit 1.",
-		"Onni / Suuret kertomukset 1.",
-		"Osterit / Valitut novellit 1.",
-		"Pahantekijä / Valitut novellit 1.",
-		"Paksukainen ja ohukainen / Valitut novellit 1.",
-		"Patarouva / Romaanit ja kertomukset.",
-		"Perheen isä / Valitut novellit 1.",
-		"Pimeässä / Valitut novellit 1.",
-		"Poikia / Valitut novelit 1.",
-		"Pyry",
-		"Päällysviitta / Valitut teokset. 1.",
-		"Rakkaus / Valitut novellit 1.",
-		"Rikos ja rangaistus",
-		"Romaani bassoviulusta / Valitut novellit 1.",
-		"Rotkossa / Suuret kertomukset 2.",
-		"Ruumisarkuntekijä / Romaanit ja kertomukset.",
-		"Saatana saapuu Moskovaan",
-		"Seireeni / Valitut novellit 1.",
-		"Surkea tapaus / Valitut novellit 1.",
-		"Suru / Valitut novellit 1.",
-		"Synnyinmaan puolesta",
-		"Taiteen tuote / Valitut novellit 1.",
-		"Taiteilijan tarina / Suuret kertomukset 1.",
-		"Talo rantakadulla",
-		"Talonpoikia / Suuret kertomukset 2.",
-		"Tapaus yöllä / Kireähermoista väkeä.",
-		"Tarpeettomia ihmisiä / Valitut novellit 1.",
-		"Teatteriromaani",
-		"Tuho",
-		"Tuttu mies / Valitut novellit 1.",
-		"Tšelkaš",
-		"Valkeat vaatteet",
-		"Vanhuus/ Valitut novellit 1.",
-		"Virkamiehen kuolema / Valitut novellit 1.",
-		"Yö ennen oikeudenkäyntiä  / Valitut novellit 1.",
-		"Yö hautausmaalla / Valitut novellit 1.",
-	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
-	},
-	link_text_publisher : {
-	    label : "publisher",
-	    displayType : "select",
-	    dataset : [
-		"Gummerus",
-		"Helsinki",
-		"Kansankulttuuri",
-		"Karisto",
-		"Otava",
-		"SN-kirjat",
-		"Tammi",
-		"WSOY",
-		"null",
-	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
-	},
-    }
-);
-
-sattrlist.parrus_ru = $.extend(
-    true, {}, sattrlist.parfin_test_base,
-    {
-	link_text_author : {
-	    label : "author",
-	    displayType : "select",
-	    dataset : [
-		"Бабель И.",
-		"Бакланов Г.",
-		"Булгаков М.А.",
-		"Гоголь Н.В.",
-		"Горький М.",
-		"Достоевский Ф.М.",
-		"Дудинцев В.",
-		"Зощенко М.",
-		"Лермонтов М.Ю.",
-		"Лесков Н.",
-		"Маринина А.",
-		"Пушкин А.С.",
-		"Семенов Ю.",
-		"Толстой Л.Н.",
-		"Трифонов Ю.",
-		"Троепольский Г.",
-		"Тургенев И.С.",
-		"Фадеев А.",
-		"Чехов А.П.",
-		"Шолохов М.А.",
-	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
-	},
-	link_text_translator : {
-	    label : "translator",
-	    displayType : "select",
-	    dataset : [
-		"Adrian, Esa",
-		"Ahava Juho, Hämeen-Anttila Väinö",
-		"Anhava, Martti",
-		"Heino, Ulla-Liisa",
-		"Hollo, Juho Anselmi",
-		"Iranto, Lidia",
-		"Konkka, Juhani",
-		"Koskinen, Marja",
-		"Kuukasjärvi, Olli",
-		"Losowitch, Katja",
-		"Mitrošin, A.",
-		"Pesonen, Pekka Alarik",
-		"Pienimäki, Natalia",
-		"Pyykkö Lea",
-		"Viitanen, Liisa",
-		"null",
-	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
-	},
-	link_text_title : {
-	    label : "title",
-	    displayType : "select",
-	    dataset : [
-		"Агафья / Собр. соч. в 15 тт.",
-		"Актерская гибель / Собр. соч. в 15 тт.",
-		"Анна Каренина",
-		"Аристократка",
-		"Барышня-крестьянка",
-		"Беглец / Собр. соч. в 15 тт.",
-		"Белые одежды",
-		"Белый Бим черное ухо",
-		"Братья Карамазовы",
-		"В овраге / Собр. соч. в 15 тт.",
-		"В потемках / Собр. соч. в 15 тт.",
-		"Ванька / Собр. соч. в 15 тт.",
-		"Ведьма / Собр. соч. в 15 тт.",
-		"Выстрел",
-		"Герой нашего времени",
-		"Гриша / Собр. соч. в 15 тт.",
-		"Гробовщик",
-		"Дама с собачкой / Собр. соч. в 15 тт.",
-		"Дачники / Собр. соч. в 15 тт.",
-		"Дворянское гнездо",
-		"Детвора / Собр. соч. в 15 тт.",
-		"Добрый немец / Собр. соч. в 15 тт.",
-		"Дом на набережной",
-		"Дом с мезонином / Собр. соч. в 15 тт.",
-		"Дорогие уроки / Собр. соч. в 15 тт.",
-		"Дочь Альбиона / Собр. соч. в 15 тт.",
-		"Житейская мелочь / Собр. соч. в 15 тт.",
-		"За все надо платить",
-		"Записки из подполья",
-		"Злой мальчик / Собр. соч. в 15 тт.",
-		"Злоумышленник / Собр. соч. в 15 тт.",
-		"Знакомый мужчина / Собр. соч. в 15 тт.",
-		"Иисусов грех / Одесские рассказы.",
-		"Капитанская дочка",
-		"Король / Одесские рассказы.",
-		"Крыжовник / Собр. соч. в 15 тт.",
-		"Кухарка женится / Собр. соч. в 15 тт.",
-		"Лишние люди / Собр. соч. в 15 тт.",
-		"Лошадиная фамилия / Собр. соч. в 15 тт.",
-		"Любовь / Собр. соч. в 15 тт.",
-		"Макар Чудра",
-		"Мальчики / Собр. соч. в 15 тт.",
-		"Мастер и Маргарита",
-		"Метель",
-		"Мечты / Собр. соч. в 15 тт.",
-		"Мститель / Собр. соч. в 15 тт.",
-		"Мужики / Собр. соч. в 15 тт.",
-		"Навеки девятнадцатилетние",
-		"Налим / Собр. соч. в 15 тт.",
-		"Нервные люди",
-		"Несчастье / Собр. соч. в 15 тт.",
-		"Неудача / Собр. соч. в 15 тт.",
-		"Нищий / Собр. соч. в 15 тт.",
-		"Ночное происшествие",
-		"Ночь на кладбище / Собр. соч. в 15 тт.",
-		"Ночь перед судом / Собр. соч. в 15 тт.",
-		"Отец семейства / Собр. соч. в 15 тт.",
-		"Очарованный странник",
-		"Папаша / Собр. соч. в 15 тт.",
-		"Пересолил / Собр. соч. в 15 тт.",
-		"Пиковая дама ",
-		"Предварительные итоги",
-		"Преступление и наказание",
-		"Произведение искусства / Собр. соч. в 15 тт.",
-		"Разгром",
-		"Роман с контрабасом / Собр. соч. в 15 тт.",
-		"Свадьба с генералом / Собр. соч. в 15 тт.",
-		"Семнадцать мгновений весны",
-		"Сирена / Собр. соч. в 15 тт.",
-		"Смерть и немного любви",
-		"Смерть чиновника / Собр. соч. в 15 тт.",
-		"Собачье сердце",
-		"Событие / Собр. соч. в 15 тт.",
-		"Станционный смотритель",
-		"Старость / Собр. соч. в 15 тт.",
-		"Старуха Изергиль",
-		"Страшная ночь / Собр. соч. в 15 тт.",
-		"Счастливчик / Собр. соч. в 15 тт.",
-		"Счастье / Собр. соч. в 15 тт.",
-		"Тайный советник / Собр. соч. в 15 тт.",
-		"Театральный роман",
-		"Тихий Дон, ч. 1",
-		"Толстый и тонкий / Собр. соч. в 15 тт.",
-		"Тоска / Собр. соч. в 15 тт.",
-		"Устрицы / Собр. соч. в 15 тт.",
-		"Хамелеон / Собр. соч. в 15 тт.",
-		"Хирургия / Собр. соч. в 15 тт.",
-		"Хористка / Собр. соч. в 15 тт.",
-		"Челкаш",
-		"Шинель",
-	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
-	},
-	link_text_publisher : {
-	    label : "publisher",
-	    displayType : "select",
-	    dataset : [
-		"АСТ, 1997",
-		"АСТ, 1998",
-		"АСТ, 2001",
-		"АСТ, 2002",
-		"АСТ, 2004",
-		"АСТ, 2007",
-		"АСТ, 2010",
-		"АСТ, 2011",
-		"АСТ, Астрель, 2002",
-		"АСТ, Астрель, 2011",
-		"Азбука-классика, 2002",
-		"Альд, Империум Пресс, Литература, 2003",
-		"Детская литература, 1999",
-		"Детская литература, 2000",
-		"Детская литература, 2004",
-		"Олимп, АСТ, 2002",
-		"Терра,  1999",
-		"Терра, 1999",
-		"Терра,1999",
-		"Художественная литература, 2000",
-		"Эксмо",
-		"Эксмо, 2003",
-		"Эксмо, 2007",
-		"Эксмо, 2009",
-		"Эксо, 2008",
-	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
-	},
-    }
-);
-
-settings.corpusinfo.parrus = {
-    urn : "[to be added]",
-    metadata_urn : "urn:nbn:fi:lb-20140730173",
-    licence : {
-	name : "CLARIN RES +PLAN +NC +INF +ND",
-	url : "https://www.kielipankki.fi/lic/parrus/?lang=fi"
-    },
-    homepage_url : "https://mustikka.uta.fi/",
-};
 
 // parrus_fi contains all the parallel Finnish translations and it is
 // linked to parrus_ru, so that a search in Finnish returns matches
@@ -8357,9 +7802,9 @@ settings.corpora.parrus_fi = {
     id : "parrus_fi",
     lang : "fin",
     linked_to : ["parrus_ru"],
-    title: "ParRus fi",
+    title : "ParRus fi",
     description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/>Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti suomenkielisistä käännöksistä.",
-    attributes: attrlist.parrus_fi,
+    attributes : attrlist.parrus_fi,
     struct_attributes : sattrlist.parrus_fi,
 };
 
@@ -8367,29 +7812,30 @@ settings.corpora.parrus_ru = {
     id : "parrus_ru",
     lang : "rus",
     linked_to : ["parrus_fi1", "parrus_fi2", "parrus_fi3"],
-    title: "ParRus ru",
+    title : "ParRus ru",
     description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/>Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti venäjänkielisistä alkuperäisteksteistä.",
-    attributes: attrlist.parrus_ru,
+    attributes : attrlist.parrus_ru,
     struct_attributes : sattrlist.parrus_ru,
     // hide : true,
 };
 
+
 settings.corpora.parrus_fi1 = {
     id : "parrus_fi1",
     linked_to : ["parrus_ru", "parrus_fi2", "parrus_fi3"],
-    title: "ParRus fi1",
+    title : "ParRus (suomenkielinen käännös 1)",
 };
 
 settings.corpora.parrus_fi2 = {
     id : "parrus_fi2",
     linked_to : ["parrus_ru", "parrus_fi1", "parrus_fi3"],
-    title: "ParRus fi2",
+    title : "ParRus (suomenkielinen käännös 2)",
 };
 
 settings.corpora.parrus_fi3 = {
     id : "parrus_fi3",
     linked_to : ["parrus_ru", "parrus_fi1", "parrus_fi2"],
-    title: "ParRus fi3",
+    title : "ParRus (suomenkielinen käännös 3)",
 };
 
 settings.fn.extend_corpus_settings(
@@ -8397,7 +7843,7 @@ settings.fn.extend_corpus_settings(
 	// Properties common to parrus_fi1, parrus_fi2, parrus_fi3
 	lang : "fin",
 	description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus",
-	attributes: attrlist.parrus_fi,
+	attributes : attrlist.parrus_fi,
 	struct_attributes : sattrlist.parrus_fi,
 	hide : true,
     },
@@ -8406,8 +7852,8 @@ settings.fn.extend_corpus_settings(
 settings.fn.extend_corpus_settings(
     {
 	// Properties common to all ParRus language versions
-	context: context.linkAligned,
-	within: settings.linkWithin,
+	context : context.linkAligned,
+	within : settings.linkWithin,
 	limited_access : true,
 	licence_type : "RES"
     },
