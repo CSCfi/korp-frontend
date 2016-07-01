@@ -1573,11 +1573,7 @@
 
     "gloss" : "glossi",
     "syntactic_function" : "syntaktinen funktio",
-    "verb_features" : "verbin piirteet",
-    "extra_attr1" : "lisäattribuutti 1",
-    "extra_attr2" : "lisäattribuutti 2",
-    "extra_attr3" : "lisäattribuutti 3",
-    "rest_attrs" : "loput attribuutit",
+    "extra_features" : "lisäpiirteet",
 
     "studentsvenska_code" : "syntaktinen funktio",
     "studentsvenska_properties" : "lausetyyppi",

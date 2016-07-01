@@ -656,6 +656,8 @@
     "show_page_image_context" : "Show page image, word context highlighted",
     "download_publ_pdf" : "Download publication as PDF",
 
+    "file_name" : "file name",
+
     "ner_tags" : "name classification",
     "ner_tags_EnamexPrsHum" : "person: person name",
     "ner_tags__" : "unidentified",
@@ -774,11 +776,7 @@
 
     "gloss" : "gloss",
     "syntactic_function" : "syntactic function",
-    "verb_features" : "verb features",
-    "extra_attr1" : "extra attribute 1",
-    "extra_attr2" : "extra attribute 2",
-    "extra_attr3" : "extra attribute 3",
-    "rest_attrs" : "rest of attributes",
+    "extra_features" : "extra features",
 
     "published" : "published",
 

@@ -66,10 +66,11 @@ settings.corporafolders.russian = {
     // unselected : true
 };
 
-settings.corporafolders.hcs = {
+settings.corporafolders.hcs2 = {
     title : "Helsinki Corpus of Swahili 2.0 (HCS 2.0)",
-    description : "Helsinki Corpus of Swahili 2.0 (HCS 2.0) Annotated Version",
+    description : "Helsinki Corpus of Swahili 2.0 (HCS 2.0) Annotated Version<br/><br><a href=\"https://www.kielipankki.fi/corpora/hcs2/\" target=\"_blank\">Corpus information page, including descriptions of annotation feature values (tags)</a>",
     info : {
+	urn : "[to be added]",
 	metadata_urn : "urn:nbn:fi:lb-2016011301",
 	licence : settings.licenceinfo.ACA_NC,
     },
@@ -1100,7 +1101,7 @@ settings.corpora.swahili_sample = {
 */
 
 
-settings.templ.hcs_common = {
+settings.templ.hcs2_common = {
     id : "",
     title : "",
     description : "",
@@ -1117,7 +1118,6 @@ settings.templ.hcs_common = {
 	    localize : "false",
 	    dataset : [
 		"A-UINFL",
-		"A-UNINFL",
 		"ABBR",
 		"AD-ADJ",
 		"ADJ",
@@ -1127,20 +1127,14 @@ settings.templ.hcs_common = {
 		"ADV",
 		"AG-PART",
 		"CC",
-		"COLON",
-		"COMMA",
 		"CONJ",
+		"CONJ/CC",
 		"DEF-V",
 		"DEM",
-		"DOUBLE-QUOTE",
-		"DOUBLE-QUOTE-CLOSING",
-		"DOUBLE-QUOTE-OPENING",
 		"EXCLAM",
 		"GEN-CON",
 		"GEN-CON-KWA",
-		"IMP",
 		"INTERROG",
-		"LEFT-PARENTHESIS",
 		"N",
 		"NA-POSS",
 		"NEG",
@@ -1148,23 +1142,14 @@ settings.templ.hcs_common = {
 		"NUM-ROM",
 		"POSS-PRON",
 		"PREP",
+		"PREP/ADV",
 		"PRON",
 		"PROPNAME",
-		"QUESTION-MARK",
 		"REL-LI",
 		"REL-LI-NEG",
 		"REL-LI-VYO",
 		"REL-SI",
 		"REL-SI-VYO",
-		"RHET",
-		"RIGHT-PARENTHESIS",
-		"S-UINFL",
-		"SEMI-COLON",
-		"SINGLE-QUOTE",
-		"SINGLE-QUOTE-CLOSING",
-		"SINGLE-QUOTE-OPENING",
-		"SLASH",
-		"STOP",
 		"TITLE",
 		"V",
 		"V-BE",
@@ -1182,21 +1167,51 @@ settings.templ.hcs_common = {
 	},
 	syntax : {
 	    label : "syntactic_function",
+	    displayType : "select",
+	    localize : "false",
+	    dataset : [
+		"@+FMAINV",
+		"@-FAUXV",
+		"@-FMAINV",
+		"@<AD-A",
+		"@<DN",
+		"@<NADJ",
+		"@<NDEM",
+		"@<NH",
+		"@<P",
+		"@<QN",
+		"@AD-A>",
+		"@ADVL",
+		"@AG",
+		"@CC",
+		"@CS",
+		"@DN>",
+		"@FAUXV",
+		"@FMAINV",
+		"@FMAINVintr",
+		"@FMAINVintr-ass",
+		"@FMAINVintr-def",
+		"@FMAINVintr-loc",
+		"@FMAINVtr+OBJ>",
+		"@FMAINVtr-OBJ>",
+		"@GCON",
+		"@I-OBJ",
+		"@NADJ",
+		"@NADJ>",
+		"@NDEM>",
+		"@NH",
+		"@OBJ",
+		"@P>",
+		"@PAT",
+		"@PCOMPL-S",
+		"@SUBJ",
+		"@SUBJ+rel",
+		"_",
+	    ],
+	    opts : settings.liteOptions,
 	},
-	verbextra : {
-	    label : "verb_features",
-	},
-	extra1 : {
-	    label : "extra_attr1",
-	},
-	extra2 : {
-	    label : "extra_attr2",
-	},
-	extra3 : {
-	    label : "extra_attr3",
-	},
-	rest : {
-	    label : "rest_attrs",
+	msdextra : {
+	    label : "extra_features",
 	},
     },
     struct_attributes : {
@@ -1207,13 +1222,13 @@ settings.templ.hcs_common = {
     },
 };
 
-hcs_news_extra_props = {
+hcs2_news_extra_props = {
     struct_attributes : {
 	text_month : sattrs.month,
     }
 };
 
-hcs_hierarchy = [
+hcs2_hierarchy = [
     ["old", "Old material", "Material before 2003, mostly from HCS 1.0", [
 	["old_books", "Books", {
 	    struct_attributes : {
@@ -1222,7 +1237,7 @@ hcs_hierarchy = [
 		text_place : sattrs.text_publ_place,
 	    }
 	}],
-	["old_news", "News (old)", hcs_news_extra_props],
+	["old_news", "News (old)", hcs2_news_extra_props],
     ] ],
     ["new", "New material", "Material after 2003, new to HCS 2.0", [
 	["new_bunge", "Bunge", "Hansards of Tanzanian Parliament 2004–2006", {
@@ -1231,23 +1246,24 @@ hcs_hierarchy = [
 		text_day : sattrs.day_of_month,
 	    }
 	}],
-	["new_news", "News (new)", hcs_news_extra_props],
+	["new_news", "News (new)", hcs2_news_extra_props],
     ] ],
 ];
 
 settings.fn.make_folder_hierarchy(
-    settings.corporafolders.hcs, hcs_hierarchy,
+    settings.corporafolders.hcs2, hcs2_hierarchy,
     {
-	id_prefix : "hcs_",
+	id_prefix : "hcs2_",
 	title_prefix : "HCS 2.0: ",
 	description_prefix : "Helsinki Corpus of Swahili 2.0 (HCS 2.0) Annotated Version: ",
-	corpus_template : settings.templ.hcs_common,
+	corpus_template : settings.templ.hcs2_common,
     });
 
-delete hcs_hierarchy;
-delete hcs_news_extra_props;
+delete hcs2_hierarchy;
+delete hcs2_news_extra_props;
 
-settings.corpus_aliases.hcs = "hcs_.*";
+settings.corpus_aliases.hcs = "hcs2_.*";
+settings.corpus_aliases.hcs2 = "hcs2_.*";
 
 settings.corpora.besercorp = {
     title : "BeserCorp",
