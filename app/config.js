@@ -2158,7 +2158,7 @@ settings.fn.make_folder_hierarchy = function (parent_folder, subfolder_tree,
 	    var last_infoitem = info[info.length - 1];
 	    var last_stringinfo_nr = info.length - 1;
 	    if (typeof last_infoitem != "string") {
-		result.data = $.extend(result.data, last_infoitem);
+		result.data = $.extend(true, result.data, last_infoitem);
 		last_stringinfo_nr--;
 	    }
 	    for (var itemnr = 0; itemnr < info_strings.length; itemnr++) {
