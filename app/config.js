@@ -2461,7 +2461,7 @@ settings.corpora.tiedelehdet_liikuntajatiede = {
 
 settings.corpora.tiedelehdet_liikenteensuunta = {
     title : "Liikenteen suunta",
-    description : "Liikenteen suunta (2012-2013)<br/>Julkaisija: Liikennevirasto<br/>Kotisivu: <a href='http://www.liikenteensuunta.fi/fi/'>http://www.liikenteensuunta.fi/fi/</a>",
+    description : "Liikenteen suunta (2012-2/2014)<br/>Julkaisija: Liikennevirasto<br/>Kotisivu: <a href='http://www.liikenteensuunta.fi/fi/'>http://www.liikenteensuunta.fi/fi/</a>",
     id : "tiedelehdet_liikenteensuunta",
     urn : "",
     metadata_urn : "",
@@ -2512,7 +2512,7 @@ settings.corpora.tiedelehdet_informaatio = {
 
 settings.corpora.tiedelehdet_hykirjasto = {
     title : "HYn kirjaston tiedotuslehti ja Kansalliskirjasto-lehti",
-    description : "HYn kirjaston tiedotuslehti ja Kansalliskirjasto-lehti (2000-2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='https://www.kansalliskirjasto.fi/fi/search?keys=yleistieto%20tiedotus%20kansalliskirjastolehti'>https://www.kansalliskirjasto.fi/</a>",
+    description : "HYn kirjaston tiedotuslehti (2000-2002) ja Kansalliskirjasto-lehti (2003-2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='https://www.kansalliskirjasto.fi/fi/search?keys=yleistieto%20tiedotus%20kansalliskirjastolehti'>https://www.kansalliskirjasto.fi/</a>",
     id : "tiedelehdet_hykirjasto",
     urn : "",
     metadata_urn : "",
@@ -2561,7 +2561,7 @@ settings.corpora.tiedelehdet_geologi = {
 
 settings.corpora.tiedelehdet_musiikinsuunta = {
     title : "Musiikin suunta",
-    description : "Musiikin suunta (2000-2013)<br/>Julkaisija: Suomen etnomusikologinen seura<br/>Kotisivu: <a href='http://www.etnomusikologia.fi/julkaisut/Mus.suunta.htm'>http://www.etnomusikologia.fi/julkaisut/</a>",
+    description : "Musiikin suunta (2003-2013)<br/>Julkaisija: Suomen etnomusikologinen seura<br/>Kotisivu: <a href='http://www.etnomusikologia.fi/julkaisut/Mus.suunta.htm'>http://www.etnomusikologia.fi/julkaisut/</a>",
     id : "tiedelehdet_musiikinsuunta",
     urn : "",
     metadata_urn : "",
@@ -3226,7 +3226,7 @@ settings.corpora.tiedelehdet_metsatiede = {
 
 settings.corpora.tiedelehdet_ravitsemus = {
     title : "Ravitsemuskatsaus",
-    description : "Ravitsemuskatsaus (2000-2013)<br/>Julkaisija: Maito ja Terveys ry<br/>Kotisivu: <a href='http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php'>http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php</a>",
+    description : "Ravitsemuskatsaus (2007-2013)<br/>Julkaisija: Maito ja Terveys ry<br/>Kotisivu: <a href='http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php'>http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php</a>",
     id : "tiedelehdet_ravitsemus",
     urn : "",
     metadata_urn : "",
@@ -3435,7 +3435,7 @@ settings.corpora.tiedelehdet_taimiuutiset = {
 
 settings.corpora.tiedelehdet_kulttuurintutkimus = {
     title : "Kulttuurintutkimus",
-    description : "Kulttuurintutkimus (2000-2013)<br/>Julkaisija: Kulttuurintutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulttuurintutkimus.fi/lehti/'>http://www.kulttuurintutkimus.fi/lehti/</a>",
+    description : "Kulttuurintutkimus (2004-2013)<br/>Julkaisija: Kulttuurintutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulttuurintutkimus.fi/lehti/'>http://www.kulttuurintutkimus.fi/lehti/</a>",
     id : "tiedelehdet_kulttuurintutkimus",
     urn : "",
     metadata_urn : "",
@@ -3509,7 +3509,7 @@ settings.corpora.tiedelehdet_matkailututkimus = {
 
 settings.corpora.tiedelehdet_kunnallistiede = {
     title : "Kunnallistieteellinen aikakauskirja",
-    description : "Kunnallistieteellinen aikakauskirja (2002-2013)<br/>Julkaisija: Kunnallistieteen yhdistys<br/>Kotisivu: <a href='http://www.kunnallistiede.fi/aikakauskirja/'>http://www.kunnallistiede.fi/aikakauskirja/</a>",
+    description : "Kunnallistieteellinen aikakauskirja (2002-2012)<br/>Julkaisija: Kunnallistieteen yhdistys<br/>Kotisivu: <a href='http://www.kunnallistiede.fi/aikakauskirja/'>http://www.kunnallistiede.fi/aikakauskirja/</a>",
     id : "tiedelehdet_kunnallistiede",
     urn : "",
     metadata_urn : "",
@@ -4046,7 +4046,7 @@ settings.corpora.tiedelehdet_auraica = {
 
 settings.corpora.tiedelehdet_aikuiskasvatus = {
     title : "Aikuiskasvatus",
-    description : "Aikuiskasvatus (2008–2013)<br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura<br/>Kotisivu: <a href='http://www.doria.fi/handle/10024/7300'>http://www.doria.fi/handle/10024/7300</a>",
+    description : "Aikuiskasvatus (2011–2014)<br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura<br/>Kotisivu: <a href='http://www.doria.fi/handle/10024/7300'>http://www.doria.fi/handle/10024/7300</a>",
     id : "tiedelehdet_aikuiskasvatus",
     urn : "",
     metadata_urn : "",
@@ -4184,7 +4184,7 @@ settings.corpora.tiedelehdet_virittaja = {
 
 settings.corpora.tiedelehdet_virittaja = {
     title : "Virittäjä",
-    description : "Virittäjä (2006-2013)<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
+    description : "Virittäjä (3/2006-4/2013)<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
     id : "tiedelehdet_virittaja",
     urn : "",
     metadata_urn : "",
@@ -4423,7 +4423,7 @@ settings.corpora.tiedelehdet_aidinkieli = {
 
 settings.corpora.tiedelehdet_kognitiivinen = {
     title : "Kognitiivinen psykoterapia",
-    description : "Kognitiivinen psykoterapia (2003-2013)<br/>Julkaisija: Kognitiivisen psykoterapian yhdistys<br/>Kotisivu: <a href='http://www.kognitiivinenpsykoterapia.fi/'>http://www.kognitiivinenpsykoterapia.fi/</a>",
+    description : "Kognitiivinen psykoterapia (2004-2013)<br/>Julkaisija: Kognitiivisen psykoterapian yhdistys<br/>Kotisivu: <a href='http://www.kognitiivinenpsykoterapia.fi/'>http://www.kognitiivinenpsykoterapia.fi/</a>",
     id : "tiedelehdet_kognitiivinen",
     urn : "",
     metadata_urn : "",
