@@ -2584,7 +2584,7 @@ settings.corpora.tiedelehdet_informaatio = {
 
 settings.corpora.tiedelehdet_hykirjasto = {
     title : "HYn kirjaston tiedotuslehti ja Kansalliskirjasto-lehti",
-    description : "HYn kirjaston tiedotuslehti (2000-2002) ja Kansalliskirjasto-lehti (2003-2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='https://www.kansalliskirjasto.fi/fi/search?keys=yleistieto%20tiedotus%20kansalliskirjastolehti'>https://www.kansalliskirjasto.fi/</a>",
+    description : "Kansalliskirjasto-lehti/Helsingin yliopiston kirjaston tiedotuslehti.<br/>Helsingin yliopiston kirjaston tiedotuslehti (2000-2012) / Kansalliskirjasto-lehti (2003-2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='https://www.kansalliskirjasto.fi/fi/search?keys=yleistieto%20tiedotus%20kansalliskirjastolehti'>https://www.kansalliskirjasto.fi/</a>",
     id : "tiedelehdet_hykirjasto",
     urn : "",
     metadata_urn : "",
@@ -3324,7 +3324,7 @@ settings.corpora.tiedelehdet_ravitsemus = {
 
 settings.corpora.tiedelehdet_kulutustutkimus = {
     title : "Kulutustutkimus.Nyt",
-    description : "Kulutustutkimus.Nyt (2007-2014)<br/>Julkaisija: Kulutustutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulutustutkimus.net/nyt/'>http://www.kulutustutkimus.net/nyt/</a>",
+    description : "Kulutustutkimus.Nyt (2007-2013)<br/>Julkaisija: Kulutustutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulutustutkimus.net/nyt/'>http://www.kulutustutkimus.net/nyt/</a>",
     id : "tiedelehdet_kulutustutkimus",
     urn : "",
     metadata_urn : "",
