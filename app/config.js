@@ -1871,13 +1871,13 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.lehdet.tiedelehdet = {
     title : "Tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_avain", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_elo", "tiedelehdet_ennenjanyt", "tiedelehdet_geofoorumi", "tiedelehdet_geologi", "tiedelehdet_glossae", "tiedelehdet_harukaze", "tiedelehdet_havina", "tiedelehdet_hykirjasto", "tiedelehdet_historiallinen", "tiedelehdet_historianystava", "tiedelehdet_ilmansuojelu", "tiedelehdet_informaatio", "tiedelehdet_kieliskooppi", "tiedelehdet_kognitiivinen", "tiedelehdet_kompositio", "tiedelehdet_kosmopolis", "tiedelehdet_kulttuurintutkimus", "tiedelehdet_kulutustutkimus", "tiedelehdet_kunnallistiede", "tiedelehdet_liiketalous", "tiedelehdet_liikenteensuunta", "tiedelehdet_liikuntajatiede", "tiedelehdet_lounaishame", "tiedelehdet_maaseudunuusiaika", "tiedelehdet_matkailututkimus", "tiedelehdet_mediajaviestinta", "tiedelehdet_metsatiede", "tiedelehdet_muinaistutkija", "tiedelehdet_musiikinsuunta", "tiedelehdet_musiikkikasv", "tiedelehdet_niinnain", "tiedelehdet_nimi", "tiedelehdet_poliittinentalous", "tiedelehdet_prologi", "tiedelehdet_psykologia", "tiedelehdet_rakmek", "tiedelehdet_ravitsemus", "tiedelehdet_ruralia", "tiedelehdet_sananjalka", "tiedelehdet_siirtolaisuus", "tiedelehdet_skas", "tiedelehdet_skeptikko", "tiedelehdet_skholion", "tiedelehdet_sosiaalilaaketiede", "tiedelehdet_suo", "tiedelehdet_susa", "tiedelehdet_kirkkohistoria", "tiedelehdet_synnyt", "tiedelehdet_tahiti", "tiedelehdet_taimiuutiset", "tiedelehdet_teologinen", "tiedelehdet_terminfo", "tiedelehdet_terra", "tiedelehdet_thanatos", "tiedelehdet_tiedejaase", "tiedelehdet_tieteessatapahtuu", "tiedelehdet_tktlehti", "tiedelehdet_tietolinja", "tiedelehdet_toksikologi", "tiedelehdet_transmitteri", "tiedelehdet_trio", "tiedelehdet_tutkivasos", "tiedelehdet_tyoelama", "tiedelehdet_ura", "tiedelehdet_walbum", "tiedelehdet_vartija", "tiedelehdet_virittaja", "tiedelehdet_yhteiskuntapolitiikka", "tiedelehdet_ymparistohistoria"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_avain", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_elo", "tiedelehdet_ennenjanyt", "tiedelehdet_geofoorumi", "tiedelehdet_geologi", "tiedelehdet_glossae", "tiedelehdet_harukaze", "tiedelehdet_havina", "tiedelehdet_hykirjasto", "tiedelehdet_hiidenkivi", "tiedelehdet_historiallinen", "tiedelehdet_historianystava", "tiedelehdet_ilmansuojelu", "tiedelehdet_informaatio", "tiedelehdet_kasvu", "tiedelehdet_kieliskooppi", "tiedelehdet_kognitiivinen", "tiedelehdet_kompositio", "tiedelehdet_kosmopolis", "tiedelehdet_kulttuurintutkimus", "tiedelehdet_kulutustutkimus", "tiedelehdet_kunnallistiede", "tiedelehdet_liiketalous", "tiedelehdet_liikenteensuunta", "tiedelehdet_liikuntajatiede", "tiedelehdet_lounaishame", "tiedelehdet_maaseudunuusiaika", "tiedelehdet_matkailututkimus", "tiedelehdet_mediajaviestinta", "tiedelehdet_metsatiede", "tiedelehdet_muinaistutkija", "tiedelehdet_musiikinsuunta", "tiedelehdet_musiikkikasv", "tiedelehdet_niinnain", "tiedelehdet_nimi", "tiedelehdet_poliittinentalous", "tiedelehdet_prologi", "tiedelehdet_psykologia", "tiedelehdet_rakmek", "tiedelehdet_ravitsemus", "tiedelehdet_ruralia", "tiedelehdet_sananjalka", "tiedelehdet_siirtolaisuus", "tiedelehdet_skas", "tiedelehdet_skeptikko", "tiedelehdet_skholion", "tiedelehdet_sosiaalilaaketiede", "tiedelehdet_suo", "tiedelehdet_susa", "tiedelehdet_kirkkohistoria", "tiedelehdet_synnyt", "tiedelehdet_tahiti", "tiedelehdet_taimiuutiset", "tiedelehdet_teologinen", "tiedelehdet_terminfo", "tiedelehdet_terra", "tiedelehdet_thanatos", "tiedelehdet_tiedejaase", "tiedelehdet_tieteessatapahtuu", "tiedelehdet_tktlehti", "tiedelehdet_tietolinja", "tiedelehdet_toksikologi", "tiedelehdet_transmitteri", "tiedelehdet_trio", "tiedelehdet_tutkivasos", "tiedelehdet_tyoelama", "tiedelehdet_ura", "tiedelehdet_walbum", "tiedelehdet_vartija", "tiedelehdet_versus", "tiedelehdet_virittaja", "tiedelehdet_yhteiskuntapolitiikka", "tiedelehdet_ymparistohistoria"]
 };
 
 settings.corporafolders.lehdet.muut_lehdet = {
     title : "Muita lehtiä",
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
-    contents : ["lehdet_koskinen", "lehdet_ekonomi", "lehdet_selkosanomat"]
+    contents : ["lehdet_koskinen", "lehdet_ekonomi", "lehdet_leija", "lehdet_selkosanomat"]
 };
 
 settings.corporafolders.ftc = {
@@ -2437,6 +2437,78 @@ settings.corpora.ftb3_jrcacquis = {
 /* ==== TIEDELEHTIÄ ==== */
 
 settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
+
+settings.corpora.tiedelehdet_hiidenkivi = {
+    title : "Hiidenkivi",
+    description : "Hiidenkivi (2009-2012)<br/>Julkaisijat: Kotimaisten kielten keskus, Suomalaisen Kirjallisuuden Seura, Suomen Kotiseutuliitto<br/>Kotisivu: <a href='http://www.hiidenkivi-lehti.fi/'>http://www.hiidenkivi-lehti.fi/</a>",
+    id : "tiedelehdet_hiidenkivi",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : {
+            label : "text_title"
+        },
+        text_year : {
+            label : "year"
+        },
+        text_issue : {
+            label : "issue"
+        },
+    }
+};
+
+
+settings.corpora.tiedelehdet_versus = {
+    title : "Versus",
+    description : "Versus (2011-2015)<br/>Julkaisija: Alue- ja ympäristöntutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/versus/'>http://www.ays.fi/versus/</a>",
+    id : "tiedelehdet_versus",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : {
+            label : "text_title"
+        },
+        text_year : {
+            label : "year"
+        },
+        text_issue : {
+            label : "issue"
+        },
+    }
+};
+
+
+settings.corpora.tiedelehdet_kasvu = {
+    title : "Kasvu",
+    description : "Kasvu (2012-1/2016)<br/>Julkaisija: Talentia ry<br/>Kotisivu: <a href='http://talentia.e-julkaisu.com/julkaisut/'>http://talentia.e-julkaisu.com/julkaisut/</a>",
+    id : "tiedelehdet_kasvu",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : {
+            label : "text_title"
+        },
+        text_year : {
+            label : "year"
+        },
+        text_issue : {
+            label : "issue"
+        },
+    }
+};
+
 
 settings.corpora.tiedelehdet_liikuntajatiede = {
     title : "Liikunta ja tiede (tutkimusartikkelit)",
@@ -4463,6 +4535,29 @@ settings.corpora.lehdet_selkosanomat = {
         }
     }
 };
+
+settings.corpora.lehdet_leija = {
+    title : "Leija",
+    description : "Leija (2009-3/2016)<br/>Julkaisija: Kehitysvammaisen tukiliitto ry<br/>Kotisivu: <a href='http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/'>http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/</a>",
+    id : "lehdet_leija",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : {
+            label : "text_title"
+        },
+        text_year : {
+            label : "year"
+        },
+        text_issue : {
+            label : "issue"
+        },
+    }
+};
+
 
 settings.corpora.lehdet_ekonomi = {
     title : "Ekonomi",
