@@ -2584,7 +2584,7 @@ settings.corpora.tiedelehdet_informaatio = {
 
 settings.corpora.tiedelehdet_hykirjasto = {
     title : "Kansalliskirjasto-lehti/Helsingin yliopiston kirjaston tiedotuslehti",
-    description : "Helsingin yliopiston kirjaston tiedotuslehti (2000-2012) / Kansalliskirjasto-lehti (2003-2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='https://www.kansalliskirjasto.fi/fi/search?keys=yleistieto%20tiedotus%20kansalliskirjastolehti'>https://www.kansalliskirjasto.fi/</a>",
+    description : "Helsingin yliopiston kirjaston tiedotuslehti (2000-2002) / Kansalliskirjasto-lehti (2003-2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='https://www.kansalliskirjasto.fi/fi/search?keys=yleistieto%20tiedotus%20kansalliskirjastolehti'>https://www.kansalliskirjasto.fi/</a>",
     id : "tiedelehdet_hykirjasto",
     urn : "",
     metadata_urn : "",
