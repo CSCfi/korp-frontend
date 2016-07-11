@@ -2464,7 +2464,7 @@ settings.corpora.tiedelehdet_hiidenkivi = {
 
 settings.corpora.tiedelehdet_versus = {
     title : "Versus",
-    description : "Versus (2011-2015)<br/>Julkaisija: Alue- ja ympäristöntutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/versus/'>http://www.ays.fi/versus/</a>",
+    description : "Versus (2/2011-1/2015)<br/>Julkaisija: Alue- ja ympäristöntutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/versus/'>http://www.ays.fi/versus/</a>",
     id : "tiedelehdet_versus",
     urn : "",
     metadata_urn : "",
