@@ -8626,6 +8626,17 @@ settings.corpora.s24_008 = {
     struct_attributes : sattrlist.s24_update
 };
 
+settings.corpora.s24_009test = {
+    title : "Suomi24 (test)",
+    description : "Suomi24-keskustelut (test)",
+    id : "s24_009test",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.parsed_tdt,
+    struct_attributes : sattrlist.s24_update
+};
+
+
 settings.corpora.s24_009 = {
     title : "Suomi24 (9/9)",
     description : "Suomi24-keskustelut (9/9)",
