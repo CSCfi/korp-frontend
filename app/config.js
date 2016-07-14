@@ -8625,7 +8625,7 @@ settings.corpora.s24_008 = {
     attributes : attrlist.parsed_tdt,
     struct_attributes : sattrlist.s24_update
 };
-
+/*
 settings.corpora.s24_009test = {
     title : "Suomi24 (test)",
     description : "Suomi24-keskustelut (test)",
@@ -8635,7 +8635,7 @@ settings.corpora.s24_009test = {
     attributes : attrlist.parsed_tdt,
     struct_attributes : sattrlist.s24_update
 };
-
+*/
 
 settings.corpora.s24_009 = {
     title : "Suomi24 (9/9)",
