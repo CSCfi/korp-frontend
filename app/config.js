@@ -1833,7 +1833,7 @@ settings.corporafolders.literature = {
 
 settings.corporafolders.legal = {
     title : "Juridisia tekstejä",
-    contents : ["ns_saadokset", "legal_fi", "mulcold_fi"]
+    contents : ["kotus_lakidir", "legal_fi", "mulcold_fi"]
 };
 
 settings.corporafolders.internet = {
@@ -5118,6 +5118,73 @@ settings.fn.make_president_corpora = function () {
 }
 
 settings.fn.make_president_corpora();
+
+
+settings.corpora.kotus_lakidir = {
+    title : "Lakeja ja direktiivejä",
+    description : "Lakeja ja direktiivejä vuosilta 1980–2003 (Kotimaisten kielten keskuksen aineisto)",
+    id : "kotus_lakidir",
+    // No Korp URN yet
+    //metadata_urn : "urn:nbn:fi:lb-20140730126",
+    licence : settings.licenceinfo.EUPL_11,
+    homepage : settings.fn.kaino_homepage("teko/meta/saadokset/saadokset"),
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        lemmacomp : attrs.baseform_compound,
+        pos : attrs.pos_kotus,
+        msd : attrs.msd,
+        id : attrs.id_hidden,
+        lex : attrs.lemgram_hidden
+    },
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source,
+        div_id : {
+            label : "div_id",
+            displayType : "hidden",
+        },
+        div_type : {
+            label : "div_type",
+            displayType : "select",
+            translationKey : "divtype_",
+            dataset : {
+                "section" : "section",
+                "section/law" : "section_law",
+                "section/end" : "section_end"
+            },
+            opts : settings.liteOptions
+        },
+        paragraph_id : sattrs.paragraph_id,
+        paragraph_type : {
+            label : "paragraph_type",
+            displayType : "select",
+            translationKey : "paragraphtype_",
+            dataset : {
+                "p" : "p",
+                "head" : "head",
+                "opener" : "opener",
+                "closer" : "closer"
+            },
+            opts : settings.liteOptions
+	},
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_type : {
+            label : "sentence_type",
+            displayType : "select",
+            translationKey : "sentencetype_",
+            dataset : {
+                "p" : "p",
+                "head" : "head",
+                "dateline" : "dateline",
+                "signed" : "signed"
+            },
+            opts : settings.liteOptions
+        }
+    }
+};
 
 
 settings.corpora.ns_saadokset = {
