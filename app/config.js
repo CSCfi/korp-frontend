@@ -1927,7 +1927,7 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
 
 settings.corporafolders.spoken = {
     title : "Puhuttua kieltä (tekstiksi litteroituna)",
-    contents : ["kotus_sananparret", "skn", "dma"],
+    contents : ["kotus_sp", "skn", "dma"],
     // unselected : true
 };
 
@@ -5253,10 +5253,10 @@ settings.corpora.ns_saadokset = {
     }
 };
 
-settings.corpora.kotus_sananparret = {
-    title : "Sananparsikokoelma (näyte)",
+settings.corpora.kotus_sp = {
+    title : "Sananparsikokoelma",
     description : "Suomen murteiden Sananparsikokoelma (1930-luvulta) (Kotimaisten kielten keskuksen aineisto)",
-    id : "kotus_sananparret",
+    id : "kotus_sp",
     // No Korp URN yet
     metadata_urn : "urn:nbn:fi:lb-20140730176",
     licence : settings.licenceinfo.EUPL_11,
