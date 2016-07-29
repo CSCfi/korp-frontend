@@ -5186,7 +5186,7 @@ settings.corpora.kotus_lakidir = {
     }
 };
 
-
+/*
 settings.corpora.ns_saadokset = {
     title : "Lakeja ja direktiivejä (näyte)",
     description : "Lakeja ja direktiivejä vuosilta 2002–2003 (Kotimaisten kielten keskuksen aineisto)",
@@ -5252,7 +5252,7 @@ settings.corpora.ns_saadokset = {
 	}
     }
 };
-
+*/
 settings.corpora.kotus_sp = {
     title : "Sananparsikokoelma",
     description : "Suomen murteiden Sananparsikokoelma (1930-luvulta) (Kotimaisten kielten keskuksen aineisto)",
