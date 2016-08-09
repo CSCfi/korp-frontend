@@ -1522,6 +1522,18 @@ sattrs.link_lehdet = {
     url_opts : sattrs.link_url_opts
 };
 
+/* VNSK */
+
+sattrlist.vnsk = {
+    text_title : sattrs.text_title,
+    text_distributor : sattrs.text_distributor,
+    text_source : sattrs.text_source,
+    paragraph_id : sattrs.paragraph_id,
+    paragraph_type : sattrs.paragraph_type,
+    sentence_id : sattrs.sentence_id_hidden,
+    sentence_n : sattrs.sentence_n
+};
+
 /* FINSTUD */
 
 sattrlist.finstud = {
@@ -7792,17 +7804,20 @@ settings.corpora.vnsk_ahlholm = {
     context : settings.defaultContext,
     attributes : {
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_distributor : sattrs.text_distributor,
-        text_source : sattrs.text_source,
-        paragraph_id : sattrs.paragraph_id,
-        paragraph_type : sattrs.paragraph_type,
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_n : sattrs.sentence_n
-    }
+    struct_attributes : sattrlist.vnsk
 };
 
+
+settings.corpora.vnsk_yksitt = {
+    title : "Yksitt",
+    description : "Yksitt",
+    id : "vnsk_yksitt",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
 
 settings.corpora.vns_renvall = {
     title : "Renvall",
