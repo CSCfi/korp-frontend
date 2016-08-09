@@ -2007,7 +2007,7 @@ settings.corporafolders.vks = {
 settings.corporafolders.vns = {
     title : "Varhaisnykysuomen korpus",
     /*contents : ["vns_asetus", "vns_renqvist", "vns_renvall"],*/
-    contents : ["vnsk_aejmelaeus","vnsk_ahlholm","vnsk_ahlman_kirjat","vnsk_ahlman_sanastot","vnsk_ahlqvist","vnsk_akiander","vnsk_almanakka","vnsk_anonyymi","vnsk_aulen","vnsk_backvall","vnsk_bocker","vnsk_bonsdorff","vnsk_borenius","vnsk_borg","vnsk_cantell","vnsk_corander","vnsk_costiander","vnsk_dahlberg","vnsk_edlund","vnsk_eklof","vnsk_euren","vnsk_europaeus","vnsk_europaeus_sanastot","vnsk_fabritius","vnsk_forsman","vnsk_forstrom","vnsk_friman","vnsk_frosterus","vnsk_gottlund","vnsk_granlund","vnsk_hannikainen","vnsk_hjelt","vnsk_hordh","vnsk_hornborg","vnsk_ignatius","vnsk_ingman","vnsk_innain","vnsk_juteini","vnsk_kemell","vnsk_kilpinen","vnsk_koskinen","vnsk_krohn","vnsk_lagervall","vnsk_lankela","vnsk_lavonius","vnsk_lilius_anton","vnsk_lilius_aukusti","vnsk_lonnrot","vnsk_malmberg","vnsk_mehilainen","vnsk_mela","vnsk_meurman","vnsk_mmy","vnsk_murman","vnsk_muut","vnsk_nyman","vnsk_ovs","vnsk_polen","vnsk_poppius","vnsk_puhuttelija","vnsk_rein","vnsk_renvall","vnsk_roos","vnsk_salmelainen","vnsk_salonius","vnsk_sanaluettelot","vnsk_sandberg","vnsk_schroter","vnsk_sirelius","vnsk_skogman","vnsk_smtr","vnsk_sohlberg","vnsk_soldan","vnsk_ssv","vnsk_stahlberg","vnsk_tarvanen","vnsk_ticklen","vnsk_tikkanen","vnsk_topelius","vnsk_toppelius","vnsk_tvs","vnsk_varelius","vnsk_virsikirja","vnsk_wallin","vnsk_wikman","vnsk_wiwolin","vnsk_yksitt"],
+    contents : ["vnsk_aejmelaeus","vnsk_ahlholm","vnsk_ahlman_kirjat","vnsk_ahlman_sanastot","vnsk_ahlqvist","vnsk_akiander","vnsk_almanakka","vnsk_anonyymi","vnsk_aulen","vnsk_backvall","vnsk_bocker","vnsk_bonsdorff","vnsk_borenius","vnsk_borg","vnsk_cantell","vnsk_corander","vnsk_costiander","vnsk_dahlberg","vnsk_edlund","vnsk_eklof","vnsk_euren","vnsk_europaeus","vnsk_europaeus_sanastot","vnsk_fabritius","vnsk_forsman","vnsk_forstrom","vnsk_friman","vnsk_frosterus","vnsk_gottlund","vnsk_granlund","vnsk_hannikainen","vnsk_hjelt","vnsk_hordh","vnsk_hornborg","vnsk_ignatius","vnsk_ingman","vnsk_innain","vnsk_juteini","vnsk_kemell","vnsk_kilpinen","vnsk_koskinen","vnsk_krohn","vnsk_lagervall","vnsk_lankela","vnsk_lavonius","vnsk_lilius_anton","vnsk_lilius_aukusti","vnsk_lonnrot","vnsk_malmberg","vnsk_mehilainen","vnsk_mela","vnsk_meurman","vnsk_mmy","vnsk_murman","vnsk_muut","vnsk_nyman","vnsk_ovs","vnsk_polen","vnsk_poppius","vnsk_puhuttelija","vnsk_rein","vns_renvall","vnsk_roos","vnsk_salmelainen","vnsk_salonius","vnsk_sanaluettelot","vnsk_sandberg","vnsk_schroter","vnsk_sirelius","vnsk_skogman","vnsk_smtr","vnsk_sohlberg","vnsk_soldan","vnsk_ssv","vnsk_stahlberg","vnsk_tarvanen","vnsk_ticklen","vnsk_tikkanen","vnsk_topelius","vnsk_toppelius","vnsk_tvs","vnsk_varelius","vnsk_virsikirja","vnsk_wallin","vnsk_wikman","vnsk_wiwolin","vnsk_yksitt"],
     info : {
 	// No Korp URN yet
 	metadata_urn : "urn:nbn:fi:lb-20140730147",
@@ -7735,7 +7735,7 @@ settings.corpora.vks_virret = {
     }
 };
 
-
+/*
 settings.corpora.vns_asetus = {
     title : "Asetuksia (näyte)",
     description : "Asetuksia",
@@ -7796,7 +7796,7 @@ settings.corpora.vns_renqvist = {
 	sentence_n : sattrs.sentence_n
     }
 };
-
+*/
 settings.corpora.vnsk_ahlholm = {
     title : "Ahlholm",
     description : "Ahlholm",
