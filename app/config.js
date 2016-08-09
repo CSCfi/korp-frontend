@@ -7809,8 +7809,8 @@ settings.corpora.vnsk_ahlholm = {
 
 
 settings.corpora.vnsk_yksitt = {
-    title : "Yksitt",
-    description : "Yksitt",
+    title : "Yksittäisiä",
+    description : "Yksittäisiä",
     id : "vnsk_yksitt",
     within : settings.defaultWithin,
     context : settings.defaultContext,
