@@ -2005,8 +2005,9 @@ settings.corporafolders.vks = {
 };
 
 settings.corporafolders.vns = {
-    title : "Varhaisnykysuomen korpus (näytteitä)",
-    contents : ["vns_asetus", "vns_renqvist", "vns_renvall"],
+    title : "Varhaisnykysuomen korpus",
+    /*contents : ["vns_asetus", "vns_renqvist", "vns_renvall"],*/
+    contents : ["vnsk_aejmelaeus","vnsk_ahlholm","vnsk_ahlman_kirjat","vnsk_ahlman_sanastot","vnsk_ahlqvist","vnsk_akiander","vnsk_almanakka","vnsk_anonyymi","vnsk_aulen","vnsk_backvall","vnsk_bocker","vnsk_bonsdorff","vnsk_borenius","vnsk_borg","vnsk_cantell","vnsk_corander","vnsk_costiander","vnsk_dahlberg","vnsk_edlund","vnsk_eklof","vnsk_euren","vnsk_europaeus","vnsk_europaeus_sanastot","vnsk_fabritius","vnsk_forsman","vnsk_forstrom","vnsk_friman","vnsk_frosterus","vnsk_gottlund","vnsk_granlund","vnsk_hannikainen","vnsk_hjelt","vnsk_hordh","vnsk_hornborg","vnsk_ignatius","vnsk_ingman","vnsk_innain","vnsk_juteini","vnsk_kemell","vnsk_kilpinen","vnsk_koskinen","vnsk_krohn","vnsk_lagervall","vnsk_lankela","vnsk_lavonius","vnsk_lilius_anton","vnsk_lilius_aukusti","vnsk_lonnrot","vnsk_malmberg","vnsk_mehilainen","vnsk_mela","vnsk_meurman","vnsk_mmy","vnsk_murman","vnsk_muut","vnsk_nyman","vnsk_ovs","vnsk_polen","vnsk_poppius","vnsk_puhuttelija","vnsk_rein","vnsk_renvall","vnsk_roos","vnsk_salmelainen","vnsk_salonius","vnsk_sanaluettelot","vnsk_sandberg","vnsk_schroter","vnsk_sirelius","vnsk_skogman","vnsk_smtr","vnsk_sohlberg","vnsk_soldan","vnsk_ssv","vnsk_stahlberg","vnsk_tarvanen","vnsk_ticklen","vnsk_tikkanen","vnsk_topelius","vnsk_toppelius","vnsk_tvs","vnsk_varelius","vnsk_virsikirja","vnsk_wallin","vnsk_wikman","vnsk_wiwolin","vnsk_yksitt"],
     info : {
 	// No Korp URN yet
 	metadata_urn : "urn:nbn:fi:lb-20140730147",
@@ -7812,6 +7813,930 @@ settings.corpora.vnsk_yksitt = {
     title : "Yksittäisiä",
     description : "Yksittäisiä",
     id : "vnsk_yksitt",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_aejmelaeus = {
+    title : "Aejmelaeus",
+    description : "Aejmelaeus",
+    id : "vnsk_aejmelaeus",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_ahlman_kirjat = {
+    title : "Ahlman kirjat",
+    description : "Ahlman kirjat",
+    id : "vnsk_ahlman_kirjat",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_ahlman_sanastot = {
+    title : "Ahlman sanastot",
+    description : "Ahlman sanastot",
+    id : "vnsk_ahlman_sanastot",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_ahlqvist = {
+    title : "Ahlqvist",
+    description : "Ahlqvist",
+    id : "vnsk_ahlqvist",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_akiander = {
+    title : "Akiander",
+    description : "Akiander",
+    id : "vnsk_akiander",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_almanakka = {
+    title : "Almanakka",
+    description : "Almanakka",
+    id : "vnsk_almanakka",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_anonyymi = {
+    title : "Anonyymi",
+    description : "Anonyymi",
+    id : "vnsk_anonyymi",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_aulen = {
+    title : "Aulen",
+    description : "Aulen",
+    id : "vnsk_aulen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_backvall = {
+    title : "Backvall",
+    description : "Backvall",
+    id : "vnsk_backvall",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_bocker = {
+    title : "Bocker",
+    description : "Bocker",
+    id : "vnsk_bocker",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_bonsdorff = {
+    title : "Bonsdorff",
+    description : "Bonsdorff",
+    id : "vnsk_bonsdorff",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_borenius = {
+    title : "Borenius",
+    description : "Borenius",
+    id : "vnsk_borenius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_borg = {
+    title : "Borg",
+    description : "Borg",
+    id : "vnsk_borg",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_cantell = {
+    title : "Cantell",
+    description : "Cantell",
+    id : "vnsk_cantell",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_corander = {
+    title : "Corander",
+    description : "Corander",
+    id : "vnsk_corander",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_costiander = {
+    title : "Costiander",
+    description : "Costiander",
+    id : "vnsk_costiander",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_dahlberg = {
+    title : "Dahlberg",
+    description : "Dahlberg",
+    id : "vnsk_dahlberg",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_edlund = {
+    title : "Edlund",
+    description : "Edlund",
+    id : "vnsk_edlund",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_eklof = {
+    title : "Eklof",
+    description : "Eklof",
+    id : "vnsk_eklof",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_euren = {
+    title : "Euren",
+    description : "Euren",
+    id : "vnsk_euren",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_europaeus = {
+    title : "Europaeus",
+    description : "Europaeus",
+    id : "vnsk_europaeus",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_europaeus_sanastot = {
+    title : "Europaeus sanastot",
+    description : "Europaeus sanastot",
+    id : "vnsk_europaeus_sanastot",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_fabritius = {
+    title : "Fabritius",
+    description : "Fabritius",
+    id : "vnsk_fabritius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_forsman = {
+    title : "Forsman",
+    description : "Forsman",
+    id : "vnsk_forsman",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_forstrom = {
+    title : "Forstrom",
+    description : "Forstrom",
+    id : "vnsk_forstrom",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_friman = {
+    title : "Friman",
+    description : "Friman",
+    id : "vnsk_friman",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_frosterus = {
+    title : "Frosterus",
+    description : "Frosterus",
+    id : "vnsk_frosterus",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_gottlund = {
+    title : "Gottlund",
+    description : "Gottlund",
+    id : "vnsk_gottlund",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_granlund = {
+    title : "Granlund",
+    description : "Granlund",
+    id : "vnsk_granlund",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_hannikainen = {
+    title : "Hannikainen",
+    description : "Hannikainen",
+    id : "vnsk_hannikainen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_hjelt = {
+    title : "Hjelt",
+    description : "Hjelt",
+    id : "vnsk_hjelt",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_hordh = {
+    title : "Hordh",
+    description : "Hordh",
+    id : "vnsk_hordh",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_hornborg = {
+    title : "Hornborg",
+    description : "Hornborg",
+    id : "vnsk_hornborg",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_ignatius = {
+    title : "Ignatius",
+    description : "Ignatius",
+    id : "vnsk_ignatius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_ingman = {
+    title : "Ingman",
+    description : "Ingman",
+    id : "vnsk_ingman",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_innain = {
+    title : "Innain",
+    description : "Innain",
+    id : "vnsk_innain",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_juteini = {
+    title : "Juteini",
+    description : "Juteini",
+    id : "vnsk_juteini",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_kemell = {
+    title : "Kemell",
+    description : "Kemell",
+    id : "vnsk_kemell",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_kilpinen = {
+    title : "Kilpinen",
+    description : "Kilpinen",
+    id : "vnsk_kilpinen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_koskinen = {
+    title : "Koskinen",
+    description : "Koskinen",
+    id : "vnsk_koskinen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_krohn = {
+    title : "Krohn",
+    description : "Krohn",
+    id : "vnsk_krohn",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_lagervall = {
+    title : "Lagervall",
+    description : "Lagervall",
+    id : "vnsk_lagervall",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_lankela = {
+    title : "Lankela",
+    description : "Lankela",
+    id : "vnsk_lankela",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_lavonius = {
+    title : "Lavonius",
+    description : "Lavonius",
+    id : "vnsk_lavonius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_lilius_anton = {
+    title : "Lilius Anton",
+    description : "Lilius Anton",
+    id : "vnsk_lilius_anton",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_lilius_aukusti = {
+    title : "Lilius Aukusti",
+    description : "Lilius Aukusti",
+    id : "vnsk_lilius_aukusti",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_lonnrot = {
+    title : "Lonnrot",
+    description : "Lonnrot",
+    id : "vnsk_lonnrot",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_malmberg = {
+    title : "Malmberg",
+    description : "Malmberg",
+    id : "vnsk_malmberg",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_mehilainen = {
+    title : "Mehilainen",
+    description : "Mehilainen",
+    id : "vnsk_mehilainen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_mela = {
+    title : "Mela",
+    description : "Mela",
+    id : "vnsk_mela",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_meurman = {
+    title : "Meurman",
+    description : "Meurman",
+    id : "vnsk_meurman",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_mmy = {
+    title : "Mmy",
+    description : "Mmy",
+    id : "vnsk_mmy",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_murman = {
+    title : "Murman",
+    description : "Murman",
+    id : "vnsk_murman",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_muut = {
+    title : "Muut",
+    description : "Muut",
+    id : "vnsk_muut",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_nyman = {
+    title : "Nyman",
+    description : "Nyman",
+    id : "vnsk_nyman",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_ovs = {
+    title : "Ovs",
+    description : "Ovs",
+    id : "vnsk_ovs",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_polen = {
+    title : "Polen",
+    description : "Polen",
+    id : "vnsk_polen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_poppius = {
+    title : "Poppius",
+    description : "Poppius",
+    id : "vnsk_poppius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_puhuttelija = {
+    title : "Puhuttelija",
+    description : "Puhuttelija",
+    id : "vnsk_puhuttelija",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_rein = {
+    title : "Rein",
+    description : "Rein",
+    id : "vnsk_rein",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_roos = {
+    title : "Roos",
+    description : "Roos",
+    id : "vnsk_roos",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_salmelainen = {
+    title : "Salmelainen",
+    description : "Salmelainen",
+    id : "vnsk_salmelainen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_salonius = {
+    title : "Salonius",
+    description : "Salonius",
+    id : "vnsk_salonius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_sanaluettelot = {
+    title : "Sanaluettelot",
+    description : "Sanaluettelot",
+    id : "vnsk_sanaluettelot",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_sandberg = {
+    title : "Sandberg",
+    description : "Sandberg",
+    id : "vnsk_sandberg",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_schroter = {
+    title : "Schroter",
+    description : "Schroter",
+    id : "vnsk_schroter",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_sirelius = {
+    title : "Sirelius",
+    description : "Sirelius",
+    id : "vnsk_sirelius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_skogman = {
+    title : "Skogman",
+    description : "Skogman",
+    id : "vnsk_skogman",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_smtr = {
+    title : "Smtr",
+    description : "Smtr",
+    id : "vnsk_smtr",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_sohlberg = {
+    title : "Sohlberg",
+    description : "Sohlberg",
+    id : "vnsk_sohlberg",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_soldan = {
+    title : "Soldan",
+    description : "Soldan",
+    id : "vnsk_soldan",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_ssv = {
+    title : "Ssv",
+    description : "Ssv",
+    id : "vnsk_ssv",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_stahlberg = {
+    title : "Stahlberg",
+    description : "Stahlberg",
+    id : "vnsk_stahlberg",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_tarvanen = {
+    title : "Tarvanen",
+    description : "Tarvanen",
+    id : "vnsk_tarvanen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_ticklen = {
+    title : "Ticklen",
+    description : "Ticklen",
+    id : "vnsk_ticklen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_tikkanen = {
+    title : "Tikkanen",
+    description : "Tikkanen",
+    id : "vnsk_tikkanen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_topelius = {
+    title : "Topelius",
+    description : "Topelius",
+    id : "vnsk_topelius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_toppelius = {
+    title : "Toppelius",
+    description : "Toppelius",
+    id : "vnsk_toppelius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_tvs = {
+    title : "Tvs",
+    description : "Tvs",
+    id : "vnsk_tvs",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_varelius = {
+    title : "Varelius",
+    description : "Varelius",
+    id : "vnsk_varelius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_virsikirja = {
+    title : "Virsikirja",
+    description : "Virsikirja",
+    id : "vnsk_virsikirja",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_wallin = {
+    title : "Wallin",
+    description : "Wallin",
+    id : "vnsk_wallin",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_wikman = {
+    title : "Wikman",
+    description : "Wikman",
+    id : "vnsk_wikman",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_wiwolin = {
+    title : "Wiwolin",
+    description : "Wiwolin",
+    id : "vnsk_wiwolin",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
