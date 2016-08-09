@@ -7784,6 +7784,26 @@ settings.corpora.vns_renqvist = {
     }
 };
 
+settings.corpora.vnsk_ahlholm = {
+    title : "Ahlholm",
+    description : "Ahlholm",
+    id : "vnsk_ahlholm",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source,
+        paragraph_id : sattrs.paragraph_id,
+        paragraph_type : sattrs.paragraph_type,
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_n : sattrs.sentence_n
+    }
+};
+
+
 settings.corpora.vns_renvall = {
     title : "Renvall",
     description : "Gustaf Renvall: Suomalainen sana-kirja (1826)",
