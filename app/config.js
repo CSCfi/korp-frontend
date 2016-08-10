@@ -8196,8 +8196,8 @@ settings.corpora.vnsk_forsman = {
 };
 
 settings.corpora.vnsk_forstrom = {
-    title : "Forstrom",
-    description : "Forstrom",
+    title : "Forström",
+    description : "Forström",
     id : "vnsk_forstrom",
     within : settings.defaultWithin,
     context : settings.defaultContext,
@@ -8438,8 +8438,8 @@ settings.corpora.vnsk_lilius_aukusti = {
 };
 
 settings.corpora.vnsk_lonnrot = {
-    title : "Lonnrot",
-    description : "Lonnrot",
+    title : "Lönnrot",
+    description : "Lönnrot",
     id : "vnsk_lonnrot",
     within : settings.defaultWithin,
     context : settings.defaultContext,
@@ -8493,8 +8493,8 @@ settings.corpora.vnsk_meurman = {
 };
 
 settings.corpora.vnsk_mmy = {
-    title : "Mmy",
-    description : "Mmy",
+    title : "Maamiehen Ystävä",
+    description : "Maamiehen Ystävä (1844-1845)",
     id : "vnsk_mmy",
     within : settings.defaultWithin,
     context : settings.defaultContext,
@@ -8724,8 +8724,8 @@ settings.corpora.vnsk_ssv = {
 };
 
 settings.corpora.vnsk_stahlberg = {
-    title : "Stahlberg",
-    description : "Stahlberg",
+    title : "Ståhlberg",
+    description : "Ståhlberg",
     id : "vnsk_stahlberg",
     within : settings.defaultWithin,
     context : settings.defaultContext,
