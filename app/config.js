@@ -8537,8 +8537,8 @@ settings.corpora.vnsk_nyman = {
 };
 
 settings.corpora.vnsk_ovs = {
-    title : "Ovs",
-    description : "Ovs",
+    title : "Oulun Viikko-Sanomat",
+    description : "Oulun Viikko-Sanomat (1829-1833, 1837, 1841)",
     id : "vnsk_ovs",
     within : settings.defaultWithin,
     context : settings.defaultContext,
@@ -8647,8 +8647,8 @@ settings.corpora.vnsk_sandberg = {
 };
 
 settings.corpora.vnsk_schroter = {
-    title : "Schroter",
-    description : "Schroter",
+    title : "Schröter",
+    description : "Schröter",
     id : "vnsk_schroter",
     within : settings.defaultWithin,
     context : settings.defaultContext,
@@ -8680,8 +8680,8 @@ settings.corpora.vnsk_skogman = {
 };
 
 settings.corpora.vnsk_smtr = {
-    title : "Smtr",
-    description : "Smtr",
+    title : "Suomettaren vuosikertoja",
+    description : "Suomettaren vuosikerrat (1847-1848)",
     id : "vnsk_smtr",
     within : settings.defaultWithin,
     context : settings.defaultContext,
