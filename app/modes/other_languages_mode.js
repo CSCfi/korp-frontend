@@ -1087,6 +1087,17 @@ settings.corpora.swahili_sample = {
     },
 };
 
+settings.corpora.besercorp = {
+    title : "BeserCorp",
+    description : "The Corpus of Beserman Udmurt",
+    id : "besercorp",
+    metadata_urn : "urn:nbn:fi:lb-2015081401"
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : attrlist.besercorp,
+    struct_attributes : {}
+};
+
 
 var locally_available_corpora = ["(mulcold|legal)_..",
 				 "elfa",

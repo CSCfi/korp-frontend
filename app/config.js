@@ -1561,6 +1561,16 @@ attrlist.finstud = {
 };
 
 
+/* BESERCORP */
+attrlist.besercorp = {
+    msd : attrs.msd,
+    gloss : {
+        label : "gloss"
+    },
+    lex : {
+        label : "lex"
+    }
+};
 
 /* STUDENTSVENSKA */
 

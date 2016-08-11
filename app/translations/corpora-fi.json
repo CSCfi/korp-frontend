@@ -1499,5 +1499,7 @@
     "sentence_chapno" : "luku",
     "sentence_section" : "luvun nimi",
     "paragraph_class" : "kappaleen tyyli",
-    "paragraph_lang" : "kappaleen kieli"
+    "paragraph_lang" : "kappaleen kieli",
+    "gloss" : "glossaus (venäjä)",
+    "lex" : "lekseemi"
 }
