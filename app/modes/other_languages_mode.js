@@ -1091,7 +1091,7 @@ settings.corpora.besercorp = {
     title : "BeserCorp",
     description : "The Corpus of Beserman Udmurt",
     id : "besercorp",
-    metadata_urn : "urn:nbn:fi:lb-2015081401"
+    metadata_urn : "urn:nbn:fi:lb-2015081401",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : attrlist.besercorp,
