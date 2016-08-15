@@ -1869,7 +1869,11 @@ settings.corporafolders.literature = {
 
 settings.corporafolders.literature.skk = {
     title: "Suomalaisen kirjallisuuden klassikoita",
-    contents : ["skk_aho"]
+    urn : "urn:nbn:fi:lb-2015022401",
+    metadata_urn : "urn:nbn:fi:lb-20140730186",
+    licence : settings.licenceinfo.EUPL_11,
+    homepage : settings.fn.kaino_homepage("klassikot/meta/klassikot"),
+    contents : ["skk_aho","skk_canth","skk_finne","skk_jarnefelt","skk_kailas","skk_lassila","skk_linnankoski","skk_kramsu","skk_lehtonen","skk_leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"]
 };
 
 settings.corporafolders.legal = {
@@ -4736,6 +4740,8 @@ settings.corpora.reittidemo = {
     }
 };
 
+/* Suomalaisen kirjallisuuden klassikoita (SKK) */
+
 settings.corpora.skk_aho = {
     title : "Aho",
     description : "Juhani Ahon teoksia vuosilta 1891–1921.",
@@ -4752,7 +4758,220 @@ settings.corpora.skk_aho = {
     }
 };
 
+settings.corpora.skk_canth = {
+    title : "Canth",
+    description : "Suomalaisen kirjallisuuden klassikoita. Minna Canthin teoksia vuosilta 1884–1896.",
+    id : "skk_canth",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
 
+settings.corpora.skk_finne = {
+    title : "Finne",
+    description : "Jalmari Finnen teoksia vuosilta 1914–1925.",
+    id : "skk_finne",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_jarnefelt = {
+    title : "Järnefelt",
+    description : "Arvid Järnefeltin teoksia vuosilta 1893–1930.",
+    id : "skk_jarnefelt",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_kailas = {
+    title : "Kailas",
+    description : "Uuno Kailaksen teoksia vuosilta 1921–1932.",
+    id : "skk_kailas",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_lassila = {
+    title : "Lassila",
+    description : "Kolme Maiju Lassilana parhaiten tunnetun Algoth Untolan (vuoteen 1901 Tietäväisen) teosta. Kukin on julkaistu eri taitelijanimellä: Pojat asialla on merkitty Maiju Lassilan kirjoittamaksi, Avuttomat J. I. Vatasen ja Kuoleman rajoilla Irmari Rantamalan. Vuosilta 1911–1915.",
+    id : "skk_lassila",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_linnankoski = {
+    title : "Linnankoski",
+    description : "Väinö Linnankoski: Laulu tulipunaisesta kukasta (1905).",
+    id : "skk_linnankoski",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_kramsu = {
+    title : "Kramsu",
+    description : "Kaarlo Kramsun runoelmia vuosilta 1878–1887.",
+    id : "skk_kramsu",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_author : sattrs.text_author,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_lehtonen = {
+    title : "Lehtonen",
+    description : "Joel Lehtosen teoksia vuosilta 1911–1934.",
+    id : "skk_lehtonen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_author : sattrs.text_author,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_leino = {
+    title : "Leino",
+    description : "Eino Leinon kaikki alkuperäiskokoelmissa julkaistut runot ja runoelmat sekä runoja kokoelmien ulkopuolelta. Kirjailijan runonäytelmät eivät ole mukana.",
+    id : "skk_leino",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_author : sattrs.text_author,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_pakkala = {
+    title : "Pakkala",
+    description : "Teuvo Pakkalan teoksia vuosilta 1894–1913",
+    id : "skk_pakkala",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_author : sattrs.text_author,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_siljo = {
+    title : "Siljo",
+    description : "Juhani Siljon teoksia vuosilta 1910–1919",
+    id : "skk_siljo",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_author : sattrs.text_author,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_wilkuna = {
+    title : "Wilkuna",
+    description : "Kyösti Wilkuna, 1911 ",
+    id : "skk_wilkuna",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_author : sattrs.text_author,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_sodergran = {
+    title : "Södergran",
+    description : "Uuno Kailaksen suomennoksia Edith Södergranin teoksista vuosilta 1916–1925 (suom. 1929)",
+    id : "skk_sodergran",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_author : sattrs.text_author,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
 
 
 settings.corpora.kotus_klassikot = {
