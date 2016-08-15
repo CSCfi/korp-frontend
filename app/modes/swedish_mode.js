@@ -61,12 +61,13 @@ settings.corpora = {};
 settings.corporafolders = {};
 
 
-
+/*
 settings.corporafolders.koff = {
     title: "Paul Sinebrychoffs brevsamling",
     description: "Paul Sinebrychoffs brevsamling (1895-1908)",
     contents: ["sinebrychoff_orig", "sinebrychoff_fi"]
-};
+    };
+*/
 
 settings.corporafolders.klk_sv = {
     title : "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter",

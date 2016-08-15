@@ -6729,7 +6729,7 @@ attrlist.scotscorr = {
 /* SINEBRYCHOFF */
 
 attrlist.sinebrychoff = {
-    footnote : attrs.word_note
+    //footnote : attrs.word_note
 };
 
 sattrlist.sinebrychoff = {
