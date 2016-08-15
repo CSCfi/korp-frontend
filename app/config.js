@@ -1455,6 +1455,7 @@ sattrs.sentence_type = {
 	"stanza" : "stanza",
 	"speaker" : "speaker",
 	"stage" : "stage"
+    }
 };
 
 
