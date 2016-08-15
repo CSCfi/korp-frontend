@@ -1864,7 +1864,7 @@ settings.corporafolders.sks = {
 
 settings.corporafolders.literature = {
     title : "Kirjallisuutta",
-    contents : ["gutenberg", "kotus_klassikot", "sks_kivi_fi", "skvr"]
+    contents : ["gutenberg", "sks_kivi_fi", "skvr"]
 };
 
 settings.corporafolders.literature.skk = {
@@ -4979,7 +4979,7 @@ settings.corpora.skk_sodergran = {
         text_source : sattrs.text_source
     }
 };
-
+/*
 settings.corpora.kotus_klassikot = {
     title : "Suomalaisen kirjallisuuden klassikoita (näyte)",
     description : "Suomalaisen kirjallisuuden klassikoita (Kotimaisten kielten keskuksen aineisto)",
@@ -5023,7 +5023,7 @@ settings.corpora.kotus_klassikot = {
 	}
     }
 };
-
+*/
 
 /* FTC (Finnish Text Collection) aka SKTP */
 
