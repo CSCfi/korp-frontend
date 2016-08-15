@@ -1853,6 +1853,11 @@ settings.corporafolders.literature = {
     contents : ["gutenberg", "kotus_klassikot", "sks_kivi_fi", "skvr"]
 };
 
+settings.corporafolders.literature.skk = {
+    title: "Suomalaisen kirjallisuuden klassikoita",
+    contents : ["skk_aho"]
+};
+
 settings.corporafolders.legal = {
     title : "Juridisia tekstejä",
     contents : ["kotus_lakidir", "legal_fi", "mulcold_fi"]
@@ -4716,6 +4721,36 @@ settings.corpora.reittidemo = {
 	utterance_annex_link : sattrs.link_show_video_annex,
     }
 };
+
+settings.corpora.skk_aho = {
+    title : "Aho",
+    description : "Juhani Ahon teoksia vuosilta 1891–1921.",
+    id : "skk_aho",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : {
+            label : "sentence_type",
+            displayType : "select",
+            translationKey : "klassikot_",
+            dataset : {
+                "text" : "text",
+                "head" : "head",
+                "stanza" : "stanza",
+                "speaker" : "speaker",
+                "stage" : "stage"
+            },
+        },
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+
+
 
 settings.corpora.kotus_klassikot = {
     title : "Suomalaisen kirjallisuuden klassikoita (näyte)",
