@@ -1445,6 +1445,19 @@ sattrs.text_link_gutenberg = {
     url_opts : sattrs.link_url_opts
 };
 
+sattrs.sentence_type = {
+    label : "sentence_type",
+    displayType : "select",
+    translationKey : "klassikot_",
+    dataset : {
+	"text" : "text",
+	"head" : "head",
+	"stanza" : "stanza",
+	"speaker" : "speaker",
+	"stage" : "stage"
+};
+
+
 sattrs.sentence_id_hidden = {
     label : "sentence_id",
     displayType : "hidden"
@@ -4726,23 +4739,12 @@ settings.corpora.skk_aho = {
     title : "Aho",
     description : "Juhani Ahon teoksia vuosilta 1891–1921.",
     id : "skk_aho",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
+    within : settings.spWithin,
+    context : settings.spContext,
     attributes : {
     },
     struct_attributes : {
-        sentence_type : {
-            label : "sentence_type",
-            displayType : "select",
-            translationKey : "klassikot_",
-            dataset : {
-                "text" : "text",
-                "head" : "head",
-                "stanza" : "stanza",
-                "speaker" : "speaker",
-                "stage" : "stage"
-            },
-        },
+	sentence_type : sattrs.sentence_type,
         text_title : sattrs.text_title,
         text_distributor : sattrs.text_distributor,
         text_source : sattrs.text_source
