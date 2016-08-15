@@ -6726,6 +6726,21 @@ attrlist.scotscorr = {
     }
 };
 
+/* SINEBRYCHOFF */
+
+attrlist.sinebrychoff = {
+    footnote : attrs.word_note
+};
+
+sattrlist.sinebrychoff = {
+    text_url : sattrs.original_url,
+    text_date : {label : "date"},
+    text_sender : { label : "topling_from" },
+    text_receiver : { label : "topling_to"},
+    text_id : { label : "text_id" }
+};
+
+
 
 /* OPUS */
 
