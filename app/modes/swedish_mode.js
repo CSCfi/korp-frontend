@@ -61,6 +61,16 @@ settings.corpora = {};
 settings.corporafolders = {};
 
 
+settings.corporafolders.koff = {
+    title : "Paul Sinebrychoffs brevsamling",
+    description : "Paul Sinebrychoffs brevsampling (1895-1908)",
+    info : {
+        metadata_urn : "urn:nbn:fi:lb-201407303",
+        licence : settings.licenceinfo.CC_BY_30,
+    },
+    contents : ["sinebrychoff_orig", "sinebrychoff_fi"]
+};
+
 /*
 settings.corporafolders.koff = {
     title: "Paul Sinebrychoffs brevsamling",
