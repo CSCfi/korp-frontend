@@ -1869,13 +1869,18 @@ settings.corporafolders.literature = {
 
 settings.corporafolders.literature.skk = {
     title: "Suomalaisen kirjallisuuden klassikoita",
-    urn : "urn:nbn:fi:lb-2015022401",
-    metadata_urn : "urn:nbn:fi:lb-20140730186",
-    homepage : settings.fn.kaino_homepage("klassikot/meta/klassikot"),
-    contents : ["skk_aho"]
-    /*,"skk_canth","skk_finne","skk_jarnefelt","skk_kailas","skk_lassila","skk_linnankoski","skk_kramsu","skk_lehtonen","skk_leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"]
-     */
+    contents : ["skk_aho"],
+    info : {
+	urn : "urn:nbn:fi:lb-2015022401",
+	metadata_urn : "urn:nbn:fi:lb-20140730186",
+	licence : settings.licenceinfo.EUPL_11
+    }
 };
+
+/*,"skk_canth","skk_finne","skk_jarnefelt","skk_kailas","skk_lassila","skk_linnankoski","skk_kramsu","skk_lehtonen","skk_\
+leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"]
+*/
+
 
 settings.corporafolders.legal = {
     title : "Juridisia tekstejä",
