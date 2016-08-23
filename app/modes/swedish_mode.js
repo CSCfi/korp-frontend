@@ -61,6 +61,24 @@ settings.corpora = {};
 settings.corporafolders = {};
 
 
+settings.corporafolders.koff = {
+    title : "Paul Sinebrychoffs brevsamling",
+    description : "Paul Sinebrychoffs brevsampling (1895-1908)",
+    info : {
+        metadata_urn : "urn:nbn:fi:lb-201407303",
+        licence : settings.licenceinfo.CC_BY_30,
+    },
+    contents : ["sinebrychoff_orig", "sinebrychoff_fi"]
+};
+
+/*
+settings.corporafolders.koff = {
+    title: "Paul Sinebrychoffs brevsamling",
+    description: "Paul Sinebrychoffs brevsamling (1895-1908)",
+    contents: ["sinebrychoff_orig", "sinebrychoff_fi"]
+    };
+*/
+
 settings.corporafolders.klk_sv = {
     title : "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter",
     description : "Svenskspråkiga tidningar och tidskrifter i Nationalbibliotekets digitala samlingar, Kielipankki-version",
@@ -158,6 +176,27 @@ settings.corpora.kfspc_sv = {
     },
     struct_attributes : sattrlist.kfspc,
 };
+
+settings.corpora.sinebrychoff_orig = {
+    id : "sinebrychoff_orig",
+    title: "Paul Sinebrychoffs brevsamling",
+    description : "Paul Sinebrychoffs brevsamling",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.sinebrychoff,
+    struct_attributes : sattrlist.sinebrychoff
+};
+
+settings.corpora.sinebrychoff_fi = {
+    id : "sinebrychoff_fi",
+    title: "Paul Sinebrychoffin kirjeenvaihto",
+    description : "Paul Sinebrychoffin kirjeenvaihto, suomenkieliset käännökset",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.sinebrychoff,
+    struct_attributes : sattrlist.sinebrychoff
+};
+
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_sv"]);
 

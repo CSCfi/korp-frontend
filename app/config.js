@@ -1445,6 +1445,20 @@ sattrs.text_link_gutenberg = {
     url_opts : sattrs.link_url_opts
 };
 
+sattrs.sentence_type = {
+    label : "sentence_type",
+    displayType : "select",
+    translationKey : "klassikot_",
+    dataset : {
+	"text" : "text",
+	"head" : "head",
+	"stanza" : "stanza",
+	"speaker" : "speaker",
+	"stage" : "stage"
+    }
+};
+
+
 sattrs.sentence_id_hidden = {
     label : "sentence_id",
     displayType : "hidden"
@@ -1522,6 +1536,18 @@ sattrs.link_lehdet = {
     url_opts : sattrs.link_url_opts
 };
 
+/* VNSK */
+
+sattrlist.vnsk = {
+    text_title : sattrs.text_title,
+    text_distributor : sattrs.text_distributor,
+    text_source : sattrs.text_source,
+    paragraph_id : sattrs.paragraph_id,
+    paragraph_type : sattrs.paragraph_type,
+    sentence_id : sattrs.sentence_id_hidden,
+    sentence_n : sattrs.sentence_n
+};
+
 /* FINSTUD */
 
 sattrlist.finstud = {
@@ -1549,6 +1575,16 @@ attrlist.finstud = {
 };
 
 
+/* BESERCORP */
+attrlist.besercorp = {
+    msd : attrs.msd,
+    gloss : {
+        label : "gloss"
+    },
+    lex : {
+        label : "lex"
+    }
+};
 
 /* STUDENTSVENSKA */
 
@@ -1828,12 +1864,28 @@ settings.corporafolders.sks = {
 
 settings.corporafolders.literature = {
     title : "Kirjallisuutta",
-    contents : ["gutenberg", "kotus_klassikot", "sks_kivi_fi", "skvr"]
+    contents : ["gutenberg", "sks_kivi_fi", "skvr"]
 };
+
+settings.corporafolders.literature.skk = {
+    title: "Suomalaisen kirjallisuuden klassikoita",
+    contents : ["skk_aho","skk_canth","skk_finne","skk_jarnefelt","skk_kailas","skk_lassila","skk_linnankoski","skk_kramsu","skk_lehtonen","skk_leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"],
+    info : {
+	urn : "urn:nbn:fi:lb-2015022401",
+	metadata_urn : "urn:nbn:fi:lb-20140730186",
+	licence : settings.licenceinfo.EUPL_11,
+	homepage : settings.fn.kaino_homepage("klassikot/meta/klassikot")
+    }
+};
+
+/*,"skk_canth","skk_finne","skk_jarnefelt","skk_kailas","skk_lassila","skk_linnankoski","skk_kramsu","skk_lehtonen","skk_\
+leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"]
+*/
+
 
 settings.corporafolders.legal = {
     title : "Juridisia tekstejä",
-    contents : ["ns_saadokset", "legal_fi", "mulcold_fi"]
+    contents : ["kotus_lakidir", "legal_fi", "mulcold_fi"]
 };
 
 settings.corporafolders.internet = {
@@ -1871,13 +1923,13 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.lehdet.tiedelehdet = {
     title : "Tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_avain", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_elo", "tiedelehdet_ennenjanyt", "tiedelehdet_geofoorumi", "tiedelehdet_glossae", "tiedelehdet_harukaze", "tiedelehdet_havina", "tiedelehdet_historiallinen", "tiedelehdet_historianystava", "tiedelehdet_ilmansuojelu", "tiedelehdet_kieliskooppi", "tiedelehdet_kognitiivinen", "tiedelehdet_kompositio", "tiedelehdet_kosmopolis", "tiedelehdet_kulttuurintutkimus", "tiedelehdet_kulutustutkimus", "tiedelehdet_kunnallistiede", "tiedelehdet_liiketalous", "tiedelehdet_lounaishame", "tiedelehdet_maaseudunuusiaika", "tiedelehdet_matkailututkimus", "tiedelehdet_mediajaviestinta", "tiedelehdet_metsatiede", "tiedelehdet_musiikkikasv", "tiedelehdet_nimi", "tiedelehdet_poliittinentalous", "tiedelehdet_prologi", "tiedelehdet_psykologia", "tiedelehdet_rakmek", "tiedelehdet_ravitsemus", "tiedelehdet_ruralia", "tiedelehdet_sananjalka", "tiedelehdet_siirtolaisuus", "tiedelehdet_skas", "tiedelehdet_skholion", "tiedelehdet_kirkkohistoria", "tiedelehdet_tahiti", "tiedelehdet_taimiuutiset", "tiedelehdet_terra", "tiedelehdet_thanatos", "tiedelehdet_tietolinja", "tiedelehdet_toksikologi", "tiedelehdet_transmitteri", "tiedelehdet_trio", "tiedelehdet_tyoelama", "tiedelehdet_ura", "tiedelehdet_walbum", "tiedelehdet_vartija", "tiedelehdet_virittaja", "tiedelehdet_yhteiskuntapolitiikka", "tiedelehdet_ymparistohistoria"]
+    contents : ["tiedelehdet_30paivaa", "tiedelehdet_aakusti", "tiedelehdet_agricola", "tiedelehdet_aidinkieli", "tiedelehdet_aikuiskasvatus", "tiedelehdet_aluejaymparisto", "tiedelehdet_areiopagi", "tiedelehdet_ats", "tiedelehdet_auraica", "tiedelehdet_avain", "tiedelehdet_bryobrotherella", "tiedelehdet_diakonia", "tiedelehdet_elo", "tiedelehdet_ennenjanyt", "tiedelehdet_geofoorumi", "tiedelehdet_geologi", "tiedelehdet_glossae", "tiedelehdet_harukaze", "tiedelehdet_havina", "tiedelehdet_hykirjasto", "tiedelehdet_hiidenkivi", "tiedelehdet_historiallinen", "tiedelehdet_historianystava", "tiedelehdet_ilmansuojelu", "tiedelehdet_informaatio", "tiedelehdet_kasvu", "tiedelehdet_kieliskooppi", "tiedelehdet_kognitiivinen", "tiedelehdet_kompositio", "tiedelehdet_kosmopolis", "tiedelehdet_kulttuurintutkimus", "tiedelehdet_kulutustutkimus", "tiedelehdet_kunnallistiede", "tiedelehdet_liiketalous", "tiedelehdet_liikenteensuunta", "tiedelehdet_liikuntajatiede", "tiedelehdet_lounaishame", "tiedelehdet_maaseudunuusiaika", "tiedelehdet_matkailututkimus", "tiedelehdet_mediajaviestinta", "tiedelehdet_metsatiede", "tiedelehdet_muinaistutkija", "tiedelehdet_musiikinsuunta", "tiedelehdet_musiikkikasv", "tiedelehdet_niinnain", "tiedelehdet_nimi", "tiedelehdet_poliittinentalous", "tiedelehdet_prologi", "tiedelehdet_psykologia", "tiedelehdet_rakmek", "tiedelehdet_ravitsemus", "tiedelehdet_ruralia", "tiedelehdet_sananjalka", "tiedelehdet_siirtolaisuus", "tiedelehdet_skas", "tiedelehdet_skeptikko", "tiedelehdet_skholion", "tiedelehdet_sosiaalilaaketiede", "tiedelehdet_suo", "tiedelehdet_susa", "tiedelehdet_kirkkohistoria", "tiedelehdet_synnyt", "tiedelehdet_tahiti", "tiedelehdet_taimiuutiset", "tiedelehdet_teologinen", "tiedelehdet_terminfo", "tiedelehdet_terra", "tiedelehdet_thanatos", "tiedelehdet_tiedejaase", "tiedelehdet_tieteessatapahtuu", "tiedelehdet_tktlehti", "tiedelehdet_tietolinja", "tiedelehdet_toksikologi", "tiedelehdet_transmitteri", "tiedelehdet_trio", "tiedelehdet_tutkivasos", "tiedelehdet_tyoelama", "tiedelehdet_ura", "tiedelehdet_walbum", "tiedelehdet_vartija", "tiedelehdet_versus", "tiedelehdet_virittaja", "tiedelehdet_yhteiskuntapolitiikka", "tiedelehdet_ymparistohistoria"]
 };
 
 settings.corporafolders.lehdet.muut_lehdet = {
     title : "Muita lehtiä",
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
-    contents : ["lehdet_koskinen", "lehdet_ekonomi", "lehdet_selkosanomat"]
+    contents : ["lehdet_koskinen", "lehdet_ekonomi", "lehdet_leija", "lehdet_selkosanomat"]
 };
 
 settings.corporafolders.ftc = {
@@ -1927,7 +1979,7 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
 
 settings.corporafolders.spoken = {
     title : "Puhuttua kieltä (tekstiksi litteroituna)",
-    contents : ["kotus_sananparret", "skn", "dma"],
+    contents : ["kotus_sp", "skn", "dma"],
     // unselected : true
 };
 
@@ -1993,10 +2045,11 @@ settings.corporafolders.vks = {
 };
 
 settings.corporafolders.vns = {
-    title : "Varhaisnykysuomen korpus (näytteitä)",
-    contents : ["vns_asetus", "vns_renqvist", "vns_renvall"],
+    title : "Varhaisnykysuomen korpus",
+    /*contents : ["vns_asetus", "vns_renqvist", "vns_renvall"],*/
+    contents : ["vnsk_aejmelaeus","vnsk_ahlholm","vnsk_ahlman_kirjat","vnsk_ahlman_sanastot","vnsk_ahlqvist","vnsk_akiander","vnsk_aminoff","vnsk_almanakka","vnsk_anonyymi","vnsk_asetus","vnsk_aulen","vnsk_backvall","vnsk_bocker","vnsk_bonsdorff","vnsk_borenius","vnsk_borg","vnsk_cajan","vnsk_cannelin","vnsk_cantell","vnsk_canth","vnsk_corander","vnsk_costiander","vnsk_dahlberg","vnsk_edlund","vnsk_eklof","vnsk_euren","vnsk_europaeus","vnsk_europaeus_sanastot","vnsk_fabritius","vnsk_forsman","vnsk_forstrom","vnsk_friman","vnsk_frosterus","vnsk_gottlund","vnsk_granlund","vnsk_hannikainen","vnsk_hjelt","vnsk_hordh","vnsk_hornborg","vnsk_ignatius","vnsk_ingman","vnsk_innain","vnsk_juteini","vnsk_keckman","vnsk_kemell","vnsk_kilpinen","vnsk_kivi","vnsk_koskinen","vnsk_krohn","vnsk_lagervall","vnsk_lankela","vnsk_lavonius","vnsk_lilius_anton","vnsk_lilius_aukusti","vnsk_lonnrot","vnsk_malmberg","vnsk_mehilainen","vnsk_mela","vnsk_meurman","vnsk_mmy","vnsk_murman","vnsk_muut","vnsk_nyman","vnsk_ovs","vnsk_polen","vnsk_poppius","vnsk_puhuttelija","vnsk_rein","vns_renvall","vnsk_roos","vnsk_salmelainen","vnsk_salonius","vnsk_sanaluettelot","vnsk_sandberg","vnsk_schroter","vnsk_sirelius","vnsk_skogman","vnsk_smtr","vnsk_sohlberg","vnsk_soldan","vnsk_ssv","vnsk_stahlberg","vnsk_tarvanen","vnsk_ticklen","vnsk_tikkanen","vnsk_topelius","vnsk_toppelius","vnsk_tvs","vnsk_varelius","vnsk_virsikirja","vnsk_wallin","vnsk_wikman","vnsk_wiwolin","vnsk_yksitt"],
     info : {
-	// No Korp URN yet
+	urn : "urn:nbn:fi:lb-2016081203",
 	metadata_urn : "urn:nbn:fi:lb-20140730147",
 	licence : settings.licenceinfo.EUPL_11,
 	homepage : settings.fn.kaino_homepage("1800/meta/1800")
@@ -2105,7 +2158,7 @@ settings.fn.make_folder_hierarchy = function (parent_folder, subfolder_tree,
 	    var last_infoitem = info[info.length - 1];
 	    var last_stringinfo_nr = info.length - 1;
 	    if (typeof last_infoitem != "string") {
-		result.data = $.extend(result.data, last_infoitem);
+		result.data = $.extend(true, result.data, last_infoitem);
 		last_stringinfo_nr--;
 	    }
 	    for (var itemnr = 0; itemnr < info_strings.length; itemnr++) {
@@ -2438,6 +2491,518 @@ settings.corpora.ftb3_jrcacquis = {
 
 settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
 
+settings.corpora.tiedelehdet_hiidenkivi = {
+    title : "Hiidenkivi",
+    description : "Hiidenkivi (2009-2012)<br/>Julkaisijat: Kotimaisten kielten keskus, Suomalaisen Kirjallisuuden Seura, Suomen Kotiseutuliitto<br/>Kotisivu: <a href='http://www.hiidenkivi-lehti.fi/'>http://www.hiidenkivi-lehti.fi/</a>",
+    id : "tiedelehdet_hiidenkivi",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : {
+            label : "text_title"
+        },
+        text_year : {
+            label : "year"
+        },
+        text_issue : {
+            label : "issue"
+        },
+    }
+};
+
+
+settings.corpora.tiedelehdet_versus = {
+    title : "Versus",
+    description : "Versus (2/2011-1/2015)<br/>Julkaisija: Alue- ja ympäristöntutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/versus/'>http://www.ays.fi/versus/</a>",
+    id : "tiedelehdet_versus",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : {
+            label : "text_title"
+        },
+        text_year : {
+            label : "year"
+        },
+        text_issue : {
+            label : "issue"
+        },
+    }
+};
+
+
+settings.corpora.tiedelehdet_kasvu = {
+    title : "Kasvu",
+    description : "Kasvu (2012-1/2016)<br/>Julkaisija: Talentia ry<br/>Kotisivu: <a href='http://talentia.e-julkaisu.com/julkaisut/'>http://talentia.e-julkaisu.com/julkaisut/</a>",
+    id : "tiedelehdet_kasvu",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : {
+            label : "text_title"
+        },
+        text_year : {
+            label : "year"
+        },
+        text_issue : {
+            label : "issue"
+        },
+    }
+};
+
+
+settings.corpora.tiedelehdet_liikuntajatiede = {
+    title : "Liikunta ja tiede (tutkimusartikkelit)",
+    description : "Liikunta ja tiede (2008-2013)<br/>Julkaisija: Liikuntatieteellinen Seura ry<br/>Kotisivu: <a href='http://www.lts.fi/liikunta-tiede-lehti'>http://www.lts.fi/liikunta-tiede-lehti</a>",
+    id : "tiedelehdet_liikuntajatiede",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        },
+        text_year : {
+            label : "year"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_liikenteensuunta = {
+    title : "Liikenteen suunta",
+    description : "Liikenteen suunta (2012-2/2014)<br/>Julkaisija: Liikennevirasto<br/>Kotisivu: <a href='http://www.liikenteensuunta.fi/fi/'>http://www.liikenteensuunta.fi/fi/</a>",
+    id : "tiedelehdet_liikenteensuunta",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        },
+        text_year : {
+            label : "year"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_informaatio = {
+    title : "Informaatiotutkimus",
+    description : "Informaatiotutkimus (2000-2015)<br/>Julkaisija: Informaatiotutkimuksen yhdistys<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/inf'>http://ojs.tsv.fi/index.php/inf</a>",
+    id : "tiedelehdet_informaatio",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "text_publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        },
+        text_citation : {
+            label : "issue"
+        }
+    }
+};
+
+
+settings.corpora.tiedelehdet_hykirjasto = {
+    title : "Kansalliskirjasto-lehti/Helsingin yliopiston kirjaston tiedotuslehti",
+    description : "Helsingin yliopiston kirjaston tiedotuslehti (2000-2002) / Kansalliskirjasto-lehti (2003-2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='https://www.kansalliskirjasto.fi/fi/search?keys=yleistieto%20tiedotus%20kansalliskirjastolehti'>https://www.kansalliskirjasto.fi/</a>",
+    id : "tiedelehdet_hykirjasto",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "text_publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        },
+        text_citation : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_geologi = {
+    title : "Geologi",
+    description : "Geologi (2000, 2006-2013)<br/>Julkaisija: Suomen Geologinen Seura<br/>Kotisivu: <a href='http://www.geologinenseura.fi/geologi-lehti/'>http://www.geologinenseura.fi/geologi-lehti/</a>",
+    id : "tiedelehdet_geologi",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_musiikinsuunta = {
+    title : "Musiikin suunta",
+    description : "Musiikin suunta (2003-2013)<br/>Julkaisija: Suomen etnomusikologinen seura<br/>Kotisivu: <a href='http://www.etnomusikologia.fi/julkaisut/Mus.suunta.htm'>http://www.etnomusikologia.fi/julkaisut/</a>",
+    id : "tiedelehdet_musiikinsuunta",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "text_publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        },
+        text_citation : {
+            label : "issue"
+        }
+    }
+};
+
+
+settings.corpora.tiedelehdet_susa = {
+    title : "Suomalais-Ugrilaisen Seuran Aikakauskirja",
+    description : "Suomalais-Ugrilaisen Seuran Aikakauskirja (2006, 2011, 2013)<br/>Julkaisija: Suomalais-Ugrilainen seura<br/>Kotisivu: <a href='http://www.sgr.fi/susa/susa_fi.html'>http://www.sgr.fi/susa/</a>",
+    id : "tiedelehdet_susa",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title,
+        text_year : {
+            label : "year"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_sosiaalilaaketiede = {
+    title : "Sosiaalilääketieteellinen Aikakauslehti",
+    description : "Sosiaalilääketieteellinen Aikakauslehti (2006-2013)<br/>Julkaisija: Sosiaalilääketieteellinen yhdistys ry<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/SA/index'>http://ojs.tsv.fi/index.php/SA/index</a>",
+    id : "tiedelehdet_sosiaalilaaketiede",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "text_publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        },
+        text_citation : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_niinnain = {
+    title : "niin & näin",
+    description : "niin & näin (2000-4/2013)<br/>Julkaisija: Eurooppalaisen filosofian seura ry<br/>Kotisivu: <a href='http://netn.fi/lehti'>http://netn.fi/</a>",
+    id : "tiedelehdet_niinnain",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title,
+        text_year : {
+            label : "year"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_skeptikko = {
+    title : "Skeptikko",
+    description : "Skeptikko (2000-2015)<br/>Julkaisija: Skepsis ry<br/>Kotisivu: <a href='http://www.skepsis.fi/Julkaisuja/Skeptikkolehti.aspx'>http://www.skepsis.fi/</a>",
+    id : "tiedelehdet_skeptikko",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        },
+        text_year : {
+            label : "year"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_suo = {
+    title : "Suo",
+    description : "Suo (2005-2013)<br/>Julkaisija: Suoseura<br/>Kotisivu: <a href='http://www.suoseura.fi/suo/'>http://www.suoseura.fi/suo/</a>",
+    id : "tiedelehdet_suo",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        },
+        text_year : {
+            label : "year"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_teologinen = {
+    title : "Teologinen Aikakauskirja",
+    description : "Teologinen Aikakauskirja (2004-2013)<br/>Julkaisija: Teologinen Julkaisuseura ry<br/>Kotisivu: <a href='http://www.tatt.fi/'>http://www.tatt.fi/</a>",
+    id : "tiedelehdet_teologinen",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        },
+        text_year : {
+            label : "year"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_tieteessatapahtuu = {
+    title : "Tieteessä tapahtuu",
+    description : "Tieteessä tapahtuu (2000-2015)<br/>Julkaisija: Tieteellisten seurain valtuuskunta<br/><a href='http://www.tieteessatapahtuu.fi/'>http://www.tieteessatapahtuu.fi/</a>",
+    id : "tiedelehdet_tieteessatapahtuu",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "text_publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "date"
+        },
+        text_citation : {
+            label : "issue"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_terminfo = {
+    title : "Terminfo",
+    description : "Terminfo (2010-2015)<br/>Julkaisija: Sanastokeskus TSK<br/>Kotisivu: <a href='http://www.terminfo.fi/'>http://www.terminfo.fi/</a>",
+    id : "tiedelehdet_terminfo",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        },
+        text_year : {
+            label : "year"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_tktlehti = {
+    title : "Tietojenkäsittelytiede",
+    description : "Tietojenkäsittelytiede (2003-2015)<br/>Julkaisija: Tieojenkäsittelytieteen seura<br/>Kotisivu: <a href='http://www.cse.tkk.fi/fi/tkt-lehti/'>http://www.cse.tkk.fi/fi/tkt-lehti/</a>",
+    id : "tiedelehdet_tktlehti",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        },
+        text_year : {
+            label : "year"
+        },
+        text_date : sattrs.date
+    }
+};
+
+settings.corpora.tiedelehdet_synnyt = {
+    title : "Synnyt",
+    description : "Synnyt (2004-2013)<br/>Julkaisija: Synnyt/Origins<br/>Kotisivu: <a href='https://wiki.aalto.fi/display/Synnyt/Home'>https://wiki.aalto.fi/display/Synnyt/Home</a>",
+    id : "tiedelehdet_synnyt",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_url : sattrs.link_lehdet,
+        text_title : sattrs.text_title,
+        text_issue : {
+            label : "issue"
+        },
+        text_year : {
+            label : "year"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_muinaistutkija = {
+    title : "Muinaistutkija",
+    description : "Muinaistutkija (2000-2012)<br/>Julkaisija: Suomen arkeologinen seura<br/>Kotisivu: <a href='http://www.sarks.fi/mt/etusivu.html'>http://www.sarks.fi/mt/etusivu.html</a>",
+    id : "tiedelehdet_muinaistutkija",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_date : {
+            label : "year"
+        },
+        text_url : sattrs.link_lehdet,
+        text_issue : {
+            label : "issue"
+        }
+
+    }
+};
+
+
+settings.corpora.tiedelehdet_tutkivasos = {
+    title : "Tutkiva Sosiaalityö",
+    description : "Tutkiva Sosiaalityö (2010-2013)<br/>Julkaisija: Sosiaalityön tutkimuksen seura<br/>Kotisivu: <a href='http://www.sosiaalityontutkimuksenseura.fi/Tutkiva_sosiaality%C3%B6'>http://www.sosiaalityontutkimuksenseura.fi/Tutkiva_sosiaality%C3%B6</a>",
+    id : "tiedelehdet_tutkivasos",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_year : {
+            label : "year"
+        }
+    }
+};
+
+settings.corpora.tiedelehdet_tiedejaase = {
+    title : "Tiede ja Ase",
+    description : "Tiede ja Ase (2000-2013)<br/>Julkaisija: Suomen sotatieteellinen seura<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/ta'>http://ojs.tsv.fi/index.php/ta</a>",
+    id : "tiedelehdet_tiedejaase",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_citationabstracthtmlurl : sattrs.link_lehdet,
+        text_citationauthors : {
+            label : "text_author"
+        },
+        text_citationpublisher : {
+            label : "text_publisher"
+        },
+        text_citationtitle : {
+            label : "text_title"
+        },
+        text_citationdate : {
+            label : "year"
+        },
+        text_citation : {
+            label : "issue"
+        }
+    }
+};
+
+
 settings.corpora.tiedelehdet_avain = {
     title : "Avain",
     description : "Kirjallisuudentutkimuksen aikakauslehti Avain (2004-2015)<br/>Julkaisija: Kirjallisuudentutkijain Seura<br/>Kotisivu: <a href='http://pro.tsv.fi/skts/avain.html'>http://pro.tsv.fi/skts/avain.html</a>",
@@ -2497,7 +3062,7 @@ settings.corpora.tiedelehdet_ilmansuojelu = {
 
 settings.corpora.tiedelehdet_kieliskooppi = {
     title : "Kieliskooppi",
-    description : "Kieliskooppi (2012-2014)<br/>Julkaisija: Jyväskylän yliopiston kielikampus<br/>Kotisivu:<a href='http://research.jyu.fi/kieliskooppi/journals/'>http://research.jyu.fi/kieliskooppi/journals/</a>",
+    description : "Kieliskooppi (2012-2013)<br/>Julkaisija: Jyväskylän yliopiston kielikampus<br/>Kotisivu:<a href='http://research.jyu.fi/kieliskooppi/journals/'>http://research.jyu.fi/kieliskooppi/journals/</a>",
     id : "tiedelehdet_kieliskooppi",
     urn : "",
     metadata_urn : "",
@@ -2725,7 +3290,7 @@ settings.corpora.tiedelehdet_rakmek = {
 
 settings.corpora.tiedelehdet_nimi = {
     title : "NMI-Bulletin",
-    description : "NMI-Bulletin (2000-2012)<br/>Julkaisija: Niilo Mäki instituutti<br/>Kotisivu: <a href='http://bulletin.nmi.fi/arkisto/'>http://bulletin.nmi.fi/arkisto/</a>",
+    description : "NMI-Bulletin (2002-2003, 2007-2012)<br/>Julkaisija: Niilo Mäki instituutti<br/>Kotisivu: <a href='http://bulletin.nmi.fi/arkisto/'>http://bulletin.nmi.fi/arkisto/</a>",
     id : "tiedelehdet_nimi",
     urn : "",
     metadata_urn : "",
@@ -2786,7 +3351,7 @@ settings.corpora.tiedelehdet_metsatiede = {
 
 settings.corpora.tiedelehdet_ravitsemus = {
     title : "Ravitsemuskatsaus",
-    description : "Ravitsemuskatsaus (2000-2013)<br/>Julkaisija: Maito ja Terveys ry<br/>Kotisivu: <a href='http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php'>http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php</a>",
+    description : "Ravitsemuskatsaus (2007-2013)<br/>Julkaisija: Maito ja Terveys ry<br/>Kotisivu: <a href='http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php'>http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php</a>",
     id : "tiedelehdet_ravitsemus",
     urn : "",
     metadata_urn : "",
@@ -2812,7 +3377,7 @@ settings.corpora.tiedelehdet_ravitsemus = {
 
 settings.corpora.tiedelehdet_kulutustutkimus = {
     title : "Kulutustutkimus.Nyt",
-    description : "Kulutustutkimus.Nyt (2007-2014)<br/>Julkaisija: Kulutustutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulutustutkimus.net/nyt/'>http://www.kulutustutkimus.net/nyt/</a>",
+    description : "Kulutustutkimus.Nyt (2007-2013)<br/>Julkaisija: Kulutustutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulutustutkimus.net/nyt/'>http://www.kulutustutkimus.net/nyt/</a>",
     id : "tiedelehdet_kulutustutkimus",
     urn : "",
     metadata_urn : "",
@@ -2914,7 +3479,7 @@ settings.corpora.tiedelehdet_kirkkohistoria = {
 
 settings.corpora.tiedelehdet_skholion = {
     title : "Skholion",
-    description : "Skholion (2001-2012)<br/>Julkaisija: Suomen Bysantin tutkimuksen seura ry<br/>Kotisivu: <a href='http://www.protsv.fi/bts/BTSskholion.html'>http://www.protsv.fi/bts/BTSskholion.html</a>",
+    description : "Skholion (2009-1/2012)<br/>Julkaisija: Suomen Bysantin tutkimuksen seura ry<br/>Kotisivu: <a href='http://www.protsv.fi/bts/BTSskholion.html'>http://www.protsv.fi/bts/BTSskholion.html</a>",
     id : "tiedelehdet_skholion",
     urn : "",
     metadata_urn : "",
@@ -2995,7 +3560,7 @@ settings.corpora.tiedelehdet_taimiuutiset = {
 
 settings.corpora.tiedelehdet_kulttuurintutkimus = {
     title : "Kulttuurintutkimus",
-    description : "Kulttuurintutkimus (2000-2013)<br/>Julkaisija: Kulttuurintutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulttuurintutkimus.fi/lehti/'>http://www.kulttuurintutkimus.fi/lehti/</a>",
+    description : "Kulttuurintutkimus (2004-2013)<br/>Julkaisija: Kulttuurintutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulttuurintutkimus.fi/lehti/'>http://www.kulttuurintutkimus.fi/lehti/</a>",
     id : "tiedelehdet_kulttuurintutkimus",
     urn : "",
     metadata_urn : "",
@@ -3069,7 +3634,7 @@ settings.corpora.tiedelehdet_matkailututkimus = {
 
 settings.corpora.tiedelehdet_kunnallistiede = {
     title : "Kunnallistieteellinen aikakauskirja",
-    description : "Kunnallistieteellinen aikakauskirja (2002-2013)<br/>Julkaisija: Kunnallistieteen yhdistys<br/>Kotisivu: <a href='http://www.kunnallistiede.fi/aikakauskirja/'>http://www.kunnallistiede.fi/aikakauskirja/</a>",
+    description : "Kunnallistieteellinen aikakauskirja (2002-2012)<br/>Julkaisija: Kunnallistieteen yhdistys<br/>Kotisivu: <a href='http://www.kunnallistiede.fi/aikakauskirja/'>http://www.kunnallistiede.fi/aikakauskirja/</a>",
     id : "tiedelehdet_kunnallistiede",
     urn : "",
     metadata_urn : "",
@@ -3175,7 +3740,7 @@ settings.corpora.tiedelehdet_bryobrotherella = {
 
 settings.corpora.tiedelehdet_lounaishame = {
     title : "Lounais-Hämeen Luonto",
-    description : "Lounais-Hämeen Luonto (2000-2013)<br/>Julkaisija: Lounais-Hämeen Luonnonsuojeluyhdistys ry<br/>Kotisivu: <a href='http://www.lounaisluonto.net/'>http://www.lounaisluonto.net/</a>",
+    description : "Lounais-Hämeen Luonto (2000-2010)<br/>Julkaisija: Lounais-Hämeen Luonnonsuojeluyhdistys ry<br/>Kotisivu: <a href='http://www.lounaisluonto.net/'>http://www.lounaisluonto.net/</a>",
     id : "tiedelehdet_lounaishame",
     urn : "",
     metadata_urn : "",
@@ -3606,7 +4171,7 @@ settings.corpora.tiedelehdet_auraica = {
 
 settings.corpora.tiedelehdet_aikuiskasvatus = {
     title : "Aikuiskasvatus",
-    description : "Aikuiskasvatus (2008–2013)<br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura<br/>Kotisivu: <a href='http://www.doria.fi/handle/10024/7300'>http://www.doria.fi/handle/10024/7300</a>",
+    description : "Aikuiskasvatus (2011–2014)<br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura<br/>Kotisivu: <a href='http://www.doria.fi/handle/10024/7300'>http://www.doria.fi/handle/10024/7300</a>",
     id : "tiedelehdet_aikuiskasvatus",
     urn : "",
     metadata_urn : "",
@@ -3744,7 +4309,7 @@ settings.corpora.tiedelehdet_virittaja = {
 
 settings.corpora.tiedelehdet_virittaja = {
     title : "Virittäjä",
-    description : "Virittäjä (2006-2013)<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
+    description : "Virittäjä (3/2006-4/2013)<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
     id : "tiedelehdet_virittaja",
     urn : "",
     metadata_urn : "",
@@ -3875,7 +4440,7 @@ settings.corpora.tiedelehdet_thanatos = {
 
 settings.corpora.tiedelehdet_aluejaymparisto = {
     title : "Alue ja ympäristö",
-    description : "Alue ja ympäristö (2005–2015)<br/>Julkaisija: Alue- ja ympäristötutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/aluejaymparisto'>http://www.ays.fi/aluejaymparisto</a>",
+    description : "Alue ja ympäristö (2005–2014)<br/>Julkaisija: Alue- ja ympäristötutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/aluejaymparisto'>http://www.ays.fi/aluejaymparisto</a>",
     id : "tiedelehdet_aluejaymparisto",
     urn : "",
     metadata_urn : "",
@@ -3983,7 +4548,7 @@ settings.corpora.tiedelehdet_aidinkieli = {
 
 settings.corpora.tiedelehdet_kognitiivinen = {
     title : "Kognitiivinen psykoterapia",
-    description : "Kognitiivinen psykoterapia (2003-2013)<br/>Julkaisija: Kognitiivisen psykoterapian yhdistys<br/>Kotisivu: <a href='http://www.kognitiivinenpsykoterapia.fi/'>http://www.kognitiivinenpsykoterapia.fi/</a>",
+    description : "Kognitiivinen psykoterapia (2004-2013)<br/>Julkaisija: Kognitiivisen psykoterapian yhdistys<br/>Kotisivu: <a href='http://www.kognitiivinenpsykoterapia.fi/'>http://www.kognitiivinenpsykoterapia.fi/</a>",
     id : "tiedelehdet_kognitiivinen",
     urn : "",
     metadata_urn : "",
@@ -4023,6 +4588,29 @@ settings.corpora.lehdet_selkosanomat = {
         }
     }
 };
+
+settings.corpora.lehdet_leija = {
+    title : "Leija",
+    description : "Leija (2009-3/2016)<br/>Julkaisija: Kehitysvammaisen tukiliitto ry<br/>Kotisivu: <a href='http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/'>http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/</a>",
+    id : "lehdet_leija",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : {
+            label : "text_title"
+        },
+        text_year : {
+            label : "year"
+        },
+        text_issue : {
+            label : "issue"
+        },
+    }
+};
+
 
 settings.corpora.lehdet_ekonomi = {
     title : "Ekonomi",
@@ -4159,6 +4747,239 @@ settings.corpora.reittidemo = {
     }
 };
 
+/* Suomalaisen kirjallisuuden klassikoita (SKK) */
+
+settings.corpora.skk_aho = {
+    title : "Aho",
+    description : "Juhani Ahon teoksia vuosilta 1891–1921.",
+    id : "skk_aho",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : {
+	sentence_type : sattrs.sentence_type,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_canth = {
+    title : "Canth",
+    description : "Suomalaisen kirjallisuuden klassikoita. Minna Canthin teoksia vuosilta 1884–1896.",
+    id : "skk_canth",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_finne = {
+    title : "Finne",
+    description : "Jalmari Finnen teoksia vuosilta 1914–1925.",
+    id : "skk_finne",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_jarnefelt = {
+    title : "Järnefelt",
+    description : "Arvid Järnefeltin teoksia vuosilta 1893–1930.",
+    id : "skk_jarnefelt",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_kailas = {
+    title : "Kailas",
+    description : "Uuno Kailaksen teoksia vuosilta 1921–1932.",
+    id : "skk_kailas",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_lassila = {
+    title : "Lassila",
+    description : "Kolme Maiju Lassilana parhaiten tunnetun Algoth Untolan (vuoteen 1901 Tietäväisen) teosta. Kukin on julkaistu eri taitelijanimellä: Pojat asialla on merkitty Maiju Lassilan kirjoittamaksi, Avuttomat J. I. Vatasen ja Kuoleman rajoilla Irmari Rantamalan. Vuosilta 1911–1915.",
+    id : "skk_lassila",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_linnankoski = {
+    title : "Linnankoski",
+    description : "Väinö Linnankoski: Laulu tulipunaisesta kukasta (1905).",
+    id : "skk_linnankoski",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_kramsu = {
+    title : "Kramsu",
+    description : "Kaarlo Kramsun runoelmia vuosilta 1878–1887.",
+    id : "skk_kramsu",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_author : sattrs.text_author,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_lehtonen = {
+    title : "Lehtonen",
+    description : "Joel Lehtosen teoksia vuosilta 1911–1934.",
+    id : "skk_lehtonen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_author : sattrs.text_author,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_leino = {
+    title : "Leino",
+    description : "Eino Leinon kaikki alkuperäiskokoelmissa julkaistut runot ja runoelmat sekä runoja kokoelmien ulkopuolelta. Kirjailijan runonäytelmät eivät ole mukana.",
+    id : "skk_leino",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_author : sattrs.text_author,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_pakkala = {
+    title : "Pakkala",
+    description : "Teuvo Pakkalan teoksia vuosilta 1894–1913",
+    id : "skk_pakkala",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_author : sattrs.text_author,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_siljo = {
+    title : "Siljo",
+    description : "Juhani Siljon teoksia vuosilta 1910–1919",
+    id : "skk_siljo",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_author : sattrs.text_author,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_wilkuna = {
+    title : "Wilkuna",
+    description : "Kyösti Wilkuna, 1911 ",
+    id : "skk_wilkuna",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_author : sattrs.text_author,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+
+settings.corpora.skk_sodergran = {
+    title : "Södergran",
+    description : "Uuno Kailaksen suomennoksia Edith Södergranin teoksista vuosilta 1916–1925 (suom. 1929)",
+    id : "skk_sodergran",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : {
+        sentence_type : sattrs.sentence_type,
+        text_author : sattrs.text_author,
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source
+    }
+};
+/*
 settings.corpora.kotus_klassikot = {
     title : "Suomalaisen kirjallisuuden klassikoita (näyte)",
     description : "Suomalaisen kirjallisuuden klassikoita (Kotimaisten kielten keskuksen aineisto)",
@@ -4202,7 +5023,7 @@ settings.corpora.kotus_klassikot = {
 	}
     }
 };
-
+*/
 
 /* FTC (Finnish Text Collection) aka SKTP */
 
@@ -4585,6 +5406,73 @@ settings.fn.make_president_corpora = function () {
 settings.fn.make_president_corpora();
 
 
+settings.corpora.kotus_lakidir = {
+    title : "Lakeja ja direktiivejä",
+    description : "Lakeja ja direktiivejä vuosilta 1980–2003 (Kotimaisten kielten keskuksen aineisto)",
+    id : "kotus_lakidir",
+    urn : "urn:nbn:fi:lb-2016081201",
+    metadata_urn : "urn:nbn:fi:lb-20140730126",
+    licence : settings.licenceinfo.EUPL_11,
+    homepage : settings.fn.kaino_homepage("teko/meta/saadokset/saadokset"),
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        lemmacomp : attrs.baseform_compound,
+        pos : attrs.pos_kotus,
+        msd : attrs.msd,
+        id : attrs.id_hidden,
+        lex : attrs.lemgram_hidden
+    },
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source,
+        div_id : {
+            label : "div_id",
+            displayType : "hidden",
+        },
+        div_type : {
+            label : "div_type",
+            displayType : "select",
+            translationKey : "divtype_",
+            dataset : {
+                "section" : "section",
+                "section/law" : "section_law",
+                "section/end" : "section_end"
+            },
+            opts : settings.liteOptions
+        },
+        paragraph_id : sattrs.paragraph_id,
+        paragraph_type : {
+            label : "paragraph_type",
+            displayType : "select",
+            translationKey : "paragraphtype_",
+            dataset : {
+                "p" : "p",
+                "head" : "head",
+                "opener" : "opener",
+                "closer" : "closer"
+            },
+            opts : settings.liteOptions
+	},
+        sentence_id : sattrs.sentence_id_hidden,
+        sentence_type : {
+            label : "sentence_type",
+            displayType : "select",
+            translationKey : "sentencetype_",
+            dataset : {
+                "p" : "p",
+                "head" : "head",
+                "dateline" : "dateline",
+                "signed" : "signed"
+            },
+            opts : settings.liteOptions
+        }
+    }
+};
+
+/*
 settings.corpora.ns_saadokset = {
     title : "Lakeja ja direktiivejä (näyte)",
     description : "Lakeja ja direktiivejä vuosilta 2002–2003 (Kotimaisten kielten keskuksen aineisto)",
@@ -4650,12 +5538,12 @@ settings.corpora.ns_saadokset = {
 	}
     }
 };
-
-settings.corpora.kotus_sananparret = {
-    title : "Sananparsikokoelma (näyte)",
+*/
+settings.corpora.kotus_sp = {
+    title : "Sananparsikokoelma",
     description : "Suomen murteiden Sananparsikokoelma (1930-luvulta) (Kotimaisten kielten keskuksen aineisto)",
-    id : "kotus_sananparret",
-    // No Korp URN yet
+    id : "kotus_sp",
+    urn : "urn:nbn:fi:lb-2016081202",
     metadata_urn : "urn:nbn:fi:lb-20140730176",
     licence : settings.licenceinfo.EUPL_11,
     homepage : settings.fn.kaino_homepage("sp/meta/sp"),
@@ -5838,6 +6726,21 @@ attrlist.scotscorr = {
     }
 };
 
+/* SINEBRYCHOFF */
+
+attrlist.sinebrychoff = {
+    //footnote : attrs.word_note
+};
+
+sattrlist.sinebrychoff = {
+    text_url : sattrs.original_url,
+    text_date : {label : "date"},
+    text_sender : { label : "topling_from" },
+    text_receiver : { label : "topling_to"},
+    text_id : { label : "text_id" }
+};
+
+
 
 /* OPUS */
 
@@ -5873,14 +6776,6 @@ sattrlist.s24_update = {
     },
     text_subsections : {
         label : "suomi24fi_sub",
-    },
-    text_discussionarea_alias : {
-        label : "suomi24fi_sect_old",
-        displayOnly : "search",
-    },
-    text_subsections_alias : {
-        label : "suomi24fi_sub_old",
-        displayOnly : "search",
     },
     text_anonnick : {
         label : "suomi24fi_user",
@@ -5990,6 +6885,25 @@ sattrlist.europarl_v7 = {
 };
 
 attrlist.testerzya = {};
+
+sattrlist.erme = {
+    text_author : {
+        label : "text_author"
+    },
+    text_title : {
+        label : "text_booktitle"
+    },
+    text_corrector : {
+        label : "text_corrector"
+    },
+    text_year : {
+        label : "text_year"
+    },
+    sentence_id : sattrs.sentence_id_hidden,
+    sentence_pgno : {
+        label : "page_num"
+    }
+};
 
 sattrlist.testerzya = {
     text_author : {
@@ -7109,7 +8023,7 @@ settings.corpora.vks_virret = {
     }
 };
 
-
+/*
 settings.corpora.vns_asetus = {
     title : "Asetuksia (näyte)",
     description : "Asetuksia",
@@ -7169,6 +8083,1064 @@ settings.corpora.vns_renqvist = {
 	sentence_id : sattrs.sentence_id_hidden,
 	sentence_n : sattrs.sentence_n
     }
+};
+*/
+
+settings.corpora.vnsk_asetus = {
+    title : "Asetuksia",
+    description : "Asetuksia",
+    id : "vnsk_asetus",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+    },
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_distributor : sattrs.text_distributor,
+        text_source : sattrs.text_source,
+        article_id : {
+            label : "article_id"
+        },
+        paragraph_id : {
+            label : "lawparagraph_id"
+        },
+        sentence_type : {
+            label : "sentence_type",
+            displayType : "select",
+            translationKey : "sentencetype_",
+            dataset : {
+                "p" : "p",
+                "head" : "head",
+                "opening" : "opening"
+            },
+            opts : settings.liteOptions
+        },
+        sentence_id : sattrs.sentence_id_hidden,
+        hi_rend : {
+            label : "hi_rend",
+            displayType : "select",
+            translationKey : "hirend_",
+            dataset : {
+                "bold" : "bold"
+            },
+            opts : settings.liteOptions
+        }
+    }
+};
+
+
+settings.corpora.vnsk_kivi = {
+    title : "Kivi",
+    description : "Kivi",
+    id : "vnsk_kivi",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_keckman = {
+    title : "Keckman",
+    description : "Keckman",
+    id : "vnsk_keckman",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_cajan = {
+    title : "Cajan",
+    description : "Cajan",
+    id : "vnsk_cajan",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_cajan = {
+    title : "Cajan",
+    description : "Cajan",
+    id : "vnsk_cajan",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+
+settings.corpora.vnsk_cannelin = {
+    title : "Cannelin",
+    description : "Cannelin",
+    id : "vnsk_cannelin",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_aminoff = {
+    title : "Aminoff",
+    description : "Aminoff",
+    id : "vnsk_aminoff",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_ahlholm = {
+    title : "Ahlholm",
+    description : "Ahlholm",
+    id : "vnsk_ahlholm",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+
+settings.corpora.vnsk_yksitt = {
+    title : "Yksittäisiä",
+    description : "Yksittäisiä",
+    id : "vnsk_yksitt",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_aejmelaeus = {
+    title : "Aejmelaeus",
+    description : "Aejmelaeus",
+    id : "vnsk_aejmelaeus",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_ahlman_kirjat = {
+    title : "Ahlman kirjat",
+    description : "Ahlman kirjat",
+    id : "vnsk_ahlman_kirjat",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_ahlman_sanastot = {
+    title : "Ahlman sanastot",
+    description : "Ahlman sanastot",
+    id : "vnsk_ahlman_sanastot",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_ahlqvist = {
+    title : "Ahlqvist",
+    description : "Ahlqvist",
+    id : "vnsk_ahlqvist",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_akiander = {
+    title : "Akiander",
+    description : "Akiander",
+    id : "vnsk_akiander",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_almanakka = {
+    title : "Almanakka",
+    description : "Almanakka",
+    id : "vnsk_almanakka",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_anonyymi = {
+    title : "Anonyymi",
+    description : "Anonyymi",
+    id : "vnsk_anonyymi",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_aulen = {
+    title : "Aulen",
+    description : "Aulen",
+    id : "vnsk_aulen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_backvall = {
+    title : "Backvall",
+    description : "Backvall",
+    id : "vnsk_backvall",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_bocker = {
+    title : "Bocker",
+    description : "Bocker",
+    id : "vnsk_bocker",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_bonsdorff = {
+    title : "Bonsdorff",
+    description : "Bonsdorff",
+    id : "vnsk_bonsdorff",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_borenius = {
+    title : "Borenius",
+    description : "Borenius",
+    id : "vnsk_borenius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_borg = {
+    title : "Borg",
+    description : "Borg",
+    id : "vnsk_borg",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_cantell = {
+    title : "Cantell",
+    description : "Cantell",
+    id : "vnsk_cantell",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_corander = {
+    title : "Corander",
+    description : "Corander",
+    id : "vnsk_corander",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_costiander = {
+    title : "Costiander",
+    description : "Costiander",
+    id : "vnsk_costiander",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_dahlberg = {
+    title : "Dahlberg",
+    description : "Dahlberg",
+    id : "vnsk_dahlberg",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_edlund = {
+    title : "Edlund",
+    description : "Edlund",
+    id : "vnsk_edlund",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_eklof = {
+    title : "Eklof",
+    description : "Eklof",
+    id : "vnsk_eklof",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_euren = {
+    title : "Euren",
+    description : "Euren",
+    id : "vnsk_euren",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_europaeus = {
+    title : "Europaeus",
+    description : "Europaeus",
+    id : "vnsk_europaeus",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_europaeus_sanastot = {
+    title : "Europaeus sanastot",
+    description : "Europaeus sanastot",
+    id : "vnsk_europaeus_sanastot",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_fabritius = {
+    title : "Fabritius",
+    description : "Fabritius",
+    id : "vnsk_fabritius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_forsman = {
+    title : "Forsman",
+    description : "Forsman",
+    id : "vnsk_forsman",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_forstrom = {
+    title : "Forström",
+    description : "Forström",
+    id : "vnsk_forstrom",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_friman = {
+    title : "Friman",
+    description : "Friman",
+    id : "vnsk_friman",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_frosterus = {
+    title : "Frosterus",
+    description : "Frosterus",
+    id : "vnsk_frosterus",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_gottlund = {
+    title : "Gottlund",
+    description : "Gottlund",
+    id : "vnsk_gottlund",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_granlund = {
+    title : "Granlund",
+    description : "Granlund",
+    id : "vnsk_granlund",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_hannikainen = {
+    title : "Hannikainen",
+    description : "Hannikainen",
+    id : "vnsk_hannikainen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_hjelt = {
+    title : "Hjelt",
+    description : "Hjelt",
+    id : "vnsk_hjelt",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_hordh = {
+    title : "Hordh",
+    description : "Hordh",
+    id : "vnsk_hordh",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_hornborg = {
+    title : "Hornborg",
+    description : "Hornborg",
+    id : "vnsk_hornborg",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_ignatius = {
+    title : "Ignatius",
+    description : "Ignatius",
+    id : "vnsk_ignatius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_ingman = {
+    title : "Ingman",
+    description : "Ingman",
+    id : "vnsk_ingman",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_innain = {
+    title : "Innain",
+    description : "Innain",
+    id : "vnsk_innain",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_juteini = {
+    title : "Juteini",
+    description : "Juteini",
+    id : "vnsk_juteini",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_kemell = {
+    title : "Kemell",
+    description : "Kemell",
+    id : "vnsk_kemell",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_kilpinen = {
+    title : "Kilpinen",
+    description : "Kilpinen",
+    id : "vnsk_kilpinen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_koskinen = {
+    title : "Koskinen",
+    description : "Koskinen",
+    id : "vnsk_koskinen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_krohn = {
+    title : "Krohn",
+    description : "Krohn",
+    id : "vnsk_krohn",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_lagervall = {
+    title : "Lagervall",
+    description : "Lagervall",
+    id : "vnsk_lagervall",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_lankela = {
+    title : "Lankela",
+    description : "Lankela",
+    id : "vnsk_lankela",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_lavonius = {
+    title : "Lavonius",
+    description : "Lavonius",
+    id : "vnsk_lavonius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_lilius_anton = {
+    title : "Lilius Anton",
+    description : "Lilius Anton",
+    id : "vnsk_lilius_anton",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_lilius_aukusti = {
+    title : "Lilius Aukusti",
+    description : "Lilius Aukusti",
+    id : "vnsk_lilius_aukusti",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_lonnrot = {
+    title : "Lönnrot",
+    description : "Lönnrot",
+    id : "vnsk_lonnrot",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_malmberg = {
+    title : "Malmberg",
+    description : "Malmberg",
+    id : "vnsk_malmberg",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_mehilainen = {
+    title : "Mehilainen",
+    description : "Mehilainen",
+    id : "vnsk_mehilainen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_mela = {
+    title : "Mela",
+    description : "Mela",
+    id : "vnsk_mela",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_meurman = {
+    title : "Meurman",
+    description : "Meurman",
+    id : "vnsk_meurman",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_mmy = {
+    title : "Maamiehen Ystävä",
+    description : "Maamiehen Ystävä (1844-1845)",
+    id : "vnsk_mmy",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_murman = {
+    title : "Murman",
+    description : "Murman",
+    id : "vnsk_murman",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_muut = {
+    title : "Muut",
+    description : "Muut",
+    id : "vnsk_muut",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_nyman = {
+    title : "Nyman",
+    description : "Nyman",
+    id : "vnsk_nyman",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_ovs = {
+    title : "Oulun Viikko-Sanomat",
+    description : "Oulun Viikko-Sanomat (1829-1833, 1837, 1841)",
+    id : "vnsk_ovs",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_polen = {
+    title : "Polen",
+    description : "Polen",
+    id : "vnsk_polen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_poppius = {
+    title : "Poppius",
+    description : "Poppius",
+    id : "vnsk_poppius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_puhuttelija = {
+    title : "Puhuttelija",
+    description : "Puhuttelija",
+    id : "vnsk_puhuttelija",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_rein = {
+    title : "Rein",
+    description : "Rein",
+    id : "vnsk_rein",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_roos = {
+    title : "Roos",
+    description : "Roos",
+    id : "vnsk_roos",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_salmelainen = {
+    title : "Salmelainen",
+    description : "Salmelainen",
+    id : "vnsk_salmelainen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_salonius = {
+    title : "Salonius",
+    description : "Salonius",
+    id : "vnsk_salonius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_sanaluettelot = {
+    title : "Sanaluettelot",
+    description : "Sanaluettelot",
+    id : "vnsk_sanaluettelot",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_sandberg = {
+    title : "Sandberg",
+    description : "Sandberg",
+    id : "vnsk_sandberg",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_schroter = {
+    title : "Schröter",
+    description : "Schröter",
+    id : "vnsk_schroter",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_sirelius = {
+    title : "Sirelius",
+    description : "Sirelius",
+    id : "vnsk_sirelius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_skogman = {
+    title : "Skogman",
+    description : "Skogman",
+    id : "vnsk_skogman",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_smtr = {
+    title : "Suomettaren vuosikertoja",
+    description : "Suomettaren vuosikerrat (1847-1848)",
+    id : "vnsk_smtr",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_sohlberg = {
+    title : "Sohlberg",
+    description : "Sohlberg",
+    id : "vnsk_sohlberg",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_soldan = {
+    title : "Soldan",
+    description : "Soldan",
+    id : "vnsk_soldan",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_ssv = {
+    title : "Sanan Saattaja Viipurista",
+    description : "Sanan Saattaja Viipurista",
+    id : "vnsk_ssv",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_stahlberg = {
+    title : "Ståhlberg",
+    description : "Ståhlberg",
+    id : "vnsk_stahlberg",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_tarvanen = {
+    title : "Tarvanen",
+    description : "Tarvanen",
+    id : "vnsk_tarvanen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_ticklen = {
+    title : "Ticklen",
+    description : "Ticklen",
+    id : "vnsk_ticklen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_tikkanen = {
+    title : "Tikkanen",
+    description : "Tikkanen",
+    id : "vnsk_tikkanen",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_topelius = {
+    title : "Topelius",
+    description : "Topelius",
+    id : "vnsk_topelius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_toppelius = {
+    title : "Toppelius",
+    description : "Toppelius",
+    id : "vnsk_toppelius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_tvs = {
+    title : "Turun Viikko-Sanomat",
+    description : "Turun Viikko-Sanomat",
+    id : "vnsk_tvs",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_varelius = {
+    title : "Varelius",
+    description : "Varelius",
+    id : "vnsk_varelius",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_virsikirja = {
+    title : "Virsikirja",
+    description : "Virsikirja",
+    id : "vnsk_virsikirja",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_wallin = {
+    title : "Wallin",
+    description : "Wallin",
+    id : "vnsk_wallin",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_wikman = {
+    title : "Wikman",
+    description : "Wikman",
+    id : "vnsk_wikman",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
+};
+
+settings.corpora.vnsk_wiwolin = {
+    title : "Wiwolin",
+    description : "Wiwolin",
+    id : "vnsk_wiwolin",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.vnsk
 };
 
 settings.corpora.vns_renvall = {
@@ -8079,6 +10051,17 @@ settings.corpora.s24_008 = {
     attributes : attrlist.parsed_tdt,
     struct_attributes : sattrlist.s24_update
 };
+/*
+settings.corpora.s24_009test = {
+    title : "Suomi24 (test)",
+    description : "Suomi24-keskustelut (test)",
+    id : "s24_009test",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.parsed_tdt,
+    struct_attributes : sattrlist.s24_update
+};
+*/
 
 settings.corpora.s24_009 = {
     title : "Suomi24 (9/9)",
@@ -8250,15 +10233,24 @@ settings.corpora.iclfi = {
         text_levelhour : {
             label : "iclfi_levelhour"
 	},
-        text_levelcerfone : {
-            label : "iclfi_levelcerfone"
+        text_levelcefrone : {
+            label : "iclfi_levelcefrone"
 	},
-        text_levelcerftwo : {
-            label : "iclfi_levelcerftwo"
+        text_levelcefrtwo : {
+            label : "iclfi_levelcefrtwo"
 	},
         text_otherlangs : {
             label : "iclfi_otherlangs"
 	},
+        text_levelcefrthree : {
+            label : "iclfi_levelcefrthree"
+        },
+        text_levelcefrfour : {
+            label : "iclfi_levelcefrfour"
+        },
+        text_cefrlevel : {
+            label : "iclfi_cefrlevel"
+        },
         text_texttype : {
             label : "iclfi_texttype"
 	},

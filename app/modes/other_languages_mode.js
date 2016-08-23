@@ -26,6 +26,11 @@ settings.spContext = {
     "1 paragraph" : "1 paragraph"
 };
 
+settings.corporafolders.testikansio = {
+    title : "ERME",
+    description : "ERME",
+    contents : ["erme_mdf", "erme_myv"]
+};
 
 settings.corporafolders.fennougrica = {
     title : "Fenno-Ugrica",
@@ -44,7 +49,7 @@ settings.corporafolders.fennougrica = {
 settings.corporafolders.english = {
     title : "English / Englanti",
     description : "Texts in English<br/>Englanninkielisiä tekstejä",
-    contents : ["mulcold_en", "topling"]
+    contents : ["mulcold_en", "elfa", "topling"]
 };
 
 settings.corporafolders.german = {
@@ -289,6 +294,453 @@ settings.corpora.topling = {
     struct_attributes : sattrlist.topling
 };
 
+
+settings.corpora.elfa = {
+    id : "elfa",
+    title : "ELFA",
+    description : "ELFA – The Corpus of English as a Lingua Franca in Academic Settings (anonymised transcriptions), preliminary Korp version<br>The ELFA corpus contains 1 million words of transcribed spoken academic ELF (approximately 131 hours of recorded speech). The recordings were made at the University of Tampere, the University of Helsinki, Tampere University of Technology, and Helsinki University of Technology.<br/>IPR holder: Professor Anna Mauranen, University of Helsinki",
+    urn : "[to be added]",
+    // FIXME: This is the top-level ELFA metadata URN; change it to
+    // the one for the Korp version when available
+    metadata_urn : "urn:nbn:fi:lb-201403262",
+    licence : settings.licenceinfo.CC_BY,
+    // TODO: Add an IPR holder item (or something like that) to the
+    // standard info fields
+    // compiler : {
+    // 	name : "Anna Mauranen",
+    // },
+    context : settings.spContext,
+    within : settings.spWithin,
+    ignore_between_tokens_cqp : '[type != "word"]*',
+    attributes : {
+	type : {
+	    label : "token_type",
+	    displayType : "select",
+	    // translationKey : "",
+	    localize : false,
+	    opts : settings.liteOptions,
+	    dataset : {
+		"word" : "word",
+		"hesitation" : "hesitation",
+		"pause" : "pause",
+		"backchannel" : "backchannel",
+		"overlap_begin" : "overlap begin",
+		"overlap_end" : "overlap end",
+		"voice_shift" : "voice shift",
+		"mode_shift" : "mode shift",
+		"unclear" : "unclear",
+		"laugh" : "laugh",
+		"cough" : "cough",
+		"incident" : "incident",
+		"sigh.*" : "sigh",
+		"foreign.*|repeats the question in russian" : "foreign",
+		"humming" : "humming",
+		"name.*|(company|village) name|ethnic group|book title|.*e-mail address" : "name",
+		"pronounces the sound" : "pronounces the sound",
+		"pronounces the name" : "pronounces the name",
+		"makes an attacking noise" : "makes an attacking noise",
+		"inaudibly through the microphone" : "inaudibly through the microphone",
+		"imitates barking" : "imitates barking",
+		"gasp" : "gasp",
+		"clicking his tongue" : "clicking tongue",
+		"null" : "unspecified",
+	    },
+	},
+	subtype : {
+	    label : "token_subtype",
+	    displayType : "select",
+	    // translationKey : "",
+	    localize : false,
+	    opts : settings.liteOptions,
+	    dataset : {
+		"overlap" : "overlap",
+		"unfinished" : "unfinished",
+		"unclear" : "unclear",
+		"begin" : "begin",
+		"end" : "end",
+		"anonymized_name" : "anonymized name",
+		"foreign" : "foreign",
+		"sic" : "sic",
+		"null" : "unspecified",
+	    },
+	},
+	mode : {
+	    label : "action_type",
+	    displayType : "select",
+	    // translationKey : "",
+	    localize : false,
+	    opts : settings.liteOptions,
+	    dataset : {
+		"speaking" : "speaking",
+		"reading_aloud" : "reading aloud",
+		"writing_on_blackboard" : "writing on blackboard",
+		"null" : "unspecified",
+	    },
+	},
+	voice : {
+	    label : "speaking_mode",
+	    displayType : "select",
+	    // translationKey : "",
+	    localize : false,
+	    opts : settings.liteOptions,
+	    dataset : {
+		"normal" : "normal",
+		"laugh" : "laugh",
+		"whisp" : "whisp",
+		"mock_accent" : "mock accent",
+		"mutter" : "mutter",
+		"Finnish_pronunciation" : "Finnish pronunciation",
+		"spelling" : "spelling",
+		"imitating_stress" : "imitating stress",
+		"Italian_pronunciation" : "Italian pronunciation",
+		"Finnish_spelling" : "Finnish spelling",
+		"null" : "unspecified",
+	    },
+	},
+	tags : {
+	    label : "enclosing_elements",
+	    type : "set",
+	    displayType : "hidden",
+	},
+	synch_id : {
+	    label : "synch_id",
+	    isStructAttr : true,
+	},
+	synch_speaker_id : {
+	    label : "other_speaker_id",
+	    isStructAttr : true,
+	},
+	synch_content : {
+	    label : "other_speaker_content",
+	    isStructAttr : true,
+	},
+    },
+    struct_attributes : {
+	text_id : {
+	    label : "text_id",
+	},
+	text_domain : {
+	    label : "academic_domain",
+	    displayType : "select",
+	    translationKey : "academic_domain_",
+	    opts : settings.liteOptions,
+	    dataset : [
+		"behavioural_sciences",
+		"economics_and_administration",
+		"humanities",
+		"medicine",
+		"natural_sciences",
+		"other",
+		"social_sciences",
+		"technology",
+	    ],
+	},
+	text_discipline : {
+	    label : "academic_discipline",
+	    displayType : "select",
+	    localize : false,
+	    opts : settings.liteOptions,
+	    dataset : [
+		"accounting",
+		"automation engineering",
+		"biology",
+		"cell biology",
+		"cultural studies",
+		"economics",
+		"education",
+		"forestry",
+		"forest products chemistry",
+		"genetics",
+		"haematology",
+		"history of science & technology",
+		"industrial engineering and management",
+		"information sciences",
+		"information technology",
+		"internal medicine",
+		"international relations",
+		"journalism and mass communication",
+		"management studies",
+		"materials engineering",
+		"mathematics",
+		"multidisciplinary",
+		"neurology",
+		"other",
+		"philosophy",
+		"physics",
+		"political history",
+		"political science",
+		"public health",
+		"regional studies",
+		"Russian studies",
+		"Slavonic philology",
+		"social history",
+		"social policy",
+		"social policy and social work",
+		"sociology",
+		"Swedish philology",
+		"translation studies",
+		"virology",
+		"women's studies",
+	    ],
+	},
+	text_event_type : {
+	    label : "event_type",
+	    displayType : "select",
+	    // translationKey : "",
+	    localize : false,
+	    opts : settings.liteOptions,
+	    dataset : [
+		"conference discussion",
+		"conference presentation",
+		"doctoral defence discussion",
+		"doctoral defence presentation",
+		"ISSS seminar discussion",
+		"lecture",
+		"lecture discussion",
+		"panel discussion",
+		"post-graduate seminar discussion",
+		"post-graduate seminar presentation",
+		"presentation",
+		"seminar discussion",
+		"seminar presentation",
+	    ],
+	},
+	text_event_purpose : {
+	    label : "event_purpose",
+	    displayType : "select",
+	    translationKey : "event_purpose_",
+	    opts : settings.liteOptions,
+	    dataset : [
+		"discuss",
+		"inform",
+	    ],
+	},
+	text_event_num : {
+	    label : "event_num",
+	},
+	text_event_part : {
+	    label : "event_part",
+	},
+	text_title : {
+	    label : "title",
+	},
+	text_notes : {
+	    label : "notes",
+	},
+	text_preparedness : {
+	    label : "preparedness",
+	    displayType : "select",
+	    translationKey : "preparedness_",
+	    opts : settings.liteOptions,
+	    dataset : [
+		"true",
+		"false",
+	    ],
+	},
+	text_interaction_degree : {
+	    label : "interaction_degree",
+	    displayType : "select",
+	    translationKey : "interaction_degree_",
+	    opts : settings.liteOptions,
+	    dataset : [
+		"complete",
+		"partial",
+		"none",
+	    ],
+	},
+	text_duration_minsec : {
+	    label : "recording_duration",
+	},
+	text_recording_type : {
+	    label : "recording_type",
+	    displayType : "select",
+	    // translationKey : "",
+	    localize : false,
+	    opts : settings.liteOptions,
+	    dataset : [
+		"conference",
+		"university degree programme",
+	    ],
+	},
+	text_num_speakers : {
+	    label : "num_speakers",
+	},
+	text_num_participants : {
+	    label : "num_participants",
+	},
+	text_date : {
+	    label : "date",
+	},
+	text_publisher : {
+	    displayType : "hidden",
+	},
+	paragraph_speaker_type : {
+	    label : "speaker_identification",
+	    displayType : "select",
+	    translationKey : "speaker_ident_",
+	    opts : settings.liteOptions,
+	    dataset : [
+		"identified",
+		"several",
+		"unidentified",
+	    ],
+	},
+	paragraph_speaker_l1 : {
+	    label : "speaker_l1",
+	    type : "set",
+	    displayType : "select",
+	    translationKey : "",
+	    opts : settings.setOptions,
+	    dataset : {
+		"ada-GH" : "ada-GH",
+		"aka.*" : "aka",
+		"aka-GH" : "aka-GH",
+		"amh" : "amh",
+		"ara" : "ara",
+		"ben" : "ben",
+		"ber" : "ber",
+		"bul" : "bul",
+		"cat" : "cat",
+		"ces" : "ces",
+		"cym" : "cym",
+		"dag-GH" : "dag-GH",
+		"dan" : "dan",
+		"deu.*" : "deu",
+		"deu-AT" : "deu-AT",
+		"deu-CH" : "deu-CH",
+		"ell" : "ell",
+		"eng.*" : "eng",
+		"eng-AU" : "eng-AU",
+		"eng-BD" : "eng-BD",
+		"eng-CA" : "eng-CA",
+		"eng-CM" : "eng-CM",
+		"eng-GB" : "eng-GB",
+		"eng-GH" : "eng-GH",
+		"eng-HK" : "eng-HK",
+		"eng-IE" : "eng-IE",
+		"eng-IN" : "eng-IN",
+		"eng-JM" : "eng-JM",
+		"eng-LB" : "eng-LB",
+		"eng-NG" : "eng-NG",
+		"eng-NZ" : "eng-NZ",
+		"eng-TT" : "eng-TT",
+		"eng-US" : "eng-US",
+		"est" : "est",
+		"fas" : "fas",
+		"fin" : "fin",
+		"fra.*" : "fra",
+		"fra-BE" : "fra-BE",
+		"hau-NG" : "hau-NG",
+		"hay" : "hay",
+		"heb" : "heb",
+		"hin" : "hin",
+		"hrv" : "hrv",
+		"hun" : "hun",
+		"ibo" : "ibo",
+		"isl" : "isl",
+		"ita" : "ita",
+		"jpn" : "jpn",
+		"kik.*" : "kik",
+		"kik-KE" : "kik-KE",
+		"lav" : "lav",
+		"lit" : "lit",
+		"nep" : "nep",
+		"nld.*" : "nld",
+		"nld-BE" : "nld-BE",
+		"nor" : "nor",
+		"orm-ET" : "orm-ET",
+		"pol" : "pol",
+		"por.*" : "por",
+		"por-BR" : "por-BR",
+		"qaa" : "qaa",
+		"ron" : "ron",
+		"rus" : "rus",
+		"slk" : "slk",
+		"som" : "som",
+		"spa.*" : "spa",
+		"spa-AR" : "spa-AR",
+		"spa-CO" : "spa-CO",
+		"spa-MX" : "spa-MX",
+		"swe.*" : "swe",
+		"swe-FI" : "swe-FI",
+		"swh.*" : "swh",
+		"swh-KE" : "swh-KE",
+		"swh-TZ" : "swh-TZ",
+		"tur" : "tur",
+		"twi.*" : "twi",
+		"twi-GH" : "twi-GH",
+		"und.*" : "und",
+		"und-CA" : "und-CA",
+		"und-GH" : "und-GH",
+		"und-TZ" : "und-TZ",
+		"urd-PK" : "urd-PK",
+		"uzb" : "uzb",
+		"yor" : "yor",
+		"zho" : "zho",
+	    },
+	},
+	paragraph_speaker_role : {
+	    label : "academic_role",
+	    displayType : "select",
+	    translationKey : "academic_role_",
+	    opts : settings.liteOptions,
+	    dataset : [
+		"junior staff",
+		"junior staff and research student",
+		"masters student",
+		"other",
+		"research student",
+		"senior staff",
+		"undergraduate",
+		"unknown",
+	    ],
+	},
+	paragraph_speaker_age : {
+	    label : "age",
+	    displayType : "select",
+	    translationKey : "age_",
+	    opts : settings.liteOptions,
+	    dataset : [
+		"17-23",
+		"24-30",
+		"31-50",
+		"51-over",
+		"unknown",
+	    ],
+	},
+	paragraph_speaker_sex : {
+	    label : "gender",
+	    displayType : "select",
+	    translationKey : "",
+	    opts : settings.liteOptions,
+	    dataset : {
+		"male" : "male",
+		"female" : "female",
+		"unknown|null" : "unknown",
+	    }
+	},
+	paragraph_speaker_id : {
+	    label : "speaker_id",
+	},
+	paragraph_type : {
+	    label : "speech_event_type",
+	    displayType : "select",
+	    translationKey : "speech_event_type_",
+	    opts : settings.liteOptions,
+	    dataset : [
+		"utterance",
+		"incident",
+		"pause",
+	    ],
+	},
+	paragraph_id : {
+	    label : "turn_id",
+	},
+	sentence_id : sattrs.sentence_id_hidden,
+    },
+};
+
+
 /*
 settings.corpora.fennougrica_veps = {
     id : "fennougrica_veps",
@@ -397,7 +849,7 @@ settings.corpora.scots_royal = {
     struct_attributes : sattrlist.scotscorr
 };
 */
-
+/*
 settings.corpora.erzya = {
     id : "erzya",
     title : "Ersä (testikorpus)",
@@ -406,7 +858,36 @@ settings.corpora.erzya = {
     context : settings.spContext,
     attributes : attrlist.testerzya,
     struct_attributes : sattrlist.testerzya
+    };*/
+
+settings.corpora.erme_myv = {
+    id : "erme_myv",
+    title : "ERME (Ersä/Erzya)",
+    description : "ERME (Ersä/Erzya)",
+    licence : settings.licenceinfo.CC_BY,
+    /*limited_access : true,
+      licence_type : "ACA",*/
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.testerzya,
+    struct_attributes : sattrlist.erme,
+    unselected : true
 };
+
+settings.corpora.erme_mdf = {
+    id : "erme_mdf",
+    title : "ERME (Mokša/Moksha)",
+    description : "ERME (Mokša/Moksha)",
+    licence : settings.licenceinfo.CC_BY,
+    /*limited_access : true,
+    licence_type : "ACA",*/
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.testerzya,
+    struct_attributes : sattrlist.erme,
+    unselected: true
+};
+
 
 settings.corpora.kildin_sample = {
     id : "kildin_sample",
@@ -606,8 +1087,21 @@ settings.corpora.swahili_sample = {
     },
 };
 
+settings.corpora.besercorp = {
+    title : "BeserCorp",
+    description : "The Corpus of Beserman Udmurt",
+    id : "besercorp",
+    metadata_urn : "urn:nbn:fi:lb-2015081401",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : attrlist.besercorp,
+    struct_attributes : {}
+};
 
-var locally_available_corpora = ["(mulcold|legal)_..", "kildin_sample",
+
+var locally_available_corpora = ["(mulcold|legal)_..",
+				 "elfa",
+				 "kildin_sample",
 				 "swahili_sample"];
 
 if (! isPublicServer) {
