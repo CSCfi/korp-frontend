@@ -10491,6 +10491,7 @@ var locally_available_corpora =
     ["dma",
      "ftb(2|3_.*)",
      "reittidemo",
+     "klk_fi_18[234][0-9]",
      "kotus_ns_presidentti_.*",
      "kotus_klassikot",
      "kotus_sananparret",
