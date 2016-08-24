@@ -859,6 +859,12 @@
     "ne_expr" : "named entity",
     "ne_type" : "named entity type",
     "ne_subtype" : "named entity subtype",
+    "ne_fulltype" : "named entity full type",
+    "ne_name" : "name",
+    "ne_placename" : "place name",
+    "ne_placename_source" : "place name information source",
+    "ner_bio" : "word position in a name",
+
     "ne_expr_ENAMEX": "name expression",
     "ne_expr_TIMEX": "time expression",
     "ne_expr_NUMEX": "numerical expression",
@@ -879,6 +885,7 @@
     "ne_subtype_MTH" : "saint/apostle/god/mythical name/humanoid",
     "ne_subtype_ANM" : "animal/pet/mythical beasts",
     "ne_subtype_CLC" : "tribe/dynasty/ethnical or race name",
+    "ne_subtype_TIT" : "title",
     "ne_subtype_FIN" : "financial",
     "ne_subtype_ATH" : "athletic",
     "ne_subtype_CLT" : "cultural",
@@ -927,6 +934,15 @@
     "ne_subtype_LST" : "list",
     "ne_subtype_DAT" : "date",
     "ne_subtype_PER" : "period",
+    "ne_subtype_XXX" : "other",
+
+    "placename_source_ner" : "named-entity recognizer",
+    "placename_source_pos" : "parser or POS tagger",
+    "placename_source_meta" : "metadata",
+
+    "ner_bio_B" : "beginning (B)",
+    "ner_bio_I" : "inside (I)",
+    "ner_bio_O" : "outside (O)",
 
     "namecat_EnamexLocGpl" : "geographical",
     "namecat_EnamexLocPpl" : "geopolitical",

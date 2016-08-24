@@ -1344,6 +1344,131 @@ attrs.ne_subtype = {
        return util.getLocaleString("ne_subtype_" + val);
    }
 };
+
+// Name attributes for corpora tagged with (Fi)NER.
+//
+// The attributes ne_* are intra-sentence structural attributes that
+// are shown in Korp as token attributes, shown only for the tokens
+// within an ne structure (isStructAttr : true). This approach is
+// borrowed from Språkbanken but with a couple of additional
+// attributes.
+
+// FiNER name types
+attrs.ne_type_fi = {
+    label : "ne_type",
+    translationKey : "ne_type_",
+    isStructAttr : true,
+    dataset : [
+	"LOC",
+	"PRS",
+	"ORG",
+	// "EVN",
+	// "WRK",
+	// "OBJ",
+	"MSR",
+	"TME"
+   ]
+};
+// FiNER name subtypes
+attrs.ne_subtype_fi = {
+    label : "ne_subtype",
+    translationKey : "ne_subtype_",
+    isStructAttr : true,
+    dataset : [
+	"ATH",
+	"CLT",
+	"CRP",
+	"CUR",
+	"DAT",
+	"EDU",
+	"GPL",
+	"HUM",
+	"PLT",
+	"PPL",
+	"STR",
+	"TIT",
+	"TVR",
+	"XXX",
+   ],
+};
+// FiNER full name types: expression category, type, subtype
+attrs.ne_fulltype_fi = {
+    label : "ne_fulltype",
+    translationKey : "namecat_",
+    isStructAttr : true,
+    dataset : [
+	"EnamexPrsHum",
+	"EnamexPrsTit",
+	"EnamexLocXxx",
+	"EnamexLocGpl",
+	"EnamexLocPpl",
+	"EnamexLocStr",
+	"EnamexOrgAth",
+	"EnamexOrgClt",
+	"EnamexOrgCrp",
+	"EnamexOrgEdu",
+	"EnamexOrgPlt",
+	"EnamexOrgTvr",
+	"NumexMsrCur",
+	"NumexMsrXxx",
+	"TimexTmeDat",
+    ],
+};
+// The name (tokens) within the ne structure
+attrs.ne_name = {
+    label : "ne_name",
+    isStructAttr : true,
+};
+// If the name is a place name, it is repeated here. This attribute
+// can represent place name information obtained from NER, POS tags or
+// metadata, as indicated by ne_placename_source below.
+attrs.ne_placename = {
+    label : "ne_placename",
+    isStructAttr : true,
+};
+// The source of the place name information.
+attrs.ne_placename_source = {
+    label : "ne_placename_source",
+    displayType : "select",
+    translationKey : "placename_source_",
+    dataset : [
+	"ner",
+	"pos",
+	"meta",
+    ],
+    isStructAttr : true,
+};
+// The raw (Fi)NER tag as a positional attriute
+attrs.ner_rawtag = {
+    label : "ner_tag_raw",
+    displayType : "hidden",
+};
+// The B-I-O status of token as a positional attribute: Beginning a
+// name, Inside a name and Outside a name
+attrs.ner_bio = {
+    label : "ner_bio",
+    translationKey : "ner_bio_",
+    isStructAttr : true,
+    dataset : [
+	"B",
+	"I",
+	"O",
+    ],
+};
+
+// Common name attributes for (Fi)NER-tagged corpora
+attrlist.finer = {
+    ne_name : attrs.ne_name,
+    ne_ex : attrs.ne_ex,
+    ne_type : attrs.ne_type_fi,
+    ne_subtype : attrs.ne_subtype_fi,
+    ne_fulltype : attrs.ne_fulltype_fi,
+    ne_placename : attrs.ne_placename,
+    ne_placename_source : attrs.ne_placename_source,
+    nertag : attrs.ner_rawtag,
+    nerbio : attrs.ner_bio,
+};
+
 sattrs.date = {
     label : "date",
     displayType : "date"

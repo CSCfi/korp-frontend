@@ -563,6 +563,12 @@
     "ne_expr" : "namnentitet",
     "ne_type" : "namnentitetstyp",
     "ne_subtype" : "namnentitetsundertyp",
+    "ne_fulltype" : "namnentitets hela typ",
+    "ne_name" : "namn",
+    "ne_placename" : "platsnamn",
+    "ne_placename_source" : "platsnamnsinformationskälla",
+    "ner_bio" : "ordets läge i namnet",
+
     "ne_expr_ENAMEX": "namnuttryck",
     "ne_expr_TIMEX": "tidsuttryck",
     "ne_expr_NUMEX": "numeriskt uttryck",
@@ -583,6 +589,7 @@
     "ne_subtype_MTH" : "helgon/apostel/gud/mytiskt namm/humanoid",
     "ne_subtype_ANM" : "djur/husdjur/mytiskt odjur",
     "ne_subtype_CLC" : "stam/dynasti/etniskt namn",
+    "ne_subtype_TIT" : "titel",
     "ne_subtype_FIN" : "finansiell",
     "ne_subtype_ATH" : "atletisk",
     "ne_subtype_CLT" : "kulturell",
@@ -631,6 +638,15 @@
     "ne_subtype_LST" : "lista",
     "ne_subtype_DAT" : "datum",
     "ne_subtype_PER" : "period",
+    "ne_subtype_XXX" : "annat",
+
+    "placename_source_ner" : "namnigenkännare",
+    "placename_source_pos" : "parser eller ordklasstaggare",
+    "placename_source_meta" : "metadata",
+
+    "ner_bio_B" : "början (B)",
+    "ner_bio_I" : "innanför (I)",
+    "ner_bio_O" : "utanför (O)",
 
     "namecat_EnamexLocGpl" : "geografisk",
     "namecat_EnamexLocPpl" : "geopolitisk",
