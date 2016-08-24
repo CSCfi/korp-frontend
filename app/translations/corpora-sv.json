@@ -535,22 +535,6 @@
     "show_page_image_context" : "Visa originalsida med ordkontext i fet stil",
     "download_publ_pdf" : "Ladda ner publikationen som PDF",
 
-    "namecat_EnamexLocGpl" : "geografisk",
-    "namecat_EnamexLocPpl" : "geopolitisk",
-    "namecat_EnamexLocStr" : "gata eller väg",
-    "namecat_EnamexLocXxx" : "annan plats",
-    "namecat_EnamexPrsHum" : "person",
-    "namecat_EnamexPrsTit" : "titel",
-    "namecat_EnamexOrgAth" : "idrottsklubb",
-    "namecat_EnamexOrgClt" : "kulturorganisation",
-    "namecat_EnamexOrgCrp" : "bolag eller förening",
-    "namecat_EnamexOrgEdu" : "utbildningsinstitution",
-    "namecat_EnamexOrgPlt" : "parti",
-    "namecat_EnamexOrgTvr" : "massmedia",
-    "namecat_NumexMsrCur" : "pengar",
-    "namecat_NumexMsrXxx" : "annat numeriskt uttryck",
-    "namecat_TimexTmeDat" : "tidsuttryck",
-
     "librisid" : "Libris-ID",
 
     "edition" : "utgåva",
