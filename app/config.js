@@ -7563,7 +7563,8 @@ attrlist.klk_fi_parsed =
 	    ref : attrs.ref,
 	    lex : attrs.lemgram_hidden
 	},
-	attrlist.klk_fi);
+	attrlist.klk_fi,
+	attrlist.finer);
 
 attrlist.klk_fi_parsed_pagelinks = attrlist.klk_fi_parsed;
 
@@ -7656,6 +7657,8 @@ settings.fn.make_klk_corpus_settings = function(
 
 
 var klk_fi_parsed_years = settings.fn.make_yearlist(1820, 2000);
+// // All KLK Fi corpora now have NER tags, so this is not needed
+// var klk_fi_ner_years = settings.fn.make_yearlist(1820, 1820);
 
 // Generate settings.corpora and settings.corporafolders for the
 // Finnish KLK corpora by using the above functions
@@ -7681,7 +7684,15 @@ settings.fn.make_corpus_settings_by_year_decade(
 			       omit : [1828, 1843]})
 );
 
+// for (var i = 0; i < klk_fi_ner_years.length; i++) {
+//     var year = klk_fi_ner_years[i];
+//     var corpsettings = settings.corpora["klk_fi_" + year.toString()];
+//     corpsettings.attributes = $.extend({}, corpsettings.attributes,
+// 				       attrlist.finer);
+// }
+
 delete klk_fi_parsed_years;
+// delete klk_fi_ner_years;
 
 
 /*
