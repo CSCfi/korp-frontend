@@ -66,6 +66,17 @@ settings.corporafolders.russian = {
     // unselected : true
 };
 
+settings.corporafolders.hcs2 = {
+    title : "Helsinki Corpus of Swahili 2.0 (HCS 2.0)",
+    description : "Helsinki Corpus of Swahili 2.0 (HCS 2.0) Annotated Version<br/><br><a href=\"https://www.kielipankki.fi/corpora/hcs2/\" target=\"_blank\">Corpus information page, including descriptions of annotation feature values (tags)</a>",
+    info : {
+	urn : "[to be added]",
+	metadata_urn : "urn:nbn:fi:lb-2016011301",
+	licence : settings.licenceinfo.ACA_NC,
+    },
+};
+
+
 /* 
 settings.corporafolders.scotscorr = {
     title : "ScotsCorr",
@@ -1023,6 +1034,7 @@ settings.corpora.kildin_sample = {
 };
 
 
+/*
 settings.corpora.swahili_sample = {
     id : "swahili_sample",
     title : "Swahili (sample)",
@@ -1086,6 +1098,167 @@ settings.corpora.swahili_sample = {
 	sentence_id : sattrs.sentence_id_hidden,
     },
 };
+*/
+
+
+settings.templ.hcs2_common = {
+    id : "",
+    title : "",
+    description : "",
+    limited_access : true,
+    licence_type : "ACA",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes : {
+	lemma : attrs.baseform,
+	pos : {
+	    label : "pos",
+	    displayType : "select",
+	    // translationKey : "pos_",
+	    localize : "false",
+	    dataset : [
+		"A-UNINFL",
+		"ABBR",
+		"ADJ",
+		"ADJ-PR-REL",
+		"ADV",
+		"AG-PART",
+		"CC",
+		"CONJ",
+		"CONJ/CC",
+		"DEM",
+		"EXCLAM",
+		"GEN-CON",
+		"GEN-CON-KWA",
+		"INTERROG",
+		"N",
+		"NUM",
+		"NUM-ROM",
+		"POSS-PRON",
+		"PREP",
+		"PREP/ADV",
+		"PRON",
+		"PROPNAME",
+		"REL-LI",
+		"REL-LI-NEG",
+		"REL-LI-VYO",
+		"REL-SI",
+		"REL-SI-VYO",
+		"TITLE",
+		"V",
+		"V-BE",
+		"V-DEF",
+		"_",
+	    ],
+	    opts : settings.liteOptions,
+	},
+	msd : {
+	    label : "msd",
+	    taginfo_url : "",
+	},
+	gloss : {
+	    label : "gloss",
+	},
+	syntax : {
+	    label : "syntactic_function",
+	    displayType : "select",
+	    localize : "false",
+	    dataset : [
+		"@-FAUXV",
+		"@-FMAINV",
+		"@-FMAINV-n",
+		"@-FMAINVkwisha<",
+		"@<AD-A",
+		"@<DN",
+		"@<NADJ",
+		"@<NDEM",
+		"@<NH",
+		"@<P",
+		"@<QN",
+		"@AD-A>",
+		"@ADVL",
+		"@AG",
+		"@CC",
+		"@CS",
+		"@DN>",
+		"@FAUXV",
+		"@FMAINV",
+		"@FMAINVintr",
+		"@FMAINVintr-ass",
+		"@FMAINVintr-def",
+		"@FMAINVintr-loc",
+		"@FMAINVtr+OBJ>",
+		"@FMAINVtr-OBJ>",
+		"@GCON",
+		"@I-OBJ",
+		"@NADJ",
+		"@NADJ>",
+		"@NDEM>",
+		"@NH",
+		"@OBJ",
+		"@P>",
+		"@PAT",
+		"@PCOMPL-S",
+		"@SUBJ",
+		"@SUBJ+rel",
+		"_",
+	    ],
+	    opts : settings.liteOptions,
+	},
+	msdextra : {
+	    label : "extra_features",
+	},
+    },
+    struct_attributes : {
+	text_title : sattrs.text_title,
+	text_filename : sattrs.filename,
+	text_year : sattrs.year,
+	sentence_id : sattrs.sentence_id_hidden,
+    },
+};
+
+hcs2_news_extra_props = {
+    struct_attributes : {
+	text_month : sattrs.month,
+    }
+};
+
+hcs2_hierarchy = [
+    ["old", "Old material", "Material up to 2003, mostly from HCS 1.0", [
+	["old_books", "Books", {
+	    struct_attributes : {
+		text_author : sattrs.author,
+		text_publisher : sattrs.text_publisher,
+		text_place : sattrs.text_publ_place,
+	    }
+	}],
+	["old_news", "News (old)", hcs2_news_extra_props],
+    ] ],
+    ["new", "New material", "Material after 2003, new to HCS 2.0", [
+	["new_bunge", "Bunge", "Hansards of Tanzanian Parliament 2004–2006", {
+	    struct_attributes : {
+		text_month : sattrs.month,
+		text_day : sattrs.day_of_month,
+	    }
+	}],
+	["new_news", "News (new)", hcs2_news_extra_props],
+    ] ],
+];
+
+settings.fn.make_folder_hierarchy(
+    settings.corporafolders.hcs2, hcs2_hierarchy,
+    {
+	id_prefix : "hcs2_",
+	title_prefix : "HCS 2.0: ",
+	description_prefix : "Helsinki Corpus of Swahili 2.0 (HCS 2.0) Annotated Version: ",
+	corpus_template : settings.templ.hcs2_common,
+    });
+
+delete hcs2_hierarchy;
+delete hcs2_news_extra_props;
+
+settings.corpus_aliases.hcs = "hcs2_.*";
+settings.corpus_aliases.hcs2 = "hcs2_.*";
 
 settings.corpora.besercorp = {
     title : "BeserCorp",

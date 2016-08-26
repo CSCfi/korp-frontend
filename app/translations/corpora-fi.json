@@ -1304,6 +1304,7 @@
     "text_period" : "tekstin ajankohta",
 
     "publication_date" : "julkaisuajankohta",
+    "publication_place" : "julkaisupaikka",
 
     "author_birthyear" : "tekijän syntymävuosi",
     "author_deathyear" : "tekijän kuolinvuosi",
@@ -1569,6 +1570,10 @@
     "scotscorr_st" : "transkription tiedot",
     "scotscorr_fraser" : "kuvaus",
     "link_to_original" : "linkki alkuperäiseen",
+
+    "gloss" : "glossi",
+    "syntactic_function" : "syntaktinen funktio",
+    "extra_features" : "lisäpiirteet",
 
     "studentsvenska_code" : "syntaktinen funktio",
     "studentsvenska_properties" : "lausetyyppi",
