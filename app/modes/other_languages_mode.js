@@ -1117,27 +1117,21 @@ settings.templ.hcs2_common = {
 	    // translationKey : "pos_",
 	    localize : "false",
 	    dataset : [
-		"A-UINFL",
+		"A-UNINFL",
 		"ABBR",
-		"AD-ADJ",
 		"ADJ",
-		"ADJ-POST",
 		"ADJ-PR-REL",
-		"ADJ-PRE",
 		"ADV",
 		"AG-PART",
 		"CC",
 		"CONJ",
 		"CONJ/CC",
-		"DEF-V",
 		"DEM",
 		"EXCLAM",
 		"GEN-CON",
 		"GEN-CON-KWA",
 		"INTERROG",
 		"N",
-		"NA-POSS",
-		"NEG",
 		"NUM",
 		"NUM-ROM",
 		"POSS-PRON",
@@ -1170,9 +1164,10 @@ settings.templ.hcs2_common = {
 	    displayType : "select",
 	    localize : "false",
 	    dataset : [
-		"@+FMAINV",
 		"@-FAUXV",
 		"@-FMAINV",
+		"@-FMAINV-n",
+		"@-FMAINVkwisha<",
 		"@<AD-A",
 		"@<DN",
 		"@<NADJ",
@@ -1229,7 +1224,7 @@ hcs2_news_extra_props = {
 };
 
 hcs2_hierarchy = [
-    ["old", "Old material", "Material before 2003, mostly from HCS 1.0", [
+    ["old", "Old material", "Material up to 2003, mostly from HCS 1.0", [
 	["old_books", "Books", {
 	    struct_attributes : {
 		text_author : sattrs.author,
