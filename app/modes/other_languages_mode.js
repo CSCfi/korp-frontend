@@ -1735,16 +1735,17 @@ attrs.scotscorr_word = {
         '<li><a ng-click="makeSensitive()">{{"case_sensitive" | loc:lang}}</a></li>' +
         '<li><a ng-click="makeInsensitive()">{{"case_insensitive" | loc:lang}}</a></li>' +
         '</ul>',
-    controller : function($scope, $modal) {
+    controller : function ($scope, $modal) {
+	var s = $scope;
 	var modal = null;
-	$scope.words = [];
-	$scope.groups = [];
-	$scope.group_words = {};
-	$scope.selected_words = [];
-	$scope.selected_words_str = "";
-        $scope["case"] = "sensitive";
+	s.words = [];
+	s.groups = [];
+	s.group_words = {};
+	s.selected_words = [];
+	s.selected_words_str = "";
+	s["case"] = "sensitive";
 	// Read the word data (words and their frequencies) and create
-	// $scope.words, $scope.groups and $scope.group_words.
+	// s.words, s.groups and s.group_words.
 	// Grouping is based case-insensitively on the first character
 	// of the word, assumed to be in alphabetical order.
 	$.getJSON(
@@ -1752,26 +1753,25 @@ attrs.scotscorr_word = {
 	    function (data) {
 		// c.log("scotscorr_word data", data);
 		for (var i = 0; i < data.length; i++) {
-		    $scope.words.push({word: data[i].w,
-				       freq: data[i].f,
-				       selected: false});
+		    s.words.push({word: data[i].w,
+				  freq: data[i].f,
+				  selected: false});
 		    var group = data[i].w.charAt(0).toUpperCase();
-		    if ($scope.groups.length == 0
-			|| ($scope.groups[$scope.groups.length - 1].name
-			    != group)) {
-			$scope.groups.push({name: group, shown: false});
-			$scope.group_words[group] = [];
+		    if (s.groups.length == 0
+			|| (s.groups[s.groups.length - 1].name != group)) {
+			s.groups.push({name: group, shown: false});
+			s.group_words[group] = [];
 		    }
-		    $scope.group_words[group].push($scope.words[i]);
+		    s.group_words[group].push(s.words[i]);
 		}
-		// c.log("scotscorr_word words", $scope.words);
-		// c.log("scotscorr_word groups", $scope.groups,
-		//       $scope.group_words);
+		// c.log("scotscorr_word words", s.words);
+		// c.log("scotscorr_word groups", s.groups,
+		//       s.group_words);
 	    }
 	);
 	// Executed on clicking the list icon
-	$scope.onIconClick = function() {
-	    $scope.setSelected();
+	s.onIconClick = function () {
+	    s.setSelected();
 	    modal = $modal.open({
 		template : '<div>' +
 		    '<div class="modal-header">' +
@@ -1804,24 +1804,24 @@ attrs.scotscorr_word = {
 		    '</ul>' +
 		    '</div>' +
 		    '</div>',
-		scope : $scope
+		scope : s
 	    });
 	};
 	// Set the selected property of words based on the current
 	// input value
-	$scope.setSelected = function() {
-	    $scope.model_prev = $scope.model;
-	    var op = $scope.$parent.orObj.op;
+	s.setSelected = function () {
+	    s.model_prev = s.model;
+	    var op = s.$parent.orObj.op;
 	    var select_fn = null;
-	    if ($scope.model == "" || op == "!=" || op == "!*=") {
+	    if (s.model == "" || op == "!=" || op == "!*=") {
 		// Nothing selected for the empty word nor the negated
 		// operations
-		$scope.selected_words = [];
+		s.selected_words = [];
 		select_fn = function (word) { return false; };
 	    } else if (op == "=") {
 		// Select only the word literally
-		$scope.selected_words = [$scope.model];
-		select_fn = function (word) { return word == $scope.model };
+		s.selected_words = [s.model];
+		select_fn = function (word) { return word == s.model };
 	    } else {
 		// Construct a regular expression for testing if a
 		// word matches the condition. This assumes that the
@@ -1830,98 +1830,98 @@ attrs.scotscorr_word = {
 		var word_re = "";
 		if (op == "*=") {
 		    // Regular expression
-		    word_re = "^(" + $scope.model + ")$";
+		    word_re = "^(" + s.model + ")$";
 		} else if (op == "^=") {
 		    // Starts with
-		    word_re = "^(" + window.regescape($scope.model) + ")";
+		    word_re = "^(" + window.regescape(s.model) + ")";
 		} else if (op == "&=") {
 		    // Ends with
-		    word_re = "(" + window.regescape($scope.model) + ")$";
+		    word_re = "(" + window.regescape(s.model) + ")$";
 		} else if (op == "_=") {
 		    // Contains
-		    word_re = window.regescape($scope.model)
+		    word_re = window.regescape(s.model)
 		}
 		// c.log("matching", word_re);
 		word_re = RegExp(word_re);
 		select_fn = function (word) { return word_re.test(word); };
 	    }
-	    // c.log("scotscorr_word setSelected", $scope.selected_words);
-	    for (var i = 0; i < $scope.words.length; i++) {
-		$scope.words[i].selected = select_fn($scope.words[i].word);
-		// if ($scope.words[i].selected) {c.log("selected:", $scope.words[i].word);}
+	    // c.log("scotscorr_word setSelected", s.selected_words);
+	    for (var i = 0; i < s.words.length; i++) {
+		s.words[i].selected = select_fn(s.words[i].word);
+		// if (s.words[i].selected) {c.log("selected:", s.words[i].word);}
 	    }
-	    // $scope.selected_words_str = $scope.selected_words.join("\u2000");
-	    $scope.update();
+	    // s.selected_words_str = s.selected_words.join("\u2000");
+	    s.update();
 	};
 	// Clear the case-insensitive flag (restore the default)
-        $scope.makeSensitive = function() {
-            $scope["case"] = "sensitive";
-	    if ($scope.orObj.flags != null) {
-		delete $scope.orObj.flags.c;
+	s.makeSensitive = function () {
+	    s["case"] = "sensitive";
+	    if (s.orObj.flags != null) {
+		delete s.orObj.flags.c;
 	    }
-        };
+	};
 	// Set the case-insensitive flag
-        $scope.makeInsensitive = function() {
-            var flags = $scope.orObj.flags || {};
-            flags["c"] = true;
-            $scope.orObj.flags = flags;
-            $scope["case"] = "insensitive";
-        };
-	// Update $scope.selected_words based on the selected property
-	// in the elements of $scope.words. The arguments are
+	s.makeInsensitive = function () {
+	    var flags = s.orObj.flags || {};
+	    flags["c"] = true;
+	    s.orObj.flags = flags;
+	    s["case"] = "insensitive";
+	};
+	// Update s.selected_words based on the selected property
+	// in the elements of s.words. The arguments are
 	// currently not used.
-	$scope.update = function(event, word) {
+	s.update = function (event, word) {
 	    c.log("scotscorr_word update", word, event,
-		  _.filter($scope.words, "selected"));
-	    // We could use the words in $scope.selected_words, but
+		  _.filter(s.words, "selected"));
+	    // We could use the words in s.selected_words, but
 	    // how could we retain the order of the words, that is,
 	    // how could an added word be added at the right position
 	    // in the list?
-	    $scope.selected_words = (
-		_($scope.words)
+	    s.selected_words = (
+		_(s.words)
 		    .filter("selected")
 		    .pluck("word")
 		    .value());
 	    // Join with an en quad
-	    $scope.selected_words_str = $scope.selected_words.join("\u2000");
-	    c.log("scotscorr_word selected", $scope.selected_words);
+	    s.selected_words_str = s.selected_words.join("\u2000");
+	    c.log("scotscorr_word selected", s.selected_words);
 	};
 	// Toggle a group
-	$scope.toggleGroup = function (group, event) {
+	s.toggleGroup = function (group, event) {
 	    group.shown = ! group.shown;
 	}
 	// Set the input value based on the selected words
-	$scope.done = function(event) {
+	s.done = function (event) {
 	    modal.close();
-	    if ($scope.selected_words.length > 1) {
-		$scope.model = (
-		    _.map($scope.selected_words, window.regescape)
+	    if (s.selected_words.length > 1) {
+		s.model = (
+		    _.map(s.selected_words, window.regescape)
 			.join("|"));
 		// Force regular expression
-		$scope.$parent.orObj.op = "*=";
+		s.$parent.orObj.op = "*=";
 	    } else {
-		$scope.model = ($scope.selected_words.length == 1
-				? $scope.selected_words[0]
-				: "");
+		s.model = (s.selected_words.length == 1
+			   ? s.selected_words[0]
+			   : "");
 		// For a single word, use "=" unless the word is the
 		// same as before
-		if ($scope.model != $scope.model_prev) {
-		    $scope.$parent.orObj.op = "=";
+		if (s.model != s.model_prev) {
+		    s.$parent.orObj.op = "=";
 		}
 	    }
-	    c.log("scotscorr_word model", $scope.model);
+	    c.log("scotscorr_word model", s.model);
 	};
 	// Clear the selected words
-	$scope.clearSelected = function(event) {
-	    for (var i = 0; i < $scope.words.length; i++) {
-		$scope.words[i].selected = false;
+	s.clearSelected = function (event) {
+	    for (var i = 0; i < s.words.length; i++) {
+		s.words[i].selected = false;
 	    }
-	    $scope.selected_words = [];
-	    $scope.selected_words_str = "";
-	    // $scope.update();
+	    s.selected_words = [];
+	    s.selected_words_str = "";
+	    // s.update();
 	};
 	// Cancel: retain the original input value
-	$scope.cancel = function(event) {
+	s.cancel = function (event) {
 	    modal.close();
 	};
     },
