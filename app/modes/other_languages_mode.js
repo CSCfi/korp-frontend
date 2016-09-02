@@ -1746,13 +1746,23 @@ attrs.scotscorr_word = {
 	s.selected_freq = 0;
 	s.total_freq = 0;
 	s["case"] = "sensitive";
+	// Add a thousands separator to a number
+	s.pretty_num = function (num) {
+	    return util.prettyNumbers(num);
+	};
 	// Make a template for the counts of selected and all tokens
 	// and their frequencies.
 	s.make_counts_template = function (tokens_sel, tokens_all, freq_sel,
 					   freq_all) {
-	    return ('{{' + tokens_sel + '}} / {{' + tokens_all +
-		    '}};&#x2000;<span class="wordselector-freq">f = {{' +
-		    freq_sel + '}} / {{' + freq_all + '}}</span>');
+	    var pretty_num = function (val) {
+		return ('<span ng-bind-html="pretty_num(' + val +
+			') | trust"></span>');
+	    }
+	    return (pretty_num(tokens_sel) + ' / ' +
+		    pretty_num(tokens_all) +
+		    ';&#x2000;<span class="wordselector-freq">f = ' +
+		    pretty_num(freq_sel) + ' / ' +
+		    pretty_num(freq_all) + '</span>');
 	};
 	// Process the word data (words and their frequencies grouped,
 	// possibly hierarchically) and create s.words, s.groups and
@@ -1807,7 +1817,7 @@ attrs.scotscorr_word = {
 			'<li ng-repeat="word in ' + groupref + '.words">' +
 			    '<input type="checkbox" ng-model="word.selected" ng-click="update(e, word.word)">' +
 			    '<span ng-class="\'wordselector-word-\' + (word.selected ? \'\' : \'un\') + \'selected\'">{{word.word}}</span>' +
-			    ' (<span ng-class="\'wordselector-freq\'">{{word.freq}}</span>)</input>' +
+			    ' (<span class="wordselector-freq" ng-bind-html="pretty_num(word.freq) | trust"></span>)</input>' +
 			    '</li>';
 			words_seen = true;
 		    }
@@ -1854,7 +1864,7 @@ attrs.scotscorr_word = {
 					   'words.length',
 					   'selected_freq',
 					   'total_freq') +
-		    '): <span id="wordselector-selected-words">{{selected_words_str}}</span></p>' +
+		    '): <span id="wordselector-selected-words"><span ng-bind-html="selected_words_str | trust"></span></span></p>' +
 		    '</div>' +
 		    '<div class="modal-buttons">' +
 		    '<button type="button" class="btn btn-default" ng-click="done()">{{\'button_done\' | loc:lang}}</button>' +
@@ -1947,7 +1957,16 @@ attrs.scotscorr_word = {
 		s.groups[j].numselected = s.groups[j].selectedfreq = 0;
 	    }
 	    // Join with an en quad
-	    s.selected_words_str = s.selected_words.join("\u2000");
+	    s.selected_words_str =
+		_.map(selected_words,
+		      function (word) {
+			  return (word.word.replace(/&/g, "&amp;")
+				  .replace(/</g, "&lt;").replace(/>/g, "&gt;") +
+				  '&nbsp;(<span class="wordselector-freq">' +
+				  s.pretty_num(word.freq.toString()) +
+				  '</span>)');
+		      })
+		.join("\u2000");
 	    s.selected_freq = 0;
 	    for (var i = 0; i < selected_words.length; i++) {
 		var selword = selected_words[i];
