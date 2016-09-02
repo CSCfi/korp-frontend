@@ -2081,13 +2081,18 @@ settings.corpora.scots_royal = {
 
 settings.fn.extend_corpus_settings(
     {
-	context : {
-	    "20 word" : "20 word",
-	    // In ScotsCorr, sentence, paragraph and text are all the
-	    // same regions, but only paragraph works here, since it
-	    // is the default "reading mode" context.
-	    "1 paragraph" : "1 paragraph"
-	},
+	context : settings.defaultContext,
+	// // The word-based context does not work properly, since it
+	// // allows KWIC lines to cross sentence (letter) boundaries,
+	// // which results in incorrect information in the sidebar
+	// // for the preceding (or following) sentence (letter).
+	// context : {
+	//     "20 word" : "20 word",
+	//     // In ScotsCorr, sentence, paragraph and text are all the
+	//     // same regions, but only paragraph works here, since it
+	//     // is the default "reading mode" context.
+	//     "1 paragraph" : "1 paragraph"
+	// },
 	within : settings.defaultWithin,
 	limited_access : isPublicServer,
 	licence_type : "ACA",
