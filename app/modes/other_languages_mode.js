@@ -1740,33 +1740,102 @@ attrs.scotscorr_word = {
 	var modal = null;
 	s.words = [];
 	s.groups = [];
-	s.group_words = {};
+	s.group_template = "";
 	s.selected_words = [];
 	s.selected_words_str = "";
+	s.selected_freq = 0;
+	s.total_freq = 0;
 	s["case"] = "sensitive";
-	// Read the word data (words and their frequencies) and create
-	// s.words, s.groups and s.group_words.
-	// Grouping is based case-insensitively on the first character
-	// of the word, assumed to be in alphabetical order.
+	// Make a template for the counts of selected and all tokens
+	// and their frequencies.
+	s.make_counts_template = function (tokens_sel, tokens_all, freq_sel,
+					   freq_all) {
+	    return ('{{' + tokens_sel + '}} / {{' + tokens_all +
+		    '}};&#x2000;<span class="wordselector-freq">f = {{' +
+		    freq_sel + '}} / {{' + freq_all + '}}</span>');
+	};
+	// Process the word data (words and their frequencies grouped,
+	// possibly hierarchically) and create s.words, s.groups and
+	// s.group_template. The structure is represented as an array
+	// of nested arrays, whose first item is the word or group
+	// label and the second item the absolute frequency for a word
+	// and an array of arrays for a group. Groups may be nested,
+	// but a group may contain either groups or words, not both.
+	// To make things simpler in Angular, s.group_template
+	// contains all the groups explicitly written out but the
+	// words are represented using ng-repeat.
+	var make_word_list = function (data, groupstack) {
+	    // c.log("scotscorr_word data", data);
+	    var words_seen = false;
+	    for (var i = 0; i < data.length; i++) {
+		if (_.isArray(data[i][1])) {
+		    var group = {
+			name: data[i][0],
+			words: [],
+			numwords: 0,
+			numselected: 0,
+			totalfreq: 0,
+			selectedfreq: 0,
+			shown: false
+		    };
+		    var groupnum = s.groups.length;
+		    s.groups.push(group);
+		    groupstack.push(group);
+		    var groupref = 'groups[' + groupnum.toString() + ']';
+		    s.group_template += '<li>' +
+			'<span class="wordselector-group-arrow"></span>' +
+			'<span class="wordselector-group-heading" ng-click="toggleGroup(' + groupref + ')">' +
+			'<img ng-src="img/{{' + groupref + '.shown ? \'extended\' : \'collapsed\'}}.png"/> ' +
+			// Em quad
+			group.name + '&#x2001;</span>' +
+			'<span class="wordselector-group-extra"> (' +
+			s.make_counts_template(groupref + '.numselected',
+					       groupref + '.numwords',
+					       groupref + '.selectedfreq',
+					       groupref + '.totalfreq') +
+			')</span>' +
+			'<div ng-if="' + groupref + '.shown">' +
+			'<ul>';
+		    make_word_list(data[i][1], groupstack);
+		    groupstack.pop();
+		    s.group_template += '</ul></div></li>';
+		} else {
+		    if (! words_seen) {
+			var groupref =
+			    'groups[' + (s.groups.length - 1).toString() + ']';
+			s.group_template +=
+			'<li ng-repeat="word in ' + groupref + '.words">' +
+			    '<input type="checkbox" ng-model="word.selected" ng-click="update(e, word.word)">' +
+			    '<span ng-class="\'wordselector-word-\' + (word.selected ? \'\' : \'un\') + \'selected\'">{{word.word}}</span>' +
+			    ' (<span ng-class="\'wordselector-freq\'">{{word.freq}}</span>)</input>' +
+			    '</li>';
+			words_seen = true;
+		    }
+		    s.words.push({word: data[i][0],
+				  freq: data[i][1],
+				  groups: groupstack.slice(),
+				  selected: false});
+		}
+	    }
+	}
 	$.getJSON(
 	    "corpus_info/scotscorr-words.json",
 	    function (data) {
-		// c.log("scotscorr_word data", data);
-		for (var i = 0; i < data.length; i++) {
-		    s.words.push({word: data[i].w,
-				  freq: data[i].f,
-				  selected: false});
-		    var group = data[i].w.charAt(0).toUpperCase();
-		    if (s.groups.length == 0
-			|| (s.groups[s.groups.length - 1].name != group)) {
-			s.groups.push({name: group, shown: false});
-			s.group_words[group] = [];
+		make_word_list(data, []);
+		for (var i = 0; i < s.words.length; i++) {
+		    var word = s.words[i];
+		    s.total_freq += word.freq;
+		    for (var j = 0; j < word.groups.length; j++) {
+			var group = word.groups[j];
+			group.words.push(word);
+			group.numwords += 1;
+			group.totalfreq += word.freq;
 		    }
-		    s.group_words[group].push(s.words[i]);
 		}
 		// c.log("scotscorr_word words", s.words);
 		// c.log("scotscorr_word groups", s.groups,
 		//       s.group_words);
+		c.log('scotscorr group_template', s.group_template);
 	    }
 	);
 	// Executed on clicking the list icon
@@ -1775,12 +1844,17 @@ attrs.scotscorr_word = {
 	    modal = $modal.open({
 		template : '<div>' +
 		    '<div class="modal-header">' +
-		    '<h3 class="modal-title">{{\'wordlist\' | loc:lang}}</h3>' +
+		    '<h3 class="modal-title">{{\'wordlist\' | loc:lang}} (ScotsCorr)</h3>' +
 		    '<span ng-click="done()" class="close-x">×</span>' +
 		    '</div>' +
 		    '<div class="modal-header">' +
 		    '<div class="modal-value">' +
-		    '<p><span class="modal-value-heading">{{\'selected_words\' | loc:lang}} ({{selected_words.length}}):</span> <span id="wordselector-selected-words">{{selected_words_str}}</span></p>' +
+		    '<p><span class="modal-value-heading">{{\'selected_words\' | loc:lang}}</span> (' +
+		    s.make_counts_template('selected_words.length',
+					   'words.length',
+					   'selected_freq',
+					   'total_freq') +
+		    '): <span id="wordselector-selected-words">{{selected_words_str}}</span></p>' +
 		    '</div>' +
 		    '<div class="modal-buttons">' +
 		    '<button type="button" class="btn btn-default" ng-click="done()">{{\'button_done\' | loc:lang}}</button>' +
@@ -1790,17 +1864,7 @@ attrs.scotscorr_word = {
                     '</div>' +
 		    '<div class="modal-body modal-wordselector" style="overflow-y: auto; font-size: 80%">' +
 		    '<ul>' +
-		    '<li ng-repeat="group in groups">' +
-		    '<span class="wordselector-group-arrow"></span>' +
-		    '<span class="wordselector-group-heading" ng-click="toggleGroup(group)"><img ng-src="img/{{group.shown ? \'extended\' : \'collapsed\'}}.png"/> {{group.name}}</span>' +
-		    '<div ng-if="group.shown">' +
-		    '<ul>' +
-		    '<li ng-repeat="word in group_words[group.name]">' +
-		    '<input type="checkbox" ng-model="word.selected" ng-click="update(e, word.word)"><span ng-class="\'wordselector-word-\' + (word.selected ? \'\' : \'un\') + \'selected\'">{{word.word}}</span> ({{word.freq}})</input>' +
-		    '</li>' +
-		    '</ul>' +
-		    '</div>' +
-		    '</li>' +
+		    s.group_template +
 		    '</ul>' +
 		    '</div>' +
 		    '</div>',
@@ -1877,13 +1941,23 @@ attrs.scotscorr_word = {
 	    // how could we retain the order of the words, that is,
 	    // how could an added word be added at the right position
 	    // in the list?
-	    s.selected_words = (
-		_(s.words)
-		    .filter("selected")
-		    .pluck("word")
-		    .value());
+	    var selected_words = _.filter(s.words, "selected");
+	    s.selected_words = _.pluck(selected_words, "word");
+	    for (var j = 0; j < s.groups.length; j++) {
+		s.groups[j].numselected = s.groups[j].selectedfreq = 0;
+	    }
 	    // Join with an en quad
 	    s.selected_words_str = s.selected_words.join("\u2000");
+	    s.selected_freq = 0;
+	    for (var i = 0; i < selected_words.length; i++) {
+		var selword = selected_words[i];
+		s.selected_freq += selword.freq;
+		for (var j = 0; j < selword.groups.length; j++) {
+		    var group = selword.groups[j];
+		    group.numselected += 1;
+		    group.selectedfreq += selword.freq;
+		}
+	    }
 	    c.log("scotscorr_word selected", s.selected_words);
 	};
 	// Toggle a group
@@ -1918,6 +1992,10 @@ attrs.scotscorr_word = {
 	    }
 	    s.selected_words = [];
 	    s.selected_words_str = "";
+	    s.selected_freq = 0;
+	    for (var j = 0; j < s.groups.length; j++) {
+		s.groups[j].numselected = s.groups[j].selectedfreq = 0;
+	    }
 	    // s.update();
 	};
 	// Cancel: retain the original input value

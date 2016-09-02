@@ -6279,26 +6279,31 @@ li.active a span .num-to-find {
 }
 
 /* line 2951, styles.scss */
+.wordselector-freq {
+  color: #555555;
+}
+
+/* line 2957, styles.scss */
 .wordselector-word-unselected {
   font-weight: normal;
 }
 
-/* line 2955, styles.scss */
+/* line 2961, styles.scss */
 .wordselector-word-selected {
   font-weight: bold;
 }
 
-/* line 2959, styles.scss */
+/* line 2965, styles.scss */
 .list-link-icon {
   margin-left: 0.25em;
   cursor: pointer;
 }
-/* line 2962, styles.scss */
+/* line 2968, styles.scss */
 .list-link-icon:hover {
   color: darkgrey;
 }
 
-/* line 2967, styles.scss */
+/* line 2973, styles.scss */
 .arg_value_wordselector {
   width: 90% !important;
 }
