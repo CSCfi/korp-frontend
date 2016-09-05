@@ -535,6 +535,7 @@
     "text_period" : "text period",
 
     "publication_date" : "publication date",
+    "publication_place" : "place of publication",
 
     "textgenre_fiction" : "fiction",
     "textgenre_law" : "legal text",
@@ -655,6 +656,8 @@
     "show_page_image_context" : "Show page image, word context highlighted",
     "download_publ_pdf" : "Download publication as PDF",
 
+    "file_name" : "file name",
+
     "ner_tags" : "name classification",
     "ner_tags_EnamexPrsHum" : "person: person name",
     "ner_tags__" : "unidentified",
@@ -773,7 +776,7 @@
 
     "gloss" : "gloss",
     "syntactic_function" : "syntactic function",
-    "verb_features" : "verb features",
+    "extra_features" : "extra features",
 
     "published" : "published",
 
