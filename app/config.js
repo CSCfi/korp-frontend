@@ -2001,6 +2001,11 @@ settings.corporafolders.sv = {
 };
 */
 
+settings.corporafolders.ethesis = {
+    title : "E-thesis",
+    contents : ["ethesis_dissabs"]
+};
+
 settings.corporafolders.ftb = {
     title : "FinnTreeBank: suomen puupankki",
     contents : ["ftb2"]
@@ -5169,6 +5174,18 @@ settings.corpora.skk_sodergran = {
         text_source : sattrs.text_source
     }
 };
+
+settings.corpora.ethesis_dissabs = {
+    title : "Väitöstiivistelmät",
+    description : "Väitöskirjojen suomenkielisiä abstrakteja 2006-2016",
+    id : "ethesis_dissabs",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
 /*
 settings.corpora.kotus_klassikot = {
     title : "Suomalaisen kirjallisuuden klassikoita (näyte)",

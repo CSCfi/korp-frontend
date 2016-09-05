@@ -1304,6 +1304,7 @@
     "text_period" : "tekstin ajankohta",
 
     "publication_date" : "julkaisuajankohta",
+    "publication_place" : "julkaisupaikka",
 
     "author_birthyear" : "tekijän syntymävuosi",
     "author_deathyear" : "tekijän kuolinvuosi",
@@ -1570,6 +1571,10 @@
     "scotscorr_fraser" : "kuvaus",
     "link_to_original" : "linkki alkuperäiseen",
 
+    "gloss" : "glossi",
+    "syntactic_function" : "syntaktinen funktio",
+    "extra_features" : "lisäpiirteet",
+
     "studentsvenska_code" : "syntaktinen funktio",
     "studentsvenska_properties" : "lausetyyppi",
     "studentsvenska_textnumber" : "tekstin numero",
@@ -1589,5 +1594,11 @@
     "paragraph_class" : "kappaleen tyyli",
     "paragraph_lang" : "kappaleen kieli",
     "gloss" : "glossaus (venäjä)",
-    "lex" : "lekseemi"
+    "lex" : "lekseemi",
+    "text_keywords" : "avainsanat",
+    "text_faculty" : "tiedekunta",
+    "text_subject" : "oppiaine",
+    "text_disserationtype" : "tutkielman tyyppi",
+    "text_lang" : "kieli",
+    "text_abslink" : "Lataa työ E-thesiksestä"
 }
