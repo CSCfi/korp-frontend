@@ -1598,7 +1598,7 @@
     "text_keywords" : "avainsanat",
     "text_faculty" : "tiedekunta",
     "text_subject" : "oppiaine",
-    "text_disserationtype" : "tutkielman tyyppi",
+    "text_dissertationtype" : "tutkielman tyyppi",
     "text_lang" : "kieli",
     "text_abslink" : "Lataa työ E-thesiksestä"
 }
