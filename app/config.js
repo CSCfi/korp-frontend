@@ -1682,6 +1682,50 @@ sattrs.link_lehdet = {
     url_opts : sattrs.link_url_opts
 };
 
+/* E-thesis */
+
+sattrlist.ethesis = {
+    text_title : {
+        label : "text_title"
+    },
+    text_date : {
+        label : "text_date"
+    },
+    text_keywords : {
+        label : "text_keywords"
+    },
+    text_faculty : {
+        label : "text_faculty"
+    },
+    text_subject : {
+        label : "text_subject"
+    },
+    text_type : {
+        label : "text_dissertationtype"
+    },
+    text_lang : {
+        label : "text_lang",
+        displayType : "select",
+        translationKey : "ftb3_europarl_language_",
+        dataset : {
+            "fi" : "fi",
+            "sv" : "sv",
+            "es" : "es",
+            "en" : "en",
+            "ru" : "ru"
+        },
+        opts : settings.liteOptions
+    },
+    text_url : {
+        label : "text_abslink",
+        type : "url",
+        url_opts : sattrs.link_url_opts
+    }
+};
+
+
+
+
 /* VNSK */
 
 sattrlist.vnsk = {
