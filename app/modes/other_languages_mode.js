@@ -26,6 +26,12 @@ settings.spContext = {
     "1 paragraph" : "1 paragraph"
 };
 
+settings.corporafolders.sust = {
+    title : "sus-fieldwork",
+    description : "sus-fieldwork",
+    contents : ["sust_myv", "sust_kpv"]
+};
+
 settings.corporafolders.testikansio = {
     title : "ERME",
     description : "ERME",
@@ -108,6 +114,25 @@ settings.corpora.fennougrica = {
 };
 */
 
+settings.corpora.sust_myv = {
+    id : "sust_myv",
+    title : "Ersä (näyte)",
+    description : "Ersä",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.sust,
+    struct_attributes : sattrlist.sust
+};
+
+settings.corpora.sust_kpv = {
+    id : "sust_kpv",
+    title : "Syrjääninkomi (näyte)",
+    description : "Syrjääninkomi",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.sust,
+    struct_attributes : sattrlist.sust
+};
 
 settings.corpora.fennougrica_izh = {
     id : "fennougrica_izh",

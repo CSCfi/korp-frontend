@@ -1682,6 +1682,50 @@ sattrs.link_lehdet = {
     url_opts : sattrs.link_url_opts
 };
 
+/* SUST */
+
+sattrlist.sust = {
+    text_title : {
+        label : "text_title"
+    },
+    text_year : {
+        label : "text_year"
+    },
+    text_author : {
+        label : "text_author"
+    },
+    text_corrector : {
+        label : "text_corrector"
+    },
+    text_issue : {
+        label : "text_issue"
+    },
+    text_pubname : {
+        label : "text_publisher"
+    },
+    sentence_section : {
+        label : "page_num"
+    },
+    sentence_chapno : {
+        label : "sentence_chapno",
+    },
+    paragraph_parttitle : {
+        label : "paragraph_title",
+    },
+    paragraph_lang : {
+        label : "paragraph_lang",
+    },
+    sentence_tr : {
+        label : "translation",
+    },
+    sentence_orig : {
+        label : "transcription",
+    }
+};
+
+attrlist.sust = {}
+
+
 /* E-thesis */
 
 sattrlist.ethesis = {

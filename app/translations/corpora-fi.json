@@ -1600,5 +1600,8 @@
     "text_subject" : "oppiaine",
     "text_dissertationtype" : "tutkielman tyyppi",
     "text_lang" : "kieli",
-    "text_abslink" : "Lataa työ E-thesiksestä"
+    "text_abslink" : "Lataa työ E-thesiksestä",
+    "paragraph_title" : "kappaleen otsikko",
+    "translation" : "käännös",
+    "transcription" : "transkriptio"
 }
