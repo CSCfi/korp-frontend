@@ -1701,7 +1701,7 @@ sattrlist.sust = {
         label : "text_issue"
     },
     text_pubname : {
-        label : "text_publisher"
+        label : "publisher"
     },
     sentence_section : {
         label : "page_num"
