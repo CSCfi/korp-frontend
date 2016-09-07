@@ -42,6 +42,9 @@
     "year_from" : "alkaen vuodesta",
     "year_to" : "päättyen vuoteen",
 
+    "year_orig" : "alkuteoksen vuosi",
+    "year_transl" : "käännöksen vuosi",
+
     "url" : "URL",
     "referensnummer" : "viitenumero",
 
@@ -309,6 +312,7 @@
 
     "pos_Adj" : "adjektiivi",
     "pos_Adv" : "adverbi",
+    "pos_Aux" : "apuverbi",
     "pos_Conj" : "konjunktio",
     "pos_Gerund" : "gerundi",
     "pos_Interj" : "interjektio",
@@ -322,6 +326,7 @@
     "pos_Pron" : "pronomini",
     "pos_pun" : "välimerkki",
     "pos_Punct" : "välimerkki",
+    "pos_Other" : "muu",
     "pos_Verb" : "verbi",
 
     "posmulcolden_A" : "adjektiivi",
@@ -515,13 +520,16 @@
     "deprel_compar" : "komparatiivi",
     "deprel_comparator" : "vertailukonjunktio",
     "deprel_complm" : "komplementoija",
+    "deprel_compound" : "sanaliitto",
     "deprel_conj" : "rinnastus",
     "deprel_cop" : "kopula",
     "deprel_csubj" : "lausesubjekti",
     "deprel_csubj-cop" : "kopulan lausesubjekti",
     "deprel_dep" : "dependentti",
     "deprel_det" : "determineri",
+    "deprel_discourse" : "diskurssielementti",
     "deprel_dobj" : "suora objekti",
+    "deprel_goeswith" : "irrallinen yhdysosa",
     "deprel_ellipsis" : "pääsanan ellipsi",
     "deprel_gobj" : "genetiiviobjekti (substantiivin)",
     "deprel_gsubj" : "genetiivisubjekti (substantiivin)",
@@ -530,6 +538,7 @@
     "deprel_intj" : "interjektio",
     "deprel_mark" : "merkitsin",
     "deprel_mod" : "määre",
+    "deprel_mwe" : "monisanainen ilmaus",
     "deprel_name" : "monisanainen nimi",
     "deprel_neg" : "kieltosana",
     "deprel_nn" : "yhdyssubstantiivimääre",
@@ -548,10 +557,12 @@
     "deprel_quantmod" : "kvanttorimääre",
     "deprel_rcmod" : "relatiivilausemääre",
     "deprel_rel" : "relatiivisana",
+    "deprel_remnant" : "ellipsin jäännös",
     "deprel_ROOT" : "pää",
     "deprel_subj" : "subjekti",
     "deprel_voc" : "vokatiivi",
     "deprel_xcomp" : "avoin lausekomplementti",
+    "deprel_xcomp:ds" : "lausekomplementti (eri subjekti)",
     "deprel_xsubj" : "ulkoinen subjekti",
     "deprel_xsubj-cop" : "kopulan ulkoinen subjekti",
 

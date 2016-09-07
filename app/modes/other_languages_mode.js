@@ -68,7 +68,14 @@ settings.corporafolders.german = {
 settings.corporafolders.russian = {
     title : "Русский / Venäjä / Russian",
     description : "Tексты по-русски<br/>Venäjänkielisiä tekstejä<br/>Texts in Russian",
-    contents : ["legal_ru", "mulcold_ru", "parrus_ru", "parfin_ru"],
+    contents : [
+	"legal_ru",
+	"mulcold_ru",
+	"parrus_2016_ru",
+	"parfin_2016_ru",
+	"parrus_ru",
+	"parfin_ru",
+    ],
     // unselected : true
 };
 
@@ -341,6 +348,41 @@ settings.corpora.parfin_ru = {
     struct_attributes : sattrlist.parfin_ru,
 };
 settings.fn.extend_corpus_settings(settings.corpusinfo.parfin, ["parfin_ru"]);
+
+
+/* ParRus 2016 ru */
+
+settings.corpora.parrus_2016_ru = {
+    id : "parrus_2016_ru",
+    title : "ParRus 2016 (venäjä) (beta)",
+    description : "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (venäjänkieliset alkuperäistekstit)<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta)<br/><br/>Korpuksen Korp-versio on testausvaiheessa ja siihen voi vielä tulla muutoksia.",
+    // TODO: Add paragraphs corresponding to link elements
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    limited_access : true,
+    licence_type : "RES",
+    attributes : attrlist.parrus_2016_ru,
+    struct_attributes : sattrlist.parrus_2016_ru,
+};
+settings.fn.extend_corpus_settings(settings.corpusinfo.parrus_2016,
+				   ["parrus_2016_ru"]);
+
+
+/* ParFin 2016 ru */
+
+settings.corpora.parfin_2016_ru = {
+    id : "parfin_2016_ru",
+    title : "ParFin 2016 (venäjä) (beta)",
+    description : "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (venäjänkieliset käännökset)<br/>Suomenkielisten kaunokirjallisten tekstien (vuosilta 1990–2010) käännöksiä venäjäksi<br/><br/>Korpuksen Korp-versio on testausvaiheessa ja siihen voi vielä tulla muutoksia.",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    limited_access : true,
+    licence_type : "RES",
+    attributes : attrlist.parfin_2016_ru,
+    struct_attributes : sattrlist.parfin_2016_ru,
+};
+settings.fn.extend_corpus_settings(settings.corpusinfo.parfin_2016,
+				   ["parfin_2016_ru"]);
 
 
 settings.corpora.topling = {

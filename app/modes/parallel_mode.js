@@ -551,6 +551,18 @@ settings.corpus_aliases.opus_elfi = "opus_.*elfi_fi";
 settings.corpus_aliases.opus_fiel = "opus_.*elfi_fi";
 
 
+settings.corporafolders.parfin_parrus = {
+    title : "ParFin, ParRus",
+    contents : [
+	"parfin_2016_fi",
+	"parrus_2016_fi",
+	"parrus_2016_ru",
+	"parfin_fi",
+	"parrus_fi",
+	"parrus_ru",
+    ],
+};
+
 /*
 settings.corporafolders.kfspc = {
     title : "Kotus Finnish-Swedish Parallel Corpus (KFSPC)",
@@ -7862,6 +7874,148 @@ settings.fn.extend_corpus_settings(
 settings.fn.extend_corpus_settings(
     settings.corpusinfo.parrus,
     ["parrus_fi", "parrus_fi1", "parrus_fi2", "parrus_fi3", "parrus_ru"]);
+
+
+/* ParFin 2016 */
+
+settings.corpora.parfin_2016_fi = {
+    id : "parfin_2016_fi",
+    lang : "fin",
+    linked_to : ["parfin_2016_ru"],
+    attributes: attrlist.parfin_2016_fi,
+    struct_attributes : sattrlist.parfin_2016_fi,
+};
+
+settings.corpora.parfin_2016_ru = {
+    id : "parfin_2016_ru",
+    lang : "rus",
+    linked_to : ["parfin_2016_fi"],
+    attributes: attrlist.parfin_2016_ru,
+    struct_attributes : sattrlist.parfin_2016_ru,
+    hide : true,
+};
+
+settings.fn.extend_corpus_settings(
+    {
+	// Properties common to parfin_2016_fi and parfin_2016_ru
+	title: "ParFin 2016 (beta)",
+	description : "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1910–2008 ja niiden käännöksiä venäjäksi virketasolla kohdistettuina<br/><br/>Korpuksen Korp-versio on testausvaiheessa ja siihen voi vielä tulla muutoksia.",
+	context: context.linkAligned,
+	within: settings.linkWithin,
+	limited_access : true,
+	licence_type : "RES",
+    },
+    ["parfin_2016_fi", "parfin_2016_ru"]
+);
+settings.fn.extend_corpus_settings(settings.corpusinfo.parfin_2016,
+				   ["parfin_2016_fi", "parfin_2016_ru"]);
+
+
+/* ParRus 2016 */
+
+// parrus_2016_fi contains all the parallel Finnish translations and
+// it is linked to parrus_2016_ru, so that a search in Finnish returns
+// matches from any Finnish translation.
+//
+// However, parrus_2016_ru is linked to the Finnish versions _fi1,
+// _fi2, _fi3, _fi4, each of which contains only a single translation
+// of each text, so that searching in Russian should return results in
+// each of the translations. (_fi1 contains translations of all texts,
+// _fi2, _fi3 and _fi4 contain the second, third and fourth
+// translations, respectively, for the texts with at least that number
+// of translations.)
+//
+// Both parrus_2016_fi and parrus_2016_ru are shown in the corpus
+// selector, whereas the _fiN versions are not.
+
+settings.corpora.parrus_2016_fi = {
+    id : "parrus_2016_fi",
+    lang : "fin",
+    linked_to : ["parrus_2016_ru"],
+    title : "ParRus 2016 (suomi) (beta)",
+    description : "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/><br/><strong>Huomaa:</strong> Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti suomenkielisistä käännöksistä. Jos samasta teoksesta on useita käännöksiä, tämä hakee niistä kaikista.<br/><br/>Korpuksen Korp-versio on testausvaiheessa ja siihen voi vielä tulla muutoksia.",
+    attributes : attrlist.parrus_2016_fi,
+    struct_attributes : sattrlist.parrus_2016_fi,
+};
+
+settings.corpora.parrus_2016_ru = {
+    id : "parrus_2016_ru",
+    lang : "rus",
+    linked_to : ["parrus_2016_fi1", "parrus_2016_fi2", "parrus_2016_fi3",
+		 "parrus_2016_fi4"],
+    title : "ParRus 2016 (venäjä) (beta)",
+    description : "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/><br/><strong>Huomaa:</strong> Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti venäjänkielisistä alkuperäisteksteistä. Jos samasta teoksesta on useita käännöksiä, niistä kukin näkyy tuloksessa erikseen.<br/><br/>Korpuksen Korp-versio on testausvaiheessa ja siihen voi vielä tulla muutoksia.",
+    attributes : attrlist.parrus_2016_ru,
+    struct_attributes : sattrlist.parrus_2016_ru,
+    // hide : true,
+};
+
+
+settings.corpora.parrus_2016_fi1 = {
+    id : "parrus_2016_fi1",
+    linked_to : ["parrus_2016_ru",
+		 "parrus_2016_fi2", "parrus_2016_fi3", "parrus_2016_fi4"],
+    title : "ParRus (suomenkielinen käännös 1)",
+};
+
+settings.corpora.parrus_2016_fi2 = {
+    id : "parrus_2016_fi2",
+    linked_to : ["parrus_2016_ru",
+		 "parrus_2016_fi1", "parrus_2016_fi3", "parrus_2016_fi4"],
+    title : "ParRus (suomenkielinen käännös 2)",
+};
+
+settings.corpora.parrus_2016_fi3 = {
+    id : "parrus_2016_fi3",
+    linked_to : ["parrus_2016_ru",
+		 "parrus_2016_fi1", "parrus_2016_fi2", "parrus_2016_fi4"],
+    title : "ParRus (suomenkielinen käännös 3)",
+};
+
+settings.corpora.parrus_2016_fi4 = {
+    id : "parrus_2016_fi4",
+    linked_to : ["parrus_2016_ru",
+		 "parrus_2016_fi1", "parrus_2016_fi2", "parrus_2016_fi3"],
+    title : "ParRus (suomenkielinen käännös 4)",
+};
+
+settings.fn.extend_corpus_settings(
+    {
+	// Properties common to parrus_2016_fiN
+	lang : "fin",
+	description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus",
+	attributes : attrlist.parrus_2016_fi,
+	struct_attributes : sattrlist.parrus_2016_fi,
+	hide : true,
+    },
+    ["parrus_2016_fi1",
+     "parrus_2016_fi2",
+     "parrus_2016_fi3",
+     "parrus_2016_fi4"]);
+
+settings.fn.extend_corpus_settings(
+    {
+	// Properties common to all ParRus language versions
+	context : context.linkAligned,
+	within : settings.linkWithin,
+	limited_access : true,
+	licence_type : "RES"
+    },
+    ["parrus_2016_fi",
+     "parrus_2016_fi1",
+     "parrus_2016_fi2",
+     "parrus_2016_fi3",
+     "parrus_2016_fi4",
+     "parrus_2016_ru"]);
+
+settings.fn.extend_corpus_settings(
+    settings.corpusinfo.parrus_2016,
+    ["parrus_2016_fi",
+     "parrus_2016_fi1",
+     "parrus_2016_fi2",
+     "parrus_2016_fi3",
+     "parrus_2016_fi4",
+     "parrus_2016_ru"]);
 
 
 /*
