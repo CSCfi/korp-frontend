@@ -533,7 +533,7 @@
     "deprel_name" : "monisanainen nimi",
     "deprel_neg" : "kieltosana",
     "deprel_nn" : "yhdyssubstantiivimääre",
-    "deprel_nommod" : "moninaalimääre",
+    "deprel_nommod" : "nominaalimääre",
     "deprel_nommod-own" : "nominaalimääre: omistaja",
     "deprel_nsubj" : "nominaalisubjekti",
     "deprel_nsubj-cop" : "kopulan nominaalisubjekti",
