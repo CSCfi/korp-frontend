@@ -7197,14 +7197,14 @@ sattrlist.testerzya = {
         label : "sentence_section"
 	    },
 	sentence_chapno : {
-        label : "sentence_chapno",
+        label : "sentence_chapno"
 	    },
 	paragraph_class : {
-        label : "paragraph_class",
+        label : "paragraph_class"
 	    },
 	paragraph_lang : {
-        label : "paragraph_lang",
-	    }
+        label : "paragraph_lang"
+	}
 };
 
 
