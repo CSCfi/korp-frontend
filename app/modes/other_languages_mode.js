@@ -906,7 +906,7 @@ settings.corpora.erme_myv = {
     within : settings.spWithin,
     context : settings.spContext,
     attributes : attrlist.testerzya,
-    struct_attributes : sattrlist.erme,
+    struct_attributes : sattrlist.erme_debug,
     unselected : true
 };
 

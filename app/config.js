@@ -7136,6 +7136,7 @@ sattrlist.europarl_v7 = {
 };
 
 attrlist.testerzya = {};
+sattrlist.erme_debug = {}
 
 sattrlist.erme = {
     text_author : {
