@@ -901,8 +901,6 @@ settings.corpora.erme_myv = {
     title : "ERME (Ersä/Erzya)",
     description : "ERME (Ersä/Erzya)",
     licence : settings.licenceinfo.CC_BY,
-    /*limited_access : true,
-      licence_type : "ACA",*/
     within : settings.spWithin,
     context : settings.spContext,
     attributes : attrlist.testerzya,
@@ -915,8 +913,6 @@ settings.corpora.erme_mdf = {
     title : "ERME (Mokša/Moksha)",
     description : "ERME (Mokša/Moksha)",
     licence : settings.licenceinfo.CC_BY,
-    /*limited_access : true,
-    licence_type : "ACA",*/
     within : settings.spWithin,
     context : settings.spContext,
     attributes : attrlist.testerzya,
