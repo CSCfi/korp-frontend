@@ -34,7 +34,7 @@ settings.corporafolders.sust = {
 
 settings.corporafolders.testikansio = {
     title : "ERME",
-    description : "ERME",
+    description : "ERME: Erzya and Moksha Extended Corpora",
     contents : ["erme_mdf", "erme_myv"]
 };
 
@@ -973,20 +973,20 @@ settings.corpora.erzya = {
 
 settings.corpora.erme_myv = {
     id : "erme_myv",
-    title : "ERME (Ersä/Erzya)",
-    description : "ERME (Ersä/Erzya)",
+    title : "Ersä/Erzya",
+    description : "ERME: Ersä/Erzya",
     licence : settings.licenceinfo.CC_BY,
     within : settings.spWithin,
     context : settings.spContext,
     attributes : attrlist.testerzya,
-    struct_attributes : sattrlist.erme_debug,
+    struct_attributes : sattrlist.erme,
     unselected : true
 };
 
 settings.corpora.erme_mdf = {
     id : "erme_mdf",
-    title : "ERME (Mokša/Moksha)",
-    description : "ERME (Mokša/Moksha)",
+    title : "Mokša/Moksha",
+    description : "ERME: Mokša/Moksha",
     licence : settings.licenceinfo.CC_BY,
     within : settings.spWithin,
     context : settings.spContext,

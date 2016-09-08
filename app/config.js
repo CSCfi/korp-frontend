@@ -7349,6 +7349,9 @@ sattrlist.erme = {
     sentence_id : sattrs.sentence_id_hidden,
     sentence_pgno : {
         label : "page_num"
+    },
+    text_publisher : {
+        label : "text_publisher"
     }
 };
 
