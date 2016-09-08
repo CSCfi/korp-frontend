@@ -661,6 +661,7 @@ attrs.pos_kotus = {
     },
     opts : settings.liteOptions
 };
+
 attrs.pos_mulcold_fi = {
     label : "pos",
     displayType : "select",
@@ -754,6 +755,55 @@ attrs.pos_mulcold_sv = {
     },
     opts : settings.liteOptions
 };
+
+attrs.pos_uta_ru = {
+    label : "pos",
+    displayType : "select",
+    translationKey : "pos_",
+    opts : settings.liteOptions,
+    dataset : {
+	"-" : "Punct",
+	"," : "Punct",
+	":" : "Punct",
+	"'" : "Punct",
+	"\"" : "Punct",
+	"A" : "A",
+	"C" : "C",
+	"I" : "Interj",
+	"M" : "Num",
+	"N" : "N",
+	"P" : "Pron",
+	"Q" : "Particle",
+	"R" : "Adv",
+	"S" : "Prep",
+	"V" : "V",
+    },
+};
+
+attrs.pos_ud_fi = {
+    label : "pos",
+    displayType : "select",
+    translationKey : "pos_",
+    opts : settings.liteOptions,
+    dataset : {
+	"ADJ" : "A",
+	"ADP" : "Adp",
+	"ADV" : "Adv",
+	"AUX" : "Aux",
+	"CONJ" : "C",
+	"INTJ" : "Interj",
+	"NOUN" : "N",
+	"NUM" : "Num",
+	"PRON" : "Pron",
+	"PROPN" : "Prop",
+	"PUNCT" : "Punct",
+	"SCONJ" : "CS",
+	"SYM" : "Symb",
+	"VERB" : "V",
+	"X" : "Other",
+    },
+};
+
 attrs.pos_klk = {
     label : "pos",
     displayType : "select",
@@ -1163,6 +1213,138 @@ attrs.deprel_tdt = {
 	"xsubj-cop" : "xsubj-cop"
     }
 };
+attrs.deprel_ud_fi = {
+    label : "deprel",
+    displayType : "select",
+    translationKey : "deprel_",
+    opts : settings.liteOptions,
+    dataset : {
+	"_" : "_",
+	"acl" : "acl",
+	"acl:relcl" : "rcmod",
+	"advcl" : "advcl",
+	"advmod" : "advmod",
+	"amod" : "amod",
+	"appos" : "appos",
+	"aux" : "aux",
+	"auxpass" : "auxpass",
+	"case" : "adpos",
+	"cc" : "cc",
+	"ccomp" : "ccomp",
+	"cc:preconj" : "preconj",
+	"compound" : "compound",
+	"compound:nn" : "nn",
+	"compound:prt" : "prt",
+	"conj" : "conj",
+	"cop" : "cop",
+	"csubj" : "csubj",
+	"csubj:cop" : "csubj-cop",
+	"dep" : "dep",
+	"det" : "det",
+	"discourse" : "discourse",
+	"dobj" : "dobj",
+	"goeswith" : "goeswith",
+	"mark" : "mark",
+	"mwe" : "mwe",
+	"name" : "name",
+	"neg" : "neg",
+	"nmod" : "nommod",
+	"nmod:gobj" : "gobj",
+	"nmod:gsubj" : "gsubj",
+	"nmod:own" : "nommod-own",
+	"nmod:poss" : "poss",
+	"nsubj" : "nsubj",
+	"nsubj:cop" : "nsubj-cop",
+	"nummod" : "num",
+	"parataxis" : "parataxis",
+	"punct" : "punct",
+	"remnant" : "remnant",
+	"rel" : "rel",
+	"root" : "ROOT",
+	"vocative" : "voc",
+	"xcomp" : "xcomp",
+	"xcomp:ds" : "xcomp:ds",
+    }
+};
+attrs.deprel_uta_ru = {
+    label : "deprel",
+    displayType : "select",
+    localize : false,
+    opts : settings.liteOptions,
+    dataset : [
+	"1-компл",
+	"1-несобст-компл",
+	"2-компл",
+	"2-несобст-компл",
+	"3-компл",
+	"3-несобст-компл",
+	"4-компл",
+	"5-компл",
+	"PUNC",
+	"ROOT",
+	"fictit",
+	"агент",
+	"аддит",
+	"аналит",
+	"аппоз",
+	"аппрокс-колич",
+	"атриб",
+	"вводн",
+	"вспом",
+	"дат-субъект",
+	"дистанц",
+	"длительн",
+	"изъясн",
+	"инф-союзн",
+	"квазиагент",
+	"колич-вспом",
+	"колич-копред",
+	"колич-огран",
+	"количест",
+	"ком-сочин",
+	"компл-аппоз",
+	"композ",
+	"композ-аппоз",
+	"кратн",
+	"кратно-длительн",
+	"неакт-компл",
+	"несобст-агент",
+	"ном-аппоз",
+	"нум-аппоз",
+	"об-аппоз",
+	"об-копр",
+	"обст",
+	"обст-тавт",
+	"огранич",
+	"оп-аппоз",
+	"оп-опред",
+	"опред",
+	"пасс-анал",
+	"подч-союзн",
+	"предик",
+	"предл",
+	"презентат",
+	"примыкат",
+	"присвяз",
+	"пролепт",
+	"разъяснит",
+	"распред",
+	"релят",
+	"сент-предик",
+	"сент-соч",
+	"соотнос",
+	"соч-союзн",
+	"сочин",
+	"сравн-союзн",
+	"сравнит",
+	"суб-копр",
+	"суб-обст",
+	"уточн",
+	"эксплет",
+	"электив",
+	"эллипт",
+    ],
+};
 attrs.prefix = {
     label : "prefix",
     type : "set",
@@ -1221,16 +1403,27 @@ attrs.id_hidden = {
 };
 attrs.ambiguous_lemma = {
     label : "ambiguous_lemma",
-    opts : settings.defaultOptions
+    type : "set",
+    opts : settings.setOptions
 };
 attrs.ambiguous_pos = {
     label : "ambiguous_pos",
-    opts : settings.defaultOptions
+    type : "set",
+    opts : settings.setOptions
 };
 attrs.ambiguous_msd = {
     label : "ambiguous_msd",
-    opts : settings.defaultOptions
+    type : "set",
+    opts : settings.setOptions
 };
+
+var mulcold_pos_langs = ["fi", "ru", "en", "sv"];
+for (var i = 0; i < mulcold_pos_langs.length; i++) {
+    var lang = mulcold_pos_langs[i];
+    attrs["ambiguous_pos_mulcold_" + lang] = $.extend(
+	true, {}, attrs["pos_mulcold_" + lang], attrs.ambiguous_pos);
+}
+delete mulcold_pos_langs;
 
 attrs.wordtype = {
     label : "type",
@@ -1344,6 +1537,131 @@ attrs.ne_subtype = {
        return util.getLocaleString("ne_subtype_" + val);
    }
 };
+
+// Name attributes for corpora tagged with (Fi)NER.
+//
+// The attributes ne_* are intra-sentence structural attributes that
+// are shown in Korp as token attributes, shown only for the tokens
+// within an ne structure (isStructAttr : true). This approach is
+// borrowed from Språkbanken but with a couple of additional
+// attributes.
+
+// FiNER name types
+attrs.ne_type_fi = {
+    label : "ne_type",
+    translationKey : "ne_type_",
+    isStructAttr : true,
+    dataset : [
+	"LOC",
+	"PRS",
+	"ORG",
+	// "EVN",
+	// "WRK",
+	// "OBJ",
+	"MSR",
+	"TME"
+   ]
+};
+// FiNER name subtypes
+attrs.ne_subtype_fi = {
+    label : "ne_subtype",
+    translationKey : "ne_subtype_",
+    isStructAttr : true,
+    dataset : [
+	"ATH",
+	"CLT",
+	"CRP",
+	"CUR",
+	"DAT",
+	"EDU",
+	"GPL",
+	"HUM",
+	"PLT",
+	"PPL",
+	"STR",
+	"TIT",
+	"TVR",
+	"XXX",
+   ],
+};
+// FiNER full name types: expression category, type, subtype
+attrs.ne_fulltype_fi = {
+    label : "ne_fulltype",
+    translationKey : "namecat_",
+    isStructAttr : true,
+    dataset : [
+	"EnamexPrsHum",
+	"EnamexPrsTit",
+	"EnamexLocXxx",
+	"EnamexLocGpl",
+	"EnamexLocPpl",
+	"EnamexLocStr",
+	"EnamexOrgAth",
+	"EnamexOrgClt",
+	"EnamexOrgCrp",
+	"EnamexOrgEdu",
+	"EnamexOrgPlt",
+	"EnamexOrgTvr",
+	"NumexMsrCur",
+	"NumexMsrXxx",
+	"TimexTmeDat",
+    ],
+};
+// The name (tokens) within the ne structure
+attrs.ne_name = {
+    label : "ne_name",
+    isStructAttr : true,
+};
+// If the name is a place name, it is repeated here. This attribute
+// can represent place name information obtained from NER, POS tags or
+// metadata, as indicated by ne_placename_source below.
+attrs.ne_placename = {
+    label : "ne_placename",
+    isStructAttr : true,
+};
+// The source of the place name information.
+attrs.ne_placename_source = {
+    label : "ne_placename_source",
+    displayType : "select",
+    translationKey : "placename_source_",
+    dataset : [
+	"ner",
+	"pos",
+	"meta",
+    ],
+    isStructAttr : true,
+};
+// The raw (Fi)NER tag as a positional attriute
+attrs.ner_rawtag = {
+    label : "ner_tag_raw",
+    displayType : "hidden",
+};
+// The B-I-O status of token as a positional attribute: Beginning a
+// name, Inside a name and Outside a name
+attrs.ner_bio = {
+    label : "ner_bio",
+    translationKey : "ner_bio_",
+    isStructAttr : true,
+    dataset : [
+	"B",
+	"I",
+	"O",
+    ],
+};
+
+// Common name attributes for (Fi)NER-tagged corpora
+attrlist.finer = {
+    ne_name : attrs.ne_name,
+    ne_ex : attrs.ne_ex,
+    ne_type : attrs.ne_type_fi,
+    ne_subtype : attrs.ne_subtype_fi,
+    ne_fulltype : attrs.ne_fulltype_fi,
+    ne_placename : attrs.ne_placename,
+    ne_placename_source : attrs.ne_placename_source,
+    nertag : attrs.ner_rawtag,
+    nerbio : attrs.ner_bio,
+};
+
 sattrs.date = {
     label : "date",
     displayType : "date"
@@ -1499,7 +1817,7 @@ sattrs.mikhailov_text_genre = {
 };
 
 sattrs.text_author = {
-    label : "text_author"
+    label : "author"
 };
 
 sattrs.article_author = {
@@ -1518,6 +1836,27 @@ sattrs.text_translator = {
     label : "text_translator"
 };
 
+sattrs.text_publ_place = {
+    label : "publication_place"
+};
+
+sattrs.filename = {
+    label : "file_name"
+};
+
+sattrs.year = {
+    label : "year"
+};
+
+sattrs.month = {
+    label : "month"
+};
+
+sattrs.day_of_month = {
+    label : "day"
+};
+
+
 /* KFSCP --- */
 
 sattrs.text_pubdate = {
@@ -1535,6 +1874,94 @@ sattrs.link_lehdet = {
     type : "url",
     url_opts : sattrs.link_url_opts
 };
+
+/* SUST */
+
+sattrlist.sust = {
+    text_title : {
+        label : "text_title"
+    },
+    text_year : {
+        label : "text_year"
+    },
+    text_author : {
+        label : "text_author"
+    },
+    text_corrector : {
+        label : "text_corrector"
+    },
+    text_issue : {
+        label : "text_issue"
+    },
+    text_pubname : {
+        label : "publisher"
+    },
+    sentence_section : {
+        label : "page_num"
+    },
+    sentence_chapno : {
+        label : "sentence_chapno",
+    },
+    paragraph_parttitle : {
+        label : "paragraph_title",
+    },
+    paragraph_lang : {
+        label : "paragraph_lang",
+    },
+    sentence_tr : {
+        label : "translation",
+    },
+    sentence_orig : {
+        label : "transcription",
+    }
+};
+
+attrlist.sust = {}
+
+
+/* E-thesis */
+
+sattrlist.ethesis = {
+    text_title : {
+        label : "text_title"
+    },
+    text_date : {
+        label : "text_date"
+    },
+    text_keywords : {
+        label : "text_keywords"
+    },
+    text_faculty : {
+        label : "text_faculty"
+    },
+    text_subject : {
+        label : "text_subject"
+    },
+    text_type : {
+        label : "text_dissertationtype"
+    },
+    text_lang : {
+        label : "text_lang",
+        displayType : "select",
+        translationKey : "ftb3_europarl_language_",
+        dataset : {
+            "fi" : "fi",
+            "sv" : "sv",
+            "es" : "es",
+            "en" : "en",
+            "ru" : "ru"
+        },
+        opts : settings.liteOptions
+    },
+    text_url : {
+        label : "text_abslink",
+        type : "url",
+        url_opts : sattrs.link_url_opts
+    }
+};
+
+
+
 
 /* VNSK */
 
@@ -1811,6 +2238,11 @@ settings.corporafolders.sv = {
 };
 */
 
+settings.corporafolders.ethesis = {
+    title : "E-thesis",
+    contents : ["ethesis_dissabs"]
+};
+
 settings.corporafolders.ftb = {
     title : "FinnTreeBank: suomen puupankki",
     contents : ["ftb2"]
@@ -1864,7 +2296,9 @@ settings.corporafolders.sks = {
 
 settings.corporafolders.literature = {
     title : "Kirjallisuutta",
-    contents : ["gutenberg", "sks_kivi_fi", "skvr"]
+    contents : ["gutenberg", "sks_kivi_fi", "skvr",
+		"parfin_2016_fi", "parrus_2016_fi",
+		"parfin_fi", "parrus_fi"]
 };
 
 settings.corporafolders.literature.skk = {
@@ -4979,6 +5413,18 @@ settings.corpora.skk_sodergran = {
         text_source : sattrs.text_source
     }
 };
+
+settings.corpora.ethesis_dissabs = {
+    title : "Väitöstiivistelmät",
+    description : "Väitöskirjojen suomenkielisiä abstrakteja 2006-2016",
+    id : "ethesis_dissabs",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
 /*
 settings.corpora.kotus_klassikot = {
     title : "Suomalaisen kirjallisuuden klassikoita (näyte)",
@@ -6672,7 +7118,7 @@ attrlist.mulcold_fi = {
     pos : attrs.pos_mulcold_fi,
     msd : attrs.msd,
     amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos,
+    ambpos : attrs.ambiguous_pos_mulcold_fi,
     ambmsd : attrs.ambiguous_msd,
     lex : attrs.lemgram_hidden
 };
@@ -6681,7 +7127,7 @@ attrlist.mulcold_ru = {
     pos : attrs.pos_mulcold_ru,
     msd : attrs.msd,
     amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos,
+    ambpos : attrs.ambiguous_pos_mulcold_ru,
     ambmsd : attrs.ambiguous_msd,
     lex : attrs.lemgram_hidden
 };
@@ -6690,7 +7136,7 @@ attrlist.mulcold_en = {
     pos : attrs.pos_mulcold_en,
     msd : attrs.msd,
     amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos,
+    ambpos : attrs.ambiguous_pos_mulcold_en,
     ambmsd : attrs.ambiguous_msd,
     lex : attrs.lemgram_hidden
 };
@@ -6700,7 +7146,7 @@ attrlist.mulcold_sv = {
     pos : attrs.pos_mulcold_sv,
     msd : attrs.msd,
     amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos,
+    ambpos : attrs.ambiguous_pos_mulcold_sv,
     ambmsd : attrs.ambiguous_msd,
     lex : attrs.lemgram_hidden
 };
@@ -6885,6 +7331,7 @@ sattrlist.europarl_v7 = {
 };
 
 attrlist.testerzya = {};
+sattrlist.erme_debug = {}
 
 sattrlist.erme = {
     text_author : {
@@ -6946,14 +7393,14 @@ sattrlist.testerzya = {
         label : "sentence_section"
 	    },
 	sentence_chapno : {
-        label : "sentence_chapno",
+        label : "sentence_chapno"
 	    },
 	paragraph_class : {
-        label : "paragraph_class",
+        label : "paragraph_class"
 	    },
 	paragraph_lang : {
-        label : "paragraph_lang",
-	    }
+        label : "paragraph_lang"
+	}
 };
 
 
@@ -7187,6 +7634,1325 @@ settings.corpora.mulcold_fi = {
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
 				   ["mulcold_fi"]);
+
+
+/* ParFin common */
+
+settings.corpusinfo.parfin = {
+    urn : "urn:nbn:fi:lb-2015050506",
+    metadata_urn : "urn:nbn:fi:lb-2014052710",
+    licence : {
+	name : "CLARIN RES +NC +PLAN +INF",
+	urn : "urn:nbn:fi:lb-2015041306"
+    },
+    homepage_url : "https://mustikka.uta.fi/",
+};
+
+sattrlist.parfin_base = {
+    link_text_code : {
+	label : "text_id"
+    },
+    link_txtnumber : {
+	label : "text_number"
+    },
+    link_text_author : {
+	label : "author"
+    },
+    link_text_title : {
+	label : "title"
+    },
+    link_text_typeoftext : {
+	label : "text_type"
+    },
+    link_text_genre : sattrs.mikhailov_text_genre,
+    link_text_period : {
+	label : "year"
+    },
+    link_text_publisher : {
+	label : "publisher"
+    },
+    sentence_id : sattrs.sentence_id_hidden
+};
+
+sattrlist.parfin_fi = $.extend(
+    true, {}, sattrlist.parfin_base,
+    {
+	link_text_author : {
+	    label : "author",
+	    displayType : "select",
+	    dataset : [
+		"Haahtela Joel",
+		"Hotakainen Kari",
+		"Konkka Anita",
+		"Krohn Leena",
+		"Lassila Maiju",
+		"Lehtolainen Leena",
+		"Mäkelä Hannu",
+		"Oksanen Sofi",
+		"Rimminen Mikko",
+		"Sillanpää Frans Emil",
+		"Sinisalo Johanna",
+		"Tuuri Antti",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_translator : {
+	    label : "translator",
+	    displayType : "select",
+	    dataset : [
+		"Djafarova Taissia",
+		"Džafarova-Viitala Taisja",
+		"Ioffe Eleonora",
+		"Melnik Tatjana",
+		"Muravin Gennadi, Kamenskaja J",
+		"Muravin, Gennadi",
+		"Priležajev Ivan",
+		"Sidorova Anna",
+		"Sidorova Anna, Tinovitskaja Jevgenija",
+		"Tinovitskaja Evgenija",
+		"Uretskij Ilja",
+		"Virolainen Laura A.",
+		"Zoštšenko Mihail",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_title : {
+	    label : "title",
+	    displayType : "select",
+	    dataset : [
+		"Ennen päivänlaskua ei voi",
+		"Ensimmäinen murhani",
+		"Harmin paikka",
+		"Hullun taivaassa",
+		"Ihmisen vaatteissa",
+		"Ihmiset suviyössä",
+		"Joki virtaa läpi kaupungin",
+		"Juoksuhaudantie",
+		"Kuparisydän",
+		"Pekka Peloton",
+		"Perhoskerääjä",
+		"Puhdistus",
+		"Pussikaljaromaani",
+		"Sfinksi vai robotti",
+		"Tulitikkuja lainaamassa",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_publisher : {
+	    label : "publisher",
+	    displayType : "select",
+	    dataset : {
+		"Kansa" : "Kansa",
+		"Otava" : "Otava",
+		"[Tt]ammi" : "Tammi",
+		"Teos" : "Teos",
+		"WSOY" : "WSOY",
+	    },
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+    }
+);
+
+sattrlist.parfin_ru = $.extend(
+    true, {}, sattrlist.parfin_fi,
+    {
+	link_text_title : {
+	    label : "title",
+	    displayType : "select",
+	    dataset : [
+		"Бесстрашный Пекка  В одежде человека",
+		"В одежде человека",
+		"В сумасшедших небесах",
+		"До заката нельзя",
+		"За спичками",
+		"Змеи в раю",
+		"Люди в летней ночи",
+		"Медное сердце",
+		"Мое первое убийство",
+		"Очищение",
+		"Река течет через город",
+		"Роман с пивом",
+		"Собиратель бабочек",
+		"Сфинкс или робот  В одежде человека",
+		"Улица окопная",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_publisher : {
+	    label : "publisher",
+	    displayType : "select",
+	    dataset : [
+		"Азбука-классика",
+		"Амфора",
+		"Астрель",
+		"Государственное издательство художественной литературы",
+		"Едиториал УРСС",
+		"КомКнига",
+		"Лимбус Пресс, Издательство К. Тублина",
+		"Самокат",
+		"Текст",
+		"Художественная литература",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+    }
+);
+
+attrlist.parfin_fi = $.extend(
+    true, {}, attrlist.mulcold_fi);
+
+attrlist.parfin_ru = $.extend(
+    true, {}, attrlist.mulcold_ru);
+
+
+/* ParFin Finnish */
+
+settings.corpora.parfin_fi = {
+    id : "parfin_fi",
+    title : "ParFin (suomi)",
+    description : "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset alkuperäistekstit)<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1990–2010",
+    // TODO: Add paragraphs corresponding to link elements
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes : attrlist.parfin_fi,
+    struct_attributes : sattrlist.parfin_fi,
+    limited_access : true,
+    licence_type : "RES",
+};
+
+settings.fn.extend_corpus_settings(settings.corpusinfo.parfin, ["parfin_fi"]);
+
+
+/* ParRus common */
+
+attrlist.parrus_fi = $.extend(
+    true, {}, attrlist.mulcold_fi);
+
+attrlist.parrus_ru = $.extend(
+    true, {}, attrlist.mulcold_ru);
+
+sattrlist.parrus_fi = $.extend(
+    true, {}, sattrlist.parfin_base,
+    {
+	link_text_author : {
+	    label : "author",
+	    displayType : "select",
+	    dataset : [
+		"Бабель И.",
+		"Бакланов Г.",
+		"Булгаков М.А.",
+		"Гоголь Н.В.",
+		"Горький М.",
+		"Достоевский Ф.М.",
+		"Дудинцев В.",
+		"Зощенко М.",
+		"Лермонтов М.Ю.",
+		"Лесков Н.",
+		"Маринина А.",
+		"Пушкин А.С.",
+		"Семенов Ю.",
+		"Толстой Л.Н.",
+		"Трифонов Ю.",
+		"Троепольский Г.",
+		"Тургенев И.С.",
+		"Фадеев А.",
+		"Чехов А.П.",
+		"Шолохов М.А.",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_translator : {
+	    label : "translator",
+	    displayType : "select",
+	    dataset : [
+		"Adrian E.",
+		"Adrian, Esa",
+		"Ahava, Juho, Hameen-anttila, Vaino",
+		"Anhava M.",
+		"Heino U.-L.",
+		"Heino, Ulla-Liisa",
+		"Hollo J.A.",
+		"Hollo, Juho Anselmi",
+		"Iranto L.",
+		"Juhani Konkka",
+		"Kallama, Valto",
+		"Konkka J.",
+		"Konkka, Juhani",
+		"Koskinen M.",
+		"Kuukasjärvi Olli",
+		"Losowitch K.",
+		"Mitrošin A.",
+		"Orlov Vappu",
+		"Pienimäki N.",
+		"Pyykkö L.",
+		"Pyykkö Lea",
+		"Viitanen Liisa",
+		"null",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_title : {
+	    label : "title",
+	    displayType : "select",
+	    dataset : [
+		"Aateliskoti",
+		"Aatelisneiti talonpoikaistyttönä / Laukaus ja y. m. kertomuksia.",
+		"Agafja / Valitut novelit 1.",
+		"Aikamme sankari",
+		"Albionin tytär / Valitut novellit 1.",
+		"Alustava tilinpäätös",
+		"Anna Karenina",
+		"Aristokraatti / Kireähermoista väkeä.",
+		"Asemanhoitaja / Romaanit ja kertomukset.",
+		"Bim mustakorva",
+		"Ei onnistunut! / Valitut novellit 1.",
+		"Elämän pikkuseikka / Valitut novellit 1.",
+		"Griša / Valitut novellit 1.",
+		"Haaveita / Valitut novelit 1.",
+		"Hammaskirurgi / Valitut novellit 1.",
+		"Herra salaneuvos / Valitut novellit 1.",
+		"Hevosenkaltainen sukunimi / Valitut novelit 1.",
+		"Hiljaa virtaa Don",
+		"Huvila-asukkaita / Valitut novelit 1.",
+		"Häät kenraalin kera / Valitut novellit 1.",
+		"Ilkeä poika / Valitut novellit 1.",
+		"Isergil-muori",
+		"Isä-kulta / Valitut novellit 1.",
+		"Jeesuksen synti",
+		"Kaikesta täytyy maksaa",
+		"Kalliita kielitunteja / Valitut novellit 1.",
+		"Kameleontti / Valitut novellit 1.",
+		"Kapteenintytär / Romaanit ja kertomukset.",
+		"Karamazovin veljekset",
+		"Karkuri / Valitut novellit 1.",
+		"Karviaismarjoja / Suuret kertomukset 2.",
+		"Kauhunyö / Valitut novellit 1.",
+		"Keittäjätär menee naimisiin / Valitut novelit 1.",
+		"Kellariloukko",
+		"Kerjäläinen / Valittuja kertomuksia ja novelleja 1.",
+		"Kevään seitsemäntoista hetkeä",
+		"Kireähermoista väkeä / Kireähermoista väkeä.",
+		"Kirje isoisälle / Valitut novellit 1.",
+		"Koiran sydän",
+		"Kostaja / Valitut novellit 1.",
+		"Kuningas / Odessalaisia ja muita novelleja",
+		"Kunnon saksalainen / Valitut novellit 1.",
+		"Kuolema ja vähän rakkautta",
+		"Kuorotyttö / Valitut novellit 1.",
+		"Lapsia / Valitut novellit 1.",
+		"Laukaus / Laukaus ja y. m. kertomuksia.",
+		"Liikaa suolaa / Valitut novellit 1.",
+		"Lumimyrsky / Romaanit ja kertomukset.",
+		"Lumottu vaeltaja",
+		"Made / Valettuja kertomuksia ja novellija 1.",
+		"Makar Tšudra",
+		"Nainen ja sylikoira / Suuret kertomukset 2.",
+		"Noita / Valitut novellit 1.",
+		"Näyttelijän lähtö / Valitut novelit 1.",
+		"Onnenpoika / Valitut novellit 1.",
+		"Onnettomuus / Valitut novellit 1.",
+		"Onni / Suuret kertomukset 1.",
+		"Osterit / Valitut novellit 1.",
+		"Pahantekijä / Valitut novellit 1.",
+		"Paksukainen ja ohukainen / Valitut novellit 1.",
+		"Patarouva / Romaanit ja kertomukset.",
+		"Perheen isä / Valitut novellit 1.",
+		"Pimeässä / Valitut novellit 1.",
+		"Poikia / Valitut novelit 1.",
+		"Pyry",
+		"Päällysviitta / Valitut teokset. 1.",
+		"Rakkaus / Valitut novellit 1.",
+		"Rikos ja rangaistus",
+		"Romaani bassoviulusta / Valitut novellit 1.",
+		"Rotkossa / Suuret kertomukset 2.",
+		"Ruumisarkuntekijä / Romaanit ja kertomukset.",
+		"Saatana saapuu Moskovaan",
+		"Seireeni / Valitut novellit 1.",
+		"Surkea tapaus / Valitut novellit 1.",
+		"Suru / Valitut novellit 1.",
+		"Synnyinmaan puolesta",
+		"Taiteen tuote / Valitut novellit 1.",
+		"Taiteilijan tarina / Suuret kertomukset 1.",
+		"Talo rantakadulla",
+		"Talonpoikia / Suuret kertomukset 2.",
+		"Tapaus yöllä / Kireähermoista väkeä.",
+		"Tarpeettomia ihmisiä / Valitut novellit 1.",
+		"Teatteriromaani",
+		"Tuho",
+		"Tuttu mies / Valitut novellit 1.",
+		"Tšelkaš",
+		"Valkeat vaatteet",
+		"Vanhuus/ Valitut novellit 1.",
+		"Virkamiehen kuolema / Valitut novellit 1.",
+		"Yö ennen oikeudenkäyntiä  / Valitut novellit 1.",
+		"Yö hautausmaalla / Valitut novellit 1.",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_publisher : {
+	    label : "publisher",
+	    displayType : "select",
+	    dataset : [
+		"Gummerus",
+		"Helsinki",
+		"Kansankulttuuri",
+		"Karisto",
+		"Otava",
+		"SN-kirjat",
+		"Tammi",
+		"WSOY",
+		"null",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+    }
+);
+
+sattrlist.parrus_ru = $.extend(
+    true, {}, sattrlist.parfin_base,
+    {
+	link_text_author : {
+	    label : "author",
+	    displayType : "select",
+	    dataset : [
+		"Бабель И.",
+		"Бакланов Г.",
+		"Булгаков М.А.",
+		"Гоголь Н.В.",
+		"Горький М.",
+		"Достоевский Ф.М.",
+		"Дудинцев В.",
+		"Зощенко М.",
+		"Лермонтов М.Ю.",
+		"Лесков Н.",
+		"Маринина А.",
+		"Пушкин А.С.",
+		"Семенов Ю.",
+		"Толстой Л.Н.",
+		"Трифонов Ю.",
+		"Троепольский Г.",
+		"Тургенев И.С.",
+		"Фадеев А.",
+		"Чехов А.П.",
+		"Шолохов М.А.",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_translator : {
+	    label : "translator",
+	    displayType : "select",
+	    dataset : [
+		"Adrian, Esa",
+		"Ahava Juho, Hämeen-Anttila Väinö",
+		"Anhava, Martti",
+		"Heino, Ulla-Liisa",
+		"Hollo, Juho Anselmi",
+		"Iranto, Lidia",
+		"Konkka, Juhani",
+		"Koskinen, Marja",
+		"Kuukasjärvi, Olli",
+		"Losowitch, Katja",
+		"Mitrošin, A.",
+		"Pesonen, Pekka Alarik",
+		"Pienimäki, Natalia",
+		"Pyykkö Lea",
+		"Viitanen, Liisa",
+		"null",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_title : {
+	    label : "title",
+	    displayType : "select",
+	    dataset : [
+		"Агафья / Собр. соч. в 15 тт.",
+		"Актерская гибель / Собр. соч. в 15 тт.",
+		"Анна Каренина",
+		"Аристократка",
+		"Барышня-крестьянка",
+		"Беглец / Собр. соч. в 15 тт.",
+		"Белые одежды",
+		"Белый Бим черное ухо",
+		"Братья Карамазовы",
+		"В овраге / Собр. соч. в 15 тт.",
+		"В потемках / Собр. соч. в 15 тт.",
+		"Ванька / Собр. соч. в 15 тт.",
+		"Ведьма / Собр. соч. в 15 тт.",
+		"Выстрел",
+		"Герой нашего времени",
+		"Гриша / Собр. соч. в 15 тт.",
+		"Гробовщик",
+		"Дама с собачкой / Собр. соч. в 15 тт.",
+		"Дачники / Собр. соч. в 15 тт.",
+		"Дворянское гнездо",
+		"Детвора / Собр. соч. в 15 тт.",
+		"Добрый немец / Собр. соч. в 15 тт.",
+		"Дом на набережной",
+		"Дом с мезонином / Собр. соч. в 15 тт.",
+		"Дорогие уроки / Собр. соч. в 15 тт.",
+		"Дочь Альбиона / Собр. соч. в 15 тт.",
+		"Житейская мелочь / Собр. соч. в 15 тт.",
+		"За все надо платить",
+		"Записки из подполья",
+		"Злой мальчик / Собр. соч. в 15 тт.",
+		"Злоумышленник / Собр. соч. в 15 тт.",
+		"Знакомый мужчина / Собр. соч. в 15 тт.",
+		"Иисусов грех / Одесские рассказы.",
+		"Капитанская дочка",
+		"Король / Одесские рассказы.",
+		"Крыжовник / Собр. соч. в 15 тт.",
+		"Кухарка женится / Собр. соч. в 15 тт.",
+		"Лишние люди / Собр. соч. в 15 тт.",
+		"Лошадиная фамилия / Собр. соч. в 15 тт.",
+		"Любовь / Собр. соч. в 15 тт.",
+		"Макар Чудра",
+		"Мальчики / Собр. соч. в 15 тт.",
+		"Мастер и Маргарита",
+		"Метель",
+		"Мечты / Собр. соч. в 15 тт.",
+		"Мститель / Собр. соч. в 15 тт.",
+		"Мужики / Собр. соч. в 15 тт.",
+		"Навеки девятнадцатилетние",
+		"Налим / Собр. соч. в 15 тт.",
+		"Нервные люди",
+		"Несчастье / Собр. соч. в 15 тт.",
+		"Неудача / Собр. соч. в 15 тт.",
+		"Нищий / Собр. соч. в 15 тт.",
+		"Ночное происшествие",
+		"Ночь на кладбище / Собр. соч. в 15 тт.",
+		"Ночь перед судом / Собр. соч. в 15 тт.",
+		"Отец семейства / Собр. соч. в 15 тт.",
+		"Очарованный странник",
+		"Папаша / Собр. соч. в 15 тт.",
+		"Пересолил / Собр. соч. в 15 тт.",
+		"Пиковая дама ",
+		"Предварительные итоги",
+		"Преступление и наказание",
+		"Произведение искусства / Собр. соч. в 15 тт.",
+		"Разгром",
+		"Роман с контрабасом / Собр. соч. в 15 тт.",
+		"Свадьба с генералом / Собр. соч. в 15 тт.",
+		"Семнадцать мгновений весны",
+		"Сирена / Собр. соч. в 15 тт.",
+		"Смерть и немного любви",
+		"Смерть чиновника / Собр. соч. в 15 тт.",
+		"Собачье сердце",
+		"Событие / Собр. соч. в 15 тт.",
+		"Станционный смотритель",
+		"Старость / Собр. соч. в 15 тт.",
+		"Старуха Изергиль",
+		"Страшная ночь / Собр. соч. в 15 тт.",
+		"Счастливчик / Собр. соч. в 15 тт.",
+		"Счастье / Собр. соч. в 15 тт.",
+		"Тайный советник / Собр. соч. в 15 тт.",
+		"Театральный роман",
+		"Тихий Дон, ч. 1",
+		"Толстый и тонкий / Собр. соч. в 15 тт.",
+		"Тоска / Собр. соч. в 15 тт.",
+		"Устрицы / Собр. соч. в 15 тт.",
+		"Хамелеон / Собр. соч. в 15 тт.",
+		"Хирургия / Собр. соч. в 15 тт.",
+		"Хористка / Собр. соч. в 15 тт.",
+		"Челкаш",
+		"Шинель",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_publisher : {
+	    label : "publisher",
+	    displayType : "select",
+	    dataset : [
+		"АСТ, 1997",
+		"АСТ, 1998",
+		"АСТ, 2001",
+		"АСТ, 2002",
+		"АСТ, 2004",
+		"АСТ, 2007",
+		"АСТ, 2010",
+		"АСТ, 2011",
+		"АСТ, Астрель, 2002",
+		"АСТ, Астрель, 2011",
+		"Азбука-классика, 2002",
+		"Альд, Империум Пресс, Литература, 2003",
+		"Детская литература, 1999",
+		"Детская литература, 2000",
+		"Детская литература, 2004",
+		"Олимп, АСТ, 2002",
+		"Терра,  1999",
+		"Терра, 1999",
+		"Терра,1999",
+		"Художественная литература, 2000",
+		"Эксмо",
+		"Эксмо, 2003",
+		"Эксмо, 2007",
+		"Эксмо, 2009",
+		"Эксо, 2008",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+    }
+);
+
+settings.corpusinfo.parrus = {
+    urn : "[to be added]",
+    metadata_urn : "urn:nbn:fi:lb-20140730173",
+    licence : {
+	name : "CLARIN RES +PLAN +NC +INF +ND",
+	url : "https://www.kielipankki.fi/lic/parrus/?lang=fi"
+    },
+    homepage_url : "https://mustikka.uta.fi/",
+};
+
+settings.corpora.parrus_fi = {
+    id : "parrus_fi",
+    title : "ParRus (suomi)",
+    description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset käännökset)<br/>Venäjänkielisten kaunokirjallisten tekstien (klassista ja 1900-luvun kirjallisuutta) käännöksiä suomeksi",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    limited_access : true,
+    licence_type : "RES",
+    attributes : attrlist.parrus_fi,
+    struct_attributes : sattrlist.parrus_fi,
+};
+settings.fn.extend_corpus_settings(settings.corpusinfo.parrus, ["parrus_fi"]);
+
+
+/* ParFin 2016 common */
+
+settings.corpusinfo.parfin_2016 = {
+    urn : "[to be added]",
+    metadata_urn : "urn:nbn:fi:lb-2014052710",
+    licence : {
+	name : "CLARIN RES +NC +PLAN +INF",
+	urn : "urn:nbn:fi:lb-2015041306"
+    },
+    homepage_url : "https://mustikka.uta.fi/",
+};
+
+sattrlist.parfin_2016_base = {
+    link_text_code : {
+	label : "text_id"
+    },
+    // link_txtnumber : {
+    // 	label : "text_number"
+    // },
+    link_text_author : {
+	label : "author"
+    },
+    link_text_title : {
+	label : "title"
+    },
+    // link_text_typeoftext : {
+    // 	label : "text_type"
+    // },
+    // link_text_genre : sattrs.mikhailov_text_genre,
+    // link_text_period : {
+    // 	label : "year"
+    // },
+    link_text_publisher : {
+	label : "publisher"
+    },
+    link_text_year : {
+	label : "year",
+    },
+    link_text_yearorig : {
+	label : "year_orig",
+    },
+    link_text_yeartr : {
+	label : "year_transl",
+    },
+    sentence_id : sattrs.sentence_id_hidden
+};
+
+sattrlist.parfin_2016_fi = $.extend(
+    true, {}, sattrlist.parfin_2016_base,
+    {
+	link_text_author : {
+	    label : "author",
+	    displayType : "select",
+	    dataset : [
+		"Haahtela Joel",
+		"Hotakainen Kari",
+		"Katz Daniel",
+		"Konkka Anita",
+		"Krohn Leena",
+		"Lassila Maiju",
+		"Lehtolainen Leena",
+		"Linna Väinö",
+		"Mäkelä Hannu",
+		"Oksanen Sofi",
+		"Rimminen Mikko",
+		"Salminen Arto",
+		"Sillanpää Frans Emil",
+		"Sinisalo Johanna",
+		"Tuuri Antti",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_translator : {
+	    label : "translator",
+	},
+	link_text_title : {
+	    label : "title",
+	    displayType : "select",
+	    dataset : [
+		"Ei-kuori",
+		"Ennen päivänlaskua ei voi",
+		"Ensimmäinen murhani",
+		"Harmin paikka",
+		"Hullun taivaassa",
+		"Ihmisen vaatteissa",
+		"Ihmiset suviyössä",
+		"Joki virtaa",
+		"Juoksuhaudantie",
+		"Kun isoisä suomeen hiihti",
+		"Kuparisydän",
+		"Pekka Peloton",
+		"Perhoskerääjä",
+		"Puhdistus",
+		"Pussikalja",
+		"Sfinksi vai robotti",
+		"Tulitikkuja lainaamassa",
+		"Tuntematon sotilas",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_publisher : {
+	    label : "publisher",
+	    displayType : "select",
+	    dataset : [
+		"Kansa",
+		"Otava",
+		"Tammi",
+		"Teos",
+		"WSOY",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_year_orig : {
+	    label : "year",
+	},
+    }
+);
+
+sattrlist.parfin_2016_ru = $.extend(
+    true, {}, sattrlist.parfin_2016_fi,
+    {
+	link_text_title : {
+	    label : "title",
+	    displayType : "select",
+	    dataset : [
+		"Бесстрашный Пекка",
+		"В одежде человека",
+		"В сумасшедших небесах",
+		"За спичками",
+		"Змеи в раю",
+		"Как мой прадедушка на лыжах прибежал в Финляндию",
+		"Люди в летней ночи",
+		"Медное сердце",
+		"Мое первое убийство",
+		"Неизвестный солдат",
+		"Очищение",
+		"Река течет через город",
+		"Роман с пивом",
+		"Собиратель бабочек",
+		"Спасибо, нет",
+		"Сфинкс или робот",
+		"Тролль",
+		"Улица окопная",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_translator : {
+	    label : "translator",
+	    displayType : "select",
+	    dataset : [
+		"Виролайнен, Лаура and Иоффе, Элеонора",
+		"Джафарова-Виитала, Таисья",
+		"Зощенко, M.",
+		"Иоффе, Элеонора",
+		"Мельник, Татьяна",
+		"Муравин, Геннадий",
+		"Муравин, Геннадий and Каменская, Е.",
+		"Олыкайнен, Лео and Олыкайнен, Леонид",
+		"Прилежаев, Иван",
+		"Сидорова, Анна",
+		"Смирнов Владимир",
+		"Смирнов, Владимир and Марцина, И.",
+		"Тиновицкая, Евгения",
+		"Урецкий, Илья",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_publisher : {
+	    label : "publisher",
+	    displayType : "select",
+	    dataset : [
+		"Азбука-классика",
+		"Амфора",
+		"Астрель",
+		"Вяжевич, А.С",
+		"Государственное издательство художественной литературы",
+		"Едиториал УРСС",
+		"КомКнига",
+		"Лимбус Пресс, Издательство К. Тублина",
+		"Прогресс",
+		"Самокат",
+		"Текст",
+		"Художественная литература",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+    }
+);
+
+attrlist.parfin_2016_fi = {
+    lemma : attrs.baseform,
+    lemmacomp : attrs.baseform_compound,
+    pos : attrs.pos_ud_fi,
+    msd : attrs.msd,
+    dephead : attrs.dephead,
+    deprel : attrs.deprel_ud_fi,
+    ref : attrs.ref,
+    lex : attrs.lemgram_hidden
+};
+
+attrlist.parfin_2016_ru = {
+    lemma : attrs.baseform,
+    lemmacomp : attrs.baseform_compound,
+    pos : attrs.pos_uta_ru,
+    msd : attrs.msd,
+    dephead : attrs.dephead,
+    deprel : attrs.deprel_uta_ru,
+    ref : attrs.ref,
+    lex : attrs.lemgram_hidden
+};
+
+
+/* ParFin 2016 Finnish */
+
+settings.corpora.parfin_2016_fi = {
+    id : "parfin_2016_fi",
+    title : "ParFin 2016 (suomi) (beta)",
+    description : "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset alkuperäistekstit)<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1910–2008<br/><br/>Korpuksen Korp-versio on testausvaiheessa ja siihen voi vielä tulla muutoksia.",
+    // TODO: Add paragraphs corresponding to link elements
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes : attrlist.parfin_2016_fi,
+    struct_attributes : sattrlist.parfin_2016_fi,
+    limited_access : true,
+    licence_type : "RES",
+};
+
+settings.fn.extend_corpus_settings(settings.corpusinfo.parfin_2016,
+				   ["parfin_2016_fi"]);
+
+
+
+/* ParRus 2016 common */
+
+attrlist.parrus_2016_fi = $.extend(
+    true, {}, attrlist.parfin_2016_fi);
+
+attrlist.parrus_2016_ru = $.extend(
+    true, {}, attrlist.parfin_2016_ru);
+
+sattrlist.parrus_2016_ru = $.extend(
+    true, {}, sattrlist.parfin_2016_base,
+    {
+	link_text_author : {
+	    label : "author",
+	    displayType : "select",
+	    dataset : [
+		"Бабель И.",
+		"Булгаков М.А.",
+		"Гоголь Н.В.",
+		"Горький М.",
+		"Достоевский Ф.М.",
+		"Дудинцев В.",
+		"Зощенко М.",
+		"Ильф И., Петров Е.",
+		"Лермонтов М.Ю.",
+		"Лесков Н.",
+		"Маринина А.",
+		"Пушкин А.С.",
+		"Семенов Ю.",
+		"Трифонов Ю.",
+		"Троепольский Г.",
+		"Тургенев И.С.",
+		"Улицкая Л.",
+		"Фадеев А.",
+		"Чехов А.П.",
+		"Шолохов М.А.",
+		"Шукшин В.М.",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	// link_text_translator : {
+	//     label : "translator",
+	//     displayType : "select",
+	//     dataset : [
+	// 	"Adrian, Esa",
+	// 	"Ahava Juho, Hämeen-Anttila Väinö",
+	// 	"Anhava, Martti",
+	// 	"Heino, Ulla-Liisa",
+	// 	"Hollo, Juho Anselmi",
+	// 	"Iranto, Lidia",
+	// 	"Konkka, Juhani",
+	// 	"Koskinen, Marja",
+	// 	"Kuukasjärvi, Olli",
+	// 	"Losowitch, Katja",
+	// 	"Mitrošin, A.",
+	// 	"Pesonen, Pekka Alarik",
+	// 	"Pienimäki, Natalia",
+	// 	"Pyykkö Lea",
+	// 	"Viitanen, Liisa",
+	// 	"null",
+	//     ],
+	//     localize : false,
+	//     opts : settings.liteOptions,
+	// },
+	link_text_title : {
+	    label : "title",
+	    displayType : "select",
+	    dataset : [
+		"Агафья",
+		"Актерская гибель",
+		"Аристократка",
+		"Барышня-крестьянка",
+		"Беглец",
+		"Белые одежды",
+		"Белый Бим черное ухо",
+		"Брат Юрочка / Сквозная линия",
+		"Братья Карамазовы",
+		"В овраге",
+		"В потемках",
+		"Ванька",
+		"Ведьма",
+		"Верую!",
+		"Выстрел",
+		"Герой нашего времени",
+		"Гриша",
+		"Дама с собачкой",
+		"Дачники",
+		"Дворянское гнездо",
+		"Детвора",
+		"Диана / Сквозная линия",
+		"Добрый немец",
+		"Дом на набережной",
+		"Дом с мезонином",
+		"Дорогие уроки",
+		"Дочь Альбиона",
+		"Житейская мелочь",
+		"За все надо платить",
+		"Записки из подполья",
+		"Злоумышленник",
+		"Змеиный яд",
+		"Знакомый мужчина",
+		"Золотой теленок",
+		"Иисусов грех",
+		"Искусство жить / Сквозная линия",
+		"Капитанская дочка",
+		"Конец сюжета / Сквозная линия",
+		"Король",
+		"Крепкий мужик",
+		"Крыжовник",
+		"Кухарка женится",
+		"Лишние люди",
+		"Лошадиная фамилия",
+		"Любовь",
+		"Макар Чудра",
+		"Мальчики",
+		"Мастер и Маргарита",
+		"Мертвые души",
+		"Метель",
+		"Мечты",
+		"Мститель",
+		"Мужики",
+		"Налим",
+		"Нервные люди",
+		"Несчастье",
+		"Неудача",
+		"Нищий",
+		"Ночное происшествие",
+		"Ночь на кладбище",
+		"Ночь перед судом",
+		"Осенью",
+		"Отец семейства",
+		"Очарованный странник",
+		"Папаша",
+		"Пересолил",
+		"Пиковая дама",
+		"Предварительные итоги",
+		"Преступление и наказание",
+		"Произведение искусства",
+		"Разгром",
+		"Роман с контрабасом",
+		"Свадьба с генералом",
+		"Семнадцать мгновений весны",
+		"Сирена",
+		"Смерть и немного любви",
+		"Смерть чиновника",
+		"Собачье сердце",
+		"Событие",
+		"Старость",
+		"Старуха Изергиль",
+		"Страшная ночь",
+		"Счастливчик",
+		"Счастливый случай / Сквозная линия",
+		"Счастье",
+		"Тайный советник",
+		"Тарас Бульба",
+		"Театральный роман",
+		"Тихий Дон, ч. 1",
+		"Толстый и тонкий",
+		"Тоска",
+		"Устрицы",
+		"Хамелеон",
+		"Хирургия",
+		"Хористка",
+		"Челкаш",
+		"Шинель",
+		"Явление природы / Сквозная линия",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_publisher : {
+	    label : "publisher",
+	    displayType : "select",
+	    dataset : [
+		"",
+		"Эксмо",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+    }
+);
+
+sattrlist.parrus_2016_fi = $.extend(
+    true, {}, sattrlist.parfin_2016_base,
+    {
+	link_text_author : {
+	    label : "author",
+	    displayType : "select",
+	    dataset : [
+		"Аксенов В.",
+		"Бабель И.",
+		"Бакланов Г.",
+		"Белов В.",
+		"Булгаков М.А.",
+		"Гоголь Н.В.",
+		"Горький М.",
+		"Достоевский Ф.М.",
+		"Дудинцев В.",
+		"Ерофеев В.",
+		"Зощенко М.",
+		"Ильф И., Петров Е.",
+		"Лермонтов М.Ю.",
+		"Лесков Н.",
+		"Маринина А.",
+		"Олеша Ю.",
+		"Приставкин А.",
+		"Пушкин А.С.",
+		"Распутин В.",
+		"Семенов Ю.",
+		"Солженицын А.И.",
+		"Стругацкие А. и Б.",
+		"Толстая Т.",
+		"Трифонов Ю.",
+		"Троепольский Г.",
+		"Тургенев И.С.",
+		"Улицкая Л.",
+		"Фадеев А.",
+		"Чехов А.П.",
+		"Шолохов М.А.",
+		"Шукшин В.М.",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_translator : {
+	    label : "translator",
+	    displayType : "select",
+	    dataset : [
+		"A.W--",
+		"Aarto A.",
+		"Adrian E.",
+		"Adrian, Esa",
+		"Ahava Juho, Hämeen-Anttila V.",
+		"Ahava, Juho, Hameen-anttila, Vaino",
+		"Anhava M.",
+		"Elias Siippainen",
+		"Halonen J.A.",
+		"Heino U.-L.",
+		"Heino Ulla-Liisa",
+		"Heino, Ulla-Liisa",
+		"Hollo J.",
+		"Hollo Juho",
+		"Hollo, Juho",
+		"Hollo, Juho Anselmi",
+		"Holm L.",
+		"Iranto L.",
+		"Jalkanen, Huugo",
+		"Juhani Konkka",
+		"Kallama, Valto",
+		"Konkka J.",
+		"Konkka Juhani",
+		"Konkka, Juhani",
+		"Koskinen M.",
+		"Kuukasjärvi Olli",
+		"Laaksonen H.",
+		"Lahtela M.",
+		"Losowitch K.",
+		"M.-W.",
+		"Mitrošin A.",
+		"Orlov Vappu",
+		"Pesonen, Pekka Alarik",
+		"Pienimäki N.",
+		"Pikkupeura A.",
+		"Pyykkö L.",
+		"Pyykkö Lea",
+		"Rymin R., Parkkinen P.",
+		"Samuli S.",
+		"Samuli Suomalainen",
+		"Silvanto, Reino",
+		"Viitanen Liisa",
+		"Wuori M.",
+		"c.-s.",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_title : {
+	    label : "title",
+	    displayType : "select",
+	    dataset : [
+		"Aateliskoti",
+		"Aatelisneiti talonpoikaistyttönä",
+		"Agafja",
+		"Aikamme sankari",
+		"Aikamme uros",
+		"Albionin tytär",
+		"Alustava tilinpäätös",
+		"Aristokraatti",
+		"Bim mustakorva",
+		"Diana / Naisten valheet",
+		"Ei onnistunut!",
+		"Elä ja muista",
+		"Elämän pikkuseikka",
+		"Elämäntaito / Naisten valheet",
+		"Griša",
+		"Haaveita",
+		"Halu elää",
+		"Hammaskirurgi",
+		"Herra salaneuvos",
+		"Herrasneitti-talonpoikalaistyttö",
+		"Hevosenkaltainen sukunimi",
+		"Hiljaa virtaa Don",
+		"Hiljainen Don",
+		"Huvila-asukkaita",
+		"Häät kenraalin kera",
+		"Isergil-muori",
+		"Isä-kulta",
+		"Ivan Denisovitšin päivä",
+		"Jeesuksen synti",
+		"Joki nimeltä Ockerville",
+		"Jura-veli / Naisten valheet",
+		"Kaikesta täytyy maksaa",
+		"Kalliita kielitunteja",
+		"Kameleontti",
+		"Kapronkuusi",
+		"Kapteenin tytär",
+		"Kapteenintytär",
+		"Karamazovin veljekset",
+		"Karkuri",
+		"Karviaismarjoja",
+		"Kateus",
+		"Kauhunyö",
+		"Keittäjätär menee naimisiin",
+		"Kellariloukko",
+		"Kerjäläinen",
+		"Kevään seitsemäntoista hetkeä",
+		"Kireähermoista väkeä",
+		"Kirje isoisälle",
+		"Kirjoituksia kellarista",
+		"Koiran sydän",
+		"Kostaja",
+		"Kova äijä",
+		"Kultainen vasikka",
+		"Kultaportailla istuivat",
+		"Kun pupujussi lensi ilmapalloilla",
+		"Kuningas",
+		"Kunnon saksalainen",
+		"Kuolema ja vähän rakkautta",
+		"Kuolleet sielut",
+		"Kuorotyttö",
+		"Käärmeenmyrkky",
+		"Lankomies Sergei Sergejevitš",
+		"Lapsia",
+		"Laukaus",
+		"Liikaa suolaa",
+		"Lumimyrsky",
+		"Lumottu vaeltaja",
+		"Luonnonilmiö / Naisten valheet",
+		"Made",
+		"Makar Tšudra",
+		"Matkalippu tähtiin",
+		"Mestari",
+		"Mielipaha",
+		"Mille pardons, madame!",
+		"Minä uskon!",
+		"Moskova-Petuški",
+		"Nainen ja sylikoira",
+		"Nainen koiran kanssa",
+		"Nainen, jolla oli koira",
+		"Naistennaurattaja",
+		"Noita",
+		"Nolla-nolla kokonaista",
+		"Nuoren Vaganovin kärsimykset",
+		"Näyttelijän lähtö",
+		"Onnekas sattuma / Naisten valheet",
+		"Onnenpoika",
+		"Onnettomuus",
+		"Onni",
+		"Osterit",
+		"Pahantekijä",
+		"Pakoyritys",
+		"Paksukainen ja ohukainen",
+		"Patarouva",
+		"Perheen isä",
+		"Pimeässä",
+		"Poika helvetistä",
+		"Poikia",
+		"Puhujan tehokeino",
+		"Päivä Stalinin keskitysleirissä",
+		"Päällystakki",
+		"Päällysviitta",
+		"Rakastaa - ei rakasta",
+		"Rakkaus",
+		"Rikos ja rangaistus",
+		"Romaani bassoviulusta",
+		"Rotkossa",
+		"Saatana saapuu Moskovaan",
+		"Seireeni",
+		"Shura-kulta",
+		"Sonja",
+		"Sormeton",
+		"Surkea tapaus",
+		"Suru",
+		"Syksyllä",
+		"Synnyinmaan puolesta",
+		"Taiteen tuote",
+		"Taiteilijan tarina",
+		"Talo rantakadulla",
+		"Talonpoikia",
+		"Tanssiva Šiva",
+		"Tapahtui ravintolassa",
+		"Tapaus yöllä",
+		"Taras Bulba",
+		"Tarinan loppu / Naisten valheet",
+		"Tarpeettomia ihmisiä",
+		"Teatteriromaani",
+		"Teurastus",
+		"Tuho",
+		"Tuttu mies",
+		"Tuttu tarina",
+		"Tšelkaš",
+		"Valitsen asuinkylää",
+		"Valkeat vaatteet",
+		"Vanhuus",
+		"Vartijaton Aljoša",
+		"Versio",
+		"Viitta",
+		"Virkamiehen kuolema",
+		"Yö ennen oikeudenkäyntiä",
+		"Yö hautausmaalla",
+		"Yöpyi pilvi kultainen",
+		"Äidin sydän",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+	link_text_publisher : {
+	    label : "publisher",
+	    displayType : "select",
+	    dataset : [
+		"Churberg",
+		"Edlund",
+		"Gummerus",
+		"Hki, Kustannusosakeyhtiö",
+		"Holm",
+		"K.E. Holm",
+		"Kansankulttuuri",
+		"Karisto",
+		"Kirjayhtymä",
+		"Oma",
+		"Otava",
+		"Petroskoi, KSNT",
+		"Päivälehti",
+		"SN-kirjat",
+		"Siltala",
+		"Smia",
+		"Suomen kuvalehti",
+		"Tammi",
+		"Valvoja (lehti)",
+		"WSOY",
+		"null",
+	    ],
+	    localize : false,
+	    opts : settings.liteOptions,
+	},
+    }
+);
+
+settings.corpusinfo.parrus_2016 = {
+    urn : "[to be added]",
+    metadata_urn : "urn:nbn:fi:lb-20140730173",
+    licence : {
+	name : "CLARIN RES +PLAN +NC +INF +ND",
+	url : "https://www.kielipankki.fi/lic/parrus/?lang=fi"
+    },
+    homepage_url : "https://mustikka.uta.fi/",
+};
+
+settings.corpora.parrus_2016_fi = {
+    id : "parrus_2016_fi",
+    title : "ParRus 2016 (suomi) (beta)",
+    description : "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset käännökset)<br/>Venäjänkielisten kaunokirjallisten tekstien (klassista ja 1900-luvun kirjallisuutta) käännöksiä suomeksi<br/><br/>Korpuksen Korp-versio on testausvaiheessa ja siihen voi vielä tulla muutoksia.",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    limited_access : true,
+    licence_type : "RES",
+    attributes : attrlist.parrus_2016_fi,
+    struct_attributes : sattrlist.parrus_2016_fi,
+};
+settings.fn.extend_corpus_settings(settings.corpusinfo.parrus_2016,
+				   ["parrus_2016_fi"]);
+
+
 
 
 /*
@@ -7438,7 +9204,8 @@ attrlist.klk_fi_parsed =
 	    ref : attrs.ref,
 	    lex : attrs.lemgram_hidden
 	},
-	attrlist.klk_fi);
+	attrlist.klk_fi,
+	attrlist.finer);
 
 attrlist.klk_fi_parsed_pagelinks = attrlist.klk_fi_parsed;
 
@@ -7531,6 +9298,8 @@ settings.fn.make_klk_corpus_settings = function(
 
 
 var klk_fi_parsed_years = settings.fn.make_yearlist(1820, 2000);
+// // All KLK Fi corpora now have NER tags, so this is not needed
+// var klk_fi_ner_years = settings.fn.make_yearlist(1820, 1820);
 
 // Generate settings.corpora and settings.corporafolders for the
 // Finnish KLK corpora by using the above functions
@@ -7556,7 +9325,15 @@ settings.fn.make_corpus_settings_by_year_decade(
 			       omit : [1828, 1843]})
 );
 
+// for (var i = 0; i < klk_fi_ner_years.length; i++) {
+//     var year = klk_fi_ner_years[i];
+//     var corpsettings = settings.corpora["klk_fi_" + year.toString()];
+//     corpsettings.attributes = $.extend({}, corpsettings.attributes,
+// 				       attrlist.finer);
+// }
+
 delete klk_fi_parsed_years;
+// delete klk_fi_ner_years;
 
 
 /*
@@ -10355,6 +12132,7 @@ var locally_available_corpora =
     ["dma",
      "ftb(2|3_.*)",
      "reittidemo",
+     "klk_fi_18[234][0-9]",
      "kotus_ns_presidentti_.*",
      "kotus_klassikot",
      "kotus_sananparret",
