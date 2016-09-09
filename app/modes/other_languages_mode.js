@@ -83,7 +83,7 @@ settings.corporafolders.hcs2 = {
     title : "Helsinki Corpus of Swahili 2.0 (HCS 2.0)",
     description : "Helsinki Corpus of Swahili 2.0 (HCS 2.0) Annotated Version<br/><br><a href=\"https://www.kielipankki.fi/corpora/hcs2/\" target=\"_blank\">Corpus information page, including descriptions of annotation feature values (tags)</a>",
     info : {
-	urn : "[to be added]",
+	urn : "urn:nbn:fi:lb-201608301",
 	metadata_urn : "urn:nbn:fi:lb-2016011301",
 	licence : settings.licenceinfo.ACA_NC,
     },
