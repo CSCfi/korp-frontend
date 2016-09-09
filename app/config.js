@@ -2006,7 +2006,7 @@ attrlist.finstud = {
 attrlist.besercorp = {
     msd : attrs.msd,
     gloss : {
-        label : "gloss"
+        label : "gloss_ru"
     },
     lex : {
         label : "lex"

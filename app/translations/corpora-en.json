@@ -1509,6 +1509,8 @@
     "ogl_msd_V-3suxa----i": "verb oklart modus 3e person singularis preteritum aktiv",
     "ogl_msd_V-3ppxa----i": "verb oklart modus 3e person pluralis presens aktiv",
     "ogl_msd_V-3pxxa----i": "verb oklart modus 3e person pluralis oklart tempus aktiv",
+    "gloss_ru" : "gloss (Russian)",
+    "lex" : "lexeme",
     "text_keywords" : "keywords",
     "text_faculty" : "faculty",
     "text_subject" : "subject",

@@ -1605,7 +1605,7 @@
     "sentence_section" : "luvun nimi",
     "paragraph_class" : "kappaleen tyyli",
     "paragraph_lang" : "kappaleen kieli",
-    "gloss" : "glossaus (venäjä)",
+    "gloss_ru" : "glossaus (venäjä)",
     "lex" : "lekseemi",
     "text_keywords" : "avainsanat",
     "text_faculty" : "tiedekunta",
