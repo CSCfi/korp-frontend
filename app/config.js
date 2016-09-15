@@ -5081,7 +5081,7 @@ settings.corpora.lehdet_toisinsanoen = {
             label : "text_category"
         },
         text_author : {
-            label : "text_author"
+            label : "article_author"
         },
     }
 };
