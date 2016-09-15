@@ -1615,5 +1615,6 @@
     "text_abslink" : "Lataa työ E-thesiksestä",
     "paragraph_title" : "kappaleen otsikko",
     "translation" : "käännös",
-    "transcription" : "transkriptio"
+    "transcription" : "transkriptio",
+    "text_category": "Aihealue"
 }

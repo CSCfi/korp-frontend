@@ -2363,7 +2363,7 @@ settings.corporafolders.lehdet.tiedelehdet = {
 settings.corporafolders.lehdet.muut_lehdet = {
     title : "Muita lehtiä",
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
-    contents : ["lehdet_koskinen", "lehdet_ekonomi", "lehdet_leija", "lehdet_selkosanomat"]
+    contents : ["lehdet_koskinen", "lehdet_ekonomi", "lehdet_leija", "lehdet_selkosanomat", "lehdet_toisinsanoen"]
 };
 
 settings.corporafolders.ftc = {
@@ -5062,6 +5062,27 @@ settings.corpora.lehdet_ekonomi = {
 	text_issue : {
 	    label : "issue"
 	}
+    }
+};
+
+settings.corpora.lehdet_toisinsanoen = {
+    title : "Toisin sanoen",
+    description : "Toisin sanoen (2005-2014)<br/>Kotisivu: <a href='http://www.toisinsanoen.fi/'>http://www.toisinsanoen.fi/</a>",
+    id : "lehdet_toisinsanoen",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_date : sattrs.date,
+        text_category : {
+            label : "text_category"
+        },
+        text_author : {
+            label : "text_author"
+        },
     }
 };
 
