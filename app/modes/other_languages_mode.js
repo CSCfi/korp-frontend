@@ -1307,6 +1307,7 @@ settings.templ.hcs2_common = {
 	msdextra : {
 	    label : "extra_features",
 	},
+	lex : attrs.lemgram_hidden,
     },
     struct_attributes : {
 	text_title : sattrs.text_title,
