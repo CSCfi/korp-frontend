@@ -7824,6 +7824,8 @@ settings.corpora.parrus_ru = {
     id : "parrus_ru",
     lang : "rus",
     linked_to : ["parrus_fi1", "parrus_fi2", "parrus_fi3"],
+    // Needed to make searches in Finnish work in parrus_ru
+    linked_to_inverse : ["parrus_fi"],
     title : "ParRus (venäjä)",
     description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/><br/><strong>Huomaa:</strong> Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti venäjänkielisistä alkuperäisteksteistä. Jos samasta teoksesta on useita käännöksiä, niistä kukin näkyy tuloksessa erikseen.",
     attributes : attrlist.parrus_ru,
@@ -7943,6 +7945,8 @@ settings.corpora.parrus_2016_ru = {
     lang : "rus",
     linked_to : ["parrus_2016_fi1", "parrus_2016_fi2", "parrus_2016_fi3",
 		 "parrus_2016_fi4"],
+    // Needed to make searches in Finnish work in parrus_2016_ru
+    linked_to_inverse : ["parrus_2016_fi"],
     title : "ParRus 2016 (venäjä) (beta)",
     description : "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/><br/><strong>Huomaa:</strong> Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti venäjänkielisistä alkuperäisteksteistä. Jos samasta teoksesta on useita käännöksiä, niistä kukin näkyy tuloksessa erikseen.<br/><br/>Korpuksen Korp-versio on testausvaiheessa ja siihen voi vielä tulla muutoksia.",
     attributes : attrlist.parrus_2016_ru,
