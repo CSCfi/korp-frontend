@@ -438,6 +438,9 @@
     "al" : "article", 
     "ie" : "infinitive particle",
     "e" : "e",
+    "rg" : "cardinal number",
+    "an" : "abbreviation",
+    "xx" : "other",
 
     "mx" : "flerordsprefix",
     "sx" : "prefix",

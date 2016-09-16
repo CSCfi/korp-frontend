@@ -251,6 +251,9 @@
     "al" : "artikel", 
     "ie" : "infinitivmärke",
     "e" : "e",
+    "rg" : "grundtal",
+    "an" : "förkortning",
+    "xx" : "annan",
 
     "mx" : "flerordsprefix",
     "sx" : "prefix",
