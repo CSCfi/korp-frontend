@@ -452,6 +452,9 @@
     "al": "article", 
     "ie": "infinitive particle",
     "e": "e",
+    "rg": "cardinal number",
+    "an": "abbreviation",
+    "xx": "other",
 
     "mx": "flerordsprefix",
     "sx": "prefix",
@@ -1555,6 +1558,8 @@
     "video_end_time": "End time",
     "video_utterance": "Utterance",
 
+    "gloss_ru" : "gloss (Russian)",
+    "lex" : "lexeme",
     "text_keywords" : "keywords",
     "text_faculty" : "faculty",
     "text_subject" : "subject",

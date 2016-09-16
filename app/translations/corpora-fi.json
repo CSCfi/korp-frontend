@@ -1607,7 +1607,7 @@
     "sentence_section" : "luvun nimi",
     "paragraph_class" : "kappaleen tyyli",
     "paragraph_lang" : "kappaleen kieli",
-    "gloss" : "glossaus (venäjä)",
+    "gloss_ru" : "glossaus (venäjä)",
     "lex" : "lekseemi",
     "text_keywords" : "avainsanat",
     "text_faculty" : "tiedekunta",
@@ -1617,5 +1617,6 @@
     "text_abslink" : "Lataa työ E-thesiksestä",
     "paragraph_title" : "kappaleen otsikko",
     "translation" : "käännös",
-    "transcription" : "transkriptio"
+    "transcription" : "transkriptio",
+    "text_category": "Aihealue"
 }

@@ -2006,7 +2006,7 @@ attrlist.finstud = {
 attrlist.besercorp = {
     msd : attrs.msd,
     gloss : {
-        label : "gloss"
+        label : "gloss_ru"
     },
     lex : {
         label : "lex"
@@ -2363,7 +2363,7 @@ settings.corporafolders.lehdet.tiedelehdet = {
 settings.corporafolders.lehdet.muut_lehdet = {
     title : "Muita lehtiä",
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
-    contents : ["lehdet_koskinen", "lehdet_ekonomi", "lehdet_leija", "lehdet_selkosanomat"]
+    contents : ["lehdet_koskinen", "lehdet_ekonomi", "lehdet_leija", "lehdet_selkosanomat", "lehdet_toisinsanoen"]
 };
 
 settings.corporafolders.ftc = {
@@ -5065,6 +5065,27 @@ settings.corpora.lehdet_ekonomi = {
     }
 };
 
+settings.corpora.lehdet_toisinsanoen = {
+    title : "Toisin sanoen",
+    description : "Toisin sanoen (2005-2014)<br/>Kotisivu: <a href='http://www.toisinsanoen.fi/'>http://www.toisinsanoen.fi/</a>",
+    id : "lehdet_toisinsanoen",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_date : sattrs.date,
+        text_category : {
+            label : "text_category"
+        },
+        text_author : {
+            label : "article_author"
+        },
+    }
+};
+
 settings.corpora.lehdet_koskinen = {
     title : "Verkkolehti Koskinen",
     description : "Verkkolehti Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996–2013)<br/>Julkaisija: Kymenlaakson ammattikorkeakoulu<br/>Kotisivu: <a href='http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/'>http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/</a>",
@@ -7349,6 +7370,9 @@ sattrlist.erme = {
     sentence_id : sattrs.sentence_id_hidden,
     sentence_pgno : {
         label : "page_num"
+    },
+    text_publisher : {
+        label : "text_publisher"
     }
 };
 

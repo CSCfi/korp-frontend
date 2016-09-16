@@ -34,7 +34,7 @@ settings.corporafolders.sust = {
 
 settings.corporafolders.testikansio = {
     title : "ERME",
-    description : "ERME",
+    description : "ERME: Erzya and Moksha Extended Corpora",
     contents : ["erme_mdf", "erme_myv"]
 };
 
@@ -83,7 +83,7 @@ settings.corporafolders.hcs2 = {
     title : "Helsinki Corpus of Swahili 2.0 (HCS 2.0)",
     description : "Helsinki Corpus of Swahili 2.0 (HCS 2.0) Annotated Version<br/><br><a href=\"https://www.kielipankki.fi/corpora/hcs2/\" target=\"_blank\">Corpus information page, including descriptions of annotation feature values (tags)</a>",
     info : {
-	urn : "[to be added]",
+	urn : "urn:nbn:fi:lb-201608301",
 	metadata_urn : "urn:nbn:fi:lb-2016011301",
 	licence : settings.licenceinfo.ACA_NC,
     },
@@ -973,25 +973,21 @@ settings.corpora.erzya = {
 
 settings.corpora.erme_myv = {
     id : "erme_myv",
-    title : "ERME (Ersä/Erzya)",
-    description : "ERME (Ersä/Erzya)",
+    title : "Ersä/Erzya",
+    description : "ERME: Ersä/Erzya",
     licence : settings.licenceinfo.CC_BY,
-    /*limited_access : true,
-      licence_type : "ACA",*/
     within : settings.spWithin,
     context : settings.spContext,
     attributes : attrlist.testerzya,
-    struct_attributes : sattrlist.erme_debug,
+    struct_attributes : sattrlist.erme,
     unselected : true
 };
 
 settings.corpora.erme_mdf = {
     id : "erme_mdf",
-    title : "ERME (Mokša/Moksha)",
-    description : "ERME (Mokša/Moksha)",
+    title : "Mokša/Moksha",
+    description : "ERME: Mokša/Moksha",
     licence : settings.licenceinfo.CC_BY,
-    /*limited_access : true,
-    licence_type : "ACA",*/
     within : settings.spWithin,
     context : settings.spContext,
     attributes : attrlist.testerzya,
@@ -1216,11 +1212,12 @@ settings.templ.hcs2_common = {
 	    displayType : "select",
 	    // translationKey : "pos_",
 	    localize : "false",
+	    // The dataset currently excludes tags for punctuation
+	    // marks
 	    dataset : [
-		"A-UNINFL",
 		"ABBR",
 		"ADJ",
-		"ADJ-PR-REL",
+		"A-UNINFL",
 		"ADV",
 		"AG-PART",
 		"CC",
@@ -1231,6 +1228,7 @@ settings.templ.hcs2_common = {
 		"GEN-CON",
 		"GEN-CON-KWA",
 		"INTERROG",
+		"MWE",
 		"N",
 		"NUM",
 		"NUM-ROM",
@@ -1240,7 +1238,6 @@ settings.templ.hcs2_common = {
 		"PRON",
 		"PROPNAME",
 		"REL-LI",
-		"REL-LI-NEG",
 		"REL-LI-VYO",
 		"REL-SI",
 		"REL-SI-VYO",
@@ -1264,41 +1261,43 @@ settings.templ.hcs2_common = {
 	    displayType : "select",
 	    localize : "false",
 	    dataset : [
-		"@-FAUXV",
-		"@-FMAINV",
-		"@-FMAINV-n",
-		"@-FMAINVkwisha<",
+		"@A>",
 		"@<AD-A",
-		"@<DN",
-		"@<NADJ",
-		"@<NDEM",
-		"@<NH",
-		"@<P",
-		"@<QN",
 		"@AD-A>",
 		"@ADVL",
 		"@AG",
 		"@CC",
 		"@CS",
+		"@<DN",
 		"@DN>",
 		"@FAUXV",
+		"@-FAUXV",
 		"@FMAINV",
+		"@-FMAINV",
 		"@FMAINVintr",
 		"@FMAINVintr-ass",
 		"@FMAINVintr-def",
 		"@FMAINVintr-loc",
-		"@FMAINVtr+OBJ>",
+		"@-FMAINVkwisha<",
+		"@-FMAINV-n",
 		"@FMAINVtr-OBJ>",
+		"@FMAINVtr+OBJ>",
 		"@GCON",
 		"@I-OBJ",
 		"@NADJ",
+		"@<NADJ",
 		"@NADJ>",
+		"@<NDEM",
 		"@NDEM>",
 		"@NH",
+		"@<NH",
 		"@OBJ",
+		"@<P",
 		"@P>",
 		"@PAT",
 		"@PCOMPL-S",
+		"@QN",
+		"@<QN",
 		"@SUBJ",
 		"@SUBJ+rel",
 		"_",
@@ -1308,6 +1307,7 @@ settings.templ.hcs2_common = {
 	msdextra : {
 	    label : "extra_features",
 	},
+	lex : attrs.lemgram_hidden,
     },
     struct_attributes : {
 	text_title : sattrs.text_title,
