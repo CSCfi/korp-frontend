@@ -856,7 +856,8 @@ util.splitSaldo = (saldo) ->
 # a Korp query URL (query_url) and the resulting data (result_data).
 # (Jyrki Niemi <jyrki.niemi@helsinki.fi> 2014-02-26/04-30, 2016-05-17)
 
-util.downloadKwic = (format, query_url, result_data) ->
+util.downloadKwic = (format_params, query_url, result_data) ->
+    c.log "downloadKwic", format_params, query_url, result_data
     # If some of the required parameters are null, return without
     # downloading.
     if ! (query_url? and result_data? and
@@ -881,6 +882,7 @@ util.downloadKwic = (format, query_url, result_data) ->
         corpus_ids = result_corpus.toLowerCase().split("|")
         for corpus_id in corpus_ids
             result_corpora_settings[corpus_id] = settings.corpora[corpus_id]
+    format = format_params.format
     download_params =
         query_params: JSON.stringify($.deparam.querystring(query_url))
         format: format

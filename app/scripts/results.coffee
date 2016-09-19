@@ -567,8 +567,8 @@ class view.KWICResults extends BaseResults
 
         output
 
-    downloadKwic: (format) ->
-        util.downloadKwic format, @proxy.prevRequest.url, @resultData
+    downloadKwic: (format_params) ->
+        util.downloadKwic format_params, @proxy.prevRequest.url, @resultData
 
 
 class view.ExampleResults extends view.KWICResults

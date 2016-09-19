@@ -217,9 +217,11 @@ class KwicCtrl
         s.downloadFormats = settings.downloadFormats
         s.downloadFormat = s.downloadFormats[0]
 
-        s.downloadKwic = () ->
+        s.downloadKwic = (downloadFormat) ->
+            # c.log "downloadKwic (RC)", downloadFormat
             s.instance.downloadKwic(
-                $("#kwic-download-format option:selected").val())
+                format: downloadFormat)
+            return
 
 
 korpApp.directive "kwicCtrl", () ->
