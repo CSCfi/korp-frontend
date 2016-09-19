@@ -215,12 +215,17 @@ class KwicCtrl
             sentence.tokens.slice from, len
 
         s.downloadFormats = settings.downloadFormats
+        s.downloadFormatParams = settings.downloadFormatParams
         s.downloadFormat = s.downloadFormats[0]
+        # FIXME: hard-coded default
+        s.downloadFormatPhysical =
+                s.downloadFormatParams[s.downloadFormat].physical_formats?[0]
 
-        s.downloadKwic = (downloadFormat) ->
-            # c.log "downloadKwic (RC)", downloadFormat
+        s.downloadKwic = (downloadFormat, downloadFormatPhysical) ->
+            # c.log "downloadKwic (RC)", downloadFormat, downloadFormatPhysical
             s.instance.downloadKwic(
-                format: downloadFormat)
+                format: downloadFormat
+                physical_format: downloadFormatPhysical)
             return
 
 

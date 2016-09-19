@@ -43,13 +43,11 @@ settings.textDateAllowBareYears = true;
 settings.downloadFormats = [
     "annot",
     "ref",
-    "nooj"
+    "nooj",
+    "json",
 ];
 if (! isProductionServer || isProductionServerTest) {
     settings.downloadFormats = settings.downloadFormats.concat([
-	"csvp",
-	"csv",
-	"tsv",
 	"text"
     ]);
 }
@@ -57,36 +55,44 @@ if (! isProductionServer) {
     settings.downloadFormats.push("vrt");
 }
 
+tabular_formats = ["xls", "csv", "tsv"];
+
 settings.downloadFormatParams = {
     "*": {
 	structs: "+"
     },
-    "ref": {
-	format: "bibref,xls"
-    },
-    "csvp": {
-	format: "tokens,csv",
-	attrs: "+,-lex",
-	match_marker: "***"
-    },
-    "csv": {
-	format: "sentences,csv"
-    },
     "annot": {
-	format: "tokens,xls",
+	format: "tokens",
 	attrs: "+,-lex",
-	match_marker: "***"
+	match_marker: "***",
+	physical_formats: tabular_formats,
+    },
+    "ref": {
+	format: "bibref",
+	physical_formats: tabular_formats,
+    },
     },
     "nooj": {
 	attrs: "+"
-    },
-    "tsv": {
-	format: "sentences,tsv"
     },
     "vrt": {
 	attrs: "+"
     },
 };
+
+settings.downloadFormatParamsPhysical = {
+    "xls": {
+	format_suffix: ",xls",
+    },
+    "csv": {
+	format_suffix: ",csv",
+    },
+    "tsv": {
+	format_suffix: ",tsv",
+    },
+};
+
+delete tabular_formats;
 
 settings.cgi_prefix =
     (isProductionServerBeta

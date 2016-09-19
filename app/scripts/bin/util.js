@@ -906,7 +906,7 @@
   };
 
   util.downloadKwic = function(format_params, query_url, result_data) {
-    var corpus_id, corpus_ids, download_params, format, get_corpus_num, k, l, len, len1, result_corpora, result_corpora_settings, result_corpus;
+    var corpus_id, corpus_ids, download_params, format, get_corpus_num, k, l, len, len1, phys_format, phys_formats, phys_params, ref, ref1, result_corpora, result_corpora_settings, result_corpus;
     c.log("downloadKwic", format_params, query_url, result_data);
     if (!((query_url != null) && (result_data != null) && (result_data.corpus_order != null) && (result_data.kwic != null))) {
       c.log("downloadKwic failed");
@@ -941,6 +941,16 @@
       }
       if (format in settings.downloadFormatParams) {
         $.extend(download_params, settings.downloadFormatParams[format]);
+      }
+      if ("downloadFormatParamsPhysical" in settings) {
+        phys_format = format_params.physical_format;
+        phys_formats = (ref = settings.downloadFormatParams) != null ? (ref1 = ref[format]) != null ? ref1.physical_formats : void 0 : void 0;
+        if (phys_formats && indexOf.call(phys_formats, phys_format) >= 0) {
+          phys_params = settings.downloadFormatParamsPhysical[phys_format];
+          if ("format_suffix" in phys_params) {
+            download_params.format += phys_params.format_suffix;
+          }
+        }
       }
     }
     $.generateFile(settings.download_cgi_script, download_params);
