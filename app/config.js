@@ -44,6 +44,7 @@ settings.downloadFormats = [
     "annot",
     "ref",
     "sentences",
+    "sentences_kwic",
     "nooj",
     "json",
 ];
@@ -75,6 +76,13 @@ settings.downloadFormatParams = {
     "sentences": {
 	format: "sentences",
 	subformat: "lemmas-resultinfo",
+	physical_formats: tabular_formats,
+    },
+    // As "sentences", but match tokens and context tokens in separate
+    // columns
+    "sentences_kwic": {
+	format: "sentences",
+	subformat: "lemmas-resultinfo,lemmas-kwic",
 	physical_formats: tabular_formats,
     },
     "nooj": {
