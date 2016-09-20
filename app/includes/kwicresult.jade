@@ -66,7 +66,7 @@ kwic-pager
       value='{{fmt}}'
       title='{{"kwic_download_formatdescr_" + fmt | loc:lang}}'
       ng-selected='downloadFormats.indexOf(fmt) == 0'
-    ) {{fmt.toUpperCase()}}
+    ) {{"kwic_download_formatname_" + fmt | loc:lang}}
   select#kwic-download-format-physical(
       ng-model='downloadFormatPhysical'
       ng-show='downloadFormatParams[downloadFormat] && downloadFormatParams[downloadFormat].physical_formats')
@@ -75,6 +75,6 @@ kwic-pager
       value='{{fmt}}'
       title='{{"kwic_download_formatdescr_" + fmt | loc:lang}}'
       ng-selected='downloadFormatParams[downloadFormat].physical_formats.indexOf(fmt) == 0'
-    ) {{fmt.toUpperCase()}}
+    ) {{"kwic_download_formatname_" + fmt | loc:lang}}
   //-  ng-options='"kwic_download_formatdescr_" + fmt | loc:lang for fmt in downloadFormats track by fmt'
   //- span#download-heading(rel='localize[download]') Ladda ner som:
