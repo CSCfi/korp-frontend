@@ -45,14 +45,10 @@ settings.downloadFormats = [
     "ref",
     "sentences",
     "sentences_kwic",
-    "nooj",
+    "text",
     "json",
+    "nooj",
 ];
-if (! isProductionServer || isProductionServerTest) {
-    settings.downloadFormats = settings.downloadFormats.concat([
-	"text"
-    ]);
-}
 if (! isProductionServer) {
     settings.downloadFormats.push("vrt");
 }
@@ -90,6 +86,11 @@ settings.downloadFormatParams = {
     },
     "vrt": {
 	attrs: "+"
+    },
+    "text": {
+	format: "text",
+	subformat: "sentences-bare",
+	structs: "",
     },
 };
 
