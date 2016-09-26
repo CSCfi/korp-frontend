@@ -65,7 +65,7 @@ if (! isProductionServer) {
 // 2016-09-26)
 physical_formats = {
     table: {
-	formats: ["xls", "csv", "tsv"],
+	formats: ["xls", "csv", "tsv", "html_table"],
 	selected: "xls",
     },
     text: {
@@ -128,6 +128,9 @@ settings.downloadFormatParamsPhysical = {
     },
     "html": {
 	format_suffix: ",html",
+    },
+    "html_table": {
+	format_suffix: ",html_table",
     },
 };
 
