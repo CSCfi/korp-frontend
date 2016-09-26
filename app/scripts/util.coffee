@@ -902,7 +902,8 @@ util.downloadKwic = (format_params, query_url, result_data) ->
             $.extend download_params, settings.downloadFormatParams[format]
         if "downloadFormatParamsPhysical" of settings
             phys_format = format_params.physical_format
-            phys_formats = settings.downloadFormatParams?[format]?.physical_formats
+            phys_formats = settings.downloadFormatParams?[format]
+                                   ?.physical_formats.formats
             if phys_formats and phys_format in phys_formats
                 phys_params = settings.downloadFormatParamsPhysical[phys_format]
                 if "format_suffix" of phys_params
