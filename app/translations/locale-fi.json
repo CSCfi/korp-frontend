@@ -346,6 +346,10 @@
     "kwic_download_formatdescr_tsv" : "Tab-Separated Values: taulukon sarakkeet erotettu sarkainmerkeillä (tab); esim. Unixin tekstityökaluilla käsiteltäväksi",
     "kwic_download_formatname_xls" : "Excel (XLS)",
     "kwic_download_formatdescr_xls" : "Microsoft Excel 97–2003 -taulukkotiedosto",
+    "kwic_download_formatname_text_utf8" : "Puhdas teksti (UTF-8)",
+    "kwic_download_formatdescr_text_utf8" : "Puhdas teksti, merkistökoodauksena UTF-8",
+    "kwic_download_formatname_html" : "HTML",
+    "kwic_download_formatdescr_html" : "Teksti HTML-muodossa",
 
     "privacy" : "Tietosuojaseloste",
 

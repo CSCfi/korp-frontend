@@ -416,6 +416,10 @@
     "kwic_download_formatdescr_tsv" : "Tab-Separated Values: columns separated by tabs, e.g. for processing with Unix-style text tools",
     "kwic_download_formatname_xls" : "Excel (XLS)",
     "kwic_download_formatdescr_xls" : "Microsoft Excel 97–2003 spreadsheet",
+    "kwic_download_formatname_text_utf8" : "Plain text (UTF-8)",
+    "kwic_download_formatdescr_text_utf8" : "Plain text, UTF-8 character encoding",
+    "kwic_download_formatname_html" : "HTML",
+    "kwic_download_formatdescr_html" : "Text in HTML",
 
     "name_classification" : "Name classification",
     "no_name_corpora" : "The selected corpora lack named-entity data.",
