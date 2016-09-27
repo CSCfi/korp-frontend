@@ -2921,6 +2921,20 @@ settings.corpora.ftb3_jrcacquis = {
     }
 };
 
+/* ==== Sinebrychoff ==== */
+
+settings.corpora.sinebrychoff_fi = {
+    id : "sinebrychoff_fi",
+    title: "Paul Sinebrychoffin kirjeenvaihto",
+    description : "Paul Sinebrychoffin kirjeenvaihto, suomenkieliset käännökset",
+    metadata_urn : "urn:nbn:fi:lb-201407303",
+    licence : settings.licenceinfo.CC_BY_30,
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.sinebrychoff,
+    struct_attributes : sattrlist.sinebrychoff
+};
+
 /* ==== TIEDELEHTIÄ ==== */
 
 settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";

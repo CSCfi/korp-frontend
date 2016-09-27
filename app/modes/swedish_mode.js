@@ -60,7 +60,7 @@ attrlist.klk_sv_parsed_pagelinks = attrlist.klk_sv_parsed;
 settings.corpora = {};
 settings.corporafolders = {};
 
-
+/*
 settings.corporafolders.koff = {
     title : "Paul Sinebrychoffs brevsamling",
     description : "Paul Sinebrychoffs brevsampling (1895-1908)",
@@ -69,7 +69,7 @@ settings.corporafolders.koff = {
         licence : settings.licenceinfo.CC_BY_30,
     },
     contents : ["sinebrychoff_orig", "sinebrychoff_fi"]
-};
+    };*/
 
 /*
 settings.corporafolders.koff = {
@@ -181,16 +181,8 @@ settings.corpora.sinebrychoff_orig = {
     id : "sinebrychoff_orig",
     title: "Paul Sinebrychoffs brevsamling",
     description : "Paul Sinebrychoffs brevsamling",
-    context : settings.spContext,
-    within : settings.spWithin,
-    attributes: attrlist.sinebrychoff,
-    struct_attributes : sattrlist.sinebrychoff
-};
-
-settings.corpora.sinebrychoff_fi = {
-    id : "sinebrychoff_fi",
-    title: "Paul Sinebrychoffin kirjeenvaihto",
-    description : "Paul Sinebrychoffin kirjeenvaihto, suomenkieliset käännökset",
+    metadata_urn : "urn:nbn:fi:lb-201407303",
+    licence : settings.licenceinfo.CC_BY_30,
     context : settings.spContext,
     within : settings.spWithin,
     attributes: attrlist.sinebrychoff,
