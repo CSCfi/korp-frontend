@@ -2536,7 +2536,7 @@ settings.fn.add_corpus_settings = function (template, infolist, folder,
 // Add properties to the settings of the listed corpora.
 settings.fn.extend_corpus_settings = function (props, corpus_ids) {
     for (var i = 0; i < corpus_ids.length; i++) {
-	$.extend(settings.corpora[corpus_ids[i]], props);
+	$.extend(true, settings.corpora[corpus_ids[i]], props);
     }
 };
 
