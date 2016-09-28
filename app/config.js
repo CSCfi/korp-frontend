@@ -11131,7 +11131,15 @@ settings.corpora.skn = {
         comment : {
 	    label : "word_comment",
 	    opts : settings.defaultOptions
-	}
+	},
+	lemma : attrs.baseform,
+	lemmacomp : attrs.baseform_compound,
+	pos : attrs.pos_klk,
+	msd : attrs.msd,
+	dephead : attrs.dephead,
+	deprel : attrs.deprel_tdt,
+	ref : attrs.ref,
+	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
         text_title : sattrs.text_title,
@@ -11182,6 +11190,10 @@ settings.corpora.skn = {
         }
     }
 };
+
+settings.fn.extend_corpus_settings(
+    { attributes: attrlist.finer },
+    ["skn"]);
 
 
 /* DMA – Digitaalinen muoto-opin arkisto (Digital Morphology Archives) */
