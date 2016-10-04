@@ -2329,7 +2329,7 @@ settings.corporafolders.internet = {
 
 settings.corporafolders.internet.suomi24 = {
     title : "Suomi24",
-    description : "<a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut 1.1.2001–18.11.2015.<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu useaan osakorpukseen suuren kokonsa vuoksi.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-201412171' target='_blank' title='Kuvailutiedot'>koko Suomi24-aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2015040801' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).",
+    description : "<a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut 1.1.2001–24.9.2016.<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu useaan osakorpukseen suuren kokonsa vuoksi.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-201412171' target='_blank' title='Kuvailutiedot'>koko Suomi24-aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2015040801' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).",
     contents : [
 	"s24_001",
 	"s24_002",
@@ -2340,6 +2340,7 @@ settings.corporafolders.internet.suomi24 = {
 	"s24_007",
 	"s24_008",
 	"s24_009",
+	"s24_010"
     ],
     info : {
 	urn : "urn:nbn:fi:lb-2015040102",
@@ -11800,8 +11801,8 @@ settings.corpora.ylilauta = {
 // specified in the settings of the individual subcorpora.
 
 settings.corpora.s24_001 = {
-    title : "Suomi24 (1/9)",
-    description : "Suomi24-keskustelut (1/9)",
+    title : "Suomi24 (1/10)",
+    description : "Suomi24-keskustelut (1/10)",
     id : "s24_001",
     within : settings.spWithin,
     context : settings.spContext,
@@ -11810,8 +11811,8 @@ settings.corpora.s24_001 = {
 };
 
 settings.corpora.s24_002 = {
-    title : "Suomi24 (2/9)",
-    description : "Suomi24-keskustelut (2/9)",
+    title : "Suomi24 (2/10)",
+    description : "Suomi24-keskustelut (2/10)",
     id : "s24_002",
     within : settings.spWithin,
     context : settings.spContext,
@@ -11820,8 +11821,8 @@ settings.corpora.s24_002 = {
 };
 
 settings.corpora.s24_003 = {
-    title : "Suomi24 (3/9)",
-    description : "Suomi24-keskustelut (3/9)",
+    title : "Suomi24 (3/10)",
+    description : "Suomi24-keskustelut (3/10)",
     id : "s24_003",
     within : settings.spWithin,
     context : settings.spContext,
@@ -11830,8 +11831,8 @@ settings.corpora.s24_003 = {
 };
 
 settings.corpora.s24_004 = {
-    title : "Suomi24 (4/9)",
-    description : "Suomi24-keskustelut (4/9)",
+    title : "Suomi24 (4/10)",
+    description : "Suomi24-keskustelut (4/10)",
     id : "s24_004",
     within : settings.spWithin,
     context : settings.spContext,
@@ -11840,8 +11841,8 @@ settings.corpora.s24_004 = {
 };
 
 settings.corpora.s24_005 = {
-    title : "Suomi24 (5/9)",
-    description : "Suomi24-keskustelut (5/9)",
+    title : "Suomi24 (5/10)",
+    description : "Suomi24-keskustelut (5/10)",
     id : "s24_005",
     within : settings.spWithin,
     context : settings.spContext,
@@ -11850,8 +11851,8 @@ settings.corpora.s24_005 = {
 };
 
 settings.corpora.s24_006 = {
-    title : "Suomi24 (6/9)",
-    description : "Suomi24-keskustelut (6/9)",
+    title : "Suomi24 (6/10)",
+    description : "Suomi24-keskustelut (6/10)",
     id : "s24_006",
     within : settings.spWithin,
     context : settings.spContext,
@@ -11860,8 +11861,8 @@ settings.corpora.s24_006 = {
 };
 
 settings.corpora.s24_007 = {
-    title : "Suomi24 (7/9)",
-    description : "Suomi24-keskustelut (7/9)",
+    title : "Suomi24 (7/10)",
+    description : "Suomi24-keskustelut (7/10)",
     id : "s24_007",
     within : settings.spWithin,
     context : settings.spContext,
@@ -11870,8 +11871,8 @@ settings.corpora.s24_007 = {
 };
 
 settings.corpora.s24_008 = {
-    title : "Suomi24 (8/9)",
-    description : "Suomi24-keskustelut (8/9)",
+    title : "Suomi24 (8/10)",
+    description : "Suomi24-keskustelut (8/10)",
     id : "s24_008",
     within : settings.spWithin,
     context : settings.spContext,
@@ -11890,9 +11891,27 @@ settings.corpora.s24_009test = {
 };
 */
 
+settings.corpora.s24_010 = {
+    title : "Suomi24 (10/10)",
+    description : "Suomi24-keskustelut (10/10)",
+    id : "s24_010",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_klk,
+        msd : attrs.msd,
+        dephead : attrs.dephead,
+        deprel : attrs.deprel_tdt,
+        ref : attrs.ref,
+        nertag : attrs.ner_tags
+    },
+    struct_attributes : sattrlist.s24_update
+};
+
 settings.corpora.s24_009 = {
-    title : "Suomi24 (9/9)",
-    description : "Suomi24-keskustelut (9/9)",
+    title : "Suomi24 (9/10)",
+    description : "Suomi24-keskustelut (9/10)",
     id : "s24_009",
     within : settings.spWithin,
     context : settings.spContext,
