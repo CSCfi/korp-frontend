@@ -583,7 +583,22 @@ attrs.ner_tags = {
         "EnamexLocStr" : "EnamexLocStr",
         "EnamexOrgAth" : "EnamexOrgAth",
         "EnamexOrgEdu" : "EnamexOrgEdu",
-        "EnamexOrgClt" : "EnamexOrgClt"
+        "EnamexOrgClt" : "EnamexOrgClt",
+        "EnamexPrsHum/" : "EnamexPrsHum",
+        "TimexTmeDat/" : "TimexTmeDat",
+        "NumexMsrCur/" : "NumexMsrCur",
+        "NumexMsrXxx/" : "NumexMsrXxx",
+        "EnamexOrgCrp/" : "EnamexOrgCrp",
+        "EnamexLocXxx/" : "EnamexLocXxx",
+        "EnamexLocGpl/" : "EnamexLocGpl",
+        "EnamexLocPpl/" : "EnamexLocPpl",
+        "EnamexPrsTit/" : "EnamexPrsTit",
+        "EnamexOrgTvr/" : "EnamexOrgTvr",
+        "EnamexOrgPlt/" : "EnamexOrgPlt",
+        "EnamexLocStr/" : "EnamexLocStr",
+        "EnamexOrgAth/" : "EnamexOrgAth",
+        "EnamexOrgEdu/" : "EnamexOrgEdu",
+        "EnamexOrgClt/" : "EnamexOrgClt"
     }
 };
 
