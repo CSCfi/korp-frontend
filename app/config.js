@@ -2258,6 +2258,12 @@ settings.corporafolders.ethesis = {
     contents : ["ethesis_dissabs"]
 };
 
+settings.corporafolders.ethesis.matheses = {
+    title : "Pro Gradu-tutkielmat",
+    contents : ["ethesis_ma_ai", "ethesis_ma_bio", "ethesis_ma_el", "ethesis_ma_hum", "ethesis_ma_beh", \
+		"ethesis_ma_med", "ethesis_ma_mm", "ethesis_ma_ot", "ethesis_ma_teo", "ethesis_ma_valt"]
+};
+
 settings.corporafolders.ftb = {
     title : "FinnTreeBank: suomen puupankki",
     contents : ["ftb2"]
@@ -5475,6 +5481,119 @@ settings.corpora.ethesis_dissabs = {
     },
     struct_attributes : sattrlist.ethesis
 };
+
+settings.corpora.ethesis_ma_teo = {
+    title : "Teologinen",
+    description : "Gradut: Teologinen tiedekunta 2000-2016",
+    id : "ethesis_ma_teo",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_ma_beh = {
+    title : "Käyttäytymistieteellinen",
+    description : "Gradut: Käyttäytymistieteellinen tiedekunta 1998-2016",
+    id : "ethesis_ma_beh",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_ma_valt = {
+    title : "Valtiotieteellinen",
+    description : "Gradut: Valtiotieteellinen tiedekunta 1996-2016",
+    id : "ethesis_ma_valt",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_ma_ot = {
+    title : "Oikeustieteellinen",
+    description : "Gradut: Oikeustieteellinen tiedekunta 2001-2016",
+    id : "ethesis_ma_ot",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_ma_hum = {
+    title : "Humanistinen",
+    description : "Gradut: Humanistinen tiedekunta 1998-2016",
+    id : "ethesis_ma_hum",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_ma_ai = {
+    title : "Aleksanteri-instituutti",
+    description : "Gradut: Aleksanteri-instituutti 2001-2016",
+    id : "ethesis_ma_ai",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_ma_bio = {
+    title : "Bio- ja ympäristötieteellinen",
+    description : "Gradut: Bio- ja ympäristötieteellinen tiedekunta 2003-2016",
+    id : "ethesis_ma_bio",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+
+settings.corpora.ethesis_ma_el = {
+    title : "Lisensiaatintyöt: Eläinlääketieteellinen",
+    description : "Lisensiaatintyöt: Eläinlääketieteellinen tiedekunta (2003-2016)",
+    id : "ethesis_ma_el",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_ma_mm = {
+    title : "Maa- ja metsätieteellinen tiedekunta",
+    description : "Gradut: Maa- ja metsätieteellinen tiedekunta (2003-2016)",
+    id : "ethesis_ma_mm",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_ma_med = {
+    title : "Lisensiaatintyöt: Lääketieteellinen",
+    description : "Lisensiaatintyöt: Lääketieteellinen tiedekunta (2010-2016)",
+    id : "ethesis_ma_med",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+
 
 /*
 settings.corpora.kotus_klassikot = {
