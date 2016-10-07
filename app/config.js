@@ -2257,13 +2257,13 @@ settings.corporafolders.ethesis = {
     title : "E-thesis",
     contents : ["ethesis_dissabs"]
 };
-/*
+
 settings.corporafolders.ethesis.matheses = {
     title : "Pro Gradu-tutkielmat",
-    contents : ["ethesis_ma_ai", "ethesis_ma_bio", "ethesis_ma_el", "ethesis_ma_hum", "ethesis_ma_beh", \
+    contents : ["ethesis_ma_ai", "ethesis_ma_bio", "ethesis_ma_el", "ethesis_ma_hum", "ethesis_ma_beh",
 		"ethesis_ma_med", "ethesis_ma_mm", "ethesis_ma_ot", "ethesis_ma_teo", "ethesis_ma_valt"]
 };
-*/
+
 settings.corporafolders.ftb = {
     title : "FinnTreeBank: suomen puupankki",
     contents : ["ftb2"]
@@ -5481,7 +5481,7 @@ settings.corpora.ethesis_dissabs = {
     },
     struct_attributes : sattrlist.ethesis
 };
-/*
+
 settings.corpora.ethesis_ma_teo = {
     title : "Teologinen",
     description : "Gradut: Teologinen tiedekunta 2000-2016",
@@ -5592,7 +5592,7 @@ settings.corpora.ethesis_ma_med = {
     },
     struct_attributes : sattrlist.ethesis
 };
-*/
+
 
 
 /*
