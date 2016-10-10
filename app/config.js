@@ -2260,7 +2260,7 @@ settings.corporafolders.ethesis = {
 
 settings.corporafolders.ethesis.matheses = {
     title : "Pro Gradu-tutkielmat",
-    contents : ["ethesis_ma_ai", "ethesis_ma_bio", "ethesis_ma_el", "ethesis_ma_hum", "ethesis_ma_beh",
+    contents : ["ethesis_ma_ai", "ethesis_ma_bio", "ethesis_ma_el", "ethesis_ma_far", "ethesis_ma_hum", "ethesis_ma_beh",
 		"ethesis_ma_med", "ethesis_ma_mm", "ethesis_ma_ot", "ethesis_ma_teo", "ethesis_ma_valt"]
 };
 
@@ -5475,6 +5475,17 @@ settings.corpora.ethesis_dissabs = {
     title : "Väitöstiivistelmät",
     description : "Väitöskirjojen suomenkielisiä abstrakteja 2006-2016",
     id : "ethesis_dissabs",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_ma_far = {
+    title : "Farmasia",
+    description : "Gradut: Farmasian tiedekunta 2010-2016",
+    id : "ethesis_ma_far",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
