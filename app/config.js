@@ -2254,7 +2254,7 @@ settings.corporafolders.sv = {
 */
 
 settings.corporafolders.ethesis = {
-    title : "E-thesis",
+    title : "E-thesis (näyte)",
     contents : ["ethesis_dissabs"]
 };
 
