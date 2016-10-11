@@ -5138,6 +5138,24 @@ settings.corpora.lehdet_koskinen = {
     }
 };
 
+
+settings.corpora.lehdet_aarre = {
+    title : "Aarre",
+    description : "Aarre – Lehti Metsästä (2013-2015)<br/>Kotisivu: <a href='http://www.aarrelehti.fi/'>http://www.aarrelehti.fi/</a>",
+    id : "lehdet_aarre",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_date : sattrs.date,
+        text_url : sattrs.link_lehdet
+    }
+};
+
+
 settings.corpora.hsfi = {
     title : "HS.fi",
     description : "HS.fi uutiskommenttiaineisto",
