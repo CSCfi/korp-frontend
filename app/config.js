@@ -2385,7 +2385,7 @@ settings.corporafolders.lehdet.tiedelehdet = {
 settings.corporafolders.lehdet.muut_lehdet = {
     title : "Muita lehtiä",
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
-    contents : ["lehdet_koskinen", "lehdet_ekonomi", "lehdet_leija", "lehdet_selkosanomat", "lehdet_toisinsanoen"]
+    contents : ["lehdet_aarre", "lehdet_koskinen", "lehdet_ekonomi", "lehdet_leija", "lehdet_selkosanomat", "lehdet_toisinsanoen"]
 };
 
 settings.corporafolders.ftc = {
@@ -5149,9 +5149,16 @@ settings.corpora.lehdet_aarre = {
     context : settings.spContext,
     attributes : {},
     struct_attributes : {
-        text_title : sattrs.text_title,
-        text_date : sattrs.date,
-        text_url : sattrs.link_lehdet
+    struct_attributes : {
+        text_title : {
+            label : "text_title"
+        },
+        text_year : {
+            label : "year"
+        },
+        text_issue : {
+            label : "issue"
+        },
     }
 };
 
