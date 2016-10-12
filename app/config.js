@@ -5149,7 +5149,6 @@ settings.corpora.lehdet_aarre = {
     context : settings.spContext,
     attributes : {},
     struct_attributes : {
-    struct_attributes : {
         text_title : {
             label : "text_title"
         },
