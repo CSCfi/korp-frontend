@@ -2472,8 +2472,8 @@ settings.corporafolders.lehdet.muut_lehdet = {
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
     contents : [
 	"lehdet_aarre",
-	"lehdet_koskinen",
 	"lehdet_ekonomi",
+	"lehdet_koskinen",
 	"lehdet_leija",
 	"lehdet_selkosanomat",
 	"lehdet_toisinsanoen",
