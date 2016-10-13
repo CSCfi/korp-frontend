@@ -2385,7 +2385,7 @@ settings.corporafolders.lehdet.tiedelehdet = {
 settings.corporafolders.lehdet.muut_lehdet = {
     title : "Muita lehtiä",
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
-    contents : ["lehdet_koskinen", "lehdet_ekonomi", "lehdet_leija", "lehdet_selkosanomat", "lehdet_toisinsanoen"]
+    contents : ["lehdet_aarre", "lehdet_koskinen", "lehdet_ekonomi", "lehdet_leija", "lehdet_selkosanomat", "lehdet_toisinsanoen"]
 };
 
 settings.corporafolders.ftc = {
@@ -5137,6 +5137,30 @@ settings.corpora.lehdet_koskinen = {
         text_url : sattrs.link_lehdet
     }
 };
+
+
+settings.corpora.lehdet_aarre = {
+    title : "Aarre",
+    description : "Aarre – Lehti Metsästä (2013-2015)<br/>Kotisivu: <a href='http://www.aarrelehti.fi/'>http://www.aarrelehti.fi/</a>",
+    id : "lehdet_aarre",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : {
+            label : "text_title"
+        },
+        text_year : {
+            label : "year"
+        },
+        text_issue : {
+            label : "issue"
+        },
+    }
+};
+
 
 settings.corpora.hsfi = {
     title : "HS.fi",
