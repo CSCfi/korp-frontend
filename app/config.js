@@ -2254,12 +2254,12 @@ settings.corporafolders.sv = {
 */
 
 settings.corporafolders.ethesis = {
-    title : "E-thesis (näyte)",
+    title : "E-thesis",
     contents : ["ethesis_dissabs"]
 };
 
 settings.corporafolders.ethesis.matheses = {
-    title : "Pro Gradu-tutkielmat",
+    title : "Pro gradu -tutkielmat",
     contents : ["ethesis_ma_ai", "ethesis_ma_bio", "ethesis_ma_el", "ethesis_ma_far", "ethesis_ma_hum", "ethesis_ma_beh",
 		"ethesis_ma_med", "ethesis_ma_mm", "ethesis_ma_ot", "ethesis_ma_teo", "ethesis_ma_valt"]
 };
