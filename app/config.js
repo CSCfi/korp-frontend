@@ -2264,6 +2264,12 @@ settings.corporafolders.ethesis.matheses = {
 		"ethesis_ma_med", "ethesis_ma_mm", "ethesis_ma_ot", "ethesis_ma_teo", "ethesis_ma_valt"]
 };
 
+settings.corporafolders.ethesis.phdtheses = {
+    title : "Väitöskirjat",
+    contents : ["ethesis_phd_bio", "ethesis_phd_el", "ethesis_phd_far", "ethesis_phd_hum", "ethesis_phd_beh",
+		"ethesis_phd_med", "ethesis_phd_mm", "ethesis_phd_ot", "ethesis_phd_teo", "ethesis_phd_valt"]
+};
+
 settings.corporafolders.ftb = {
     title : "FinnTreeBank: suomen puupankki",
     contents : ["ftb2"]
@@ -5591,6 +5597,117 @@ settings.corpora.ethesis_dissabs = {
     title : "Väitöstiivistelmät",
     description : "Väitöskirjojen suomenkielisiä abstrakteja 2006-2016",
     id : "ethesis_dissabs",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+
+settings.corpora.ethesis_phd_far = {
+    title : "Farmasia",
+    description : "Väitöskirjat: Farmasian tiedekunta (2005, 2013)",
+    id : "ethesis_phd_far",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_phd_teo = {
+    title : "Teologinen",
+    description : "Väitöskirjat: Teologinen tiedekunta (2000-2016)",
+    id : "ethesis_phd_teo",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_phd_beh = {
+    title : "Käyttäytymistieteellinen",
+    description : "Väitöskirjat: Käyttäytymistieteellinen tiedekunta (1996, 2000-2016)",
+    id : "ethesis_phd_beh",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_phd_valt = {
+    title : "Valtiotieteellinen",
+    description : "Väitöskirjat: Valtiotieteellinen tiedekunta (1999-2016)",
+    id : "ethesis_phd_valt",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_phd_ot = {
+    title : "Oikeustieteellinen",
+    description : "Väitöskirjat: Oikeustieteellinen tiedekunta (2001, 2004-2010, 2012, 2014-2016)",
+    id : "ethesis_phd_ot",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_phd_hum = {
+    title : "Humanistinen",
+    description : "Väitöskirjat: Humanistinen tiedekunta (2000-2016)",
+    id : "ethesis_phd_hum",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_phd_bio = {
+    title : "Bio- ja ympäristötieteellinen",
+    description : "Väitöskirjat: Bio- ja ympäristötieteellinen tiedekunta (2005)",
+    id : "ethesis_phd_bio",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_phd_el = {
+    title : "Eläinlääketieteellinen",
+    description : "Väitöskirjat: Eläinlääketieteellinen tiedekunta (2008)",
+    id : "ethesis_phd_el",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_phd_mm = {
+    title : "Maa- ja metsätieteellinen tiedekunta",
+    description : "Väitöskirjat: Maa- ja metsätieteellinen tiedekunta (2000, 2006, 2008-2010, 2012-2014, 2016)",
+    id : "ethesis_phd_mm",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_phd_med = {
+    title : "Lääketieteellinen",
+    description : "Väitöskirjat: Lääketieteellinen tiedekunta (2000, 2003-2004, 2006-2010, 2012, 2014)",
+    id : "ethesis_phd_med",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
