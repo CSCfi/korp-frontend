@@ -1893,6 +1893,12 @@ sattrs.link_lehdet = {
 /* SUST */
 
 sattrlist.sust = {
+    text_locale : {
+        label : "parish"
+    },
+    text_rectime : {
+        label : "text_recordingdate"
+    },
     text_title : {
         label : "text_title"
     },

@@ -1616,5 +1616,6 @@
     "paragraph_title" : "kappaleen otsikko",
     "translation" : "käännös",
     "transcription" : "transkriptio",
-    "text_category": "Aihealue"
+    "text_category": "aihealue",
+    "text_recordingdate": "nauhoitettu"
 }

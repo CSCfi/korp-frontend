@@ -29,7 +29,7 @@ settings.spContext = {
 settings.corporafolders.sust = {
     title : "sus-fieldwork",
     description : "sus-fieldwork",
-    contents : ["sust_myv", "sust_kpv"]
+    contents : ["sust_myv", "sust_kpv", "sust_mdf"]
 };
 
 settings.corporafolders.testikansio = {
@@ -120,6 +120,16 @@ settings.corpora.fennougrica = {
     unselected : true
 };
 */
+
+settings.corpora.sust_mdf = {
+    id : "sust_mdf",
+    title : "Mokša (näyte)",
+    description : "Mokša",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.sust,
+    struct_attributes : sattrlist.sust
+};
 
 settings.corpora.sust_myv = {
     id : "sust_myv",
