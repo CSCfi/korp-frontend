@@ -1574,6 +1574,7 @@ attrs.ne_subtype = {
 // FiNER name types
 attrs.ne_type_fi = {
     label : "ne_type",
+    displayType : "select",
     translationKey : "ne_type_",
     isStructAttr : true,
     dataset : [
@@ -1590,6 +1591,7 @@ attrs.ne_type_fi = {
 // FiNER name subtypes
 attrs.ne_subtype_fi = {
     label : "ne_subtype",
+    displayType : "select",
     translationKey : "ne_subtype_",
     isStructAttr : true,
     dataset : [
@@ -1612,6 +1614,7 @@ attrs.ne_subtype_fi = {
 // FiNER full name types: expression category, type, subtype
 attrs.ne_fulltype_fi = {
     label : "ne_fulltype",
+    displayType : "select",
     translationKey : "namecat_",
     isStructAttr : true,
     dataset : [
@@ -1665,6 +1668,7 @@ attrs.ner_rawtag = {
 // name, Inside a name and Outside a name
 attrs.ner_bio = {
     label : "ner_bio",
+    displayType : "select",
     translationKey : "ner_bio_",
     isStructAttr : true,
     dataset : [
