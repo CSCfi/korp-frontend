@@ -3835,7 +3835,7 @@ settings.corpora.tiedelehdet_terra = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attribute : {},
+    attributes : {},
     struct_attributes : {
         text_citationabstracthtmlurl : sattrs.link_lehdet,
         text_citationauthors : {
