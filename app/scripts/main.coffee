@@ -259,6 +259,7 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
     , ->
         $(this).css "opacity", ""
 
+    util.initCorpusSettingsFeatures()
     util.initCorpusSettingsLinkAttrs()
     util.initCorpusSettingsSyntheticAttrs()
     util.initCorpusSettingsAttrDisplayOrder()

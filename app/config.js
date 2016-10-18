@@ -379,6 +379,16 @@ settings.default_sidebar_display_order = {
     ]
 };
 
+// The properties in settings.corpus_features.FEAT are added to corpus
+// configurations (with recursive $.extend) whose property "features"
+// (an array) contains "FEAT". (Jyrki Niemi 2016-10-18)
+settings.corpus_features = {};
+
+settings.corpus_features.paragraphs = {
+    within : settings.spWithin,
+    context : settings.spContext,
+};
+
 
 
 /*
@@ -12671,6 +12681,12 @@ settings.fn.add_attr_extra_properties = function (corpora) {
 }
 
 // Add the extra properties to corpora
+//
+// FIXME: This works for attributes set via the "features" property
+// only if the same attribute objects are referred to directly from
+// some other corpus configuration. Fixing would probably require
+// moving this to initialization code (util.coffee, main.coffee),
+// which might also otherwise make sense. (Jyrki Niemi 2016-10-18)
 
 settings.fn.add_attr_extra_properties(settings.corpora);
 
