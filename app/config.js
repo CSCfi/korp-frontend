@@ -1687,6 +1687,10 @@ attrlist.finer = {
     nerbio : attrs.ner_bio,
 };
 
+settings.corpus_features.finer = {
+    attributes : attrlist.finer,
+};
+
 sattrs.date = {
     label : "date",
     displayType : "date"
@@ -2108,6 +2112,10 @@ attrlist.parsed_tdt = {
     deprel : attrs.deprel_tdt,
     ref : attrs.ref,
     lex : attrs.lemgram_hidden,
+};
+
+settings.corpus_features.parsed_tdt = {
+    attributes : attrlist.parsed_tdt,
 };
 
 // Corpora parsed with TDT and run through FiNER
@@ -5332,18 +5340,9 @@ settings.corpora.reittidemo = {
     urn : "urn:nbn:fi:lb-100110012817",
     metadata_urn : "urn:nbn:fi:lb-2014101401",
     licence : settings.licenceinfo.CC0,
-    within : settings.spWithin,
-    context : settings.spContext,
+    features : ["paragraphs", "parsed_tdt"],
     attributes : {
-	lemma : attrs.baseform,
-	lemmacomp : attrs.baseform_compound,
-        pos : attrs.pos_klk,
-	msd : attrs.msd,
-	dephead : attrs.dephead,
-	deprel : attrs.deprel_tdt,
-	ref : attrs.ref,
 	spoken : attrs.spoken,
-	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
 	text_author : sattrs.author,
@@ -11515,8 +11514,7 @@ settings.corpora.skn = {
     urn : "urn:nbn:fi:lb-201407141",
     metadata_urn : "urn:nbn:fi:lb-201407141",
     licence : settings.licenceinfo.CC_BY_40,
-    within : settings.spWithin,
-    context : settings.spContext,
+    features : ["paragraphs", "parsed_tdt", "finer"],
     attributes : {
         original : attrs.origword,
         normalized : {
@@ -11527,14 +11525,6 @@ settings.corpora.skn = {
 	    label : "word_comment",
 	    opts : settings.defaultOptions
 	},
-	lemma : attrs.baseform,
-	lemmacomp : attrs.baseform_compound,
-	pos : attrs.pos_klk,
-	msd : attrs.msd,
-	dephead : attrs.dephead,
-	deprel : attrs.deprel_tdt,
-	ref : attrs.ref,
-	lex : attrs.lemgram_hidden
     },
     struct_attributes : {
         text_title : sattrs.text_title,
@@ -11585,10 +11575,6 @@ settings.corpora.skn = {
         }
     }
 };
-
-settings.fn.extend_corpus_settings(
-    { attributes: attrlist.finer },
-    ["skn"]);
 
 
 /* DMA – Digitaalinen muoto-opin arkisto (Digital Morphology Archives) */
@@ -12289,17 +12275,7 @@ settings.corpora.s24_010 = {
     title : "Suomi24 (10/10)",
     description : "Suomi24-keskustelut (10/10)",
     id : "s24_010",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features : ["paragraphs", "parsed_tdt"],
     struct_attributes : sattrlist.s24_update
 };
 
@@ -12307,17 +12283,7 @@ settings.corpora.s24_009 = {
     title : "Suomi24 (9/10)",
     description : "Suomi24-keskustelut (9/10)",
     id : "s24_009",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-	lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features : ["paragraphs", "parsed_tdt"],
     struct_attributes : sattrlist.s24_update
 };
 
