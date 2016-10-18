@@ -1679,6 +1679,17 @@ attrs.ner_bio = {
 };
 
 // Common name attributes for (Fi)NER-tagged corpora
+
+attrlist.standard = {
+    lemma : attrs.baseform,
+    pos : attrs.pos_klk,
+    msd : attrs.msd,
+    dephead : attrs.dephead,
+    deprel : attrs.deprel_tdt,
+    ref : attrs.ref,
+    nertag : attrs.ner_tags
+};
+
 attrlist.finer = {
     ne_name : attrs.ne_name,
     ne_ex : attrs.ne_ex,
@@ -3607,7 +3618,7 @@ settings.corpora.tiedelehdet_avain = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : attrlist.standard,
     struct_attributes : {
         text_issue : {
             label : "issue"
@@ -3623,7 +3634,7 @@ settings.corpora.tiedelehdet_ennenjanyt = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : attrlist.standard,
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
@@ -3637,7 +3648,7 @@ settings.corpora.tiedelehdet_historianystava = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : attrlist.standard,
     struct_attributes : {
         text_url : sattrs.link_lehdet
     }
@@ -3650,7 +3661,7 @@ settings.corpora.tiedelehdet_ilmansuojelu = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : attrlist.standard,
     struct_attributes : {
         text_url : sattrs.link_lehdet
     }
@@ -3664,7 +3675,7 @@ settings.corpora.tiedelehdet_kieliskooppi = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : attrlist.standard,
     struct_attributes : {
         text_url : sattrs.link_lehdet,
         text_title : sattrs.text_title
@@ -3708,7 +3719,7 @@ settings.corpora.tiedelehdet_poliittinentalous = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : attrlist.standard,
     struct_attributes : {
         text_url : sattrs.link_lehdet
     }
@@ -3723,7 +3734,7 @@ settings.corpora.tiedelehdet_skas = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : attrlist.standard,
     struct_attributes : {
         text_url : sattrs.link_lehdet,
         text_issue : {
@@ -3757,7 +3768,7 @@ settings.corpora.tiedelehdet_vartija = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : attrlist.standard,
     struct_attributes : {
         text_issue : {
             label : "issue"
@@ -3802,7 +3813,7 @@ settings.corpora.tiedelehdet_tietolinja = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : attrlist.standard,
     struct_attributes : {
         text_url : sattrs.link_lehdet,
         text_issue : {
@@ -3818,7 +3829,7 @@ settings.corpora.tiedelehdet_mediajaviestinta = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : attrlist.standard,
     struct_attributes : {
 	text_issue : {
 	    label : "issue"
@@ -4870,7 +4881,7 @@ settings.corpora.tiedelehdet_ura = {
     metadata_urn : "",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : {},
+    attributes : attrlist.standard,
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet,
