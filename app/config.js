@@ -12271,18 +12271,18 @@ settings.corpora.s24_009test = {
 };
 */
 
-settings.corpora.s24_010 = {
-    title : "Suomi24 (10/10)",
-    description : "Suomi24-keskustelut (10/10)",
-    id : "s24_010",
-    features : ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes : sattrlist.s24_update
-};
-
 settings.corpora.s24_009 = {
     title : "Suomi24 (9/10)",
     description : "Suomi24-keskustelut (9/10)",
     id : "s24_009",
+    features : ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes : sattrlist.s24_update
+};
+
+settings.corpora.s24_010 = {
+    title : "Suomi24 (10/10)",
+    description : "Suomi24-keskustelut (10/10)",
+    id : "s24_010",
     features : ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : sattrlist.s24_update
 };
