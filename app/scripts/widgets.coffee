@@ -92,7 +92,8 @@ Sidebar =
         else if type == "pos"
             pairs = _.pairs(wordData)
             for item in (wordData._struct or [])
-                [key, val] = item.split(" ")
+                # Allow spaces in values (Jyrki Niemi 2016-10-18)
+                [key, val] = item.split(/ (.+)/, 2)
                 if key of corpus_attrs
                     pairs.push([key, val])
 
