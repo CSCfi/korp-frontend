@@ -12287,8 +12287,7 @@ settings.corpora.s24_010 = {
     struct_attributes : sattrlist.s24_update
 };
 
-settings.corpus_aliases.suomi24 =
-    "s24_001,s24_002,s24_003,s24_004,s24_005,s24_006,s24_007,s24_008,s24_009";
+settings.corpus_aliases.suomi24 = "s24_0[0-9][0-9]";
 
 // Configure a short URL: preselect only the Suomi24 corpus folder
 // (all its subcorpora)
