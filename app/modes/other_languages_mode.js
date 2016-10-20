@@ -376,7 +376,7 @@ settings.corpora.ethesis_en_phd_el = {
 };
 
 settings.corpora.ethesis_en_phd_far = {
-    title : "Faculty of Pharmacy",
+    title : "Pharmacy",
     description : "Faculty of Pharmacy (1999-2016)",
     id : "ethesis_en_phd_far",
     within : settings.defaultWithin,
@@ -398,7 +398,7 @@ settings.corpora.ethesis_en_phd_mm = {
 };
 
 settings.corpora.ethesis_en_phd_hum = {
-    title : "Faculty of Arts",
+    title : "Arts",
     description : "Faculty of Arts (1989, 1998-2016)",
     id : "ethesis_en_phd_hum",
     within : settings.defaultWithin,
@@ -409,7 +409,7 @@ settings.corpora.ethesis_en_phd_hum = {
 };
 
 settings.corpora.ethesis_en_phd_math = {
-    title : "Faculty of Science",
+    title : "Science",
     description : "Faculty of Science (1992, 1995-2016)",
     id : "ethesis_en_phd_math",
     within : settings.defaultWithin,
@@ -420,7 +420,7 @@ settings.corpora.ethesis_en_phd_math = {
 };
 
 settings.corpora.ethesis_en_phd_ot = {
-    title : "Faculty of Law",
+    title : "Law",
     description : "Faculty of Law (2002, 2004-2016)",
     id : "ethesis_en_phd_ot",
     within : settings.defaultWithin,
@@ -452,6 +452,16 @@ settings.corpora.ethesis_en_phd_med = {
     struct_attributes : sattrlist.ethesis
 };
 
+settings.corpora.ethesis_en_phd_valt = {
+    title : "Social Sciences",
+    description : "Faculty Social Sciences (1999-2016)",
+    id : "ethesis_en_phd_valt",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
 
 /* ParRus ru */
 
