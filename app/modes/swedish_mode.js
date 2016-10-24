@@ -79,6 +79,11 @@ settings.corporafolders.koff = {
     };
 */
 
+settings.corporafolders.ethesis = {
+    title : "E-thesis",
+    contents : ["ethesis_sv_dissabs", "ethesis_sv_phd"]
+};
+
 settings.corporafolders.klk_sv = {
     title : "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter",
     description : "Svenskspråkiga tidningar och tidskrifter i Nationalbibliotekets digitala samlingar, Kielipankki-version",
@@ -137,6 +142,27 @@ settings.fn.make_corpus_settings_by_year_decade(
 
 delete klk_sv_parsed_years;
 
+settings.corpora.ethesis_sv_dissabs = {
+    title : "Doktorsavhandlingar (abstrakt)",
+    description : "Doktorsavhandlingar (abstrakt) (2006-2016)",
+    id : "ethesis_sv_dissabs",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_sv_phd = {
+    title : "Doktorsavhandlingar",
+    description : "Doktorsavhandlingar (2000-2016)",
+    id : "ethesis_sv_phd",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
 
 settings.corpora.studentsvenska = {
     id : "studentsvenska",
