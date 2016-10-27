@@ -2300,7 +2300,7 @@ settings.corporafolders.ethesis = {
 settings.corporafolders.ethesis.matheses = {
     title : "Pro gradu -tutkielmat",
     contents : ["ethesis_ma_ai", "ethesis_ma_bio", "ethesis_ma_el", "ethesis_ma_far", "ethesis_ma_hum", "ethesis_ma_beh",
-		"ethesis_ma_med", "ethesis_ma_mm", "ethesis_ma_ot", "ethesis_ma_teo", "ethesis_ma_valt"]
+		"ethesis_ma_med", "ethesis_ma_mm", "ethesis_ma_sci", "ethesis_ma_ot", "ethesis_ma_teo", "ethesis_ma_valt"]
 };
 
 settings.corporafolders.ethesis.phdtheses = {
@@ -5635,6 +5635,7 @@ settings.corpora.ethesis_dissabs = {
 };
 
 
+
 settings.corpora.ethesis_phd_far = {
     title : "Farmasia",
     description : "Väitöskirjat: Farmasian tiedekunta (2005, 2013)",
@@ -5804,6 +5805,17 @@ settings.corpora.ethesis_ma_hum = {
     title : "Humanistinen",
     description : "Gradut: Humanistinen tiedekunta 1998-2016",
     id : "ethesis_ma_hum",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_ma_sci = {
+    title : "Matemaattis-luonnontieteellinen",
+    description : "Gradut: Matemaattis-luonnontieteellinen tiedekunta 1996-2016",
+    id : "ethesis_ma_sci",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {

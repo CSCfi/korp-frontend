@@ -81,7 +81,7 @@ settings.corporafolders.koff = {
 
 settings.corporafolders.ethesis = {
     title : "E-thesis",
-    contents : ["ethesis_sv_dissabs", "ethesis_sv_phd"]
+    contents : ["ethesis_sv_dissabs", "ethesis_sv_phd", "ethesis_sv_ma"]
 };
 
 settings.corporafolders.klk_sv = {
@@ -141,6 +141,18 @@ settings.fn.make_corpus_settings_by_year_decade(
 
 
 delete klk_sv_parsed_years;
+
+/*ETHESIS*/
+settings.corpora.ethesis_sv_ma = {
+    title : "Masteruppsatser",
+    description : "Masteruppsatser (1997-2016)",
+    id : "ethesis_sv_ma",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
 
 settings.corpora.ethesis_sv_dissabs = {
     title : "Doktorsavhandlingar (abstrakt)",
@@ -214,6 +226,7 @@ settings.corpora.sinebrychoff_orig = {
     attributes: attrlist.sinebrychoff,
     struct_attributes : sattrlist.sinebrychoff
 };
+
 
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_sv"]);
