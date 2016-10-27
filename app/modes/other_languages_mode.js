@@ -411,6 +411,17 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.firulex,
 
 /* E-thesis en */
 
+settings.corpora.ethesis_en_ma_ot = {
+    title : "Law",
+    description : "Faculty of Law (2010-2015)",
+    id : "ethesis_en_ma_ot",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
 settings.corpora.ethesis_en_ma_med = {
     title : "Medicine",
     description : "Faculty of Medicine (2009-2015)",
