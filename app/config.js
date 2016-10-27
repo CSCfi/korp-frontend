@@ -5623,6 +5623,17 @@ settings.corpora.skk_sodergran = {
     }
 };
 
+settings.corpora.ethesis_maabs = {
+    title : "Gradutiivistelmät",
+    description : "Pro gradu -tutkielmien suomenkielisiä abstrakteja 1999-2016",
+    id : "ethesis_maabs",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
 settings.corpora.ethesis_dissabs = {
     title : "Väitöstiivistelmät",
     description : "Väitöskirjojen suomenkielisiä abstrakteja 2006-2016",
