@@ -108,6 +108,13 @@ settings.corporafolders.english.ethesis.phdtheses = {
                 "ethesis_en_phd_valt", "ethesis_en_phd_teo", "ethesis_en_phd_el"]
 };
 
+settings.corporafolders.english.ethesis.matheses = {
+    title : "Master's theses",
+    contents : ["ethesis_en_ma_mm", "ethesis_en_ma_ai", "ethesis_en_ma_hum", "ethesis_en_ma_bio", "ethesis_en_ma_beh",
+                "ethesis_en_ma_far", "ethesis_en_ma_ot", "ethesis_en_ma_med", "ethesis_en_ma_sci",
+                "ethesis_en_ma_valt", "ethesis_en_ma_teo", "ethesis_en_ma_el"]
+};
+
 settings.corporafolders.hcs2 = {
     title : "Helsinki Corpus of Swahili 2.0 (HCS 2.0)",
     description : "Helsinki Corpus of Swahili 2.0 (HCS 2.0) Annotated Version<br/><br><a href=\"https://www.kielipankki.fi/corpora/hcs2/\" target=\"_blank\">Corpus information page, including descriptions of annotation feature values (tags)</a>",
@@ -403,6 +410,129 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.firulex,
 
 
 /* E-thesis en */
+
+settings.corpora.ethesis_en_ma_med = {
+    title : "Medicine",
+    description : "Faculty of Medicine (2009-2015)",
+    id : "ethesis_en_ma_med",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_en_ma_el = {
+    title : "Veterinary Medicine",
+    description : "Faculty of Veterinary Medicine (2003-2016)",
+    id : "ethesis_en_ma_el",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+
+settings.corpora.ethesis_en_ma_hum = {
+    title : "Arts",
+    description : "Faculty of Arts (1997-2016)",
+    id : "ethesis_en_ma_hum",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+
+settings.corpora.ethesis_en_ma_beh = {
+    title : "Behavioural Sciences",
+    description : "Faculty of Behavioural Sciences (2000-2016)",
+    id : "ethesis_en_ma_beh",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_en_ma_bio = {
+    title : "Biological and Environmental Sciences",
+    description : "Faculty of Biological and Environmental Sciences (2006-2015)",
+    id : "ethesis_en_ma_bio",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_en_ma_far = {
+    title : "Pharmacy",
+    description : "Faculty of Pharmacy (2003, 2010-2016)",
+    id : "ethesis_en_ma_far",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_en_ma_mm = {
+    title : "Agriculture and Forestry",
+    description : "Agriculture and Forestry (2002-2016)",
+    id : "ethesis_en_ma_mm",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_en_ma_sci = {
+    title : "Science",
+    description : "Faculty of Science (1999-2016)",
+    id : "ethesis_en_ma_sci",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_en_ma_teo = {
+    title : "Theology",
+    description : "Faculty of Theology (2006-2016)",
+    id : "ethesis_en_ma_teo",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_en_ma_valt = {
+    title : "Social Sciences",
+    description : "Faculty of Social Sciences (1999-2016)",
+    id : "ethesis_en_ma_valt",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_en_ma_ai = {
+    title : "Aleksanteri Institute",
+    description : "Aleksanteri Institute (2009-2015)",
+    id : "ethesis_en_ma_ai",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
 
 settings.corpora.ethesis_en_maabs = {
     title : "Master's thesis abstracts",
