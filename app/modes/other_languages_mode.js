@@ -61,9 +61,24 @@ settings.corporafolders.english = {
 settings.corporafolders.german = {
     title : "Deutsch / Saksa / German",
     description : "Texte auf Deutsch<br/>Saksankielisiä tekstejä<br/>Texts in German",
-    contents : ["mulcold_de"],
+    contents : ["mulcold_de", "ethesis_de"],
     // unselected : true
 };
+
+settings.corporafolders.french = {
+    title : "Français / Ranska / French",
+    description : "Textes en français<br/>Ranskankielisiä tekstejä<br/>Texts in French",
+    contents : ["ethesis_fr"],
+    // unselected : true
+};
+
+settings.corporafolders.spanish = {
+    title : "Español / Espanja / Spanish",
+    description : "Textos on español<br/>Espanjankielisiä tekstejä<br/>Texts in Spanish",
+    contents : ["ethesis_es"],
+    // unselected : true
+};
+
 
 settings.corporafolders.russian = {
     title : "Русский / Venäjä / Russian",
@@ -75,6 +90,7 @@ settings.corporafolders.russian = {
 	"parfin_2016_ru",
 	"parrus_ru",
 	"parfin_ru",
+	"ethesis_ru"
     ],
     // unselected : true
 };
@@ -133,6 +149,51 @@ settings.corpora.fennougrica = {
     unselected : true
 };
 */
+
+settings.corpora.ethesis_ru = {
+    title : "E-thesis",
+    description : "E-thesis. Corpus of theses and dissertations (2005-2016)",
+    id : "ethesis_ru",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_es = {
+    title : "E-thesis",
+    description : "E-thesis. Corpus of theses and dissertations (2003-2015)",
+    id : "ethesis_es",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_fr = {
+    title : "E-thesis",
+    description : "E-thesis. Corpus of theses and dissertations (2000-2016)",
+    id : "ethesis_fr",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_de = {
+    title : "E-thesis",
+    description : "E-thesis. Corpus of theses and dissertations (1997-2016)",
+    id : "ethesis_de",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
 
 settings.corpora.sust_mdf = {
     id : "sust_mdf",
