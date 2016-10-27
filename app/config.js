@@ -2294,7 +2294,7 @@ settings.corporafolders.sv = {
 
 settings.corporafolders.ethesis = {
     title : "E-thesis",
-    contents : ["ethesis_dissabs"]
+    contents : ["ethesis_maabs", "ethesis_dissabs"]
 };
 
 settings.corporafolders.ethesis.matheses = {
