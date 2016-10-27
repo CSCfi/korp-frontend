@@ -98,7 +98,7 @@ settings.corporafolders.russian = {
 settings.corporafolders.english.ethesis = {
     title : "E-thesis",
     description : "Corpus of University of Helsinki theses and dissertations<br/><a href='https://ethesis.helsinki.fi/'>https://ethesis.helsinki.fi/</a>",
-    contents : ["ethesis_en_dissabs", "ethesis_en_ma"]
+    contents : ["ethesis_en_dissabs", "ethesis_en_maabs"]
 };
 
 settings.corporafolders.english.ethesis.phdtheses = {
@@ -403,6 +403,17 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.firulex,
 
 
 /* E-thesis en */
+
+settings.corpora.ethesis_en_maabs = {
+    title : "Master's thesis abstracts",
+    description : "Master's thesis abstracts (1999-2016)",
+    id : "ethesis_en_maabs",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
 
 settings.corpora.ethesis_en_dissabs = {
     title : "Doctoral dissertation abstracts",

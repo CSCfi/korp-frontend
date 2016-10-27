@@ -81,7 +81,7 @@ settings.corporafolders.koff = {
 
 settings.corporafolders.ethesis = {
     title : "E-thesis",
-    contents : ["ethesis_sv_dissabs", "ethesis_sv_phd", "ethesis_sv_ma"]
+    contents : ["ethesis_sv_dissabs", "ethesis_sv_maabs", "ethesis_sv_phd", "ethesis_sv_ma"]
 };
 
 settings.corporafolders.klk_sv = {
@@ -147,6 +147,17 @@ settings.corpora.ethesis_sv_ma = {
     title : "Masteruppsatser",
     description : "Masteruppsatser (1997-2016)",
     id : "ethesis_sv_ma",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_sv_maabs = {
+    title : "Masteruppsatser (abstrakt)",
+    description : "Masteruppsatser (abstrakt) (1999-2016)",
+    id : "ethesis_sv_maabs",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
