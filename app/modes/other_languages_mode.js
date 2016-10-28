@@ -567,17 +567,6 @@ settings.corpora.ethesis_en_dissabs = {
     struct_attributes : sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_ma = {
-    title : "Master's theses",
-    description : "Master's theses (1997-2016)",
-    id : "ethesis_en_ma",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-    },
-    struct_attributes : sattrlist.ethesis
-};
-
 settings.corpora.ethesis_en_phd_beh = {
     title : "Behavioural Sciences",
     description : "Faculty of Behavioural Sciences (1999-2016)",
