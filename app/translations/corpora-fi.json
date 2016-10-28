@@ -1617,5 +1617,6 @@
     "translation" : "käännös",
     "transcription" : "transkriptio",
     "text_category": "aihealue",
-    "text_recordingdate": "nauhoitettu"
+    "text_recordingdate": "nauhoitettu",
+    "text_correctionyear": "editointivuosi"
 }

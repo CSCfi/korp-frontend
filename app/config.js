@@ -1934,8 +1934,21 @@ sattrlist.sust = {
     text_year : {
         label : "text_year"
     },
+    /*
     text_author : {
         label : "text_author"
+	},*/
+    text_pgli : {
+        label : "sentence_line"
+    },
+    text_interviewer : {
+        label : "paragraphtype_interviewer"
+    },
+    text_interviewee : {
+        label : "paragraphtype_interviewee"
+    },
+    text_corryear : {
+        label : "text_correction_year"
     },
     text_corrector : {
         label : "text_corrector"
@@ -1946,7 +1959,7 @@ sattrlist.sust = {
     text_pubname : {
         label : "publisher"
     },
-    sentence_section : {
+    sentence_pgno : {
         label : "page_num"
     },
     sentence_chapno : {
