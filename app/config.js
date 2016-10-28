@@ -1990,6 +1990,7 @@ sattrlist.ethesis = {
     text_type : {
         label : "text_dissertationtype"
     },
+    /*
     text_lang : {
         label : "text_lang",
         displayType : "select",
@@ -2003,6 +2004,7 @@ sattrlist.ethesis = {
         },
         opts : settings.liteOptions
     },
+    */
     text_url : {
         label : "text_abslink",
         type : "url",
