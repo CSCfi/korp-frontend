@@ -32,6 +32,12 @@ settings.corporafolders.sust = {
     contents : ["sust_myv", "sust_kpv", "sust_mdf"]
 };
 
+settings.corporafolders.oracc = {
+    title : "ORACC",
+    description : "ORACC – Open Richly Annotated Cuneiform Corpus",
+    contents : ["oracc_ribo", "oracc_rinap", "oracc_saao", "oracc_other"]
+};
+
 settings.corporafolders.testikansio = {
     title : "ERME",
     description : "ERME: Erzya and Moksha Extended Corpora",
@@ -156,6 +162,46 @@ settings.corpora.fennougrica = {
     unselected : true
 };
 */
+
+settings.corpora.oracc_other = {
+    id : "oracc_other",
+    title: "Others",
+    description : "Others",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc,
+};
+
+settings.corpora.oracc_saao = {
+    id : "oracc_saao",
+    title: "State Archives of Assyria Online",
+    description : "SAAo – State Archives of Assyria Online",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc,
+};
+
+settings.corpora.oracc_ribo = {
+    id : "oracc_ribo",
+    title: "Royal Inscriptions of Babylonia online",
+    description : "RIBo – Royal Inscriptions of Babylonia online",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc,
+};
+
+settings.corpora.oracc_rinap = {
+    id : "oracc_rinap",
+    title: "Royal Inscriptions of the Neo-Assyrian Period",
+    description : "RINAP – Royal Inscriptions of the Neo-Assyrian Period",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc,
+};
 
 settings.corpora.ethesis_ru = {
     title : "E-thesis",

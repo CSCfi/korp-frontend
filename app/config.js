@@ -1900,7 +1900,6 @@ sattrs.day_of_month = {
     label : "day"
 };
 
-
 /* KFSCP --- */
 
 sattrs.text_pubdate = {
@@ -1917,6 +1916,31 @@ sattrs.link_lehdet = {
     label : "link_to_original",
     type : "url",
     url_opts : sattrs.link_url_opts
+};
+
+/* ORACC */
+
+sattrlist.oracc = {
+    text_provenance : {
+        label : "oracc_provenance",
+    },
+    text_period : {
+        label : "oracc_period",
+    },
+    text_genre : {
+        label : "oracc_genre"
+    },
+    text_url : {
+        url_opts : sattrs.link_url_opts,
+        label : "oracc_url",
+        type : "url"
+    },
+    sentence_line : {
+        label : "oracc_line",
+    },
+    sentence_translation : {
+        label : "oracc_sent_translation"
+    }
 };
 
 /* SUST */
@@ -1981,6 +2005,47 @@ sattrlist.sust = {
 
 attrlist.sust = {}
 
+
+/* ORACC */
+attrlist.oracc = {
+    lemma : attrs.baseform,
+    ltrans :  {
+	label : "oracc_lemmatrans"
+    },
+    transcription : {
+	label : "oracc_transcription"
+    },
+    pos : {
+	label : "pos",
+	displayType : "select",
+	translationKey : "oracc_pos_",
+	dataset : {},
+	opts : settings.liteOptions
+    },
+    sense : {
+	label : "oracc_sense"
+	},
+    sensepos : {
+        label : "oracc_sensepos",
+        displayType : "select",
+        translationKey : "oracc_pos_",
+        dataset : {},
+        opts : settings.liteOptions
+    },
+    cuneiform : {
+        label : "oracc_cuneiform"
+    },
+    ref : {
+        label : "oracc_ref"
+    },
+    lang : {
+        label : "oracc_lang",
+        displayType : "select",
+        translationKey : "oracc_lang_",
+        dataset : {},
+        opts : settings.liteOptions
+    }
+};
 
 /* E-thesis */
 
