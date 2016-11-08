@@ -3168,9 +3168,9 @@ settings.corpora.topling_fi = {
     description : "TOPLING (suomi)",
     context : settings.spContext,
     within : settings.spWithin,
-    //limited_access : true,
-    //licence_type : "RES",
-    // unselected : true,
+    limited_access : true,
+    licence_type : "RES",
+    unselected : true,
     attributes : attrlist.topling,
     struct_attributes : sattrlist.topling
 };
