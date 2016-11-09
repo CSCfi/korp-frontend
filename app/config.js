@@ -3162,6 +3162,16 @@ settings.corpora.ftb3_jrcacquis = {
 
 /* ==== topling ==== */
 
+settings.corpora.topling_fi_test = {
+    id : "topling_fi_test",
+    title : "TOPLING (suomi, debug)",
+    description : "TOPLING (suomi, debug)",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes : attrlist.topling,
+    struct_attributes : sattrlist.topling
+};
+
 settings.corpora.topling_fi = {
     id : "topling_fi",
     title : "TOPLING (suomi)",
