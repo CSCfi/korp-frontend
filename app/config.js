@@ -11696,7 +11696,7 @@ settings.corpora.sinebrychoff_fi = {
 
 
 /* TOPLING SUOMI */
-
+/*
 settings.corpora.topling_fi_test = {
     id : "topling_fi_test",
     title : "TOPLING (suomi, debug)",
@@ -11705,7 +11705,7 @@ settings.corpora.topling_fi_test = {
     within : settings.spWithin,
     attributes : attrlist.topling,
     struct_attributes : sattrlist.topling
-};
+    };*/
 
 settings.corpora.topling_fi = {
     id : "topling_fi",
@@ -11713,8 +11713,8 @@ settings.corpora.topling_fi = {
     description : "TOPLING (suomi)",
     context : settings.spContext,
     within : settings.spWithin,
-    //limited_access : true,
-    //licence_type : "RES",
+    limited_access : true,
+    licence_type : "RES",
     attributes : attrlist.topling,
     struct_attributes : sattrlist.topling
 };
