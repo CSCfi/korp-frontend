@@ -3160,45 +3160,6 @@ settings.corpora.ftb3_jrcacquis = {
     }
 };
 
-/* ==== topling ==== */
-
-settings.corpora.topling_fi_test = {
-    id : "topling_fi_test",
-    title : "TOPLING (suomi, debug)",
-    description : "TOPLING (suomi, debug)",
-    context : settings.spContext,
-    within : settings.spWithin,
-    attributes : attrlist.topling,
-    struct_attributes : sattrlist.topling
-};
-
-settings.corpora.topling_fi = {
-    id : "topling_fi",
-    title : "TOPLING (suomi)",
-    description : "TOPLING (suomi)",
-    context : settings.spContext,
-    within : settings.spWithin,
-    //limited_access : true,
-    //licence_type : "RES",
-    attributes : attrlist.topling,
-    struct_attributes : sattrlist.topling
-};
-
-
-/* ==== Sinebrychoff ==== */
-
-settings.corpora.sinebrychoff_fi = {
-    id : "sinebrychoff_fi",
-    title: "Paul Sinebrychoffin kirjeenvaihto",
-    description : "Paul Sinebrychoffin kirjeenvaihto, suomenkieliset käännökset",
-    metadata_urn : "urn:nbn:fi:lb-201407303",
-    licence : settings.licenceinfo.CC_BY_30,
-    context : settings.spContext,
-    within : settings.spWithin,
-    attributes: attrlist.sinebrychoff,
-    struct_attributes : sattrlist.sinebrychoff
-};
-
 /* ==== TIEDELEHTIÄ ==== */
 
 settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
@@ -11717,6 +11678,45 @@ settings.corpora.skn = {
             url_opts : sattrs.link_url_opts
         }
     }
+};
+
+/* SINEBRYCHOFF */
+
+settings.corpora.sinebrychoff_fi = {
+    id : "sinebrychoff_fi",
+    title: "Paul Sinebrychoffin kirjeenvaihto",
+    description : "Paul Sinebrychoffin kirjeenvaihto, suomenkieliset käännökset",
+    metadata_urn : "urn:nbn:fi:lb-201407303",
+    licence : settings.licenceinfo.CC_BY_30,
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.sinebrychoff,
+    struct_attributes : sattrlist.sinebrychoff
+};
+
+
+/* TOPLING SUOMI */
+
+settings.corpora.topling_fi_test = {
+    id : "topling_fi_test",
+    title : "TOPLING (suomi, debug)",
+    description : "TOPLING (suomi, debug)",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes : attrlist.topling,
+    struct_attributes : sattrlist.topling
+};
+
+settings.corpora.topling_fi = {
+    id : "topling_fi",
+    title : "TOPLING (suomi)",
+    description : "TOPLING (suomi)",
+    context : settings.spContext,
+    within : settings.spWithin,
+    //limited_access : true,
+    //licence_type : "RES",
+    attributes : attrlist.topling,
+    struct_attributes : sattrlist.topling
 };
 
 
