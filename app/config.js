@@ -2674,7 +2674,7 @@ settings.corporafolders.spoken.la_murre = {
 
 settings.corporafolders.learner = {
     title : "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
-    contents : ["iclfi"],
+    contents : ["iclfi", "topling_fi"],
     // unselected : true
 };
 
