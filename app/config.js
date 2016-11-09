@@ -3161,7 +3161,7 @@ settings.corpora.ftb3_jrcacquis = {
 };
 
 /* ==== topling ==== */
-
+/*
 settings.corpora.topling_fi = {
     id : "topling_fi",
     title : "TOPLING (suomi)",
@@ -3170,10 +3170,10 @@ settings.corpora.topling_fi = {
     within : settings.spWithin,
     limited_access : true,
     licence_type : "RES",
-    unselected : true,
     attributes : attrlist.topling,
     struct_attributes : sattrlist.topling
 };
+*/
 
 /* ==== Sinebrychoff ==== */
 
