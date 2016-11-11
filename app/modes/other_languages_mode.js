@@ -61,7 +61,7 @@ settings.corporafolders.fennougrica = {
 settings.corporafolders.english = {
     title : "English / Englanti",
     description : "Texts in English<br/>Englanninkielisiä tekstejä",
-    contents : ["mulcold_en", "elfa", "topling"]
+    contents : ["mulcold_en", "elfa", "topling_en"]
 };
 
 settings.corporafolders.german = {
@@ -802,10 +802,10 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parfin_2016,
 				   ["parfin_2016_ru"]);
 
 
-settings.corpora.topling = {
-    id : "topling",
-    title : "TOPLING (näytteitä)",
-    description : "TOPLING (näytteitä)",
+settings.corpora.topling_en = {
+    id : "topling_en",
+    title : "TOPLING",
+    description : "TOPLING",
     // No Korp URN yet
     metadata_urn : "urn:nbn:fi:lb-20140730168",
     licence : {

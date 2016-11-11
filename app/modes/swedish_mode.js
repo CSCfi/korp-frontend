@@ -214,6 +214,24 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
 				   ["mulcold_sv"]);
 
 
+settings.corpora.topling_sv = {
+    id : "topling_sv",
+    title : "TOPLING",
+    description : "TOPLING",
+    context : settings.spContext,
+    within : settings.spWithin,
+    limited_access : true,
+    licence_type : "RES",
+    // unselected : true,
+    licence : {
+        name : "CLARIN RES +PLAN +NC +DEP",
+        urn : "urn:nbn:fi:lb-20150304138"
+    },
+    homepage_url : "https://www.jyu.fi//topling",
+    attributes : attrlist.topling,
+    struct_attributes : sattrlist.topling
+};
+
 settings.corpora.kfspc_sv = {
     title : "KFSPC svenska",
     description : "Kotus Finnish-Swedish Parallel Corpus, svenskspråkiga delen",
