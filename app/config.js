@@ -2610,7 +2610,7 @@ settings.corporafolders.ftc = {
     description : "Suomen kielen tekstikokoelma: Lemmie-palvelussa olleet osakorpukset",
     info : {
 	urn : "urn:nbn:fi:lb-2014052719",
-	metadata_urn : "urn:nbn:fi:lb-201403268",
+	metadata_urn : "urn:nbn:fi:lb-2016050207",
 	licence : {
 	    name : "CLARIN RES +PLAN +NC +ND",
 	    urn : "urn:nbn:fi:lb-20150304137",
