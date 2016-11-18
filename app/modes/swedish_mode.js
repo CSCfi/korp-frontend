@@ -232,6 +232,8 @@ settings.corpora.topling_sv = {
     struct_attributes : sattrlist.topling
 };
 
+settings.corpus_aliases["topling-sv"] = "topling_sv";
+
 settings.corpora.kfspc_sv = {
     title : "KFSPC svenska",
     description : "Kotus Finnish-Swedish Parallel Corpus, svenskspråkiga delen",

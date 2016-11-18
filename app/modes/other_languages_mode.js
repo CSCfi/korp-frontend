@@ -822,6 +822,8 @@ settings.corpora.topling_en = {
     struct_attributes : sattrlist.topling
 };
 
+settings.corpus_aliases["topling-en"] = "topling_en";
+
 
 settings.corpora.elfa = {
     id : "elfa",

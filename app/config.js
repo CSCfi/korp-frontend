@@ -11719,6 +11719,8 @@ settings.corpora.topling_fi = {
     struct_attributes : sattrlist.topling
 };
 
+settings.corpus_aliases["topling-fi"] = "topling_fi";
+
 
 /* DMA – Digitaalinen muoto-opin arkisto (Digital Morphology Archives) */
 
