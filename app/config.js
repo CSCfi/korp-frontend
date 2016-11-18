@@ -7769,6 +7769,9 @@ sattrlist.s24_update = {
     },
     sentence_id : sattrs.sentence_id_hidden,
     text_title : sattrs.text_title,
+    text_title_lemmas : {
+	label : "title_lemmas",
+    },
     text_date : sattrs.date,
     text_time : sattrs.text_time,
     text_cid : {
@@ -7782,7 +7785,10 @@ sattrlist.s24_update = {
     },
     text_anonnick : {
         label : "suomi24fi_user",
-    }
+    },
+    text_anonnick_lemmas : {
+	label : "suomi24fi_user_lemmas",
+    },
 };
 
 sattrlist.scotscorr = {

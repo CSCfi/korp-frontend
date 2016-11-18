@@ -1378,11 +1378,14 @@
     "klk_url" : "OCRUI",
     "klk_page" : "sivunumero",
     "suomi24fi_user" : "nimimerkki",
+    "suomi24fi_user_lemmas" : "nimimerkin sanojen perusmuodot",
     "suomi24fi_sub" : "aihe",
     "suomi24fi_sect" : "keskustelualue",
     "suomi24fi_urlmsg" : "alkuperäinen viesti",
     "suomi24fi_urlboard" : "alkuperäinen keskustelu",
     "suomi24fi_cid" : "viestin tunniste",
+
+    "title_lemmas" : "otsikon sanojen perusmuodot",
 
     "publication_type" : "julkaisutyyppi",
     "publtype_journal" : "aikakauslehti",
