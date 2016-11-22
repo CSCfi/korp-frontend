@@ -2605,6 +2605,7 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_leija",
 	"lehdet_selkosanomat",
 	"lehdet_toisinsanoen",
+	"lehdet_aino",
     ]
 };
 
@@ -5392,6 +5393,30 @@ settings.corpora.lehdet_aarre = {
     }
 };
 
+settings.corpora.lehdet_aino = {
+    id: "lehdet_aino",
+    title: "Aino",
+    description: "Ylioppilaslehti Aino (2010-2015)<br/>Julkaisija: Aalto-yliopiston ylioppilaskunta<br/>Kotisivu: <a href='http://ainolehti.fi/aino/'>http://ainolehti.fi/aino/</a>",
+    urn: "[to be added]",
+    metadata_urn: "[to be added]",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: { label : "year" },
+        text_issue: {
+            label: "issue",
+        },
+        text_title: {
+            label: "text_title",
+        },
+        paragraph_id: {
+            label: "",
+        },
+        sentence_id: {
+            label: "",
+        },
+    },
+};
 
 settings.corpora.hsfi = {
     title : "HS.fi",
