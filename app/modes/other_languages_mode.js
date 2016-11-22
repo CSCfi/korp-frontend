@@ -35,7 +35,10 @@ settings.corporafolders.sust = {
 settings.corporafolders.oracc = {
     title : "ORACC",
     description : "ORACC – Open Richly Annotated Cuneiform Corpus",
-    contents : ["oracc_ribo", "oracc_rinap", "oracc_saao", "oracc_other"]
+    contents : ["oracc_ribo", "oracc_rinap", "oracc_saao", "oracc_other"],
+    info : {
+        licence : settings.licenceinfo.CC_BY_30
+    }
 };
 
 settings.corporafolders.testikansio = {

@@ -2598,6 +2598,7 @@ settings.corporafolders.lehdet.muut_lehdet = {
     contents : [
 	"lehdet_aarre",
 	"lehdet_ekonomi",
+	"lehdet_ks",
 	"lehdet_koskinen",
 	"lehdet_leija",
 	"lehdet_selkosanomat",
@@ -5281,6 +5282,29 @@ settings.corpora.lehdet_leija = {
         text_issue : {
             label : "issue"
         },
+    }
+};
+
+
+settings.corpora.lehdet_ks = {
+    title : "Karjalan Sanomat",
+    description : "Karjalan Sanomat (2012-2014)<br/>Julkaisija: Periodika-kustantamo<br/>Kotisivu: <a href='http://karjalansanomat.ru/'>http://karjalansanomat.ru/</a>",
+    id : "lehdet_ks",
+    urn : "",
+    metadata_urn : "",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_year : sattrs.date,
+        text_type : {
+            label : "type"
+        },
+        text_issue : {
+            label : "issue"
+        }
+
     }
 };
 
