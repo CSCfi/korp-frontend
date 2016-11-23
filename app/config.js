@@ -2598,7 +2598,6 @@ settings.corporafolders.lehdet.muut_lehdet = {
     contents : [
 	"lehdet_aarre",
 	"lehdet_ekonomi",
-	"lehdet_ks",
 	"lehdet_koskinen",
 	"lehdet_leija",
 	"lehdet_selkosanomat",
@@ -5292,6 +5291,8 @@ settings.corpora.lehdet_ks = {
     id : "lehdet_ks",
     urn : "",
     metadata_urn : "",
+    limited_access : true,
+    licence_type : "ACA",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {},
