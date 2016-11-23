@@ -2600,12 +2600,12 @@ settings.corporafolders.lehdet.muut_lehdet = {
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
     contents : [
 	"lehdet_aarre",
+	"lehdet_aino",
 	"lehdet_ekonomi",
 	"lehdet_koskinen",
 	"lehdet_leija",
 	"lehdet_selkosanomat",
 	"lehdet_toisinsanoen",
-	"lehdet_aino",
     ]
 };
 
@@ -5402,21 +5402,18 @@ settings.corpora.lehdet_aino = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_year: { label : "year" },
+        text_year: {
+            label: "year",
+        },
         text_issue: {
             label: "issue",
         },
-        text_title: {
-            label: "text_title",
-        },
-        paragraph_id: {
-            label: "",
-        },
-        sentence_id: {
-            label: "",
-        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
     },
 };
+
 
 settings.corpora.hsfi = {
     title : "HS.fi",
