@@ -5290,7 +5290,7 @@ settings.corpora.lehdet_ks = {
     description : "Karjalan Sanomat (2012-2014)<br/>Julkaisija: Periodika-kustantamo<br/>Kotisivu: <a href='http://karjalansanomat.ru/'>http://karjalansanomat.ru/</a>",
     id : "lehdet_ks",
     urn : "",
-    metadata_urn : "",
+    metadata_urn : "urn:nbn:fi:lb-2014092601",
     limited_access : true,
     licence_type : "ACA",
     within : settings.spWithin,
