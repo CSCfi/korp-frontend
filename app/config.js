@@ -11739,8 +11739,14 @@ settings.corpora.topling_fi_test = {
 
 settings.corpora.topling_fi = {
     id : "topling_fi",
-    title : "TOPLING (suomi)",
-    description : "TOPLING (suomi)",
+    title : "Topling (suomi)",
+    description : "Topling – Toisen kielen oppimisen polut, suomenkielinen osakorpus",
+    metadata_urn : "urn:nbn:fi:lb-2016111802",
+    licence : {
+	name : "CLARIN RES +NC +DEP",
+	url : "https://www.kielipankki.fi/lic/topling-fi/"
+    },
+    homepage_url : "https://www.jyu.fi/topling",
     context : settings.spContext,
     within : settings.spWithin,
     limited_access : true,

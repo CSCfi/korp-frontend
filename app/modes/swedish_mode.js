@@ -216,18 +216,19 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
 
 settings.corpora.topling_sv = {
     id : "topling_sv",
-    title : "TOPLING",
-    description : "TOPLING",
+    title : "Topling (svenska)",
+    description : "Topling – Inlärningsgångar i andraspråket, svensk delkorpus",
+    metadata_urn : "urn:nbn:fi:lb-2016111801",
+    licence : {
+	name : "CLARIN RES +NC +DEP",
+	url : "https://www.kielipankki.fi/lic/topling-sv/"
+    },
+    homepage_url : "https://www.jyu.fi/topling",
     context : settings.spContext,
     within : settings.spWithin,
     limited_access : true,
     licence_type : "RES",
     // unselected : true,
-    licence : {
-        name : "CLARIN RES +PLAN +NC +DEP",
-        urn : "urn:nbn:fi:lb-20150304138"
-    },
-    homepage_url : "https://www.jyu.fi//topling",
     attributes : attrlist.topling,
     struct_attributes : sattrlist.topling
 };

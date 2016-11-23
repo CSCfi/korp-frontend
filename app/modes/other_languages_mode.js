@@ -807,15 +807,15 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parfin_2016,
 
 settings.corpora.topling_en = {
     id : "topling_en",
-    title : "TOPLING",
-    description : "TOPLING",
+    title : "Topling (English)",
+    description : "Topling – Paths in Second Language Acquisition, English subcorpus",
     // No Korp URN yet
-    metadata_urn : "urn:nbn:fi:lb-20140730168",
+    metadata_urn : "urn:nbn:fi:lb-2016111803",
     licence : {
-	name : "CLARIN RES +PLAN +NC +DEP",
-	urn : "urn:nbn:fi:lb-20150304138"
+	name : "CLARIN RES +NC +DEP",
+	url : "https://www.kielipankki.fi/lic/topling-en/"
     },
-    homepage_url : "https://www.jyu.fi//topling",
+    homepage_url : "https://www.jyu.fi/topling",
     limited_access : true,
     licence_type : "RES",
     context : settings.spContext,
