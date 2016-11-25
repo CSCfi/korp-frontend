@@ -2625,22 +2625,22 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_diabetes_ja_laakari",
 	"lehdet_diakonia",
 	"lehdet_ekonomi",
-	"lehdet_elamantahdet"
-	"lehdet_elinehto"
-	"lehdet_emma"
-	"lehdet_entisesta_enemman"
-	"lehdet_ernie"
-	"lehdet_espanjan_sanomat"
-	"lehdet_espoo"
-	"lehdet_esri"
-	"lehdet_ethnos"
-	"lehdet_eurooppalainen"
-	"lehdet_focus"
-	"lehdet_folium_classicum"
-	"lehdet_hkaksi"
-	"lehdet_haavi"
-	"lehdet_hallaus"
-	"lehdet_helen"
+	"lehdet_elamantahdet",
+	"lehdet_elinehto",
+	"lehdet_emma",
+	"lehdet_entisesta_enemman",
+	"lehdet_ernie",
+	"lehdet_espanjan_sanomat",
+	"lehdet_espoo",
+	"lehdet_esri",
+	"lehdet_ethnos",
+	"lehdet_eurooppalainen",
+	"lehdet_focus",
+	"lehdet_folium_classicum",
+	"lehdet_hkaksi",
+	"lehdet_haavi",
+	"lehdet_hallaus",
+	"lehdet_helen",
 	"lehdet_koskinen",
 	"lehdet_leija",
 	"lehdet_selkosanomat",
