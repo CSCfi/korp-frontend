@@ -2613,7 +2613,7 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_askel",
 	"lehdet_asukas",
 	"lehdet_asukki",
-	"asuminen_yhteiskunta",
+	"lehdet_asuminen_yhteiskunta",
 	"lehdet_asuntoinfo",
 	"lehdet_aurora",
 	"lehdet_avainlehti",
@@ -5748,7 +5748,7 @@ settings.corpora.lehdet_avec = {
     },
 };
 
-settings.corpora.lehdet_avec-lehti = {
+settings.corpora["lehdet_avec-lehti"] = {
     id: "lehdet_avec-lehti",
     title: "Avec",
     description: "Avec - Paremman avioliiton perhelehti (2005-2015)<br/>Julkaisija: Parempi avioliitto ry<br/>Kotisivu: <a href='www.parempiavioliitto.fi/'>www.parempiavioliitto.fi/</a>",
