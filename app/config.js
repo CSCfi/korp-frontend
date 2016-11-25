@@ -2601,6 +2601,7 @@ settings.corporafolders.lehdet.muut_lehdet = {
     contents : [
 	"lehdet_aarre",
 	"lehdet_aino",
+	"lehdet_ajolinja",
 	"lehdet_akavalainen",
 	"lehdet_allergia",
 	"lehdet_ammattisotilas",
@@ -2619,8 +2620,27 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_avainlehti",
 	"lehdet_avec",
 	"lehdet_avec-lehti",
-	"lehdet_ekonomi",
+	"lehdet_curly",
 	"lehdet_debatti",
+	"lehdet_diabetes_ja_laakari",
+	"lehdet_diakonia",
+	"lehdet_ekonomi",
+	"lehdet_elamantahdet"
+	"lehdet_elinehto"
+	"lehdet_emma"
+	"lehdet_entisesta_enemman"
+	"lehdet_ernie"
+	"lehdet_espanjan_sanomat"
+	"lehdet_espoo"
+	"lehdet_esri"
+	"lehdet_ethnos"
+	"lehdet_eurooppalainen"
+	"lehdet_focus"
+	"lehdet_folium_classicum"
+	"lehdet_hkaksi"
+	"lehdet_haavi"
+	"lehdet_hallaus"
+	"lehdet_helen"
 	"lehdet_koskinen",
 	"lehdet_leija",
 	"lehdet_selkosanomat",
@@ -5391,26 +5411,27 @@ settings.corpora.lehdet_koskinen = {
 
 
 settings.corpora.lehdet_aarre = {
-    title : "Aarre",
-    description : "Aarre – Lehti Metsästä (2013–3/2015)<br/>Kotisivu: <a href='http://www.aarrelehti.fi/'>http://www.aarrelehti.fi/</a>",
-    id : "lehdet_aarre",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_title : {
-            label : "text_title"
+    id: "lehdet_aarre",
+    title: "Aarre",
+    description: "Aarre – Lehti Metsästä (2013–3/2015)<br/>Kotisivu: <a href='http://www.aarrelehti.fi/'>http://www.aarrelehti.fi/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
         },
-        text_year : {
-            label : "year"
+        text_issue: {
+            label: "issue",
         },
-        text_issue : {
-            label : "issue"
-        },
-    }
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
 };
+
+
 
 settings.corpora.lehdet_aino = {
     id: "lehdet_aino",
@@ -5540,7 +5561,7 @@ settings.corpora.lehdet_ananda = {
 
 settings.corpora.lehdet_animalia = {
     id: "lehdet_animalia",
-    title: "Animalia-lehti",
+    title: "Animalia",
     description: "Animalia-lehti (2/2010-1/2016)<br/>Julkaisija: Animalia ry<br/>Kotisivu: <a href='http://animalia.fi/tietoa-animaliasta/animalia-lehti/'>http://animalia.fi/tietoa-animaliasta/animalia-lehti/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
@@ -5645,8 +5666,8 @@ settings.corpora.lehdet_asukas = {
 
 settings.corpora.lehdet_asuminen_yhteiskunta = {
     id: "lehdet_asuminen_yhteiskunta",
-    title: "Asuminen &amp; Yhteiskunta",
-    description: "Asuminen &amp; Yhteiskunta (2011-1/2016)<br/>Julkaisija: Asukasliitto ry<br/>Kotisivu: <a href='http://www.asukasliitto.fi/ajankohtaista/asuminen_ja_yhteiskunta_lehti/'>http://www.asukasliitto.fi/ajankohtaista/asuminen_ja_yhteiskunta_lehti/</a>",
+    title: "Asuminen ja Yhteiskunta",
+    description: "Asuminen ja Yhteiskunta (2011-1/2016)<br/>Julkaisija: Asukasliitto ry<br/>Kotisivu: <a href='http://www.asukasliitto.fi/ajankohtaista/asuminen_ja_yhteiskunta_lehti/'>http://www.asukasliitto.fi/ajankohtaista/asuminen_ja_yhteiskunta_lehti/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -5750,7 +5771,7 @@ settings.corpora.lehdet_avec = {
 
 settings.corpora["lehdet_avec-lehti"] = {
     id: "lehdet_avec-lehti",
-    title: "Avec",
+    title: "Avec-lehti",
     description: "Avec - Paremman avioliiton perhelehti (2005-2015)<br/>Julkaisija: Parempi avioliitto ry<br/>Kotisivu: <a href='www.parempiavioliitto.fi/'>www.parempiavioliitto.fi/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
@@ -5832,6 +5853,425 @@ settings.corpora.lehdet_debatti = {
     },
 };
 
+settings.corpora.lehdet_ajolinja = {
+    id: "lehdet_ajolinja",
+    title: "Ajolinja",
+    description: "Ajolinja (2009-2014)<br/>Julkaisija: B Yhtiöt Oy<br/>Kotisivu: <a href='http://www.boy.fi/ajo/'>http://www.boy.fi/ajo/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_diakonia = {
+    id: "lehdet_diakonia",
+    title: "Diakonia",
+    description: "Diakonia (2010-2015)<br/>Julkaisija: Diakonia ry, Kirkon diakonia ja sielunhoito, Diakoniatyöntekijöiden Liitto, Suomen Kirkon Seurakuntaopiston Säätiö, Kirkkopalvelut, Suomen Merimieskirkko, Espoon Diakoniasäätiö, Oulun Diakonissalaitoksen Säätiö, Martinus-säätiö<br/>Kotisivu: <a href='http://sakasti.evl.fi/sakasti.nsf/sp2?open&cid=Content414A42-2-2'>http://sakasti.evl.fi/sakasti.nsf/sp2?open&cid=Content414A42-2-2</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_elamantahdet = {
+    id: "lehdet_elamantahdet",
+    title: "Elämän tähdet",
+    description: "Elämän tähdet (2011-2/2016)<br/>Julkaisija: Pirkanmaan sairaanhoitopiiri<br/>Kotisivu: <a href='http://www.tays.fi/fi-FI/Sairaanhoitopiiri/Sairaanhoitopiirin_julkaisut/Elaman_tahdet'>http://www.tays.fi/fi-FI/Sairaanhoitopiiri/Sairaanhoitopiirin_julkaisut/Elaman_tahdet</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_elinehto = {
+    id: "lehdet_elinehto",
+    title: "Elinehto",
+    description: "Elinehto (2010-1/2016)<br/>Julkaisija: Munuais- ja maksaliitto ry<br/>Kotisivu: <a href='http://www.muma.fi/munuais-_ja_maksaliitto/julkaisut/elinehto'>http://www.muma.fi/munuais-_ja_maksaliitto/julkaisut/elinehto</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_emma = {
+    id: "lehdet_emma",
+    title: "EMMA",
+    description: "EMMA (2007-1/2016)<br/>Julkaisija: EMMA - Espoon modernin taiteen museo<br/>Kotisivu: <a href='http://www.emma.museum/emmalehti'>http://www.emma.museum/emmalehti</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_entisesta_enemman = {
+    id: "lehdet_entisesta_enemman",
+    title: "Entisestä enemmän",
+    description: "Entisestä enemmän (2006-2007)<br/>Julkaisija: <br/>Kotisivu: <a href=''></a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_ernie = {
+    id: "lehdet_ernie",
+    title: "Ernie",
+    description: "Ernie - EY:n sidosryhmälehti (2004-2014)<br/>Julkaisija: Ernst & Young Oy<br/>Kotisivu: <a href='http://www.ey.com/fi/fi/newsroom/pr-activities/articles/ernie_asiakaslehti'>http://www.ey.com/fi/fi/newsroom/pr-activities/articles/ernie_asiakaslehti</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_espanjan_sanomat = {
+    id: "lehdet_espanjan_sanomat",
+    title: "Espanjan Sanomat",
+    description: "Espanjan Sanomat (2010-7-8/2013)<br/>Kotisivu: <a href='http://espanjansanomat.es/espanjansanomat/index.php/arkisto'>http://espanjansanomat.es/espanjansanomat/index.php/arkisto</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_espoo = {
+    id: "lehdet_espoo",
+    title: "Espoo Esbo",
+    description: "Espoo Esbo -lehti (2012-3/2016)<br/>Julkaisija: Espoon kaupunki<br/>Kotisivu: <a href='http://www.espoo.fi/fi-FI/Espoon_kaupunki/Ajankohtaista/Espoo_Esbo_lehti%285630%29'>http://www.espoo.fi/fi-FI/Espoon_kaupunki/Ajankohtaista/Espoo_Esbo_lehti%285630%29</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_esri = {
+    id: "lehdet_esri",
+    title: "Esri",
+    description: "Esri (2004-2014)<br/>Julkaisija: Esri Finland Oy<br/>Kotisivu: <a href='http://www.esri.fi/yritysinfo/asiakaslehti/'>http://www.esri.fi/yritysinfo/asiakaslehti/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_ethnos = {
+    id: "lehdet_ethnos",
+    title: "Ethnos",
+    description: "Ethnos-tiedote ja Jäsenkirje (2/2001-2/2015)<br/>Julkaisija: Ethnos ry<br/>Kotisivu: <a href='http://www.ethnosry.org/jasenasiat/ethnos-tiedote/'>http://www.ethnosry.org/jasenasiat/ethnos-tiedote/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_eurooppalainen = {
+    id: "lehdet_eurooppalainen",
+    title: "Eurooppalainen",
+    description: "Eurooppalainen-lehti (2007-2015)<br/>Julkaisija: Eurooppalainen Suomi ry<br/>Kotisivu: <a href='http://www.eurooppalainensuomi.fi/fi/publications/3/'>http://www.eurooppalainensuomi.fi/fi/publications/3/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_curly = {
+    id: "lehdet_curly",
+    title: "Curly",
+    description: "Curly (4/2000-2/2016)<br/>Julkaisija: Curly ry<br/>Kotisivu: <a href='http://www.curly.fi/arkisto/'>http://www.curly.fi/arkisto/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_focus = {
+    id: "lehdet_focus",
+    title: "Focus",
+    description: "Focus (2008-1/2014)<br/>Julkaisija: Metropolia Ammattikorkeakoulu<br/>Kotisivu: <a href='http://www.metropolia.fi/tietoa-metropoliasta/asiakaslehti-focus/'>http://www.metropolia.fi/tietoa-metropoliasta/asiakaslehti-focus/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_folium_classicum = {
+    id: "lehdet_folium_classicum",
+    title: "Folium Classicum",
+    description: "Folium Classicum (2004-2012)<br/>Julkaisija: Klassillis-filologinen yhdistys r.y.<br/>Kotisivu: <a href='http://www.helsinki.fi/hum/kla/kfy/folium.html'>http://www.helsinki.fi/hum/kla/kfy/folium.html</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_hkaksi = {
+    id: "lehdet_hkaksi",
+    title: "H2",
+    description: "H2 (2007-3/2013)<br/>Julkaisija: Haaga-Helian opiskelijakunta Helga<br/>Kotisivu: <a href='https://issuu.com/h2-lehti'>https://issuu.com/h2-lehti</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_haavi = {
+    id: "lehdet_haavi",
+    title: "Haavi",
+    description: "Haavi (2008-2013)<br/>Julkaisija: Havis Amandan Nuorkauppakamari - Helsinki ry<br/>Kotisivu: <a href='http://www.havisamanda.com/Suomeksi/Amandat/Media'>http://www.havisamanda.com/Suomeksi/Amandat/Media</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_hallaus = {
+    id: "lehdet_hallaus",
+    title: "Hallaus",
+    description: "Hallaus (2009-2014)<br/>Julkaisija: Huutomerkki ry<br/>Kotisivu: <a href='http://huutomerkki.fi/yhdistys/toiminta/hallaus/'>http://huutomerkki.fi/yhdistys/toiminta/hallaus/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_helen = {
+    id: "lehdet_helen",
+    title: "Helen",
+    description: "Helen-lehti (2010-1/2015)<br/>Julkaisija: Helen Oy<br/>Kotisivu: <a href='https://www.helen.fi/helen-oy/ajankohtaista/helen-lehti/'>https://www.helen.fi/helen-oy/ajankohtaista/helen-lehti/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_diabetes_ja_laakari = {
+    id: "lehdet_diabetes_ja_laakari",
+    title: "Diabetes ja lääkäri",
+    description: "Diabetes ja lääkäri (2005-2016)<br/>Julkaisija: : Suomen Diabetesliitto ry<br/>Kotisivu: <a href='http://www.diabetes.fi/diabetesliitto/lehdet/diabetes_ja_laakari_-lehti/lehdet_pdf-muodossa'>http://www.diabetes.fi/diabetesliitto/lehdet/diabetes_ja_laakari_-lehti/lehdet_pdf-muodossa</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
 
 
 settings.corpora.hsfi = {
