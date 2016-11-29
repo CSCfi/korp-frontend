@@ -2683,7 +2683,27 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_ota_opiksi",
 	"lehdet_pakolainen",
 	"lehdet_paraisten_kuulutukset",
+	"lehdet_pelastusalan_ammattilainen",
+	"lehdet_pelastustieto",
+	"lehdet_pihlajisto",
+	"lehdet_pippuri",
+	"lehdet_pirkkalainen",
+	"lehdet_pointti",
+	"lehdet_poleemi",
+	"lehdet_polemiikki",
+	"lehdet_policy",
+	"lehdet_poromies",
+	"lehdet_print_media",
+	"lehdet_pro_etelapohjanmaa",
+	"lehdet_promaint",
+	"lehdet_puutarha_sanomat",
 	"lehdet_selkosanomat",
+	"lehdet_sofia",
+	"lehdet_solidaarisuus",
+	"lehdet_suomenmaa",
+	"lehdet_sydan_hameen_lehti",
+	"lehdet_taku",
+	"lehdet_taloustaito",
 	"lehdet_toisinsanoen",
     ]
 };
@@ -6652,7 +6672,7 @@ settings.corpora.lehdet_kaytannon_maamies = {
 settings.corpora.lehdet_kemia_kemi = {
     id: "lehdet_kemia_kemi",
     title: "Kemia-Kemi",
-    description: "Kemia-Kemi (2002-4/2016)<br/>Julkaisija: Suomalaisten Kemistien Seura, Kemiallisteknillisen yhdistys ja Finska Kemistsamfundet<br/>Kotisivu: <a href='http://www.kemia-lehti.fi/nakoislehdet/'>http://www.kemia-lehti.fi/nakoislehdet/</a>",
+    description: "Kemia-Kemi (2002-4/2016)<br/>Julkaisijat: Suomalaisten Kemistien Seura, Kemiallisteknillisen yhdistys ja Finska Kemistsamfundet<br/>Kotisivu: <a href='http://www.kemia-lehti.fi/nakoislehdet/'>http://www.kemia-lehti.fi/nakoislehdet/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7009,7 +7029,7 @@ settings.corpora.lehdet_modin = {
 settings.corpora.lehdet_musetti = {
     id: "lehdet_musetti",
     title: "Musetti",
-    description: "Musetti (2/2013-2/2015)<br/>Julkaisija: Suomen Etnomusikologisen Seura ja Suomen Musiikkitieteellisen Seura<br/>Kotisivu: <a href='http://www.etnomusikologia.fi/p/musetti.html'>http://www.etnomusikologia.fi/p/musetti.html</a>",
+    description: "Musetti (2/2013-2/2015)<br/>Julkaisijat: Suomen Etnomusikologisen Seura ja Suomen Musiikkitieteellisen Seura<br/>Kotisivu: <a href='http://www.etnomusikologia.fi/p/musetti.html'>http://www.etnomusikologia.fi/p/musetti.html</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7135,7 +7155,7 @@ settings.corpora.lehdet_pakolainen = {
 settings.corpora.lehdet_paraisten_kuulutukset = {
     id: "lehdet_paraisten_kuulutukset",
     title: "Paraisten Kuulutukset",
-    description: "Paraisten Kuulutukset (04.1.-30.5.2013)<br/>Julkaisija: Förlags Ab Sydvästkusten<br/>Kotisivu: <a href='http://www.lehtiluukku.fi/lehti/paraisten-kuulutukset'>http://www.lehtiluukku.fi/lehti/paraisten-kuulutukset</a>",
+    description: "Paraisten Kuulutukset (4.1.-30.5.2013)<br/>Julkaisija: Förlags Ab Sydvästkusten<br/>Kotisivu: <a href='http://www.lehtiluukku.fi/lehti/paraisten-kuulutukset'>http://www.lehtiluukku.fi/lehti/paraisten-kuulutukset</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7148,6 +7168,426 @@ settings.corpora.lehdet_paraisten_kuulutukset = {
             label: "issue",
         },
         text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_pelastusalan_ammattilainen = {
+    id: "lehdet_pelastusalan_ammattilainen",
+    title: "Pelastusalan ammattilainen",
+    description: "Pelastusalan ammattilainen (2007-2014)<br/>Julkaisija: Suomen Palomiesliitto SPAL ry<br/>Kotisivu: <a href='http://www.palomiesliitto.fi/'>http://www.palomiesliitto.fi/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_pelastustieto = {
+    id: "lehdet_pelastustieto",
+    title: "Pelastustieto",
+    description: "Pelastustieto (2007-2014)<br/>Julkaisija: Palo- ja pelastustieto ry<br/>Kotisivu: <a href='http://pelastustieto.fi/digilehti/'>http://pelastustieto.fi/digilehti/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_pihlajisto = {
+    id: "lehdet_pihlajisto",
+    title: "Pihlajisto",
+    description: "Pihlajiston ja Viikinmäen asukaslehti (2009-2015)<br/>Julkaisija: Pihlajisto-Viikinmäki Asukasyhdistys PNV ry<br/>Kotisivu: <a href='http://kaupunginosat.net/pihlajisto/asukaslehti-mainmenu-891'>http://kaupunginosat.net/pihlajisto/asukaslehti-mainmenu-891</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_pippuri = {
+    id: "lehdet_pippuri",
+    title: "Pippuri",
+    description: "Pippuri (2012-2014)<br/>Julkaisija: Vasemmistonaiset<br/>Kotisivu: <a href='http://www.vasemmistonaiset.fi/pippuri-lehti/'>http://www.vasemmistonaiset.fi/pippuri-lehti/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_pirkkalainen = {
+    id: "lehdet_pirkkalainen",
+    title: "Pirkkalainen",
+    description: "Pirkkalainen (2006-16/2016)<br/>Julkaisija: Pirkkala-Seura ry<br/>Kotisivu: <a href='http://www.pirkkalainen.com/'>http://www.pirkkalainen.com/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_pointti = {
+    id: "lehdet_pointti",
+    title: "Pointti",
+    description: "Pointti (2000-2013)<br/>Julkaisija: Porin ylioppilasyhdistys Pointer ry<br/>Kotisivu: <a href='https://porinylioppilaslehti.com/info/'>https://porinylioppilaslehti.com/info/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_poleemi = {
+    id: "lehdet_poleemi",
+    title: "Poleemi",
+    description: "Poleemi (2009-2013)<br/>Julkaisija: Poliittisen historian opiskelijat Polho ry<br/>Kotisivu: <a href='https://poleemi.wordpress.com/arkisto/'>https://poleemi.wordpress.com/arkisto/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_polemiikki = {
+    id: "lehdet_polemiikki",
+    title: "Polemiikki",
+    description: "Polemiikki (2/2013 & 2014-2/2016)<br/>Julkaisija: Pole-Kuntatieto Oy<br/>Kotisivu: <a href='http://kaks.fi/polemiikki-lehti/'>http://kaks.fi/polemiikki-lehti/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_policy = {
+    id: "lehdet_policy",
+    title: "Policy",
+    description: "Policy (2008, 2011-1/2013, 3-4/2015)<br/>Julkaisija: Valtio-opin opiskelijat ry<br/>Kotisivu: <a href='http://blogs.helsinki.fi/voo-ry/policy/'>http://blogs.helsinki.fi/voo-ry/policy/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_poromies = {
+    id: "lehdet_poromies",
+    title: "Poromies",
+    description: "Poromies (2009-2014)<br/>Julkaisija: Paliskuntain yhdistys<br/>Kotisivu: <a href='http://paliskunnat.fi/py/organisaatio/poromies-lehti/'>http://paliskunnat.fi/py/organisaatio/poromies-lehti/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_print_media = {
+    id: "lehdet_print_media",
+    title: "Print&Media",
+    description: "Print&Media (2011-2014)<br/>Julkaisija: Print&Media Publishing Oy<br/>Kotisivu: <a href='http://pmlehti.fi/lehti/#lehtiarkisto'>http://pmlehti.fi/lehti/#lehtiarkisto</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_pro_etelapohjanmaa = {
+    id: "lehdet_pro_etelapohjanmaa",
+    title: "Pro Etelä-Pohjanmaa",
+    description: "Pro Etelä-Pohjanmaa (2/2012-2015)<br/>Julkaisija: Etelä-Pohjanmaan liitto<br/>Kotisivu: <a href='http://www.epliitto.fi/pro-etela-pohjanmaa--lehti'>http://www.epliitto.fi/pro-etela-pohjanmaa--lehti</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_promaint = {
+    id: "lehdet_promaint",
+    title: "Promaint",
+    description: "Promaint (2008-1-2/2015)<br/>Julkaisija: Kunnossapitoyhdistys Promaint Ry<br/>Kotisivu: <a href='http://www.promaintlehti.fi/Lehtiarkisto'>http://www.promaintlehti.fi/Lehtiarkisto</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_puutarha_sanomat = {
+    id: "lehdet_puutarha_sanomat",
+    title: "Puutarha-Sanomat",
+    description: "Puutarha-Sanomat (2011-5/2015)<br/>Julkaisija: Puutarha-Sanomat<br/>Kotisivu: <a href='http://puutarha-sanomat.fi/arkistot/category/lehtinosto'>http://puutarha-sanomat.fi/arkistot/category/lehtinosto</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_sofia = {
+    id: "lehdet_sofia",
+    title: "Sofia",
+    description: "Sofia (2000-1/2016)<br/>Julkaisija: Helsingin kaupunginmuseo<br/>Kotisivu: <a href='http://www.helsinginkaupunginmuseo.fi/sofia-lehti/'>http://www.helsinginkaupunginmuseo.fi/sofia-lehti/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_solidaarisuus = {
+    id: "lehdet_solidaarisuus",
+    title: "Solidaarisuus",
+    description: "Solidaarisuus (2007-2014)<br/>Julkaisija: Solidaarisuus<br/>Kotisivu: <a href='http://www.solidaarisuus.fi'>http://www.solidaarisuus.fi/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_suomenmaa = {
+    id: "lehdet_suomenmaa",
+    title: "Suomenmaa",
+    description: "Suomenmaa (2013)<br/>Julkaisija: Suomenmaa<br/>Kotisivu: <a href='http://www.suomenmaa.fi/'>http://www.suomenmaa.fi/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_sydan_hameen_lehti = {
+    id: "lehdet_sydan_hameen_lehti",
+    title: "Sydän-Hämeen Lehti",
+    description: "Sydän-Hämeen Lehti (2013)<br/>Julkaisija: Sydän-Hämeen Kustannus Oy<br/>Kotisivu: <a href='http://shl.fi/nakoislehdet/'>http://shl.fi/nakoislehdet/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_taku = {
+    id: "lehdet_taku",
+    title: "TAKU",
+    description: "TAKU (2000-1/2016)<br/>Julkaisija: Taide- ja kulttuurialan ammattijärjestö TAKU ry<br/>Kotisivu: <a href='http://www.taku.fi/ajankohtaista/taku-lehti'>http://www.taku.fi/ajankohtaista/taku-lehti</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_taloustaito = {
+    id: "lehdet_taloustaito",
+    title: "Taloustaito",
+    description: "Taloustaito (2009-2013)<br/>Julkaisija: Verotieto Oy<br/>Kotisivu: <a href='https://www.taloustaito.fi/teemat/lehti/'>https://www.taloustaito.fi/teemat/lehti/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
