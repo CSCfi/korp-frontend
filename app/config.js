@@ -5369,7 +5369,7 @@ settings.corpora.lehdet_koskinen = {
 
 settings.corpora.lehdet_aarre = {
     title : "Aarre",
-    description : "Aarre – Lehti Metsästä (2013-2015)<br/>Kotisivu: <a href='http://www.aarrelehti.fi/'>http://www.aarrelehti.fi/</a>",
+    description : "Aarre – Lehti Metsästä (2013–3/2015)<br/>Kotisivu: <a href='http://www.aarrelehti.fi/'>http://www.aarrelehti.fi/</a>",
     id : "lehdet_aarre",
     urn : "",
     metadata_urn : "",
