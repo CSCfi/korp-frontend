@@ -2723,12 +2723,13 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_uusipaiva",
 	"lehdet_uutis_jousi",
 	"lehdet_vaasan_ylioppilaslehti",
-	"lehdet_valitysuutiset",
 	"lehdet_vammaisurheilu",
 	"lehdet_vanhustyo",
 	"lehdet_vankilavirkailija",
 	"lehdet_vantaan_akseli",
 	"lehdet_via",
+	"lehdet_valitysuutiset",
+
     ]
 };
 
@@ -7640,8 +7641,8 @@ settings.corpora.lehdet_infront = {
 
 settings.corpora.lehdet_tek_verkkolehti = {
     id: "lehdet_tek_verkkolehti",
-    title: "Tek verkkolehti",
-    description: "Tek verkkolehti (7/2012-6/2013, 1/2015, 5/2015)<br/>Julkaisija: <br/>Kotisivu: <a href=''></a>",
+    title: "TEK verkkolehti",
+    description: "TEK verkkolehti (7/2012-6/2013, 1/2015, 5/2015)<br/>Julkaisija: Tekniikan Akateemiset TEK<br/>Kotisivu: <a href='https://lehti.tek.fi/'>https://lehti.tek.fi/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7788,7 +7789,7 @@ settings.corpora.lehdet_tutkain = {
 settings.corpora.lehdet_tyoelaman_tutkimus = {
     id: "lehdet_tyoelaman_tutkimus",
     title: "Työelämän tutkimus",
-    description: "Työelämän tutkimus 2003-2012)<br/>Julkaisija: Työelämän tutkimusyhdistys ry.<br/>Kotisivu: <a href='http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/'>http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/</a>",
+    description: "Työelämän tutkimus (2003-2012)<br/>Julkaisija: Työelämän tutkimusyhdistys ry.<br/>Kotisivu: <a href='http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/'>http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7830,7 +7831,7 @@ settings.corpora.lehdet_ubik = {
 settings.corpora.lehdet_uljas = {
     id: "lehdet_uljas",
     title: "Uljas",
-    description: "Uljas (2014-4/2016)<br/>Julkaisija: tä-Suomen yliopiston ylioppilaskunta<br/>Kotisivu: <a href='http://www.uljas.net/lehdet/'>http://www.uljas.net/lehdet/</a>",
+    description: "Uljas (2014-4/2016)<br/>Julkaisija: Itä-Suomen yliopiston ylioppilaskunta<br/>Kotisivu: <a href='http://www.uljas.net/lehdet/'>http://www.uljas.net/lehdet/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7850,8 +7851,8 @@ settings.corpora.lehdet_uljas = {
 
 settings.corpora.lehdet_uniikki = {
     id: "lehdet_uniikki",
-    title: "Uniikki",
-    description: "Uniikki (2014-3/2015)<br/>Julkaisija: Yliopiston Apteekki<br/>Kotisivu: <a href='http://uniikki.fi/'>http://uniikki.fi/</a>",
+    title: "UNIIKKI",
+    description: "UNIIKKI (2014-3/2015)<br/>Julkaisija: Yliopiston Apteekki<br/>Kotisivu: <a href='http://uniikki.fi/'>http://uniikki.fi/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
