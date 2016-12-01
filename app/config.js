@@ -2619,7 +2619,7 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_aurora",
 	"lehdet_avainlehti",
 	"lehdet_avec",
-	"lehdet_avec-lehti",
+	"lehdet_avec_perhelehti",
 	"lehdet_curly",
 	"lehdet_debatti",
 	"lehdet_diabetes_ja_laakari",
@@ -5854,8 +5854,8 @@ settings.corpora.lehdet_avec = {
     },
 };
 
-settings.corpora["lehdet_avec-lehti"] = {
-    id: "lehdet_avec-lehti",
+settings.corpora["lehdet_avec_perhelehti"] = {
+    id: "lehdet_avec_perhelehti",
     title: "Avec - Paremman avioliiton perhelehti",
     description: "Avec - Paremman avioliiton perhelehti (2005-2015)<br/>Julkaisija: Parempi avioliitto ry<br/>Kotisivu: <a href='www.parempiavioliitto.fi/'>www.parempiavioliitto.fi/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
@@ -6340,7 +6340,7 @@ settings.corpora.lehdet_helen = {
 settings.corpora.lehdet_diabetes_ja_laakari = {
     id: "lehdet_diabetes_ja_laakari",
     title: "Diabetes ja lääkäri",
-    description: "Diabetes ja lääkäri (2005-2016)<br/>Julkaisija: Suomen Diabetesliitto ry<br/>Kotisivu: <a href='http://www.diabetes.fi/diabetesliitto/lehdet/diabetes_ja_laakari_-lehti/lehdet_pdf-muodossa'>http://www.diabetes.fi/diabetesliitto/lehdet/diabetes_ja_laakari_-lehti/lehdet_pdf-muodossa</a>",
+    description: "Diabetes ja lääkäri (2005-1/2016)<br/>Julkaisija: Suomen Diabetesliitto ry<br/>Kotisivu: <a href='http://www.diabetes.fi/diabetesliitto/lehdet/diabetes_ja_laakari_-lehti/lehdet_pdf-muodossa'>http://www.diabetes.fi/diabetesliitto/lehdet/diabetes_ja_laakari_-lehti/lehdet_pdf-muodossa</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
