@@ -2605,7 +2605,7 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_akavalainen",
 	"lehdet_allergia",
 	"lehdet_ammattisotilas",
-	"lehdet_amnestyinternational",
+	"lehdet_amnesty",
 	"lehdet_ananda",
 	"lehdet_animalia",
 	"lehdet_apaja",
@@ -2625,8 +2625,8 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_diabetes_ja_laakari",
 	"lehdet_diakonia",
 	"lehdet_ekonomi",
-	"lehdet_elamantahdet",
 	"lehdet_elinehto",
+	"lehdet_elamantahdet",
 	"lehdet_emma",
 	"lehdet_entisesta_enemman",
 	"lehdet_ernie",
@@ -2686,7 +2686,7 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_paraisten_kuulutukset",
 	"lehdet_pelastusalan_ammattilainen",
 	"lehdet_pelastustieto",
-	"lehdet_pihlajisto",
+	"lehdet_pihlajisto_viikinmaki",
 	"lehdet_pippuri",
 	"lehdet_pirkkalainen",
 	"lehdet_pointti",
@@ -5602,10 +5602,10 @@ settings.corpora.lehdet_ammattisotilas = {
     },
 };
 
-settings.corpora.lehdet_amnestyinternational = {
-    id: "lehdet_amnestyinternational",
-    title: "Amnesty International",
-    description: "Amnesty International (3/2009-2013)<br/>Julkaisija: Amnesty International Suomen osasto ry<br/>Kotisivu: <a href='https://www.amnesty.fi/tietoa-meista/amnesty-lehti/'>https://www.amnesty.fi/tietoa-meista/amnesty-lehti/</a>",
+settings.corpora.lehdet_amnesty = {
+    id: "lehdet_amnesty",
+    title: "Amnesty",
+    description: "Amnesty (3/2009-2013)<br/>Julkaisija: Amnesty International Suomen osasto ry<br/>Kotisivu: <a href='https://www.amnesty.fi/tietoa-meista/amnesty-lehti/'>https://www.amnesty.fi/tietoa-meista/amnesty-lehti/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -5856,7 +5856,7 @@ settings.corpora.lehdet_avec = {
 
 settings.corpora["lehdet_avec-lehti"] = {
     id: "lehdet_avec-lehti",
-    title: "Avec-lehti",
+    title: "Avec - Paremman avioliiton perhelehti",
     description: "Avec - Paremman avioliiton perhelehti (2005-2015)<br/>Julkaisija: Parempi avioliitto ry<br/>Kotisivu: <a href='www.parempiavioliitto.fi/'>www.parempiavioliitto.fi/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
@@ -7117,7 +7117,7 @@ settings.corpora.lehdet_ollaviiskytviisplus = {
 settings.corpora.lehdet_omakotisanomat = {
     id: "lehdet_omakotisanomat",
     title: "Omakotisanomat",
-    description: "Omakotisanomat (1/2011-2015)<br/>Julkaisija: Rakennustutkimus RTS Oy<br/>Kotisivu: <a href='http://www.suomirakentaa.fi/valintaoppaat/omakotisanomat'>http://www.suomirakentaa.fi/valintaoppaat/omakotisanomat</a>",
+    description: "Omakotisanomat (2011-2015)<br/>Julkaisija: Rakennustutkimus RTS Oy<br/>Kotisivu: <a href='http://www.suomirakentaa.fi/valintaoppaat/omakotisanomat'>http://www.suomirakentaa.fi/valintaoppaat/omakotisanomat</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7240,9 +7240,9 @@ settings.corpora.lehdet_pelastustieto = {
     },
 };
 
-settings.corpora.lehdet_pihlajisto = {
-    id: "lehdet_pihlajisto",
-    title: "Pihlajisto",
+settings.corpora.lehdet_pihlajisto_viikinmaki = {
+    id: "lehdet_pihlajisto_viikinmaki",
+    title: "Pihlajiston ja Viikinmäen asukaslehti",
     description: "Pihlajiston ja Viikinmäen asukaslehti (2009-2015)<br/>Julkaisija: Pihlajisto-Viikinmäki Asukasyhdistys PNV ry<br/>Kotisivu: <a href='http://kaupunginosat.net/pihlajisto/asukaslehti-mainmenu-891'>http://kaupunginosat.net/pihlajisto/asukaslehti-mainmenu-891</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
