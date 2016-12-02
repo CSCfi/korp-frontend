@@ -5720,8 +5720,7 @@ settings.corpora.ethesis_maabs = {
     id : "ethesis_maabs",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5731,8 +5730,7 @@ settings.corpora.ethesis_dissabs = {
     id : "ethesis_dissabs",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5744,8 +5742,7 @@ settings.corpora.ethesis_phd_far = {
     id : "ethesis_phd_far",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5755,8 +5752,7 @@ settings.corpora.ethesis_phd_teo = {
     id : "ethesis_phd_teo",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5766,8 +5762,7 @@ settings.corpora.ethesis_phd_beh = {
     id : "ethesis_phd_beh",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5777,8 +5772,7 @@ settings.corpora.ethesis_phd_valt = {
     id : "ethesis_phd_valt",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5788,8 +5782,7 @@ settings.corpora.ethesis_phd_ot = {
     id : "ethesis_phd_ot",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5799,8 +5792,7 @@ settings.corpora.ethesis_phd_hum = {
     id : "ethesis_phd_hum",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5810,8 +5802,7 @@ settings.corpora.ethesis_phd_bio = {
     id : "ethesis_phd_bio",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5821,8 +5812,7 @@ settings.corpora.ethesis_phd_el = {
     id : "ethesis_phd_el",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5832,8 +5822,7 @@ settings.corpora.ethesis_phd_mm = {
     id : "ethesis_phd_mm",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5843,8 +5832,7 @@ settings.corpora.ethesis_phd_med = {
     id : "ethesis_phd_med",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5854,8 +5842,7 @@ settings.corpora.ethesis_ma_far = {
     id : "ethesis_ma_far",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5865,8 +5852,7 @@ settings.corpora.ethesis_ma_teo = {
     id : "ethesis_ma_teo",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5876,8 +5862,7 @@ settings.corpora.ethesis_ma_beh = {
     id : "ethesis_ma_beh",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5887,8 +5872,7 @@ settings.corpora.ethesis_ma_valt = {
     id : "ethesis_ma_valt",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5898,8 +5882,7 @@ settings.corpora.ethesis_ma_ot = {
     id : "ethesis_ma_ot",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5909,8 +5892,7 @@ settings.corpora.ethesis_ma_hum = {
     id : "ethesis_ma_hum",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5920,8 +5902,7 @@ settings.corpora.ethesis_ma_sci = {
     id : "ethesis_ma_sci",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5931,8 +5912,7 @@ settings.corpora.ethesis_ma_ai = {
     id : "ethesis_ma_ai",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5942,8 +5922,7 @@ settings.corpora.ethesis_ma_bio = {
     id : "ethesis_ma_bio",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5954,8 +5933,7 @@ settings.corpora.ethesis_ma_el = {
     id : "ethesis_ma_el",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5965,8 +5943,7 @@ settings.corpora.ethesis_ma_mm = {
     id : "ethesis_ma_mm",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
@@ -5976,8 +5953,7 @@ settings.corpora.ethesis_ma_med = {
     id : "ethesis_ma_med",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    attributes : attrlist.standard,
     struct_attributes : sattrlist.ethesis
 };
 
