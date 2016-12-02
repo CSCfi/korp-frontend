@@ -4844,7 +4844,7 @@ settings.corpora.tiedelehdet_auraica = {
 
 settings.corpora.tiedelehdet_aikuiskasvatus = {
     title : "Aikuiskasvatus",
-    description : "Aikuiskasvatus (2011–2014)<br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura<br/>Kotisivu: <a href='http://www.doria.fi/handle/10024/7300'>http://www.doria.fi/handle/10024/7300</a>",
+    description : "Aikuiskasvatus (2011–2014)<br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura<br/>Kotisivu: <a href='http://www.doria.fi/handle/10024/7300'>http://www.doria.fi/handle/10024/7300</a><br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotTiedelehtia/Aikuiskasvatus_artikkeliluettelo.pdf'>Artikkeliluettelo</a>",
     id : "tiedelehdet_aikuiskasvatus",
     urn : "",
     metadata_urn : "",
