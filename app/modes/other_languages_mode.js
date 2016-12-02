@@ -1796,8 +1796,9 @@ attrs.scotscorr_word = {
 			'<span class="wordselector-group-arrow"></span>' +
 			'<span class="wordselector-group-heading" ng-click="toggleGroup(' + groupref + ')">' +
 			'<img ng-src="img/{{' + groupref + '.shown ? \'extended\' : \'collapsed\'}}.png"/> ' +
+			'<span class="wordselector-group-name">' + group.name + '</span>' +
 			// Em quad
-			group.name + '&#x2001;</span>' +
+			'&#x2001;</span>' +
 			'<span class="wordselector-group-extra"> (' +
 			s.make_counts_template(groupref + '.numselected',
 					       groupref + '.numwords',
@@ -1817,7 +1818,8 @@ attrs.scotscorr_word = {
 			'<li ng-repeat="word in ' + groupref + '.words">' +
 			    '<input type="checkbox" ng-model="word.selected" ng-click="update(e, word.word)">' +
 			    '<span ng-class="\'wordselector-word-\' + (word.selected ? \'\' : \'un\') + \'selected\'">{{word.word}}</span>' +
-			    ' (<span class="wordselector-freq" ng-bind-html="pretty_num(word.freq) | trust"></span>)</input>' +
+			    // En quad
+			    '&#x2000;(<span class="wordselector-freq" ng-bind-html="pretty_num(word.freq) | trust"></span>)</input>' +
 			    '</li>';
 			words_seen = true;
 		    }

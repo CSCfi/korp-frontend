@@ -2985,6 +2985,11 @@ li.active a span .num-to-find {
     }
 }
 
+.wordselector-group-name {
+    display: inline-block;
+    min-width: 1em;
+}
+
 .wordselector-freq {
     // Frequency information in dark grey
     color: #555555;
