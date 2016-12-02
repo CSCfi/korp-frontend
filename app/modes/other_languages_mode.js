@@ -1726,9 +1726,10 @@ attrs.scotscorr_word = {
     // Swedish msd attribute.
     extended_template : '<input class="arg_value arg_value_wordselector"' +
 	' ng-model="model" placeholder=\'<{{"any" | loc:lang}}>\'>' +
-	'<span ng-click="onIconClick()" class="fa fa-list list-link-icon"></span>' +
-        '<span class="val_mod" popper' +
-        ' ng-class=\'{sensitive : case == "sensitive", insensitive : case == "insensitive"}\'>' +
+	'<span ng-click="onIconClick()" class="fa fa-list list-link-icon"' +
+	' title="{{\'scotscorr_open_wordlist\' | loc:lang}}"></span>' +
+	'<span class="val_mod" popper' +
+	' ng-class=\'{sensitive : case == "sensitive", insensitive : case == "insensitive"}\'>' +
 	' Aa ' +
 	'</span>' +
         '<ul class="mod_menu popper_menu dropdown-menu">' +
