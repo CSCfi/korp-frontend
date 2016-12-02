@@ -1017,6 +1017,7 @@
     "scotscorr_scripttype2" : "script type (secondary)",
     "scotscorr_st" : "transcription information",
     "scotscorr_fraser" : "description",
+    "scotscorr_selected_words_with_freq" : "different words selected with a total frequency of",
 
     "librisid" : "Libris-ID",
 

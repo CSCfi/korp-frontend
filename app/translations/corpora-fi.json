@@ -1646,6 +1646,7 @@
     "scotscorr_scripttype2" : "käsiala (toissijainen)",
     "scotscorr_st" : "transkription tiedot",
     "scotscorr_fraser" : "kuvaus",
+    "scotscorr_selected_words_with_freq" : "eri sanaa valittuina, kokonaisfrekvenssi",
 
     "link_to_original" : "linkki alkuperäiseen",
     "gloss" : "glossi",

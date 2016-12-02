@@ -1758,11 +1758,19 @@ attrs.scotscorr_word = {
 		return ('<span ng-bind-html="pretty_num(' + val +
 			') | trust"></span>');
 	    }
-	    return (pretty_num(tokens_sel) + ' / ' +
-		    pretty_num(tokens_all) +
-		    ';&#x2000;<span class="wordselector-freq">f = ' +
-		    pretty_num(freq_sel) + ' / ' +
-		    pretty_num(freq_all) + '</span>');
+	    // FIXME: Add thousands separators to the numbers shown in
+	    // the tooltip.
+	    return ('<span ng-attr-title="{{' + tokens_sel.toString() + '}}' +
+		    ' {{\'scotscorr_selected_words_with_freq\' | loc:lang}} {{' +
+		    freq_sel.toString() + '}}">' +
+		    pretty_num(tokens_sel) +
+		    // ' / ' +
+		    // pretty_num(tokens_all) +
+		    ';&nbsp; <span class="wordselector-freq"> ' +
+		    pretty_num(freq_sel) +
+		    // ' / ' +
+		    // pretty_num(freq_all) +
+		    '</span></span>');
 	};
 	// Process the word data (words and their frequencies grouped,
 	// possibly hierarchically) and create s.words, s.groups and
