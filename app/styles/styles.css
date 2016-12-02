@@ -6310,6 +6310,16 @@ li.active a span .num-to-find {
 }
 
 /* line 2978, styles.scss */
+.book-link-icon {
+  margin-left: 0.25em;
+  cursor: pointer;
+}
+/* line 2981, styles.scss */
+.book-link-icon:hover {
+  color: darkgrey;
+}
+
+/* line 2986, styles.scss */
 .arg_value_wordselector {
-  width: 90% !important;
+  width: 85% !important;
 }

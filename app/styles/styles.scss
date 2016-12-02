@@ -3012,7 +3012,15 @@ li.active a span .num-to-find {
     }
 }
 
+.book-link-icon {
+    margin-left: 0.25em;
+    cursor: pointer;
+    &:hover {
+      color : darkgrey;
+    }
+}
+
 .arg_value_wordselector {
     // Allow space for the word selector list icon
-    width: 90% !important;
+    width: 85% !important;
 }

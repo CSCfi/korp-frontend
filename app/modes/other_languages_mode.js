@@ -1728,7 +1728,10 @@ attrs.scotscorr_word = {
 	' ng-model="model" placeholder=\'<{{"any" | loc:lang}}>\'>' +
 	'<span ng-click="onIconClick()" class="fa fa-list list-link-icon"' +
 	' title="{{\'scotscorr_open_wordlist\' | loc:lang}}"></span>' +
-	'<span class="val_mod" popper' +
+	'<a href="http://www.dsl.ac.uk/" target="_blank"' +
+	' title="Dictionary of the Scots Language">' +
+	'<span class="fa fa-book book-link-icon"></span></a>' +
+	' <span class="val_mod" popper' +
 	' ng-class=\'{sensitive : case == "sensitive", insensitive : case == "insensitive"}\'>' +
 	' Aa ' +
 	'</span>' +
@@ -1869,6 +1872,9 @@ attrs.scotscorr_word = {
 		    '<span ng-click="done()" class="close-x">×</span>' +
 		    '</div>' +
 		    '<div class="modal-header">' +
+		    '<div class="modal-value">' +
+		    '<a href="http://www.dsl.ac.uk/" target="_blank"><span class="fa fa-book book-link-icon"></span> Dictionary of the Scots Language</a>' +
+		    '</div>' +
 		    '<div class="modal-value">' +
 		    '<p><span class="modal-value-heading">{{\'selected_words\' | loc:lang}}</span> (' +
 		    s.make_counts_template('selected_words.length',
