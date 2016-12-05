@@ -1158,5 +1158,6 @@
     "studentsvenska_gender" : "kön",
     "studentsvenska_gradegrammar" : "betyg i grammatikstestet",
     "studentsvenska_errorwordorder" : "antal ordföljdsfel",
-    "studentsvenska_subject" : "uppsatsämne"
+    "studentsvenska_subject" : "uppsatsämne",
+"klk_img_url" : "Se dokument i Revizor"
 }

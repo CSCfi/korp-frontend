@@ -1609,5 +1609,6 @@
     "oracc_lang_sux-x-syllabic" : "Syllabic",
     "oracc_lang_sy" : "Syllabic",
     "oracc_lang_sux-x-udgalnun" : "Udgalnun",
-    "oracc_lang_qpc" : "protocuneiform"
+    "oracc_lang_qpc" : "protocuneiform",
+"klk_img_url" : "View document in Revizor"
 }
