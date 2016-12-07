@@ -2660,7 +2660,6 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_kemia_kemi",
 	"lehdet_kemilainen",
 	"lehdet_kontakt",
-	"lehdet_koskinen",
 	"lehdet_koti",
 	"lehdet_kotipuutarha",
 	"lehdet_kumposti",
@@ -2727,6 +2726,7 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_vanhustyo",
 	"lehdet_vankilavirkailija",
 	"lehdet_vantaan_akseli",
+	"lehdet_koskinen",
 	"lehdet_via",
 	"lehdet_valitysuutiset",
 
@@ -7207,6 +7207,7 @@ settings.corpora.lehdet_pelastusalan_ammattilainen = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
+        text_url : sattrs.link_lehdet,
         text_year: {
             label: "year",
         },
