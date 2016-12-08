@@ -5375,7 +5375,7 @@ settings.corpus_aliases.muut_lehdet = "lehdet_.*";
 
 settings.corpora.lehdet_selkosanomat = {
     title : "Selkosanomat/Selkouutiset",
-    description : "Selkouutiset (25/2006-2011), Selkosanomat (2012-2013)<br/>Julkaisija: Selkokeskus / Kehitysvammaliitto<br/>Kotisivu: <a href='http://selkosanomat.fi/'>http://selkosanomat.fi/</a>",
+    description : "Selkouutiset (25/2006-2011), Selkosanomat (2012-2013)<br/>Sisältää lehden kotisivuilla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Selkokeskus / Kehitysvammaliitto<br/>Kotisivu: <a href='http://selkosanomat.fi/'>http://selkosanomat.fi/</a>",
     id : "lehdet_selkosanomat",
     urn : "",
     metadata_urn : "",
@@ -5392,7 +5392,7 @@ settings.corpora.lehdet_selkosanomat = {
 
 settings.corpora.lehdet_leija = {
     title : "Leija",
-    description : "Leija (2009-3/2016)<br/>Julkaisija: Kehitysvammaisen tukiliitto ry<br/>Kotisivu: <a href='http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/'>http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/</a>",
+    description : "Leija (2009-3/2016)<br/>Sisältää lehden kotisivuilla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kehitysvammaisen tukiliitto ry<br/>Kotisivu: <a href='http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/'>http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/</a>",
     id : "lehdet_leija",
     urn : "",
     metadata_urn : "",
@@ -5480,7 +5480,7 @@ settings.corpora.lehdet_toisinsanoen = {
 
 settings.corpora.lehdet_koskinen = {
     title : "Verkkolehti Koskinen",
-    description : "Verkkolehti Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996–2013)<br/>Julkaisija: Kymenlaakson ammattikorkeakoulu<br/>Kotisivu: <a href='http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/'>http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/</a>",
+    description : "Verkkolehti Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996–2013)<br/>Sisältää lehden kotisivuilla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kymenlaakson ammattikorkeakoulu<br/>Kotisivu: <a href='http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/'>http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/</a>",
     id : "lehdet_koskinen",
     urn : "",
     metadata_urn : "",
@@ -5920,7 +5920,7 @@ settings.corpora.lehdet_askel = {
 settings.corpora.lehdet_debatti = {
     id: "lehdet_debatti",
     title: "Debatti",
-    description: "Debatti (2011-2/2014)<br/>Julkaisija: Sosialidemokraattiset Opiskelijat SONK RY<br/>Kotisivu: <a href='https://sosialidemokraattisetopiskelijat.fi/debatti/'>https://sosialidemokraattisetopiskelijat.fi/debatti/</a>",
+    description: "Debatti (2011-2/2014)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> 2016 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Sosialidemokraattiset Opiskelijat SONK RY<br/>Kotisivu: <a href='https://sosialidemokraattisetopiskelijat.fi/debatti/'>https://sosialidemokraattisetopiskelijat.fi/debatti/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -5962,7 +5962,7 @@ settings.corpora.lehdet_ajolinja = {
 settings.corpora.lehdet_diakonia = {
     id: "lehdet_diakonia",
     title: "Diakonia",
-    description: "Diakonia (2010-2015)<br/>Julkaisijat: Diakonia ry, Kirkon diakonia ja sielunhoito, Diakoniatyöntekijöiden Liitto, Suomen Kirkon Seurakuntaopiston Säätiö, Kirkkopalvelut, Suomen Merimieskirkko, Espoon Diakoniasäätiö, Oulun Diakonissalaitoksen Säätiö, Martinus-säätiö<br/>Kotisivu: <a href='http://sakasti.evl.fi/sakasti.nsf/sp2?open&cid=Content414A42-2-2'>http://sakasti.evl.fi/sakasti.nsf/sp2?open&cid=Content414A42-2-2</a>",
+    description: "Diakonia (2010-2015)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Diakonia_2010-2015_-aineiston_sisaltamat_numerot.docx'>Luettelo aineiston sisältämistä numeroista</a><br/>Julkaisijat: Diakonia ry, Kirkon diakonia ja sielunhoito, Diakoniatyöntekijöiden Liitto, Suomen Kirkon Seurakuntaopiston Säätiö, Kirkkopalvelut, Suomen Merimieskirkko, Espoon Diakoniasäätiö, Oulun Diakonissalaitoksen Säätiö, Martinus-säätiö<br/>Kotisivu: <a href='http://sakasti.evl.fi/sakasti.nsf/sp2?open&cid=Content414A42-2-2'>http://sakasti.evl.fi/sakasti.nsf/sp2?open&cid=Content414A42-2-2</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -5983,7 +5983,7 @@ settings.corpora.lehdet_diakonia = {
 settings.corpora.lehdet_elamantahdet = {
     id: "lehdet_elamantahdet",
     title: "Elämän tähdet",
-    description: "Elämän tähdet (2011-2/2016)<br/>Julkaisija: Pirkanmaan sairaanhoitopiiri<br/>Kotisivu: <a href='http://www.tays.fi/fi-FI/Sairaanhoitopiiri/Sairaanhoitopiirin_julkaisut/Elaman_tahdet'>http://www.tays.fi/fi-FI/Sairaanhoitopiiri/Sairaanhoitopiirin_julkaisut/Elaman_tahdet</a>",
+    description: "Elämän tähdet (2011-2/2016)<br/>Sisältää lehden kotisivuilla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Pirkanmaan sairaanhoitopiiri<br/>Kotisivu: <a href='http://www.tays.fi/fi-FI/Sairaanhoitopiiri/Sairaanhoitopiirin_julkaisut/Elaman_tahdet'>http://www.tays.fi/fi-FI/Sairaanhoitopiiri/Sairaanhoitopiirin_julkaisut/Elaman_tahdet</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6067,7 +6067,7 @@ settings.corpora.lehdet_entisesta_enemman = {
 settings.corpora.lehdet_ernie = {
     id: "lehdet_ernie",
     title: "Ernie",
-    description: "Ernie - EY:n sidosryhmälehti (2004-2014)<br/>Julkaisija: Ernst & Young Oy<br/>Kotisivu: <a href='http://www.ey.com/fi/fi/newsroom/pr-activities/articles/ernie_asiakaslehti'>http://www.ey.com/fi/fi/newsroom/pr-activities/articles/ernie_asiakaslehti</a>",
+    description: "Ernie - EY:n sidosryhmälehti (2004-2014)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Luettelo_Ernie_2004-2014_-aineiston_numeroista.docx'>Luettelo aineiston sisältämistä numeroista</a><br/>Julkaisija: Ernst & Young Oy<br/>Kotisivu: <a href='http://www.ey.com/fi/fi/newsroom/pr-activities/articles/ernie_asiakaslehti'>http://www.ey.com/fi/fi/newsroom/pr-activities/articles/ernie_asiakaslehti</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6088,7 +6088,7 @@ settings.corpora.lehdet_ernie = {
 settings.corpora.lehdet_espanjan_sanomat = {
     id: "lehdet_espanjan_sanomat",
     title: "Espanjan Sanomat",
-    description: "Espanjan Sanomat (2010-7-8/2013)<br/>Kotisivu: <a href='http://espanjansanomat.es/espanjansanomat/index.php/arkisto'>http://espanjansanomat.es/espanjansanomat/index.php/arkisto</a>",
+    description: "Espanjan Sanomat (2010-7-8/2013)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Espanjan_Sanomat_2010-7_8-2013_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Kotisivu: <a href='http://espanjansanomat.es/espanjansanomat/index.php/arkisto'>http://espanjansanomat.es/espanjansanomat/index.php/arkisto</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6109,7 +6109,7 @@ settings.corpora.lehdet_espanjan_sanomat = {
 settings.corpora.lehdet_espoo = {
     id: "lehdet_espoo",
     title: "Espoo Esbo",
-    description: "Espoo Esbo -lehti (2012-3/2016)<br/>Julkaisija: Espoon kaupunki<br/>Kotisivu: <a href='http://www.espoo.fi/fi-FI/Espoon_kaupunki/Ajankohtaista/Espoo_Esbo_lehti%285630%29'>http://www.espoo.fi/fi-FI/Espoon_kaupunki/Ajankohtaista/Espoo_Esbo_lehti%285630%29</a>",
+    description: "Espoo Esbo -lehti (2012-3/2016)<br/>Sisältää lehden kotisivuilla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Espoon kaupunki<br/>Kotisivu: <a href='http://www.espoo.fi/fi-FI/Espoon_kaupunki/Ajankohtaista/Espoo_Esbo_lehti%285630%29'>http://www.espoo.fi/fi-FI/Espoon_kaupunki/Ajankohtaista/Espoo_Esbo_lehti%285630%29</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6130,7 +6130,7 @@ settings.corpora.lehdet_espoo = {
 settings.corpora.lehdet_esri = {
     id: "lehdet_esri",
     title: "Esri",
-    description: "Esri (2004-2014)<br/>Julkaisija: Esri Finland Oy<br/>Kotisivu: <a href='http://www.esri.fi/yritysinfo/asiakaslehti/'>http://www.esri.fi/yritysinfo/asiakaslehti/</a>",
+    description: "Esri (2004-2014)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Esrin_numerot.docx'>Luettelo aineiston sisältämistä numeroista</a><br/>Julkaisija: Esri Finland Oy<br/>Kotisivu: <a href='http://www.esri.fi/yritysinfo/asiakaslehti/'>http://www.esri.fi/yritysinfo/asiakaslehti/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6256,7 +6256,7 @@ settings.corpora.lehdet_folium_classicum = {
 settings.corpora.lehdet_hkaksi = {
     id: "lehdet_hkaksi",
     title: "H2",
-    description: "H2 (2007-3/2013)<br/>Julkaisija: Haaga-Helian opiskelijakunta Helga<br/>Kotisivu: <a href='https://issuu.com/h2-lehti'>https://issuu.com/h2-lehti</a>",
+    description: "H2 (2007-3/2013)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/H2_2007-3_2013_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Haaga-Helian opiskelijakunta Helga<br/>Kotisivu: <a href='https://issuu.com/h2-lehti'>https://issuu.com/h2-lehti</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6277,7 +6277,7 @@ settings.corpora.lehdet_hkaksi = {
 settings.corpora.lehdet_haavi = {
     id: "lehdet_haavi",
     title: "Haavi",
-    description: "Haavi (2008-2013)<br/>Julkaisija: Havis Amandan Nuorkauppakamari - Helsinki ry<br/>Kotisivu: <a href='http://www.havisamanda.com/Suomeksi/Amandat/Media'>http://www.havisamanda.com/Suomeksi/Amandat/Media</a>",
+    description: "Haavi (2008-2013)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Haavi_2008-2013_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Havis Amandan Nuorkauppakamari - Helsinki ry<br/>Kotisivu: <a href='http://www.havisamanda.com/Suomeksi/Amandat/Media'>http://www.havisamanda.com/Suomeksi/Amandat/Media</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6298,7 +6298,7 @@ settings.corpora.lehdet_haavi = {
 settings.corpora.lehdet_hallaus = {
     id: "lehdet_hallaus",
     title: "Hallaus",
-    description: "Hallaus (2009-2014)<br/>Julkaisija: Huutomerkki ry<br/>Kotisivu: <a href='http://huutomerkki.fi/yhdistys/toiminta/hallaus/'>http://huutomerkki.fi/yhdistys/toiminta/hallaus/</a>",
+    description: "Hallaus (2009-2014)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Hallaus_2009-2014_-aineiston_numerot.docx'>Luettelo aineiston sisältämistä numeroista</a><br/>Julkaisija: Huutomerkki ry<br/>Kotisivu: <a href='http://huutomerkki.fi/yhdistys/toiminta/hallaus/'>http://huutomerkki.fi/yhdistys/toiminta/hallaus/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6319,7 +6319,7 @@ settings.corpora.lehdet_hallaus = {
 settings.corpora.lehdet_helen = {
     id: "lehdet_helen",
     title: "Helen",
-    description: "Helen-lehti (2010-1/2015)<br/>Julkaisija: Helen Oy<br/>Kotisivu: <a href='https://www.helen.fi/helen-oy/ajankohtaista/helen-lehti/'>https://www.helen.fi/helen-oy/ajankohtaista/helen-lehti/</a>",
+    description: "Helen-lehti (2010-1/2015)<br/>Sisältää lehden kotisivuilla 2016 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Helen Oy<br/>Kotisivu: <a href='https://www.helen.fi/helen-oy/ajankohtaista/helen-lehti/'>https://www.helen.fi/helen-oy/ajankohtaista/helen-lehti/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6403,7 +6403,7 @@ settings.corpora.lehdet_helmeri = {
 settings.corpora.lehdet_helsinginhenki = {
     id: "lehdet_helsinginhenki",
     title: "Helsingin Henki",
-    description: "Helsingin Henki (2009-1/2014)<br/>Julkaisija: Helsingin kaupunginkanslia<br/>Kotisivu: <a href='http://www.hel.fi/www/kanslia/fi/julkaisut-ja-kuulutukset/julkaisut/helsingin-henki'>http://www.hel.fi/www/kanslia/fi/julkaisut-ja-kuulutukset/julkaisut/helsingin-henki</a>",
+    description: "Helsingin Henki (2009-1/2014)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Helsingin_Henki_2009-1_2014_-aineistosta_puuttuvat_numerot_.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Helsingin kaupunginkanslia<br/>Kotisivu: <a href='http://www.hel.fi/www/kanslia/fi/julkaisut-ja-kuulutukset/julkaisut/helsingin-henki'>http://www.hel.fi/www/kanslia/fi/julkaisut-ja-kuulutukset/julkaisut/helsingin-henki</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6424,7 +6424,7 @@ settings.corpora.lehdet_helsinginhenki = {
 settings.corpora.lehdet_hengitys = {
     id: "lehdet_hengitys",
     title: "Hengitys",
-    description: "Hengitys (2/2012 - 2-3/2016)<br/>Julkaisija: Hengitysliitto<br/>Kotisivu: <a href='http://www.hengitysliitto.fi/Julkaisut/Hengitys-lehti/#'>http://www.hengitysliitto.fi/Julkaisut/Hengitys-lehti/#</a>",
+    description: "Hengitys (2/2012 - 2-3/2016)<br/>Sisältää lehden kotisivuilla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Hengitysliitto<br/>Kotisivu: <a href='http://www.hengitysliitto.fi/Julkaisut/Hengitys-lehti/#'>http://www.hengitysliitto.fi/Julkaisut/Hengitys-lehti/#</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6445,7 +6445,7 @@ settings.corpora.lehdet_hengitys = {
 settings.corpora.lehdet_heppu = {
     id: "lehdet_heppu",
     title: "Heppu",
-    description: "Heppu (2011-3/2016)<br/>Julkaisija: Pääkaupunkiseudun Partiolaiset ry<br/>Kotisivu: <a href='http://www.paakaupunkiseudunpartiolaiset.fi/tietoa-meista/julkaisut/'>http://www.paakaupunkiseudunpartiolaiset.fi/tietoa-meista/julkaisut/</a>",
+    description: "Heppu (2011-3/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Heppu_2011-3_2016_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Pääkaupunkiseudun Partiolaiset ry<br/>Kotisivu: <a href='http://www.paakaupunkiseudunpartiolaiset.fi/tietoa-meista/julkaisut/'>http://www.paakaupunkiseudunpartiolaiset.fi/tietoa-meista/julkaisut/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6634,7 +6634,7 @@ settings.corpora.lehdet_karhunpalvelus = {
 settings.corpora.lehdet_kauppapolitiikka = {
     id: "lehdet_kauppapolitiikka",
     title: "Kauppapolitiikka",
-    description: "Kauppapolitiikka (2013-1/2015)<br/>Julkaisija: Ulkoasiainministeriö<br/>Kotisivu: <a href='http://kauppapolitiikka.fi/tietoa-lehdesta/'>http://kauppapolitiikka.fi/tietoa-lehdesta/</a>",
+    description: "Kauppapolitiikka (2013-1/2015)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Kauppapolitiikka_2013-1_2015_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Ulkoasiainministeriö<br/>Kotisivu: <a href='http://kauppapolitiikka.fi/tietoa-lehdesta/'>http://kauppapolitiikka.fi/tietoa-lehdesta/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6655,7 +6655,7 @@ settings.corpora.lehdet_kauppapolitiikka = {
 settings.corpora.lehdet_kaupunkilainen = {
     id: "lehdet_kaupunkilainen",
     title: "Kaupunkilainen",
-    description: "Kaupunkilainen (2/2012-1/2015)<br/>Julkaisija: Lahden kaupunki<br/>Kotisivu: <a href='https://www.lahti.fi/tietoa-lahdesta/Lahti-info/kaupunkilainen-lehti'>https://www.lahti.fi/tietoa-lahdesta/Lahti-info/kaupunkilainen-lehti</a>",
+    description: "Kaupunkilainen (2/2012-1/2015)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Kaupunkilainen_2_2012-1_2015_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Lahden kaupunki<br/>Kotisivu: <a href='https://www.lahti.fi/tietoa-lahdesta/Lahti-info/kaupunkilainen-lehti'>https://www.lahti.fi/tietoa-lahdesta/Lahti-info/kaupunkilainen-lehti</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6760,7 +6760,7 @@ settings.corpora.lehdet_kontakt = {
 settings.corpora.lehdet_koti = {
     id: "lehdet_koti",
     title: "Koti",
-    description: "Koti (2012-2014)<br/>Julkaisija: Maa- ja kotitalousnaisten Keskus<br/>Kotisivu: <a href='https://www.maajakotitalousnaiset.fi/kotijamaaseutu'>https://www.maajakotitalousnaiset.fi/kotijamaaseutu</a>",
+    description: "Koti (2012-2014)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Koti_2012-2014_-aineiston_numerot.docx'>Luettelo aineiston sisältämistä numeroista</a><br/>Julkaisija: Maa- ja kotitalousnaisten Keskus<br/>Kotisivu: <a href='https://www.maajakotitalousnaiset.fi/kotijamaaseutu'>https://www.maajakotitalousnaiset.fi/kotijamaaseutu</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6781,7 +6781,7 @@ settings.corpora.lehdet_koti = {
 settings.corpora.lehdet_kotipuutarha = {
     id: "lehdet_kotipuutarha",
     title: "Kotipuutarha",
-    description: "Kotipuutarha (2009-2014)<br/>Julkaisija: Kotipuutarha Puutarhaliitto<br/>Kotisivu: <a href='http://www.kotipuutarha.fi/lehti.html'>http://www.kotipuutarha.fi/lehti.html</a>",
+    description: "Kotipuutarha (2009-2014)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Kotipuutarha_2009-2014_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Kotipuutarha Puutarhaliitto<br/>Kotisivu: <a href='http://www.kotipuutarha.fi/lehti.html'>http://www.kotipuutarha.fi/lehti.html</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6802,7 +6802,7 @@ settings.corpora.lehdet_kotipuutarha = {
 settings.corpora.lehdet_kumposti = {
     id: "lehdet_kumposti",
     title: "Kumposti",
-    description: "Kumposti (2005-1/2016)<br/>Julkaisija: Kumpula-seura ry<br/>Kotisivu: <a href='http://kumpula.info/kumposti'>http://kumpula.info/kumposti</a>",
+    description: "Kumposti (2005-1/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Kumposti_2005-1_2016_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Kumpula-seura ry<br/>Kotisivu: <a href='http://kumpula.info/kumposti'>http://kumpula.info/kumposti</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7328,7 +7328,7 @@ settings.corpora.lehdet_pointti = {
 settings.corpora.lehdet_poleemi = {
     id: "lehdet_poleemi",
     title: "Poleemi",
-    description: "Poleemi (2009-2013)<br/>Julkaisija: Poliittisen historian opiskelijat Polho ry<br/>Kotisivu: <a href='https://poleemi.wordpress.com/arkisto/'>https://poleemi.wordpress.com/arkisto/</a>",
+    description: "Poleemi (2009-2013)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Poleemi_2009-2013_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Poliittisen historian opiskelijat Polho ry<br/>Kotisivu: <a href='https://poleemi.wordpress.com/arkisto/'>https://poleemi.wordpress.com/arkisto/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7370,7 +7370,7 @@ settings.corpora.lehdet_polemiikki = {
 settings.corpora.lehdet_policy = {
     id: "lehdet_policy",
     title: "Policy",
-    description: "Policy (2008, 2011-1/2013, 3-4/2015)<br/>Julkaisija: Valtio-opin opiskelijat ry<br/>Kotisivu: <a href='http://blogs.helsinki.fi/voo-ry/policy/'>http://blogs.helsinki.fi/voo-ry/policy/</a>",
+    description: "Policy (2008, 2011-1/2013, 3-4/2015)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> 2016 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Valtio-opin opiskelijat ry<br/>Kotisivu: <a href='http://blogs.helsinki.fi/voo-ry/policy/'>http://blogs.helsinki.fi/voo-ry/policy/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7517,7 +7517,7 @@ settings.corpora.lehdet_sofia = {
 settings.corpora.lehdet_solidaarisuus = {
     id: "lehdet_solidaarisuus",
     title: "Solidaarisuus",
-    description: "Solidaarisuus (2007-2014)<br/>Julkaisija: Solidaarisuus<br/>Kotisivu: <a href='http://www.solidaarisuus.fi'>http://www.solidaarisuus.fi/</a>",
+    description: "Solidaarisuus (2007-2014)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> 2016 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Solidaarisuus<br/>Kotisivu: <a href='http://www.solidaarisuus.fi'>http://www.solidaarisuus.fi/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7538,7 +7538,7 @@ settings.corpora.lehdet_solidaarisuus = {
 settings.corpora.lehdet_suomenmaa = {
     id: "lehdet_suomenmaa",
     title: "Suomenmaa",
-    description: "Suomenmaa (2013)<br/>Julkaisija: Suomenmaa<br/>Kotisivu: <a href='http://www.suomenmaa.fi/'>http://www.suomenmaa.fi/</a>",
+    description: "Suomenmaa (2013)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Suomenmaa_2013_-aineiston_numerot.docx'>Luettelo aineiston sisältämistä numeroista</a><br/>Julkaisija: Suomenmaa<br/>Kotisivu: <a href='http://www.suomenmaa.fi/'>http://www.suomenmaa.fi/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7580,7 +7580,7 @@ settings.corpora.lehdet_sydan_hameen_lehti = {
 settings.corpora.lehdet_taku = {
     id: "lehdet_taku",
     title: "TAKU",
-    description: "TAKU (2000-1/2016)<br/>Julkaisija: Taide- ja kulttuurialan ammattijärjestö TAKU ry<br/>Kotisivu: <a href='http://www.taku.fi/ajankohtaista/taku-lehti'>http://www.taku.fi/ajankohtaista/taku-lehti</a>",
+    description: "TAKU (2000-1/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/TAKU_2000-1_2016_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Taide- ja kulttuurialan ammattijärjestö TAKU ry<br/>Kotisivu: <a href='http://www.taku.fi/ajankohtaista/taku-lehti'>http://www.taku.fi/ajankohtaista/taku-lehti</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7643,7 +7643,7 @@ settings.corpora.lehdet_infront = {
 settings.corpora.lehdet_tek_verkkolehti = {
     id: "lehdet_tek_verkkolehti",
     title: "TEK verkkolehti",
-    description: "TEK verkkolehti (7/2012-6/2013, 1/2015, 5/2015)<br/>Julkaisija: Tekniikan Akateemiset TEK<br/>Kotisivu: <a href='https://lehti.tek.fi/'>https://lehti.tek.fi/</a>",
+    description: "TEK verkkolehti (7/2012-6/2013, 1/2015, 5/2015)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> 2016 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Tekniikan Akateemiset TEK<br/>Kotisivu: <a href='https://lehti.tek.fi/'>https://lehti.tek.fi/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7685,7 +7685,7 @@ settings.corpora.lehdet_terveydeksi = {
 settings.corpora.lehdet_toimi = {
     id: "lehdet_toimi",
     title: "Toimi",
-    description: "Toimi (2009-2014)<br/>Julkaisija: Erityisalojen Toimihenkilöliitto ERTO ry<br/>Kotisivu: <a href='https://www.erto.fi/palvelut/toimi-lehti'>https://www.erto.fi/palvelut/toimi-lehti</a>",
+    description: "Toimi (2009-2014)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Toimi_2009-2014_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Erityisalojen Toimihenkilöliitto ERTO ry<br/>Kotisivu: <a href='https://www.erto.fi/palvelut/toimi-lehti'>https://www.erto.fi/palvelut/toimi-lehti</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7727,7 +7727,7 @@ settings.corpora.lehdet_tukilinja = {
 settings.corpora.lehdet_tukiviesti = {
     id: "lehdet_tukiviesti",
     title: "Tukiviesti",
-    description: "Tukiviesti (6/2010-1/2014)<br/>Julkaisija: Kehitysvammaisten Tukiliitto ry<br/>Kotisivu: <a href='http://www.kvtl.fi/fi/tukiviesti-ja-leija/tukiviesti/'>http://www.kvtl.fi/fi/tukiviesti-ja-leija/tukiviesti/</a>",
+    description: "Tukiviesti (6/2010-1/2014)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Tukiviesti_6_2010-1_2014_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Kehitysvammaisten Tukiliitto ry<br/>Kotisivu: <a href='http://www.kvtl.fi/fi/tukiviesti-ja-leija/tukiviesti/'>http://www.kvtl.fi/fi/tukiviesti-ja-leija/tukiviesti/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7748,7 +7748,7 @@ settings.corpora.lehdet_tukiviesti = {
 settings.corpora.lehdet_turkuposti = {
     id: "lehdet_turkuposti",
     title: "Turkuposti",
-    description: "Turkuposti & Turkupostin liitteet (2011-1/2016)<br/>Julkaisija: Turun kaupunki<br/>Kotisivu: <a href='https://www.turku.fi/turku-tieto/julkaisut-ja-raportit/turkupostin-arkisto'>https://www.turku.fi/turku-tieto/julkaisut-ja-raportit/turkupostin-arkisto</a>",
+    description: "Turkuposti & Turkupostin liitteet (2011-1/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Turkuposti__Turkupostin_liitteet_2011-1_2016_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Turun kaupunki<br/>Kotisivu: <a href='https://www.turku.fi/turku-tieto/julkaisut-ja-raportit/turkupostin-arkisto'>https://www.turku.fi/turku-tieto/julkaisut-ja-raportit/turkupostin-arkisto</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7769,7 +7769,7 @@ settings.corpora.lehdet_turkuposti = {
 settings.corpora.lehdet_tutkain = {
     id: "lehdet_tutkain",
     title: "Tutkain",
-    description: "Tutkain (2010-2/2014)<br/>Julkaisija: Tiedekunnan opiskelijajärjestö Kannunvalajat ry<br/>Kotisivu: <a href='http://www.kannunvalajat.fi/tutkain/'>http://www.kannunvalajat.fi/tutkain/</a>",
+    description: "Tutkain (2010-2/2014)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Tutkain_2010-2_2014_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Tiedekunnan opiskelijajärjestö Kannunvalajat ry<br/>Kotisivu: <a href='http://www.kannunvalajat.fi/tutkain/'>http://www.kannunvalajat.fi/tutkain/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7811,7 +7811,7 @@ settings.corpora.lehdet_tyoelaman_tutkimus = {
 settings.corpora.lehdet_ubik = {
     id: "lehdet_ubik",
     title: "Ubik",
-    description: "Ubik (2012-3/2013)<br/>Julkaisija: Suomen Ammattiin Opiskelevien Liitto – SAKKI ry<br/>Kotisivu: <a href='http://ubik.fi/nakoislehdet/'>http://ubik.fi/nakoislehdet/</a>",
+    description: "Ubik (2012-3/2013)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> 2016 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen Ammattiin Opiskelevien Liitto – SAKKI ry<br/>Kotisivu: <a href='http://ubik.fi/nakoislehdet/'>http://ubik.fi/nakoislehdet/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7832,7 +7832,7 @@ settings.corpora.lehdet_ubik = {
 settings.corpora.lehdet_uljas = {
     id: "lehdet_uljas",
     title: "Uljas",
-    description: "Uljas (2014-4/2016)<br/>Julkaisija: Itä-Suomen yliopiston ylioppilaskunta<br/>Kotisivu: <a href='http://www.uljas.net/lehdet/'>http://www.uljas.net/lehdet/</a>",
+    description: "Uljas (2014-4/2016)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> 2016 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Itä-Suomen yliopiston ylioppilaskunta<br/>Kotisivu: <a href='http://www.uljas.net/lehdet/'>http://www.uljas.net/lehdet/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7979,7 +7979,7 @@ settings.corpora.lehdet_uutis_jousi = {
 settings.corpora.lehdet_vaasan_ylioppilaslehti = {
     id: "lehdet_vaasan_ylioppilaslehti",
     title: "Vaasan Ylioppilaslehti",
-    description: "Vaasan Ylioppilaslehti (5/2012-5/2013)<br/>Julkaisija: Vaasan yliopiston ylioppilaskunta<br/>Kotisivu: <a href='http://www.vaasanylioppilaslehti.fi/'>http://www.vaasanylioppilaslehti.fi/</a>",
+    description: "Vaasan Ylioppilaslehti (5/2012-5/2013)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> 2016 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Vaasan yliopiston ylioppilaskunta<br/>Kotisivu: <a href='http://www.vaasanylioppilaslehti.fi/'>http://www.vaasanylioppilaslehti.fi/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -8063,7 +8063,7 @@ settings.corpora.lehdet_vanhustyo = {
 settings.corpora.lehdet_vankilavirkailija = {
     id: "lehdet_vankilavirkailija",
     title: "Vankilavirkailija",
-    description: "Vankilavirkailija (2009-3/2011)<br/>Julkaisija: Vankilavirkailijain Liitto VVL r.y.<br/>Kotisivu: <a href='http://www.vankilavirkailija.fi/lehdet'>http://www.vankilavirkailija.fi/lehdet</a>",
+    description: "Vankilavirkailija (2009-3/2011)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> 2016 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Vankilavirkailijain Liitto VVL r.y.<br/>Kotisivu: <a href='http://www.vankilavirkailija.fi/lehdet'>http://www.vankilavirkailija.fi/lehdet</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -8084,7 +8084,7 @@ settings.corpora.lehdet_vankilavirkailija = {
 settings.corpora.lehdet_vantaan_akseli = {
     id: "lehdet_vantaan_akseli",
     title: "Vantaan Akseli",
-    description: "Vantaan Akseli (2009-1/2013)<br/>Julkaisija: Vantaan Akselin kehitysryhmä<br/>Kotisivu: <a href='www.vantaanakseli.fi'>www.vantaanakseli.fi</a>",
+    description: "Vantaan Akseli (2009-1/2013)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> 2016 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Vantaan Akselin kehitysryhmä<br/>Kotisivu: <a href='www.vantaanakseli.fi'>www.vantaanakseli.fi</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
