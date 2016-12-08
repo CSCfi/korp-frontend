@@ -5521,7 +5521,7 @@ settings.corpora.lehdet_aarre = {
 settings.corpora.lehdet_aino = {
     id: "lehdet_aino",
     title: "Aino",
-    description: "Ylioppilaslehti Aino (2010-2015)<br/>Julkaisija: Aalto-yliopiston ylioppilaskunta<br/>Kotisivu: <a href='http://ainolehti.fi/aino/'>http://ainolehti.fi/aino/</a>",
+    description: "Ylioppilaslehti Aino (2010-2015)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Aino_2010-2015_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Aalto-yliopiston ylioppilaskunta<br/>Kotisivu: <a href='http://ainolehti.fi/aino/'>http://ainolehti.fi/aino/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -5542,7 +5542,7 @@ settings.corpora.lehdet_aino = {
 settings.corpora.lehdet_akavalainen = {
     id: "lehdet_akavalainen",
     title: "Akavalainen",
-    description: "Akavalainen (2006-2013)<br/>Julkaisija: Akava, Korkeakoulutettujen työmarkkinakeskusjärjestö<br/>Kotisivu: <a href='http://www.akava.fi/akavalainen'>http://www.akava.fi/akavalainen</a>",
+    description: "Akavalainen (2006-2013)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Akava, Korkeakoulutettujen työmarkkinakeskusjärjestö<br/>Kotisivu: <a href='http://www.akava.fi/akavalainen'>http://www.akava.fi/akavalainen</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -5605,7 +5605,7 @@ settings.corpora.lehdet_ammattisotilas = {
 settings.corpora.lehdet_amnesty = {
     id: "lehdet_amnesty",
     title: "Amnesty",
-    description: "Amnesty (3/2009-2013)<br/>Julkaisija: Amnesty International Suomen osasto ry<br/>Kotisivu: <a href='https://www.amnesty.fi/tietoa-meista/amnesty-lehti/'>https://www.amnesty.fi/tietoa-meista/amnesty-lehti/</a>",
+    description: "Amnesty (3/2009-2013)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Amnesty_3_2009-2013_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Amnesty International Suomen osasto ry<br/>Kotisivu: <a href='https://www.amnesty.fi/tietoa-meista/amnesty-lehti/'>https://www.amnesty.fi/tietoa-meista/amnesty-lehti/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -5626,7 +5626,7 @@ settings.corpora.lehdet_amnesty = {
 settings.corpora.lehdet_ananda = {
     id: "lehdet_ananda",
     title: "Ananda",
-    description: "Ananda (2005-1/2016)<br/>Julkaisija: Ananda-lehti/Trax Oy<br/>Kotisivu: <a href='http://www.anandalehti.fi/'>http://www.anandalehti.fi/</a>",
+    description: "Ananda (2005-1/2016)<br/>Sisältää lehden kotisivuilla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Ananda-lehti/Trax Oy<br/>Kotisivu: <a href='http://www.anandalehti.fi/'>http://www.anandalehti.fi/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -5647,7 +5647,7 @@ settings.corpora.lehdet_ananda = {
 settings.corpora.lehdet_animalia = {
     id: "lehdet_animalia",
     title: "Animalia",
-    description: "Animalia-lehti (2/2010-1/2016)<br/>Julkaisija: Animalia ry<br/>Kotisivu: <a href='http://animalia.fi/tietoa-animaliasta/animalia-lehti/'>http://animalia.fi/tietoa-animaliasta/animalia-lehti/</a>",
+    description: "Animalia-lehti (2/2010-1/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Animalia-lehti_2_2010-1_2016_-aineistosta_puuttuvat_numerot_.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Animalia ry<br/>Kotisivu: <a href='http://animalia.fi/tietoa-animaliasta/animalia-lehti/'>http://animalia.fi/tietoa-animaliasta/animalia-lehti/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -5668,7 +5668,7 @@ settings.corpora.lehdet_animalia = {
 settings.corpora.lehdet_apaja = {
     id: "lehdet_apaja",
     title: "Apaja",
-    description: "Apaja (2006-1/2011)<br/>Julkaisija: Riista- ja kalatalouden tutkimuslaitos<br/>Kotisivu: <a href='http://www.rktl.fi/julkaisut/p/apaja/'>http://www.rktl.fi/julkaisut/p/apaja/</a>",
+    description: "Apaja (2006-1/2011)<br/>Sisältää lehden kotisivuilla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Riista- ja kalatalouden tutkimuslaitos<br/>Kotisivu: <a href='http://www.rktl.fi/julkaisut/p/apaja/'>http://www.rktl.fi/julkaisut/p/apaja/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -5731,7 +5731,7 @@ settings.corpora.lehdet_aromi = {
 settings.corpora.lehdet_asukas = {
     id: "lehdet_asukas",
     title: "Asukas",
-    description: "Asukas - Asiakaslehti VVO:n Asukkaille (2006-2014)<br/>Julkaisija: VVO-yhtymä Oyj<br/>Kotisivu: <a href='https://asukas.vvo.fi/kodikaslehti/'>https://asukas.vvo.fi/kodikaslehti/</a>",
+    description: "Asukas - Asiakaslehti VVO:n Asukkaille (2006-2014)<br/>Sisältää lehden kotisivuilla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: VVO-yhtymä Oyj<br/>Kotisivu: <a href='https://asukas.vvo.fi/kodikaslehti/'>https://asukas.vvo.fi/kodikaslehti/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -5752,7 +5752,7 @@ settings.corpora.lehdet_asukas = {
 settings.corpora.lehdet_asuminen_yhteiskunta = {
     id: "lehdet_asuminen_yhteiskunta",
     title: "Asuminen ja Yhteiskunta",
-    description: "Asuminen ja Yhteiskunta (2011-1/2016)<br/>Julkaisija: Asukasliitto ry<br/>Kotisivu: <a href='http://www.asukasliitto.fi/ajankohtaista/asuminen_ja_yhteiskunta_lehti/'>http://www.asukasliitto.fi/ajankohtaista/asuminen_ja_yhteiskunta_lehti/</a>",
+    description: "Asuminen ja Yhteiskunta (2011-1/2016)<br/>Sisältää lehden kotisivuilla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Asukasliitto ry<br/>Kotisivu: <a href='http://www.asukasliitto.fi/ajankohtaista/asuminen_ja_yhteiskunta_lehti/'>http://www.asukasliitto.fi/ajankohtaista/asuminen_ja_yhteiskunta_lehti/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -5773,7 +5773,7 @@ settings.corpora.lehdet_asuminen_yhteiskunta = {
 settings.corpora.lehdet_asuntoinfo = {
     id: "lehdet_asuntoinfo",
     title: "Asuntoinfo",
-    description: "Asuntoinfo (3-5/2013)<br/>Julkaisija: BM Media Oy<br/>Kotisivu: <a href='http://www.lehtiluukku.fi/pub?id=51682'>http://www.lehtiluukku.fi/pub?id=51682</a>",
+    description: "Asuntoinfo (3-5/2013)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> 2016 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: BM Media Oy<br/>Kotisivu: <a href='http://www.lehtiluukku.fi/pub?id=51682'>http://www.lehtiluukku.fi/pub?id=51682</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -5794,7 +5794,7 @@ settings.corpora.lehdet_asuntoinfo = {
 settings.corpora.lehdet_aurora = {
     id: "lehdet_aurora",
     title: "Aurora",
-    description: "Aurora - Turun yliopiston sidosryhmälehti (2010-1/2013)<br/>Julkaisija: Turun yliopiston viestintä<br/>Kotisivu: <a href='http://www.utu.fi/fi/Palvelut/medialle/aurora/lue-verkossa/Sivut/home.aspx'>http://www.utu.fi/fi/Palvelut/medialle/aurora/lue-verkossa/Sivut/home.aspx</a>",
+    description: "Aurora - Turun yliopiston sidosryhmälehti (2010-1/2013)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Aurora_2010-2_1_2013_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Turun yliopiston viestintä<br/>Kotisivu: <a href='http://www.utu.fi/fi/Palvelut/medialle/aurora/lue-verkossa/Sivut/home.aspx'>http://www.utu.fi/fi/Palvelut/medialle/aurora/lue-verkossa/Sivut/home.aspx</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -5815,7 +5815,7 @@ settings.corpora.lehdet_aurora = {
 settings.corpora.lehdet_avainlehti = {
     id: "lehdet_avainlehti",
     title: "Avain-lehti",
-    description: "Avain-lehti (2013-2014)<br/>Julkaisija: Neuroliitto ry<br/>Kotisivu: <a href='http://www.ms-liitto.fi/avain'>http://www.ms-liitto.fi/avain</a>",
+    description: "Avain-lehti (2013-2014)<br/>(sisältää vain tutkimus- ja oikeus-palstat)<br/>Julkaisija: Neuroliitto ry<br/>Kotisivu: <a href='http://www.ms-liitto.fi/avain'>http://www.ms-liitto.fi/avain</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -5857,7 +5857,7 @@ settings.corpora.lehdet_avec = {
 settings.corpora["lehdet_avec_perhelehti"] = {
     id: "lehdet_avec_perhelehti",
     title: "Avec - Paremman avioliiton perhelehti",
-    description: "Avec - Paremman avioliiton perhelehti (2005-2015)<br/>Julkaisija: Parempi avioliitto ry<br/>Kotisivu: <a href='www.parempiavioliitto.fi/'>www.parempiavioliitto.fi/</a>",
+    description: "Avec - Paremman avioliiton perhelehti (2005-2016)<br/>Julkaisija: Parempi avioliitto ry<br/>Kotisivu: <a href='www.parempiavioliitto.fi/'>www.parempiavioliitto.fi/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -5878,7 +5878,7 @@ settings.corpora["lehdet_avec_perhelehti"] = {
 settings.corpora.lehdet_asukki = {
     id: "lehdet_asukki",
     title: "Asukki",
-    description: "Asukki (4/2006-3/2016)<br/>Julkaisija: Vailla vakinaista asuntoa ry<br/>Kotisivu: <a href='http://vvary.fi/haluatko-auttaa/tilaa-asukki/'>http://vvary.fi/haluatko-auttaa/tilaa-asukki/</a>",
+    description: "Asukki (4/2006-3/2016)<br/>Sisältää lehden kotisivuilla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Vailla vakinaista asuntoa ry<br/>Kotisivu: <a href='http://vvary.fi/haluatko-auttaa/tilaa-asukki/'>http://vvary.fi/haluatko-auttaa/tilaa-asukki/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
