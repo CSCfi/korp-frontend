@@ -7286,7 +7286,7 @@ settings.corpora.lehdet_pippuri = {
 settings.corpora.lehdet_pirkkalainen = {
     id: "lehdet_pirkkalainen",
     title: "Pirkkalainen",
-    description: "Pirkkalainen (<a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Pirkkalainen_2006-16_2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>2006-16/2016)<br/>Julkaisija: Pirkkala-Seura ry<br/>Kotisivu: <a href='http://www.pirkkalainen.com/'>http://www.pirkkalainen.com/</a>",
+    description: "Pirkkalainen (2006-16/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Pirkkalainen_2006-16_2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Pirkkala-Seura ry<br/>Kotisivu: <a href='http://www.pirkkalainen.com/'>http://www.pirkkalainen.com/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7433,7 +7433,7 @@ settings.corpora.lehdet_print_media = {
 settings.corpora.lehdet_pro_etelapohjanmaa = {
     id: "lehdet_pro_etelapohjanmaa",
     title: "Pro Etelä-Pohjanmaa",
-    description: "Pro Etelä-Pohjanmaa (2<a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Pro_Etela-Pohjanmaa_2012-2015_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>/2012-2015)<br/>Julkaisija: Etelä-Pohjanmaan liitto<br/>Kotisivu: <a href='http://www.epliitto.fi/pro-etela-pohjanmaa--lehti'>http://www.epliitto.fi/pro-etela-pohjanmaa--lehti</a>",
+    description: "Pro Etelä-Pohjanmaa (2/2012-2015)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Pro_Etela-Pohjanmaa_2012-2015_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Etelä-Pohjanmaan liitto<br/>Kotisivu: <a href='http://www.epliitto.fi/pro-etela-pohjanmaa--lehti'>http://www.epliitto.fi/pro-etela-pohjanmaa--lehti</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
