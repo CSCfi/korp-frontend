@@ -88,7 +88,10 @@ settings.downloadFormatParams = {
     },
 };
 
+// Use an absolute URL for the CGI scripts to drop the port number
+// when testing with Grunt serve, which uses localhost:9000.
 settings.cgi_prefix =
+    window.location.protocol + "//" + window.location.hostname +
     (isProductionServerBeta
      ? "/cgi-bin/korp-beta/"
      : (isProductionServerOld ?
