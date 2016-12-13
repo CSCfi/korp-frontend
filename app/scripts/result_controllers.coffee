@@ -304,24 +304,16 @@ korpApp.controller "compareCtrl", ($scope, $rootScope) ->
 
         cmps = [cmp1, cmp2]
 
+        s.reduceIsStructAttr =
+            _.map reduce, (attr) -> attributes[attr].isStructAttr
+
         # c.log 'compare: tables', tables, 'max', max, 'reduce', reduce
 
         s.rowClick = (row, cmp_index) ->
             cmp = cmps[cmp_index]
 
-            splitTokens = _.map row.elems, (elem, elemIdx) ->
-                _.map (elem.split "/"), (tokens) ->
-                    # If the attribute is a structural attribute, its
-                    # value should not be split at spaces, since the
-                    # same structural attribute value holds for all
-                    # the tokens of the sentence (at least usually).
-                    # This does not cover cases in which a positional
-                    # (token) attribute may contain spaces.
-                    if attributes[reduce[elemIdx]].isStructAttr
-                        [tokens]
-                    else
-                        tokens.split " "
-
+            splitTokens = util.splitCompareKey row.elems, reduce,
+                                               s.reduceIsStructAttr
             # c.log 'compare rowClick:', 'row', row, 'cmp', cmp, 'splitTokens', splitTokens
 
             # number of tokens in search

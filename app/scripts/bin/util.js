@@ -1774,6 +1774,31 @@
     }
   };
 
+  util.splitCompareKey = function(key, reduce_attrs, attr_is_struct_attr) {
+    var reduce_len;
+    c.log("splitCompareKey", key, reduce_attrs, attr_is_struct_attr);
+    reduce_len = reduce_attrs.length;
+    return _.map(key, function(elem, elem_idx) {
+      var ref, split_attrs;
+      if (reduce_len > 1) {
+        split_attrs = elem.split("/");
+        if (split_attrs.length > reduce_len) {
+          [].splice.apply(split_attrs, [reduce_len, 9e9].concat(ref = split_attrs.slice(reduce_len).join("/"))), ref;
+        }
+      } else {
+        split_attrs = [elem];
+      }
+      c.log("split_attrs", split_attrs, reduce_attrs, reduce_len);
+      return _.map(split_attrs, function(tokens) {
+        if (attr_is_struct_attr[elem_idx]) {
+          return [tokens];
+        } else {
+          return tokens.split(" ");
+        }
+      });
+    });
+  };
+
 }).call(this);
 
 //# sourceMappingURL=util.js.map

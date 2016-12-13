@@ -1781,3 +1781,47 @@ util.setMode = (mode, override_explicit = false) ->
         if override_explicit or not params.mode
             params.mode = mode
             window.location.search = "?" + $.param(params)
+
+
+# Split a query comparison value key returned by the "loglike" command
+# of the backend. The parameter "key" is an array of keys,
+# "reduce_attrs" is the array of reduce attribute names, and
+# "attr_is_struct_attr" is a array of booleans indicating whether the
+# corresponding reduce attribute is a structural attribute. ("key" is
+# an array as in compareCtrl, but is that really needed?)
+#
+# Split the key to attribute values on "/" at most the number of
+# reduce attributes less one times. Do not split values of structural
+# attributes at spaces, since the same structural attribute value
+# holds for all the tokens of the sentence (at least usually). This
+# does not cover cases in which a positional (token) attribute may
+# contain spaces, nor multi-token searches for strucutral attributes.
+#
+# FIXME: That still does not guarantee correct results for attribute
+# values containing "/" with multiple reduce attributes, but at least
+# it works in more cases. To fix more properly, use separators that do
+# not occur in the attribute values, such as control characters. To
+# retain backward compatibility of korp.cgi, the separators could be
+# specified as parameters to korp.cgi.
+#
+# This function replaces the original inline code that does not take
+# into account the number of attributes nor structural attributes (in
+# compareCtrl (result_controllers.coffee) and backend/requestCompare
+# (services.coffee)). (Jyrki Niemi 2016-12-13)
+
+util.splitCompareKey = (key, reduce_attrs, attr_is_struct_attr) ->
+    c.log "splitCompareKey", key, reduce_attrs, attr_is_struct_attr
+    reduce_len = reduce_attrs.length
+    _.map key, (elem, elem_idx) ->
+        if reduce_len > 1
+            split_attrs = elem.split "/"
+            if split_attrs.length > reduce_len
+                split_attrs[reduce_len..] = split_attrs[reduce_len..].join("/")
+        else
+            split_attrs = [elem]
+        c.log "split_attrs", split_attrs, reduce_attrs, reduce_len
+        _.map split_attrs, (tokens) ->
+            if attr_is_struct_attr[elem_idx]
+                [tokens]
+            else
+                tokens.split " "

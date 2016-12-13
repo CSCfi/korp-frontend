@@ -109,7 +109,7 @@
   korpApp.factory('backend', function($http, $q, utils, lexicons) {
     return {
       requestCompare: function(cmpObj1, cmpObj2, reduce) {
-        var conf, corpora1, corpora2, corpusListing, def, filterFun, params, split, xhr;
+        var attributes, conf, corpora1, corpora2, corpusListing, def, filterFun, params, reduceIsStructAttr, split, xhr;
         reduce = _.map(reduce, function(item) {
           return item.replace(/^_\./, "");
         });
@@ -123,6 +123,10 @@
           var ref;
           return ((ref = settings.corpusListing.getCurrentAttributes()[r]) != null ? ref.type : void 0) === "set";
         }).join(',');
+        attributes = _.extend({}, corpusListing.getCurrentAttributes(), corpusListing.getStructAttrs());
+        reduceIsStructAttr = _.map(reduce, function(attr) {
+          return attributes[attr].isStructAttr;
+        });
         def = $q.defer();
         params = {
           command: "loglike",
@@ -171,9 +175,7 @@
             });
             res = _.map(groups, function(value, key) {
               var abs, cqp, elems, loglike, tokenLists;
-              tokenLists = _.map(key.split("/"), function(tokens) {
-                return tokens.split(" ");
-              });
+              tokenLists = util.splitCompareKey([key], reduce, reduceIsStructAttr);
               loglike = 0;
               abs = 0;
               cqp = [];

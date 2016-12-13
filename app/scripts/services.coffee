@@ -91,6 +91,11 @@ korpApp.factory 'backend', ($http, $q, utils, lexicons) ->
         split = _.filter(reduce, (r) -> 
             settings.corpusListing.getCurrentAttributes()[r]?.type == "set").join(',')
 
+        attributes = _.extend {}, corpusListing.getCurrentAttributes(),
+                              corpusListing.getStructAttrs()
+        reduceIsStructAttr =
+            _.map reduce, (attr) -> attributes[attr].isStructAttr
+
         def = $q.defer()
         params =
             command : "loglike"
@@ -141,8 +146,11 @@ korpApp.factory 'backend', ($http, $q, utils, lexicons) ->
                     obj.value.replace(/:\d+/g, "")
 
                 res = _.map groups, (value, key) ->
-                    tokenLists = _.map key.split("/"), (tokens) ->
-                        return tokens.split(" ")
+                    # tokenLists = _.map key.split("/"), (tokens) ->
+                    #     return tokens.split(" ")
+                    tokenLists = util.splitCompareKey [key], reduce,
+                                                      reduceIsStructAttr
+                    # c.log "tokenLists", tokenLists
 
                     loglike = 0
                     abs = 0
