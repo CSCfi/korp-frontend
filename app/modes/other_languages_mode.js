@@ -135,7 +135,7 @@ settings.corporafolders.hcs2 = {
 };
 
 
-
+/* 
 settings.corporafolders.scotscorr = {
     title : "ScotsCorr",
     contents : ["scots_f1550_1599",
@@ -148,7 +148,7 @@ settings.corporafolders.scotscorr = {
                 "scots_m1700_1749",
                 "scots_royal"]
 };
-
+*/
 
 
 /*
@@ -1291,7 +1291,7 @@ settings.corpora.fennougrica_veps = {
 
 
 
-// skotti
+/* skotti
 settings.corpora.scots_f1550_1599 = {
     id : "scots_f1550_1599",
     title : "Female 1550–1599",
@@ -1381,7 +1381,7 @@ settings.corpora.scots_royal = {
     attributes : {},
     struct_attributes : sattrlist.scotscorr
 };
-
+*/
 /*
 settings.corpora.erzya = {
     id : "erzya",
