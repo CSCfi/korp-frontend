@@ -124,6 +124,15 @@ Sidebar =
         return [$(pos_items), $(struct_items)]
 
     renderItem: (key, value, attrs, wordData, sentenceData, token_data) ->
+
+        # Convert &, < and > to HTML character entities (for
+        # stringifying attribute values for which stringify is not
+        # defined). (Jyrki Niemi 2016-12-15)
+        encodeHtmlEntities = (s) ->
+            s.replace(/&/g, "&amp;")
+             .replace(/</g, "&lt;")
+             .replace(/>/g, "&gt;")
+
         if attrs.displayType in ["hidden", "date_interval"] or
                 attrs.displayOnly == "search"
             return ""
@@ -178,7 +187,7 @@ Sidebar =
 
             itr = if _.isArray(valueArray) then valueArray else _.values(valueArray)
             lis = for x in itr when x.length
-                val = (attrs.stringify or _.identity)(x)
+                val = (attrs.stringify or encodeHtmlEntities)(x)
 
                 inner = $(_.template(pattern, {key : x, val : val}))
                 if attrs.translationKey?
@@ -205,7 +214,7 @@ Sidebar =
         str_value = if attrs.stringify_synthetic
                         attrs.stringify_synthetic(token_data)
                     else
-                        (attrs.stringify or _.identity)(value)
+                        (attrs.stringify or encodeHtmlEntities)(value)
 
 
         if attrs.type == "url"

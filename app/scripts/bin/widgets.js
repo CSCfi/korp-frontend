@@ -127,7 +127,10 @@
       return [$(pos_items), $(struct_items)];
     },
     renderItem: function(key, value, attrs, wordData, sentenceData, token_data) {
-      var address, getStringVal, inner, itr, li, link_text, lis, output, pattern, prefix, ref, ref1, ref2, ref3, ref4, ref5, str_value, taginfo_url, target, ul, url, val, valueArray, x;
+      var address, encodeHtmlEntities, getStringVal, inner, itr, li, link_text, lis, output, pattern, prefix, ref, ref1, ref2, ref3, ref4, ref5, str_value, taginfo_url, target, ul, url, val, valueArray, x;
+      encodeHtmlEntities = function(s) {
+        return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      };
       if (((ref = attrs.displayType) === "hidden" || ref === "date_interval") || attrs.displayOnly === "search") {
         return "";
       }
@@ -181,7 +184,7 @@
             if (!x.length) {
               continue;
             }
-            val = (attrs.stringify || _.identity)(x);
+            val = (attrs.stringify || encodeHtmlEntities)(x);
             inner = $(_.template(pattern, {
               key: x,
               val: val
@@ -216,7 +219,7 @@
         output.append(ul);
         return output;
       }
-      str_value = attrs.stringify_synthetic ? attrs.stringify_synthetic(token_data) : (attrs.stringify || _.identity)(value);
+      str_value = attrs.stringify_synthetic ? attrs.stringify_synthetic(token_data) : (attrs.stringify || encodeHtmlEntities)(value);
       if (attrs.type === "url") {
         target = (attrs != null ? (ref3 = attrs.url_opts) != null ? ref3.new_window : void 0 : void 0) ? " target='_blank'" : "";
         if (attrs != null ? (ref4 = attrs.url_opts) != null ? ref4.stringify_link : void 0 : void 0) {
