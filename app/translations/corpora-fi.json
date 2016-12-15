@@ -1648,6 +1648,7 @@
     "scotscorr_fraser" : "kuvaus",
     "scotscorr_open_wordlist" : "Avaa korpuksen sanalista, josta voi valita etsittävät sanat",
     "scotscorr_selected_words_with_freq" : "eri sanaa valittuina, kokonaisfrekvenssi",
+    "word_related_comment" : "sanaan liittyvä kommentti",
 
     "link_to_original" : "linkki alkuperäiseen",
     "gloss" : "glossi",

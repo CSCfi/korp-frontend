@@ -2116,7 +2116,10 @@ settings.fn.extend_corpus_settings(
 	    // This currently adds "word" also as a word attribute in
 	    // attribute selection list, but it works in the same way
 	    // as the word itself.
-	    word : attrs.scotscorr_word
+	    word : attrs.scotscorr_word,
+	    comment : {
+		label : "word_related_comment",
+	    },
 	},
 	struct_attributes : sattrlist.scotscorr,
 	ignore_between_tokens_cqp : '[word="[^a-zA-Z0-9]+|\\{.*"]*',

@@ -1019,6 +1019,7 @@
     "scotscorr_fraser" : "description",
     "scotscorr_open_wordlist" : "Open a corpus word list from which you can select word forms to search for.",
     "scotscorr_selected_words_with_freq" : "different words selected with a total frequency of",
+    "word_related_comment" : "word-related comment",
 
     "librisid" : "Libris-ID",
 
