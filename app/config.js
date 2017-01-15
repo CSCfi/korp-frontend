@@ -11735,6 +11735,25 @@ settings.corpora.topling_fi = {
     struct_attributes : sattrlist.topling
 };
 
+settings.corpora.eduskunta = {
+    title : "Eduskunta - transkriptiot",
+    description : "Eduskunta - transkriptiot",
+    id : "eduskunta",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {},
+    struct_attributes : {
+        text_filename : {
+            label : "file_name",
+        },
+        text_date : sattrs.date,
+        text_time : sattrs.text_time,
+        paragraph_participant : {
+            label : "speech_speakername"
+        }
+    }
+};
+
 settings.corpus_aliases["topling-fi"] = "topling_fi";
 
 
