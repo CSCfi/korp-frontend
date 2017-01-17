@@ -1260,13 +1260,20 @@
   };
 
   util.formatCorpusExtraInfo = function(corpusObj) {
-    var getUrnOrUrl, i, info_item, info_items, info_obj, label, link_info, makeLinkItem, result;
+    var getUrnOrUrl, i, info_item, info_items, info_obj, label, link_info, makeLinkItem, makeUrnUrl, result;
     info_items = arguments.length > 1 && arguments[1] ? arguments[1] : (settings.corpusExtraInfoItems != null) || [];
+    makeUrnUrl = function(urn) {
+      if (urn.indexOf('http') !== 0) {
+        return settings.urnResolver + urn;
+      } else {
+        return urn;
+      }
+    };
     getUrnOrUrl = function(obj) {
       var prefix;
       prefix = arguments.length > 1 ? arguments[1] : '';
       if (prefix + 'urn' in obj) {
-        return settings.urnResolver + obj[prefix + 'urn'];
+        return makeUrnUrl(obj[prefix + 'urn']);
       } else {
         return obj[prefix + 'url'];
       }
@@ -1297,7 +1304,7 @@
       label = '<span rel=\'localize[corpus_' + info_item + ']\'>' + 'Corpus ' + info_item + '</span>';
       if (info_item === 'urn' && corpusObj.urn) {
         link_info = {
-          url: settings.urnResolver + corpusObj.urn,
+          url: makeUrnUrl(corpusObj.urn),
           text: corpusObj.urn,
           label: label
         };

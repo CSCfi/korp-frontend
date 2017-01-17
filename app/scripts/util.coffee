@@ -1194,13 +1194,21 @@ util.formatCorpusExtraInfo = (corpusObj) ->
         else
             settings.corpusExtraInfoItems? or []
 
+    # Return the URN resolver URL for an URN: prefix
+    # settings.urnResolver unless the URN string begins with "http".
+    makeUrnUrl = (urn) ->
+        if urn.indexOf('http') != 0
+            settings.urnResolver + urn
+        else
+            urn
+
     # Get the value of a URN (preferred, prefixed with resolver URL)
     # or URL property in obj. The optional second argument specifies
     # the property name prefix to "urn" or "url".
     getUrnOrUrl = (obj) ->
         prefix = if arguments.length > 1 then arguments[1] else ''
         if prefix + 'urn' of obj
-            settings.urnResolver + obj[prefix + 'urn']
+            makeUrnUrl(obj[prefix + 'urn'])
         else
             obj[prefix + 'url']
 
@@ -1239,7 +1247,7 @@ util.formatCorpusExtraInfo = (corpusObj) ->
             'Corpus ' + info_item + '</span>'
         if info_item == 'urn' and corpusObj.urn
             link_info =
-                url: settings.urnResolver + corpusObj.urn
+                url: makeUrnUrl(corpusObj.urn)
                 text: corpusObj.urn
                 label: label
         else if info_item == 'homepage' and ! ('homepage' of corpusObj) and
