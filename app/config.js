@@ -1673,7 +1673,6 @@ attrs.ner_bio = {
     label : "ner_bio",
     displayType : "select",
     translationKey : "ner_bio_",
-    isStructAttr : true,
     dataset : [
 	"B",
 	"I",
