@@ -2629,7 +2629,7 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_ekonomi",
 	"lehdet_elinehto",
 	"lehdet_elamantahdet",
-	"lehdet_elamassa",
+	"lehdet_elamassa_kelansanomat",
 	"lehdet_emma",
 	"lehdet_entisesta_enemman",
 	"lehdet_ernie",
@@ -2650,7 +2650,6 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_helsinki_info",
 	"lehdet_hengitys",
 	"lehdet_heppu",
-	"lehdet_hervannan_sanomat",
 	"lehdet_hima",
 	"lehdet_hopealeijona",
 	"lehdet_huili",
@@ -2671,7 +2670,6 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_kauppapolitiikka",
 	"lehdet_kaupunkilainen",
 	"lehdet_kehittaja",
-	"lehdet_kelansanomat",
 	"lehdet_kemia_kemi",
 	"lehdet_kemilainen",
 	"lehdet_kerberos",
@@ -8190,10 +8188,10 @@ settings.corpora.lehdet_tiedetoimittaja = {
     },
 };
 
-settings.corpora.lehdet_elamassa = {
-    id: "lehdet_elamassa",
-    title: "Elämässä",
-    description: "Elämässä (2009-2014)<br/>Julkaisija: Kansaneläkelaitos (Kela)<br/>Kotisivu: <a href='http://www.kela.fi/elamassa'>http://www.kela.fi/elamassa</a>",
+settings.corpora.lehdet_elamassa_kelansanomat = {
+    id: "lehdet_elamassa_kelansanomat",
+    title: "Elämässä/Kelan sanomat",
+    description: "Kelan sanomat (2008), Elämässä (2009-2014)<br/>Julkaisija: Kansaneläkelaitos (Kela)<br/>Kotisivu: <a href='http://www.kela.fi/elamassa'>http://www.kela.fi/elamassa</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -8211,26 +8209,7 @@ settings.corpora.lehdet_elamassa = {
     },
 };
 
-settings.corpora.lehdet_kelansanomat = {
-    id: "lehdet_kelansanomat",
-    title: "Kelan sanomat",
-    description: "Kelan sanomat (2008)<br/>Julkaisija: Kansaneläkelaitos (Kela)<br/>Kotisivu: <a href='http://www.kela.fi/elamassa'>http://www.kela.fi/elamassa</a>",
-    urn: "urn:nbn:fi:lb-2016021202",
-    metadata_urn: "urn:nbn:fi:lb-2016011101",
-    licence: settings.licenceinfo.CC_BY_40,
-    features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
-        text_title: sattrs.text_title,
-        text_year: {
-            label: "year",
-        },
-        text_issue: {
-            label: "issue",
-        },
-        paragraph_id: sattrs.paragraph_id_hidden,
-        sentence_id: sattrs.sentence_id_hidden,
-    },
-};
+
 
 settings.corpora.lehdet_sosiaalivakuutus = {
     id: "lehdet_sosiaalivakuutus",
@@ -8403,7 +8382,7 @@ settings.corpora.lehdet_hyva_asukas = {
 settings.corpora.lehdet_impakti = {
     id: "lehdet_impakti",
     title: "Impakti",
-    description: "Impakti (1995-1/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Impakti_1995-2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Yva ry<br/>Kotisivu: <a href='http://www.yvary.fi/arkisto/impakti/'>http://www.yvary.fi/arkisto/impakti/</a>",
+    description: "Impakti (1995-1/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Impakti_1995-1_2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Yva ry<br/>Kotisivu: <a href='http://www.yvary.fi/arkisto/impakti/'>http://www.yvary.fi/arkisto/impakti/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -8466,7 +8445,7 @@ settings.corpora.lehdet_jargonia = {
 settings.corpora.lehdet_kalpa = {
     id: "lehdet_kalpa",
     title: "Kalpa",
-    description: "Kalpa (2006-1/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Kalpa_2006-2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Kadettioppilaskunta ry (KOK)<br/>Kotisivu: <a href='https://kadettitoverikunta.fi/index.htm?nav=kalpa&lang=fi'>https://kadettitoverikunta.fi/index.htm?nav=kalpa&lang=fi</a>",
+    description: "Kalpa (2006-1/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Kalpa_2006-1_2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Kadettioppilaskunta ry (KOK)<br/>Kotisivu: <a href='https://kadettitoverikunta.fi/index.htm?nav=kalpa&lang=fi'>https://kadettitoverikunta.fi/index.htm?nav=kalpa&lang=fi</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -8508,7 +8487,7 @@ settings.corpora.lehdet_kansanopisto = {
 settings.corpora.lehdet_karhunkierros = {
     id: "lehdet_karhunkierros",
     title: "Karhunkierros",
-    description: "Karhunkierros (1990-2/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Karhunkierros_1990-2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Satakuntalainen Osakunta<br/>Kotisivu: <a href='https://www.satakuntalainenosakunta.fi/fi/osakunta/karhunkierros/'>https://www.satakuntalainenosakunta.fi/fi/osakunta/karhunkierros/</a>",
+    description: "Karhunkierros (1990-2/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Karhunkierros_1990-2_2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Satakuntalainen Osakunta<br/>Kotisivu: <a href='https://www.satakuntalainenosakunta.fi/fi/osakunta/karhunkierros/'>https://www.satakuntalainenosakunta.fi/fi/osakunta/karhunkierros/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -8529,7 +8508,7 @@ settings.corpora.lehdet_karhunkierros = {
 settings.corpora.lehdet_kehittaja = {
     id: "lehdet_kehittaja",
     title: "Kehittäjä",
-    description: "Kehittäjä (2/2005-2015)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Kehittaja_2005-2015_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Laurea-ammattikorkeakoulu Oy<br/>Kotisivu: <a href='https://www.laurea.fi/tutkimus-kehitys-ja-innovaatiot/tutustu-kehittaja-lehteen'>https://www.laurea.fi/tutkimus-kehitys-ja-innovaatiot/tutustu-kehittaja-lehteen</a>",
+    description: "Kehittäjä (2/2005-2015)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Kehittaja_2_2005-2015_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Laurea-ammattikorkeakoulu Oy<br/>Kotisivu: <a href='https://www.laurea.fi/tutkimus-kehitys-ja-innovaatiot/tutustu-kehittaja-lehteen'>https://www.laurea.fi/tutkimus-kehitys-ja-innovaatiot/tutustu-kehittaja-lehteen</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -8550,7 +8529,7 @@ settings.corpora.lehdet_kehittaja = {
 settings.corpora.lehdet_kerberos = {
     id: "lehdet_kerberos",
     title: "Kerberos",
-    description: "Kerberos (2000-2/2010)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Kerberos_2000-2010_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Kerberos<br/>Kotisivu: <a href='http://www.kolhoosi.fi/kerberos/vanhat.html'>http://www.kolhoosi.fi/kerberos/vanhat.html</a>",
+    description: "Kerberos (2000-2/2010)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Kerberos_2000-2_2010_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Kerberos<br/>Kotisivu: <a href='http://www.kolhoosi.fi/kerberos/vanhat.html'>http://www.kolhoosi.fi/kerberos/vanhat.html</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -8634,7 +8613,7 @@ settings.corpora.lehdet_kide = {
 settings.corpora.lehdet_kiitotie = {
     id: "lehdet_kiitotie",
     title: "Kiitotie",
-    description: "Kiitotie (2003-1/2006)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Kiitotie_2003-2006_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Ilmailulaitos Finavia<br/>Kotisivu: <a href='https://www.finavia.fi/fi/tiedottaminen/arkisto/asiakaslehdet/'>https://www.finavia.fi/fi/tiedottaminen/arkisto/asiakaslehdet/</a>",
+    description: "Kiitotie (2003-1/2006)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Kiitotie_2003-1_2006_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Ilmailulaitos Finavia<br/>Kotisivu: <a href='https://www.finavia.fi/fi/tiedottaminen/arkisto/asiakaslehdet/'>https://www.finavia.fi/fi/tiedottaminen/arkisto/asiakaslehdet/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
