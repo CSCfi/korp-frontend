@@ -1833,3 +1833,32 @@ util.splitCompareKey = (key, reduce_attrs, attr_is_struct_attr) ->
                 [tokens]
             else
                 tokens.split " "
+
+
+# Add to selector a Shibboleth login or logout link as defined by
+# settings[url_prop]. If the link is a string, it is taken as a URL.
+# If it is a function, it is used to generate the URL dynamically at
+# link click time. This allows passing the current URL (including
+# parameters and hash) to the Shibboleth pages (scripts), which in
+# turn allows retaining the state of Korp (mode, language, selected
+# corpora, query) in login or logout. The function parameter
+# add_link_fn is used to add the URL to the HTML. It should take two
+# arguments: elem (corresponding to $(selector)) and href (the value
+# of the href attribute of the a element to be set or added).
+# (Jyrki Niemi 2015-05-06)
+util.makeShibbolethLink = (selector, url_prop, add_link_fn) ->
+    url = settings[url_prop]
+    if url?
+        if typeof url != "function"
+            add_link_fn($(selector), url)
+        else
+            add_link_fn($(selector), "javascript:")
+            $(selector).find("a").click((url_fn) ->
+                (e) ->
+                    e.preventDefault()
+                    window.location.href = url_fn()
+                    return
+            )(url)
+    else
+        c.log "settings.#{url_prop} not defined"
+    return

@@ -1805,4 +1805,23 @@
     });
   };
 
+  util.makeShibbolethLink = function(selector, url_prop, add_link_fn) {
+    var url;
+    url = settings[url_prop];
+    if (url != null) {
+      if (typeof url !== "function") {
+        add_link_fn($(selector), url);
+      } else {
+        add_link_fn($(selector), "javascript:");
+        $(selector).find("a").click(function(url_fn) {
+          return function(e) {
+            e.preventDefault();
+            window.location.href = url_fn();
+          };
+        })(url);
+      }
+    } else {
+      c.log("settings." + url_prop + " not defined");
+    }
+  };
 }).call(this);
