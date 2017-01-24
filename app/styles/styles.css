@@ -6101,55 +6101,64 @@ li.active a span .num-to-find {
 }
 
 /* Styles for the restricted corpora access modal */
-/* line 2815, styles.scss */
+/* line 2814, styles.scss */
+#accessResCorporaModal {
+  z-index: 11000;
+}
+/* line 2818, styles.scss */
 #accessResCorporaModal .modal-body {
   min-height: 2em;
 }
-/* line 2822, styles.scss */
+/* line 2825, styles.scss */
 #accessResCorporaModal .close-x {
   opacity: 1;
 }
 
-/* line 2827, styles.scss */
+/* line 2830, styles.scss */
 #resCorporaList li {
   margin-left: 1em;
   font-size: 0.8em;
 }
 
-/* line 2832, styles.scss */
+/* line 2835, styles.scss */
 #resCorporaListContainer {
   max-height: 20em;
   overflow-y: auto;
   display: inline;
 }
 
-/* line 2838, styles.scss */
+/* line 2841, styles.scss */
 #resCorporaLogin,
 #resCorporaLBR {
   margin-left: 1em;
 }
 
+/* line 2846, styles.scss */
+.modal-backdrop {
+  z-index: 10040;
+}
+
 /* Styles specific to Kielipankki's corpora */
 /* DMA signum lists represented as tables */
-/* line 2849, styles.scss */
+/* line 2859, styles.scss */
 .dma-signumlist td {
   vertical-align: top;
 }
-/* line 2852, styles.scss */
+/* line 2862, styles.scss */
 .dma-signumlist .sgo0, .dma-signumlist .sgo5 {
   font-weight: bold;
 }
-/* line 2855, styles.scss */
+/* line 2865, styles.scss */
 .dma-signumlist .sgo3 {
   font-weight: bold;
   font-size: 1.2em;
 }
-/* line 2859, styles.scss */
+/* line 2869, styles.scss */
 .dma-signumlist .sgo4 {
   font-weight: bold;
   font-size: 1.4em;
 }
-/* line 2864, styles.scss */
+/* line 2874, styles.scss */
 .dma-signumlist tr.vspacer {
   font-size: 0.3em;
 }
