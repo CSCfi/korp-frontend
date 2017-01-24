@@ -45,11 +45,26 @@
       c.log("CorpusListing.select", idArray);
       this.selected = _.values(_.pick.apply(this, [this.struct].concat(idArray)));
       this.updateIgnoreBetweenTokensCQP();
+      c.log("CorpusListing.selected:", this.selected);
       return this.selected;
     };
 
     CorpusListing.prototype.mapSelectedCorpora = function(f) {
       return _.map(this.selected, f);
+    };
+
+    CorpusListing.prototype.getRestrictedCorpora = function() {
+      return _(this.corpora).filter(function(corp) {
+        return corp.limited_access;
+      }).pluck("id").value();
+    };
+
+    CorpusListing.prototype.getTitles = function(corpora) {
+      return _(corpora).map((function(_this) {
+        return function(corp) {
+          return _this.struct[corp];
+        };
+      })(this)).pluck("title").value();
     };
 
     CorpusListing.prototype._mapping_intersection = function(mappingArray) {
@@ -1805,23 +1820,94 @@
     });
   };
 
-  util.makeShibbolethLink = function(selector, url_prop, add_link_fn) {
+  util.makeShibbolethLink = function(selector, url_prop, add_link_fn, url_filter) {
     var url;
+    if (url_filter == null) {
+      url_filter = _.identity;
+    }
     url = settings[url_prop];
     if (url != null) {
       if (typeof url !== "function") {
         add_link_fn($(selector), url);
       } else {
         add_link_fn($(selector), "javascript:");
-        $(selector).find("a").click(function(url_fn) {
+        $(selector).find("a").click((function(url_fn) {
           return function(e) {
             e.preventDefault();
-            window.location.href = url_fn();
+            window.location.href = url_fn(url_filter(window.location.href));
           };
-        })(url);
+        })(url));
       }
     } else {
-      c.log("settings." + url_prop + " not defined");
+      c.warn("settings." + url_prop + " not defined");
     }
   };
+
+  util.url_add_corpora = function(href, corpora) {
+    var corpora_str;
+    corpora_str = corpora.join(",");
+    if (href.indexOf("corpus=") === -1) {
+      return href + "&corpus=" + corpora_str;
+    } else {
+      return href.replace(/(&corpus=[^&]+)/, "$1," + corpora_str);
+    }
+  };
+
+  util.url_remove_corpora = function(href, corpora) {
+    var href_corpora;
+    if (href.indexOf("corpus=") === -1) {
+      return href;
+    } else {
+      href_corpora = /corpus=([^&]*)/.exec(href)[1].split(",");
+      href_corpora = _.difference(href_corpora, corpora).join(",");
+      href = href.replace(/(&corpus=)[^&]+/, "$1" + href_corpora);
+      return href;
+    }
+  };
+
+  util.showRestrictedCorporaModal = function(corpora) {
+    var corpus_titles;
+    util.makeShibbolethLink("#resCorporaLogin", "shibbolethLoginUrl", (function(_this) {
+      return function(elem, href) {
+        return elem.find("a").attr("href", href);
+      };
+    })(this), (function(_this) {
+      return function(href) {
+        return util.url_add_corpora(href, corpora);
+      };
+    })(this));
+    corpus_titles = settings.corpusListing.getTitles(corpora);
+    c.log("You are not allowed to access the following corpora:", corpora, corpus_titles);
+    $("#resCorporaList").html(_.map(corpus_titles, function(title) {
+      return "<li>" + title + "</li>";
+    }));
+    return $("#accessResCorporaModal").modal();
+  };
+
+  util.checkTryingRestrictedCorpora = function(selected_corpora) {
+    var allowed, allowed_restricted, creds, non_allowed_corpora, restricted_corpora, selected_all, selected_nonrestricted, selected_restricted_corpora;
+    if (!(selected_corpora != null ? selected_corpora.length : void 0)) {
+      return;
+    }
+    restricted_corpora = settings.corpusListing.getRestrictedCorpora();
+    selected_restricted_corpora = _.intersection(restricted_corpora, selected_corpora);
+    if (selected_restricted_corpora != null ? selected_restricted_corpora.length : void 0) {
+      creds = $.jStorage.get("creds");
+      allowed = _.map((creds != null ? creds.credentials : void 0) || [], function(corp) {
+        return corp.toLowerCase();
+      });
+      non_allowed_corpora = _.difference(selected_restricted_corpora, allowed);
+      if (non_allowed_corpora != null ? non_allowed_corpora.length : void 0) {
+        util.showRestrictedCorporaModal(non_allowed_corpora);
+      }
+      allowed_restricted = _.intersection(selected_restricted_corpora, allowed);
+      if (allowed_restricted != null ? allowed_restricted.length : void 0) {
+        selected_nonrestricted = _.difference(selected_corpora, selected_restricted_corpora);
+        selected_all = _.union(selected_nonrestricted, allowed_restricted);
+        settings.corpusListing.select(selected_all);
+        return typeof corpusChooserInstance !== "undefined" && corpusChooserInstance !== null ? corpusChooserInstance.corpusChooser("selectItems", selected_all) : void 0;
+      }
+    }
+  };
+
 }).call(this);

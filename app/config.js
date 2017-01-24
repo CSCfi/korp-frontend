@@ -152,15 +152,16 @@ settings.authenticationType = (isProductionServer ? "shibboleth" : "basic");
 // authenticationType == "shibboleth"
 // for eduGAIN / CSC Account:
 // settings.shibbolethLoginUrl = baseURL + "shibboleth-ds/index.html";
-settings.shibbolethLoginUrl = function () {
+settings.shibbolethLoginUrl = function (href) {
     return ("/shibboleth-ds/index.html?"
-           + encodeURIComponent(window.location.href + "&shib_logged_in"));
+            + encodeURIComponent((href || window.location.href)
+				 + "&shib_logged_in"));
 };
 // settings.shibbolethLogoutUrl =
 //     "https://korp.csc.fi/Shibboleth.sso/Logout?return=" + encodeURI(baseURL);
-settings.shibbolethLogoutUrl = function () {
+settings.shibbolethLogoutUrl = function (href) {
     return ("/Shibboleth.sso/Logout?return="
-            + encodeURIComponent(window.location.href));
+            + encodeURIComponent(href || window.location.href));
 }
 
 // The supported corpus extra info items, typically links. If you add
@@ -2935,6 +2936,7 @@ settings.corpora.testcorp = {
     id : "testcorp",
     within : settings.defaultWithin,
     context : settings.defaultContext,
+    // limited_access : true,
     attributes : {
 	lemma : attrs.baseform,
         pos : attrs.pos

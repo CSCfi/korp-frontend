@@ -8,6 +8,8 @@
 
   creds = $.jStorage.get("creds");
 
+  console.log("creds (0)", creds);
+
   if (creds) {
     authenticationProxy.loginObj = creds;
   }
@@ -64,7 +66,7 @@
   });
 
   $.when(loc_dfd, deferred_domReady).then((function(loc_data) {
-    var corpus, e, prevFragment, tab_a_selector;
+    var corpus, e, j, len, login_elem, prevFragment, ref, tab_a_selector, url_corpora;
     c.log("preloading done, t = ", $.now() - t);
     util.mapHashCorpusAliases();
     util.addDefaultTranslations();
@@ -72,12 +74,13 @@
     try {
       corpus = search()["corpus"];
       if (corpus) {
-        settings.corpusListing.select(corpus.split(","));
+        url_corpora = corpus.split(",");
+        settings.corpusListing.select(url_corpora);
       }
       view.updateSearchHistory();
     } catch (_error) {
       e = _error;
-      c.warn("ERROR setting corpora from location");
+      c.warn("ERROR setting corpora from location:", e);
     }
     if (isLab) {
       $("body").addClass("lab");
@@ -104,6 +107,7 @@
       }
     });
     if (!sessionStorage.getItem("newSession")) {
+      c.log("new session; creds to be deleted:", creds);
       sessionStorage.setItem("newSession", true);
       $.jStorage.deleteKey("creds");
       c.log("delete creds");
@@ -135,10 +139,18 @@
         });
         util.makeShibbolethLink("#log_out", "shibbolethLogoutUrl", function(elem, href) {
           return elem.wrapInner("<a href='" + href + "'></a>");
-        });
+        }, (function(_this) {
+          return function(href) {
+            return util.url_remove_corpora(href, settings.corpusListing.getRestrictedCorpora());
+          };
+        })(this));
         break;
       case "basic":
-        $("#login").find("a").attr("href", "javascript:");
+        ref = ["#login", "#resCorporaLogin"];
+        for (j = 0, len = ref.length; j < len; j++) {
+          login_elem = ref[j];
+          $(login_elem).find("a").attr("href", "javascript:");
+        }
         break;
       default:
         $("#login").css("display", "none");
@@ -193,10 +205,14 @@
           $("body").toggleClass("logged_in not_logged_in");
           util.setLogin();
         }
+        util.checkTryingRestrictedCorpora(url_corpora);
         return search("shib_logged_in", null);
       }).fail(function() {
         return c.log("login fail");
       });
+    }
+    if (search().shib_logged_in == null) {
+      util.checkTryingRestrictedCorpora(url_corpora);
     }
     $("#languages").radioList({
       change: function() {

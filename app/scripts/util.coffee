@@ -39,11 +39,25 @@ class window.CorpusListing
         # in controller "ExtendedSearch": $on "corpuschooserchange"
         # (search_controllers)? (Jyrki Niemi 2016-03-18)
         @updateIgnoreBetweenTokensCQP()
+        c.log "CorpusListing.selected:", @selected
         @selected
 
     mapSelectedCorpora: (f) ->
         _.map @selected, f
 
+    # Return the ids of all the corpora with restricted access
+    getRestrictedCorpora: ->
+        _(@corpora)
+            .filter((corp) -> corp.limited_access)
+            .pluck "id"
+            .value()
+
+    # Return the titles of the corpora given as the argument
+    getTitles: (corpora) ->
+        _(corpora)
+            .map((corp) => @struct[corp])
+            .pluck "title"
+            .value()
 
     # takes an array of mapping objs and returns their intersection
     _mapping_intersection: (mappingArray) ->
@@ -1838,27 +1852,97 @@ util.splitCompareKey = (key, reduce_attrs, attr_is_struct_attr) ->
 # Add to selector a Shibboleth login or logout link as defined by
 # settings[url_prop]. If the link is a string, it is taken as a URL.
 # If it is a function, it is used to generate the URL dynamically at
-# link click time. This allows passing the current URL (including
-# parameters and hash) to the Shibboleth pages (scripts), which in
-# turn allows retaining the state of Korp (mode, language, selected
-# corpora, query) in login or logout. The function parameter
+# link click time. The function is passed the URL in
+# window.location.href as modified by the function url_filter
+# (identity function by default). This allows passing the current URL
+# (including parameters and hash) to the Shibboleth pages (scripts),
+# which in turn allows retaining the state of Korp (mode, language,
+# selected corpora, query) in login or logout. The function parameter
 # add_link_fn is used to add the URL to the HTML. It should take two
 # arguments: elem (corresponding to $(selector)) and href (the value
 # of the href attribute of the a element to be set or added).
 # (Jyrki Niemi 2015-05-06)
-util.makeShibbolethLink = (selector, url_prop, add_link_fn) ->
+util.makeShibbolethLink = (selector, url_prop, add_link_fn,
+                           url_filter = _.identity) ->
     url = settings[url_prop]
     if url?
         if typeof url != "function"
             add_link_fn($(selector), url)
         else
             add_link_fn($(selector), "javascript:")
-            $(selector).find("a").click((url_fn) ->
+            $(selector).find("a").click ((url_fn) ->
                 (e) ->
                     e.preventDefault()
-                    window.location.href = url_fn()
+                    window.location.href = url_fn(
+                        url_filter(window.location.href))
                     return
             )(url)
     else
-        c.log "settings.#{url_prop} not defined"
+        c.warn "settings.#{url_prop} not defined"
     return
+
+
+# Return href with the corpora in the array corpora added to its URL
+# parameter "corpus".
+util.url_add_corpora = (href, corpora) ->
+    corpora_str = corpora.join(",")
+    if href.indexOf("corpus=") == -1
+        "#{href}&corpus=#{corpora_str}"
+    else
+        href.replace(/(&corpus=[^&]+)/, "$1,#{corpora_str}")
+
+
+# Return href with the corpora in the array corpora removed from its
+# URL parameter "corpus".
+util.url_remove_corpora = (href, corpora) ->
+    if href.indexOf("corpus=") == -1
+        href
+    else
+        href_corpora = /corpus=([^&]*)/.exec(href)[1].split(",")
+        href_corpora = _.difference(href_corpora, corpora).join(",")
+        # c.log "url_remove_corpora href before", href
+        href = href.replace(/(&corpus=)[^&]+/, "$1#{href_corpora}")
+        # c.log "url_remove_corpora href after", href
+        href
+
+
+# Display the restricted corpora access modal with the titles of the
+# given corpora listed.
+# TODO: For "technical" subcorpora, show the higher level corpus.
+util.showRestrictedCorporaModal = (corpora) ->
+    util.makeShibbolethLink(
+        "#resCorporaLogin", "shibbolethLoginUrl",
+        (elem, href) => elem.find("a").attr("href", href),
+        (href) => util.url_add_corpora href, corpora)
+    corpus_titles = settings.corpusListing.getTitles corpora
+    c.log("You are not allowed to access the following corpora:",
+          corpora, corpus_titles)
+    $("#resCorporaList").html(
+        _.map corpus_titles, (title) -> "<li>#{title}</li>")
+    $("#accessResCorporaModal").modal()
+
+
+# Check if selected_corpora contains corpora which are currently not
+# accessible. If it does, display the restricted corpora access modal.
+# If selected_corpora contains restricted corpora accessible to the
+# user, select them in the corpus selector.
+util.checkTryingRestrictedCorpora = (selected_corpora) ->
+    if not selected_corpora?.length
+        return
+    restricted_corpora = settings.corpusListing.getRestrictedCorpora()
+    selected_restricted_corpora = _.intersection(restricted_corpora,
+                                                 selected_corpora)
+    if selected_restricted_corpora?.length
+        creds = $.jStorage.get("creds")
+        allowed = _.map((creds?.credentials or []),
+                        (corp) -> corp.toLowerCase())
+        non_allowed_corpora = _.difference selected_restricted_corpora, allowed
+        if non_allowed_corpora?.length
+            util.showRestrictedCorporaModal non_allowed_corpora
+        allowed_restricted = _.intersection selected_restricted_corpora, allowed
+        if allowed_restricted?.length
+            selected_nonrestricted = _.difference(selected_corpora,
+                                                  selected_restricted_corpora)
+            selected_all = _.union selected_nonrestricted, allowed_restricted
+            settings.corpusListing.select selected_all
+            corpusChooserInstance?.corpusChooser "selectItems", selected_all
