@@ -2374,6 +2374,11 @@ settings.corporafolders.sv = {
 };
 */
 
+settings.corporafolders.ceal = {
+    title : "CEAL",
+    contents : ["ceal_o", "ceal_s"]
+};
+
 settings.corporafolders.ethesis = {
     title : "E-thesis",
     contents : ["ethesis_maabs", "ethesis_dissabs"]
@@ -14973,6 +14978,46 @@ settings.corpora.topling_fi = {
     licence_type : "RES",
     attributes : attrlist.topling,
     struct_attributes : sattrlist.topling
+};
+
+settings.corpora.ceal_o = {
+    title : "CEAL-o",
+    description : "Classics of English and American Literature in Finnish (original)",
+    id : "ceal_o",
+    limited_access : true,
+    licence_type : "RES",
+    metadata_urn : "urn:nbn:fi:lb-2017011302",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_year : sattrs.date,
+        text_author : {
+            label : "text_author"
+        },
+        text_translator : sattrs.text_translator
+    }
+};
+
+settings.corpora.ceal_s = {
+    title : "CEAL-s",
+    description : "Classics of English and American Literature in Finnish (scrambled)",
+    id : "ceal_s",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    metadata_urn : "urn:nbn:fi:lb-2017011303",
+    limited_access : true,
+    licence_type : "ACA",
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_year : sattrs.date,
+        text_author : {
+            label : "text_author"
+        },
+        text_translator : sattrs.text_translator
+    }
 };
 
 settings.corpora.eduskunta = {
