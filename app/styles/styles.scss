@@ -2827,15 +2827,17 @@ li.active a span .num-to-find {
     }
 }
 
-#resCorporaList li {
-    margin-left: 1em;
-    font-size: 0.8em;
+#resCorporaList {
+    display: inline;
+    li {
+        margin-left: 1em;
+        font-size: 0.8em;
+    }
 }
 
 #resCorporaListContainer {
     max-height: 20em;
     overflow-y: auto;
-    display: inline;
 }
 
 #resCorporaLogin,
