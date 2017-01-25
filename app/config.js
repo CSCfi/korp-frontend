@@ -8466,7 +8466,7 @@ settings.corpora.lehdet_kalpa = {
 settings.corpora.lehdet_kansanopisto = {
     id: "lehdet_kansanopisto",
     title: "Kansanopisto",
-    description: "Kansanopisto (2004-2011)<br/><a href='https://docs.google.com/spreadsheets/d/1meMW2ypIAvuaC9gXo8dWG3i4q1i2NEyCnu_ybKrhQfU/edit#gid=1911476341'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Suomen Kansanopistoyhdistys<br/>Kotisivu: <a href='http://www.kansanopistot.fi/lehti/'>http://www.kansanopistot.fi/lehti/</a>",
+    description: "Kansanopisto (2004-2011)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Kansanopisto_2004-2011_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Suomen Kansanopistoyhdistys<br/>Kotisivu: <a href='http://www.kansanopistot.fi/lehti/'>http://www.kansanopistot.fi/lehti/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
