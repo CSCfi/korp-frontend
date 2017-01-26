@@ -12,10 +12,14 @@
           ul#resCorporaList
         //- Show the link to login only if not logged in and the LBR
         //- link in any case
-        p.hide_if_logged_in {{'accessres_login_or_apply' | loc:lang}}:
-        p.hide_if_not_logged_in {{'accessres_apply' | loc:lang}}:
-        p#resCorporaLogin.hide_if_logged_in
-          a(href='javascript:') {{'log_in' | loc:lang}}
+        p#resCorporaLinks
+          | {{'accessres_links_preamble' | loc:lang}} 
+          span.hide_if_logged_in
+            span#resCorporaLogin
+              a(href='javascript:')
+                | {{'accessres_login' | loc:lang}} 
+            | {{'or' | loc:lang}} 
+          a(href="https://lbr.csc.fi/", target="_blank")
+            | {{'accessres_apply' | loc:lang}}
+          | .
         //- TODO: Show links to corpus-specific applications in LBR
-        p#resCorporaLBR
-          a(href="https://lbr.csc.fi/", target="_blank") {{'accessres_apply_linktext' | loc:lang}}

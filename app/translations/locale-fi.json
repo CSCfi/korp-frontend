@@ -358,8 +358,9 @@
 
     "accessres_title" : "Rajoitettujen korpusten käyttäminen",
     "accessres_preamble" : "Yrität valita tai käyttää seuraavia korpuksia, joiden käyttäminen vaatii henkilökohtaisen käyttöoikeuden",
+    "accessres_links_preamble" : "Voidaksesi käyttää korpuksia",
     "accessres_login_or_apply" : "Kirjaudu Korpiin tai hae käyttöoikeuksia voidaksesi käyttää korpuksia",
-    "accessres_apply" : "Hae käyttöoikeuksia voidaksesi käyttää korpuksia",
-    "accessres_apply_linktext" : "Hae korpusten käyttöoikeuksia Kielipankin oikeudet -sovelluksessa"
+    "accessres_login" : "kirjaudu Korpiin",
+    "accessres_apply" : "hae korpusten käyttöoikeuksia"
 
 }
