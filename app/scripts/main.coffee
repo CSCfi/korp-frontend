@@ -239,6 +239,15 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
     $(document).click ->
         $("#simple_text.ui-autocomplete-input").autocomplete "close"
 
+    util.initCorpusSettingsFeatures()
+    util.initCorpusSettingsLinkAttrs()
+    util.initCorpusSettingsSyntheticAttrs()
+    util.initCorpusSettingsAttrDisplayOrder()
+
+    # FIXME: view.initSearchOptions should probably be executed only
+    # after the corpora are set after a login, to ensure that
+    # initSearchOptions gets options from all the selected corpora.
+    # How to ensure that? (Jyrki Niemi 2017-01-26)
     setTimeout(() -> 
         view.initSearchOptions()
         onHashChange null, true
@@ -253,11 +262,8 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
     , ->
         $(this).css "opacity", ""
 
-    util.initCorpusSettingsFeatures()
-    util.initCorpusSettingsLinkAttrs()
-    util.initCorpusSettingsSyntheticAttrs()
-    util.initCorpusSettingsAttrDisplayOrder()
     # initTimeGraph()
+    return
 ), ->
     c.log "failed to load some resource at startup.", arguments
     $("body").css(

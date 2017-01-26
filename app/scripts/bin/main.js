@@ -227,6 +227,10 @@
     $(document).click(function() {
       return $("#simple_text.ui-autocomplete-input").autocomplete("close");
     });
+    util.initCorpusSettingsFeatures();
+    util.initCorpusSettingsLinkAttrs();
+    util.initCorpusSettingsSyntheticAttrs();
+    util.initCorpusSettingsAttrDisplayOrder();
     setTimeout(function() {
       view.initSearchOptions();
       return onHashChange(null, true);
@@ -241,10 +245,6 @@
     }, function() {
       return $(this).css("opacity", "");
     });
-    util.initCorpusSettingsFeatures();
-    util.initCorpusSettingsLinkAttrs();
-    util.initCorpusSettingsSyntheticAttrs();
-    return util.initCorpusSettingsAttrDisplayOrder();
   }), function() {
     c.log("failed to load some resource at startup.", arguments);
     return $("body").css({
