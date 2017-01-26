@@ -1647,6 +1647,40 @@
     }
   };
 
+  util.initCorpusSettingsLogicalCorpora = function() {
+    var corpus, corpus_id, ref;
+    util.setFolderLogicalCorpora(settings.corporafolders);
+    ref = settings.corpora;
+    for (corpus_id in ref) {
+      corpus = ref[corpus_id];
+      if (!("logical_corpus" in corpus)) {
+        corpus.logical_corpus = corpus;
+      }
+    }
+  };
+
+  util.setFolderLogicalCorpora = function(folder, logical_corpus) {
+    var corpus, corpus_id, k, len, ref, ref1, ref2, subfolder, subfolder_logical_corpus, subfolder_name;
+    if (logical_corpus == null) {
+      logical_corpus = null;
+    }
+    c.log("setFolderLogicalCorpora", folder, logical_corpus != null ? logical_corpus.title : void 0);
+    ref = folder.contents || [];
+    for (k = 0, len = ref.length; k < len; k++) {
+      corpus_id = ref[k];
+      corpus = settings.corpora[corpus_id];
+      corpus.logical_corpus = logical_corpus || settings.corpora[corpus_id];
+    }
+    for (subfolder_name in folder) {
+      if (!hasProp.call(folder, subfolder_name)) continue;
+      subfolder = folder[subfolder_name];
+      if (subfolder_name !== "title" && subfolder_name !== "contents" && subfolder_name !== "description" && subfolder_name !== "info") {
+        subfolder_logical_corpus = logical_corpus || (((ref1 = subfolder.info) != null ? ref1.is_logical_corpus : void 0) || ((ref2 = subfolder.info) != null ? ref2.urn : void 0) ? subfolder : void 0);
+        util.setFolderLogicalCorpora(subfolder, subfolder_logical_corpus);
+      }
+    }
+  };
+
   settings.common_struct_types = {
     date_interval: {
       label: "date_interval",

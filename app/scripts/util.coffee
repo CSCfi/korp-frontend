@@ -1633,6 +1633,42 @@ util.setCorpusFeatures = (corpusInfo) ->
     return
 
 
+# Initialize the property logical_corpus in settings.corpora.*. The
+# logical corpus of a corpus may be either the physical corpus itself
+# or a corpus folder containing the corpus (possibly indirectly).
+
+util.initCorpusSettingsLogicalCorpora = () ->
+    # Corpora in folders
+    util.setFolderLogicalCorpora settings.corporafolders
+    # Top-level corpora
+    for corpus_id, corpus of settings.corpora
+        unless "logical_corpus" of corpus
+            corpus.logical_corpus = corpus
+    return
+
+# Recursively initialize the property logical_corpus of the corpora in
+# the given folder. If the parameter logical_corpus not null, use it;
+# otherwise, if the folder has property info.is_logical_corpus or
+# info.urn, the folder represents the logical corpus; otherwise, the
+# logical corpus is found deeper in the folder hierarchy or it is the
+# same as the physical corpus.
+
+util.setFolderLogicalCorpora = (folder, logical_corpus = null) ->
+    c.log "setFolderLogicalCorpora", folder, logical_corpus?.title
+    for corpus_id in folder.contents or []
+        corpus = settings.corpora[corpus_id]
+        corpus.logical_corpus = logical_corpus or settings.corpora[corpus_id]
+        # c.log "logical corpus of", corpus_id, "is", corpus.logical_corpus?.title
+    for own subfolder_name, subfolder of folder
+        if subfolder_name not in ["title", "contents", "description", "info"]
+            subfolder_logical_corpus =
+                logical_corpus or (if subfolder.info?.is_logical_corpus or
+                                           subfolder.info?.urn
+                                       subfolder)
+            util.setFolderLogicalCorpora(subfolder, subfolder_logical_corpus)
+    return
+
+
 settings.common_struct_types = 
     date_interval:
         label: "date_interval"

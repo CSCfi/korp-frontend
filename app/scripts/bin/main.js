@@ -70,6 +70,7 @@
     c.log("preloading done, t = ", $.now() - t);
     util.mapHashCorpusAliases();
     util.addDefaultTranslations();
+    util.initCorpusSettingsLogicalCorpora();
     angular.bootstrap(document, ['korpApp']);
     try {
       corpus = search()["corpus"];
