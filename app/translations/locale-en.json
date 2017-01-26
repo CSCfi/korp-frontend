@@ -419,7 +419,7 @@
     "corpus_download" : "Download corpus",
 
     "accessres_title" : "Access to restricted corpora",
-    "accessres_preamble" : "You are trying to select or access the following corpora requiring individual access rights",
+    "accessres_preamble" : "You are trying to select or access the following corpora (or their subcorpora) requiring individual access rights",
     "accessres_links_preamble" : "To use the corpora, please",
     "accessres_login_or_apply" : "Please log in to Korp or apply for access rights to be able to use the corpora",
     "accessres_login" : "log in to Korp",

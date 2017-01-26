@@ -1898,6 +1898,7 @@ util.splitCompareKey = (key, reduce_attrs, attr_is_struct_attr) ->
 # arguments: elem (corresponding to $(selector)) and href (the value
 # of the href attribute of the a element to be set or added).
 # (Jyrki Niemi 2015-05-06)
+
 util.makeShibbolethLink = (selector, url_prop, add_link_fn,
                            url_filter = _.identity) ->
     url = settings[url_prop]
@@ -1943,25 +1944,36 @@ util.url_remove_corpora = (href, corpora) ->
 
 
 # Display the restricted corpora access modal with the titles of the
-# given corpora listed.
-# TODO: For "technical" subcorpora, show the higher level corpus.
+# logical corpora of the corpora (corpus ids) given as the argument.
+
 util.showRestrictedCorporaModal = (corpora) ->
+    c.log "showRestrictedCorporaModal", corpora
     util.makeShibbolethLink(
         "#resCorporaLogin", "shibbolethLoginUrl",
         (elem, href) => elem.find("a").attr("href", href),
         (href) => util.url_add_corpora href, corpora)
-    corpus_titles = settings.corpusListing.getTitles corpora
-    c.log("You are not allowed to access the following corpora:",
-          corpora, corpus_titles)
-    $("#resCorporaList").html(
-        _.map corpus_titles, (title) -> "<li>#{title}</li>")
-    $("#accessResCorporaModal").modal()
+    logical_corpora =
+         _(corpora)
+             .map((corp) -> settings.corpora[corp]?.logical_corpus)
+             .unique()
+             .compact()
+             .value()
+    # c.log "logical_corpora", logical_corpora
+    if logical_corpora.length
+        corpus_titles = _.pluck logical_corpora, "title"
+        c.log("You are not allowed to access the following corpora:",
+              corpora, corpus_titles)
+        $("#resCorporaList").html(
+            _.map corpus_titles, (title) -> "<li>#{title}</li>")
+        $("#accessResCorporaModal").modal()
+    return
 
 
 # Check if selected_corpora contains corpora which are currently not
 # accessible. If it does, display the restricted corpora access modal.
 # If selected_corpora contains restricted corpora accessible to the
 # user, select them in the corpus selector.
+
 util.checkTryingRestrictedCorpora = (selected_corpora) ->
     if not selected_corpora?.length
         return
@@ -1982,3 +1994,4 @@ util.checkTryingRestrictedCorpora = (selected_corpora) ->
             selected_all = _.union selected_nonrestricted, allowed_restricted
             settings.corpusListing.select selected_all
             corpusChooserInstance?.corpusChooser "selectItems", selected_all
+    return

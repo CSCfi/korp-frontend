@@ -1900,7 +1900,8 @@
   };
 
   util.showRestrictedCorporaModal = function(corpora) {
-    var corpus_titles;
+    var corpus_titles, logical_corpora;
+    c.log("showRestrictedCorporaModal", corpora);
     util.makeShibbolethLink("#resCorporaLogin", "shibbolethLoginUrl", (function(_this) {
       return function(elem, href) {
         return elem.find("a").attr("href", href);
@@ -1910,12 +1911,18 @@
         return util.url_add_corpora(href, corpora);
       };
     })(this));
-    corpus_titles = settings.corpusListing.getTitles(corpora);
-    c.log("You are not allowed to access the following corpora:", corpora, corpus_titles);
-    $("#resCorporaList").html(_.map(corpus_titles, function(title) {
-      return "<li>" + title + "</li>";
-    }));
-    return $("#accessResCorporaModal").modal();
+    logical_corpora = _(corpora).map(function(corp) {
+      var ref;
+      return (ref = settings.corpora[corp]) != null ? ref.logical_corpus : void 0;
+    }).unique().compact().value();
+    if (logical_corpora.length) {
+      corpus_titles = _.pluck(logical_corpora, "title");
+      c.log("You are not allowed to access the following corpora:", corpora, corpus_titles);
+      $("#resCorporaList").html(_.map(corpus_titles, function(title) {
+        return "<li>" + title + "</li>";
+      }));
+      $("#accessResCorporaModal").modal();
+    }
   };
 
   util.checkTryingRestrictedCorpora = function(selected_corpora) {
@@ -1939,7 +1946,9 @@
         selected_nonrestricted = _.difference(selected_corpora, selected_restricted_corpora);
         selected_all = _.union(selected_nonrestricted, allowed_restricted);
         settings.corpusListing.select(selected_all);
-        return typeof corpusChooserInstance !== "undefined" && corpusChooserInstance !== null ? corpusChooserInstance.corpusChooser("selectItems", selected_all) : void 0;
+        if (typeof corpusChooserInstance !== "undefined" && corpusChooserInstance !== null) {
+          corpusChooserInstance.corpusChooser("selectItems", selected_all);
+        }
       }
     }
   };
