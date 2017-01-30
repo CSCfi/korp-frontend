@@ -71,6 +71,7 @@
     util.mapHashCorpusAliases();
     util.addDefaultTranslations();
     util.initCorpusSettingsLogicalCorpora();
+    util.initCorpusSettingsLicenceCategory();
     angular.bootstrap(document, ['korpApp']);
     try {
       corpus = search()["corpus"];

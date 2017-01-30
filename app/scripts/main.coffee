@@ -58,8 +58,9 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
 
     util.addDefaultTranslations()
 
-    # This needs to be before calling util.checkTryingRestrictedCorpora
+    # These need to be before calling util.checkTryingRestrictedCorpora
     util.initCorpusSettingsLogicalCorpora()
+    util.initCorpusSettingsLicenceCategory()
 
     angular.bootstrap(document, ['korpApp'])
 

@@ -1681,6 +1681,47 @@
     }
   };
 
+  util.initCorpusSettingsLicenceCategory = function() {
+    var corpus, corpus_id, ref, ref1, ref2, ref3, ref4, ref5, results;
+    util.setFolderLicenceCategory(settings.corporafolders);
+    ref = settings.corpora;
+    results = [];
+    for (corpus_id in ref) {
+      corpus = ref[corpus_id];
+      if (corpus.licence_type == null) {
+        corpus.licence_type = ((ref1 = corpus.licence) != null ? ref1.category : void 0) || ((ref2 = corpus.logical_corpus) != null ? (ref3 = ref2.info) != null ? (ref4 = ref3.licence) != null ? ref4.category : void 0 : void 0 : void 0);
+      }
+      if ((ref5 = corpus.licence_type) === "ACA" || ref5 === "RES") {
+        results.push(corpus.limited_access = true);
+      } else {
+        results.push(void 0);
+      }
+    }
+    return results;
+  };
+
+  util.setFolderLicenceCategory = function(folder) {
+    var category, licence_name, ref, ref1, ref2, results, subfolder, subfolder_name;
+    licence_name = (ref = folder.info) != null ? (ref1 = ref.licence) != null ? ref1.name : void 0 : void 0;
+    if (licence_name != null) {
+      category = (ref2 = /(?:CLARIN )?(ACA|RES)/.exec(licence_name)) != null ? ref2[1] : void 0;
+      if (category != null) {
+        folder.info.licence.category = category;
+      }
+    }
+    results = [];
+    for (subfolder_name in folder) {
+      if (!hasProp.call(folder, subfolder_name)) continue;
+      subfolder = folder[subfolder_name];
+      if (subfolder_name !== "title" && subfolder_name !== "contents" && subfolder_name !== "description" && subfolder_name !== "info") {
+        results.push(util.setFolderLicenceCategory(subfolder));
+      } else {
+        results.push(void 0);
+      }
+    }
+    return results;
+  };
+
   settings.common_struct_types = {
     date_interval: {
       label: "date_interval",

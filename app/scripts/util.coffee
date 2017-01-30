@@ -1669,6 +1669,36 @@ util.setFolderLogicalCorpora = (folder, logical_corpus = null) ->
     return
 
 
+# Initialize the properties licence_type and limited_access for all
+# corpora based whether the licence name indicates that the corpus
+# licence is CLARIN ACA or CLARIN RES. These properties would not need
+# to be set in the configuration.
+
+util.initCorpusSettingsLicenceCategory = () ->
+    util.setFolderLicenceCategory settings.corporafolders
+    for corpus_id, corpus of settings.corpora
+        corpus.licence_type ?= corpus.licence?.category or
+                               corpus.logical_corpus?.info?.licence?.category
+        if corpus.licence_type in ["ACA", "RES"]
+            corpus.limited_access = true
+
+# Set the info.licence.category (RES or ACA) of folder if it contains
+# info.licence.name with CLARIN RES or CLARIN ACA, and recutsively
+# that of all its subfolders.
+
+util.setFolderLicenceCategory = (folder) ->
+    licence_name = folder.info?.licence?.name
+    # c.log "licence_name", folder.title, licence_name
+    if licence_name?
+        category = /(?:CLARIN )?(ACA|RES)/.exec(licence_name)?[1]
+        if category?
+            folder.info.licence.category = category
+            # c.log "licence_category", category
+    for own subfolder_name, subfolder of folder
+        if subfolder_name not in ["title", "contents", "description", "info"]
+            util.setFolderLicenceCategory subfolder
+
+
 settings.common_struct_types = 
     date_interval:
         label: "date_interval"
