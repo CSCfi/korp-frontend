@@ -130,7 +130,10 @@ settings.corporafolders.hcs2 = {
     info : {
 	urn : "urn:nbn:fi:lb-201608301",
 	metadata_urn : "urn:nbn:fi:lb-2016011301",
-	licence : settings.licenceinfo.ACA_NC,
+	licence : {
+	    name : "CLARIN ACA +NC 1.0",
+	    urn : "urn:nbn:fi:lb-2016112310",
+	}
     },
 };
 
@@ -809,11 +812,11 @@ settings.corpora.topling_en = {
     id : "topling_en",
     title : "Topling (English)",
     description : "Topling – Paths in Second Language Acquisition, English subcorpus",
-    // No Korp URN yet
+    urn : "urn:nbn:fi:lb-2016112901",
     metadata_urn : "urn:nbn:fi:lb-2016111803",
     licence : {
-	name : "CLARIN RES +NC +DEP",
-	url : "https://www.kielipankki.fi/lic/topling-en/"
+	name : "CLARIN RES +NC +DEP 1.0",
+	urn : "urn:nbn:fi:lb-2016112308"
     },
     homepage_url : "https://www.jyu.fi/topling",
     limited_access : true,
