@@ -98,7 +98,7 @@ settings.corporafolders.fstc = {
     title : "Finlandssvensk textkorpus (UHLCS) (FISC/FSTC)",
     description : "Finlandssvensk textcorpus (UHLCS): delkorpusar som var i Lemmie-servicen, morfosyntaktiskt analyserade med SWECG",
     info : {
-	urn : "[to be added]",
+	urn : "urn:nbn:fi:lb-2016112318",
 	metadata_urn : "urn:nbn:fi:lb-2014032621",
 	licence : {
 	    name : "CLARIN RES +PLAN +NC +LOC +ND",
@@ -106,7 +106,7 @@ settings.corporafolders.fstc = {
 	},
 	homepage : {
 	    name : "Beskrivning",
-	    url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFtc",
+	    url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFstc",
 	    no_label : true,
 	},
     },
@@ -191,6 +191,13 @@ settings.corpora.studentsvenska = {
     id : "studentsvenska",
     title: "Studentsvenska 79/80",
     description : "Studentsvenska 79/80",
+    urn : "urn:nbn:fi:lb-2016081701",
+    metadata_urn : "urn:nbn:fi:lb-20140730119",
+    licence : {
+	name : "CLARIN RES +PLAN +NC +PRIV 1.0",
+	description : "CLARIN RES end-user licence +PLAN +NC +PRIV 1.0",
+	urn : "urn:nbn:fi:lb-2016040410",
+    },
     context : settings.defaultContext,
     within : settings.defaultWithin,
     limited_access : true,
@@ -218,10 +225,11 @@ settings.corpora.topling_sv = {
     id : "topling_sv",
     title : "Topling (svenska)",
     description : "Topling – Inlärningsgångar i andraspråket, svensk delkorpus",
+    urn : "urn:nbn:fi:lb-2016112903",
     metadata_urn : "urn:nbn:fi:lb-2016111801",
     licence : {
-	name : "CLARIN RES +NC +DEP",
-	url : "https://www.kielipankki.fi/lic/topling-sv/"
+	name : "CLARIN RES +NC +DEP 1.0",
+	urn : "urn:nbn:fi:lb-2016112304",
     },
     homepage_url : "https://www.jyu.fi/topling",
     context : settings.spContext,

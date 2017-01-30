@@ -2693,7 +2693,7 @@ settings.corporafolders.learner.las2 = {
         homepage_url : "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
         licence : {
             name : "CLARIN RES +PLAN +NC +INF +LOC +ND",
-            urn : "urn:nbn:fi:lb-2015041305"
+            urn : "urn:nbn:fi:lb-2015041305",
         },
     },
     contents : ["las2_tentit", "las2_esseet"]
@@ -2963,6 +2963,12 @@ settings.corpora.finstud = {
     id : "finstud",
     title: "Finstud 86",
     description : "Finstud 86",
+    urn : "urn:nbn:fi:lb-2016090610",
+    metadata_urn : "urn:nbn:fi:lb-20140730158",
+    licence : {
+	name : "CLARIN RES +PLAN +NC +PRIV 1.0",
+	urn : "urn:nbn:fi:lb-2016041802",
+    },
     limited_access : true,
     licence_type : "RES",
     context : settings.defaultContext,
@@ -5296,8 +5302,12 @@ settings.corpora.lehdet_ks = {
     title : "Karjalan Sanomat",
     description : "Karjalan Sanomat (2012-2014)<br/>Julkaisija: Periodika-kustantamo<br/>Kotisivu: <a href='http://karjalansanomat.ru/'>http://karjalansanomat.ru/</a>",
     id : "lehdet_ks",
-    urn : "",
+    urn : "urn:nbn:fi:lb-2016112501",
     metadata_urn : "urn:nbn:fi:lb-2014092601",
+    licence : {
+	name : "CLARIN ACA 1.0",
+	urn : "urn:nbn:fi:lb-2016112302",
+    },
     limited_access : true,
     licence_type : "ACA",
     within : settings.spWithin,
@@ -5406,7 +5416,7 @@ settings.corpora.hsfi = {
     licence : {
 	urn : "urn:nbn:fi:lb-20150304140",
 	name : "CLARIN ACA +NC +anonymisointi",
-	description : "Vain ei-kaupalliseen tutkimuskäyttöön. Nimimerkit tulee anonymisoida korpukseen viittaavissa julkaisuissa."
+	description : "Vain ei-kaupalliseen tutkimuskäyttöön. Nimimerkit tulee anonymisoida korpukseen viittaavissa julkaisuissa.",
     },
     limited_access : true,
     licence_type : "ACA",
@@ -8193,7 +8203,7 @@ settings.corpusinfo.parfin = {
     metadata_urn : "urn:nbn:fi:lb-2014052710",
     licence : {
 	name : "CLARIN RES +NC +PLAN +INF",
-	urn : "urn:nbn:fi:lb-2015041306"
+	urn : "urn:nbn:fi:lb-2015041306",
     },
     homepage_url : "https://mustikka.uta.fi/",
 };
@@ -8762,7 +8772,7 @@ settings.corpusinfo.parrus = {
     metadata_urn : "urn:nbn:fi:lb-20140730173",
     licence : {
 	name : "CLARIN RES +PLAN +NC +INF +ND",
-	url : "https://www.kielipankki.fi/lic/parrus/?lang=fi"
+	url : "urn:nbn:fi:lb-2016042705",
     },
     homepage_url : "https://mustikka.uta.fi/",
 };
@@ -8787,8 +8797,8 @@ settings.corpusinfo.parfin_2016 = {
     urn : "[to be added]",
     metadata_urn : "urn:nbn:fi:lb-2014052710",
     licence : {
-	name : "CLARIN RES +NC +PLAN +INF",
-	urn : "urn:nbn:fi:lb-2015041306"
+	name : "CLARIN RES +NC +INF 1.0",
+	urn : "urn:nbn:fi:lb-2016121608",
     },
     homepage_url : "https://mustikka.uta.fi/",
 };
@@ -9483,7 +9493,7 @@ settings.corpusinfo.parrus_2016 = {
     metadata_urn : "urn:nbn:fi:lb-20140730173",
     licence : {
 	name : "CLARIN RES +PLAN +NC +INF +ND",
-	url : "https://www.kielipankki.fi/lic/parrus/?lang=fi"
+	url : "urn:nbn:fi:lb-2016042705"
     },
     homepage_url : "https://mustikka.uta.fi/",
 };
@@ -11725,10 +11735,11 @@ settings.corpora.topling_fi = {
     id : "topling_fi",
     title : "Topling (suomi)",
     description : "Topling – Toisen kielen oppimisen polut, suomenkielinen osakorpus",
+    urn : "urn:nbn:fi:lb-2016112902",
     metadata_urn : "urn:nbn:fi:lb-2016111802",
     licence : {
-	name : "CLARIN RES +NC +DEP",
-	url : "https://www.kielipankki.fi/lic/topling-fi/"
+	name : "CLARIN RES +NC +DEP 1.0",
+	urn : "urn:nbn:fi:lb-2016112305"
     },
     homepage_url : "https://www.jyu.fi/topling",
     context : settings.spContext,
