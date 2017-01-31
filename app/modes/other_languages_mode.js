@@ -745,8 +745,8 @@ settings.corpora.ethesis_en_phd_valt = {
 
 settings.corpora.parrus_ru = {
     id : "parrus_ru",
-    title : "ParRus (venäjä)",
-    description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (venäjänkieliset alkuperäistekstit)<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta)",
+    title : "ParRus (venäjä) [deprecated]",
+    description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (venäjänkieliset alkuperäistekstit)<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta)<br/><br/><strong>Please note that ParRus 2016 replaces this corpus, and this corpus will be taken out of use at the beginning of 2017.</strong>",
     // TODO: Add paragraphs corresponding to link elements
     context : settings.defaultContext,
     within : settings.defaultWithin,
@@ -762,8 +762,8 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parrus, ["parrus_ru"]);
 
 settings.corpora.parfin_ru = {
     id : "parfin_ru",
-    title : "ParFin (venäjä)",
-    description : "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (venäjänkieliset käännökset)<br/>Suomenkielisten kaunokirjallisten tekstien (vuosilta 1990–2010) käännöksiä venäjäksi",
+    title : "ParFin (venäjä) [deprecated]",
+    description : "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (venäjänkieliset käännökset)<br/>Suomenkielisten kaunokirjallisten tekstien (vuosilta 1990–2010) käännöksiä venäjäksi<strong>Please note that ParRus 2016 replaces this corpus, and this corpus will be taken out of use at the beginning of 2017.</strong>",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     limited_access : true,
@@ -778,11 +778,12 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parfin, ["parfin_ru"]);
 
 settings.corpora.parrus_2016_ru = {
     id : "parrus_2016_ru",
-    title : "ParRus 2016 (venäjä) (beta)",
-    description : "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (venäjänkieliset alkuperäistekstit)<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta)<br/><br/>Korpuksen Korp-versio on testausvaiheessa ja siihen voi vielä tulla muutoksia.",
-    // TODO: Add paragraphs corresponding to link elements
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
+    title : "ParRus 2016 (русский)",
+    description : "ParRus 2016: русско-финский корпус художественных текстов. Русская классическая и современная проза.<br/><br/><a href=\"http://nl.ijs.si/ME/V4/msd/html/msd-ru.html\" target=\"_blank\">Venäjän morfologisen ja sanaluokka-annotaation kuvaus (englanniksi)</a></br><a href=\"http://www.ruscorpora.ru/instruction-syntax.html\" target=\"_blank\">Venäjän syntaktisen annotaation kuvaus (venäjäksi)</a>",
+    urn : "urn:nbn:fi:lb-2016121605",
+    metadata_urn : "urn:nbn:fi:lb-2016121614",
+    context : settings.sentLinkContext,
+    within : settings.sentLinkWithin,
     limited_access : true,
     licence_type : "RES",
     attributes : attrlist.parrus_2016_ru,
@@ -796,10 +797,12 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parrus_2016,
 
 settings.corpora.parfin_2016_ru = {
     id : "parfin_2016_ru",
-    title : "ParFin 2016 (venäjä) (beta)",
-    description : "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (venäjänkieliset käännökset)<br/>Suomenkielisten kaunokirjallisten tekstien (vuosilta 1990–2010) käännöksiä venäjäksi<br/><br/>Korpuksen Korp-versio on testausvaiheessa ja siihen voi vielä tulla muutoksia.",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
+    title : "ParFin 2016 (русский)",
+    description : "ParFin 2016: финско-русский корпус художественных текстов. Переводы финской прозы 1910-2008 гг. на русский язык.<br/><br/><a href=\"http://nl.ijs.si/ME/V4/msd/html/msd-ru.html\" target=\"_blank\">Venäjän morfologisen ja sanaluokka-annotaation kuvaus (englanniksi)</a></br><a href=\"http://www.ruscorpora.ru/instruction-syntax.html\" target=\"_blank\">Venäjän syntaktisen annotaation kuvaus (venäjäksi)</a>",
+    urn : "urn:nbn:fi:lb-2016121603",
+    metadata_urn : "urn:nbn:fi:lb-2016121612",
+    context : settings.sentLinkContext,
+    within : settings.sentLinkWithin,
     limited_access : true,
     licence_type : "RES",
     attributes : attrlist.parfin_2016_ru,

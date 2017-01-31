@@ -356,6 +356,14 @@ settings.scWithin = {
     "sentence" : "sentence",
     "clause" : "clause",
 };
+settings.sentLinkContext = {
+    "1 sentence" : "1 sentence",
+    "1 link" : "1 link"
+};
+settings.sentLinkWithin = {
+    "sentence" : "sentence",
+    "link" : "link"
+};
 
 // Corpus id alias mapping: aliases as property keys and actual corpus
 // ids as values. (Jyrki Niemi 2015-04-23)
@@ -8621,8 +8629,8 @@ attrlist.parfin_ru = $.extend(
 
 settings.corpora.parfin_fi = {
     id : "parfin_fi",
-    title : "ParFin (suomi)",
-    description : "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset alkuperäistekstit)<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1990–2010",
+    title : "ParFin (suomi) [poistuva]",
+    description : "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset alkuperäistekstit)<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1990–2010<br/><br/><strong>Huomaa, että ParFin 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
     // TODO: Add paragraphs corresponding to link elements
     context : settings.defaultContext,
     within : settings.defaultWithin,
@@ -9026,8 +9034,8 @@ settings.corpusinfo.parrus = {
 
 settings.corpora.parrus_fi = {
     id : "parrus_fi",
-    title : "ParRus (suomi)",
-    description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset käännökset)<br/>Venäjänkielisten kaunokirjallisten tekstien (klassista ja 1900-luvun kirjallisuutta) käännöksiä suomeksi",
+    title : "ParRus (suomi) [poistuva]",
+    description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset käännökset)<br/>Venäjänkielisten kaunokirjallisten tekstien (klassista ja 1900-luvun kirjallisuutta) käännöksiä suomeksi<br/><br/><strong>Huomaa, että ParRus 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     limited_access : true,
@@ -9041,9 +9049,10 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parrus, ["parrus_fi"]);
 /* ParFin 2016 common */
 
 settings.corpusinfo.parfin_2016 = {
-    urn : "[to be added]",
-    metadata_urn : "urn:nbn:fi:lb-2014052710",
-    lbr_id : "urn:nbn:fi:lb-2014052710",
+    // The URNs in the single-language version are different from
+    // those in the parallel corpus.
+    // urn : "[to be added]",
+    // metadata_urn : "urn:nbn:fi:lb-2014052710",
     licence : {
 	name : "CLARIN RES +NC +INF 1.0",
 	urn : "urn:nbn:fi:lb-2016121608",
@@ -9261,11 +9270,12 @@ attrlist.parfin_2016_ru = {
 
 settings.corpora.parfin_2016_fi = {
     id : "parfin_2016_fi",
-    title : "ParFin 2016 (suomi) (beta)",
-    description : "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset alkuperäistekstit)<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1910–2008<br/><br/>Korpuksen Korp-versio on testausvaiheessa ja siihen voi vielä tulla muutoksia.",
-    // TODO: Add paragraphs corresponding to link elements
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
+    title : "ParFin 2016 (suomi)",
+    description : "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset alkuperäistekstit)<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1910–2008<br/><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Annotaatioiden kuvaus</a>",
+    urn : "urn:nbn:fi:lb-2016121602",
+    metadata_urn : "urn:nbn:fi:lb-20161216211",
+    context : settings.sentLinkContext,
+    within : settings.sentLinkWithin,
     attributes : attrlist.parfin_2016_fi,
     struct_attributes : sattrlist.parfin_2016_fi,
     limited_access : true,
@@ -9317,30 +9327,6 @@ sattrlist.parrus_2016_ru = $.extend(
 	    localize : false,
 	    opts : settings.liteOptions,
 	},
-	// link_text_translator : {
-	//     label : "translator",
-	//     displayType : "select",
-	//     dataset : [
-	// 	"Adrian, Esa",
-	// 	"Ahava Juho, Hämeen-Anttila Väinö",
-	// 	"Anhava, Martti",
-	// 	"Heino, Ulla-Liisa",
-	// 	"Hollo, Juho Anselmi",
-	// 	"Iranto, Lidia",
-	// 	"Konkka, Juhani",
-	// 	"Koskinen, Marja",
-	// 	"Kuukasjärvi, Olli",
-	// 	"Losowitch, Katja",
-	// 	"Mitrošin, A.",
-	// 	"Pesonen, Pekka Alarik",
-	// 	"Pienimäki, Natalia",
-	// 	"Pyykkö Lea",
-	// 	"Viitanen, Liisa",
-	// 	"null",
-	//     ],
-	//     localize : false,
-	//     opts : settings.liteOptions,
-	// },
 	link_text_title : {
 	    label : "title",
 	    displayType : "select",
@@ -9737,22 +9723,25 @@ sattrlist.parrus_2016_fi = $.extend(
 );
 
 settings.corpusinfo.parrus_2016 = {
-    urn : "[to be added]",
-    metadata_urn : "urn:nbn:fi:lb-20140730173",
-    lbr_id : "urn:nbn:fi:lb-2014052710",
+    // The URNs in the single-language version are different from
+    // those in the parallel corpus.
+    // urn : "[to be added]",
+    // metadata_urn : "urn:nbn:fi:lb-20140730173",
     licence : {
-	name : "CLARIN RES +PLAN +NC +INF +ND",
-	url : "urn:nbn:fi:lb-2016042705"
+	name : "CLARIN RES +PLAN +NC +INF +ND 1.0",
+	urn : "urn:nbn:fi:lb-2016042705",
     },
     homepage_url : "https://mustikka.uta.fi/",
 };
 
 settings.corpora.parrus_2016_fi = {
     id : "parrus_2016_fi",
-    title : "ParRus 2016 (suomi) (beta)",
-    description : "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset käännökset)<br/>Venäjänkielisten kaunokirjallisten tekstien (klassista ja 1900-luvun kirjallisuutta) käännöksiä suomeksi<br/><br/>Korpuksen Korp-versio on testausvaiheessa ja siihen voi vielä tulla muutoksia.",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
+    title : "ParRus 2016 (suomi)",
+    description : "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset käännökset)<br/>Venäjänkielisten kaunokirjallisten tekstien (klassista ja 1900-luvun kirjallisuutta) käännöksiä suomeksi<br/><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Annotaatioiden kuvaus</a>",
+    urn : "urn:nbn:fi:lb-2016121606",
+    metadata_urn : "urn:nbn:fi:lb-2016121614",
+    context : settings.sentLinkContext,
+    within : settings.sentLinkWithin,
     limited_access : true,
     licence_type : "RES",
     attributes : attrlist.parrus_2016_fi,
