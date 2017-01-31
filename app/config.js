@@ -12425,9 +12425,7 @@ settings.corpora.s24_001 = {
     title : "Suomi24 (1/10)",
     description : "Suomi24-keskustelut (1/10)",
     id : "s24_001",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.parsed_tdt,
+    features : ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : sattrlist.s24_update
 };
 
@@ -12435,9 +12433,7 @@ settings.corpora.s24_002 = {
     title : "Suomi24 (2/10)",
     description : "Suomi24-keskustelut (2/10)",
     id : "s24_002",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.parsed_tdt,
+    features : ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : sattrlist.s24_update
 };
 
@@ -12445,9 +12441,7 @@ settings.corpora.s24_003 = {
     title : "Suomi24 (3/10)",
     description : "Suomi24-keskustelut (3/10)",
     id : "s24_003",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.parsed_tdt,
+    features : ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : sattrlist.s24_update
 };
 
@@ -12455,9 +12449,7 @@ settings.corpora.s24_004 = {
     title : "Suomi24 (4/10)",
     description : "Suomi24-keskustelut (4/10)",
     id : "s24_004",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.parsed_tdt,
+    features : ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : sattrlist.s24_update
 };
 
@@ -12465,9 +12457,7 @@ settings.corpora.s24_005 = {
     title : "Suomi24 (5/10)",
     description : "Suomi24-keskustelut (5/10)",
     id : "s24_005",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.parsed_tdt,
+    features : ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : sattrlist.s24_update
 };
 
@@ -12475,9 +12465,7 @@ settings.corpora.s24_006 = {
     title : "Suomi24 (6/10)",
     description : "Suomi24-keskustelut (6/10)",
     id : "s24_006",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.parsed_tdt,
+    features : ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : sattrlist.s24_update
 };
 
@@ -12485,9 +12473,7 @@ settings.corpora.s24_007 = {
     title : "Suomi24 (7/10)",
     description : "Suomi24-keskustelut (7/10)",
     id : "s24_007",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.parsed_tdt,
+    features : ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : sattrlist.s24_update
 };
 
@@ -12495,9 +12481,7 @@ settings.corpora.s24_008 = {
     title : "Suomi24 (8/10)",
     description : "Suomi24-keskustelut (8/10)",
     id : "s24_008",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.parsed_tdt,
+    features : ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : sattrlist.s24_update
 };
 /*
