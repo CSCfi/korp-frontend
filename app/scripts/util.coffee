@@ -465,21 +465,30 @@ class window.ParallelCorpusListing extends CorpusListing
 
     getLinked : (corp, andSelf=false, only_selected=true) ->
         target = if only_selected then @selected else @struct
+        # Would linked_to_inverse really be needed? Later on, it would
+        # seem that Korp works fine without it. But why didn't it seem
+        # to work earlier? (Jyrki Niemi 2017-01-31)
+        # output = []
+        # if corp.linked_to
+        #     output = _.filter target, (item) ->
+        #         # The configuration property linked_to_inverse lists
+        #         # corpora that list this corpus in linked_to but that this
+        #         # corpus does not explicitly link to. This may be needed
+        #         # when more than two corpora are linked to each other but
+        #         # in different combinations, e.g. when different
+        #         # translations in the same language are represented both
+        #         # as separate corpora (T1, T2, ...) (hidden from the
+        #         # corpus listing) and as a single concatenated corpus (T).
+        #         # In this case, the linked_to relation may link S -> T1
+        #         # T2, T -> S. Without linked_to_inverse, a search from T
+        #         # in language s would cause an error. (Jyrki Niemi
+        #         # 2016-09-16)
+        #         item.id in corp.linked_to
+        # # if output.length == 0 and corp.linked_to_inverse
+        # #     output = _.filter target, (item) ->
+        # #         item.id in corp.linked_to_inverse
         output = _.filter target, (item) ->
-            # The configuration property linked_to_inverse lists
-            # corpora that list this corpus in linked_to but that this
-            # corpus does not explicitly link to. This may be needed
-            # when more than two corpora are linked to each other but
-            # in different combinations, e.g. when different
-            # translations in the same language are represented both
-            # as separate corpora (T1, T2, ...) (hidden from the
-            # corpus listing) and as a single concatenated corpus (T).
-            # In this case, the linked_to relation may link S -> T1
-            # T2, T -> S. Without linked_to_inverse, a search from T
-            # in language s would cause an error. (Jyrki Niemi
-            # 2016-09-16)
-            item.id in (corp.linked_to.concat(corp.linked_to_inverse or []) or
-                        [])
+            item.id in (corp.linked_to or [])
         output = [corp].concat output if andSelf
         output
 

@@ -551,7 +551,7 @@
       target = only_selected ? this.selected : this.struct;
       output = _.filter(target, function(item) {
         var ref;
-        return ref = item.id, indexOf.call(corp.linked_to.concat(corp.linked_to_inverse || []) || [], ref) >= 0;
+        return ref = item.id, indexOf.call(corp.linked_to || [], ref) >= 0;
       });
       if (andSelf) {
         output = [corp].concat(output);
