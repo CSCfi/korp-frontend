@@ -1,6 +1,9 @@
 //- Access restricted corpora modal, using Twitter Bootstrap modals
 //- directly, not via Angular.
-#accessResCorporaModal.modal.fade(role="dialog")
+//- tabindex="-1" seems to be required to be able to close the dialog
+//- with Esc:
+//- http://stackoverflow.com/questions/12630156/how-do-you-enable-the-escape-key-close-functionality-in-a-twitter-bootstrap-moda
+#accessResCorporaModal.modal.fade(role="dialog", tabindex="-1")
   .modal-dialog
     .modal-content
       .modal-header
