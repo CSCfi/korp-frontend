@@ -11796,7 +11796,7 @@ settings.corpora.eduskunta = {
     id : "eduskunta",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {},
+    attributes : attrlist.standard,
     struct_attributes : {
         text_filename : {
             label : "file_name",
