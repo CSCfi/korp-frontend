@@ -1991,11 +1991,29 @@ util.showRestrictedCorporaModal = (corpora) ->
     # c.log "logical_corpora", logical_corpora
     if logical_corpora.length
         corpus_titles = _.pluck logical_corpora, "title"
+        corpus_licence_cats = _.map logical_corpora, (corpinfo) ->
+            corpinfo.info?.licence?.category or
+            corpinfo.licence?.category or corpinfo.licence_type or
+            "RES"
         c.log("You are not allowed to access the following corpora:",
               corpora, corpus_titles)
         $("#resCorporaList").html(
-            _.map corpus_titles, (title) -> "<li>#{title}</li>")
-        $("#accessResCorporaModal").modal()
+            _.map _.zip(corpus_titles, corpus_licence_cats), ([title, lic]) ->
+                "<li>#{title} [#{lic}]</li>")
+        licence_cats =
+            _(corpus_licence_cats)
+                .unique()
+                .compact()
+                .sortBy()
+                .value()
+                .join("").toLowerCase()
+        c.log "licence_cats", licence_cats
+        access_res_modal = $("#accessResCorporaModal")
+        modal_class = "access-corpora-" + licence_cats
+        access_res_modal.addClass modal_class
+        access_res_modal.on("hidden.bs.modal", () ->
+            access_res_modal.removeClass modal_class)
+        access_res_modal.modal()
     return
 
 

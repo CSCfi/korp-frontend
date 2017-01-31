@@ -1941,7 +1941,7 @@
   };
 
   util.showRestrictedCorporaModal = function(corpora) {
-    var corpus_titles, logical_corpora;
+    var access_res_modal, corpus_licence_cats, corpus_titles, licence_cats, logical_corpora, modal_class;
     c.log("showRestrictedCorporaModal", corpora);
     util.makeShibbolethLink("#resCorporaLogin", "shibbolethLoginUrl", (function(_this) {
       return function(elem, href) {
@@ -1958,11 +1958,25 @@
     }).unique().compact().value();
     if (logical_corpora.length) {
       corpus_titles = _.pluck(logical_corpora, "title");
+      corpus_licence_cats = _.map(logical_corpora, function(corpinfo) {
+        var ref, ref1, ref2;
+        return ((ref = corpinfo.info) != null ? (ref1 = ref.licence) != null ? ref1.category : void 0 : void 0) || ((ref2 = corpinfo.licence) != null ? ref2.category : void 0) || corpinfo.licence_type || "RES";
+      });
       c.log("You are not allowed to access the following corpora:", corpora, corpus_titles);
-      $("#resCorporaList").html(_.map(corpus_titles, function(title) {
-        return "<li>" + title + "</li>";
+      $("#resCorporaList").html(_.map(_.zip(corpus_titles, corpus_licence_cats), function(arg) {
+        var lic, title;
+        title = arg[0], lic = arg[1];
+        return "<li>" + title + " [" + lic + "]</li>";
       }));
-      $("#accessResCorporaModal").modal();
+      licence_cats = _(corpus_licence_cats).unique().compact().sortBy().value().join("").toLowerCase();
+      c.log("licence_cats", licence_cats);
+      access_res_modal = $("#accessResCorporaModal");
+      modal_class = "access-corpora-" + licence_cats;
+      access_res_modal.addClass(modal_class);
+      access_res_modal.on("hidden.bs.modal", function() {
+        return access_res_modal.removeClass(modal_class);
+      });
+      access_res_modal.modal();
     }
   };
 

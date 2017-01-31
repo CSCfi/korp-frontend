@@ -6130,6 +6130,21 @@ li.active a span .num-to-find {
   overflow-y: auto;
 }
 
+/* line 2844, styles.scss */
+.access-corpora-aca #accessResCorporaPreambleACARES,
+.access-corpora-aca #accessResCorporaPreambleRES,
+.access-corpora-acares #accessResCorporaPreambleACA,
+.access-corpora-acares #accessResCorporaPreambleRES,
+.access-corpora-res #accessResCorporaPreambleACA,
+.access-corpora-res #accessResCorporaPreambleACARES {
+  display: none;
+}
+
+/* line 2853, styles.scss */
+.access-corpora-res #accessResCorporaPostambleACA {
+  display: none;
+}
+
 /*
 #resCorporaLinks a {
     display: inline-block;
@@ -6143,32 +6158,32 @@ li.active a span .num-to-find {
     margin-left: 1em;
 }
 */
-/* line 2858, styles.scss */
+/* line 2873, styles.scss */
 .modal-backdrop {
   z-index: 10040;
 }
 
 /* Styles specific to Kielipankki's corpora */
 /* DMA signum lists represented as tables */
-/* line 2871, styles.scss */
+/* line 2886, styles.scss */
 .dma-signumlist td {
   vertical-align: top;
 }
-/* line 2874, styles.scss */
+/* line 2889, styles.scss */
 .dma-signumlist .sgo0, .dma-signumlist .sgo5 {
   font-weight: bold;
 }
-/* line 2877, styles.scss */
+/* line 2892, styles.scss */
 .dma-signumlist .sgo3 {
   font-weight: bold;
   font-size: 1.2em;
 }
-/* line 2881, styles.scss */
+/* line 2896, styles.scss */
 .dma-signumlist .sgo4 {
   font-weight: bold;
   font-size: 1.4em;
 }
-/* line 2886, styles.scss */
+/* line 2901, styles.scss */
 .dma-signumlist tr.vspacer {
   font-size: 0.3em;
 }

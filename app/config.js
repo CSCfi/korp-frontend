@@ -164,6 +164,15 @@ settings.shibbolethLogoutUrl = function (href) {
             + encodeURIComponent(href || window.location.href));
 }
 
+settings.make_direct_LBR_URN = function (lbr_id) {
+    console.log ("make_direct_LBR_URN", lbr_id);
+    return ("https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource="
+	    + (lbr_id.slice(0, 3) != "urn" ? "urn:nbn:fi:lb-" : "")
+	    + lbr_id
+	    + "&target=application");
+};
+
+
 // The supported corpus extra info items, typically links. If you add
 // a new item X, also remember to add corresponding translations for
 // the link text to locale-??.json with the key "corpus_X".

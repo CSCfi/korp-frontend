@@ -2840,6 +2840,21 @@ li.active a span .num-to-find {
     overflow-y: auto;
 }
 
+// Hide the non-relevant text variants
+.access-corpora-aca #accessResCorporaPreambleACARES,
+.access-corpora-aca #accessResCorporaPreambleRES,
+.access-corpora-acares #accessResCorporaPreambleACA,
+.access-corpora-acares #accessResCorporaPreambleRES,
+.access-corpora-res #accessResCorporaPreambleACA,
+.access-corpora-res #accessResCorporaPreambleACARES {
+    display: none;
+}
+
+.access-corpora-res #accessResCorporaPostambleACA {
+    display: none;
+}
+
+
 /*
 #resCorporaLinks a {
     display: inline-block;

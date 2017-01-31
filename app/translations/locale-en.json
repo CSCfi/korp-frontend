@@ -419,10 +419,15 @@
     "corpus_download" : "Download corpus",
 
     "accessres_title" : "Access to restricted corpora",
-    "accessres_preamble" : "You are trying to select or access the following corpora (or their subcorpora) requiring individual access rights",
+    "accessres_preamble_common" : "You are trying to select or access the following corpora (or their subcorpora) requiring",
+    "accessres_preamble_res" : "individual access rights",
+    "accessres_preamble_aca" : "either an academic status or individual access rights",
+    "accessres_preamble_acares" : "individual access rights (RES) or an academic status or individual access rights (ACA)",
     "accessres_links_preamble" : "To use the corpora, please",
     "accessres_login_or_apply" : "Please log in to Korp or apply for access rights to be able to use the corpora",
     "accessres_login" : "log in to Korp",
-    "accessres_apply" : "apply for corpus access rights"
+    "accessres_apply" : "apply for corpus access rights",
+    "accessres_postamble_aca" : "If Korp does not recognize you as an academic user for technical reasons, you can also",
+    "accessres_postamble_aca_linktext" : "apply for an academic status"
 
 }
