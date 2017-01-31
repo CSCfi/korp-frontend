@@ -1976,6 +1976,9 @@
       access_res_modal.on("hidden.bs.modal", function() {
         return access_res_modal.removeClass(modal_class);
       });
+      access_res_modal.on("click", function(evt) {
+        return evt.stopPropagation();
+      });
       access_res_modal.modal();
     }
   };

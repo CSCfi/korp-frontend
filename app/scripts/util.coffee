@@ -2013,6 +2013,12 @@ util.showRestrictedCorporaModal = (corpora) ->
         access_res_modal.addClass modal_class
         access_res_modal.on("hidden.bs.modal", () ->
             access_res_modal.removeClass modal_class)
+        # FIXME: A click on the Korp page header area still does not
+        # close the modal but closes the corpus selector if open. A
+        # click elsewhere would seem to work correctly.
+        access_res_modal.on("click", (evt) ->
+            evt.stopPropagation()
+        )
         access_res_modal.modal()
     return
 
