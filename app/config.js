@@ -2687,7 +2687,6 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_kotipuutarha",
 	"lehdet_kumposti",
 	"lehdet_kunnallissuomi",
-	"lehdet_kunnossapito",
 	"lehdet_kuuloset",
 	"lehdet_kynnys",
 	"lehdet_kaytannon_maamies",
@@ -2718,7 +2717,7 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_poromies",
 	"lehdet_print_media",
 	"lehdet_pro_etelapohjanmaa",
-	"lehdet_promaint",
+	"lehdet_promaint_kunnossapito",
 	"lehdet_puutarha_sanomat",
 	"lehdet_selkosanomat",
 	"lehdet_sofia",
@@ -6879,26 +6878,6 @@ settings.corpora.lehdet_kunnallissuomi = {
     },
 };
 
-settings.corpora.lehdet_kunnossapito = {
-    id: "lehdet_kunnossapito",
-    title: "Kunnossapito",
-    description: "Kunnossapito (2004-2007)<br/>Julkaisija: Promaint ry<br/>Kotisivu: <a href='http://www.promaint.net/lehti/'>http://www.promaint.net/lehti/</a>",
-    urn: "urn:nbn:fi:lb-2016021202",
-    metadata_urn: "urn:nbn:fi:lb-2016011101",
-    licence: settings.licenceinfo.CC_BY_40,
-    features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
-        text_issue: {
-            label: "issue",
-        },
-        text_title: sattrs.text_title,
-        text_year: {
-            label: "year",
-        },
-        paragraph_id: sattrs.paragraph_id_hidden,
-        sentence_id: sattrs.sentence_id_hidden,
-    },
-};
 
 settings.corpora.lehdet_kuuloset = {
     id: "lehdet_kuuloset",
@@ -7489,10 +7468,10 @@ settings.corpora.lehdet_pro_etelapohjanmaa = {
     },
 };
 
-settings.corpora.lehdet_promaint = {
-    id: "lehdet_promaint",
-    title: "Promaint",
-    description: "Promaint (2008 - 1-2/2015)<br/>Julkaisija: Kunnossapitoyhdistys Promaint Ry<br/>Kotisivu: <a href='http://www.promaintlehti.fi/Lehtiarkisto'>http://www.promaintlehti.fi/Lehtiarkisto</a>",
+settings.corpora.lehdet_promaint_kunnossapito = {
+    id: "lehdet_promaint_kunnossapito",
+    title: "Promaint/Kunnossapito",
+    description: "Kunnossapito (2004-2007), Promaint (2008 - 1-2/2015)<br/>Julkaisija: Kunnossapitoyhdistys Promaint Ry<br/>Kotisivu: <a href='http://www.promaintlehti.fi/Lehtiarkisto'>http://www.promaintlehti.fi/Lehtiarkisto</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
