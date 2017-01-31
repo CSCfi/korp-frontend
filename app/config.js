@@ -2506,6 +2506,12 @@ settings.corporafolders.internet.suomi24 = {
 settings.corporafolders.lehdet = {
     title : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
+    info : {
+	urn : "urn:nbn:fi:lb-2016021202",
+	metadata_urn : "urn:nbn:fi:lb-2016011101",
+	// TODO: Check licence version
+	licence : settings.licenceinfo.CC_BY,
+    }
 };
 
 settings.corporafolders.lehdet.tiedelehdet = {
