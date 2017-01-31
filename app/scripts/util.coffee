@@ -1977,6 +1977,18 @@ util.url_remove_corpora = (href, corpora) ->
 # logical corpora of the corpora (corpus ids) given as the argument.
 
 util.showRestrictedCorporaModal = (corpora) ->
+
+    make_lbr_url = (logical_corpus) ->
+        corpinfo = if logical_corpus.logical_corpus?
+                       # Physical corpus is logical corpus
+                       logical_corpus
+                   else
+                       # Corpus folder is logical corpus
+                       logical_corpus.info
+        settings.make_direct_LBR_URL(corpinfo?.lbr_id or
+                                     corpinfo?.metadata_urn or
+                                     corpinfo?.metadata?.urn)
+
     c.log "showRestrictedCorporaModal", corpora
     util.makeShibbolethLink(
         "#resCorporaLogin", "shibbolethLoginUrl",
@@ -1995,11 +2007,15 @@ util.showRestrictedCorporaModal = (corpora) ->
             corpinfo.info?.licence?.category or
             corpinfo.licence?.category or corpinfo.licence_type or
             "RES"
+        corpus_lbr_urls = _.map logical_corpora, make_lbr_url
         c.log("You are not allowed to access the following corpora:",
               corpora, corpus_titles)
         $("#resCorporaList").html(
-            _.map _.zip(corpus_titles, corpus_licence_cats), ([title, lic]) ->
-                "<li>#{title} [#{lic}]</li>")
+            _(_.zip corpus_titles, corpus_licence_cats, corpus_lbr_urls)
+                .sortBy((elem) -> elem[0])
+                .map(([title, lic, url]) ->
+                         "<li><a href=\"#{url}\" target=\"_blank\">#{title} [#{lic}]</a></li>")
+                .value())
         licence_cats =
             _(corpus_licence_cats)
                 .unique()

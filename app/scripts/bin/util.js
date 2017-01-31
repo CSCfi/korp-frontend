@@ -1941,7 +1941,12 @@
   };
 
   util.showRestrictedCorporaModal = function(corpora) {
-    var access_res_modal, corpus_licence_cats, corpus_titles, licence_cats, logical_corpora, modal_class;
+    var access_res_modal, corpus_lbr_urls, corpus_licence_cats, corpus_titles, licence_cats, logical_corpora, make_lbr_url, modal_class;
+    make_lbr_url = function(logical_corpus) {
+      var corpinfo, ref;
+      corpinfo = logical_corpus.logical_corpus != null ? logical_corpus : logical_corpus.info;
+      return settings.make_direct_LBR_URL((corpinfo != null ? corpinfo.lbr_id : void 0) || (corpinfo != null ? corpinfo.metadata_urn : void 0) || (corpinfo != null ? (ref = corpinfo.metadata) != null ? ref.urn : void 0 : void 0));
+    };
     c.log("showRestrictedCorporaModal", corpora);
     util.makeShibbolethLink("#resCorporaLogin", "shibbolethLoginUrl", (function(_this) {
       return function(elem, href) {
@@ -1962,12 +1967,15 @@
         var ref, ref1, ref2;
         return ((ref = corpinfo.info) != null ? (ref1 = ref.licence) != null ? ref1.category : void 0 : void 0) || ((ref2 = corpinfo.licence) != null ? ref2.category : void 0) || corpinfo.licence_type || "RES";
       });
+      corpus_lbr_urls = _.map(logical_corpora, make_lbr_url);
       c.log("You are not allowed to access the following corpora:", corpora, corpus_titles);
-      $("#resCorporaList").html(_.map(_.zip(corpus_titles, corpus_licence_cats), function(arg) {
-        var lic, title;
-        title = arg[0], lic = arg[1];
-        return "<li>" + title + " [" + lic + "]</li>";
-      }));
+      $("#resCorporaList").html(_(_.zip(corpus_titles, corpus_licence_cats, corpus_lbr_urls)).sortBy(function(elem) {
+        return elem[0];
+      }).map(function(arg) {
+        var lic, title, url;
+        title = arg[0], lic = arg[1], url = arg[2];
+        return "<li><a href=\"" + url + "\" target=\"_blank\">" + title + " [" + lic + "]</a></li>";
+      }).value());
       licence_cats = _(corpus_licence_cats).unique().compact().sortBy().value().join("").toLowerCase();
       c.log("licence_cats", licence_cats);
       access_res_modal = $("#accessResCorporaModal");

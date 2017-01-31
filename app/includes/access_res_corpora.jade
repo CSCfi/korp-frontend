@@ -11,18 +11,17 @@
         button.close-x.close(data-dismiss="modal") ×
       .modal-body
         p {{'accessres_preamble_common' | loc:lang}} 
+          span.hide_if_logged_in {{'accessres_preamble_login' | loc:lang}} 
           //- This might be simpler with Angular or by setting the
           //- text content in JavaScript code.
           span#accessResCorporaPreambleACA {{'accessres_preamble_aca' | loc:lang}}
           span#accessResCorporaPreambleACARES
             | {{'accessres_preamble_acares' | loc:lang}}
           span#accessResCorporaPreambleRES {{'accessres_preamble_res' | loc:lang}}
-          | :
+          | .
         //- p {{'accessres_preamble' | loc:lang}}
-        #resCorporaListContainer
-          ul#resCorporaList
         //- Show the link to login only if not logged in and the LBR
-        //- link in any case
+        //- preamble in any case
         p#resCorporaLinks
           | {{'accessres_links_preamble' | loc:lang}} 
           span.hide_if_logged_in
@@ -30,11 +29,10 @@
               a(href='javascript:')
                 | {{'accessres_login' | loc:lang}} 
             | {{'or' | loc:lang}} 
-          a(href="https://lbr.csc.fi/", target="_blank")
-            | {{'accessres_apply' | loc:lang}}
-          | .
+          | {{'accessres_apply' | loc:lang}}:
+        #resCorporaListContainer
+          ul#resCorporaList
         p#accessResCorporaPostambleACA {{'accessres_postamble_aca' | loc:lang}} 
           a(ng-href="{{make_direct_LBR_URL('2016110710');}}", target="_blank")
             | {{'accessres_postamble_aca_linktext' | loc:lang}}
           | .
-        //- TODO: Show links to corpus-specific applications in LBR

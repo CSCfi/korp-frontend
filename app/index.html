@@ -43,13 +43,13 @@
             <button data-dismiss="modal" class="close-x close">×</button>
           </div>
           <div class="modal-body">
-            <p>{{'accessres_preamble_common' | loc:lang}} <span id="accessResCorporaPreambleACA">{{'accessres_preamble_aca' | loc:lang}}</span><span id="accessResCorporaPreambleACARES">{{'accessres_preamble_acares' | loc:lang}}</span><span id="accessResCorporaPreambleRES">{{'accessres_preamble_res' | loc:lang}}</span>:
+            <p>{{'accessres_preamble_common' | loc:lang}} <span class="hide_if_logged_in">{{'accessres_preamble_login' | loc:lang}} </span><span id="accessResCorporaPreambleACA">{{'accessres_preamble_aca' | loc:lang}}</span><span id="accessResCorporaPreambleACARES">{{'accessres_preamble_acares' | loc:lang}}</span><span id="accessResCorporaPreambleRES">{{'accessres_preamble_res' | loc:lang}}</span>.
             </p>
+            <p id="resCorporaLinks">{{'accessres_links_preamble' | loc:lang}} <span class="hide_if_logged_in"><span id="resCorporaLogin"><a href="javascript:">{{'accessres_login' | loc:lang}} </a></span>{{'or' | loc:lang}} </span>{{'accessres_apply' | loc:lang}}:</p>
             <div id="resCorporaListContainer">
               <ul id="resCorporaList"></ul>
             </div>
-            <p id="resCorporaLinks">{{'accessres_links_preamble' | loc:lang}} <span class="hide_if_logged_in"><span id="resCorporaLogin"><a href="javascript:">{{'accessres_login' | loc:lang}} </a></span>{{'or' | loc:lang}} </span><a href="https://lbr.csc.fi/" target="_blank">{{'accessres_apply' | loc:lang}}</a>.</p>
-            <p id="accessResCorporaPostambleACA">{{'accessres_postamble_aca' | loc:lang}} <a ng-href="{{make_direct_LBR_URN('2016110710');}}" target="_blank">{{'accessres_postamble_aca_linktext' | loc:lang}}</a>.</p>
+            <p id="accessResCorporaPostambleACA">{{'accessres_postamble_aca' | loc:lang}} <a ng-href="{{make_direct_LBR_URL('2016110710');}}" target="_blank">{{'accessres_postamble_aca_linktext' | loc:lang}}</a>.</p>
           </div>
         </div>
       </div>
