@@ -40,7 +40,7 @@
     $rootScope.compareTabs = [];
     $rootScope.graphTabs = [];
     isInit = true;
-    $rootScope.make_direct_LBR_URN = settings.make_direct_LBR_URN;
+    $rootScope.make_direct_LBR_URL = settings.make_direct_LBR_URL;
     s.searchDisabled = false;
     s.$on("corpuschooserchange", function(event, corpora) {
       var enableSearch, nonprotected;

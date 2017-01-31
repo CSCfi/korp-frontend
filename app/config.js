@@ -164,12 +164,20 @@ settings.shibbolethLogoutUrl = function (href) {
             + encodeURIComponent(href || window.location.href));
 }
 
-settings.make_direct_LBR_URN = function (lbr_id) {
-    console.log ("make_direct_LBR_URN", lbr_id);
-    return ("https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource="
-	    + (lbr_id.slice(0, 3) != "urn" ? "urn:nbn:fi:lb-" : "")
-	    + lbr_id
-	    + "&target=application");
+// Return a direct URL to the application of a corpus in Language Bank
+// Rights based on lbr_id (an URN, either complete or without the
+// common prefix "urn:nbn:fi:lb-"). if lbr_id is falsey, return the
+// URL of the LBR main page.
+settings.make_direct_LBR_URL = function (lbr_id) {
+    console.log ("make_direct_LBR_URL", lbr_id);
+    if (lbr_id) {
+	return ("https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource="
+		+ (lbr_id.slice(0, 3) != "urn" ? "urn:nbn:fi:lb-" : "")
+		+ lbr_id
+		+ "&target=application");
+    } else {
+	return "https://lbr.csc.fi";
+    }
 };
 
 
