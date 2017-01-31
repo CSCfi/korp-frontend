@@ -130,6 +130,7 @@ settings.corporafolders.hcs2 = {
     info : {
 	urn : "urn:nbn:fi:lb-201608301",
 	metadata_urn : "urn:nbn:fi:lb-2016011301",
+	lbr_id : "urn:nbn:fi:lb-2014032624",
 	licence : {
 	    name : "CLARIN ACA +NC 1.0",
 	    urn : "urn:nbn:fi:lb-2016112310",
@@ -814,6 +815,7 @@ settings.corpora.topling_en = {
     description : "Topling – Paths in Second Language Acquisition, English subcorpus",
     urn : "urn:nbn:fi:lb-2016112901",
     metadata_urn : "urn:nbn:fi:lb-2016111803",
+    lbr_id : "urn:nbn:fi:lb-20140730168",
     licence : {
 	name : "CLARIN RES +NC +DEP 1.0",
 	urn : "urn:nbn:fi:lb-2016112308"

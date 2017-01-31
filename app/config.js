@@ -2651,6 +2651,7 @@ settings.corporafolders.ftc = {
     info : {
 	urn : "urn:nbn:fi:lb-2014052719",
 	metadata_urn : "urn:nbn:fi:lb-2016050207",
+	lbr_id : "urn:nbn:fi:lb-201403268",
 	licence : {
 	    name : "CLARIN RES +PLAN +NC +ND",
 	    urn : "urn:nbn:fi:lb-20150304137",
@@ -8445,6 +8446,7 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
 settings.corpusinfo.parfin = {
     urn : "urn:nbn:fi:lb-2015050506",
     metadata_urn : "urn:nbn:fi:lb-2014052710",
+    lbr_id : "urn:nbn:fi:lb-2014052710",
     licence : {
 	name : "CLARIN RES +NC +PLAN +INF",
 	urn : "urn:nbn:fi:lb-2015041306",
@@ -9014,6 +9016,7 @@ sattrlist.parrus_ru = $.extend(
 settings.corpusinfo.parrus = {
     urn : "[to be added]",
     metadata_urn : "urn:nbn:fi:lb-20140730173",
+    lbr_id : "urn:nbn:fi:lb-2014052710",
     licence : {
 	name : "CLARIN RES +PLAN +NC +INF +ND",
 	url : "urn:nbn:fi:lb-2016042705",
@@ -9040,6 +9043,7 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parrus, ["parrus_fi"]);
 settings.corpusinfo.parfin_2016 = {
     urn : "[to be added]",
     metadata_urn : "urn:nbn:fi:lb-2014052710",
+    lbr_id : "urn:nbn:fi:lb-2014052710",
     licence : {
 	name : "CLARIN RES +NC +INF 1.0",
 	urn : "urn:nbn:fi:lb-2016121608",
@@ -9735,6 +9739,7 @@ sattrlist.parrus_2016_fi = $.extend(
 settings.corpusinfo.parrus_2016 = {
     urn : "[to be added]",
     metadata_urn : "urn:nbn:fi:lb-20140730173",
+    lbr_id : "urn:nbn:fi:lb-2014052710",
     licence : {
 	name : "CLARIN RES +PLAN +NC +INF +ND",
 	url : "urn:nbn:fi:lb-2016042705"
@@ -11981,6 +11986,7 @@ settings.corpora.topling_fi = {
     description : "Topling – Toisen kielen oppimisen polut, suomenkielinen osakorpus",
     urn : "urn:nbn:fi:lb-2016112902",
     metadata_urn : "urn:nbn:fi:lb-2016111802",
+    lbr_id : "urn:nbn:fi:lb-20140730168",
     licence : {
 	name : "CLARIN RES +NC +DEP 1.0",
 	urn : "urn:nbn:fi:lb-2016112305"
