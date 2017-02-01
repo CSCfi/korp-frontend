@@ -2614,7 +2614,6 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_ekonomi",
 	"lehdet_evento",
 	"lehdet_heppu",
-	"lehdet_koskinen",
 	"lehdet_leija",
 	"lehdet_poromies",
 	"lehdet_promaint_kunnossapito",
@@ -2622,6 +2621,7 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_tatsi",
 	"lehdet_tiedetoimittaja",
 	"lehdet_toisinsanoen",
+	"lehdet_koskinen",
     ]
 };
 
