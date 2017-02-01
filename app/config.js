@@ -2509,8 +2509,7 @@ settings.corporafolders.lehdet = {
     info : {
 	urn : "urn:nbn:fi:lb-2016021202",
 	metadata_urn : "urn:nbn:fi:lb-2016011101",
-	// TODO: Check licence version
-	licence : settings.licenceinfo.CC_BY,
+	licence : settings.licenceinfo.CC_BY_40,
     }
 };
 
