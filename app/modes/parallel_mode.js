@@ -305,7 +305,12 @@ settings.corpus_aliases.jrc_acquis = "jrc_acquis_.*fi";
 
 settings.corporafolders.opus = {
     title : "OPUS",
-    description : "OPUS – an open source parallel corpus"
+    description : "OPUS – an open source parallel corpus",
+    info : {
+	urn : "urn:nbn:fi:lb-2016012101",
+	metadata_urn : "urn:nbn:fi:lb-2015102201",
+	licence : settings.licenceinfo.CC_BY_40,
+    },
 };
 
 settings.corporafolders.opus.enfi = {
