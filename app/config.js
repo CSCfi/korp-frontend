@@ -2609,14 +2609,17 @@ settings.corporafolders.lehdet.muut_lehdet = {
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
     contents : [
 	"lehdet_aarre",
+	"lehdet_aromi",
 	"lehdet_avec",
 	"lehdet_ekonomi",
+	"lehdet_elamassa_kelansanomat",
 	"lehdet_evento",
 	"lehdet_heppu",
 	"lehdet_leija",
 	"lehdet_poromies",
 	"lehdet_promaint_kunnossapito",
 	"lehdet_selkosanomat",
+	"lehdet_sosiaalivakuutus",
 	"lehdet_tatsi",
 	"lehdet_tiedetoimittaja",
 	"lehdet_toisinsanoen",
@@ -5418,6 +5421,27 @@ settings.corpora.lehdet_aarre = {
     }
 };
 
+settings.corpora.lehdet_aromi = {
+    id: "lehdet_aromi",
+    title: "Aromi",
+    description: "Aromi - Ruoan ja Juoman Ammattilehti (2006-2013)<br/>Julkaisija: Mediatalo Keskisuomalainen Oyj Aikakauslehtiryhmä<br/>Kotisivu: <a href='http://aromilehti.fi/'>http://aromilehti.fi/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
 settings.corpora.lehdet_avec = {
     id: "lehdet_avec",
     title: "Avec",
@@ -5560,6 +5584,48 @@ settings.corpora.lehdet_tiedetoimittaja = {
         text_year: {
             label: "year",
         },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_elamassa_kelansanomat = {
+    id: "lehdet_elamassa_kelansanomat",
+    title: "Elämässä/Kelan sanomat",
+    description: "Kelan sanomat (2008), Elämässä (2009-2014)<br/>Julkaisija: Kansaneläkelaitos (Kela)<br/>Kotisivu: <a href='http://www.kela.fi/elamassa'>http://www.kela.fi/elamassa</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_sosiaalivakuutus = {
+    id: "lehdet_sosiaalivakuutus",
+    title: "Sosiaalivakuutus",
+    description: "Sosiaalivakuutus (2006-2010, 2015-2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Sosiaalivakuutus_2006_-_2010_2015_-_2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Kansaneläkelaitos (Kela)<br/>Kotisivu: <a href='http://www.kela.fi/sosiaalivakuutus'>http://www.kela.fi/sosiaalivakuutus</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
