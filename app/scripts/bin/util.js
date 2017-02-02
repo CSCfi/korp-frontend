@@ -904,7 +904,13 @@
         format: format,
         korp_url: window.location.href,
         korp_server_url: settings.cgi_script,
-        corpus_config: JSON.stringify(result_corpora_settings),
+        corpus_config: JSON.stringify(result_corpora_settings, function(key, value) {
+          if (key === "logical_corpus") {
+            return value.title;
+          } else {
+            return value;
+          }
+        }),
         corpus_config_info_keys: (settings.corpusExtraInfoItems || []).join(','),
         urn_resolver: settings.urnResolver
       };

@@ -801,7 +801,12 @@ util.setDownloadLinks = (xhr_settings, result_data) ->
             format: format
             korp_url: window.location.href
             korp_server_url: settings.cgi_script
-            corpus_config: JSON.stringify(result_corpora_settings)
+            corpus_config: JSON.stringify(result_corpora_settings,
+                (key, value) ->
+                    # logical_corpus may refer to the corpus object
+                    # itself, and since JSON does not support circular
+                    # objects, replace the value with corpus title
+                    if key == "logical_corpus" then value.title else value)
             # corpus_config_info_keys previously excluded "urn", but
             # now it is included if listed in
             # settings.corpusExtraInfoItems. Does it matter?
