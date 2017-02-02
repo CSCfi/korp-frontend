@@ -423,7 +423,7 @@
     "accessres_preamble_login" : "logging in to Korp and",
     "accessres_preamble_res" : "personal access rights",
     "accessres_preamble_aca" : "either an active membership of an academic institution or personal access rights",
-    "accessres_preamble_acares" : "for [RES]-marked corpora, personal access rights, and for [ACA]-marked corpora, either or an active membership of an academic institution or personal access rights",
+    "accessres_preamble_acares" : "for [RES]-marked corpora, personal access rights, and for [ACA]-marked corpora, either an active membership of an academic institution or personal access rights",
     "accessres_links_preamble" : "To use the corpora, please",
     "accessres_login_or_apply" : "Please log in to Korp or apply for access rights to be able to use the corpora",
     "accessres_login" : "log in to Korp",
