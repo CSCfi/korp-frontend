@@ -227,6 +227,7 @@ settings.corpora.topling_sv = {
     description : "Topling – Inlärningsgångar i andraspråket, svensk delkorpus",
     urn : "urn:nbn:fi:lb-2016112903",
     metadata_urn : "urn:nbn:fi:lb-2016111801",
+    lbr_id : "urn:nbn:fi:lb-20140730168",
     licence : {
 	name : "CLARIN RES +NC +DEP 1.0",
 	urn : "urn:nbn:fi:lb-2016112304",

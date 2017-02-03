@@ -39,11 +39,25 @@ class window.CorpusListing
         # in controller "ExtendedSearch": $on "corpuschooserchange"
         # (search_controllers)? (Jyrki Niemi 2016-03-18)
         @updateIgnoreBetweenTokensCQP()
+        c.log "CorpusListing.selected:", @selected
         @selected
 
     mapSelectedCorpora: (f) ->
         _.map @selected, f
 
+    # Return the ids of all the corpora with restricted access
+    getRestrictedCorpora: ->
+        _(@corpora)
+            .filter((corp) -> corp.limited_access)
+            .pluck "id"
+            .value()
+
+    # Return the titles of the corpora given as the argument
+    getTitles: (corpora) ->
+        _(corpora)
+            .map((corp) => @struct[corp])
+            .pluck "title"
+            .value()
 
     # takes an array of mapping objs and returns their intersection
     _mapping_intersection: (mappingArray) ->
@@ -787,7 +801,12 @@ util.setDownloadLinks = (xhr_settings, result_data) ->
             format: format
             korp_url: window.location.href
             korp_server_url: settings.cgi_script
-            corpus_config: JSON.stringify(result_corpora_settings)
+            corpus_config: JSON.stringify(result_corpora_settings,
+                (key, value) ->
+                    # logical_corpus may refer to the corpus object
+                    # itself, and since JSON does not support circular
+                    # objects, replace the value with corpus title
+                    if key == "logical_corpus" then value.title else value)
             # corpus_config_info_keys previously excluded "urn", but
             # now it is included if listed in
             # settings.corpusExtraInfoItems. Does it matter?
@@ -1619,6 +1638,72 @@ util.setCorpusFeatures = (corpusInfo) ->
     return
 
 
+# Initialize the property logical_corpus in settings.corpora.*. The
+# logical corpus of a corpus may be either the physical corpus itself
+# or a corpus folder containing the corpus (possibly indirectly).
+
+util.initCorpusSettingsLogicalCorpora = () ->
+    # Corpora in folders
+    util.setFolderLogicalCorpora settings.corporafolders
+    # Top-level corpora
+    for corpus_id, corpus of settings.corpora
+        unless "logical_corpus" of corpus
+            corpus.logical_corpus = corpus
+    return
+
+# Recursively initialize the property logical_corpus of the corpora in
+# the given folder. If the parameter logical_corpus not null, use it;
+# otherwise, if the folder has property info.is_logical_corpus or
+# info.urn, the folder represents the logical corpus; otherwise, the
+# logical corpus is found deeper in the folder hierarchy or it is the
+# same as the physical corpus.
+
+util.setFolderLogicalCorpora = (folder, logical_corpus = null) ->
+    c.log "setFolderLogicalCorpora", folder, logical_corpus?.title
+    for corpus_id in folder.contents or []
+        corpus = settings.corpora[corpus_id]
+        corpus.logical_corpus = logical_corpus or settings.corpora[corpus_id]
+        # c.log "logical corpus of", corpus_id, "is", corpus.logical_corpus?.title
+    for own subfolder_name, subfolder of folder
+        if subfolder_name not in ["title", "contents", "description", "info"]
+            subfolder_logical_corpus =
+                logical_corpus or (if subfolder.info?.is_logical_corpus or
+                                           subfolder.info?.urn
+                                       subfolder)
+            util.setFolderLogicalCorpora(subfolder, subfolder_logical_corpus)
+    return
+
+
+# Initialize the properties licence_type and limited_access for all
+# corpora based whether the licence name indicates that the corpus
+# licence is CLARIN ACA or CLARIN RES. These properties would not need
+# to be set in the configuration.
+
+util.initCorpusSettingsLicenceCategory = () ->
+    util.setFolderLicenceCategory settings.corporafolders
+    for corpus_id, corpus of settings.corpora
+        corpus.licence_type ?= corpus.licence?.category or
+                               corpus.logical_corpus?.info?.licence?.category
+        if corpus.licence_type in ["ACA", "RES"]
+            corpus.limited_access = true
+
+# Set the info.licence.category (RES or ACA) of folder if it contains
+# info.licence.name with CLARIN RES or CLARIN ACA, and recutsively
+# that of all its subfolders.
+
+util.setFolderLicenceCategory = (folder) ->
+    licence_name = folder.info?.licence?.name
+    # c.log "licence_name", folder.title, licence_name
+    if licence_name?
+        category = /(?:CLARIN )?(ACA|RES)/.exec(licence_name)?[1]
+        if category?
+            folder.info.licence.category = category
+            # c.log "licence_category", category
+    for own subfolder_name, subfolder of folder
+        if subfolder_name not in ["title", "contents", "description", "info"]
+            util.setFolderLicenceCategory subfolder
+
+
 settings.common_struct_types = 
     date_interval:
         label: "date_interval"
@@ -1833,3 +1918,155 @@ util.splitCompareKey = (key, reduce_attrs, attr_is_struct_attr) ->
                 [tokens]
             else
                 tokens.split " "
+
+
+# Add to selector a Shibboleth login or logout link as defined by
+# settings[url_prop]. If the link is a string, it is taken as a URL.
+# If it is a function, it is used to generate the URL dynamically at
+# link click time. The function is passed the URL in
+# window.location.href as modified by the function url_filter
+# (identity function by default). This allows passing the current URL
+# (including parameters and hash) to the Shibboleth pages (scripts),
+# which in turn allows retaining the state of Korp (mode, language,
+# selected corpora, query) in login or logout. The function parameter
+# add_link_fn is used to add the URL to the HTML. It should take two
+# arguments: elem (corresponding to $(selector)) and href (the value
+# of the href attribute of the a element to be set or added).
+# (Jyrki Niemi 2015-05-06)
+
+util.makeShibbolethLink = (selector, url_prop, add_link_fn,
+                           url_filter = _.identity) ->
+    url = settings[url_prop]
+    if url?
+        if typeof url != "function"
+            add_link_fn($(selector), url)
+        else
+            add_link_fn($(selector), "javascript:")
+            $(selector).find("a").click ((url_fn) ->
+                (e) ->
+                    e.preventDefault()
+                    window.location.href = url_fn(
+                        url_filter(window.location.href))
+                    return
+            )(url)
+    else
+        c.warn "settings.#{url_prop} not defined"
+    return
+
+
+# Return href with the corpora in the array corpora added to its URL
+# parameter "corpus".
+util.url_add_corpora = (href, corpora) ->
+    corpora_str = corpora.join(",")
+    if href.indexOf("corpus=") == -1
+        "#{href}&corpus=#{corpora_str}"
+    else
+        href.replace(/(&corpus=[^&]+)/, "$1,#{corpora_str}")
+
+
+# Return href with the corpora in the array corpora removed from its
+# URL parameter "corpus".
+util.url_remove_corpora = (href, corpora) ->
+    if href.indexOf("corpus=") == -1
+        href
+    else
+        href_corpora = /corpus=([^&]*)/.exec(href)[1].split(",")
+        href_corpora = _.difference(href_corpora, corpora).join(",")
+        # c.log "url_remove_corpora href before", href
+        href = href.replace(/(&corpus=)[^&]+/, "$1#{href_corpora}")
+        # c.log "url_remove_corpora href after", href
+        href
+
+
+# Display the restricted corpora access modal with the titles of the
+# logical corpora of the corpora (corpus ids) given as the argument.
+
+util.showRestrictedCorporaModal = (corpora) ->
+
+    make_lbr_url = (logical_corpus) ->
+        corpinfo = if logical_corpus.logical_corpus?
+                       # Physical corpus is logical corpus
+                       logical_corpus
+                   else
+                       # Corpus folder is logical corpus
+                       logical_corpus.info
+        settings.make_direct_LBR_URL(corpinfo?.lbr_id or
+                                     corpinfo?.metadata_urn or
+                                     corpinfo?.metadata?.urn)
+
+    c.log "showRestrictedCorporaModal", corpora
+    util.makeShibbolethLink(
+        "#resCorporaLogin", "shibbolethLoginUrl",
+        (elem, href) => elem.find("a").attr("href", href),
+        (href) => util.url_add_corpora href, corpora)
+    logical_corpora =
+         _(corpora)
+             .map((corp) -> settings.corpora[corp]?.logical_corpus)
+             .unique()
+             .compact()
+             .value()
+    # c.log "logical_corpora", logical_corpora
+    if logical_corpora.length
+        corpus_titles = _.pluck logical_corpora, "title"
+        corpus_licence_cats = _.map logical_corpora, (corpinfo) ->
+            corpinfo.info?.licence?.category or
+            corpinfo.licence?.category or corpinfo.licence_type or
+            "RES"
+        corpus_lbr_urls = _.map logical_corpora, make_lbr_url
+        c.log("You are not allowed to access the following corpora:",
+              corpora, corpus_titles)
+        $("#resCorporaList").html(
+            _(_.zip corpus_titles, corpus_licence_cats, corpus_lbr_urls)
+                .sortBy((elem) -> elem[0])
+                .map(([title, lic, url]) ->
+                         "<li><a href=\"#{url}\" target=\"_blank\">#{title} [#{lic}]</a></li>")
+                .value())
+        licence_cats =
+            _(corpus_licence_cats)
+                .unique()
+                .compact()
+                .sortBy()
+                .value()
+                .join("").toLowerCase()
+        c.log "licence_cats", licence_cats
+        access_res_modal = $("#accessResCorporaModal")
+        modal_class = "access-corpora-" + licence_cats
+        access_res_modal.addClass modal_class
+        access_res_modal.on("hidden.bs.modal", () ->
+            access_res_modal.removeClass modal_class)
+        # FIXME: A click on the Korp page header area still does not
+        # close the modal but closes the corpus selector if open. A
+        # click elsewhere would seem to work correctly.
+        access_res_modal.on("click", (evt) ->
+            evt.stopPropagation()
+        )
+        access_res_modal.modal()
+    return
+
+
+# Check if selected_corpora contains corpora which are currently not
+# accessible. If it does, display the restricted corpora access modal.
+# If selected_corpora contains restricted corpora accessible to the
+# user, select them in the corpus selector.
+
+util.checkTryingRestrictedCorpora = (selected_corpora) ->
+    if not selected_corpora?.length
+        return
+    restricted_corpora = settings.corpusListing.getRestrictedCorpora()
+    selected_restricted_corpora = _.intersection(restricted_corpora,
+                                                 selected_corpora)
+    if selected_restricted_corpora?.length
+        creds = $.jStorage.get("creds")
+        allowed = _.map((creds?.credentials or []),
+                        (corp) -> corp.toLowerCase())
+        non_allowed_corpora = _.difference selected_restricted_corpora, allowed
+        if non_allowed_corpora?.length
+            util.showRestrictedCorporaModal non_allowed_corpora
+        allowed_restricted = _.intersection selected_restricted_corpora, allowed
+        if allowed_restricted?.length
+            selected_nonrestricted = _.difference(selected_corpora,
+                                                  selected_restricted_corpora)
+            selected_all = _.union selected_nonrestricted, allowed_restricted
+            settings.corpusListing.select selected_all
+            corpusChooserInstance?.corpusChooser "selectItems", selected_all
+    return

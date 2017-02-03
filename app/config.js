@@ -152,16 +152,34 @@ settings.authenticationType = (isProductionServer ? "shibboleth" : "basic");
 // authenticationType == "shibboleth"
 // for eduGAIN / CSC Account:
 // settings.shibbolethLoginUrl = baseURL + "shibboleth-ds/index.html";
-settings.shibbolethLoginUrl = function () {
+settings.shibbolethLoginUrl = function (href) {
     return ("/shibboleth-ds/index.html?"
-           + encodeURIComponent(window.location.href + "&shib_logged_in"));
+            + encodeURIComponent((href || window.location.href)
+				 + "&shib_logged_in"));
 };
 // settings.shibbolethLogoutUrl =
 //     "https://korp.csc.fi/Shibboleth.sso/Logout?return=" + encodeURI(baseURL);
-settings.shibbolethLogoutUrl = function () {
+settings.shibbolethLogoutUrl = function (href) {
     return ("/Shibboleth.sso/Logout?return="
-            + encodeURIComponent(window.location.href));
+            + encodeURIComponent(href || window.location.href));
 }
+
+// Return a direct URL to the application of a corpus in Language Bank
+// Rights based on lbr_id (an URN, either complete or without the
+// common prefix "urn:nbn:fi:lb-"). if lbr_id is falsey, return the
+// URL of the LBR main page.
+settings.make_direct_LBR_URL = function (lbr_id) {
+    console.log ("make_direct_LBR_URL", lbr_id);
+    if (lbr_id) {
+	return ("https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource="
+		+ (lbr_id.slice(0, 3) != "urn" ? "urn:nbn:fi:lb-" : "")
+		+ lbr_id
+		+ "&target=application");
+    } else {
+	return "https://lbr.csc.fi";
+    }
+};
+
 
 // The supported corpus extra info items, typically links. If you add
 // a new item X, also remember to add corresponding translations for
@@ -2633,6 +2651,7 @@ settings.corporafolders.ftc = {
     info : {
 	urn : "urn:nbn:fi:lb-2014052719",
 	metadata_urn : "urn:nbn:fi:lb-2016050207",
+	lbr_id : "urn:nbn:fi:lb-201403268",
 	licence : {
 	    name : "CLARIN RES +PLAN +NC +ND",
 	    urn : "urn:nbn:fi:lb-20150304137",
@@ -2935,6 +2954,7 @@ settings.corpora.testcorp = {
     id : "testcorp",
     within : settings.defaultWithin,
     context : settings.defaultContext,
+    // limited_access : true,
     attributes : {
 	lemma : attrs.baseform,
         pos : attrs.pos
@@ -8426,6 +8446,7 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
 settings.corpusinfo.parfin = {
     urn : "urn:nbn:fi:lb-2015050506",
     metadata_urn : "urn:nbn:fi:lb-2014052710",
+    lbr_id : "urn:nbn:fi:lb-2014052710",
     licence : {
 	name : "CLARIN RES +NC +PLAN +INF",
 	urn : "urn:nbn:fi:lb-2015041306",
@@ -8995,6 +9016,7 @@ sattrlist.parrus_ru = $.extend(
 settings.corpusinfo.parrus = {
     urn : "[to be added]",
     metadata_urn : "urn:nbn:fi:lb-20140730173",
+    lbr_id : "urn:nbn:fi:lb-2014052710",
     licence : {
 	name : "CLARIN RES +PLAN +NC +INF +ND",
 	url : "urn:nbn:fi:lb-2016042705",
@@ -9021,6 +9043,7 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parrus, ["parrus_fi"]);
 settings.corpusinfo.parfin_2016 = {
     urn : "[to be added]",
     metadata_urn : "urn:nbn:fi:lb-2014052710",
+    lbr_id : "urn:nbn:fi:lb-2014052710",
     licence : {
 	name : "CLARIN RES +NC +INF 1.0",
 	urn : "urn:nbn:fi:lb-2016121608",
@@ -9716,6 +9739,7 @@ sattrlist.parrus_2016_fi = $.extend(
 settings.corpusinfo.parrus_2016 = {
     urn : "[to be added]",
     metadata_urn : "urn:nbn:fi:lb-20140730173",
+    lbr_id : "urn:nbn:fi:lb-2014052710",
     licence : {
 	name : "CLARIN RES +PLAN +NC +INF +ND",
 	url : "urn:nbn:fi:lb-2016042705"
@@ -11962,6 +11986,7 @@ settings.corpora.topling_fi = {
     description : "Topling – Toisen kielen oppimisen polut, suomenkielinen osakorpus",
     urn : "urn:nbn:fi:lb-2016112902",
     metadata_urn : "urn:nbn:fi:lb-2016111802",
+    lbr_id : "urn:nbn:fi:lb-20140730168",
     licence : {
 	name : "CLARIN RES +NC +DEP 1.0",
 	urn : "urn:nbn:fi:lb-2016112305"

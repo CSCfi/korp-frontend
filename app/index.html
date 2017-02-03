@@ -35,6 +35,25 @@
     <div id="loading-msg" style="opacity: 1;"><img src="img/korplogo.png">
       <p>Latautuu, odota hetki &hellip;<br>Laddar, var god vänta &hellip;<br>Loading, please wait &hellip;</p>
     </div>
+    <div id="accessResCorporaModal" role="dialog" tabindex="-1" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">{{'accessres_title' | loc:lang}}</h3>
+            <button data-dismiss="modal" class="close-x close">×</button>
+          </div>
+          <div class="modal-body">
+            <p>{{'accessres_preamble_common' | loc:lang}} <span class="hide_if_logged_in">{{'accessres_preamble_login' | loc:lang}} </span><span id="accessResCorporaPreambleACA">{{'accessres_preamble_aca' | loc:lang}}</span><span id="accessResCorporaPreambleACARES">{{'accessres_preamble_acares' | loc:lang}}</span><span id="accessResCorporaPreambleRES">{{'accessres_preamble_res' | loc:lang}}</span>.
+            </p>
+            <p id="resCorporaLinks">{{'accessres_links_preamble' | loc:lang}} <span class="hide_if_logged_in"><span id="resCorporaLogin"><a href="javascript:"><strong>{{'accessres_login' | loc:lang}} </strong></a></span>{{'or' | loc:lang}} </span>{{'accessres_apply' | loc:lang}}:</p>
+            <div id="resCorporaListContainer">
+              <ul id="resCorporaList"></ul>
+            </div>
+            <p id="accessResCorporaPostambleACA">{{'accessres_postamble_aca' | loc:lang}} <a ng-href="{{make_direct_LBR_URL('2016110710');}}" target="_blank">{{'accessres_postamble_aca_linktext' | loc:lang}}</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="main" style="opacity: 0;">
       <div id="header">
         <div id="top_bar" ng-controller="headerCtrl">
@@ -589,6 +608,7 @@
     <script src="lib/jquery.tooltip.pack.js"></script>
     <script src="components/d3/d3.min.js"></script>
     <script src="components/rickshaw/rickshaw.min.js"></script>
+    <script src="components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
     <script>
       window.currentMode = $.deparam.querystring().mode || "default"
       

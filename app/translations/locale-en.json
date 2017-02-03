@@ -416,5 +416,19 @@
     "corpus_metadata" : "Metadata",
     "corpus_homepage" : "Home page",
     "corpus_compiler" : "Compiler",
-    "corpus_download" : "Download corpus"
+    "corpus_download" : "Download corpus",
+
+    "accessres_title" : "Accessing restricted corpora",
+    "accessres_preamble_common" : "You are trying to select or access the following corpora (or their subcorpora) that require",
+    "accessres_preamble_login" : "logging in to Korp and",
+    "accessres_preamble_res" : "personal access rights",
+    "accessres_preamble_aca" : "either an active membership of an academic institution or personal access rights",
+    "accessres_preamble_acares" : "for [RES]-marked corpora, personal access rights, and for [ACA]-marked corpora, either an active membership of an academic institution or personal access rights",
+    "accessres_links_preamble" : "To use the corpora, please",
+    "accessres_login_or_apply" : "Please log in to Korp or apply for access rights to be able to use the corpora",
+    "accessres_login" : "log in to Korp",
+    "accessres_apply" : "apply for corpus access rights",
+    "accessres_postamble_aca" : "If Korp does not recognize you as an active member of an academic institution for technical reasons, you can also",
+    "accessres_postamble_aca_linktext" : "apply for recognition as an academic user"
+
 }

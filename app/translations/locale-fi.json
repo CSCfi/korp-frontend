@@ -354,5 +354,19 @@
     "context_texts" : "teksteistä",
     "which_contain" : "jotka sisältävät",
     "baseforms" : "sanan perusmuodot",
-    "wordforms" : "sanan taivutusmuodot"
+    "wordforms" : "sanan taivutusmuodot",
+
+    "accessres_title" : "Rajoitettujen korpusten käyttäminen",
+    "accessres_preamble_common" : "Yrität valita tai käyttää korpuksia (tai niiden osia), joiden käyttäminen vaatii",
+    "accessres_preamble_login" : "kirjautumisen Korpiin sekä",
+    "accessres_preamble_res" : "henkilökohtaisen käyttöoikeuden",
+    "accessres_preamble_aca" : "joko jonkin yliopiston käyttäjätunnuksen tai henkilökohtaisen käyttöoikeuden",
+    "accessres_preamble_acares" : "[RES]-merkittyjen korpusten osalta henkilökohtaisen käyttöoikeuden ja [ACA]-merkittyjen osalta joko jonkin yliopiston käyttäjätunnuksen tai henkilökohtaisen käyttöoikeuden",
+    "accessres_links_preamble" : "Voidaksesi käyttää korpuksia",
+    "accessres_login_or_apply" : "Kirjaudu Korpiin tai hae käyttöoikeuksia voidaksesi käyttää korpuksia",
+    "accessres_login" : "kirjaudu Korpiin",
+    "accessres_apply" : "hae korpusten käyttöoikeuksia",
+    "accessres_postamble_aca" : "Jos Korp ei tunnista sinua akateemiseksi käyttäjäksi teknisistä syistä, voit myös erikseen",
+    "accessres_postamble_aca_linktext" : "hakea tunnistamista akateemiseksi käyttäjäksi"
+
 }

@@ -91,6 +91,7 @@ view.updateReduceSelect = ->
         sentence_attr = cl.getStructAttrs()
     else if settings.reduce_struct_attribute_selector == "intersection"
         sentence_attr = cl.getStructAttrsIntersection()
+    sentence_attr ?= []
 
     groups = $.extend(
         word:
