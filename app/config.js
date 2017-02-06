@@ -12033,6 +12033,7 @@ settings.corpora.eduskunta = {
     title : "Eduskunta - transkriptiot",
     description : "Eduskunta - transkriptiot",
     id : "eduskunta",
+    metadata_urn : "urn:nbn:fi:lb-2017020202",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : attrlist.standard,
