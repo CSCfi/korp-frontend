@@ -2637,6 +2637,7 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_aarre",
 	"lehdet_aromi",
 	"lehdet_avec",
+	"lehdet_avec_perhelehti",
 	"lehdet_ekonomi",
 	"lehdet_elamassa_kelansanomat",
 	"lehdet_evento",
@@ -5486,6 +5487,27 @@ settings.corpora.lehdet_avec = {
         text_issue: {
             label: "issue",
         },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora["lehdet_avec_perhelehti"] = {
+    id: "lehdet_avec_perhelehti",
+    title: "Avec – Paremman avioliiton perhelehti",
+    description: "Avec – Paremman avioliiton perhelehti (2005-2016)<br/>Julkaisija: Parempi avioliitto ry<br/>Kotisivu: <a href='www.parempiavioliitto.fi/'>www.parempiavioliitto.fi/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
