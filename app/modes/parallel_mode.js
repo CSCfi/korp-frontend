@@ -7909,6 +7909,7 @@ settings.fn.extend_corpus_settings(
 	description : "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1910–2008 ja niiden käännöksiä venäjäksi virketasolla kohdistettuina<br/>ParFin 2016: финско-русский корпус художественных текстов. Финская проза 1910-2008 гг. и ее переводы на русский язык, тексты выровнены на уровне предложений.<br/><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Suomen annotaatioiden kuvaus</a><br/><a href=\"http://nl.ijs.si/ME/V4/msd/html/msd-ru.html\" target=\"_blank\">Venäjän morfologisen ja sanaluokka-annotaation kuvaus (englanniksi)</a></br><a href=\"http://www.ruscorpora.ru/instruction-syntax.html\" target=\"_blank\">Venäjän syntaktisen annotaation kuvaus (venäjäksi)</a>",
 	urn : "urn:nbn:fi:lb-2016121601",
 	metadata_urn : "urn:nbn:fi:lb-2016121610",
+	licence : settings.licenceinfo.ParFinRus_2016_fi,
 	context: context.linkAligned,
 	// TODO: Make sure that sentLinkWithin works in all cases.
 	within: settings.sentLinkWithin,
@@ -7999,6 +8000,7 @@ settings.fn.extend_corpus_settings(
 	description : "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/>ParRus 2016: русско-русский корпус художественных текстов. Русская классическая и современная проза и ее переводы на финский язык, тексты выровнены на уровне абзацев.<br/><br/><strong>Huomaa:</strong> Suomeksi haettaessa hakutulos sisältää samoja tuloksia useaan kertaan.<br/><br/><a href=\"http://nl.ijs.si/ME/V4/msd/html/msd-ru.html\" target=\"_blank\">Venäjän morfologisen ja sanaluokka-annotaation kuvaus (englanniksi)</a></br><a href=\"http://www.ruscorpora.ru/instruction-syntax.html\" target=\"_blank\">Venäjän syntaktisen annotaation kuvaus (venäjäksi)</a><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Suomen annotaatioiden kuvaus</a>",
 	urn : "urn:nbn:fi:lb-2016121604",
 	metadata_urn : "urn:nbn:fi:lb-20140730173",
+	licence : settings.licenceinfo.ParFinRus_2016_fi,
 	context : context.linkAligned,
 	// TODO: Make sure that sentLinkWithin works in all cases.
 	within : settings.sentLinkWithin,

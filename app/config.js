@@ -2374,6 +2374,14 @@ settings.licenceinfo = {
 	// An alternative URL:
 	// url : "https://joinup.ec.europa.eu/community/eupl/og_page/european-union-public-licence-eupl-v11",
     },
+    ParFinRus_2016_fi : {
+	name : "CLARIN RES +NC +INF +ND 1.0",
+	urn : "urn:nbn:fi:lb-2017020611",
+    },
+    ParFinRus_2016_en : {
+	name : "CLARIN RES +NC +INF +ND 1.0",
+	urn : "urn:nbn:fi:lb-2017020612",
+    },
 };
 
 
@@ -9075,10 +9083,8 @@ settings.corpusinfo.parfin_2016 = {
     // those in the parallel corpus.
     // urn : "[to be added]",
     // metadata_urn : "urn:nbn:fi:lb-2014052710",
-    licence : {
-	name : "CLARIN RES +NC +INF 1.0",
-	urn : "urn:nbn:fi:lb-2016121608",
-    },
+    // licence : settings.licenceinfo.ParFinRus_2016_fi,
+    lbr_id : "urn:nbn:fi:lb-2017020601",
     homepage_url : "https://mustikka.uta.fi/",
 };
 
@@ -9296,6 +9302,7 @@ settings.corpora.parfin_2016_fi = {
     description : "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset alkuperäistekstit)<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1910–2008<br/><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Annotaatioiden kuvaus</a>",
     urn : "urn:nbn:fi:lb-2016121602",
     metadata_urn : "urn:nbn:fi:lb-20161216211",
+    licence : settings.licenceinfo.ParFinRus_2016_fi,
     context : settings.sentLinkContext,
     within : settings.sentLinkWithin,
     attributes : attrlist.parfin_2016_fi,
@@ -9749,10 +9756,8 @@ settings.corpusinfo.parrus_2016 = {
     // those in the parallel corpus.
     // urn : "[to be added]",
     // metadata_urn : "urn:nbn:fi:lb-20140730173",
-    licence : {
-	name : "CLARIN RES +PLAN +NC +INF +ND 1.0",
-	urn : "urn:nbn:fi:lb-2016042705",
-    },
+    // licence : settings.licenceinfo.ParFinRus_2016_fi,
+    lbr_id : "urn:nbn:fi:lb-2017020601",
     homepage_url : "https://mustikka.uta.fi/",
 };
 
@@ -9761,7 +9766,8 @@ settings.corpora.parrus_2016_fi = {
     title : "ParRus 2016 (suomi)",
     description : "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset käännökset)<br/>Venäjänkielisten kaunokirjallisten tekstien (klassista ja 1900-luvun kirjallisuutta) käännöksiä suomeksi<br/><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Annotaatioiden kuvaus</a>",
     urn : "urn:nbn:fi:lb-2016121606",
-    metadata_urn : "urn:nbn:fi:lb-2016121614",
+    metadata_urn : "urn:nbn:fi:lb-2016121613",
+    licence : settings.licenceinfo.ParFinRus_2016_fi,
     context : settings.sentLinkContext,
     within : settings.sentLinkWithin,
     limited_access : true,
