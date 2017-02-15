@@ -1572,6 +1572,7 @@
     "klk_lang_vep" : "vepsä",
     "klk_lang_yrk" : "tundranenetsi",
     "scotscorr_largeregion" : "alue",
+    "scotscorr_original_date" : "alkuperäinen päiväys",
     "scotscorr_bi" : "aiempi julkaisu",
     "scotscorr_ms" : "NLS/NRS-tunniste",
     "scotscorr_lcinf" : "kirjoittajan paikkatiedot",

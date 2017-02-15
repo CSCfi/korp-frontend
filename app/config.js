@@ -8073,6 +8073,7 @@ sattrlist.scotscorr = {
     text_year : {label : "scotscorr_year"},
     text_fraser : {label : "scotscorr_fraser"},
     text_datefrom : sattrs.date,
+    text_date : { label : "scotscorr_original_date" },
     text_from : { label : "topling_from" },
     text_to : { label : "topling_to"},
     text_bi : { label : "scotscorr_bi"},
