@@ -99,7 +99,8 @@ settings.corporafolders.fstc = {
     description : "Finlandssvensk textcorpus (UHLCS): delkorpusar som var i Lemmie-servicen, morfosyntaktiskt analyserade med SWECG",
     info : {
 	urn : "urn:nbn:fi:lb-2016112318",
-	metadata_urn : "urn:nbn:fi:lb-2014032621",
+	metadata_urn : "urn:nbn:fi:lb-2016050213",
+	lbr_id : "urn:nbn:fi:lb-2016050212",
 	licence : {
 	    name : "CLARIN RES +PLAN +NC +LOC +ND",
 	    urn : "urn:nbn:fi:lb-20150304123",
