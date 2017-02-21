@@ -305,7 +305,7 @@ korpApp.controller "compareCtrl", ($scope, $rootScope) ->
         cmps = [cmp1, cmp2]
 
         s.reduceIsStructAttr =
-            _.map reduce, (attr) -> attributes[attr].isStructAttr
+            _.map reduce, (attr) -> attributes[attr]?.isStructAttr
 
         # c.log 'compare: tables', tables, 'max', max, 'reduce', reduce
 

@@ -94,7 +94,7 @@ korpApp.factory 'backend', ($http, $q, utils, lexicons) ->
         attributes = _.extend {}, corpusListing.getCurrentAttributes(),
                               corpusListing.getStructAttrs()
         reduceIsStructAttr =
-            _.map reduce, (attr) -> attributes[attr].isStructAttr
+            _.map reduce, (attr) -> attributes[attr]?.isStructAttr
 
         def = $q.defer()
         params =

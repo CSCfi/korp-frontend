@@ -357,7 +357,8 @@
       s.cmp2 = cmp2;
       cmps = [cmp1, cmp2];
       s.reduceIsStructAttr = _.map(reduce, function(attr) {
-        return attributes[attr].isStructAttr;
+        var ref;
+        return (ref = attributes[attr]) != null ? ref.isStructAttr : void 0;
       });
       return s.rowClick = function(row, cmp_index) {
         var cmp, cqp, cqps, k, opts, ref, results, splitTokens, tokenLength, tokens;
