@@ -1567,6 +1567,7 @@ sattrlist.scotscorr = {
     text_to : { label : "addressee" },
     text_year : { label : "year" },
     text_datefrom : sattrs.date,
+    text_date : { label : "original_date" },
     text_fraser : { label : "scotscorr_fraser" },
     text_lcinf : {
 	label : "scotscorr_lcinf",
