@@ -363,7 +363,9 @@
       return s.rowClick = function(row, cmp_index) {
         var cmp, cqp, cqps, k, opts, ref, results, splitTokens, tokenLength, tokens;
         cmp = cmps[cmp_index];
-        splitTokens = util.splitCompareKey(row.elems, reduce, s.reduceIsStructAttr);
+        splitTokens = _.map(row.elems, function(elem) {
+          return util.splitCompareKey(elem, reduce, s.reduceIsStructAttr);
+        });
         tokenLength = splitTokens[0][0].length;
         tokens = _.map((function() {
           results = [];

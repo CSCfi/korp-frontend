@@ -312,8 +312,8 @@ korpApp.controller "compareCtrl", ($scope, $rootScope) ->
         s.rowClick = (row, cmp_index) ->
             cmp = cmps[cmp_index]
 
-            splitTokens = util.splitCompareKey row.elems, reduce,
-                                               s.reduceIsStructAttr
+            splitTokens = _.map row.elems, (elem) ->
+                util.splitCompareKey elem, reduce, s.reduceIsStructAttr
             # c.log 'compare rowClick:', 'row', row, 'cmp', cmp, 'splitTokens', splitTokens
 
             # number of tokens in search

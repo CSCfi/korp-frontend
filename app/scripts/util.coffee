@@ -1886,11 +1886,10 @@ util.setMode = (mode, override_explicit = false) ->
 
 
 # Split a query comparison value key returned by the "loglike" command
-# of the backend. The parameter "key" is an array of keys,
+# of the backend. The parameter "key" is a single value key,
 # "reduce_attrs" is the array of reduce attribute names, and
 # "attr_is_struct_attr" is a array of booleans indicating whether the
-# corresponding reduce attribute is a structural attribute. ("key" is
-# an array as in compareCtrl, but is that really needed?)
+# corresponding reduce attribute is a structural attribute.
 #
 # Split the key to attribute values on "/" at most the number of
 # reduce attributes less one times. Do not split values of structural
@@ -1914,19 +1913,18 @@ util.setMode = (mode, override_explicit = false) ->
 util.splitCompareKey = (key, reduce_attrs, attr_is_struct_attr) ->
     c.log "splitCompareKey", key, reduce_attrs, attr_is_struct_attr
     reduce_len = reduce_attrs.length
-    _.map key, (elem, elem_idx) ->
-        if reduce_len > 1
-            split_attrs = elem.split "/"
-            if split_attrs.length > reduce_len
-                split_attrs[reduce_len..] = split_attrs[reduce_len..].join("/")
+    if reduce_len > 1
+        split_attrs = key.split "/"
+        if split_attrs.length > reduce_len
+            split_attrs[reduce_len..] = split_attrs[reduce_len..].join("/")
+    else
+        split_attrs = [key]
+    c.log "split_attrs", split_attrs, reduce_attrs, reduce_len
+    _.map split_attrs, (tokens, attr_idx) ->
+        if attr_is_struct_attr[attr_idx]
+            [tokens]
         else
-            split_attrs = [elem]
-        c.log "split_attrs", split_attrs, reduce_attrs, reduce_len
-        _.map split_attrs, (tokens) ->
-            if attr_is_struct_attr[elem_idx]
-                [tokens]
-            else
-                tokens.split " "
+            tokens.split " "
 
 
 # Add to selector a Shibboleth login or logout link as defined by

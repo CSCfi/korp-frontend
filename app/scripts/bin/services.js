@@ -175,7 +175,7 @@
             });
             res = _.map(groups, function(value, key) {
               var abs, cqp, elems, loglike, tokenLists;
-              tokenLists = util.splitCompareKey([key], reduce, reduceIsStructAttr);
+              tokenLists = util.splitCompareKey(key, reduce, reduceIsStructAttr);
               loglike = 0;
               abs = 0;
               cqp = [];
