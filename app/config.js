@@ -2408,11 +2408,6 @@ settings.corporafolders.sv = {
 };
 */
 
-settings.corporafolders.ceal = {
-    title : "CEAL",
-    contents : ["ceal_o", "ceal_s"]
-};
-
 settings.corporafolders.ethesis = {
     title : "E-thesis",
     contents : ["ethesis_maabs", "ethesis_dissabs"]
@@ -2503,6 +2498,10 @@ settings.corporafolders.literature.skk = {
 leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"]
 */
 
+settings.corporafolders.literature.ceal = {
+    title : "CEAL",
+    contents : ["ceal_o", "ceal_s"]
+};
 
 settings.corporafolders.legal = {
     title : "Juridisia tekstejä",
