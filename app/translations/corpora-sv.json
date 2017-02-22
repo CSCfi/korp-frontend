@@ -1147,6 +1147,18 @@
     "ogl_msd_V-3ppxa----i": "verb oklart modus 3e person pluralis presens aktiv",
     "ogl_msd_V-3pxxa----i": "verb oklart modus 3e person pluralis oklart tempus aktiv",
 
+    "text_studentno" : "student id",
+    "file_edulevel" : "kursnivå",
+    "file_round" : "runda",
+    "file_levelops" : "CEFR-nivå",
+    "file_exercise" : "harjoitus",
+    "file_filetype" : "filtyp",
+    "topling_text" : "text",
+    "topling_to" : "adressat",
+    "topling_from" : "ansändare",
+    "topling_subject" : "subjekt",
+    "topling_comment" : "lärares komment",
+
     "studentsvenska_code" : "syntaktisk funktion",
     "studentsvenska_properties" : "satstyp",
     "studentsvenska_textnumber" : "textnummer",
