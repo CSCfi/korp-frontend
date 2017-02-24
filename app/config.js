@@ -12061,6 +12061,8 @@ settings.corpora.arkisyn = {
     title : "Arkisyn",
     description : "Arkisyn",
     id : "arkisyn",
+    limited_access : true,
+    licence_type : "RES",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
