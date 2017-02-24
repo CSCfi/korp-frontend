@@ -2709,7 +2709,7 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
 
 settings.corporafolders.spoken = {
     title : "Puhuttua kieltä (tekstiksi litteroituna)",
-    contents : ["kotus_sp", "skn", "dma"],
+    contents : ["kotus_sp", "skn", "dma", "arkisyn"],
     // unselected : true
 };
 
@@ -12054,6 +12054,26 @@ settings.corpora.ceal_s = {
             label : "text_author"
         },
         text_translator : sattrs.text_translator
+    }
+};
+
+settings.corpora.arkisyn = {
+    title : "Arkisyn",
+    description : "Arkisyn",
+    id : "arkisyn",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_las2,
+        fun : attrs.func_la,
+        mrp : attrs.msd,
+        origword : attrs.origword
+    },
+    struct_attributes : {
+        text_filename : {
+            label : "file_name",
+        },
     }
 };
 
