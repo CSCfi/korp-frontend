@@ -12061,6 +12061,8 @@ settings.corpora.arkisyn = {
     title : "Arkisyn",
     description : "Arkisyn",
     id : "arkisyn",
+    urn : "urn:nbn:fi:lb-2017022702",
+    metadata_urn : "urn:nbn:fi:lb-2017022801",
     licence : settings.licenceinfo.CC_BY_ND,
     within : settings.defaultWithin,
     context : settings.defaultContext,
