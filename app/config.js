@@ -1971,69 +1971,6 @@ sattrlist.oracc = {
     }
 };
 
-/* SUST */
-
-sattrlist.sust = {
-    text_locale : {
-        label : "parish"
-    },
-    text_rectime : {
-        label : "text_recordingdate"
-    },
-    text_title : {
-        label : "text_title"
-    },
-    text_year : {
-        label : "text_year"
-    },
-    /*
-    text_author : {
-        label : "text_author"
-	},*/
-    text_pgli : {
-        label : "sentence_line"
-    },
-    text_interviewer : {
-        label : "paragraphtype_interviewer"
-    },
-    text_interviewee : {
-        label : "paragraphtype_interviewee"
-    },
-    text_corryear : {
-        label : "text_correction_year"
-    },
-    text_corrector : {
-        label : "text_corrector"
-    },
-    text_issue : {
-        label : "text_issue"
-    },
-    text_pubname : {
-        label : "publisher"
-    },
-    sentence_pgno : {
-        label : "page_num"
-    },
-    sentence_chapno : {
-        label : "sentence_chapno",
-    },
-    paragraph_parttitle : {
-        label : "paragraph_title",
-    },
-    paragraph_lang : {
-        label : "paragraph_lang",
-    },
-    sentence_tr : {
-        label : "translation",
-    },
-    sentence_orig : {
-        label : "transcription",
-    }
-};
-
-attrlist.sust = {}
-
-
 /* ORACC */
 attrlist.oracc = {
     lemma : attrs.baseform,

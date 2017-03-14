@@ -605,7 +605,9 @@
     "text_period" : "text period",
 
     "publication_date" : "publication date",
+    "publication_year" : "publication year",
     "publication_place" : "place of publication",
+    "publication_name" : "publication name",
 
     "textgenre_fiction" : "fiction",
     "textgenre_law" : "legal text",
@@ -770,6 +772,27 @@
     "suomi24fi_urlboard" : "original thread",
 
     "title_lemmas" : "title word lemmas",
+
+    "locality" : "locality",
+    "locality_orig" : "locality in original language",
+    "locality_russian" : "locality in Russian",
+    "interviewer" : "interviewer",
+    "interviewee" : "interviewee",
+    "page_line" : "line number on page",
+    "paragraph_num" : "paragraph number",
+    "sentence_num" : "sentence number",
+    "comment_german" : "comment in German",
+    "text_num" : "text number",
+    "text_title_orig" : "text title in original language",
+    "text_title_transl" : "translated text title",
+    "text_status" : "text status",
+    "text_page_range" : "text page range",
+    "licence" : "licence",
+    "sentence_type" : "type of sentence",
+    "translation_german" : "translation in German",
+    "interview_date" : "interview date",
+    "text_correction_year" : "correction year",
+    "text_corrector" : "text corrector",
 
     "iclfi_place" : "collection place",
     "iclfi_year" : "collection year",
@@ -1035,6 +1058,8 @@
     "namecat_NumexMsrCur" : "money expression",
     "namecat_NumexMsrXxx" : "other numeric expression",
     "namecat_TimexTmeDat" : "temporal expression",
+
+    "transcription" : "transcription",
 
     "annotation" : "annotation",
     "ogl_pos_Nb": "substantiv",

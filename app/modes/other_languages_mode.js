@@ -26,12 +26,6 @@ settings.spContext = {
     "1 paragraph" : "1 paragraph"
 };
 
-settings.corporafolders.sust = {
-    title : "sus-fieldwork",
-    description : "sus-fieldwork",
-    contents : ["sust_myv", "sust_kpv", "sust_mdf"]
-};
-
 settings.corporafolders.oracc = {
     title : "ORACC",
     description : "ORACC – Open Richly Annotated Cuneiform Corpus",
@@ -136,6 +130,17 @@ settings.corporafolders.hcs2 = {
 	    urn : "urn:nbn:fi:lb-2016112310",
 	}
     },
+};
+
+settings.corporafolders.sust = {
+    title : "SUS-kenttätyö (näyte)",
+    description : "Suomalais-Ugrilaisen Seuran kenttätyökorpus (näyte)",
+    // The Finno-Ugrian Society Fieldwork Corpus (sample)<br/>
+    info : {
+	metadata_urn : "urn:nbn:fi:lb-2016092001",
+	licence : settings.licenceinfo.CC_BY_NC,
+    },
+    contents : ["sust_myv", "sust_kpv", "sust_mdf"]
 };
 
 
@@ -255,34 +260,196 @@ settings.corpora.ethesis_de = {
 };
 
 
+sattrlist.sust_common = {
+    text_lang : {
+	label : "lang",
+	displayType : "select",
+	translationKey : "",
+	dataset : [
+	    "kpv",
+	    "mdf",
+	    "myv",
+	],
+	opts : settings.liteOptions,
+    },
+    text_recdate : {
+        label : "interview_date"
+    },
+    text_interviewee : {
+        label : "interviewee"
+    },
+    text_interviewer : {
+        label : "interviewer"
+    },
+    text_locale : {
+        label : "locality"
+    },
+    text_locale_orig : {
+        label : "locality_orig"
+    },
+    text_locale_rus : {
+        label : "locality_russian"
+    },
+    text_id_orig : {
+	label : "text_title_orig",
+    },
+    text_id_deu : {
+	label : "text_title_transl",
+    },
+    // text_title : {
+    //     label : "text_title"
+    // },
+    text_publ_name : {
+	label : "publication_name",
+    },
+    text_issue : {
+        label : "text_issue"
+    },
+    text_publisher : {
+        label : "publisher"
+    },
+    text_publ_year : {
+        label : "publication_year"
+    },
+    text_publ_place : {
+	label : "publication_place",
+    },
+    /*
+    text_author : {
+        label : "text_author"
+	},*/
+    // text_pgli : {
+    //     label : "sentence_line"
+    // },
+    text_corryear : {
+        label : "text_correction_year"
+    },
+    text_corrector : {
+        label : "text_corrector"
+    },
+    text_collection : {
+	label : "text_collection",
+	displayType : "hidden",
+    },
+    text_genre_deu : {
+	label : "genre",
+    },
+    text_comment_deu : {
+	label : "comment_german",
+    },
+    text_pagerange : {
+	label : "text_page_range",
+    },
+    text_licence : {
+	label : "licence",
+    },
+    text_status_eng : {
+	label : "text_status",
+    },
+    text_type : {
+	label : "text_type",
+    },
+    text_textnum : {
+	label : "text_num",
+    },
+    sentence_type : {
+	label : "sentence_type",
+    },
+    // sentence_chapno : {
+    //     label : "sentence_chapno",
+    // },
+    // paragraph_parttitle : {
+    //     label : "paragraph_title",
+    // },
+    // paragraph_lang : {
+    //     label : "paragraph_lang",
+    // },
+    sentence_orig : {
+        label : "transcription",
+    },
+    sentence_transl_deu : {
+        label : "translation_german",
+    },
+    sentence_pagenum : {
+        label : "page_num",
+    },
+    sentence_pageline : {
+        label : "page_line",
+    },
+    sentence_paranum : {
+        label : "paragraph_num",
+    },
+    sentence_sentnum : {
+        label : "sentence_num",
+    },
+};
+
+
+attrlist.sust_common = {
+    ref : attrs.ref,
+    phon : {
+	label : "transcription",
+    },
+};
+
+attrlist.sust_tagged = $.extend(true, attrlist.sust_common, {
+    lemma : {
+	label : "lemma",
+    },
+    pos : {
+	label : "pos",
+	displayType : "select",
+	translationKey : "pos_",
+	dataset : {
+	    "A" : "A",
+	    "Adv" : "Adv",
+	    "CC" : "CC",
+	    "CLB" : "PUnct",
+	    "N" : "N",
+	    "Num" : "Num",
+	    "Pcle" : "Particle",
+	    "Po" : "Post",
+	    "Pron" : "Pron",
+	    "V" : "V",
+	    null : null,
+	},
+	opts : settings.liteOptions,
+    },
+    msd : {
+	label : "msd",
+	taginfo_url : "",
+    },
+});
+
+
 settings.corpora.sust_mdf = {
     id : "sust_mdf",
-    title : "Mokša (näyte)",
-    description : "Mokša",
+    title : "SUS-kenttätyö: mokša (näyte)",
+    description : "Suomalais-Ugrilaisen Seuran kenttätyökorpus: mokša (näyte)",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : attrlist.sust,
-    struct_attributes : sattrlist.sust
+    attributes : attrlist.sust_tagged,
+    struct_attributes : sattrlist.sust_common
 };
 
 settings.corpora.sust_myv = {
     id : "sust_myv",
-    title : "Ersä (näyte)",
-    description : "Ersä",
+    title : "SUS-kenttätyö: ersä (näyte)",
+    description : "Suomalais-Ugrilaisen Seuran kenttätyökorpus: ersä (näyte)",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : attrlist.sust,
-    struct_attributes : sattrlist.sust
+    attributes : attrlist.sust_tagged,
+    struct_attributes : sattrlist.sust_common
 };
 
 settings.corpora.sust_kpv = {
     id : "sust_kpv",
-    title : "Syrjääninkomi (näyte)",
-    description : "Syrjääninkomi",
+    title : "SUS-kenttätyö: komisyrjääni (näyte)",
+    description : "Suomalais-Ugrilaisen Seuran kenttätyökorpus: komisyrjääni (näyte)",
     within : settings.spWithin,
     context : settings.spContext,
-    attributes : attrlist.sust,
-    struct_attributes : sattrlist.sust
+    attributes : attrlist.sust_tagged,
+    struct_attributes : sattrlist.sust_common
 };
 
 settings.corpora.fennougrica_izh = {
@@ -1808,6 +1975,7 @@ settings.corpora.besercorp = {
 var locally_available_corpora = ["(mulcold|legal)_..",
 				 "elfa",
 				 "kildin_sample",
+				 "sust_.*",
 				 "swahili_sample"];
 
 if (! isPublicServer) {
