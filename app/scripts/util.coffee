@@ -616,7 +616,7 @@ class window.ParallelCorpusListing extends CorpusListing
     getWithinParameters : ->
         defaultWithin = search().within or _.keys(settings.defaultWithin)[0]
         within = @getAttributeQuery("within")
-        return {defaultWithin : defaultWithin, within : within}
+        return {defaultwithin : defaultWithin, within : within}
 
 
 
