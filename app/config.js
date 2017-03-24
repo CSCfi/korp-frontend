@@ -2613,7 +2613,6 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_effortti",
 	"lehdet_ekonomi",
 	"lehdet_elinehto",
-	"lehdet_elamantahdet",
 	"lehdet_elamassa_kelansanomat",
 	"lehdet_emma",
 	"lehdet_entisesta_enemman",
@@ -2672,9 +2671,6 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_kaytannon_maamies",
 	"lehdet_lapsenmaailma",
 	"lehdet_legenda",
-	"lehdet_elamassa_kelansanomat",
-	"lehdet_evento",
-	"lehdet_heppu",
 	"lehdet_leija",
 	"lehdet_luokanopettaja",
 	"lehdet_luuppisanomat",
@@ -2720,7 +2716,6 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_tukiviesti",
 	"lehdet_turkuposti",
 	"lehdet_tutkain",
-	"lehdet_tyoelaman_tutkimus",
 	"lehdet_ubik",
 	"lehdet_uljas",
 	"lehdet_uniikki",
@@ -5553,6 +5548,7 @@ settings.corpora.lehdet_aino = {
             label: "issue",
         },
         text_title: sattrs.text_title,
+	text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -5652,6 +5648,7 @@ settings.corpora.lehdet_ananda = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_title: sattrs.text_title,
+	text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
@@ -5778,6 +5775,7 @@ settings.corpora.lehdet_asuminen_yhteiskunta = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_title: sattrs.text_title,
+	text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
@@ -5999,26 +5997,7 @@ settings.corpora.lehdet_diakonia = {
     },
 };
 
-settings.corpora.lehdet_elamantahdet = {
-    id: "lehdet_elamantahdet",
-    title: "Elämän tähdet",
-    description: "Elämän tähdet (2011-2/2016)<br/>Sisältää lehden kotisivuilla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Pirkanmaan sairaanhoitopiiri<br/>Kotisivu: <a href='http://www.tays.fi/fi-FI/Sairaanhoitopiiri/Sairaanhoitopiirin_julkaisut/Elaman_tahdet'>http://www.tays.fi/fi-FI/Sairaanhoitopiiri/Sairaanhoitopiirin_julkaisut/Elaman_tahdet</a>",
-    urn: "urn:nbn:fi:lb-2016021202",
-    metadata_urn: "urn:nbn:fi:lb-2016011101",
-    licence: settings.licenceinfo.CC_BY_40,
-    features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
-        text_title: sattrs.text_title,
-        text_issue: {
-            label: "issue",
-        },
-        text_year: {
-            label: "year",
-        },
-        paragraph_id: sattrs.paragraph_id_hidden,
-        sentence_id: sattrs.sentence_id_hidden,
-    },
-};
+
 
 settings.corpora.lehdet_elinehto = {
     id: "lehdet_elinehto",
@@ -6183,6 +6162,7 @@ settings.corpora.lehdet_ethnos = {
             label: "year",
         },
         text_title: sattrs.text_title,
+	text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -6198,6 +6178,7 @@ settings.corpora.lehdet_eurooppalainen = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_title: sattrs.text_title,
+	text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
@@ -6219,6 +6200,7 @@ settings.corpora.lehdet_curly = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_title: sattrs.text_title,
+	text_url: sattrs.link_lehdet,
         text_year: {
             label: "year",
         },
@@ -6369,6 +6351,7 @@ settings.corpora.lehdet_diabetes_ja_laakari = {
             label: "issue",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         text_year: {
             label: "year",
         },
@@ -6387,6 +6370,7 @@ settings.corpora.lehdet_evento = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
@@ -6477,6 +6461,7 @@ settings.corpora.lehdet_heppu = {
             label: "issue",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -6495,6 +6480,7 @@ settings.corpora.lehdet_hima = {
             label: "year",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
@@ -6645,6 +6631,7 @@ settings.corpora.lehdet_karhunpalvelus = {
             label: "issue",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -6750,6 +6737,7 @@ settings.corpora.lehdet_kemilainen = {
             label: "issue",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -6831,6 +6819,7 @@ settings.corpora.lehdet_kumposti = {
             label: "issue",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         text_year: {
             label: "year",
         },
@@ -6979,6 +6968,7 @@ settings.corpora.lehdet_luuppisanomat = {
             label: "year",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
@@ -7018,6 +7008,7 @@ settings.corpora.lehdet_mercurius = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
@@ -7508,6 +7499,7 @@ settings.corpora.lehdet_sofia = {
             label: "year",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -7786,26 +7778,7 @@ settings.corpora.lehdet_tutkain = {
     },
 };
 
-settings.corpora.lehdet_tyoelaman_tutkimus = {
-    id: "lehdet_tyoelaman_tutkimus",
-    title: "Työelämän tutkimus",
-    description: "Työelämän tutkimus (2003-2012)<br/>Julkaisija: Työelämän tutkimusyhdistys ry.<br/>Kotisivu: <a href='http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/'>http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/</a>",
-    urn: "urn:nbn:fi:lb-2016021202",
-    metadata_urn: "urn:nbn:fi:lb-2016011101",
-    licence: settings.licenceinfo.CC_BY_40,
-    features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
-        text_year: {
-            label: "year",
-        },
-        text_title: sattrs.text_title,
-        text_issue: {
-            label: "issue",
-        },
-        paragraph_id: sattrs.paragraph_id_hidden,
-        sentence_id: sattrs.sentence_id_hidden,
-    },
-};
+
 
 settings.corpora.lehdet_ubik = {
     id: "lehdet_ubik",
@@ -8138,6 +8111,7 @@ settings.corpora.lehdet_tatsi = {
             label: "year",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -8153,6 +8127,7 @@ settings.corpora.lehdet_tiedetoimittaja = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
@@ -8177,6 +8152,7 @@ settings.corpora.lehdet_elamassa_kelansanomat = {
             label: "year",
         },
         text_title: sattrs.text_title,
+	text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
@@ -8203,6 +8179,7 @@ settings.corpora.lehdet_sosiaalivakuutus = {
             label: "issue",
         },
         text_title: sattrs.text_title,
+	text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -8224,6 +8201,7 @@ settings.corpora.lehdet_cplehti = {
             label: "year",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -8245,6 +8223,7 @@ settings.corpora.lehdet_edimensio = {
             label: "year",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -8266,6 +8245,7 @@ settings.corpora.lehdet_effortti = {
             label: "issue",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -8281,6 +8261,7 @@ settings.corpora.lehdet_helsinki_info = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         text_year: {
             label: "year",
         },
@@ -8302,6 +8283,7 @@ settings.corpora.lehdet_hervannan_sanomat = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         text_year: {
             label: "year",
         },
@@ -8329,6 +8311,7 @@ settings.corpora.lehdet_hopealeijona = {
             label: "year",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -8344,6 +8327,7 @@ settings.corpora.lehdet_hyva_asukas = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
@@ -8365,6 +8349,7 @@ settings.corpora.lehdet_impakti = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         text_year: {
             label: "year",
         },
@@ -8386,6 +8371,7 @@ settings.corpora.lehdet_infors = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         text_year: {
             label: "year",
         },
@@ -8407,6 +8393,7 @@ settings.corpora.lehdet_jargonia = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         text_year: {
             label: "year",
         },
@@ -8434,6 +8421,7 @@ settings.corpora.lehdet_kalpa = {
             label: "issue",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -8452,6 +8440,7 @@ settings.corpora.lehdet_kansanopisto = {
             label: "issue",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         text_year: {
             label: "year",
         },
@@ -8476,6 +8465,7 @@ settings.corpora.lehdet_karhunkierros = {
             label: "year",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -8497,6 +8487,7 @@ settings.corpora.lehdet_kehittaja = {
             label: "year",
         },
         text_title: sattrs.text_title,
+	text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -8518,6 +8509,7 @@ settings.corpora.lehdet_kerberos = {
             label: "issue",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -8539,6 +8531,7 @@ settings.corpora.lehdet_keski_espoon_sanomat = {
             label: "year",
         },
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -8554,6 +8547,7 @@ settings.corpora.lehdet_keva = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
@@ -8575,6 +8569,7 @@ settings.corpora.lehdet_kide = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
@@ -8586,26 +8581,7 @@ settings.corpora.lehdet_kide = {
     },
 };
 
-settings.corpora.lehdet_kiitotie = {
-    id: "lehdet_kiitotie",
-    title: "Kiitotie",
-    description: "Kiitotie (2003-1/2006)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Kiitotie_2003-1_2006_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Ilmailulaitos Finavia<br/>Kotisivu: <a href='https://www.finavia.fi/fi/tiedottaminen/arkisto/asiakaslehdet/'>https://www.finavia.fi/fi/tiedottaminen/arkisto/asiakaslehdet/</a>",
-    urn: "urn:nbn:fi:lb-2016021202",
-    metadata_urn: "urn:nbn:fi:lb-2016011101",
-    licence: settings.licenceinfo.CC_BY_40,
-    features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
-        text_issue: {
-            label: "issue",
-        },
-        text_year: {
-            label: "year",
-        },
-        text_title: sattrs.text_title,
-        paragraph_id: sattrs.paragraph_id_hidden,
-        sentence_id: sattrs.sentence_id_hidden,
-    },
-};
+
 
 settings.corpora.lehdet_aromi = {
     id: "lehdet_aromi",
@@ -8670,47 +8646,9 @@ settings.corpora["lehdet_avec_perhelehti"] = {
     },
 };
 
-settings.corpora.lehdet_evento = {
-    id: "lehdet_evento",
-    title: "Evento",
-    description: "Evento (2012-2016)<br/>Julkaisija: Mediatalo Keskisuomalainen Oyj Aikakauslehtiryhmä<br/>Kotisivu: <a href='http://eventolehti.fi/'>http://eventolehti.fi/</a>",
-    urn: "urn:nbn:fi:lb-2016021202",
-    metadata_urn: "urn:nbn:fi:lb-2016011101",
-    licence: settings.licenceinfo.CC_BY_40,
-    features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
-        text_title: sattrs.text_title,
-        text_issue: {
-            label: "issue",
-        },
-        text_year: {
-            label: "year",
-        },
-        paragraph_id: sattrs.paragraph_id_hidden,
-        sentence_id: sattrs.sentence_id_hidden,
-    },
-};
 
-settings.corpora.lehdet_heppu = {
-    id: "lehdet_heppu",
-    title: "Heppu",
-    description: "Heppu (2011-3/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Heppu_2011-3_2016_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Pääkaupunkiseudun Partiolaiset ry<br/>Kotisivu: <a href='http://www.paakaupunkiseudunpartiolaiset.fi/tietoa-meista/julkaisut/'>http://www.paakaupunkiseudunpartiolaiset.fi/tietoa-meista/julkaisut/</a>",
-    urn: "urn:nbn:fi:lb-2016021202",
-    metadata_urn: "urn:nbn:fi:lb-2016011101",
-    licence: settings.licenceinfo.CC_BY_40,
-    features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
-        text_year: {
-            label: "year",
-        },
-        text_issue: {
-            label: "issue",
-        },
-        text_title: sattrs.text_title,
-        paragraph_id: sattrs.paragraph_id_hidden,
-        sentence_id: sattrs.sentence_id_hidden,
-    },
-};
+
+
 
 settings.corpora.lehdet_poromies = {
     id: "lehdet_poromies",
@@ -8754,89 +8692,7 @@ settings.corpora.lehdet_promaint_kunnossapito = {
     },
 };
 
-settings.corpora.lehdet_tatsi = {
-    id: "lehdet_tatsi",
-    title: "Tatsi",
-    description: "Tatsi (2011-1/2016)<br/>Julkaisija: Työttömien ay-jäsenten tukiyhdistys ry<br/>Kotisivu: <a href='http://tatsi.org/tatsi-lehti/arkisto/'>http://tatsi.org/tatsi-lehti/arkisto/</a>",
-    urn: "urn:nbn:fi:lb-2016021202",
-    metadata_urn: "urn:nbn:fi:lb-2016011101",
-    licence: settings.licenceinfo.CC_BY_40,
-    features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
-        text_issue: {
-            label: "issue",
-        },
-        text_year: {
-            label: "year",
-        },
-        text_title: sattrs.text_title,
-        paragraph_id: sattrs.paragraph_id_hidden,
-        sentence_id: sattrs.sentence_id_hidden,
-    },
-};
 
-settings.corpora.lehdet_tiedetoimittaja = {
-    id: "lehdet_tiedetoimittaja",
-    title: "Tiedetoimittaja",
-    description: "Tiedetoimittaja (2008-2013)<br/>Julkaisija: Suomen tiedetoimittajain liitto ry<br/>Kotisivu: <a href='http://www.tiedetoimittajat.fi/tiedetoimittajalehti/tiedetoimittajat-arkisto/'>http://www.tiedetoimittajat.fi/tiedetoimittajalehti/tiedetoimittajat-arkisto/</a>",
-    urn: "urn:nbn:fi:lb-2016021202",
-    metadata_urn: "urn:nbn:fi:lb-2016011101",
-    licence: settings.licenceinfo.CC_BY_40,
-    features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
-        text_title: sattrs.text_title,
-        text_issue: {
-            label: "issue",
-        },
-        text_year: {
-            label: "year",
-        },
-        paragraph_id: sattrs.paragraph_id_hidden,
-        sentence_id: sattrs.sentence_id_hidden,
-    },
-};
-
-settings.corpora.lehdet_elamassa_kelansanomat = {
-    id: "lehdet_elamassa_kelansanomat",
-    title: "Elämässä/Kelan sanomat",
-    description: "Kelan sanomat (2008), Elämässä (2009-2014)<br/>Julkaisija: Kansaneläkelaitos (Kela)<br/>Kotisivu: <a href='http://www.kela.fi/elamassa'>http://www.kela.fi/elamassa</a>",
-    urn: "urn:nbn:fi:lb-2016021202",
-    metadata_urn: "urn:nbn:fi:lb-2016011101",
-    licence: settings.licenceinfo.CC_BY_40,
-    features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
-        text_year: {
-            label: "year",
-        },
-        text_title: sattrs.text_title,
-        text_issue: {
-            label: "issue",
-        },
-        paragraph_id: sattrs.paragraph_id_hidden,
-        sentence_id: sattrs.sentence_id_hidden,
-    },
-};
-
-settings.corpora.lehdet_sosiaalivakuutus = {
-    id: "lehdet_sosiaalivakuutus",
-    title: "Sosiaalivakuutus",
-    description: "Sosiaalivakuutus (2006-2010, 2015-2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Sosiaalivakuutus_2006_-_2010_2015_-_2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Kansaneläkelaitos (Kela)<br/>Kotisivu: <a href='http://www.kela.fi/sosiaalivakuutus'>http://www.kela.fi/sosiaalivakuutus</a>",
-    urn: "urn:nbn:fi:lb-2016021202",
-    metadata_urn: "urn:nbn:fi:lb-2016011101",
-    licence: settings.licenceinfo.CC_BY_40,
-    features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
-        text_year: {
-            label: "year",
-        },
-        text_issue: {
-            label: "issue",
-        },
-        text_title: sattrs.text_title,
-        paragraph_id: sattrs.paragraph_id_hidden,
-        sentence_id: sattrs.sentence_id_hidden,
-    },
-};
 
 
 
