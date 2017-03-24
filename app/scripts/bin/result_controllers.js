@@ -357,12 +357,15 @@
       s.cmp2 = cmp2;
       cmps = [cmp1, cmp2];
       s.reduceIsStructAttr = _.map(reduce, function(attr) {
-        return attributes[attr].isStructAttr;
+        var ref;
+        return (ref = attributes[attr]) != null ? ref.isStructAttr : void 0;
       });
       return s.rowClick = function(row, cmp_index) {
         var cmp, cqp, cqps, k, opts, ref, results, splitTokens, tokenLength, tokens;
         cmp = cmps[cmp_index];
-        splitTokens = util.splitCompareKey(row.elems, reduce, s.reduceIsStructAttr);
+        splitTokens = _.map(row.elems, function(elem) {
+          return util.splitCompareKey(elem, reduce, s.reduceIsStructAttr);
+        });
         tokenLength = splitTokens[0][0].length;
         tokens = _.map((function() {
           results = [];

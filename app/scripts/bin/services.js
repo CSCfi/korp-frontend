@@ -124,7 +124,8 @@
         }).join(',');
         attributes = _.extend({}, corpusListing.getCurrentAttributes(), corpusListing.getStructAttrs());
         reduceIsStructAttr = _.map(reduce, function(attr) {
-          return attributes[attr].isStructAttr;
+          var ref;
+          return (ref = attributes[attr]) != null ? ref.isStructAttr : void 0;
         });
         def = $q.defer();
         params = {
@@ -174,7 +175,7 @@
             });
             res = _.map(groups, function(value, key) {
               var abs, cqp, elems, loglike, tokenLists;
-              tokenLists = util.splitCompareKey([key], reduce, reduceIsStructAttr);
+              tokenLists = util.splitCompareKey(key, reduce, reduceIsStructAttr);
               loglike = 0;
               abs = 0;
               cqp = [];

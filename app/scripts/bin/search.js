@@ -109,6 +109,9 @@
     } else if (settings.reduce_struct_attribute_selector === "intersection") {
       sentence_attr = cl.getStructAttrsIntersection();
     }
+    if (sentence_attr == null) {
+      sentence_attr = [];
+    }
     groups = $.extend({
       word: {
         word: {

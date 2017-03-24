@@ -1850,7 +1850,7 @@ label[for=lemgram_select]:before {
   display : block;
   & > * {
     display: inline-block;
-    width : 49%;
+    width : 80%;
   }
   .close-x {
     text-align: right;
@@ -1859,6 +1859,7 @@ label[for=lemgram_select]:before {
     &:hover {
       color : darkgrey;
     }
+    width : 10%;
   }
 }
 
@@ -2794,6 +2795,86 @@ li.active a span .num-to-find {
 
 .leaflet-control-layers-toggle {
     background-image: url(../components/leaflet/dist/images/layers.png);
+}
+
+
+/* Hide an element if or if not logged in */
+
+.logged_in .hide_if_logged_in {
+    display: none;
+}
+
+.not_logged_in .hide_if_not_logged_in {
+    display: none;
+}
+
+
+/* Styles for the restricted corpora access modal */
+
+#accessResCorporaModal {
+    // Show on top of the corpus chooser and corpus info boxes
+    z-index: 11000;
+
+    .modal-body {
+        min-height: 2em;
+    }
+
+    // Override the opacity from Bootstrap. For some reason, the
+    // opacity seems to affect only this modal, not the other ones
+    // implemented using Angular Bootstrap.
+    .close-x {
+        opacity: 1;
+    }
+}
+
+#resCorporaList {
+    display: inline;
+    li {
+        margin-left: 1em;
+        font-size: 0.9em;
+    }
+}
+
+#resCorporaListContainer {
+    max-height: 20em;
+    overflow-y: auto;
+}
+
+// Hide the non-relevant text variants
+.access-corpora-aca #accessResCorporaPreambleACARES,
+.access-corpora-aca #accessResCorporaPreambleRES,
+.access-corpora-acares #accessResCorporaPreambleACA,
+.access-corpora-acares #accessResCorporaPreambleRES,
+.access-corpora-res #accessResCorporaPreambleACA,
+.access-corpora-res #accessResCorporaPreambleACARES {
+    display: none;
+}
+
+.access-corpora-res #accessResCorporaPostambleACA {
+    display: none;
+}
+
+
+/*
+#resCorporaLinks a {
+    display: inline-block;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+*/
+
+/*
+#resCorporaLogin,
+#resCorporaLBR {
+    margin-left: 1em;
+}
+*/
+
+.modal-backdrop {
+    // Increase the modal backdrop z-index from the default 1040
+    // to dim the corpus selector and corpus info box with higher
+    // z-indexes. Could this cause problems somewhere else?
+    z-index: 10040;
 }
 
 

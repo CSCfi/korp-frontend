@@ -94,7 +94,7 @@ korpApp.factory 'backend', ($http, $q, utils, lexicons) ->
         attributes = _.extend {}, corpusListing.getCurrentAttributes(),
                               corpusListing.getStructAttrs()
         reduceIsStructAttr =
-            _.map reduce, (attr) -> attributes[attr].isStructAttr
+            _.map reduce, (attr) -> attributes[attr]?.isStructAttr
 
         def = $q.defer()
         params =
@@ -148,7 +148,7 @@ korpApp.factory 'backend', ($http, $q, utils, lexicons) ->
                 res = _.map groups, (value, key) ->
                     # tokenLists = _.map key.split("/"), (tokens) ->
                     #     return tokens.split(" ")
-                    tokenLists = util.splitCompareKey [key], reduce,
+                    tokenLists = util.splitCompareKey key, reduce,
                                                       reduceIsStructAttr
                     # c.log "tokenLists", tokenLists
 

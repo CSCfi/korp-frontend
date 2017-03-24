@@ -152,16 +152,34 @@ settings.authenticationType = (isProductionServer ? "shibboleth" : "basic");
 // authenticationType == "shibboleth"
 // for eduGAIN / CSC Account:
 // settings.shibbolethLoginUrl = baseURL + "shibboleth-ds/index.html";
-settings.shibbolethLoginUrl = function () {
+settings.shibbolethLoginUrl = function (href) {
     return ("/shibboleth-ds/index.html?"
-           + encodeURIComponent(window.location.href + "&shib_logged_in"));
+            + encodeURIComponent((href || window.location.href)
+				 + "&shib_logged_in"));
 };
 // settings.shibbolethLogoutUrl =
 //     "https://korp.csc.fi/Shibboleth.sso/Logout?return=" + encodeURI(baseURL);
-settings.shibbolethLogoutUrl = function () {
+settings.shibbolethLogoutUrl = function (href) {
     return ("/Shibboleth.sso/Logout?return="
-            + encodeURIComponent(window.location.href));
+            + encodeURIComponent(href || window.location.href));
 }
+
+// Return a direct URL to the application of a corpus in Language Bank
+// Rights based on lbr_id (an URN, either complete or without the
+// common prefix "urn:nbn:fi:lb-"). if lbr_id is falsey, return the
+// URL of the LBR main page.
+settings.make_direct_LBR_URL = function (lbr_id) {
+    console.log ("make_direct_LBR_URL", lbr_id);
+    if (lbr_id) {
+	return ("https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource="
+		+ (lbr_id.slice(0, 3) != "urn" ? "urn:nbn:fi:lb-" : "")
+		+ lbr_id
+		+ "&target=application");
+    } else {
+	return "https://lbr.csc.fi";
+    }
+};
+
 
 // The supported corpus extra info items, typically links. If you add
 // a new item X, also remember to add corresponding translations for
@@ -337,6 +355,14 @@ settings.spcWithin = {
 settings.scWithin = {
     "sentence" : "sentence",
     "clause" : "clause",
+};
+settings.sentLinkContext = {
+    "1 sentence" : "1 sentence",
+    "1 link" : "1 link"
+};
+settings.sentLinkWithin = {
+    "sentence" : "sentence",
+    "link" : "link"
 };
 
 // Corpus id alias mapping: aliases as property keys and actual corpus
@@ -1945,69 +1971,6 @@ sattrlist.oracc = {
     }
 };
 
-/* SUST */
-
-sattrlist.sust = {
-    text_locale : {
-        label : "parish"
-    },
-    text_rectime : {
-        label : "text_recordingdate"
-    },
-    text_title : {
-        label : "text_title"
-    },
-    text_year : {
-        label : "text_year"
-    },
-    /*
-    text_author : {
-        label : "text_author"
-	},*/
-    text_pgli : {
-        label : "sentence_line"
-    },
-    text_interviewer : {
-        label : "paragraphtype_interviewer"
-    },
-    text_interviewee : {
-        label : "paragraphtype_interviewee"
-    },
-    text_corryear : {
-        label : "text_correction_year"
-    },
-    text_corrector : {
-        label : "text_corrector"
-    },
-    text_issue : {
-        label : "text_issue"
-    },
-    text_pubname : {
-        label : "publisher"
-    },
-    sentence_pgno : {
-        label : "page_num"
-    },
-    sentence_chapno : {
-        label : "sentence_chapno",
-    },
-    paragraph_parttitle : {
-        label : "paragraph_title",
-    },
-    paragraph_lang : {
-        label : "paragraph_lang",
-    },
-    sentence_tr : {
-        label : "translation",
-    },
-    sentence_orig : {
-        label : "transcription",
-    }
-};
-
-attrlist.sust = {}
-
-
 /* ORACC */
 attrlist.oracc = {
     lemma : attrs.baseform,
@@ -2348,6 +2311,14 @@ settings.licenceinfo = {
 	// An alternative URL:
 	// url : "https://joinup.ec.europa.eu/community/eupl/og_page/european-union-public-licence-eupl-v11",
     },
+    ParFinRus_2016_fi : {
+	name : "CLARIN RES +NC +INF +ND 1.0",
+	urn : "urn:nbn:fi:lb-2017020611",
+    },
+    ParFinRus_2016_en : {
+	name : "CLARIN RES +NC +INF +ND 1.0",
+	urn : "urn:nbn:fi:lb-2017020612",
+    },
 };
 
 
@@ -2469,6 +2440,10 @@ settings.corporafolders.literature.skk = {
 leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"]
 */
 
+settings.corporafolders.literature.ceal = {
+    title : "CEAL",
+    contents : ["ceal_o", "ceal_s"]
+};
 
 settings.corporafolders.legal = {
     title : "Juridisia tekstejä",
@@ -2506,6 +2481,11 @@ settings.corporafolders.internet.suomi24 = {
 settings.corporafolders.lehdet = {
     title : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
+    info : {
+	urn : "urn:nbn:fi:lb-2016021202",
+	metadata_urn : "urn:nbn:fi:lb-2016011101",
+	licence : settings.licenceinfo.CC_BY_40,
+    }
 };
 
 settings.corporafolders.lehdet.tiedelehdet = {
@@ -2692,6 +2672,9 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_kaytannon_maamies",
 	"lehdet_lapsenmaailma",
 	"lehdet_legenda",
+	"lehdet_elamassa_kelansanomat",
+	"lehdet_evento",
+	"lehdet_heppu",
 	"lehdet_leija",
 	"lehdet_luokanopettaja",
 	"lehdet_luuppisanomat",
@@ -2754,9 +2737,6 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_koskinen",
 	"lehdet_via",
 	"lehdet_valitysuutiset",
-
-
-
     ]
 };
 
@@ -2766,6 +2746,7 @@ settings.corporafolders.ftc = {
     info : {
 	urn : "urn:nbn:fi:lb-2014052719",
 	metadata_urn : "urn:nbn:fi:lb-2016050207",
+	lbr_id : "urn:nbn:fi:lb-201403268",
 	licence : {
 	    name : "CLARIN RES +PLAN +NC +ND",
 	    urn : "urn:nbn:fi:lb-20150304137",
@@ -2807,7 +2788,7 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
 
 settings.corporafolders.spoken = {
     title : "Puhuttua kieltä (tekstiksi litteroituna)",
-    contents : ["kotus_sp", "skn", "dma"],
+    contents : ["kotus_sp", "skn", "dma", "arkisyn"],
     // unselected : true
 };
 
@@ -3068,6 +3049,7 @@ settings.corpora.testcorp = {
     id : "testcorp",
     within : settings.defaultWithin,
     context : settings.defaultContext,
+    // limited_access : true,
     attributes : {
 	lemma : attrs.baseform,
         pos : attrs.pos
@@ -8625,6 +8607,237 @@ settings.corpora.lehdet_kiitotie = {
     },
 };
 
+settings.corpora.lehdet_aromi = {
+    id: "lehdet_aromi",
+    title: "Aromi",
+    description: "Aromi - Ruoan ja Juoman Ammattilehti (2006-2013)<br/>Julkaisija: Mediatalo Keskisuomalainen Oyj Aikakauslehtiryhmä<br/>Kotisivu: <a href='http://aromilehti.fi/'>http://aromilehti.fi/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_avec = {
+    id: "lehdet_avec",
+    title: "Avec",
+    description: "Avec (2006-2013)<br/>Julkaisija: Mediatalo Keskisuomalainen Oyj Aikakauslehtiryhmä<br/>Kotisivu: <a href='http://aromilehti.fi'>http://aromilehti.fi</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora["lehdet_avec_perhelehti"] = {
+    id: "lehdet_avec_perhelehti",
+    title: "Avec – Paremman avioliiton perhelehti",
+    description: "Avec – Paremman avioliiton perhelehti (2005-2016)<br/>Julkaisija: Parempi avioliitto ry<br/>Kotisivu: <a href='www.parempiavioliitto.fi/'>www.parempiavioliitto.fi/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_evento = {
+    id: "lehdet_evento",
+    title: "Evento",
+    description: "Evento (2012-2016)<br/>Julkaisija: Mediatalo Keskisuomalainen Oyj Aikakauslehtiryhmä<br/>Kotisivu: <a href='http://eventolehti.fi/'>http://eventolehti.fi/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_heppu = {
+    id: "lehdet_heppu",
+    title: "Heppu",
+    description: "Heppu (2011-3/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Heppu_2011-3_2016_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Pääkaupunkiseudun Partiolaiset ry<br/>Kotisivu: <a href='http://www.paakaupunkiseudunpartiolaiset.fi/tietoa-meista/julkaisut/'>http://www.paakaupunkiseudunpartiolaiset.fi/tietoa-meista/julkaisut/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_poromies = {
+    id: "lehdet_poromies",
+    title: "Poromies",
+    description: "Poromies (2009-2014)<br/>(aineisto sisältää vain asiatekstit)<br/>Julkaisija: Paliskuntain yhdistys<br/>Kotisivu: <a href='http://paliskunnat.fi/py/organisaatio/poromies-lehti/'>http://paliskunnat.fi/py/organisaatio/poromies-lehti/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_promaint_kunnossapito = {
+    id: "lehdet_promaint_kunnossapito",
+    title: "Promaint/Kunnossapito",
+    description: "Kunnossapito (2004-2007), Promaint (2008 - 1-2/2015)<br/>Julkaisija: Kunnossapitoyhdistys Promaint Ry<br/>Kotisivu: <a href='http://www.promaintlehti.fi/Lehtiarkisto'>http://www.promaintlehti.fi/Lehtiarkisto</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_tatsi = {
+    id: "lehdet_tatsi",
+    title: "Tatsi",
+    description: "Tatsi (2011-1/2016)<br/>Julkaisija: Työttömien ay-jäsenten tukiyhdistys ry<br/>Kotisivu: <a href='http://tatsi.org/tatsi-lehti/arkisto/'>http://tatsi.org/tatsi-lehti/arkisto/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_tiedetoimittaja = {
+    id: "lehdet_tiedetoimittaja",
+    title: "Tiedetoimittaja",
+    description: "Tiedetoimittaja (2008-2013)<br/>Julkaisija: Suomen tiedetoimittajain liitto ry<br/>Kotisivu: <a href='http://www.tiedetoimittajat.fi/tiedetoimittajalehti/tiedetoimittajat-arkisto/'>http://www.tiedetoimittajat.fi/tiedetoimittajalehti/tiedetoimittajat-arkisto/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_elamassa_kelansanomat = {
+    id: "lehdet_elamassa_kelansanomat",
+    title: "Elämässä/Kelan sanomat",
+    description: "Kelan sanomat (2008), Elämässä (2009-2014)<br/>Julkaisija: Kansaneläkelaitos (Kela)<br/>Kotisivu: <a href='http://www.kela.fi/elamassa'>http://www.kela.fi/elamassa</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_sosiaalivakuutus = {
+    id: "lehdet_sosiaalivakuutus",
+    title: "Sosiaalivakuutus",
+    description: "Sosiaalivakuutus (2006-2010, 2015-2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Sosiaalivakuutus_2006_-_2010_2015_-_2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Kansaneläkelaitos (Kela)<br/>Kotisivu: <a href='http://www.kela.fi/sosiaalivakuutus'>http://www.kela.fi/sosiaalivakuutus</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
 
 
 settings.corpora.hsfi = {
@@ -11010,6 +11223,7 @@ sattrlist.scotscorr = {
     text_year : {label : "scotscorr_year"},
     text_fraser : {label : "scotscorr_fraser"},
     text_datefrom : sattrs.date,
+    text_date : { label : "scotscorr_original_date" },
     text_from : { label : "topling_from" },
     text_to : { label : "topling_to"},
     text_bi : { label : "scotscorr_bi"},
@@ -11421,6 +11635,7 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
 settings.corpusinfo.parfin = {
     urn : "urn:nbn:fi:lb-2015050506",
     metadata_urn : "urn:nbn:fi:lb-2014052710",
+    lbr_id : "urn:nbn:fi:lb-2014052710",
     licence : {
 	name : "CLARIN RES +NC +PLAN +INF",
 	urn : "urn:nbn:fi:lb-2015041306",
@@ -11595,8 +11810,8 @@ attrlist.parfin_ru = $.extend(
 
 settings.corpora.parfin_fi = {
     id : "parfin_fi",
-    title : "ParFin (suomi)",
-    description : "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset alkuperäistekstit)<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1990–2010",
+    title : "ParFin (suomi) [poistuva]",
+    description : "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset alkuperäistekstit)<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1990–2010<br/><br/><strong>Huomaa, että ParFin 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
     // TODO: Add paragraphs corresponding to link elements
     context : settings.defaultContext,
     within : settings.defaultWithin,
@@ -11990,6 +12205,7 @@ sattrlist.parrus_ru = $.extend(
 settings.corpusinfo.parrus = {
     urn : "[to be added]",
     metadata_urn : "urn:nbn:fi:lb-20140730173",
+    lbr_id : "urn:nbn:fi:lb-2014052710",
     licence : {
 	name : "CLARIN RES +PLAN +NC +INF +ND",
 	url : "urn:nbn:fi:lb-2016042705",
@@ -11999,8 +12215,8 @@ settings.corpusinfo.parrus = {
 
 settings.corpora.parrus_fi = {
     id : "parrus_fi",
-    title : "ParRus (suomi)",
-    description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset käännökset)<br/>Venäjänkielisten kaunokirjallisten tekstien (klassista ja 1900-luvun kirjallisuutta) käännöksiä suomeksi",
+    title : "ParRus (suomi) [poistuva]",
+    description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset käännökset)<br/>Venäjänkielisten kaunokirjallisten tekstien (klassista ja 1900-luvun kirjallisuutta) käännöksiä suomeksi<br/><br/><strong>Huomaa, että ParRus 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     limited_access : true,
@@ -12014,12 +12230,12 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parrus, ["parrus_fi"]);
 /* ParFin 2016 common */
 
 settings.corpusinfo.parfin_2016 = {
-    urn : "[to be added]",
-    metadata_urn : "urn:nbn:fi:lb-2014052710",
-    licence : {
-	name : "CLARIN RES +NC +INF 1.0",
-	urn : "urn:nbn:fi:lb-2016121608",
-    },
+    // The URNs in the single-language version are different from
+    // those in the parallel corpus.
+    // urn : "[to be added]",
+    // metadata_urn : "urn:nbn:fi:lb-2014052710",
+    // licence : settings.licenceinfo.ParFinRus_2016_fi,
+    lbr_id : "urn:nbn:fi:lb-2017020601",
     homepage_url : "https://mustikka.uta.fi/",
 };
 
@@ -12233,11 +12449,13 @@ attrlist.parfin_2016_ru = {
 
 settings.corpora.parfin_2016_fi = {
     id : "parfin_2016_fi",
-    title : "ParFin 2016 (suomi) (beta)",
-    description : "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset alkuperäistekstit)<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1910–2008<br/><br/>Korpuksen Korp-versio on testausvaiheessa ja siihen voi vielä tulla muutoksia.",
-    // TODO: Add paragraphs corresponding to link elements
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
+    title : "ParFin 2016 (suomi)",
+    description : "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset alkuperäistekstit)<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1910–2008<br/><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Annotaatioiden kuvaus</a>",
+    urn : "urn:nbn:fi:lb-2016121602",
+    metadata_urn : "urn:nbn:fi:lb-20161216211",
+    licence : settings.licenceinfo.ParFinRus_2016_fi,
+    context : settings.sentLinkContext,
+    within : settings.sentLinkWithin,
     attributes : attrlist.parfin_2016_fi,
     struct_attributes : sattrlist.parfin_2016_fi,
     limited_access : true,
@@ -12289,30 +12507,6 @@ sattrlist.parrus_2016_ru = $.extend(
 	    localize : false,
 	    opts : settings.liteOptions,
 	},
-	// link_text_translator : {
-	//     label : "translator",
-	//     displayType : "select",
-	//     dataset : [
-	// 	"Adrian, Esa",
-	// 	"Ahava Juho, Hämeen-Anttila Väinö",
-	// 	"Anhava, Martti",
-	// 	"Heino, Ulla-Liisa",
-	// 	"Hollo, Juho Anselmi",
-	// 	"Iranto, Lidia",
-	// 	"Konkka, Juhani",
-	// 	"Koskinen, Marja",
-	// 	"Kuukasjärvi, Olli",
-	// 	"Losowitch, Katja",
-	// 	"Mitrošin, A.",
-	// 	"Pesonen, Pekka Alarik",
-	// 	"Pienimäki, Natalia",
-	// 	"Pyykkö Lea",
-	// 	"Viitanen, Liisa",
-	// 	"null",
-	//     ],
-	//     localize : false,
-	//     opts : settings.liteOptions,
-	// },
 	link_text_title : {
 	    label : "title",
 	    displayType : "select",
@@ -12709,21 +12903,24 @@ sattrlist.parrus_2016_fi = $.extend(
 );
 
 settings.corpusinfo.parrus_2016 = {
-    urn : "[to be added]",
-    metadata_urn : "urn:nbn:fi:lb-20140730173",
-    licence : {
-	name : "CLARIN RES +PLAN +NC +INF +ND",
-	url : "urn:nbn:fi:lb-2016042705"
-    },
+    // The URNs in the single-language version are different from
+    // those in the parallel corpus.
+    // urn : "[to be added]",
+    // metadata_urn : "urn:nbn:fi:lb-20140730173",
+    // licence : settings.licenceinfo.ParFinRus_2016_fi,
+    lbr_id : "urn:nbn:fi:lb-2017020601",
     homepage_url : "https://mustikka.uta.fi/",
 };
 
 settings.corpora.parrus_2016_fi = {
     id : "parrus_2016_fi",
-    title : "ParRus 2016 (suomi) (beta)",
-    description : "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset käännökset)<br/>Venäjänkielisten kaunokirjallisten tekstien (klassista ja 1900-luvun kirjallisuutta) käännöksiä suomeksi<br/><br/>Korpuksen Korp-versio on testausvaiheessa ja siihen voi vielä tulla muutoksia.",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
+    title : "ParRus 2016 (suomi)",
+    description : "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset käännökset)<br/>Venäjänkielisten kaunokirjallisten tekstien (klassista ja 1900-luvun kirjallisuutta) käännöksiä suomeksi<br/><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Annotaatioiden kuvaus</a>",
+    urn : "urn:nbn:fi:lb-2016121606",
+    metadata_urn : "urn:nbn:fi:lb-2016121613",
+    licence : settings.licenceinfo.ParFinRus_2016_fi,
+    context : settings.sentLinkContext,
+    within : settings.sentLinkWithin,
     limited_access : true,
     licence_type : "RES",
     attributes : attrlist.parrus_2016_fi,
@@ -14957,6 +15154,7 @@ settings.corpora.topling_fi = {
     description : "Topling – Toisen kielen oppimisen polut, suomenkielinen osakorpus",
     urn : "urn:nbn:fi:lb-2016112902",
     metadata_urn : "urn:nbn:fi:lb-2016111802",
+    lbr_id : "urn:nbn:fi:lb-20140730168",
     licence : {
 	name : "CLARIN RES +NC +DEP 1.0",
 	urn : "urn:nbn:fi:lb-2016112305"
@@ -15010,13 +15208,37 @@ settings.corpora.ceal_s = {
     }
 };
 
+settings.corpora.arkisyn = {
+    title : "Arkisyn",
+    description : "Arkisyn",
+    id : "arkisyn",
+    urn : "urn:nbn:fi:lb-2017022702",
+    metadata_urn : "urn:nbn:fi:lb-2017022801",
+    licence : settings.licenceinfo.CC_BY_ND,
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+        lemma : attrs.baseform,
+        pos : attrs.pos_las2,
+        fun : attrs.func_la,
+        mrp : attrs.msd,
+        origword : attrs.origword
+    },
+    struct_attributes : {
+        text_filename : {
+            label : "file_name",
+        },
+    }
+};
+
 settings.corpora.eduskunta = {
     title : "Eduskunta - transkriptiot",
     description : "Eduskunta - transkriptiot",
     id : "eduskunta",
+    metadata_urn : "urn:nbn:fi:lb-2017020202",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {},
+    attributes : attrlist.standard,
     struct_attributes : {
         text_filename : {
             label : "file_name",
@@ -15639,9 +15861,7 @@ settings.corpora.s24_001 = {
     title : "Suomi24 (1/10)",
     description : "Suomi24-keskustelut (1/10)",
     id : "s24_001",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.parsed_tdt,
+    features : ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : sattrlist.s24_update
 };
 
@@ -15649,9 +15869,7 @@ settings.corpora.s24_002 = {
     title : "Suomi24 (2/10)",
     description : "Suomi24-keskustelut (2/10)",
     id : "s24_002",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.parsed_tdt,
+    features : ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : sattrlist.s24_update
 };
 
@@ -15659,9 +15877,7 @@ settings.corpora.s24_003 = {
     title : "Suomi24 (3/10)",
     description : "Suomi24-keskustelut (3/10)",
     id : "s24_003",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.parsed_tdt,
+    features : ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : sattrlist.s24_update
 };
 
@@ -15669,9 +15885,7 @@ settings.corpora.s24_004 = {
     title : "Suomi24 (4/10)",
     description : "Suomi24-keskustelut (4/10)",
     id : "s24_004",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.parsed_tdt,
+    features : ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : sattrlist.s24_update
 };
 
@@ -15679,9 +15893,7 @@ settings.corpora.s24_005 = {
     title : "Suomi24 (5/10)",
     description : "Suomi24-keskustelut (5/10)",
     id : "s24_005",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.parsed_tdt,
+    features : ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : sattrlist.s24_update
 };
 
@@ -15689,9 +15901,7 @@ settings.corpora.s24_006 = {
     title : "Suomi24 (6/10)",
     description : "Suomi24-keskustelut (6/10)",
     id : "s24_006",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.parsed_tdt,
+    features : ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : sattrlist.s24_update
 };
 
@@ -15699,9 +15909,7 @@ settings.corpora.s24_007 = {
     title : "Suomi24 (7/10)",
     description : "Suomi24-keskustelut (7/10)",
     id : "s24_007",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.parsed_tdt,
+    features : ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : sattrlist.s24_update
 };
 
@@ -15709,9 +15917,7 @@ settings.corpora.s24_008 = {
     title : "Suomi24 (8/10)",
     description : "Suomi24-keskustelut (8/10)",
     id : "s24_008",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.parsed_tdt,
+    features : ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : sattrlist.s24_update
 };
 /*

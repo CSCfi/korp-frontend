@@ -54,6 +54,7 @@ html
         | Laddar, var god vänta &hellip;
         br
         | Loading, please wait &hellip;
+    include includes/access_res_corpora
     #main(style='opacity: 0;')
       #header
         include includes/header
@@ -358,6 +359,10 @@ html
     script(src='lib/jquery.tooltip.pack.js')
     script(src='components/d3/d3.min.js')
     script(src='components/rickshaw/rickshaw.min.js')
+    //- For the restricted corpus access info modal, which uses the
+    //- Twitter Bootstrap modal directly, not via Angular as the other
+    //- modals.
+    script(src='components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js')
 
 
     script.

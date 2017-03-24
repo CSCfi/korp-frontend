@@ -55,7 +55,9 @@ korpApp.run ($rootScope, $location, utils, searches, tmhDynamicLocale, $timeout)
     $rootScope.compareTabs = []
     $rootScope.graphTabs = []
     isInit = true
-                
+
+    # Copy to $rootScope to make available in expression interpolation
+    $rootScope.make_direct_LBR_URL = settings.make_direct_LBR_URL
         
     s.searchDisabled = false
     s.$on "corpuschooserchange", (event, corpora) ->
