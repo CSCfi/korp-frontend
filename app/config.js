@@ -2597,6 +2597,7 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_amnesty",
 	"lehdet_ananda",
 	"lehdet_animalia",
+	"lehdet_antimilitaristi_sivari",
 	"lehdet_apaja",
 	"lehdet_aromi",
 	"lehdet_aselehti",
@@ -2640,6 +2641,7 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_helsinki_info",
 	"lehdet_hengitys",
 	"lehdet_heppu",
+	"lehdet_hervannan_sanomat",
 	"lehdet_hima",
 	"lehdet_hopealeijona",
 	"lehdet_huili",
@@ -2779,6 +2781,7 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_uiotus",
 	"lehdet_uljas",
 	"lehdet_uniikki",
+	"lehdet_unioni",
 	"lehdet_universitas",
 	"lehdet_utain",
 	"lehdet_uusiouutiset",
@@ -5899,6 +5902,37 @@ settings.corpora.lehdet_animalia = {
         sentence_id: sattrs.sentence_id_hidden,
     },
 };
+
+
+settings.corpora.lehdet_antimilitaristi_sivari = {
+    id: "lehdet_antimilitaristi_sivari",
+    title: "Antimilitaristi/Sivari & totaali",
+    description: "Sivari & totaali (1990-1991, 1998-2003, 2007-2013), Antimilitaristi (2014-2015)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Antimilitaristi_2014-2015_Sivari__totaali_1990-1991_1998-2003_2007-2013_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Aseistakieltäytyjäliitto ry<br/>Kotisivu: <a href='http://akl-web.fi/sivari_et_totaali/lehti_numeroittain'>http://akl-web.fi/sivari_et_totaali/lehti_numeroittain</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: {
+            displayType: "hidden",
+        },
+        text_filename: {
+            displayType: "hidden",
+        },
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_url: sattrs.link_lehdet,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+
 
 settings.corpora.lehdet_apaja = {
     id: "lehdet_apaja",
