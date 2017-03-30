@@ -2501,7 +2501,9 @@ settings.corporafolders.lehdet.tiedelehdet = {
 	"tiedelehdet_areiopagi",
 	"tiedelehdet_ats",
 	"tiedelehdet_auraica",
+	"tiedelehdet_automaatiovayla",
 	"tiedelehdet_avain",
+	"tiedelehdet_baptria",
 	"tiedelehdet_bryobrotherella",
 	"tiedelehdet_diakonia",
 	"tiedelehdet_elo",
@@ -2515,10 +2517,12 @@ settings.corporafolders.lehdet.tiedelehdet = {
 	"tiedelehdet_hiidenkivi",
 	"tiedelehdet_historiallinen",
 	"tiedelehdet_historianystava",
+	"tiedelehdet_idantutkimus",
 	"tiedelehdet_ilmansuojelu",
 	"tiedelehdet_informaatio",
 	"tiedelehdet_kasvu",
 	"tiedelehdet_kieliskooppi",
+	"tiedelehdet_kliinlab",
 	"tiedelehdet_kognitiivinen",
 	"tiedelehdet_kompositio",
 	"tiedelehdet_kosmopolis",
@@ -2574,6 +2578,7 @@ settings.corporafolders.lehdet.tiedelehdet = {
 	"tiedelehdet_vartija",
 	"tiedelehdet_versus",
 	"tiedelehdet_virittaja",
+	"tiedelehdet_yhdyskuntasuunnittelu",
 	"tiedelehdet_yhteiskuntapolitiikka",
 	"tiedelehdet_ymparistohistoria",
     ]
@@ -5427,6 +5432,150 @@ settings.corpora.tiedelehdet_kognitiivinen = {
         text_url : sattrs.link_lehdet
     }
 };
+
+
+settings.corpora.tiedelehdet_automaatiovayla = {
+    id: "tiedelehdet_automaatiovayla",
+    title: "Automaatioväylä",
+    description: "Automaatioväylä (5/2012-4/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotTiedelehtia/Automaatiovayla_5_2012-4_2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Automaatioväylä Oy<br/>Kotisivu: <a href='http://www.automaatiovayla.fi/category/lehtiarkisto/'>http://www.automaatiovayla.fi/category/lehtiarkisto/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: {
+            displayType: "hidden",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        text_filename: {
+            displayType: "hidden",
+        },
+        text_url: sattrs.link_lehdet,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.tiedelehdet_baptria = {
+    id: "tiedelehdet_baptria",
+    title: "Baptria",
+    description: "Baptria (2010-2/2011)<br/>Julkaisija: Suomen Perhostutkijain Seura ry<br/>Kotisivu: <a href='http://www.perhostutkijainseura.fi/fi/J%C3%A4senlehti+Baptria.html'>http://www.perhostutkijainseura.fi/fi/J%C3%A4senlehti+Baptria.html</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: {
+            displayType: "hidden",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue",
+        },
+        text_filename: {
+            displayType: "hidden",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.tiedelehdet_idantutkimus = {
+    id: "tiedelehdet_idantutkimus",
+    title: "Idäntutkimus",
+    description: "Idäntutkimus (2/2003-2/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotTiedelehtia/Idantutkimus_2003-2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Idäntutkimus, Venäjän ja Itä-Euroopan tutkimuksen seura ry<br/>Kotisivu: <a href='http://www.helsinki.fi/idantutkimus/arkisto.htm'>http://www.helsinki.fi/idantutkimus/arkisto.htm</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: {
+            displayType: "hidden",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_filename: {
+            displayType: "hidden",
+        },
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        text_url: sattrs.link_lehdet,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.tiedelehdet_kliinlab = {
+    id: "tiedelehdet_kliinlab",
+    title: "Kliinlab",
+    description: "Kliinlab (2000-2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotTiedelehtia/Kliinlab_2000-2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Suomen kliinisen kemian yhdistys<br/>Kotisivu: <a href='http://www.skky.fi/kliinlab-lehti'>http://www.skky.fi/kliinlab-lehti</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: {
+            displayType: "hidden",
+        },
+        text_title: sattrs.text_title,
+        text_filename: {
+            displayType: "hidden",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_url: sattrs.link_lehdet,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.tiedelehdet_yhdyskuntasuunnittelu = {
+    id: "tiedelehdet_yhdyskuntasuunnittelu",
+    title: "Yhdyskuntasuunnittelu",
+    description: "Yhdyskuntasuunnittelu (3-4/1990, 4/1993-3/1995, 1/1998, 2/2000-2012)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Yhdyskuntasuunnittelu_3_4_19904_1993-3_19951_19982_2000-2012_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Yhdyskuntasuunnittelun seura<br/>Kotisivu: <a href='http://www.yss.fi/yhdyskuntasuunnittelu-lehti/kirjoituksia-vuosien-varrelta'>http://www.yss.fi/yhdyskuntasuunnittelu-lehti/kirjoituksia-vuosien-varrelta</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: {
+            displayType: "hidden",
+        },
+        text_url: sattrs.link_lehdet,
+        text_filename: {
+            displayType: "hidden",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+
+
 
 /* ===== LEHTIÄ ===== */
 
@@ -8744,7 +8893,7 @@ settings.corpora.lehdet_promaint_kunnossapito = {
 settings.corpora.lehdet_kirjo = {
     id: "lehdet_kirjo",
     title: "Kirjo",
-    description: "Kirjo (3/2002-2/2007, 3/2010-2/2011)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Kirjo_2003-2011_-aineistosta_puuttuvat_numerot'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Kirjallisuus- ja kulttuuriseura Kirjo<br/>Kotisivu: <a href='http://www.palladiumkirjat.fi/kirjo.htm'>http://www.palladiumkirjat.fi/kirjo.htm</a>",
+    description: "Kirjo (3/2002-2/2007, 3/2010-2/2011)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Kirjo_3_2002-2_2007_3_2010-2_2011_-aineistosta_puuttuvat_numerot'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Kirjallisuus- ja kulttuuriseura Kirjo<br/>Kotisivu: <a href='http://www.palladiumkirjat.fi/kirjo.htm'>http://www.palladiumkirjat.fi/kirjo.htm</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
