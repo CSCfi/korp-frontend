@@ -1734,6 +1734,13 @@ settings.corpus_features.finer = {
     attributes : attrlist.finer,
 };
 
+// An attribute not to be shown in Korp but included for documentation
+// purposes.
+attrs.hidden = {
+    displayType : "hidden",
+};
+sattrs.hidden = attrs.hidden;
+
 sattrs.date = {
     label : "date",
     displayType : "date"
