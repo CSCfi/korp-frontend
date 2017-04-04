@@ -9566,15 +9566,11 @@ settings.corpora.lehdet_prointerior = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
-        text_filename: {
-            label: "",
-        },
+	text_filename: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -9594,15 +9590,11 @@ settings.corpora.lehdet_proresto = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
-        text_filename: {
-            label: "",
-        },
+	text_filename: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
@@ -9622,9 +9614,7 @@ settings.corpora.lehdet_ruotuvaki = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_title: sattrs.text_title,
         text_year: {
             label: "year",
@@ -9646,9 +9636,7 @@ settings.corpora.lehdet_saariselka = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -9670,13 +9658,9 @@ settings.corpora.lehdet_saima = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_url: sattrs.link_lehdet,
-        text_filename: {
-            label: "",
-        },
+	text_filename: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -9698,9 +9682,7 @@ settings.corpora.lehdet_secretarius = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_title: sattrs.text_title,
         text_year: {
             label: "year",
@@ -9722,9 +9704,7 @@ settings.corpora.lehdet_skrolli = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -9733,9 +9713,7 @@ settings.corpora.lehdet_skrolli = {
         },
         text_url: sattrs.link_lehdet,
         text_title: sattrs.text_title,
-        text_filename: {
-            label: "",
-        },
+	text_filename: sattrs.hidden,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -9750,9 +9728,7 @@ settings.corpora.lehdet_sosso = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -9774,18 +9750,14 @@ settings.corpora.lehdet_sukuviesti = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
         text_issue: {
             label: "issue",
         },
-        text_filename: {
-            label: "",
-        },
+	text_filename: sattrs.hidden,
         text_title: sattrs.text_title,
         text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
@@ -9802,9 +9774,7 @@ settings.corpora.lehdet_suomen_historiallinen = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -9813,9 +9783,7 @@ settings.corpora.lehdet_suomen_historiallinen = {
         },
         text_url: sattrs.link_lehdet,
         text_title: sattrs.text_title,
-        text_filename: {
-            label: "",
-        },
+	text_filename: sattrs.hidden,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -9830,9 +9798,7 @@ settings.corpora.lehdet_suomi_puola = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         text_title: sattrs.text_title,
         text_issue: {
@@ -9841,9 +9807,7 @@ settings.corpora.lehdet_suomi_puola = {
         text_year: {
             label: "year",
         },
-        text_filename: {
-            label: "",
-        },
+	text_filename: sattrs.hidden,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -9858,17 +9822,13 @@ settings.corpora.lehdet_susikko = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
         text_title: sattrs.text_title,
-        text_filename: {
-            label: "",
-        },
+	text_filename: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -9886,12 +9846,8 @@ settings.corpora.lehdet_tamk_nyt = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
-        text_filename: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
+	text_filename: sattrs.hidden,
         text_title: sattrs.text_title,
         text_year: {
             label: "year",
@@ -9914,15 +9870,11 @@ settings.corpora.lehdet_tampere = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
-        text_filename: {
-            label: "",
-        },
+	text_filename: sattrs.hidden,
         text_title: sattrs.text_title,
         text_year: {
             label: "year",
@@ -9942,9 +9894,7 @@ settings.corpora.lehdet_tampereen_liikuntasanomat = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -9952,9 +9902,7 @@ settings.corpora.lehdet_tampereen_liikuntasanomat = {
         text_issue: {
             label: "issue",
         },
-        text_filename: {
-            label: "",
-        },
+	text_filename: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
@@ -9970,9 +9918,7 @@ settings.corpora.lehdet_tampu = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_title: sattrs.text_title,
         text_issue: {
             label: "issue",
@@ -9994,16 +9940,12 @@ settings.corpora.lehdet_tanhuviesti = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_title: sattrs.text_title,
         text_year: {
             label: "year",
         },
-        text_filename: {
-            label: "",
-        },
+	text_filename: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -10022,13 +9964,9 @@ settings.corpora.lehdet_tanssiurheilija = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_url: sattrs.link_lehdet,
-        text_filename: {
-            label: "",
-        },
+	text_filename: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -10050,9 +9988,7 @@ settings.corpora.lehdet_elamantahdet_terve = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_title: sattrs.text_title,
         text_issue: {
             label: "issue",
@@ -10074,9 +10010,7 @@ settings.corpora.lehdet_terve_pirkanmaa = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -10098,16 +10032,12 @@ settings.corpora.lehdet_tervetuloa_jyvaskylaan = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
         text_title: sattrs.text_title,
-        text_filename: {
-            label: "",
-        },
+	text_filename: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         text_year: {
             label: "year",
@@ -10126,12 +10056,8 @@ settings.corpora.lehdet_tietoa_maasta = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
-        text_filename: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
+	text_filename: sattrs.hidden,
         text_title: sattrs.text_title,
         text_url: sattrs.link_lehdet,
         text_issue: {
@@ -10154,9 +10080,7 @@ settings.corpora.lehdet_tietoarkisto = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
@@ -10179,9 +10103,7 @@ settings.corpora.lehdet_tiimi = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            label: "",
-        },
+	text_id: sattrs.hidden,
         text_title: sattrs.text_title,
         text_url: sattrs.link_lehdet,
         text_year: {
@@ -10205,12 +10127,8 @@ settings.corpora.lehdet_rautatievirkamies = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            displayType: "hidden",
-        },
-        text_filename: {
-            displayType: "hidden",
-        },
+	text_id: sattrs.hidden,
+	text_filename: sattrs.hidden,
         text_title: sattrs.text_title,
         text_year: {
             label: "year",
