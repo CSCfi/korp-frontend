@@ -10675,6 +10675,7 @@ settings.corpora.lehdet_syopasaation_focus = {
             label: "year",
         },
         text_title: sattrs.text_title,
+	text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
