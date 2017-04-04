@@ -6155,7 +6155,7 @@ settings.corpora["lehdet_avec_perhelehti"] = {
 settings.corpora.lehdet_asukki = {
     id: "lehdet_asukki",
     title: "Asukki",
-    description: "Asukki (4/2006-2-3/2015)<br/>Sisältää lehden kotisivuilla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Vailla vakinaista asuntoa ry<br/>Kotisivu: <a href='http://vvary.fi/haluatko-auttaa/tilaa-asukki/'>http://vvary.fi/haluatko-auttaa/tilaa-asukki/</a>",
+    description: "Asukki (4/2006 - 2-3/2015)<br/>Sisältää lehden kotisivuilla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Vailla vakinaista asuntoa ry<br/>Kotisivu: <a href='http://vvary.fi/haluatko-auttaa/tilaa-asukki/'>http://vvary.fi/haluatko-auttaa/tilaa-asukki/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7240,7 +7240,7 @@ settings.corpora.lehdet_luuppisanomat = {
 settings.corpora.lehdet_me = {
     id: "lehdet_me",
     title: "Me",
-    description: "Me (2014, 4/2015-6_7/2016)<br/>Julkaisija: Suomen Lähikauppa Oy<br/>Kotisivu: <a href='http://epaper.hansaprint.fi/melehti/Me-lehti.html'>http://epaper.hansaprint.fi/melehti/Me-lehti.html</a>",
+    description: "Me (2014, 4/2015 - 6-7/2016)<br/>Julkaisija: Suomen Lähikauppa Oy<br/>Kotisivu: <a href='http://epaper.hansaprint.fi/melehti/Me-lehti.html'>http://epaper.hansaprint.fi/melehti/Me-lehti.html</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7600,7 +7600,7 @@ settings.corpora.lehdet_poleemi = {
 settings.corpora.lehdet_polemiikki = {
     id: "lehdet_polemiikki",
     title: "Polemiikki",
-    description: "Polemiikki (2/2013 & 2014-2/2016)<br/>Julkaisija: Pole-Kuntatieto Oy<br/>Kotisivu: <a href='http://kaks.fi/polemiikki-lehti/'>http://kaks.fi/polemiikki-lehti/</a>",
+    description: "Polemiikki (2/2013, 2014-2/2016)<br/>Julkaisija: Pole-Kuntatieto Oy<br/>Kotisivu: <a href='http://kaks.fi/polemiikki-lehti/'>http://kaks.fi/polemiikki-lehti/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -7916,7 +7916,7 @@ settings.corpora.lehdet_tek_verkkolehti = {
 settings.corpora.lehdet_terveydeksi = {
     id: "lehdet_terveydeksi",
     title: "Terveydeksi!",
-    description: "Terveydeksi! (2/2014 ja 4/2014)<br/>Julkaisija: Apteekkariliiton viestintäyhtiö PharmaPress Oy<br/>Kotisivu: <a href='http://www.apteekki.fi/terveydeksi.html'>http://www.apteekki.fi/terveydeksi.html</a>",
+    description: "Terveydeksi! (2/2014, 4/2014)<br/>Julkaisija: Apteekkariliiton viestintäyhtiö PharmaPress Oy<br/>Kotisivu: <a href='http://www.apteekki.fi/terveydeksi.html'>http://www.apteekki.fi/terveydeksi.html</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
