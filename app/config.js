@@ -5292,36 +5292,6 @@ settings.corpora.lehdet_leija = {
     }
 };
 
-
-settings.corpora.lehdet_ks = {
-    title : "Karjalan Sanomat",
-    description : "Karjalan Sanomat (2012-2014)<br/>Julkaisija: Periodika-kustantamo<br/>Kotisivu: <a href='http://karjalansanomat.ru/'>http://karjalansanomat.ru/</a>",
-    id : "lehdet_ks",
-    urn : "urn:nbn:fi:lb-2016112501",
-    metadata_urn : "urn:nbn:fi:lb-2014092601",
-    licence : {
-	name : "CLARIN ACA 1.0",
-	urn : "urn:nbn:fi:lb-2016112302",
-    },
-    limited_access : true,
-    licence_type : "ACA",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_year : sattrs.date,
-        text_type : {
-            label : "type"
-        },
-        text_issue : {
-            label : "issue"
-        }
-
-    }
-};
-
-
 settings.corpora.lehdet_ekonomi = {
     title : "Ekonomi",
     description : "Ekonomi (2013–2014)<br/>Julkaisija: Suomen Ekonomiliitto<br/>Kotisivu: <a href='http://www.ekonomilehti.fi/'>http://www.ekonomilehti.fi/</a>",
@@ -5679,6 +5649,35 @@ settings.corpora.hsfi = {
 	text_title : sattrs.text_title
     }
 
+};
+
+
+settings.corpora.lehdet_ks = {
+    title : "Karjalan Sanomat",
+    description : "Karjalan Sanomat (2012-2014)<br/>Julkaisija: Periodika-kustantamo<br/>Kotisivu: <a href='http://karjalansanomat.ru/'>http://karjalansanomat.ru/</a>",
+    id : "lehdet_ks",
+    urn : "urn:nbn:fi:lb-2016112501",
+    metadata_urn : "urn:nbn:fi:lb-2014092601",
+    licence : {
+	name : "CLARIN ACA 1.0",
+	urn : "urn:nbn:fi:lb-2016112302",
+    },
+    limited_access : true,
+    licence_type : "ACA",
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : {},
+    struct_attributes : {
+        text_title : sattrs.text_title,
+        text_year : sattrs.date,
+        text_type : {
+            label : "type"
+        },
+        text_issue : {
+            label : "issue"
+        }
+
+    }
 };
 
 
