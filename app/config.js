@@ -5652,10 +5652,10 @@ settings.corpora.hsfi = {
 };
 
 
-settings.corpora.lehdet_ks = {
-    title : "Karjalan Sanomat",
-    description : "Karjalan Sanomat (2012-2014)<br/>Julkaisija: Periodika-kustantamo<br/>Kotisivu: <a href='http://karjalansanomat.ru/'>http://karjalansanomat.ru/</a>",
-    id : "lehdet_ks",
+settings.corpora.karjalansuomi = {
+    title : "Karjalansuomi",
+    description : "Karjalan suomen sanomalehtikorpus: Karjalan Sanomat (2012–2014)<br/>Julkaisija: Periodika-kustantamo<br/>Kotisivu: <a href='http://karjalansanomat.ru/'>http://karjalansanomat.ru/</a>",
+    id : "karjalansuomi",
     urn : "urn:nbn:fi:lb-2016112501",
     metadata_urn : "urn:nbn:fi:lb-2014092601",
     licence : {
@@ -5679,6 +5679,8 @@ settings.corpora.lehdet_ks = {
 
     }
 };
+
+settings.corpus_aliases.lehdet_ks = "karjalansuomi";
 
 
 settings.corpora.reittidemo = {
