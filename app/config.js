@@ -2594,6 +2594,11 @@ settings.corporafolders.lehdet.tiedelehdet = {
 settings.corporafolders.lehdet.muut_lehdet = {
     title : "Muita lehtiä",
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
+}
+
+settings.corporafolders.lehdet.muut_lehdet.a = {
+    title : "A",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (A-alkuiset)",
     contents : [
 	"lehdet_aarre",
 	"lehdet_aino",
@@ -2617,11 +2622,25 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_avainlehti",
 	"lehdet_avec",
 	"lehdet_avec_perhelehti",
+  ]
+};
+
+settings.corporafolders.lehdet.muut_lehdet.cd = {
+    title : "C, D",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (C- ja D-alkuiset)",
+    contents : [
 	"lehdet_cplehti",
 	"lehdet_curly",
 	"lehdet_debatti",
 	"lehdet_diabetes_ja_laakari",
 	"lehdet_diakonia",
+    ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.e = {
+    title : "E",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (E-alkuiset)",
+    contents : [
 	"lehdet_edimensio",
 	"lehdet_effortti",
 	"lehdet_ekonomi",
@@ -2637,8 +2656,22 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_ethnos",
 	"lehdet_eurooppalainen",
 	"lehdet_evento",
+     ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.f = {
+    title : "F",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (F-alkuiset)",
+    contents : [
 	"lehdet_focus",
 	"lehdet_folium_classicum",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.h = {
+    title : "H",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (H-alkuiset)",
+    contents : [
 	"lehdet_hkaksi",
 	"lehdet_haavi",
 	"lehdet_hallaus",
@@ -2654,6 +2687,13 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_huili",
 	"lehdet_humanistilehti",
 	"lehdet_hyva_asukas",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.ij = {
+    title : "I, J",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (I- ja J-alkuiset)",
+    contents : [
 	"lehdet_impakti",
 	"lehdet_infors",
 	"lehdet_infront",
@@ -2661,6 +2701,13 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_jargonia",
 	"lehdet_joensuun_uutiset",
 	"lehdet_julkaisija",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.k = {
+    title : "K",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (K-alkuiset)",
+    contents : [
 	"lehdet_kalastuslehti",
 	"lehdet_kalpa",
 	"lehdet_kansanopisto",
@@ -2692,12 +2739,26 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_kynnys",
 	"lehdet_kyvyt_kayttoon_vates",
 	"lehdet_kaytannon_maamies",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.l = {
+    title : "L",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (L-alkuiset)",
+    contents : [
 	"lehdet_lapsenmaailma",
 	"lehdet_legenda",
 	"lehdet_leija",
 	"lehdet_luokanopettaja",
 	"lehdet_luuppisanomat",
 	"lehdet_lahde_liikkeelle",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.m = {
+    title : "M",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (M-alkuiset)",
+    contents : [
 	"lehdet_maailma_kiitotie",
 	"lehdet_materia",
 	"lehdet_matkailusilma",
@@ -2710,6 +2771,13 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_motiva_mplus_xpress",
 	"lehdet_musetti",
 	"lehdet_muusikko",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.no = {
+    title : "N, O",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (N- ja O-alkuiset)",
+    contents : [
 	"lehdet_nonsordino",
 	"lehdet_nakyva_nainen",
 	"lehdet_ollaviiskytviisplus",
@@ -2717,6 +2785,13 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_ostrobotnia",
 	"lehdet_ota_opiksi",
 	"lehdet_oulunkylainen",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.p = {
+    title : "P",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (P-alkuiset)",
+    contents : [
 	"lehdet_pakolainen",
 	"lehdet_paraisten_kuulutukset",
 	"lehdet_patria",
@@ -2740,8 +2815,22 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_promaint_kunnossapito",
 	"lehdet_proresto",
 	"lehdet_puutarha_sanomat",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.r = {
+    title : "R",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (R-alkuiset)",
+    contents : [
 	"lehdet_rautatievirkamies",
 	"lehdet_ruotuvaki",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.s = {
+    title : "S",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (S-alkuiset)",
+    contents : [
 	"lehdet_saariselka",
 	"lehdet_saima",
 	"lehdet_secretarius",
@@ -2758,6 +2847,13 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_sydan_hameen_lehti",
 	"lehdet_syopasaation_focus",
 	"lehdet_sosso",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.t = {
+    title : "T",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (T-alkuiset)",
+    contents : [
 	"lehdet_taku",
 	"lehdet_taloustaito",
 	"lehdet_tamk_nyt",
@@ -2784,6 +2880,13 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_turkuposti",
 	"lehdet_tutkain",
 	"lehdet_tuulivoima_tuulienergia_tuulensilma",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.u = {
+    title : "U",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (U-alkuiset)",
+    contents : [
 	"lehdet_ubik",
 	"lehdet_uiotus",
 	"lehdet_uljas",
@@ -2795,6 +2898,13 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_uusipaiva",
 	"lehdet_uusi_safiiri",
 	"lehdet_uutis_jousi",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.vw = {
+    title : "V, W",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (V- ja W-alkuiset)",
+    contents : [
 	"lehdet_vaasan_ylioppilaslehti",
 	"lehdet_valkoinen_kaapio",
 	"lehdet_vammaisurheilu",
@@ -2812,6 +2922,13 @@ settings.corporafolders.lehdet.muut_lehdet = {
 	"lehdet_virta",
 	"lehdet_valitysuutiset",
 	"lehdet_walpo",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.y = {
+    title : "Y",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (Y-alkuiset)",
+    contents : [
 	"lehdet_yhteenveto",
 	"lehdet_yhys_tiedotuslehti",
 	"lehdet_yliopistolainen",
