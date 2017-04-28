@@ -1,0 +1,9 @@
+.DS_Store
+.sass-cache
+node_modules
+/dist
+/.tmp
+/app/components/angular-bootstrap/template
+*.map
+.vscode
+test/e2e/bin/

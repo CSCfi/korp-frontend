@@ -1,0 +1,83 @@
+tab(active="active", ng-controller='ExampleCtrl', ng-repeat='queryParams in kwicTabs', select="instance.onentry()", deselect="instance.onexit()")
+  tab-heading(ng-class="{not_loading: progress == 100, loading : !instance.hasData}")
+    | {{'kwic' | loc:lang}}
+
+    span(ng-click='$event.preventDefault();kwicTabs.splice($index, 1)', tab-spinner='tab-spinner')
+  .results-kwic(ng-class="{reading_mode : reading_mode, not_loading: !loading, loading : loading}", constr='ExampleResults' )
+    include kwicresult
+tab(active="active", ng-repeat='data in graphTabs', ng-controller='graphCtrl')
+  tab-heading(ng-class="{not_loading: progress > 99}")
+    | {{'graph' | loc:lang}}
+    .tab_progress(style="width:{{progress || 0}}%", ng-show="loading")
+    span(ng-click='$event.preventDefault();graphTabs.splice($index, 1)', tab-spinner='tab-spinner')
+  div.graph_tab(constr='GraphResults')
+    .graph_header
+      .controls()
+        //- .form_switch
+        //-   input#line_input(type='radio', name='form_switch', value='line', checked='checked')
+        //-   label(for='line_input') Linje
+        //-   input#bar_input(type='radio', name='form_switch', value='bar')
+        //-   label(for="bar_input") Stapel
+        //-   input#table_input(type='radio', name='form_switch', value='table')
+        //-   label(for="table_input") Tabell
+
+
+        .btn-group.form_switch
+          label.btn.btn-default.btn-sm(ng-model="$parent.mode", btn-radio="'line'") {{'line' | loc:lang}}
+          label.btn.btn-default.btn-sm(ng-model="$parent.mode", btn-radio="'bar'") {{'bar' | loc:lang}}
+          label.btn.btn-default.btn-sm(ng-model="$parent.mode", btn-radio="'table'") {{'table' | loc:lang}}
+
+        //- label.smoothing_label(for='smoothing_switch') Utjämna
+        //- input#smoothing_switch.smoothing_switch(type='checkbox')
+        .non_time_div
+          span(rel='localize[non_time_before]')
+          span.non_time
+          span(rel='localize[non_time_after]')
+      .legend(ng-style='{visibility : !loading && isGraph() ? "visible" : "hidden"}')
+        .line(ng-show="hasEmptyIntervals", tooltip="{{'graph_material_tooltip' | loc:lang}}")
+          a.action
+          .swatch(style="background-color: #999")
+          span.label 
+            em {{'graph_material' | loc:lang}} 
+      div(style='clear: both;')
+      //- .drawing(ng-show="loading")
+      //-   | {{'drawing' | loc:lang}}
+    .chart_container
+      .preloader(ng-class="{loading: loading}")
+        i.fa.fa-spinner.fa-spin.fa-5x
+      .chart(ng-show="isGraph()")
+    .preview
+    .time_table(style="margin-top:20px", ng-show="isTable()")
+    .exportTimeStatsSection(ng-show="isTable()")
+      select.timeKindOfData
+        option(value='relative', rel='localize[statstable_relfigures]') Relativa tal
+        option(value='absolute', rel='localize[statstable_absfigures]') Absoluta tal
+      select.timeKindOfFormat
+        option(value='CSV', rel='localize[statstable_exp_csv]') CSV (kommaseparerade värden)
+        option(value='TSV', rel='localize[statstable_exp_tsv]') TSV (tabseparerade värden)
+      a.export.btn.btn-default.btn-sm {{'statstable_export' | loc:lang}}
+tab(active="active", ng-repeat='promise in compareTabs', ng-controller='compareCtrl')
+  tab-heading.compare_tab(ng-class='{loading : loading}')
+    | {{'compare_vb' | loc:lang}}
+    span(tab-spinner='tab-spinner', ng-click='$event.preventDefault();compareTabs.splice($index, 1)')
+  .compare_result(ng-class='{loading : loading}')
+    .error_msg(ng-if="error")
+      object.korp_fail.inline_block(type='image/svg+xml', data='img/korp_fail.svg')
+        img.korp_fail(src='img/korp_fail.svg')
+      .fail_text.inline_block(rel='localize[fail_text]') Ett fel har uppstått. 
+
+
+    .column.column_1(ng-if="!error")
+      h2
+        | {{'compare_distinctive' | loc:lang}} 
+        em {{cmp1.label}}
+      ul.negative
+        li(ng-repeat='row in tables.negative | orderBy:resultOrder:true', ng-click="rowClick(row, 0)")
+          .meter(meter='row', max='max', stringify='stringify')
+    .column.column_2
+      h2
+        | {{'compare_distinctive' | loc:lang}} 
+        em {{cmp2.label}}
+      ul.positive
+        li(ng-repeat='row in tables.positive | orderBy:resultOrder:true', ng-click="rowClick(row, 1)")
+          .meter(meter='row', max='max', stringify='stringify')

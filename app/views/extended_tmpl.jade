@@ -1,0 +1,9 @@
+div(ng-controller='ExtendedSearch')
+  #query_table(extended-list, cqp="cqp")
+
+  search-submit(pos='right')
+  span {{'within' | loc:lang}}
+
+  select.within_select(ng-model="within"
+      ng-options="item.value as ('within_' + item.value | loc:lang) for item in withins")
+  span {{'within_postp' | loc:lang}}

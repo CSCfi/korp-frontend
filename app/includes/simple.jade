@@ -1,0 +1,77 @@
+#korp-simple(constr='SimpleSearch', constr-name='simpleSearch', ng-controller='SimpleCtrl')
+  form.simple_form
+    autoc#simple_text(placeholder="placeholder", type='lemgram', model='model', disable-lemgram-autocomplete='! settings.autocomplete')
+    search-submit
+    .opts
+      span 
+        |  {{'and_include' | loc:lang}} 
+      input#prefixChk(type='checkbox', ng-model="prefix") 
+      label(for='prefixChk')  {{'prefix' | loc:lang}} 
+      input#suffixChk(type='checkbox', ng-model="suffix") 
+      label(for='suffixChk')  {{'suffix' | loc:lang}} 
+      span  {{'and' | loc:lang}} 
+      input#caseChk(type='checkbox', ng-model="isCaseInsensitive") 
+      label(for='caseChk')  {{'case_insensitive' | loc:lang}}  
+    //- TODO: Show the prequery div only if configured to be shown
+    .prequery
+      span
+        | {{'in_context_prefix' | loc:lang}}
+      select#prequery_within(
+        ng-model='prequery_within'
+        ng-options='"context_" + elem + "s" | loc for elem in prequery_within_opts track by elem'
+      )
+      span
+        |  {{'which_contain' | loc:lang}}
+      //- select#prequery_attr(
+      //-   ng-model='prequery_attr'
+      //-   ng-options='elem[1] | loc for elem in prequery_attr_opts track by elem[0]'
+      //- )
+      input#simple_prequery(
+        type='text'
+        size='40'
+        ng-model='simple_prequery'
+        ng-model-options='{ updateOn: "blur" }'
+      )
+
+  #similar_wrapper(ng-show="relatedObj")
+    button.btn.btn-sm.btn-default(ng-click="showAllRelated()" ng-if="relatedObj.length != 0")
+      span.btn_header
+        | {{ 'similar_header' | loc:lang }} (SWE-FN)
+      br
+      span(ng-repeat="wd in relatedObj[0].words | limitTo:relatedDefault") 
+        | {{stringifyRelated(wd)}}
+        span(ng-if="!$last") , 
+      br
+      span(ng-repeat="wd in relatedObj[0].words.slice(relatedDefault) | limitTo:relatedDefault") 
+        | {{stringifyRelated(wd)}}
+        span(ng-if="!$last") , 
+      span(ng-if="relatedObj[0].words.length > relatedDefault || relatedObj.length > 1") 
+        | ...
+    div.btn.btn-sm.btn-default(ng-if="relatedObj.length == 0")
+      span.btn_header
+        | {{ 'similar_header' | loc:lang }} (SWE-FN)
+      br
+      span
+        | {{'no_related_words' | loc:lang}}
+  
+    //- label(for='simple_text') {{'search_for' | loc:lang}}
+    //- span#keyboard.ui-state-default.specialkey ð
+  //- table#char_table
+  //-   tbody
+  //-     tr
+  //-       td.ui-state-default.specialkey å
+  //-       td.ui-state-default.specialkey ä
+  //-       td.ui-state-default.specialkey ö
+  //-       td.ui-state-default.specialkey æ
+  //-       td.ui-state-default.specialkey œ
+  //-       td.ui-state-default.specialkey ð
+  //-       td.ui-state-default.specialkey þ
+  //-       td.ui-state-default.specialkey Å
+  //-       td.ui-state-default.specialkey Ä
+  //-       td.ui-state-default.specialkey Ö
+  //-       td.ui-state-default.specialkey Æ
+  //-       td.ui-state-default.specialkey Œ
+  //-       td.ui-state-default.specialkey Ð
+  //-       td.ui-state-default.specialkey Þ
+  
+  .clearfix
