@@ -2362,7 +2362,10 @@ settings.corporafolders.sv = {
 
 settings.corporafolders.ethesis = {
     title : "E-thesis",
-    contents : ["ethesis_maabs", "ethesis_dissabs"]
+    contents : ["ethesis_maabs", "ethesis_dissabs"],
+    info : {
+	cite_id : "e-thesis-fi",
+    }
 };
 
 settings.corporafolders.ethesis.matheses = {
@@ -2388,6 +2391,7 @@ settings.corporafolders.ftb.ftb3 = {
 	urn : "urn:nbn:fi:lb-201406021",
 	metadata_urn : "urn:nbn:fi:lb-201406022",
 	licence : settings.licenceinfo.CC_BY_30,
+	cite_id : "FinnTreeBank3-korp",
     },
     contents : ["ftb3_europarl", "ftb3_jrcacquis"]
 };
@@ -2399,6 +2403,7 @@ settings.corporafolders.klk_fi = {
 	urn : "urn:nbn:fi:lb-201405275",
 	metadata_urn : "urn:nbn:fi:lb-201405276",
 	licence : settings.licenceinfo.CC_BY,
+	cite_id : "KLK-fi",
     }
 };
 
@@ -2442,7 +2447,8 @@ settings.corporafolders.literature.skk = {
 	urn : "urn:nbn:fi:lb-2015022401",
 	metadata_urn : "urn:nbn:fi:lb-20140730186",
 	licence : settings.licenceinfo.EUPL_11,
-	homepage : settings.fn.kaino_homepage("klassikot/meta/klassikot")
+	homepage : settings.fn.kaino_homepage("klassikot/meta/klassikot"),
+	cite_id : "SKK",
     }
 };
 
@@ -2485,6 +2491,7 @@ settings.corporafolders.internet.suomi24 = {
 	metadata_urn : "urn:nbn:fi:lb-2015091701",
 	licence : settings.licenceinfo.CC_BY_NC,
 	homepage_url : "http://keskustelu.suomi24.fi",
+	cite_id : "Suomi24-korp-2016H2",
     }
 };
 
@@ -2495,6 +2502,7 @@ settings.corporafolders.lehdet = {
 	urn : "urn:nbn:fi:lb-2016021202",
 	metadata_urn : "urn:nbn:fi:lb-2016011101",
 	licence : settings.licenceinfo.CC_BY_40,
+	cite_id : "lehdet90ff",
     }
 };
 
@@ -2628,7 +2636,8 @@ settings.corporafolders.ftc = {
 	    name : "Aineiston kuvaus",
 	    url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFtc",
 	    no_label : true,
-	}
+	},
+	cite_id : "ftc-korp",
     },
 };
 
@@ -2655,7 +2664,8 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
     	    name : "Kotimaisten kielten keskus",
     	    url : "http://www.kotus.fi/",
     	    no_label : true
-    	}
+	},
+	cite_id : "uudenvuodenpuheet",
     }
 }
 
@@ -2677,7 +2687,8 @@ settings.corporafolders.spoken.la_murre = {
 	    name : "Aineiston tietosivu Kielipankissa",
 	    url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotLAmurre",
 	    no_label : true
-	}
+	},
+	cite_id : "LA-murre-korp",
     }
  };
 
@@ -2697,6 +2708,7 @@ settings.corporafolders.learner.las2 = {
             name : "CLARIN RES +PLAN +NC +INF +LOC +ND",
             urn : "urn:nbn:fi:lb-2015041305",
         },
+	cite_id : "LAS2",
     },
     contents : ["las2_tentit", "las2_esseet"]
 };
@@ -2721,7 +2733,8 @@ settings.corporafolders.vks = {
 	urn : "urn:nbn:fi:lb-201407166",
 	metadata_urn : "urn:nbn:fi:lb-201407165",
 	licence : settings.licenceinfo.EUPL_11,
-	homepage : settings.fn.kaino_homepage("vks/meta/vks")
+	homepage : settings.fn.kaino_homepage("vks/meta/vks"),
+	cite_id : "VKS",
     },
     // unselected : true
 };
@@ -2734,7 +2747,8 @@ settings.corporafolders.vns = {
 	urn : "urn:nbn:fi:lb-2016081203",
 	metadata_urn : "urn:nbn:fi:lb-20140730147",
 	licence : settings.licenceinfo.EUPL_11,
-	homepage : settings.fn.kaino_homepage("1800/meta/1800")
+	homepage : settings.fn.kaino_homepage("1800/meta/1800"),
+	cite_id : "VNSK",
     },
     // unselected : true
 };
@@ -2972,6 +2986,7 @@ settings.corpora.finstud = {
 	name : "CLARIN RES +PLAN +NC +PRIV 1.0",
 	urn : "urn:nbn:fi:lb-2016041802",
     },
+    cite_id : "FinStud86",
     limited_access : true,
     licence_type : "RES",
     context : settings.defaultContext,
@@ -2988,6 +3003,7 @@ settings.corpora.ftb2 = {
     urn : "urn:nbn:fi:lb-201407164",
     metadata_urn : "urn:nbn:fi:lb-201407163",
     licence : settings.licenceinfo.CC_BY_30,
+    cite_id : "FinnTreeBank2-korp",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
@@ -5622,6 +5638,7 @@ settings.corpora.hsfi = {
 	name : "CLARIN ACA +NC +anonymisointi",
 	description : "Vain ei-kaupalliseen tutkimuskäyttöön. Nimimerkit tulee anonymisoida korpukseen viittaavissa julkaisuissa.",
     },
+    cite_id : "HS.fi",
     limited_access : true,
     licence_type : "ACA",
     within : settings.spWithin,
@@ -5670,6 +5687,7 @@ settings.corpora.karjalansuomi = {
 	name : "CLARIN ACA 1.0",
 	urn : "urn:nbn:fi:lb-2016112302",
     },
+    cite_id : "Karjalansuomi",
     limited_access : true,
     licence_type : "ACA",
     within : settings.spWithin,
@@ -5697,6 +5715,7 @@ settings.corpora.reittidemo = {
     id : "reittidemo",
     urn : "urn:nbn:fi:lb-100110012817",
     metadata_urn : "urn:nbn:fi:lb-2014101401",
+    cite_id : "Reittidemo-korp",
     licence : settings.licenceinfo.CC0,
     features : ["paragraphs", "parsed_tdt"],
     attributes : {
@@ -6644,6 +6663,8 @@ settings.corpora.kotus_lakidir = {
     id : "kotus_lakidir",
     urn : "urn:nbn:fi:lb-2016081201",
     metadata_urn : "urn:nbn:fi:lb-20140730126",
+    // TODO: Check that & is paased correctly to the URL
+    cite_id : "Lakeja&direktiiveja",
     licence : settings.licenceinfo.EUPL_11,
     homepage : settings.fn.kaino_homepage("teko/meta/saadokset/saadokset"),
     within : settings.spWithin,
@@ -6779,6 +6800,7 @@ settings.corpora.kotus_sp = {
     metadata_urn : "urn:nbn:fi:lb-20140730176",
     licence : settings.licenceinfo.EUPL_11,
     homepage : settings.fn.kaino_homepage("sp/meta/sp"),
+    cite_id : "Sananparsikokoelma",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
@@ -7639,6 +7661,7 @@ las2_common_props = {
 	name : "CLARIN RES +PLAN +NC +LOC +ND",
 	urn : "urn:nbn:fi:lb-20150304111"
     },
+    cite_id : "LAS2",
     limited_access : true,
     licence_type : "RES",
     within : settings.spWithin,
@@ -7677,6 +7700,7 @@ settings.corpora.sks_kivi_fi = {
     urn : "urn:nbn:fi:lb-201405273",
     metadata_urn : "urn:nbn:fi:lb-201405274",
     licence : settings.licenceinfo.CC_BY_NC,
+    cite_id : "Kivi",
     homepage_url : "http://www.edith.fi/kivikorpus/index.htm",
     within : settings.spWithin,
     context : settings.spContext,
@@ -7801,6 +7825,7 @@ settings.corpora.skvr = {
     metadata_urn : "urn:nbn:fi:lb-2014052712",
     licence : settings.licenceinfo.CC_BY_NC,
     homepage_url : "http://dbgw.finlit.fi/skvr/",
+    cite_id : "SKVR",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -8283,13 +8308,14 @@ sattrlist.kfspc = {
 settings.corpusinfo.kfspc = {
     urn : "urn:nbn:fi:lb-201406035",
     metadata_urn : "urn:nbn:fi:lb-201406036",
-    licence : settings.licenceinfo.CC_BY
+    licence : settings.licenceinfo.CC_BY,
 };
 
 settings.corpora.kfspc_fi = {
     title : "KFSPC suomi",
     description : "Kotus Finnish-Swedish Parallel Corpus, suomenkielinen osuus",
     id : "kfspc_fi",
+    cite_id : "kfspc-korp-fi",
     lang : "fin",
     context : settings.defaultContext,
     within : settings.defaultWithin,
@@ -8401,6 +8427,7 @@ settings.corpora.legal_fi = {
     id : "legal_fi",
     title : "FiRuLex suomi",
     description : "Juridisia tekstejä (suomi)",
+    cite_id : "FiRuLex-fi",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     attributes: attrlist.mulcold_fi,
@@ -8422,6 +8449,7 @@ settings.corpora.mulcold_fi = {
     id : "mulcold_fi",
     title : "MULCOLD suomi",
     description : "Multilingual Corpus of Legal Documents, suomenkielinen osa",
+    cite_id : "MULCOLD",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     attributes: attrlist.mulcold_fi,
@@ -9256,6 +9284,7 @@ settings.corpora.parfin_2016_fi = {
     urn : "urn:nbn:fi:lb-2016121602",
     metadata_urn : "urn:nbn:fi:lb-20161216211",
     licence : settings.licenceinfo.ParFinRus_2016_fi,
+    cite_id : "ParFin2016",
     context : settings.sentLinkContext,
     within : settings.sentLinkWithin,
     attributes : attrlist.parfin_2016_fi,
@@ -9721,6 +9750,7 @@ settings.corpora.parrus_2016_fi = {
     urn : "urn:nbn:fi:lb-2016121606",
     metadata_urn : "urn:nbn:fi:lb-2016121613",
     licence : settings.licenceinfo.ParFinRus_2016_fi,
+    cite_id : "ParRus2016",
     context : settings.sentLinkContext,
     within : settings.sentLinkWithin,
     limited_access : true,
@@ -11781,6 +11811,7 @@ settings.corpora.gutenberg = {
     // would be CC BY.
     // licence_url : "http://www.gutenberg.org/wiki/Gutenberg:The_Project_Gutenberg_License",
     licence : settings.licenceinfo.CC_BY,
+    cite_id : "Gutenberg",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -11861,6 +11892,7 @@ settings.corpora.skn = {
     urn : "urn:nbn:fi:lb-201407141",
     metadata_urn : "urn:nbn:fi:lb-201407141",
     licence : settings.licenceinfo.CC_BY_40,
+    cite_id : "SKN-korp",
     features : ["paragraphs", "parsed_tdt", "finer"],
     attributes : {
         original : attrs.origword,
@@ -11931,6 +11963,7 @@ settings.corpora.sinebrychoff_fi = {
     description : "Paul Sinebrychoffin kirjeenvaihto, suomenkieliset käännökset",
     metadata_urn : "urn:nbn:fi:lb-201407303",
     licence : settings.licenceinfo.CC_BY_30,
+    cite_id : "sinebrychoff-fi",
     context : settings.spContext,
     within : settings.spWithin,
     attributes: attrlist.sinebrychoff,
@@ -11962,6 +11995,7 @@ settings.corpora.topling_fi = {
 	urn : "urn:nbn:fi:lb-2016112305"
     },
     homepage_url : "https://www.jyu.fi/topling",
+    cite_id : "topling-fi",
     context : settings.spContext,
     within : settings.spWithin,
     limited_access : true,
@@ -11977,6 +12011,7 @@ settings.corpora.ceal_o = {
     limited_access : true,
     licence_type : "RES",
     metadata_urn : "urn:nbn:fi:lb-2017011302",
+    cite_id : "ceal-o",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {},
@@ -11997,6 +12032,7 @@ settings.corpora.ceal_s = {
     within : settings.defaultWithin,
     context : settings.defaultContext,
     metadata_urn : "urn:nbn:fi:lb-2017011303",
+    cite_id : "ceal-s",
     limited_access : true,
     licence_type : "ACA",
     attributes : {},
@@ -12017,6 +12053,7 @@ settings.corpora.arkisyn = {
     urn : "urn:nbn:fi:lb-2017022702",
     metadata_urn : "urn:nbn:fi:lb-2017022801",
     licence : settings.licenceinfo.CC_BY_ND,
+    cite_id : "ArkiSyn-korp",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
@@ -12038,6 +12075,7 @@ settings.corpora.eduskunta = {
     description : "Eduskunta - transkriptiot",
     id : "eduskunta",
     metadata_urn : "urn:nbn:fi:lb-2017020202",
+    cite_id : "edsukunta-korp",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : attrlist.standard,
@@ -12079,6 +12117,7 @@ settings.corpora.dma = {
 	name : "CC BY 4.0 (teksti) / CLARIN RES +PRIV +ND (PDF-sanaliput)",
 	urn : "urn:nbn:fi:lb-2016042202",
     },
+    cite_id : "dma",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
@@ -12624,6 +12663,7 @@ settings.corpora.ylilauta = {
     metadata_urn : "urn:nbn:fi:lb-2015031802",
     licence : settings.licenceinfo.CC_BY_NC,
     homepage_url : "https://ylilauta.org",
+    cite_id : "Ylilauta",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -12771,6 +12811,7 @@ settings.corpora.s24 = {
     // metadata_urn : "urn:nbn:fi:lb-2015091701",
     licence : settings.licenceinfo.CC_BY_NC,
     homepage_url : "http://keskustelu.suomi24.fi",
+    cite_id : "Suomi24-2001-2014-korp",
     within : settings.spWithin,
     context : settings.spContext,
     attributes : {
@@ -12838,6 +12879,7 @@ settings.corpora.iclfi = {
 	urn : "urn:nbn:fi:lb-2015050501"
     },
     homepage_url : "http://www.oulu.fi/suomitoisenakielena/node/16078",
+    cite_id : "ICLFI",
     limited_access : true,
     licence_type : "RES",
     within : settings.spWithin,

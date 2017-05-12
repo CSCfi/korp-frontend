@@ -81,7 +81,10 @@ settings.corporafolders.koff = {
 
 settings.corporafolders.ethesis = {
     title : "E-thesis",
-    contents : ["ethesis_sv_dissabs", "ethesis_sv_maabs", "ethesis_sv_phd", "ethesis_sv_ma"]
+    contents : ["ethesis_sv_dissabs", "ethesis_sv_maabs", "ethesis_sv_phd", "ethesis_sv_ma"],
+    info : {
+	cite_id : "e-thesis-sv",
+    }
 };
 
 settings.corporafolders.klk_sv = {
@@ -91,6 +94,7 @@ settings.corporafolders.klk_sv = {
 	urn : "urn:nbn:fi:lb-2014091901",
 	metadata_urn : "urn:nbn:fi:lb-201405276",
 	licence : settings.licenceinfo.CC_BY,
+	cite_id : "KLK-sv",
     }
 };
 
@@ -110,6 +114,7 @@ settings.corporafolders.fstc = {
 	    url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFstc",
 	    no_label : true,
 	},
+	cite_id : "fstc-korp",
     },
 };
 
@@ -199,6 +204,7 @@ settings.corpora.studentsvenska = {
 	description : "CLARIN RES end-user licence +PLAN +NC +PRIV 1.0",
 	urn : "urn:nbn:fi:lb-2016040410",
     },
+    cite_id : "Studentsvenska",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     limited_access : true,
@@ -212,6 +218,7 @@ settings.corpora.mulcold_sv = {
     id : "mulcold_sv",
     title: "MULCOLD svenska",
     description : "Multilingual Corpus of Legal Documents, svenskspråkiga delen",
+    cite_id : "MULCOLD",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     attributes: attrlist.mulcold_sv,
@@ -234,6 +241,7 @@ settings.corpora.topling_sv = {
 	urn : "urn:nbn:fi:lb-2016112304",
     },
     homepage_url : "https://www.jyu.fi/topling",
+    cite_id : "topling-sv",
     context : settings.spContext,
     within : settings.spWithin,
     limited_access : true,
@@ -249,6 +257,7 @@ settings.corpora.kfspc_sv = {
     title : "KFSPC svenska",
     description : "Kotus Finnish-Swedish Parallel Corpus, svenskspråkiga delen",
     id : "kfspc_sv",
+    cite_id : "kfspc-korp-sv",
     lang : "swe",
     context : settings.defaultContext,
     within : settings.defaultWithin,
@@ -263,6 +272,7 @@ settings.corpora.sinebrychoff_orig = {
     description : "Paul Sinebrychoffs brevsamling",
     metadata_urn : "urn:nbn:fi:lb-201407303",
     licence : settings.licenceinfo.CC_BY_30,
+    cite_id : "sinebrychoff-sv",
     context : settings.spContext,
     within : settings.spWithin,
     attributes: attrlist.sinebrychoff,
@@ -392,6 +402,7 @@ settings.corpora.parole_sv = $.extend(true, {}, settings.templ.fstc, {
 	name : "CLARIN RES +PLAN +NC +LOC +ND",
 	urn : "urn:nbn:fi:lb-2015101602",
     },
+    cite_id : "parole-sv",
     text_source : {
 	dataset : ["Språkbanken, Göteborgs universitet"],
     },

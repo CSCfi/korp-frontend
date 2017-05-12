@@ -274,6 +274,7 @@ settings.corporafolders.europarl = {
 	urn : "urn:nbn:fi:lb-2015043012",
 	metadata_urn : "urn:nbn:fi:lb-2015043011",
 	licence : settings.licenceinfo.CC_BY,
+	cite_id : "HeKo-Europarl",
     }
 };
 
@@ -298,6 +299,7 @@ settings.corporafolders.jrc = {
 	urn : "urn:nbn:fi:lb-2015062301",
 	metadata_urn : "urn:nbn:fi:lb-2015061210",
 	licence : settings.licenceinfo.CC_BY,
+	cite_id : "HeKo-JRC-Acquis",
     }
 };
 
@@ -310,6 +312,7 @@ settings.corporafolders.opus = {
 	urn : "urn:nbn:fi:lb-2016012101",
 	metadata_urn : "urn:nbn:fi:lb-2015102201",
 	licence : settings.licenceinfo.CC_BY_40,
+	cite_id : "Opus-Korp",
     },
 };
 
@@ -7572,6 +7575,7 @@ settings.corpora.kfspc_fi = {
     title : "Kotus Finnish-Swedish Parallel Corpus (suomi)",
     description : "KFSPC (suomi)",
     id : "kfspc_fi",
+    cite_id : "kfspc-korp",
     lang : "fin",
     linked_to : ["kfspc_sv"],
     context : context.defaultAligned,
@@ -7587,6 +7591,7 @@ settings.corpora.kfspc_sv = {
     title : "Kotus Finnish-Swedish Parallel Corpus (ruotsi)",
     description : "KFSPC (ruotsi)",
     id : "kfspc_sv",
+    cite_id : "kfspc-korp",
     lang : "swe",
     linked_to : ["kfspc_fi"],
     context: context.defaultAligned,
@@ -7719,9 +7724,9 @@ settings.corpora.mulcold_de = {
     hide : true
 };
 
-settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
-				   ["mulcold_fi", "mulcold_en", "mulcold_sv",
-				    "mulcold_ru", "mulcold_de"]);
+settings.fn.extend_corpus_settings(
+    $.extend({}, settings.corpusinfo.mulcold, { cite_id : "MULCOLD", }),
+    ["mulcold_fi", "mulcold_en", "mulcold_sv", "mulcold_ru", "mulcold_de"]);
 
 
 /*
@@ -7910,6 +7915,7 @@ settings.fn.extend_corpus_settings(
 	urn : "urn:nbn:fi:lb-2016121601",
 	metadata_urn : "urn:nbn:fi:lb-2016121610",
 	licence : settings.licenceinfo.ParFinRus_2016_fi,
+	cite_id : "ParFin2016",
 	context: context.linkAligned,
 	// TODO: Make sure that sentLinkWithin works in all cases.
 	within: settings.sentLinkWithin,
@@ -8001,6 +8007,7 @@ settings.fn.extend_corpus_settings(
 	urn : "urn:nbn:fi:lb-2016121604",
 	metadata_urn : "urn:nbn:fi:lb-20140730173",
 	licence : settings.licenceinfo.ParFinRus_2016_fi,
+	cite_id : "ParRus2016",
 	context : context.linkAligned,
 	// TODO: Make sure that sentLinkWithin works in all cases.
 	within : settings.sentLinkWithin,

@@ -31,7 +31,8 @@ settings.corporafolders.oracc = {
     description : "ORACC – Open Richly Annotated Cuneiform Corpus",
     contents : ["oracc_ribo", "oracc_rinap", "oracc_saao", "oracc_other"],
     info : {
-        licence : settings.licenceinfo.CC_BY_30
+        licence : settings.licenceinfo.CC_BY_30,
+	cite_id : "ORACC",
     }
 };
 
@@ -52,7 +53,10 @@ settings.corporafolders.fennougrica = {
                 "fennougrica_mdf",
                 "fennougrica_sel",
                 "fennougrica_yrk",
-                "fennougrica_vep"]
+                "fennougrica_vep"],
+    info : {
+	cite_id : "Fenno-ugrica",
+    },
 };
 
 settings.corporafolders.english = {
@@ -101,7 +105,10 @@ settings.corporafolders.russian = {
 settings.corporafolders.english.ethesis = {
     title : "E-thesis",
     description : "Corpus of University of Helsinki theses and dissertations<br/><a href='https://ethesis.helsinki.fi/'>https://ethesis.helsinki.fi/</a>",
-    contents : ["ethesis_en_dissabs", "ethesis_en_maabs"]
+    contents : ["ethesis_en_dissabs", "ethesis_en_maabs"],
+    info : {
+	cite_id : "e-thesis-en",
+    }
 };
 
 settings.corporafolders.english.ethesis.phdtheses = {
@@ -128,7 +135,8 @@ settings.corporafolders.hcs2 = {
 	licence : {
 	    name : "CLARIN ACA +NC 1.0",
 	    urn : "urn:nbn:fi:lb-2016112310",
-	}
+	},
+	cite_id : "hcs-a-v2",
     },
 };
 
@@ -219,6 +227,7 @@ settings.corpora.ethesis_ru = {
     title : "E-thesis",
     description : "E-thesis. Corpus of theses and dissertations (2005-2016)",
     id : "ethesis_ru",
+    cite_id : "e-thesis-ru",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
@@ -230,6 +239,7 @@ settings.corpora.ethesis_es = {
     title : "E-thesis",
     description : "E-thesis. Corpus of theses and dissertations (2003-2015)",
     id : "ethesis_es",
+    cite_id : "e-thesis-es",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
@@ -241,6 +251,7 @@ settings.corpora.ethesis_fr = {
     title : "E-thesis",
     description : "E-thesis. Corpus of theses and dissertations (2000-2016)",
     id : "ethesis_fr",
+    cite_id : "e-thesis-fr",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
@@ -252,6 +263,7 @@ settings.corpora.ethesis_de = {
     title : "E-thesis",
     description : "E-thesis. Corpus of theses and dissertations (1997-2016)",
     id : "ethesis_de",
+    cite_id : "e-thesis-de",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : {
@@ -950,6 +962,7 @@ settings.corpora.parrus_2016_ru = {
     urn : "urn:nbn:fi:lb-2016121605",
     metadata_urn : "urn:nbn:fi:lb-2016121614",
     licence : settings.licenceinfo.ParFinRus_2016_en,
+    cite_id : "ParRus2016",
     context : settings.sentLinkContext,
     within : settings.sentLinkWithin,
     limited_access : true,
@@ -970,6 +983,7 @@ settings.corpora.parfin_2016_ru = {
     urn : "urn:nbn:fi:lb-2016121603",
     metadata_urn : "urn:nbn:fi:lb-2016121612",
     licence : settings.licenceinfo.ParFinRus_2016_en,
+    cite_id : "ParFin2016",
     context : settings.sentLinkContext,
     within : settings.sentLinkWithin,
     limited_access : true,
@@ -993,6 +1007,7 @@ settings.corpora.topling_en = {
 	urn : "urn:nbn:fi:lb-2016112308"
     },
     homepage_url : "https://www.jyu.fi/topling",
+    cite_id : "topling-en",
     limited_access : true,
     licence_type : "RES",
     context : settings.spContext,
@@ -1019,6 +1034,7 @@ settings.corpora.elfa = {
     // compiler : {
     // 	name : "Anna Mauranen",
     // },
+    cite_id : "ELFA-korp",
     context : settings.spContext,
     within : settings.spWithin,
     ignore_between_tokens_cqp : '[type != "word"]*',
@@ -1965,6 +1981,7 @@ settings.corpora.besercorp = {
     description : "The Corpus of Beserman Udmurt",
     id : "besercorp",
     metadata_urn : "urn:nbn:fi:lb-2015081401",
+    cite_id : "BeserCorp",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes : attrlist.besercorp,
