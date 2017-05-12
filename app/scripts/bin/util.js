@@ -1300,13 +1300,14 @@
       }
     };
     makeLinkItem = function(link_info) {
-      var result;
+      var href, result;
       result = '';
       if (link_info.label) {
         result += link_info.label + ': ';
       }
       if (link_info.url) {
-        result += '<a href=\'' + link_info.url + '\' target=\'_blank\'' + (link_info.tooltip ? ' title=\'' + link_info.tooltip + '\'' : '') + '>' + link_info.text + '</a>';
+        href = link_info.url.indexOf('{{') !== -1 ? 'ng-href' : 'href';
+        result += '<a ' + href + '=\'' + link_info.url + '\' target=\'_blank\'' + (link_info.tooltip ? ' title=\'' + link_info.tooltip + '\'' : '') + '>' + link_info.text + '</a>';
       } else if (link_info.text) {
         if (link_info.tooltip) {
           result += '<span class=\'has_hover_text\' title=\'' + link_info.tooltip + '\'>' + link_info.text + '</span>';
@@ -1332,6 +1333,11 @@
       } else if (info_item === 'homepage' && !('homepage' in corpusObj) && corpusObj.url) {
         link_info = {
           url: corpusObj.url,
+          text: label
+        };
+      } else if (info_item === 'cite' && corpusObj.cite_id && (settings.corpus_cite_base_url != null)) {
+        link_info = {
+          url: settings.corpus_cite_base_url + escape(corpusObj.cite_id) + '&lang=' + window.lang,
           text: label
         };
       } else if (corpusObj[info_item]) {

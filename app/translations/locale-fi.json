@@ -341,6 +341,7 @@
     "corpus_homepage" : "Kotisivu",
     "corpus_compiler" : "Koostaja",
     "corpus_download" : "Lataa aineisto",
+    "corpus_cite" : "Viittaa korpukseen",
 
     "name_classification" : "Nimiluokittelu",
     "no_name_corpora" : "Valitut korpukset eivät sisällä nimitietoja.",

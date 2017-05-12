@@ -1247,7 +1247,12 @@ util.formatCorpusExtraInfo = (corpusObj) ->
         if link_info.label
             result += link_info.label + ': '
         if link_info.url
-            result += '<a href=\'' + link_info.url + '\' target=\'_blank\'' +
+            href = if link_info.url.indexOf('{{') != -1
+                       'ng-href'
+                   else
+                       'href'
+            result += '<a ' + href + '=\'' + link_info.url +
+                '\' target=\'_blank\'' +
                 (if link_info.tooltip
                     ' title=\'' + link_info.tooltip + '\''
                 else
@@ -1285,6 +1290,24 @@ util.formatCorpusExtraInfo = (corpusObj) ->
             # "homepage").
             link_info =
                 url: corpusObj.url
+                text: label
+        else if info_item == 'cite' and corpusObj.cite_id and
+                settings.corpus_cite_base_url?
+            link_info =
+                # Using ng-href would require using Angular $compile,
+                # but how could we use it here or where should it be
+                # called?
+                # http://stackoverflow.com/questions/11771513/angularjs-jquery-how-to-get-dynamic-content-working-in-angularjs
+                # url: settings.corpus_cite_base_url + corpusObj.cite_id +
+                #      '&lang={{lang}}'
+                # This does not change the lang parameter in the
+                # corpus info box, although it works in the sidebar.
+                #
+                # escape call is needed for a cite_id containing a &,
+                # but the escaped % then seems to be escaped again
+                # somewhere else. Where?
+                url: settings.corpus_cite_base_url +
+                     escape(corpusObj.cite_id) + '&lang=' + window.lang
                 text: label
         else if corpusObj[info_item]
             info_obj = corpusObj[info_item]

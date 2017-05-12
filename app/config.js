@@ -108,6 +108,7 @@ settings.korp_url = {
 };
 
 settings.urnResolver = "http://urn.fi/";
+settings.corpus_cite_base_url = "http://www.kielipankki.fi/viittaus/?key=";
 
 // Set advanced_search_within to false to disable the within selection
 // in the advanced search. If the value is undefined, assume true.
@@ -187,6 +188,7 @@ settings.make_direct_LBR_URL = function (lbr_id) {
 settings.corpusExtraInfoItems = [
     "metadata",
     "licence",
+    "cite",
     "urn",
     "homepage",
     "compiler",
@@ -200,6 +202,7 @@ settings.corpusExtraInfo = {
     sidebar : [
 	"metadata",
 	"licence",
+	"cite",
 	"urn",
 	"download",
     ]

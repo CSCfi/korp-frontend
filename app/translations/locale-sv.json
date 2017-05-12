@@ -349,5 +349,6 @@
     "corpus_metadata" : "Metadata",
     "corpus_homepage" : "Hemsida",
     "corpus_compiler" : "Sammanställare",
-    "corpus_download" : "Ladda ner korpusen"
+    "corpus_download" : "Ladda ner korpusen",
+    "corpus_cite" : "Referera till korpusen"
 }

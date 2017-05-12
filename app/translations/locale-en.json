@@ -419,6 +419,7 @@
     "corpus_homepage" : "Home page",
     "corpus_compiler" : "Compiler",
     "corpus_download" : "Download corpus",
+    "corpus_cite" : "Cite corpus",
 
     "accessres_title" : "Accessing restricted corpora",
     "accessres_preamble_common" : "You are trying to select or access the following corpora (or their subcorpora) that require",
