@@ -335,7 +335,7 @@
 
     "privacy" : "Tietosuojaseloste",
 
-    "corpus_urn" : "URN",
+    "corpus_urn" : "Linkki korpukseen Korpissa",
     "corpus_licence" : "Lisenssi",
     "corpus_metadata" : "Kuvailutiedot",
     "corpus_homepage" : "Kotisivu",

@@ -344,7 +344,7 @@
 
     "privacy" : "Dataskyddsbeskrivning",
 
-    "corpus_urn" : "URN",
+    "corpus_urn" : "Länk till korpusen i Korp",
     "corpus_licence" : "Lisens",
     "corpus_metadata" : "Metadata",
     "corpus_homepage" : "Hemsida",

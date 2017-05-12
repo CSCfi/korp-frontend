@@ -185,9 +185,9 @@ settings.make_direct_LBR_URL = function (lbr_id) {
 // a new item X, also remember to add corresponding translations for
 // the link text to locale-??.json with the key "corpus_X".
 settings.corpusExtraInfoItems = [
-    "urn",
     "metadata",
     "licence",
+    "urn",
     "homepage",
     "compiler",
     "download",
@@ -197,7 +197,12 @@ settings.corpusExtraInfoItems = [
 // of the corpus chooser and the KWIC results sidebar.
 settings.corpusExtraInfo = {
     corpus_infobox : settings.corpusExtraInfoItems,
-    sidebar : ["urn", "metadata", "licence", "download"]
+    sidebar : [
+	"metadata",
+	"licence",
+	"urn",
+	"download",
+    ]
 };
 
 settings.wordPictureMaxWords = 30;
