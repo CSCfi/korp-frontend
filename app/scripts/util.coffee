@@ -1716,18 +1716,18 @@ util.initCorpusSettingsLicenceCategory = () ->
     for corpus_id, corpus of settings.corpora
         corpus.licence_type ?= corpus.licence?.category or
                                corpus.logical_corpus?.info?.licence?.category
-        if corpus.licence_type in ["ACA", "RES"]
+        if corpus.licence_type in ["ACA", "ACA-Fi", "RES"]
             corpus.limited_access = true
 
 # Set the info.licence.category (RES or ACA) of folder if it contains
-# info.licence.name with CLARIN RES or CLARIN ACA, and recutsively
+# info.licence.name with CLARIN RES or CLARIN ACA, and recursively
 # that of all its subfolders.
 
 util.setFolderLicenceCategory = (folder) ->
     licence_name = folder.info?.licence?.name
     # c.log "licence_name", folder.title, licence_name
     if licence_name?
-        category = /(?:CLARIN )?(ACA|RES)/.exec(licence_name)?[1]
+        category = /(?:CLARIN )?(ACA(-Fi)?|RES)/.exec(licence_name)?[1]
         if category?
             folder.info.licence.category = category
             # c.log "licence_category", category
@@ -2055,6 +2055,7 @@ util.showRestrictedCorporaModal = (corpora) ->
             _(corpus_licence_cats)
                 .unique()
                 .compact()
+                .map((s) -> s.replace('-', ''))
                 .sortBy()
                 .value()
                 .join("").toLowerCase()

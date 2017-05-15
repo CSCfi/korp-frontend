@@ -1703,7 +1703,7 @@
       if (corpus.licence_type == null) {
         corpus.licence_type = ((ref1 = corpus.licence) != null ? ref1.category : void 0) || ((ref2 = corpus.logical_corpus) != null ? (ref3 = ref2.info) != null ? (ref4 = ref3.licence) != null ? ref4.category : void 0 : void 0 : void 0);
       }
-      if ((ref5 = corpus.licence_type) === "ACA" || ref5 === "RES") {
+      if ((ref5 = corpus.licence_type) === "ACA" || ref5 === "ACA-Fi" || ref5 === "RES") {
         results.push(corpus.limited_access = true);
       } else {
         results.push(void 0);
@@ -1716,7 +1716,7 @@
     var category, licence_name, ref, ref1, ref2, results, subfolder, subfolder_name;
     licence_name = (ref = folder.info) != null ? (ref1 = ref.licence) != null ? ref1.name : void 0 : void 0;
     if (licence_name != null) {
-      category = (ref2 = /(?:CLARIN )?(ACA|RES)/.exec(licence_name)) != null ? ref2[1] : void 0;
+      category = (ref2 = /(?:CLARIN )?(ACA(-Fi)?|RES)/.exec(licence_name)) != null ? ref2[1] : void 0;
       if (category != null) {
         folder.info.licence.category = category;
       }
@@ -1985,7 +1985,9 @@
         title = arg[0], lic = arg[1], url = arg[2];
         return "<li><a href=\"" + url + "\" target=\"_blank\">" + title + " [" + lic + "]</a></li>";
       }).value());
-      licence_cats = _(corpus_licence_cats).unique().compact().sortBy().value().join("").toLowerCase();
+      licence_cats = _(corpus_licence_cats).unique().compact().map(function(s) {
+        return s.replace('-', '');
+      }).sortBy().value().join("").toLowerCase();
       c.log("licence_cats", licence_cats);
       access_res_modal = $("#accessResCorporaModal");
       modal_class = "access-corpora-" + licence_cats;

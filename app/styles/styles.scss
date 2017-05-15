@@ -2841,12 +2841,49 @@ li.active a span .num-to-find {
 }
 
 // Hide the non-relevant text variants
+// FIXME: This should really be done in some other way.
 .access-corpora-aca #accessResCorporaPreambleACARES,
 .access-corpora-aca #accessResCorporaPreambleRES,
+.access-corpora-aca #accessResCorporaPreambleACAFi,
+.access-corpora-aca #accessResCorporaPreambleACAACAFi,
+.access-corpora-aca #accessResCorporaPreambleACAFiRES,
+.access-corpora-aca #accessResCorporaPreambleACAACAFiRES,
+.access-corpora-acaacafi #accessResCorporaPreambleACARES,
+.access-corpora-acaacafi #accessResCorporaPreambleRES,
+.access-corpora-acaacafi #accessResCorporaPreambleACAFi,
+.access-corpora-acaacafi #accessResCorporaPreambleACA,
+.access-corpora-acaacafi #accessResCorporaPreambleACAFiRES,
+.access-corpora-acaacafi #accessResCorporaPreambleACAACAFiRES,
 .access-corpora-acares #accessResCorporaPreambleACA,
 .access-corpora-acares #accessResCorporaPreambleRES,
+.access-corpora-acares #accessResCorporaPreambleACAFi,
+.access-corpora-acares #accessResCorporaPreambleACAACAFi,
+.access-corpora-acares #accessResCorporaPreambleACAFiRES,
+.access-corpora-acares #accessResCorporaPreambleACAACAFiRES,
+.access-corpora-acafi #accessResCorporaPreambleACARES,
+.access-corpora-acafi #accessResCorporaPreambleRES,
+.access-corpora-acafi #accessResCorporaPreambleACA,
+.access-corpora-acafi #accessResCorporaPreambleACAACAFi,
+.access-corpora-acafi #accessResCorporaPreambleACAFiRES,
+.access-corpora-acafi #accessResCorporaPreambleACAACAFiRES,
+.access-corpora-acafires #accessResCorporaPreambleACARES,
+.access-corpora-acafires #accessResCorporaPreambleRES,
+.access-corpora-acafires #accessResCorporaPreambleACA,
+.access-corpora-acafires #accessResCorporaPreambleACAACAFi,
+.access-corpora-acafires #accessResCorporaPreambleACAFi,
+.access-corpora-acafires #accessResCorporaPreambleACAACAFiRES,
+.access-corpora-acaacafires #accessResCorporaPreambleACARES,
+.access-corpora-acaacafires #accessResCorporaPreambleRES,
+.access-corpora-acaacafires #accessResCorporaPreambleACA,
+.access-corpora-acaacafires #accessResCorporaPreambleACAACAFi,
+.access-corpora-acaacafires #accessResCorporaPreambleACAFi,
+.access-corpora-acaacafires #accessResCorporaPreambleACAFiRES,
+.access-corpora-res #accessResCorporaPreambleACARES,
 .access-corpora-res #accessResCorporaPreambleACA,
-.access-corpora-res #accessResCorporaPreambleACARES {
+.access-corpora-res #accessResCorporaPreambleACAFi,
+.access-corpora-res #accessResCorporaPreambleACAACAFi,
+.access-corpora-res #accessResCorporaPreambleACAFiRES,
+.access-corpora-res #accessResCorporaPreambleACAACAFiRES {
     display: none;
 }
 
