@@ -56,6 +56,7 @@
     "title" : "otsikko",
     "section" : "section",
     "genre" : "tekstilaji",
+    "subgenre" : "tekstin alalaji",
     "article" : "artikkeli",
     "type" : "tyyppi",
     "publisher" : "julkaisija",
@@ -1319,6 +1320,7 @@
     "publication_year" : "julkaisuvuosi",
     "publication_place" : "julkaisupaikka",
     "publication_name" : "julkaisun nimi",
+    "publication_info" : "julkaisutiedot",
 
     "author_birthyear" : "tekijän syntymävuosi",
     "author_deathyear" : "tekijän kuolinvuosi",
@@ -1580,6 +1582,8 @@
     "sentence_type" : "virkkeen tyyppi",
     "translation_german" : "käännös saksaksi",
     "interview_date": "haastatteluajankohta",
+
+    "sentence_part_deleted" : "virkkeestä on poistettu osa",
 
     "iclfi_place" : "paikka",
     "iclfi_year" : "keräysvuosi",

@@ -125,6 +125,63 @@ settings.corporafolders.english.ethesis.matheses = {
                 "ethesis_en_ma_valt", "ethesis_en_ma_teo", "ethesis_en_ma_el"]
 };
 
+settings.corporafolders.english.coca = {
+    title : "COCA: Corpus of Contemporary American English (beta)",
+    description : "COCA: Corpus of Contemporary American English (beta)",
+    // contents will be added further below
+    info : {
+	urn : "[to be added]",
+	metadata_urn : "[to be added]",
+	licence : {
+	    name : "ACA-Fi (Academic users in Finland)",
+	    // urn : "[to be added]",
+	},
+	homepage_url : "http://corpus.byu.edu/full-text/intro.asp",
+	compiler : {
+	    name : "Prof. Mark Davies, Brigham Young University",
+	    url : "http://davies-linguistics.byu.edu/personal/",
+	},
+    },
+};
+
+settings.corporafolders.english.coha = {
+    title : "COHA: Corpus of Historical American English (sample, beta)",
+    description : "COCA: Corpus of Historical American English (sample, beta)",
+    // contents will be added futher below
+    info : {
+	urn : "[to be added]",
+	metadata_urn : "[to be added]",
+	licence : {
+	    name : "ACA-Fi (Academic users in Finland)",
+	    // urn : "[to be added]",
+	},
+	homepage_url : "http://corpus.byu.edu/full-text/intro.asp",
+	compiler : {
+	    name : "Prof. Mark Davies, Brigham Young University",
+	    url : "http://davies-linguistics.byu.edu/personal/",
+	},
+    },
+};
+
+settings.corporafolders.english.glowbe = {
+    title : "GloWbE: Global Web-based English (sample, beta)",
+    description : "GloWbE: Global Web-based English (sample, beta)",
+    // contents will be added futher below
+    info : {
+	urn : "[to be added]",
+	metadata_urn : "[to be added]",
+	licence : {
+	    name : "ACA-Fi (Academic users in Finland)",
+	    // urn : "[to be added]",
+	},
+	homepage_url : "http://corpus.byu.edu/full-text/intro.asp",
+	compiler : {
+	    name : "Prof. Mark Davies, Brigham Young University",
+	    url : "http://davies-linguistics.byu.edu/personal/",
+	},
+    },
+};
+
 settings.corporafolders.hcs2 = {
     title : "Helsinki Corpus of Swahili 2.0 (HCS 2.0)",
     description : "Helsinki Corpus of Swahili 2.0 (HCS 2.0) Annotated Version<br/><br><a href=\"https://www.kielipankki.fi/corpora/hcs2/\" target=\"_blank\">Corpus information page, including descriptions of annotation feature values (tags)</a>",
@@ -1976,6 +2033,7 @@ delete hcs2_news_extra_props;
 settings.corpus_aliases.hcs = "hcs2_.*";
 settings.corpus_aliases.hcs2 = "hcs2_.*";
 
+
 settings.corpora.besercorp = {
     title : "BeserCorp",
     description : "The Corpus of Beserman Udmurt",
@@ -1987,6 +2045,242 @@ settings.corpora.besercorp = {
     attributes : attrlist.besercorp,
     struct_attributes : {}
 };
+
+
+// Mark Davies's corpora
+
+// COCA
+
+attrlist.byu = {
+    lemma : attrs.baseform,
+    pos : {
+	label : "pos",
+	type : "set",
+	// displayType : "select",
+	// translationKey : "pos_",
+	opts : settings.liteOptions,
+	// PoS tags from http://ucrel.lancs.ac.uk/claws7tags.html
+	// dataset : {
+	// },
+    },
+    posorig : {
+	label : "pos_orig",
+    },
+    lex : attrs.lemgram_hidden,
+    // // This does not seem to work without a valued attribute.
+    // gap : {
+    //	label : "deleted",
+    //	isStructAttr : true,
+    // },
+};
+
+sattrlist.coca = {
+    text_genre : {
+	label : "genre",
+    },
+    text_subgenre : {
+	label : "subgenre",
+    },
+    text_year : sattrs.year,
+    text_source : {
+	label : "source",
+    },
+    text_title : sattrs.text_title,
+    text_publ_info : {
+	label : "publication_info",
+    },
+    text_id : {
+	label : "text_id",
+    },
+    text_wordcount : {
+	label : "text_word_count",
+    },
+    text_filename : {
+	label : "file_name"
+    },
+    // paragraph_id : {
+    // },
+    paragraph_type : {
+	label : "paragraph_type",
+    },
+    // sentence_id : {
+    // },
+    sentence_gaps : {
+	label : "sentence_part_deleted",
+    },
+};
+
+settings.templ.coca_common = {
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.byu,
+    struct_attributes : sattrlist.coca,
+};
+
+var coca_hierarchy = [
+    ["fict", "Fiction"],
+    ["mag", "Magazine"],
+    ["news", "Newspaper"],
+    ["acad", "Academic"],
+    ["spoken", "Spoken"],
+];
+
+settings.fn.make_folder_hierarchy(
+    settings.corporafolders.english.coca, coca_hierarchy,
+    {
+	id_prefix : "coca_",
+	title_prefix : "COCA: ",
+	title_suffix : " (beta)",
+	description_prefix : "COCA: Corpus of Contemporary American English (genre: ",
+	description_suffix : ") (beta)",
+	corpus_template : settings.templ.coca_common,
+    });
+
+delete coca_hierarchy;
+
+settings.corpus_aliases.coca = "coca_.*";
+
+
+// COHA
+
+sattrlist.coha = {
+    text_genre : {
+	label : "genre",
+    },
+    text_year : sattrs.year,
+    text_author : {
+	label : "author",
+    },
+    text_title : sattrs.text_title,
+    text_publ_info : {
+	label : "publication_info",
+    },
+    // text_lcc : {
+    // 	label : "lcc",
+    // },
+    text_id : {
+	label : "text_id",
+    },
+    text_wordcount : {
+	label : "text_word_count",
+    },
+    text_filename : {
+	label : "file_name"
+    },
+    // paragraph_id : {
+    // },
+    paragraph_type : {
+	label : "paragraph_type",
+    },
+    // sentence_id : {
+    // },
+    sentence_gaps : {
+	label : "sentence_part_deleted",
+    },
+};
+
+settings.templ.coha_common = {
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.byu,
+    struct_attributes : sattrlist.coha,
+};
+
+var coha_hierarchy = [
+    ["1810s", "1810s", [
+	["1810s_fict", "1810s fiction"],
+	["1810s_mag", "1810s popular magazines"],
+	["1810s_nf", "1810s non-fiction books"],
+    ] ],
+    ["1820s", "1820s", [
+	["1820s_fict", "1820s fiction"],
+	["1820s_mag", "1820s popular magazines"],
+	["1820s_nf", "1820s non-fiction books"],
+    ] ],
+    ["1830s", "1830s", [
+	["1830s_fict", "1830s fiction"],
+	["1830s_mag", "1830s popular magazines"],
+	["1830s_nf", "1830s non-fiction books"],
+    ] ],
+];
+
+settings.fn.make_folder_hierarchy(
+    settings.corporafolders.english.coha, coha_hierarchy,
+    {
+	id_prefix : "coha_",
+	title_prefix : "COHA: ",
+	title_suffix : " (beta)",
+	description_prefix : "COHA: Corpus of Historical American English: ",
+	description_suffix : " (beta)",
+	corpus_template : settings.templ.coha_common,
+    });
+
+delete coha_hierarchy;
+
+settings.corpus_aliases.coha = "coha_.*";
+
+
+// GloWbE
+
+sattrlist.glowbe = {
+    text_country_genre : {
+	label : "genre",
+    },
+    // text_year : sattrs.year,
+    text_title : sattrs.text_title,
+    text_url : sattrs.original_url,
+    // text_lcc : {
+    // 	label : "lcc",
+    // },
+    text_id : {
+	label : "text_id",
+    },
+    text_wordcount : {
+	label : "text_word_count",
+    },
+    text_filename : {
+	label : "file_name"
+    },
+    // paragraph_id : {
+    // },
+    paragraph_type : {
+	label : "paragraph_type",
+    },
+    // sentence_id : {
+    // },
+    sentence_gaps : {
+	label : "sentence_part_deleted",
+    },
+};
+
+settings.templ.glowbe_common = {
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.byu,
+    struct_attributes : sattrlist.glowbe,
+};
+
+var glowbe_hierarchy = [
+    ["au", "Australian English", [
+	["au_blog", "Australian blogs"],
+    ] ],
+];
+
+settings.fn.make_folder_hierarchy(
+    settings.corporafolders.english.glowbe, glowbe_hierarchy,
+    {
+	id_prefix : "glowbe_",
+	title_prefix : "GloWbE: ",
+	title_suffix : " (beta)",
+	description_prefix : "GloWbE: Global Web-based English: ",
+	description_suffix : " (beta)",
+	corpus_template : settings.templ.glowbe_common,
+    });
+
+delete glowbe_hierarchy;
+
+settings.corpus_aliases.glowbe = "glowbe_.*";
+
 
 
 var locally_available_corpora = ["(mulcold|legal)_..",

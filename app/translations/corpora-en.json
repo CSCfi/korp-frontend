@@ -100,6 +100,7 @@
     "title" : "title",
     "section" : "section",
     "genre" : "genre",
+    "subgenre" : "subgenre",
     "article" : "article",
     "type" : "type",
     "publisher" : "publisher",
@@ -608,6 +609,7 @@
     "publication_year" : "publication year",
     "publication_place" : "place of publication",
     "publication_name" : "publication name",
+    "publication_info" : "publication information",
 
     "textgenre_fiction" : "fiction",
     "textgenre_law" : "legal text",
@@ -720,6 +722,8 @@
     "parse_state_parsed" : "parsed",
     "parse_state_tagged" : "tagged",
 
+    "text_word_count" : "text word count",
+
     "publication_type" : "type of publication",
     "publtype_journal" : "journal",
     "publtype_newspaper" : "newspaper",
@@ -821,6 +825,10 @@
     "interview_date" : "interview date",
     "text_correction_year" : "correction year",
     "text_corrector" : "text corrector",
+
+    "paragraph_type" : "paragraph type",
+    "sentence_part_deleted" : "part of the sentence has been deleted",
+    "original_url" : "URL of original",
 
     "iclfi_place" : "collection place",
     "iclfi_year" : "collection year",
