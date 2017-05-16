@@ -127,9 +127,16 @@
       return [$(pos_items), $(struct_items)];
     },
     renderItem: function(key, value, attrs, wordData, sentenceData, token_data) {
-      var address, encodeHtmlEntities, getStringVal, inner, itr, li, link_text, lis, output, pattern, prefix, ref, ref1, ref2, ref3, ref4, ref5, str_value, taginfo_url, target, ul, url, val, valueArray, x;
+      var address, encodeHtmlEntities, getStringVal, inner, itr, li, link_text, lis, mapViaDataset, output, pattern, prefix, ref, ref1, ref2, ref3, ref4, ref5, str_value, taginfo_url, target, ul, url, val, valueArray, x;
       encodeHtmlEntities = function(s) {
         return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      };
+      mapViaDataset = function(value) {
+        if ((attrs.dataset != null) && !_.isArray(attrs.dataset)) {
+          return attrs.dataset[value] || value;
+        } else {
+          return value;
+        }
       };
       if (((ref = attrs.displayType) === "hidden" || ref === "date_interval") || attrs.displayOnly === "search") {
         return "";
@@ -191,6 +198,7 @@
             }));
             if (attrs.translationKey != null) {
               prefix = attrs.translationKey || "";
+              val = mapViaDataset(val);
               inner.localeKey(prefix + val);
             }
             li = $("<li></li>").data("key", x).append(inner);
@@ -240,7 +248,7 @@
         }));
       } else {
         if (attrs.translationKey != null) {
-          str_value = (attrs != null ? attrs.dataset[value] : void 0) || str_value;
+          str_value = mapViaDataset(str_value);
           return output.append("<span rel='localize[" + attrs.translationKey + str_value + "]'></span>");
         } else {
           return output.append("<span>" + (str_value || '') + "</span>");

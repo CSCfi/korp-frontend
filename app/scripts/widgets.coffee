@@ -133,6 +133,19 @@ Sidebar =
              .replace(/</g, "&lt;")
              .replace(/>/g, "&gt;")
 
+        # Map a value via the dataset property if it exists and is not
+        # an array, that it, is a mapping (object with properties).
+        # FIXME: This does not yield a correct result if the dataset
+        # keys are regular expressions as they may be. Should we
+        # perhaps have separate dataset mappings for the query,
+        # allowing regexps, and for stringifying values, not allowing
+        # regexps? (Jyrki Niemi 2017-05-16)
+        mapViaDataset = (value) ->
+            if attrs.dataset? and not _.isArray(attrs.dataset)
+                return attrs.dataset[value] or value
+            else
+                return value
+
         if attrs.displayType in ["hidden", "date_interval"] or
                 attrs.displayOnly == "search"
             return ""
@@ -192,6 +205,7 @@ Sidebar =
                 inner = $(_.template(pattern, {key : x, val : val}))
                 if attrs.translationKey?
                     prefix = attrs.translationKey or ""
+                    val = mapViaDataset(val)
                     inner.localeKey(prefix + val)
                 li = $("<li></li>").data("key", x).append inner
                 if attrs.externalSearch
@@ -264,7 +278,7 @@ Sidebar =
 
         else
             if attrs.translationKey?
-                str_value = attrs?.dataset[value] or str_value
+                str_value = mapViaDataset(str_value)
                 return output.append "<span rel='localize[#{attrs.translationKey}#{str_value}]'></span>"
             else
                 return output.append "<span>#{str_value || ''}</span>"
