@@ -616,36 +616,23 @@ attrs.ner_tags = {
     opts : settings.liteOptions,
     dataset : {
         "_" : "_",
-        "EnamexPrsHum" : "EnamexPrsHum",
-        "TimexTmeDat" : "TimexTmeDat",
-        "NumexMsrCur" : "NumexMsrCur",
-        "NumexMsrXxx" : "NumexMsrXxx",
-        "EnamexOrgCrp" : "EnamexOrgCrp",
-        "EnamexLocXxx" : "EnamexLocXxx",
-        "EnamexLocGpl" : "EnamexLocGpl",
-        "EnamexLocPpl" : "EnamexLocPpl",
-        "EnamexPrsTit" : "EnamexPrsTit",
-        "EnamexOrgTvr" : "EnamexOrgTvr",
-        "EnamexOrgPlt" : "EnamexOrgPlt",
-        "EnamexLocStr" : "EnamexLocStr",
-        "EnamexOrgAth" : "EnamexOrgAth",
-        "EnamexOrgEdu" : "EnamexOrgEdu",
-        "EnamexOrgClt" : "EnamexOrgClt",
-        "EnamexPrsHum/" : "EnamexPrsHum",
-        "TimexTmeDat/" : "TimexTmeDat",
-        "NumexMsrCur/" : "NumexMsrCur",
-        "NumexMsrXxx/" : "NumexMsrXxx",
-        "EnamexOrgCrp/" : "EnamexOrgCrp",
-        "EnamexLocXxx/" : "EnamexLocXxx",
-        "EnamexLocGpl/" : "EnamexLocGpl",
-        "EnamexLocPpl/" : "EnamexLocPpl",
-        "EnamexPrsTit/" : "EnamexPrsTit",
-        "EnamexOrgTvr/" : "EnamexOrgTvr",
-        "EnamexOrgPlt/" : "EnamexOrgPlt",
-        "EnamexLocStr/" : "EnamexLocStr",
-        "EnamexOrgAth/" : "EnamexOrgAth",
-        "EnamexOrgEdu/" : "EnamexOrgEdu",
-        "EnamexOrgClt/" : "EnamexOrgClt"
+        // CQP gave an error if the values ended in /? instead of
+        // [/]?.
+        "/?EnamexLocGpl[/]?" : "EnamexLocGpl",
+        "/?EnamexLocPpl[/]?" : "EnamexLocPpl",
+        "/?EnamexLocStr[/]?" : "EnamexLocStr",
+        "/?EnamexLocXxx[/]?" : "EnamexLocXxx",
+        "/?EnamexOrgAth[/]?" : "EnamexOrgAth",
+        "/?EnamexOrgClt[/]?" : "EnamexOrgClt",
+        "/?EnamexOrgCrp[/]?" : "EnamexOrgCrp",
+        "/?EnamexOrgEdu[/]?" : "EnamexOrgEdu",
+        "/?EnamexOrgPlt[/]?" : "EnamexOrgPlt",
+        "/?EnamexOrgTvr[/]?" : "EnamexOrgTvr",
+        "/?EnamexPrsHum[/]?" : "EnamexPrsHum",
+        "/?EnamexPrsTit[/]?" : "EnamexPrsTit",
+        "/?NumexMsrCur[/]?" : "NumexMsrCur",
+        "/?NumexMsrXxx[/]?" : "NumexMsrXxx",
+        "/?TimexTmeDat[/]?" : "TimexTmeDat",
     }
 };
 
@@ -12161,6 +12148,10 @@ settings.corpora.dma = {
 		// the desired sorting order. They are invisible in
 		// the output, but could they cause problems in some
 		// cases?
+		// FIXME: Yes: the control characters seem to be shown
+		// as symbols in the extended search selection list in
+		// Chromium on Linux, even though they are invisible
+		// in Firefox on Linux.
 		"[1-6].?" : "\x011–6 Länsimurteet",
 		"1." : "\x01  1 Lounaismurteet",
 		"1a" : "\x01    1a pohjoisryhmä",
