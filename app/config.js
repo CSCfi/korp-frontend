@@ -2549,6 +2549,7 @@ settings.corporafolders.lehdet.tiedelehdet = {
 	"tiedelehdet_musiikkikasv",
 	"tiedelehdet_niinnain",
 	"tiedelehdet_nimi",
+	"tiedelehdet_nayttamo_tutkimus",
 	"tiedelehdet_poliittinentalous",
 	"tiedelehdet_prologi",
 	"tiedelehdet_psykologia",
@@ -2561,8 +2562,10 @@ settings.corporafolders.lehdet.tiedelehdet = {
 	"tiedelehdet_skeptikko",
 	"tiedelehdet_skholion",
 	"tiedelehdet_sosiaalilaaketiede",
+	"tiedelehdet_sosiologia",
 	"tiedelehdet_suo",
 	"tiedelehdet_susa",
+	"tiedelehdet_sydanaani",
 	"tiedelehdet_kirkkohistoria",
 	"tiedelehdet_synnyt",
 	"tiedelehdet_tahiti",
@@ -5714,6 +5717,79 @@ settings.corpora.tiedelehdet_yhdyskuntasuunnittelu = {
             label: "issue",
         },
         text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.tiedelehdet_nayttamo_tutkimus = {
+    id: "tiedelehdet_nayttamo_tutkimus",
+    title: "Näyttämö & tutkimus",
+    description: "Näyttämö & tutkimus (2005, 2006, 2009, 2011, 2014)<br/>Julkaisija: Teatterintutkimuksen seura ry<br/>Kotisivu: <a href='http://teats.fi/category/nayttamo_et_tutkimus/'>http://teats.fi/category/nayttamo_et_tutkimus/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: {
+            displayType: "hidden",
+        },
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_url: sattrs.link_lehdet,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.tiedelehdet_sosiologia = {
+    id: "tiedelehdet_sosiologia",
+    title: "Sosiologia",
+    description: "Sosiologia (2000-2013)<br/>Julkaisija: The Westermarck Society ry<br/>Kotisivu: <a href='http://www.sosiologia.fi/'>http://www.sosiologia.fi/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: {
+            displayType: "hidden",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.tiedelehdet_sydanaani = {
+    id: "tiedelehdet_sydanaani",
+    title: "Sydänääni",
+    description: "Sydänääni (2013)<br/>Julkaisija: Suomen Kardiologinen Seura ry<br/>Kotisivu: <a href='https://www.fincardio.fi/julkaisut/sydanaani/'>https://www.fincardio.fi/julkaisut/sydanaani/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: {
+            displayType: "hidden",
+        },
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
         text_year: {
             label: "year",
         },
