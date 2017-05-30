@@ -339,6 +339,7 @@
     "corpus_licence" : "Lisenssi",
     "corpus_metadata" : "Kuvailutiedot",
     "corpus_homepage" : "Kotisivu",
+    "corpus_iprholder" : "Oikeudenhaltija",
     "corpus_compiler" : "Koostaja",
     "corpus_download" : "Lataa aineisto",
     "corpus_cite" : "Viittaa korpukseen",

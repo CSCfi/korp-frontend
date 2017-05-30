@@ -348,6 +348,7 @@
     "corpus_licence" : "Lisens",
     "corpus_metadata" : "Metadata",
     "corpus_homepage" : "Hemsida",
+    "corpus_iprholder" : "Rättsinnehavare",
     "corpus_compiler" : "Sammanställare",
     "corpus_download" : "Ladda ner korpusen",
     "corpus_cite" : "Referera till korpusen"

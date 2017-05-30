@@ -191,6 +191,7 @@ settings.corpusExtraInfoItems = [
     "cite",
     "urn",
     "homepage",
+    "iprholder",
     "compiler",
     "download",
 ];

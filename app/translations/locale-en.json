@@ -417,6 +417,7 @@
     "corpus_licence" : "Licence",
     "corpus_metadata" : "Metadata",
     "corpus_homepage" : "Home page",
+    "corpus_iprholder" : "IPR holder",
     "corpus_compiler" : "Compiler",
     "corpus_download" : "Download corpus",
     "corpus_cite" : "Cite corpus",
