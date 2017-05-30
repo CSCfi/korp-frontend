@@ -1080,17 +1080,13 @@ settings.corpus_aliases["topling-en"] = "topling_en";
 settings.corpora.elfa = {
     id : "elfa",
     title : "ELFA",
-    description : "ELFA – The Corpus of English as a Lingua Franca in Academic Settings (anonymised transcriptions), preliminary Korp version<br>The ELFA corpus contains 1 million words of transcribed spoken academic ELF (approximately 131 hours of recorded speech). The recordings were made at the University of Tampere, the University of Helsinki, Tampere University of Technology, and Helsinki University of Technology.<br/>IPR holder: Professor Anna Mauranen, University of Helsinki",
-    urn : "[to be added]",
-    // FIXME: This is the top-level ELFA metadata URN; change it to
-    // the one for the Korp version when available
-    metadata_urn : "urn:nbn:fi:lb-201403262",
+    description : "ELFA – The Corpus of English as a Lingua Franca in Academic Settings (anonymised transcriptions), preliminary Korp version<br>The ELFA corpus contains 1 million words of transcribed spoken academic ELF (approximately 131 hours of recorded speech). The recordings were made at the University of Tampere, the University of Helsinki, Tampere University of Technology, and Helsinki University of Technology.",
+    urn : "urn:nbn:fi:lb-2016061301",
+    metadata_urn : "urn:nbn:fi:lb-2016061302",
     licence : settings.licenceinfo.CC_BY,
-    // TODO: Add an IPR holder item (or something like that) to the
-    // standard info fields
-    // compiler : {
-    // 	name : "Anna Mauranen",
-    // },
+    iprholder : {
+	name : "Professor Anna Mauranen, University of Helsinki",
+    },
     cite_id : "ELFA-korp",
     context : settings.spContext,
     within : settings.spWithin,
