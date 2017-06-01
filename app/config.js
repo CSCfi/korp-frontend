@@ -43,7 +43,8 @@ settings.textDateAllowBareYears = true;
 settings.downloadFormats = [
     "annot",
     "ref",
-    "nooj"
+    "nooj",
+    "rows",
 ];
 if (! isProductionServer || isProductionServerTest) {
     settings.downloadFormats = settings.downloadFormats.concat([
@@ -79,6 +80,10 @@ settings.downloadFormatParams = {
     },
     "nooj": {
 	attrs: "+"
+    },
+    "rows": {
+	format: "sentences,xls",
+	subformat: "lemmas-resultinfo,lemmas-kwic",
     },
     "tsv": {
 	format: "sentences,tsv"

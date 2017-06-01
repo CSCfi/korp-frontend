@@ -333,6 +333,7 @@
     "formatdescr_annot" : "Annoterad text som ett Excel-kalkylblad (XLS), ett token per rad. Varje rad har ett token med attribut och potentiellt en markör för sökträffen. Varje träffad mening föregås av en rad med korpus-ID, träffens korpusposition och textattribut för meningen.",
     "formatdescr_nooj" : "XML-importformat för NooJ",
     "formatdescr_ref" : "Källhänvisningar som ett Excel-kalkylblad (XLS) med varje sökträffmening på sin egen rad, efterträdd av meningens textattribut på sina egna rader",
+    "formatdescr_rows" : "Ett Excel-kalkylblad (XLS) med en rad för varje rad i KWIC. Varje rad har de följande kolumnerna: träffens nummer, korpusidentifierare, ordformer av vänsterkontext, träffen och högerkontext, grundformer av vänsterkontext, träffen och högerkontext (om korpusen innehåller!!! lemmainformation), textattribut (varje attribut i sin egen kolumn), och sökningens metadata i sina egna kolumner.",
 
     "name_classification" : "Namnklassifikation",
     "no_name_corpora" : "De valda korpusarna innehåller ingen namndata.",

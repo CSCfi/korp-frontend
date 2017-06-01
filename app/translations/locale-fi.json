@@ -332,6 +332,7 @@
     "formatdescr_annot" : "Annotoitu teksti Excel-taulukkona (XLS), sane per rivi. Joka rivillä on sane attribuutteineen sekä mahdollinen hakuosumailmaisin. Osumavirkettä edeltää rivi, joka sisältää korpustunnisteen, osuman korpussijainnin ja virkkeen tekstiominaisuudet.",
     "formatdescr_nooj" : "NooJ-ohjelmaan ladattavissa oleva XML-muoto",
     "formatdescr_ref" : "Lähdeviitetiedot Excel-taulukkona (XLS), jossa kukin osuman sisältävä virke on omalla rivillään, jota seuraavat virkkeeseen liittyvät tekstin ominaisuudet omilla riveillään",
+    "formatdescr_rows" : "Excel-Taulukko (XLS), jossa on yksi rivi kutakin konkordanssin riviä kohti, sarakkeina osuman numero, korpustunniste, vasemman kontekstin, osuman ja oikean kontekstin sananmuodot, vasemman kontekstin, osuman ja oikean kontekstin sanojen perusmuodot (jos saatavilla), tekstin ominaisuudet (kukin omassa sarakkeessaan) sekä haun tietoja omissa sarakkeissaan.",
 
     "privacy" : "Tietosuojaseloste",
 
