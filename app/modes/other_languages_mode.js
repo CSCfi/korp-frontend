@@ -1566,8 +1566,8 @@ sattrlist.scotscorr = {
     text_from : { label : "writer" },
     text_to : { label : "addressee" },
     text_year : { label : "year" },
-    text_datefrom : sattrs.date,
-    text_date : { label : "original_date" },
+    // text_datefrom : sattrs.date,
+    text_date : { label : "date" },
     text_fraser : { label : "scotscorr_fraser" },
     text_lcinf : {
 	label : "scotscorr_lcinf",
@@ -1626,7 +1626,7 @@ sattrlist.scotscorr = {
 	},
     },
     text_lclet : { label : "scotscorr_lclet" },
-    text_srg : {
+    text_wgr : {
 	label : "scotscorr_srg",
 	displayType : "select",
 	opts : settings.liteOptions,
@@ -1638,7 +1638,7 @@ sattrlist.scotscorr = {
 	    "unspecified",
 	],
     },
-    text_arg : {
+    text_agr : {
 	label : "scotscorr_arg",
 	displayType : "select",
 	opts : settings.liteOptions,
@@ -1682,7 +1682,7 @@ sattrlist.scotscorr = {
 	    "unspecified",
 	],
     },
-    text_lettertypetwo : {
+    text_lettertype2 : {
 	label : "scotscorr_hand2",
 	displayType : "select",
 	opts : settings.liteOptions,
@@ -1693,7 +1693,7 @@ sattrlist.scotscorr = {
 	    "non-autograph",
 	],
     },
-    text_scripttypetwo : {
+    text_scripttype2 : {
 	label : "scotscorr_scripttype",
 	displayType : "select",
 	opts : settings.liteOptions,
