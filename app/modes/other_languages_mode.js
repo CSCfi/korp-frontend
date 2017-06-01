@@ -209,9 +209,9 @@ settings.corporafolders.sust = {
 };
 
 settings.corporafolders.english.scotscorr = {
-    title : "ScotsCorr",
+    title : "ScotsCorr (beta)",
     // Description copied from META-SHARE
-    description : "Helsinki Corpus of Scottish Correspondence (1540–1750)<br/><br/>The corpus comprises circa 0.5 million tokens (417,709 words) of early Scottish correspondence by male and female writers dating from the period 1540–1750. The corpus consists of transcripts of original letter manuscripts, which reproduce the text disallowing any modernisation, normalisation or emendation. Language-external variables such as date, region, gender, addressee, hand and script type have been coded into the database. The writers originate from fifteen different regions of Scotland; these can be grouped to represent the areas of North, North-East, Central, South-East, and South-West. In addition, there are two categories of informants that have not been defined by geographical origin: representatives of the court and professional people such as members of the clergy. The proportion of female informants in the corpus is 21 per cent.<br/><br/><a href='https://www.kielipankki.fi/corpora/scotscorr/' target='_blank'>ScotsCorr information page with links to documentation</a>.",
+    description : "Helsinki Corpus of Scottish Correspondence (1540–1750)<br/><br/>The corpus comprises circa 0.5 million tokens (417,709 words) of early Scottish correspondence by male and female writers dating from the period 1540–1750. The corpus consists of transcripts of original letter manuscripts, which reproduce the text disallowing any modernisation, normalisation or emendation. Language-external variables such as date, region, gender, addressee, hand and script type have been coded into the database. The writers originate from fifteen different regions of Scotland; these can be grouped to represent the areas of North, North-East, Central, South-East, and South-West. In addition, there are two categories of informants that have not been defined by geographical origin: representatives of the court and professional people such as members of the clergy. The proportion of female informants in the corpus is 21 per cent.<br/><br/><strong>Please note</strong> that the Korp version of the corpus is in test use and may change without notification, although the corpus data itself should be stable.<br/><br/><a href='https://www.kielipankki.fi/corpora/scotscorr/' target='_blank'>ScotsCorr information page with links to documentation</a>.",
     info : {
 	urn : "urn:nbn:fi:lb-2016121607",
 	metadata_urn : "urn:nbn:fi:lb-201411071",
@@ -2048,55 +2048,55 @@ attrs.scotscorr_word = {
 
 settings.corpora.scots_f1540_1599 = {
     id : "scots_f1540_1599",
-    title : "ScotsCorr: Female 1540–1599",
+    title : "ScotsCorr: Female 1540–1599 (beta)",
     description : "Helsinki Corpus of Scottish Correspondence: Female 1540–1599",
 };
 
 settings.corpora.scots_f1600_1649 = {
     id : "scots_f1600_1649",
-    title : "ScotsCorr: Female 1600–1649",
+    title : "ScotsCorr: Female 1600–1649 (beta)",
     description : "Helsinki Corpus of Scottish Correspondence: Female 1600–1649",
 };
 
 settings.corpora.scots_f1650_1699 = {
     id : "scots_f1650_1699",
-    title : "ScotsCorr: Female 1650–1699",
+    title : "ScotsCorr: Female 1650–1699 (beta)",
     description : "Helsinki Corpus of Scottish Correspondence: Female 1650–1699",
 };
 
 settings.corpora.scots_f1700_1749 = {
     id : "scots_f1700_1749",
-    title : "ScotsCorr: Female 1700–1749",
+    title : "ScotsCorr: Female 1700–1749 (beta)",
     description : "Helsinki Corpus of Scottish Correspondence: Female 1700–1749",
 };
 
 settings.corpora.scots_m1540_1599 = {
     id : "scots_m1540_1599",
-    title : "ScotsCorr: Male 1540–1599",
+    title : "ScotsCorr: Male 1540–1599 (beta)",
     description : "Helsinki Corpus of Scottish Correspondence: Male 1540–1599",
 };
 
 settings.corpora.scots_m1600_1649 = {
     id : "scots_m1600_1649",
-    title : "ScotsCorr: Male 1600–1649",
+    title : "ScotsCorr: Male 1600–1649 (beta)",
     description : "Helsinki Corpus of Scottish Correspondence: Male 1600–1649",
 };
 
 settings.corpora.scots_m1650_1699 = {
     id : "scots_m1650_1699",
-    title : "ScotsCorr: Male 1650–1699",
+    title : "ScotsCorr: Male 1650–1699 (beta)",
     description : "Helsinki Corpus of Scottish Correspondence: Male 1650–1699",
 };
 
 settings.corpora.scots_m1700_1749 = {
     id : "scots_m1700_1749",
-    title : "ScotsCorr: Male 1700–1749",
+    title : "ScotsCorr: Male 1700–1749 (beta)",
     description : "Helsinki Corpus of Scottish Correspondence: Male 1700–1749",
 };
 
 settings.corpora.scots_royal = {
     id : "scots_royal",
-    title : "ScotsCorr: Royal",
+    title : "ScotsCorr: Royal (beta)",
     description : "Helsinki Corpus of Scottish Correspondence: Royal",
 };
 
