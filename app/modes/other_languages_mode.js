@@ -215,7 +215,12 @@ settings.corporafolders.english.scotscorr = {
     info : {
 	urn : "urn:nbn:fi:lb-2016121607",
 	metadata_urn : "urn:nbn:fi:lb-201411071",
-	licence : settings.licenceinfo.ACA_NC,
+	// Use the generic ACA+NC licence information but add a URN
+	// directing to a licence page specific to ScotsCorr (URN
+	// overrides the URL in settings.licenceinfo.ACA_NC).
+	licence : $.extend(true, {},
+			   settings.licenceinfo.ACA_NC,
+			   { urn : "urn:nbn:fi:lb-2016051203" }),
 	// General ACA status application, since ScotsCorr does not
 	// have one of its own
 	lbr_id : "urn:nbn:fi:lb-2016110710",
