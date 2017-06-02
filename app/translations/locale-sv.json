@@ -352,5 +352,11 @@
     "corpus_iprholder" : "Rättsinnehavare",
     "corpus_compiler" : "Sammanställare",
     "corpus_download" : "Ladda ner korpusen",
-    "corpus_cite" : "Referera till korpusen"
+    "corpus_cite" : "Referera till korpusen",
+
+    "wordlist" : "Ordlista",
+    "selected_words" : "Valda ord",
+    "button_done" : "Klart",
+    "button_clear" : "Avmarkera",
+    "button_cancel" : "Avbryt"
 }

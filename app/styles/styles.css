@@ -6223,3 +6223,103 @@ li.active a span .num-to-find {
 .dma-signumlist tr.vspacer {
   font-size: 0.3em;
 }
+
+/* ScotsCorr word selector modal */
+/* line 2908, styles.scss */
+.modal-value {
+  font-size: 0.8em;
+  width: 100%;
+}
+
+/* line 2913, styles.scss */
+.modal-value-heading {
+  font-weight: bold;
+}
+
+/* line 2917, styles.scss */
+#wordselector-selected-words {
+  display: block;
+  line-height: 95%;
+}
+
+/* line 2922, styles.scss */
+.modal-buttons, .modal-value {
+  display: block;
+}
+
+/* line 2926, styles.scss */
+.modal-buttons button {
+  margin-right: 0.5em;
+}
+
+/* line 2930, styles.scss */
+.modal-wordselector {
+  overflow-y: auto;
+  font-size: 1em;
+  margin: 0.5em 1em 0.5em 1em;
+}
+/* line 2934, styles.scss */
+.modal-wordselector ul {
+  list-style: none;
+}
+/* line 2936, styles.scss */
+.modal-wordselector ul li ul {
+  margin-left: 2em;
+  line-height: 70%;
+}
+
+/* line 2943, styles.scss */
+.wordselector-group-heading {
+  font-weight: bold;
+  cursor: pointer;
+}
+/* line 2946, styles.scss */
+.wordselector-group-heading:hover {
+  color: darkgrey;
+}
+
+/* line 2951, styles.scss */
+.wordselector-group-name {
+  display: inline-block;
+  min-width: 1em;
+}
+
+/* line 2956, styles.scss */
+.wordselector-freq {
+  color: #555555;
+}
+
+/* line 2962, styles.scss */
+.wordselector-word-unselected {
+  font-weight: normal;
+}
+
+/* line 2966, styles.scss */
+.wordselector-word-selected {
+  font-weight: bold;
+}
+
+/* line 2970, styles.scss */
+.list-link-icon {
+  margin-left: 0.25em;
+  cursor: pointer;
+}
+/* line 2973, styles.scss */
+.list-link-icon:hover {
+  color: darkgrey;
+}
+
+/* line 2978, styles.scss */
+.book-link-icon {
+  margin-left: 0.25em;
+  cursor: pointer;
+}
+/* line 2981, styles.scss */
+.book-link-icon:hover {
+  color: darkgrey;
+}
+
+/* line 2986, styles.scss */
+.arg_value_wordselector {
+  width: 85% !important;
+}

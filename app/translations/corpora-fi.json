@@ -53,6 +53,7 @@
     "text_party" : "puolue",
     "date" : "päiväys",
     "author" : "tekijä",
+    "writer" : "kirjoittaja",
     "title" : "otsikko",
     "section" : "section",
     "genre" : "tekstilaji",
@@ -73,7 +74,10 @@
     "sentence_link" : "sentence link",
     "text_issue" : "numero",
 
-    "text_recipient" : "recipient",
+    "sender" : "lähettäjä",
+    "addressee" : "vastaanottaja",
+    "archivecode" : "arkistokoodi",
+    "text_recipient" : "vastaanottaja",
     "text_sv" : "work number",
 
     "oneSentence" : "one sentence",
@@ -102,6 +106,8 @@
     "statistics" : "Tilastoja",
 
     "date_interval" : "aikaväli",
+
+    "num_words" : "sanamäärä",
 
     "utterance_num" : "puhunnoksen numero",
     "utterance_begin_time" : "puhunnoksen alkuaika",
@@ -1632,14 +1638,19 @@
     "scotscorr_ms" : "NLS/NRS-tunniste",
     "scotscorr_lcinf" : "kirjoittajan paikkatiedot",
     "scotscorr_lclet" : "kirjeen paikkatiedot",
-    "scotscorr_wc" : "sanamäärä",
     "scotscorr_arg" : "vastaanottajan sukupuoli/asema",
     "scotscorr_srg" : "lähettäjän sukupuoli/asema",
-    "scotscorr_lettertype" : "kirjeen tyyppi",
+    "scotscorr_hand" : "omakätisyys",
+    "scotscorr_hand2" : "omakätisyys (toissijainen)",
     "scotscorr_scripttype" : "käsiala",
-    "scotscorr_year" : "vuosi",
+    "scotscorr_scripttype2" : "käsiala (toissijainen)",
     "scotscorr_st" : "transkription tiedot",
     "scotscorr_fraser" : "kuvaus",
+    "scotscorr_open_wordlist" : "Avaa korpuksen sanalista, josta voi valita etsittävät sanat",
+    "scotscorr_selected_words_with_freq" : "eri sanaa valittuina, kokonaisfrekvenssi",
+    "word_related_comment" : "sanaan liittyvä kommentti",
+    "original_date" : "alkuperäinen päivämäärä",
+
     "link_to_original" : "linkki alkuperäiseen",
     "gloss" : "glossi",
     "syntactic_function" : "syntaktinen funktio",

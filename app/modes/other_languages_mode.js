@@ -208,21 +208,38 @@ settings.corporafolders.sust = {
     contents : ["sust_myv", "sust_kpv", "sust_mdf"]
 };
 
-
-/*
-settings.corporafolders.scotscorr = {
-    title : "ScotsCorr",
-    contents : ["scots_f1550_1599",
-                "scots_f1600_1649",
-                "scots_f1650_1699",
-                "scots_f1700_1749",
-                "scots_m1550_1599",
-                "scots_m1600_1649",
-                "scots_m1650_1699",
-                "scots_m1700_1749",
-                "scots_royal"]
+settings.corporafolders.english.scotscorr = {
+    title : "ScotsCorr (beta)",
+    // Description copied from META-SHARE
+    description : "Helsinki Corpus of Scottish Correspondence (1540–1750)<br/><br/>The corpus comprises circa 0.5 million tokens (417,709 words) of early Scottish correspondence by male and female writers dating from the period 1540–1750. The corpus consists of transcripts of original letter manuscripts, which reproduce the text disallowing any modernisation, normalisation or emendation. Language-external variables such as date, region, gender, addressee, hand and script type have been coded into the database. The writers originate from fifteen different regions of Scotland; these can be grouped to represent the areas of North, North-East, Central, South-East, and South-West. In addition, there are two categories of informants that have not been defined by geographical origin: representatives of the court and professional people such as members of the clergy. The proportion of female informants in the corpus is 21 per cent.<br/><br/><strong>Please note</strong> that the Korp version of the corpus is in test use and may change without notification, although the corpus data itself should be stable.<br/><br/><a href='https://www.kielipankki.fi/corpora/scotscorr/' target='_blank'>ScotsCorr information page with links to documentation</a>.",
+    info : {
+	urn : "urn:nbn:fi:lb-2016121607",
+	metadata_urn : "urn:nbn:fi:lb-201411071",
+	// Use the generic ACA+NC licence information but add a URN
+	// directing to a licence page specific to ScotsCorr (URN
+	// overrides the URL in settings.licenceinfo.ACA_NC).
+	licence : $.extend(true, {},
+			   settings.licenceinfo.ACA_NC,
+			   { urn : "urn:nbn:fi:lb-2016051203" }),
+	// General ACA status application, since ScotsCorr does not
+	// have one of its own
+	lbr_id : "urn:nbn:fi:lb-2016110710",
+	iprholder : {
+	    name : "Anneli Meurman-Solin",
+	},
+    },
+    contents : [
+        "scots_royal",
+        "scots_m1540_1599",
+        "scots_f1540_1599",
+        "scots_m1600_1649",
+        "scots_f1600_1649",
+        "scots_m1650_1699",
+        "scots_f1650_1699",
+        "scots_m1700_1749",
+        "scots_f1700_1749",
+    ],
 };
-*/
 
 
 /*
@@ -1536,98 +1553,600 @@ settings.corpora.fennougrica_veps = {
 */
 
 
+/* attrlist.scotscorr is currently not used */
+attrlist.scotscorr = {
+    w_note : attrs.word_note,
+    w_supplement : attrs.word_supplement,
+    w_full : attrs.word_correction,
+    w_spacing : {
+        label : "word_spacing",
+        opts : settings.defaultOptions
+    },
+    w_typography : attrs.word_typography,
+    w_state : {
+        label : "word_state",
+        opts : settings.defaultOptions
+    }
+};
 
-/* skotti
-settings.corpora.scots_f1550_1599 = {
-    id : "scots_f1550_1599",
-    title : "Female 1550–1599",
-    description : "Female 1550–1599",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+sattrlist.scotscorr = {
+    sentence_id : sattrs.sentence_id_hidden,
+    text_from : { label : "writer" },
+    text_to : { label : "addressee" },
+    text_year : { label : "year" },
+    // text_datefrom : sattrs.date,
+    text_date : { label : "date" },
+    text_fraser : { label : "scotscorr_fraser" },
+    text_lcinf : {
+	label : "scotscorr_lcinf",
+	displayType : "select",
+	opts : settings.liteOptions,
+	localize : false,
+	dataset : {
+	    // The control characters \x01–\x08 are used to get the
+	    // desired sorting order in the selection list. They are
+	    // invisible in the output, but could they cause problems
+	    // in some cases?
+	    "Moray|Invernessshire|Sutherland|Ross" : "\x01North",
+	    "Moray" : "\x01    Moray",
+	    "Invernessshire" : "\x01    Invernessshire",
+	    "Sutherland" : "\x01    Sutherland",
+	    "Ross" : "\x01    Ross",
+	    "Aberdeenshire|Angus" : "\x02North-East",
+	    "Aberdeenshire" : "\x02    Aberdeenshire",
+	    "Angus" : "\x02    Angus",
+	    "Perthshire|Lanarkshire" : "\x03Central",
+	    "Perthshire" : "\x03    Perthshire",
+	    "Lanarkshire" : "\x03    Lanarkshire",
+	    "Fife|Lothian|East Lothian|Stirlingshire|Borders" : "\x04South-East",
+	    "Fife" : "\x04    Fife",
+	    "Lothian" : "\x04    Lothian",
+	    "East Lothian" : "\x04    East Lothian",
+	    "Stirlingshire" : "\x04    Stirlingshire",
+	    "Borders" : "\x04    Borders",
+	    "Argyllshire|Ayrshire|South-West" : "\x05South-West",
+	    "Argyllshire" : "\x05    Argyllshire",
+	    "Ayrshire" : "\x05    Ayrshire",
+	    "South-West" : "\x05    South-West",
+	    "Court" : "\x06Court",
+	    "Professional" : "\x07Professional",
+	    "unlocalised" : "\x08unlocalised",
+	},
+    },
+    text_largeregion : {
+	label : "scotscorr_largeregion",
+	displayType : "select",
+	opts : settings.liteOptions,
+	localize : false,
+	dataset : {
+	    // The control characters \x01–\x08 are used to get the
+	    // desired sorting order in the selection list. They are
+	    // invisible in the output, but could they cause problems
+	    // in some cases?
+	    "North" : "\x01North",
+	    "North-East" : "\x02North-East",
+	    "Central" : "\x03Central",
+	    "South-East" : "\x04South-East",
+	    "South-West" : "\x05South-West",
+	    "Court" : "\x06Court",
+	    "Professional" : "\x07Professional",
+	    "Unlocalised" : "\x08Unlocalised",
+	},
+    },
+    text_lclet : { label : "scotscorr_lclet" },
+    text_wgr : {
+	label : "scotscorr_srg",
+	displayType : "select",
+	opts : settings.liteOptions,
+	localize : false,
+	dataset : [
+	    "female",
+	    "male",
+	    "royal",
+	    "unspecified",
+	],
+    },
+    text_agr : {
+	label : "scotscorr_arg",
+	displayType : "select",
+	opts : settings.liteOptions,
+	localize : false,
+	dataset : [
+	    "female",
+	    "male",
+	    "royal",
+	    "unspecified",
+	],
+    },
+    text_lettertype : {
+	label : "scotscorr_hand",
+	displayType : "select",
+	opts : settings.liteOptions,
+	localize : false,
+	dataset : [
+	    "autograph",
+	    "information unavailable",
+	    "non-autograph",
+	],
+    },
+    text_scripttype : {
+	label : "scotscorr_scripttype",
+	displayType : "select",
+	opts : settings.liteOptions,
+	localize : false,
+	dataset : [
+	    "information unavailable",
+	    "initial and final formulae and signature",
+	    "italic",
+	    "letter-closing formula",
+	    "letter-closing formula and signature",
+	    "non-secretary",
+	    "secretary",
+	    "signature",
+	    "signatures",
+	    "signature and insertion",
+	    "the letter-closing formula and the signature",
+	    "the signature",
+	    "unspecified",
+	],
+    },
+    text_lettertype2 : {
+	label : "scotscorr_hand2",
+	displayType : "select",
+	opts : settings.liteOptions,
+	localize : false,
+	dataset : [
+	    "autograph",
+	    "information unavailable",
+	    "non-autograph",
+	],
+    },
+    text_scripttype2 : {
+	label : "scotscorr_scripttype",
+	displayType : "select",
+	opts : settings.liteOptions,
+	localize : false,
+	dataset : [
+	    "copy",
+	    "information unavailable",
+	    "non-secretary",
+	    "secretary",
+	],
+    },
+    text_wc : { label : "num_words" },
+    text_id : { label : "text_id" },
+    text_fn : { label : "file_name" },
+    text_ms : { label : "scotscorr_ms" },
+    text_bi : { label : "scotscorr_bi" },
+    text_st : { label : "scotscorr_st" },
+};
+
+// Add a multiple-selection list to the word, with one level of
+// collapsible grouping by the first character of the word (required
+// to make the list work reasonably fast for a large number of words).
+// The resulting value is a regular expression. This could be
+// generalized, maybe to an Angular directive.
+attrs.scotscorr_word = {
+    label : "word",
+    opts : settings.defaultOptions,
+    // The input field also has "list" icon, which is a link opening a
+    // list of words with checkboxes from which the user can select.
+    // This has been copied and modified from the code for the the
+    // Swedish msd attribute.
+    extended_template : '<input class="arg_value arg_value_wordselector"' +
+	' ng-model="model" placeholder=\'<{{"any" | loc:lang}}>\'>' +
+	'<span ng-click="onIconClick()" class="fa fa-list list-link-icon"' +
+	' title="{{\'scotscorr_open_wordlist\' | loc:lang}}"></span>' +
+	'<a href="http://www.dsl.ac.uk/" target="_blank"' +
+	' title="Dictionary of the Scots Language">' +
+	'<span class="fa fa-book book-link-icon"></span></a>' +
+	' <span class="val_mod" popper' +
+	' ng-class=\'{sensitive : case == "sensitive", insensitive : case == "insensitive"}\'>' +
+	' Aa ' +
+	'</span>' +
+        '<ul class="mod_menu popper_menu dropdown-menu">' +
+        '<li><a ng-click="makeSensitive()">{{"case_sensitive" | loc:lang}}</a></li>' +
+        '<li><a ng-click="makeInsensitive()">{{"case_insensitive" | loc:lang}}</a></li>' +
+        '</ul>',
+    controller : function ($scope, $modal) {
+	var s = $scope;
+	var modal = null;
+	s.words = [];
+	s.groups = [];
+	s.group_template = "";
+	s.selected_words = [];
+	s.selected_words_str = "";
+	s.selected_freq = 0;
+	s.total_freq = 0;
+	s["case"] = "sensitive";
+	// Add a thousands separator to a number
+	s.pretty_num = function (num) {
+	    return util.prettyNumbers(num);
+	};
+	// Make a template for the counts of selected and all tokens
+	// and their frequencies.
+	s.make_counts_template = function (tokens_sel, tokens_all, freq_sel,
+					   freq_all) {
+	    var pretty_num = function (val) {
+		return ('<span ng-bind-html="pretty_num(' + val +
+			') | trust"></span>');
+	    }
+	    // FIXME: Add thousands separators to the numbers shown in
+	    // the tooltip.
+	    return ('<span ng-attr-title="{{' + tokens_sel.toString() + '}}' +
+		    ' {{\'scotscorr_selected_words_with_freq\' | loc:lang}} {{' +
+		    freq_sel.toString() + '}}">' +
+		    pretty_num(tokens_sel) +
+		    // ' / ' +
+		    // pretty_num(tokens_all) +
+		    ';&nbsp; <span class="wordselector-freq"> ' +
+		    pretty_num(freq_sel) +
+		    // ' / ' +
+		    // pretty_num(freq_all) +
+		    '</span></span>');
+	};
+	// Process the word data (words and their frequencies grouped,
+	// possibly hierarchically) and create s.words, s.groups and
+	// s.group_template. The structure is represented as an array
+	// of nested arrays, whose first item is the word or group
+	// label and the second item the absolute frequency for a word
+	// and an array of arrays for a group. Groups may be nested,
+	// but a group may contain either groups or words, not both.
+	// To make things simpler in Angular, s.group_template
+	// contains all the groups explicitly written out but the
+	// words are represented using ng-repeat.
+	var make_word_list = function (data, groupstack) {
+	    // c.log("scotscorr_word data", data);
+	    var words_seen = false;
+	    for (var i = 0; i < data.length; i++) {
+		if (_.isArray(data[i][1])) {
+		    var group = {
+			name: data[i][0],
+			words: [],
+			numwords: 0,
+			numselected: 0,
+			totalfreq: 0,
+			selectedfreq: 0,
+			shown: false
+		    };
+		    var groupnum = s.groups.length;
+		    s.groups.push(group);
+		    groupstack.push(group);
+		    var groupref = 'groups[' + groupnum.toString() + ']';
+		    s.group_template += '<li>' +
+			'<span class="wordselector-group-arrow"></span>' +
+			'<span class="wordselector-group-heading" ng-click="toggleGroup(' + groupref + ')">' +
+			'<img ng-src="img/{{' + groupref + '.shown ? \'extended\' : \'collapsed\'}}.png"/> ' +
+			'<span class="wordselector-group-name">' + group.name + '</span>' +
+			// Em quad
+			'&#x2001;</span>' +
+			'<span class="wordselector-group-extra"> (' +
+			s.make_counts_template(groupref + '.numselected',
+					       groupref + '.numwords',
+					       groupref + '.selectedfreq',
+					       groupref + '.totalfreq') +
+			')</span>' +
+			'<div ng-if="' + groupref + '.shown">' +
+			'<ul>';
+		    make_word_list(data[i][1], groupstack);
+		    groupstack.pop();
+		    s.group_template += '</ul></div></li>';
+		} else {
+		    if (! words_seen) {
+			var groupref =
+			    'groups[' + (s.groups.length - 1).toString() + ']';
+			s.group_template +=
+			'<li ng-repeat="word in ' + groupref + '.words">' +
+			    '<input type="checkbox" ng-model="word.selected" ng-click="update(e, word.word)">' +
+			    // &#x2000; = en quad
+			    '<span ng-class="\'wordselector-word-\' + (word.selected ? \'\' : \'un\') + \'selected\'">&#x2000;{{word.word}}</span>' +
+			    '&#x2000;(<span class="wordselector-freq" ng-bind-html="pretty_num(word.freq) | trust"></span>)</input>' +
+			    '</li>';
+			words_seen = true;
+		    }
+		    s.words.push({word: data[i][0],
+				  freq: data[i][1],
+				  groups: groupstack.slice(),
+				  selected: false});
+		}
+	    }
+	}
+	$.getJSON(
+	    "corpus_info/scotscorr-words.json",
+	    function (data) {
+		make_word_list(data, []);
+		for (var i = 0; i < s.words.length; i++) {
+		    var word = s.words[i];
+		    s.total_freq += word.freq;
+		    for (var j = 0; j < word.groups.length; j++) {
+			var group = word.groups[j];
+			group.words.push(word);
+			group.numwords += 1;
+			group.totalfreq += word.freq;
+		    }
+		}
+		// c.log("scotscorr_word words", s.words);
+		// c.log("scotscorr_word groups", s.groups,
+		//       s.group_words);
+		c.log('scotscorr group_template', s.group_template);
+	    }
+	);
+	// Executed on clicking the list icon
+	s.onIconClick = function () {
+	    s.setSelected();
+	    modal = $modal.open({
+		template : '<div>' +
+		    '<div class="modal-header">' +
+		    '<h3 class="modal-title">{{\'wordlist\' | loc:lang}} (ScotsCorr)</h3>' +
+		    '<span ng-click="done()" class="close-x">×</span>' +
+		    '</div>' +
+		    '<div class="modal-header">' +
+		    '<div class="modal-value">' +
+		    '<a href="http://www.dsl.ac.uk/" target="_blank"><span class="fa fa-book book-link-icon"></span> Dictionary of the Scots Language</a>' +
+		    '</div>' +
+		    '<div class="modal-value">' +
+		    '<p><span class="modal-value-heading">{{\'selected_words\' | loc:lang}}</span> (' +
+		    s.make_counts_template('selected_words.length',
+					   'words.length',
+					   'selected_freq',
+					   'total_freq') +
+		    '): <span id="wordselector-selected-words"><span ng-bind-html="selected_words_str | trust"></span></span></p>' +
+		    '</div>' +
+		    '<div class="modal-buttons">' +
+		    '<button type="button" class="btn btn-default" ng-click="done()">{{\'button_done\' | loc:lang}}</button>' +
+		    '<button type="button" class="btn btn-default" ng-click="clearSelected()">{{\'button_clear\' | loc:lang}}</button>' +
+		    '<button type="button" class="btn btn-default" ng-click="cancel()">{{\'button_cancel\' | loc:lang}}</button>' +
+		    '</div>' +
+                    '</div>' +
+		    '<div class="modal-body modal-wordselector" style="overflow-y: auto; font-size: 80%">' +
+		    '<ul>' +
+		    s.group_template +
+		    '</ul>' +
+		    '</div>' +
+		    '</div>',
+		scope : s
+	    });
+	};
+	// Set the selected property of words based on the current
+	// input value
+	s.setSelected = function () {
+	    s.model_prev = s.model;
+	    var op = s.$parent.orObj.op;
+	    var select_fn = null;
+	    if (s.model == "" || op == "!=" || op == "!*=") {
+		// Nothing selected for the empty word nor the negated
+		// operations
+		s.selected_words = [];
+		select_fn = function (word) { return false; };
+	    } else if (op == "=") {
+		// Select only the word literally
+		s.selected_words = [s.model];
+		select_fn = function (word) { return word == s.model };
+	    } else {
+		// Construct a regular expression for testing if a
+		// word matches the condition. This assumes that the
+		// CQP regular expressions are are compatible with
+		// JavaScript RegExps, as they (mostly) are.
+		var word_re = "";
+		if (op == "*=") {
+		    // Regular expression
+		    word_re = "^(" + s.model + ")$";
+		} else if (op == "^=") {
+		    // Starts with
+		    word_re = "^(" + window.regescape(s.model) + ")";
+		} else if (op == "&=") {
+		    // Ends with
+		    word_re = "(" + window.regescape(s.model) + ")$";
+		} else if (op == "_=") {
+		    // Contains
+		    word_re = window.regescape(s.model)
+		}
+		// c.log("matching", word_re);
+		word_re = RegExp(word_re);
+		select_fn = function (word) { return word_re.test(word); };
+	    }
+	    // c.log("scotscorr_word setSelected", s.selected_words);
+	    for (var i = 0; i < s.words.length; i++) {
+		s.words[i].selected = select_fn(s.words[i].word);
+		// if (s.words[i].selected) {c.log("selected:", s.words[i].word);}
+	    }
+	    // s.selected_words_str = s.selected_words.join("\u2000");
+	    s.update();
+	};
+	// Clear the case-insensitive flag (restore the default)
+	s.makeSensitive = function () {
+	    s["case"] = "sensitive";
+	    if (s.orObj.flags != null) {
+		delete s.orObj.flags.c;
+	    }
+	};
+	// Set the case-insensitive flag
+	s.makeInsensitive = function () {
+	    var flags = s.orObj.flags || {};
+	    flags["c"] = true;
+	    s.orObj.flags = flags;
+	    s["case"] = "insensitive";
+	};
+	// Update s.selected_words based on the selected property
+	// in the elements of s.words. The arguments are
+	// currently not used.
+	s.update = function (event, word) {
+	    c.log("scotscorr_word update", word, event,
+		  _.filter(s.words, "selected"));
+	    // We could use the words in s.selected_words, but
+	    // how could we retain the order of the words, that is,
+	    // how could an added word be added at the right position
+	    // in the list?
+	    var selected_words = _.filter(s.words, "selected");
+	    s.selected_words = _.pluck(selected_words, "word");
+	    for (var j = 0; j < s.groups.length; j++) {
+		s.groups[j].numselected = s.groups[j].selectedfreq = 0;
+	    }
+	    // Join with an en quad
+	    s.selected_words_str =
+		_.map(selected_words,
+		      function (word) {
+			  return (word.word.replace(/&/g, "&amp;")
+				  .replace(/</g, "&lt;").replace(/>/g, "&gt;") +
+				  '&nbsp;(<span class="wordselector-freq">' +
+				  s.pretty_num(word.freq.toString()) +
+				  '</span>)');
+		      })
+		.join("\u2000");
+	    s.selected_freq = 0;
+	    for (var i = 0; i < selected_words.length; i++) {
+		var selword = selected_words[i];
+		s.selected_freq += selword.freq;
+		for (var j = 0; j < selword.groups.length; j++) {
+		    var group = selword.groups[j];
+		    group.numselected += 1;
+		    group.selectedfreq += selword.freq;
+		}
+	    }
+	    c.log("scotscorr_word selected", s.selected_words);
+	};
+	// Toggle a group
+	s.toggleGroup = function (group, event) {
+	    group.shown = ! group.shown;
+	}
+	// Set the input value based on the selected words
+	s.done = function (event) {
+	    modal.close();
+	    if (s.selected_words.length > 1) {
+		s.model = (
+		    _.map(s.selected_words, window.regescape)
+			.join("|"));
+		// Force regular expression
+		s.$parent.orObj.op = "*=";
+	    } else {
+		s.model = (s.selected_words.length == 1
+			   ? s.selected_words[0]
+			   : "");
+		// For a single word, use "=" unless the word is the
+		// same as before
+		if (s.model != s.model_prev) {
+		    s.$parent.orObj.op = "=";
+		}
+	    }
+	    c.log("scotscorr_word model", s.model);
+	};
+	// Clear the selected words
+	s.clearSelected = function (event) {
+	    for (var i = 0; i < s.words.length; i++) {
+		s.words[i].selected = false;
+	    }
+	    s.selected_words = [];
+	    s.selected_words_str = "";
+	    s.selected_freq = 0;
+	    for (var j = 0; j < s.groups.length; j++) {
+		s.groups[j].numselected = s.groups[j].selectedfreq = 0;
+	    }
+	    // s.update();
+	};
+	// Cancel: retain the original input value
+	s.cancel = function (event) {
+	    modal.close();
+	};
+    },
+};
+
+
+settings.corpora.scots_f1540_1599 = {
+    id : "scots_f1540_1599",
+    title : "ScotsCorr: Female 1540–1599 (beta)",
+    description : "Helsinki Corpus of Scottish Correspondence: Female 1540–1599",
 };
 
 settings.corpora.scots_f1600_1649 = {
     id : "scots_f1600_1649",
-    title : "Female 1600–1649",
-    description : "Female 1600–1649",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+    title : "ScotsCorr: Female 1600–1649 (beta)",
+    description : "Helsinki Corpus of Scottish Correspondence: Female 1600–1649",
 };
 
 settings.corpora.scots_f1650_1699 = {
     id : "scots_f1650_1699",
-    title : "Female 1650–1699",
-    description : "Female 1650–1699",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+    title : "ScotsCorr: Female 1650–1699 (beta)",
+    description : "Helsinki Corpus of Scottish Correspondence: Female 1650–1699",
 };
 
 settings.corpora.scots_f1700_1749 = {
     id : "scots_f1700_1749",
-    title : "Female 1700–1749",
-    description : "Female 1700–1749",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+    title : "ScotsCorr: Female 1700–1749 (beta)",
+    description : "Helsinki Corpus of Scottish Correspondence: Female 1700–1749",
 };
 
-settings.corpora.scots_m1550_1599 = {
-    id : "scots_m1550_1599",
-    title : "Male 1550–1599",
-    description : "Male 1550–1599",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+settings.corpora.scots_m1540_1599 = {
+    id : "scots_m1540_1599",
+    title : "ScotsCorr: Male 1540–1599 (beta)",
+    description : "Helsinki Corpus of Scottish Correspondence: Male 1540–1599",
 };
 
 settings.corpora.scots_m1600_1649 = {
     id : "scots_m1600_1649",
-    title : "Male 1600–1649",
-    description : "Male 1600–1649",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+    title : "ScotsCorr: Male 1600–1649 (beta)",
+    description : "Helsinki Corpus of Scottish Correspondence: Male 1600–1649",
 };
 
 settings.corpora.scots_m1650_1699 = {
     id : "scots_m1650_1699",
-    title : "Male 1650–1699",
-    description : "Male 1650–1699",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+    title : "ScotsCorr: Male 1650–1699 (beta)",
+    description : "Helsinki Corpus of Scottish Correspondence: Male 1650–1699",
 };
 
 settings.corpora.scots_m1700_1749 = {
     id : "scots_m1700_1749",
-    title : "Male 1700–1749",
-    description : "Male 1700–1749",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+    title : "ScotsCorr: Male 1700–1749 (beta)",
+    description : "Helsinki Corpus of Scottish Correspondence: Male 1700–1749",
 };
 
 settings.corpora.scots_royal = {
     id : "scots_royal",
-    title : "Royal",
-    description : "Royal",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : sattrlist.scotscorr
+    title : "ScotsCorr: Royal (beta)",
+    description : "Helsinki Corpus of Scottish Correspondence: Royal",
 };
-*/
+
+settings.fn.extend_corpus_settings(
+    {
+	context : {
+	    // 2 preceding and following lines, but not crossing
+	    // sentence boundaries. Note that this context syntax with
+	    // a secondary context requires a modified korp.cgi (Git
+	    // tag backend_20161201_secondary_contexts).
+	    "3 line/1 sentence" : "3 line/1 sentence",
+	    // In ScotsCorr, sentence, paragraph and text are all the
+	    // same regions, but only paragraph works here, since it
+	    // is the default "reading mode" context.
+	    "1 paragraph" : "1 paragraph"
+	},
+	within : settings.defaultWithin,
+	limited_access : isPublicServer,
+	licence_type : "ACA",
+	attributes : {
+	    // This currently adds "word" also as a word attribute in
+	    // attribute selection list, but it works in the same way
+	    // as the word itself.
+	    word : attrs.scotscorr_word,
+	    comment : {
+		label : "word_related_comment",
+	    },
+	},
+	struct_attributes : sattrlist.scotscorr,
+	ignore_between_tokens_cqp : '[word="[^a-zA-Z0-9]+|\\{.*"]*',
+    },
+    [
+	"scots_f1540_1599",
+	"scots_m1540_1599",
+	"scots_f1600_1649",
+	"scots_m1600_1649",
+	"scots_f1650_1699",
+	"scots_m1650_1699",
+	"scots_f1700_1749",
+	"scots_m1700_1749",
+	"scots_royal",
+    ]);
+
+settings.corpus_aliases.scotscorr = "scots_.*";
+
 
 /*
 settings.corpora.erzya = {
@@ -2423,7 +2942,8 @@ var locally_available_corpora = ["(mulcold|legal)_..",
 				 "elfa",
 				 "kildin_sample",
 				 "sust_.*",
-				 "swahili_sample"];
+				 "swahili_sample",
+				 "scots_.*",];
 
 if (! isPublicServer) {
     settings.fn.remove_matching_corpora(locally_available_corpora, true);

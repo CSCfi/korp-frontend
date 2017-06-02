@@ -376,6 +376,12 @@
     "accessres_login" : "kirjaudu Korpiin",
     "accessres_apply" : "hae korpusten käyttöoikeuksia",
     "accessres_postamble_aca" : "Jos Korp ei tunnista sinua akateemiseksi käyttäjäksi teknisistä syistä, voit myös erikseen",
-    "accessres_postamble_aca_linktext" : "hakea tunnistamista akateemiseksi käyttäjäksi"
+    "accessres_postamble_aca_linktext" : "hakea tunnistamista akateemiseksi käyttäjäksi",
+
+    "wordlist" : "Sanalista",
+    "selected_words" : "Valitut sanat",
+    "button_done" : "Valmis",
+    "button_clear" : "Tyhjennä",
+    "button_cancel" : "Peruuta"
 
 }
