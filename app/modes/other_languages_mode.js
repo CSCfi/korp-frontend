@@ -227,6 +227,7 @@ settings.corporafolders.english.scotscorr = {
 	iprholder : {
 	    name : "Anneli Meurman-Solin",
 	},
+	cite_id : "ScotsCorr",
     },
     contents : [
         "scots_royal",
