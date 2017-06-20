@@ -164,8 +164,8 @@ settings.corporafolders.english.coha = {
 };
 
 settings.corporafolders.english.glowbe = {
-    title : "GloWbE: Global Web-based English (sample, beta)",
-    description : "GloWbE: Global Web-based English (sample, beta)",
+    title : "GloWbE: Global Web-based English (beta)",
+    description : "GloWbE: Global Web-based English (beta)",
     // contents will be added futher below
     info : {
 	urn : "[to be added]",
@@ -2939,14 +2939,58 @@ settings.templ.glowbe_common = {
     struct_attributes : sattrlist.glowbe,
 };
 
-var glowbe_hierarchy = [
-    ["au", "Australian English", [
-	["au_blog", "Australian blogs"],
-    ] ],
+// Countries sorted by region and perhaps approximate size
+var glowbe_countries = [
+    // North America
+    ["us", "United States"],
+    ["ca", "Canada"],
+    // Europe
+    ["gb", "Great Britain"],
+    ["ie", "Ireland"],
+    // Australia and Oceania
+    ["au", "Australia"],
+    ["nz", "New Zealand"],
+    // South Asia
+    ["in", "India"],
+    ["lk", "Sri Lanka"],
+    ["pk", "Pakistan"],
+    ["bd", "Bangladesh"],
+    // South-East Asia
+    ["sg", "Singapore"],
+    ["my", "Malaysia"],
+    ["ph", "Philippines"],
+    ["hk", "Hong Kong"],
+    // Africa
+    ["za", "South Africa"],
+    ["ng", "Nigeria"],
+    ["gh", "Ghana"],
+    ["ke", "Kenya"],
+    ["tz", "Tanzania"],
+    // The Caribbean
+    ["jm", "Jamaica"],
 ];
 
+// Make a corpus/folder hierarchy for GloWbE (to be used as an
+// argument to settings.fn.make_folder_hierarchy) based on the list of
+// country codes and names: countries as folders, countries with
+// genres (general or blog) as corpora.
+function make_glowbe_hierarchy (countries) {
+    var result = [];
+    for (var i = 0; i < countries.length; i++) {
+	var country = countries[i];
+	result.push([
+	    country[0], country[1], [
+		[country[0] + "_genl", country[1] + ": general"],
+		[country[0] + "_blog", country[1] + ": blogs"],
+	    ]
+	])
+    }
+    return result;
+}
+
 settings.fn.make_folder_hierarchy(
-    settings.corporafolders.english.glowbe, glowbe_hierarchy,
+    settings.corporafolders.english.glowbe,
+    make_glowbe_hierarchy(glowbe_countries),
     {
 	id_prefix : "glowbe_",
 	title_prefix : "GloWbE: ",
@@ -2956,7 +3000,7 @@ settings.fn.make_folder_hierarchy(
 	corpus_template : settings.templ.glowbe_common,
     });
 
-delete glowbe_hierarchy;
+delete glowbe_countries;
 
 settings.corpus_aliases.glowbe = "glowbe_.*";
 
