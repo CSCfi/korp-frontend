@@ -2774,11 +2774,11 @@ settings.templ.coca_common = {
 };
 
 var coca_hierarchy = [
-    ["fict", "Fiction"],
+    ["fic", "Fiction"],
     ["mag", "Magazine"],
     ["news", "Newspaper"],
     ["acad", "Academic"],
-    ["spoken", "Spoken"],
+    ["spok", "Spoken"],
 ];
 
 settings.fn.make_folder_hierarchy(
