@@ -145,8 +145,8 @@ settings.corporafolders.english.coca = {
 };
 
 settings.corporafolders.english.coha = {
-    title : "COHA: Corpus of Historical American English (sample, beta)",
-    description : "COCA: Corpus of Historical American English (sample, beta)",
+    title : "COHA: Corpus of Historical American English (beta)",
+    description : "COCA: Corpus of Historical American English (beta)",
     // contents will be added futher below
     info : {
 	urn : "[to be added]",
@@ -2811,6 +2811,7 @@ sattrlist.coha = {
     text_publ_info : {
 	label : "publication_info",
     },
+    // LCC is only available for non-fiction
     // text_lcc : {
     // 	label : "lcc",
     // },
@@ -2842,23 +2843,38 @@ settings.templ.coha_common = {
     struct_attributes : sattrlist.coha,
 };
 
-var coha_hierarchy = [
-    ["1810s", "1810s", [
-	["1810s_fict", "1810s fiction"],
-	["1810s_mag", "1810s popular magazines"],
-	["1810s_nf", "1810s non-fiction books"],
-    ] ],
-    ["1820s", "1820s", [
-	["1820s_fict", "1820s fiction"],
-	["1820s_mag", "1820s popular magazines"],
-	["1820s_nf", "1820s non-fiction books"],
-    ] ],
-    ["1830s", "1830s", [
-	["1830s_fict", "1830s fiction"],
-	["1830s_mag", "1830s popular magazines"],
-	["1830s_nf", "1830s non-fiction books"],
-    ] ],
-];
+// Make a corpus/folder hierarchy for COHA (to be used as an argument
+// to settings.fn.make_folder_hierarchy): decades as folders, decades
+// with genres as corpora from start_decade to end_decade (inclusive),
+// with the genres listed in an array of two-elemen arrays (corpus id
+// suffix, genre name).
+function make_coha_hierarchy (start_decade, end_decade, genres) {
+    var result = [];
+    for (var decade = start_decade; decade <= end_decade; decade += 10) {
+	var decade_str = decade.toString() + "s";
+	var genre_hierarchy = []
+	for (var i = 0; i < genres.length; i++) {
+	    var genre = genres[i];
+	    genre_hierarchy.push([decade_str + "_" + genre[0],
+				  decade_str + " " + genre[1]]);
+	}
+	result.push([decade_str, decade_str, genre_hierarchy]);
+    }
+    return result;
+}
+
+var coha_genres_nonews = [["fic", "fiction"],
+			  ["mag", "popular magazines"],
+			  ["nf", "non-fiction books"]];
+var coha_genres_news = [["fic", "fiction"],
+			["mag", "popular magazines"],
+			["news", "newspapers"],
+			["nf", "non-fiction books"]];
+
+// No news before 1860s
+var coha_hierarchy =
+    make_coha_hierarchy(1810, 1850, coha_genres_nonews)
+    .concat(make_coha_hierarchy(1860, 2000, coha_genres_news));
 
 settings.fn.make_folder_hierarchy(
     settings.corporafolders.english.coha, coha_hierarchy,
@@ -2871,6 +2887,8 @@ settings.fn.make_folder_hierarchy(
 	corpus_template : settings.templ.coha_common,
     });
 
+delete coha_genres_nonews;
+delete coha_genres_news;
 delete coha_hierarchy;
 
 settings.corpus_aliases.coha = "coha_.*";
