@@ -2897,7 +2897,12 @@ settings.corpus_aliases.coha = "coha_.*";
 // GloWbE
 
 sattrlist.glowbe = {
-    text_country_genre : {
+    // The country and genre are always the same for each subcorpus,
+    // but they could have use if more than one subcorpus is selected.
+    text_country : {
+	label : "country",
+    },
+    text_genre : {
 	label : "genre",
     },
     // text_year : sattrs.year,
