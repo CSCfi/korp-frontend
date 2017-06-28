@@ -125,16 +125,19 @@ settings.corporafolders.english.ethesis.matheses = {
                 "ethesis_en_ma_valt", "ethesis_en_ma_teo", "ethesis_en_ma_el"]
 };
 
+
+var byu_fulltext_note = "<br/><br/><strong>Note:</strong> To follow the US Fair Use Law, every 200 words, ten words have been removed and replaced with “@” (<a href='http://corpus.byu.edu/full-text/limitations.asp' target='_blank'>more information</a>).";
+
 settings.corporafolders.english.coca = {
     title : "COCA: Corpus of Contemporary American English (beta)",
-    description : "COCA: Corpus of Contemporary American English (beta)",
+    description : "COCA: Corpus of Contemporary American English – Kielipankki Korp version 2017H1 (beta)<br/><br/>The COCA corpus contains about 520 million words in 220,000 texts of US English from the years 1990–2015. The corpus is evenly divided into spoken, fiction, magazine, newspaper and academic genres." + byu_fulltext_note,
     // contents will be added further below
     info : {
-	urn : "[to be added]",
-	metadata_urn : "[to be added]",
+	urn : "urn:nbn:fi:lb-2017061933",
+	metadata_urn : "urn:nbn:fi:lb-2017061922",
 	licence : {
 	    name : "ACA-Fi (Academic users in Finland)",
-	    // urn : "[to be added]",
+	    url : "https://www.kielipankki.fi/lic/coca-korp/?lang=en",
 	},
 	homepage_url : "http://corpus.byu.edu/full-text/intro.asp",
 	compiler : {
@@ -146,14 +149,14 @@ settings.corporafolders.english.coca = {
 
 settings.corporafolders.english.coha = {
     title : "COHA: Corpus of Historical American English (beta)",
-    description : "COCA: Corpus of Historical American English (beta)",
+    description : "COHA: Corpus of Historical American English – Kielipankki Korp version 2017H1 (beta)<br/><br/>The COHA corpus contains about 400 million words in 107,000 texts of US English from the years 1810–2009. Each decade has roughly the same balance of fiction, popular magazine, newspaper, and non-fiction books." + byu_fulltext_note,
     // contents will be added futher below
     info : {
-	urn : "[to be added]",
-	metadata_urn : "[to be added]",
+	urn : "urn:nbn:fi:lb-2017061934",
+	metadata_urn : "urn:nbn:fi:lb-2017061925",
 	licence : {
 	    name : "ACA-Fi (Academic users in Finland)",
-	    // urn : "[to be added]",
+	    url : "https://www.kielipankki.fi/lic/coha-korp/?lang=en",
 	},
 	homepage_url : "http://corpus.byu.edu/full-text/intro.asp",
 	compiler : {
@@ -165,14 +168,14 @@ settings.corporafolders.english.coha = {
 
 settings.corporafolders.english.glowbe = {
     title : "GloWbE: Global Web-based English (beta)",
-    description : "GloWbE: Global Web-based English (beta)",
+    description : "GloWbE: Global Web-based English – Kielipankki Korp version 2017H1 (beta)<br/><br/>The GloWbE corpus contains about 1.8 billion words on 1.8 million Web pages of English from the United States, Great Britain, Australia, India and 16 other countries, collected in 2013. About 60% of the text is from blogs." + byu_fulltext_note,
     // contents will be added futher below
     info : {
-	urn : "[to be added]",
-	metadata_urn : "[to be added]",
+	urn : "urn:nbn:fi:lb-2017061935",
+	metadata_urn : "urn:nbn:fi:lb-2017061928",
 	licence : {
 	    name : "ACA-Fi (Academic users in Finland)",
-	    // urn : "[to be added]",
+	    url : "https://www.kielipankki.fi/lic/glowbe-korp/?lang=en",
 	},
 	homepage_url : "http://corpus.byu.edu/full-text/intro.asp",
 	compiler : {
@@ -2788,13 +2791,14 @@ settings.fn.make_folder_hierarchy(
 	title_prefix : "COCA: ",
 	title_suffix : " (beta)",
 	description_prefix : "COCA: Corpus of Contemporary American English (genre: ",
-	description_suffix : ") (beta)",
+	description_suffix : ") – Kielipankki Korp version 2017H1 (beta)",
 	corpus_template : settings.templ.coca_common,
     });
 
 delete coca_hierarchy;
 
 settings.corpus_aliases.coca = "coca_.*";
+settings.corpus_aliases["coca-2017h1"] = "coca_.*";
 
 
 // COHA
@@ -2883,7 +2887,7 @@ settings.fn.make_folder_hierarchy(
 	title_prefix : "COHA: ",
 	title_suffix : " (beta)",
 	description_prefix : "COHA: Corpus of Historical American English: ",
-	description_suffix : " (beta)",
+	description_suffix : " – Kielipankki Korp version 2017H1 (beta)",
 	corpus_template : settings.templ.coha_common,
     });
 
@@ -2892,6 +2896,7 @@ delete coha_genres_news;
 delete coha_hierarchy;
 
 settings.corpus_aliases.coha = "coha_.*";
+settings.corpus_aliases["coha-2017h1"] = "coha_.*";
 
 
 // GloWbE
@@ -2996,13 +3001,14 @@ settings.fn.make_folder_hierarchy(
 	title_prefix : "GloWbE: ",
 	title_suffix : " (beta)",
 	description_prefix : "GloWbE: Global Web-based English: ",
-	description_suffix : " (beta)",
+	description_suffix : " – Kielipankki Korp version 2017H1 (beta)",
 	corpus_template : settings.templ.glowbe_common,
     });
 
 delete glowbe_countries;
 
 settings.corpus_aliases.glowbe = "glowbe_.*";
+settings.corpus_aliases["glowbe-2017h1"] = "glowbe_.*";
 
 
 
