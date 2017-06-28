@@ -2568,7 +2568,7 @@ settings.corpora.besercorp = {
 
 // Mark Davies's corpora
 
-// COCA
+// Common definitions
 
 attrlist.byu = {
     lemma : attrs.baseform,
@@ -2733,21 +2733,9 @@ attrlist.byu = {
     // },
 };
 
-sattrlist.coca = {
-    text_genre : {
-	label : "genre",
-    },
-    text_subgenre : {
-	label : "subgenre",
-    },
+sattrlist.byu_common = {
     text_year : sattrs.year,
-    text_source : {
-	label : "source",
-    },
     text_title : sattrs.text_title,
-    text_publ_info : {
-	label : "publication_info",
-    },
     text_id : {
 	label : "text_id",
     },
@@ -2768,6 +2756,26 @@ sattrlist.coca = {
 	label : "sentence_part_deleted",
     },
 };
+
+
+// COCA
+
+sattrlist.coca = $.extend(
+    true, {}, sattrlist.byu_common,
+    {
+	text_genre : {
+	    label : "genre",
+	},
+	text_subgenre : {
+	    label : "subgenre",
+	},
+	text_source : {
+	    label : "source",
+	},
+	text_publ_info : {
+	    label : "publication_info",
+	},
+    });
 
 settings.templ.coca_common = {
     within : settings.spWithin,
@@ -2803,42 +2811,24 @@ settings.corpus_aliases["coca-2017h1"] = "coca_.*";
 
 // COHA
 
-sattrlist.coha = {
-    text_genre : {
-	label : "genre",
-    },
-    text_year : sattrs.year,
-    text_author : {
-	label : "author",
-    },
-    text_title : sattrs.text_title,
-    text_publ_info : {
-	label : "publication_info",
-    },
-    // LCC is only available for non-fiction
-    // text_lcc : {
-    // 	label : "lcc",
-    // },
-    text_id : {
-	label : "text_id",
-    },
-    text_wordcount : {
-	label : "text_word_count",
-    },
-    text_filename : {
-	label : "file_name"
-    },
-    // paragraph_id : {
-    // },
-    paragraph_type : {
-	label : "paragraph_type",
-    },
-    // sentence_id : {
-    // },
-    sentence_gaps : {
-	label : "sentence_part_deleted",
-    },
-};
+sattrlist.coha =  $.extend(
+    true, {}, sattrlist.byu_common,
+    {
+	text_genre : {
+	    label : "genre",
+	},
+	text_author : {
+	    label : "author",
+	},
+	text_publ_info : {
+	    label : "publication_info",
+	},
+	// LCC is non-empty only for non-fiction; should it be defined
+	// only there?
+	// text_lcc : {
+	//     label : "lib_congress_classif",
+	// },
+    });
 
 settings.templ.coha_common = {
     within : settings.spWithin,
@@ -2901,49 +2891,6 @@ settings.corpus_aliases["coha-2017h1"] = "coha_.*";
 
 // GloWbE
 
-sattrlist.glowbe = {
-    // The country and genre are always the same for each subcorpus,
-    // but they could have use if more than one subcorpus is selected.
-    text_country : {
-	label : "country",
-    },
-    text_genre : {
-	label : "genre",
-    },
-    // text_year : sattrs.year,
-    text_title : sattrs.text_title,
-    text_url : sattrs.original_url,
-    // text_lcc : {
-    // 	label : "lcc",
-    // },
-    text_id : {
-	label : "text_id",
-    },
-    text_wordcount : {
-	label : "text_word_count",
-    },
-    text_filename : {
-	label : "file_name"
-    },
-    // paragraph_id : {
-    // },
-    paragraph_type : {
-	label : "paragraph_type",
-    },
-    // sentence_id : {
-    // },
-    sentence_gaps : {
-	label : "sentence_part_deleted",
-    },
-};
-
-settings.templ.glowbe_common = {
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.byu,
-    struct_attributes : sattrlist.glowbe,
-};
-
 // Countries sorted by region and perhaps approximate size
 var glowbe_countries = [
     // North America
@@ -2974,6 +2921,30 @@ var glowbe_countries = [
     // The Caribbean
     ["jm", "Jamaica"],
 ];
+
+sattrlist.glowbe = $.extend(
+    true, {}, sattrlist.byu_common,
+    {
+	// The country and genre are always the same for each subcorpus,
+	// but they could have use if more than one subcorpus is selected.
+	text_country : {
+	    label : "country",
+	},
+	text_genre : {
+	    label : "genre",
+	},
+	text_url : sattrs.original_url,
+	text_webdomain : {
+	    label : "web_domain_name",
+	},
+    });
+
+settings.templ.glowbe_common = {
+    within : settings.spWithin,
+    context : settings.spContext,
+    attributes : attrlist.byu,
+    struct_attributes : sattrlist.glowbe,
+};
 
 // Make a corpus/folder hierarchy for GloWbE (to be used as an
 // argument to settings.fn.make_folder_hierarchy) based on the list of
