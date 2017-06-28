@@ -149,6 +149,9 @@
     "unknown" : "okänd",
     "male_female" : "man och kvinna",
 
+    "yes" : "ja",
+    "no" : "nej",
+
     "entryword" : "uppslagsord",
     "entryno" : "uppslagsord (nummer)",
     "sense1" : "huvudbetydelse",

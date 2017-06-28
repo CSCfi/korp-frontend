@@ -2749,11 +2749,27 @@ sattrlist.byu_common = {
     // },
     paragraph_type : {
 	label : "paragraph_type",
+	displayType : "select",
+	translationKey : "paratype_",
+	opts : settings.liteOptions,
+	dataset : [
+	    "paragraph",
+	    "heading",
+	    "paragraph/heading",
+	    "sentence",
+	],
     },
     // sentence_id : {
     // },
     sentence_gaps : {
 	label : "sentence_part_deleted",
+	displayType : "select",
+	translationKey : "",
+	opts : settings.liteOptions,
+	dataset : [
+	    "yes",
+	    "no",
+	],
     },
 };
 
@@ -2765,6 +2781,16 @@ sattrlist.coca = $.extend(
     {
 	text_genre : {
 	    label : "genre",
+	    displayType : "select",
+	    translationKey : "genre_",
+	    opts : settings.liteOptions,
+	    dataset : {
+		"ACAD" : "academic",
+		"FIC" : "fiction",
+		"MAG" : "popular_magazine",
+		"NEWS" : "newspaper",
+		"SPOK" : "spoken",
+	    },
 	},
 	text_subgenre : {
 	    label : "subgenre",
@@ -2816,6 +2842,15 @@ sattrlist.coha =  $.extend(
     {
 	text_genre : {
 	    label : "genre",
+	    displayType : "select",
+	    translationKey : "genre_",
+	    opts : settings.liteOptions,
+	    dataset : {
+		"FIC" : "fiction",
+		"MAG" : "popular_magazine",
+		"NEWS" : "newspaper",
+		"NF" : "non-fiction_book",
+	    },
 	},
 	text_author : {
 	    label : "author",
@@ -2825,9 +2860,36 @@ sattrlist.coha =  $.extend(
 	},
 	// LCC is non-empty only for non-fiction; should it be defined
 	// only there?
-	// text_lcc : {
-	//     label : "lib_congress_classif",
-	// },
+	text_lcc : {
+	    label : "lib_congress_classif",
+	    displayType : "select",
+	    // translationKey : "lcc_",
+	    opts : settings.liteOptions,
+	    dataset : {
+		"A" : "A – General Works",
+		"B" : "B – Philosophy. Psychology. Religion",
+		"C" : "C – Auxiliary Sciences of History",
+		"D" : "D – World History and History of Europe, Asia, Africa, Australia, New Zealand, etc.",
+		"E" : "E – History of the Americas",
+		"F" : "F – History of the Americas",
+		"G" : "G – Geography. Anthropology. Recreation",
+		"H" : "H – Social Sciences",
+		"J" : "J – Political Science",
+		"K" : "K – Law",
+		"L" : "L – Education",
+		"M" : "M – Music and Books on Music",
+		"N" : "N – Fine Arts",
+		"P" : "P – Language and Literature",
+		"Q" : "Q – Science",
+		"R" : "R – Medicine",
+		"S" : "S – Agriculture",
+		"T" : "T – Technology",
+		"U" : "U – Military Science",
+		"V" : "V – Naval Science",
+		"Z" : "Z – Bibliography. Library Science. Information Resources (General)",
+		"" : "(unclassified)",
+	    }
+	},
     });
 
 settings.templ.coha_common = {
@@ -2929,9 +2991,22 @@ sattrlist.glowbe = $.extend(
 	// but they could have use if more than one subcorpus is selected.
 	text_country : {
 	    label : "country",
+	    displayType : "select",
+	    translationKey : "country_",
+	    opts : settings.liteOptions,
+	    // Uppercase country codes
+	    dataset : (_.unzip(glowbe_countries)[0]
+		       .map(function (s) { return s.toUpperCase(); })),
 	},
 	text_genre : {
 	    label : "genre",
+	    displayType : "select",
+	    translationKey : "genre_",
+	    opts : settings.liteOptions,
+	    dataset : {
+		"B" : "blog",
+		"G" : "general",
+	    }
 	},
 	text_url : sattrs.original_url,
 	text_webdomain : {
