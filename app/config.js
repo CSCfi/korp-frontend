@@ -2017,6 +2017,15 @@ attrlist.oracc = {
         translationKey : "oracc_lang_",
         dataset : {},
         opts : settings.liteOptions
+    },
+    asciitranslitt : {
+        label : "oracc_asciixlit"
+    },
+    asciitranscript : {
+        label : "oracc_asciixcrip"
+    },
+    asciilemma : {
+        label : "oracc_asciilemma"
     }
 };
 

@@ -1729,7 +1729,9 @@
     "country_TZ" : "Tansania",
     "country_US" : "Yhdysvallat",
     "country_ZA" : "Etelä-Afrikka",
-
+    "oracc_asciilemma" : "lemma (ascii)",
+    "oracc_asciixlit" : "translitteraatio (ascii)",
+    "oracc_asciixcrip" : "transkriptio (ascii)",
     "oracc_lemmatrans" : "merkitys (lemma)",
     "oracc_transcription" : "transkriptio",
     "oracc_sense" : "merkitys (sananmuoto)",

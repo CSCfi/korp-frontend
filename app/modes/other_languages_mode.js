@@ -29,7 +29,7 @@ settings.spContext = {
 settings.corporafolders.oracc = {
     title : "ORACC",
     description : "ORACC – Open Richly Annotated Cuneiform Corpus",
-    contents : ["oracc_ribo", "oracc_rinap", "oracc_saao", "oracc_other"],
+    contents : ["oracc_cams", "oracc_dcclt", "oracc_ribo", "oracc_rinap", "oracc_saao", "oracc_other"],
     info : {
         licence : settings.licenceinfo.CC_BY_30,
 	cite_id : "ORACC",
@@ -295,6 +295,26 @@ settings.corpora.oracc_rinap = {
     id : "oracc_rinap",
     title: "Royal Inscriptions of the Neo-Assyrian Period",
     description : "RINAP – Royal Inscriptions of the Neo-Assyrian Period",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc,
+};
+
+settings.corpora.oracc_dcclt = {
+    id : "oracc_dcclt",
+    title: "Digital Corpus of Cuneiform Lexical Texts",
+    description : "DCCLT – Digital Corpus of Cuneiform Lexical Texts",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc,
+};
+
+settings.corpora.oracc_cams = {
+    id : "oracc_cams",
+    title: "Corpus of Ancient Mesopotamian Scholarship",
+    description : "CAMS – Corpus of Ancient Mesopotamian Scholarship",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     attributes: attrlist.oracc,

@@ -1789,7 +1789,9 @@
     "country_TZ" : "Tanzania",
     "country_US" : "United States",
     "country_ZA" : "South Africa",
-
+    "oracc_asciilemma" : "lemma (ascii)",
+    "oracc_asciixlit" : "transliteration (ascii)",
+    "oracc_asciixcrip" : "transcription (ascii)",
     "oracc_lemmatrans" : "translation (lemma)",
     "oracc_transcription" : "transcription",
     "oracc_sense" : "translation (sense)",
