@@ -139,6 +139,7 @@ settings.corporafolders.english.coca = {
 	    name : "ACA-Fi (Academic users in Finland)",
 	    url : "https://www.kielipankki.fi/lic/coca-korp/?lang=en",
 	},
+	cite_id : "coca-korp-2017H1",
 	homepage_url : "http://corpus.byu.edu/full-text/intro.asp",
 	compiler : {
 	    name : "Prof. Mark Davies, Brigham Young University",
@@ -158,6 +159,7 @@ settings.corporafolders.english.coha = {
 	    name : "ACA-Fi (Academic users in Finland)",
 	    url : "https://www.kielipankki.fi/lic/coha-korp/?lang=en",
 	},
+	cite_id : "coha-korp-2017H1",
 	homepage_url : "http://corpus.byu.edu/full-text/intro.asp",
 	compiler : {
 	    name : "Prof. Mark Davies, Brigham Young University",
@@ -177,6 +179,7 @@ settings.corporafolders.english.glowbe = {
 	    name : "ACA-Fi (Academic users in Finland)",
 	    url : "https://www.kielipankki.fi/lic/glowbe-korp/?lang=en",
 	},
+	cite_id : "glowbe-korp-2017H1",
 	homepage_url : "http://corpus.byu.edu/full-text/intro.asp",
 	compiler : {
 	    name : "Prof. Mark Davies, Brigham Young University",
