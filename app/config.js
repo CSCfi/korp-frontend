@@ -2494,8 +2494,8 @@ settings.corporafolders.internet.suomi24 = {
 	"s24_010"
     ],
     info : {
-	urn : "urn:nbn:fi:lb-2015040102",
-	metadata_urn : "urn:nbn:fi:lb-2015091701",
+	urn : "urn:nbn:fi:lb-2015120401",
+	metadata_urn : "urn:nbn:fi:lb-2017021505",
 	licence : settings.licenceinfo.CC_BY_NC,
 	homepage_url : "http://keskustelu.suomi24.fi",
 	cite_id : "Suomi24-korp-2016H2",
