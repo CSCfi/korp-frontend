@@ -8020,6 +8020,9 @@ sattrlist.s24_update = {
     },
     text_date : sattrs.date,
     text_time : sattrs.text_time,
+    text_tid : {
+	label : "discussion_thread_id",
+    },
     text_cid : {
         label : "suomi24fi_cid",
     },

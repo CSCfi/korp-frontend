@@ -1410,6 +1410,7 @@
     "suomi24fi_urlmsg" : "alkuperäinen viesti",
     "suomi24fi_urlboard" : "alkuperäinen keskustelu",
     "suomi24fi_cid" : "viestin tunniste",
+    "discussion_thread_id" : "keskusteluketjun tunniste",
 
     "title_lemmas" : "otsikon sanojen perusmuodot",
 

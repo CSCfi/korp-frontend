@@ -951,6 +951,7 @@
     "suomi24fi_sect" : "section",
     "suomi24fi_urlmsg" : "original message",
     "suomi24fi_urlboard" : "original thread",
+    "discussion_thread_id" : "discussion thread id",
 
     "title_lemmas" : "title word lemmas",
 
