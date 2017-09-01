@@ -2505,6 +2505,8 @@ settings.corporafolders.lehdet.tiedelehdet = {
 	"tiedelehdet_aidinkieli",
 	"tiedelehdet_aikuiskasvatus",
 	"tiedelehdet_aluejaymparisto",
+	"tiedelehdet_ammattikasvatuksen_aikakauskirja",
+	"tiedelehdet_apollon",
 	"tiedelehdet_areiopagi",
 	"tiedelehdet_ats",
 	"tiedelehdet_auraica",
@@ -5734,9 +5736,7 @@ settings.corpora.tiedelehdet_nayttamo_tutkimus = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            displayType: "hidden",
-        },
+        text_id: sattrs.hidden,
         text_title: sattrs.text_title,
         text_issue: {
             label: "issue",
@@ -5759,9 +5759,7 @@ settings.corpora.tiedelehdet_sosiologia = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            displayType: "hidden",
-        },
+        text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -5783,9 +5781,7 @@ settings.corpora.tiedelehdet_sydanaani = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
-        text_id: {
-            displayType: "hidden",
-        },
+        text_id: sattrs.hidden,
         text_title: sattrs.text_title,
         text_issue: {
             label: "issue",
@@ -5797,6 +5793,54 @@ settings.corpora.tiedelehdet_sydanaani = {
         sentence_id: sattrs.sentence_id_hidden,
     },
 };
+
+settings.corpora.tiedelehdet_ammattikasvatuksen_aikakauskirja = {
+    id: "tiedelehdet_ammattikasvatuksen_aikakauskirja",
+    title: "Ammattikasvatuksen aikakauskirja",
+    description: "Ammattikasvatuksen aikakauskirja (2006-2016)<br/>Julkaisija: Ammatillisen koulutuksen tutkimusseura OTTU ry<br/>Kotisivu: <a href='https://akakk.fi/arkisto/'>https://akakk.fi/arkisto/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_year: {
+            label: "year",
+        },
+        text_filename: sattrs.hidden,
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.tiedelehdet_apollon = {
+    id: "tiedelehdet_apollon",
+    title: "Apollon",
+    description: "Apollon (2012-2013)<br/>Julkaisija: Iltakoulu ry<br/>Kotisivu: <a href='http://iltakoulu.org/julkaisut/apollon/'>http://iltakoulu.org/julkaisut/apollon/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        text_filename: sattrs.hidden,
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
 
 
 
@@ -8025,7 +8069,7 @@ settings.corpora.lehdet_sydan_hameen_lehti = {
 settings.corpora.lehdet_taku = {
     id: "lehdet_taku",
     title: "TAKU",
-    description: "TAKU (2000-1/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/TAKU_2000-1_2016_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Taide- ja kulttuurialan ammattijärjestö TAKU ry<br/>Kotisivu: <a href='http://www.taku.fi/ajankohtaista/taku-lehti'>http://www.taku.fi/ajankohtaista/taku-lehti</a>",
+    description: "TAKU (3/2009-1/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/TAKU_2000-1_2016_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Taide- ja kulttuurialan ammattijärjestö TAKU ry<br/>Kotisivu: <a href='http://www.taku.fi/ajankohtaista/taku-lehti'>http://www.taku.fi/ajankohtaista/taku-lehti</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
