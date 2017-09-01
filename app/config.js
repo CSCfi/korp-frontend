@@ -2730,7 +2730,6 @@ settings.corporafolders.lehdet.muut_lehdet.k = {
 	"lehdet_kansanopisto",
 	"lehdet_karhunkierros",
 	"lehdet_karhunpalvelus",
-	"lehdet_kauppakamarilehti",
 	"lehdet_kauppapolitiikka",
 	"lehdet_kaupunkilainen",
 	"lehdet_kehittaja",
@@ -2897,6 +2896,7 @@ settings.corporafolders.lehdet.muut_lehdet.t = {
 	"lehdet_taloustaito",
 	"lehdet_tamk_nyt",
 	"lehdet_tampere",
+	"lehdet_kauppakamarilehti",
 	"lehdet_tampereen_liikuntasanomat",
 	"lehdet_tampu",
 	"lehdet_tanhuviesti",
@@ -11775,8 +11775,8 @@ settings.corpora.lehdet_valkonauha = {
 
 settings.corpora.lehdet_virilactis = {
     id: "lehdet_virilactis",
-    title: "Viri lactis",
-    description: "Viri lactis (1997, 2005-2011, 2013)<br/>Julkaisija: Maitotalousylioppilaiden yhdistys, Viri lactis ry<br/>Kotisivu: <a href='http://www.protsv.fi/mts/virilactis.htm'>http://www.protsv.fi/mts/virilactis.htm</a>",
+    title: "Viri Lactis",
+    description: "Viri Lactis (1997, 2005-2011, 2013)<br/>Julkaisija: Maitotalousylioppilaiden yhdistys, Viri Lactis ry<br/>Kotisivu: <a href='http://www.protsv.fi/mts/virilactis.htm'>http://www.protsv.fi/mts/virilactis.htm</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
