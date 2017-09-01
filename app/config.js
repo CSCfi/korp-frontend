@@ -2615,9 +2615,11 @@ settings.corporafolders.lehdet.muut_lehdet.a = {
 	"lehdet_amnesty",
 	"lehdet_ananda",
 	"lehdet_animalia",
+	"lehdet_anti",
 	"lehdet_antimilitaristi_sivari",
 	"lehdet_apaja",
 	"lehdet_aplodi",
+	"lehdet_arkkitehtiuutiset",
 	"lehdet_aromi",
 	"lehdet_aselehti",
 	"lehdet_askel",
@@ -2629,6 +2631,8 @@ settings.corporafolders.lehdet.muut_lehdet.a = {
 	"lehdet_avainlehti",
 	"lehdet_avec",
 	"lehdet_avec_perhelehti",
+	"lehdet_avh",
+	"lehdet_avvisio",
   ]
 };
 
@@ -2682,6 +2686,7 @@ settings.corporafolders.lehdet.muut_lehdet.h = {
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (H-alkuiset)",
     contents : [
 	"lehdet_hkaksi",
+	"lehdet_haagalainen",
 	"lehdet_haavi",
 	"lehdet_hallaus",
 	"lehdet_helen",
@@ -2725,6 +2730,7 @@ settings.corporafolders.lehdet.muut_lehdet.k = {
 	"lehdet_kansanopisto",
 	"lehdet_karhunkierros",
 	"lehdet_karhunpalvelus",
+	"lehdet_kauppakamarilehti",
 	"lehdet_kauppapolitiikka",
 	"lehdet_kaupunkilainen",
 	"lehdet_kehittaja",
@@ -2734,6 +2740,7 @@ settings.corporafolders.lehdet.muut_lehdet.k = {
 	"lehdet_keski_espoon_sanomat",
 	"lehdet_keva",
 	"lehdet_kide",
+	"lehdet_kide_taidelehti",
 	"lehdet_kielipolku_dysfasia",
 	"lehdet_kiitotie",
 	"lehdet_kirjo",
@@ -2749,6 +2756,7 @@ settings.corporafolders.lehdet.muut_lehdet.k = {
 	"lehdet_kumina",
 	"lehdet_kumposti",
 	"lehdet_kunnallissuomi",
+	"lehdet_kuntoutus",
 	"lehdet_kuuloset",
 	"lehdet_kuuloviesti",
 	"lehdet_kynnys",
@@ -2835,6 +2843,7 @@ settings.corporafolders.lehdet.muut_lehdet.p = {
 	"lehdet_prointerior",
 	"lehdet_promaint_kunnossapito",
 	"lehdet_proresto",
+	"lehdet_puulehti",
 	"lehdet_puutarha_sanomat",
   ]
 }
@@ -2846,6 +2855,7 @@ settings.corporafolders.lehdet.muut_lehdet.r = {
 	"lehdet_rautalampilehti",
 	"lehdet_rautatievirkamies",
 	"lehdet_ruotuvaki",
+	"lehdet_ronsy",
   ]
 }
 
@@ -2853,20 +2863,26 @@ settings.corporafolders.lehdet.muut_lehdet.s = {
     title : "S",
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (S-alkuiset)",
     contents : [
+	"lehdet_saarijarvelainen",
 	"lehdet_saariselka",
 	"lehdet_saima",
 	"lehdet_secretarius",
 	"lehdet_selkosanomat",
+	"lehdet_signum",
 	"lehdet_skrolli",
 	"lehdet_sofia",
 	"lehdet_solidaarisuus",
 	"lehdet_sosiaalivakuutus",
+	"lehdet_stiiknafuulia",
 	"lehdet_sukuviesti",
 	"lehdet_suomen_historiallinen",
 	"lehdet_suomenmaa",
+	"lehdet_seniorilehti",
 	"lehdet_suomi_puola",
+	"lehdet_super",
 	"lehdet_susikko",
 	"lehdet_sydan_hameen_lehti",
+	"lehdet_syopa",
 	"lehdet_syopasaation_focus",
 	"lehdet_sosso",
   ]
@@ -2885,19 +2901,24 @@ settings.corporafolders.lehdet.muut_lehdet.t = {
 	"lehdet_tampu",
 	"lehdet_tanhuviesti",
 	"lehdet_tanssiurheilija",
+	"lehdet_tapaturmavakuutus",
+	"lehdet_tapiolan_asiakaslehti",
 	"lehdet_tatsi",
 	"lehdet_tek_verkkolehti",
 	"lehdet_teollisuussuomi",
+	"lehdet_terve_elama",
 	"lehdet_terve_pirkanmaa",
 	"lehdet_tervetuloa_jyvaskylaan",
 	"lehdet_terveydeksi",
 	"lehdet_tiedetoimittaja",
+	"lehdet_tiedosta",
 	"lehdet_tietoa_maasta",
 	"lehdet_tietoarkisto",
 	"lehdet_tiimi",
 	"lehdet_toimi",
 	"lehdet_toisinsanoen",
 	"lehdet_toolilainen",
+	"lehdet_tukijalka",
 	"lehdet_tukilinja",
 	"lehdet_tukiviesti",
 	"lehdet_tuntosarvi",
@@ -2905,6 +2926,7 @@ settings.corporafolders.lehdet.muut_lehdet.t = {
 	"lehdet_tutkain",
 	"lehdet_tuulivoima_tuulienergia_tuulensilma",
 	"lehdet_tyoelake",
+	"lehdet_taydellinenympyra",
   ]
 }
 
@@ -2934,6 +2956,7 @@ settings.corporafolders.lehdet.muut_lehdet.vw = {
     contents : [
 	"lehdet_vaasan_ylioppilaslehti",
 	"lehdet_valkoinen_kaapio",
+	"lehdet_valkonauha",
 	"lehdet_vammaisurheilu",
 	"lehdet_vanhustyo",
 	"lehdet_vankilavirkailija",
@@ -2947,6 +2970,7 @@ settings.corporafolders.lehdet.muut_lehdet.vw = {
 	"lehdet_via_helsinki",
 	"lehdet_vilkku",
 	"lehdet_virallinenlehti",
+	"lehdet_virilactis",
 	"lehdet_virta",
 	"lehdet_valitysuutiset",
 	"lehdet_walpo",
@@ -11351,8 +11375,8 @@ settings.corpora.lehdet_yhteishyva = {
 
 settings.corpora.lehdet_yhteishyva_ruoka = {
     id: "lehdet_yhteishyva_ruoka",
-    title: "Yhteishyvä Ruoka",
-    description: "Yhteishyvä Ruoka (2/2014-2/2017)<br/>Julkaisija: Suomen Osuuskauppojen Keskuskunta<br/>Kotisivu: <a href='http://view.24mags.com/library/yhteishyv%C3%A4?cat=209'>http://view.24mags.com/library/yhteishyv%C3%A4?cat=209</a>",
+    title: "Yhteishyvä ruoka",
+    description: "Yhteishyvä ruoka (2/2014-2/2017)<br/>Julkaisija: Suomen Osuuskauppojen Keskuskunta<br/>Kotisivu: <a href='http://view.24mags.com/library/yhteishyv%C3%A4?cat=209'>http://view.24mags.com/library/yhteishyv%C3%A4?cat=209</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -11536,6 +11560,570 @@ settings.corpora.lehdet_pariperhe = {
     },
 };
 
+
+settings.corpora.lehdet_avh = {
+    id: "lehdet_avh",
+    title: "AVH",
+    description: "AVH (4/2009-2/2014)<br/>Julkaisija: Aivoliitto ry<br/>Kotisivu: <a href='https://issuu.com/strokery'>https://issuu.com/strokery</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_filename: sattrs.hidden,
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_kuntoutus = {
+    id: "lehdet_kuntoutus",
+    title: "Kuntoutus",
+    description: "Kuntoutus (2011-2012)<br/>Julkaisija: Kuntoutussäätiö<br/>Kotisivu: <a href='https://issuu.com/search?q=kuntoutus-lehti'>https://issuu.com/search?q=kuntoutus-lehti</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        text_filename: sattrs.hidden,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_haagalainen = {
+    id: "lehdet_haagalainen",
+    title: "Haagalainen",
+    description: "Haagalainen (2005-4/2009)<br/>Julkaisija: Haagalaisen Tuki - Stöd ry<br/>Kotisivu: <a href='http://www.haagalainen.com/arkistovanhat.htm'>http://www.haagalainen.com/arkistovanhat.htm</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_filename: sattrs.hidden,
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        text_url: sattrs.link_lehdet,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_ronsy = {
+    id: "lehdet_ronsy",
+    title: "Rönsy",
+    description: "Rönsy (2004-2015)<br/>Julkaisija: Vihreiden nuorten ja opiskelijoiden liitto ry<br/>Kotisivu: <a href='http://www.vino.fi/ronsy/ronsyn-numerot'>http://www.vino.fi/ronsy/ronsyn-numerot</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        text_url: sattrs.link_lehdet,
+        text_year: {
+            label: "year",
+        },
+        text_filename: sattrs.hidden,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_signum = {
+    id: "lehdet_signum",
+    title: "Signum",
+    description: "Signum (2005-1/2017)<br/>Julkaisija: Suomen Tieteellisen Kirjastoseura<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/signum/issue/archive'>http://ojs.tsv.fi/index.php/signum/issue/archive</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_filename: sattrs.hidden,
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_stiiknafuulia = {
+    id: "lehdet_stiiknafuulia",
+    title: "Stiiknafuulia",
+    description: "Stiiknafuulia (2/2011-9/2013)<br/>Julkaisija: Oulun kirjailijaseura ry<br/>Kotisivu: <a href='http://www.oulunkirjailijaseura.fi/stiiknafuulia/stiiknafuulia'>http://www.oulunkirjailijaseura.fi/stiiknafuulia/stiiknafuulia</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_url: sattrs.link_lehdet,
+        text_filename: sattrs.hidden,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_tiedosta = {
+    id: "lehdet_tiedosta",
+    title: "Tiedosta",
+    description: "Tiedosta (2015-2016)<br/>Julkaisija: TIEKE Tietoyhteiskunnan kehittämiskeskus ry<br/>Kotisivu: <a href='http://www.tieke.fi/display/julkaisut/Tiedosta+-+lehti'>http://www.tieke.fi/display/julkaisut/Tiedosta+-+lehti</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        text_filename: sattrs.hidden,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_taydellinenympyra = {
+    id: "lehdet_taydellinenympyra",
+    title: "Täydellinen ympyrä",
+    description: "Täydellinen ympyrä (2011-1/2017)<br/>Julkaisija: Tampereen Taiteilijaseura ry<br/>Kotisivu: <a href='http://tampereen-taiteilijaseura.fi/tampereen-taiteilijaseura-ry/taydellinen-ympyra-lehti/'>http://tampereen-taiteilijaseura.fi/tampereen-taiteilijaseura-ry/taydellinen-ympyra-lehti/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_year: {
+            label: "year",
+        },
+        text_filename: sattrs.hidden,
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_valkonauha = {
+    id: "lehdet_valkonauha",
+    title: "Valkonauha",
+    description: "Valkonauha (4/2012-2/2017)<br/>Julkaisija: Suomen Valkonauhaliitto ry<br/>Kotisivu: <a href='http://www.suomenvalkonauhaliitto.fi/julkaisut/valkonauha-lehti'>http://www.suomenvalkonauhaliitto.fi/julkaisut/valkonauha-lehti</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_year: {
+            label: "year",
+        },
+        text_filename: sattrs.hidden,
+        text_url: sattrs.link_lehdet,
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_virilactis = {
+    id: "lehdet_virilactis",
+    title: "Viri lactis",
+    description: "Viri lactis (1997, 2005-2011, 2013)<br/>Julkaisija: Maitotalousylioppilaiden yhdistys, Viri lactis ry<br/>Kotisivu: <a href='http://www.protsv.fi/mts/virilactis.htm'>http://www.protsv.fi/mts/virilactis.htm</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        text_url: sattrs.link_lehdet,
+        text_year: {
+            label: "year",
+        },
+        text_filename: sattrs.hidden,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_arkkitehtiuutiset = {
+    id: "lehdet_arkkitehtiuutiset",
+    title: "Arkkitehtiuutiset",
+    description: "Arkkitehtiuutiset (2010-4/2017)<br/>Julkaisija: Suomen Arkkitehtiliitto ry SAFA<br/>Kotisivu: <a href='http://www.safa.fi/fin/julkaisut/arkkitehtiuutiset_au/nbspnbsparkisto'>http://www.safa.fi/fin/julkaisut/arkkitehtiuutiset_au/nbspnbsparkisto</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_filename: sattrs.hidden,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_avvisio = {
+    id: "lehdet_avvisio",
+    title: "AV-Visio",
+    description: "AV-Visio (2012-2015)<br/>Julkaisija: AVITA ry<br/>Kotisivu: <a href='http://www.av-visio.fi/'>http://www.av-visio.fi/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        text_filename: sattrs.hidden,
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_kide_taidelehti = {
+    id: "lehdet_kide_taidelehti",
+    title: "Kide - Lapin yliopiston tiede- ja taidelehti",
+    description: "Kide - Lapin yliopiston tiede- ja taidelehti (2010-1/2017)<br/>Julkaisija: Lapin yliopisto/Viestintä<br/>Kotisivu: <a href='https://www.ulapland.fi/FI/Yliopisto/Kide-%E2%80%93-Lapin-yliopiston-tiede--ja-taidelehti/Aiemmat-numerot'>https://www.ulapland.fi/FI/Yliopisto/Kide-%E2%80%93-Lapin-yliopiston-tiede--ja-taidelehti/Aiemmat-numerot</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_filename: sattrs.hidden,
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_puulehti = {
+    id: "lehdet_puulehti",
+    title: "Puu-lehti",
+    description: "Puu-lehti (3/1999-1/2017)<br/>Julkaisija: Puuinfo Oy<br/>Kotisivu: <a href='http://www.puuinfo.fi/puulehti'>http://www.puuinfo.fi/puulehti</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_url: sattrs.link_lehdet,
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        text_filename: sattrs.hidden,
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_saarijarvelainen = {
+    id: "lehdet_saarijarvelainen",
+    title: "Saarijärveläinen",
+    description: "Saarijärveläinen (14/2012-11/2017)<br/>Julkaisija: Maakunnan Sanomat<br/>Kotisivu: <a href='http://www.saarijarvelainen.fi/nakoislehti/'>http://www.saarijarvelainen.fi/nakoislehti/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_filename: sattrs.hidden,
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_seniorilehti = {
+    id: "lehdet_seniorilehti",
+    title: "Suomen Seniorilehti",
+    description: "Suomen Seniorilehti (2014-1/2017)<br/>Julkaisija: Suomen Senioriliike ry<br/>Kotisivu: <a href='https://www.senioriliike.fi/jasenlehti/suomen-seniorilehti/'>https://www.senioriliike.fi/jasenlehti/suomen-seniorilehti/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_url: sattrs.link_lehdet,
+        text_title: sattrs.text_title,
+        text_filename: sattrs.hidden,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_super = {
+    id: "lehdet_super",
+    title: "Super",
+    description: "Super (2008-10/2015)<br/>Julkaisija: Suomen lähi- ja perushoitajaliitto SuPer ry<br/>Kotisivu: <a href='http://www.superliitto.fi/viestinta/super-lehti/super-lehden-arkisto'>http://www.superliitto.fi/viestinta/super-lehti/super-lehden-arkisto</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
+        text_filename: sattrs.hidden,
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_syopa = {
+    id: "lehdet_syopa",
+    title: "Syöpä",
+    description: "Syöpä (2014-2/2017)<br/>Julkaisija: Syöpäjärjestöt<br/>Kotisivu: <a href='https://www.syopajarjestot.fi/julkaisut/syopa-lehti/'>https://www.syopajarjestot.fi/julkaisut/syopa-lehti/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        text_filename: sattrs.hidden,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_kauppakamarilehti = {
+    id: "lehdet_kauppakamarilehti",
+    title: "Tampereen Kauppakamarilehti",
+    description: "Tampereen Kauppakamarilehti (2015-3/2017)<br/>Julkaisija: Tampereen kauppakamari<br/>Kotisivu: <a href='http://www.tampereenkauppakamarilehti.fi/nakoislehti'>http://www.tampereenkauppakamarilehti.fi/nakoislehti</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        text_filename: sattrs.hidden,
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_tapaturmavakuutus = {
+    id: "lehdet_tapaturmavakuutus",
+    title: "Tapaturmavakuutus",
+    description: "Tapaturmavakuutus (2008-2009, 2013-1/2017)<br/>Julkaisija: Tapaturmavakuutuskeskus<br/>Kotisivu: <a href='http://www.tvk.fi/tietopalvelu-ja-julkaisut/lehti/'>http://www.tvk.fi/tietopalvelu-ja-julkaisut/lehti/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_issue: {
+            label: "issue",
+        },
+        text_filename: sattrs.hidden,
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_tapiolan_asiakaslehti = {
+    id: "lehdet_tapiolan_asiakaslehti",
+    title: "Tapiolan lähiseudun asiakaslehti",
+    description: "Tapiolan lähiseudun asiakaslehti (2005-5/2017)<br/>Julkaisija: Oy Quality International QI Ltd Ab<br/>Kotisivu: <a href='http://www.tapiolan.com/lehti.html'>http://www.tapiolan.com/lehti.html</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_issue: {
+            label: "issue",
+        },
+        text_filename: sattrs.hidden,
+        text_url: sattrs.link_lehdet,
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_terve_elama = {
+    id: "lehdet_terve_elama",
+    title: "Terve elämä",
+    description: "Terve elämä (2006-2009)<br/>Julkaisija: Juho Vainion Säätiö<br/>Kotisivu: <a href='http://www.juhovainionsaatio.fi/pages/suomeksi/terve-elaemae/artikkelit.php?p=10'>http://www.juhovainionsaatio.fi/pages/suomeksi/terve-elaemae/artikkelit.php?p=10</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue",
+        },
+        text_filename: sattrs.hidden,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_tukijalka = {
+    id: "lehdet_tukijalka",
+    title: "Tukijalka",
+    description: "Tukijalka (1/2014)<br/>Julkaisija: Vammaisurheilun Tuki ry<br/>Kotisivu: <a href='http://vammaisurheiluntuki.com/tukijalka.html'>http://vammaisurheiluntuki.com/tukijalka.html</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_filename: sattrs.hidden,
+        text_url: sattrs.link_lehdet,
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_anti = {
+    id: "lehdet_anti",
+    title: "Anti",
+    description: "Anti (2/2004-1/2008, 1/2016-1/2017)<br/>Julkaisija: Iltakoulu ry<br/>Kotisivu: <a href='http://iltakoulu.org/julkaisut/anti/'>http://iltakoulu.org/julkaisut/anti/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year",
+        },
+        text_issue: {
+            label: "issue",
+        },
+        text_filename: sattrs.hidden,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
 
 
 
