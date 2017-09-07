@@ -3733,7 +3733,7 @@ settings.corpora.tiedelehdet_hykirjasto = {
 
 settings.corpora.tiedelehdet_geologi = {
     title : "Geologi",
-    description : "Geologi (2000, 2006-2013)<br/>Julkaisija: Suomen Geologinen Seura<br/>Kotisivu: <a href='http://www.geologinenseura.fi/geologi-lehti/'>http://www.geologinenseura.fi/geologi-lehti/</a>",
+    description : "Geologi (2000, 2006-2013)<br/>Sisältää lehden kotisivulla ja <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen Geologinen Seura<br/>Kotisivu: <a href='http://www.geologinenseura.fi/geologi-lehti/'>http://www.geologinenseura.fi/geologi-lehti/</a>",
     id : "tiedelehdet_geologi",
     urn : "",
     metadata_urn : "",
@@ -4072,7 +4072,7 @@ settings.corpora.tiedelehdet_tiedejaase = {
 
 settings.corpora.tiedelehdet_avain = {
     title : "Avain",
-    description : "Kirjallisuudentutkimuksen aikakauslehti Avain (2004-2015)<br/>Julkaisija: Kirjallisuudentutkijain Seura<br/>Kotisivu: <a href='http://pro.tsv.fi/skts/avain.html'>http://pro.tsv.fi/skts/avain.html</a>",
+    description : "Kirjallisuudentutkimuksen aikakauslehti Avain (2004-2015)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kirjallisuudentutkijain Seura<br/>Kotisivu: <a href='http://pro.tsv.fi/skts/avain.html'>http://pro.tsv.fi/skts/avain.html</a>",
     id : "tiedelehdet_avain",
     urn : "",
     metadata_urn : "",
@@ -4088,7 +4088,7 @@ settings.corpora.tiedelehdet_avain = {
 
 settings.corpora.tiedelehdet_ennenjanyt = {
     title : "Ennen ja nyt",
-    description : "Ennen ja nyt (2001-1/2016)<br/>Julkaisijat: Agricola -Suomen historiaverkko, Historiallinen Yhdistys ry, Suomen Historiallinen Seura ry ja Turun Historiallinen Yhdistys ry.<br/>Kotisivu: <a href='http://www.ennenjanyt.net/'>http://www.ennenjanyt.net/</a>",
+    description : "Ennen ja nyt (2001-1/2016)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisijat: Agricola -Suomen historiaverkko, Historiallinen Yhdistys ry, Suomen Historiallinen Seura ry ja Turun Historiallinen Yhdistys ry.<br/>Kotisivu: <a href='http://www.ennenjanyt.net/'>http://www.ennenjanyt.net/</a>",
     id : "tiedelehdet_ennenjanyt",
     urn : "",
     metadata_urn : "",
@@ -4765,7 +4765,7 @@ settings.corpora.tiedelehdet_maaseudunuusiaika = {
 
 settings.corpora.tiedelehdet_elo = {
     title : "Elinikäisen ohjauksen verkkolehti",
-    description : "Elinikäisen ohjauksen verkkolehti (2011-2014)<br/>Julkaisija: JAMK ammatillinen opettajakorkeakoulu<br/>Kotisivu: <a href='http://verkkolehdet.jamk.fi/elo/'>http://verkkolehdet.jamk.fi/elo/</a>",
+    description : "Elinikäisen ohjauksen verkkolehti (2011-2014)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: JAMK ammatillinen opettajakorkeakoulu<br/>Kotisivu: <a href='http://verkkolehdet.jamk.fi/elo/'>http://verkkolehdet.jamk.fi/elo/</a>",
     id : "tiedelehdet_elo",
     urn : "",
     metadata_urn : "",
@@ -4886,7 +4886,7 @@ settings.corpora.tiedelehdet_liiketalous = {
 
 settings.corpora.tiedelehdet_geofoorumi = {
     title : "GeoFoorumi",
-    description : "GeoFoorumi (2006-2013)<br/>Julkaisija: Geologian tutkimuskeskus (GTK)<br/><a href='http://www.gtk.fi/ajankohtaista/painotuotteet/geofoorumi/'>http://www.gtk.fi/ajankohtaista/painotuotteet/geofoorumi/</a>",
+    description : "GeoFoorumi (2006-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Geologian tutkimuskeskus (GTK)<br/><a href='http://www.gtk.fi/ajankohtaista/painotuotteet/geofoorumi/'>http://www.gtk.fi/ajankohtaista/painotuotteet/geofoorumi/</a>",
     id : "tiedelehdet_geofoorumi",
     urn : "",
     metadata_urn : "",
@@ -4912,7 +4912,7 @@ settings.corpora.tiedelehdet_geofoorumi = {
 
 settings.corpora.tiedelehdet_agricola = {
     title : "Agricolan Tietosanomat",
-    description : "Agricolan Tietosanomat (2000)<br/>Julkaisija: <br/>Kotisivu: <a href='http://agricola.utu.fi/julkaisut/tietosanomat/'>http://agricola.utu.fi/julkaisut/tietosanomat/</a>",
+    description : "Agricolan Tietosanomat (2000)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: <br/>Kotisivu: <a href='http://agricola.utu.fi/julkaisut/tietosanomat/'>http://agricola.utu.fi/julkaisut/tietosanomat/</a>",
     id : "tiedelehdet_agricola",
     urn : "",
     metadata_urn : "",
@@ -4939,7 +4939,7 @@ settings.corpora.tiedelehdet_agricola = {
 
 settings.corpora.tiedelehdet_diakonia = {
     title : "Diakonian tutkimus –aikakauskirja",
-    description : "Diakonian tutkimus -aikakauskirja (2004–2013)<br/>Julkaisija: Diakonian Tutkimuksen Seura<br/>Kotisivu: <a href='http://dts.fi/aikakauskirja/'>http://dts.fi/aikakauskirja/</a>",
+    description : "Diakonian tutkimus -aikakauskirja (2004–2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Diakonian Tutkimuksen Seura<br/>Kotisivu: <a href='http://dts.fi/aikakauskirja/'>http://dts.fi/aikakauskirja/</a>",
     id : "tiedelehdet_diakonia",
     urn : "",
     metadata_urn : "",
@@ -5158,7 +5158,7 @@ settings.corpora.tiedelehdet_musiikkikasv = {
 
 settings.corpora.tiedelehdet_areiopagi = {
     title : "Areiopagi",
-    description : "Areiopagi (2013)<br/>Julkaisija: Areiopagi ry<br/>Kotisivu: <a href='http://www.areiopagi.fi/'>http://www.areiopagi.fi/</a>",
+    description : "Areiopagi (2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Areiopagi ry<br/>Kotisivu: <a href='http://www.areiopagi.fi/'>http://www.areiopagi.fi/</a>",
     id : "tiedelehdet_areiopagi",
     urn : "",
     metadata_urn : "",
@@ -5186,7 +5186,7 @@ settings.corpora.tiedelehdet_areiopagi = {
 
 settings.corpora.tiedelehdet_ats = {
     title : "ATS-Ydintekniikka",
-    description : "ATS-Ydintekniikka (2000–2013)<br/>Julkaisija: Suomen Atomiteknillinen Seura<br/>Kotisivu: <a href='http://www.ats-fns.fi/fi/ats-ydintekniikka/lehdet'>http://www.ats-fns.fi/fi/ats-ydintekniikka/lehdet</a>",
+    description : "ATS-Ydintekniikka (2000–2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen Atomiteknillinen Seura<br/>Kotisivu: <a href='http://www.ats-fns.fi/fi/ats-ydintekniikka/lehdet'>http://www.ats-fns.fi/fi/ats-ydintekniikka/lehdet</a>",
     id : "tiedelehdet_ats",
     urn : "",
     metadata_urn : "",
@@ -5212,7 +5212,7 @@ settings.corpora.tiedelehdet_ats = {
 
 settings.corpora.tiedelehdet_auraica = {
     title : "Auraica",
-    description : "Auraica (2008–2012)<br/>Julkaisija: Porthan-Seura ry<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/Aur/issue/archive'>http://ojs.tsv.fi/index.php/Aur/issue/archive</a>",
+    description : "Auraica (2008–2012)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Porthan-Seura ry<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/Aur/issue/archive'>http://ojs.tsv.fi/index.php/Aur/issue/archive</a>",
     id : "tiedelehdet_auraica",
     urn : "",
     metadata_urn : "",
@@ -5507,7 +5507,7 @@ settings.corpora.tiedelehdet_thanatos = {
 
 settings.corpora.tiedelehdet_aluejaymparisto = {
     title : "Alue ja ympäristö",
-    description : "Alue ja ympäristö (2005–2014)<br/>Julkaisija: Alue- ja ympäristötutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/aluejaymparisto'>http://www.ays.fi/aluejaymparisto</a>",
+    description : "Alue ja ympäristö (2005–2014)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Alue- ja ympäristötutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/aluejaymparisto'>http://www.ays.fi/aluejaymparisto</a>",
     id : "tiedelehdet_aluejaymparisto",
     urn : "",
     metadata_urn : "",
@@ -5534,7 +5534,7 @@ settings.corpora.tiedelehdet_aluejaymparisto = {
 
 settings.corpora.tiedelehdet_aakusti = {
     title : "Aakusti",
-    description : "Aakusti (2008–2013)<br/>Julkaisija: Savon kielen seura ry<br/>Kotisivu: <a href='http://savonkielenseura.fi/arkistosivu/'>http://savonkielenseura.fi/arkistosivu/</a>",
+    description : "Aakusti (2008–2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Savon kielen seura ry<br/>Kotisivu: <a href='http://savonkielenseura.fi/arkistosivu/'>http://savonkielenseura.fi/arkistosivu/</a>",
     id : "tiedelehdet_aakusti",
     urn : "",
     metadata_urn : "",
@@ -5561,7 +5561,7 @@ settings.corpora.tiedelehdet_aakusti = {
 
 settings.corpora.tiedelehdet_30paivaa = {
     title : "30 Päivää",
-    description : "30 Päivää (2013)<br/>Julkaisija: Sosiaalialan korkeakoulutettujen ammattijärjestö Talentia ry<br/>Kotisivu: <a href='http://www.talentia.isinteksas.com/julkaisut/'>http://www.talentia.isinteksas.com/julkaisut/</a>",
+    description : "30 Päivää (2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Sosiaalialan korkeakoulutettujen ammattijärjestö Talentia ry<br/>Kotisivu: <a href='http://www.talentia.isinteksas.com/julkaisut/'>http://www.talentia.isinteksas.com/julkaisut/</a>",
     id : "tiedelehdet_30paivaa",
     urn : "",
     metadata_urn : "",
@@ -5588,7 +5588,7 @@ settings.corpora.tiedelehdet_30paivaa = {
 
 settings.corpora.tiedelehdet_aidinkieli = {
     title : "Aikakauskirja Äidinkielen opetustiede",
-    description : "Aikakauskirja Äidinkielen opetustiede (2008–2012)<br/>Julkaisija: Äidinkielen Opetustieteen Seura ry<br/>Kotisivu: <a href='http://www.aidinkielenopetustieteenseurary.com/'>http://www.aidinkielenopetustieteenseurary.com/</a>",
+    description : "Aikakauskirja Äidinkielen opetustiede (2008–2012)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Äidinkielen Opetustieteen Seura ry<br/>Kotisivu: <a href='http://www.aidinkielenopetustieteenseurary.com/'>http://www.aidinkielenopetustieteenseurary.com/</a>",
     id : "tiedelehdet_aidinkieli",
     urn : "",
     metadata_urn : "",
