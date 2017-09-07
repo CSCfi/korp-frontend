@@ -7970,7 +7970,7 @@ settings.corpora.lehdet_print_media = {
 settings.corpora.lehdet_pro_etelapohjanmaa = {
     id: "lehdet_pro_etelapohjanmaa",
     title: "Pro Etelä-Pohjanmaa",
-    description: "Pro Etelä-Pohjanmaa (2/2012-2015)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Pro_Etela-Pohjanmaa_2012-2015_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Etelä-Pohjanmaan liitto<br/>Kotisivu: <a href='http://www.epliitto.fi/pro-etela-pohjanmaa--lehti'>http://www.epliitto.fi/pro-etela-pohjanmaa--lehti</a>",
+    description: "Pro Etelä-Pohjanmaa (2012-2015)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Pro_Etela-Pohjanmaa_2012-2015_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Etelä-Pohjanmaan liitto<br/>Kotisivu: <a href='http://www.epliitto.fi/pro-etela-pohjanmaa--lehti'>http://www.epliitto.fi/pro-etela-pohjanmaa--lehti</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -8118,7 +8118,7 @@ settings.corpora.lehdet_sydan_hameen_lehti = {
 settings.corpora.lehdet_taku = {
     id: "lehdet_taku",
     title: "TAKU",
-    description: "TAKU (3/2009-1/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/TAKU_2000-1_2016_-aineistosta_puuttuvat_numerot.docx'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Taide- ja kulttuurialan ammattijärjestö TAKU ry<br/>Kotisivu: <a href='http://www.taku.fi/ajankohtaista/taku-lehti'>http://www.taku.fi/ajankohtaista/taku-lehti</a>",
+    description: "TAKU (3/2009-1/2016)<br/><a href=' https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/TAKU_3_2009-1_2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puutuvista numeroista</a><br/>Julkaisija: Taide- ja kulttuurialan ammattijärjestö TAKU ry<br/>Kotisivu: <a href='http://www.taku.fi/ajankohtaista/taku-lehti'>http://www.taku.fi/ajankohtaista/taku-lehti</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -10809,7 +10809,7 @@ settings.corpora.lehdet_yhteenveto = {
 settings.corpora.lehdet_yhys_tiedotuslehti = {
     id: "lehdet_yhys_tiedotuslehti",
     title: "YHYS-tiedotuslehti",
-    description: "YHYS-tiedotuslehti (2/2005-2013)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/YHYS_2005-2013_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Yhteiskuntatieteellisen ympäristötutkimuksen seura ry<br/>Kotisivu: <a href='http://www.yhys.net/vuosien-2005-2013-tiedotuslehdet-pdf-muodossa/'>http://www.yhys.net/vuosien-2005-2013-tiedotuslehdet-pdf-muodossa/</a>",
+    description: "YHYS-tiedotuslehti (2/2005-2013)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/YHYS_2_2005-2013_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Yhteiskuntatieteellisen ympäristötutkimuksen seura ry<br/>Kotisivu: <a href='http://www.yhys.net/vuosien-2005-2013-tiedotuslehdet-pdf-muodossa/'>http://www.yhys.net/vuosien-2005-2013-tiedotuslehdet-pdf-muodossa/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -10865,7 +10865,7 @@ settings.corpora.lehdet_yliopistolainen = {
 settings.corpora.lehdet_yrittajasanomat = {
     id: "lehdet_yrittajasanomat",
     title: "Yrittäjäsanomat",
-    description: "Yrittäjäsanomat (7/2010, 2012-8/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Yrittajasanomat_7_2010_2012-2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Suomen Yrittäjien Sypoint Oy<br/>Kotisivu: <a href='http://www.yrittajat.fi/suomenyrittajat/tiedotustoiminta/yrittajasanomat'>http://www.yrittajat.fi/suomenyrittajat/tiedotustoiminta/yrittajasanomat</a>",
+    description: "Yrittäjäsanomat (7/2010, 2012-8/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Yrittajasanomat_7_2010_2012-8_2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Suomen Yrittäjien Sypoint Oy<br/>Kotisivu: <a href='http://www.yrittajat.fi/suomenyrittajat/tiedotustoiminta/yrittajasanomat'>http://www.yrittajat.fi/suomenyrittajat/tiedotustoiminta/yrittajasanomat</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -11445,7 +11445,7 @@ settings.corpora.lehdet_janus = {
 settings.corpora.lehdet_kuuloviesti = {
     id: "lehdet_kuuloviesti",
     title: "Kuuloviesti",
-    description: "Kuuloviesti (2011-2/2016)<br/>Julkaisija: Kuuloliitto ry<br/>Kotisivu: <a href=''></a>",
+    description: "Kuuloviesti (2011-2/2016)<br/>Julkaisija: Kuuloliitto ry<br/>Kotisivu: <a href='https://www.kuuloliitto.fi/'>https://www.kuuloliitto.fi/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
