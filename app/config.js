@@ -3584,7 +3584,7 @@ settings.corpora.tiedelehdet_hiidenkivi = {
 
 settings.corpora.tiedelehdet_versus = {
     title : "Versus",
-    description : "Versus (2/2011-1/2015)<br/>Julkaisija: Alue- ja ympäristöntutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/versus/'>http://www.ays.fi/versus/</a>",
+    description : "Versus (2/2011-1/2015)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Alue- ja ympäristöntutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/versus/'>http://www.ays.fi/versus/</a>",
     id : "tiedelehdet_versus",
     urn : "",
     metadata_urn : "",
@@ -3608,7 +3608,7 @@ settings.corpora.tiedelehdet_versus = {
 
 settings.corpora.tiedelehdet_kasvu = {
     title : "Kasvu",
-    description : "Kasvu (2012-1/2016)<br/>Julkaisija: Talentia ry<br/>Kotisivu: <a href='http://talentia.e-julkaisu.com/julkaisut/'>http://talentia.e-julkaisu.com/julkaisut/</a>",
+    description : "Kasvu (2012-1/2016)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Talentia ry<br/>Kotisivu: <a href='http://talentia.e-julkaisu.com/julkaisut/'>http://talentia.e-julkaisu.com/julkaisut/</a>",
     id : "tiedelehdet_kasvu",
     urn : "",
     metadata_urn : "",
@@ -3632,7 +3632,7 @@ settings.corpora.tiedelehdet_kasvu = {
 
 settings.corpora.tiedelehdet_liikuntajatiede = {
     title : "Liikunta ja tiede (tutkimusartikkelit)",
-    description : "Liikunta ja tiede (2008-2013)<br/>Julkaisija: Liikuntatieteellinen Seura ry<br/>Kotisivu: <a href='http://www.lts.fi/liikunta-tiede-lehti'>http://www.lts.fi/liikunta-tiede-lehti</a>",
+    description : "Liikunta ja tiede (2008-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä olevat tutkimusartikkelit<br/>Julkaisija: Liikuntatieteellinen Seura ry<br/>Kotisivu: <a href='http://www.lts.fi/liikunta-tiede-lehti'>http://www.lts.fi/liikunta-tiede-lehti</a>",
     id : "tiedelehdet_liikuntajatiede",
     urn : "",
     metadata_urn : "",
@@ -3653,7 +3653,7 @@ settings.corpora.tiedelehdet_liikuntajatiede = {
 
 settings.corpora.tiedelehdet_liikenteensuunta = {
     title : "Liikenteen suunta",
-    description : "Liikenteen suunta (2012-2/2014)<br/>Julkaisija: Liikennevirasto<br/>Kotisivu: <a href='http://www.liikenteensuunta.fi/fi/'>http://www.liikenteensuunta.fi/fi/</a>",
+    description : "Liikenteen suunta (2012-2/2014)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Liikennevirasto<br/>Kotisivu: <a href='http://www.liikenteensuunta.fi/fi/'>http://www.liikenteensuunta.fi/fi/</a>",
     id : "tiedelehdet_liikenteensuunta",
     urn : "",
     metadata_urn : "",
@@ -3674,7 +3674,7 @@ settings.corpora.tiedelehdet_liikenteensuunta = {
 
 settings.corpora.tiedelehdet_informaatio = {
     title : "Informaatiotutkimus",
-    description : "Informaatiotutkimus (2000-2015)<br/>Julkaisija: Informaatiotutkimuksen yhdistys<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/inf'>http://ojs.tsv.fi/index.php/inf</a>",
+    description : "Informaatiotutkimus (2000-2015)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Informaatiotutkimuksen yhdistys<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/inf'>http://ojs.tsv.fi/index.php/inf</a>",
     id : "tiedelehdet_informaatio",
     urn : "",
     metadata_urn : "",
@@ -3704,7 +3704,7 @@ settings.corpora.tiedelehdet_informaatio = {
 
 settings.corpora.tiedelehdet_hykirjasto = {
     title : "Kansalliskirjasto-lehti/Helsingin yliopiston kirjaston tiedotuslehti",
-    description : "Helsingin yliopiston kirjaston tiedotuslehti (2000-2002) / Kansalliskirjasto-lehti (2003-2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='https://www.kansalliskirjasto.fi/fi/search?keys=yleistieto%20tiedotus%20kansalliskirjastolehti'>https://www.kansalliskirjasto.fi/</a>",
+    description : "Helsingin yliopiston kirjaston tiedotuslehti (2000-2002) / Kansalliskirjasto-lehti (2003-2013)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='https://www.kansalliskirjasto.fi/fi/search?keys=yleistieto%20tiedotus%20kansalliskirjastolehti'>https://www.kansalliskirjasto.fi/</a>",
     id : "tiedelehdet_hykirjasto",
     urn : "",
     metadata_urn : "",
@@ -3753,7 +3753,7 @@ settings.corpora.tiedelehdet_geologi = {
 
 settings.corpora.tiedelehdet_musiikinsuunta = {
     title : "Musiikin suunta",
-    description : "Musiikin suunta (2003-2013)<br/>Julkaisija: Suomen etnomusikologinen seura<br/>Kotisivu: <a href='http://www.etnomusikologia.fi/julkaisut/Mus.suunta.htm'>http://www.etnomusikologia.fi/julkaisut/</a>",
+    description : "Musiikin suunta (2003-2013)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen etnomusikologinen seura<br/>Kotisivu: <a href='http://www.etnomusikologia.fi/julkaisut/Mus.suunta.htm'>http://www.etnomusikologia.fi/julkaisut/</a>",
     id : "tiedelehdet_musiikinsuunta",
     urn : "",
     metadata_urn : "",
@@ -3783,7 +3783,7 @@ settings.corpora.tiedelehdet_musiikinsuunta = {
 
 settings.corpora.tiedelehdet_susa = {
     title : "Suomalais-Ugrilaisen Seuran Aikakauskirja",
-    description : "Suomalais-Ugrilaisen Seuran Aikakauskirja (2006, 2011, 2013)<br/>Julkaisija: Suomalais-Ugrilainen seura<br/>Kotisivu: <a href='http://www.sgr.fi/susa/susa_fi.html'>http://www.sgr.fi/susa/</a>",
+    description : "Suomalais-Ugrilaisen Seuran Aikakauskirja (2006, 2011, 2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomalais-Ugrilainen seura<br/>Kotisivu: <a href='http://www.sgr.fi/susa/susa_fi.html'>http://www.sgr.fi/susa/</a>",
     id : "tiedelehdet_susa",
     urn : "",
     metadata_urn : "",
@@ -3801,7 +3801,7 @@ settings.corpora.tiedelehdet_susa = {
 
 settings.corpora.tiedelehdet_sosiaalilaaketiede = {
     title : "Sosiaalilääketieteellinen Aikakauslehti",
-    description : "Sosiaalilääketieteellinen Aikakauslehti (2006-2013)<br/>Julkaisija: Sosiaalilääketieteellinen yhdistys ry<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/SA/index'>http://ojs.tsv.fi/index.php/SA/index</a>",
+    description : "Sosiaalilääketieteellinen Aikakauslehti (2006-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Sosiaalilääketieteellinen yhdistys ry<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/SA/index'>http://ojs.tsv.fi/index.php/SA/index</a>",
     id : "tiedelehdet_sosiaalilaaketiede",
     urn : "",
     metadata_urn : "",
@@ -3830,7 +3830,7 @@ settings.corpora.tiedelehdet_sosiaalilaaketiede = {
 
 settings.corpora.tiedelehdet_niinnain = {
     title : "niin & näin",
-    description : "niin & näin (2000-4/2013)<br/>Julkaisija: Eurooppalaisen filosofian seura ry<br/>Kotisivu: <a href='http://netn.fi/lehti'>http://netn.fi/</a>",
+    description : "niin & näin (2000-4/2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Eurooppalaisen filosofian seura ry<br/>Kotisivu: <a href='http://netn.fi/lehti'>http://netn.fi/</a>",
     id : "tiedelehdet_niinnain",
     urn : "",
     metadata_urn : "",
@@ -3848,7 +3848,7 @@ settings.corpora.tiedelehdet_niinnain = {
 
 settings.corpora.tiedelehdet_skeptikko = {
     title : "Skeptikko",
-    description : "Skeptikko (2000-2015)<br/>Julkaisija: Skepsis ry<br/>Kotisivu: <a href='http://www.skepsis.fi/Julkaisuja/Skeptikkolehti.aspx'>http://www.skepsis.fi/</a>",
+    description : "Skeptikko (2000-2015)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Skepsis ry<br/>Kotisivu: <a href='http://www.skepsis.fi/Julkaisuja/Skeptikkolehti.aspx'>http://www.skepsis.fi/</a>",
     id : "tiedelehdet_skeptikko",
     urn : "",
     metadata_urn : "",
@@ -3869,7 +3869,7 @@ settings.corpora.tiedelehdet_skeptikko = {
 
 settings.corpora.tiedelehdet_suo = {
     title : "Suo",
-    description : "Suo (2005-2013)<br/>Julkaisija: Suoseura<br/>Kotisivu: <a href='http://www.suoseura.fi/suo/'>http://www.suoseura.fi/suo/</a>",
+    description : "Suo (2005-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suoseura<br/>Kotisivu: <a href='http://www.suoseura.fi/suo/'>http://www.suoseura.fi/suo/</a>",
     id : "tiedelehdet_suo",
     urn : "",
     metadata_urn : "",
@@ -3911,7 +3911,7 @@ settings.corpora.tiedelehdet_teologinen = {
 
 settings.corpora.tiedelehdet_tieteessatapahtuu = {
     title : "Tieteessä tapahtuu",
-    description : "Tieteessä tapahtuu (2000-2015)<br/>Julkaisija: Tieteellisten seurain valtuuskunta<br/><a href='http://www.tieteessatapahtuu.fi/'>http://www.tieteessatapahtuu.fi/</a>",
+    description : "Tieteessä tapahtuu (2000-2015)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Tieteellisten seurain valtuuskunta<br/><a href='http://www.tieteessatapahtuu.fi/'>http://www.tieteessatapahtuu.fi/</a>",
     id : "tiedelehdet_tieteessatapahtuu",
     urn : "",
     metadata_urn : "",
@@ -3940,7 +3940,7 @@ settings.corpora.tiedelehdet_tieteessatapahtuu = {
 
 settings.corpora.tiedelehdet_terminfo = {
     title : "Terminfo",
-    description : "Terminfo (2010-2015)<br/>Julkaisija: Sanastokeskus TSK<br/>Kotisivu: <a href='http://www.terminfo.fi/'>http://www.terminfo.fi/</a>",
+    description : "Terminfo (2010-2015)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Sanastokeskus TSK<br/>Kotisivu: <a href='http://www.terminfo.fi/'>http://www.terminfo.fi/</a>",
     id : "tiedelehdet_terminfo",
     urn : "",
     metadata_urn : "",
@@ -3961,7 +3961,7 @@ settings.corpora.tiedelehdet_terminfo = {
 
 settings.corpora.tiedelehdet_tktlehti = {
     title : "Tietojenkäsittelytiede",
-    description : "Tietojenkäsittelytiede (2003-2015)<br/>Julkaisija: Tieojenkäsittelytieteen seura<br/>Kotisivu: <a href='http://www.cse.tkk.fi/fi/tkt-lehti/'>http://www.cse.tkk.fi/fi/tkt-lehti/</a>",
+    description : "Tietojenkäsittelytiede (2003-2015)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Tieojenkäsittelytieteen seura<br/>Kotisivu: <a href='http://www.cse.tkk.fi/fi/tkt-lehti/'>http://www.cse.tkk.fi/fi/tkt-lehti/</a>",
     id : "tiedelehdet_tktlehti",
     urn : "",
     metadata_urn : "",
@@ -3983,7 +3983,7 @@ settings.corpora.tiedelehdet_tktlehti = {
 
 settings.corpora.tiedelehdet_synnyt = {
     title : "Synnyt",
-    description : "Synnyt (2004-2013)<br/>Julkaisija: Synnyt/Origins<br/>Kotisivu: <a href='https://wiki.aalto.fi/display/Synnyt/Home'>https://wiki.aalto.fi/display/Synnyt/Home</a>",
+    description : "Synnyt (2004-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Synnyt/Origins<br/>Kotisivu: <a href='https://wiki.aalto.fi/display/Synnyt/Home'>https://wiki.aalto.fi/display/Synnyt/Home</a>",
     id : "tiedelehdet_synnyt",
     urn : "",
     metadata_urn : "",
@@ -4004,7 +4004,7 @@ settings.corpora.tiedelehdet_synnyt = {
 
 settings.corpora.tiedelehdet_muinaistutkija = {
     title : "Muinaistutkija",
-    description : "Muinaistutkija (2000-2012)<br/>Julkaisija: Suomen arkeologinen seura<br/>Kotisivu: <a href='http://www.sarks.fi/mt/etusivu.html'>http://www.sarks.fi/mt/etusivu.html</a>",
+    description : "Muinaistutkija (2000-2012)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen arkeologinen seura<br/>Kotisivu: <a href='http://www.sarks.fi/mt/etusivu.html'>http://www.sarks.fi/mt/etusivu.html</a>",
     id : "tiedelehdet_muinaistutkija",
     urn : "",
     metadata_urn : "",
@@ -4026,7 +4026,7 @@ settings.corpora.tiedelehdet_muinaistutkija = {
 
 settings.corpora.tiedelehdet_tutkivasos = {
     title : "Tutkiva Sosiaalityö",
-    description : "Tutkiva Sosiaalityö (2010-2013)<br/>Julkaisija: Sosiaalityön tutkimuksen seura<br/>Kotisivu: <a href='http://www.sosiaalityontutkimuksenseura.fi/Tutkiva_sosiaality%C3%B6'>http://www.sosiaalityontutkimuksenseura.fi/Tutkiva_sosiaality%C3%B6</a>",
+    description : "Tutkiva Sosiaalityö (2010-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Sosiaalityön tutkimuksen seura<br/>Kotisivu: <a href='http://www.sosiaalityontutkimuksenseura.fi/Tutkiva_sosiaality%C3%B6'>http://www.sosiaalityontutkimuksenseura.fi/Tutkiva_sosiaality%C3%B6</a>",
     id : "tiedelehdet_tutkivasos",
     urn : "",
     metadata_urn : "",
@@ -4042,7 +4042,7 @@ settings.corpora.tiedelehdet_tutkivasos = {
 
 settings.corpora.tiedelehdet_tiedejaase = {
     title : "Tiede ja Ase",
-    description : "Tiede ja Ase (2000-2013)<br/>Julkaisija: Suomen sotatieteellinen seura<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/ta'>http://ojs.tsv.fi/index.php/ta</a>",
+    description : "Tiede ja Ase (2000-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen sotatieteellinen seura<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/ta'>http://ojs.tsv.fi/index.php/ta</a>",
     id : "tiedelehdet_tiedejaase",
     urn : "",
     metadata_urn : "",
@@ -4116,7 +4116,7 @@ settings.corpora.tiedelehdet_historianystava = {
 
 settings.corpora.tiedelehdet_ilmansuojelu = {
     title : "Ilmansuojelu-lehti",
-    description : "Ilmansuojelu-lehti (2007-2015)<br/>Julkaisija: Ilmansuojeluyhdistys ry<br/>Kotisivu: <a href='https://isy.fi/julkaisut/ilmansuojelulehti/'>https://isy.fi/julkaisut/ilmansuojelulehti/</a>",
+    description : "Ilmansuojelu-lehti (2007-2015)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Ilmansuojeluyhdistys ry<br/>Kotisivu: <a href='https://isy.fi/julkaisut/ilmansuojelulehti/'>https://isy.fi/julkaisut/ilmansuojelulehti/</a>",
     id : "tiedelehdet_ilmansuojelu",
     metadata_urn : "",
     within : settings.spWithin,
@@ -4129,7 +4129,7 @@ settings.corpora.tiedelehdet_ilmansuojelu = {
 
 settings.corpora.tiedelehdet_kieliskooppi = {
     title : "Kieliskooppi",
-    description : "Kieliskooppi (2012-2013)<br/>Julkaisija: Jyväskylän yliopiston kielikampus<br/>Kotisivu:<a href='http://research.jyu.fi/kieliskooppi/journals/'>http://research.jyu.fi/kieliskooppi/journals/</a>",
+    description : "Kieliskooppi (2012-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Jyväskylän yliopiston kielikampus<br/>Kotisivu:<a href='http://research.jyu.fi/kieliskooppi/journals/'>http://research.jyu.fi/kieliskooppi/journals/</a>",
     id : "tiedelehdet_kieliskooppi",
     urn : "",
     metadata_urn : "",
@@ -4144,7 +4144,7 @@ settings.corpora.tiedelehdet_kieliskooppi = {
 
 settings.corpora.tiedelehdet_kosmopolis = {
 title : "Kosmopolis",
-    description : "Kosmopolis (2000-2013)<br/>Julkaisija: Suomen rauhantutkimusyhdistys<br/>Kotisivu: <a href='http://rauhantutkimus.fi/content/kosmopolis/'>http://rauhantutkimus.fi/content/kosmopolis/</a>",
+    description : "Kosmopolis (2000-2013)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen rauhantutkimusyhdistys<br/>Kotisivu: <a href='http://rauhantutkimus.fi/content/kosmopolis/'>http://rauhantutkimus.fi/content/kosmopolis/</a>",
     id : "tiedelehdet_kosmopolis",
     urn : "",
     metadata_urn : "",
@@ -4173,7 +4173,7 @@ title : "Kosmopolis",
 
 settings.corpora.tiedelehdet_poliittinentalous = {
     title : "Poliittinen talous",
-    description : "Poliittinen talous (1/2013-1/2014)<br/>Julkaisija: Poliittisen talouden tutkimuksen seura<br/>Kotisivu: <a href='http://poliittinentalous.fi/ojs/'>http://poliittinentalous.fi/ojs/</a>",
+    description : "Poliittinen talous (1/2013-1/2014)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Poliittisen talouden tutkimuksen seura<br/>Kotisivu: <a href='http://poliittinentalous.fi/ojs/'>http://poliittinentalous.fi/ojs/</a>",
     id : "tiedelehdet_poliittinentalous",
     urn : "",
     metadata_urn : "",
@@ -4205,7 +4205,7 @@ settings.corpora.tiedelehdet_skas = {
 
 settings.corpora.tiedelehdet_tahiti = {
     title : "TAHITI",
-    description : "TAHITI – Taidehistoria tieteenä (1/2011-4/2013)<br/>Julkaisija: Taidehistorian seura<br/>Kotisivu: <a href='http://tahiti.fi/'>http://tahiti.fi/</a>",
+    description : "TAHITI – Taidehistoria tieteenä (1/2011-4/2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Taidehistorian seura<br/>Kotisivu: <a href='http://tahiti.fi/'>http://tahiti.fi/</a>",
     id : "tiedelehdet_tahiti",
     urn : "",
     metadata_urn : "",
@@ -4238,7 +4238,7 @@ settings.corpora.tiedelehdet_vartija = {
 
 settings.corpora.tiedelehdet_yhteiskuntapolitiikka = {
     title : "Yhteiskuntapolitiikka",
-    description : "Yhteiskuntapolitiikka (1998-2013)<br/>Julkaisija: Terveyden ja hyvinvoinnin laitos<br/>Kotisivu: <a href='https://www.thl.fi/fi/web/yhteiskuntapolitiikka/'>https://www.thl.fi/fi/web/yhteiskuntapolitiikka/</a> ",
+    description : "Yhteiskuntapolitiikka (1998-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Terveyden ja hyvinvoinnin laitos<br/>Kotisivu: <a href='https://www.thl.fi/fi/web/yhteiskuntapolitiikka/'>https://www.thl.fi/fi/web/yhteiskuntapolitiikka/</a> ",
     id : "tiedelehdet_yhteiskuntapolitiikka",
     urn : "",
     metadata_urn : "",
@@ -4267,7 +4267,7 @@ settings.corpora.tiedelehdet_yhteiskuntapolitiikka = {
 
 settings.corpora.tiedelehdet_tietolinja = {
     title : "Tietolinja",
-    description : "Tietolinja (1/2000-2/2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='http://tietolinja.kansalliskirjasto.fi/'>http://tietolinja.kansalliskirjasto.fi/</a>",
+    description : "Tietolinja (1/2000-2/2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='http://tietolinja.kansalliskirjasto.fi/'>http://tietolinja.kansalliskirjasto.fi/</a>",
     id : "tiedelehdet_tietolinja",
     urn : "",
     metadata_urn : "",
@@ -4300,7 +4300,7 @@ settings.corpora.tiedelehdet_mediajaviestinta = {
 
 settings.corpora.tiedelehdet_terra = {
     title : "Terra",
-    description : "Terra (2000-2013)<br/>Julkaisija: Suomen maantieteellinen seura<br/>Kotisivu: <a href='http://www.helsinki.fi/maantiede/geofi/terra/'>http://www.helsinki.fi/maantiede/geofi/terra/</a>",
+    description : "Terra (2000-2013)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen maantieteellinen seura<br/>Kotisivu: <a href='http://www.helsinki.fi/maantiede/geofi/terra/'>http://www.helsinki.fi/maantiede/geofi/terra/</a>",
     id : "tiedelehdet_terra",
     urn : "",
     metadata_urn : "",
@@ -4330,7 +4330,7 @@ settings.corpora.tiedelehdet_terra = {
 
 settings.corpora.tiedelehdet_rakmek = {
     title : "Rakenteiden mekaniikka",
-    description : "Rakenteiden mekaniikka (2000-2014)<br/>Julkaisija: Rakenteiden mekaniikan seura<br/>Kotisivu: <a href='http://rmseura.tkk.fi/rmlehti/'>http://rmseura.tkk.fi/rmlehti/</a>",
+    description : "Rakenteiden mekaniikka (2000-2014)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Rakenteiden mekaniikan seura<br/>Kotisivu: <a href='http://rmseura.tkk.fi/rmlehti/'>http://rmseura.tkk.fi/rmlehti/</a>",
     id : "tiedelehdet_rakmek",
     urn : "",
     metadata_urn : "",
@@ -4357,7 +4357,7 @@ settings.corpora.tiedelehdet_rakmek = {
 
 settings.corpora.tiedelehdet_nimi = {
     title : "NMI-Bulletin",
-    description : "NMI-Bulletin (2002-2003, 2007-2012)<br/>Julkaisija: Niilo Mäki instituutti<br/>Kotisivu: <a href='http://bulletin.nmi.fi/arkisto/'>http://bulletin.nmi.fi/arkisto/</a>",
+    description : "NMI-Bulletin (2002-2003, 2007-2012)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Niilo Mäki instituutti<br/>Kotisivu: <a href='http://bulletin.nmi.fi/arkisto/'>http://bulletin.nmi.fi/arkisto/</a>",
     id : "tiedelehdet_nimi",
     urn : "",
     metadata_urn : "",
@@ -4380,7 +4380,7 @@ settings.corpora.tiedelehdet_nimi = {
 
 settings.corpora.tiedelehdet_prologi = {
     title : "Prologi",
-    description : "Prologi (2009-2013)<br/>Julkaisija: Prologos ry<br/>Kotisivu: <a href='http://prologos.fi/prologi/'>http://prologos.fi/prologi/</a>",
+    description : "Prologi (2009-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Prologos ry<br/>Kotisivu: <a href='http://prologos.fi/prologi/'>http://prologos.fi/prologi/</a>",
     id : "tiedelehdet_prologi",
     urn : "",
     metadata_urn : "",
@@ -4395,7 +4395,7 @@ settings.corpora.tiedelehdet_prologi = {
 
 settings.corpora.tiedelehdet_metsatiede = {
     title : "Metsätieteen aikakauskirja",
-    description : "Metsätieteen aikakauskirja (2000-2013)<br/>Julkaisija: Luonnonvarakeskus & Suomen Metsätieteellinen Seura<br/>Kotisivu: <a href='http://www.metla.fi/aikakauskirja/'>http://www.metla.fi/aikakauskirja/</a>",
+    description : "Metsätieteen aikakauskirja (2000-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Luonnonvarakeskus & Suomen Metsätieteellinen Seura<br/>Kotisivu: <a href='http://www.metla.fi/aikakauskirja/'>http://www.metla.fi/aikakauskirja/</a>",
     id : "tiedelehdet_metsatiede",
     urn : "",
     metadata_urn : "",
@@ -4418,7 +4418,7 @@ settings.corpora.tiedelehdet_metsatiede = {
 
 settings.corpora.tiedelehdet_ravitsemus = {
     title : "Ravitsemuskatsaus",
-    description : "Ravitsemuskatsaus (2007-2013)<br/>Julkaisija: Maito ja Terveys ry<br/>Kotisivu: <a href='http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php'>http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php</a>",
+    description : "Ravitsemuskatsaus (2007-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Maito ja Terveys ry<br/>Kotisivu: <a href='http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php'>http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php</a>",
     id : "tiedelehdet_ravitsemus",
     urn : "",
     metadata_urn : "",
@@ -4444,7 +4444,7 @@ settings.corpora.tiedelehdet_ravitsemus = {
 
 settings.corpora.tiedelehdet_kulutustutkimus = {
     title : "Kulutustutkimus.Nyt",
-    description : "Kulutustutkimus.Nyt (2007-2013)<br/>Julkaisija: Kulutustutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulutustutkimus.net/nyt/'>http://www.kulutustutkimus.net/nyt/</a>",
+    description : "Kulutustutkimus.Nyt (2007-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kulutustutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulutustutkimus.net/nyt/'>http://www.kulutustutkimus.net/nyt/</a>",
     id : "tiedelehdet_kulutustutkimus",
     urn : "",
     metadata_urn : "",
@@ -4470,7 +4470,7 @@ settings.corpora.tiedelehdet_kulutustutkimus = {
 
 settings.corpora.tiedelehdet_sananjalka = {
     title : "Sananjalka",
-    description : "Sananjalka (2006-2013)<br/>Julkaisija: Suomen kielen seura<br/>Kotisivu: <a href='http://www.suomenkielenseura.fi/sananjalka/'>http://www.suomenkielenseura.fi/sananjalka/</a>",
+    description : "Sananjalka (2006-2013)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen kielen seura<br/>Kotisivu: <a href='http://www.suomenkielenseura.fi/sananjalka/'>http://www.suomenkielenseura.fi/sananjalka/</a>",
     id : "tiedelehdet_sananjalka",
     urn : "",
     metadata_urn : "",
@@ -4508,7 +4508,7 @@ settings.corpora.tiedelehdet_sananjalka = {
 
 settings.corpora.tiedelehdet_kirkkohistoria = {
     title : "Suomen kirkkohistoriallisen seuran vuosikirja",
-    description : "Suomen kirkkohistoriallisen seuran vuosikirja (2000-2014)<br/>Julkaisija: Suomen kirkkohistoriallinen seura<br/>Kotisivu: <a href='http://www.skhs.fi/julkaisut/vuosikirja/'>http://www.skhs.fi/julkaisut/vuosikirja/</a>",
+    description : "Suomen kirkkohistoriallisen seuran vuosikirja (2000-2014)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen kirkkohistoriallinen seura<br/>Kotisivu: <a href='http://www.skhs.fi/julkaisut/vuosikirja/'>http://www.skhs.fi/julkaisut/vuosikirja/</a>",
     id : "tiedelehdet_kirkkohistoria",
     urn : "",
     metadata_urn : "",
@@ -4546,7 +4546,7 @@ settings.corpora.tiedelehdet_kirkkohistoria = {
 
 settings.corpora.tiedelehdet_skholion = {
     title : "Skholion",
-    description : "Skholion (2009-1/2012)<br/>Julkaisija: Suomen Bysantin tutkimuksen seura ry<br/>Kotisivu: <a href='http://www.protsv.fi/bts/BTSskholion.html'>http://www.protsv.fi/bts/BTSskholion.html</a>",
+    description : "Skholion (2009-1/2012)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen Bysantin tutkimuksen seura ry<br/>Kotisivu: <a href='http://www.protsv.fi/bts/BTSskholion.html'>http://www.protsv.fi/bts/BTSskholion.html</a>",
     id : "tiedelehdet_skholion",
     urn : "",
     metadata_urn : "",
@@ -4573,7 +4573,7 @@ settings.corpora.tiedelehdet_skholion = {
 
 settings.corpora.tiedelehdet_siirtolaisuus = {
     title : "Siirtolaisuus-Migration",
-    description : "Siirtolaisuus-Migration (2000-2013)<br/>Julkaisija: Siirtolaisuusinstituutti<br/>Kotisivu: <a href='http://www.migrationinstitute.fi/fi/julkaisut/siirtolaisuus-migration'>http://www.migrationinstitute.fi/fi/julkaisut/siirtolaisuus-migration</a>",
+    description : "Siirtolaisuus-Migration (2000-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Siirtolaisuusinstituutti<br/>Kotisivu: <a href='http://www.migrationinstitute.fi/fi/julkaisut/siirtolaisuus-migration'>http://www.migrationinstitute.fi/fi/julkaisut/siirtolaisuus-migration</a>",
     id : "tiedelehdet_siirtolaisuus",
     urn : "",
     metadata_urn : "",
@@ -4601,7 +4601,7 @@ settings.corpora.tiedelehdet_siirtolaisuus = {
 
 settings.corpora.tiedelehdet_taimiuutiset = {
     title : "Taimiuutiset",
-    description : "Taimiuutiset (2000-2013)<br/>Julkaisija: Luonnonvarakeskus Suonenjoki<br/>Kotisivu: <a href='http://www.metla.fi/taimiuutiset/'>http://www.metla.fi/taimiuutiset/</a>",
+    description : "Taimiuutiset (2000-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Luonnonvarakeskus Suonenjoki<br/>Kotisivu: <a href='http://www.metla.fi/taimiuutiset/'>http://www.metla.fi/taimiuutiset/</a>",
     id : "tiedelehdet_taimiuutiset",
     urn : "",
     metadata_urn : "",
@@ -4627,7 +4627,7 @@ settings.corpora.tiedelehdet_taimiuutiset = {
 
 settings.corpora.tiedelehdet_kulttuurintutkimus = {
     title : "Kulttuurintutkimus",
-    description : "Kulttuurintutkimus (2004-2013)<br/>Julkaisija: Kulttuurintutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulttuurintutkimus.fi/lehti/'>http://www.kulttuurintutkimus.fi/lehti/</a>",
+    description : "Kulttuurintutkimus (2004-2013)<br/>Sisältää lehden kotisivulla ja <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kulttuurintutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulttuurintutkimus.fi/lehti/'>http://www.kulttuurintutkimus.fi/lehti/</a>",
     id : "tiedelehdet_kulttuurintutkimus",
     urn : "",
     metadata_urn : "",
@@ -4664,7 +4664,7 @@ settings.corpora.tiedelehdet_kulttuurintutkimus = {
 
 settings.corpora.tiedelehdet_matkailututkimus = {
     title : "Matkailututkimus",
-    description : "Matkailututkimus (2005-2013)<br/>Julkaisija: Suomen matkailututkimuksen seura ry<br/>Kotisivu: <a href='http://matkailututkimus.org/'>http://matkailututkimus.org/</a>",
+    description : "Matkailututkimus (2005-2013)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen matkailututkimuksen seura ry<br/>Kotisivu: <a href='http://matkailututkimus.org/'>http://matkailututkimus.org/</a>",
     id : "tiedelehdet_matkailututkimus",
     urn : "",
     metadata_urn : "",
@@ -4701,7 +4701,7 @@ settings.corpora.tiedelehdet_matkailututkimus = {
 
 settings.corpora.tiedelehdet_kunnallistiede = {
     title : "Kunnallistieteellinen aikakauskirja",
-    description : "Kunnallistieteellinen aikakauskirja (2002-2012)<br/>Julkaisija: Kunnallistieteen yhdistys<br/>Kotisivu: <a href='http://www.kunnallistiede.fi/aikakauskirja/'>http://www.kunnallistiede.fi/aikakauskirja/</a>",
+    description : "Kunnallistieteellinen aikakauskirja (2002-2012)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kunnallistieteen yhdistys<br/>Kotisivu: <a href='http://www.kunnallistiede.fi/aikakauskirja/'>http://www.kunnallistiede.fi/aikakauskirja/</a>",
     id : "tiedelehdet_kunnallistiede",
     urn : "",
     metadata_urn : "",
@@ -4738,7 +4738,7 @@ settings.corpora.tiedelehdet_kunnallistiede = {
 
 settings.corpora.tiedelehdet_maaseudunuusiaika = {
     title : "Maaseudun uusi aika",
-    description : "Maaseudun uusi aika (2000-2013)<br/>Julkaisija: Maaseudun uusi aika -yhdistys<br/>Kotisivu: <a href='http://www.mua.fi/lehti/'>http://www.mua.fi/lehti/</a>",
+    description : "Maaseudun uusi aika (2000-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Maaseudun uusi aika -yhdistys<br/>Kotisivu: <a href='http://www.mua.fi/lehti/'>http://www.mua.fi/lehti/</a>",
     id : "tiedelehdet_maaseudunuusiaika",
     urn : "",
     metadata_urn : "",
@@ -4807,7 +4807,7 @@ settings.corpora.tiedelehdet_bryobrotherella = {
 
 settings.corpora.tiedelehdet_lounaishame = {
     title : "Lounais-Hämeen Luonto",
-    description : "Lounais-Hämeen Luonto (2000-2010)<br/>Julkaisija: Lounais-Hämeen Luonnonsuojeluyhdistys ry<br/>Kotisivu: <a href='http://www.lounaisluonto.net/'>http://www.lounaisluonto.net/</a>",
+    description : "Lounais-Hämeen Luonto (2000-2010)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Lounais-Hämeen Luonnonsuojeluyhdistys ry<br/>Kotisivu: <a href='http://www.lounaisluonto.net/'>http://www.lounaisluonto.net/</a>",
     id : "tiedelehdet_lounaishame",
     urn : "",
     metadata_urn : "",
@@ -4833,7 +4833,7 @@ settings.corpora.tiedelehdet_lounaishame = {
 
 settings.corpora.tiedelehdet_kompositio = {
     title : "Kompositio",
-    description : "Kompositio (2007-2013)<br/>Julkaisija: Suomen Säveltäjät ry<br/>Kotisivu: <a href='http://www.composers.fi/tietoa-yhdistyksesta/kompositio/'>http://www.composers.fi/tietoa-yhdistyksesta/kompositio/</a>",
+    description : "Kompositio (2007-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen Säveltäjät ry<br/>Kotisivu: <a href='http://www.composers.fi/tietoa-yhdistyksesta/kompositio/'>http://www.composers.fi/tietoa-yhdistyksesta/kompositio/</a>",
     id : "tiedelehdet_kompositio",
     urn : "",
     metadata_urn : "",
@@ -4859,7 +4859,7 @@ settings.corpora.tiedelehdet_kompositio = {
 
 settings.corpora.tiedelehdet_liiketalous = {
     title : "Liiketaloudellinen Aikakauskirja",
-    description : "Liiketaloudellinen Aikakauskirja (2000-2013)<br/>Julkaisija: Liiketaloustieteellinen Yhdistys ry<br/>Kotisivu: <a href='http://lta.hse.fi/'>http://lta.hse.fi/</a>",
+    description : "Liiketaloudellinen Aikakauskirja (2000-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Liiketaloustieteellinen Yhdistys ry<br/>Kotisivu: <a href='http://lta.hse.fi/'>http://lta.hse.fi/</a>",
     id : "tiedelehdet_liiketalous",
     urn : "",
     metadata_urn : "",
@@ -5266,7 +5266,7 @@ settings.corpora.tiedelehdet_aikuiskasvatus = {
 
 settings.corpora.tiedelehdet_toksikologi = {
     title : "Toksikologi-lehti",
-    description : "Toksikologi-lehti (2000-2013)<br/>Julkaisija: Suomen toksikologiyhdistys<br/>Kotisivu: <a href='http://www.toksikologit.fi/lehti.html'>http://www.toksikologit.fi/lehti.html</a>",
+    description : "Toksikologi-lehti (2000-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen toksikologiyhdistys<br/>Kotisivu: <a href='http://www.toksikologit.fi/lehti.html'>http://www.toksikologit.fi/lehti.html</a>",
     id : "tiedelehdet_toksikologi",
     urn : "",
     metadata_urn : "",
@@ -5289,7 +5289,7 @@ settings.corpora.tiedelehdet_toksikologi = {
 
 settings.corpora.tiedelehdet_walbum = {
     title : "W-album",
-    description : "W-album (2004-2013)<br/>Julkaisija: Turun Eläin- ja Kasvitieteellisen seuran Hyönteiskerho<br/>Kotisivu: <a href='http://org.utu.fi/harrastus/TEKS/w-album/'>http://org.utu.fi/harrastus/TEKS/w-album/</a>",
+    description : "W-album (2004-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Turun Eläin- ja Kasvitieteellisen seuran Hyönteiskerho<br/>Kotisivu: <a href='http://org.utu.fi/harrastus/TEKS/w-album/'>http://org.utu.fi/harrastus/TEKS/w-album/</a>",
     id : "tiedelehdet_walbum",
     urn : "",
     metadata_urn : "",
@@ -5312,7 +5312,7 @@ settings.corpora.tiedelehdet_walbum = {
 
 settings.corpora.tiedelehdet_tyoelama = {
     title : "Työelämän tutkimus",
-    description : "Työelämän tutkimus (2003-2012)<br/>Julkaisija: Työelämän tutkimusyhdistys<br/>Kotisivu: <a href='http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/'>http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/</a>",
+    description : "Työelämän tutkimus (2003-2012)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Työelämän tutkimusyhdistys<br/>Kotisivu: <a href='http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/'>http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/</a>",
     id : "tiedelehdet_tyoelama",
     urn : "",
     metadata_urn : "",
@@ -5335,7 +5335,7 @@ settings.corpora.tiedelehdet_tyoelama = {
 
 settings.corpora.tiedelehdet_ura = {
     title : "Ura/Valtiotieteilijä",
-    description : "Valtiotieteilijä (2009-2011), Ura (2012-2013)<br/>Julkaisija: Yhteiskunta-alan korkeakoulutetut ry<br/>Kotisivu: <a href='http://uralehti.fi/arkisto/'>http://uralehti.fi/arkisto/</a>",
+    description : "Valtiotieteilijä (2009-2011), Ura (2012-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Yhteiskunta-alan korkeakoulutetut ry<br/>Kotisivu: <a href='http://uralehti.fi/arkisto/'>http://uralehti.fi/arkisto/</a>",
     id : "tiedelehdet_ura",
     urn : "",
     metadata_urn : "",
@@ -5376,7 +5376,7 @@ settings.corpora.tiedelehdet_virittaja = {
 
 settings.corpora.tiedelehdet_virittaja = {
     title : "Virittäjä",
-    description : "Virittäjä (3/2006-4/2013)<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
+    description : "Virittäjä (3/2006-4/2013)<br/>Sisältää lehden kotisivulla ja <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
     id : "tiedelehdet_virittaja",
     urn : "",
     metadata_urn : "",
@@ -5405,7 +5405,7 @@ settings.corpora.tiedelehdet_virittaja = {
 
 settings.corpora.tiedelehdet_ymparistohistoria = {
     title : "Ympäristöhistoria",
-    description : "Ympäristöhistoria (2011-2013)<br/>Julkaisija: <br/>Kotisivu: <a href='http://www.uta.fi/yky/tutkimus/historia/projektit/iehg/Ymparistohistoria/12011.html'>http://www.uta.fi/yky/tutkimus/historia/projektit/iehg/Ymparistohistoria/12011.html</a>",
+    description : "Ympäristöhistoria (2011-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: <br/>Kotisivu: <a href='http://www.uta.fi/yky/tutkimus/historia/projektit/iehg/Ymparistohistoria/12011.html'>http://www.uta.fi/yky/tutkimus/historia/projektit/iehg/Ymparistohistoria/12011.html</a>",
     id : "tiedelehdet_ymparistohistoria",
     urn : "",
     metadata_urn : "",
@@ -5432,7 +5432,7 @@ settings.corpora.tiedelehdet_ymparistohistoria = {
 
 settings.corpora.tiedelehdet_trio = {
     title : "Trio",
-    description : "Trio (2012-2014)<br/>Julkaisija: Sibelius Akatemia (DocMus)<br/>Kotisivu: <a href='http://www5.siba.fi/services-for-all/publications/printed-publications/periodicals'>http://www5.siba.fi/services-for-all/publications/printed-publications/periodicals</a>",
+    description : "Trio (2012-2014)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Sibelius Akatemia (DocMus)<br/>Kotisivu: <a href='http://www5.siba.fi/services-for-all/publications/printed-publications/periodicals'>http://www5.siba.fi/services-for-all/publications/printed-publications/periodicals</a>",
     id : "tiedelehdet_trio",
     urn : "",
     metadata_urn : "",
@@ -5458,7 +5458,7 @@ settings.corpora.tiedelehdet_trio = {
 
 settings.corpora.tiedelehdet_transmitteri = {
     title : "Transmitteri",
-    description : "Transmitteri (2000-2013)<br/>Julkaisija: Suomen farmakologiyhdistys<br/>Kotisivu: <a href='http://www.sfy.fi/transmitteri.html'>http://www.sfy.fi/transmitteri.html</a>",
+    description : "Transmitteri (2000-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen farmakologiyhdistys<br/>Kotisivu: <a href='http://www.sfy.fi/transmitteri.html'>http://www.sfy.fi/transmitteri.html</a>",
     id : "tiedelehdet_transmitteri",
     urn : "",
     metadata_urn : "",
@@ -5482,7 +5482,7 @@ settings.corpora.tiedelehdet_transmitteri = {
 
 settings.corpora.tiedelehdet_thanatos = {
     title : "Thanatos",
-    description : "Thanatos (2012-2013)<br/>Julkaisija: Suomalaisen Kuolemantutkimuksen Seura ry<br/>Kotisivu: <a href='http://thanatos-journal.com/'>http://thanatos-journal.com/</a>",
+    description : "Thanatos (2012-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomalaisen Kuolemantutkimuksen Seura ry<br/>Kotisivu: <a href='http://thanatos-journal.com/'>http://thanatos-journal.com/</a>",
     id : "tiedelehdet_thanatos",
     urn : "",
     metadata_urn : "",
@@ -5615,7 +5615,7 @@ settings.corpora.tiedelehdet_aidinkieli = {
 
 settings.corpora.tiedelehdet_kognitiivinen = {
     title : "Kognitiivinen psykoterapia",
-    description : "Kognitiivinen psykoterapia (2004-2013)<br/>Julkaisija: Kognitiivisen psykoterapian yhdistys<br/>Kotisivu: <a href='http://www.kognitiivinenpsykoterapia.fi/'>http://www.kognitiivinenpsykoterapia.fi/</a>",
+    description : "Kognitiivinen psykoterapia (2004-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kognitiivisen psykoterapian yhdistys<br/>Kotisivu: <a href='http://www.kognitiivinenpsykoterapia.fi/'>http://www.kognitiivinenpsykoterapia.fi/</a>",
     id : "tiedelehdet_kognitiivinen",
     urn : "",
     metadata_urn : "",
