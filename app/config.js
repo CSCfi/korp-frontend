@@ -7844,7 +7844,7 @@ settings.corpora.lehdet_pirkkalainen = {
 settings.corpora.lehdet_pointti = {
     id: "lehdet_pointti",
     title: "Pointti",
-    description: "Pointti (2000-2013)<br/>Julkaisija: Porin ylioppilasyhdistys Pointer ry<br/>Kotisivu: <a href='https://porinylioppilaslehti.com/info/'>https://porinylioppilaslehti.com/info/</a>",
+    description: "Pointti (2011-1/2015)<br/>Julkaisija: Porin ylioppilasyhdistys Pointer ry<br/>Kotisivu: <a href='https://porinylioppilaslehti.com/info/'>https://porinylioppilaslehti.com/info/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
