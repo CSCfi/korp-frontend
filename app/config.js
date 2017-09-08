@@ -2522,13 +2522,13 @@ settings.corporafolders.lehdet.tiedelehdet = {
 	"tiedelehdet_glossae",
 	"tiedelehdet_harukaze",
 	"tiedelehdet_havina",
-	"tiedelehdet_hykirjasto",
 	"tiedelehdet_hiidenkivi",
 	"tiedelehdet_historiallinen",
 	"tiedelehdet_historianystava",
 	"tiedelehdet_idantutkimus",
 	"tiedelehdet_ilmansuojelu",
 	"tiedelehdet_informaatio",
+	"tiedelehdet_hykirjasto",
 	"tiedelehdet_kasvu",
 	"tiedelehdet_kieliskooppi",
 	"tiedelehdet_kliinlab",
@@ -2538,8 +2538,8 @@ settings.corporafolders.lehdet.tiedelehdet = {
 	"tiedelehdet_kulttuurintutkimus",
 	"tiedelehdet_kulutustutkimus",
 	"tiedelehdet_kunnallistiede",
-	"tiedelehdet_liiketalous",
 	"tiedelehdet_liikenteensuunta",
+	"tiedelehdet_liiketalous",
 	"tiedelehdet_liikuntajatiede",
 	"tiedelehdet_lounaishame",
 	"tiedelehdet_maaseudunuusiaika",
@@ -3560,7 +3560,7 @@ settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
 
 settings.corpora.tiedelehdet_hiidenkivi = {
     title : "Hiidenkivi",
-    description : "Hiidenkivi (2009-2012)<br/>Julkaisijat: Kotimaisten kielten keskus, Suomalaisen Kirjallisuuden Seura, Suomen Kotiseutuliitto<br/>Kotisivu: <a href='http://www.hiidenkivi-lehti.fi/'>http://www.hiidenkivi-lehti.fi/</a>",
+    description : "Hiidenkivi (2009-2012)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisijat: Kotimaisten kielten keskus, Suomalaisen Kirjallisuuden Seura, Suomen Kotiseutuliitto<br/>Kotisivu: <a href='http://www.hiidenkivi-lehti.fi/'>http://www.hiidenkivi-lehti.fi/</a>",
     id : "tiedelehdet_hiidenkivi",
     urn : "",
     metadata_urn : "",
@@ -4103,7 +4103,7 @@ settings.corpora.tiedelehdet_ennenjanyt = {
 
 settings.corpora.tiedelehdet_historianystava = {
     title : "Historian ystävä",
-    description : "Historian ystävä (2010-1/2016)<br/>Julkaisija: Historian Ystäväin Liitto<br/>Kotisivu: <a href='http://www.historianyst.fi/historianystava/'>http://www.historianyst.fi/historianystava/</a>",
+    description : "Historian ystävä (2010-1/2016)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Historian Ystäväin Liitto<br/>Kotisivu: <a href='http://www.historianyst.fi/historianystava/'>http://www.historianyst.fi/historianystava/</a>",
     id : "tiedelehdet_historianystava",
     metadata_urn : "",
     within : settings.spWithin,
@@ -5014,7 +5014,7 @@ settings.corpora.tiedelehdet_ruralia = {
 
 settings.corpora.tiedelehdet_historiallinen = {
     title : "Historiallinen Aikakauskirja",
-    description : "Historiallinen Aikakauskirja (2001-2013)<br/>Julkaisija: Suomen Historiallinen Seura & Historian Ystäväin Liitto<br/>Kotisivu: <a href='http://www.historiallinenaikakauskirja.fi/'>http://www.historiallinenaikakauskirja.fi/</a>",
+    description : "Historiallinen Aikakauskirja (2001-2013)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen Historiallinen Seura & Historian Ystäväin Liitto<br/>Kotisivu: <a href='http://www.historiallinenaikakauskirja.fi/'>http://www.historiallinenaikakauskirja.fi/</a>",
     id : "tiedelehdet_historiallinen",
     urn : "",
     metadata_urn : "",
@@ -5051,7 +5051,7 @@ settings.corpora.tiedelehdet_historiallinen = {
 
 settings.corpora.tiedelehdet_havina = {
     title : "Havina",
-    description : "Havina (2009-2013)<br/>Julkaisija: Oulun yliopisto, Historiatieteet</br>Kotisivu: <a href='http://www.havina.net/'>http://www.havina.net/</a>",
+    description : "Havina (2009-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Oulun yliopisto, Historiatieteet</br>Kotisivu: <a href='http://www.havina.net/'>http://www.havina.net/</a>",
     id : "tiedelehdet_havina",
     urn : "",
     metadata_urn : "",
@@ -5079,7 +5079,7 @@ settings.corpora.tiedelehdet_havina = {
 
 settings.corpora.tiedelehdet_harukaze = {
     title : "Harukaze",
-    description : "Harukaze (2000-2013)<br/>Julkaisija: Japani-opinnot, Oulun yliopisto, Oulu<br/>Kotisivu: <a href='http://www.oulu.fi/Harukaze/'>http://www.oulu.fi/Harukaze/</a>",
+    description : "Harukaze (2000-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Japani-opinnot, Oulun yliopisto, Oulu<br/>Kotisivu: <a href='http://www.oulu.fi/Harukaze/'>http://www.oulu.fi/Harukaze/</a>",
     id : "tiedelehdet_harukaze",
     urn : "",
     metadata_urn : "",
@@ -5107,7 +5107,7 @@ settings.corpora.tiedelehdet_harukaze = {
 
 settings.corpora.tiedelehdet_glossae = {
     title : "Glossae",
-    description : "Glossae (2000-2012)<br/>Julkaisija: Keskiajan opinto- ja tutkimusyhdistys<br/>Kotisivu: <a href='http://www.glossa.fi/glossae/arkisto.php'>http://www.glossa.fi/glossae/arkisto.php</a>",
+    description : "Glossae (2000-2012)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Keskiajan opinto- ja tutkimusyhdistys<br/>Kotisivu: <a href='http://www.glossa.fi/glossae/arkisto.php'>http://www.glossa.fi/glossae/arkisto.php</a>",
     id : "tiedelehdet_glossae",
     urn : "",
     metadata_urn : "",
@@ -9750,7 +9750,7 @@ settings.corpora.lehdet_patria = {
 settings.corpora.lehdet_perussuomalainen = {
     id: "lehdet_perussuomalainen",
     title: "Perussuomalainen",
-    description: "Perussuomalainen (7/2013-10/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Perussuomalainen_7_2013_-_10_2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Perussuomalaiset rp<br/>Kotisivu: <a href='https://www.suomenuutiset.fi/lehtiarkisto/'>https://www.suomenuutiset.fi/lehtiarkisto/</a>",
+    description: "Perussuomalainen (2004-10/2016)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotMuitaLehtia/Perussuomalainen_2004_-_10_2016_-aineistosta_puuttuvat_numerot.txt'>Luettelo puuttuvista numeroista</a><br/>Julkaisija: Perussuomalaiset rp<br/>Kotisivu: <a href='https://www.suomenuutiset.fi/lehtiarkisto/'>https://www.suomenuutiset.fi/lehtiarkisto/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
