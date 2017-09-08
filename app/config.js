@@ -5900,7 +5900,7 @@ settings.corpus_aliases.muut_lehdet = "lehdet_.*";
 
 settings.corpora.lehdet_selkosanomat = {
     title : "Selkosanomat/Selkouutiset",
-    description : "Selkouutiset (25/2006-2011), Selkosanomat (2012-2013)<br/>Sisältää lehden kotisivuilla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Selkokeskus / Kehitysvammaliitto<br/>Kotisivu: <a href='http://selkosanomat.fi/'>http://selkosanomat.fi/</a>",
+    description : "Selkouutiset (25/2006-2011), Selkosanomat (2012-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Selkokeskus / Kehitysvammaliitto<br/>Kotisivu: <a href='http://selkosanomat.fi/'>http://selkosanomat.fi/</a>",
     id : "lehdet_selkosanomat",
     urn : "",
     metadata_urn : "",
@@ -5917,7 +5917,7 @@ settings.corpora.lehdet_selkosanomat = {
 
 settings.corpora.lehdet_leija = {
     title : "Leija",
-    description : "Leija (2009-3/2016)<br/>Sisältää lehden kotisivuilla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kehitysvammaisen tukiliitto ry<br/>Kotisivu: <a href='http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/'>http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/</a>",
+    description : "Leija (2009-3/2016)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kehitysvammaisen tukiliitto ry<br/>Kotisivu: <a href='http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/'>http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/</a>",
     id : "lehdet_leija",
     urn : "",
     metadata_urn : "",
@@ -6009,7 +6009,7 @@ settings.corpora.lehdet_toisinsanoen = {
 
 settings.corpora.lehdet_koskinen = {
     title : "Verkkolehti Koskinen",
-    description : "Verkkolehti Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996–2013)<br/>Sisältää lehden kotisivuilla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kymenlaakson ammattikorkeakoulu<br/>Kotisivu: <a href='http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/'>http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/</a>",
+    description : "Verkkolehti Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996–2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kymenlaakson ammattikorkeakoulu<br/>Kotisivu: <a href='http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/'>http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/</a>",
     id : "lehdet_koskinen",
     urn : "",
     metadata_urn : "",
@@ -6156,7 +6156,7 @@ settings.corpora.lehdet_amnesty = {
 settings.corpora.lehdet_ananda = {
     id: "lehdet_ananda",
     title: "Ananda",
-    description: "Ananda (2005-1/2016)<br/>Sisältää lehden kotisivuilla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Ananda-lehti/Trax Oy<br/>Kotisivu: <a href='http://www.anandalehti.fi/'>http://www.anandalehti.fi/</a>",
+    description: "Ananda (2005-1/2016)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Ananda-lehti/Trax Oy<br/>Kotisivu: <a href='http://www.anandalehti.fi/'>http://www.anandalehti.fi/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6230,7 +6230,7 @@ settings.corpora.lehdet_antimilitaristi_sivari = {
 settings.corpora.lehdet_apaja = {
     id: "lehdet_apaja",
     title: "Apaja",
-    description: "Apaja (2006-1/2011)<br/>Sisältää lehden kotisivuilla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Riista- ja kalatalouden tutkimuslaitos<br/>Kotisivu: <a href='http://www.rktl.fi/julkaisut/p/apaja/'>http://www.rktl.fi/julkaisut/p/apaja/</a>",
+    description: "Apaja (2006-1/2011)<br/>Sisältää lehden kotisivulla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Riista- ja kalatalouden tutkimuslaitos<br/>Kotisivu: <a href='http://www.rktl.fi/julkaisut/p/apaja/'>http://www.rktl.fi/julkaisut/p/apaja/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6293,7 +6293,7 @@ settings.corpora.lehdet_aromi = {
 settings.corpora.lehdet_asukas = {
     id: "lehdet_asukas",
     title: "Asukas",
-    description: "Asukas - Asiakaslehti VVO:n Asukkaille (2006-2014)<br/>Sisältää lehden kotisivuilla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: VVO-yhtymä Oyj<br/>Kotisivu: <a href='https://asukas.vvo.fi/kodikaslehti/'>https://asukas.vvo.fi/kodikaslehti/</a>",
+    description: "Asukas - Asiakaslehti VVO:n Asukkaille (2006-2014)<br/>Sisältää lehden kotisivulla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: VVO-yhtymä Oyj<br/>Kotisivu: <a href='https://asukas.vvo.fi/kodikaslehti/'>https://asukas.vvo.fi/kodikaslehti/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6314,7 +6314,7 @@ settings.corpora.lehdet_asukas = {
 settings.corpora.lehdet_asuminen_yhteiskunta = {
     id: "lehdet_asuminen_yhteiskunta",
     title: "Asuminen ja Yhteiskunta",
-    description: "Asuminen ja Yhteiskunta (2011-1/2016)<br/>Sisältää lehden kotisivuilla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Asukasliitto ry<br/>Kotisivu: <a href='http://www.asukasliitto.fi/ajankohtaista/asuminen_ja_yhteiskunta_lehti/'>http://www.asukasliitto.fi/ajankohtaista/asuminen_ja_yhteiskunta_lehti/</a>",
+    description: "Asuminen ja Yhteiskunta (2011-1/2016)<br/>Sisältää lehden kotisivulla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Asukasliitto ry<br/>Kotisivu: <a href='http://www.asukasliitto.fi/ajankohtaista/asuminen_ja_yhteiskunta_lehti/'>http://www.asukasliitto.fi/ajankohtaista/asuminen_ja_yhteiskunta_lehti/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6441,7 +6441,7 @@ settings.corpora["lehdet_avec_perhelehti"] = {
 settings.corpora.lehdet_asukki = {
     id: "lehdet_asukki",
     title: "Asukki",
-    description: "Asukki (4/2006 - 2-3/2015)<br/>Sisältää lehden kotisivuilla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Vailla vakinaista asuntoa ry<br/>Kotisivu: <a href='http://vvary.fi/haluatko-auttaa/tilaa-asukki/'>http://vvary.fi/haluatko-auttaa/tilaa-asukki/</a>",
+    description: "Asukki (4/2006 - 2-3/2015)<br/>Sisältää lehden kotisivulla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Vailla vakinaista asuntoa ry<br/>Kotisivu: <a href='http://vvary.fi/haluatko-auttaa/tilaa-asukki/'>http://vvary.fi/haluatko-auttaa/tilaa-asukki/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6653,7 +6653,7 @@ settings.corpora.lehdet_espanjan_sanomat = {
 settings.corpora.lehdet_espoo = {
     id: "lehdet_espoo",
     title: "Espoo Esbo",
-    description: "Espoo Esbo -lehti (2012-3/2016)<br/>Sisältää lehden kotisivuilla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Espoon kaupunki<br/>Kotisivu: <a href='http://www.espoo.fi/fi-FI/Espoon_kaupunki/Ajankohtaista/Espoo_Esbo_lehti%285630%29'>http://www.espoo.fi/fi-FI/Espoon_kaupunki/Ajankohtaista/Espoo_Esbo_lehti%285630%29</a>",
+    description: "Espoo Esbo -lehti (2012-3/2016)<br/>Sisältää lehden kotisivulla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Espoon kaupunki<br/>Kotisivu: <a href='http://www.espoo.fi/fi-FI/Espoon_kaupunki/Ajankohtaista/Espoo_Esbo_lehti%285630%29'>http://www.espoo.fi/fi-FI/Espoon_kaupunki/Ajankohtaista/Espoo_Esbo_lehti%285630%29</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6866,7 +6866,7 @@ settings.corpora.lehdet_hallaus = {
 settings.corpora.lehdet_helen = {
     id: "lehdet_helen",
     title: "Helen",
-    description: "Helen-lehti (2010-1/2015)<br/>Sisältää lehden kotisivuilla 2016 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Helen Oy<br/>Kotisivu: <a href='https://www.helen.fi/helen-oy/ajankohtaista/helen-lehti/'>https://www.helen.fi/helen-oy/ajankohtaista/helen-lehti/</a>",
+    description: "Helen-lehti (2010-1/2015)<br/>Sisältää lehden kotisivulla 2016 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Helen Oy<br/>Kotisivu: <a href='https://www.helen.fi/helen-oy/ajankohtaista/helen-lehti/'>https://www.helen.fi/helen-oy/ajankohtaista/helen-lehti/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -6973,7 +6973,7 @@ settings.corpora.lehdet_helsinginhenki = {
 settings.corpora.lehdet_hengitys = {
     id: "lehdet_hengitys",
     title: "Hengitys",
-    description: "Hengitys (2/2012 - 2-3/2016)<br/>Sisältää lehden kotisivuilla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Hengitysliitto<br/>Kotisivu: <a href='http://www.hengitysliitto.fi/Julkaisut/Hengitys-lehti/#'>http://www.hengitysliitto.fi/Julkaisut/Hengitys-lehti/#</a>",
+    description: "Hengitys (2/2012 - 2-3/2016)<br/>Sisältää lehden kotisivulla 2016 syksyllä ladattavissa olevat artikkelit.<br/>Julkaisija: Hengitysliitto<br/>Kotisivu: <a href='http://www.hengitysliitto.fi/Julkaisut/Hengitys-lehti/#'>http://www.hengitysliitto.fi/Julkaisut/Hengitys-lehti/#</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -10102,7 +10102,7 @@ settings.corpora.lehdet_suomi_puola = {
 settings.corpora.lehdet_susikko = {
     id: "lehdet_susikko",
     title: "Susikko",
-    description: "Susikko (2010-2/2016)<br/>Sisältää lehden kotisivuilla 2016 keväällä ladattavissa olevat artikkelit<br/>Julkaisija: Metsähistorian Seura ry<br/>Kotisivu: <a href='http://www.metsahistoria.fi/fi/julkaisut/susikko'>http://www.metsahistoria.fi/fi/julkaisut/susikko</a>",
+    description: "Susikko (2010-2/2016)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit<br/>Julkaisija: Metsähistorian Seura ry<br/>Kotisivu: <a href='http://www.metsahistoria.fi/fi/julkaisut/susikko'>http://www.metsahistoria.fi/fi/julkaisut/susikko</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -10268,7 +10268,7 @@ settings.corpora.lehdet_tanssiurheilija = {
 settings.corpora.lehdet_elamantahdet_terve = {
     id: "lehdet_elamantahdet_terve",
     title: "Elämän tähdet/Terve",
-    description: "Terve (2005-1/2011), Elämän tähdet (2011-2/2016)<br/>Sisältää lehden kotisivuilla 2016 syksyllä ladattavissa olevat artikkelit<br/>Julkaisija: Pirkanmaan sairaanhoitopiiri<br/>Kotisivu: <a href='http://www.tays.fi/fi-FI/Sairaanhoitopiiri/Sairaanhoitopiirin_julkaisut/Elaman_tahdet'>http://www.tays.fi/fi-FI/Sairaanhoitopiiri/Sairaanhoitopiirin_julkaisut/Elaman_tahdet</a>",
+    description: "Terve (2005-1/2011), Elämän tähdet (2011-2/2016)<br/>Sisältää lehden kotisivulla 2016 syksyllä ladattavissa olevat artikkelit<br/>Julkaisija: Pirkanmaan sairaanhoitopiiri<br/>Kotisivu: <a href='http://www.tays.fi/fi-FI/Sairaanhoitopiiri/Sairaanhoitopiirin_julkaisut/Elaman_tahdet'>http://www.tays.fi/fi-FI/Sairaanhoitopiiri/Sairaanhoitopiirin_julkaisut/Elaman_tahdet</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
