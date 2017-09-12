@@ -2528,6 +2528,7 @@ settings.corporafolders.lehdet.tiedelehdet = {
 	"tiedelehdet_idantutkimus",
 	"tiedelehdet_ilmansuojelu",
 	"tiedelehdet_informaatio",
+	"tiedelehdet_janus",
 	"tiedelehdet_hykirjasto",
 	"tiedelehdet_kasvu",
 	"tiedelehdet_kieliskooppi",
@@ -2538,6 +2539,7 @@ settings.corporafolders.lehdet.tiedelehdet = {
 	"tiedelehdet_kulttuurintutkimus",
 	"tiedelehdet_kulutustutkimus",
 	"tiedelehdet_kunnallistiede",
+	"tiedelehdet_kuntoutus",
 	"tiedelehdet_liikenteensuunta",
 	"tiedelehdet_liiketalous",
 	"tiedelehdet_liikuntajatiede",
@@ -2587,6 +2589,7 @@ settings.corporafolders.lehdet.tiedelehdet = {
 	"tiedelehdet_tutkivasos",
 	"tiedelehdet_tyoelama",
 	"tiedelehdet_ura",
+	"tiedelehdet_uskonnontutkija",
 	"tiedelehdet_walbum",
 	"tiedelehdet_vartija",
 	"tiedelehdet_versus",
@@ -2715,7 +2718,6 @@ settings.corporafolders.lehdet.muut_lehdet.ij = {
 	"lehdet_infors",
 	"lehdet_infront",
 	"lehdet_jane_paulo",
-	"lehdet_janus",
 	"lehdet_jargonia",
 	"lehdet_joensuun_uutiset",
 	"lehdet_julkaisija",
@@ -2756,7 +2758,6 @@ settings.corporafolders.lehdet.muut_lehdet.k = {
 	"lehdet_kumina",
 	"lehdet_kumposti",
 	"lehdet_kunnallissuomi",
-	"lehdet_kuntoutus",
 	"lehdet_kuuloset",
 	"lehdet_kuuloviesti",
 	"lehdet_kynnys",
@@ -2942,7 +2943,6 @@ settings.corporafolders.lehdet.muut_lehdet.u = {
 	"lehdet_unioni",
 	"lehdet_universitas",
 	"lehdet_universitaschydenius",
-	"lehdet_uskonnontutkija",
 	"lehdet_utain",
 	"lehdet_uusiouutiset",
 	"lehdet_uusipaiva",
@@ -11327,8 +11327,8 @@ settings.corpora.lehdet_universitaschydenius = {
     },
 };
 
-settings.corpora.lehdet_uskonnontutkija = {
-    id: "lehdet_uskonnontutkija",
+settings.corpora.tiedelehdet_uskonnontutkija = {
+    id: "tiedelehdet_uskonnontutkija",
     title: "Uskonnontutkija",
     description: "Uskonnontutkija (2006, 2/2007, 2012-2016)<br/>Julkaisija: Suomen Uskontotieteellinen Seura<br/>Kotisivu: <a href='http://uskonnontutkija.fi/arkisto/'>http://uskonnontutkija.fi/arkisto/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
@@ -11442,8 +11442,8 @@ settings.corpora.lehdet_husari = {
     },
 };
 
-settings.corpora.lehdet_janus = {
-    id: "lehdet_janus",
+settings.corpora.tiedelehdet_janus = {
+    id: "tiedelehdet_janus",
     title: "Janus",
     description: "Janus (2004-1/2017)<br/>Julkaisija: Sosiaalipoliittinen yhdistys ja Sosiaalityön tutkimuksen seura<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/janus/issue/archive?issuesPage=1#issues'>http://ojs.tsv.fi/index.php/janus/issue/archive?issuesPage=1#issues</a>",
     urn: "urn:nbn:fi:lb-2016021202",
@@ -11607,8 +11607,8 @@ settings.corpora.lehdet_avh = {
     },
 };
 
-settings.corpora.lehdet_kuntoutus = {
-    id: "lehdet_kuntoutus",
+settings.corpora.tiedelehdet_kuntoutus = {
+    id: "tiedelehdet_kuntoutus",
     title: "Kuntoutus",
     description: "Kuntoutus (2011-2012)<br/>Julkaisija: Kuntoutussäätiö<br/>Kotisivu: <a href='https://issuu.com/search?q=kuntoutus-lehti'>https://issuu.com/search?q=kuntoutus-lehti</a>",
     urn: "urn:nbn:fi:lb-2016021202",
