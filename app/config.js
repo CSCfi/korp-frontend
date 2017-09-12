@@ -5239,7 +5239,7 @@ settings.corpora.tiedelehdet_auraica = {
 
 settings.corpora.tiedelehdet_aikuiskasvatus = {
     title : "Aikuiskasvatus",
-    description : "Aikuiskasvatus (2011–2014)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotTiedelehtia/Aikuiskasvatus_artikkeliluettelo.pdf'>Artikkeliluettelo</a><br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura<br/>Kotisivu: <a href='http://www.doria.fi/handle/10024/7300'>http://www.doria.fi/handle/10024/7300</a>",
+    description : "Aikuiskasvatus (2011–2014)<br/><a href='https://www.kielipankki.fi/wp-content/uploads/Aikuiskasvatus_artikkeliluettelo.pdf'>Artikkeliluettelo</a><br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura<br/>Kotisivu: <a href='http://www.doria.fi/handle/10024/7300'>http://www.doria.fi/handle/10024/7300</a>",
     id : "tiedelehdet_aikuiskasvatus",
     urn : "",
     metadata_urn : "",
@@ -5847,7 +5847,7 @@ settings.corpora.tiedelehdet_sydanaani = {
 settings.corpora.tiedelehdet_ammattikasvatuksen_aikakauskirja = {
     id: "tiedelehdet_ammattikasvatuksen_aikakauskirja",
     title: "Ammattikasvatuksen aikakauskirja",
-    description: "Ammattikasvatuksen aikakauskirja (2006-2016)<br/>Julkaisija: Ammatillisen koulutuksen tutkimusseura OTTU ry<br/>Kotisivu: <a href='https://akakk.fi/arkisto/'>https://akakk.fi/arkisto/</a>",
+    description: "Ammattikasvatuksen aikakauskirja (2006-2016)<br/>Sisältää lehden kotisivulla 2017 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Ammatillisen koulutuksen tutkimusseura OTTU ry<br/>Kotisivu: <a href='https://akakk.fi/arkisto/'>https://akakk.fi/arkisto/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -5871,7 +5871,7 @@ settings.corpora.tiedelehdet_ammattikasvatuksen_aikakauskirja = {
 settings.corpora.tiedelehdet_apollon = {
     id: "tiedelehdet_apollon",
     title: "Apollon",
-    description: "Apollon (2012-2013)<br/>Julkaisija: Iltakoulu ry<br/>Kotisivu: <a href='http://iltakoulu.org/julkaisut/apollon/'>http://iltakoulu.org/julkaisut/apollon/</a>",
+    description: "Apollon (2012-2013)<br/>Sisältää lehden kotisivulla 2017 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Iltakoulu ry<br/>Kotisivu: <a href='http://iltakoulu.org/julkaisut/apollon/'>http://iltakoulu.org/julkaisut/apollon/</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -11445,7 +11445,7 @@ settings.corpora.lehdet_husari = {
 settings.corpora.tiedelehdet_janus = {
     id: "tiedelehdet_janus",
     title: "Janus",
-    description: "Janus (2004-1/2017)<br/>Julkaisija: Sosiaalipoliittinen yhdistys ja Sosiaalityön tutkimuksen seura<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/janus/issue/archive?issuesPage=1#issues'>http://ojs.tsv.fi/index.php/janus/issue/archive?issuesPage=1#issues</a>",
+    description: "Janus (2004-1/2017)<br/>Sisältää lehden kotisivulla 2017 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Sosiaalipoliittinen yhdistys ja Sosiaalityön tutkimuksen seura<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/janus/issue/archive?issuesPage=1#issues'>http://ojs.tsv.fi/index.php/janus/issue/archive?issuesPage=1#issues</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -11491,7 +11491,7 @@ settings.corpora.lehdet_kuuloviesti = {
 settings.corpora.lehdet_mirator = {
     id: "lehdet_mirator",
     title: "Mirator",
-    description: "Mirator (2000-1/2016)<br/>Julkaisija: Mirator c/o Glossa ry<br/>Kotisivu: <a href='http://www.glossa.fi/mirator/index_fi.html'>http://www.glossa.fi/mirator/index_fi.html</a>",
+    description: "Mirator (2000-1/2016)<br/>Sisältää lehden kotisivulla 2017 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Mirator c/o Glossa ry<br/>Kotisivu: <a href='http://www.glossa.fi/mirator/index_fi.html'>http://www.glossa.fi/mirator/index_fi.html</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -11681,7 +11681,7 @@ settings.corpora.lehdet_ronsy = {
 settings.corpora.lehdet_signum = {
     id: "lehdet_signum",
     title: "Signum",
-    description: "Signum (2005-1/2017)<br/>Julkaisija: Suomen Tieteellisen Kirjastoseura<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/signum/issue/archive'>http://ojs.tsv.fi/index.php/signum/issue/archive</a>",
+    description: "Signum (2005-1/2017)<br/>Sisältää lehden kotisivulla 2017 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen Tieteellisen Kirjastoseura<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/signum/issue/archive'>http://ojs.tsv.fi/index.php/signum/issue/archive</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -11823,7 +11823,7 @@ settings.corpora.lehdet_virilactis = {
 settings.corpora.lehdet_arkkitehtiuutiset = {
     id: "lehdet_arkkitehtiuutiset",
     title: "Arkkitehtiuutiset",
-    description: "Arkkitehtiuutiset (2010-4/2017)<br/>Julkaisija: Suomen Arkkitehtiliitto ry SAFA<br/>Kotisivu: <a href='http://www.safa.fi/fin/julkaisut/arkkitehtiuutiset_au/nbspnbsparkisto'>http://www.safa.fi/fin/julkaisut/arkkitehtiuutiset_au/nbspnbsparkisto</a>",
+    description: "Arkkitehtiuutiset (2010-4/2017)<br/>Sisältää lehden kotisivulla 2017 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen Arkkitehtiliitto ry SAFA<br/>Kotisivu: <a href='http://www.safa.fi/fin/julkaisut/arkkitehtiuutiset_au/nbspnbsparkisto'>http://www.safa.fi/fin/julkaisut/arkkitehtiuutiset_au/nbspnbsparkisto</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -12056,7 +12056,7 @@ settings.corpora.lehdet_tapaturmavakuutus = {
 settings.corpora.lehdet_tapiolan_asiakaslehti = {
     id: "lehdet_tapiolan_asiakaslehti",
     title: "Tapiolan lähiseudun asiakaslehti",
-    description: "Tapiolan lähiseudun asiakaslehti (2005-5/2017)<br/>Julkaisija: Oy Quality International QI Ltd Ab<br/>Kotisivu: <a href='http://www.tapiolan.com/lehti.html'>http://www.tapiolan.com/lehti.html</a>",
+    description: "Tapiolan lähiseudun asiakaslehti (2005-5/2017)<br/>Sisältää lehden kotisivulla 2017 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Oy Quality International QI Ltd Ab<br/>Kotisivu: <a href='http://www.tapiolan.com/lehti.html'>http://www.tapiolan.com/lehti.html</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
@@ -12080,7 +12080,7 @@ settings.corpora.lehdet_tapiolan_asiakaslehti = {
 settings.corpora.lehdet_terve_elama = {
     id: "lehdet_terve_elama",
     title: "Terve elämä",
-    description: "Terve elämä (2006-2009)<br/>Julkaisija: Juho Vainion Säätiö<br/>Kotisivu: <a href='http://www.juhovainionsaatio.fi/pages/suomeksi/terve-elaemae/artikkelit.php?p=10'>http://www.juhovainionsaatio.fi/pages/suomeksi/terve-elaemae/artikkelit.php?p=10</a>",
+    description: "Terve elämä (2006-2009)<br/>Sisältää lehden kotisivulla 2017 kesällä ladattavissa olevat artikkelit.<br/>Julkaisija: Juho Vainion Säätiö<br/>Kotisivu: <a href='http://www.juhovainionsaatio.fi/pages/suomeksi/terve-elaemae/artikkelit.php?p=10'>http://www.juhovainionsaatio.fi/pages/suomeksi/terve-elaemae/artikkelit.php?p=10</a>",
     urn: "urn:nbn:fi:lb-2016021202",
     metadata_urn: "urn:nbn:fi:lb-2016011101",
     licence: settings.licenceinfo.CC_BY_40,
