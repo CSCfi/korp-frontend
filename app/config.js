@@ -2563,6 +2563,7 @@ settings.corporafolders.lehdet.tiedelehdet = {
 	"tiedelehdet_skas",
 	"tiedelehdet_skeptikko",
 	"tiedelehdet_skholion",
+	"tiedelehdet_solubiologi",
 	"tiedelehdet_sosiaalilaaketiede",
 	"tiedelehdet_sosiologia",
 	"tiedelehdet_suo",
@@ -5238,7 +5239,7 @@ settings.corpora.tiedelehdet_auraica = {
 
 settings.corpora.tiedelehdet_aikuiskasvatus = {
     title : "Aikuiskasvatus",
-    description : "Aikuiskasvatus (2011–2014)<br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura<br/>Kotisivu: <a href='http://www.doria.fi/handle/10024/7300'>http://www.doria.fi/handle/10024/7300</a><br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotTiedelehtia/Aikuiskasvatus_artikkeliluettelo.pdf'>Artikkeliluettelo</a>",
+    description : "Aikuiskasvatus (2011–2014)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotTiedelehtia/Aikuiskasvatus_artikkeliluettelo.pdf'>Artikkeliluettelo</a><br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura<br/>Kotisivu: <a href='http://www.doria.fi/handle/10024/7300'>http://www.doria.fi/handle/10024/7300</a>",
     id : "tiedelehdet_aikuiskasvatus",
     urn : "",
     metadata_urn : "",
@@ -5890,6 +5891,28 @@ settings.corpora.tiedelehdet_apollon = {
     },
 };
 
+settings.corpora.tiedelehdet_solubiologi = {
+    id: "tiedelehdet_solubiologi",
+    title: "Solubiologi",
+    description: "Solubiologi (2007-2014)<br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotTiedelehtia/Solubiologi_2007-2014_-aineistosta_puuttuvat_numerot.txt'</a><br/>Julkaisija: Suomen Solubiologit ry<br/>Kotisivu: <a href='http://www.suomensolubiologit.fi/solubiologi-lehti/'>http://www.suomensolubiologit.fi/solubiologi-lehti/</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_filename: sattrs.hidden,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
 
 
 
