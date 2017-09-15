@@ -5636,7 +5636,7 @@ settings.corpora.lehdet_sosiaalivakuutus = {
 
 settings.corpora.hsfi = {
     title : "HS.fi",
-    description : "HS.fi uutiskommenttiaineisto",
+    description : "HS.fi-uutiskommenttiaineisto",
     id : "hsfi",
     urn : "urn:nbn:fi:lb-2014052717",
     metadata_urn : "urn:nbn:fi:lb-2014052718",
