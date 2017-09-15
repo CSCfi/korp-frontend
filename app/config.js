@@ -3009,6 +3009,7 @@ settings.corporafolders.lehdet.muut_lehdet.vw = {
 	"lehdet_virta",
 	"lehdet_valitysuutiset",
 	"lehdet_walpo",
+	"lehdet_wieteri",
   ]
 }
 
@@ -12182,6 +12183,28 @@ settings.corpora.lehdet_anti = {
     },
 };
 
+settings.corpora.lehdet_wieteri = {
+    id: "lehdet_wieteri",
+    title: "Wieteri",
+    description: "Wieteri (2010-2013)<br/>Julkaisija: Espoon kaupunki<br/>Kotisivu: <a href='http://www.espoo.fi/fi-FI/Espoon_kaupunki/Tietoa_Espoosta/Julkaisut/Henkilostolehti_Wieteri(30745)'>http://www.espoo.fi/fi-FI/Espoon_kaupunki/Tietoa_Espoosta/Julkaisut/Henkilostolehti_Wieteri(30745)</a>",
+    urn: "urn:nbn:fi:lb-2016021202",
+    metadata_urn: "urn:nbn:fi:lb-2016011101",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_issue: {
+            label: "issue",
+        },
+        text_year: {
+            label: "year",
+        },
+        text_filename: sattrs.hidden,
+        text_title: sattrs.text_title,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
 
 
 
