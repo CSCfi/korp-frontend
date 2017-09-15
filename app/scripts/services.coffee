@@ -448,7 +448,11 @@ korpApp.factory "lexicons", ($q, $http) ->
         # similar output as Karp, so that it would not need to be
         # special-cased here. (Jyrki Niemi 2015-12-04)
         if settings.lemgramService == "FIN-CLARIN"
-            _.extend args, {wf: wf}
+            _.extend args, {
+                wf: wf
+                corpus: corporaIDs.join(",")
+                limit: settings.autocompleteLemgramCount or 10
+            }
             url = settings.lemgrams_cgi_script
         else
             url = "#{karpURL}/autocomplete"

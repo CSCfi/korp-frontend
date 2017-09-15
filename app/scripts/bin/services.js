@@ -450,7 +450,9 @@
         };
         if (settings.lemgramService === "FIN-CLARIN") {
           _.extend(args, {
-            wf: wf
+            wf: wf,
+            corpus: corporaIDs.join(","),
+            limit: settings.autocompleteLemgramCount || 10
           });
           url = settings.lemgrams_cgi_script;
         } else {

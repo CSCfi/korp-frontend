@@ -37,6 +37,9 @@ settings.name_classification = true;
 // The lemgram service to use for autocompletion. If not specified,
 // use Språkbanken's Karp. (Jyrki Niemi 2015-12-04)
 settings.lemgramService = "FIN-CLARIN";
+// The number of lemgrams to show in autocompletion (for the
+// FIN-CLARIN lemgram service).
+settings.autocompleteLemgramCount = 10;
 
 settings.textDateAllowBareYears = true;
 
