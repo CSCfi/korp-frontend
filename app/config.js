@@ -2498,6 +2498,11 @@ settings.corporafolders.lehdet = {
 settings.corporafolders.lehdet.tiedelehdet = {
     title : "Tiedelehtiä",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
+}
+
+settings.corporafolders.lehdet.tiedelehdet.ag = {
+    title : "A-G",
+    description : "1990- ja 2000-luvun suomalaisia tiedelehtiä (A-G-alkuiset)",
     contents : [
 	"tiedelehdet_30paivaa",
 	"tiedelehdet_aakusti",
@@ -2520,6 +2525,13 @@ settings.corporafolders.lehdet.tiedelehdet = {
 	"tiedelehdet_geofoorumi",
 	"tiedelehdet_geologi",
 	"tiedelehdet_glossae",
+	]
+};
+
+settings.corporafolders.lehdet.tiedelehdet.hk = {
+    title : "H-K",
+    description : "1990- ja 2000-luvun suomalaisia tiedelehtiä (H-K-alkuiset)",
+    contents : [
 	"tiedelehdet_harukaze",
 	"tiedelehdet_havina",
 	"tiedelehdet_hiidenkivi",
@@ -2540,6 +2552,13 @@ settings.corporafolders.lehdet.tiedelehdet = {
 	"tiedelehdet_kulutustutkimus",
 	"tiedelehdet_kunnallistiede",
 	"tiedelehdet_kuntoutus",
+	]
+};
+
+settings.corporafolders.lehdet.tiedelehdet.lp = {
+    title : "L-P",
+    description : "1990- ja 2000-luvun suomalaisia tiedelehtiä (L-P-alkuiset)",
+    contents : [
 	"tiedelehdet_liikenteensuunta",
 	"tiedelehdet_liiketalous",
 	"tiedelehdet_liikuntajatiede",
@@ -2557,6 +2576,14 @@ settings.corporafolders.lehdet.tiedelehdet = {
 	"tiedelehdet_poliittinentalous",
 	"tiedelehdet_prologi",
 	"tiedelehdet_psykologia",
+	]
+};
+
+
+settings.corporafolders.lehdet.tiedelehdet.rs = {
+    title : "R-S",
+    description : "1990- ja 2000-luvun suomalaisia tiedelehtiä (R-S-alkuiset)",
+    contents : [
 	"tiedelehdet_rakmek",
 	"tiedelehdet_ravitsemus",
 	"tiedelehdet_ruralia",
@@ -2573,6 +2600,13 @@ settings.corporafolders.lehdet.tiedelehdet = {
 	"tiedelehdet_kirkkohistoria",
 	"tiedelehdet_sydanaani",
 	"tiedelehdet_synnyt",
+	]
+};
+
+settings.corporafolders.lehdet.tiedelehdet.ty = {
+    title : "T-Y",
+    description : "1990- ja 2000-luvun suomalaisia tiedelehtiä (T-Y-alkuiset)",
+    contents : [
 	"tiedelehdet_tahiti",
 	"tiedelehdet_taimiuutiset",
 	"tiedelehdet_teologinen",
