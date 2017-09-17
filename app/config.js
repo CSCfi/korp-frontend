@@ -2559,7 +2559,7 @@ settings.corporafolders.lehdet.tiedelehdet.lp = {
     title : "L-P",
     description : "1990- ja 2000-luvun suomalaisia tiedelehtiä (L-P-alkuiset)",
     contents : [
-	"tiedelehdet_liikenteensuunta",
+	"tiedelehdet_liikenteensuunta_v2",
 	"tiedelehdet_liiketalous",
 	"tiedelehdet_liikuntajatiede",
 	"tiedelehdet_lounaishame",
@@ -2570,7 +2570,7 @@ settings.corporafolders.lehdet.tiedelehdet.lp = {
 	"tiedelehdet_muinaistutkija",
 	"tiedelehdet_musiikinsuunta",
 	"tiedelehdet_musiikkikasv",
-	"tiedelehdet_niinnain",
+	"tiedelehdet_niinnain_v2",
 	"tiedelehdet_nimi",
 	"tiedelehdet_nayttamo_tutkimus",
 	"tiedelehdet_poliittinentalous",
@@ -3687,10 +3687,10 @@ settings.corpora.tiedelehdet_liikuntajatiede = {
     }
 };
 
-settings.corpora.tiedelehdet_liikenteensuunta = {
+settings.corpora.tiedelehdet_liikenteensuunta_v2 = {
     title : "Liikenteen suunta",
     description : "Liikenteen suunta (2012-2/2014)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Liikennevirasto<br/>Kotisivu: <a href='http://www.liikenteensuunta.fi/fi/'>http://www.liikenteensuunta.fi/fi/</a>",
-    id : "tiedelehdet_liikenteensuunta",
+    id : "tiedelehdet_liikenteensuunta_v2",
     urn : "",
     metadata_urn : "",
     within : settings.spWithin,
@@ -3864,10 +3864,10 @@ settings.corpora.tiedelehdet_sosiaalilaaketiede = {
     }
 };
 
-settings.corpora.tiedelehdet_niinnain = {
+settings.corpora.tiedelehdet_niinnain_v2 = {
     title : "niin & näin",
     description : "niin & näin (2000-4/2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Eurooppalaisen filosofian seura ry<br/>Kotisivu: <a href='http://netn.fi/lehti'>http://netn.fi/</a>",
-    id : "tiedelehdet_niinnain",
+    id : "tiedelehdet_niinnain_v2",
     urn : "",
     metadata_urn : "",
     within : settings.spWithin,
