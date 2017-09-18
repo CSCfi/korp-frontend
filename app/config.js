@@ -3689,7 +3689,7 @@ settings.corpora.tiedelehdet_liikuntajatiede = {
 
 settings.corpora.tiedelehdet_liikenteensuunta_v2 = {
     title : "Liikenteen suunta",
-    description : "Liikenteen suunta (2012-2/2014)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Liikennevirasto<br/>Kotisivu: <a href='http://www.liikenteensuunta.fi/fi/'>http://www.liikenteensuunta.fi/fi/</a>",
+    description : "Liikenteen suunta (2010-2/2014)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Liikennevirasto<br/>Kotisivu: <a href='http://www.liikenteensuunta.fi/fi/'>http://www.liikenteensuunta.fi/fi/</a>",
     id : "tiedelehdet_liikenteensuunta_v2",
     urn : "",
     metadata_urn : "",
