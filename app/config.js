@@ -39,7 +39,7 @@ settings.name_classification = true;
 settings.lemgramService = "FIN-CLARIN";
 // The number of lemgrams to show in autocompletion (for the
 // FIN-CLARIN lemgram service).
-settings.autocompleteLemgramCount = 10;
+settings.autocompleteLemgramCount = 15;
 
 settings.textDateAllowBareYears = true;
 
