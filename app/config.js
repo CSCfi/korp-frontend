@@ -43,6 +43,11 @@ settings.autocompleteLemgramCount = 15;
 
 settings.textDateAllowBareYears = true;
 
+// Encode list-valued parameters for korp.cgi by extracting common
+// prefixes. If not defined, considered false. (Jyrki Niemi
+// 2017-09-29)
+settings.encodeListParams = true;
+
 settings.downloadFormats = [
     "annot",
     "ref",

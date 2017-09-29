@@ -167,8 +167,8 @@
     };
 
     CorpusListing.prototype.corpusHasAttrs = function(corpus, attrs) {
-      var attr, k, len;
-      for (k = 0, len = attrs.length; k < len; k++) {
+      var attr, k, len1;
+      for (k = 0, len1 = attrs.length; k < len1; k++) {
         attr = attrs[k];
         if (!(attr === "word" || attr in $.extend({}, this.struct[corpus].attributes, this.struct[corpus].struct_attributes))) {
           return false;
@@ -179,6 +179,10 @@
 
     CorpusListing.prototype.stringifySelected = function() {
       return _(this.selected).pluck("id").invoke("toUpperCase").join(",");
+    };
+
+    CorpusListing.prototype.stringifySelectedEncode = function() {
+      return util.encodeListParam(this.stringifySelected());
     };
 
     CorpusListing.prototype.stringifyAll = function() {
@@ -194,7 +198,7 @@
     };
 
     CorpusListing.prototype.minimizeDefaultAndCorpusQueryString = function(type, params) {
-      var all_corpora, corp, corpname, corpora, corpval, default_corpora, default_val, k, l, len, len1, lengths, lensum, maxval, nondefault_corpora, other_vals, ref, ref1, val, value_corpora;
+      var all_corpora, corp, corpname, corpora, corpval, default_corpora, default_val, k, l, len1, len2, lengths, lensum, maxval, nondefault_corpora, other_vals, ref, ref1, val, value_corpora;
       if (!((params.corpus != null) && params[type])) {
         return params;
       }
@@ -204,7 +208,7 @@
       value_corpora = {};
       nondefault_corpora = [];
       ref = params[type].split(',');
-      for (k = 0, len = ref.length; k < len; k++) {
+      for (k = 0, len1 = ref.length; k < len1; k++) {
         corpval = ref[k];
         ref1 = corpval.split(':'), corpname = ref1[0], val = ref1[1];
         if (value_corpora[val] == null) {
@@ -219,7 +223,7 @@
       for (val in value_corpora) {
         corpora = value_corpora[val];
         lensum = 0;
-        for (l = 0, len1 = corpora.length; l < len1; l++) {
+        for (l = 0, len2 = corpora.length; l < len2; l++) {
           corp = corpora[l];
           lensum += corp.length;
         }
@@ -240,9 +244,9 @@
         if (val !== maxval) {
           other_vals = other_vals.concat([
             (function() {
-              var len2, m, results;
+              var len3, m, results;
               results = [];
-              for (m = 0, len2 = corpora.length; m < len2; m++) {
+              for (m = 0, len3 = corpora.length; m < len3; m++) {
                 corp = corpora[m];
                 results.push(corp + ':' + val);
               }
@@ -270,10 +274,10 @@
     CorpusListing.prototype.getContextQueryString = function(prefer, avoid) {
       var contexts, corpus, output;
       output = (function() {
-        var k, len, ref, results;
+        var k, len1, ref, results;
         ref = this.selected;
         results = [];
-        for (k = 0, len = ref.length; k < len; k++) {
+        for (k = 0, len1 = ref.length; k < len1; k++) {
           corpus = ref[k];
           contexts = _.keys(corpus.context);
           if (indexOf.call(contexts, prefer) < 0) {
@@ -294,10 +298,10 @@
       var corpus, defaultWithin, output, within, withins;
       defaultWithin = search().within || _.keys(settings.defaultWithin)[0];
       output = (function() {
-        var k, len, ref, results;
+        var k, len1, ref, results;
         ref = this.selected;
         results = [];
-        for (k = 0, len = ref.length; k < len; k++) {
+        for (k = 0, len1 = ref.length; k < len1; k++) {
           corpus = ref[k];
           withins = _.keys(corpus.within);
           if (indexOf.call(withins, defaultWithin) < 0) {
@@ -320,10 +324,10 @@
       prefer_within = search().within;
       if (prefer_within && !(prefer_within in settings.defaultWithin)) {
         output = (function() {
-          var k, len, ref, results;
+          var k, len1, ref, results;
           ref = this.selected;
           results = [];
-          for (k = 0, len = ref.length; k < len; k++) {
+          for (k = 0, len1 = ref.length; k < len1; k++) {
             corpus = ref[k];
             if (prefer_within in corpus.within) {
               results.push(corpus.id.toUpperCase() + ":" + prefer_within);
@@ -473,9 +477,9 @@
         return token.charAt(0) === "[";
       }).lastIndexOf(true);
       result = (function() {
-        var k, len, results;
+        var k, len1, results;
         results = [];
-        for (token_num = k = 0, len = cqp_tokens.length; k < len; token_num = ++k) {
+        for (token_num = k = 0, len1 = cqp_tokens.length; k < len1; token_num = ++k) {
           token = cqp_tokens[token_num];
           if (token.charAt(0) === "[" && token_num < last_token_num) {
             results.push("(" + token + " " + insert_cqp + ")");
@@ -583,7 +587,7 @@
     };
 
     ParallelCorpusListing.prototype.getLinksFromLangs = function(activeLangs) {
-      var cps, k, l, lang, len, len1, linked, main, other, output, ref;
+      var cps, k, l, lang, len1, len2, linked, main, other, output, ref;
       if (activeLangs.length === 1) {
         return this.getEnabledByLang(activeLangs[0], true, false);
       }
@@ -592,12 +596,12 @@
       });
       output = [];
       ref = activeLangs.slice(1);
-      for (k = 0, len = ref.length; k < len; k++) {
+      for (k = 0, len1 = ref.length; k < len1; k++) {
         lang = ref[k];
         other = _.filter(this.selected, function(corp) {
           return corp.lang === lang;
         });
-        for (l = 0, len1 = other.length; l < len1; l++) {
+        for (l = 0, len2 = other.length; l < len2; l++) {
           cps = other[l];
           linked = _(main).filter(function(mainCorpus) {
             var ref1;
@@ -612,7 +616,7 @@
     };
 
     ParallelCorpusListing.prototype.stringifySelected = function(onlyMain) {
-      var i, item, k, len, main, output, pair, struct;
+      var i, item, k, len1, main, output, pair, struct;
       struct = this.getLinksFromLangs(this.activeLangs);
       if (onlyMain) {
         struct = _.map(struct, (function(_this) {
@@ -626,7 +630,7 @@
       }
       c.log("struct", struct);
       output = [];
-      for (i = k = 0, len = struct.length; k < len; i = ++k) {
+      for (i = k = 0, len1 = struct.length; k < len1; i = ++k) {
         item = struct[i];
         main = item[0];
         pair = _.map(item.slice(1), function(corp) {
@@ -635,6 +639,10 @@
         output.push(pair);
       }
       return output.join(",");
+    };
+
+    ParallelCorpusListing.prototype.stringifySelectedEncode = function(onlyMain) {
+      return util.encodeListParam(this.stringifySelected(onlyMain));
     };
 
     ParallelCorpusListing.prototype.getTitle = function(corpus) {
@@ -674,14 +682,14 @@
   };
 
   window.initLocales = function() {
-    var def, defs, fn1, k, l, lang, len, len1, packages, pkg, prefix, ref;
+    var def, defs, fn1, k, l, lang, len1, len2, packages, pkg, prefix, ref;
     packages = ["locale", "corpora"];
     prefix = "translations";
     defs = [];
     window.loc_data = {};
     def = $.Deferred();
     ref = settings.languages;
-    for (k = 0, len = ref.length; k < len; k++) {
+    for (k = 0, len1 = ref.length; k < len1; k++) {
       lang = ref[k];
       loc_data[lang] = {};
       fn1 = function(lang, pkg) {
@@ -697,7 +705,7 @@
           }
         }));
       };
-      for (l = 0, len1 = packages.length; l < len1; l++) {
+      for (l = 0, len2 = packages.length; l < len2; l++) {
         pkg = packages[l];
         fn1(lang, pkg);
       }
@@ -709,20 +717,20 @@
   };
 
   util.addDefaultTranslations = function() {
-    var all_keys, k, key, l, lang, lang2, len, len1, len2, loc_data, m, ref, ref1;
+    var all_keys, k, key, l, lang, lang2, len1, len2, len3, loc_data, m, ref, ref1;
     if ((settings.defaultTranslations == null) || settings.defaultTranslations.length === 0) {
       return;
     }
     loc_data = window.loc_data;
     all_keys = _(loc_data).map(_.keys).flatten().uniq().value();
     ref = settings.languages;
-    for (k = 0, len = ref.length; k < len; k++) {
+    for (k = 0, len1 = ref.length; k < len1; k++) {
       lang = ref[k];
-      for (l = 0, len1 = all_keys.length; l < len1; l++) {
+      for (l = 0, len2 = all_keys.length; l < len2; l++) {
         key = all_keys[l];
         if (!(key in loc_data[lang])) {
           ref1 = settings.defaultTranslations;
-          for (m = 0, len2 = ref1.length; m < len2; m++) {
+          for (m = 0, len3 = ref1.length; m < len3; m++) {
             lang2 = ref1[m];
             if (lang2 !== lang) {
               if (lang2 === 'KEY') {
@@ -748,10 +756,10 @@
   };
 
   window.util.setLogin = function() {
-    var corp, k, len, ref;
+    var corp, k, len1, ref;
     $("body").toggleClass("logged_in not_logged_in");
     ref = authenticationProxy.loginObj.credentials;
-    for (k = 0, len = ref.length; k < len; k++) {
+    for (k = 0, len1 = ref.length; k < len1; k++) {
       corp = ref[k];
       $("#hpcorpus_" + (corp.toLowerCase())).closest(".boxdiv.disabled").removeClass("disabled");
     }
@@ -1025,7 +1033,7 @@
     window.corpusChooserInstance = $("#corpusbox").corpusChooser({
       template: outStr,
       infoPopup: function(corpusID) {
-        var baseLang, baseLangSentenceHTML, baseLangTokenHTML, baseLangs, corpusExtraInfo, corpusObj, k, lang, lastUpdate, len, maybeInfo, numSentences, numTokens, output, ref, sentenceString, supportsContext;
+        var baseLang, baseLangSentenceHTML, baseLangTokenHTML, baseLangs, corpusExtraInfo, corpusObj, k, lang, lastUpdate, len1, maybeInfo, numSentences, numTokens, output, ref, sentenceString, supportsContext;
         corpusObj = settings.corpora[corpusID];
         maybeInfo = "";
         if (corpusObj.description) {
@@ -1041,7 +1049,7 @@
         baseLangs = (ref = settings.corpora[corpusID]) != null ? ref.linked_to : void 0;
         if (baseLangs) {
           lang = " (" + util.getLocaleString(settings.corpora[corpusID].lang) + ")";
-          for (k = 0, len = baseLangs.length; k < len; k++) {
+          for (k = 0, len1 = baseLangs.length; k < len1; k++) {
             baseLang = baseLangs[k];
             baseLangTokenHTML += (util.getLocaleString("corpselector_numberoftokens")) + ": <b>" + (util.prettyNumbers(settings.corpora[baseLang].info.Size)) + "\n</b> (" + (util.getLocaleString(settings.corpora[baseLang].lang)) + ")<br/>";
             baseLangSentenceHTML += (util.getLocaleString("corpselector_numberofsentences")) + ": <b>" + (util.prettyNumbers(settings.corpora[baseLang].info.Sentences)) + "\n</b> (" + (util.getLocaleString(settings.corpora[baseLang].lang)) + ")<br/>";
@@ -1376,10 +1384,10 @@
   util.copyCorpusInfoToConfig = function(corpusObj) {
     var added_properties, corpusInfo, i, info_key_prefix, info_key_sects, info_subkeys, item, j, key, sect, sect_name, subkey, subobj, value;
     info_key_sects = (function() {
-      var k, len, ref, results;
+      var k, len1, ref, results;
       ref = settings.corpusExtraInfoItems;
       results = [];
-      for (k = 0, len = ref.length; k < len; k++) {
+      for (k = 0, len1 = ref.length; k < len1; k++) {
         item = ref[k];
         if (item !== 'urn') {
           results.push(item.charAt(0).toUpperCase() + item.slice(1));
@@ -1555,11 +1563,11 @@
       }
     };
     expandAlias = function(alias) {
-      var corp_spec, corp_specs, corpora, k, len;
+      var corp_spec, corp_specs, corpora, k, len1;
       if (/[^a-z0-9_,-]/.test(alias)) {
         corpora = [];
         corp_specs = alias.split(",");
-        for (k = 0, len = corp_specs.length; k < len; k++) {
+        for (k = 0, len1 = corp_specs.length; k < len1; k++) {
           corp_spec = corp_specs[k];
           if (/[^a-z0-9_,-]/.test(corp_spec)) {
             corpora = corpora.concat(util.listMatchingCorpora(corp_spec));
@@ -1599,19 +1607,19 @@
   };
 
   util.setAttrDisplayOrder = function(corpusInfo) {
-    var attr_name, attr_names, attr_type, index, k, l, len, len1, len2, len3, m, n, order, pattern, ref, ref1, ref2, result;
+    var attr_name, attr_names, attr_type, index, k, l, len1, len2, len3, len4, m, n, order, pattern, ref, ref1, ref2, result;
     ref = ["attributes", "struct_attributes", "link_attributes"];
-    for (k = 0, len = ref.length; k < len; k++) {
+    for (k = 0, len1 = ref.length; k < len1; k++) {
       attr_type = ref[k];
       order = ((ref1 = corpusInfo.sidebar_display_order) != null ? ref1[attr_type] : void 0) || ((ref2 = settings.default_sidebar_display_order) != null ? ref2[attr_type] : void 0);
       if (order) {
         attr_names = _.keys(corpusInfo[attr_type]);
         result = [];
-        for (l = 0, len1 = order.length; l < len1; l++) {
+        for (l = 0, len2 = order.length; l < len2; l++) {
           pattern = order[l];
           if ($.type(pattern === "regexp")) {
             index = 0;
-            for (m = 0, len2 = attr_names.length; m < len2; m++) {
+            for (m = 0, len3 = attr_names.length; m < len3; m++) {
               attr_name = attr_names[m];
               if (attr_name.match(pattern)) {
                 result.push(attr_name);
@@ -1627,7 +1635,7 @@
             }
           }
         }
-        for (n = 0, len3 = attr_names.length; n < len3; n++) {
+        for (n = 0, len4 = attr_names.length; n < len4; n++) {
           attr_name = attr_names[n];
           if (attr_name !== "") {
             result.push(attr_name);
@@ -1646,9 +1654,9 @@
   };
 
   util.setCorpusFeatures = function(corpusInfo) {
-    var featname, features, k, len, ref, ref1;
+    var featname, features, k, len1, ref, ref1;
     ref = corpusInfo.features || [];
-    for (k = 0, len = ref.length; k < len; k++) {
+    for (k = 0, len1 = ref.length; k < len1; k++) {
       featname = ref[k];
       features = (ref1 = settings.corpus_features) != null ? ref1[featname] : void 0;
       if (!features) {
@@ -1672,13 +1680,13 @@
   };
 
   util.setFolderLogicalCorpora = function(folder, logical_corpus) {
-    var corpus, corpus_id, k, len, ref, ref1, ref2, subfolder, subfolder_logical_corpus, subfolder_name;
+    var corpus, corpus_id, k, len1, ref, ref1, ref2, subfolder, subfolder_logical_corpus, subfolder_name;
     if (logical_corpus == null) {
       logical_corpus = null;
     }
     c.log("setFolderLogicalCorpora", folder, logical_corpus != null ? logical_corpus.title : void 0);
     ref = folder.contents || [];
-    for (k = 0, len = ref.length; k < len; k++) {
+    for (k = 0, len1 = ref.length; k < len1; k++) {
       corpus_id = ref[k];
       corpus = settings.corpora[corpus_id];
       corpus.logical_corpus = logical_corpus || settings.corpora[corpus_id];
@@ -1839,9 +1847,9 @@
         return parseInt(key.substr(4) || "0");
       });
       return ((function() {
-        var k, len, results;
+        var k, len1, results;
         results = [];
-        for (k = 0, len = cqp_keys.length; k < len; k++) {
+        for (k = 0, len1 = cqp_keys.length; k < len1; k++) {
           key = cqp_keys[k];
           results.push(params[key]);
         }
@@ -2028,6 +2036,189 @@
         }
       }
     }
+  };
+
+  util.encoded_list_param_cache = {};
+
+  util.encodeListParam = function(values, output_sep) {
+    var _calc_common_prefix_len, _make_elems, _make_groups, group_overhead, groups, i, k, len1, min_prefix_len, prefix_lens, value, values_str;
+    if (output_sep == null) {
+      output_sep = ".";
+    }
+    min_prefix_len = 2;
+    group_overhead = encodeURIComponent("()").length;
+    _calc_common_prefix_len = function(s1, s2) {
+      var i, maxlen;
+      maxlen = _.max([s1.length, s2.length]);
+      i = 0;
+      while (i < maxlen) {
+        if (s1.charAt(i) !== s2.charAt(i)) {
+          break;
+        }
+        i += 1;
+      }
+      return i;
+    };
+    _make_groups = function(prefix_lens) {
+      var _add_group, eff_len, groups, i, j, len, prev_len, start;
+      groups = [];
+      _add_group = function(start, end) {
+        var len;
+        if (start > end) {
+          return;
+        }
+        len = _.min(prefix_lens.slice(start + 1, end + 1));
+        if (len < min_prefix_len || len === Infinity) {
+          len = 0;
+        }
+        return groups.push([start, end, len]);
+      };
+      start = 0;
+      i = 1;
+      eff_len = prefix_lens[0];
+      while (i < prefix_lens.length) {
+        len = prefix_lens[i];
+        prev_len = prefix_lens[i - 1];
+        if (eff_len === 0 || prev_len < eff_len) {
+          eff_len = prev_len;
+        }
+        if (len < min_prefix_len) {
+          _add_group(start, i - 1);
+          start = i;
+          eff_len = len;
+        } else if (prev_len < min_prefix_len) {
+
+        } else if (len < eff_len) {
+          if ((i - start) * eff_len - group_overhead > (i - start + 1) * len) {
+            _add_group(start, i - 1);
+            start = i;
+            eff_len = len;
+          }
+        } else if (len > eff_len) {
+          j = i + 1;
+          while (j < prefix_lens.length && prefix_lens[j] >= len && ((j - start) * eff_len >= (j - i + 1) * len - group_overhead)) {
+            j += 1;
+          }
+          if ((j - start) * eff_len < (j - i + 1) * len - group_overhead) {
+            _add_group(start, i - 2);
+            start = i - 1;
+            eff_len = len;
+          }
+        }
+        i += 1;
+      }
+      _add_group(start, prefix_lens.length - 1);
+      return groups;
+    };
+    _make_elems = function(values, groups) {
+      var end, group, i, k, l, len1, m, prefix_len, ref, ref1, ref2, ref3, result, start;
+      result = [];
+      for (k = 0, len1 = groups.length; k < len1; k++) {
+        group = groups[k];
+        start = group[0], end = group[1], prefix_len = group[2];
+        if (prefix_len === 0) {
+          for (i = l = ref = start, ref1 = end; ref <= ref1 ? l <= ref1 : l >= ref1; i = ref <= ref1 ? ++l : --l) {
+            result.push(values[i]);
+          }
+        } else {
+          result.push(values[start].substring(0, prefix_len) + "(" + values[start].substring(prefix_len));
+          if (end - start > 1) {
+            for (i = m = ref2 = start + 1, ref3 = end - 1; ref2 <= ref3 ? m <= ref3 : m >= ref3; i = ref2 <= ref3 ? ++m : --m) {
+              result.push(values[i].substring(prefix_len));
+            }
+          }
+          result.push(values[end].substring(prefix_len) + ")");
+        }
+      }
+      return result;
+    };
+    if (typeof values === "string" || values instanceof String) {
+      values_str = values;
+      values = values.split(",");
+    } else {
+      values_str = values.join(",");
+    }
+    if (!settings.encodeListParams) {
+      return values_str;
+    }
+    if (values_str in util.encoded_list_param_cache) {
+      return util.encoded_list_param_cache[values_str];
+    }
+    prefix_lens = [];
+    for (i = k = 0, len1 = values.length; k < len1; i = ++k) {
+      value = values[i];
+      if (i === 0) {
+        prefix_lens.push(0);
+      } else {
+        prefix_lens.push(_calc_common_prefix_len(values[i - 1], value));
+      }
+    }
+    groups = _make_groups(prefix_lens);
+    return _make_elems(values, groups).join(output_sep);
+  };
+
+  util.encodeListParamUniq = function(values, output_sep) {
+    if (output_sep == null) {
+      output_sep = ".";
+    }
+    return util.encodeListParam(_.sortBy(_.uniq(values), output_sep));
+  };
+
+  util.decodeListParam = function(str_list) {
+    var _, elem, k, len1, match, pref, prefix, result, sep, suff, values;
+    if (!str_list) {
+      return [];
+    }
+    values = str_list.split(/[,.]/);
+    if (!settings.encodeListParams) {
+      return values;
+    }
+    result = [];
+    prefix = "";
+    for (k = 0, len1 = values.length; k < len1; k++) {
+      elem = values[k];
+      match = /^([^()]*)([()])?(.*)$/.exec(elem);
+      _ = match[0], pref = match[1], sep = match[2], suff = match[3];
+      if (suff == null) {
+        suff = "";
+      }
+      if (sep === "(") {
+        prefix = pref;
+        result.push(prefix + suff);
+      } else if (sep === ')') {
+        result.push(prefix + pref);
+        prefix = "";
+      } else {
+        result.push(prefix + pref);
+      }
+    }
+    return result;
+  };
+
+  util.test_encodeListParam = function(values) {
+    var dc, ec, success;
+    if ($.isArray(values)) {
+      values = values.join(",");
+    }
+    ec = util.encodeListParam(values);
+    dc = (util.decodeListParam(ec)).join(",");
+    success = dc === values;
+    c.log("encodeListParam", values, "=>", ec, "=>", dc, "|", success ? "success" : "FAIL");
+    return success;
+  };
+
+  util.test_encodeListParams = function(values_list) {
+    var k, len1, success, values;
+    success = true;
+    for (k = 0, len1 = values_list.length; k < len1; k++) {
+      values = values_list[k];
+      success = success && util.test_encodeListParam(values);
+    }
+    return success;
+  };
+
+  util.testsuite_EncodeList = function() {
+    return util.test_encodeListParams(["foobar", "foo,bar", "foo,fbar", "lam_antr,lam_ahla,foobar", "foo,bar,baz,zoo", "lam_antr,lam_ahla,lam_kosk,lam_kell", "lam_antr,lam_ahla,lam_x,lam_y", "lam_antr,lam_ahla,lam_atestipiste_x,lam_atestipiste_y", "lam_antr,lam_ahla,lam_atestipiste_x,lam_atestipiste_y,lam_atestipiste_z", "lam_antr,lam_ahla,lam_xtestipiste_x,lam_xtestipiste_y", "lam_xtestipiste_x,lam_xtestipiste_y,lam_antr,lam_ahla", "lam_antr,lam_ahla,lam_x,lam_y,lam_ypsilon", "ftb2,ftb3_ep,ftb3_ja", "ftb3x_ep,ftb3x_ja,ftb2", "ftb3x_ep,ftb2,ftb3x_ja", "ftb2,ftb3x_ep,ftb3x_ja", "ftb3xx_ep,ftb3xx_ja,ftb2", "ftb2,ftb3xx_ep,ftb3xx_ja", "ftb3xx_ep,ftb2,ftb3xx_ja", "ethesis_ma_ai,ethesis_ma_bio,ethesis_ma_el,ethesis_ma_far,ethesis_phd_bio,ethesis_phd_el", "klk_fi_1991,klk_fi_1989,klk_fi_1988,klk_fi_1987,klk_fi_1986,klk_fi_1985,klk_fi_1984,klk_fi_1983,klk_fi_1982,klk_fi_1981,klk_fi_1980,klk_fi_1979", "s24,s24_1,s24,s24_2,s24"]);
   };
 
 }).call(this);

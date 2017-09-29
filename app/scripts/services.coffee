@@ -100,9 +100,9 @@ korpApp.factory 'backend', ($http, $q, utils, lexicons) ->
         params =
             command : "loglike"
             groupby : reduce.join ','
-            set1_corpus : corpora1.join(",").toUpperCase()
+            set1_corpus : util.encodeListParam(corpora1).toUpperCase()
             set1_cqp : cmpObj1.cqp
-            set2_corpus : corpora2.join(",").toUpperCase()
+            set2_corpus : util.encodeListParam(corpora2).toUpperCase()
             set2_cqp : cmpObj2.cqp
             max : 50
             split : split
