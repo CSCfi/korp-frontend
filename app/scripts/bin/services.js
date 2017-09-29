@@ -442,7 +442,7 @@
     karpURL = "https://ws.spraakbanken.gu.se/ws/karp/v1";
     return {
       getLemgrams: function(wf, resources, corporaIDs) {
-        var args, deferred, url;
+        var args, deferred, http_params;
         deferred = $q.defer();
         args = {
           "q": wf,
@@ -454,15 +454,22 @@
             corpus: corporaIDs.join(","),
             limit: settings.autocompleteLemgramCount || 10
           });
-          url = settings.lemgrams_cgi_script;
+          http_params = {
+            method: "POST",
+            url: settings.lemgrams_cgi_script,
+            data: $.param(args),
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
+          };
         } else {
-          url = karpURL + "/autocomplete";
+          http_params = {
+            method: "GET",
+            url: karpURL + "/autocomplete",
+            params: args
+          };
         }
-        $http({
-          method: "GET",
-          url: url,
-          params: args
-        }).success(function(data, status, headers, config) {
+        $http(http_params).success(function(data, status, headers, config) {
           var corpora, div, karpLemgrams, lemgram;
           if (data === null) {
             return deferred.resolve([]);
