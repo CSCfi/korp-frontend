@@ -26,6 +26,11 @@ settings.spContext = {
     "1 paragraph" : "1 paragraph"
 };
 
+settings.corporafolders.ha = {
+    title : "Ha texts",
+    contents : ["ha_stories"]
+};
+
 settings.corporafolders.oracc = {
     title : "ORACC",
     description : "ORACC – Open Richly Annotated Cuneiform Corpus",
@@ -263,6 +268,26 @@ settings.corpora.fennougrica = {
     unselected : true
 };
 */
+
+settings.corpora.ha_stories = {
+    title : "Ha stories",
+    description : "Ha stories.",
+    id : "ha_stories",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes : {
+	lemma : { label : "baseform" },
+	morph : { label : "morphological_analysis" },
+	gloss : { label : "English_gloss" },
+	pos : { label : "part-of-speech" }
+    },
+    struct_attributes : {
+	sentence_transl_en : {
+	    label : "English_translation",
+	    displayType : "select"
+	}
+    }
+};
 
 settings.corpora.oracc_other = {
     id : "oracc_other",
@@ -3086,7 +3111,8 @@ var locally_available_corpora = ["(mulcold|legal)_..",
 				 "kildin_sample",
 				 "sust_.*",
 				 "swahili_sample",
-				 "scots_.*",];
+				 "scots_.*",
+				 "ha_stories",];
 
 if (! isPublicServer) {
     settings.fn.remove_matching_corpora(locally_available_corpora, true);
