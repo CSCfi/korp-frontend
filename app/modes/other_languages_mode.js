@@ -2600,7 +2600,7 @@ attrlist.byu = {
 	type : "set",
 	displayType : "select",
 	translationKey : "pos_",
-	opts : settings.liteOptions,
+	opts : settings.setOptions,
 	// PoS tags from http://ucrel.lancs.ac.uk/claws7tags.html
 	dataset : {
 	    "appge" : "byu_appge",
