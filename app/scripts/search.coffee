@@ -333,10 +333,29 @@ class view.SimpleSearch extends BaseSearch
             lemgram = regescape @s.placeholder
             val = "[lex contains '#{lemgram}'"
 
+            # Include conditions on the prefix and suffix attributes
+            # in the search only if all the selected corpora contain
+            # the attributes; otherwise, construct a lemgram prefix
+            # and suffix. If some corpora contain prefix and suffix
+            # and others do not, using them for all corpora would
+            # exclude all results from those that do not contain the
+            # attributes, unless the missing attributes were filtered
+            # out from the query for the corpora lacking them
+            # (preferably by the backend). (Jyrki Niemi 2017-10-04)
+            word_attrs =
+                    settings.corpusListing.getCurrentAttributesIntersection()
             if @isSearchPrefix()
-                val += " | prefix contains '#{lemgram}' "
+                if "prefix" of word_attrs
+                    val += " | prefix contains '#{lemgram}' "
+                else
+                    # Require the same part of speech
+                    val += " | lex contains '" +
+                        lemgram.replace(/(.*)(\\.\\.)/, "$1.*$2") + "' "
             if @isSearchSuffix()
-                val += " | suffix contains '#{lemgram}'"
+                if "suffix" of word_attrs
+                    val += " | suffix contains '#{lemgram}'"
+                else
+                    val += " | lex contains '.*#{lemgram}'"
 
             val += "]"
 

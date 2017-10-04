@@ -335,7 +335,7 @@
     };
 
     SimpleSearch.prototype.getCQP = function(word) {
-      var cqp, currentText, lemgram, prequeries, query, suffix, val, wordArray;
+      var cqp, currentText, lemgram, prequeries, query, suffix, val, wordArray, word_attrs;
       currentText = $.trim(word || this.getWordInput() || "", '"');
       suffix = ($("#caseChk").is(":checked") ? " %c" : "");
       if (util.isLemgramId(currentText)) {
@@ -343,11 +343,20 @@
       } else if (this.s.placeholder) {
         lemgram = regescape(this.s.placeholder);
         val = "[lex contains '" + lemgram + "'";
+        word_attrs = settings.corpusListing.getCurrentAttributesIntersection();
         if (this.isSearchPrefix()) {
-          val += " | prefix contains '" + lemgram + "' ";
+          if ("prefix" in word_attrs) {
+            val += " | prefix contains '" + lemgram + "' ";
+          } else {
+            val += " | lex contains '" + lemgram.replace(/(.*)(\\.\\.)/, "$1.*$2") + "' ";
+          }
         }
         if (this.isSearchSuffix()) {
-          val += " | suffix contains '" + lemgram + "'";
+          if ("suffix" in word_attrs) {
+            val += " | suffix contains '" + lemgram + "'";
+          } else {
+            val += " | lex contains '.*" + lemgram + "'";
+          }
         }
         val += "]";
       } else if (this.isSearchPrefix() || this.isSearchSuffix()) {
