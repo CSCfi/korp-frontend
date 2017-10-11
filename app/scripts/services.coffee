@@ -91,6 +91,11 @@ korpApp.factory 'backend', ($http, $q, utils, lexicons) ->
         split = _.filter(reduce, (r) -> 
             settings.corpusListing.getCurrentAttributes()[r]?.type == "set").join(',')
 
+        attributes = _.extend {}, corpusListing.getCurrentAttributes(),
+                              corpusListing.getStructAttrs()
+        reduceIsStructAttr =
+            _.map reduce, (attr) -> attributes[attr]?.isStructAttr
+
         def = $q.defer()
         params =
             command : "loglike"
@@ -141,8 +146,11 @@ korpApp.factory 'backend', ($http, $q, utils, lexicons) ->
                     obj.value.replace(/:\d+/g, "")
 
                 res = _.map groups, (value, key) ->
-                    tokenLists = _.map key.split("/"), (tokens) ->
-                        return tokens.split(" ")
+                    # tokenLists = _.map key.split("/"), (tokens) ->
+                    #     return tokens.split(" ")
+                    tokenLists = util.splitCompareKey key, reduce,
+                                                      reduceIsStructAttr
+                    # c.log "tokenLists", tokenLists
 
                     loglike = 0
                     abs = 0
@@ -440,7 +448,11 @@ korpApp.factory "lexicons", ($q, $http) ->
         # similar output as Karp, so that it would not need to be
         # special-cased here. (Jyrki Niemi 2015-12-04)
         if settings.lemgramService == "FIN-CLARIN"
-            _.extend args, {wf: wf}
+            _.extend args, {
+                wf: wf
+                corpus: corporaIDs.join(",")
+                limit: settings.autocompleteLemgramCount or 10
+            }
             url = settings.lemgrams_cgi_script
         else
             url = "#{karpURL}/autocomplete"

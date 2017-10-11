@@ -60,7 +60,7 @@ attrlist.klk_sv_parsed_pagelinks = attrlist.klk_sv_parsed;
 settings.corpora = {};
 settings.corporafolders = {};
 
-
+/*
 settings.corporafolders.koff = {
     title : "Paul Sinebrychoffs brevsamling",
     description : "Paul Sinebrychoffs brevsampling (1895-1908)",
@@ -69,7 +69,7 @@ settings.corporafolders.koff = {
         licence : settings.licenceinfo.CC_BY_30,
     },
     contents : ["sinebrychoff_orig", "sinebrychoff_fi"]
-};
+    };*/
 
 /*
 settings.corporafolders.koff = {
@@ -79,6 +79,14 @@ settings.corporafolders.koff = {
     };
 */
 
+settings.corporafolders.ethesis = {
+    title : "E-thesis",
+    contents : ["ethesis_sv_dissabs", "ethesis_sv_maabs", "ethesis_sv_phd", "ethesis_sv_ma"],
+    info : {
+	cite_id : "e-thesis-sv",
+    }
+};
+
 settings.corporafolders.klk_sv = {
     title : "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter",
     description : "Svenskspråkiga tidningar och tidskrifter i Nationalbibliotekets digitala samlingar, Kielipankki-version",
@@ -86,6 +94,7 @@ settings.corporafolders.klk_sv = {
 	urn : "urn:nbn:fi:lb-2014091901",
 	metadata_urn : "urn:nbn:fi:lb-201405276",
 	licence : settings.licenceinfo.CC_BY,
+	cite_id : "KLK-sv",
     }
 };
 
@@ -93,17 +102,19 @@ settings.corporafolders.fstc = {
     title : "Finlandssvensk textkorpus (UHLCS) (FISC/FSTC)",
     description : "Finlandssvensk textcorpus (UHLCS): delkorpusar som var i Lemmie-servicen, morfosyntaktiskt analyserade med SWECG",
     info : {
-	urn : "[to be added]",
-	metadata_urn : "urn:nbn:fi:lb-2014032621",
+	urn : "urn:nbn:fi:lb-2016112318",
+	metadata_urn : "urn:nbn:fi:lb-2016050213",
+	lbr_id : "urn:nbn:fi:lb-2016050212",
 	licence : {
 	    name : "CLARIN RES +PLAN +NC +LOC +ND",
 	    urn : "urn:nbn:fi:lb-20150304123",
 	},
 	homepage : {
 	    name : "Beskrivning",
-	    url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFtc",
+	    url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFstc",
 	    no_label : true,
 	},
+	cite_id : "fstc-korp",
     },
 };
 
@@ -137,11 +148,63 @@ settings.fn.make_corpus_settings_by_year_decade(
 
 delete klk_sv_parsed_years;
 
+/*ETHESIS*/
+settings.corpora.ethesis_sv_ma = {
+    title : "Masteruppsatser",
+    description : "Masteruppsatser (1997-2016)",
+    id : "ethesis_sv_ma",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_sv_maabs = {
+    title : "Masteruppsatser (abstrakt)",
+    description : "Masteruppsatser (abstrakt) (1999-2016)",
+    id : "ethesis_sv_maabs",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_sv_dissabs = {
+    title : "Doktorsavhandlingar (abstrakt)",
+    description : "Doktorsavhandlingar (abstrakt) (2006-2016)",
+    id : "ethesis_sv_dissabs",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
+
+settings.corpora.ethesis_sv_phd = {
+    title : "Doktorsavhandlingar",
+    description : "Doktorsavhandlingar (2000-2016)",
+    id : "ethesis_sv_phd",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes : {
+    },
+    struct_attributes : sattrlist.ethesis
+};
 
 settings.corpora.studentsvenska = {
     id : "studentsvenska",
     title: "Studentsvenska 79/80",
     description : "Studentsvenska 79/80",
+    urn : "urn:nbn:fi:lb-2016081701",
+    metadata_urn : "urn:nbn:fi:lb-20140730119",
+    licence : {
+	name : "CLARIN RES +PLAN +NC +PRIV 1.0",
+	description : "CLARIN RES end-user licence +PLAN +NC +PRIV 1.0",
+	urn : "urn:nbn:fi:lb-2016040410",
+    },
+    cite_id : "Studentsvenska",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     limited_access : true,
@@ -155,6 +218,7 @@ settings.corpora.mulcold_sv = {
     id : "mulcold_sv",
     title: "MULCOLD svenska",
     description : "Multilingual Corpus of Legal Documents, svenskspråkiga delen",
+    cite_id : "MULCOLD",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     attributes: attrlist.mulcold_sv,
@@ -165,10 +229,35 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
 				   ["mulcold_sv"]);
 
 
+settings.corpora.topling_sv = {
+    id : "topling_sv",
+    title : "Topling (svenska)",
+    description : "Topling – Inlärningsgångar i andraspråket, svensk delkorpus",
+    urn : "urn:nbn:fi:lb-2016112903",
+    metadata_urn : "urn:nbn:fi:lb-2016111801",
+    lbr_id : "urn:nbn:fi:lb-20140730168",
+    licence : {
+	name : "CLARIN RES +NC +DEP 1.0",
+	urn : "urn:nbn:fi:lb-2016112304",
+    },
+    homepage_url : "https://www.jyu.fi/topling",
+    cite_id : "topling-sv",
+    context : settings.spContext,
+    within : settings.spWithin,
+    limited_access : true,
+    licence_type : "RES",
+    // unselected : true,
+    attributes : attrlist.topling,
+    struct_attributes : sattrlist.topling
+};
+
+settings.corpus_aliases["topling-sv"] = "topling_sv";
+
 settings.corpora.kfspc_sv = {
     title : "KFSPC svenska",
     description : "Kotus Finnish-Swedish Parallel Corpus, svenskspråkiga delen",
     id : "kfspc_sv",
+    cite_id : "kfspc-korp-sv",
     lang : "swe",
     context : settings.defaultContext,
     within : settings.defaultWithin,
@@ -181,21 +270,15 @@ settings.corpora.sinebrychoff_orig = {
     id : "sinebrychoff_orig",
     title: "Paul Sinebrychoffs brevsamling",
     description : "Paul Sinebrychoffs brevsamling",
+    metadata_urn : "urn:nbn:fi:lb-201407303",
+    licence : settings.licenceinfo.CC_BY_30,
+    cite_id : "sinebrychoff-sv",
     context : settings.spContext,
     within : settings.spWithin,
     attributes: attrlist.sinebrychoff,
     struct_attributes : sattrlist.sinebrychoff
 };
 
-settings.corpora.sinebrychoff_fi = {
-    id : "sinebrychoff_fi",
-    title: "Paul Sinebrychoffin kirjeenvaihto",
-    description : "Paul Sinebrychoffin kirjeenvaihto, suomenkieliset käännökset",
-    context : settings.spContext,
-    within : settings.spWithin,
-    attributes: attrlist.sinebrychoff,
-    struct_attributes : sattrlist.sinebrychoff
-};
 
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_sv"]);
@@ -319,6 +402,7 @@ settings.corpora.parole_sv = $.extend(true, {}, settings.templ.fstc, {
 	name : "CLARIN RES +PLAN +NC +LOC +ND",
 	urn : "urn:nbn:fi:lb-2015101602",
     },
+    cite_id : "parole-sv",
     text_source : {
 	dataset : ["Språkbanken, Göteborgs universitet"],
     },

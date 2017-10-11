@@ -96,6 +96,11 @@
 				return null;
 			}
 		}
+	        // Return the key instead of "undefined" for keys
+	        // whose value is not found. (Jyrki Niemi 2017-05-15)
+		if (value == undefined) {
+		    return key;
+		}
 		return value;
 	}
 })(jQuery);

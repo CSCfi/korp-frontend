@@ -48,6 +48,7 @@ var hp_corpusChooser = {
 		return IDArray;
 	},
 	selectItems: function(item_ids) {
+	        c.log("corpusSelector.selectItems", item_ids);
 		item_ids = $.map(item_ids, function(item){ return "hpcorpus_" + item; })
 		// Check items from outside
 		var allboxes = $(".checkbox");
@@ -274,6 +275,26 @@ var hp_corpusChooser = {
 		 		}
 			});
 
+			// When the user clicks on a disabled corpus
+			// or corpus folder, show the restricted
+			// corpora access modal. Parameter this_ is
+			// "this" of the caller and jq_obj the jQuery
+			// object whose children with class "checkbox"
+			// list the disabled corpora.
+			var handle_click_on_disabled = function (this_,
+								 jq_obj) {
+			    c.log("Click on disabled item", this_);
+			    util.showRestrictedCorporaModal(
+				_(jq_obj.find(".checkbox"))
+				    .map(
+					function (elem) {
+					    return ($(elem).attr("id")
+						    .replace(/hpcorpus_/, ""));
+					})
+				    .compact()
+				    .value());
+			};
+
 			$(".boxlabel")
 			.unbind("click") // "folders"
 			.click(function(event) {
@@ -308,7 +329,12 @@ var hp_corpusChooser = {
 			 		hp_this.countSelected();
 			 		// Fire callback "change":
 			 		hp_this.triggerChange();
-		 		}
+				} else {
+				    handle_click_on_disabled(
+					this, $(this).parent());
+				    return;
+				}
+
  			});
 
  			var hoverConfig = {
@@ -369,7 +395,10 @@ var hp_corpusChooser = {
 
  			$(".boxdiv").unbind("click"); // "Non-folder items"
 			$(".boxdiv").click(function(event) {
-				if($(this).is(".disabled")) return;
+				if($(this).is(".disabled")) {
+				    handle_click_on_disabled(this, $(this));
+				    return;
+				}
 			    if( event.altKey == 1 ) {
                     $(".checkbox").each(function() {
                         hp_this.setStatus($(this), "unchecked");

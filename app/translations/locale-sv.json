@@ -35,7 +35,7 @@
     "feedback_link" : "<a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback_sv' target='_blank'>Feedback</a>",
     "feedback_url" : "https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback_sv",
     "feedback_linktext" : "Feedback",
-    "annotlab_multilingual" : "Flerspråkiga annoteringslabbet",
+    "annotlab_multilingual" : "Flerspråkiga annoteringslabbet<br/>(Sparv)",
     "annotlab_multilingual_url_params" : "lang=sv&language=sv",
     "search_history" : "Sökhistorik",
     "search_history_clear" : "✘ Rensa sökhistorik",
@@ -166,7 +166,9 @@
     "ces" : "tjeckiska",
     "lat" : "latin",
     "kpv" : "komi-syrjänska",
+    "mdf" : "moksja",
     "mkd" : "makedonska",
+    "myv" : "erzya",
     "pol" : "polska",
     "ron" : "rumänska",
     "sjd" : "kildinsamiska",
@@ -333,6 +335,7 @@
     "formatdescr_annot" : "Annoterad text som ett Excel-kalkylblad (XLS), ett token per rad. Varje rad har ett token med attribut och potentiellt en markör för sökträffen. Varje träffad mening föregås av en rad med korpus-ID, träffens korpusposition och textattribut för meningen.",
     "formatdescr_nooj" : "XML-importformat för NooJ",
     "formatdescr_ref" : "Källhänvisningar som ett Excel-kalkylblad (XLS) med varje sökträffmening på sin egen rad, efterträdd av meningens textattribut på sina egna rader",
+    "formatdescr_rows" : "Ett Excel-kalkylblad (XLS) med en rad för varje rad i KWIC. Varje rad har de följande kolumnerna: träffens nummer, korpusidentifierare, ordformer av vänsterkontext, träffen och högerkontext, grundformer av vänsterkontext, träffen och högerkontext (om korpusen innehåller!!! lemmainformation), textattribut (varje attribut i sin egen kolumn), och sökningens metadata i sina egna kolumner.",
 
     "name_classification" : "Namnklassifikation",
     "no_name_corpora" : "De valda korpusarna innehåller ingen namndata.",
@@ -344,10 +347,18 @@
 
     "privacy" : "Dataskyddsbeskrivning",
 
-    "corpus_urn" : "URN",
+    "corpus_urn" : "Länk till korpusen i Korp",
     "corpus_licence" : "Lisens",
     "corpus_metadata" : "Metadata",
     "corpus_homepage" : "Hemsida",
+    "corpus_iprholder" : "Rättsinnehavare",
     "corpus_compiler" : "Sammanställare",
-    "corpus_download" : "Ladda ner korpusen"
+    "corpus_download" : "Ladda ner korpusen",
+    "corpus_cite" : "Referera till korpusen",
+
+    "wordlist" : "Ordlista",
+    "selected_words" : "Valda ord",
+    "button_done" : "Klart",
+    "button_clear" : "Avmarkera",
+    "button_cancel" : "Avbryt"
 }

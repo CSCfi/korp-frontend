@@ -163,6 +163,9 @@
     "unknown": "okänd",
     "male_female": "man och kvinna",
 
+    "yes": "ja",
+    "no": "nej",
+
     "entryword": "uppslagsord",
     "entryno": "uppslagsord (nummer)",
     "sense1": "huvudbetydelse",
@@ -1191,6 +1194,18 @@
     "video_end_time": "Sluttid",
     "video_utterance": "Yttrande",
 
+    "text_studentno" : "student id",
+    "file_edulevel" : "kursnivå",
+    "file_round" : "runda",
+    "file_levelops" : "CEFR-nivå",
+    "file_exercise" : "harjoitus",
+    "file_filetype" : "filtyp",
+    "topling_text" : "text",
+    "topling_to" : "adressat",
+    "topling_from" : "ansändare",
+    "topling_subject" : "subjekt",
+    "topling_comment" : "lärares komment",
+
     "studentsvenska_code" : "syntaktisk funktion",
     "studentsvenska_properties" : "satstyp",
     "studentsvenska_textnumber" : "textnummer",
@@ -1202,5 +1217,6 @@
     "studentsvenska_gender" : "kön",
     "studentsvenska_gradegrammar" : "betyg i grammatikstestet",
     "studentsvenska_errorwordorder" : "antal ordföljdsfel",
-    "studentsvenska_subject" : "uppsatsämne"
+    "studentsvenska_subject" : "uppsatsämne",
+"klk_img_url" : "Se dokument i Revizor"
 }

@@ -1854,7 +1854,7 @@ label[for=lemgram_select]:before {
   display : block;
   & > * {
     display: inline-block;
-    width : 49%;
+    width : 80%;
   }
   .close-x {
     text-align: right;
@@ -1863,6 +1863,7 @@ label[for=lemgram_select]:before {
     &:hover {
       color : darkgrey;
     }
+    width : 10%;
   }
 }
 
@@ -2921,6 +2922,123 @@ li.active a span .num-to-find {
 }
 
 
+/* Hide an element if or if not logged in */
+
+.logged_in .hide_if_logged_in {
+    display: none;
+}
+
+.not_logged_in .hide_if_not_logged_in {
+    display: none;
+}
+
+
+/* Styles for the restricted corpora access modal */
+
+#accessResCorporaModal {
+    // Show on top of the corpus chooser and corpus info boxes
+    z-index: 11000;
+
+    .modal-body {
+        min-height: 2em;
+    }
+
+    // Override the opacity from Bootstrap. For some reason, the
+    // opacity seems to affect only this modal, not the other ones
+    // implemented using Angular Bootstrap.
+    .close-x {
+        opacity: 1;
+    }
+}
+
+#resCorporaList {
+    display: inline;
+    li {
+        margin-left: 1em;
+        font-size: 0.9em;
+    }
+}
+
+#resCorporaListContainer {
+    max-height: 20em;
+    overflow-y: auto;
+}
+
+// Hide the non-relevant text variants
+// FIXME: This should really be done in some other way.
+.access-corpora-aca #accessResCorporaPreambleACARES,
+.access-corpora-aca #accessResCorporaPreambleRES,
+.access-corpora-aca #accessResCorporaPreambleACAFi,
+.access-corpora-aca #accessResCorporaPreambleACAACAFi,
+.access-corpora-aca #accessResCorporaPreambleACAFiRES,
+.access-corpora-aca #accessResCorporaPreambleACAACAFiRES,
+.access-corpora-acaacafi #accessResCorporaPreambleACARES,
+.access-corpora-acaacafi #accessResCorporaPreambleRES,
+.access-corpora-acaacafi #accessResCorporaPreambleACAFi,
+.access-corpora-acaacafi #accessResCorporaPreambleACA,
+.access-corpora-acaacafi #accessResCorporaPreambleACAFiRES,
+.access-corpora-acaacafi #accessResCorporaPreambleACAACAFiRES,
+.access-corpora-acares #accessResCorporaPreambleACA,
+.access-corpora-acares #accessResCorporaPreambleRES,
+.access-corpora-acares #accessResCorporaPreambleACAFi,
+.access-corpora-acares #accessResCorporaPreambleACAACAFi,
+.access-corpora-acares #accessResCorporaPreambleACAFiRES,
+.access-corpora-acares #accessResCorporaPreambleACAACAFiRES,
+.access-corpora-acafi #accessResCorporaPreambleACARES,
+.access-corpora-acafi #accessResCorporaPreambleRES,
+.access-corpora-acafi #accessResCorporaPreambleACA,
+.access-corpora-acafi #accessResCorporaPreambleACAACAFi,
+.access-corpora-acafi #accessResCorporaPreambleACAFiRES,
+.access-corpora-acafi #accessResCorporaPreambleACAACAFiRES,
+.access-corpora-acafires #accessResCorporaPreambleACARES,
+.access-corpora-acafires #accessResCorporaPreambleRES,
+.access-corpora-acafires #accessResCorporaPreambleACA,
+.access-corpora-acafires #accessResCorporaPreambleACAACAFi,
+.access-corpora-acafires #accessResCorporaPreambleACAFi,
+.access-corpora-acafires #accessResCorporaPreambleACAACAFiRES,
+.access-corpora-acaacafires #accessResCorporaPreambleACARES,
+.access-corpora-acaacafires #accessResCorporaPreambleRES,
+.access-corpora-acaacafires #accessResCorporaPreambleACA,
+.access-corpora-acaacafires #accessResCorporaPreambleACAACAFi,
+.access-corpora-acaacafires #accessResCorporaPreambleACAFi,
+.access-corpora-acaacafires #accessResCorporaPreambleACAFiRES,
+.access-corpora-res #accessResCorporaPreambleACARES,
+.access-corpora-res #accessResCorporaPreambleACA,
+.access-corpora-res #accessResCorporaPreambleACAFi,
+.access-corpora-res #accessResCorporaPreambleACAACAFi,
+.access-corpora-res #accessResCorporaPreambleACAFiRES,
+.access-corpora-res #accessResCorporaPreambleACAACAFiRES {
+    display: none;
+}
+
+.access-corpora-res #accessResCorporaPostambleACA {
+    display: none;
+}
+
+
+/*
+#resCorporaLinks a {
+    display: inline-block;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+*/
+
+/*
+#resCorporaLogin,
+#resCorporaLBR {
+    margin-left: 1em;
+}
+*/
+
+.modal-backdrop {
+    // Increase the modal backdrop z-index from the default 1040
+    // to dim the corpus selector and corpus info box with higher
+    // z-indexes. Could this cause problems somewhere else?
+    z-index: 10040;
+}
+
+
 /* Styles specific to Kielipankki's corpora */
 
 /* DMA signum lists represented as tables */
@@ -2944,4 +3062,89 @@ li.active a span .num-to-find {
     tr.vspacer {
 	font-size: 0.3em;
     }
+}
+
+/* ScotsCorr word selector modal */
+
+.modal-value {
+    font-size: 0.8em;
+    width: 100%;
+}
+
+.modal-value-heading {
+    font-weight: bold;
+}
+
+#wordselector-selected-words {
+    display: block;
+    line-height: 95%;
+}
+
+.modal-buttons, .modal-value {
+    display: block;
+}
+
+.modal-buttons button {
+    margin-right: 0.5em;
+}
+
+.modal-wordselector {
+    overflow-y: auto;
+    font-size: 1em;
+    margin: 0.5em 1em 0.5em 1em;
+    ul {
+        list-style: none;
+	li ul {
+	    margin-left: 2em;
+	    line-height: 70%;
+	}
+    }
+}
+
+.wordselector-group-heading {
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      color : darkgrey;
+    }
+}
+
+.wordselector-group-name {
+    display: inline-block;
+    min-width: 1em;
+}
+
+.wordselector-freq {
+    // Frequency information in dark grey
+    color: #555555;
+    // font-size: 0.8em;
+}
+
+.wordselector-word-unselected {
+    font-weight: normal;
+}
+
+.wordselector-word-selected {
+    font-weight: bold;
+}
+
+.list-link-icon {
+    margin-left: 0.25em;
+    cursor: pointer;
+    &:hover {
+      color : darkgrey;
+    }
+}
+
+.book-link-icon {
+    margin-left: 0.25em;
+    cursor: pointer;
+    &:hover {
+      color : darkgrey;
+    }
+}
+
+.arg_value_wordselector {
+    // Allow space for the word selector list icon
+    width: 85% !important;
 }

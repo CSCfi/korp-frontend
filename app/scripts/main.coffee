@@ -3,6 +3,7 @@
 window.authenticationProxy = new model.AuthenticationProxy()
 window.timeProxy = new model.TimeProxy()
 creds = $.jStorage.get("creds")
+console.log "creds (0)", creds
 if creds
     authenticationProxy.loginObj = creds
 
@@ -57,15 +58,24 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
 
     util.addDefaultTranslations()
 
+    # These need to be before calling util.checkTryingRestrictedCorpora
+    util.initCorpusSettingsLogicalCorpora()
+    util.initCorpusSettingsLicenceCategory()
+
     angular.bootstrap(document, ['korpApp'])
 
     try
         corpus = search()["corpus"]
         if corpus
-            settings.corpusListing.select corpus.split(",")
+            # Save the corpora in the URL to url_corpora, because the
+            # non-accessible corpora will be removed from the URL (and
+            # unselected) before checking if the user tried to access
+            # restricted corpora.
+            url_corpora = corpus.split(",")
+            settings.corpusListing.select url_corpora
         view.updateSearchHistory()
     catch e
-        c.warn "ERROR setting corpora from location"
+        c.warn "ERROR setting corpora from location:", e
 
 
     $("body").addClass "lab" if isLab
@@ -95,6 +105,7 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
 
     # reset creds if new session --matthies 2014-01-14
     if not sessionStorage.getItem("newSession")
+        c.log "new session; creds to be deleted:", creds
         sessionStorage.setItem("newSession", true)
         $.jStorage.deleteKey("creds")
         c.log "delete creds"
@@ -119,34 +130,6 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
         $("#pass").val ""
         $("#corpusbox").corpusChooser "redraw"
 
-    # Add to selector a Shibboleth login or logout link as defined by
-    # settings[url_prop]. If the link is a string, it is taken as a URL.
-    # If it is a function, it is used to generate the URL dynamically
-    # at link click time. This allows passing the current URL (including
-    # parameters and hash) to the Shibboleth pages (scripts), which in
-    # turn allows retaining the state of Korp (mode, language, selected
-    # corpora, query) in login or logout. The function parameter
-    # add_link_fn is used to add the URL to the HTML. It should take two
-    # arguments: elem (corresponding to $(selector)) and href (the value
-    # of the href attribute of the a element to be set or added).
-    # (Jyrki Niemi 2015-05-06)
-    make_shibboleth_link = (selector, url_prop, add_link_fn) ->
-        url = settings[url_prop]
-        if url?
-            if typeof url != "function"
-                add_link_fn($(selector), url)
-            else
-                add_link_fn($(selector), "javascript:")
-                $(selector).find("a").click ((url_fn) ->
-                    (e) ->
-                        e.preventDefault()
-                        window.location.href = url_fn()
-                        return
-                )(url)
-        else
-            c.log "settings.#{url_prop} not defined"
-        return
-
     # Use Basic authentication if not specified explicitly
     settings.authenticationType ?= "basic"
     settings.authenticationType = settings.authenticationType.toLowerCase()
@@ -155,22 +138,26 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
     switch settings.authenticationType
         when "shibboleth"
             # Change the href of login link to the one specified in config.js
-            make_shibboleth_link(
+            util.makeShibbolethLink(
                 "#login", "shibbolethLoginUrl",
                 (elem, href) -> elem.find("a").attr("href", href)
             )
-            # Add an 'a' element to the logout link, href specified in config.js
-            make_shibboleth_link(
+            # Add an 'a' element to the logout link, href specified in
+            # config.js, restricted corpora removed from the URL parameter
+            # "corpus"
+            util.makeShibbolethLink(
                 "#log_out", "shibbolethLogoutUrl",
-                (elem, href) -> elem.wrapInner("<a href='#{href}'></a>")
+                (elem, href) -> elem.wrapInner("<a href='#{href}'></a>"),
+                (href) => util.url_remove_corpora(
+                    href, settings.corpusListing.getRestrictedCorpora())
             )
         when "basic"
             # Invoke JavaScript code from the login link
-            $("#login").find("a").attr("href", "javascript:")
+            for login_elem in ["#login", "#resCorporaLogin"]
+                $(login_elem).find("a").attr("href", "javascript:")
         else
             # Otherwise no authentication, so hide the login link
             $("#login").css("display", "none")
-
 
     prevFragment = {}
     window.onHashChange = (event, isInit) ->
@@ -228,9 +215,20 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
                 $("body").toggleClass("logged_in not_logged_in")
                 util.setLogin()
 
+            # After Shibboleth login, if the URL parameter "corpus"
+            # still contains corpora that the user is not allowed to
+            # access, show the restricted corpora modal with the
+            # option of applying for access rights.
+            util.checkTryingRestrictedCorpora(url_corpora)
             search "shib_logged_in", null
         ).fail ->
             c.log "login fail"
+
+    # If not logged in with Shibboleth, check if the user is trying to
+    # access restricted corpora and show the restricted corpora modal
+    # if needed.
+    if not search().shib_logged_in?
+        util.checkTryingRestrictedCorpora(url_corpora)
 
     $("#languages").radioList(
         change: ->
@@ -246,6 +244,15 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
     $(document).click ->
         $("#simple_text.ui-autocomplete-input").autocomplete "close"
 
+    util.initCorpusSettingsFeatures()
+    util.initCorpusSettingsLinkAttrs()
+    util.initCorpusSettingsSyntheticAttrs()
+    util.initCorpusSettingsAttrDisplayOrder()
+
+    # FIXME: view.initSearchOptions should probably be executed only
+    # after the corpora are set after a login, to ensure that
+    # initSearchOptions gets options from all the selected corpora.
+    # How to ensure that? (Jyrki Niemi 2017-01-26)
     setTimeout(() ->
         view.initSearchOptions()
         onHashChange null, true
@@ -260,10 +267,8 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
     , ->
         $(this).css "opacity", ""
 
-    util.initCorpusSettingsLinkAttrs()
-    util.initCorpusSettingsSyntheticAttrs()
-    util.initCorpusSettingsAttrDisplayOrder()
     # initTimeGraph()
+    return
 ), ->
     c.log "failed to load some resource at startup.", arguments
     $("body").css(

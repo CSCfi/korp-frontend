@@ -34,7 +34,7 @@
     "feedback_link" : "<a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback' target='_blank'>Feedback</a>",
     "feedback_url" : "https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback",
     "feedback_linktext" : "Feedback",
-    "annotlab_multilingual" : "Multilingual Annotation Lab",
+    "annotlab_multilingual" : "Multilingual Annotation Lab<br/>(Sparv)",
     "annotlab_multilingual_url_params" : "lang=en&language=en",
     "search_history" : "Search history",
     "search_history_clear" : "✘ Clear search history",
@@ -165,7 +165,9 @@
     "ces" : "Czech",
     "kpv" : "Komi-Zyrian",
     "lat" : "Latin",
+    "mdf" : "Moksha",
     "mkd" : "Macedonian",
+    "myv" : "Erzya",
     "pol" : "Polish",
     "ron" : "Romanian",
     "sjd" : "Kildin Saami",
@@ -402,6 +404,7 @@
     "formatdescr_annot" : "Annotated text as an Excel spreadsheet (XLS), token per row. Each row has one text token with attributes and a potential search hit indicator. Each found sentence is preceded by a line with a corpus ID, corpus position and text attributes for the sentence.",
     "formatdescr_nooj" : "XML import format for the NooJ software",
     "formatdescr_ref" : "Bibliographical references as an Excel spreadsheet (XLS) with each matching sentence on its own line, followed by the text attributes of the sentence on their own lines",
+    "formatdescr_rows" : "An Excel spreadsheet with one row for each KWIC row. Each row has the following columns: hit number, corpus id, word forms of the left context, match and right context, lemmas of the left context, match and right context (if available), text attributes (each in its own column) and search metadata in their own columns.",
 
     "name_classification" : "Name classification",
     "no_name_corpora" : "The selected corpora lack named-entity data.",
@@ -413,10 +416,36 @@
 
     "privacy" : "Privacy policy",
 
-    "corpus_urn" : "URN",
+    "corpus_urn" : "Link to corpus in Korp",
     "corpus_licence" : "Licence",
     "corpus_metadata" : "Metadata",
     "corpus_homepage" : "Home page",
+    "corpus_iprholder" : "IPR holder",
     "corpus_compiler" : "Compiler",
-    "corpus_download" : "Download corpus"
+    "corpus_download" : "Download corpus",
+    "corpus_cite" : "Cite corpus",
+
+    "accessres_title" : "Accessing restricted corpora",
+    "accessres_preamble_common" : "You are trying to select or access the following corpora (or their subcorpora) that require",
+    "accessres_preamble_login" : "logging in to Korp and",
+    "accessres_preamble_res" : "personal access rights",
+    "accessres_preamble_aca" : "either an active membership of an academic institution or personal access rights",
+    "accessres_preamble_acafi" : "an active membership of a Finnish academic institution",
+    "accessres_preamble_acares" : "for [RES]-marked corpora, personal access rights, and for [ACA]-marked corpora, either an active membership of an academic institution or personal access rights",
+    "accessres_preamble_acaacafi" : "for [ACA]-marked corpora, either an active membership of an academic institution or personal access rights, and for [ACA-Fi]-marked corpora, an active membership of a Finnish academic institution",
+    "accessres_preamble_acafires" : "for [RES]-marked corpora, personal access rights, and for [ACA-Fi]-marked corpora, an active membership of a Finnish academic institution",
+    "accessres_preamble_acaacafires" : "for [RES]-marked corpora, personal access rights, for [ACA]-marked corpora, either an active membership of an academic institution or personal access rights, and for [ACA-Fi]-marked corpora, an active membership of a Finnish academic institution",
+    "accessres_links_preamble" : "To use the corpora, please",
+    "accessres_login_or_apply" : "Please log in to Korp or apply for access rights to be able to use the corpora",
+    "accessres_login" : "log in to Korp",
+    "accessres_apply" : "apply for corpus access rights",
+    "accessres_postamble_aca" : "If Korp does not recognize you as an active member of an academic institution for technical reasons, you can also",
+    "accessres_postamble_aca_linktext" : "apply for recognition as an academic user",
+
+    "wordlist" : "Word list",
+    "selected_words" : "Selected words",
+    "button_done" : "Done",
+    "button_clear" : "Clear",
+    "button_cancel" : "Cancel"
+
 }

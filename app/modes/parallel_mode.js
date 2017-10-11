@@ -271,6 +271,7 @@ settings.corporafolders.europarl = {
 	urn : "urn:nbn:fi:lb-2015043012",
 	metadata_urn : "urn:nbn:fi:lb-2015043011",
 	licence : settings.licenceinfo.CC_BY,
+	cite_id : "HeKo-Europarl",
     }
 };
 
@@ -295,6 +296,7 @@ settings.corporafolders.jrc = {
 	urn : "urn:nbn:fi:lb-2015062301",
 	metadata_urn : "urn:nbn:fi:lb-2015061210",
 	licence : settings.licenceinfo.CC_BY,
+	cite_id : "HeKo-JRC-Acquis",
     }
 };
 
@@ -302,7 +304,13 @@ settings.corpus_aliases.jrc_acquis = "jrc_acquis_.*fi";
 
 settings.corporafolders.opus = {
     title : "OPUS",
-    description : "OPUS – an open source parallel corpus"
+    description : "OPUS – an open source parallel corpus",
+    info : {
+	urn : "urn:nbn:fi:lb-2016012101",
+	metadata_urn : "urn:nbn:fi:lb-2015102201",
+	licence : settings.licenceinfo.CC_BY_40,
+	cite_id : "Opus-Korp",
+    },
 };
 
 settings.corporafolders.opus.enfi = {
@@ -552,7 +560,7 @@ settings.corporafolders.parfin_parrus = {
     title : "ParFin, ParRus",
     contents : [
 	"parfin_2016_fi",
-	"parrus_2016_fi",
+	// "parrus_2016_fi",
 	"parrus_2016_ru",
 	"parfin_fi",
 	"parrus_fi",
@@ -7564,6 +7572,7 @@ settings.corpora.kfspc_fi = {
     title : "Kotus Finnish-Swedish Parallel Corpus (suomi)",
     description : "KFSPC (suomi)",
     id : "kfspc_fi",
+    cite_id : "kfspc-korp",
     lang : "fin",
     linked_to : ["kfspc_sv"],
     context : context.defaultAligned,
@@ -7579,6 +7588,7 @@ settings.corpora.kfspc_sv = {
     title : "Kotus Finnish-Swedish Parallel Corpus (ruotsi)",
     description : "KFSPC (ruotsi)",
     id : "kfspc_sv",
+    cite_id : "kfspc-korp",
     lang : "swe",
     linked_to : ["kfspc_fi"],
     context: context.defaultAligned,
@@ -7711,9 +7721,9 @@ settings.corpora.mulcold_de = {
     hide : true
 };
 
-settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
-				   ["mulcold_fi", "mulcold_en", "mulcold_sv",
-				    "mulcold_ru", "mulcold_de"]);
+settings.fn.extend_corpus_settings(
+    $.extend({}, settings.corpusinfo.mulcold, { cite_id : "MULCOLD", }),
+    ["mulcold_fi", "mulcold_en", "mulcold_sv", "mulcold_ru", "mulcold_de"]);
 
 
 /*
@@ -7777,8 +7787,8 @@ settings.corpora.parfin_ru = {
 settings.fn.extend_corpus_settings(
     {
 	// Properties common to parfin_fi and parfin_ru
-	title: "ParFin",
-	description : "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1990–2010 ja niiden käännöksiä venäjäksi virketasolla kohdistettuina",
+	title: "ParFin [poistuva]",
+	description : "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1990–2010 ja niiden käännöksiä venäjäksi virketasolla kohdistettuina<br/><br/><strong>Huomaa, että ParFin 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
 	context: context.linkAligned,
 	within: settings.linkWithin,
 	limited_access : true,
@@ -7811,8 +7821,8 @@ settings.corpora.parrus_fi = {
     id : "parrus_fi",
     lang : "fin",
     linked_to : ["parrus_ru"],
-    title : "ParRus (suomi)",
-    description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/><br/><strong>Huomaa:</strong> Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti suomenkielisistä käännöksistä. Jos samasta teoksesta on useita käännöksiä, tämä hakee niistä kaikista.",
+    title : "ParRus (suomi) [poistuva]",
+    description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/><br/><strong>Huomaa:</strong> Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti suomenkielisistä käännöksistä. Jos samasta teoksesta on useita käännöksiä, tämä hakee niistä kaikista.<br/><br/><strong>Huomaa, että ParRus 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
     attributes : attrlist.parrus_fi,
     struct_attributes : sattrlist.parrus_fi,
 };
@@ -7823,8 +7833,8 @@ settings.corpora.parrus_ru = {
     linked_to : ["parrus_fi1", "parrus_fi2", "parrus_fi3"],
     // Needed to make searches in Finnish work in parrus_ru
     linked_to_inverse : ["parrus_fi"],
-    title : "ParRus (venäjä)",
-    description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/><br/><strong>Huomaa:</strong> Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti venäjänkielisistä alkuperäisteksteistä. Jos samasta teoksesta on useita käännöksiä, niistä kukin näkyy tuloksessa erikseen.",
+    title : "ParRus (venäjä) [poistuva]",
+    description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/><br/><strong>Huomaa:</strong> Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti venäjänkielisistä alkuperäisteksteistä. Jos samasta teoksesta on useita käännöksiä, niistä kukin näkyy tuloksessa erikseen.<br/><br/><strong>Huomaa, että ParRus 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
     attributes : attrlist.parrus_ru,
     struct_attributes : sattrlist.parrus_ru,
     // hide : true,
@@ -7897,10 +7907,15 @@ settings.corpora.parfin_2016_ru = {
 settings.fn.extend_corpus_settings(
     {
 	// Properties common to parfin_2016_fi and parfin_2016_ru
-	title: "ParFin 2016 (beta)",
-	description : "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1910–2008 ja niiden käännöksiä venäjäksi virketasolla kohdistettuina<br/><br/>Korpuksen Korp-versio on testausvaiheessa ja siihen voi vielä tulla muutoksia.",
+	title: "ParFin 2016",
+	description : "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1910–2008 ja niiden käännöksiä venäjäksi virketasolla kohdistettuina<br/>ParFin 2016: финско-русский корпус художественных текстов. Финская проза 1910-2008 гг. и ее переводы на русский язык, тексты выровнены на уровне предложений.<br/><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Suomen annotaatioiden kuvaus</a><br/><a href=\"http://nl.ijs.si/ME/V4/msd/html/msd-ru.html\" target=\"_blank\">Venäjän morfologisen ja sanaluokka-annotaation kuvaus (englanniksi)</a></br><a href=\"http://www.ruscorpora.ru/instruction-syntax.html\" target=\"_blank\">Venäjän syntaktisen annotaation kuvaus (venäjäksi)</a>",
+	urn : "urn:nbn:fi:lb-2016121601",
+	metadata_urn : "urn:nbn:fi:lb-2016121610",
+	licence : settings.licenceinfo.ParFinRus_2016_fi,
+	cite_id : "ParFin2016",
 	context: context.linkAligned,
-	within: settings.linkWithin,
+	// TODO: Make sure that sentLinkWithin works in all cases.
+	within: settings.sentLinkWithin,
 	limited_access : true,
 	licence_type : "RES",
     },
@@ -7924,81 +7939,75 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parfin_2016,
 // translations, respectively, for the texts with at least that number
 // of translations.)
 //
-// Both parrus_2016_fi and parrus_2016_ru are shown in the corpus
-// selector, whereas the _fiN versions are not.
-
-settings.corpora.parrus_2016_fi = {
-    id : "parrus_2016_fi",
-    lang : "fin",
-    linked_to : ["parrus_2016_ru"],
-    title : "ParRus 2016 (suomi) (beta)",
-    description : "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/><br/><strong>Huomaa:</strong> Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti suomenkielisistä käännöksistä. Jos samasta teoksesta on useita käännöksiä, tämä hakee niistä kaikista.<br/><br/>Korpuksen Korp-versio on testausvaiheessa ja siihen voi vielä tulla muutoksia.",
-    attributes : attrlist.parrus_2016_fi,
-    struct_attributes : sattrlist.parrus_2016_fi,
-};
+// Searching in Finnish from parrus_2016_ru shows the results
+// separately for each translation and for each search shows all the
+// translations, which multiplies the "corpora" from which results are
+// reported.
+//
+// Because of Mikhail Mikhailov's wishes, only parrus_2016_ru is shown
+// in the corpus selector, even if searching from it in Finnish shows
+// the same results several times.
 
 settings.corpora.parrus_2016_ru = {
+    title : "ParRus 2016",
     id : "parrus_2016_ru",
     lang : "rus",
     linked_to : ["parrus_2016_fi1", "parrus_2016_fi2", "parrus_2016_fi3",
 		 "parrus_2016_fi4"],
-    // Needed to make searches in Finnish work in parrus_2016_ru
-    linked_to_inverse : ["parrus_2016_fi"],
-    title : "ParRus 2016 (venäjä) (beta)",
-    description : "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/><br/><strong>Huomaa:</strong> Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti venäjänkielisistä alkuperäisteksteistä. Jos samasta teoksesta on useita käännöksiä, niistä kukin näkyy tuloksessa erikseen.<br/><br/>Korpuksen Korp-versio on testausvaiheessa ja siihen voi vielä tulla muutoksia.",
+    // linked_to_inverse appeared to be needed to make searches in
+    // Finnish work in parrus_2016_ru. But now the searches seem to
+    // work without that, although nothing related to that should have
+    // been changed. Why is that? (Jyrki Niemi 2017-02-03)
+    // linked_to_inverse : ["parrus_2016_fi"],
     attributes : attrlist.parrus_2016_ru,
     struct_attributes : sattrlist.parrus_2016_ru,
-    // hide : true,
 };
 
+settings.corpora.parrus_2016_fi = {
+    title : "ParRus 2016 (suomi)",
+    id : "parrus_2016_fi",
+    linked_to : ["parrus_2016_ru"],
+};
 
 settings.corpora.parrus_2016_fi1 = {
     id : "parrus_2016_fi1",
     linked_to : ["parrus_2016_ru",
 		 "parrus_2016_fi2", "parrus_2016_fi3", "parrus_2016_fi4"],
-    title : "ParRus (suomenkielinen käännös 1)",
+    title : "ParRus 2016 (suomenkielinen käännös 1)",
 };
 
 settings.corpora.parrus_2016_fi2 = {
     id : "parrus_2016_fi2",
     linked_to : ["parrus_2016_ru",
 		 "parrus_2016_fi1", "parrus_2016_fi3", "parrus_2016_fi4"],
-    title : "ParRus (suomenkielinen käännös 2)",
+    title : "ParRus 2016 (suomenkielinen käännös 2)",
 };
 
 settings.corpora.parrus_2016_fi3 = {
     id : "parrus_2016_fi3",
     linked_to : ["parrus_2016_ru",
 		 "parrus_2016_fi1", "parrus_2016_fi2", "parrus_2016_fi4"],
-    title : "ParRus (suomenkielinen käännös 3)",
+    title : "ParRus 2016 (suomenkielinen käännös 3)",
 };
 
 settings.corpora.parrus_2016_fi4 = {
     id : "parrus_2016_fi4",
     linked_to : ["parrus_2016_ru",
 		 "parrus_2016_fi1", "parrus_2016_fi2", "parrus_2016_fi3"],
-    title : "ParRus (suomenkielinen käännös 4)",
+    title : "ParRus 2016 (suomenkielinen käännös 4)",
 };
 
 settings.fn.extend_corpus_settings(
     {
-	// Properties common to parrus_2016_fiN
-	lang : "fin",
-	description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus",
-	attributes : attrlist.parrus_2016_fi,
-	struct_attributes : sattrlist.parrus_2016_fi,
-	hide : true,
-    },
-    ["parrus_2016_fi1",
-     "parrus_2016_fi2",
-     "parrus_2016_fi3",
-     "parrus_2016_fi4"]);
-
-settings.fn.extend_corpus_settings(
-    {
-	// Properties common to all ParRus language versions
+	// Properties common to all ParRus 2016 language versions
+	description : "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/>ParRus 2016: русско-русский корпус художественных текстов. Русская классическая и современная проза и ее переводы на финский язык, тексты выровнены на уровне абзацев.<br/><br/><strong>Huomaa:</strong> Suomeksi haettaessa hakutulos sisältää samoja tuloksia useaan kertaan.<br/><br/><a href=\"http://nl.ijs.si/ME/V4/msd/html/msd-ru.html\" target=\"_blank\">Venäjän morfologisen ja sanaluokka-annotaation kuvaus (englanniksi)</a></br><a href=\"http://www.ruscorpora.ru/instruction-syntax.html\" target=\"_blank\">Venäjän syntaktisen annotaation kuvaus (venäjäksi)</a><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Suomen annotaatioiden kuvaus</a>",
+	urn : "urn:nbn:fi:lb-2016121604",
+	metadata_urn : "urn:nbn:fi:lb-20140730173",
+	licence : settings.licenceinfo.ParFinRus_2016_fi,
+	cite_id : "ParRus2016",
 	context : context.linkAligned,
-	within : settings.linkWithin,
+	// TODO: Make sure that sentLinkWithin works in all cases.
+	within : settings.sentLinkWithin,
 	limited_access : true,
 	licence_type : "RES"
     },
@@ -8017,6 +8026,21 @@ settings.fn.extend_corpus_settings(
      "parrus_2016_fi3",
      "parrus_2016_fi4",
      "parrus_2016_ru"]);
+
+settings.fn.extend_corpus_settings(
+    {
+	// Properties common to parrus_2016_fiN
+	lang : "fin",
+	// description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus",
+	attributes : attrlist.parrus_2016_fi,
+	struct_attributes : sattrlist.parrus_2016_fi,
+	hide : true,
+    },
+    ["parrus_2016_fi",
+     "parrus_2016_fi1",
+     "parrus_2016_fi2",
+     "parrus_2016_fi3",
+     "parrus_2016_fi4"]);
 
 
 /*

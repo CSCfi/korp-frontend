@@ -94,7 +94,8 @@ Sidebar =
         else if type == "pos"
             pairs = _.pairs(wordData)
             for item in (wordData._struct or [])
-                [key, val] = item.split(" ")
+                # Allow spaces in values (Jyrki Niemi 2016-10-18)
+                [key, val] = item.split(/ (.+)/, 2)
                 if key of corpus_attrs
                     pairs.push([key, val])
 
@@ -125,6 +126,27 @@ Sidebar =
         return [$(pos_items), $(struct_items)]
 
     renderItem: (key, value, attrs, wordData, sentenceData, tokens, token_data) ->
+
+        # Convert &, < and > to HTML character entities (for
+        # stringifying attribute values for which stringify is not
+        # defined). (Jyrki Niemi 2016-12-15)
+        encodeHtmlEntities = (s) ->
+            s.replace(/&/g, "&amp;")
+             .replace(/</g, "&lt;")
+             .replace(/>/g, "&gt;")
+
+        # Map a value via the dataset property if it exists and is not
+        # an array, that it, is a mapping (object with properties).
+        # FIXME: This does not yield a correct result if the dataset
+        # keys are regular expressions as they may be. Should we
+        # perhaps have separate dataset mappings for the query,
+        # allowing regexps, and for stringifying values, not allowing
+        # regexps? (Jyrki Niemi 2017-05-16)
+        mapViaDataset = (value) ->
+            if attrs.dataset? and not _.isArray(attrs.dataset)
+                return attrs.dataset[value] or value
+            else
+                return value
 
         if attrs.displayType in ["hidden", "date_interval"] or
                 attrs.displayOnly == "search"
@@ -183,11 +205,12 @@ Sidebar =
 
             itr = if _.isArray(valueArray) then valueArray else _.values(valueArray)
             lis = for x in itr when x.length
-                val = (attrs.stringify or _.identity)(x)
+                val = (attrs.stringify or encodeHtmlEntities)(x)
 
                 inner = $(_.template(pattern, {key : x, val : val}))
                 if attrs.translationKey?
                     prefix = attrs.translationKey or ""
+                    val = mapViaDataset(val)
                     inner.localeKey(prefix + val)
 
                 if attrs.internalSearch
@@ -211,7 +234,7 @@ Sidebar =
         str_value = if attrs.stringify_synthetic
                         attrs.stringify_synthetic(token_data)
                     else
-                        (attrs.stringify or _.identity)(value)
+                        (attrs.stringify or encodeHtmlEntities)(value)
 
 
         if attrs.type == "url"
@@ -261,7 +284,7 @@ Sidebar =
 
         else
             if attrs.translationKey?
-                str_value = attrs?.dataset[value] or str_value
+                str_value = mapViaDataset(str_value)
                 return output.append "<span rel='localize[#{attrs.translationKey}#{str_value}]'></span>"
             else
                 return output.append "<span>#{str_value || ''}</span>"
