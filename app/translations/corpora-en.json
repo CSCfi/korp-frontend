@@ -1768,6 +1768,20 @@
     "paratype_paragraph/heading" : "paragraph or heading",
     "paratype_sentence" : "sentence",
 
+    "textpart_image_alt" : "alternative text for an image",
+    "textpart_byline" : "byline",
+    "textpart_caption" : "caption",
+    "textpart_heading" : "heading",
+    "textpart_heading_alt" : "alternative text for a heading image",
+    "textpart_heading_caption" : "caption for a heading image",
+    "textpart_headline" : "headline",
+    "textpart_image" : "image",
+    "textpart_lead" : "lead paragraph",
+    "textpart_quote" : "quotation",
+    "textpart_short_summary" : "short summary",
+    "textpart_summary" : "summary",
+    "textpart_text" : "text",
+
     "country" : "country",
 
     "country_AU" : "Australia",
@@ -1880,5 +1894,12 @@
     "oracc_lang_sy" : "Syllabic",
     "oracc_lang_sux-x-udgalnun" : "Udgalnun",
     "oracc_lang_qpc" : "protocuneiform",
+
+    "main_section" : "main section",
+    "sections" : "sections",
+    "datetime_published" : "publication date and time",
+    "datetime_content_modified" : "content modification date and time",
+    "datetime_json_modified" : "JSON modification date and time",
+
 "klk_img_url" : "View document in Revizor"
 }

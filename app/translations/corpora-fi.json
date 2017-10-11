@@ -1018,6 +1018,20 @@
     "hi_rend" : "korostus",
     "hirend_bold" : "lihavoitu",
 
+    "textpart_image_alt" : "kuvan seliteteksti",
+    "textpart_byline" : "kirjoittaja (byline)",
+    "textpart_caption" : "kuvateksti",
+    "textpart_heading" : "otsikko",
+    "textpart_heading_alt" : "otsikkokuvan seliteteksti",
+    "textpart_heading_caption" : "otsikkokuvan kuvateksti",
+    "textpart_headline" : "pääotsikko",
+    "textpart_image" : "kuva",
+    "textpart_lead" : "ingressi",
+    "textpart_quote" : "lainaus",
+    "textpart_short_summary" : "lyhyt tiivistelmä",
+    "textpart_summary" : "tiivistelmä",
+    "textpart_text" : "teksti",
+
     "collection_title" : "kokoelma",
     "story_title" : "kertomus",
 
@@ -1822,5 +1836,12 @@
     "oracc_lang_sy" : "tavukirjoitus",
     "oracc_lang_sux-x-udgalnun" : "udgalnun-ortografia",
     "oracc_lang_qpc" : "protonuolenpää",
+
+    "main_section" : "pääosasto",
+    "sections" : "osastot",
+    "datetime_published" : "julkaisuajankohta",
+    "datetime_content_modified" : "sisällön muokkausajankohta",
+    "datetime_json_modified" : "JSONin muokkausajankohta",
+
 "klk_img_url" : "Katso asiakirja Revizorissa"
 }

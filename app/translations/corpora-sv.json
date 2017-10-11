@@ -530,6 +530,7 @@
     "parse_state_tagged" : "taggad",
 
     "paragraph_type" : "styckets typ",
+    "sentence_type" : "meningens typ",
     "file_name" : "filnamn",
     "lemmie_corpus" : "korpusidentifierare i Lemmie",
     "lemmie_text_id" : "textidentifierare i Lemmie",
@@ -537,6 +538,20 @@
     "text_word_count" : "antal ord i text",
     "contributor" : "bidragsgivare",
     "enclosing_elems" : "innehållande element",
+
+    "textpart_image_alt" : "alternativ text för en bild",
+    "textpart_byline" : "byline",
+    "textpart_caption" : "bildtext",
+    "textpart_heading" : "rubrik",
+    "textpart_heading_alt" : "alternativ text för en rubrikbild",
+    "textpart_heading_caption" : "bildtext för en rubrikbild",
+    "textpart_headline" : "huvudrubrik",
+    "textpart_image" : "bild",
+    "textpart_lead" : "ingress",
+    "textpart_quote" : "citat",
+    "textpart_short_summary" : "kort sammanfattning",
+    "textpart_summary" : "sammanfattning",
+    "textpart_text" : "text",
 
     "publication_type" : "publikationstyp",
     "publtype_journal" : "tidskrift",
@@ -1179,5 +1194,12 @@
     "studentsvenska_gradegrammar" : "betyg i grammatikstestet",
     "studentsvenska_errorwordorder" : "antal ordföljdsfel",
     "studentsvenska_subject" : "uppsatsämne",
+
+    "main_section" : "huvudavdelning",
+    "sections" : "avdelningar",
+    "datetime_published" : "utgivningsdatum",
+    "datetime_content_modified" : "innehållets redigeringsdatum",
+    "datetime_json_modified" : "JSONets redigeringsdatum",
+
 "klk_img_url" : "Se dokument i Revizor"
 }
