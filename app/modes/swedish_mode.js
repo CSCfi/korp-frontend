@@ -1,7 +1,7 @@
 // -*- coding: utf-8 -*-
 
-settings.primaryColor = "#edfcd5";
-settings.primaryLight = "#f7fceb";
+settings.primaryColor = "#EEBA94";
+settings.primaryLight = "#F5D4BB";
 settings.autocomplete = true;
 settings.lemgramSelect = true;
 settings.wordpicture = false;

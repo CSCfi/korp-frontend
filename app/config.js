@@ -343,7 +343,7 @@ settings.corpusinfo = {};
 var karpLemgramLink = "http://spraakbanken.gu.se/karp/#?search=extended||and|lemgram|equals|<%= val.replace(/:\\d+/, '') %>";
 
 settings.primaryColor = "rgb(221, 233, 255)";
-settings.primaryLight = "rgb(242, 247, 255)";
+settings.primaryLight = "rgb(202, 210, 230)";
 settings.secondaryColor = "";
 settings.corpora = {};
 
