@@ -349,6 +349,10 @@
     "kwic_download_formatdescr_tsv" : "Tab-Separated Values: tabseparerade värden, t ex for att bearbetas med verktygsprogram i Unix",
     "kwic_download_formatname_xls" : "Excel (XLS)",
     "kwic_download_formatdescr_xls" : "Microsoft Excel 97–2003 kalkylblad",
+    "kwic_download_formatname_text_utf8" : "Klartext (UTF-8)",
+    "kwic_download_formatdescr_text_utf8" : "Klartext, UTF-8-teckenkodning",
+    "kwic_download_formatname_html" : "HTML",
+    "kwic_download_formatdescr_html" : "Text i HTML",
 
     "name_classification" : "Namnklassifikation",
     "no_name_corpora" : "De valda korpusarna innehåller ingen namndata.",

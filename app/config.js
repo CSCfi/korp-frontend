@@ -71,6 +71,10 @@ physical_formats = {
 	formats: ["xls", "csv", "tsv"],
 	selected: "xls",
     },
+    text: {
+	formats: ["text_utf8", "html"],
+	selected: "text_utf8",
+    },
 };
 
 settings.downloadFormatParams = {
@@ -109,6 +113,7 @@ settings.downloadFormatParams = {
 	format: "text",
 	subformat: "sentences-bare",
 	structs: "",
+	physical_formats: physical_formats.text,
     },
 };
 
@@ -121,6 +126,11 @@ settings.downloadFormatParamsPhysical = {
     },
     "tsv": {
 	format_suffix: ",tsv",
+    },
+    "text_utf8": {
+    },
+    "html": {
+	format_suffix: ",html",
     },
 };
 
