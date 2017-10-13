@@ -793,95 +793,142 @@ util.splitSaldo = (saldo) ->
     saldo.match util.saldoRegExp
 
 
-# Add download links for other formats, defined in
-# settings.downloadFormats (Jyrki Niemi <jyrki.niemi@helsinki.fi>
-# 2014-02-26/04-30)
+# util.setDownloadLinks = (xhr_settings, result_data) ->
+#     # If some of the required parameters are null, return without
+#     # adding the download links.
+#     if ! (xhr_settings? and result_data? and
+#             result_data.corpus_order? and result_data.kwic?)
+#         c.log 'failed to do setDownloadLinks'
+#         return
 
-util.setDownloadLinks = (xhr_settings, result_data) ->
+#     # Get the number (index) of the corpus of the query result hit
+#     # number hit_num in the corpus order information of the query
+#     # result.
+#     get_corpus_num = (hit_num) ->
+#         result_data.corpus_order.indexOf result_data.kwic[hit_num].corpus
+
+#     c.log 'setDownloadLinks data:', result_data
+#     $('#download-links').empty()
+#     # Corpora in the query result
+#     result_corpora = result_data.corpus_order.slice(
+#         get_corpus_num(0), get_corpus_num(result_data.kwic.length - 1) + 1)
+#     # Settings of the corpora in the result, to be passed to the
+#     # download script
+#     result_corpora_settings = {}
+#     i = 0
+#     while i < result_corpora.length
+#         corpus_ids = result_corpora[i].toLowerCase().split('|')
+#         j = 0
+#         while j < corpus_ids.length
+#             corpus_id = corpus_ids[j]
+#             result_corpora_settings[corpus_id] = settings.corpora[corpus_id]
+#             j++
+#         i++
+#     $('#download-links').append("<option value='init' rel='localize[download_kwic]'></option>")
+#     i = 0
+#     while i < settings.downloadFormats.length
+#         format = settings.downloadFormats[i]
+#         # NOTE: Using attribute rel="localize[...]" to localize the
+#         # title attribute requires a small change to
+#         # lib/jquery.localize.js. Without that, we could use
+#         # util.getLocaleString, but it would not change the
+#         # localizations immediately when switching languages but only
+#         # after reloading the page.
+#         # # title = util.getLocaleString('formatdescr_' + format)
+#         option = $ """
+#             <option 
+#                 value="#{format}"
+#                 title="#{util.getLocaleString('formatdescr_' + format)}"
+#                 class="download_link">#{format.toUpperCase()}</option>
+#             """
+
+#         download_params =
+#             query_params: JSON.stringify(
+#                 $.deparam.querystring(xhr_settings.url))
+#             format: format
+#             korp_url: window.location.href
+#             korp_server_url: settings.cgi_script
+#             corpus_config: JSON.stringify(result_corpora_settings)
+#             # corpus_config_info_keys previously excluded "urn", but
+#             # now it is included if listed in
+#             # settings.corpusExtraInfoItems. Does it matter?
+#             corpus_config_info_keys:
+#                 (settings.corpusExtraInfoItems or []).join(',')
+#             urn_resolver: settings.urnResolver
+#         if 'downloadFormatParams' of settings
+#             if '*' of settings.downloadFormatParams
+#                 $.extend download_params, settings.downloadFormatParams['*']
+#             if format of settings.downloadFormatParams
+#                 $.extend download_params, settings.downloadFormatParams[format]
+#         option.appendTo('#download-links').data("params", download_params)
+#         i++
+#     $('#download-links').localize().click(false).change (event) ->
+#         params = $(":selected", this).data("params")
+#         unless params then return
+#         $.generateFile settings.download_cgi_script, params
+#         self = $(this)
+#         setTimeout( () ->
+#             self.val("init")
+#         , 1000)
+
+
+#     return
+
+
+# Download KWIC in a format defined in settings.downloadFormats, given
+# a Korp query URL (query_url) and the resulting data (result_data).
+# (Jyrki Niemi <jyrki.niemi@helsinki.fi> 2014-02-26/04-30, 2016-05-17)
+
+util.downloadKwic = (format, query_url, result_data) ->
     # If some of the required parameters are null, return without
-    # adding the download links.
-    if ! (xhr_settings? and result_data? and
+    # downloading.
+    if ! (query_url? and result_data? and
             result_data.corpus_order? and result_data.kwic?)
-        c.log 'failed to do setDownloadLinks'
+        c.log "downloadKwic failed"
         return
 
     # Get the number (index) of the corpus of the query result hit
     # number hit_num in the corpus order information of the query
     # result.
     get_corpus_num = (hit_num) ->
-        result_data.corpus_order.indexOf result_data.kwic[hit_num].corpus
+        result_data.corpus_order.indexOf(
+            result_data.kwic[hit_num].corpus.toLowerCase())
 
-    c.log 'setDownloadLinks data:', result_data
-    $('#download-links').empty()
     # Corpora in the query result
     result_corpora = result_data.corpus_order.slice(
         get_corpus_num(0), get_corpus_num(result_data.kwic.length - 1) + 1)
     # Settings of the corpora in the result, to be passed to the
     # download script
     result_corpora_settings = {}
-    i = 0
-    while i < result_corpora.length
-        corpus_ids = result_corpora[i].toLowerCase().split('|')
-        j = 0
-        while j < corpus_ids.length
-            corpus_id = corpus_ids[j]
+    for result_corpus in result_corpora
+        corpus_ids = result_corpus.toLowerCase().split("|")
+        for corpus_id in corpus_ids
             result_corpora_settings[corpus_id] = settings.corpora[corpus_id]
-            j++
-        i++
-    $('#download-links').append("<option value='init' rel='localize[download_kwic]'></option>")
-    i = 0
-    while i < settings.downloadFormats.length
-        format = settings.downloadFormats[i]
-        # NOTE: Using attribute rel="localize[...]" to localize the
-        # title attribute requires a small change to
-        # lib/jquery.localize.js. Without that, we could use
-        # util.getLocaleString, but it would not change the
-        # localizations immediately when switching languages but only
-        # after reloading the page.
-        # # title = util.getLocaleString('formatdescr_' + format)
-        option = $ """
-            <option 
-                value="#{format}"
-                title="#{util.getLocaleString('formatdescr_' + format)}"
-                class="download_link">#{format.toUpperCase()}</option>
-            """
-        
-        download_params =
-            query_params: JSON.stringify(
-                $.deparam.querystring(xhr_settings.url))
-            format: format
-            korp_url: window.location.href
-            korp_server_url: settings.cgi_script
-            corpus_config: JSON.stringify(result_corpora_settings,
-                (key, value) ->
-                    # logical_corpus may refer to the corpus object
-                    # itself, and since JSON does not support circular
-                    # objects, replace the value with corpus title
-                    if key == "logical_corpus" then value.title else value)
-            # corpus_config_info_keys previously excluded "urn", but
-            # now it is included if listed in
-            # settings.corpusExtraInfoItems. Does it matter?
-            corpus_config_info_keys:
-                (settings.corpusExtraInfoItems or []).join(',')
-            urn_resolver: settings.urnResolver
-        if 'downloadFormatParams' of settings
-            if '*' of settings.downloadFormatParams
-                $.extend download_params, settings.downloadFormatParams['*']
-            if format of settings.downloadFormatParams
-                $.extend download_params, settings.downloadFormatParams[format]
-        option.appendTo('#download-links').data("params", download_params)
-        i++
-    $('#download-links').localize().click(false).change (event) ->
-        params = $(":selected", this).data("params")
-        unless params then return
-        $.generateFile settings.download_cgi_script, params
-        self = $(this)
-        setTimeout( () ->
-            self.val("init")
-        , 1000)
-
-
+    download_params =
+        query_params: JSON.stringify($.deparam.querystring(query_url))
+        format: format
+        korp_url: window.location.href
+        korp_server_url: settings.cgi_script
+        corpus_config: JSON.stringify(result_corpora_settings,
+            (key, value) ->
+                # logical_corpus may refer to the corpus object
+                # itself, and since JSON does not support circular
+                # objects, replace the value with corpus title
+                if key == "logical_corpus" then value.title else value)
+        # corpus_config_info_keys previously excluded "urn", but now
+        # it is included if listed in settings.corpusExtraInfoItems.
+        # Does it matter?
+        corpus_config_info_keys:
+            (settings.corpusExtraInfoItems or []).join(",")
+        urn_resolver: settings.urnResolver
+    if "downloadFormatParams" of settings
+        if "*" of settings.downloadFormatParams
+            $.extend download_params, settings.downloadFormatParams["*"]
+        if format of settings.downloadFormatParams
+            $.extend download_params, settings.downloadFormatParams[format]
+    $.generateFile settings.download_cgi_script, download_params
     return
+
 
 util.searchHash = (type, value) ->
     search

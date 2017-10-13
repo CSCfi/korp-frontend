@@ -252,6 +252,11 @@
         len = sentence.tokens.length;
         return sentence.tokens.slice(from, len);
       };
+      s.downloadFormats = settings.downloadFormats;
+      s.downloadFormat = s.downloadFormats[0];
+      s.downloadKwic = function(format) {
+        return s.instance.downloadKwic(format);
+      };
     }
 
     return KwicCtrl;
