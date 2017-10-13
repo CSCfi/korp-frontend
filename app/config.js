@@ -56,7 +56,22 @@ if (! isProductionServer) {
     settings.downloadFormats.push("vrt");
 }
 
-tabular_formats = ["xls", "csv", "tsv"];
+// Selection lists for physical formats, depending on the logical
+// format: "formats" lists the formats (one of those in
+// settings.downloadFormatParamsPhysical), "selected" is the selected
+// one, initially the default.
+// settings.downloadFormatParams[format].physical_formats needs to
+// refer to physical_formats properties so that the object references
+// are shared between different formats, for the selection to preserve
+// the selected format in each physical format selection list even
+// when changing the logical format back and forth. (Jyrki Niemi
+// 2016-09-26)
+physical_formats = {
+    table: {
+	formats: ["xls", "csv", "tsv"],
+	selected: "xls",
+    },
+};
 
 settings.downloadFormatParams = {
     "*": {
@@ -66,23 +81,23 @@ settings.downloadFormatParams = {
 	format: "tokens",
 	attrs: "+,-lex",
 	match_marker: "***",
-	physical_formats: tabular_formats,
+	physical_formats: physical_formats.table,
     },
     "ref": {
 	format: "bibref",
-	physical_formats: tabular_formats,
+	physical_formats: physical_formats.table,
     },
     "sentences": {
 	format: "sentences",
 	subformat: "lemmas-resultinfo",
-	physical_formats: tabular_formats,
+	physical_formats: physical_formats.table,
     },
     // As "sentences", but match tokens and context tokens in separate
     // columns
     "sentences_kwic": {
 	format: "sentences",
 	subformat: "lemmas-resultinfo,lemmas-kwic",
-	physical_formats: tabular_formats,
+	physical_formats: physical_formats.table,
     },
     "nooj": {
 	attrs: "+"
@@ -109,7 +124,7 @@ settings.downloadFormatParamsPhysical = {
     },
 };
 
-delete tabular_formats;
+delete physical_formats;
 
 // Use an absolute URL for the CGI scripts to drop the port number
 // when testing with Grunt serve, which uses localhost:9000.

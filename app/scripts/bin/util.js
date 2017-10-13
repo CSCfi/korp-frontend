@@ -964,7 +964,7 @@
       }
       if ("downloadFormatParamsPhysical" in settings) {
         phys_format = format_params.physical_format;
-        phys_formats = (ref = settings.downloadFormatParams) != null ? (ref1 = ref[format]) != null ? ref1.physical_formats : void 0 : void 0;
+        phys_formats = (ref = settings.downloadFormatParams) != null ? (ref1 = ref[format]) != null ? ref1.physical_formats.formats : void 0 : void 0;
         if (phys_formats && indexOf.call(phys_formats, phys_format) >= 0) {
           phys_params = settings.downloadFormatParamsPhysical[phys_format];
           if ("format_suffix" in phys_params) {

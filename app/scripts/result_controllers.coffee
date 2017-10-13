@@ -215,17 +215,22 @@ class KwicCtrl
             sentence.tokens.slice from, len
 
         s.downloadFormats = settings.downloadFormats
-        s.downloadFormatParams = settings.downloadFormatParams
         s.downloadFormat = s.downloadFormats[0]
-        # FIXME: hard-coded default
-        s.downloadFormatPhysical =
-                s.downloadFormatParams[s.downloadFormat].physical_formats?[0]
+        # The physical formats corresponding to each logical format,
+        # by logical format name (id). The physical format is an
+        # object containing the list of physical format names (ids)
+        # and a selected property. (Jyrki Niemi 2016-09-26)
+        s.downloadFormatPhysical = {}
+        for fmtname, params of settings.downloadFormatParams
+            s.downloadFormatPhysical[fmtname] = params.physical_formats
 
-        s.downloadKwic = (downloadFormat, downloadFormatPhysical) ->
-            # c.log "downloadKwic (RC)", downloadFormat, downloadFormatPhysical
+        s.downloadKwic = (downloadFormat) ->
+            # c.log "downloadKwic (RC)", downloadFormat, s.downloadFormatPhysical[downloadFormat].selected
             s.instance.downloadKwic(
                 format: downloadFormat
-                physical_format: downloadFormatPhysical)
+                physical_format: s.downloadFormatPhysical[downloadFormat]
+                                 .selected
+            )
             return
 
 
