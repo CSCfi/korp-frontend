@@ -1156,21 +1156,7 @@ table {
   }
 }
 
-.loading #download-links-container {
-  display: none;
-}
-
-#download-links {
-  float: right;
-}
-
-.download_link {
-  img {
-    border: 0px;
-  }
-}
-
-.loading .download_link {
+.loading #kwic-download-container {
   display: none;
 }
 
