@@ -46,6 +46,7 @@ settings.textDateAllowBareYears = true;
 settings.downloadFormats = [
     "annot",
     "ref",
+    "sentences",
     "nooj",
     "rows",
     "json",
@@ -75,6 +76,10 @@ settings.downloadFormatParams = {
 	format: "bibref",
 	physical_formats: tabular_formats,
     },
+    "sentences": {
+	format: "sentences",
+	subformat: "lemmas-resultinfo",
+	physical_formats: tabular_formats,
     },
     "nooj": {
 	attrs: "+"
