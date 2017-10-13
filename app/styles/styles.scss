@@ -1156,25 +1156,11 @@ table {
   }
 }
 
-.loading #download-links-container {
+.loading #kwic-download-container {
   display: none;
 }
 
-#download-links {
-  float: right;
-}
-
-.download_link {
-  img {
-    border: 0px;
-  }
-}
-
-.loading .download_link {
-  display: none;
-}
-
-#download-heading {
+#download-heading, #btn-download {
   float: right;
   margin-right: 8px;
   // Try to align vertically with the download link buttons

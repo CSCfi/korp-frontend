@@ -391,11 +391,11 @@
     };
 
     CorpusListing.prototype.getTitle = function(corpus) {
-      var e;
+      var e, error;
       try {
         return this.struct[corpus].title;
-      } catch (_error) {
-        e = _error;
+      } catch (error) {
+        e = error;
         return c.log("gettitle broken", corpus);
       }
     };
@@ -845,14 +845,14 @@
   };
 
   util.getLocaleString = function(key, lang) {
-    var e;
+    var e, error;
     if (!lang) {
       lang = window.lang || settings.defaultLanguage || "sv";
     }
     try {
       return loc_data[lang][key] || key;
-    } catch (_error) {
-      e = _error;
+    } catch (error) {
+      e = error;
       return key;
     }
   };
@@ -919,73 +919,61 @@
     return saldo.match(util.saldoRegExp);
   };
 
-  util.setDownloadLinks = function(xhr_settings, result_data) {
-    var corpus_id, corpus_ids, download_params, format, get_corpus_num, i, j, option, result_corpora, result_corpora_settings;
-    if (!((xhr_settings != null) && (result_data != null) && (result_data.corpus_order != null) && (result_data.kwic != null))) {
-      c.log('failed to do setDownloadLinks');
+  util.downloadKwic = function(format_params, query_url, result_data) {
+    var corpus_id, corpus_ids, download_params, format, get_corpus_num, k, l, len, len1, phys_format, phys_formats, phys_params, ref, ref1, result_corpora, result_corpora_settings, result_corpus;
+    c.log("downloadKwic", format_params, query_url, result_data);
+    if (!((query_url != null) && (result_data != null) && (result_data.corpus_order != null) && (result_data.kwic != null))) {
+      c.log("downloadKwic failed");
       return;
     }
     get_corpus_num = function(hit_num) {
-      return result_data.corpus_order.indexOf(result_data.kwic[hit_num].corpus);
+      return result_data.corpus_order.indexOf(result_data.kwic[hit_num].corpus.toLowerCase());
     };
-    c.log('setDownloadLinks data:', result_data);
-    $('#download-links').empty();
     result_corpora = result_data.corpus_order.slice(get_corpus_num(0), get_corpus_num(result_data.kwic.length - 1) + 1);
     result_corpora_settings = {};
-    i = 0;
-    while (i < result_corpora.length) {
-      corpus_ids = result_corpora[i].toLowerCase().split('|');
-      j = 0;
-      while (j < corpus_ids.length) {
-        corpus_id = corpus_ids[j];
+    for (k = 0, len = result_corpora.length; k < len; k++) {
+      result_corpus = result_corpora[k];
+      corpus_ids = result_corpus.toLowerCase().split("|");
+      for (l = 0, len1 = corpus_ids.length; l < len1; l++) {
+        corpus_id = corpus_ids[l];
         result_corpora_settings[corpus_id] = settings.corpora[corpus_id];
-        j++;
       }
-      i++;
     }
-    $('#download-links').append("<option value='init' rel='localize[download_kwic]'></option>");
-    i = 0;
-    while (i < settings.downloadFormats.length) {
-      format = settings.downloadFormats[i];
-      option = $("<option \n    value=\"" + format + "\"\n    title=\"" + (util.getLocaleString('formatdescr_' + format)) + "\"\n    class=\"download_link\">" + (format.toUpperCase()) + "</option>");
-      download_params = {
-        query_params: JSON.stringify($.deparam.querystring(xhr_settings.url)),
-        format: format,
-        korp_url: window.location.href,
-        korp_server_url: settings.cgi_script,
-        corpus_config: JSON.stringify(result_corpora_settings, function(key, value) {
-          if (key === "logical_corpus") {
-            return value.title;
-          } else {
-            return value;
+    format = format_params.format;
+    download_params = {
+      query_params: JSON.stringify($.deparam.querystring(query_url)),
+      format: format,
+      korp_url: window.location.href,
+      korp_server_url: settings.cgi_script,
+      corpus_config: JSON.stringify(result_corpora_settings, function(key, value) {
+        if (key === "logical_corpus") {
+          return value.title;
+        } else {
+          return value;
+        }
+      }),
+      corpus_config_info_keys: (settings.corpusExtraInfoItems || []).join(","),
+      urn_resolver: settings.urnResolver
+    };
+    if ("downloadFormatParams" in settings) {
+      if ("*" in settings.downloadFormatParams) {
+        $.extend(download_params, settings.downloadFormatParams["*"]);
+      }
+      if (format in settings.downloadFormatParams) {
+        $.extend(download_params, settings.downloadFormatParams[format]);
+      }
+      if ("downloadFormatParamsPhysical" in settings) {
+        phys_format = format_params.physical_format;
+        phys_formats = (ref = settings.downloadFormatParams) != null ? (ref1 = ref[format]) != null ? ref1.physical_formats.formats : void 0 : void 0;
+        if (phys_formats && indexOf.call(phys_formats, phys_format) >= 0) {
+          phys_params = settings.downloadFormatParamsPhysical[phys_format];
+          if ("format_suffix" in phys_params) {
+            download_params.format += phys_params.format_suffix;
           }
-        }),
-        corpus_config_info_keys: (settings.corpusExtraInfoItems || []).join(','),
-        urn_resolver: settings.urnResolver
-      };
-      if ('downloadFormatParams' in settings) {
-        if ('*' in settings.downloadFormatParams) {
-          $.extend(download_params, settings.downloadFormatParams['*']);
-        }
-        if (format in settings.downloadFormatParams) {
-          $.extend(download_params, settings.downloadFormatParams[format]);
         }
       }
-      option.appendTo('#download-links').data("params", download_params);
-      i++;
     }
-    $('#download-links').localize().click(false).change(function(event) {
-      var params, self;
-      params = $(":selected", this).data("params");
-      if (!params) {
-        return;
-      }
-      $.generateFile(settings.download_cgi_script, params);
-      self = $(this);
-      return setTimeout(function() {
-        return self.val("init");
-      }, 1000);
-    });
+    $.generateFile(settings.download_cgi_script, download_params);
   };
 
   util.searchHash = function(type, value) {

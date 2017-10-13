@@ -55,6 +55,26 @@ span.reading_btn.hide_reading.link(ng-hide="loading", ng-click="toggleReading()"
         span.corpus_title_warn(rel='localize[no_context_support]', ng-if='::sentence.noContext')
       span(ng-repeat='wd in sentence.tokens', kwic-word='kwic-word')
 kwic-pager
-#download-links-container
-  select#download-links
+#kwic-download-container(ng-if='kwic.length > 0')
+  button.btn.btn-default#kwic-download-button(
+    ng-click="downloadKwic(downloadFormat)")
+    | {{'download_kwic' | loc:lang}}
+  |  {{'download_kwic_format_prefix' | loc:lang}} 
+  select#kwic-download-format(ng-model='downloadFormat')
+    option(
+      ng-repeat='fmt in downloadFormats'
+      value='{{fmt}}'
+      title='{{"kwic_download_formatdescr_" + fmt | loc:lang}}'
+      ng-selected='fmt == downloadFormat'
+    ) {{"kwic_download_formatname_" + fmt | loc:lang}}
+  select#kwic-download-format-physical(
+      ng-model='downloadFormatPhysical[downloadFormat].selected'
+      ng-show='downloadFormatPhysical[downloadFormat]')
+    option(
+      ng-repeat='fmt in downloadFormatPhysical[downloadFormat].formats'
+      value='{{fmt}}'
+      title='{{"kwic_download_formatdescr_" + fmt | loc:lang}}'
+      ng-selected='fmt == downloadFormatPhysical[downloadFormat].selected'
+    ) {{"kwic_download_formatname_" + fmt | loc:lang}}
+  //-  ng-options='"kwic_download_formatdescr_" + fmt | loc:lang for fmt in downloadFormats track by fmt'
   //- span#download-heading(rel='localize[download]') Ladda ner som:

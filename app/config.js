@@ -46,55 +46,98 @@ settings.textDateAllowBareYears = true;
 settings.downloadFormats = [
     "annot",
     "ref",
+    "sentences",
+    "sentences_kwic",
+    "text",
+    "json",
     "nooj",
-    "rows",
 ];
-if (! isProductionServer || isProductionServerTest) {
-    settings.downloadFormats = settings.downloadFormats.concat([
-	"csvp",
-	"csv",
-	"tsv",
-	"text"
-    ]);
-}
 if (! isProductionServer) {
     settings.downloadFormats.push("vrt");
 }
+
+// Selection lists for physical formats, depending on the logical
+// format: "formats" lists the formats (one of those in
+// settings.downloadFormatParamsPhysical), "selected" is the selected
+// one, initially the default.
+// settings.downloadFormatParams[format].physical_formats needs to
+// refer to physical_formats properties so that the object references
+// are shared between different formats, for the selection to preserve
+// the selected format in each physical format selection list even
+// when changing the logical format back and forth. (Jyrki Niemi
+// 2016-09-26)
+physical_formats = {
+    table: {
+	formats: ["xls", "csv", "tsv", "html_table"],
+	selected: "xls",
+    },
+    text: {
+	formats: ["text_utf8", "html"],
+	selected: "text_utf8",
+    },
+};
 
 settings.downloadFormatParams = {
     "*": {
 	structs: "+"
     },
-    "ref": {
-	format: "bibref,xls"
-    },
-    "csvp": {
-	format: "tokens,csv",
-	attrs: "+,-lex",
-	match_marker: "***"
-    },
-    "csv": {
-	format: "sentences,csv"
-    },
     "annot": {
-	format: "tokens,xls",
+	format: "tokens",
 	attrs: "+,-lex",
-	match_marker: "***"
+	match_marker: "***",
+	physical_formats: physical_formats.table,
+    },
+    "ref": {
+	format: "bibref",
+	physical_formats: physical_formats.table,
+    },
+    "sentences": {
+	format: "sentences",
+	subformat: "lemmas-resultinfo",
+	physical_formats: physical_formats.table,
+    },
+    // As "sentences", but match tokens and context tokens in separate
+    // columns
+    "sentences_kwic": {
+	format: "sentences",
+	subformat: "lemmas-resultinfo,lemmas-kwic",
+	physical_formats: physical_formats.table,
     },
     "nooj": {
 	attrs: "+"
     },
-    "rows": {
-	format: "sentences,xls",
-	subformat: "lemmas-resultinfo,lemmas-kwic",
-    },
-    "tsv": {
-	format: "sentences,tsv"
-    },
     "vrt": {
 	attrs: "+"
     },
+    "text": {
+	format: "text",
+	subformat: "sentences-bare",
+	structs: "",
+	physical_formats: physical_formats.text,
+    },
 };
+
+settings.downloadFormatParamsPhysical = {
+    "xls": {
+	format_suffix: ",xls",
+    },
+    "csv": {
+	format_suffix: ",csv",
+    },
+    "tsv": {
+	format_suffix: ",tsv",
+    },
+    "text_utf8": {
+    },
+    "html": {
+	format_suffix: ",html",
+    },
+    "html_table": {
+	format_suffix: ",html_table",
+    },
+};
+
+delete physical_formats;
 
 // Use an absolute URL for the CGI scripts to drop the port number
 // when testing with Grunt serve, which uses localhost:9000.

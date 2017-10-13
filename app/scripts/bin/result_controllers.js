@@ -41,7 +41,7 @@
     KwicCtrl.$inject = ['$scope', "utils", "$location"];
 
     function KwicCtrl(scope, utils1, location) {
-      var $location, $scope, findMatchSentence, massageData, punctArray, readingChange, s;
+      var $location, $scope, findMatchSentence, fmtname, massageData, params, punctArray, readingChange, ref, s;
       this.scope = scope;
       this.utils = utils1;
       this.location = location;
@@ -251,6 +251,20 @@
         from = sentence.match.end;
         len = sentence.tokens.length;
         return sentence.tokens.slice(from, len);
+      };
+      s.downloadFormats = settings.downloadFormats;
+      s.downloadFormat = s.downloadFormats[0];
+      s.downloadFormatPhysical = {};
+      ref = settings.downloadFormatParams;
+      for (fmtname in ref) {
+        params = ref[fmtname];
+        s.downloadFormatPhysical[fmtname] = params.physical_formats;
+      }
+      s.downloadKwic = function(downloadFormat) {
+        s.instance.downloadKwic({
+          format: downloadFormat,
+          physical_format: s.downloadFormatPhysical[downloadFormat].selected
+        });
       };
     }
 

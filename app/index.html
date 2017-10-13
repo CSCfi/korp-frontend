@@ -273,8 +273,14 @@
                       </div>
                     </div>
                     <kwic-pager></kwic-pager>
-                    <div id="download-links-container">
-                      <select id="download-links"></select>
+                    <div id="kwic-download-container" ng-if="kwic.length &gt; 0">
+                      <button id="kwic-download-button" ng-click="downloadKwic(downloadFormat)" class="btn btn-default">{{'download_kwic' | loc:lang}}</button> {{'download_kwic_format_prefix' | loc:lang}} 
+                      <select id="kwic-download-format" ng-model="downloadFormat">
+                        <option ng-repeat="fmt in downloadFormats" value="{{fmt}}" title="{{&quot;kwic_download_formatdescr_&quot; + fmt | loc:lang}}" ng-selected="fmt == downloadFormat">{{"kwic_download_formatname_" + fmt | loc:lang}}</option>
+                      </select>
+                      <select id="kwic-download-format-physical" ng-model="downloadFormatPhysical[downloadFormat].selected" ng-show="downloadFormatPhysical[downloadFormat]">
+                        <option ng-repeat="fmt in downloadFormatPhysical[downloadFormat].formats" value="{{fmt}}" title="{{&quot;kwic_download_formatdescr_&quot; + fmt | loc:lang}}" ng-selected="fmt == downloadFormatPhysical[downloadFormat].selected">{{"kwic_download_formatname_" + fmt | loc:lang}}</option>
+                      </select>
                     </div>
                   </div>
                 </uib-tab>
@@ -389,8 +395,14 @@
                       </div>
                     </div>
                     <kwic-pager></kwic-pager>
-                    <div id="download-links-container">
-                      <select id="download-links"></select>
+                    <div id="kwic-download-container" ng-if="kwic.length &gt; 0">
+                      <button id="kwic-download-button" ng-click="downloadKwic(downloadFormat)" class="btn btn-default">{{'download_kwic' | loc:lang}}</button> {{'download_kwic_format_prefix' | loc:lang}} 
+                      <select id="kwic-download-format" ng-model="downloadFormat">
+                        <option ng-repeat="fmt in downloadFormats" value="{{fmt}}" title="{{&quot;kwic_download_formatdescr_&quot; + fmt | loc:lang}}" ng-selected="fmt == downloadFormat">{{"kwic_download_formatname_" + fmt | loc:lang}}</option>
+                      </select>
+                      <select id="kwic-download-format-physical" ng-model="downloadFormatPhysical[downloadFormat].selected" ng-show="downloadFormatPhysical[downloadFormat]">
+                        <option ng-repeat="fmt in downloadFormatPhysical[downloadFormat].formats" value="{{fmt}}" title="{{&quot;kwic_download_formatdescr_&quot; + fmt | loc:lang}}" ng-selected="fmt == downloadFormatPhysical[downloadFormat].selected">{{"kwic_download_formatname_" + fmt | loc:lang}}</option>
+                      </select>
                     </div>
                   </div>
                 </uib-tab>

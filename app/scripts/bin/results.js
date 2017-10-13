@@ -50,7 +50,7 @@
         this.resultError(data);
         return false;
       } else {
-        safeApply(this.s, (function(_this) {
+        return safeApply(this.s, (function(_this) {
           return function() {
             c.log("firstResultDef.resolve");
             _this.firstResultDef.resolve();
@@ -58,7 +58,6 @@
           };
         })(this));
       }
-      return util.setDownloadLinks(this.proxy.prevRequest, data);
     };
 
     BaseResults.prototype.resultError = function(data) {
@@ -355,8 +354,9 @@
       this.$result.localize();
       this.centerScrollbar();
       if (!this.selectionManager.hasSelected() && !isReading) {
-        return this.$result.find(".match").children().first().click();
+        this.$result.find(".match").children().first().click();
       }
+      return this.resultData = data;
     };
 
     KWICResults.prototype.showNoResults = function() {
@@ -687,6 +687,10 @@
         }
       });
       return output;
+    };
+
+    KWICResults.prototype.downloadKwic = function(format_params) {
+      return util.downloadKwic(format_params, this.proxy.prevRequest.url, this.resultData);
     };
 
     return KWICResults;
@@ -2306,12 +2310,12 @@
               return ("<br><span rel='localize[rel_hits_short]'>" + (util.getLocaleString('rel_hits_short')) + "</span> ") + val;
             },
             formatter: function(series, x, y, formattedX, formattedY, d) {
-              var abs_y, e, i, rel;
+              var abs_y, e, error, i, rel;
               i = _.indexOf(_.pluck(series.data, "x"), x, true);
               try {
                 abs_y = series.abs_data[i].y;
-              } catch (_error) {
-                e = _error;
+              } catch (error) {
+                e = error;
                 c.log("i", i, x);
               }
               if (!abs_y) {

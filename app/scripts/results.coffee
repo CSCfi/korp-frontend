@@ -45,7 +45,7 @@ class BaseResults
                 c.log "firstResultDef.resolve"
                 @firstResultDef.resolve()
                 @hasData = true
-        util.setDownloadLinks @proxy.prevRequest, data
+        # util.setDownloadLinks @proxy.prevRequest, data
 
     resultError: (data) ->
         c.error "json fetch error: ", data
@@ -297,6 +297,8 @@ class view.KWICResults extends BaseResults
         @centerScrollbar()
         if not @selectionManager.hasSelected() and not isReading
             @$result.find(".match").children().first().click()
+
+        @resultData = data
 
     showNoResults: ->
         # @$result.find(".results_table").empty()
@@ -564,6 +566,10 @@ class view.KWICResults extends BaseResults
             false if (xCoor > thisLeft and xCoor < thisRight) or thisLeft > xCoor
 
         output
+
+    downloadKwic: (format_params) ->
+        util.downloadKwic format_params, @proxy.prevRequest.url, @resultData
+
 
 class view.ExampleResults extends view.KWICResults
     constructor: (tabSelector, resultSelector, scope) ->
