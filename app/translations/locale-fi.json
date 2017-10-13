@@ -352,6 +352,8 @@
     "kwic_download_formatdescr_text_utf8" : "Puhdas teksti, merkistökoodauksena UTF-8",
     "kwic_download_formatname_html" : "HTML",
     "kwic_download_formatdescr_html" : "Teksti HTML-muodossa",
+    "kwic_download_formatname_html_table" : "HTML",
+    "kwic_download_formatdescr_html_table" : "HTML-taulukko",
 
     "privacy" : "Tietosuojaseloste",
 
