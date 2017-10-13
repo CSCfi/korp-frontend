@@ -928,6 +928,13 @@ util.downloadKwic = (format_params, query_url, result_data) ->
             $.extend download_params, settings.downloadFormatParams["*"]
         if format of settings.downloadFormatParams
             $.extend download_params, settings.downloadFormatParams[format]
+        if "downloadFormatParamsPhysical" of settings
+            phys_format = format_params.physical_format
+            phys_formats = settings.downloadFormatParams?[format]?.physical_formats
+            if phys_formats and phys_format in phys_formats
+                phys_params = settings.downloadFormatParamsPhysical[phys_format]
+                if "format_suffix" of phys_params
+                    download_params.format += phys_params.format_suffix
     $.generateFile settings.download_cgi_script, download_params
     return
 

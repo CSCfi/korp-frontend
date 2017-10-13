@@ -48,12 +48,10 @@ settings.downloadFormats = [
     "ref",
     "nooj",
     "rows",
+    "json",
 ];
 if (! isProductionServer || isProductionServerTest) {
     settings.downloadFormats = settings.downloadFormats.concat([
-	"csvp",
-	"csv",
-	"tsv",
 	"text"
     ]);
 }
@@ -61,40 +59,49 @@ if (! isProductionServer) {
     settings.downloadFormats.push("vrt");
 }
 
+tabular_formats = ["xls", "csv", "tsv"];
+
 settings.downloadFormatParams = {
     "*": {
 	structs: "+"
     },
-    "ref": {
-	format: "bibref,xls"
-    },
-    "csvp": {
-	format: "tokens,csv",
-	attrs: "+,-lex",
-	match_marker: "***"
-    },
-    "csv": {
-	format: "sentences,csv"
-    },
     "annot": {
-	format: "tokens,xls",
+	format: "tokens",
 	attrs: "+,-lex",
-	match_marker: "***"
+	match_marker: "***",
+	physical_formats: tabular_formats,
+    },
+    "ref": {
+	format: "bibref",
+	physical_formats: tabular_formats,
+    },
     },
     "nooj": {
 	attrs: "+"
     },
     "rows": {
-	format: "sentences,xls",
+	format: "sentences",
 	subformat: "lemmas-resultinfo,lemmas-kwic",
-    },
-    "tsv": {
-	format: "sentences,tsv"
+	physical_formats: tabular_formats,
     },
     "vrt": {
 	attrs: "+"
     },
 };
+
+settings.downloadFormatParamsPhysical = {
+    "xls": {
+	format_suffix: ",xls",
+    },
+    "csv": {
+	format_suffix: ",csv",
+    },
+    "tsv": {
+	format_suffix: ",tsv",
+    },
+};
+
+delete tabular_formats;
 
 // Use an absolute URL for the CGI scripts to drop the port number
 // when testing with Grunt serve, which uses localhost:9000.
