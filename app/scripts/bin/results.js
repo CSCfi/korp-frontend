@@ -689,8 +689,8 @@
       return output;
     };
 
-    KWICResults.prototype.downloadKwic = function(format) {
-      return util.downloadKwic(format, this.proxy.prevRequest.url, this.resultData);
+    KWICResults.prototype.downloadKwic = function(format_params) {
+      return util.downloadKwic(format_params, this.proxy.prevRequest.url, this.resultData);
     };
 
     return KWICResults;
@@ -2310,12 +2310,12 @@
               return ("<br><span rel='localize[rel_hits_short]'>" + (util.getLocaleString('rel_hits_short')) + "</span> ") + val;
             },
             formatter: function(series, x, y, formattedX, formattedY, d) {
-              var abs_y, e, i, rel;
+              var abs_y, e, error, i, rel;
               i = _.indexOf(_.pluck(series.data, "x"), x, true);
               try {
                 abs_y = series.abs_data[i].y;
-              } catch (_error) {
-                e = _error;
+              } catch (error) {
+                e = error;
                 c.log("i", i, x);
               }
               if (!abs_y) {

@@ -254,8 +254,10 @@
       };
       s.downloadFormats = settings.downloadFormats;
       s.downloadFormat = s.downloadFormats[0];
-      s.downloadKwic = function() {
-        return s.instance.downloadKwic($("#kwic-download-format option:selected").val());
+      s.downloadKwic = function(downloadFormat) {
+        s.instance.downloadKwic({
+          format: downloadFormat
+        });
       };
     }
 

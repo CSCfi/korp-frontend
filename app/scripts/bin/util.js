@@ -391,11 +391,11 @@
     };
 
     CorpusListing.prototype.getTitle = function(corpus) {
-      var e;
+      var e, error;
       try {
         return this.struct[corpus].title;
-      } catch (_error) {
-        e = _error;
+      } catch (error) {
+        e = error;
         return c.log("gettitle broken", corpus);
       }
     };
@@ -845,14 +845,14 @@
   };
 
   util.getLocaleString = function(key, lang) {
-    var e;
+    var e, error;
     if (!lang) {
       lang = window.lang || settings.defaultLanguage || "sv";
     }
     try {
       return loc_data[lang][key] || key;
-    } catch (_error) {
-      e = _error;
+    } catch (error) {
+      e = error;
       return key;
     }
   };
@@ -919,8 +919,9 @@
     return saldo.match(util.saldoRegExp);
   };
 
-  util.downloadKwic = function(format, query_url, result_data) {
-    var corpus_id, corpus_ids, download_params, get_corpus_num, k, l, len, len1, result_corpora, result_corpora_settings, result_corpus;
+  util.downloadKwic = function(format_params, query_url, result_data) {
+    var corpus_id, corpus_ids, download_params, format, get_corpus_num, k, l, len, len1, result_corpora, result_corpora_settings, result_corpus;
+    c.log("downloadKwic", format_params, query_url, result_data);
     if (!((query_url != null) && (result_data != null) && (result_data.corpus_order != null) && (result_data.kwic != null))) {
       c.log("downloadKwic failed");
       return;
@@ -938,6 +939,7 @@
         result_corpora_settings[corpus_id] = settings.corpora[corpus_id];
       }
     }
+    format = format_params.format;
     download_params = {
       query_params: JSON.stringify($.deparam.querystring(query_url)),
       format: format,
