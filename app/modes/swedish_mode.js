@@ -773,8 +773,8 @@ sattrs.yle_sv_paragraph_type = {
 // };
 
 settings.corpora.yle_sv_a = {
-    title : "Svenska Yles webbartiklar 2012– (för forskare) (beta)",
-    description : "Svenska Yles webbartiklar 2012–, version tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning",
+    title : "Svenska Yles webbartiklar 2012– (2017H1) (för forskare) (beta)",
+    description : "Svenska Yles webbartiklar 2012– (version 2017H1), variant tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning",
     id : "yle_sv_a",
     urn : "[to be added]",
     metadata_urn : "urn:nbn:fi:lb-2016111401",
@@ -793,8 +793,8 @@ settings.corpora.yle_sv_a = {
 };
 
 settings.corpora.yle_sv_s = {
-    title : "Svenska Yles webbartiklar 2012– (för alla) (beta)",
-    description : "Svenska Yles webbartiklar 2012–, version öppen för alla: meningarna i en blandad ordning inom varje text och ingen utökad kontextvisning",
+    title : "Svenska Yles webbartiklar 2012– (2017H1) (för alla) (beta)",
+    description : "Svenska Yles webbartiklar 2012– (version 2017H1), variant öppen för alla: meningarna i en blandad ordning inom varje text och ingen utökad kontextvisning",
     id : "yle_sv_s",
     urn : "[to be added]",
     metadata_urn : "urn:nbn:fi:lb-2016111401",
