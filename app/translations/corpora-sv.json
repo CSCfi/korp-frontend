@@ -539,12 +539,12 @@
     "contributor" : "bidragsgivare",
     "enclosing_elems" : "innehållande element",
 
-    "textpart_image_alt" : "alternativ text för en bild",
+    "textpart_image_alt" : "alternativ bildtext",
     "textpart_byline" : "byline",
     "textpart_caption" : "bildtext",
     "textpart_heading" : "rubrik",
-    "textpart_heading_alt" : "alternativ text för en rubrikbild",
-    "textpart_heading_caption" : "bildtext för en rubrikbild",
+    "textpart_heading_alt" : "alternativ text för rubrikbild",
+    "textpart_heading_caption" : "bildtext för rubrikbild",
     "textpart_headline" : "huvudrubrik",
     "textpart_image" : "bild",
     "textpart_lead" : "ingress",
@@ -1199,7 +1199,7 @@
     "sections" : "avdelningar",
     "datetime_published" : "utgivningsdatum",
     "datetime_content_modified" : "innehållets redigeringsdatum",
-    "datetime_json_modified" : "JSONets redigeringsdatum",
+    "datetime_json_modified" : "JSONs redigeringsdatum",
 
 "klk_img_url" : "Se dokument i Revizor"
 }

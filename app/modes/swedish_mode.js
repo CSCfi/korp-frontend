@@ -120,7 +120,7 @@ settings.corporafolders.fstc = {
 
 settings.corporafolders.yle_sv = {
     title : "Svenska Yles webbartiklar (beta)",
-    description : "Svenska Yles webbartiklar (beta)<br/><br/>Mappen innehåller två korpusar med samma meningar men olik tillgänglighet och litet olika drag: den ena korpusen är öppen för alla, med meningarna i en blandad ordning inom varje text och utan utökad kontextvisning, medan den andra korpusen är tillgänglig för forskare, med meningarna i den ursprungliga ordningen och stöd till utökad kontextvisning.",
+    description : "Svenska Yles webbartiklar (beta)<br/><br/>Mappen innehåller två korpusar med samma meningar men med olika tillgänglighet och egenskaper: den ena korpusen är öppen för alla och har meningarna i en blandad ordning inom varje text och utan utökad kontextvisning, medan den andra korpusen är tillgänglig för forskare och har meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning.",
     contents : [
 	"yle_sv_a",
 	"yle_sv_s",
@@ -774,7 +774,7 @@ sattrs.yle_sv_paragraph_type = {
 
 settings.corpora.yle_sv_a = {
     title : "Svenska Yles webbartiklar 2012– (för forskare) (beta)",
-    description : "Svenska Yles webbartiklar 2012–, version tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd till utökad kontextvisning",
+    description : "Svenska Yles webbartiklar 2012–, version tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning",
     id : "yle_sv_a",
     urn : "[to be added]",
     metadata_urn : "urn:nbn:fi:lb-2016111401",
