@@ -154,8 +154,8 @@ settings.download_cgi_script = settings.cgi_prefix + "korp_download.cgi";
 
 // The main Korp and Korp Labs URL for the links in the cog menu
 settings.korp_url = {
-    "main" : (isProductionServer ? "/" : "/korp/"),
-    "lab" : (isProductionServer ? "/lab/" : "/korplab/")
+    "main": (isProductionServer ? "/" : "/korp/"),
+    "lab": (isProductionServer ? "/lab/" : "/korplab/")
 };
 
 settings.urnResolver = "http://urn.fi/";
@@ -179,9 +179,9 @@ settings.defaultTranslations = ["en", "KEY"];
 
 // Locales corresponding to languages (Jyrki Niemi 2016-02-16)
 settings.locales = {
-    "sv" : "sv-SE",
-    "en" : "gb-EN",
-    "fi" : "fi-FI",
+    "sv": "sv-SE",
+    "en": "gb-EN",
+    "fi": "fi-FI",
 };
 
 // for extended search dropdown, can be 'union' or 'intersection'
@@ -193,7 +193,7 @@ settings.reduce_word_attribute_selector = "union"
 settings.reduce_struct_attribute_selector = "intersection"
 
 // settings.news_desk_url = "https://svn.spraakdata.gu.se/sb-arkiv/pub/component_news/json/korpnews.json";
-settings.news_desk_url = 
+settings.news_desk_url =
     window.location.protocol + "//" + window.location.hostname + "/"
     + window.location.pathname + "news/json/korp"
     + ((isProductionServerBeta || isLab) ? "beta" : "") + "news.json";
@@ -250,8 +250,8 @@ settings.corpusExtraInfoItems = [
 // The extra info (usually links) to be shown in the corpus info box
 // of the corpus chooser and the KWIC results sidebar.
 settings.corpusExtraInfo = {
-    corpus_infobox : settings.corpusExtraInfoItems,
-    sidebar : [
+    corpus_infobox: settings.corpusExtraInfoItems,
+    sidebar: [
 	"metadata",
 	"licence",
 	"cite",
@@ -264,43 +264,43 @@ settings.wordPictureMaxWords = 30;
 
 settings.wordpictureTagset = {
     // supported pos-tags
-    verb : "vb",
+    verb: "vb",
 
-    noun : "nn",
-    adjective : "jj",
-    adverb : "ab",
-    // preposition : "pp",
+    noun: "nn",
+    adjective: "jj",
+    adverb: "ab",
+    // preposition: "pp",
 
     // dependency releations
-    subject : "ss",
-    object : "obj",
-    adverbial : "adv",
-    // preposition_rel : "pa",
-    pre_modifier : "at",
-    post_modifier : "et"
+    subject: "ss",
+    object: "obj",
+    adverbial: "adv",
+    // preposition_rel: "pa",
+    pre_modifier: "at",
+    post_modifier: "et"
 
 }
 
 
 settings.wordPictureConf = {
-    verb : [[
-        {rel : "subject", css_class : "color_blue"},
+    verb: [[
+        {rel: "subject", css_class: "color_blue"},
         "_",
-        {rel : "object", css_class : "color_purple"},
-        {rel : "adverbial", css_class : "color_green"}
+        {rel: "object", css_class: "color_purple"},
+        {rel: "adverbial", css_class: "color_green"}
     ]],
-    noun : [
-        [ // {rel : "preposition_rel", css_class : "color_yellow", field_reverse: true},
-         {rel : "pre_modifier", css_class : "color_azure"},
+    noun: [
+        [ // {rel: "preposition_rel", css_class: "color_yellow", field_reverse: true},
+         {rel: "pre_modifier", css_class: "color_azure"},
          "_",
-         {rel : "post_modifier", css_class : "color_red"}],
+         {rel: "post_modifier", css_class: "color_red"}],
 
-        ["_", {rel : "subject", css_class : "color_blue", field_reverse: true, alt_label : "vb"}],
-        [{rel : "object", css_class : "color_purple", field_reverse: true, alt_label : "vb"}, "_"]
+        ["_", {rel: "subject", css_class: "color_blue", field_reverse: true, alt_label: "vb"}],
+        [{rel: "object", css_class: "color_purple", field_reverse: true, alt_label: "vb"}, "_"]
     ],
-    adjective : [["_", {rel: "pre_modifier", css_class : "color_yellow", field_reverse : true}]],
-    adverb : [["_", {rel: "adverbial", css_class : "color_yellow", field_reverse : true}]],
-    // preposition : [["_", {rel: "preposition_rel", css_class : "color_green"}]]
+    adjective: [["_", {rel: "pre_modifier", css_class: "color_yellow", field_reverse: true}]],
+    adverb: [["_", {rel: "adverbial", css_class: "color_yellow", field_reverse: true}]],
+    // preposition: [["_", {rel: "preposition_rel", css_class: "color_green"}]]
 
 }
 
@@ -316,19 +316,19 @@ settings.placenameConstraint =
 // Initial map centre: latitude, longitude and zoom level
 settings.mapCenter = {
     // A geographical centre of Finland
-    lat : 64.180708,
-    lng : 25.803222,
-    zoom : 4
+    lat: 64.180708,
+    lng: 25.803222,
+    zoom: 4
 };
 
 
 // Configure the grouping of name categories in name
 // classification results.
 settings.name_groups = [
-    {label : "person", regex : "EnamexPrs.*"},
-    {label : "place", regex : "EnamexLoc.*"},
-    {label : "organization", regex : "EnamexOrg.*"},
-    {label : "other", regex : "(Nu|Ti)mex.*"},
+    {label: "person", regex: "EnamexPrs.*"},
+    {label: "place", regex: "EnamexLoc.*"},
+    {label: "organization", regex: "EnamexOrg.*"},
+    {label: "other", regex: "(Nu|Ti)mex.*"},
 ];
 settings.name_group_max_names = 30;
 
@@ -394,35 +394,35 @@ settings.defaultOverviewContext = "1 sentence"
 settings.defaultReadingContext = "1 paragraph"
 
 settings.defaultContext = {
-    "1 sentence" : "1 sentence"
+    "1 sentence": "1 sentence"
 };
 settings.spContext = {
-    "1 sentence" : "1 sentence",
-    "1 paragraph" : "1 paragraph"
+    "1 sentence": "1 sentence",
+    "1 paragraph": "1 paragraph"
 };
 settings.defaultWithin = {
-    "sentence" : "sentence"
+    "sentence": "sentence"
 };
 settings.spWithin = {
-    "sentence" : "sentence",
-    "paragraph" : "paragraph"
+    "sentence": "sentence",
+    "paragraph": "paragraph"
 };
 settings.spcWithin = {
-    "sentence" : "sentence",
-    "paragraph" : "paragraph",
-    "clause" : "clause",
+    "sentence": "sentence",
+    "paragraph": "paragraph",
+    "clause": "clause",
 };
 settings.scWithin = {
-    "sentence" : "sentence",
-    "clause" : "clause",
+    "sentence": "sentence",
+    "clause": "clause",
 };
 settings.sentLinkContext = {
-    "1 sentence" : "1 sentence",
-    "1 link" : "1 link"
+    "1 sentence": "1 sentence",
+    "1 link": "1 link"
 };
 settings.sentLinkWithin = {
-    "sentence" : "sentence",
-    "link" : "link"
+    "sentence": "sentence",
+    "link": "link"
 };
 
 // Corpus id alias mapping: aliases as property keys and actual corpus
@@ -447,7 +447,7 @@ settings.short_url_config = {};
 // The defaults can be overridden in the property
 // sidebar_display_order of corpus settings. (Jyrki Niemi 2015-08-27)
 settings.default_sidebar_display_order = {
-    attributes : [
+    attributes: [
 	"lemma",
 	"lemmacomp",
 	"pos",
@@ -458,7 +458,7 @@ settings.default_sidebar_display_order = {
 	"msd",
 	"deprel",
     ],
-    struct_attributes : [
+    struct_attributes: [
 	/^text_/,
 	/^chapter_/,
 	/^speech_/,
@@ -474,8 +474,8 @@ settings.default_sidebar_display_order = {
 settings.corpus_features = {};
 
 settings.corpus_features.paragraphs = {
-    within : settings.spWithin,
-    context : settings.spContext,
+    within: settings.spWithin,
+    context: settings.spContext,
 };
 
 
@@ -488,28 +488,28 @@ settings.cqp_prio = ['deprel', 'pos', 'msd', 'suffix', 'prefix', 'grundform', 'l
 
 
 settings.defaultOptions = {
-    "is" : "=",
-    "is_not" : "!=",
-    "starts_with" : "^=",
-    "contains" : "_=",
-    "ends_with" : "&=",
-    "matches" : "*=",
-    "matches_not" : "!*=",
+    "is": "=",
+    "is_not": "!=",
+    "starts_with": "^=",
+    "contains": "_=",
+    "ends_with": "&=",
+    "matches": "*=",
+    "matches_not": "!*=",
 }
 settings.liteOptions = {
-    "is" : "=",
-    "is_not" : "!="
+    "is": "=",
+    "is_not": "!="
 }
 settings.setOptions = {
-    "is" : "contains",
-    "is_not" : "not contains"
+    "is": "contains",
+    "is_not": "not contains"
 }
 
 
 var selectType = {
-    extended_template : "<select ng-model='model' "
+    extended_template: "<select ng-model='model' "
      + "ng-options='tuple[0] as localize(tuple[1]) for tuple in dataset' ></select>",
-    controller : function($scope) {
+    controller: function($scope) {
         $scope.localize = function(str) {
             if($scope.localize === false) {
                 return str;
@@ -548,419 +548,419 @@ var sattrlist = {};  // List of structural attributes
 // translations files.
 
 attrs.pos = {
-    label : "pos",
-    displayType : "select",
-    translationKey : "pos_",
-    dataset : {
-        "AB" : "AB",
-        "MID|MAD|PAD" : "DL",
-        "DT" : "DT",
-        "HA" : "HA",
-        "HD" : "HD",
-        "HP" : "HP",
-        "HS" : "HS",
-        "IE" : "IE",
-        "IN" : "IN",
-        "JJ" : "JJ",
-        "KN" : "KN",
-        "NN" : "NN",
-        "PC" : "PC",
-        "PL" : "PL",
-        "PM" : "PM",
-        "PN" : "PN",
-        "PP" : "PP",
-        "PS" : "PS",
-        "RG" : "RG",
-        "RO" : "RO",
-        "SN" : "SN",
-        "UO" : "UO",
-        "VB" : "VB"
+    label: "pos",
+    displayType: "select",
+    translationKey: "pos_",
+    dataset: {
+        "AB": "AB",
+        "MID|MAD|PAD": "DL",
+        "DT": "DT",
+        "HA": "HA",
+        "HD": "HD",
+        "HP": "HP",
+        "HS": "HS",
+        "IE": "IE",
+        "IN": "IN",
+        "JJ": "JJ",
+        "KN": "KN",
+        "NN": "NN",
+        "PC": "PC",
+        "PL": "PL",
+        "PM": "PM",
+        "PN": "PN",
+        "PP": "PP",
+        "PS": "PS",
+        "RG": "RG",
+        "RO": "RO",
+        "SN": "SN",
+        "UO": "UO",
+        "VB": "VB"
     },
-    opts : settings.liteOptions,
-    extended_template : selectType.extended_template,
-    controller : selectType.controller,
+    opts: settings.liteOptions,
+    extended_template: selectType.extended_template,
+    controller: selectType.controller,
 
 
 };
 attrs.pos_ftb2 = {
-    label : "pos",
-    displayType : "select",
-    translationKey : "posftb2_",
-    dataset : {
-	"A" : "A",
-	"Abbr" : "Abbr",
-	"Adp" : "Adp",
-	"Adv" : "Adv",
-	"CC" : "CC",
-	"Con" : "Con",
-	"CS" : "CS",
-	// "Interj|INTERJ" : "Interj",
-	"Interj" : "Interj",
-	// "N|Noun" : "N",
-	"N" : "N",
-	"Num" : "Num",
-	"POST" : "POST",
-	"Pron" : "Pron",
-	"Pun" : "Pun",
-	"V" : "V"
+    label: "pos",
+    displayType: "select",
+    translationKey: "posftb2_",
+    dataset: {
+	"A": "A",
+	"Abbr": "Abbr",
+	"Adp": "Adp",
+	"Adv": "Adv",
+	"CC": "CC",
+	"Con": "Con",
+	"CS": "CS",
+	// "Interj|INTERJ": "Interj",
+	"Interj": "Interj",
+	// "N|Noun": "N",
+	"N": "N",
+	"Num": "Num",
+	"POST": "POST",
+	"Pron": "Pron",
+	"Pun": "Pun",
+	"V": "V"
     },
-    opts : settings.liteOptions
+    opts: settings.liteOptions
 };
 /*
 attrs.pos_ftb3 = {
-    label : "pos",
-    displayType : "select",
-    translationKey : "posftb3_",
-    dataset : {
-	"A" : "A",
-	"Abbr" : "Abbr",
-	"Adp" : "Adp",
-	"Adp|Po" : "Post",
-	"Adv" : "Adv",
-	"Art" : "Art",
-	"CC" : "CC",
-	"Con|C" : "Con",
-	"CS" : "CS",
-	"Forgn" : "Forgn",
-	"Interj|INTERJ" : "Interj",
-	"N|Noun" : "N",
-	"Num" : "Num",
-	"Pron" : "Pron",
-	"PrfPrc" : "PrfPrc",
-	"PrsPrc" : "PrsPrc",
-	"Punct" : "Punct",
-	"V" : "V",
-	"[NON-TWOL]" : "NonTWOL"
+    label: "pos",
+    displayType: "select",
+    translationKey: "posftb3_",
+    dataset: {
+	"A": "A",
+	"Abbr": "Abbr",
+	"Adp": "Adp",
+	"Adp|Po": "Post",
+	"Adv": "Adv",
+	"Art": "Art",
+	"CC": "CC",
+	"Con|C": "Con",
+	"CS": "CS",
+	"Forgn": "Forgn",
+	"Interj|INTERJ": "Interj",
+	"N|Noun": "N",
+	"Num": "Num",
+	"Pron": "Pron",
+	"PrfPrc": "PrfPrc",
+	"PrsPrc": "PrsPrc",
+	"Punct": "Punct",
+	"V": "V",
+	"[NON-TWOL]": "NonTWOL"
     },
-    opts : settings.liteOptions
+    opts: settings.liteOptions
 };
 attrs.pos_ftb3_orig = {
-    label : "pos_orig",
-    translationKey : "posftb3_",
-    dataset : {
-	"A" : "A",
-	"Abbr" : "Abbr",
-	"Adp" : "Adp",
-	"Adp|Po" : "Post",
-	"Adv" : "Adv",
-	"Art" : "Art",
-	"CC" : "CC",
-	"Con|C" : "Con",
-	"CS" : "CS",
-	"Forgn" : "Forgn",
-	"Interj|INTERJ" : "Interj",
-	"N|Noun" : "N",
-	"Num" : "Num",
-	"Pron" : "Pron",
-	"PrfPrc" : "PrfPrc",
-	"PrsPrc" : "PrsPrc",
-	"Punct" : "Punct",
-	"V" : "V",
-	"[NON-TWOL]" : "NonTWOL"
+    label: "pos_orig",
+    translationKey: "posftb3_",
+    dataset: {
+	"A": "A",
+	"Abbr": "Abbr",
+	"Adp": "Adp",
+	"Adp|Po": "Post",
+	"Adv": "Adv",
+	"Art": "Art",
+	"CC": "CC",
+	"Con|C": "Con",
+	"CS": "CS",
+	"Forgn": "Forgn",
+	"Interj|INTERJ": "Interj",
+	"N|Noun": "N",
+	"Num": "Num",
+	"Pron": "Pron",
+	"PrfPrc": "PrfPrc",
+	"PrsPrc": "PrsPrc",
+	"Punct": "Punct",
+	"V": "V",
+	"[NON-TWOL]": "NonTWOL"
     },
-    opts : settings.defaultOptions
+    opts: settings.defaultOptions
 };
 */
 attrs.ner_tags = {
-    label : "ner_tags",
-    displayType : "select",
+    label: "ner_tags",
+    displayType: "select",
     translationKey: "ner_tags_",
-    opts : settings.liteOptions,
-    dataset : {
-        "_" : "_",
+    opts: settings.liteOptions,
+    dataset: {
+        "_": "_",
         // CQP gave an error if the values ended in /? instead of
         // [/]?.
-        "/?EnamexLocGpl[/]?" : "EnamexLocGpl",
-        "/?EnamexLocPpl[/]?" : "EnamexLocPpl",
-        "/?EnamexLocStr[/]?" : "EnamexLocStr",
-        "/?EnamexLocXxx[/]?" : "EnamexLocXxx",
-        "/?EnamexOrgAth[/]?" : "EnamexOrgAth",
-        "/?EnamexOrgClt[/]?" : "EnamexOrgClt",
-        "/?EnamexOrgCrp[/]?" : "EnamexOrgCrp",
-        "/?EnamexOrgEdu[/]?" : "EnamexOrgEdu",
-        "/?EnamexOrgPlt[/]?" : "EnamexOrgPlt",
-        "/?EnamexOrgTvr[/]?" : "EnamexOrgTvr",
-        "/?EnamexPrsHum[/]?" : "EnamexPrsHum",
-        "/?EnamexPrsTit[/]?" : "EnamexPrsTit",
-        "/?NumexMsrCur[/]?" : "NumexMsrCur",
-        "/?NumexMsrXxx[/]?" : "NumexMsrXxx",
-        "/?TimexTmeDat[/]?" : "TimexTmeDat",
+        "/?EnamexLocGpl[/]?": "EnamexLocGpl",
+        "/?EnamexLocPpl[/]?": "EnamexLocPpl",
+        "/?EnamexLocStr[/]?": "EnamexLocStr",
+        "/?EnamexLocXxx[/]?": "EnamexLocXxx",
+        "/?EnamexOrgAth[/]?": "EnamexOrgAth",
+        "/?EnamexOrgClt[/]?": "EnamexOrgClt",
+        "/?EnamexOrgCrp[/]?": "EnamexOrgCrp",
+        "/?EnamexOrgEdu[/]?": "EnamexOrgEdu",
+        "/?EnamexOrgPlt[/]?": "EnamexOrgPlt",
+        "/?EnamexOrgTvr[/]?": "EnamexOrgTvr",
+        "/?EnamexPrsHum[/]?": "EnamexPrsHum",
+        "/?EnamexPrsTit[/]?": "EnamexPrsTit",
+        "/?NumexMsrCur[/]?": "NumexMsrCur",
+        "/?NumexMsrXxx[/]?": "NumexMsrXxx",
+        "/?TimexTmeDat[/]?": "TimexTmeDat",
     }
 };
 
 
 attrs.pos_ftb31 = {
-    label : "pos",
-    displayType : "select",
-    translationKey : "posftb3_",
-    dataset : {
-	"A" : "A",
-	"Abbr" : "Abbr",
-	"Adp" : "Adp",
-	"Adv" : "Adv",
-	"AgPrc" : "AgPrc",
-	"CC" : "CC",
-	"CS" : "CS",
-	"Forgn" : "Forgn",
-	"Interj" : "Interj",
-	"N" : "N",
-	"NegPrc" : "NegPrc",
-	"Num" : "Num",
-	"PrfPrc" : "PrfPrc",
-	"Pron" : "Pron",
-	"PrsPrc" : "PrsPrc",
-	"Punct" : "Punct",
-	"TrunCo" : "TrunCo",
-	"Unkwn" : "Unkwn",
-	"V" : "V"
+    label: "pos",
+    displayType: "select",
+    translationKey: "posftb3_",
+    dataset: {
+	"A": "A",
+	"Abbr": "Abbr",
+	"Adp": "Adp",
+	"Adv": "Adv",
+	"AgPrc": "AgPrc",
+	"CC": "CC",
+	"CS": "CS",
+	"Forgn": "Forgn",
+	"Interj": "Interj",
+	"N": "N",
+	"NegPrc": "NegPrc",
+	"Num": "Num",
+	"PrfPrc": "PrfPrc",
+	"Pron": "Pron",
+	"PrsPrc": "PrsPrc",
+	"Punct": "Punct",
+	"TrunCo": "TrunCo",
+	"Unkwn": "Unkwn",
+	"V": "V"
     },
-    opts : settings.liteOptions
+    opts: settings.liteOptions
 };
 attrs.pos_kotus = {
-    label : "pos",
-    displayType : "select",
-    translationKey : "poskotus_",
-    dataset : {
+    label: "pos",
+    displayType: "select",
+    translationKey: "poskotus_",
+    dataset: {
 	// Some of the following POS codes might be coding errors in
 	// the corpora (usually very few occurrences): CMPR, D, DA-US,
 	// DA-UUS, DN-INEN, DN-LLINEN, DN-TON, DV-MA (?), DV-TTA,
 	// FORGN, INTJ, P, PROP, REL, null (empty)
-	"A" : "A",
-	"ABBR" : "Abbr",
-	"AD-A" : "AdA",
-	"ADV" : "Adv",
-	"A/N" : "AN",
-	"C" : "Con",
-	"CMPR" : "Cmpr",
-	"D" : "D",
-	"DA-US" : "DaUs",
-	"DA-UUS" : "DaUus",
-	"DN-INEN" : "DnInen",
-	"DN-LLINEN" : "DnLlinen",
-	"DN-TON" : "DnTon",
-	"DV-MA" : "DvMa",
-	"DV-TTA" : "DvTta",
-	"FORGN" : "Forgn",
-	"INTJ" : "Interj",
-	"N" : "N",
-	"NUM" : "Num",
-	"P" : "P",
-	"PCP1" : "Pcp1",
-	"PCP2" : "Pcp2",
-	"PP" : "Pp",
-	"PRON" : "Pron",
-	"PROP" : "Prop",
-	"PSP" : "Post",
-	"PUNCT" : "Punct",
-	"REFL/PRON" : "ReflPron",
-	"REL" : "Rel",
-	"#UNKNOWN" : "Unknown",
-	"V" : "V",
+	"A": "A",
+	"ABBR": "Abbr",
+	"AD-A": "AdA",
+	"ADV": "Adv",
+	"A/N": "AN",
+	"C": "Con",
+	"CMPR": "Cmpr",
+	"D": "D",
+	"DA-US": "DaUs",
+	"DA-UUS": "DaUus",
+	"DN-INEN": "DnInen",
+	"DN-LLINEN": "DnLlinen",
+	"DN-TON": "DnTon",
+	"DV-MA": "DvMa",
+	"DV-TTA": "DvTta",
+	"FORGN": "Forgn",
+	"INTJ": "Interj",
+	"N": "N",
+	"NUM": "Num",
+	"P": "P",
+	"PCP1": "Pcp1",
+	"PCP2": "Pcp2",
+	"PP": "Pp",
+	"PRON": "Pron",
+	"PROP": "Prop",
+	"PSP": "Post",
+	"PUNCT": "Punct",
+	"REFL/PRON": "ReflPron",
+	"REL": "Rel",
+	"#UNKNOWN": "Unknown",
+	"V": "V",
 	// null corresponds to an __UNDEF__ value in CWB, resulting
 	// from an empty value in the VRT file.
-	"null" : "null"
+	"null": "null"
     },
-    opts : settings.liteOptions
+    opts: settings.liteOptions
 };
 
 attrs.pos_mulcold_fi = {
-    label : "pos",
-    displayType : "select",
-    translationKey : "posmulcoldfi_",
-    dataset : {
-	"A" : "A",
-	"Abbr" : "Abbr",
-	"ADV" : "Adv",
-	"Aux" : "Aux",
-	"CC" : "CC",
-	"CS" : "CS",
-	"Heur" : "Heur",
-	"N" : "N",
-	"NUM" : "Num",
-	"POST" : "Post",
-	"PREP" : "Prep",
-	"PRON" : "Pron",
-	"pun" : "Punct",
-	"UNKNOWN" : "UNKNOWN",
-	"V" : "V"
+    label: "pos",
+    displayType: "select",
+    translationKey: "posmulcoldfi_",
+    dataset: {
+	"A": "A",
+	"Abbr": "Abbr",
+	"ADV": "Adv",
+	"Aux": "Aux",
+	"CC": "CC",
+	"CS": "CS",
+	"Heur": "Heur",
+	"N": "N",
+	"NUM": "Num",
+	"POST": "Post",
+	"PREP": "Prep",
+	"PRON": "Pron",
+	"pun": "Punct",
+	"UNKNOWN": "UNKNOWN",
+	"V": "V"
     },
-    opts : settings.liteOptions
+    opts: settings.liteOptions
 };
 attrs.pos_mulcold_ru = {
-    label : "pos",
-    displayType : "select",
-    translationKey : "posmulcoldru_",
-    dataset : {
-	"Adj" : "Adj",
-	"Adv" : "Adv",
-	"Conj" : "Conj",
-	"Gerund" : "Gerund",
-	"Interj" : "Interj",
-	"Noun" : "Noun",
-	"Numeral" : "Numeral",
-	"Part" : "Part",
-	"Particle" : "Particle",
-	"Predicative" : "Predicative",
-	"Preposition" : "Preposition",
-	"Pron" : "Pron",
-	"pun" : "Punct",
-	"UNKNOWN" : "UNKNOWN",
-	"Verb" : "Verb"
+    label: "pos",
+    displayType: "select",
+    translationKey: "posmulcoldru_",
+    dataset: {
+	"Adj": "Adj",
+	"Adv": "Adv",
+	"Conj": "Conj",
+	"Gerund": "Gerund",
+	"Interj": "Interj",
+	"Noun": "Noun",
+	"Numeral": "Numeral",
+	"Part": "Part",
+	"Particle": "Particle",
+	"Predicative": "Predicative",
+	"Preposition": "Preposition",
+	"Pron": "Pron",
+	"pun": "Punct",
+	"UNKNOWN": "UNKNOWN",
+	"Verb": "Verb"
     },
-    opts : settings.liteOptions
+    opts: settings.liteOptions
 };
 attrs.pos_mulcold_en = {
-    label : "pos",
-    displayType : "select",
-    translationKey : "posmulcolden_",
-    dataset : {
-	"A" : "A",
-	"ABBR" : "ABBR",
-	"ADV" : "ADV",
-	"CC" : "CC",
-	"CS" : "CS",
-	"DET" : "DET",
-	"EN" : "EN",
-	"Ex" : "EX",
-	"INFMARK" : "INFMARK",
-	"ING" : "ING",
-	"N" : "N",
-	"NEG-PART" : "NEG-PART",
-	"NUM" : "NUM",
-	"PREP" : "PREP",
-	"PRON" : "PRON",
-	"pun" : "Punct",
-	"Rel" : "REL",
-	"UNKNOWN" : "UNKNOWN",
-	"V" : "V"
+    label: "pos",
+    displayType: "select",
+    translationKey: "posmulcolden_",
+    dataset: {
+	"A": "A",
+	"ABBR": "ABBR",
+	"ADV": "ADV",
+	"CC": "CC",
+	"CS": "CS",
+	"DET": "DET",
+	"EN": "EN",
+	"Ex": "EX",
+	"INFMARK": "INFMARK",
+	"ING": "ING",
+	"N": "N",
+	"NEG-PART": "NEG-PART",
+	"NUM": "NUM",
+	"PREP": "PREP",
+	"PRON": "PRON",
+	"pun": "Punct",
+	"Rel": "REL",
+	"UNKNOWN": "UNKNOWN",
+	"V": "V"
     },
-    opts : settings.liteOptions
+    opts: settings.liteOptions
 };
 attrs.pos_mulcold_sv = {
-    label : "pos",
-    displayType : "select",
-    translationKey : "posmulcoldsv_",
-    dataset : {
-	"A" : "A",
-	"ADV" : "ADV",
-	"CC" : "CC",
-	"CS" : "CS",
-	"DET" : "DET",
-	"N" : "N",
-	"NUM" : "NUM",
-	"PREP" : "PREP",
-	"PRON" : "PRON",
-	"pun" : "Punct",
-	"UNKNOWN" : "UNKNOWN",
-	"V" : "V"
+    label: "pos",
+    displayType: "select",
+    translationKey: "posmulcoldsv_",
+    dataset: {
+	"A": "A",
+	"ADV": "ADV",
+	"CC": "CC",
+	"CS": "CS",
+	"DET": "DET",
+	"N": "N",
+	"NUM": "NUM",
+	"PREP": "PREP",
+	"PRON": "PRON",
+	"pun": "Punct",
+	"UNKNOWN": "UNKNOWN",
+	"V": "V"
     },
-    opts : settings.liteOptions
+    opts: settings.liteOptions
 };
 
 attrs.pos_uta_ru = {
-    label : "pos",
-    displayType : "select",
-    translationKey : "pos_",
-    opts : settings.liteOptions,
-    dataset : {
-	"-" : "Punct",
-	"," : "Punct",
-	":" : "Punct",
-	"'" : "Punct",
-	"\"" : "Punct",
-	"A" : "A",
-	"C" : "C",
-	"I" : "Interj",
-	"M" : "Num",
-	"N" : "N",
-	"P" : "Pron",
-	"Q" : "Particle",
-	"R" : "Adv",
-	"S" : "Prep",
-	"V" : "V",
+    label: "pos",
+    displayType: "select",
+    translationKey: "pos_",
+    opts: settings.liteOptions,
+    dataset: {
+	"-": "Punct",
+	",": "Punct",
+	":": "Punct",
+	"'": "Punct",
+	"\"": "Punct",
+	"A": "A",
+	"C": "C",
+	"I": "Interj",
+	"M": "Num",
+	"N": "N",
+	"P": "Pron",
+	"Q": "Particle",
+	"R": "Adv",
+	"S": "Prep",
+	"V": "V",
     },
 };
 
 attrs.pos_ud_fi = {
-    label : "pos",
-    displayType : "select",
-    translationKey : "pos_",
-    opts : settings.liteOptions,
-    dataset : {
-	"ADJ" : "A",
-	"ADP" : "Adp",
-	"ADV" : "Adv",
-	"AUX" : "Aux",
-	"CONJ" : "C",
-	"INTJ" : "Interj",
-	"NOUN" : "N",
-	"NUM" : "Num",
-	"PRON" : "Pron",
-	"PROPN" : "Prop",
-	"PUNCT" : "Punct",
-	"SCONJ" : "CS",
-	"SYM" : "Symb",
-	"VERB" : "V",
-	"X" : "Other",
+    label: "pos",
+    displayType: "select",
+    translationKey: "pos_",
+    opts: settings.liteOptions,
+    dataset: {
+	"ADJ": "A",
+	"ADP": "Adp",
+	"ADV": "Adv",
+	"AUX": "Aux",
+	"CONJ": "C",
+	"INTJ": "Interj",
+	"NOUN": "N",
+	"NUM": "Num",
+	"PRON": "Pron",
+	"PROPN": "Prop",
+	"PUNCT": "Punct",
+	"SCONJ": "CS",
+	"SYM": "Symb",
+	"VERB": "V",
+	"X": "Other",
     },
 };
 
 attrs.pos_klk = {
-    label : "pos",
-    displayType : "select",
-    translationKey : "pos_klk_",
-    dataset : {
-	"" : "",
-	"A" : "A",
-	"Adp" : "Adp",
-	"Adv" : "Adv",
-	"C" : "C",
-	"Foreign" : "Foreign",
-	"Interj" : "Interj",
-	"N" : "N",
-	"Num" : "Num",
-	"Pron" : "Pron",
-	"Punct" : "Punct",
-	"Symb" : "Symb",
-	"V" : "V"
+    label: "pos",
+    displayType: "select",
+    translationKey: "pos_klk_",
+    dataset: {
+	"": "",
+	"A": "A",
+	"Adp": "Adp",
+	"Adv": "Adv",
+	"C": "C",
+	"Foreign": "Foreign",
+	"Interj": "Interj",
+	"N": "N",
+	"Num": "Num",
+	"Pron": "Pron",
+	"Punct": "Punct",
+	"Symb": "Symb",
+	"V": "V"
     },
-    opts : settings.liteOptions
+    opts: settings.liteOptions
 };
 
 // TextMorfo parts of speech, used in FTC
 attrs.pos_textmorfo = {
-    label : "pos",
-    displayType : "select",
-    opts : settings.liteOptions,
-    translationKey : "pos_",
-    dataset : {
-	"-|null" : "Unknown",
-	"Abbrev" : "Abbr",
-	"Adjective" : "Adj",
-	"Adjective-Noun|Adjective-No" : "AdjNoun",
-	"Adverb" : "Adv",
-	"Code" : "Code",
-	"CompPart" : "CompPart",
-	"Conjunction" : "Conj",
-	"Delimiter" : "Punct",
-	"Interjection" : "Interj",
-	"Noun" : "Noun",
-	"Noun-Noun" : "NounNoun",
-	"Numeral" : "Num",
-	"Preposition" : "Prep",
-	"Pronoun" : "Pron",
-	"Proper" : "Prop",
-	"Verb" : "Verb",
+    label: "pos",
+    displayType: "select",
+    opts: settings.liteOptions,
+    translationKey: "pos_",
+    dataset: {
+	"-|null": "Unknown",
+	"Abbrev": "Abbr",
+	"Adjective": "Adj",
+	"Adjective-Noun|Adjective-No": "AdjNoun",
+	"Adverb": "Adv",
+	"Code": "Code",
+	"CompPart": "CompPart",
+	"Conjunction": "Conj",
+	"Delimiter": "Punct",
+	"Interjection": "Interj",
+	"Noun": "Noun",
+	"Noun-Noun": "NounNoun",
+	"Numeral": "Num",
+	"Preposition": "Prep",
+	"Pronoun": "Pron",
+	"Proper": "Prop",
+	"Verb": "Verb",
     },
 };
 
 // SWECG parts of speech, used in FSTC and Svenska Parole
 attrs.pos_swecg = {
-    label : "pos",
-    displayType : "select",
-    opts : settings.liteOptions,
-    localize : false,
-    dataset : [
+    label: "pos",
+    displayType: "select",
+    opts: settings.liteOptions,
+    localize: false,
+    dataset: [
 	"A",
 	"ABBR",
 	"ADV",
@@ -987,69 +987,69 @@ attrs.pos_swecg = {
 	"UTRNEU",
 	"V",
     ],
-    // translationKey : "pos_",
+    // translationKey: "pos_",
     // // Some of the following values migt be errors
-    // dataset : {
-    // 	"A" : "Adj",
-    // 	"ABBR" : "Abbr",
-    // 	"ADV" : "Adv",
-    // 	"ADV/PREP" : "Adv/Prep",
-    // 	"A/N" : "Adj/Noun",
-    // 	"CC" : "CC",
-    // 	"CLB" : "CLB",
-    // 	"DEF" : "DEF",
-    // 	"DER/-het" : "DER/-het",
-    // 	"DER/-nde" : "DER/-nde",
-    // 	"DET" : "DET",
-    // 	"GEN" : "GEN",
-    // 	"INDEF" : "INDEF",
-    // 	"INFMARK" : "INFMARK",
-    // 	"INTERJ" : "INTERJ",
-    // 	"N" : "N",
-    // 	"NOM" : "NOM",
-    // 	"NUM" : "NUM",
-    // 	"PRB" : "PRB",
-    // 	"PREP" : "PREP",
-    // 	"PREPADV" : "PREP/ADV",
-    // 	"PRON" : "PRON",
-    // 	"SC" : "CS",
-    // 	"UTRNEU" : "UTRNEU",
-    // 	"V" : "V",
-    // 	"null" : "Unknown",
+    // dataset: {
+    // 	"A": "Adj",
+    // 	"ABBR": "Abbr",
+    // 	"ADV": "Adv",
+    // 	"ADV/PREP": "Adv/Prep",
+    // 	"A/N": "Adj/Noun",
+    // 	"CC": "CC",
+    // 	"CLB": "CLB",
+    // 	"DEF": "DEF",
+    // 	"DER/-het": "DER/-het",
+    // 	"DER/-nde": "DER/-nde",
+    // 	"DET": "DET",
+    // 	"GEN": "GEN",
+    // 	"INDEF": "INDEF",
+    // 	"INFMARK": "INFMARK",
+    // 	"INTERJ": "INTERJ",
+    // 	"N": "N",
+    // 	"NOM": "NOM",
+    // 	"NUM": "NUM",
+    // 	"PRB": "PRB",
+    // 	"PREP": "PREP",
+    // 	"PREPADV": "PREP/ADV",
+    // 	"PRON": "PRON",
+    // 	"SC": "CS",
+    // 	"UTRNEU": "UTRNEU",
+    // 	"V": "V",
+    // 	"null": "Unknown",
     // },
 };
 
 attrs.msd = {
-    label : "msd",
-    opts : settings.defaultOptions,
+    label: "msd",
+    opts: settings.defaultOptions,
     // Empty taginfo_url disables the info link to MSD tags in the
     // used sidebar; another value would link to the given URL; and an
     // undefined value would link to the default markup/msd.html.
-    taginfo_url : "",
+    taginfo_url: "",
     // Add a zero-width space character after each vertical bar to
     // allow breaking the line there in the sidebar.
-    transform : function(val) {
+    transform: function(val) {
 	return val.replace(/\|/g, "|\u200b");
     }
 };
 attrs.msd_sv = {
-    label : "msd",
-    opts : settings.defaultOptions,
-    extended_template : '<input class="arg_value" ng-model="model" escaper>' +
+    label: "msd",
+    opts: settings.defaultOptions,
+    extended_template: '<input class="arg_value" ng-model="model" escaper>' +
     '<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
-    controller : function($scope, $uibModal) {
+    controller: function($scope, $uibModal) {
         var modal = null;
 
         $scope.onIconClick = function() {
             modal = $uibModal.open({
-                template : '<div>' +
+                template: '<div>' +
                                 '<div class="modal-header">' +
                                     '<h3 class="modal-title">{{\'msd_long\' | loc:lang}}</h3>' +
                                     '<span ng-click="clickX()" class="close-x">×</span>' +
                                 '</div>' +
                                 '<div class="modal-body msd-modal" ng-click="msdClick($event)" ng-include="\'markup/msd.html\'"></div>' +
                             '</div>',
-                scope : $scope
+                scope: $scope
             })
         }
         $scope.clickX = function(event) {
@@ -1066,313 +1066,313 @@ attrs.msd_sv = {
     }
 };
 attrs.baseform_sv = {
-    label : "baseform",
-    type : "set",
-    opts : settings.setOptions,
-    extended_template : "<input ng-model='model' >"
+    label: "baseform",
+    type: "set",
+    opts: settings.setOptions,
+    extended_template: "<input ng-model='model' >"
 };
 attrs.baseform = {
-    label : "baseform",
-    // type : "set",
-    // displayType : "autocomplete",
-    stringify : function(baseform) {
+    label: "baseform",
+    // type: "set",
+    // displayType: "autocomplete",
+    stringify: function(baseform) {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
-    opts : settings.defaultOptions
+    opts: settings.defaultOptions
 };
 attrs.baseform_ftb2 = {
-    label : "baseform",
-    // type : "set",
-    // displayType : "autocomplete",
-    stringify : function(baseform) {
+    label: "baseform",
+    // type: "set",
+    // displayType: "autocomplete",
+    stringify: function(baseform) {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
-    opts : settings.defaultOptions
+    opts: settings.defaultOptions
 };
 attrs.baseform_compound = {
-    label : "baseform_compound",
-    // type : "set",
-    // displayType : "autocomplete",
-    stringify : function(baseform) {
+    label: "baseform_compound",
+    // type: "set",
+    // displayType: "autocomplete",
+    stringify: function(baseform) {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
-    opts : settings.defaultOptions
+    opts: settings.defaultOptions
 };
 
 attrs.lemgram = {
-    label : "lemgram",
-    type : "set",
-    displayType : "autocomplete",
-    opts : settings.setOptions,
-    stringify : function(lemgram) {
+    label: "lemgram",
+    type: "set",
+    displayType: "autocomplete",
+    opts: settings.setOptions,
+    stringify: function(lemgram) {
         // if(_.contains(lemgram, " "))
         // TODO: what if we're getting more than one consequtive lemgram back?
         return util.lemgramToString(_.str.trim(lemgram), true);
     },
-    externalSearch : karpLemgramLink,
-    internalSearch : true,
-    extended_template : "<autoc model='model' placeholder='placeholder' type='lemgram'/>",
+    externalSearch: karpLemgramLink,
+    internalSearch: true,
+    extended_template: "<autoc model='model' placeholder='placeholder' type='lemgram'/>",
 };
 attrs.lemgram_hidden = {
-    label : "lemgram",
-    type : "set",    // Seems to work only if this is "set" even if "hidden"
-    displayType : "hidden",
-    // opts : settings.liteOptions
+    label: "lemgram",
+    type: "set",    // Seems to work only if this is "set" even if "hidden"
+    displayType: "hidden",
+    // opts: settings.liteOptions
 };
 attrs.dalinlemgram = {
-    label : "dalin-lemgram",
-    type : "set",
-    displayType : "autocomplete",
-    opts : settings.setOptions,
-    stringify : function(lemgram) {
+    label: "dalin-lemgram",
+    type: "set",
+    displayType: "autocomplete",
+    opts: settings.setOptions,
+    stringify: function(lemgram) {
         // if(_.contains(lemgram, " "))
         // TODO: what if we're getting more than one consequtive lemgram back?
         return util.lemgramToString(_.str.trim(lemgram), true);
     },
-    externalSearch : karpLemgramLink,
-    internalSearch : true,
-    extended_template : "<autoc model='model' placeholder='placeholder' type='lemgram' variant='dalin'/>",
+    externalSearch: karpLemgramLink,
+    internalSearch: true,
+    extended_template: "<autoc model='model' placeholder='placeholder' type='lemgram' variant='dalin'/>",
 };
 
 attrs.saldo = {
-    label : "saldo",
-    type : "set",
-    displayType : "autocomplete",
-    opts : settings.setOptions,
-    stringify : function(saldo) {
+    label: "saldo",
+    type: "set",
+    displayType: "autocomplete",
+    opts: settings.setOptions,
+    stringify: function(saldo) {
         return util.saldoToString(saldo, true);
     },
-    externalSearch : "http://spraakbanken.gu.se/karp/#?search=extended||and|sense|equals|<%= val %>",
-    internalSearch : true,
-    extended_template : "<autoc model='model' placeholder='placeholder' type='sense'/>",
+    externalSearch: "http://spraakbanken.gu.se/karp/#?search=extended||and|sense|equals|<%= val %>",
+    internalSearch: true,
+    extended_template: "<autoc model='model' placeholder='placeholder' type='sense'/>",
 };
 attrs.dephead = {
-    label : "dephead",
-    displayType : "hidden"
+    label: "dephead",
+    displayType: "hidden"
 };
 attrs.deprel = {
-    label : "deprel",
-    displayType : "select",
-    translationKey : "deprel_",
-    extended_template : selectType.extended_template,
-    controller : selectType.controller,
-    dataset : {
-        "++" : "++",
-        "+A" : "+A",
-        "+F" : "+F",
-        "AA" : "AA",
-        "AG" : "AG",
-        "AN" : "AN",
-        "AT" : "AT",
-        "CA" : "CA",
-        "DB" : "DB",
-        "DT" : "DT",
-        "EF" : "EF",
-        "EO" : "EO",
-        "ES" : "ES",
-        "ET" : "ET",
-        "FO" : "FO",
-        "FP" : "FP",
-        "FS" : "FS",
-        "FV" : "FV",
-        "I?" : "I?",
-        "IC" : "IC",
-        "IG" : "IG",
-        "IK" : "IK",
-        "IM" : "IM",
-        "IO" : "IO",
-        "IP" : "IP",
-        "IQ" : "IQ",
-        "IR" : "IR",
-        "IS" : "IS",
-        "IT" : "IT",
-        "IU" : "IU",
-        "IV" : "IV",
-        "JC" : "JC",
-        "JG" : "JG",
-        "JR" : "JR",
-        "JT" : "JT",
-        "KA" : "KA",
-        "MA" : "MA",
-        "MS" : "MS",
-        "NA" : "NA",
-        "OA" : "OA",
-        "OO" : "OO",
-        "OP" : "OP",
-        "PL" : "PL",
-        "PR" : "PR",
-        "PT" : "PT",
-        "RA" : "RA",
-        "SP" : "SP",
-        "SS" : "SS",
-        "TA" : "TA",
-        "TT" : "TT",
-        "UK" : "UK",
-        "VA" : "VA",
-        "VO" : "VO",
-        "VS" : "VS",
-        "XA" : "XA",
-        "XF" : "XF",
-        "XT" : "XT",
-        "XX" : "XX",
-        "YY" : "YY",
-        "CJ" : "CJ",
-        "HD" : "HD",
-        "IF" : "IF",
-        "PA" : "PA",
-        "UA" : "UA",
-        "VG" : "VG",
-        "ROOT" : "ROOT"
+    label: "deprel",
+    displayType: "select",
+    translationKey: "deprel_",
+    extended_template: selectType.extended_template,
+    controller: selectType.controller,
+    dataset: {
+        "++": "++",
+        "+A": "+A",
+        "+F": "+F",
+        "AA": "AA",
+        "AG": "AG",
+        "AN": "AN",
+        "AT": "AT",
+        "CA": "CA",
+        "DB": "DB",
+        "DT": "DT",
+        "EF": "EF",
+        "EO": "EO",
+        "ES": "ES",
+        "ET": "ET",
+        "FO": "FO",
+        "FP": "FP",
+        "FS": "FS",
+        "FV": "FV",
+        "I?": "I?",
+        "IC": "IC",
+        "IG": "IG",
+        "IK": "IK",
+        "IM": "IM",
+        "IO": "IO",
+        "IP": "IP",
+        "IQ": "IQ",
+        "IR": "IR",
+        "IS": "IS",
+        "IT": "IT",
+        "IU": "IU",
+        "IV": "IV",
+        "JC": "JC",
+        "JG": "JG",
+        "JR": "JR",
+        "JT": "JT",
+        "KA": "KA",
+        "MA": "MA",
+        "MS": "MS",
+        "NA": "NA",
+        "OA": "OA",
+        "OO": "OO",
+        "OP": "OP",
+        "PL": "PL",
+        "PR": "PR",
+        "PT": "PT",
+        "RA": "RA",
+        "SP": "SP",
+        "SS": "SS",
+        "TA": "TA",
+        "TT": "TT",
+        "UK": "UK",
+        "VA": "VA",
+        "VO": "VO",
+        "VS": "VS",
+        "XA": "XA",
+        "XF": "XF",
+        "XT": "XT",
+        "XX": "XX",
+        "YY": "YY",
+        "CJ": "CJ",
+        "HD": "HD",
+        "IF": "IF",
+        "PA": "PA",
+        "UA": "UA",
+        "VG": "VG",
+        "ROOT": "ROOT"
     },
-    opts : settings.liteOptions
+    opts: settings.liteOptions
 };
 attrs.deprel_ftb2 = {
-    label : "deprel",
-    displayType : "select",
-    translationKey : "deprelftb2_",
-    opts : settings.liteOptions,
-    dataset : {
-	"advl" : "advl",
-	"attr" : "attr",
-	"aux" : "aux",
-	"comp" : "comp",
-	"conjunct" : "conjunct",
-	// "idiom|idom" : "idiom",
-	"idiom" : "idiom",
-	"main" : "main",
-	"mod" : "mod",
-	"modal" : "modal",
-	"obj" : "obj",
-	"phrm" : "phrm",
-	"phrv" : "phrv",
-	"scomp" : "scomp",
-	"subj" : "subj",
-	"voc" : "voc",
-	"_" : "_",
+    label: "deprel",
+    displayType: "select",
+    translationKey: "deprelftb2_",
+    opts: settings.liteOptions,
+    dataset: {
+	"advl": "advl",
+	"attr": "attr",
+	"aux": "aux",
+	"comp": "comp",
+	"conjunct": "conjunct",
+	// "idiom|idom": "idiom",
+	"idiom": "idiom",
+	"main": "main",
+	"mod": "mod",
+	"modal": "modal",
+	"obj": "obj",
+	"phrm": "phrm",
+	"phrv": "phrv",
+	"scomp": "scomp",
+	"subj": "subj",
+	"voc": "voc",
+	"_": "_",
     }
 };
 attrs.deprel_tdt = {
-    label : "deprel",
-    displayType : "select",
-    translationKey : "deprel_tdt_",
-    opts : settings.liteOptions,
-    dataset : {
-	"_" : "_",
-	"acomp" : "acomp",
-	"adpos" : "adpos",
-	"advcl" : "advcl",
-	"advmod" : "advmod",
-	"amod" : "amod",
-	"appos" : "appos",
-	"arg" : "arg",
-	"aux" : "aux",
-	"auxpass" : "auxpass",
-	"cc" : "cc",
-	"ccomp" : "ccomp",
-	"comp" : "comp",
-	"compar" : "compar",
-	"comparator" : "comparator",
-	"complm" : "complm",
-	"conj" : "conj",
-	"cop" : "cop",
-	"csubj" : "csubj",
-	"csubj-cop" : "csubj-cop",
-	"dep" : "dep",
-	"det" : "det",
-	"dobj" : "dobj",
-	"ellipsis" : "ellipsis",
-	"gobj" : "gobj",
-	"gsubj" : "gsubj",
-	"iccomp" : "iccomp",
-	"infmod" : "infmod",
-	"intj" : "intj",
-	"mark" : "mark",
-	"mod" : "mod",
-	"name" : "name",
-	"neg" : "neg",
-	"nn" : "nn",
-	"nommod" : "nommod",
-	"nommod-own" : "nommod-own",
-	"nsubj" : "nsubj",
-	"nsubj-cop" : "nsubj-cop",
-	"num" : "num",
-	"number" : "number",
-	"parataxis" : "parataxis",
-	"partmod" : "partmod",
-	"poss" : "poss",
-	"preconj" : "preconj",
-	"prt" : "prt",
-	"punct" : "punct",
-	"quantmod" : "quantmod",
-	"rcmod" : "rcmod",
-	"rel" : "rel",
-	"ROOT" : "ROOT",
-	"subj" : "subj",
-	"voc" : "voc",
-	"xcomp" : "xcomp",
-	"xsubj" : "xsubj",
-	"xsubj-cop" : "xsubj-cop"
+    label: "deprel",
+    displayType: "select",
+    translationKey: "deprel_tdt_",
+    opts: settings.liteOptions,
+    dataset: {
+	"_": "_",
+	"acomp": "acomp",
+	"adpos": "adpos",
+	"advcl": "advcl",
+	"advmod": "advmod",
+	"amod": "amod",
+	"appos": "appos",
+	"arg": "arg",
+	"aux": "aux",
+	"auxpass": "auxpass",
+	"cc": "cc",
+	"ccomp": "ccomp",
+	"comp": "comp",
+	"compar": "compar",
+	"comparator": "comparator",
+	"complm": "complm",
+	"conj": "conj",
+	"cop": "cop",
+	"csubj": "csubj",
+	"csubj-cop": "csubj-cop",
+	"dep": "dep",
+	"det": "det",
+	"dobj": "dobj",
+	"ellipsis": "ellipsis",
+	"gobj": "gobj",
+	"gsubj": "gsubj",
+	"iccomp": "iccomp",
+	"infmod": "infmod",
+	"intj": "intj",
+	"mark": "mark",
+	"mod": "mod",
+	"name": "name",
+	"neg": "neg",
+	"nn": "nn",
+	"nommod": "nommod",
+	"nommod-own": "nommod-own",
+	"nsubj": "nsubj",
+	"nsubj-cop": "nsubj-cop",
+	"num": "num",
+	"number": "number",
+	"parataxis": "parataxis",
+	"partmod": "partmod",
+	"poss": "poss",
+	"preconj": "preconj",
+	"prt": "prt",
+	"punct": "punct",
+	"quantmod": "quantmod",
+	"rcmod": "rcmod",
+	"rel": "rel",
+	"ROOT": "ROOT",
+	"subj": "subj",
+	"voc": "voc",
+	"xcomp": "xcomp",
+	"xsubj": "xsubj",
+	"xsubj-cop": "xsubj-cop"
     }
 };
 attrs.deprel_ud_fi = {
-    label : "deprel",
-    displayType : "select",
-    translationKey : "deprel_",
-    opts : settings.liteOptions,
-    dataset : {
-	"_" : "_",
-	"acl" : "acl",
-	"acl:relcl" : "rcmod",
-	"advcl" : "advcl",
-	"advmod" : "advmod",
-	"amod" : "amod",
-	"appos" : "appos",
-	"aux" : "aux",
-	"auxpass" : "auxpass",
-	"case" : "adpos",
-	"cc" : "cc",
-	"ccomp" : "ccomp",
-	"cc:preconj" : "preconj",
-	"compound" : "compound",
-	"compound:nn" : "nn",
-	"compound:prt" : "prt",
-	"conj" : "conj",
-	"cop" : "cop",
-	"csubj" : "csubj",
-	"csubj:cop" : "csubj-cop",
-	"dep" : "dep",
-	"det" : "det",
-	"discourse" : "discourse",
-	"dobj" : "dobj",
-	"goeswith" : "goeswith",
-	"mark" : "mark",
-	"mwe" : "mwe",
-	"name" : "name",
-	"neg" : "neg",
-	"nmod" : "nommod",
-	"nmod:gobj" : "gobj",
-	"nmod:gsubj" : "gsubj",
-	"nmod:own" : "nommod-own",
-	"nmod:poss" : "poss",
-	"nsubj" : "nsubj",
-	"nsubj:cop" : "nsubj-cop",
-	"nummod" : "num",
-	"parataxis" : "parataxis",
-	"punct" : "punct",
-	"remnant" : "remnant",
-	"rel" : "rel",
-	"root" : "ROOT",
-	"vocative" : "voc",
-	"xcomp" : "xcomp",
-	"xcomp:ds" : "xcomp:ds",
+    label: "deprel",
+    displayType: "select",
+    translationKey: "deprel_",
+    opts: settings.liteOptions,
+    dataset: {
+	"_": "_",
+	"acl": "acl",
+	"acl:relcl": "rcmod",
+	"advcl": "advcl",
+	"advmod": "advmod",
+	"amod": "amod",
+	"appos": "appos",
+	"aux": "aux",
+	"auxpass": "auxpass",
+	"case": "adpos",
+	"cc": "cc",
+	"ccomp": "ccomp",
+	"cc:preconj": "preconj",
+	"compound": "compound",
+	"compound:nn": "nn",
+	"compound:prt": "prt",
+	"conj": "conj",
+	"cop": "cop",
+	"csubj": "csubj",
+	"csubj:cop": "csubj-cop",
+	"dep": "dep",
+	"det": "det",
+	"discourse": "discourse",
+	"dobj": "dobj",
+	"goeswith": "goeswith",
+	"mark": "mark",
+	"mwe": "mwe",
+	"name": "name",
+	"neg": "neg",
+	"nmod": "nommod",
+	"nmod:gobj": "gobj",
+	"nmod:gsubj": "gsubj",
+	"nmod:own": "nommod-own",
+	"nmod:poss": "poss",
+	"nsubj": "nsubj",
+	"nsubj:cop": "nsubj-cop",
+	"nummod": "num",
+	"parataxis": "parataxis",
+	"punct": "punct",
+	"remnant": "remnant",
+	"rel": "rel",
+	"root": "ROOT",
+	"vocative": "voc",
+	"xcomp": "xcomp",
+	"xcomp:ds": "xcomp:ds",
     }
 };
 attrs.deprel_uta_ru = {
-    label : "deprel",
-    displayType : "select",
-    localize : false,
-    opts : settings.liteOptions,
-    dataset : [
+    label: "deprel",
+    displayType: "select",
+    localize: false,
+    opts: settings.liteOptions,
+    dataset: [
 	"1-компл",
 	"1-несобст-компл",
 	"2-компл",
@@ -1447,75 +1447,75 @@ attrs.deprel_uta_ru = {
     ],
 };
 attrs.prefix = {
-    label : "prefix",
-    type : "set",
-    displayType : "autocomplete",
-    opts : settings.setOptions,
-    stringify : function(lemgram) {
+    label: "prefix",
+    type: "set",
+    displayType: "autocomplete",
+    opts: settings.setOptions,
+    stringify: function(lemgram) {
         return util.lemgramToString(lemgram, true);
     },
-    externalSearch : karpLemgramLink,
-    internalSearch : true,
-    extended_template : "<autoc model='model' placeholder='placeholder' type='lemgram' variant='affix'/>"
+    externalSearch: karpLemgramLink,
+    internalSearch: true,
+    extended_template: "<autoc model='model' placeholder='placeholder' type='lemgram' variant='affix'/>"
 };
 attrs.suffix = {
-    label : "suffix",
-    type : "set",
-    displayType : "autocomplete",
-    opts : settings.setOptions,
-    stringify : function(lemgram) {
+    label: "suffix",
+    type: "set",
+    displayType: "autocomplete",
+    opts: settings.setOptions,
+    stringify: function(lemgram) {
         return util.lemgramToString(lemgram, true);
     },
-    externalSearch : karpLemgramLink,
-    internalSearch : true,
-    extended_template : "<autoc model='model' placeholder='placeholder' type='lemgram' variant='affix'/>"
+    externalSearch: karpLemgramLink,
+    internalSearch: true,
+    extended_template: "<autoc model='model' placeholder='placeholder' type='lemgram' variant='affix'/>"
 };
 attrs.ref = {
-    label : "ref",
-    displayType : "hidden"
+    label: "ref",
+    displayType: "hidden"
 };
 attrs.link = {
-    label : "sentence_link"
+    label: "sentence_link"
 };
 
 attrs.text = {
-    label : "text"
+    label: "text"
 };
 attrs.spoken = {
-    label : "spoken",
-    opts : settings.defaultOptions
+    label: "spoken",
+    opts: settings.defaultOptions
 };
 attrs.origword = {
-    label : "word_orig",
-    opts : settings.defaultOptions
+    label: "word_orig",
+    opts: settings.defaultOptions
 };
 attrs.tildeword = {
-    label : "word_tilde",
-    opts : settings.defaultOptions
+    label: "word_tilde",
+    opts: settings.defaultOptions
 };
 attrs.complword = {
-    label : "word_completed",
-    opts : settings.defaultOptions
+    label: "word_completed",
+    opts: settings.defaultOptions
 };
 attrs.id_hidden = {
-    label : "id",
-    displayType : "hidden",
-    opts : settings.defaultOptions
+    label: "id",
+    displayType: "hidden",
+    opts: settings.defaultOptions
 };
 attrs.ambiguous_lemma = {
-    label : "ambiguous_lemma",
-    type : "set",
-    opts : settings.setOptions
+    label: "ambiguous_lemma",
+    type: "set",
+    opts: settings.setOptions
 };
 attrs.ambiguous_pos = {
-    label : "ambiguous_pos",
-    type : "set",
-    opts : settings.setOptions
+    label: "ambiguous_pos",
+    type: "set",
+    opts: settings.setOptions
 };
 attrs.ambiguous_msd = {
-    label : "ambiguous_msd",
-    type : "set",
-    opts : settings.setOptions
+    label: "ambiguous_msd",
+    type: "set",
+    opts: settings.setOptions
 };
 
 var mulcold_pos_langs = ["fi", "ru", "en", "sv"];
@@ -1527,25 +1527,25 @@ for (var i = 0; i < mulcold_pos_langs.length; i++) {
 delete mulcold_pos_langs;
 
 attrs.wordtype = {
-    label : "type",
-    displayType : "select",
-    translationKey : "topling_",
-    dataset : {
-	"text" : "text",
-	"to" : "to",
-	"from" : "from",
-	"comment" : "comment",
-	"subject" : "subject"
+    label: "type",
+    displayType: "select",
+    translationKey: "topling_",
+    dataset: {
+	"text": "text",
+	"to": "to",
+	"from": "from",
+	"comment": "comment",
+	"subject": "subject"
     },
-    opts : settings.defaultOptions
+    opts: settings.defaultOptions
 };
 
 attrs.ne_ex = {
     label: "ne_expr",
-    translationKey : "ne_expr_",
-    extended_template : selectType.extended_template,
-    controller : selectType.controller,
-    isStructAttr : true,
+    translationKey: "ne_expr_",
+    extended_template: selectType.extended_template,
+    controller: selectType.controller,
+    isStructAttr: true,
     dataset: [
        "ENAMEX",
        "TIMEX",
@@ -1554,10 +1554,10 @@ attrs.ne_ex = {
 };
 attrs.ne_type = {
     label: "ne_type",
-    translationKey : "ne_type_",
-    extended_template : selectType.extended_template,
-    controller : selectType.controller,
-    isStructAttr : true,
+    translationKey: "ne_type_",
+    extended_template: selectType.extended_template,
+    controller: selectType.controller,
+    isStructAttr: true,
     dataset: [
        "LOC",
        "PRS",
@@ -1571,10 +1571,10 @@ attrs.ne_type = {
 };
 attrs.ne_subtype = {
     label: "ne_subtype",
-    translationKey : "ne_subtype_",
-    extended_template : selectType.extended_template,
-    controller : selectType.controller,
-    isStructAttr : true,
+    translationKey: "ne_subtype_",
+    extended_template: selectType.extended_template,
+    controller: selectType.controller,
+    isStructAttr: true,
     dataset: [
         "AST",
         "GPL",
@@ -1634,7 +1634,7 @@ attrs.ne_subtype = {
         "DAT",
         "PER"
    ],
-   stringify : function(val) {
+   stringify: function(val) {
        return util.getLocaleString("ne_subtype_" + val);
    }
 };
@@ -1643,17 +1643,17 @@ attrs.ne_subtype = {
 //
 // The attributes ne_* are intra-sentence structural attributes that
 // are shown in Korp as token attributes, shown only for the tokens
-// within an ne structure (isStructAttr : true). This approach is
+// within an ne structure (isStructAttr: true). This approach is
 // borrowed from Språkbanken but with a couple of additional
 // attributes.
 
 // FiNER name types
 attrs.ne_type_fi = {
-    label : "ne_type",
-    displayType : "select",
-    translationKey : "ne_type_",
-    isStructAttr : true,
-    dataset : [
+    label: "ne_type",
+    displayType: "select",
+    translationKey: "ne_type_",
+    isStructAttr: true,
+    dataset: [
 	"LOC",
 	"PRS",
 	"ORG",
@@ -1666,11 +1666,11 @@ attrs.ne_type_fi = {
 };
 // FiNER name subtypes
 attrs.ne_subtype_fi = {
-    label : "ne_subtype",
-    displayType : "select",
-    translationKey : "ne_subtype_",
-    isStructAttr : true,
-    dataset : [
+    label: "ne_subtype",
+    displayType: "select",
+    translationKey: "ne_subtype_",
+    isStructAttr: true,
+    dataset: [
 	"ATH",
 	"CLT",
 	"CRP",
@@ -1689,11 +1689,11 @@ attrs.ne_subtype_fi = {
 };
 // FiNER full name types: expression category, type, subtype
 attrs.ne_fulltype_fi = {
-    label : "ne_fulltype",
-    displayType : "select",
-    translationKey : "namecat_",
-    isStructAttr : true,
-    dataset : [
+    label: "ne_fulltype",
+    displayType: "select",
+    translationKey: "namecat_",
+    isStructAttr: true,
+    dataset: [
 	"EnamexPrsHum",
 	"EnamexPrsTit",
 	"EnamexLocXxx",
@@ -1713,40 +1713,40 @@ attrs.ne_fulltype_fi = {
 };
 // The name (tokens) within the ne structure
 attrs.ne_name = {
-    label : "ne_name",
-    isStructAttr : true,
+    label: "ne_name",
+    isStructAttr: true,
 };
 // If the name is a place name, it is repeated here. This attribute
 // can represent place name information obtained from NER, POS tags or
 // metadata, as indicated by ne_placename_source below.
 attrs.ne_placename = {
-    label : "ne_placename",
-    isStructAttr : true,
+    label: "ne_placename",
+    isStructAttr: true,
 };
 // The source of the place name information.
 attrs.ne_placename_source = {
-    label : "ne_placename_source",
-    displayType : "select",
-    translationKey : "placename_source_",
-    dataset : [
+    label: "ne_placename_source",
+    displayType: "select",
+    translationKey: "placename_source_",
+    dataset: [
 	"ner",
 	"pos",
 	"meta",
     ],
-    isStructAttr : true,
+    isStructAttr: true,
 };
 // The raw (Fi)NER tag as a positional attriute
 attrs.ner_rawtag = {
-    label : "ner_tag_raw",
-    displayType : "hidden",
+    label: "ner_tag_raw",
+    displayType: "hidden",
 };
 // The B-I-O status of token as a positional attribute: Beginning a
 // name, Inside a name and Outside a name
 attrs.ner_bio = {
-    label : "ner_bio",
-    displayType : "select",
-    translationKey : "ner_bio_",
-    dataset : [
+    label: "ner_bio",
+    displayType: "select",
+    translationKey: "ner_bio_",
+    dataset: [
 	"B",
 	"I",
 	"O",
@@ -1756,84 +1756,84 @@ attrs.ner_bio = {
 // Common name attributes for (Fi)NER-tagged corpora
 
 attrlist.standard = {
-    lemma : attrs.baseform,
-    pos : attrs.pos_klk,
-    msd : attrs.msd,
-    dephead : attrs.dephead,
-    deprel : attrs.deprel_tdt,
-    ref : attrs.ref,
-    nertag : attrs.ner_tags
+    lemma: attrs.baseform,
+    pos: attrs.pos_klk,
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel_tdt,
+    ref: attrs.ref,
+    nertag: attrs.ner_tags
 };
 
 attrlist.finer = {
-    ne_name : attrs.ne_name,
-    ne_ex : attrs.ne_ex,
-    ne_type : attrs.ne_type_fi,
-    ne_subtype : attrs.ne_subtype_fi,
-    ne_fulltype : attrs.ne_fulltype_fi,
-    ne_placename : attrs.ne_placename,
-    ne_placename_source : attrs.ne_placename_source,
-    nertag : attrs.ner_rawtag,
-    nerbio : attrs.ner_bio,
+    ne_name: attrs.ne_name,
+    ne_ex: attrs.ne_ex,
+    ne_type: attrs.ne_type_fi,
+    ne_subtype: attrs.ne_subtype_fi,
+    ne_fulltype: attrs.ne_fulltype_fi,
+    ne_placename: attrs.ne_placename,
+    ne_placename_source: attrs.ne_placename_source,
+    nertag: attrs.ner_rawtag,
+    nerbio: attrs.ner_bio,
 };
 
 settings.corpus_features.finer = {
-    attributes : attrlist.finer,
+    attributes: attrlist.finer,
 };
 
 // An attribute not to be shown in Korp but included for documentation
 // purposes.
 attrs.hidden = {
-    displayType : "hidden",
+    displayType: "hidden",
 };
 sattrs.hidden = attrs.hidden;
 
 sattrs.date = {
-    label : "date",
-    displayType : "date"
+    label: "date",
+    displayType: "date"
 };
 
 sattrs.text_title = {
-    label : "title"
+    label: "title"
 };
 sattrs.title = sattrs.text_title;
 sattrs.text_distributor = {
-    label : "text_distributor",
-    displayType : "hidden"
+    label: "text_distributor",
+    displayType: "hidden"
 };
 sattrs.text_source = {
-    label : "text_source"
+    label: "text_source"
 };
 
 sattrs.text_published = {
-    label : "text_pubdate2"
+    label: "text_pubdate2"
 };
 
 sattrs.author = {
-    label : "author"
+    label: "author"
 };
 sattrs.author_birthyear = {
-    label : "author_birthyear"
+    label: "author_birthyear"
 };
 sattrs.author_deathyear = {
-    label : "author_deathyear"
+    label: "author_deathyear"
 };
 
 sattrs.publ_year = {
-    label : "year_published"
+    label: "year_published"
 };
 
 sattrs.fulltext_url = {
-    label : "fulltext_url",
-    type : "url"
+    label: "fulltext_url",
+    type: "url"
 };
 sattrs.original_url = {
-    label : "original_url",
-    type : "url"
+    label: "original_url",
+    type: "url"
 };
 sattrs.context_url = {
-    label : "context_url",
-    type : "url"
+    label: "context_url",
+    type: "url"
 };
 
 // Options for URL attributes to be shown as separate links in the
@@ -1841,34 +1841,34 @@ sattrs.context_url = {
 // property url_opts.
 sattrs.link_url_opts = {
     // Show the the link in a separate link section
-    in_link_section : true,
+    in_link_section: true,
     // Hide the URL and use the attribute label as the link text
-    hide_url : true,
+    hide_url: true,
     // Open the link in a new window (or tab)
-    new_window : true,
+    new_window: true,
 };
 
 sattrs.link_fulltext = {
-    label : "show_fulltext",
-    type : "url",
-    url_opts : sattrs.link_url_opts
+    label: "show_fulltext",
+    type: "url",
+    url_opts: sattrs.link_url_opts
 };
 sattrs.link_original = {
-    label : "show_original",
-    type : "url",
-    url_opts : sattrs.link_url_opts
+    label: "show_original",
+    type: "url",
+    url_opts: sattrs.link_url_opts
 };
 sattrs.link_fulltext_context = {
-    label : "show_fulltext_context",
-    type : "url",
-    url_opts : sattrs.link_url_opts
+    label: "show_fulltext_context",
+    type: "url",
+    url_opts: sattrs.link_url_opts
 };
 sattrs.link_prefixed = function (label, url_prefix) {
     return {
-	label : label,
-	type : "url",
-	url_opts : sattrs.link_url_opts,
-	url_prefix : url_prefix
+	label: label,
+	type: "url",
+	url_opts: sattrs.link_url_opts,
+	url_prefix: url_prefix
     };
 };
 sattrs.link_show_video_prefixed = function (url_prefix) {
@@ -1878,243 +1878,243 @@ sattrs.link_show_video_annex = sattrs.link_show_video_prefixed(
     "https://lat.csc.fi/ds/annex/runLoader?viewType=timeline&");
 
 sattrs.link_gutenberg = {
-    label : "show_gutenberg",
-    type : "url",
-    url_opts : sattrs.link_url_opts
+    label: "show_gutenberg",
+    type: "url",
+    url_opts: sattrs.link_url_opts
 };
 
 sattrs.text_link_gutenberg = {
-    label : "show_gutenberg_text",
-    type : "url",
-    url_opts : sattrs.link_url_opts
+    label: "show_gutenberg_text",
+    type: "url",
+    url_opts: sattrs.link_url_opts
 };
 
 sattrs.sentence_type = {
-    label : "sentence_type",
-    displayType : "select",
-    translationKey : "klassikot_",
-    dataset : {
-	"text" : "text",
-	"head" : "head",
-	"stanza" : "stanza",
-	"speaker" : "speaker",
-	"stage" : "stage"
+    label: "sentence_type",
+    displayType: "select",
+    translationKey: "klassikot_",
+    dataset: {
+	"text": "text",
+	"head": "head",
+	"stanza": "stanza",
+	"speaker": "speaker",
+	"stage": "stage"
     }
 };
 
 
 sattrs.sentence_id_hidden = {
-    label : "sentence_id",
-    displayType : "hidden"
+    label: "sentence_id",
+    displayType: "hidden"
 };
 sattrs.sentence_id = {
-    label : "sentence_id"
+    label: "sentence_id"
 };
 sattrs.sentence_n = {
-    label : "sentence_n"
+    label: "sentence_n"
 };
 sattrs.paragraph_id_hidden = {
-    label : "paragraph_id",
-    displayType : "hidden"
+    label: "paragraph_id",
+    displayType: "hidden"
 };
 sattrs.paragraph_id = {
-    label : "paragraph_id"
+    label: "paragraph_id"
 };
 
 sattrs.text_time = {
-    label : "text_time"
+    label: "text_time"
 };
 
 sattrs.paragraph_type = {
-    label : "paragraph_type"
+    label: "paragraph_type"
 };
 
 // Text genre values specifically for Mikhail Mikhailov's (UTA)
 // corpora (MULCOLD, FiRuLex, ParFin, ParRus)
 sattrs.mikhailov_text_genre = {
-    label : "text_genre",
-    displayType : "select",
-    translationKey : "textgenre_",
-    dataset : {
-	"fiction" : "fiction",
-	"law" : "law",
+    label: "text_genre",
+    displayType: "select",
+    translationKey: "textgenre_",
+    dataset: {
+	"fiction": "fiction",
+	"law": "law",
     },
-    opts : settings.liteOptions
+    opts: settings.liteOptions
 };
 
 sattrs.text_author = {
-    label : "author"
+    label: "author"
 };
 
 sattrs.article_author = {
-    label : "article_author"
+    label: "article_author"
 };
 
 sattrs.text_producers = {
-    label : "text_producers"
+    label: "text_producers"
 };
 
 sattrs.text_ebook_id = {
-    label : "text_ebook_id"
+    label: "text_ebook_id"
 };
 
 sattrs.text_translator = {
-    label : "text_translator"
+    label: "text_translator"
 };
 
 sattrs.text_publ_place = {
-    label : "publication_place"
+    label: "publication_place"
 };
 
 sattrs.filename = {
-    label : "file_name"
+    label: "file_name"
 };
 
 sattrs.year = {
-    label : "year"
+    label: "year"
 };
 
 sattrs.month = {
-    label : "month"
+    label: "month"
 };
 
 sattrs.day_of_month = {
-    label : "day"
+    label: "day"
 };
 
 /* KFSCP --- */
 
 sattrs.text_pubdate = {
-    label : "publication_date"
+    label: "publication_date"
 };
 
 sattrs.text_publisher = {
-    label : "publisher"
+    label: "publisher"
 };
 
 /* LEHDET */
 
 sattrs.link_lehdet = {
-    label : "link_to_original",
-    type : "url",
-    url_opts : sattrs.link_url_opts
+    label: "link_to_original",
+    type: "url",
+    url_opts: sattrs.link_url_opts
 };
 
 /* ORACC */
 
 sattrlist.oracc = {
-    text_provenance : {
-        label : "oracc_provenance",
+    text_provenance: {
+        label: "oracc_provenance",
     },
-    text_period : {
-        label : "oracc_period",
+    text_period: {
+        label: "oracc_period",
     },
-    text_genre : {
-        label : "oracc_genre"
+    text_genre: {
+        label: "oracc_genre"
     },
-    text_url : {
-        url_opts : sattrs.link_url_opts,
-        label : "oracc_url",
-        type : "url"
+    text_url: {
+        url_opts: sattrs.link_url_opts,
+        label: "oracc_url",
+        type: "url"
     },
-    sentence_line : {
-        label : "oracc_line",
+    sentence_line: {
+        label: "oracc_line",
     },
-    sentence_translation : {
-        label : "oracc_sent_translation"
+    sentence_translation: {
+        label: "oracc_sent_translation"
     }
 };
 
 /* ORACC */
 attrlist.oracc = {
-    lemma : attrs.baseform,
-    ltrans :  {
-	label : "oracc_lemmatrans"
+    lemma: attrs.baseform,
+    ltrans:  {
+	label: "oracc_lemmatrans"
     },
-    transcription : {
-	label : "oracc_transcription"
+    transcription: {
+	label: "oracc_transcription"
     },
-    pos : {
-	label : "pos",
-	displayType : "select",
-	translationKey : "oracc_pos_",
-	dataset : {},
-	opts : settings.liteOptions
+    pos: {
+	label: "pos",
+	displayType: "select",
+	translationKey: "oracc_pos_",
+	dataset: {},
+	opts: settings.liteOptions
     },
-    sense : {
-	label : "oracc_sense"
+    sense: {
+	label: "oracc_sense"
 	},
-    sensepos : {
-        label : "oracc_sensepos",
-        displayType : "select",
-        translationKey : "oracc_pos_",
-        dataset : {},
-        opts : settings.liteOptions
+    sensepos: {
+        label: "oracc_sensepos",
+        displayType: "select",
+        translationKey: "oracc_pos_",
+        dataset: {},
+        opts: settings.liteOptions
     },
-    cuneiform : {
-        label : "oracc_cuneiform"
+    cuneiform: {
+        label: "oracc_cuneiform"
     },
-    ref : {
-        label : "oracc_ref"
+    ref: {
+        label: "oracc_ref"
     },
-    lang : {
-        label : "oracc_lang",
-        displayType : "select",
-        translationKey : "oracc_lang_",
-        dataset : {},
-        opts : settings.liteOptions
+    lang: {
+        label: "oracc_lang",
+        displayType: "select",
+        translationKey: "oracc_lang_",
+        dataset: {},
+        opts: settings.liteOptions
     },
-    asciitranslitt : {
-        label : "oracc_asciixlit"
+    asciitranslitt: {
+        label: "oracc_asciixlit"
     },
-    asciitranscript : {
-        label : "oracc_asciixcrip"
+    asciitranscript: {
+        label: "oracc_asciixcrip"
     },
-    asciilemma : {
-        label : "oracc_asciilemma"
+    asciilemma: {
+        label: "oracc_asciilemma"
     }
 };
 
 /* E-thesis */
 
 sattrlist.ethesis = {
-    text_title : {
-        label : "text_title"
+    text_title: {
+        label: "text_title"
     },
-    text_date : {
-        label : "text_date"
+    text_date: {
+        label: "text_date"
     },
-    text_keywords : {
-        label : "text_keywords"
+    text_keywords: {
+        label: "text_keywords"
     },
-    text_faculty : {
-        label : "text_faculty"
+    text_faculty: {
+        label: "text_faculty"
     },
-    text_subject : {
-        label : "text_subject"
+    text_subject: {
+        label: "text_subject"
     },
-    text_type : {
-        label : "text_dissertationtype"
+    text_type: {
+        label: "text_dissertationtype"
     },
     /*
-    text_lang : {
-        label : "text_lang",
-        displayType : "select",
-        translationKey : "ftb3_europarl_language_",
-        dataset : {
-            "fi" : "fi",
-            "sv" : "sv",
-            "es" : "es",
-            "en" : "en",
-            "ru" : "ru"
+    text_lang: {
+        label: "text_lang",
+        displayType: "select",
+        translationKey: "ftb3_europarl_language_",
+        dataset: {
+            "fi": "fi",
+            "sv": "sv",
+            "es": "es",
+            "en": "en",
+            "ru": "ru"
         },
-        opts : settings.liteOptions
+        opts: settings.liteOptions
     },
     */
-    text_url : {
-        label : "text_abslink",
-        type : "url",
-        url_opts : sattrs.link_url_opts
+    text_url: {
+        label: "text_abslink",
+        type: "url",
+        url_opts: sattrs.link_url_opts
     }
 };
 
@@ -2124,100 +2124,100 @@ sattrlist.ethesis = {
 /* VNSK */
 
 sattrlist.vnsk = {
-    text_title : sattrs.text_title,
-    text_distributor : sattrs.text_distributor,
-    text_source : sattrs.text_source,
-    paragraph_id : sattrs.paragraph_id,
-    paragraph_type : sattrs.paragraph_type,
-    sentence_id : sattrs.sentence_id_hidden,
-    sentence_n : sattrs.sentence_n
+    text_title: sattrs.text_title,
+    text_distributor: sattrs.text_distributor,
+    text_source: sattrs.text_source,
+    paragraph_id: sattrs.paragraph_id,
+    paragraph_type: sattrs.paragraph_type,
+    sentence_id: sattrs.sentence_id_hidden,
+    sentence_n: sattrs.sentence_n
 };
 
 /* FINSTUD */
 
 sattrlist.finstud = {
-    sentence_id : sattrs.sentence_id_hidden,
-    text_textnumber : {
-        label : "studentsvenska_textnumber"
+    sentence_id: sattrs.sentence_id_hidden,
+    text_textnumber: {
+        label: "studentsvenska_textnumber"
     },
-    text_gradeexam : {
-        label : "studentsvenska_gradeexam"
+    text_gradeexam: {
+        label: "studentsvenska_gradeexam"
     },
-    text_subject : {
-        label : "studentsvenska_subject"
+    text_subject: {
+        label: "studentsvenska_subject"
     }
 };
 
 attrlist.finstud = {
-    code : {
-        label : "studentsvenska_code",
-        opts : settings.defaultOptions
+    code: {
+        label: "studentsvenska_code",
+        opts: settings.defaultOptions
     },
-    properties : {
-        label : "studentsvenska_properties",
-        opts : settings.defaultOptions
+    properties: {
+        label: "studentsvenska_properties",
+        opts: settings.defaultOptions
     }
 };
 
 
 /* BESERCORP */
 attrlist.besercorp = {
-    msd : attrs.msd,
-    gloss : {
-        label : "gloss_ru"
+    msd: attrs.msd,
+    gloss: {
+        label: "gloss_ru"
     },
-    lex : {
-        label : "lex"
+    lex: {
+        label: "lex"
     }
 };
 
 /* STUDENTSVENSKA */
 
 attrlist.studentsvenska = {
-    lemma : attrs.baseform,
-    code : {
-        label : "studentsvenska_code",
-        opts : settings.defaultOptions
+    lemma: attrs.baseform,
+    code: {
+        label: "studentsvenska_code",
+        opts: settings.defaultOptions
     },
-    properties : {
-        label : "studentsvenska_properties",
-        opts : settings.defaultOptions
+    properties: {
+        label: "studentsvenska_properties",
+        opts: settings.defaultOptions
     }
 
 
 };
 
 sattrlist.studentsvenska = {
-    sentence_id : sattrs.sentence_id_hidden,
-    text_textnumber : {
-        label : "studentsvenska_textnumber"
+    sentence_id: sattrs.sentence_id_hidden,
+    text_textnumber: {
+        label: "studentsvenska_textnumber"
     },
-    text_gradeteacher : {
-        label : "studentsvenska_gradeteacher"
+    text_gradeteacher: {
+        label: "studentsvenska_gradeteacher"
     },
-    text_gradeexam : {
-        label : "studentsvenska_gradeexam"
+    text_gradeexam: {
+        label: "studentsvenska_gradeexam"
     },
-    text_gradeword : {
-        label : "studentsvenska_gradeword"
+    text_gradeword: {
+        label: "studentsvenska_gradeword"
     },
-    text_schoolnumber : {
-        label : "studentsvenska_schoolnumber"
+    text_schoolnumber: {
+        label: "studentsvenska_schoolnumber"
     },
-    text_errorother : {
-        label : "studentsvenska_errorother"
+    text_errorother: {
+        label: "studentsvenska_errorother"
     },
-    text_gender : {
-        label : "studentsvenska_gender"
+    text_gender: {
+        label: "studentsvenska_gender"
     },
-    text_gradegrammar : {
-        label : "studentsvenska_gradegrammar"
+    text_gradegrammar: {
+        label: "studentsvenska_gradegrammar"
     },
-    text_errorwordorder : {
-        label : "studentsvenska_errorwordorder"
+    text_errorwordorder: {
+        label: "studentsvenska_errorwordorder"
     },
-    text_subject : {
-        label : "studentsvenska_subject"
+    text_subject: {
+        label: "studentsvenska_subject"
     }
 };
 
@@ -2227,24 +2227,24 @@ sattrlist.studentsvenska = {
 // Dependency Treebank parser (with lemgrams and lemmas without
 // compound boundaries added)
 attrlist.parsed_tdt = {
-    lemma : attrs.baseform,
-    lemmacomp : attrs.baseform_compound,
-    pos : attrs.pos_klk,
-    msd : attrs.msd,
-    dephead : attrs.dephead,
-    deprel : attrs.deprel_tdt,
-    ref : attrs.ref,
-    lex : attrs.lemgram_hidden,
+    lemma: attrs.baseform,
+    lemmacomp: attrs.baseform_compound,
+    pos: attrs.pos_klk,
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel_tdt,
+    ref: attrs.ref,
+    lex: attrs.lemgram_hidden,
 };
 
 settings.corpus_features.parsed_tdt = {
-    attributes : attrlist.parsed_tdt,
+    attributes: attrlist.parsed_tdt,
 };
 
 // Corpora parsed with TDT and run through FiNER
 attrlist.parsed_tdt_ner =
     $.extend({}, attrlist.parsed_tdt, {
-	nertag : attrs.ner_tags
+	nertag: attrs.ner_tags
     });
 
 /* --------- */
@@ -2253,15 +2253,15 @@ attrlist.parsed_tdt_ner =
 
 /*
 settings.common_struct_types = {
-    date_interval : {
+    date_interval: {
         label: "date_interval",
         displayType: "date_interval",
 
         opts: settings.liteOptions,
-        extended_template : '<slider floor="{{floor}}" ceiling="{{ceiling}}" ' +
+        extended_template: '<slider floor="{{floor}}" ceiling="{{ceiling}}" ' +
                                 'ng-model-low="values.low" ng-model-high="values.high"></slider>' +
                                 '<div><input ng-model="values.low" class="from"> <input class="to" ng-model="values.high"></div>',
-        controller : function($scope, searches, $timeout) {
+        controller: function($scope, searches, $timeout) {
             c.log( "searches", searches)
             var s = $scope
 
@@ -2317,75 +2317,75 @@ settings.common_struct_types = {
 */
 
 var modernAttrs = {
-    pos : attrs.pos,
-    msd : attrs.msd,
-    lemma : attrs.baseform,
-    lex : attrs.lemgram,
-    saldo : attrs.saldo,
-    dephead : attrs.dephead,
-    deprel : attrs.deprel,
-    ref : attrs.ref,
-    prefix : attrs.prefix,
-    suffix : attrs.suffix
+    pos: attrs.pos,
+    msd: attrs.msd,
+    lemma: attrs.baseform,
+    lex: attrs.lemgram,
+    saldo: attrs.saldo,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel,
+    ref: attrs.ref,
+    prefix: attrs.prefix,
+    suffix: attrs.suffix
 };
 
 
 // Recurring corpus licence information (name + URL)
 settings.licenceinfo = {
-    CC0 : {
-	name : "CC ZERO (CC0) (CLARIN PUB)",
-	description : "Public Domain Dedication",
-	url : "http://creativecommons.org/publicdomain/zero/1.0/",
+    CC0: {
+	name: "CC ZERO (CC0) (CLARIN PUB)",
+	description: "Public Domain Dedication",
+	url: "http://creativecommons.org/publicdomain/zero/1.0/",
     },
-    CC_BY : {
-	name : "CC BY (CLARIN PUB)",
-	description : "Creative Commons Attribution",
-	url : "https://creativecommons.org/licenses/by/4.0/",
+    CC_BY: {
+	name: "CC BY (CLARIN PUB)",
+	description: "Creative Commons Attribution",
+	url: "https://creativecommons.org/licenses/by/4.0/",
     },
-    CC_BY_30 : {
-	name : "CC BY 3.0 (CLARIN PUB)",
-	description : "Creative Commons Attribution 3.0",
-	url : "https://creativecommons.org/licenses/by/3.0/",
+    CC_BY_30: {
+	name: "CC BY 3.0 (CLARIN PUB)",
+	description: "Creative Commons Attribution 3.0",
+	url: "https://creativecommons.org/licenses/by/3.0/",
     },
-    CC_BY_40 : {
-	name : "CC BY 4.0 (CLARIN PUB)",
-	description : "Creative Commons Attribution",
-	url : "https://creativecommons.org/licenses/by/4.0/",
+    CC_BY_40: {
+	name: "CC BY 4.0 (CLARIN PUB)",
+	description: "Creative Commons Attribution",
+	url: "https://creativecommons.org/licenses/by/4.0/",
     },
-    CC_BY_NC : {
-	name : "CC BY-NC (CLARIN PUB)",
-	description : "Creative Commons Attribution-NonCommercial",
-	url : "https://creativecommons.org/licenses/by-nc/4.0/",
+    CC_BY_NC: {
+	name: "CC BY-NC (CLARIN PUB)",
+	description: "Creative Commons Attribution-NonCommercial",
+	url: "https://creativecommons.org/licenses/by-nc/4.0/",
     },
-    CC_BY_ND : {
-	name : "CC BY-ND (CLARIN PUB)",
-	description : "Creative Commons Attribution-NoDerivatives",
-	url : "https://creativecommons.org/licenses/by-nd/4.0/",
+    CC_BY_ND: {
+	name: "CC BY-ND (CLARIN PUB)",
+	description: "Creative Commons Attribution-NoDerivatives",
+	url: "https://creativecommons.org/licenses/by-nd/4.0/",
     },
-    CC_BY_ND_40 : {
-	name : "CC BY-ND 4.0 (CLARIN PUB)",
-	description : "Creative Commons Attribution-NoDerivatives 4.0",
-	url : "https://creativecommons.org/licenses/by-nd/4.0/",
+    CC_BY_ND_40: {
+	name: "CC BY-ND 4.0 (CLARIN PUB)",
+	description: "Creative Commons Attribution-NoDerivatives 4.0",
+	url: "https://creativecommons.org/licenses/by-nd/4.0/",
     },
-    EUPL_11 : {
-	name : "EUPL v1.1 (CLARIN PUB)",
-	description : "European Union Public Licence, version 1.1",
-	url : "http://ec.europa.eu/idabc/en/document/7774.html",
+    EUPL_11: {
+	name: "EUPL v1.1 (CLARIN PUB)",
+	description: "European Union Public Licence, version 1.1",
+	url: "http://ec.europa.eu/idabc/en/document/7774.html",
 	// An alternative URL:
-	// url : "https://joinup.ec.europa.eu/community/eupl/og_page/european-union-public-licence-eupl-v11",
+	// url: "https://joinup.ec.europa.eu/community/eupl/og_page/european-union-public-licence-eupl-v11",
     },
-    ParFinRus_2016_fi : {
-	name : "CLARIN RES +NC +INF +ND 1.0",
-	urn : "urn:nbn:fi:lb-2017020611",
+    ParFinRus_2016_fi: {
+	name: "CLARIN RES +NC +INF +ND 1.0",
+	urn: "urn:nbn:fi:lb-2017020611",
     },
-    ParFinRus_2016_en : {
-	name : "CLARIN RES +NC +INF +ND 1.0",
-	urn : "urn:nbn:fi:lb-2017020612",
+    ParFinRus_2016_en: {
+	name: "CLARIN RES +NC +INF +ND 1.0",
+	urn: "urn:nbn:fi:lb-2017020612",
     },
-    ACA_NC : {
-	name : "CLARIN ACA +NC",
-	description : "CLARIN ACA (Academic) End-User License 1.0, Non-commercial",
-	url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
+    ACA_NC: {
+	name: "CLARIN ACA +NC",
+	description: "CLARIN ACA (Academic) End-User License 1.0, Non-commercial",
+	url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
     }
 };
 
@@ -2393,9 +2393,9 @@ settings.licenceinfo = {
 // Homepage in Kotus's Kaino service
 settings.fn.kaino_homepage = function(urlbase) {
     return {
-        name : "Kokoelman etusivu",
-        url : "http://kaino.kotus.fi/korpus/" + urlbase + "_coll_rdf.xml",
-        no_label : true
+        name: "Kokoelman etusivu",
+        url: "http://kaino.kotus.fi/korpus/" + urlbase + "_coll_rdf.xml",
+        no_label: true
     };
 };
 
@@ -2408,100 +2408,100 @@ settings.corporafolders = {};
 
 /*
 settings.corporafolders.sv = {
-    title : "Svenska texter",
-    contents : ["testcorpus"]
+    title: "Svenska texter",
+    contents: ["testcorpus"]
 };
 */
 
 settings.corporafolders.ethesis = {
-    title : "E-thesis",
-    contents : ["ethesis_maabs", "ethesis_dissabs"],
-    info : {
-	cite_id : "e-thesis-fi",
+    title: "E-thesis",
+    contents: ["ethesis_maabs", "ethesis_dissabs"],
+    info: {
+	cite_id: "e-thesis-fi",
     }
 };
 
 settings.corporafolders.ethesis.matheses = {
-    title : "Pro gradu -tutkielmat",
-    contents : ["ethesis_ma_ai", "ethesis_ma_bio", "ethesis_ma_el", "ethesis_ma_far", "ethesis_ma_hum", "ethesis_ma_beh",
+    title: "Pro gradu -tutkielmat",
+    contents: ["ethesis_ma_ai", "ethesis_ma_bio", "ethesis_ma_el", "ethesis_ma_far", "ethesis_ma_hum", "ethesis_ma_beh",
 		"ethesis_ma_med", "ethesis_ma_mm", "ethesis_ma_sci", "ethesis_ma_ot", "ethesis_ma_teo", "ethesis_ma_valt"]
 };
 
 settings.corporafolders.ethesis.phdtheses = {
-    title : "Väitöskirjat",
-    contents : ["ethesis_phd_bio", "ethesis_phd_el", "ethesis_phd_far", "ethesis_phd_hum", "ethesis_phd_beh",
+    title: "Väitöskirjat",
+    contents: ["ethesis_phd_bio", "ethesis_phd_el", "ethesis_phd_far", "ethesis_phd_hum", "ethesis_phd_beh",
 		"ethesis_phd_med", "ethesis_phd_mm", "ethesis_phd_ot", "ethesis_phd_teo", "ethesis_phd_valt"]
 };
 
 settings.corporafolders.ftb = {
-    title : "FinnTreeBank: suomen puupankki",
-    contents : ["ftb2"]
+    title: "FinnTreeBank: suomen puupankki",
+    contents: ["ftb2"]
 };
 
 settings.corporafolders.ftb.ftb3 = {
-    title : "FinnTreeBank 3",
-    info : {
-	urn : "urn:nbn:fi:lb-201406021",
-	metadata_urn : "urn:nbn:fi:lb-201406022",
-	licence : settings.licenceinfo.CC_BY_30,
-	cite_id : "FinnTreeBank3-korp",
+    title: "FinnTreeBank 3",
+    info: {
+	urn: "urn:nbn:fi:lb-201406021",
+	metadata_urn: "urn:nbn:fi:lb-201406022",
+	licence: settings.licenceinfo.CC_BY_30,
+	cite_id: "FinnTreeBank3-korp",
     },
-    contents : ["ftb3_europarl", "ftb3_jrcacquis"]
+    contents: ["ftb3_europarl", "ftb3_jrcacquis"]
 };
 
 settings.corporafolders.klk_fi = {
-    title : "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet",
-    description : "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio, suomenkieliset lehdet",
-    info : {
-	urn : "urn:nbn:fi:lb-201405275",
-	metadata_urn : "urn:nbn:fi:lb-201405276",
-	licence : settings.licenceinfo.CC_BY,
-	cite_id : "KLK-fi",
+    title: "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet",
+    description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio, suomenkieliset lehdet",
+    info: {
+	urn: "urn:nbn:fi:lb-201405275",
+	metadata_urn: "urn:nbn:fi:lb-201405276",
+	licence: settings.licenceinfo.CC_BY,
+	cite_id: "KLK-fi",
     }
 };
 
 /*
 settings.corporafolders.kotus = {
-    title : "Kotuksen korpuksia (näytteitä)",
-    contents : ["kotus_klassikot", "kotus_sananparret"]
+    title: "Kotuksen korpuksia (näytteitä)",
+    contents: ["kotus_klassikot", "kotus_sananparret"]
 };
 */
 
 /*
 settings.corporafolders.kotus.ns = {
-    title : "Nykysuomen aineistoja (näytteitä)",
-    contents : ["ns_presidentti", "ns_saadokset"]
+    title: "Nykysuomen aineistoja (näytteitä)",
+    contents: ["ns_presidentti", "ns_saadokset"]
 };
 */
 
 /*
 settings.corporafolders.la = {
-    title : "Lauseopin arkisto",
-    contents : ["la_murre", "las2"]
+    title: "Lauseopin arkisto",
+    contents: ["la_murre", "las2"]
 };
 
 settings.corporafolders.sks = {
-    title : "SKS:n aineistoja",
-    contents : ["sks_kivi_fi", "skvr"]
+    title: "SKS:n aineistoja",
+    contents: ["sks_kivi_fi", "skvr"]
 };
 */
 
 settings.corporafolders.literature = {
-    title : "Kirjallisuutta",
-    contents : ["gutenberg", "sks_kivi_fi", "skvr",
+    title: "Kirjallisuutta",
+    contents: ["gutenberg", "sks_kivi_fi", "skvr",
 		"parfin_2016_fi", "parrus_2016_fi",
 		"parfin_fi", "parrus_fi"]
 };
 
 settings.corporafolders.literature.skk = {
     title: "Suomalaisen kirjallisuuden klassikoita",
-    contents : ["skk_aho","skk_canth","skk_finne","skk_jarnefelt","skk_kailas","skk_lassila","skk_linnankoski","skk_kramsu","skk_lehtonen","skk_leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"],
-    info : {
-	urn : "urn:nbn:fi:lb-2015022401",
-	metadata_urn : "urn:nbn:fi:lb-20140730186",
-	licence : settings.licenceinfo.EUPL_11,
-	homepage : settings.fn.kaino_homepage("klassikot/meta/klassikot"),
-	cite_id : "SKK",
+    contents: ["skk_aho","skk_canth","skk_finne","skk_jarnefelt","skk_kailas","skk_lassila","skk_linnankoski","skk_kramsu","skk_lehtonen","skk_leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"],
+    info: {
+	urn: "urn:nbn:fi:lb-2015022401",
+	metadata_urn: "urn:nbn:fi:lb-20140730186",
+	licence: settings.licenceinfo.EUPL_11,
+	homepage: settings.fn.kaino_homepage("klassikot/meta/klassikot"),
+	cite_id: "SKK",
     }
 };
 
@@ -2510,24 +2510,24 @@ leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"]
 */
 
 settings.corporafolders.literature.ceal = {
-    title : "CEAL",
-    contents : ["ceal_o", "ceal_s"]
+    title: "CEAL",
+    contents: ["ceal_o", "ceal_s"]
 };
 
 settings.corporafolders.legal = {
-    title : "Juridisia tekstejä",
-    contents : ["kotus_lakidir", "legal_fi", "mulcold_fi"]
+    title: "Juridisia tekstejä",
+    contents: ["kotus_lakidir", "legal_fi", "mulcold_fi"]
 };
 
 settings.corporafolders.internet = {
-    title : "Internet-keskusteluaineistoja",
-    contents : ["s24", "ylilauta", "hsfi"]
+    title: "Internet-keskusteluaineistoja",
+    contents: ["s24", "ylilauta", "hsfi"]
 };
 
 settings.corporafolders.internet.suomi24 = {
-    title : "Suomi24",
-    description : "<a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut 1.1.2001–24.9.2016.<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu useaan osakorpukseen suuren kokonsa vuoksi.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-201412171' target='_blank' title='Kuvailutiedot'>koko Suomi24-aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2015040801' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).",
-    contents : [
+    title: "Suomi24",
+    description: "<a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut 1.1.2001–24.9.2016.<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu useaan osakorpukseen suuren kokonsa vuoksi.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-201412171' target='_blank' title='Kuvailutiedot'>koko Suomi24-aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2015040801' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).",
+    contents: [
 	"s24_001",
 	"s24_002",
 	"s24_003",
@@ -2539,30 +2539,30 @@ settings.corporafolders.internet.suomi24 = {
 	"s24_009",
 	"s24_010"
     ],
-    info : {
-	urn : "urn:nbn:fi:lb-2015120401",
-	metadata_urn : "urn:nbn:fi:lb-2017021505",
-	licence : settings.licenceinfo.CC_BY_NC,
-	homepage_url : "http://keskustelu.suomi24.fi",
-	cite_id : "Suomi24-korp-2016H2",
+    info: {
+	urn: "urn:nbn:fi:lb-2015120401",
+	metadata_urn: "urn:nbn:fi:lb-2017021505",
+	licence: settings.licenceinfo.CC_BY_NC,
+	homepage_url: "http://keskustelu.suomi24.fi",
+	cite_id: "Suomi24-korp-2016H2",
     }
 };
 
 settings.corporafolders.lehdet = {
-    title : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
-    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
-    info : {
-	urn : "urn:nbn:fi:lb-2016021202",
-	metadata_urn : "urn:nbn:fi:lb-2016011101",
-	licence : settings.licenceinfo.CC_BY_40,
-	cite_id : "lehdet90ff",
+    title: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
+    info: {
+	urn: "urn:nbn:fi:lb-2016021202",
+	metadata_urn: "urn:nbn:fi:lb-2016011101",
+	licence: settings.licenceinfo.CC_BY_40,
+	cite_id: "lehdet90ff",
     }
 };
 
 settings.corporafolders.lehdet.tiedelehdet = {
-    title : "Tiedelehtiä",
-    description : "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-    contents : [
+    title: "Tiedelehtiä",
+    description: "1990- ja 2000-luvun suomalaisia tiedelehtiä",
+    contents: [
 	"tiedelehdet_30paivaa",
 	"tiedelehdet_aakusti",
 	"tiedelehdet_agricola",
@@ -2651,9 +2651,9 @@ settings.corporafolders.lehdet.tiedelehdet = {
 };
 
 settings.corporafolders.lehdet.muut_lehdet = {
-    title : "Muita lehtiä",
-    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
-    contents : [
+    title: "Muita lehtiä",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
+    contents: [
 	"lehdet_aarre",
 	"lehdet_aromi",
 	"lehdet_avec",
@@ -2675,100 +2675,100 @@ settings.corporafolders.lehdet.muut_lehdet = {
 };
 
 settings.corporafolders.ftc = {
-    title : "Suomen kielen tekstikokoelma (SKTP/FTC)",
-    description : "Suomen kielen tekstikokoelma: Lemmie-palvelussa olleet osakorpukset",
-    info : {
-	urn : "urn:nbn:fi:lb-2014052719",
-	metadata_urn : "urn:nbn:fi:lb-2016050207",
-	lbr_id : "urn:nbn:fi:lb-201403268",
-	licence : {
-	    name : "CLARIN RES +PLAN +NC +ND",
-	    urn : "urn:nbn:fi:lb-20150304137",
+    title: "Suomen kielen tekstikokoelma (SKTP/FTC)",
+    description: "Suomen kielen tekstikokoelma: Lemmie-palvelussa olleet osakorpukset",
+    info: {
+	urn: "urn:nbn:fi:lb-2014052719",
+	metadata_urn: "urn:nbn:fi:lb-2016050207",
+	lbr_id: "urn:nbn:fi:lb-201403268",
+	licence: {
+	    name: "CLARIN RES +PLAN +NC +ND",
+	    urn: "urn:nbn:fi:lb-20150304137",
 	},
-	homepage : {
-	    name : "Aineiston kuvaus",
-	    url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFtc",
-	    no_label : true,
+	homepage: {
+	    name: "Aineiston kuvaus",
+	    url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFtc",
+	    no_label: true,
 	},
-	cite_id : "ftc-korp",
+	cite_id: "ftc-korp",
     },
 };
 
 settings.corporafolders.other_texts = {
-    title : "Muita tekstejä",
-    contents : ["finstud", "kfspc_fi"]
+    title: "Muita tekstejä",
+    contents: ["finstud", "kfspc_fi"]
 };
 
 settings.corporafolders.other_texts.kotus_ns_presidentti = {
-    title : "Tasavallan presidenttien uudenvuodenpuheet",
-    description : "Tasavallan presidenttien uudenvuodenpuheiden kokoelmassa on kaikki tasavallan presidenttien pitämät uudenvuodenpuheet vuosilta 1935–2007. Muutaman kerran puheen on pitänyt joku muu kuin presidentti. Nämäkin puheet sisältyvät aineistoon.<br/>Kokoelma on järjestetty presidenteittäin ja vuosittain. Kokoelma koostuu lehtileikkeistä, konekirjoitusliuskoista, kirjojen sivuista, lehdistötiedotteista ja verkkoteksteistä. Aineistoa on hankittu arkistoista, kirjoista ja Internetistä.",
+    title: "Tasavallan presidenttien uudenvuodenpuheet",
+    description: "Tasavallan presidenttien uudenvuodenpuheiden kokoelmassa on kaikki tasavallan presidenttien pitämät uudenvuodenpuheet vuosilta 1935–2007. Muutaman kerran puheen on pitänyt joku muu kuin presidentti. Nämäkin puheet sisältyvät aineistoon.<br/>Kokoelma on järjestetty presidenteittäin ja vuosittain. Kokoelma koostuu lehtileikkeistä, konekirjoitusliuskoista, kirjojen sivuista, lehdistötiedotteista ja verkkoteksteistä. Aineistoa on hankittu arkistoista, kirjoista ja Internetistä.",
     // Contents will be filled in when constructing the corpus
     // settings
-    contents : [],
-    info : {
+    contents: [],
+    info: {
 	// URN information also in the corpus .info files; if you need
 	// to update the URNs, you should also check them.
-	urn : "urn:nbn:fi:lb-20151001",
-    	metadata_urn : "urn:nbn:fi:lb-20140730150",
-	licence : settings.licenceinfo.EUPL_11,
-	homepage : settings.fn.kaino_homepage(
+	urn: "urn:nbn:fi:lb-20151001",
+    	metadata_urn: "urn:nbn:fi:lb-20140730150",
+	licence: settings.licenceinfo.EUPL_11,
+	homepage: settings.fn.kaino_homepage(
 	    "teko/meta/presidentti/presidentti"),
-    	compiler : {
-    	    name : "Kotimaisten kielten keskus",
-    	    url : "http://www.kotus.fi/",
-    	    no_label : true
+    	compiler: {
+    	    name: "Kotimaisten kielten keskus",
+    	    url: "http://www.kotus.fi/",
+    	    no_label: true
 	},
-	cite_id : "uudenvuodenpuheet",
+	cite_id: "uudenvuodenpuheet",
     }
 }
 
 settings.corporafolders.spoken = {
-    title : "Puhuttua kieltä (tekstiksi litteroituna)",
-    contents : ["kotus_sp", "skn", "dma", "arkisyn"],
-    // unselected : true
+    title: "Puhuttua kieltä (tekstiksi litteroituna)",
+    contents: ["kotus_sp", "skn", "dma", "arkisyn"],
+    // unselected: true
 };
 
 settings.corporafolders.spoken.la_murre = {
-    title : "Lauseopin arkiston murrekorpus",
-    description : "Lauseopin arkiston murrekorpus edustaa kaikkia nykyisen Suomen alueella puhuttuja suomen kielen murteita sekä lisäksi niitä murteita, joita puhuttiin Neuvostoliitolle viime sotien yhteydessä luovutetuilla alueilla ennen alueiden luovuttamista. Puhujat ovat syntyneet vuosina 1860–1910 (suurin osa 1880-luvulla) ja haastattelut on tehty 1950–1970-luvuilla, jolloin puhujat ovat olleet keskimäärin 80-vuotiaita.<br/>Yhdestä pitäjänmurteesta on yleensä valittu käsiteltäväksi yksi noin tunnin laajuinen äänite. Murreaineisto on litteroitu sekä koodattu morfologisesti ja syntaktisesti. Tässä on saatavilla korpuksen versio, jossa litteraatit on karkeasti kohdistettu alkuperäisiin äänitteisiin.",
-    // unselected : true,
-    info : {
-	urn : "urn:nbn:fi:lb-2014052715",
-	metadata_urn : "urn:nbn:fi:lb-2014052716",
-	licence : settings.licenceinfo.CC_BY_ND_40,
-	homepage : {
-	    name : "Aineiston tietosivu Kielipankissa",
-	    url : "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotLAmurre",
-	    no_label : true
+    title: "Lauseopin arkiston murrekorpus",
+    description: "Lauseopin arkiston murrekorpus edustaa kaikkia nykyisen Suomen alueella puhuttuja suomen kielen murteita sekä lisäksi niitä murteita, joita puhuttiin Neuvostoliitolle viime sotien yhteydessä luovutetuilla alueilla ennen alueiden luovuttamista. Puhujat ovat syntyneet vuosina 1860–1910 (suurin osa 1880-luvulla) ja haastattelut on tehty 1950–1970-luvuilla, jolloin puhujat ovat olleet keskimäärin 80-vuotiaita.<br/>Yhdestä pitäjänmurteesta on yleensä valittu käsiteltäväksi yksi noin tunnin laajuinen äänite. Murreaineisto on litteroitu sekä koodattu morfologisesti ja syntaktisesti. Tässä on saatavilla korpuksen versio, jossa litteraatit on karkeasti kohdistettu alkuperäisiin äänitteisiin.",
+    // unselected: true,
+    info: {
+	urn: "urn:nbn:fi:lb-2014052715",
+	metadata_urn: "urn:nbn:fi:lb-2014052716",
+	licence: settings.licenceinfo.CC_BY_ND_40,
+	homepage: {
+	    name: "Aineiston tietosivu Kielipankissa",
+	    url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotLAmurre",
+	    no_label: true
 	},
-	cite_id : "LA-murre-korp",
+	cite_id: "LA-murre-korp",
     }
  };
 
 settings.corporafolders.learner = {
-    title : "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
-    contents : ["iclfi", "topling_fi"],
-    // unselected : true
+    title: "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
+    contents: ["iclfi", "topling_fi"],
+    // unselected: true
 };
 
 settings.corporafolders.learner.las2 = {
-    title : "LAS2 – Edistyneiden suomenoppijoiden korpus",
-    info : {
-        urn : "urn:nbn:fi:lb-201604120",
-        metadata_urn : "urn:nbn:fi:lb-201407167",
-        homepage_url : "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
-        licence : {
-            name : "CLARIN RES +PLAN +NC +INF +LOC +ND",
-            urn : "urn:nbn:fi:lb-2015041305",
+    title: "LAS2 – Edistyneiden suomenoppijoiden korpus",
+    info: {
+        urn: "urn:nbn:fi:lb-201604120",
+        metadata_urn: "urn:nbn:fi:lb-201407167",
+        homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
+        licence: {
+            name: "CLARIN RES +PLAN +NC +INF +LOC +ND",
+            urn: "urn:nbn:fi:lb-2015041305",
         },
-	cite_id : "LAS2",
+	cite_id: "LAS2",
     },
-    contents : ["las2_tentit", "las2_esseet"]
+    contents: ["las2_tentit", "las2_esseet"]
 };
 
 settings.corporafolders.vks = {
-    title : "Vanhan kirjasuomen korpus",
-    contents : [
+    title: "Vanhan kirjasuomen korpus",
+    contents: [
 	"vks_agricola",
 	"vks_biblia",
 	"vks_lait",
@@ -2782,33 +2782,33 @@ settings.corporafolders.vks = {
 	"vks_varia",
 	"vks_virret"
     ],
-    info : {
-	urn : "urn:nbn:fi:lb-201407166",
-	metadata_urn : "urn:nbn:fi:lb-201407165",
-	licence : settings.licenceinfo.EUPL_11,
-	homepage : settings.fn.kaino_homepage("vks/meta/vks"),
-	cite_id : "VKS",
+    info: {
+	urn: "urn:nbn:fi:lb-201407166",
+	metadata_urn: "urn:nbn:fi:lb-201407165",
+	licence: settings.licenceinfo.EUPL_11,
+	homepage: settings.fn.kaino_homepage("vks/meta/vks"),
+	cite_id: "VKS",
     },
-    // unselected : true
+    // unselected: true
 };
 
 settings.corporafolders.vns = {
-    title : "Varhaisnykysuomen korpus",
-    /*contents : ["vns_asetus", "vns_renqvist", "vns_renvall"],*/
-    contents : ["vnsk_aejmelaeus","vnsk_ahlholm","vnsk_ahlman_kirjat","vnsk_ahlman_sanastot","vnsk_ahlqvist","vnsk_akiander","vnsk_aminoff","vnsk_almanakka","vnsk_anonyymi","vnsk_asetus","vnsk_aulen","vnsk_backvall","vnsk_bocker","vnsk_bonsdorff","vnsk_borenius","vnsk_borg","vnsk_cajan","vnsk_cannelin","vnsk_cantell","vnsk_canth","vnsk_corander","vnsk_costiander","vnsk_dahlberg","vnsk_edlund","vnsk_eklof","vnsk_euren","vnsk_europaeus","vnsk_europaeus_sanastot","vnsk_fabritius","vnsk_forsman","vnsk_forstrom","vnsk_friman","vnsk_frosterus","vnsk_gottlund","vnsk_granlund","vnsk_hannikainen","vnsk_hjelt","vnsk_hordh","vnsk_hornborg","vnsk_ignatius","vnsk_ingman","vnsk_innain","vnsk_juteini","vnsk_keckman","vnsk_kemell","vnsk_kilpinen","vnsk_kivi","vnsk_koskinen","vnsk_krohn","vnsk_lagervall","vnsk_lankela","vnsk_lavonius","vnsk_lilius_anton","vnsk_lilius_aukusti","vnsk_lonnrot","vnsk_malmberg","vnsk_mehilainen","vnsk_mela","vnsk_meurman","vnsk_mmy","vnsk_murman","vnsk_muut","vnsk_nyman","vnsk_ovs","vnsk_polen","vnsk_poppius","vnsk_puhuttelija","vnsk_rein","vns_renvall","vnsk_roos","vnsk_salmelainen","vnsk_salonius","vnsk_sanaluettelot","vnsk_sandberg","vnsk_schroter","vnsk_sirelius","vnsk_skogman","vnsk_smtr","vnsk_sohlberg","vnsk_soldan","vnsk_ssv","vnsk_stahlberg","vnsk_tarvanen","vnsk_ticklen","vnsk_tikkanen","vnsk_topelius","vnsk_toppelius","vnsk_tvs","vnsk_varelius","vnsk_virsikirja","vnsk_wallin","vnsk_wikman","vnsk_wiwolin","vnsk_yksitt"],
-    info : {
-	urn : "urn:nbn:fi:lb-2016081203",
-	metadata_urn : "urn:nbn:fi:lb-20140730147",
-	licence : settings.licenceinfo.EUPL_11,
-	homepage : settings.fn.kaino_homepage("1800/meta/1800"),
-	cite_id : "VNSK",
+    title: "Varhaisnykysuomen korpus",
+    /*contents: ["vns_asetus", "vns_renqvist", "vns_renvall"],*/
+    contents: ["vnsk_aejmelaeus","vnsk_ahlholm","vnsk_ahlman_kirjat","vnsk_ahlman_sanastot","vnsk_ahlqvist","vnsk_akiander","vnsk_aminoff","vnsk_almanakka","vnsk_anonyymi","vnsk_asetus","vnsk_aulen","vnsk_backvall","vnsk_bocker","vnsk_bonsdorff","vnsk_borenius","vnsk_borg","vnsk_cajan","vnsk_cannelin","vnsk_cantell","vnsk_canth","vnsk_corander","vnsk_costiander","vnsk_dahlberg","vnsk_edlund","vnsk_eklof","vnsk_euren","vnsk_europaeus","vnsk_europaeus_sanastot","vnsk_fabritius","vnsk_forsman","vnsk_forstrom","vnsk_friman","vnsk_frosterus","vnsk_gottlund","vnsk_granlund","vnsk_hannikainen","vnsk_hjelt","vnsk_hordh","vnsk_hornborg","vnsk_ignatius","vnsk_ingman","vnsk_innain","vnsk_juteini","vnsk_keckman","vnsk_kemell","vnsk_kilpinen","vnsk_kivi","vnsk_koskinen","vnsk_krohn","vnsk_lagervall","vnsk_lankela","vnsk_lavonius","vnsk_lilius_anton","vnsk_lilius_aukusti","vnsk_lonnrot","vnsk_malmberg","vnsk_mehilainen","vnsk_mela","vnsk_meurman","vnsk_mmy","vnsk_murman","vnsk_muut","vnsk_nyman","vnsk_ovs","vnsk_polen","vnsk_poppius","vnsk_puhuttelija","vnsk_rein","vns_renvall","vnsk_roos","vnsk_salmelainen","vnsk_salonius","vnsk_sanaluettelot","vnsk_sandberg","vnsk_schroter","vnsk_sirelius","vnsk_skogman","vnsk_smtr","vnsk_sohlberg","vnsk_soldan","vnsk_ssv","vnsk_stahlberg","vnsk_tarvanen","vnsk_ticklen","vnsk_tikkanen","vnsk_topelius","vnsk_toppelius","vnsk_tvs","vnsk_varelius","vnsk_virsikirja","vnsk_wallin","vnsk_wikman","vnsk_wiwolin","vnsk_yksitt"],
+    info: {
+	urn: "urn:nbn:fi:lb-2016081203",
+	metadata_urn: "urn:nbn:fi:lb-20140730147",
+	licence: settings.licenceinfo.EUPL_11,
+	homepage: settings.fn.kaino_homepage("1800/meta/1800"),
+	cite_id: "VNSK",
     },
-    // unselected : true
+    // unselected: true
 };
 
 settings.corporafolders.test = {
-    title : "Demo- ja testiaineistoja",
-    contents : ["reittidemo"]
+    title: "Demo- ja testiaineistoja",
+    contents: ["reittidemo"]
 };
 
 
@@ -2818,7 +2818,7 @@ settings.corporafolders.test = {
  * Folders will be expanded to all corpora. Optionally prefix folders with __ , which will be ignored.
  */
 // TODO: this should be moved when modern texts are moved to their own mode
-if(window.currentMode == "default") 
+if(window.currentMode == "default")
     settings.preselected_corpora = ["reittidemo", "__ftb"];
 
 /*
@@ -2969,38 +2969,38 @@ settings.fn.make_folder_hierarchy = function (parent_folder, subfolder_tree,
 
 /*
 settings.corpora.testcorpus = {
-    title : "The Korp Test Corpus",
-    description : "A test corpus for testing Korp.",
-    id : "testcorpus",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-        pos : attrs.pos
+    title: "The Korp Test Corpus",
+    description: "A test corpus for testing Korp.",
+    id: "testcorpus",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+        pos: attrs.pos
     },
-    struct_attributes : {
+    struct_attributes: {
     }
 };
 */
 
 /*
 settings.corpora.testcorp = {
-    title : "Testikorpus",
-    description : "Testikorpus Korpin ominaisuuksien testaamiseksi",
-    id : "testcorp",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    // limited_access : true,
-    attributes : {
-	lemma : attrs.baseform,
-        pos : attrs.pos
+    title: "Testikorpus",
+    description: "Testikorpus Korpin ominaisuuksien testaamiseksi",
+    id: "testcorp",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    // limited_access: true,
+    attributes: {
+	lemma: attrs.baseform,
+        pos: attrs.pos
     },
-    struct_attributes : {
-	sentence_id : {
-	    label : "sentence_id"
+    struct_attributes: {
+	sentence_id: {
+	    label: "sentence_id"
 	},
-	sentence_url : {
-	    label : "file_url",
-	    type : "url"
+	sentence_url: {
+	    label: "file_url",
+	    type: "url"
 	}
     }
 };
@@ -3008,239 +3008,239 @@ settings.corpora.testcorp = {
 
 /*
 settings.corpora.testcorp_deptree = {
-    title : "Dependenssipuutesti",
-    description : "Testikorpus Korpin dependenssipuun piirtämisen testaamiseksi",
-    id : "testcorp_deptree",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-	lemma : attrs.baseform_ftb2,
-        pos : attrs.pos_ftb2,
-	msd : attrs.msd,
-	dephead : attrs.dephead,
-	deprel : attrs.deprel_ftb2,
-	ref : attrs.ref,
-	spoken : attrs.spoken,
-	lex : attrs.lemgram_hidden
+    title: "Dependenssipuutesti",
+    description: "Testikorpus Korpin dependenssipuun piirtämisen testaamiseksi",
+    id: "testcorp_deptree",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+	lemma: attrs.baseform_ftb2,
+        pos: attrs.pos_ftb2,
+	msd: attrs.msd,
+	dephead: attrs.dephead,
+	deprel: attrs.deprel_ftb2,
+	ref: attrs.ref,
+	spoken: attrs.spoken,
+	lex: attrs.lemgram_hidden
     },
-    struct_attributes : {
-	sentence_id : sattrs.sentence_id_hidden
+    struct_attributes: {
+	sentence_id: sattrs.sentence_id_hidden
     }
 };
 */
 
 settings.corpora.finstud = {
-    id : "finstud",
+    id: "finstud",
     title: "Finstud 86",
-    description : "Finstud 86",
-    urn : "urn:nbn:fi:lb-2016090610",
-    metadata_urn : "urn:nbn:fi:lb-20140730158",
-    licence : {
-	name : "CLARIN RES +PLAN +NC +PRIV 1.0",
-	urn : "urn:nbn:fi:lb-2016041802",
+    description: "Finstud 86",
+    urn: "urn:nbn:fi:lb-2016090610",
+    metadata_urn: "urn:nbn:fi:lb-20140730158",
+    licence: {
+	name: "CLARIN RES +PLAN +NC +PRIV 1.0",
+	urn: "urn:nbn:fi:lb-2016041802",
     },
-    cite_id : "FinStud86",
-    limited_access : true,
-    licence_type : "RES",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
+    cite_id: "FinStud86",
+    limited_access: true,
+    licence_type: "RES",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
     attributes: attrlist.finstud,
-    struct_attributes : sattrlist.finstud
+    struct_attributes: sattrlist.finstud
 };
 
 
 settings.corpora.ftb2 = {
-    title : "FinnTreeBank 2",
-    description : "Finnish tree bank, version 2",
-    id : "ftb2",
-    urn : "urn:nbn:fi:lb-201407164",
-    metadata_urn : "urn:nbn:fi:lb-201407163",
-    licence : settings.licenceinfo.CC_BY_30,
-    cite_id : "FinnTreeBank2-korp",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-	lemma : attrs.baseform_ftb2,
-        pos : attrs.pos_ftb2,
-	msd : attrs.msd,
-	dephead : attrs.dephead,
-	deprel : attrs.deprel_ftb2,
-	ref : attrs.ref,
-	lex : attrs.lemgram_hidden
+    title: "FinnTreeBank 2",
+    description: "Finnish tree bank, version 2",
+    id: "ftb2",
+    urn: "urn:nbn:fi:lb-201407164",
+    metadata_urn: "urn:nbn:fi:lb-201407163",
+    licence: settings.licenceinfo.CC_BY_30,
+    cite_id: "FinnTreeBank2-korp",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+	lemma: attrs.baseform_ftb2,
+        pos: attrs.pos_ftb2,
+	msd: attrs.msd,
+	dephead: attrs.dephead,
+	deprel: attrs.deprel_ftb2,
+	ref: attrs.ref,
+	lex: attrs.lemgram_hidden
     },
-    struct_attributes : {
-	subcorpus_name : {
-	    label : "subcorpus_name",
-	    displayType : "select",
-	    translationKey : "subcorp_",
-	    dataset : {
-		// "news-samples" : "news-samples",
-		// "sofie12" : "sofie12",
-		"visk-sent" : "visk-sent",
-		"wikipedia-samples" : "wikipedia-samples"
+    struct_attributes: {
+	subcorpus_name: {
+	    label: "subcorpus_name",
+	    displayType: "select",
+	    translationKey: "subcorp_",
+	    dataset: {
+		// "news-samples": "news-samples",
+		// "sofie12": "sofie12",
+		"visk-sent": "visk-sent",
+		"wikipedia-samples": "wikipedia-samples"
 	    },
-            opts : settings.liteOptions
+            opts: settings.liteOptions
 	},
-	sentence_id : sattrs.sentence_id_hidden
+	sentence_id: sattrs.sentence_id_hidden
     }
 //    },
-//    limited_access : true
+//    limited_access: true
 };
 
 /*
 settings.corpora.ftb3 = {
-    title : "FinnTreeBank 3",
-    description : "Finnish tree bank, version 3: EuroParl, JRC Acquis",
-    id : "ftb3",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-	lemma : attrs.baseform_ftb2,
-	lemmacomp : attrs.baseform_compound,
-        pos : attrs.pos_ftb3,
-	posorig : attrs.pos_ftb3_orig,
-	msd : attrs.msd,
-	dephead : attrs.dephead,
-	deprel : attrs.deprel_ftb2,
-	lex : attrs.lemgram_hidden
+    title: "FinnTreeBank 3",
+    description: "Finnish tree bank, version 3: EuroParl, JRC Acquis",
+    id: "ftb3",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+	lemma: attrs.baseform_ftb2,
+	lemmacomp: attrs.baseform_compound,
+        pos: attrs.pos_ftb3,
+	posorig: attrs.pos_ftb3_orig,
+	msd: attrs.msd,
+	dephead: attrs.dephead,
+	deprel: attrs.deprel_ftb2,
+	lex: attrs.lemgram_hidden
     },
-    struct_attributes : {
-	subcorpus_name : {
-	    label : "subcorpus_name",
-	    displayType : "select",
-	    translationKey : "ftb3_subcorp_",
-	    dataset : {
-		"JRC_Acquis" : "jrc-acquis",
-		"EuroParl" : "europarl",
+    struct_attributes: {
+	subcorpus_name: {
+	    label: "subcorpus_name",
+	    displayType: "select",
+	    translationKey: "ftb3_subcorp_",
+	    dataset: {
+		"JRC_Acquis": "jrc-acquis",
+		"EuroParl": "europarl",
 	    },
-            opts : settings.liteOptions
+            opts: settings.liteOptions
 	},
-	file_name : {
-	    label : "file_name",
+	file_name: {
+	    label: "file_name",
 	},
-	sentence_id : sattrs.sentence_id_hidden,
-	sentence_line : {
-	    label : "sentence_line",
+	sentence_id: sattrs.sentence_id_hidden,
+	sentence_line: {
+	    label: "sentence_line",
 	}
     }
 };
 */
 
 settings.corpora.ftb3_europarl = {
-    title : "FinnTreeBank 3: EuroParl",
-    description : "Suomen puupankki, versio 3: EuroParl (Euroopan parlamentin istuntoja)",
-    id : "ftb3_europarl",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-	lemma : attrs.baseform_ftb2,
-	lemmacomp : attrs.baseform_compound,
-	pos : attrs.pos_ftb31,
-	msd : attrs.msd,
-	dephead : attrs.dephead,
-	deprel : attrs.deprel_ftb2,
-	ref : attrs.ref,
-	lex : attrs.lemgram_hidden
+    title: "FinnTreeBank 3: EuroParl",
+    description: "Suomen puupankki, versio 3: EuroParl (Euroopan parlamentin istuntoja)",
+    id: "ftb3_europarl",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+	lemma: attrs.baseform_ftb2,
+	lemmacomp: attrs.baseform_compound,
+	pos: attrs.pos_ftb31,
+	msd: attrs.msd,
+	dephead: attrs.dephead,
+	deprel: attrs.deprel_ftb2,
+	ref: attrs.ref,
+	lex: attrs.lemgram_hidden
     },
-    struct_attributes : {
-	text_filename : {
-	    label : "file_name",
+    struct_attributes: {
+	text_filename: {
+	    label: "file_name",
 	},
-	chapter_id : {
-	    label : "chapter_id",
-	    displayType : "hidden",
+	chapter_id: {
+	    label: "chapter_id",
+	    displayType: "hidden",
 	},
-	chapter_title : {
-	    label : "chapter_title",
+	chapter_title: {
+	    label: "chapter_title",
 	},
-	paragraph_id : {
-	    label : "paragraph_id",
-	    displayType : "hidden",
+	paragraph_id: {
+	    label: "paragraph_id",
+	    displayType: "hidden",
 	},
-	speech_speakerid : {
-	    label : "speech_speakerid",
-	    displayType : "hidden",
+	speech_speakerid: {
+	    label: "speech_speakerid",
+	    displayType: "hidden",
 	},
-	speech_speakername : {
-	    label : "speech_speakername",
+	speech_speakername: {
+	    label: "speech_speakername",
 	},
-	speech_language : {
-	    label : "speech_language",
-	    displayType : "select",
-	    translationKey : "ftb3_europarl_language_",
-	    dataset : {
-		"bg" : "bg",
-		"cs" : "cs",
-		"da" : "da",
-		"de" : "de",
-		"el" : "el",
-		"en" : "en",
-		"es" : "es",
-		"et" : "et",
-		"eu" : "eu",
-		"fi" : "fi",
-		"fr" : "fr",
-		"ga" : "ga",
-		"hu" : "hu",
-		"it" : "it",
-		"lt" : "lt",
-		"lv" : "lv",
-		"mt" : "mt",
-		"nl" : "nl",
-		"pl" : "pl",
-		"pt" : "pt",
-		"ro" : "ro",
-		"sk" : "sk",
-		"sl" : "sl",
-		"sv" : "sv",
-		"und" : "und",
+	speech_language: {
+	    label: "speech_language",
+	    displayType: "select",
+	    translationKey: "ftb3_europarl_language_",
+	    dataset: {
+		"bg": "bg",
+		"cs": "cs",
+		"da": "da",
+		"de": "de",
+		"el": "el",
+		"en": "en",
+		"es": "es",
+		"et": "et",
+		"eu": "eu",
+		"fi": "fi",
+		"fr": "fr",
+		"ga": "ga",
+		"hu": "hu",
+		"it": "it",
+		"lt": "lt",
+		"lv": "lv",
+		"mt": "mt",
+		"nl": "nl",
+		"pl": "pl",
+		"pt": "pt",
+		"ro": "ro",
+		"sk": "sk",
+		"sl": "sl",
+		"sv": "sv",
+		"und": "und",
 	    },
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	},
-	sentence_id : sattrs.sentence_id_hidden,
-	sentence_line : {
-	    label : "sentence_line",
+	sentence_id: sattrs.sentence_id_hidden,
+	sentence_line: {
+	    label: "sentence_line",
 	},
     }
 };
 
 settings.corpora.ftb3_jrcacquis = {
-    title : "FinnTreeBank 3: JRC Acquis",
-    description : "Suomen puupankki, versio 3: JRC Acquis (EU-säädöksiä)",
-    id : "ftb3_jrcacquis",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-	lemma : attrs.baseform_ftb2,
-	lemmacomp : attrs.baseform_compound,
-	pos : attrs.pos_ftb31,
-	msd : attrs.msd,
-	dephead : attrs.dephead,
-	deprel : attrs.deprel_ftb2,
-	ref : attrs.ref,
-	lex : attrs.lemgram_hidden
+    title: "FinnTreeBank 3: JRC Acquis",
+    description: "Suomen puupankki, versio 3: JRC Acquis (EU-säädöksiä)",
+    id: "ftb3_jrcacquis",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+	lemma: attrs.baseform_ftb2,
+	lemmacomp: attrs.baseform_compound,
+	pos: attrs.pos_ftb31,
+	msd: attrs.msd,
+	dephead: attrs.dephead,
+	deprel: attrs.deprel_ftb2,
+	ref: attrs.ref,
+	lex: attrs.lemgram_hidden
     },
-    struct_attributes : {
-	text_filename : {
-	    label : "file_name",
+    struct_attributes: {
+	text_filename: {
+	    label: "file_name",
 	},
-	text_title : {
-	    label : "file_title",
+	text_title: {
+	    label: "file_title",
 	},
-	text_codetitle : {
-	    label : "file_codetitle",
+	text_codetitle: {
+	    label: "file_codetitle",
 	},
-	text_url : {
-	    label : "file_url",
-	    type : "url",
+	text_url: {
+	    label: "file_url",
+	    type: "url",
 	},
-	paragraph_id : {
-	    label : "paragraph_id",
-	    displayType : "hidden",
+	paragraph_id: {
+	    label: "paragraph_id",
+	    displayType: "hidden",
 	},
-	sentence_id : sattrs.sentence_id_hidden,
-	sentence_line : {
-	    label : "sentence_line",
+	sentence_id: sattrs.sentence_id_hidden,
+	sentence_line: {
+	    label: "sentence_line",
 	}
     }
 };
@@ -3250,465 +3250,465 @@ settings.corpora.ftb3_jrcacquis = {
 settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
 
 settings.corpora.tiedelehdet_hiidenkivi = {
-    title : "Hiidenkivi",
-    description : "Hiidenkivi (2009-2012)<br/>Julkaisijat: Kotimaisten kielten keskus, Suomalaisen Kirjallisuuden Seura, Suomen Kotiseutuliitto<br/>Kotisivu: <a href='http://www.hiidenkivi-lehti.fi/'>http://www.hiidenkivi-lehti.fi/</a>",
-    id : "tiedelehdet_hiidenkivi",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_title : {
-            label : "text_title"
+    title: "Hiidenkivi",
+    description: "Hiidenkivi (2009-2012)<br/>Julkaisijat: Kotimaisten kielten keskus, Suomalaisen Kirjallisuuden Seura, Suomen Kotiseutuliitto<br/>Kotisivu: <a href='http://www.hiidenkivi-lehti.fi/'>http://www.hiidenkivi-lehti.fi/</a>",
+    id: "tiedelehdet_hiidenkivi",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_title: {
+            label: "text_title"
         },
-        text_year : {
-            label : "year"
+        text_year: {
+            label: "year"
         },
-        text_issue : {
-            label : "issue"
+        text_issue: {
+            label: "issue"
         },
     }
 };
 
 
 settings.corpora.tiedelehdet_versus = {
-    title : "Versus",
-    description : "Versus (2/2011-1/2015)<br/>Julkaisija: Alue- ja ympäristöntutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/versus/'>http://www.ays.fi/versus/</a>",
-    id : "tiedelehdet_versus",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_title : {
-            label : "text_title"
+    title: "Versus",
+    description: "Versus (2/2011-1/2015)<br/>Julkaisija: Alue- ja ympäristöntutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/versus/'>http://www.ays.fi/versus/</a>",
+    id: "tiedelehdet_versus",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_title: {
+            label: "text_title"
         },
-        text_year : {
-            label : "year"
+        text_year: {
+            label: "year"
         },
-        text_issue : {
-            label : "issue"
+        text_issue: {
+            label: "issue"
         },
     }
 };
 
 
 settings.corpora.tiedelehdet_kasvu = {
-    title : "Kasvu",
-    description : "Kasvu (2012-1/2016)<br/>Julkaisija: Talentia ry<br/>Kotisivu: <a href='http://talentia.e-julkaisu.com/julkaisut/'>http://talentia.e-julkaisu.com/julkaisut/</a>",
-    id : "tiedelehdet_kasvu",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_title : {
-            label : "text_title"
+    title: "Kasvu",
+    description: "Kasvu (2012-1/2016)<br/>Julkaisija: Talentia ry<br/>Kotisivu: <a href='http://talentia.e-julkaisu.com/julkaisut/'>http://talentia.e-julkaisu.com/julkaisut/</a>",
+    id: "tiedelehdet_kasvu",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_title: {
+            label: "text_title"
         },
-        text_year : {
-            label : "year"
+        text_year: {
+            label: "year"
         },
-        text_issue : {
-            label : "issue"
+        text_issue: {
+            label: "issue"
         },
     }
 };
 
 
 settings.corpora.tiedelehdet_liikuntajatiede = {
-    title : "Liikunta ja tiede (tutkimusartikkelit)",
-    description : "Liikunta ja tiede (2008-2013)<br/>Julkaisija: Liikuntatieteellinen Seura ry<br/>Kotisivu: <a href='http://www.lts.fi/liikunta-tiede-lehti'>http://www.lts.fi/liikunta-tiede-lehti</a>",
-    id : "tiedelehdet_liikuntajatiede",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_title : sattrs.text_title,
-        text_issue : {
-            label : "issue"
+    title: "Liikunta ja tiede (tutkimusartikkelit)",
+    description: "Liikunta ja tiede (2008-2013)<br/>Julkaisija: Liikuntatieteellinen Seura ry<br/>Kotisivu: <a href='http://www.lts.fi/liikunta-tiede-lehti'>http://www.lts.fi/liikunta-tiede-lehti</a>",
+    id: "tiedelehdet_liikuntajatiede",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue"
         },
-        text_year : {
-            label : "year"
+        text_year: {
+            label: "year"
         }
     }
 };
 
 settings.corpora.tiedelehdet_liikenteensuunta = {
-    title : "Liikenteen suunta",
-    description : "Liikenteen suunta (2012-2/2014)<br/>Julkaisija: Liikennevirasto<br/>Kotisivu: <a href='http://www.liikenteensuunta.fi/fi/'>http://www.liikenteensuunta.fi/fi/</a>",
-    id : "tiedelehdet_liikenteensuunta",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_title : sattrs.text_title,
-        text_issue : {
-            label : "issue"
+    title: "Liikenteen suunta",
+    description: "Liikenteen suunta (2012-2/2014)<br/>Julkaisija: Liikennevirasto<br/>Kotisivu: <a href='http://www.liikenteensuunta.fi/fi/'>http://www.liikenteensuunta.fi/fi/</a>",
+    id: "tiedelehdet_liikenteensuunta",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue"
         },
-        text_year : {
-            label : "year"
+        text_year: {
+            label: "year"
         }
     }
 };
 
 settings.corpora.tiedelehdet_informaatio = {
-    title : "Informaatiotutkimus",
-    description : "Informaatiotutkimus (2000-2015)<br/>Julkaisija: Informaatiotutkimuksen yhdistys<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/inf'>http://ojs.tsv.fi/index.php/inf</a>",
-    id : "tiedelehdet_informaatio",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_citationabstracthtmlurl : sattrs.link_lehdet,
-        text_citationauthors : {
-            label : "text_author"
+    title: "Informaatiotutkimus",
+    description: "Informaatiotutkimus (2000-2015)<br/>Julkaisija: Informaatiotutkimuksen yhdistys<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/inf'>http://ojs.tsv.fi/index.php/inf</a>",
+    id: "tiedelehdet_informaatio",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_citationabstracthtmlurl: sattrs.link_lehdet,
+        text_citationauthors: {
+            label: "text_author"
         },
-        text_citationpublisher : {
-            label : "text_publisher"
+        text_citationpublisher: {
+            label: "text_publisher"
         },
-        text_citationtitle : {
-            label : "text_title"
+        text_citationtitle: {
+            label: "text_title"
         },
-        text_citationdate : {
-            label : "year"
+        text_citationdate: {
+            label: "year"
         },
-        text_citation : {
-            label : "issue"
+        text_citation: {
+            label: "issue"
         }
     }
 };
 
 
 settings.corpora.tiedelehdet_hykirjasto = {
-    title : "Kansalliskirjasto-lehti/Helsingin yliopiston kirjaston tiedotuslehti",
-    description : "Helsingin yliopiston kirjaston tiedotuslehti (2000-2002) / Kansalliskirjasto-lehti (2003-2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='https://www.kansalliskirjasto.fi/fi/search?keys=yleistieto%20tiedotus%20kansalliskirjastolehti'>https://www.kansalliskirjasto.fi/</a>",
-    id : "tiedelehdet_hykirjasto",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_citationabstracthtmlurl : sattrs.link_lehdet,
-        text_citationauthors : {
-            label : "text_author"
+    title: "Kansalliskirjasto-lehti/Helsingin yliopiston kirjaston tiedotuslehti",
+    description: "Helsingin yliopiston kirjaston tiedotuslehti (2000-2002) / Kansalliskirjasto-lehti (2003-2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='https://www.kansalliskirjasto.fi/fi/search?keys=yleistieto%20tiedotus%20kansalliskirjastolehti'>https://www.kansalliskirjasto.fi/</a>",
+    id: "tiedelehdet_hykirjasto",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_citationabstracthtmlurl: sattrs.link_lehdet,
+        text_citationauthors: {
+            label: "text_author"
         },
-        text_citationpublisher : {
-            label : "text_publisher"
+        text_citationpublisher: {
+            label: "text_publisher"
         },
-        text_citationtitle : {
-            label : "text_title"
+        text_citationtitle: {
+            label: "text_title"
         },
-        text_citationdate : {
-            label : "year"
+        text_citationdate: {
+            label: "year"
         },
-        text_citation : {
-            label : "issue"
+        text_citation: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_geologi = {
-    title : "Geologi",
-    description : "Geologi (2000, 2006-2013)<br/>Julkaisija: Suomen Geologinen Seura<br/>Kotisivu: <a href='http://www.geologinenseura.fi/geologi-lehti/'>http://www.geologinenseura.fi/geologi-lehti/</a>",
-    id : "tiedelehdet_geologi",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_citationabstracthtmlurl : sattrs.link_lehdet,
-        text_citationtitle : {
-            label : "text_title"
+    title: "Geologi",
+    description: "Geologi (2000, 2006-2013)<br/>Julkaisija: Suomen Geologinen Seura<br/>Kotisivu: <a href='http://www.geologinenseura.fi/geologi-lehti/'>http://www.geologinenseura.fi/geologi-lehti/</a>",
+    id: "tiedelehdet_geologi",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_citationabstracthtmlurl: sattrs.link_lehdet,
+        text_citationtitle: {
+            label: "text_title"
         },
-        text_citationdate : {
-            label : "year"
+        text_citationdate: {
+            label: "year"
         }
     }
 };
 
 settings.corpora.tiedelehdet_musiikinsuunta = {
-    title : "Musiikin suunta",
-    description : "Musiikin suunta (2003-2013)<br/>Julkaisija: Suomen etnomusikologinen seura<br/>Kotisivu: <a href='http://www.etnomusikologia.fi/julkaisut/Mus.suunta.htm'>http://www.etnomusikologia.fi/julkaisut/</a>",
-    id : "tiedelehdet_musiikinsuunta",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_citationabstracthtmlurl : sattrs.link_lehdet,
-        text_citationauthors : {
-            label : "text_author"
+    title: "Musiikin suunta",
+    description: "Musiikin suunta (2003-2013)<br/>Julkaisija: Suomen etnomusikologinen seura<br/>Kotisivu: <a href='http://www.etnomusikologia.fi/julkaisut/Mus.suunta.htm'>http://www.etnomusikologia.fi/julkaisut/</a>",
+    id: "tiedelehdet_musiikinsuunta",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_citationabstracthtmlurl: sattrs.link_lehdet,
+        text_citationauthors: {
+            label: "text_author"
         },
-        text_citationpublisher : {
-            label : "text_publisher"
+        text_citationpublisher: {
+            label: "text_publisher"
         },
-        text_citationtitle : {
-            label : "text_title"
+        text_citationtitle: {
+            label: "text_title"
         },
-        text_citationdate : {
-            label : "year"
+        text_citationdate: {
+            label: "year"
         },
-        text_citation : {
-            label : "issue"
+        text_citation: {
+            label: "issue"
         }
     }
 };
 
 
 settings.corpora.tiedelehdet_susa = {
-    title : "Suomalais-Ugrilaisen Seuran Aikakauskirja",
-    description : "Suomalais-Ugrilaisen Seuran Aikakauskirja (2006, 2011, 2013)<br/>Julkaisija: Suomalais-Ugrilainen seura<br/>Kotisivu: <a href='http://www.sgr.fi/susa/susa_fi.html'>http://www.sgr.fi/susa/</a>",
-    id : "tiedelehdet_susa",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_title : sattrs.text_title,
-        text_year : {
-            label : "year"
+    title: "Suomalais-Ugrilaisen Seuran Aikakauskirja",
+    description: "Suomalais-Ugrilaisen Seuran Aikakauskirja (2006, 2011, 2013)<br/>Julkaisija: Suomalais-Ugrilainen seura<br/>Kotisivu: <a href='http://www.sgr.fi/susa/susa_fi.html'>http://www.sgr.fi/susa/</a>",
+    id: "tiedelehdet_susa",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year"
         }
     }
 };
 
 settings.corpora.tiedelehdet_sosiaalilaaketiede = {
-    title : "Sosiaalilääketieteellinen Aikakauslehti",
-    description : "Sosiaalilääketieteellinen Aikakauslehti (2006-2013)<br/>Julkaisija: Sosiaalilääketieteellinen yhdistys ry<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/SA/index'>http://ojs.tsv.fi/index.php/SA/index</a>",
-    id : "tiedelehdet_sosiaalilaaketiede",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_citationabstracthtmlurl : sattrs.link_lehdet,
-        text_citationauthors : {
-            label : "text_author"
+    title: "Sosiaalilääketieteellinen Aikakauslehti",
+    description: "Sosiaalilääketieteellinen Aikakauslehti (2006-2013)<br/>Julkaisija: Sosiaalilääketieteellinen yhdistys ry<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/SA/index'>http://ojs.tsv.fi/index.php/SA/index</a>",
+    id: "tiedelehdet_sosiaalilaaketiede",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_citationabstracthtmlurl: sattrs.link_lehdet,
+        text_citationauthors: {
+            label: "text_author"
         },
-        text_citationpublisher : {
-            label : "text_publisher"
+        text_citationpublisher: {
+            label: "text_publisher"
         },
-        text_citationtitle : {
-            label : "text_title"
+        text_citationtitle: {
+            label: "text_title"
         },
-        text_citationdate : {
-            label : "year"
+        text_citationdate: {
+            label: "year"
         },
-        text_citation : {
-            label : "issue"
+        text_citation: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_niinnain = {
-    title : "niin & näin",
-    description : "niin & näin (2000-4/2013)<br/>Julkaisija: Eurooppalaisen filosofian seura ry<br/>Kotisivu: <a href='http://netn.fi/lehti'>http://netn.fi/</a>",
-    id : "tiedelehdet_niinnain",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_title : sattrs.text_title,
-        text_year : {
-            label : "year"
+    title: "niin & näin",
+    description: "niin & näin (2000-4/2013)<br/>Julkaisija: Eurooppalaisen filosofian seura ry<br/>Kotisivu: <a href='http://netn.fi/lehti'>http://netn.fi/</a>",
+    id: "tiedelehdet_niinnain",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_title: sattrs.text_title,
+        text_year: {
+            label: "year"
         }
     }
 };
 
 settings.corpora.tiedelehdet_skeptikko = {
-    title : "Skeptikko",
-    description : "Skeptikko (2000-2015)<br/>Julkaisija: Skepsis ry<br/>Kotisivu: <a href='http://www.skepsis.fi/Julkaisuja/Skeptikkolehti.aspx'>http://www.skepsis.fi/</a>",
-    id : "tiedelehdet_skeptikko",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_title : sattrs.text_title,
-        text_issue : {
-            label : "issue"
+    title: "Skeptikko",
+    description: "Skeptikko (2000-2015)<br/>Julkaisija: Skepsis ry<br/>Kotisivu: <a href='http://www.skepsis.fi/Julkaisuja/Skeptikkolehti.aspx'>http://www.skepsis.fi/</a>",
+    id: "tiedelehdet_skeptikko",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue"
         },
-        text_year : {
-            label : "year"
+        text_year: {
+            label: "year"
         }
     }
 };
 
 settings.corpora.tiedelehdet_suo = {
-    title : "Suo",
-    description : "Suo (2005-2013)<br/>Julkaisija: Suoseura<br/>Kotisivu: <a href='http://www.suoseura.fi/suo/'>http://www.suoseura.fi/suo/</a>",
-    id : "tiedelehdet_suo",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_title : sattrs.text_title,
-        text_issue : {
-            label : "issue"
+    title: "Suo",
+    description: "Suo (2005-2013)<br/>Julkaisija: Suoseura<br/>Kotisivu: <a href='http://www.suoseura.fi/suo/'>http://www.suoseura.fi/suo/</a>",
+    id: "tiedelehdet_suo",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue"
         },
-        text_year : {
-            label : "year"
+        text_year: {
+            label: "year"
         }
     }
 };
 
 settings.corpora.tiedelehdet_teologinen = {
-    title : "Teologinen Aikakauskirja",
-    description : "Teologinen Aikakauskirja (2004-2013)<br/>Julkaisija: Teologinen Julkaisuseura ry<br/>Kotisivu: <a href='http://www.tatt.fi/'>http://www.tatt.fi/</a>",
-    id : "tiedelehdet_teologinen",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_title : sattrs.text_title,
-        text_issue : {
-            label : "issue"
+    title: "Teologinen Aikakauskirja",
+    description: "Teologinen Aikakauskirja (2004-2013)<br/>Julkaisija: Teologinen Julkaisuseura ry<br/>Kotisivu: <a href='http://www.tatt.fi/'>http://www.tatt.fi/</a>",
+    id: "tiedelehdet_teologinen",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue"
         },
-        text_year : {
-            label : "year"
+        text_year: {
+            label: "year"
         }
     }
 };
 
 settings.corpora.tiedelehdet_tieteessatapahtuu = {
-    title : "Tieteessä tapahtuu",
-    description : "Tieteessä tapahtuu (2000-2015)<br/>Julkaisija: Tieteellisten seurain valtuuskunta<br/><a href='http://www.tieteessatapahtuu.fi/'>http://www.tieteessatapahtuu.fi/</a>",
-    id : "tiedelehdet_tieteessatapahtuu",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_citationabstracthtmlurl : sattrs.link_lehdet,
-        text_citationauthors : {
-            label : "text_author"
+    title: "Tieteessä tapahtuu",
+    description: "Tieteessä tapahtuu (2000-2015)<br/>Julkaisija: Tieteellisten seurain valtuuskunta<br/><a href='http://www.tieteessatapahtuu.fi/'>http://www.tieteessatapahtuu.fi/</a>",
+    id: "tiedelehdet_tieteessatapahtuu",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_citationabstracthtmlurl: sattrs.link_lehdet,
+        text_citationauthors: {
+            label: "text_author"
         },
-        text_citationpublisher : {
-            label : "text_publisher"
+        text_citationpublisher: {
+            label: "text_publisher"
         },
-        text_citationtitle : {
-            label : "text_title"
+        text_citationtitle: {
+            label: "text_title"
         },
-        text_citationdate : {
-            label : "date"
+        text_citationdate: {
+            label: "date"
         },
-        text_citation : {
-            label : "issue"
+        text_citation: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_terminfo = {
-    title : "Terminfo",
-    description : "Terminfo (2010-2015)<br/>Julkaisija: Sanastokeskus TSK<br/>Kotisivu: <a href='http://www.terminfo.fi/'>http://www.terminfo.fi/</a>",
-    id : "tiedelehdet_terminfo",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_title : sattrs.text_title,
-        text_issue : {
-            label : "issue"
+    title: "Terminfo",
+    description: "Terminfo (2010-2015)<br/>Julkaisija: Sanastokeskus TSK<br/>Kotisivu: <a href='http://www.terminfo.fi/'>http://www.terminfo.fi/</a>",
+    id: "tiedelehdet_terminfo",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue"
         },
-        text_year : {
-            label : "year"
+        text_year: {
+            label: "year"
         }
     }
 };
 
 settings.corpora.tiedelehdet_tktlehti = {
-    title : "Tietojenkäsittelytiede",
-    description : "Tietojenkäsittelytiede (2003-2015)<br/>Julkaisija: Tieojenkäsittelytieteen seura<br/>Kotisivu: <a href='http://www.cse.tkk.fi/fi/tkt-lehti/'>http://www.cse.tkk.fi/fi/tkt-lehti/</a>",
-    id : "tiedelehdet_tktlehti",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_title : sattrs.text_title,
-        text_issue : {
-            label : "issue"
+    title: "Tietojenkäsittelytiede",
+    description: "Tietojenkäsittelytiede (2003-2015)<br/>Julkaisija: Tieojenkäsittelytieteen seura<br/>Kotisivu: <a href='http://www.cse.tkk.fi/fi/tkt-lehti/'>http://www.cse.tkk.fi/fi/tkt-lehti/</a>",
+    id: "tiedelehdet_tktlehti",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue"
         },
-        text_year : {
-            label : "year"
+        text_year: {
+            label: "year"
         },
-        text_date : sattrs.date
+        text_date: sattrs.date
     }
 };
 
 settings.corpora.tiedelehdet_synnyt = {
-    title : "Synnyt",
-    description : "Synnyt (2004-2013)<br/>Julkaisija: Synnyt/Origins<br/>Kotisivu: <a href='https://wiki.aalto.fi/display/Synnyt/Home'>https://wiki.aalto.fi/display/Synnyt/Home</a>",
-    id : "tiedelehdet_synnyt",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_title : sattrs.text_title,
-        text_issue : {
-            label : "issue"
+    title: "Synnyt",
+    description: "Synnyt (2004-2013)<br/>Julkaisija: Synnyt/Origins<br/>Kotisivu: <a href='https://wiki.aalto.fi/display/Synnyt/Home'>https://wiki.aalto.fi/display/Synnyt/Home</a>",
+    id: "tiedelehdet_synnyt",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue"
         },
-        text_year : {
-            label : "year"
+        text_year: {
+            label: "year"
         }
     }
 };
 
 settings.corpora.tiedelehdet_muinaistutkija = {
-    title : "Muinaistutkija",
-    description : "Muinaistutkija (2000-2012)<br/>Julkaisija: Suomen arkeologinen seura<br/>Kotisivu: <a href='http://www.sarks.fi/mt/etusivu.html'>http://www.sarks.fi/mt/etusivu.html</a>",
-    id : "tiedelehdet_muinaistutkija",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_date : {
-            label : "year"
+    title: "Muinaistutkija",
+    description: "Muinaistutkija (2000-2012)<br/>Julkaisija: Suomen arkeologinen seura<br/>Kotisivu: <a href='http://www.sarks.fi/mt/etusivu.html'>http://www.sarks.fi/mt/etusivu.html</a>",
+    id: "tiedelehdet_muinaistutkija",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_date: {
+            label: "year"
         },
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
 
     }
@@ -3716,546 +3716,546 @@ settings.corpora.tiedelehdet_muinaistutkija = {
 
 
 settings.corpora.tiedelehdet_tutkivasos = {
-    title : "Tutkiva Sosiaalityö",
-    description : "Tutkiva Sosiaalityö (2010-2013)<br/>Julkaisija: Sosiaalityön tutkimuksen seura<br/>Kotisivu: <a href='http://www.sosiaalityontutkimuksenseura.fi/Tutkiva_sosiaality%C3%B6'>http://www.sosiaalityontutkimuksenseura.fi/Tutkiva_sosiaality%C3%B6</a>",
-    id : "tiedelehdet_tutkivasos",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_year : {
-            label : "year"
+    title: "Tutkiva Sosiaalityö",
+    description: "Tutkiva Sosiaalityö (2010-2013)<br/>Julkaisija: Sosiaalityön tutkimuksen seura<br/>Kotisivu: <a href='http://www.sosiaalityontutkimuksenseura.fi/Tutkiva_sosiaality%C3%B6'>http://www.sosiaalityontutkimuksenseura.fi/Tutkiva_sosiaality%C3%B6</a>",
+    id: "tiedelehdet_tutkivasos",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_year: {
+            label: "year"
         }
     }
 };
 
 settings.corpora.tiedelehdet_tiedejaase = {
-    title : "Tiede ja Ase",
-    description : "Tiede ja Ase (2000-2013)<br/>Julkaisija: Suomen sotatieteellinen seura<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/ta'>http://ojs.tsv.fi/index.php/ta</a>",
-    id : "tiedelehdet_tiedejaase",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_citationabstracthtmlurl : sattrs.link_lehdet,
-        text_citationauthors : {
-            label : "text_author"
+    title: "Tiede ja Ase",
+    description: "Tiede ja Ase (2000-2013)<br/>Julkaisija: Suomen sotatieteellinen seura<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/ta'>http://ojs.tsv.fi/index.php/ta</a>",
+    id: "tiedelehdet_tiedejaase",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_citationabstracthtmlurl: sattrs.link_lehdet,
+        text_citationauthors: {
+            label: "text_author"
         },
-        text_citationpublisher : {
-            label : "text_publisher"
+        text_citationpublisher: {
+            label: "text_publisher"
         },
-        text_citationtitle : {
-            label : "text_title"
+        text_citationtitle: {
+            label: "text_title"
         },
-        text_citationdate : {
-            label : "year"
+        text_citationdate: {
+            label: "year"
         },
-        text_citation : {
-            label : "issue"
+        text_citation: {
+            label: "issue"
         }
     }
 };
 
 
 settings.corpora.tiedelehdet_avain = {
-    title : "Avain",
-    description : "Kirjallisuudentutkimuksen aikakauslehti Avain (2004-2015)<br/>Julkaisija: Kirjallisuudentutkijain Seura<br/>Kotisivu: <a href='http://pro.tsv.fi/skts/avain.html'>http://pro.tsv.fi/skts/avain.html</a>",
-    id : "tiedelehdet_avain",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
-    struct_attributes : {
-        text_issue : {
-            label : "issue"
+    title: "Avain",
+    description: "Kirjallisuudentutkimuksen aikakauslehti Avain (2004-2015)<br/>Julkaisija: Kirjallisuudentutkijain Seura<br/>Kotisivu: <a href='http://pro.tsv.fi/skts/avain.html'>http://pro.tsv.fi/skts/avain.html</a>",
+    id: "tiedelehdet_avain",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.standard,
+    struct_attributes: {
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_ennenjanyt = {
-    title : "Ennen ja nyt",
-    description : "Ennen ja nyt (2001-1/2016)<br/>Julkaisijat: Agricola -Suomen historiaverkko, Historiallinen Yhdistys ry, Suomen Historiallinen Seura ry ja Turun Historiallinen Yhdistys ry.<br/>Kotisivu: <a href='http://www.ennenjanyt.net/'>http://www.ennenjanyt.net/</a>",
-    id : "tiedelehdet_ennenjanyt",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet
+    title: "Ennen ja nyt",
+    description: "Ennen ja nyt (2001-1/2016)<br/>Julkaisijat: Agricola -Suomen historiaverkko, Historiallinen Yhdistys ry, Suomen Historiallinen Seura ry ja Turun Historiallinen Yhdistys ry.<br/>Kotisivu: <a href='http://www.ennenjanyt.net/'>http://www.ennenjanyt.net/</a>",
+    id: "tiedelehdet_ennenjanyt",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.standard,
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet
     }
 };
 
 settings.corpora.tiedelehdet_historianystava = {
-    title : "Historian ystävä",
-    description : "Historian ystävä (2010-1/2016)<br/>Julkaisija: Historian Ystäväin Liitto<br/>Kotisivu: <a href='http://www.historianyst.fi/historianystava/'>http://www.historianyst.fi/historianystava/</a>",
-    id : "tiedelehdet_historianystava",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
-    struct_attributes : {
-        text_url : sattrs.link_lehdet
+    title: "Historian ystävä",
+    description: "Historian ystävä (2010-1/2016)<br/>Julkaisija: Historian Ystäväin Liitto<br/>Kotisivu: <a href='http://www.historianyst.fi/historianystava/'>http://www.historianyst.fi/historianystava/</a>",
+    id: "tiedelehdet_historianystava",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.standard,
+    struct_attributes: {
+        text_url: sattrs.link_lehdet
     }
 };
 
 settings.corpora.tiedelehdet_ilmansuojelu = {
-    title : "Ilmansuojelu-lehti",
-    description : "Ilmansuojelu-lehti (2007-2015)<br/>Julkaisija: Ilmansuojeluyhdistys ry<br/>Kotisivu: <a href='https://isy.fi/julkaisut/ilmansuojelulehti/'>https://isy.fi/julkaisut/ilmansuojelulehti/</a>",
-    id : "tiedelehdet_ilmansuojelu",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
-    struct_attributes : {
-        text_url : sattrs.link_lehdet
+    title: "Ilmansuojelu-lehti",
+    description: "Ilmansuojelu-lehti (2007-2015)<br/>Julkaisija: Ilmansuojeluyhdistys ry<br/>Kotisivu: <a href='https://isy.fi/julkaisut/ilmansuojelulehti/'>https://isy.fi/julkaisut/ilmansuojelulehti/</a>",
+    id: "tiedelehdet_ilmansuojelu",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.standard,
+    struct_attributes: {
+        text_url: sattrs.link_lehdet
     }
 };
 
 settings.corpora.tiedelehdet_kieliskooppi = {
-    title : "Kieliskooppi",
-    description : "Kieliskooppi (2012-2013)<br/>Julkaisija: Jyväskylän yliopiston kielikampus<br/>Kotisivu:<a href='http://research.jyu.fi/kieliskooppi/journals/'>http://research.jyu.fi/kieliskooppi/journals/</a>",
-    id : "tiedelehdet_kieliskooppi",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_title : sattrs.text_title
+    title: "Kieliskooppi",
+    description: "Kieliskooppi (2012-2013)<br/>Julkaisija: Jyväskylän yliopiston kielikampus<br/>Kotisivu:<a href='http://research.jyu.fi/kieliskooppi/journals/'>http://research.jyu.fi/kieliskooppi/journals/</a>",
+    id: "tiedelehdet_kieliskooppi",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.standard,
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_title: sattrs.text_title
     }
 };
 
 settings.corpora.tiedelehdet_kosmopolis = {
-title : "Kosmopolis",
-    description : "Kosmopolis (2000-2013)<br/>Julkaisija: Suomen rauhantutkimusyhdistys<br/>Kotisivu: <a href='http://rauhantutkimus.fi/content/kosmopolis/'>http://rauhantutkimus.fi/content/kosmopolis/</a>",
-    id : "tiedelehdet_kosmopolis",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-    text_citationabstracthtmlurl : sattrs.link_lehdet,
-        text_citationauthors : {
-	label : "text_author"
+title: "Kosmopolis",
+    description: "Kosmopolis (2000-2013)<br/>Julkaisija: Suomen rauhantutkimusyhdistys<br/>Kotisivu: <a href='http://rauhantutkimus.fi/content/kosmopolis/'>http://rauhantutkimus.fi/content/kosmopolis/</a>",
+    id: "tiedelehdet_kosmopolis",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+    text_citationabstracthtmlurl: sattrs.link_lehdet,
+        text_citationauthors: {
+	label: "text_author"
 	    },
-        text_citationpublisher : {
-	label : "text_publisher"
+        text_citationpublisher: {
+	label: "text_publisher"
 	    },
-        text_citationtitle : {
-	label : "text_title"
+        text_citationtitle: {
+	label: "text_title"
 	    },
-        text_citationdate : {
-	label : "year"
+        text_citationdate: {
+	label: "year"
 	    },
-        text_citation : {
-	label : "issue"
+        text_citation: {
+	label: "issue"
 	    }
     }
 };
 
 settings.corpora.tiedelehdet_poliittinentalous = {
-    title : "Poliittinen talous",
-    description : "Poliittinen talous (1/2013-1/2014)<br/>Julkaisija: Poliittisen talouden tutkimuksen seura<br/>Kotisivu: <a href='http://poliittinentalous.fi/ojs/'>http://poliittinentalous.fi/ojs/</a>",
-    id : "tiedelehdet_poliittinentalous",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
-    struct_attributes : {
-        text_url : sattrs.link_lehdet
+    title: "Poliittinen talous",
+    description: "Poliittinen talous (1/2013-1/2014)<br/>Julkaisija: Poliittisen talouden tutkimuksen seura<br/>Kotisivu: <a href='http://poliittinentalous.fi/ojs/'>http://poliittinentalous.fi/ojs/</a>",
+    id: "tiedelehdet_poliittinentalous",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.standard,
+    struct_attributes: {
+        text_url: sattrs.link_lehdet
     }
 };
 
 
 settings.corpora.tiedelehdet_skas = {
-    title : "SKAS",
-    description : "SKAS (2007-2013)<br/>Julkaisija: Suomen keskiajan arkeologian seura<br/>Kotisivu: <a href='http://www.skas.fi/skas-lehti/'>http://www.skas.fi/skas-lehti/</a>",
-    id : "tiedelehdet_skas",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    title: "SKAS",
+    description: "SKAS (2007-2013)<br/>Julkaisija: Suomen keskiajan arkeologian seura<br/>Kotisivu: <a href='http://www.skas.fi/skas-lehti/'>http://www.skas.fi/skas-lehti/</a>",
+    id: "tiedelehdet_skas",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.standard,
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_tahiti = {
-    title : "TAHITI",
-    description : "TAHITI – Taidehistoria tieteenä (1/2011-4/2013)<br/>Julkaisija: Taidehistorian seura<br/>Kotisivu: <a href='http://tahiti.fi/'>http://tahiti.fi/</a>",
-    id : "tiedelehdet_tahiti",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    title: "TAHITI",
+    description: "TAHITI – Taidehistoria tieteenä (1/2011-4/2013)<br/>Julkaisija: Taidehistorian seura<br/>Kotisivu: <a href='http://tahiti.fi/'>http://tahiti.fi/</a>",
+    id: "tiedelehdet_tahiti",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_vartija = {
-    title : "Vartija-lehti",
-    description : "Vartija-lehti (2006-2/2015)<br/>Julkaisija: Vartija-lehden kannatusyhdistys<br/>Kotisivu: <a href='http://www.vartija-lehti.fi/'>http://www.vartija-lehti.fi/</a>",
-    id : "tiedelehdet_vartija",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
-    struct_attributes : {
-        text_issue : {
-            label : "issue"
+    title: "Vartija-lehti",
+    description: "Vartija-lehti (2006-2/2015)<br/>Julkaisija: Vartija-lehden kannatusyhdistys<br/>Kotisivu: <a href='http://www.vartija-lehti.fi/'>http://www.vartija-lehti.fi/</a>",
+    id: "tiedelehdet_vartija",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.standard,
+    struct_attributes: {
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_yhteiskuntapolitiikka = {
-    title : "Yhteiskuntapolitiikka",
-    description : "Yhteiskuntapolitiikka (1998-2013)<br/>Julkaisija: Terveyden ja hyvinvoinnin laitos<br/>Kotisivu: <a href='https://www.thl.fi/fi/web/yhteiskuntapolitiikka/'>https://www.thl.fi/fi/web/yhteiskuntapolitiikka/</a> ",
-    id : "tiedelehdet_yhteiskuntapolitiikka",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_citationabstracthtmlurl : sattrs.link_lehdet,
-        text_citationauthors : {
-            label : "text_author"
+    title: "Yhteiskuntapolitiikka",
+    description: "Yhteiskuntapolitiikka (1998-2013)<br/>Julkaisija: Terveyden ja hyvinvoinnin laitos<br/>Kotisivu: <a href='https://www.thl.fi/fi/web/yhteiskuntapolitiikka/'>https://www.thl.fi/fi/web/yhteiskuntapolitiikka/</a> ",
+    id: "tiedelehdet_yhteiskuntapolitiikka",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_citationabstracthtmlurl: sattrs.link_lehdet,
+        text_citationauthors: {
+            label: "text_author"
         },
-        text_citationpublisher : {
-            label : "text_publisher"
+        text_citationpublisher: {
+            label: "text_publisher"
         },
-        text_citationtitle : {
-            label : "text_title"
+        text_citationtitle: {
+            label: "text_title"
         },
-        text_citationdate : {
-            label : "year"
+        text_citationdate: {
+            label: "year"
         },
-        text_citation : {
-            label : "issue"
+        text_citation: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_tietolinja = {
-    title : "Tietolinja",
-    description : "Tietolinja (1/2000-2/2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='http://tietolinja.kansalliskirjasto.fi/'>http://tietolinja.kansalliskirjasto.fi/</a>",
-    id : "tiedelehdet_tietolinja",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    title: "Tietolinja",
+    description: "Tietolinja (1/2000-2/2013)<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='http://tietolinja.kansalliskirjasto.fi/'>http://tietolinja.kansalliskirjasto.fi/</a>",
+    id: "tiedelehdet_tietolinja",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.standard,
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_mediajaviestinta = {
-    title : "Media & Viestintä/Tiedotustutkimus",
-    description : "Tiedotustutkimus (2005-2009) / Media & Viestintä (2010-2014)<br/>Julkaisija: Media- ja viestintätieteellinen seura<br/>Kotisivu: <a href='http://mediaviestinta.fi/blogi/'>http://mediaviestinta.fi/blogi/</a>",
-    id : "tiedelehdet_mediajaviestinta",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
-    struct_attributes : {
-	text_issue : {
-	    label : "issue"
+    title: "Media & Viestintä/Tiedotustutkimus",
+    description: "Tiedotustutkimus (2005-2009) / Media & Viestintä (2010-2014)<br/>Julkaisija: Media- ja viestintätieteellinen seura<br/>Kotisivu: <a href='http://mediaviestinta.fi/blogi/'>http://mediaviestinta.fi/blogi/</a>",
+    id: "tiedelehdet_mediajaviestinta",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.standard,
+    struct_attributes: {
+	text_issue: {
+	    label: "issue"
         }
     }
 };
 
 
 settings.corpora.tiedelehdet_terra = {
-    title : "Terra",
-    description : "Terra (2000-2013)<br/>Julkaisija: Suomen maantieteellinen seura<br/>Kotisivu: <a href='http://www.helsinki.fi/maantiede/geofi/terra/'>http://www.helsinki.fi/maantiede/geofi/terra/</a>",
-    id : "tiedelehdet_terra",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_citationabstracthtmlurl : sattrs.link_lehdet,
-        text_citationauthors : {
-            label : "text_author"
+    title: "Terra",
+    description: "Terra (2000-2013)<br/>Julkaisija: Suomen maantieteellinen seura<br/>Kotisivu: <a href='http://www.helsinki.fi/maantiede/geofi/terra/'>http://www.helsinki.fi/maantiede/geofi/terra/</a>",
+    id: "tiedelehdet_terra",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_citationabstracthtmlurl: sattrs.link_lehdet,
+        text_citationauthors: {
+            label: "text_author"
         },
-        text_citationpublisher : {
-            label : "text_publisher"
+        text_citationpublisher: {
+            label: "text_publisher"
         },
-        text_citationtitle : {
-            label : "text_title"
+        text_citationtitle: {
+            label: "text_title"
         },
-        text_citationdate : {
-            label : "year"
+        text_citationdate: {
+            label: "year"
         },
-        text_citation : {
-            label : "issue"
+        text_citation: {
+            label: "issue"
         }
     }
 };
 
 
 settings.corpora.tiedelehdet_rakmek = {
-    title : "Rakenteiden mekaniikka",
-    description : "Rakenteiden mekaniikka (2000-2014)<br/>Julkaisija: Rakenteiden mekaniikan seura<br/>Kotisivu: <a href='http://rmseura.tkk.fi/rmlehti/'>http://rmseura.tkk.fi/rmlehti/</a>",
-    id : "tiedelehdet_rakmek",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Rakenteiden mekaniikka",
+    description: "Rakenteiden mekaniikka (2000-2014)<br/>Julkaisija: Rakenteiden mekaniikan seura<br/>Kotisivu: <a href='http://rmseura.tkk.fi/rmlehti/'>http://rmseura.tkk.fi/rmlehti/</a>",
+    id: "tiedelehdet_rakmek",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
 
     }
 };
 
 settings.corpora.tiedelehdet_nimi = {
-    title : "NMI-Bulletin",
-    description : "NMI-Bulletin (2002-2003, 2007-2012)<br/>Julkaisija: Niilo Mäki instituutti<br/>Kotisivu: <a href='http://bulletin.nmi.fi/arkisto/'>http://bulletin.nmi.fi/arkisto/</a>",
-    id : "tiedelehdet_nimi",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "NMI-Bulletin",
+    description: "NMI-Bulletin (2002-2003, 2007-2012)<br/>Julkaisija: Niilo Mäki instituutti<br/>Kotisivu: <a href='http://bulletin.nmi.fi/arkisto/'>http://bulletin.nmi.fi/arkisto/</a>",
+    id: "tiedelehdet_nimi",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet
     }
 };
 
 settings.corpora.tiedelehdet_prologi = {
-    title : "Prologi",
-    description : "Prologi (2009-2013)<br/>Julkaisija: Prologos ry<br/>Kotisivu: <a href='http://prologos.fi/prologi/'>http://prologos.fi/prologi/</a>",
-    id : "tiedelehdet_prologi",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet
+    title: "Prologi",
+    description: "Prologi (2009-2013)<br/>Julkaisija: Prologos ry<br/>Kotisivu: <a href='http://prologos.fi/prologi/'>http://prologos.fi/prologi/</a>",
+    id: "tiedelehdet_prologi",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet
     }
 };
 
 settings.corpora.tiedelehdet_metsatiede = {
-    title : "Metsätieteen aikakauskirja",
-    description : "Metsätieteen aikakauskirja (2000-2013)<br/>Julkaisija: Luonnonvarakeskus & Suomen Metsätieteellinen Seura<br/>Kotisivu: <a href='http://www.metla.fi/aikakauskirja/'>http://www.metla.fi/aikakauskirja/</a>",
-    id : "tiedelehdet_metsatiede",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Metsätieteen aikakauskirja",
+    description: "Metsätieteen aikakauskirja (2000-2013)<br/>Julkaisija: Luonnonvarakeskus & Suomen Metsätieteellinen Seura<br/>Kotisivu: <a href='http://www.metla.fi/aikakauskirja/'>http://www.metla.fi/aikakauskirja/</a>",
+    id: "tiedelehdet_metsatiede",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet
     }
 };
 
 settings.corpora.tiedelehdet_ravitsemus = {
-    title : "Ravitsemuskatsaus",
-    description : "Ravitsemuskatsaus (2007-2013)<br/>Julkaisija: Maito ja Terveys ry<br/>Kotisivu: <a href='http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php'>http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php</a>",
-    id : "tiedelehdet_ravitsemus",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Ravitsemuskatsaus",
+    description: "Ravitsemuskatsaus (2007-2013)<br/>Julkaisija: Maito ja Terveys ry<br/>Kotisivu: <a href='http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php'>http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php</a>",
+    id: "tiedelehdet_ravitsemus",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue"
         }
 
     }
 };
 
 settings.corpora.tiedelehdet_kulutustutkimus = {
-    title : "Kulutustutkimus.Nyt",
-    description : "Kulutustutkimus.Nyt (2007-2013)<br/>Julkaisija: Kulutustutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulutustutkimus.net/nyt/'>http://www.kulutustutkimus.net/nyt/</a>",
-    id : "tiedelehdet_kulutustutkimus",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Kulutustutkimus.Nyt",
+    description: "Kulutustutkimus.Nyt (2007-2013)<br/>Julkaisija: Kulutustutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulutustutkimus.net/nyt/'>http://www.kulutustutkimus.net/nyt/</a>",
+    id: "tiedelehdet_kulutustutkimus",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue"
         }
 
     }
 };
 
 settings.corpora.tiedelehdet_sananjalka = {
-    title : "Sananjalka",
-    description : "Sananjalka (2006-2013)<br/>Julkaisija: Suomen kielen seura<br/>Kotisivu: <a href='http://www.suomenkielenseura.fi/sananjalka/'>http://www.suomenkielenseura.fi/sananjalka/</a>",
-    id : "tiedelehdet_sananjalka",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Sananjalka",
+    description: "Sananjalka (2006-2013)<br/>Julkaisija: Suomen kielen seura<br/>Kotisivu: <a href='http://www.suomenkielenseura.fi/sananjalka/'>http://www.suomenkielenseura.fi/sananjalka/</a>",
+    id: "tiedelehdet_sananjalka",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_citationabstracthtmlurl : sattrs.link_lehdet,
-        text_citationauthors : {
-            label : "text_author"
+    struct_attributes: {
+        text_citationabstracthtmlurl: sattrs.link_lehdet,
+        text_citationauthors: {
+            label: "text_author"
         },
-        text_citationpublisher : {
-            label : "text_publisher"
+        text_citationpublisher: {
+            label: "text_publisher"
         },
-        text_citationtitle : {
-            label : "text_title"
+        text_citationtitle: {
+            label: "text_title"
         },
-        text_citationdate : {
-            label : "year"
+        text_citationdate: {
+            label: "year"
         },
-        text_citation : {
-            label : "issue"
+        text_citation: {
+            label: "issue"
         }
     }
 };
 
 
 settings.corpora.tiedelehdet_kirkkohistoria = {
-    title : "Suomen kirkkohistoriallisen seuran vuosikirja",
-    description : "Suomen kirkkohistoriallisen seuran vuosikirja (2000-2014)<br/>Julkaisija: Suomen kirkkohistoriallinen seura<br/>Kotisivu: <a href='http://www.skhs.fi/julkaisut/vuosikirja/'>http://www.skhs.fi/julkaisut/vuosikirja/</a>",
-    id : "tiedelehdet_kirkkohistoria",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Suomen kirkkohistoriallisen seuran vuosikirja",
+    description: "Suomen kirkkohistoriallisen seuran vuosikirja (2000-2014)<br/>Julkaisija: Suomen kirkkohistoriallinen seura<br/>Kotisivu: <a href='http://www.skhs.fi/julkaisut/vuosikirja/'>http://www.skhs.fi/julkaisut/vuosikirja/</a>",
+    id: "tiedelehdet_kirkkohistoria",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_citationabstracthtmlurl : sattrs.link_lehdet,
-        text_citationauthors : {
-            label : "text_author"
+    struct_attributes: {
+        text_citationabstracthtmlurl: sattrs.link_lehdet,
+        text_citationauthors: {
+            label: "text_author"
         },
-        text_citationpublisher : {
-            label : "text_publisher"
+        text_citationpublisher: {
+            label: "text_publisher"
         },
-        text_citationtitle : {
-            label : "text_title"
+        text_citationtitle: {
+            label: "text_title"
         },
-        text_citationdate : {
-            label : "year"
+        text_citationdate: {
+            label: "year"
         },
-        text_citation : {
-            label : "issue"
+        text_citation: {
+            label: "issue"
         }
     }
 };
 
 
 settings.corpora.tiedelehdet_skholion = {
-    title : "Skholion",
-    description : "Skholion (2009-1/2012)<br/>Julkaisija: Suomen Bysantin tutkimuksen seura ry<br/>Kotisivu: <a href='http://www.protsv.fi/bts/BTSskholion.html'>http://www.protsv.fi/bts/BTSskholion.html</a>",
-    id : "tiedelehdet_skholion",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Skholion",
+    description: "Skholion (2009-1/2012)<br/>Julkaisija: Suomen Bysantin tutkimuksen seura ry<br/>Kotisivu: <a href='http://www.protsv.fi/bts/BTSskholion.html'>http://www.protsv.fi/bts/BTSskholion.html</a>",
+    id: "tiedelehdet_skholion",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
 
     }
@@ -4263,26 +4263,26 @@ settings.corpora.tiedelehdet_skholion = {
 
 
 settings.corpora.tiedelehdet_siirtolaisuus = {
-    title : "Siirtolaisuus-Migration",
-    description : "Siirtolaisuus-Migration (2000-2013)<br/>Julkaisija: Siirtolaisuusinstituutti<br/>Kotisivu: <a href='http://www.migrationinstitute.fi/fi/julkaisut/siirtolaisuus-migration'>http://www.migrationinstitute.fi/fi/julkaisut/siirtolaisuus-migration</a>",
-    id : "tiedelehdet_siirtolaisuus",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Siirtolaisuus-Migration",
+    description: "Siirtolaisuus-Migration (2000-2013)<br/>Julkaisija: Siirtolaisuusinstituutti<br/>Kotisivu: <a href='http://www.migrationinstitute.fi/fi/julkaisut/siirtolaisuus-migration'>http://www.migrationinstitute.fi/fi/julkaisut/siirtolaisuus-migration</a>",
+    id: "tiedelehdet_siirtolaisuus",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
 
     }
@@ -4291,1038 +4291,1038 @@ settings.corpora.tiedelehdet_siirtolaisuus = {
 
 
 settings.corpora.tiedelehdet_taimiuutiset = {
-    title : "Taimiuutiset",
-    description : "Taimiuutiset (2000-2013)<br/>Julkaisija: Luonnonvarakeskus Suonenjoki<br/>Kotisivu: <a href='http://www.metla.fi/taimiuutiset/'>http://www.metla.fi/taimiuutiset/</a>",
-    id : "tiedelehdet_taimiuutiset",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Taimiuutiset",
+    description: "Taimiuutiset (2000-2013)<br/>Julkaisija: Luonnonvarakeskus Suonenjoki<br/>Kotisivu: <a href='http://www.metla.fi/taimiuutiset/'>http://www.metla.fi/taimiuutiset/</a>",
+    id: "tiedelehdet_taimiuutiset",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue"
         }
 
     }
 };
 
 settings.corpora.tiedelehdet_kulttuurintutkimus = {
-    title : "Kulttuurintutkimus",
-    description : "Kulttuurintutkimus (2004-2013)<br/>Julkaisija: Kulttuurintutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulttuurintutkimus.fi/lehti/'>http://www.kulttuurintutkimus.fi/lehti/</a>",
-    id : "tiedelehdet_kulttuurintutkimus",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Kulttuurintutkimus",
+    description: "Kulttuurintutkimus (2004-2013)<br/>Julkaisija: Kulttuurintutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulttuurintutkimus.fi/lehti/'>http://www.kulttuurintutkimus.fi/lehti/</a>",
+    id: "tiedelehdet_kulttuurintutkimus",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_citationabstracthtmlurl : sattrs.link_lehdet,
-        text_citationauthors : {
-            label : "text_author"
+    struct_attributes: {
+        text_citationabstracthtmlurl: sattrs.link_lehdet,
+        text_citationauthors: {
+            label: "text_author"
         },
-        text_citationpublisher : {
-            label : "text_publisher"
+        text_citationpublisher: {
+            label: "text_publisher"
         },
-        text_citationtitle : {
-            label : "text_title"
+        text_citationtitle: {
+            label: "text_title"
         },
-        text_citationdate : {
-            label : "year"
+        text_citationdate: {
+            label: "year"
         },
-        text_citation : {
-            label : "issue"
+        text_citation: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_matkailututkimus = {
-    title : "Matkailututkimus",
-    description : "Matkailututkimus (2005-2013)<br/>Julkaisija: Suomen matkailututkimuksen seura ry<br/>Kotisivu: <a href='http://matkailututkimus.org/'>http://matkailututkimus.org/</a>",
-    id : "tiedelehdet_matkailututkimus",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Matkailututkimus",
+    description: "Matkailututkimus (2005-2013)<br/>Julkaisija: Suomen matkailututkimuksen seura ry<br/>Kotisivu: <a href='http://matkailututkimus.org/'>http://matkailututkimus.org/</a>",
+    id: "tiedelehdet_matkailututkimus",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_citationabstracthtmlurl : sattrs.link_lehdet,
-        text_citationauthors : {
-            label : "text_author"
+    struct_attributes: {
+        text_citationabstracthtmlurl: sattrs.link_lehdet,
+        text_citationauthors: {
+            label: "text_author"
         },
-        text_citationpublisher : {
-            label : "text_publisher"
+        text_citationpublisher: {
+            label: "text_publisher"
         },
-        text_citationtitle : {
-            label : "text_title"
+        text_citationtitle: {
+            label: "text_title"
         },
-        text_citationdate : {
-            label : "year"
+        text_citationdate: {
+            label: "year"
         },
-        text_citation : {
-            label : "issue"
+        text_citation: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_kunnallistiede = {
-    title : "Kunnallistieteellinen aikakauskirja",
-    description : "Kunnallistieteellinen aikakauskirja (2002-2012)<br/>Julkaisija: Kunnallistieteen yhdistys<br/>Kotisivu: <a href='http://www.kunnallistiede.fi/aikakauskirja/'>http://www.kunnallistiede.fi/aikakauskirja/</a>",
-    id : "tiedelehdet_kunnallistiede",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Kunnallistieteellinen aikakauskirja",
+    description: "Kunnallistieteellinen aikakauskirja (2002-2012)<br/>Julkaisija: Kunnallistieteen yhdistys<br/>Kotisivu: <a href='http://www.kunnallistiede.fi/aikakauskirja/'>http://www.kunnallistiede.fi/aikakauskirja/</a>",
+    id: "tiedelehdet_kunnallistiede",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_citationabstracthtmlurl : sattrs.link_lehdet,
-        text_citationauthors : {
-            label : "text_author"
+    struct_attributes: {
+        text_citationabstracthtmlurl: sattrs.link_lehdet,
+        text_citationauthors: {
+            label: "text_author"
         },
-        text_citationpublisher : {
-            label : "text_publisher"
+        text_citationpublisher: {
+            label: "text_publisher"
         },
-        text_citationtitle : {
-            label : "text_title"
+        text_citationtitle: {
+            label: "text_title"
         },
-        text_citationdate : {
-            label : "year"
+        text_citationdate: {
+            label: "year"
         },
-        text_citation : {
-            label : "issue"
+        text_citation: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_maaseudunuusiaika = {
-    title : "Maaseudun uusi aika",
-    description : "Maaseudun uusi aika (2000-2013)<br/>Julkaisija: Maaseudun uusi aika -yhdistys<br/>Kotisivu: <a href='http://www.mua.fi/lehti/'>http://www.mua.fi/lehti/</a>",
-    id : "tiedelehdet_maaseudunuusiaika",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Maaseudun uusi aika",
+    description: "Maaseudun uusi aika (2000-2013)<br/>Julkaisija: Maaseudun uusi aika -yhdistys<br/>Kotisivu: <a href='http://www.mua.fi/lehti/'>http://www.mua.fi/lehti/</a>",
+    id: "tiedelehdet_maaseudunuusiaika",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        /*text_title : sattrs.text_title,*/
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        /*text_title: sattrs.text_title,*/
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 
 settings.corpora.tiedelehdet_elo = {
-    title : "Elinikäisen ohjauksen verkkolehti",
-    description : "Elinikäisen ohjauksen verkkolehti (2011-2014)<br/>Julkaisija: JAMK ammatillinen opettajakorkeakoulu<br/>Kotisivu: <a href='http://verkkolehdet.jamk.fi/elo/'>http://verkkolehdet.jamk.fi/elo/</a>",
-    id : "tiedelehdet_elo",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    title: "Elinikäisen ohjauksen verkkolehti",
+    description: "Elinikäisen ohjauksen verkkolehti (2011-2014)<br/>Julkaisija: JAMK ammatillinen opettajakorkeakoulu<br/>Kotisivu: <a href='http://verkkolehdet.jamk.fi/elo/'>http://verkkolehdet.jamk.fi/elo/</a>",
+    id: "tiedelehdet_elo",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_bryobrotherella = {
-    title : "Bryobrotherella",
-    description : "Bryobrotherella (2008–2012)<br/>Julkaisija: Suomen Sammalseura<br/>Kotisivu: <a href='http://www.suomensammalseura.fi/'>http://www.suomensammalseura.fi</a>",
-    id : "tiedelehdet_bryobrotherella",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Bryobrotherella",
+    description: "Bryobrotherella (2008–2012)<br/>Julkaisija: Suomen Sammalseura<br/>Kotisivu: <a href='http://www.suomensammalseura.fi/'>http://www.suomensammalseura.fi</a>",
+    id: "tiedelehdet_bryobrotherella",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_lounaishame = {
-    title : "Lounais-Hämeen Luonto",
-    description : "Lounais-Hämeen Luonto (2000-2010)<br/>Julkaisija: Lounais-Hämeen Luonnonsuojeluyhdistys ry<br/>Kotisivu: <a href='http://www.lounaisluonto.net/'>http://www.lounaisluonto.net/</a>",
-    id : "tiedelehdet_lounaishame",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Lounais-Hämeen Luonto",
+    description: "Lounais-Hämeen Luonto (2000-2010)<br/>Julkaisija: Lounais-Hämeen Luonnonsuojeluyhdistys ry<br/>Kotisivu: <a href='http://www.lounaisluonto.net/'>http://www.lounaisluonto.net/</a>",
+    id: "tiedelehdet_lounaishame",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_kompositio = {
-    title : "Kompositio",
-    description : "Kompositio (2007-2013)<br/>Julkaisija: Suomen Säveltäjät ry<br/>Kotisivu: <a href='http://www.composers.fi/tietoa-yhdistyksesta/kompositio/'>http://www.composers.fi/tietoa-yhdistyksesta/kompositio/</a>",
-    id : "tiedelehdet_kompositio",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Kompositio",
+    description: "Kompositio (2007-2013)<br/>Julkaisija: Suomen Säveltäjät ry<br/>Kotisivu: <a href='http://www.composers.fi/tietoa-yhdistyksesta/kompositio/'>http://www.composers.fi/tietoa-yhdistyksesta/kompositio/</a>",
+    id: "tiedelehdet_kompositio",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_liiketalous = {
-    title : "Liiketaloudellinen Aikakauskirja",
-    description : "Liiketaloudellinen Aikakauskirja (2000-2013)<br/>Julkaisija: Liiketaloustieteellinen Yhdistys ry<br/>Kotisivu: <a href='http://lta.hse.fi/'>http://lta.hse.fi/</a>",
-    id : "tiedelehdet_liiketalous",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Liiketaloudellinen Aikakauskirja",
+    description: "Liiketaloudellinen Aikakauskirja (2000-2013)<br/>Julkaisija: Liiketaloustieteellinen Yhdistys ry<br/>Kotisivu: <a href='http://lta.hse.fi/'>http://lta.hse.fi/</a>",
+    id: "tiedelehdet_liiketalous",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 
 settings.corpora.tiedelehdet_geofoorumi = {
-    title : "GeoFoorumi",
-    description : "GeoFoorumi (2006-2013)<br/>Julkaisija: Geologian tutkimuskeskus (GTK)<br/><a href='http://www.gtk.fi/ajankohtaista/painotuotteet/geofoorumi/'>http://www.gtk.fi/ajankohtaista/painotuotteet/geofoorumi/</a>",
-    id : "tiedelehdet_geofoorumi",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "GeoFoorumi",
+    description: "GeoFoorumi (2006-2013)<br/>Julkaisija: Geologian tutkimuskeskus (GTK)<br/><a href='http://www.gtk.fi/ajankohtaista/painotuotteet/geofoorumi/'>http://www.gtk.fi/ajankohtaista/painotuotteet/geofoorumi/</a>",
+    id: "tiedelehdet_geofoorumi",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_agricola = {
-    title : "Agricolan Tietosanomat",
-    description : "Agricolan Tietosanomat (2000)<br/>Julkaisija: <br/>Kotisivu: <a href='http://agricola.utu.fi/julkaisut/tietosanomat/'>http://agricola.utu.fi/julkaisut/tietosanomat/</a>",
-    id : "tiedelehdet_agricola",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Agricolan Tietosanomat",
+    description: "Agricolan Tietosanomat (2000)<br/>Julkaisija: <br/>Kotisivu: <a href='http://agricola.utu.fi/julkaisut/tietosanomat/'>http://agricola.utu.fi/julkaisut/tietosanomat/</a>",
+    id: "tiedelehdet_agricola",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_atitle : sattrs.text_title,
-        text_url : sattrs.link_lehdet,
-        text_author : sattrs.article_author,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_atitle: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
+        text_author: sattrs.article_author,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_diakonia = {
-    title : "Diakonian tutkimus –aikakauskirja",
-    description : "Diakonian tutkimus -aikakauskirja (2004–2013)<br/>Julkaisija: Diakonian Tutkimuksen Seura<br/>Kotisivu: <a href='http://dts.fi/aikakauskirja/'>http://dts.fi/aikakauskirja/</a>",
-    id : "tiedelehdet_diakonia",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Diakonian tutkimus –aikakauskirja",
+    description: "Diakonian tutkimus -aikakauskirja (2004–2013)<br/>Julkaisija: Diakonian Tutkimuksen Seura<br/>Kotisivu: <a href='http://dts.fi/aikakauskirja/'>http://dts.fi/aikakauskirja/</a>",
+    id: "tiedelehdet_diakonia",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        /*text_url : sattrs.link_lehdet,*/
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        /*text_url: sattrs.link_lehdet,*/
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_psykologia = {
-    title : "Psykologia-lehti",
-    description : "Psykologia-lehti (2009-2010)<br/>Julkaisija: Suomen psykologinen seura<br/>Kotisivu: <a href='http://www.psykologia.fi/'>http://www.psykologia.fi/</a>",
-    id : "tiedelehdet_psykologia",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Psykologia-lehti",
+    description: "Psykologia-lehti (2009-2010)<br/>Julkaisija: Suomen psykologinen seura<br/>Kotisivu: <a href='http://www.psykologia.fi/'>http://www.psykologia.fi/</a>",
+    id: "tiedelehdet_psykologia",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        /*text_url : sattrs.link_lehdet,*/
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        /*text_url: sattrs.link_lehdet,*/
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_ruralia = {
-    title : "Ruralia-lehti",
-    description : "Ruralia-lehti (2006-2014)<br/>Julkaisija: Ruralia-instituutti<br/>Kotisivu: <a href='http://www.helsinki.fi/ruralia/'>http://www.helsinki.fi/ruralia/</a>",
-    id : "tiedelehdet_ruralia",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Ruralia-lehti",
+    description: "Ruralia-lehti (2006-2014)<br/>Julkaisija: Ruralia-instituutti<br/>Kotisivu: <a href='http://www.helsinki.fi/ruralia/'>http://www.helsinki.fi/ruralia/</a>",
+    id: "tiedelehdet_ruralia",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_historiallinen = {
-    title : "Historiallinen Aikakauskirja",
-    description : "Historiallinen Aikakauskirja (2001-2013)<br/>Julkaisija: Suomen Historiallinen Seura & Historian Ystäväin Liitto<br/>Kotisivu: <a href='http://www.historiallinenaikakauskirja.fi/'>http://www.historiallinenaikakauskirja.fi/</a>",
-    id : "tiedelehdet_historiallinen",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Historiallinen Aikakauskirja",
+    description: "Historiallinen Aikakauskirja (2001-2013)<br/>Julkaisija: Suomen Historiallinen Seura & Historian Ystäväin Liitto<br/>Kotisivu: <a href='http://www.historiallinenaikakauskirja.fi/'>http://www.historiallinenaikakauskirja.fi/</a>",
+    id: "tiedelehdet_historiallinen",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_citationabstracthtmlurl : sattrs.link_lehdet,
-        text_citationauthors : {
-            label : "text_author"
+    struct_attributes: {
+        text_citationabstracthtmlurl: sattrs.link_lehdet,
+        text_citationauthors: {
+            label: "text_author"
         },
-        text_citationpublisher : {
-            label : "publisher"
+        text_citationpublisher: {
+            label: "publisher"
         },
-        text_citationtitle : {
-            label : "text_title"
+        text_citationtitle: {
+            label: "text_title"
         },
-        text_citationdate : {
-            label : "year"
+        text_citationdate: {
+            label: "year"
         },
-        text_citation : {
-            label : "issue"
+        text_citation: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_havina = {
-    title : "Havina",
-    description : "Havina (2009-2013)<br/>Julkaisija: Oulun yliopisto, Historiatieteet</br>Kotisivu: <a href='http://www.havina.net/'>http://www.havina.net/</a>",
-    id : "tiedelehdet_havina",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Havina",
+    description: "Havina (2009-2013)<br/>Julkaisija: Oulun yliopisto, Historiatieteet</br>Kotisivu: <a href='http://www.havina.net/'>http://www.havina.net/</a>",
+    id: "tiedelehdet_havina",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_atitle : sattrs.text_title,
-        text_date : sattrs.date,
-        text_url : sattrs.link_lehdet,
-        text_author : sattrs.article_author,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_atitle: sattrs.text_title,
+        text_date: sattrs.date,
+        text_url: sattrs.link_lehdet,
+        text_author: sattrs.article_author,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_harukaze = {
-    title : "Harukaze",
-    description : "Harukaze (2000-2013)<br/>Julkaisija: Japani-opinnot, Oulun yliopisto, Oulu<br/>Kotisivu: <a href='http://www.oulu.fi/Harukaze/'>http://www.oulu.fi/Harukaze/</a>",
-    id : "tiedelehdet_harukaze",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Harukaze",
+    description: "Harukaze (2000-2013)<br/>Julkaisija: Japani-opinnot, Oulun yliopisto, Oulu<br/>Kotisivu: <a href='http://www.oulu.fi/Harukaze/'>http://www.oulu.fi/Harukaze/</a>",
+    id: "tiedelehdet_harukaze",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_atitle : sattrs.text_title,
-        text_url : sattrs.link_lehdet,
-        text_author : sattrs.article_author,
-        text_date : sattrs.date,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_atitle: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
+        text_author: sattrs.article_author,
+        text_date: sattrs.date,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_glossae = {
-    title : "Glossae",
-    description : "Glossae (2000-2012)<br/>Julkaisija: Keskiajan opinto- ja tutkimusyhdistys<br/>Kotisivu: <a href='http://www.glossa.fi/glossae/arkisto.php'>http://www.glossa.fi/glossae/arkisto.php</a>",
-    id : "tiedelehdet_glossae",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Glossae",
+    description: "Glossae (2000-2012)<br/>Julkaisija: Keskiajan opinto- ja tutkimusyhdistys<br/>Kotisivu: <a href='http://www.glossa.fi/glossae/arkisto.php'>http://www.glossa.fi/glossae/arkisto.php</a>",
+    id: "tiedelehdet_glossae",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 
 settings.corpora.tiedelehdet_musiikkikasv = {
-    title : "Musiikkikasvatuslehti",
-    description : "Musiikkikasvatuslehti (2014)<br/>Julkaisijat: Sibelius-Akatemia & Suomen Taidekasvatuksen tutkimusseura<br/>Kotisivu: <a href='http://www2.siba.fi/musiikkikasvatuslehti/'>http://www2.siba.fi/musiikkikasvatuslehti/</a>",
-    id : "tiedelehdet_musiikkikasv",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Musiikkikasvatuslehti",
+    description: "Musiikkikasvatuslehti (2014)<br/>Julkaisijat: Sibelius-Akatemia & Suomen Taidekasvatuksen tutkimusseura<br/>Kotisivu: <a href='http://www2.siba.fi/musiikkikasvatuslehti/'>http://www2.siba.fi/musiikkikasvatuslehti/</a>",
+    id: "tiedelehdet_musiikkikasv",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_areiopagi = {
-    title : "Areiopagi",
-    description : "Areiopagi (2013)<br/>Julkaisija: Areiopagi ry<br/>Kotisivu: <a href='http://www.areiopagi.fi/'>http://www.areiopagi.fi/</a>",
-    id : "tiedelehdet_areiopagi",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Areiopagi",
+    description: "Areiopagi (2013)<br/>Julkaisija: Areiopagi ry<br/>Kotisivu: <a href='http://www.areiopagi.fi/'>http://www.areiopagi.fi/</a>",
+    id: "tiedelehdet_areiopagi",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_atitle : sattrs.text_title,
-        text_url : sattrs.link_lehdet,
-        text_author : sattrs.article_author,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_atitle: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
+        text_author: sattrs.article_author,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 
 settings.corpora.tiedelehdet_ats = {
-    title : "ATS-Ydintekniikka",
-    description : "ATS-Ydintekniikka (2000–2013)<br/>Julkaisija: Suomen Atomiteknillinen Seura<br/>Kotisivu: <a href='http://www.ats-fns.fi/fi/ats-ydintekniikka/lehdet'>http://www.ats-fns.fi/fi/ats-ydintekniikka/lehdet</a>",
-    id : "tiedelehdet_ats",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "ATS-Ydintekniikka",
+    description: "ATS-Ydintekniikka (2000–2013)<br/>Julkaisija: Suomen Atomiteknillinen Seura<br/>Kotisivu: <a href='http://www.ats-fns.fi/fi/ats-ydintekniikka/lehdet'>http://www.ats-fns.fi/fi/ats-ydintekniikka/lehdet</a>",
+    id: "tiedelehdet_ats",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        /*text_url : sattrs.link_lehdet,*/
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        /*text_url: sattrs.link_lehdet,*/
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 
 settings.corpora.tiedelehdet_auraica = {
-    title : "Auraica",
-    description : "Auraica (2008–2012)<br/>Julkaisija: Porthan-Seura ry<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/Aur/issue/archive'>http://ojs.tsv.fi/index.php/Aur/issue/archive</a>",
-    id : "tiedelehdet_auraica",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Auraica",
+    description: "Auraica (2008–2012)<br/>Julkaisija: Porthan-Seura ry<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/Aur/issue/archive'>http://ojs.tsv.fi/index.php/Aur/issue/archive</a>",
+    id: "tiedelehdet_auraica",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_aikuiskasvatus = {
-    title : "Aikuiskasvatus",
-    description : "Aikuiskasvatus (2011–2014)<br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura<br/>Kotisivu: <a href='http://www.doria.fi/handle/10024/7300'>http://www.doria.fi/handle/10024/7300</a><br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotTiedelehtia/Aikuiskasvatus_artikkeliluettelo.pdf'>Artikkeliluettelo</a>",
-    id : "tiedelehdet_aikuiskasvatus",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Aikuiskasvatus",
+    description: "Aikuiskasvatus (2011–2014)<br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura<br/>Kotisivu: <a href='http://www.doria.fi/handle/10024/7300'>http://www.doria.fi/handle/10024/7300</a><br/><a href='https://kitwiki.csc.fi/twiki/pub/FinCLARIN/KielipankkiAineistotTiedelehtia/Aikuiskasvatus_artikkeliluettelo.pdf'>Artikkeliluettelo</a>",
+    id: "tiedelehdet_aikuiskasvatus",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_atitle : sattrs.text_title,
-        /*text_date : sattrs.date,*/
-        text_author : sattrs.article_author,
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_atitle: sattrs.text_title,
+        /*text_date: sattrs.date,*/
+        text_author: sattrs.article_author,
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_toksikologi = {
-    title : "Toksikologi-lehti",
-    description : "Toksikologi-lehti (2000-2013)<br/>Julkaisija: Suomen toksikologiyhdistys<br/>Kotisivu: <a href='http://www.toksikologit.fi/lehti.html'>http://www.toksikologit.fi/lehti.html</a>",
-    id : "tiedelehdet_toksikologi",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Toksikologi-lehti",
+    description: "Toksikologi-lehti (2000-2013)<br/>Julkaisija: Suomen toksikologiyhdistys<br/>Kotisivu: <a href='http://www.toksikologit.fi/lehti.html'>http://www.toksikologit.fi/lehti.html</a>",
+    id: "tiedelehdet_toksikologi",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet
     }
 };
 
 settings.corpora.tiedelehdet_walbum = {
-    title : "W-album",
-    description : "W-album (2004-2013)<br/>Julkaisija: Turun Eläin- ja Kasvitieteellisen seuran Hyönteiskerho<br/>Kotisivu: <a href='http://org.utu.fi/harrastus/TEKS/w-album/'>http://org.utu.fi/harrastus/TEKS/w-album/</a>",
-    id : "tiedelehdet_walbum",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "W-album",
+    description: "W-album (2004-2013)<br/>Julkaisija: Turun Eläin- ja Kasvitieteellisen seuran Hyönteiskerho<br/>Kotisivu: <a href='http://org.utu.fi/harrastus/TEKS/w-album/'>http://org.utu.fi/harrastus/TEKS/w-album/</a>",
+    id: "tiedelehdet_walbum",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet
     }
 };
 
 settings.corpora.tiedelehdet_tyoelama = {
-    title : "Työelämän tutkimus",
-    description : "Työelämän tutkimus (2003-2012)<br/>Julkaisija: Työelämän tutkimusyhdistys<br/>Kotisivu: <a href='http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/'>http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/</a>",
-    id : "tiedelehdet_tyoelama",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Työelämän tutkimus",
+    description: "Työelämän tutkimus (2003-2012)<br/>Julkaisija: Työelämän tutkimusyhdistys<br/>Kotisivu: <a href='http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/'>http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/</a>",
+    id: "tiedelehdet_tyoelama",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet
     }
 };
 
 settings.corpora.tiedelehdet_ura = {
-    title : "Ura/Valtiotieteilijä",
-    description : "Valtiotieteilijä (2009-2011), Ura (2012-2013)<br/>Julkaisija: Yhteiskunta-alan korkeakoulutetut ry<br/>Kotisivu: <a href='http://uralehti.fi/arkisto/'>http://uralehti.fi/arkisto/</a>",
-    id : "tiedelehdet_ura",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    title: "Ura/Valtiotieteilijä",
+    description: "Valtiotieteilijä (2009-2011), Ura (2012-2013)<br/>Julkaisija: Yhteiskunta-alan korkeakoulutetut ry<br/>Kotisivu: <a href='http://uralehti.fi/arkisto/'>http://uralehti.fi/arkisto/</a>",
+    id: "tiedelehdet_ura",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.standard,
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 /*
 settings.corpora.tiedelehdet_virittaja = {
-    title : "Virittäjä",
-    description : "Virittäjä (2009-2013)<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
-    id : "tiedelehdet_virittaja",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Virittäjä",
+    description: "Virittäjä (2009-2013)<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
+    id: "tiedelehdet_virittaja",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet
     }
     };*/
 
 settings.corpora.tiedelehdet_virittaja = {
-    title : "Virittäjä",
-    description : "Virittäjä (3/2006-4/2013)<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
-    id : "tiedelehdet_virittaja",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_citationabstracthtmlurl : sattrs.link_lehdet,
-        text_citationauthors : {
-            label : "text_author"
+    title: "Virittäjä",
+    description: "Virittäjä (3/2006-4/2013)<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
+    id: "tiedelehdet_virittaja",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_citationabstracthtmlurl: sattrs.link_lehdet,
+        text_citationauthors: {
+            label: "text_author"
         },
-        text_citationpublisher : {
-            label : "text_publisher"
+        text_citationpublisher: {
+            label: "text_publisher"
         },
-        text_citationtitle : {
-            label : "text_title"
+        text_citationtitle: {
+            label: "text_title"
         },
-        text_citationdate : {
-            label : "year"
+        text_citationdate: {
+            label: "year"
         },
-        text_citation : {
-            label : "lehdet_issue"
+        text_citation: {
+            label: "lehdet_issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_ymparistohistoria = {
-    title : "Ympäristöhistoria",
-    description : "Ympäristöhistoria (2011-2013)<br/>Julkaisija: <br/>Kotisivu: <a href='http://www.uta.fi/yky/tutkimus/historia/projektit/iehg/Ymparistohistoria/12011.html'>http://www.uta.fi/yky/tutkimus/historia/projektit/iehg/Ymparistohistoria/12011.html</a>",
-    id : "tiedelehdet_ymparistohistoria",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Ympäristöhistoria",
+    description: "Ympäristöhistoria (2011-2013)<br/>Julkaisija: <br/>Kotisivu: <a href='http://www.uta.fi/yky/tutkimus/historia/projektit/iehg/Ymparistohistoria/12011.html'>http://www.uta.fi/yky/tutkimus/historia/projektit/iehg/Ymparistohistoria/12011.html</a>",
+    id: "tiedelehdet_ymparistohistoria",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
 
     }
 };
 
 settings.corpora.tiedelehdet_trio = {
-    title : "Trio",
-    description : "Trio (2012-2014)<br/>Julkaisija: Sibelius Akatemia (DocMus)<br/>Kotisivu: <a href='http://www5.siba.fi/services-for-all/publications/printed-publications/periodicals'>http://www5.siba.fi/services-for-all/publications/printed-publications/periodicals</a>",
-    id : "tiedelehdet_trio",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Trio",
+    description: "Trio (2012-2014)<br/>Julkaisija: Sibelius Akatemia (DocMus)<br/>Kotisivu: <a href='http://www5.siba.fi/services-for-all/publications/printed-publications/periodicals'>http://www5.siba.fi/services-for-all/publications/printed-publications/periodicals</a>",
+    id: "tiedelehdet_trio",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue"
         }
 
     }
 };
 
 settings.corpora.tiedelehdet_transmitteri = {
-    title : "Transmitteri",
-    description : "Transmitteri (2000-2013)<br/>Julkaisija: Suomen farmakologiyhdistys<br/>Kotisivu: <a href='http://www.sfy.fi/transmitteri.html'>http://www.sfy.fi/transmitteri.html</a>",
-    id : "tiedelehdet_transmitteri",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Transmitteri",
+    description: "Transmitteri (2000-2013)<br/>Julkaisija: Suomen farmakologiyhdistys<br/>Kotisivu: <a href='http://www.sfy.fi/transmitteri.html'>http://www.sfy.fi/transmitteri.html</a>",
+    id: "tiedelehdet_transmitteri",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet
     }
 };
 
 
 settings.corpora.tiedelehdet_thanatos = {
-    title : "Thanatos",
-    description : "Thanatos (2012-2013)<br/>Julkaisija: Suomalaisen Kuolemantutkimuksen Seura ry<br/>Kotisivu: <a href='http://thanatos-journal.com/'>http://thanatos-journal.com/</a>",
-    id : "tiedelehdet_thanatos",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Thanatos",
+    description: "Thanatos (2012-2013)<br/>Julkaisija: Suomalaisen Kuolemantutkimuksen Seura ry<br/>Kotisivu: <a href='http://thanatos-journal.com/'>http://thanatos-journal.com/</a>",
+    id: "tiedelehdet_thanatos",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet
     }
 };
 
 
 
 settings.corpora.tiedelehdet_aluejaymparisto = {
-    title : "Alue ja ympäristö",
-    description : "Alue ja ympäristö (2005–2014)<br/>Julkaisija: Alue- ja ympäristötutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/aluejaymparisto'>http://www.ays.fi/aluejaymparisto</a>",
-    id : "tiedelehdet_aluejaymparisto",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Alue ja ympäristö",
+    description: "Alue ja ympäristö (2005–2014)<br/>Julkaisija: Alue- ja ympäristötutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/aluejaymparisto'>http://www.ays.fi/aluejaymparisto</a>",
+    id: "tiedelehdet_aluejaymparisto",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        /*text_date : sattrs.date,*/
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        /*text_date: sattrs.date,*/
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_aakusti = {
-    title : "Aakusti",
-    description : "Aakusti (2008–2013)<br/>Julkaisija: Savon kielen seura ry<br/>Kotisivu: <a href='http://savonkielenseura.fi/arkistosivu/'>http://savonkielenseura.fi/arkistosivu/</a>",
-    id : "tiedelehdet_aakusti",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Aakusti",
+    description: "Aakusti (2008–2013)<br/>Julkaisija: Savon kielen seura ry<br/>Kotisivu: <a href='http://savonkielenseura.fi/arkistosivu/'>http://savonkielenseura.fi/arkistosivu/</a>",
+    id: "tiedelehdet_aakusti",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        /*text_date : sattrs.date,*/
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        /*text_date: sattrs.date,*/
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_30paivaa = {
-    title : "30 Päivää",
-    description : "30 Päivää (2013)<br/>Julkaisija: Sosiaalialan korkeakoulutettujen ammattijärjestö Talentia ry<br/>Kotisivu: <a href='http://www.talentia.isinteksas.com/julkaisut/'>http://www.talentia.isinteksas.com/julkaisut/</a>",
-    id : "tiedelehdet_30paivaa",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "30 Päivää",
+    description: "30 Päivää (2013)<br/>Julkaisija: Sosiaalialan korkeakoulutettujen ammattijärjestö Talentia ry<br/>Kotisivu: <a href='http://www.talentia.isinteksas.com/julkaisut/'>http://www.talentia.isinteksas.com/julkaisut/</a>",
+    id: "tiedelehdet_30paivaa",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        /*text_date : sattrs.date,*/
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        /*text_date: sattrs.date,*/
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_aidinkieli = {
-    title : "Aikakauskirja Äidinkielen opetustiede",
-    description : "Aikakauskirja Äidinkielen opetustiede (2008–2012)<br/>Julkaisija: Äidinkielen Opetustieteen Seura ry<br/>Kotisivu: <a href='http://www.aidinkielenopetustieteenseurary.com/'>http://www.aidinkielenopetustieteenseurary.com/</a>",
-    id : "tiedelehdet_aidinkieli",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Aikakauskirja Äidinkielen opetustiede",
+    description: "Aikakauskirja Äidinkielen opetustiede (2008–2012)<br/>Julkaisija: Äidinkielen Opetustieteen Seura ry<br/>Kotisivu: <a href='http://www.aidinkielenopetustieteenseurary.com/'>http://www.aidinkielenopetustieteenseurary.com/</a>",
+    id: "tiedelehdet_aidinkieli",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        /*text_date : sattrs.date,*/
-        text_url : sattrs.link_lehdet,
-        text_issue : {
-            label : "issue"
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        /*text_date: sattrs.date,*/
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.tiedelehdet_kognitiivinen = {
-    title : "Kognitiivinen psykoterapia",
-    description : "Kognitiivinen psykoterapia (2004-2013)<br/>Julkaisija: Kognitiivisen psykoterapian yhdistys<br/>Kotisivu: <a href='http://www.kognitiivinenpsykoterapia.fi/'>http://www.kognitiivinenpsykoterapia.fi/</a>",
-    id : "tiedelehdet_kognitiivinen",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
+    title: "Kognitiivinen psykoterapia",
+    description: "Kognitiivinen psykoterapia (2004-2013)<br/>Julkaisija: Kognitiivisen psykoterapian yhdistys<br/>Kotisivu: <a href='http://www.kognitiivinenpsykoterapia.fi/'>http://www.kognitiivinenpsykoterapia.fi/</a>",
+    id: "tiedelehdet_kognitiivinen",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_url : sattrs.link_lehdet
+    struct_attributes: {
+        text_url: sattrs.link_lehdet
     }
 };
 
@@ -5331,119 +5331,119 @@ settings.corpora.tiedelehdet_kognitiivinen = {
 settings.corpus_aliases.muut_lehdet = "lehdet_.*";
 
 settings.corpora.lehdet_selkosanomat = {
-    title : "Selkosanomat/Selkouutiset",
-    description : "Selkouutiset (25/2006-2011), Selkosanomat (2012-2013)<br/>Julkaisija: Selkokeskus / Kehitysvammaliitto<br/>Kotisivu: <a href='http://selkosanomat.fi/'>http://selkosanomat.fi/</a>",
-    id : "lehdet_selkosanomat",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_issue : {
-            label : "issue"
+    title: "Selkosanomat/Selkouutiset",
+    description: "Selkouutiset (25/2006-2011), Selkosanomat (2012-2013)<br/>Julkaisija: Selkokeskus / Kehitysvammaliitto<br/>Kotisivu: <a href='http://selkosanomat.fi/'>http://selkosanomat.fi/</a>",
+    id: "lehdet_selkosanomat",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue"
         }
     }
 };
 
 settings.corpora.lehdet_leija = {
-    title : "Leija",
-    description : "Leija (2009-3/2016)<br/>Julkaisija: Kehitysvammaisen tukiliitto ry<br/>Kotisivu: <a href='http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/'>http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/</a>",
-    id : "lehdet_leija",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_title : {
-            label : "text_title"
+    title: "Leija",
+    description: "Leija (2009-3/2016)<br/>Julkaisija: Kehitysvammaisen tukiliitto ry<br/>Kotisivu: <a href='http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/'>http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/</a>",
+    id: "lehdet_leija",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_title: {
+            label: "text_title"
         },
-        text_year : {
-            label : "year"
+        text_year: {
+            label: "year"
         },
-        text_issue : {
-            label : "issue"
+        text_issue: {
+            label: "issue"
         },
     }
 };
 
 settings.corpora.lehdet_ekonomi = {
-    title : "Ekonomi",
-    description : "Ekonomi (2013–2014)<br/>Julkaisija: Suomen Ekonomiliitto<br/>Kotisivu: <a href='http://www.ekonomilehti.fi/'>http://www.ekonomilehti.fi/</a>",
-    id : "lehdet_ekonomi",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_date : sattrs.date,
-        text_url : sattrs.link_lehdet,
-	text_issue : {
-	    label : "issue"
+    title: "Ekonomi",
+    description: "Ekonomi (2013–2014)<br/>Julkaisija: Suomen Ekonomiliitto<br/>Kotisivu: <a href='http://www.ekonomilehti.fi/'>http://www.ekonomilehti.fi/</a>",
+    id: "lehdet_ekonomi",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_date: sattrs.date,
+        text_url: sattrs.link_lehdet,
+	text_issue: {
+	    label: "issue"
 	}
     }
 };
 
 settings.corpora.lehdet_toisinsanoen = {
-    title : "Toisin sanoen",
-    description : "Toisin sanoen (2005-2014)<br/>Kotisivu: <a href='http://www.toisinsanoen.fi/'>http://www.toisinsanoen.fi/</a>",
-    id : "lehdet_toisinsanoen",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_date : sattrs.date,
-        text_category : {
-            label : "text_category"
+    title: "Toisin sanoen",
+    description: "Toisin sanoen (2005-2014)<br/>Kotisivu: <a href='http://www.toisinsanoen.fi/'>http://www.toisinsanoen.fi/</a>",
+    id: "lehdet_toisinsanoen",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_date: sattrs.date,
+        text_category: {
+            label: "text_category"
         },
-        text_author : {
-            label : "article_author"
+        text_author: {
+            label: "article_author"
         },
     }
 };
 
 settings.corpora.lehdet_koskinen = {
-    title : "Verkkolehti Koskinen",
-    description : "Verkkolehti Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996–2013)<br/>Julkaisija: Kymenlaakson ammattikorkeakoulu<br/>Kotisivu: <a href='http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/'>http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/</a>",
-    id : "lehdet_koskinen",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_date : sattrs.date,
-        text_url : sattrs.link_lehdet
+    title: "Verkkolehti Koskinen",
+    description: "Verkkolehti Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996–2013)<br/>Julkaisija: Kymenlaakson ammattikorkeakoulu<br/>Kotisivu: <a href='http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/'>http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/</a>",
+    id: "lehdet_koskinen",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_date: sattrs.date,
+        text_url: sattrs.link_lehdet
     }
 };
 
 
 settings.corpora.lehdet_aarre = {
-    title : "Aarre",
-    description : "Aarre – Lehti Metsästä (2013–3/2015)<br/>Kotisivu: <a href='http://www.aarrelehti.fi/'>http://www.aarrelehti.fi/</a>",
-    id : "lehdet_aarre",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_title : {
-            label : "text_title"
+    title: "Aarre",
+    description: "Aarre – Lehti Metsästä (2013–3/2015)<br/>Kotisivu: <a href='http://www.aarrelehti.fi/'>http://www.aarrelehti.fi/</a>",
+    id: "lehdet_aarre",
+    urn: "",
+    metadata_urn: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_title: {
+            label: "text_title"
         },
-        text_year : {
-            label : "year"
+        text_year: {
+            label: "year"
         },
-        text_issue : {
-            label : "issue"
+        text_issue: {
+            label: "issue"
         },
     }
 };
@@ -5681,79 +5681,79 @@ settings.corpora.lehdet_sosiaalivakuutus = {
 
 
 settings.corpora.hsfi = {
-    title : "HS.fi",
-    description : "HS.fi-uutiskommenttiaineisto",
-    id : "hsfi",
-    urn : "urn:nbn:fi:lb-2014052717",
-    metadata_urn : "urn:nbn:fi:lb-2014052718",
-    licence : {
-	urn : "urn:nbn:fi:lb-20150304140",
-	name : "CLARIN ACA +NC +anonymisointi",
-	description : "Vain ei-kaupalliseen tutkimuskäyttöön. Nimimerkit tulee anonymisoida korpukseen viittaavissa julkaisuissa.",
+    title: "HS.fi",
+    description: "HS.fi-uutiskommenttiaineisto",
+    id: "hsfi",
+    urn: "urn:nbn:fi:lb-2014052717",
+    metadata_urn: "urn:nbn:fi:lb-2014052718",
+    licence: {
+	urn: "urn:nbn:fi:lb-20150304140",
+	name: "CLARIN ACA +NC +anonymisointi",
+	description: "Vain ei-kaupalliseen tutkimuskäyttöön. Nimimerkit tulee anonymisoida korpukseen viittaavissa julkaisuissa.",
     },
-    cite_id : "HS.fi",
-    limited_access : true,
-    licence_type : "ACA",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        lemmacomp : attrs.baseform_compound,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        lex : attrs.lemgram_hidden
+    cite_id: "HS.fi",
+    limited_access: true,
+    licence_type: "ACA",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        lemmacomp: attrs.baseform_compound,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        lex: attrs.lemgram_hidden
     },
-    struct_attributes : {
-        sentence_id : sattrs.sentence_id_hidden,
-	text_id : {
-	    label : "text_id"
+    struct_attributes: {
+        sentence_id: sattrs.sentence_id_hidden,
+	text_id: {
+	    label: "text_id"
 	},
-	text_time : {
-	    label : "text_time"
+	text_time: {
+	    label: "text_time"
 	    },
-	text_date : {
-	    label : "text_date"
+	text_date: {
+	    label: "text_date"
 	},
-	text_fulldate : {
-	    label : "timestamp",
-	    displayType : "hidden"
+	text_fulldate: {
+	    label: "timestamp",
+	    displayType: "hidden"
 	},
-	text_publicnick : {
-	    label : "text_publicnick",
+	text_publicnick: {
+	    label: "text_publicnick",
 	},
-	text_title : sattrs.text_title
+	text_title: sattrs.text_title
     }
 
 };
 
 
 settings.corpora.karjalansuomi = {
-    title : "Karjalansuomi",
-    description : "Karjalan suomen sanomalehtikorpus: Karjalan Sanomat (2012–2014)<br/>Julkaisija: Periodika-kustantamo<br/>Kotisivu: <a href='http://karjalansanomat.ru/'>http://karjalansanomat.ru/</a>",
-    id : "karjalansuomi",
-    urn : "urn:nbn:fi:lb-2016112501",
-    metadata_urn : "urn:nbn:fi:lb-2014092601",
-    licence : {
-	name : "CLARIN ACA 1.0",
-	urn : "urn:nbn:fi:lb-2016112302",
+    title: "Karjalansuomi",
+    description: "Karjalan suomen sanomalehtikorpus: Karjalan Sanomat (2012–2014)<br/>Julkaisija: Periodika-kustantamo<br/>Kotisivu: <a href='http://karjalansanomat.ru/'>http://karjalansanomat.ru/</a>",
+    id: "karjalansuomi",
+    urn: "urn:nbn:fi:lb-2016112501",
+    metadata_urn: "urn:nbn:fi:lb-2014092601",
+    licence: {
+	name: "CLARIN ACA 1.0",
+	urn: "urn:nbn:fi:lb-2016112302",
     },
-    cite_id : "Karjalansuomi",
-    limited_access : true,
-    licence_type : "ACA",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_year : sattrs.date,
-        text_type : {
-            label : "type"
+    cite_id: "Karjalansuomi",
+    limited_access: true,
+    licence_type: "ACA",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_year: sattrs.date,
+        text_type: {
+            label: "type"
         },
-        text_issue : {
-            label : "issue"
+        text_issue: {
+            label: "issue"
         }
 
     }
@@ -5763,567 +5763,567 @@ settings.corpus_aliases.lehdet_ks = "karjalansuomi";
 
 
 settings.corpora.reittidemo = {
-    title : "Reitti A-siipeen",
-    description : "Kahdenkeskisen videoidun keskustelun ”Reitti A-siipeen” yleiskielistetty litteraatti. Keskustelussa selvitetään reittiä tiettyyn Helsingin yliopiston Metsätalossa sijaitsevaan huoneeseen. Vapaasti käytettäväksi tarkoitettu näyteaineisto.",
-    id : "reittidemo",
-    urn : "urn:nbn:fi:lb-100110012817",
-    metadata_urn : "urn:nbn:fi:lb-2014101401",
-    cite_id : "Reittidemo-korp",
-    licence : settings.licenceinfo.CC0,
-    features : ["paragraphs", "parsed_tdt"],
-    attributes : {
-	spoken : attrs.spoken,
+    title: "Reitti A-siipeen",
+    description: "Kahdenkeskisen videoidun keskustelun ”Reitti A-siipeen” yleiskielistetty litteraatti. Keskustelussa selvitetään reittiä tiettyyn Helsingin yliopiston Metsätalossa sijaitsevaan huoneeseen. Vapaasti käytettäväksi tarkoitettu näyteaineisto.",
+    id: "reittidemo",
+    urn: "urn:nbn:fi:lb-100110012817",
+    metadata_urn: "urn:nbn:fi:lb-2014101401",
+    cite_id: "Reittidemo-korp",
+    licence: settings.licenceinfo.CC0,
+    features: ["paragraphs", "parsed_tdt"],
+    attributes: {
+	spoken: attrs.spoken,
     },
-    struct_attributes : {
-	text_author : sattrs.author,
-	text_title : sattrs.title,
-	text_year : sattrs.publ_year,
-	paragraph_id : sattrs.paragraph_id_hidden,
-	sentence_id : sattrs.sentence_id_hidden,
-	utterance_id : {
-	    label : "utterance_num",
+    struct_attributes: {
+	text_author: sattrs.author,
+	text_title: sattrs.title,
+	text_year: sattrs.publ_year,
+	paragraph_id: sattrs.paragraph_id_hidden,
+	sentence_id: sattrs.sentence_id_hidden,
+	utterance_id: {
+	    label: "utterance_num",
 	},
-	utterance_participant : {
-	    label : "speaker",
-	    displayType : "select",
-	    dataset : [
+	utterance_participant: {
+	    label: "speaker",
+	    displayType: "select",
+	    dataset: [
 		"ML",
 		"TA"
 	    ],
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	},
-	utterance_begin_time : {
-	    label : "utterance_begin_time"
+	utterance_begin_time: {
+	    label: "utterance_begin_time"
 	},
-	utterance_end_time : {
-	    label : "utterance_end_time"
+	utterance_end_time: {
+	    label: "utterance_end_time"
 	},
-	utterance_duration : {
-	    label : "utterance_duration"
+	utterance_duration: {
+	    label: "utterance_duration"
 	},
-	utterance_annex_link : sattrs.link_show_video_annex,
+	utterance_annex_link: sattrs.link_show_video_annex,
     }
 };
 
 /* Suomalaisen kirjallisuuden klassikoita (SKK) */
 
 settings.corpora.skk_aho = {
-    title : "Aho",
-    description : "Juhani Ahon teoksia vuosilta 1891–1921.",
-    id : "skk_aho",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
+    title: "Aho",
+    description: "Juhani Ahon teoksia vuosilta 1891–1921.",
+    id: "skk_aho",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
     },
-    struct_attributes : {
-	sentence_type : sattrs.sentence_type,
-        text_title : sattrs.text_title,
-        text_distributor : sattrs.text_distributor,
-        text_source : sattrs.text_source
+    struct_attributes: {
+	sentence_type: sattrs.sentence_type,
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source
     }
 };
 
 settings.corpora.skk_canth = {
-    title : "Canth",
-    description : "Suomalaisen kirjallisuuden klassikoita. Minna Canthin teoksia vuosilta 1884–1896.",
-    id : "skk_canth",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Canth",
+    description: "Suomalaisen kirjallisuuden klassikoita. Minna Canthin teoksia vuosilta 1884–1896.",
+    id: "skk_canth",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : {
-        sentence_type : sattrs.sentence_type,
-        text_title : sattrs.text_title,
-        text_distributor : sattrs.text_distributor,
-        text_source : sattrs.text_source
+    struct_attributes: {
+        sentence_type: sattrs.sentence_type,
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source
     }
 };
 
 settings.corpora.skk_finne = {
-    title : "Finne",
-    description : "Jalmari Finnen teoksia vuosilta 1914–1925.",
-    id : "skk_finne",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Finne",
+    description: "Jalmari Finnen teoksia vuosilta 1914–1925.",
+    id: "skk_finne",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : {
-        sentence_type : sattrs.sentence_type,
-        text_title : sattrs.text_title,
-        text_distributor : sattrs.text_distributor,
-        text_source : sattrs.text_source
+    struct_attributes: {
+        sentence_type: sattrs.sentence_type,
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source
     }
 };
 
 settings.corpora.skk_jarnefelt = {
-    title : "Järnefelt",
-    description : "Arvid Järnefeltin teoksia vuosilta 1893–1930.",
-    id : "skk_jarnefelt",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Järnefelt",
+    description: "Arvid Järnefeltin teoksia vuosilta 1893–1930.",
+    id: "skk_jarnefelt",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : {
-        sentence_type : sattrs.sentence_type,
-        text_title : sattrs.text_title,
-        text_distributor : sattrs.text_distributor,
-        text_source : sattrs.text_source
+    struct_attributes: {
+        sentence_type: sattrs.sentence_type,
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source
     }
 };
 
 settings.corpora.skk_kailas = {
-    title : "Kailas",
-    description : "Uuno Kailaksen teoksia vuosilta 1921–1932.",
-    id : "skk_kailas",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Kailas",
+    description: "Uuno Kailaksen teoksia vuosilta 1921–1932.",
+    id: "skk_kailas",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : {
-        sentence_type : sattrs.sentence_type,
-        text_title : sattrs.text_title,
-        text_distributor : sattrs.text_distributor,
-        text_source : sattrs.text_source
+    struct_attributes: {
+        sentence_type: sattrs.sentence_type,
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source
     }
 };
 
 settings.corpora.skk_lassila = {
-    title : "Lassila",
-    description : "Kolme Maiju Lassilana parhaiten tunnetun Algoth Untolan (vuoteen 1901 Tietäväisen) teosta. Kukin on julkaistu eri taitelijanimellä: Pojat asialla on merkitty Maiju Lassilan kirjoittamaksi, Avuttomat J. I. Vatasen ja Kuoleman rajoilla Irmari Rantamalan. Vuosilta 1911–1915.",
-    id : "skk_lassila",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Lassila",
+    description: "Kolme Maiju Lassilana parhaiten tunnetun Algoth Untolan (vuoteen 1901 Tietäväisen) teosta. Kukin on julkaistu eri taitelijanimellä: Pojat asialla on merkitty Maiju Lassilan kirjoittamaksi, Avuttomat J. I. Vatasen ja Kuoleman rajoilla Irmari Rantamalan. Vuosilta 1911–1915.",
+    id: "skk_lassila",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : {
-        sentence_type : sattrs.sentence_type,
-        text_title : sattrs.text_title,
-        text_distributor : sattrs.text_distributor,
-        text_source : sattrs.text_source
+    struct_attributes: {
+        sentence_type: sattrs.sentence_type,
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source
     }
 };
 
 settings.corpora.skk_linnankoski = {
-    title : "Linnankoski",
-    description : "Väinö Linnankoski: Laulu tulipunaisesta kukasta (1905).",
-    id : "skk_linnankoski",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Linnankoski",
+    description: "Väinö Linnankoski: Laulu tulipunaisesta kukasta (1905).",
+    id: "skk_linnankoski",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : {
-        sentence_type : sattrs.sentence_type,
-        text_title : sattrs.text_title,
-        text_distributor : sattrs.text_distributor,
-        text_source : sattrs.text_source
+    struct_attributes: {
+        sentence_type: sattrs.sentence_type,
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source
     }
 };
 
 settings.corpora.skk_kramsu = {
-    title : "Kramsu",
-    description : "Kaarlo Kramsun runoelmia vuosilta 1878–1887.",
-    id : "skk_kramsu",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Kramsu",
+    description: "Kaarlo Kramsun runoelmia vuosilta 1878–1887.",
+    id: "skk_kramsu",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : {
-        sentence_type : sattrs.sentence_type,
-        text_author : sattrs.text_author,
-        text_title : sattrs.text_title,
-        text_distributor : sattrs.text_distributor,
-        text_source : sattrs.text_source
+    struct_attributes: {
+        sentence_type: sattrs.sentence_type,
+        text_author: sattrs.text_author,
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source
     }
 };
 
 settings.corpora.skk_lehtonen = {
-    title : "Lehtonen",
-    description : "Joel Lehtosen teoksia vuosilta 1911–1934.",
-    id : "skk_lehtonen",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Lehtonen",
+    description: "Joel Lehtosen teoksia vuosilta 1911–1934.",
+    id: "skk_lehtonen",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : {
-        sentence_type : sattrs.sentence_type,
-        text_author : sattrs.text_author,
-        text_title : sattrs.text_title,
-        text_distributor : sattrs.text_distributor,
-        text_source : sattrs.text_source
+    struct_attributes: {
+        sentence_type: sattrs.sentence_type,
+        text_author: sattrs.text_author,
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source
     }
 };
 
 settings.corpora.skk_leino = {
-    title : "Leino",
-    description : "Eino Leinon kaikki alkuperäiskokoelmissa julkaistut runot ja runoelmat sekä runoja kokoelmien ulkopuolelta. Kirjailijan runonäytelmät eivät ole mukana.",
-    id : "skk_leino",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Leino",
+    description: "Eino Leinon kaikki alkuperäiskokoelmissa julkaistut runot ja runoelmat sekä runoja kokoelmien ulkopuolelta. Kirjailijan runonäytelmät eivät ole mukana.",
+    id: "skk_leino",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : {
-        sentence_type : sattrs.sentence_type,
-        text_author : sattrs.text_author,
-        text_title : sattrs.text_title,
-        text_distributor : sattrs.text_distributor,
-        text_source : sattrs.text_source
+    struct_attributes: {
+        sentence_type: sattrs.sentence_type,
+        text_author: sattrs.text_author,
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source
     }
 };
 
 settings.corpora.skk_pakkala = {
-    title : "Pakkala",
-    description : "Teuvo Pakkalan teoksia vuosilta 1894–1913",
-    id : "skk_pakkala",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Pakkala",
+    description: "Teuvo Pakkalan teoksia vuosilta 1894–1913",
+    id: "skk_pakkala",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : {
-        sentence_type : sattrs.sentence_type,
-        text_author : sattrs.text_author,
-        text_title : sattrs.text_title,
-        text_distributor : sattrs.text_distributor,
-        text_source : sattrs.text_source
+    struct_attributes: {
+        sentence_type: sattrs.sentence_type,
+        text_author: sattrs.text_author,
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source
     }
 };
 
 settings.corpora.skk_siljo = {
-    title : "Siljo",
-    description : "Juhani Siljon teoksia vuosilta 1910–1919",
-    id : "skk_siljo",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Siljo",
+    description: "Juhani Siljon teoksia vuosilta 1910–1919",
+    id: "skk_siljo",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : {
-        sentence_type : sattrs.sentence_type,
-        text_author : sattrs.text_author,
-        text_title : sattrs.text_title,
-        text_distributor : sattrs.text_distributor,
-        text_source : sattrs.text_source
+    struct_attributes: {
+        sentence_type: sattrs.sentence_type,
+        text_author: sattrs.text_author,
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source
     }
 };
 
 settings.corpora.skk_wilkuna = {
-    title : "Wilkuna",
-    description : "Kyösti Wilkuna, 1911 ",
-    id : "skk_wilkuna",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Wilkuna",
+    description: "Kyösti Wilkuna, 1911 ",
+    id: "skk_wilkuna",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : {
-        sentence_type : sattrs.sentence_type,
-        text_author : sattrs.text_author,
-        text_title : sattrs.text_title,
-        text_distributor : sattrs.text_distributor,
-        text_source : sattrs.text_source
+    struct_attributes: {
+        sentence_type: sattrs.sentence_type,
+        text_author: sattrs.text_author,
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source
     }
 };
 
 settings.corpora.skk_sodergran = {
-    title : "Södergran",
-    description : "Uuno Kailaksen suomennoksia Edith Södergranin teoksista vuosilta 1916–1925 (suom. 1929)",
-    id : "skk_sodergran",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Södergran",
+    description: "Uuno Kailaksen suomennoksia Edith Södergranin teoksista vuosilta 1916–1925 (suom. 1929)",
+    id: "skk_sodergran",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : {
-        sentence_type : sattrs.sentence_type,
-        text_author : sattrs.text_author,
-        text_title : sattrs.text_title,
-        text_distributor : sattrs.text_distributor,
-        text_source : sattrs.text_source
+    struct_attributes: {
+        sentence_type: sattrs.sentence_type,
+        text_author: sattrs.text_author,
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source
     }
 };
 
 settings.corpora.ethesis_maabs = {
-    title : "Gradutiivistelmät",
-    description : "Pro gradu -tutkielmien suomenkielisiä abstrakteja 1999-2016",
-    id : "ethesis_maabs",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Gradutiivistelmät",
+    description: "Pro gradu -tutkielmien suomenkielisiä abstrakteja 1999-2016",
+    id: "ethesis_maabs",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_dissabs = {
-    title : "Väitöstiivistelmät",
-    description : "Väitöskirjojen suomenkielisiä abstrakteja 2006-2016",
-    id : "ethesis_dissabs",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Väitöstiivistelmät",
+    description: "Väitöskirjojen suomenkielisiä abstrakteja 2006-2016",
+    id: "ethesis_dissabs",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 
 
 settings.corpora.ethesis_phd_far = {
-    title : "Farmasia",
-    description : "Väitöskirjat: Farmasian tiedekunta (2005, 2013)",
-    id : "ethesis_phd_far",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Farmasia",
+    description: "Väitöskirjat: Farmasian tiedekunta (2005, 2013)",
+    id: "ethesis_phd_far",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_phd_teo = {
-    title : "Teologinen",
-    description : "Väitöskirjat: Teologinen tiedekunta (2000-2016)",
-    id : "ethesis_phd_teo",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Teologinen",
+    description: "Väitöskirjat: Teologinen tiedekunta (2000-2016)",
+    id: "ethesis_phd_teo",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_phd_beh = {
-    title : "Käyttäytymistieteellinen",
-    description : "Väitöskirjat: Käyttäytymistieteellinen tiedekunta (1996, 2000-2016)",
-    id : "ethesis_phd_beh",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Käyttäytymistieteellinen",
+    description: "Väitöskirjat: Käyttäytymistieteellinen tiedekunta (1996, 2000-2016)",
+    id: "ethesis_phd_beh",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_phd_valt = {
-    title : "Valtiotieteellinen",
-    description : "Väitöskirjat: Valtiotieteellinen tiedekunta (1999-2016)",
-    id : "ethesis_phd_valt",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Valtiotieteellinen",
+    description: "Väitöskirjat: Valtiotieteellinen tiedekunta (1999-2016)",
+    id: "ethesis_phd_valt",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_phd_ot = {
-    title : "Oikeustieteellinen",
-    description : "Väitöskirjat: Oikeustieteellinen tiedekunta (2001, 2004-2010, 2012, 2014-2016)",
-    id : "ethesis_phd_ot",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Oikeustieteellinen",
+    description: "Väitöskirjat: Oikeustieteellinen tiedekunta (2001, 2004-2010, 2012, 2014-2016)",
+    id: "ethesis_phd_ot",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_phd_hum = {
-    title : "Humanistinen",
-    description : "Väitöskirjat: Humanistinen tiedekunta (2000-2016)",
-    id : "ethesis_phd_hum",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Humanistinen",
+    description: "Väitöskirjat: Humanistinen tiedekunta (2000-2016)",
+    id: "ethesis_phd_hum",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_phd_bio = {
-    title : "Bio- ja ympäristötieteellinen",
-    description : "Väitöskirjat: Bio- ja ympäristötieteellinen tiedekunta (2005)",
-    id : "ethesis_phd_bio",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Bio- ja ympäristötieteellinen",
+    description: "Väitöskirjat: Bio- ja ympäristötieteellinen tiedekunta (2005)",
+    id: "ethesis_phd_bio",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_phd_el = {
-    title : "Eläinlääketieteellinen",
-    description : "Väitöskirjat: Eläinlääketieteellinen tiedekunta (2008)",
-    id : "ethesis_phd_el",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Eläinlääketieteellinen",
+    description: "Väitöskirjat: Eläinlääketieteellinen tiedekunta (2008)",
+    id: "ethesis_phd_el",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_phd_mm = {
-    title : "Maa- ja metsätieteellinen tiedekunta",
-    description : "Väitöskirjat: Maa- ja metsätieteellinen tiedekunta (2000, 2006, 2008-2010, 2012-2014, 2016)",
-    id : "ethesis_phd_mm",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Maa- ja metsätieteellinen tiedekunta",
+    description: "Väitöskirjat: Maa- ja metsätieteellinen tiedekunta (2000, 2006, 2008-2010, 2012-2014, 2016)",
+    id: "ethesis_phd_mm",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_phd_med = {
-    title : "Lääketieteellinen",
-    description : "Väitöskirjat: Lääketieteellinen tiedekunta (2000, 2003-2004, 2006-2010, 2012, 2014)",
-    id : "ethesis_phd_med",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Lääketieteellinen",
+    description: "Väitöskirjat: Lääketieteellinen tiedekunta (2000, 2003-2004, 2006-2010, 2012, 2014)",
+    id: "ethesis_phd_med",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_ma_far = {
-    title : "Farmasia",
-    description : "Gradut: Farmasian tiedekunta 2010-2016",
-    id : "ethesis_ma_far",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Farmasia",
+    description: "Gradut: Farmasian tiedekunta 2010-2016",
+    id: "ethesis_ma_far",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_ma_teo = {
-    title : "Teologinen",
-    description : "Gradut: Teologinen tiedekunta 2000-2016",
-    id : "ethesis_ma_teo",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Teologinen",
+    description: "Gradut: Teologinen tiedekunta 2000-2016",
+    id: "ethesis_ma_teo",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_ma_beh = {
-    title : "Käyttäytymistieteellinen",
-    description : "Gradut: Käyttäytymistieteellinen tiedekunta 1998-2016",
-    id : "ethesis_ma_beh",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Käyttäytymistieteellinen",
+    description: "Gradut: Käyttäytymistieteellinen tiedekunta 1998-2016",
+    id: "ethesis_ma_beh",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_ma_valt = {
-    title : "Valtiotieteellinen",
-    description : "Gradut: Valtiotieteellinen tiedekunta 1996-2016",
-    id : "ethesis_ma_valt",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Valtiotieteellinen",
+    description: "Gradut: Valtiotieteellinen tiedekunta 1996-2016",
+    id: "ethesis_ma_valt",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_ma_ot = {
-    title : "Oikeustieteellinen",
-    description : "Gradut: Oikeustieteellinen tiedekunta 2001-2016",
-    id : "ethesis_ma_ot",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Oikeustieteellinen",
+    description: "Gradut: Oikeustieteellinen tiedekunta 2001-2016",
+    id: "ethesis_ma_ot",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_ma_hum = {
-    title : "Humanistinen",
-    description : "Gradut: Humanistinen tiedekunta 1998-2016",
-    id : "ethesis_ma_hum",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Humanistinen",
+    description: "Gradut: Humanistinen tiedekunta 1998-2016",
+    id: "ethesis_ma_hum",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_ma_sci = {
-    title : "Matemaattis-luonnontieteellinen",
-    description : "Gradut: Matemaattis-luonnontieteellinen tiedekunta 1996-2016",
-    id : "ethesis_ma_sci",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Matemaattis-luonnontieteellinen",
+    description: "Gradut: Matemaattis-luonnontieteellinen tiedekunta 1996-2016",
+    id: "ethesis_ma_sci",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_ma_ai = {
-    title : "Aleksanteri-instituutti",
-    description : "Gradut: Aleksanteri-instituutti 2001-2016",
-    id : "ethesis_ma_ai",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Aleksanteri-instituutti",
+    description: "Gradut: Aleksanteri-instituutti 2001-2016",
+    id: "ethesis_ma_ai",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_ma_bio = {
-    title : "Bio- ja ympäristötieteellinen",
-    description : "Gradut: Bio- ja ympäristötieteellinen tiedekunta 2003-2016",
-    id : "ethesis_ma_bio",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Bio- ja ympäristötieteellinen",
+    description: "Gradut: Bio- ja ympäristötieteellinen tiedekunta 2003-2016",
+    id: "ethesis_ma_bio",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 
 settings.corpora.ethesis_ma_el = {
-    title : "Lisensiaatintyöt: Eläinlääketieteellinen",
-    description : "Lisensiaatintyöt: Eläinlääketieteellinen tiedekunta (2003-2016)",
-    id : "ethesis_ma_el",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Lisensiaatintyöt: Eläinlääketieteellinen",
+    description: "Lisensiaatintyöt: Eläinlääketieteellinen tiedekunta (2003-2016)",
+    id: "ethesis_ma_el",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_ma_mm = {
-    title : "Maa- ja metsätieteellinen tiedekunta",
-    description : "Gradut: Maa- ja metsätieteellinen tiedekunta (2003-2016)",
-    id : "ethesis_ma_mm",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Maa- ja metsätieteellinen tiedekunta",
+    description: "Gradut: Maa- ja metsätieteellinen tiedekunta (2003-2016)",
+    id: "ethesis_ma_mm",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_ma_med = {
-    title : "Lisensiaatintyöt: Lääketieteellinen",
-    description : "Lisensiaatintyöt: Lääketieteellinen tiedekunta (2010-2016)",
-    id : "ethesis_ma_med",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : sattrlist.ethesis
+    title: "Lisensiaatintyöt: Lääketieteellinen",
+    description: "Lisensiaatintyöt: Lääketieteellinen tiedekunta (2010-2016)",
+    id: "ethesis_ma_med",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: sattrlist.ethesis
 };
 
 
 
 /*
 settings.corpora.kotus_klassikot = {
-    title : "Suomalaisen kirjallisuuden klassikoita (näyte)",
-    description : "Suomalaisen kirjallisuuden klassikoita (Kotimaisten kielten keskuksen aineisto)",
-    id : "kotus_klassikot",
-    urn : "urn:nbn:fi:lb-2015022401",
-    metadata_urn : "urn:nbn:fi:lb-20140730186",
-    licence : settings.licenceinfo.EUPL_11,
-    homepage : settings.fn.kaino_homepage("klassikot/meta/klassikot"),
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Suomalaisen kirjallisuuden klassikoita (näyte)",
+    description: "Suomalaisen kirjallisuuden klassikoita (Kotimaisten kielten keskuksen aineisto)",
+    id: "kotus_klassikot",
+    urn: "urn:nbn:fi:lb-2015022401",
+    metadata_urn: "urn:nbn:fi:lb-20140730186",
+    licence: settings.licenceinfo.EUPL_11,
+    homepage: settings.fn.kaino_homepage("klassikot/meta/klassikot"),
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : {
-	text_title : sattrs.text_title,
-	text_distributor : sattrs.text_distributor,
-	text_source : sattrs.text_source,
-	collection_id : {
-	    label : "collection_id",
-	    displayType : "hidden"
+    struct_attributes: {
+	text_title: sattrs.text_title,
+	text_distributor: sattrs.text_distributor,
+	text_source: sattrs.text_source,
+	collection_id: {
+	    label: "collection_id",
+	    displayType: "hidden"
 	},
-	collection_title : {
-	    label : "collection_title"
+	collection_title: {
+	    label: "collection_title"
 	},
-	story_id : {
-	    label : "story_id",
-	    displayType : "hidden"
+	story_id: {
+	    label: "story_id",
+	    displayType: "hidden"
 	},
-	story_title : {
-	    label : "story_title"
+	story_title: {
+	    label: "story_title"
 	},
-	sentence_id : sattrs.sentence_id_hidden,
-	sentence_type : {
-	    label : "sentence_type",
-	    displayType : "select",
-	    translationKey : "sentencetype_",
-	    dataset : {
-		"p" : "p",
-		"head" : "head"
+	sentence_id: sattrs.sentence_id_hidden,
+	sentence_type: {
+	    label: "sentence_type",
+	    displayType: "select",
+	    translationKey: "sentencetype_",
+	    dataset: {
+		"p": "p",
+		"head": "head"
 	    },
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	}
     }
 };
@@ -6404,90 +6404,90 @@ ftc_hierarchy = [
 // Common settings template for FTC, FSTC and Svenska Parole (may be
 // overridden)
 settings.templ.lemmie_common = {
-    title : "",
-    description : "",
-    id : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    limited_access : true,
-    licence_type : "RES",
-    attributes : {
+    title: "",
+    description: "",
+    id: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    limited_access: true,
+    licence_type: "RES",
+    attributes: {
     },
-    struct_attributes : {
-	text_title : sattrs.text_title,
-	text_creator : sattrs.author,
-	text_publisher : sattrs.publisher,
-	text_wordcount : {
-	    label : "text_word_count",
+    struct_attributes: {
+	text_title: sattrs.text_title,
+	text_creator: sattrs.author,
+	text_publisher: sattrs.publisher,
+	text_wordcount: {
+	    label: "text_word_count",
 	},
-	text_lemmie_id : {
-	    label : "lemmie_text_id",
+	text_lemmie_id: {
+	    label: "lemmie_text_id",
 	},
-	text_lang : {
-	    label : "lang",
-	    displayType : "select",
-	    opts : settings.liteOptions,
-	    translationKey : "",
-	    dataset : [
+	text_lang: {
+	    label: "lang",
+	    displayType: "select",
+	    opts: settings.liteOptions,
+	    translationKey: "",
+	    dataset: [
 		"fin",
 		"eng",
 		"swe",
 	    ]
 	},
-	text_date : sattrs.date,
-	text_filename : {
-	    label : "file_name",
+	text_date: sattrs.date,
+	text_filename: {
+	    label: "file_name",
 	},
-	text_rights : {
-	    label : "access_rights_cat",
+	text_rights: {
+	    label: "access_rights_cat",
 	},
-	text_contributor : {
-	    label : "contributor",
+	text_contributor: {
+	    label: "contributor",
 	},
-	text_source : {
-	    label : "source",
-	    displayType : "select",
-	    localize : false,
-	    opts : settings.liteOptions,
-	    // dataset : [],
+	text_source: {
+	    label: "source",
+	    displayType: "select",
+	    localize: false,
+	    opts: settings.liteOptions,
+	    // dataset: [],
 	},
-	text_lemmie_corpus : {
-	    label : "lemmie_corpus",
+	text_lemmie_corpus: {
+	    label: "lemmie_corpus",
 	},
 	// // Always empty
-	// text_type : {
-	//     label : "text_type",
+	// text_type: {
+	//     label: "text_type",
 	// },
-	text_subject : {
-	    label : "subject",
+	text_subject: {
+	    label: "subject",
 	},
-	// paragraph_id : sattrs.paragraph_id,
-	paragraph_type : {
-	    label : "paragraph_type",
-	    displayType : "select",
-	    translationKey : "paragraphtype_",
-	    dataset : {},
-	    opts : settings.liteOptions
+	// paragraph_id: sattrs.paragraph_id,
+	paragraph_type: {
+	    label: "paragraph_type",
+	    displayType: "select",
+	    translationKey: "paragraphtype_",
+	    dataset: {},
+	    opts: settings.liteOptions
 	},
-	sentence_id : sattrs.sentence_id_hidden,
-	sentence_within : {
-	    label : "enclosing_elems",
+	sentence_id: sattrs.sentence_id_hidden,
+	sentence_within: {
+	    label: "enclosing_elems",
 	},
     }
 };
 
 // Settings template for FTC subcorpora
 settings.templ.ftc = $.extend(true, {}, settings.templ.lemmie_common, {
-    attributes : {
-	lemma : attrs.baseform,
-	pos : attrs.pos_textmorfo,
-	msd : attrs.msd,
-	id : attrs.id_hidden,
-	lex : attrs.lemgram_hidden,
+    attributes: {
+	lemma: attrs.baseform,
+	pos: attrs.pos_textmorfo,
+	msd: attrs.msd,
+	id: attrs.id_hidden,
+	lex: attrs.lemgram_hidden,
     },
-    struct_attributes : {
-	text_source : {
-	    dataset : [
+    struct_attributes: {
+	text_source: {
+	    dataset: [
 		"Aamulehti",
 		"Demari",
 		"Helsingin Sanomat",
@@ -6503,23 +6503,23 @@ settings.templ.ftc = $.extend(true, {}, settings.templ.lemmie_common, {
 		"Turun Sanomat",
 	    ],
 	},
-	paragraph_type : {
-	    dataset : {
-		"author|docAuthor" : "author",
-		"byline" : "byline",
-		"caption" : "caption",
-		"closer" : "closer",
-		"date" : "date",
-		"head" : "head",
-		"hi" : "hi",
-		"name" : "name",
-		"num" : "num",
-		"opener" : "opener",
-		"p" : "p",
-		"q" : "q",
-		"quote" : "quote",
-		"rs" : "rs",
-		"signed" : "signed",
+	paragraph_type: {
+	    dataset: {
+		"author|docAuthor": "author",
+		"byline": "byline",
+		"caption": "caption",
+		"closer": "closer",
+		"date": "date",
+		"head": "head",
+		"hi": "hi",
+		"name": "name",
+		"num": "num",
+		"opener": "opener",
+		"p": "p",
+		"q": "q",
+		"quote": "quote",
+		"rs": "rs",
+		"signed": "signed",
 	    },
 	},
     }
@@ -6529,10 +6529,10 @@ settings.templ.ftc = $.extend(true, {}, settings.templ.lemmie_common, {
 settings.fn.make_folder_hierarchy(
     settings.corporafolders.ftc, ftc_hierarchy,
     {
-	id_prefix : "ftc_",
-	description_prefix : "Suomen kielen tekstikokoelma: ",
-	corpus_title_suffix : " (SKTP)",
-	corpus_template : settings.templ.ftc,
+	id_prefix: "ftc_",
+	description_prefix: "Suomen kielen tekstikokoelma: ",
+	corpus_title_suffix: " (SKTP)",
+	corpus_template: settings.templ.ftc,
     });
 
 delete ftc_hierarchy;
@@ -6547,92 +6547,92 @@ settings.corpus_aliases.ftc = "ftc_.*";
 
 /*
 settings.corpora.ns_presidentti = {
-    title : "Tasavallan presidenttien uudenvuodenpuheita (näyte)",
-    description : "Tasavallan presidenttien uudenvuodenpuheita (1935–2006) (Kotimaisten kielten keskuksen aineisto)",
-    id : "ns_presidentti",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-	lemma : attrs.baseform,
-	lemmacomp : attrs.baseform_compound,
-        pos : attrs.pos_kotus,
-	msd : attrs.msd,
-	id : attrs.id_hidden,
-	lex : attrs.lemgram_hidden
+    title: "Tasavallan presidenttien uudenvuodenpuheita (näyte)",
+    description: "Tasavallan presidenttien uudenvuodenpuheita (1935–2006) (Kotimaisten kielten keskuksen aineisto)",
+    id: "ns_presidentti",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+	lemma: attrs.baseform,
+	lemmacomp: attrs.baseform_compound,
+        pos: attrs.pos_kotus,
+	msd: attrs.msd,
+	id: attrs.id_hidden,
+	lex: attrs.lemgram_hidden
     },
-    struct_attributes : {
-	text_title : sattrs.text_title,
-	text_distributor : sattrs.text_distributor,
-	text_source : sattrs.text_source,
-	paragraph_id : sattrs.paragraph_id,
-	paragraph_type : {
-	    label : "paragraph_type",
-	    displayType : "select",
-	    translationKey : "paragraphtype_",
-	    dataset : {
-		"p" : "p",
-		"head" : "head",
-		"opener" : "opener",
+    struct_attributes: {
+	text_title: sattrs.text_title,
+	text_distributor: sattrs.text_distributor,
+	text_source: sattrs.text_source,
+	paragraph_id: sattrs.paragraph_id,
+	paragraph_type: {
+	    label: "paragraph_type",
+	    displayType: "select",
+	    translationKey: "paragraphtype_",
+	    dataset: {
+		"p": "p",
+		"head": "head",
+		"opener": "opener",
 	    },
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	},
-	paragraph_topic : {
-	    label : "paragraph_topic"
+	paragraph_topic: {
+	    label: "paragraph_topic"
 	},
-	sentence_id : sattrs.sentence_id_hidden
+	sentence_id: sattrs.sentence_id_hidden
     }
 };
 */
 
 
 settings.templ.kotus_ns_presidentti = {
-    title : "",
-    description : "",
-    id : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-	lemma : attrs.baseform,
-	lemmacomp : attrs.baseform_compound,
-	pos : attrs.pos_kotus,
-	msd : attrs.msd,
-	id : attrs.id_hidden,
-	lex : attrs.lemgram_hidden
+    title: "",
+    description: "",
+    id: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+	lemma: attrs.baseform,
+	lemmacomp: attrs.baseform_compound,
+	pos: attrs.pos_kotus,
+	msd: attrs.msd,
+	id: attrs.id_hidden,
+	lex: attrs.lemgram_hidden
     },
-    struct_attributes : {
-	text_title : sattrs.text_title,
-	text_distributor : sattrs.text_distributor,
-	// text_source : sattrs.text_source,
-	text_author : sattrs.author,
-	text_author_birthyear : sattrs.author_birthyear,
-	text_author_deathyear : sattrs.author_deathyear,
-	text_date : sattrs.date,
-	text_url : sattrs.link_fulltext,
-	// text_original_url : sattrs.link_original,
+    struct_attributes: {
+	text_title: sattrs.text_title,
+	text_distributor: sattrs.text_distributor,
+	// text_source: sattrs.text_source,
+	text_author: sattrs.author,
+	text_author_birthyear: sattrs.author_birthyear,
+	text_author_deathyear: sattrs.author_deathyear,
+	text_date: sattrs.date,
+	text_url: sattrs.link_fulltext,
+	// text_original_url: sattrs.link_original,
 	// text_collection_url contains the URL of the subcorpus main
 	// page (the speeches of a certain president) in the Kaino
 	// service.
-	// text_collection_url : ...,
-	paragraph_id : sattrs.paragraph_id,
-	paragraph_type : {
-	    label : "paragraph_type",
-	    displayType : "select",
-	    translationKey : "paragraphtype_",
-	    dataset : {
-		"p" : "p",
-		"head" : "head",
-		"opener" : "opener",
+	// text_collection_url: ...,
+	paragraph_id: sattrs.paragraph_id,
+	paragraph_type: {
+	    label: "paragraph_type",
+	    displayType: "select",
+	    translationKey: "paragraphtype_",
+	    dataset: {
+		"p": "p",
+		"head": "head",
+		"opener": "opener",
 	    },
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	},
-	paragraph_topic : {
-	    label : "paragraph_topic"
+	paragraph_topic: {
+	    label: "paragraph_topic"
 	},
-	paragraph_span : {
-	    label : "paragraph_span"
+	paragraph_span: {
+	    label: "paragraph_span"
 	},
-	sentence_id : sattrs.sentence_id_hidden,
-	sentence_url : sattrs.context_url
+	sentence_id: sattrs.sentence_id_hidden,
+	sentence_url: sattrs.context_url
     }
 };
 
@@ -6643,10 +6643,10 @@ settings.fn.make_president_corpora = function () {
 
     var make_homepage_info = function (id) {
 	return {
-	    name : "Korpus Kaino-palvelussa",
-	    url : ("http://kaino.kotus.fi/korpus/teko/meta/presidentti/"
+	    name: "Korpus Kaino-palvelussa",
+	    url: ("http://kaino.kotus.fi/korpus/teko/meta/presidentti/"
 		   + id + "/" + id + "_coll_rdf.xml"),
-	    no_label : true
+	    no_label: true
 	};
     };
 
@@ -6657,16 +6657,16 @@ settings.fn.make_president_corpora = function () {
 	var years = arglist[3];
 	var extradescr = (arglist.length > 4 ? " " + arglist[4] : "");
 	return {
-	    id : id,
-	    title : "Presidentti " + lastname + " uudenvuodenpuheet",
-	    description : ("Kokoelma sisältää presidentti " + firstname + " "
+	    id: id,
+	    title: "Presidentti " + lastname + " uudenvuodenpuheet",
+	    description: ("Kokoelma sisältää presidentti " + firstname + " "
 			   + lastname + " pitämät uudenvuodenpuheet (" + years
 			   + ")." + extradescr),
 	    // Note that in this way the link text is not localized,
 	    // unlike that for a URL attribute could be. The same
 	    // information is also found in the structural attribute
 	    // text_collection_url.
-	    homepage : make_homepage_info(id)
+	    homepage: make_homepage_info(id)
 	};
     };
 
@@ -6690,10 +6690,10 @@ settings.fn.make_president_corpora = function () {
 	corpus_ids.push(corpus_id_prefix + president_info_items[i][0]);
     }
     president_templ_fill.push(
-	{ id : "muut",
-	  title : "Muiden kuin tasavallan presidenttien uudenvuodenpuheet",
-	  description : "Muiden kuin tasavallan presidenttien pitämät uudenvuodenpuheet: pääministeri Esko Aho (1993), eduskunnan puhemies Väinö Hakkila (1942), pääministeri Edwin Linkomies (1944), ministeri Mauno Pekkala (1945).",
-	  homepage : make_homepage_info("muut") }
+	{ id: "muut",
+	  title: "Muiden kuin tasavallan presidenttien uudenvuodenpuheet",
+	  description: "Muiden kuin tasavallan presidenttien pitämät uudenvuodenpuheet: pääministeri Esko Aho (1993), eduskunnan puhemies Väinö Hakkila (1942), pääministeri Edwin Linkomies (1944), ministeri Mauno Pekkala (1945).",
+	  homepage: make_homepage_info("muut") }
     );
     corpus_ids.push(corpus_id_prefix + "muut");
     settings.fn.add_corpus_settings(
@@ -6711,302 +6711,302 @@ settings.fn.make_president_corpora();
 
 
 settings.corpora.kotus_lakidir = {
-    title : "Lakeja ja direktiivejä",
-    description : "Lakeja ja direktiivejä vuosilta 1980–2003 (Kotimaisten kielten keskuksen aineisto)",
-    id : "kotus_lakidir",
-    urn : "urn:nbn:fi:lb-2016081201",
-    metadata_urn : "urn:nbn:fi:lb-20140730126",
+    title: "Lakeja ja direktiivejä",
+    description: "Lakeja ja direktiivejä vuosilta 1980–2003 (Kotimaisten kielten keskuksen aineisto)",
+    id: "kotus_lakidir",
+    urn: "urn:nbn:fi:lb-2016081201",
+    metadata_urn: "urn:nbn:fi:lb-20140730126",
     // TODO: Check that & is paased correctly to the URL
-    cite_id : "Lakeja&direktiiveja",
-    licence : settings.licenceinfo.EUPL_11,
-    homepage : settings.fn.kaino_homepage("teko/meta/saadokset/saadokset"),
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        lemmacomp : attrs.baseform_compound,
-        pos : attrs.pos_kotus,
-        msd : attrs.msd,
-        id : attrs.id_hidden,
-        lex : attrs.lemgram_hidden
+    cite_id: "Lakeja&direktiiveja",
+    licence: settings.licenceinfo.EUPL_11,
+    homepage: settings.fn.kaino_homepage("teko/meta/saadokset/saadokset"),
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        lemmacomp: attrs.baseform_compound,
+        pos: attrs.pos_kotus,
+        msd: attrs.msd,
+        id: attrs.id_hidden,
+        lex: attrs.lemgram_hidden
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_distributor : sattrs.text_distributor,
-        text_source : sattrs.text_source,
-        div_id : {
-            label : "div_id",
-            displayType : "hidden",
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source,
+        div_id: {
+            label: "div_id",
+            displayType: "hidden",
         },
-        div_type : {
-            label : "div_type",
-            displayType : "select",
-            translationKey : "divtype_",
-            dataset : {
-                "section" : "section",
-                "section/law" : "section_law",
-                "section/end" : "section_end"
+        div_type: {
+            label: "div_type",
+            displayType: "select",
+            translationKey: "divtype_",
+            dataset: {
+                "section": "section",
+                "section/law": "section_law",
+                "section/end": "section_end"
             },
-            opts : settings.liteOptions
+            opts: settings.liteOptions
         },
-        paragraph_id : sattrs.paragraph_id,
-        paragraph_type : {
-            label : "paragraph_type",
-            displayType : "select",
-            translationKey : "paragraphtype_",
-            dataset : {
-                "p" : "p",
-                "head" : "head",
-                "opener" : "opener",
-                "closer" : "closer"
+        paragraph_id: sattrs.paragraph_id,
+        paragraph_type: {
+            label: "paragraph_type",
+            displayType: "select",
+            translationKey: "paragraphtype_",
+            dataset: {
+                "p": "p",
+                "head": "head",
+                "opener": "opener",
+                "closer": "closer"
             },
-            opts : settings.liteOptions
+            opts: settings.liteOptions
 	},
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_type : {
-            label : "sentence_type",
-            displayType : "select",
-            translationKey : "sentencetype_",
-            dataset : {
-                "p" : "p",
-                "head" : "head",
-                "dateline" : "dateline",
-                "signed" : "signed"
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_type: {
+            label: "sentence_type",
+            displayType: "select",
+            translationKey: "sentencetype_",
+            dataset: {
+                "p": "p",
+                "head": "head",
+                "dateline": "dateline",
+                "signed": "signed"
             },
-            opts : settings.liteOptions
+            opts: settings.liteOptions
         }
     }
 };
 
 /*
 settings.corpora.ns_saadokset = {
-    title : "Lakeja ja direktiivejä (näyte)",
-    description : "Lakeja ja direktiivejä vuosilta 2002–2003 (Kotimaisten kielten keskuksen aineisto)",
-    id : "ns_saadokset",
+    title: "Lakeja ja direktiivejä (näyte)",
+    description: "Lakeja ja direktiivejä vuosilta 2002–2003 (Kotimaisten kielten keskuksen aineisto)",
+    id: "ns_saadokset",
     // No Korp URN yet
-    metadata_urn : "urn:nbn:fi:lb-20140730126",
-    licence : settings.licenceinfo.EUPL_11,
-    homepage : settings.fn.kaino_homepage("teko/meta/saadokset/saadokset"),
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-	lemma : attrs.baseform,
-	lemmacomp : attrs.baseform_compound,
-        pos : attrs.pos_kotus,
-	msd : attrs.msd,
-	id : attrs.id_hidden,
-	lex : attrs.lemgram_hidden
+    metadata_urn: "urn:nbn:fi:lb-20140730126",
+    licence: settings.licenceinfo.EUPL_11,
+    homepage: settings.fn.kaino_homepage("teko/meta/saadokset/saadokset"),
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+	lemma: attrs.baseform,
+	lemmacomp: attrs.baseform_compound,
+        pos: attrs.pos_kotus,
+	msd: attrs.msd,
+	id: attrs.id_hidden,
+	lex: attrs.lemgram_hidden
     },
-    struct_attributes : {
-	text_title : sattrs.text_title,
-	text_distributor : sattrs.text_distributor,
-	text_source : sattrs.text_source,
-	div_id : {
-	    label : "div_id",
-	    displayType : "hidden",
+    struct_attributes: {
+	text_title: sattrs.text_title,
+	text_distributor: sattrs.text_distributor,
+	text_source: sattrs.text_source,
+	div_id: {
+	    label: "div_id",
+	    displayType: "hidden",
 	},
-	div_type : {
-	    label : "div_type",
-	    displayType : "select",
-	    translationKey : "divtype_",
-	    dataset : {
-		"section" : "section",
-		"section/law" : "section_law",
-		"section/end" : "section_end"
+	div_type: {
+	    label: "div_type",
+	    displayType: "select",
+	    translationKey: "divtype_",
+	    dataset: {
+		"section": "section",
+		"section/law": "section_law",
+		"section/end": "section_end"
 	    },
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	},
-	paragraph_id : sattrs.paragraph_id,
-	paragraph_type : {
-	    label : "paragraph_type",
-	    displayType : "select",
-	    translationKey : "paragraphtype_",
-	    dataset : {
-		"p" : "p",
-		"head" : "head",
-		"opener" : "opener",
-		"closer" : "closer"
+	paragraph_id: sattrs.paragraph_id,
+	paragraph_type: {
+	    label: "paragraph_type",
+	    displayType: "select",
+	    translationKey: "paragraphtype_",
+	    dataset: {
+		"p": "p",
+		"head": "head",
+		"opener": "opener",
+		"closer": "closer"
 	    },
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	},
-	sentence_id : sattrs.sentence_id_hidden,
-	sentence_type : {
-	    label : "sentence_type",
-	    displayType : "select",
-	    translationKey : "sentencetype_",
-	    dataset : {
-		"p" : "p",
-		"head" : "head",
-		"dateline" : "dateline",
-		"signed" : "signed"
+	sentence_id: sattrs.sentence_id_hidden,
+	sentence_type: {
+	    label: "sentence_type",
+	    displayType: "select",
+	    translationKey: "sentencetype_",
+	    dataset: {
+		"p": "p",
+		"head": "head",
+		"dateline": "dateline",
+		"signed": "signed"
 	    },
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	}
     }
 };
 */
 settings.corpora.kotus_sp = {
-    title : "Sananparsikokoelma",
-    description : "Suomen murteiden Sananparsikokoelma (1930-luvulta) (Kotimaisten kielten keskuksen aineisto)",
-    id : "kotus_sp",
-    urn : "urn:nbn:fi:lb-2016081202",
-    metadata_urn : "urn:nbn:fi:lb-20140730176",
-    licence : settings.licenceinfo.EUPL_11,
-    homepage : settings.fn.kaino_homepage("sp/meta/sp"),
-    cite_id : "Sananparsikokoelma",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Sananparsikokoelma",
+    description: "Suomen murteiden Sananparsikokoelma (1930-luvulta) (Kotimaisten kielten keskuksen aineisto)",
+    id: "kotus_sp",
+    urn: "urn:nbn:fi:lb-2016081202",
+    metadata_urn: "urn:nbn:fi:lb-20140730176",
+    licence: settings.licenceinfo.EUPL_11,
+    homepage: settings.fn.kaino_homepage("sp/meta/sp"),
+    cite_id: "Sananparsikokoelma",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : {
-	text_title : sattrs.text_title,
-	text_distributor : sattrs.text_distributor,
-	text_source : sattrs.text_source,
-	entry_location : {
-	    label : "entry_location"
+    struct_attributes: {
+	text_title: sattrs.text_title,
+	text_distributor: sattrs.text_distributor,
+	text_source: sattrs.text_source,
+	entry_location: {
+	    label: "entry_location"
 	},
-	entry_collector : {
-	    label : "entry_collector"
+	entry_collector: {
+	    label: "entry_collector"
 	},
-	entry_date : {
-	    label : "entry_date"
+	entry_date: {
+	    label: "entry_date"
 	},
-	entry_standard : {
-	    label : "entry_standard"
+	entry_standard: {
+	    label: "entry_standard"
 	},
-	entry_dialect : {
-	    label : "entry_dialect"
+	entry_dialect: {
+	    label: "entry_dialect"
 	},
-	entry_usage : {
-	    label : "entry_usage"
+	entry_usage: {
+	    label: "entry_usage"
 	},
-	sentence_type : {
-	    label : "sentence_type",
-	    displayType : "select",
-	    translationKey : "sayings_sentencetype_",
-	    dataset : {
-		"standard" : "standard",
-		"dialect" : "dialect",
-		"usage" : "usage"
+	sentence_type: {
+	    label: "sentence_type",
+	    displayType: "select",
+	    translationKey: "sayings_sentencetype_",
+	    dataset: {
+		"standard": "standard",
+		"dialect": "dialect",
+		"usage": "usage"
 	    },
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	}
     }
 };
 
 
 attrs.pos_la = {
-    label : "pos",
-    displayType : "select",
-    translationKey : "posla_",
-    dataset : {
-	"a" : "a",
-	"a:pron" : "a:pron",
-	"a:pron:dem" : "a:pron:dem",
-	"a:pron:int" : "a:pron:int",
-	"a:pron:rel" : "a:pron:rel",
-	// "a:q" : "a:q",
-	"adv" : "adv",
-	"adv:pron" : "adv:pron",
-	"adv:pron:dem" : "adv:pron:dem",
-	"adv:pron:int" : "adv:pron:int",
-	"adv:pron:rel" : "adv:pron:rel",
-	"adv:q" : "adv:q",
-	// "cnj" : "cnj",
-	"cnj:coord" : "cnj:coord",
-	"cnj:rel" : "cnj:rel",
-	"cnj:sub" : "cnj:sub",
-	"muu" : "muu",
-	"n" : "n",
-	"neg" : "neg",
-	"n:prop" : "n:prop",
-	"n:prop:pname" : "n:prop:pname",
-	"num:card" : "num:card",
-	"num:murto" : "num:murto",
-	"num:ord" : "num:ord",
-	"num:ord_pron" : "num:ord_pron",
-	"p:post" : "p:post",
-	"p:pre" : "p:pre",
-	"pron" : "pron",
-	"pron:dem" : "pron:dem",
-	"pron:int" : "pron:int",
-	"pron:pers" : "pron:pers",
-	"pron:pers12" : "pron:pers12",
-	"pron:ref" : "pron:ref",
-	"pron:rel" : "pron:rel",
-	"punct" : "punct",
-	"q" : "q",
-	// "stem" : "stem",
-	"v" : "v",
+    label: "pos",
+    displayType: "select",
+    translationKey: "posla_",
+    dataset: {
+	"a": "a",
+	"a:pron": "a:pron",
+	"a:pron:dem": "a:pron:dem",
+	"a:pron:int": "a:pron:int",
+	"a:pron:rel": "a:pron:rel",
+	// "a:q": "a:q",
+	"adv": "adv",
+	"adv:pron": "adv:pron",
+	"adv:pron:dem": "adv:pron:dem",
+	"adv:pron:int": "adv:pron:int",
+	"adv:pron:rel": "adv:pron:rel",
+	"adv:q": "adv:q",
+	// "cnj": "cnj",
+	"cnj:coord": "cnj:coord",
+	"cnj:rel": "cnj:rel",
+	"cnj:sub": "cnj:sub",
+	"muu": "muu",
+	"n": "n",
+	"neg": "neg",
+	"n:prop": "n:prop",
+	"n:prop:pname": "n:prop:pname",
+	"num:card": "num:card",
+	"num:murto": "num:murto",
+	"num:ord": "num:ord",
+	"num:ord_pron": "num:ord_pron",
+	"p:post": "p:post",
+	"p:pre": "p:pre",
+	"pron": "pron",
+	"pron:dem": "pron:dem",
+	"pron:int": "pron:int",
+	"pron:pers": "pron:pers",
+	"pron:pers12": "pron:pers12",
+	"pron:ref": "pron:ref",
+	"pron:rel": "pron:rel",
+	"punct": "punct",
+	"q": "q",
+	// "stem": "stem",
+	"v": "v",
     },
-    opts : settings.liteOptions
+    opts: settings.liteOptions
 };
 // pos_las2 is for LAS2, which has codes similar to pos_la for
 // LA-murre, but fewer (and a generic "cnj").
 attrs.pos_las2 = {
-    label : "pos",
-    displayType : "select",
-    translationKey : "posla_",
-    dataset : {
-	"a" : "a",
-	"adv" : "adv",
-	"cnj" : "cnj",
-	"intj" : "intj",
-	"n" : "n",
+    label: "pos",
+    displayType: "select",
+    translationKey: "posla_",
+    dataset: {
+	"a": "a",
+	"adv": "adv",
+	"cnj": "cnj",
+	"intj": "intj",
+	"n": "n",
 	// pos_la uses "n:prop" for only non-person proper names, so
 	// we map "n:prop" here to correspond to any proper name.
-	"n:prop" : "n:prop:any",
-	"neg" : "neg",
-	"num" : "num",
-	"p:post" : "p:post",
-	"p:pre" : "p:pre",
+	"n:prop": "n:prop:any",
+	"neg": "neg",
+	"num": "num",
+	"p:post": "p:post",
+	"p:pre": "p:pre",
 	// pos_la uses bare "pron" with a more specific meaning, so we
 	// map "pron" here to correspond to any pronoun.
-	"pron" : "pron:any",
-	"UNK" : "UNK",
-	"v" : "v",
+	"pron": "pron:any",
+	"UNK": "UNK",
+	"v": "v",
     },
-    opts : settings.liteOptions
-};	
+    opts: settings.liteOptions
+};
 attrs.func_la = {
-    label : "func",
-    displayType : "select",
-    translationKey : "funcla_",
-    dataset : {
-	"advl" : "advl",
-	"advl:p" : "advl:p",
-	"advl:v" : "advl:v",
-	"advmod" : "advmod",
-	"amod" : "amod",
-	"analysoimaton" : "analysoimaton",
-	"compl:o" : "compl:o",
-	"compl:q" : "compl:q",
-	"compl:s" : "compl:s",
-	"compl:x" : "compl:x",
-	"infobj" : "infobj",
-	"infsubj" : "infsubj",
-	"irrall" : "irrall",
-	"jälkiosa" : "jälkiosa",
-	"lauseyhd" : "lauseyhd",
-	"lkeyhd" : "lkeyhd",
-	"sanayhd_lkeyhd" : "sanayhd_lkeyhd",
-	"muu" : "muu",
-	"neg:prt" : "neg:prt",
-	"nmod" : "nmod",
-	"npobj" : "npobj",
-	"npsubj" : "npsubj",
-	"nummod" : "nummod",
-	"osma" : "osma",
-	"pmod" : "pmod",
-	"pred" : "pred",
-	"pred2" : "pred2",
-	"pred3" : "pred3",
-	"pred:ref" : "pred:ref",
-	"pred:toisto" : "pred:toisto",
-	"subj:nonfin" : "subj:nonfin",
-	"subj:stat" : "subj:stat",
+    label: "func",
+    displayType: "select",
+    translationKey: "funcla_",
+    dataset: {
+	"advl": "advl",
+	"advl:p": "advl:p",
+	"advl:v": "advl:v",
+	"advmod": "advmod",
+	"amod": "amod",
+	"analysoimaton": "analysoimaton",
+	"compl:o": "compl:o",
+	"compl:q": "compl:q",
+	"compl:s": "compl:s",
+	"compl:x": "compl:x",
+	"infobj": "infobj",
+	"infsubj": "infsubj",
+	"irrall": "irrall",
+	"jälkiosa": "jälkiosa",
+	"lauseyhd": "lauseyhd",
+	"lkeyhd": "lkeyhd",
+	"sanayhd_lkeyhd": "sanayhd_lkeyhd",
+	"muu": "muu",
+	"neg:prt": "neg:prt",
+	"nmod": "nmod",
+	"npobj": "npobj",
+	"npsubj": "npsubj",
+	"nummod": "nummod",
+	"osma": "osma",
+	"pmod": "pmod",
+	"pred": "pred",
+	"pred2": "pred2",
+	"pred3": "pred3",
+	"pred:ref": "pred:ref",
+	"pred:toisto": "pred:toisto",
+	"subj:nonfin": "subj:nonfin",
+	"subj:stat": "subj:stat",
     },
-    opts : settings.liteOptions
+    opts: settings.liteOptions
 };
 
 
@@ -7061,8 +7061,8 @@ var la_murre_grouping = [
 	    // allow only the sentence context and sentence + clause
 	    // within.
 	    ["ahla", "Ahlainen", "ahlainen", {
-		context : settings.defaultContext,
-		within : settings.scWithin
+		context: settings.defaultContext,
+		within: settings.scWithin
 	    }],
 	    ["merk", "Merikarvia", "merikarvia"],
 	    ["noor", "Noormarkku", "noormarkku"],
@@ -7291,173 +7291,173 @@ settings.fn.make_la_murre_fulltext_url = function (token_data) {
 
 // The corpus settings template for the LA-murre corpora
 settings.templ.la_murre = {
-    // title : "Lauseopin arkiston murrekorpus",
-    // description : "Lauseopin arkiston murrekorpus",
-    // id : "la_murre",
-    within : settings.spcWithin,
-    context : settings.spContext,
-    attributes : {
-	cleanword : {
-	    label : "cleanword",
-	    opts : settings.defaultOptions
+    // title: "Lauseopin arkiston murrekorpus",
+    // description: "Lauseopin arkiston murrekorpus",
+    // id: "la_murre",
+    within: settings.spcWithin,
+    context: settings.spContext,
+    attributes: {
+	cleanword: {
+	    label: "cleanword",
+	    opts: settings.defaultOptions
 	},
-	lemma : attrs.baseform,
-        pos : attrs.pos_la,
-	msd : attrs.msd,
-	func : attrs.func_la,
-	cow : {
-	    label : "cowla",
-	    displayType : "select",
-	    translationKey : "cowla_",
-	    dataset : {
-		"cw" : "cw",
-		"cw1" : "cw1",
-		"cw2" : "cw2",
-		"" : "noncw",
+	lemma: attrs.baseform,
+        pos: attrs.pos_la,
+	msd: attrs.msd,
+	func: attrs.func_la,
+	cow: {
+	    label: "cowla",
+	    displayType: "select",
+	    translationKey: "cowla_",
+	    dataset: {
+		"cw": "cw",
+		"cw1": "cw1",
+		"cw2": "cw2",
+		"": "noncw",
 	    },
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	},
-	note : {
-	    label : "note",
-	    opts : settings.defaultOptions
+	note: {
+	    label: "note",
+	    opts: settings.defaultOptions
 	},
-	lex : attrs.lemgram_hidden
+	lex: attrs.lemgram_hidden
     },
-    struct_attributes : {
-	text_header : {
-	    label : "text_header"
+    struct_attributes: {
+	text_header: {
+	    label: "text_header"
 	},
-	text_info : {
-	    label : "text_info"
+	text_info: {
+	    label: "text_info"
 	},
-	text_dialect_region : {
-	    label : "dialect_region",
-	    displayType : "select",
-	    translationKey : "dialect_region_",
-	    dataset : la_murre_regions,
-	    opts : settings.liteOptions
+	text_dialect_region: {
+	    label: "dialect_region",
+	    displayType: "select",
+	    translationKey: "dialect_region_",
+	    dataset: la_murre_regions,
+	    opts: settings.liteOptions
 	},
-	text_dialect_group : {
-	    label : "dialect_group",
-	    displayType : "select",
-	    translationKey : "dialect_group_",
-	    dataset : la_murre_groups,
-	    opts : settings.liteOptions
+	text_dialect_group: {
+	    label: "dialect_group",
+	    displayType: "select",
+	    translationKey: "dialect_group_",
+	    dataset: la_murre_groups,
+	    opts: settings.liteOptions
 	},
-	text_parish : {
-	    label : "parish",
-	    displayType : "select",
-	    localize : false,
-	    dataset : la_murre_parishes,
-	    opts : settings.liteOptions
+	text_parish: {
+	    label: "parish",
+	    displayType: "select",
+	    localize: false,
+	    dataset: la_murre_parishes,
+	    opts: settings.liteOptions
 	},
-	text_parish_title : {
-	    label : "text_title",
+	text_parish_title: {
+	    label: "text_title",
 	},
-	text_filename : {
-	    label : "file_name",
-	    displayType : "hidden"
+	text_filename: {
+	    label: "file_name",
+	    displayType: "hidden"
 	},
-	text_date : sattrs.date,
-	text_session_descr : {
-	    label : "interview_descr",
+	text_date: sattrs.date,
+	text_session_descr: {
+	    label: "interview_descr",
 	},
-	text_content_descr : {
-	    label : "subject",
+	text_content_descr: {
+	    label: "subject",
 	},
-	text_source_id : {
-	    label : "original_source",
+	text_source_id: {
+	    label: "original_source",
 	},
-	paragraph_type : {
-	    label : "paragraph_type",
-	    displayType : "select",
-	    translationKey : "paragraphtype_",
-	    dataset : {
-		"interviewee" : "interviewee",
-		"interviewer" : "interviewer",
-		"noninterviewee" : "noninterviewee",
+	paragraph_type: {
+	    label: "paragraph_type",
+	    displayType: "select",
+	    translationKey: "paragraphtype_",
+	    dataset: {
+		"interviewee": "interviewee",
+		"interviewer": "interviewer",
+		"noninterviewee": "noninterviewee",
 	    },
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	},
-	paragraph_id : {
-	    label : "paragraph_id",
+	paragraph_id: {
+	    label: "paragraph_id",
 	},
-	paragraph_speaker : {
-	    label : "speaker",
+	paragraph_speaker: {
+	    label: "speaker",
 	},
-	paragraph_speaker_name : {
-	    label : "speaker_name",
-	    displayType : "hidden",
+	paragraph_speaker_name: {
+	    label: "speaker_name",
+	    displayType: "hidden",
 	},
-	paragraph_speaker_age : {
-	    label : "speaker_age",
+	paragraph_speaker_age: {
+	    label: "speaker_age",
 	},
-	paragraph_speaker_sex : {
-	    label : "speaker_sex",
-	    displayType : "select",
-	    translationKey : "",
-	    dataset : {
-		"male" : "male",
-		"female" : "female",
-		"" : "unknown"
+	paragraph_speaker_sex: {
+	    label: "speaker_sex",
+	    displayType: "select",
+	    translationKey: "",
+	    dataset: {
+		"male": "male",
+		"female": "female",
+		"": "unknown"
 	    },
-	    opts : settings.liteOptions,
+	    opts: settings.liteOptions,
 	},
-	paragraph_speaker_birthdate : {
-	    label : "speaker_birthdate",
+	paragraph_speaker_birthdate: {
+	    label: "speaker_birthdate",
 	},
-	paragraph_speaker_descr : {
-	    label : "speaker_descr",
+	paragraph_speaker_descr: {
+	    label: "speaker_descr",
 	},
-	paragraph_begin_time : {
-	    label : "speech_begin_time"
+	paragraph_begin_time: {
+	    label: "speech_begin_time"
 	},
-	paragraph_duration : {
-	    label : "speech_duration"
+	paragraph_duration: {
+	    label: "speech_duration"
 	},
-	paragraph_annex_link : sattrs.link_prefixed(
+	paragraph_annex_link: sattrs.link_prefixed(
 	    "listen_speech",
 	    "https://lat.csc.fi/ds/annex/runLoader?"),
-	// sentence_source : {
-	//     label : "sentence_source"
+	// sentence_source: {
+	//     label: "sentence_source"
 	// },
-	sentence_clnum : {
-	    label : "sentence_clnum",
+	sentence_clnum: {
+	    label: "sentence_clnum",
 	},
-	sentence_num : {
-	    label : "sentence_num",
+	sentence_num: {
+	    label: "sentence_num",
 	},
-	sentence_wnum : {
-	    label : "sentence_wnum",
+	sentence_wnum: {
+	    label: "sentence_wnum",
 	},
-	sentence_id : sattrs.sentence_id_hidden,
-	sentence_begin_time : {
-	    label : "sentence_begin_time"
+	sentence_id: sattrs.sentence_id_hidden,
+	sentence_begin_time: {
+	    label: "sentence_begin_time"
 	},
-	sentence_duration : {
-	    label : "sentence_duration"
+	sentence_duration: {
+	    label: "sentence_duration"
 	},
-	sentence_annex_link : sattrs.link_prefixed(
+	sentence_annex_link: sattrs.link_prefixed(
 	    "listen_sentence",
 	    "https://lat.csc.fi/ds/annex/runLoader?"),
-	sentence_fulltext_link :  {
-	    label : "show_fulltext",
-	    type : "url",
-	    url_opts : sattrs.link_url_opts,
-	    synthetic : true,
-	    stringify_synthetic : settings.fn.make_la_murre_fulltext_url,
+	sentence_fulltext_link:  {
+	    label: "show_fulltext",
+	    type: "url",
+	    url_opts: sattrs.link_url_opts,
+	    synthetic: true,
+	    stringify_synthetic: settings.fn.make_la_murre_fulltext_url,
 	},
-	clause_clnum : {
-	    label : "clause_clnum",
+	clause_clnum: {
+	    label: "clause_clnum",
 	},
-	clause_num : {
-	    label : "clause_num",
+	clause_num: {
+	    label: "clause_num",
 	},
-	clause_hier : {
-	    label : "clause_hier",
-	    displayType : "select",
-	    translationKey : "clausehier_",
-	    dataset : [
+	clause_hier: {
+	    label: "clause_hier",
+	    displayType: "select",
+	    translationKey: "clausehier_",
+	    dataset: [
 		"irrall",
 		"main",
 		"sub1",
@@ -7467,13 +7467,13 @@ settings.templ.la_murre = {
 		"sub5",
 		"muu",
 	    ],
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	},
-	clause_type : {
-	    label : "clause_type",
-	    displayType : "select",
-	    translationKey : "clausetype_",
-	    dataset : [
+	clause_type: {
+	    label: "clause_type",
+	    displayType: "select",
+	    translationKey: "clausetype_",
+	    dataset: [
 		"affdecl",
 		"negdecl",
 		"affint",
@@ -7482,30 +7482,30 @@ settings.templ.la_murre = {
 		"negopt",
 		"muu",
 	    ],
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	},
-	clause_hallnum : {
-	    label : "clause_hallnum",
+	clause_hallnum: {
+	    label: "clause_hallnum",
 	},
-	clause_ora : {
-	    label : "clause_ora",
-	    displayType : "select",
-	    translationKey : "clauseora_",
-	    dataset : {
-		"dir" : "dir",
-		"" : "other",
+	clause_ora: {
+	    label: "clause_ora",
+	    displayType: "select",
+	    translationKey: "clauseora_",
+	    dataset: {
+		"dir": "dir",
+		"": "other",
 	    },
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	},
-	clause_depth : {
-	    label : "clause_depth"
+	clause_depth: {
+	    label: "clause_depth"
 	},
-	clause_partnum : {
-	    label : "clause_partnum",
+	clause_partnum: {
+	    label: "clause_partnum",
 	}
     },
-    sidebar_display_order : {
-	attributes : [
+    sidebar_display_order: {
+	attributes: [
 	    "cleanword",
 	    "lemma",
 	    "pos",
@@ -7514,7 +7514,7 @@ settings.templ.la_murre = {
 	    "cow",
 	    "note",
 	],
-	struct_attributes : [
+	struct_attributes: [
 	    "text_dialect_region",
 	    "text_dialect_group",
 	    "text_parish",
@@ -7526,7 +7526,7 @@ settings.templ.la_murre = {
     },
     // Ignore any number of punctuation tokens between tokens in the
     // extended search
-    ignore_between_tokens_cqp : '[pos="punct"]*',
+    ignore_between_tokens_cqp: '[pos="punct"]*',
 };
 
 // The following is now superseded with the more general
@@ -7544,17 +7544,17 @@ settings.templ.la_murre = {
 // 	var descr = "Lauseopin arkiston murrekorpus: " + subfolder_info[1];
 // 	if (depth < leaf_depth) {
 // 	    var subfolder = {
-// 		title : subfolder_info[1],
-// 		description : descr
+// 		title: subfolder_info[1],
+// 		description: descr
 // 	    };
 // 	    main_folder[subfolder_info[0]] = subfolder;
 // 	    settings.fn.make_folders_la_murre(subfolder, subfolder_info[2],
 // 					      depth + 1, leaf_depth);
 // 	} else {
 // 	    var templ_fill = {
-// 		id : subfolder_info[0],
-// 		title : subfolder_info[1] + " (LA-murre)",
-// 		description : descr
+// 		id: subfolder_info[0],
+// 		title: subfolder_info[1] + " (LA-murre)",
+// 		description: descr
 // 	    };
 // 	    // The optional fourth item in the corpus info list is an
 // 	    // object that may be used to override the values in the
@@ -7576,13 +7576,13 @@ settings.templ.la_murre = {
 settings.fn.make_folder_hierarchy(
     settings.corporafolders.spoken.la_murre, la_murre_grouping,
     {
-	id_prefix : la_murre_corpus_prefix,
-	folder_description_prefix : "Lauseopin arkiston murrekorpus: ",
-	corpus_title_suffix : " (LA-murre)",
-	make_corpus_description : function (data) {
+	id_prefix: la_murre_corpus_prefix,
+	folder_description_prefix: "Lauseopin arkiston murrekorpus: ",
+	corpus_title_suffix: " (LA-murre)",
+	make_corpus_description: function (data) {
 	    return "Lauseopin arkiston murrekorpus: " + data[1];
 	},
-	corpus_template : settings.templ.la_murre,
+	corpus_template: settings.templ.la_murre,
     });
 
 
@@ -7613,126 +7613,126 @@ delete la_murre_corpus_prefix;
 // LAS2
 
 attrlist.las2 = {
-    lemma : attrs.baseform,
-    pos : attrs.pos_las2,
-    msd : attrs.msd,
-    fun : attrs.func_la,
-    com : {
-        label : "note",
+    lemma: attrs.baseform,
+    pos: attrs.pos_las2,
+    msd: attrs.msd,
+    fun: attrs.func_la,
+    com: {
+        label: "note",
     },
-    lex : attrs.lemgram_hidden
+    lex: attrs.lemgram_hidden
 };
 
 sattrlist.las2 = {
-    text_dateto : {
-        label : "text_date",
+    text_dateto: {
+        label: "text_date",
     },
-    text_datefrom : {
-        label : "datefrom",
-	displayType : "hidden",
+    text_datefrom: {
+        label: "datefrom",
+	displayType: "hidden",
     },
-    text_num : {
-        label : "exam_num",
+    text_num: {
+        label: "exam_num",
     },
-    text_inf : {
-        label : "text_inf",
+    text_inf: {
+        label: "text_inf",
     },
-    text_tt : {
-        label : "text_tt",
+    text_tt: {
+        label: "text_tt",
     },
-    text_te : {
-        label : "text_te",
+    text_te: {
+        label: "text_te",
     },
-    text_lo : {
-        label : "text_lo",
+    text_lo: {
+        label: "text_lo",
     },
-    text_l1 : {
-        label : "text_l1",
+    text_l1: {
+        label: "text_l1",
     },
-    text_alin_cefr : {
-        label : "text_alin_cefr",
+    text_alin_cefr: {
+        label: "text_alin_cefr",
     },
-    text_ylin_cefr : {
-        label : "text_ylin_cefr",
+    text_ylin_cefr: {
+        label: "text_ylin_cefr",
     },
-    text_tekstin_cefr : {
-        label : "text_tekstin_cefr",
+    text_tekstin_cefr: {
+        label: "text_tekstin_cefr",
     },
     // // Uncomment when showing info pages is implemented
-    // text_inf_url : {
-    //     label : "text_inf_url",
-    //     type : "url",
+    // text_inf_url: {
+    //     label: "text_inf_url",
+    //     type: "url",
     // },
-    div_id : {
-        displayType : "hidden",
+    div_id: {
+        displayType: "hidden",
     },
-    div_question : {
-        label : "div_question",
+    div_question: {
+        label: "div_question",
     },
-    paragraph_id : {
-        displayType : "hidden",
+    paragraph_id: {
+        displayType: "hidden",
     },
-    paragraph_type : {
-        displayType : "hidden",
+    paragraph_type: {
+        displayType: "hidden",
     },
-    sentence_id : sattrs.sentence_id_hidden,
-    sentence_type : {
-        displayType : "hidden",
+    sentence_id: sattrs.sentence_id_hidden,
+    sentence_type: {
+        displayType: "hidden",
     },
-    clause_id : {
-        displayType : "hidden",
+    clause_id: {
+        displayType: "hidden",
     },
-    clause_type : {
-        label : "clause_type",
-        displayType : "select",
-        translationKey : "clausetype_",
-        dataset : {
-            "affdecl" : "affdecl",
-            "negdecl" : "negdecl",
-            "affint" : "affint",
-            "negint" : "negint",
-            "affopt" : "affopt",
-            "negopt" : "negopt",
-            "muu" : "muu",
+    clause_type: {
+        label: "clause_type",
+        displayType: "select",
+        translationKey: "clausetype_",
+        dataset: {
+            "affdecl": "affdecl",
+            "negdecl": "negdecl",
+            "affint": "affint",
+            "negint": "negint",
+            "affopt": "affopt",
+            "negopt": "negopt",
+            "muu": "muu",
         },
-        opts : settings.liteOptions
+        opts: settings.liteOptions
     },
-    clause_fun : {
-        label : "clause_fun",
+    clause_fun: {
+        label: "clause_fun",
     },
-    clause_com : {
-        label : "note",
+    clause_com: {
+        label: "note",
     }
 };
 
 // Properties common to the LAS2 subcorpora
 las2_common_props = {
-    urn : "urn:nbn:fi:lb-2015050504",
-    metadata_urn : "urn:nbn:fi:lb-201407167",
-    homepage_url : "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
-    licence : {
-	name : "CLARIN RES +PLAN +NC +LOC +ND",
-	urn : "urn:nbn:fi:lb-20150304111"
+    urn: "urn:nbn:fi:lb-2015050504",
+    metadata_urn: "urn:nbn:fi:lb-201407167",
+    homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
+    licence: {
+	name: "CLARIN RES +PLAN +NC +LOC +ND",
+	urn: "urn:nbn:fi:lb-20150304111"
     },
-    cite_id : "LAS2",
-    limited_access : true,
-    licence_type : "RES",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.las2,
-    struct_attributes : sattrlist.las2,
+    cite_id: "LAS2",
+    limited_access: true,
+    licence_type: "RES",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.las2,
+    struct_attributes: sattrlist.las2,
 };
 
 settings.corpora.las2_tentit = {
-    title : "LAS2 (tentit)",
-    description : "Edistyneiden suomenoppijoiden korpus (tentit)",
-    id : "las2_tentit",
+    title: "LAS2 (tentit)",
+    description: "Edistyneiden suomenoppijoiden korpus (tentit)",
+    id: "las2_tentit",
 };
 
 settings.corpora.las2_esseet = {
-    title : "LAS2 (esseet)",
-    description : "Edistyneiden suomenoppijoiden korpus (esseet)",
-    id : "las2_esseet",
+    title: "LAS2 (esseet)",
+    description: "Edistyneiden suomenoppijoiden korpus (esseet)",
+    id: "las2_esseet",
 };
 
 // Add the common properties to the corpus settings of las2_tentit and
@@ -7746,294 +7746,294 @@ settings.corpus_aliases.las2 = "las2_tentit,las2_esseet";
 
 
 settings.corpora.sks_kivi_fi = {
-    title : "Aleksis Kivi (SKS)",
-    description : "Aleksis Kiven painetut teokset, kirjeet ja muu tunnettu tuotanto. Toimittaneet Sakari Katajamäki, Ossi Kokko ja Elina Kela. <a href='http://www.edith.fi/kivikorpus/index.htm'>Infosivu</a>",
-    id : "sks_kivi_fi",
-    // unselected : true,
-    urn : "urn:nbn:fi:lb-201405273",
-    metadata_urn : "urn:nbn:fi:lb-201405274",
-    licence : settings.licenceinfo.CC_BY_NC,
-    cite_id : "Kivi",
-    homepage_url : "http://www.edith.fi/kivikorpus/index.htm",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-	sketchyword : {
-	    label : "sketchyword",
-	    opts : settings.defaultOptions,
+    title: "Aleksis Kivi (SKS)",
+    description: "Aleksis Kiven painetut teokset, kirjeet ja muu tunnettu tuotanto. Toimittaneet Sakari Katajamäki, Ossi Kokko ja Elina Kela. <a href='http://www.edith.fi/kivikorpus/index.htm'>Infosivu</a>",
+    id: "sks_kivi_fi",
+    // unselected: true,
+    urn: "urn:nbn:fi:lb-201405273",
+    metadata_urn: "urn:nbn:fi:lb-201405274",
+    licence: settings.licenceinfo.CC_BY_NC,
+    cite_id: "Kivi",
+    homepage_url: "http://www.edith.fi/kivikorpus/index.htm",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+	sketchyword: {
+	    label: "sketchyword",
+	    opts: settings.defaultOptions,
 	},
-	clean_note : {
-	    label : "clean_note",
-	    opts : settings.defaultOptions,
+	clean_note: {
+	    label: "clean_note",
+	    opts: settings.defaultOptions,
 	},
-	sketchy_note : {
-	    label : "sketchy_note",
-	    opts : settings.defaultOptions,
+	sketchy_note: {
+	    label: "sketchy_note",
+	    opts: settings.defaultOptions,
 	},
-	other_note : {
-	    label : "other_note",
-	    opts : settings.defaultOptions,
+	other_note: {
+	    label: "other_note",
+	    opts: settings.defaultOptions,
 	},
-	wtype : {
-	    label : "wtype",
-	    opts : settings.defaultOptions,
+	wtype: {
+	    label: "wtype",
+	    opts: settings.defaultOptions,
 	}
     },
-    struct_attributes : {
-	text_idno : {
-	    label : "kivi_text_idno",
-	    opts : settings.defaultOptions,
+    struct_attributes: {
+	text_idno: {
+	    label: "kivi_text_idno",
+	    opts: settings.defaultOptions,
 	},
-	text_author : {
-	    label : "kivi_text_author",
-	    opts : settings.defaultOptions,
+	text_author: {
+	    label: "kivi_text_author",
+	    opts: settings.defaultOptions,
 	},
-	text_title : {
-	    label : "kivi_text_title",
-	    opts : settings.defaultOptions,
+	text_title: {
+	    label: "kivi_text_title",
+	    opts: settings.defaultOptions,
 	},
-	text_byline : {
-	    label : "kivi_text_byline",
-	    opts : settings.defaultOptions,
+	text_byline: {
+	    label: "kivi_text_byline",
+	    opts: settings.defaultOptions,
 	},
-	text_settlement : {
-	    label : "kivi_text_settlement",
-	    opts : settings.defaultOptions,
+	text_settlement: {
+	    label: "kivi_text_settlement",
+	    opts: settings.defaultOptions,
 	},
-	text_repository : {
-	    label : "kivi_text_repository",
-	    opts : settings.defaultOptions,
+	text_repository: {
+	    label: "kivi_text_repository",
+	    opts: settings.defaultOptions,
 	},
-	text_publisher : {
-	    label : "kivi_text_publisher",
-	    opts : settings.defaultOptions,
+	text_publisher: {
+	    label: "kivi_text_publisher",
+	    opts: settings.defaultOptions,
 	},
-	text_distributor : {
-	    label : "kivi_text_distributor",
-	    opts : settings.defaultOptions,
+	text_distributor: {
+	    label: "kivi_text_distributor",
+	    opts: settings.defaultOptions,
 	},
-	text_bibl : {
-	    label : "kivi_text_bibl",
-	    displayType : "hidden",
+	text_bibl: {
+	    label: "kivi_text_bibl",
+	    displayType: "hidden",
 	},
-	text_bibl_type : {
-	    label : "kivi_text_bibl_type",
-	    displayType : "hidden",
+	text_bibl_type: {
+	    label: "kivi_text_bibl_type",
+	    displayType: "hidden",
 	},
-	text_lang : {
-	    label : "kivi_text_lang",
-	    opts : settings.defaultOptions,
+	text_lang: {
+	    label: "kivi_text_lang",
+	    opts: settings.defaultOptions,
 	},
-	text_note : {
-	      label : "kivi_text_note",
-	      opts : settings.defaultOptions,
+	text_note: {
+	      label: "kivi_text_note",
+	      opts: settings.defaultOptions,
 	},
-	text_date : {
-              label : "kivi_text_date",
-              opts : settings.defaultOptions,
+	text_date: {
+              label: "kivi_text_date",
+              opts: settings.defaultOptions,
         },
-	section_id : {
-	    label : "section_id",
-	    displayType : "hidden",
+	section_id: {
+	    label: "section_id",
+	    displayType: "hidden",
 	},
-	section_type : {
-	    label : "section_type",
-	    opts : settings.defaultOptions,
+	section_type: {
+	    label: "section_type",
+	    opts: settings.defaultOptions,
 	},
-	section_subtype : {
-	    label : "section_subtype",
-	    opts : settings.defaultOptions,
+	section_subtype: {
+	    label: "section_subtype",
+	    opts: settings.defaultOptions,
 	},
 	/*
-	section_subtype_n : {
-	    label : "section_subtype_n",
-	    displayType : "hidden",
+	section_subtype_n: {
+	    label: "section_subtype_n",
+	    displayType: "hidden",
 	},*/
-	paragraph_id : {
-	    label : "paragraph_id",
-	    displayType : "hidden",
+	paragraph_id: {
+	    label: "paragraph_id",
+	    displayType: "hidden",
 	},
-	paragraph_type : {
-	    label : "paragraph_type",
-	    opts : settings.defaultOptions,
+	paragraph_type: {
+	    label: "paragraph_type",
+	    opts: settings.defaultOptions,
 	},
-	paragraph_speaker : {
-	    label : "paragraph_speaker",
-	    opts : settings.defaultOptions,
+	paragraph_speaker: {
+	    label: "paragraph_speaker",
+	    opts: settings.defaultOptions,
 	},
-	sentence_id : sattrs.sentence_id_hidden,
-	sentence_type : {
-	    label : "sentence_type",
-	    opts : settings.defaultOptions,
+	sentence_id: sattrs.sentence_id_hidden,
+	sentence_type: {
+	    label: "sentence_type",
+	    opts: settings.defaultOptions,
 	}
     }
 };
 
 settings.corpora.skvr = {
-    title : "SKVR",
-    description : "SKS:n Suomen Kansan Vanhat Runot -korpus",
-    id : "skvr",
-    // unselected : true,
-    urn : "urn:nbn:fi:lb-2014052711",
-    metadata_urn : "urn:nbn:fi:lb-2014052712",
-    licence : settings.licenceinfo.CC_BY_NC,
-    homepage_url : "http://dbgw.finlit.fi/skvr/",
-    cite_id : "SKVR",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        cleanword : {
-            label : "cleanword",
-            opts : settings.defaultOptions,
+    title: "SKVR",
+    description: "SKS:n Suomen Kansan Vanhat Runot -korpus",
+    id: "skvr",
+    // unselected: true,
+    urn: "urn:nbn:fi:lb-2014052711",
+    metadata_urn: "urn:nbn:fi:lb-2014052712",
+    licence: settings.licenceinfo.CC_BY_NC,
+    homepage_url: "http://dbgw.finlit.fi/skvr/",
+    cite_id: "SKVR",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        cleanword: {
+            label: "cleanword",
+            opts: settings.defaultOptions,
         },
-        normalized : {
-            label : "normalized",
-            opts : settings.defaultOptions,
+        normalized: {
+            label: "normalized",
+            opts: settings.defaultOptions,
         }
     },
-    struct_attributes : {
-	text_id : {
-            label : "skvr_item_id",
-            displayType : "hidden",
+    struct_attributes: {
+	text_id: {
+            label: "skvr_item_id",
+            displayType: "hidden",
         },
-        text_osa : {
-            label : "skvr_item_osa",
-            opts : settings.defaultOptions,
+        text_osa: {
+            label: "skvr_item_osa",
+            opts: settings.defaultOptions,
         },
-        text_loc : {
-            label : "skvr_item_loc",
-            opts : settings.defaultOptions,
+        text_loc: {
+            label: "skvr_item_loc",
+            opts: settings.defaultOptions,
         },
-        text_inf : {
-            label : "skvr_item_inf",
-            opts : settings.defaultOptions,
+        text_inf: {
+            label: "skvr_item_inf",
+            opts: settings.defaultOptions,
         },
-        text_tmp : {
-            label : "skvr_item_tmp",
-            opts : settings.defaultOptions,
+        text_tmp: {
+            label: "skvr_item_tmp",
+            opts: settings.defaultOptions,
         },
-        text_col : {
-            label : "skvr_item_col",
-            opts : settings.defaultOptions,
+        text_col: {
+            label: "skvr_item_col",
+            opts: settings.defaultOptions,
         },
-        text_idn : {
-            label : "skvr_item_idn",
-            opts : settings.defaultOptions,
+        text_idn: {
+            label: "skvr_item_idn",
+            opts: settings.defaultOptions,
         },
-        text_nro : {
-            label : "skvr_item_nro",
-            opts : settings.defaultOptions,
+        text_nro: {
+            label: "skvr_item_nro",
+            opts: settings.defaultOptions,
         },
-        text_sgn : {
-            label : "skvr_item_sgn",
-            opts : settings.defaultOptions,
+        text_sgn: {
+            label: "skvr_item_sgn",
+            opts: settings.defaultOptions,
         },
-        text_p_code1 : {
-            label : "skvr_item_p_code1",
-            opts : settings.defaultOptions,
+        text_p_code1: {
+            label: "skvr_item_p_code1",
+            opts: settings.defaultOptions,
         },
-        text_p_code2 : {
-            label : "skvr_item_p_code2",
-            opts : settings.defaultOptions,
+        text_p_code2: {
+            label: "skvr_item_p_code2",
+            opts: settings.defaultOptions,
         },
-        text_k_code : {
-            label : "skvr_item_k_code",
-            opts : settings.defaultOptions,
+        text_k_code: {
+            label: "skvr_item_k_code",
+            opts: settings.defaultOptions,
         },
-        text_y_code : {
-            label : "skvr_item_y_code",
-            opts : settings.defaultOptions,
+        text_y_code: {
+            label: "skvr_item_y_code",
+            opts: settings.defaultOptions,
         },
-        text_refs : {
-            label : "skvr_item_refs",
-            opts : settings.defaultOptions,
+        text_refs: {
+            label: "skvr_item_refs",
+            opts: settings.defaultOptions,
 	},
-        text_cpt : {
-            label : "skvr_item_cpt",
-            opts : settings.defaultOptions,
+        text_cpt: {
+            label: "skvr_item_cpt",
+            opts: settings.defaultOptions,
         },
-	paragraph_id : {
-            displayType : "hidden",
+	paragraph_id: {
+            displayType: "hidden",
         },
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_type : {
-            label : "sentence_type",
-            displayType : "select",
-            translationKey : "skvr_stype_",
-            dataset : {
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_type: {
+            label: "sentence_type",
+            displayType: "select",
+            translationKey: "skvr_stype_",
+            dataset: {
                 'verse':'verse',
                 'comment':'comment',
                 'editor_commentary':'editor',
                 'caption':'caption'
             },
-            opts : settings.liteOptions,
+            opts: settings.liteOptions,
         },
-        sentence_refs : {
-            label : "sentence_refs",
-            opts : settings.defaultOptions,
+        sentence_refs: {
+            label: "sentence_refs",
+            opts: settings.defaultOptions,
         }
     }
 };
 
 
 attrlist.mulcold_fi = {
-    lemma : attrs.baseform,
-    lemmacomp : attrs.baseform_compound,
-    pos : attrs.pos_mulcold_fi,
-    msd : attrs.msd,
-    amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos_mulcold_fi,
-    ambmsd : attrs.ambiguous_msd,
-    lex : attrs.lemgram_hidden
+    lemma: attrs.baseform,
+    lemmacomp: attrs.baseform_compound,
+    pos: attrs.pos_mulcold_fi,
+    msd: attrs.msd,
+    amblemma: attrs.ambiguous_lemma,
+    ambpos: attrs.ambiguous_pos_mulcold_fi,
+    ambmsd: attrs.ambiguous_msd,
+    lex: attrs.lemgram_hidden
 };
 attrlist.mulcold_ru = {
-    lemma : attrs.baseform,
-    pos : attrs.pos_mulcold_ru,
-    msd : attrs.msd,
-    amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos_mulcold_ru,
-    ambmsd : attrs.ambiguous_msd,
-    lex : attrs.lemgram_hidden
+    lemma: attrs.baseform,
+    pos: attrs.pos_mulcold_ru,
+    msd: attrs.msd,
+    amblemma: attrs.ambiguous_lemma,
+    ambpos: attrs.ambiguous_pos_mulcold_ru,
+    ambmsd: attrs.ambiguous_msd,
+    lex: attrs.lemgram_hidden
 };
 attrlist.mulcold_en = {
-    lemma : attrs.baseform,
-    pos : attrs.pos_mulcold_en,
-    msd : attrs.msd,
-    amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos_mulcold_en,
-    ambmsd : attrs.ambiguous_msd,
-    lex : attrs.lemgram_hidden
+    lemma: attrs.baseform,
+    pos: attrs.pos_mulcold_en,
+    msd: attrs.msd,
+    amblemma: attrs.ambiguous_lemma,
+    ambpos: attrs.ambiguous_pos_mulcold_en,
+    ambmsd: attrs.ambiguous_msd,
+    lex: attrs.lemgram_hidden
 };
 attrlist.mulcold_sv = {
-    lemma : attrs.baseform,
-    lemmacomp : attrs.baseform_compound,
-    pos : attrs.pos_mulcold_sv,
-    msd : attrs.msd,
-    amblemma : attrs.ambiguous_lemma,
-    ambpos : attrs.ambiguous_pos_mulcold_sv,
-    ambmsd : attrs.ambiguous_msd,
-    lex : attrs.lemgram_hidden
+    lemma: attrs.baseform,
+    lemmacomp: attrs.baseform_compound,
+    pos: attrs.pos_mulcold_sv,
+    msd: attrs.msd,
+    amblemma: attrs.ambiguous_lemma,
+    ambpos: attrs.ambiguous_pos_mulcold_sv,
+    ambmsd: attrs.ambiguous_msd,
+    lex: attrs.lemgram_hidden
 };
 attrlist.mulcold_de = {
 };
 
 attrlist.topling = {
-    type : attrs.wordtype
+    type: attrs.wordtype
 };
 
 
 /* SINEBRYCHOFF */
 
 attrlist.sinebrychoff = {
-    //footnote : attrs.word_note
+    //footnote: attrs.word_note
 };
 
 sattrlist.sinebrychoff = {
-    text_url : sattrs.original_url,
-    text_date : {label : "date"},
-    text_sender : { label : "topling_from" },
-    text_receiver : { label : "topling_to"},
-    text_id : { label : "text_id" }
+    text_url: sattrs.original_url,
+    text_date: {label: "date"},
+    text_sender: { label: "topling_from" },
+    text_receiver: { label: "topling_to"},
+    text_id: { label: "text_id" }
 };
 
 
@@ -8041,126 +8041,126 @@ sattrlist.sinebrychoff = {
 
 /*
 sattrlist.opus = {
-    sentence_id : sattrs.sentence_id_hidden,
-    text_title : {
-        label : "title"
+    sentence_id: sattrs.sentence_id_hidden,
+    text_title: {
+        label: "title"
     }
 };
 */
 
 sattrlist.s24_update = {
-    text_urlmsg : {
-        label : "suomi24fi_urlmsg",
-        type : "url",
-        url_opts : sattrs.link_url_opts
+    text_urlmsg: {
+        label: "suomi24fi_urlmsg",
+        type: "url",
+        url_opts: sattrs.link_url_opts
     },
-    text_urlboard : {
-        label : "suomi24fi_urlboard",
-        type : "url",
-        url_opts : sattrs.link_url_opts
+    text_urlboard: {
+        label: "suomi24fi_urlboard",
+        type: "url",
+        url_opts: sattrs.link_url_opts
     },
-    sentence_id : sattrs.sentence_id_hidden,
-    text_title : sattrs.text_title,
-    text_title_lemmas : {
-	label : "title_lemmas",
+    sentence_id: sattrs.sentence_id_hidden,
+    text_title: sattrs.text_title,
+    text_title_lemmas: {
+	label: "title_lemmas",
     },
-    text_date : sattrs.date,
-    text_time : sattrs.text_time,
-    text_tid : {
-	label : "discussion_thread_id",
+    text_date: sattrs.date,
+    text_time: sattrs.text_time,
+    text_tid: {
+	label: "discussion_thread_id",
     },
-    text_cid : {
-        label : "suomi24fi_cid",
+    text_cid: {
+        label: "suomi24fi_cid",
     },
-    text_discussionarea : {
-        label : "suomi24fi_sect",
+    text_discussionarea: {
+        label: "suomi24fi_sect",
     },
-    text_subsections : {
-        label : "suomi24fi_sub",
+    text_subsections: {
+        label: "suomi24fi_sub",
     },
-    text_anonnick : {
-        label : "suomi24fi_user",
+    text_anonnick: {
+        label: "suomi24fi_user",
     },
-    text_anonnick_lemmas : {
-	label : "suomi24fi_user_lemmas",
+    text_anonnick_lemmas: {
+	label: "suomi24fi_user_lemmas",
     },
 };
 
 sattrlist.europarl_v7 = {
-    text_title : sattrs.text_title,
-    sentence_id : sattrs.sentence_id_hidden,
+    text_title: sattrs.text_title,
+    sentence_id: sattrs.sentence_id_hidden,
 
-    sentence_type : {
-        label : "sentence_type",
-        displayType : "select",
-        translationKey : "europarl_v7_sentence_type_",
-        dataset : {
-            "meta" : "meta",
-            "speech" : "speech"
+    sentence_type: {
+        label: "sentence_type",
+        displayType: "select",
+        translationKey: "europarl_v7_sentence_type_",
+        dataset: {
+            "meta": "meta",
+            "speech": "speech"
         },
-        opts : settings.liteOptions
+        opts: settings.liteOptions
     },
 
-    sentence_line : {
-        label : "sentence_line",
+    sentence_line: {
+        label: "sentence_line",
     },
-    text_filename : {
-        label : "file_name",
+    text_filename: {
+        label: "file_name",
     },
-    chapter_title : {
-        label : "chapter_title",
+    chapter_title: {
+        label: "chapter_title",
     },
-    chapter_id : {
-        label : "chapter_id",
-        displayType : "hidden",
+    chapter_id: {
+        label: "chapter_id",
+        displayType: "hidden",
     },
-    speaker_id : {
-        label : "speech_speakerid",
-        displayType : "hidden",
+    speaker_id: {
+        label: "speech_speakerid",
+        displayType: "hidden",
     },
-    speaker_name : {
-        label : "speech_speakername"
+    speaker_name: {
+        label: "speech_speakername"
     },
-    speaker_aff : {
-        label : 'speaker_affiliation',
-        displayType : "select",
-        translationKey : "europarl_v7_aff_",
-        dataset : {
-            "und" : "und"
+    speaker_aff: {
+        label: 'speaker_affiliation',
+        displayType: "select",
+        translationKey: "europarl_v7_aff_",
+        dataset: {
+            "und": "und"
 	}
     },
-    speaker_lang : {
-        label : "speech_language",
-        displayType : "select",
-        translationKey : "ftb3_europarl_language_",
-        dataset : {
-            "BG" : "bg",
-            "CS" : "cs",
-            "DA" : "da",
-            "DE" : "de",
-            "EL" : "el",
-            "EN" : "en",
-            "ES" : "es",
-            "ET" : "et",
-            "EU" : "eu",
-            "FI" : "fi",
-            "FR" : "fr",
-            "GA" : "ga",
-            "HU" : "hu",
-            "IT" : "it",
-            "LT" : "lt",
-            "LV" : "lv",
-            "MT" : "mt",
-            "NL" : "nl",
-            "PL" : "pl",
-            "PT" : "pt",
-            "RO" : "ro",
-            "SK" : "sk",
-            "SL" : "sl",
-            "SV" : "sv",
-            "und" : "und"
+    speaker_lang: {
+        label: "speech_language",
+        displayType: "select",
+        translationKey: "ftb3_europarl_language_",
+        dataset: {
+            "BG": "bg",
+            "CS": "cs",
+            "DA": "da",
+            "DE": "de",
+            "EL": "el",
+            "EN": "en",
+            "ES": "es",
+            "ET": "et",
+            "EU": "eu",
+            "FI": "fi",
+            "FR": "fr",
+            "GA": "ga",
+            "HU": "hu",
+            "IT": "it",
+            "LT": "lt",
+            "LV": "lv",
+            "MT": "mt",
+            "NL": "nl",
+            "PL": "pl",
+            "PT": "pt",
+            "RO": "ro",
+            "SK": "sk",
+            "SL": "sl",
+            "SV": "sv",
+            "und": "und"
         },
-        opts : settings.liteOptions
+        opts: settings.liteOptions
     }
 };
 
@@ -8168,144 +8168,144 @@ attrlist.testerzya = {};
 sattrlist.erme_debug = {}
 
 sattrlist.erme = {
-    text_author : {
-        label : "text_author"
+    text_author: {
+        label: "text_author"
     },
-    text_title : {
-        label : "text_booktitle"
+    text_title: {
+        label: "text_booktitle"
     },
-    text_corrector : {
-        label : "text_corrector"
+    text_corrector: {
+        label: "text_corrector"
     },
-    text_year : {
-        label : "text_year"
+    text_year: {
+        label: "text_year"
     },
-    sentence_id : sattrs.sentence_id_hidden,
-    sentence_pgno : {
-        label : "page_num"
+    sentence_id: sattrs.sentence_id_hidden,
+    sentence_pgno: {
+        label: "page_num"
     },
-    text_publisher : {
-        label : "text_publisher"
+    text_publisher: {
+        label: "text_publisher"
     }
 };
 
 sattrlist.testerzya = {
-    text_author : {
-        label : "text_author"
+    text_author: {
+        label: "text_author"
     },
-    text_title : {
-        label : "text_title"
+    text_title: {
+        label: "text_title"
     },
-    text_publisher : {
-        label : "text_publisher"
+    text_publisher: {
+        label: "text_publisher"
     },
-    text_corrector : {
-        label : "text_corrector"
+    text_corrector: {
+        label: "text_corrector"
     },
-    text_usage : {
-        label : "text_usage"
+    text_usage: {
+        label: "text_usage"
     },
-    text_year : {
-        label : "text_year"
+    text_year: {
+        label: "text_year"
     },
-    text_lang : {
-        label : "klk_lang",
-        displayType : "select",
-        translationKey : "klk_lang_",
-        dataset : {
-            "izh" : "izh",
-            "kca" : "kca",
-            "mdf" : "mdf",
-            "mns" : "mns",
-            "mrj" : "mrj",
-            "myv" : "myv",
-            "sel" : "sel",
-            "vep" : "vep",
-            "yrk" : "yrk"
+    text_lang: {
+        label: "klk_lang",
+        displayType: "select",
+        translationKey: "klk_lang_",
+        dataset: {
+            "izh": "izh",
+            "kca": "kca",
+            "mdf": "mdf",
+            "mns": "mns",
+            "mrj": "mrj",
+            "myv": "myv",
+            "sel": "sel",
+            "vep": "vep",
+            "yrk": "yrk"
         },
-        opts : settings.liteOptions
+        opts: settings.liteOptions
     },
-    sentence_id : sattrs.sentence_id_hidden,
-	sentence_section : {
-        label : "sentence_section"
+    sentence_id: sattrs.sentence_id_hidden,
+	sentence_section: {
+        label: "sentence_section"
 	    },
-	sentence_chapno : {
-        label : "sentence_chapno"
+	sentence_chapno: {
+        label: "sentence_chapno"
 	    },
-	paragraph_class : {
-        label : "paragraph_class"
+	paragraph_class: {
+        label: "paragraph_class"
 	    },
-	paragraph_lang : {
-        label : "paragraph_lang"
+	paragraph_lang: {
+        label: "paragraph_lang"
 	}
 };
 
 
 
 sattrlist.fennougrica_veps = {
-    sentence_id : sattrs.sentence_id_hidden,
-    sentence_page : { label : "klk_page"},
-    within : settings.spWithin,
-    context : settings.spContext,
-    text_datefrom : sattrs.date,
-    text_year : {
-	label : "year"
+    sentence_id: sattrs.sentence_id_hidden,
+    sentence_page: { label: "klk_page"},
+    within: settings.spWithin,
+    context: settings.spContext,
+    text_datefrom: sattrs.date,
+    text_year: {
+	label: "year"
     },
-    text_author : {
-        label : "text_author"
+    text_author: {
+        label: "text_author"
     },
-    text_title : {
-        label : "text_title"
+    text_title: {
+        label: "text_title"
     }
 
 
 };
 
 attrlist.fennougrica_veps = {
-        url : {
-            label : "klk_img_url",
-            type : "url"
-	    /*opts : settings.defaultOptions*/
+        url: {
+            label: "klk_img_url",
+            type: "url"
+	    /*opts: settings.defaultOptions*/
         }
 };
 
 attrlist.fennougrica = {};
 
 sattrlist.fennougrica = {
-    within : settings.spWithin,
-    context : settings.spContext,
-    text_datefrom : sattrs.date,
-    text_author : {
-        label : "text_author"
+    within: settings.spWithin,
+    context: settings.spContext,
+    text_datefrom: sattrs.date,
+    text_author: {
+        label: "text_author"
     },
-    text_title : {
-        label : "text_title"
+    text_title: {
+        label: "text_title"
     },
-    text_editor : {
-        label : "klk_editor"
+    text_editor: {
+        label: "klk_editor"
     },
-    text_lang : {
-        label : "klk_lang",
-        displayType : "select",
-        translationKey : "klk_lang_",
-        dataset : {
-            "izh" : "izh",
-            "kca" : "kca",
-            "mdf" : "mdf",
-            "mns" : "mns",
-            "mrj" : "mrj",
-            "myv" : "myv",
-            "sel" : "sel",
-            "vep" : "vep",
-            "yrk" : "yrk"
+    text_lang: {
+        label: "klk_lang",
+        displayType: "select",
+        translationKey: "klk_lang_",
+        dataset: {
+            "izh": "izh",
+            "kca": "kca",
+            "mdf": "mdf",
+            "mns": "mns",
+            "mrj": "mrj",
+            "myv": "myv",
+            "sel": "sel",
+            "vep": "vep",
+            "yrk": "yrk"
         },
-        opts : settings.liteOptions
+        opts: settings.liteOptions
 
     },
-    text_link : {
-        url_opts : sattrs.link_url_opts,
-        label : "klk_img_url",
-        type : "url"
+    text_link: {
+        url_opts: sattrs.link_url_opts,
+        label: "klk_img_url",
+        type: "url"
     }
 };
 
@@ -8314,30 +8314,30 @@ sattrlist.fennougrica = {
 
 /* KFSPC */
 sattrlist.kfspc = {
-    sentence_id : sattrs.sentence_id_hidden,
-    text_distributor : sattrs.text_distributor,
-    text_h_title2 : sattrs.text_title,
-    text_pubdate2 : sattrs.text_pubdate,
-    text_publisher : sattrs.text_publisher
+    sentence_id: sattrs.sentence_id_hidden,
+    text_distributor: sattrs.text_distributor,
+    text_h_title2: sattrs.text_title,
+    text_pubdate2: sattrs.text_pubdate,
+    text_publisher: sattrs.text_publisher
 };
 
 settings.corpusinfo.kfspc = {
-    urn : "urn:nbn:fi:lb-201406035",
-    metadata_urn : "urn:nbn:fi:lb-201406036",
-    licence : settings.licenceinfo.CC_BY,
+    urn: "urn:nbn:fi:lb-201406035",
+    metadata_urn: "urn:nbn:fi:lb-201406036",
+    licence: settings.licenceinfo.CC_BY,
 };
 
 settings.corpora.kfspc_fi = {
-    title : "KFSPC suomi",
-    description : "Kotus Finnish-Swedish Parallel Corpus, suomenkielinen osuus",
-    id : "kfspc_fi",
-    cite_id : "kfspc-korp-fi",
-    lang : "fin",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {
+    title: "KFSPC suomi",
+    description: "Kotus Finnish-Swedish Parallel Corpus, suomenkielinen osuus",
+    id: "kfspc_fi",
+    cite_id: "kfspc-korp-fi",
+    lang: "fin",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: {
     },
-    struct_attributes : sattrlist.kfspc
+    struct_attributes: sattrlist.kfspc
 };
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_fi"]);
@@ -8346,108 +8346,108 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_fi"]);
 /* JRC-ACQUIS */
 
 sattrlist.jrc_acquis = {
-    sentence_id : sattrs.sentence_id_hidden,
-    text_year : {
-        label : "year"
+    sentence_id: sattrs.sentence_id_hidden,
+    text_year: {
+        label: "year"
     },
-    text_title : sattrs.text_title,
-    text_filename : {
-        label : "file_name",
+    text_title: sattrs.text_title,
+    text_filename: {
+        label: "file_name",
     }
 };
 
 /* TOPLING */
 sattrlist.topling = {
-    sentence_id : sattrs.sentence_id_hidden,
-    text_id : {
-	label : "text_id"
+    sentence_id: sattrs.sentence_id_hidden,
+    text_id: {
+	label: "text_id"
         },
-    text_student : {
-	label : "text_studentno"
+    text_student: {
+	label: "text_studentno"
 	},
-    file_edulevel : {
-	label : "file_edulevel"
+    file_edulevel: {
+	label: "file_edulevel"
 	},
-    text_year : {
-	label : "year"
+    text_year: {
+	label: "year"
 	},
-    file_round : {
-	label : "file_round"
+    file_round: {
+	label: "file_round"
 	},
-    file_levelops : {
-	label : "file_levelops"
+    file_levelops: {
+	label: "file_levelops"
 	},
-    file_exercise : {
-	label : "file_exercise"
+    file_exercise: {
+	label: "file_exercise"
 	},
     file_filetype: {
-	label : "file_filetype"
+	label: "file_filetype"
 	}
 };
 
 sattrlist.mulcold = {
-    align_text_code : {
-	label : "text_id"
+    align_text_code: {
+	label: "text_id"
     },
-    align_text_author : {
-	label : "author"
+    align_text_author: {
+	label: "author"
     },
-    align_text_title : {
-	label : "title"
+    align_text_title: {
+	label: "title"
     },
-    align_text_typeoftext : {
-	label : "text_type"
+    align_text_typeoftext: {
+	label: "text_type"
     },
-    align_text_genre : sattrs.mikhailov_text_genre,
-    align_text_period : {
-	label : "year"
+    align_text_genre: sattrs.mikhailov_text_genre,
+    align_text_period: {
+	label: "year"
     },
-    align_text_publisher : {
-	label : "publisher"
+    align_text_publisher: {
+	label: "publisher"
     },
-    sentence_id : sattrs.sentence_id_hidden
+    sentence_id: sattrs.sentence_id_hidden
 };
 
 sattrlist.legal = {
-    text_code : {
-	label : "text_id"
+    text_code: {
+	label: "text_id"
     },
-    text_author : {
-	label : "author"
+    text_author: {
+	label: "author"
     },
-    text_title : {
-	label : "title"
+    text_title: {
+	label: "title"
     },
-    text_typeoftext : {
-	label : "text_type"
+    text_typeoftext: {
+	label: "text_type"
     },
-    text_genre : sattrs.mikhailov_text_genre,
-    text_period : {
-	label : "text_period"
+    text_genre: sattrs.mikhailov_text_genre,
+    text_period: {
+	label: "text_period"
     },
-    text_publisher : {
-	label : "publisher"
+    text_publisher: {
+	label: "publisher"
     },
-    sentence_id : sattrs.sentence_id_hidden
+    sentence_id: sattrs.sentence_id_hidden
 };
 
 
 settings.corpusinfo.firulex = {
-    urn : "urn:nbn:fi:lb-201407162",
-    metadata_urn : "urn:nbn:fi:lb-201407161",
-    licence : settings.licenceinfo.CC_BY_ND,
-    homepage_url : "https://mustikka.uta.fi/",
+    urn: "urn:nbn:fi:lb-201407162",
+    metadata_urn: "urn:nbn:fi:lb-201407161",
+    licence: settings.licenceinfo.CC_BY_ND,
+    homepage_url: "https://mustikka.uta.fi/",
 };
 
 settings.corpora.legal_fi = {
-    id : "legal_fi",
-    title : "FiRuLex suomi",
-    description : "Juridisia tekstejä (suomi)",
-    cite_id : "FiRuLex-fi",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
+    id: "legal_fi",
+    title: "FiRuLex suomi",
+    description: "Juridisia tekstejä (suomi)",
+    cite_id: "FiRuLex-fi",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
     attributes: attrlist.mulcold_fi,
-    struct_attributes : sattrlist.legal
+    struct_attributes: sattrlist.legal
 };
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.firulex,
@@ -8455,21 +8455,21 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.firulex,
 
 
 settings.corpusinfo.mulcold = {
-    urn : "urn:nbn:fi:lb-201405277",
-    metadata_urn : "urn:nbn:fi:lb-201405278",
-    licence : settings.licenceinfo.CC_BY_ND,
-    homepage_url : "https://mustikka.uta.fi/",
+    urn: "urn:nbn:fi:lb-201405277",
+    metadata_urn: "urn:nbn:fi:lb-201405278",
+    licence: settings.licenceinfo.CC_BY_ND,
+    homepage_url: "https://mustikka.uta.fi/",
 };
 
 settings.corpora.mulcold_fi = {
-    id : "mulcold_fi",
-    title : "MULCOLD suomi",
-    description : "Multilingual Corpus of Legal Documents, suomenkielinen osa",
-    cite_id : "MULCOLD",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
+    id: "mulcold_fi",
+    title: "MULCOLD suomi",
+    description: "Multilingual Corpus of Legal Documents, suomenkielinen osa",
+    cite_id: "MULCOLD",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
     attributes: attrlist.mulcold_fi,
-    struct_attributes : sattrlist.mulcold
+    struct_attributes: sattrlist.mulcold
 };
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
@@ -8479,49 +8479,49 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
 /* ParFin common */
 
 settings.corpusinfo.parfin = {
-    urn : "urn:nbn:fi:lb-2015050506",
-    metadata_urn : "urn:nbn:fi:lb-2014052710",
-    lbr_id : "urn:nbn:fi:lb-2014052710",
-    licence : {
-	name : "CLARIN RES +NC +PLAN +INF",
-	urn : "urn:nbn:fi:lb-2015041306",
+    urn: "urn:nbn:fi:lb-2015050506",
+    metadata_urn: "urn:nbn:fi:lb-2014052710",
+    lbr_id: "urn:nbn:fi:lb-2014052710",
+    licence: {
+	name: "CLARIN RES +NC +PLAN +INF",
+	urn: "urn:nbn:fi:lb-2015041306",
     },
-    homepage_url : "https://mustikka.uta.fi/",
+    homepage_url: "https://mustikka.uta.fi/",
 };
 
 sattrlist.parfin_base = {
-    link_text_code : {
-	label : "text_id"
+    link_text_code: {
+	label: "text_id"
     },
-    link_txtnumber : {
-	label : "text_number"
+    link_txtnumber: {
+	label: "text_number"
     },
-    link_text_author : {
-	label : "author"
+    link_text_author: {
+	label: "author"
     },
-    link_text_title : {
-	label : "title"
+    link_text_title: {
+	label: "title"
     },
-    link_text_typeoftext : {
-	label : "text_type"
+    link_text_typeoftext: {
+	label: "text_type"
     },
-    link_text_genre : sattrs.mikhailov_text_genre,
-    link_text_period : {
-	label : "year"
+    link_text_genre: sattrs.mikhailov_text_genre,
+    link_text_period: {
+	label: "year"
     },
-    link_text_publisher : {
-	label : "publisher"
+    link_text_publisher: {
+	label: "publisher"
     },
-    sentence_id : sattrs.sentence_id_hidden
+    sentence_id: sattrs.sentence_id_hidden
 };
 
 sattrlist.parfin_fi = $.extend(
     true, {}, sattrlist.parfin_base,
     {
-	link_text_author : {
-	    label : "author",
-	    displayType : "select",
-	    dataset : [
+	link_text_author: {
+	    label: "author",
+	    displayType: "select",
+	    dataset: [
 		"Haahtela Joel",
 		"Hotakainen Kari",
 		"Konkka Anita",
@@ -8535,13 +8535,13 @@ sattrlist.parfin_fi = $.extend(
 		"Sinisalo Johanna",
 		"Tuuri Antti",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_translator : {
-	    label : "translator",
-	    displayType : "select",
-	    dataset : [
+	link_text_translator: {
+	    label: "translator",
+	    displayType: "select",
+	    dataset: [
 		"Djafarova Taissia",
 		"Džafarova-Viitala Taisja",
 		"Ioffe Eleonora",
@@ -8556,13 +8556,13 @@ sattrlist.parfin_fi = $.extend(
 		"Virolainen Laura A.",
 		"Zoštšenko Mihail",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_title : {
-	    label : "title",
-	    displayType : "select",
-	    dataset : [
+	link_text_title: {
+	    label: "title",
+	    displayType: "select",
+	    dataset: [
 		"Ennen päivänlaskua ei voi",
 		"Ensimmäinen murhani",
 		"Harmin paikka",
@@ -8579,21 +8579,21 @@ sattrlist.parfin_fi = $.extend(
 		"Sfinksi vai robotti",
 		"Tulitikkuja lainaamassa",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_publisher : {
-	    label : "publisher",
-	    displayType : "select",
-	    dataset : {
-		"Kansa" : "Kansa",
-		"Otava" : "Otava",
-		"[Tt]ammi" : "Tammi",
-		"Teos" : "Teos",
-		"WSOY" : "WSOY",
+	link_text_publisher: {
+	    label: "publisher",
+	    displayType: "select",
+	    dataset: {
+		"Kansa": "Kansa",
+		"Otava": "Otava",
+		"[Tt]ammi": "Tammi",
+		"Teos": "Teos",
+		"WSOY": "WSOY",
 	    },
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
     }
 );
@@ -8601,10 +8601,10 @@ sattrlist.parfin_fi = $.extend(
 sattrlist.parfin_ru = $.extend(
     true, {}, sattrlist.parfin_fi,
     {
-	link_text_title : {
-	    label : "title",
-	    displayType : "select",
-	    dataset : [
+	link_text_title: {
+	    label: "title",
+	    displayType: "select",
+	    dataset: [
 		"Бесстрашный Пекка  В одежде человека",
 		"В одежде человека",
 		"В сумасшедших небесах",
@@ -8621,13 +8621,13 @@ sattrlist.parfin_ru = $.extend(
 		"Сфинкс или робот  В одежде человека",
 		"Улица окопная",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_publisher : {
-	    label : "publisher",
-	    displayType : "select",
-	    dataset : [
+	link_text_publisher: {
+	    label: "publisher",
+	    displayType: "select",
+	    dataset: [
 		"Азбука-классика",
 		"Амфора",
 		"Астрель",
@@ -8639,8 +8639,8 @@ sattrlist.parfin_ru = $.extend(
 		"Текст",
 		"Художественная литература",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
     }
 );
@@ -8655,16 +8655,16 @@ attrlist.parfin_ru = $.extend(
 /* ParFin Finnish */
 
 settings.corpora.parfin_fi = {
-    id : "parfin_fi",
-    title : "ParFin (suomi) [poistuva]",
-    description : "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset alkuperäistekstit)<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1990–2010<br/><br/><strong>Huomaa, että ParFin 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
+    id: "parfin_fi",
+    title: "ParFin (suomi) [poistuva]",
+    description: "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset alkuperäistekstit)<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1990–2010<br/><br/><strong>Huomaa, että ParFin 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
     // TODO: Add paragraphs corresponding to link elements
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : attrlist.parfin_fi,
-    struct_attributes : sattrlist.parfin_fi,
-    limited_access : true,
-    licence_type : "RES",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.parfin_fi,
+    struct_attributes: sattrlist.parfin_fi,
+    limited_access: true,
+    licence_type: "RES",
 };
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.parfin, ["parfin_fi"]);
@@ -8681,10 +8681,10 @@ attrlist.parrus_ru = $.extend(
 sattrlist.parrus_fi = $.extend(
     true, {}, sattrlist.parfin_base,
     {
-	link_text_author : {
-	    label : "author",
-	    displayType : "select",
-	    dataset : [
+	link_text_author: {
+	    label: "author",
+	    displayType: "select",
+	    dataset: [
 		"Бабель И.",
 		"Бакланов Г.",
 		"Булгаков М.А.",
@@ -8706,13 +8706,13 @@ sattrlist.parrus_fi = $.extend(
 		"Чехов А.П.",
 		"Шолохов М.А.",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_translator : {
-	    label : "translator",
-	    displayType : "select",
-	    dataset : [
+	link_text_translator: {
+	    label: "translator",
+	    displayType: "select",
+	    dataset: [
 		"Adrian E.",
 		"Adrian, Esa",
 		"Ahava, Juho, Hameen-anttila, Vaino",
@@ -8737,13 +8737,13 @@ sattrlist.parrus_fi = $.extend(
 		"Viitanen Liisa",
 		"null",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_title : {
-	    label : "title",
-	    displayType : "select",
-	    dataset : [
+	link_text_title: {
+	    label: "title",
+	    displayType: "select",
+	    dataset: [
 		"Aateliskoti",
 		"Aatelisneiti talonpoikaistyttönä / Laukaus ja y. m. kertomuksia.",
 		"Agafja / Valitut novelit 1.",
@@ -8836,13 +8836,13 @@ sattrlist.parrus_fi = $.extend(
 		"Yö ennen oikeudenkäyntiä  / Valitut novellit 1.",
 		"Yö hautausmaalla / Valitut novellit 1.",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_publisher : {
-	    label : "publisher",
-	    displayType : "select",
-	    dataset : [
+	link_text_publisher: {
+	    label: "publisher",
+	    displayType: "select",
+	    dataset: [
 		"Gummerus",
 		"Helsinki",
 		"Kansankulttuuri",
@@ -8853,8 +8853,8 @@ sattrlist.parrus_fi = $.extend(
 		"WSOY",
 		"null",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
     }
 );
@@ -8862,10 +8862,10 @@ sattrlist.parrus_fi = $.extend(
 sattrlist.parrus_ru = $.extend(
     true, {}, sattrlist.parfin_base,
     {
-	link_text_author : {
-	    label : "author",
-	    displayType : "select",
-	    dataset : [
+	link_text_author: {
+	    label: "author",
+	    displayType: "select",
+	    dataset: [
 		"Бабель И.",
 		"Бакланов Г.",
 		"Булгаков М.А.",
@@ -8887,13 +8887,13 @@ sattrlist.parrus_ru = $.extend(
 		"Чехов А.П.",
 		"Шолохов М.А.",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_translator : {
-	    label : "translator",
-	    displayType : "select",
-	    dataset : [
+	link_text_translator: {
+	    label: "translator",
+	    displayType: "select",
+	    dataset: [
 		"Adrian, Esa",
 		"Ahava Juho, Hämeen-Anttila Väinö",
 		"Anhava, Martti",
@@ -8911,13 +8911,13 @@ sattrlist.parrus_ru = $.extend(
 		"Viitanen, Liisa",
 		"null",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_title : {
-	    label : "title",
-	    displayType : "select",
-	    dataset : [
+	link_text_title: {
+	    label: "title",
+	    displayType: "select",
+	    dataset: [
 		"Агафья / Собр. соч. в 15 тт.",
 		"Актерская гибель / Собр. соч. в 15 тт.",
 		"Анна Каренина",
@@ -9009,13 +9009,13 @@ sattrlist.parrus_ru = $.extend(
 		"Челкаш",
 		"Шинель",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_publisher : {
-	    label : "publisher",
-	    displayType : "select",
-	    dataset : [
+	link_text_publisher: {
+	    label: "publisher",
+	    displayType: "select",
+	    dataset: [
 		"АСТ, 1997",
 		"АСТ, 1998",
 		"АСТ, 2001",
@@ -9042,33 +9042,33 @@ sattrlist.parrus_ru = $.extend(
 		"Эксмо, 2009",
 		"Эксо, 2008",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
     }
 );
 
 settings.corpusinfo.parrus = {
-    urn : "[to be added]",
-    metadata_urn : "urn:nbn:fi:lb-20140730173",
-    lbr_id : "urn:nbn:fi:lb-2014052710",
-    licence : {
-	name : "CLARIN RES +PLAN +NC +INF +ND",
-	url : "urn:nbn:fi:lb-2016042705",
+    urn: "[to be added]",
+    metadata_urn: "urn:nbn:fi:lb-20140730173",
+    lbr_id: "urn:nbn:fi:lb-2014052710",
+    licence: {
+	name: "CLARIN RES +PLAN +NC +INF +ND",
+	url: "urn:nbn:fi:lb-2016042705",
     },
-    homepage_url : "https://mustikka.uta.fi/",
+    homepage_url: "https://mustikka.uta.fi/",
 };
 
 settings.corpora.parrus_fi = {
-    id : "parrus_fi",
-    title : "ParRus (suomi) [poistuva]",
-    description : "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset käännökset)<br/>Venäjänkielisten kaunokirjallisten tekstien (klassista ja 1900-luvun kirjallisuutta) käännöksiä suomeksi<br/><br/><strong>Huomaa, että ParRus 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    limited_access : true,
-    licence_type : "RES",
-    attributes : attrlist.parrus_fi,
-    struct_attributes : sattrlist.parrus_fi,
+    id: "parrus_fi",
+    title: "ParRus (suomi) [poistuva]",
+    description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset käännökset)<br/>Venäjänkielisten kaunokirjallisten tekstien (klassista ja 1900-luvun kirjallisuutta) käännöksiä suomeksi<br/><br/><strong>Huomaa, että ParRus 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    limited_access: true,
+    licence_type: "RES",
+    attributes: attrlist.parrus_fi,
+    struct_attributes: sattrlist.parrus_fi,
 };
 settings.fn.extend_corpus_settings(settings.corpusinfo.parrus, ["parrus_fi"]);
 
@@ -9078,55 +9078,55 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parrus, ["parrus_fi"]);
 settings.corpusinfo.parfin_2016 = {
     // The URNs in the single-language version are different from
     // those in the parallel corpus.
-    // urn : "[to be added]",
-    // metadata_urn : "urn:nbn:fi:lb-2014052710",
-    // licence : settings.licenceinfo.ParFinRus_2016_fi,
-    lbr_id : "urn:nbn:fi:lb-2017020601",
-    homepage_url : "https://mustikka.uta.fi/",
+    // urn: "[to be added]",
+    // metadata_urn: "urn:nbn:fi:lb-2014052710",
+    // licence: settings.licenceinfo.ParFinRus_2016_fi,
+    lbr_id: "urn:nbn:fi:lb-2017020601",
+    homepage_url: "https://mustikka.uta.fi/",
 };
 
 sattrlist.parfin_2016_base = {
-    link_text_code : {
-	label : "text_id"
+    link_text_code: {
+	label: "text_id"
     },
-    // link_txtnumber : {
-    // 	label : "text_number"
+    // link_txtnumber: {
+    // 	label: "text_number"
     // },
-    link_text_author : {
-	label : "author"
+    link_text_author: {
+	label: "author"
     },
-    link_text_title : {
-	label : "title"
+    link_text_title: {
+	label: "title"
     },
-    // link_text_typeoftext : {
-    // 	label : "text_type"
+    // link_text_typeoftext: {
+    // 	label: "text_type"
     // },
-    // link_text_genre : sattrs.mikhailov_text_genre,
-    // link_text_period : {
-    // 	label : "year"
+    // link_text_genre: sattrs.mikhailov_text_genre,
+    // link_text_period: {
+    // 	label: "year"
     // },
-    link_text_publisher : {
-	label : "publisher"
+    link_text_publisher: {
+	label: "publisher"
     },
-    link_text_year : {
-	label : "year",
+    link_text_year: {
+	label: "year",
     },
-    link_text_yearorig : {
-	label : "year_orig",
+    link_text_yearorig: {
+	label: "year_orig",
     },
-    link_text_yeartr : {
-	label : "year_transl",
+    link_text_yeartr: {
+	label: "year_transl",
     },
-    sentence_id : sattrs.sentence_id_hidden
+    sentence_id: sattrs.sentence_id_hidden
 };
 
 sattrlist.parfin_2016_fi = $.extend(
     true, {}, sattrlist.parfin_2016_base,
     {
-	link_text_author : {
-	    label : "author",
-	    displayType : "select",
-	    dataset : [
+	link_text_author: {
+	    label: "author",
+	    displayType: "select",
+	    dataset: [
 		"Haahtela Joel",
 		"Hotakainen Kari",
 		"Katz Daniel",
@@ -9143,16 +9143,16 @@ sattrlist.parfin_2016_fi = $.extend(
 		"Sinisalo Johanna",
 		"Tuuri Antti",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_translator : {
-	    label : "translator",
+	link_text_translator: {
+	    label: "translator",
 	},
-	link_text_title : {
-	    label : "title",
-	    displayType : "select",
-	    dataset : [
+	link_text_title: {
+	    label: "title",
+	    displayType: "select",
+	    dataset: [
 		"Ei-kuori",
 		"Ennen päivänlaskua ei voi",
 		"Ensimmäinen murhani",
@@ -9172,24 +9172,24 @@ sattrlist.parfin_2016_fi = $.extend(
 		"Tulitikkuja lainaamassa",
 		"Tuntematon sotilas",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_publisher : {
-	    label : "publisher",
-	    displayType : "select",
-	    dataset : [
+	link_text_publisher: {
+	    label: "publisher",
+	    displayType: "select",
+	    dataset: [
 		"Kansa",
 		"Otava",
 		"Tammi",
 		"Teos",
 		"WSOY",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_year_orig : {
-	    label : "year",
+	link_year_orig: {
+	    label: "year",
 	},
     }
 );
@@ -9197,10 +9197,10 @@ sattrlist.parfin_2016_fi = $.extend(
 sattrlist.parfin_2016_ru = $.extend(
     true, {}, sattrlist.parfin_2016_fi,
     {
-	link_text_title : {
-	    label : "title",
-	    displayType : "select",
-	    dataset : [
+	link_text_title: {
+	    label: "title",
+	    displayType: "select",
+	    dataset: [
 		"Бесстрашный Пекка",
 		"В одежде человека",
 		"В сумасшедших небесах",
@@ -9220,13 +9220,13 @@ sattrlist.parfin_2016_ru = $.extend(
 		"Тролль",
 		"Улица окопная",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_translator : {
-	    label : "translator",
-	    displayType : "select",
-	    dataset : [
+	link_text_translator: {
+	    label: "translator",
+	    displayType: "select",
+	    dataset: [
 		"Виролайнен, Лаура and Иоффе, Элеонора",
 		"Джафарова-Виитала, Таисья",
 		"Зощенко, M.",
@@ -9242,13 +9242,13 @@ sattrlist.parfin_2016_ru = $.extend(
 		"Тиновицкая, Евгения",
 		"Урецкий, Илья",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_publisher : {
-	    label : "publisher",
-	    displayType : "select",
-	    dataset : [
+	link_text_publisher: {
+	    label: "publisher",
+	    displayType: "select",
+	    dataset: [
 		"Азбука-классика",
 		"Амфора",
 		"Астрель",
@@ -9262,51 +9262,51 @@ sattrlist.parfin_2016_ru = $.extend(
 		"Текст",
 		"Художественная литература",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
     }
 );
 
 attrlist.parfin_2016_fi = {
-    lemma : attrs.baseform,
-    lemmacomp : attrs.baseform_compound,
-    pos : attrs.pos_ud_fi,
-    msd : attrs.msd,
-    dephead : attrs.dephead,
-    deprel : attrs.deprel_ud_fi,
-    ref : attrs.ref,
-    lex : attrs.lemgram_hidden
+    lemma: attrs.baseform,
+    lemmacomp: attrs.baseform_compound,
+    pos: attrs.pos_ud_fi,
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel_ud_fi,
+    ref: attrs.ref,
+    lex: attrs.lemgram_hidden
 };
 
 attrlist.parfin_2016_ru = {
-    lemma : attrs.baseform,
-    lemmacomp : attrs.baseform_compound,
-    pos : attrs.pos_uta_ru,
-    msd : attrs.msd,
-    dephead : attrs.dephead,
-    deprel : attrs.deprel_uta_ru,
-    ref : attrs.ref,
-    lex : attrs.lemgram_hidden
+    lemma: attrs.baseform,
+    lemmacomp: attrs.baseform_compound,
+    pos: attrs.pos_uta_ru,
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel_uta_ru,
+    ref: attrs.ref,
+    lex: attrs.lemgram_hidden
 };
 
 
 /* ParFin 2016 Finnish */
 
 settings.corpora.parfin_2016_fi = {
-    id : "parfin_2016_fi",
-    title : "ParFin 2016 (suomi)",
-    description : "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset alkuperäistekstit)<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1910–2008<br/><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Annotaatioiden kuvaus</a>",
-    urn : "urn:nbn:fi:lb-2016121602",
-    metadata_urn : "urn:nbn:fi:lb-20161216211",
-    licence : settings.licenceinfo.ParFinRus_2016_fi,
-    cite_id : "ParFin2016",
-    context : settings.sentLinkContext,
-    within : settings.sentLinkWithin,
-    attributes : attrlist.parfin_2016_fi,
-    struct_attributes : sattrlist.parfin_2016_fi,
-    limited_access : true,
-    licence_type : "RES",
+    id: "parfin_2016_fi",
+    title: "ParFin 2016 (suomi)",
+    description: "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset alkuperäistekstit)<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1910–2008<br/><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Annotaatioiden kuvaus</a>",
+    urn: "urn:nbn:fi:lb-2016121602",
+    metadata_urn: "urn:nbn:fi:lb-20161216211",
+    licence: settings.licenceinfo.ParFinRus_2016_fi,
+    cite_id: "ParFin2016",
+    context: settings.sentLinkContext,
+    within: settings.sentLinkWithin,
+    attributes: attrlist.parfin_2016_fi,
+    struct_attributes: sattrlist.parfin_2016_fi,
+    limited_access: true,
+    licence_type: "RES",
 };
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.parfin_2016,
@@ -9325,10 +9325,10 @@ attrlist.parrus_2016_ru = $.extend(
 sattrlist.parrus_2016_ru = $.extend(
     true, {}, sattrlist.parfin_2016_base,
     {
-	link_text_author : {
-	    label : "author",
-	    displayType : "select",
-	    dataset : [
+	link_text_author: {
+	    label: "author",
+	    displayType: "select",
+	    dataset: [
 		"Бабель И.",
 		"Булгаков М.А.",
 		"Гоголь Н.В.",
@@ -9351,13 +9351,13 @@ sattrlist.parrus_2016_ru = $.extend(
 		"Шолохов М.А.",
 		"Шукшин В.М.",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_title : {
-	    label : "title",
-	    displayType : "select",
-	    dataset : [
+	link_text_title: {
+	    label: "title",
+	    displayType: "select",
+	    dataset: [
 		"Агафья",
 		"Актерская гибель",
 		"Аристократка",
@@ -9457,18 +9457,18 @@ sattrlist.parrus_2016_ru = $.extend(
 		"Шинель",
 		"Явление природы / Сквозная линия",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_publisher : {
-	    label : "publisher",
-	    displayType : "select",
-	    dataset : [
+	link_text_publisher: {
+	    label: "publisher",
+	    displayType: "select",
+	    dataset: [
 		"",
 		"Эксмо",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
     }
 );
@@ -9476,10 +9476,10 @@ sattrlist.parrus_2016_ru = $.extend(
 sattrlist.parrus_2016_fi = $.extend(
     true, {}, sattrlist.parfin_2016_base,
     {
-	link_text_author : {
-	    label : "author",
-	    displayType : "select",
-	    dataset : [
+	link_text_author: {
+	    label: "author",
+	    displayType: "select",
+	    dataset: [
 		"Аксенов В.",
 		"Бабель И.",
 		"Бакланов Г.",
@@ -9512,13 +9512,13 @@ sattrlist.parrus_2016_fi = $.extend(
 		"Шолохов М.А.",
 		"Шукшин В.М.",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_translator : {
-	    label : "translator",
-	    displayType : "select",
-	    dataset : [
+	link_text_translator: {
+	    label: "translator",
+	    displayType: "select",
+	    dataset: [
 		"A.W--",
 		"Aarto A.",
 		"Adrian E.",
@@ -9564,13 +9564,13 @@ sattrlist.parrus_2016_fi = $.extend(
 		"Wuori M.",
 		"c.-s.",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_title : {
-	    label : "title",
-	    displayType : "select",
-	    dataset : [
+	link_text_title: {
+	    label: "title",
+	    displayType: "select",
+	    dataset: [
 		"Aateliskoti",
 		"Aatelisneiti talonpoikaistyttönä",
 		"Agafja",
@@ -9714,13 +9714,13 @@ sattrlist.parrus_2016_fi = $.extend(
 		"Yöpyi pilvi kultainen",
 		"Äidin sydän",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
-	link_text_publisher : {
-	    label : "publisher",
-	    displayType : "select",
-	    dataset : [
+	link_text_publisher: {
+	    label: "publisher",
+	    displayType: "select",
+	    dataset: [
 		"Churberg",
 		"Edlund",
 		"Gummerus",
@@ -9743,8 +9743,8 @@ sattrlist.parrus_2016_fi = $.extend(
 		"WSOY",
 		"null",
 	    ],
-	    localize : false,
-	    opts : settings.liteOptions,
+	    localize: false,
+	    opts: settings.liteOptions,
 	},
     }
 );
@@ -9752,27 +9752,27 @@ sattrlist.parrus_2016_fi = $.extend(
 settings.corpusinfo.parrus_2016 = {
     // The URNs in the single-language version are different from
     // those in the parallel corpus.
-    // urn : "[to be added]",
-    // metadata_urn : "urn:nbn:fi:lb-20140730173",
-    // licence : settings.licenceinfo.ParFinRus_2016_fi,
-    lbr_id : "urn:nbn:fi:lb-2017020601",
-    homepage_url : "https://mustikka.uta.fi/",
+    // urn: "[to be added]",
+    // metadata_urn: "urn:nbn:fi:lb-20140730173",
+    // licence: settings.licenceinfo.ParFinRus_2016_fi,
+    lbr_id: "urn:nbn:fi:lb-2017020601",
+    homepage_url: "https://mustikka.uta.fi/",
 };
 
 settings.corpora.parrus_2016_fi = {
-    id : "parrus_2016_fi",
-    title : "ParRus 2016 (suomi)",
-    description : "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset käännökset)<br/>Venäjänkielisten kaunokirjallisten tekstien (klassista ja 1900-luvun kirjallisuutta) käännöksiä suomeksi<br/><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Annotaatioiden kuvaus</a>",
-    urn : "urn:nbn:fi:lb-2016121606",
-    metadata_urn : "urn:nbn:fi:lb-2016121613",
-    licence : settings.licenceinfo.ParFinRus_2016_fi,
-    cite_id : "ParRus2016",
-    context : settings.sentLinkContext,
-    within : settings.sentLinkWithin,
-    limited_access : true,
-    licence_type : "RES",
-    attributes : attrlist.parrus_2016_fi,
-    struct_attributes : sattrlist.parrus_2016_fi,
+    id: "parrus_2016_fi",
+    title: "ParRus 2016 (suomi)",
+    description: "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset käännökset)<br/>Venäjänkielisten kaunokirjallisten tekstien (klassista ja 1900-luvun kirjallisuutta) käännöksiä suomeksi<br/><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Annotaatioiden kuvaus</a>",
+    urn: "urn:nbn:fi:lb-2016121606",
+    metadata_urn: "urn:nbn:fi:lb-2016121613",
+    licence: settings.licenceinfo.ParFinRus_2016_fi,
+    cite_id: "ParRus2016",
+    context: settings.sentLinkContext,
+    within: settings.sentLinkWithin,
+    limited_access: true,
+    licence_type: "RES",
+    attributes: attrlist.parrus_2016_fi,
+    struct_attributes: sattrlist.parrus_2016_fi,
 };
 settings.fn.extend_corpus_settings(settings.corpusinfo.parrus_2016,
 				   ["parrus_2016_fi"]);
@@ -9785,126 +9785,126 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parrus_2016,
  */
 
 sattrlist.klk = {
-    text_label : {
+    text_label: {
 	// The label has the prefix klk_ because it might not have the
 	// same meaning as "label" in some other contexts.
-        label : "klk_label",
-        opts : settings.defaultOptions,
+        label: "klk_label",
+        opts: settings.defaultOptions,
     },
-    text_publ_title : {
-        label : "publication",
-        opts : settings.defaultOptions,
-    },
-    /*
-    text_publ_part : {
-        label : "part",
-        opts : settings.defaultOptions,
-    },
-    */
-    text_publ_id : {
-        label : "issn",
-        opts : settings.defaultOptions,
-    },
-    text_issue_date : {
-        label : "date",
-        opts : settings.defaultOptions,
-    },
-    text_issue_no : {
-        label : "issue_num",
-        opts : settings.defaultOptions,
-    },
-    text_issue_title : {
-        label : "issue_title",
-        opts : settings.defaultOptions,
+    text_publ_title: {
+        label: "publication",
+        opts: settings.defaultOptions,
     },
     /*
-    text_part_name : {
-        label : "part_name",
-        opts : settings.defaultOptions,
+    text_publ_part: {
+        label: "part",
+        opts: settings.defaultOptions,
     },
     */
-    text_elec_date : {
-        label : "digitization_date",
-        opts : settings.defaultOptions,
+    text_publ_id: {
+        label: "issn",
+        opts: settings.defaultOptions,
     },
-    text_language : {
-        label : "lang",
-        displayType : "select",
-        translationKey : "",
-        opts : settings.liteOptions,
-        dataset : {
-            "fi" : "fin",
-            "sv" : "swe",
-            "et" : "est",
+    text_issue_date: {
+        label: "date",
+        opts: settings.defaultOptions,
+    },
+    text_issue_no: {
+        label: "issue_num",
+        opts: settings.defaultOptions,
+    },
+    text_issue_title: {
+        label: "issue_title",
+        opts: settings.defaultOptions,
+    },
+    /*
+    text_part_name: {
+        label: "part_name",
+        opts: settings.defaultOptions,
+    },
+    */
+    text_elec_date: {
+        label: "digitization_date",
+        opts: settings.defaultOptions,
+    },
+    text_language: {
+        label: "lang",
+        displayType: "select",
+        translationKey: "",
+        opts: settings.liteOptions,
+        dataset: {
+            "fi": "fin",
+            "sv": "swe",
+            "et": "est",
         }
     },
     /*
-    text_page_id : {
-        label : "page_id",
-        opts : settings.defaultOptions,
+    text_page_id: {
+        label: "page_id",
+        opts: settings.defaultOptions,
     },
     */
-    text_page_no : {
-        label : "page_num",
-        opts : settings.defaultOptions,
+    text_page_no: {
+        label: "page_num",
+        opts: settings.defaultOptions,
     },
-    text_sentcount : {
-        label : "sentence_count",
-        displayType : "hidden",
+    text_sentcount: {
+        label: "sentence_count",
+        displayType: "hidden",
     },
-    text_tokencount : {
-        label : "token_count",
-        displayType : "hidden",
+    text_tokencount: {
+        label: "token_count",
+        displayType: "hidden",
     },
-    text_img_url : {
-        label : "image_url",
-        type : "url",
-	displayType : "hidden",
+    text_img_url: {
+        label: "image_url",
+        type: "url",
+	displayType: "hidden",
     },
     /*
-    text_dateto : {
-        label : "dateto",
-        displayType : "hidden",
+    text_dateto: {
+        label: "dateto",
+        displayType: "hidden",
     },
-    text_datefrom : {
-        label : "datefrom",
-        displayType : "hidden",
+    text_datefrom: {
+        label: "datefrom",
+        displayType: "hidden",
     },
     */
-    text_publ_type : {
-	label : "publication_type",
-	displayType : "select",
-	translationKey : "publtype_",
-	opts : settings.liteOptions,
-	dataset : {
-	    "aikakausi" : "journal",
-	    "sanomalehti" : "newspaper"
+    text_publ_type: {
+	label: "publication_type",
+	displayType: "select",
+	translationKey: "publtype_",
+	opts: settings.liteOptions,
+	dataset: {
+	    "aikakausi": "journal",
+	    "sanomalehti": "newspaper"
 	}
     },
-    paragraph_id : {
-        label : "paragraph_id",
-        displayType : "hidden",
+    paragraph_id: {
+        label: "paragraph_id",
+        displayType: "hidden",
     },
-    sentence_id : sattrs.sentence_id_hidden
+    sentence_id: sattrs.sentence_id_hidden
 };
 
 sattrlist.klk_fi = $.extend({}, sattrlist.klk);
 sattrlist.klk_fi_parsed = $.extend(
     {}, sattrlist.klk_fi,
     {
-	sentence_parse_state : {
-	    label : "parse_state",
-	    displayType : "select",
-	    translationKey : "parse_state_",
-	    opts : settings.liteOptions,
-	    dataset : {
-		"parsed" : "parsed",
-		"tagged" : "tagged"
+	sentence_parse_state: {
+	    label: "parse_state",
+	    displayType: "select",
+	    translationKey: "parse_state_",
+	    opts: settings.liteOptions,
+	    dataset: {
+		"parsed": "parsed",
+		"tagged": "tagged"
 	    }
 	},
-	sentence_local_id : {
-	    label : "local_id",
-	    displayType : "hidden"
+	sentence_local_id: {
+	    label: "local_id",
+	    displayType: "hidden"
 	}
     });
 
@@ -9975,33 +9975,33 @@ settings.fn.make_klk_page_image_url = function (token_data, context_size) {
 }
 
 sattrlist.klk_pagelinks = {
-    text_binding_id : {
-	displayType : "hidden"
+    text_binding_id: {
+	displayType: "hidden"
     },
-    text_page_image_url : {
-	label : "show_page_image",
-	type : "url",
-	url_opts : sattrs.link_url_opts,
-	synthetic : true,
-	stringify_synthetic : function (token_data) {
+    text_page_image_url: {
+	label: "show_page_image",
+	type: "url",
+	url_opts: sattrs.link_url_opts,
+	synthetic: true,
+	stringify_synthetic: function (token_data) {
 	    return settings.fn.make_klk_page_image_url(token_data, 0);
 	}
     },
-    text_page_image_context_url : {
-	label : "show_page_image_context",
-	type : "url",
-	url_opts : sattrs.link_url_opts,
-	synthetic : true,
-	stringify_synthetic : function (token_data) {
+    text_page_image_context_url: {
+	label: "show_page_image_context",
+	type: "url",
+	url_opts: sattrs.link_url_opts,
+	synthetic: true,
+	stringify_synthetic: function (token_data) {
 	    return settings.fn.make_klk_page_image_url(token_data, 2);
 	}
     },
-    text_download_pdf_url : {
-	label : "download_publ_pdf",
-	type : "url",
-	url_opts : sattrs.link_url_opts,
-	synthetic : true,
-	stringify_synthetic : function (token_data) {
+    text_download_pdf_url: {
+	label: "download_publ_pdf",
+	type: "url",
+	url_opts: sattrs.link_url_opts,
+	synthetic: true,
+	stringify_synthetic: function (token_data) {
 	    return settings.fn.make_klk_url_base(token_data) + "/pdf";
 	}
     },
@@ -10011,23 +10011,23 @@ sattrlist.klk_fi_parsed_pagelinks = $.extend(
     {}, sattrlist.klk_fi_parsed, sattrlist.klk_pagelinks);
 
 attrlist.klk_fi = {
-    ocr : {
-	label : "OCR",
-	opts : settings.defaultOptions
+    ocr: {
+	label: "OCR",
+	opts: settings.defaultOptions
     }
 };
 
 attrlist.klk_fi_parsed =
     $.extend(
 	{
-	    lemma : attrs.baseform,
-	    lemmacomp : attrs.baseform_compound,
-	    pos : attrs.pos_klk,
-	    msd : attrs.msd,
-	    dephead : attrs.dephead,
-	    deprel : attrs.deprel_tdt,
-	    ref : attrs.ref,
-	    lex : attrs.lemgram_hidden
+	    lemma: attrs.baseform,
+	    lemmacomp: attrs.baseform_compound,
+	    pos: attrs.pos_klk,
+	    msd: attrs.msd,
+	    dephead: attrs.dephead,
+	    deprel: attrs.deprel_tdt,
+	    ref: attrs.ref,
+	    lex: attrs.lemgram_hidden
 	},
 	attrlist.klk_fi,
 	attrlist.finer);
@@ -10112,12 +10112,12 @@ settings.fn.make_klk_corpus_settings = function(
     var attrs_key = ("klk_" + lang + (parsed ? "_parsed" : "")
 		     + (year <= 1910 ? "_pagelinks" : ""));
     return {
-	title : title_format.replace("{year}", year_str),
-	description : descr_format.replace("{year}", year_str),
-	within : settings[ctx_type + "Within"],
-	context : settings[ctx_type + "Context"],
-	attributes : attrlist[attrs_key],
-	struct_attributes : sattrlist[attrs_key]
+	title: title_format.replace("{year}", year_str),
+	description: descr_format.replace("{year}", year_str),
+	within: settings[ctx_type + "Within"],
+	context: settings[ctx_type + "Context"],
+	attributes: attrlist[attrs_key],
+	struct_attributes: sattrlist[attrs_key]
     };
 }
 
@@ -10133,8 +10133,8 @@ settings.fn.make_corpus_settings_by_year_decade(
     settings.corporafolders.klk_fi, "fi_{decade}", "klk_fi_{year}",
     function(decade) {
 	return {
-	    title : decade.toString() + "-luku",
-	    // unselected : (decade <= 1880)
+	    title: decade.toString() + "-luku",
+	    // unselected: (decade <= 1880)
 	};
     },
     function(year) {
@@ -10146,8 +10146,8 @@ settings.fn.make_corpus_settings_by_year_decade(
 	    klk_fi_parsed_years.indexOf(year) != -1);
     },
     settings.fn.make_yearlist(1820, 2000,
-			      {descending : true,
-			       omit : [1828, 1843]})
+			      {descending: true,
+			       omit: [1828, 1843]})
 );
 
 // for (var i = 0; i < klk_fi_ner_years.length; i++) {
@@ -10166,104 +10166,104 @@ delete klk_fi_parsed_years;
  */
 
 sattrs.vks_sentence_id = {
-    label : "vks_sentence_id"
+    label: "vks_sentence_id"
 };
 sattrs.vks_sentence_cref = {
-    label : "vks_sentence_cRef"
+    label: "vks_sentence_cRef"
 };
 sattrs.vks_sentence_code = {
-    label : "vks_sentence_code"
+    label: "vks_sentence_code"
 };
 sattrs.vks_sentence_type = {
-    label : "vks_sentence_type",
-    translationKey : "vks_sentence_type_",
-    dataset : {
-	"sentence" : "Sentence",
-	"heading" : "Heading"
+    label: "vks_sentence_type",
+    translationKey: "vks_sentence_type_",
+    dataset: {
+	"sentence": "Sentence",
+	"heading": "Heading"
     }
 };
 sattrs.vks_text_year = {
-    label : "vks_text_year"
+    label: "vks_text_year"
 };
 sattrs.vks_text_title = {
-    label : "vks_text_title"
+    label: "vks_text_title"
 };
 sattrs.vks_sentence_page = {
-    label : "vks_sentence_page"
+    label: "vks_sentence_page"
 };
 sattrs.vks_sourcecode_code = {
-    label : "vks_sourcecode_code"
+    label: "vks_sourcecode_code"
 };
 sattrs.vks_sourcecode_page = {
-    label : "vks_sourcecode_page"
+    label: "vks_sourcecode_page"
 };
 sattrs.vks_span_page = {
-    label : "vks_span_page"
+    label: "vks_span_page"
 };
 
 /*
 sattrs.vksbib_book_code = {
-    label : "vksbib_book_code",
-    displayType : "select",
-    translationKey : "vksbibbook_",
-    dataset : {
-	"VT4" : "VT4",
-	"Jes" : "Jes",
-	"Jer" : "Jer",
-	"Vlt" : "Vlt",
-	"Hes" : "Hes",
-	"Dan" : "Dan",
-	"Hos" : "Hos",
-	"Joel" : "Joel",
-	"Am" : "Am",
-	"Ob" : "Ob",
-	"Jon" : "Jon",
-	"Mik" : "Mik",
-	"Nah" : "Nah",
-	"Hab" : "Hab",
-	"Sef" : "Sef",
-	"Hgg" : "Hgg",
-	"Sak" : "Sak",
-	"Mal" : "Mal",
+    label: "vksbib_book_code",
+    displayType: "select",
+    translationKey: "vksbibbook_",
+    dataset: {
+	"VT4": "VT4",
+	"Jes": "Jes",
+	"Jer": "Jer",
+	"Vlt": "Vlt",
+	"Hes": "Hes",
+	"Dan": "Dan",
+	"Hos": "Hos",
+	"Joel": "Joel",
+	"Am": "Am",
+	"Ob": "Ob",
+	"Jon": "Jon",
+	"Mik": "Mik",
+	"Nah": "Nah",
+	"Hab": "Hab",
+	"Sef": "Sef",
+	"Hgg": "Hgg",
+	"Sak": "Sak",
+	"Mal": "Mal",
     },
-    opts : settings.liteOptions
+    opts: settings.liteOptions
 };
 // Copy the object so that the change does not affect the original.
 sattrs.vksbib_sourcecode_book = $.extend({}, sattrs.vksbib_book_code);
 sattrs.vksbib_sourcecode_book.label = "vksbib_sourcecode_book";
 sattrs.vkslait_law_code = {
-    label : "vkslait_law_code",
-    displayType : "select",
-    translationKey : "vkslaitlaw_",
-    dataset : {
-	"As1584" : "As1584",
-	"As1593" : "As1593"
+    label: "vkslait_law_code",
+    displayType: "select",
+    translationKey: "vkslaitlaw_",
+    dataset: {
+	"As1584": "As1584",
+	"As1593": "As1593"
     },
-    opts : settings.liteOptions
+    opts: settings.liteOptions
 };
 sattrs.vkslait_sourcecode_work = $.extend({}, sattrs.vkslait_law_code);
 sattrs.vkslait_sourcecode_work.label = "vkslait_sourcecode_work";
 sattrs.vkssaarnat_source_code = {
-    label : "vkssaarnat_source_code",
-    displayType : "select",
-    translationKey : "vkssaarnatsource_",
-    dataset : {
-	"Swahn1706" : "Swahn1706",
-	"Wall1706" : "Wall1706",
-	"Sten1750" : "Sten1750",
-	"Rein1750" : "Rein1750",
-	"Sten1771" : "Sten1771",
-	"Varia1756a" : "Varia1756a",
-	"Paz1764" : "Paz1764",
-	"Elgf1768" : "Elgf1768",
-	"Laih1768" : "Laih1768",
-	"GLyra1772" : "GLyra1772",
-	"Sax1776" : "Sax1776",
-	"Äjm1779" : "Äjm1779",
-	"Widen1780" : "Widen1780",
-	"Popp1781" : "Popp1781"
+    label: "vkssaarnat_source_code",
+    displayType: "select",
+    translationKey: "vkssaarnatsource_",
+    dataset: {
+	"Swahn1706": "Swahn1706",
+	"Wall1706": "Wall1706",
+	"Sten1750": "Sten1750",
+	"Rein1750": "Rein1750",
+	"Sten1771": "Sten1771",
+	"Varia1756a": "Varia1756a",
+	"Paz1764": "Paz1764",
+	"Elgf1768": "Elgf1768",
+	"Laih1768": "Laih1768",
+	"GLyra1772": "GLyra1772",
+	"Sax1776": "Sax1776",
+	"Äjm1779": "Äjm1779",
+	"Widen1780": "Widen1780",
+	"Popp1781": "Popp1781"
     },
-    opts : settings.liteOptions
+    opts: settings.liteOptions
 };
 sattrs.vkssaarnat_sourcecode_work = $.extend({}, sattrs.vkssaarnat_source_code);
 sattrs.vkssaarnat_sourcecode_work.label = "vkssaarnat_sourcecode_work";
@@ -10271,1629 +10271,1629 @@ sattrs.vkssaarnat_sourcecode_work.label = "vkssaarnat_sourcecode_work";
 
 /*
 settings.corpora.vks_biblia = {
-    title : "Biblia (näyte)",
-    description : "Vuoden 1642 raamatunsuomennos",
-    id : "vks_biblia",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {},
-    struct_attributes : {
-	sourcecode_bibleref : {
-	    label : "vksbib_sourcecode_bibleref"
+    title: "Biblia (näyte)",
+    description: "Vuoden 1642 raamatunsuomennos",
+    id: "vks_biblia",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {},
+    struct_attributes: {
+	sourcecode_bibleref: {
+	    label: "vksbib_sourcecode_bibleref"
 	},
-	sourcecode_book : sattrs.vksbib_sourcecode_book,
-	sourcecode_chapter : {
-	    label : "vksbib_sourcecode_chapter"
+	sourcecode_book: sattrs.vksbib_sourcecode_book,
+	sourcecode_chapter: {
+	    label: "vksbib_sourcecode_chapter"
 	},
-	sourcecode_verse : {
-	    label : "vksbib_sourcecode_verse"
+	sourcecode_verse: {
+	    label: "vksbib_sourcecode_verse"
 	},
-	sourcecode_code : sattrs.vks_sourcecode_code,
-	sourcecode_page : sattrs.vks_sourcecode_page,
-	work_code : {
-	    label : "vks_work_code",
-	    displayType : "hidden",
+	sourcecode_code: sattrs.vks_sourcecode_code,
+	sourcecode_page: sattrs.vks_sourcecode_page,
+	work_code: {
+	    label: "vks_work_code",
+	    displayType: "hidden",
 	},
-	verse_bibleref : {
-	    label : "vksbib_verse_bibleref"
+	verse_bibleref: {
+	    label: "vksbib_verse_bibleref"
 	},
-	book_code : sattrs.vksbib_book_code,
-	chapter_code : {
-	    label : "vksbib_chapter_code"
+	book_code: sattrs.vksbib_book_code,
+	chapter_code: {
+	    label: "vksbib_chapter_code"
 	},
-	// chapter_bibleref : {
-	//     label : "vksbib_chapter_bibleref"
+	// chapter_bibleref: {
+	//     label: "vksbib_chapter_bibleref"
 	// },
-	verse_code : {
-	    label : "vksbib_verse_code"
+	verse_code: {
+	    label: "vksbib_verse_code"
 	},
-	sentence_id : sattrs.sentence_id_hidden,
-	span_code : sattrs.vks_sentence_code,
-	span_page : sattrs.vks_sentence_page
+	sentence_id: sattrs.sentence_id_hidden,
+	span_code: sattrs.vks_sentence_code,
+	span_page: sattrs.vks_sentence_page
     }
 };
 */
 
 /*
 settings.corpora.vks_lait = {
-    title : "Laki- ja asetustekstejä (näyte)",
-    description : "Laki- ja asetustekstejä",
-    id : "vks_lait",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-	word_orig : attrs.origword,
-	word_completed : attrs.complword
+    title: "Laki- ja asetustekstejä (näyte)",
+    description: "Laki- ja asetustekstejä",
+    id: "vks_lait",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+	word_orig: attrs.origword,
+	word_completed: attrs.complword
     },
-    struct_attributes : {
-	sourcecode_work : sattrs.vkslait_sourcecode_work,
-	sourcecode_code : sattrs.vks_sourcecode_code,
-	sourcecode_page : sattrs.vks_sourcecode_page,
-	law_code : sattrs.vkslait_law_code,
-	sentence_id : sattrs.sentence_id_hidden,
-	span_code : sattrs.vks_sentence_code,
-	span_page : sattrs.vks_sentence_page
+    struct_attributes: {
+	sourcecode_work: sattrs.vkslait_sourcecode_work,
+	sourcecode_code: sattrs.vks_sourcecode_code,
+	sourcecode_page: sattrs.vks_sourcecode_page,
+	law_code: sattrs.vkslait_law_code,
+	sentence_id: sattrs.sentence_id_hidden,
+	span_code: sattrs.vks_sentence_code,
+	span_page: sattrs.vks_sentence_page
     }
 };
 */
 
 /*
 settings.corpora.vks_saarnat = {
-    title : "Ruumissaarnoja, puheita ja muistorunoja (näyte)",
-    description : "Ruumissaarnoja, puheita ja muistorunoja",
-    id : "vks_saarnat",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-	word_orig : attrs.origword,
-	word_completed : attrs.complword
+    title: "Ruumissaarnoja, puheita ja muistorunoja (näyte)",
+    description: "Ruumissaarnoja, puheita ja muistorunoja",
+    id: "vks_saarnat",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+	word_orig: attrs.origword,
+	word_completed: attrs.complword
     },
-    struct_attributes : {
-	sourcecode_work : sattrs.vkssaarnat_sourcecode_work,
-	sourcecode_code : sattrs.vks_sourcecode_code,
-	sourcecode_page : sattrs.vks_sourcecode_page,
-	source_code : sattrs.vkssaarnat_source_code,
-	sentence_id : sattrs.sentence_id_hidden,
-	span_code : sattrs.vks_sentence_code,
-	span_page : sattrs.vks_sentence_page
+    struct_attributes: {
+	sourcecode_work: sattrs.vkssaarnat_sourcecode_work,
+	sourcecode_code: sattrs.vks_sourcecode_code,
+	sourcecode_page: sattrs.vks_sourcecode_page,
+	source_code: sattrs.vkssaarnat_source_code,
+	sentence_id: sattrs.sentence_id_hidden,
+	span_code: sattrs.vks_sentence_code,
+	span_page: sattrs.vks_sentence_page
     }
 };
 */
 
 settings.corpora.vks_agricola = {
-    title : "Mikael Agricolan teoksia",
-    description : "Mikael Agricola: Suomalaisen Kirjallisuuden Seuran näköispainossarja Mikael Agricolan teoksista",
-    id : "vks_agricola",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-	word_orig : attrs.origword,
-	word_completed : attrs.complword,
-	word_tilde : attrs.tildeword
+    title: "Mikael Agricolan teoksia",
+    description: "Mikael Agricola: Suomalaisen Kirjallisuuden Seuran näköispainossarja Mikael Agricolan teoksista",
+    id: "vks_agricola",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+	word_orig: attrs.origword,
+	word_completed: attrs.complword,
+	word_tilde: attrs.tildeword
     },
-    struct_attributes : {
-	text_year : sattrs.vks_text_year,
-	text_title : sattrs.vks_text_title,
-	sentence_type : sattrs.vks_sentence_type,
-	sentence_code : sattrs.vks_sentence_code,
-	sentence_id : sattrs.sentence_id_hidden,
-	sentence_cRef : sattrs.vks_sentence_cref,
-	span_page : sattrs.vks_span_page
+    struct_attributes: {
+	text_year: sattrs.vks_text_year,
+	text_title: sattrs.vks_text_title,
+	sentence_type: sattrs.vks_sentence_type,
+	sentence_code: sattrs.vks_sentence_code,
+	sentence_id: sattrs.sentence_id_hidden,
+	sentence_cRef: sattrs.vks_sentence_cref,
+	span_page: sattrs.vks_span_page
     }
 };
 
 settings.corpora.vks_almanakat = {
-    title : "Almanakkoja vuosilta 1705–1809",
-    description : "Almanakkoja vuosilta 1705–1809",
-    id : "vks_almanakat",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-        word_orig : attrs.origword,
-        word_completed : attrs.complword,
-        word_tilde : attrs.tildeword
+    title: "Almanakkoja vuosilta 1705–1809",
+    description: "Almanakkoja vuosilta 1705–1809",
+    id: "vks_almanakat",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+        word_orig: attrs.origword,
+        word_completed: attrs.complword,
+        word_tilde: attrs.tildeword
     },
-    struct_attributes : {
-        text_year : sattrs.vks_text_year,
-        text_title : sattrs.vks_text_title,
-        sentence_type : sattrs.vks_sentence_type,
-        sentence_code : sattrs.vks_sentence_code,
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_cRef : sattrs.vks_sentence_cref,
-        span_page : sattrs.vks_span_page
+    struct_attributes: {
+        text_year: sattrs.vks_text_year,
+        text_title: sattrs.vks_text_title,
+        sentence_type: sattrs.vks_sentence_type,
+        sentence_code: sattrs.vks_sentence_code,
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_cRef: sattrs.vks_sentence_cref,
+        span_page: sattrs.vks_span_page
     }
 };
 
 settings.corpora.vks_biblia = {
-    title : "Biblia 1642",
-    description : "Vuoden 1642 raamatunsuomennos",
-    id : "vks_biblia",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-        word_orig : attrs.origword,
-        word_completed : attrs.complword,
-        word_tilde : attrs.tildeword
+    title: "Biblia 1642",
+    description: "Vuoden 1642 raamatunsuomennos",
+    id: "vks_biblia",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+        word_orig: attrs.origword,
+        word_completed: attrs.complword,
+        word_tilde: attrs.tildeword
     },
-    struct_attributes : {
-        text_year : sattrs.vks_text_year,
-        text_title : sattrs.vks_text_title,
-        sentence_type : sattrs.vks_sentence_type,
-        sentence_code : sattrs.vks_sentence_code,
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_cRef : sattrs.vks_sentence_cref,
-        span_page : sattrs.vks_span_page
+    struct_attributes: {
+        text_year: sattrs.vks_text_year,
+        text_title: sattrs.vks_text_title,
+        sentence_type: sattrs.vks_sentence_type,
+        sentence_code: sattrs.vks_sentence_code,
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_cRef: sattrs.vks_sentence_cref,
+        span_page: sattrs.vks_span_page
     }
 };
 
 settings.corpora.vks_bjorkqvist = {
-    title : "Bjorkqvist 1801",
-    description : "Uskon harjoitus Autuuteen, Sowitettu niiden Wuotisten \
+    title: "Bjorkqvist 1801",
+    description: "Uskon harjoitus Autuuteen, Sowitettu niiden Wuotisten \
 Juhla- ja Sunnundai-Päiwäisten Evangeliumein Tutkinnoissa. Osat I–II 1801",
-    id : "vks_bjorkqvist",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-        word_orig : attrs.origword,
-        word_completed : attrs.complword,
-        word_tilde : attrs.tildeword
+    id: "vks_bjorkqvist",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+        word_orig: attrs.origword,
+        word_completed: attrs.complword,
+        word_tilde: attrs.tildeword
     },
-    struct_attributes : {
-        text_year : sattrs.vks_text_year,
-        text_title : sattrs.vks_text_title,
-        sentence_type : sattrs.vks_sentence_type,
-        sentence_code : sattrs.vks_sentence_code,
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_cRef : sattrs.vks_sentence_cref,
-        span_page : sattrs.vks_span_page
+    struct_attributes: {
+        text_year: sattrs.vks_text_year,
+        text_title: sattrs.vks_text_title,
+        sentence_type: sattrs.vks_sentence_type,
+        sentence_code: sattrs.vks_sentence_code,
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_cRef: sattrs.vks_sentence_cref,
+        span_page: sattrs.vks_span_page
     }
 };
 
 settings.corpora.vks_frosterus = {
-    title : "Frosterus 1791",
-    description : "Hyödyllinen Huwitus Luomisen Töistä, Yxinkertaisille awuxi Jumalan Hywyden Tundoon ja Palweluxeen",
-    id : "vks_frosterus",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-        word_orig : attrs.origword,
-        word_completed : attrs.complword,
-        word_tilde : attrs.tildeword
+    title: "Frosterus 1791",
+    description: "Hyödyllinen Huwitus Luomisen Töistä, Yxinkertaisille awuxi Jumalan Hywyden Tundoon ja Palweluxeen",
+    id: "vks_frosterus",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+        word_orig: attrs.origword,
+        word_completed: attrs.complword,
+        word_tilde: attrs.tildeword
     },
-    struct_attributes : {
-        text_year : sattrs.vks_text_year,
-        text_title : sattrs.vks_text_title,
-        sentence_type : sattrs.vks_sentence_type,
-        sentence_code : sattrs.vks_sentence_code,
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_cRef : sattrs.vks_sentence_cref,
-        span_page : sattrs.vks_span_page
+    struct_attributes: {
+        text_year: sattrs.vks_text_year,
+        text_title: sattrs.vks_text_title,
+        sentence_type: sattrs.vks_sentence_type,
+        sentence_code: sattrs.vks_sentence_code,
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_cRef: sattrs.vks_sentence_cref,
+        span_page: sattrs.vks_span_page
     }
 };
 
 settings.corpora.vks_ganander = {
-    title : "Christfried Ganander 1763–1788",
-    description : "Gananderin teoksia",
-    id : "vks_ganander",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-        word_orig : attrs.origword,
-        word_completed : attrs.complword,
-        word_tilde : attrs.tildeword
+    title: "Christfried Ganander 1763–1788",
+    description: "Gananderin teoksia",
+    id: "vks_ganander",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+        word_orig: attrs.origword,
+        word_completed: attrs.complword,
+        word_tilde: attrs.tildeword
     },
-    struct_attributes : {
-        text_year : sattrs.vks_text_year,
-        text_title : sattrs.vks_text_title,
-        sentence_type : sattrs.vks_sentence_type,
-        sentence_code : sattrs.vks_sentence_code,
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_cRef : sattrs.vks_sentence_cref,
-        span_page : sattrs.vks_span_page
+    struct_attributes: {
+        text_year: sattrs.vks_text_year,
+        text_title: sattrs.vks_text_title,
+        sentence_type: sattrs.vks_sentence_type,
+        sentence_code: sattrs.vks_sentence_code,
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_cRef: sattrs.vks_sentence_cref,
+        span_page: sattrs.vks_span_page
     }
 };
 
 settings.corpora.vks_lait = {
-    title : "Lakeja ja asetuksia 1500–1810",
-    description : "Lakeja ja asetuksia 1500-, 1600-, 1700- ja 1800-luvuilta",
-    id : "vks_lait",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-        word_orig : attrs.origword,
-        word_completed : attrs.complword,
-        word_tilde : attrs.tildeword
+    title: "Lakeja ja asetuksia 1500–1810",
+    description: "Lakeja ja asetuksia 1500-, 1600-, 1700- ja 1800-luvuilta",
+    id: "vks_lait",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+        word_orig: attrs.origword,
+        word_completed: attrs.complword,
+        word_tilde: attrs.tildeword
     },
-    struct_attributes : {
-        text_year : sattrs.vks_text_year,
-        text_title : sattrs.vks_text_title,
-        sentence_type : sattrs.vks_sentence_type,
-        sentence_code : sattrs.vks_sentence_code,
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_cRef : sattrs.vks_sentence_cref,
-        span_page : sattrs.vks_span_page
+    struct_attributes: {
+        text_year: sattrs.vks_text_year,
+        text_title: sattrs.vks_text_title,
+        sentence_type: sattrs.vks_sentence_type,
+        sentence_code: sattrs.vks_sentence_code,
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_cRef: sattrs.vks_sentence_cref,
+        span_page: sattrs.vks_span_page
     }
 };
 
 settings.corpora.vks_lizelius = {
-    title : "Antti Lizelius 1756–1780",
-    description : "Lizeliuksen teoksia vuosilta 1756–1780",
-    id : "vks_lizelius",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-        word_orig : attrs.origword,
-        word_completed : attrs.complword,
-        word_tilde : attrs.tildeword
+    title: "Antti Lizelius 1756–1780",
+    description: "Lizeliuksen teoksia vuosilta 1756–1780",
+    id: "vks_lizelius",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+        word_orig: attrs.origword,
+        word_completed: attrs.complword,
+        word_tilde: attrs.tildeword
     },
-    struct_attributes : {
-        text_year : sattrs.vks_text_year,
-        text_title : sattrs.vks_text_title,
-        sentence_type : sattrs.vks_sentence_type,
-        sentence_code : sattrs.vks_sentence_code,
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_cRef : sattrs.vks_sentence_cref,
-        span_page : sattrs.vks_span_page
+    struct_attributes: {
+        text_year: sattrs.vks_text_year,
+        text_title: sattrs.vks_text_title,
+        sentence_type: sattrs.vks_sentence_type,
+        sentence_code: sattrs.vks_sentence_code,
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_cRef: sattrs.vks_sentence_cref,
+        span_page: sattrs.vks_span_page
     }
 };
 
 settings.corpora.vks_lpetri = {
-    title : "Laurentius Petri 1644–1670",
-    description : "Laurentius Petrin saarnoja 1644–1670",
-    id : "vks_lpetri",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-        word_orig : attrs.origword,
-        word_completed : attrs.complword,
-        word_tilde : attrs.tildeword
+    title: "Laurentius Petri 1644–1670",
+    description: "Laurentius Petrin saarnoja 1644–1670",
+    id: "vks_lpetri",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+        word_orig: attrs.origword,
+        word_completed: attrs.complword,
+        word_tilde: attrs.tildeword
     },
-    struct_attributes : {
-        text_year : sattrs.vks_text_year,
-        text_title : sattrs.vks_text_title,
-        sentence_type : sattrs.vks_sentence_type,
-        sentence_code : sattrs.vks_sentence_code,
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_cRef : sattrs.vks_sentence_cref,
-        span_page : sattrs.vks_span_page
+    struct_attributes: {
+        text_year: sattrs.vks_text_year,
+        text_title: sattrs.vks_text_title,
+        sentence_type: sattrs.vks_sentence_type,
+        sentence_code: sattrs.vks_sentence_code,
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_cRef: sattrs.vks_sentence_cref,
+        span_page: sattrs.vks_span_page
     }
 };
 
 settings.corpora.vks_saarnat = {
-    title : "Ruumissaarnoja, puheita ja muistorunoja",
-    description : "Ruumissaarnoja, puheita ja muistorunoja 1600- ja 1700-luvuilta",
-    id : "vks_saarnat",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-        word_orig : attrs.origword,
-        word_completed : attrs.complword,
-        word_tilde : attrs.tildeword
+    title: "Ruumissaarnoja, puheita ja muistorunoja",
+    description: "Ruumissaarnoja, puheita ja muistorunoja 1600- ja 1700-luvuilta",
+    id: "vks_saarnat",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+        word_orig: attrs.origword,
+        word_completed: attrs.complword,
+        word_tilde: attrs.tildeword
     },
-    struct_attributes : {
-        text_year : sattrs.vks_text_year,
-        text_title : sattrs.vks_text_title,
-        sentence_type : sattrs.vks_sentence_type,
-        sentence_code : sattrs.vks_sentence_code,
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_cRef : sattrs.vks_sentence_cref,
-        span_page : sattrs.vks_span_page
+    struct_attributes: {
+        text_year: sattrs.vks_text_year,
+        text_title: sattrs.vks_text_title,
+        sentence_type: sattrs.vks_sentence_type,
+        sentence_code: sattrs.vks_sentence_code,
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_cRef: sattrs.vks_sentence_cref,
+        span_page: sattrs.vks_span_page
     }
 };
 
 settings.corpora.vks_varia = {
-    title : "Varia",
-    description : "Kokoelma tekstejä 1500-, 1600-, 1700- ja 1800-luvuilta",
-    id : "vks_varia",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-        word_orig : attrs.origword,
-        word_completed : attrs.complword,
-        word_tilde : attrs.tildeword
+    title: "Varia",
+    description: "Kokoelma tekstejä 1500-, 1600-, 1700- ja 1800-luvuilta",
+    id: "vks_varia",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+        word_orig: attrs.origword,
+        word_completed: attrs.complword,
+        word_tilde: attrs.tildeword
     },
-    struct_attributes : {
-        text_year : sattrs.vks_text_year,
-        text_title : sattrs.vks_text_title,
-        sentence_type : sattrs.vks_sentence_type,
-        sentence_code : sattrs.vks_sentence_code,
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_cRef : sattrs.vks_sentence_cref,
-        span_page : sattrs.vks_span_page
+    struct_attributes: {
+        text_year: sattrs.vks_text_year,
+        text_title: sattrs.vks_text_title,
+        sentence_type: sattrs.vks_sentence_type,
+        sentence_code: sattrs.vks_sentence_code,
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_cRef: sattrs.vks_sentence_cref,
+        span_page: sattrs.vks_span_page
     }
 };
 
 settings.corpora.vks_virret = {
-    title : "Virret",
-    description : "Virsiä",
-    id : "vks_virret",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-        word_orig : attrs.origword,
-        word_completed : attrs.complword,
-        word_tilde : attrs.tildeword
+    title: "Virret",
+    description: "Virsiä",
+    id: "vks_virret",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+        word_orig: attrs.origword,
+        word_completed: attrs.complword,
+        word_tilde: attrs.tildeword
     },
-    struct_attributes : {
-        text_year : sattrs.vks_text_year,
-        text_title : sattrs.vks_text_title,
-        sentence_type : sattrs.vks_sentence_type,
-        sentence_code : sattrs.vks_sentence_code,
-        sentence_id : sattrs.sentence_id_hidden,
-        sentence_cRef : sattrs.vks_sentence_cref,
-        span_page : sattrs.vks_span_page
+    struct_attributes: {
+        text_year: sattrs.vks_text_year,
+        text_title: sattrs.vks_text_title,
+        sentence_type: sattrs.vks_sentence_type,
+        sentence_code: sattrs.vks_sentence_code,
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_cRef: sattrs.vks_sentence_cref,
+        span_page: sattrs.vks_span_page
     }
 };
 
 /*
 settings.corpora.vns_asetus = {
-    title : "Asetuksia (näyte)",
-    description : "Asetuksia",
-    id : "vns_asetus",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
+    title: "Asetuksia (näyte)",
+    description: "Asetuksia",
+    id: "vns_asetus",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
     },
-    struct_attributes : {
-	text_title : sattrs.text_title,
-	text_distributor : sattrs.text_distributor,
-	text_source : sattrs.text_source,
-	article_id : {
-	    label : "article_id"
+    struct_attributes: {
+	text_title: sattrs.text_title,
+	text_distributor: sattrs.text_distributor,
+	text_source: sattrs.text_source,
+	article_id: {
+	    label: "article_id"
 	},
-	paragraph_id : {
-	    label : "lawparagraph_id"
+	paragraph_id: {
+	    label: "lawparagraph_id"
 	},
-	sentence_type : {
-	    label : "sentence_type",
-	    displayType : "select",
-	    translationKey : "sentencetype_",
-	    dataset : {
-		"p" : "p",
-		"head" : "head",
-		"opening" : "opening"
+	sentence_type: {
+	    label: "sentence_type",
+	    displayType: "select",
+	    translationKey: "sentencetype_",
+	    dataset: {
+		"p": "p",
+		"head": "head",
+		"opening": "opening"
 	    },
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	},
-	sentence_id : sattrs.sentence_id_hidden,
-	hi_rend : {
-	    label : "hi_rend",
-	    displayType : "select",
-	    translationKey : "hirend_",
-	    dataset : {
-		"bold" : "bold"
+	sentence_id: sattrs.sentence_id_hidden,
+	hi_rend: {
+	    label: "hi_rend",
+	    displayType: "select",
+	    translationKey: "hirend_",
+	    dataset: {
+		"bold": "bold"
 	    },
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	}
     }
 };
 
 settings.corpora.vns_renqvist = {
-    title : "Renqvist (näyte)",
-    description : "Renqvist",
-    id : "vns_renqvist",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Renqvist (näyte)",
+    description: "Renqvist",
+    id: "vns_renqvist",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : {
-	text_title : sattrs.text_title,
-	text_distributor : sattrs.text_distributor,
-	text_source : sattrs.text_source,
-	paragraph_id : sattrs.paragraph_id,
-	paragraph_type : sattrs.paragraph_type,
-	sentence_id : sattrs.sentence_id_hidden,
-	sentence_n : sattrs.sentence_n
+    struct_attributes: {
+	text_title: sattrs.text_title,
+	text_distributor: sattrs.text_distributor,
+	text_source: sattrs.text_source,
+	paragraph_id: sattrs.paragraph_id,
+	paragraph_type: sattrs.paragraph_type,
+	sentence_id: sattrs.sentence_id_hidden,
+	sentence_n: sattrs.sentence_n
     }
 };
 */
 
 settings.corpora.vnsk_asetus = {
-    title : "Asetuksia",
-    description : "Asetuksia",
-    id : "vnsk_asetus",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
+    title: "Asetuksia",
+    description: "Asetuksia",
+    id: "vnsk_asetus",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_distributor : sattrs.text_distributor,
-        text_source : sattrs.text_source,
-        article_id : {
-            label : "article_id"
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source,
+        article_id: {
+            label: "article_id"
         },
-        paragraph_id : {
-            label : "lawparagraph_id"
+        paragraph_id: {
+            label: "lawparagraph_id"
         },
-        sentence_type : {
-            label : "sentence_type",
-            displayType : "select",
-            translationKey : "sentencetype_",
-            dataset : {
-                "p" : "p",
-                "head" : "head",
-                "opening" : "opening"
+        sentence_type: {
+            label: "sentence_type",
+            displayType: "select",
+            translationKey: "sentencetype_",
+            dataset: {
+                "p": "p",
+                "head": "head",
+                "opening": "opening"
             },
-            opts : settings.liteOptions
+            opts: settings.liteOptions
         },
-        sentence_id : sattrs.sentence_id_hidden,
-        hi_rend : {
-            label : "hi_rend",
-            displayType : "select",
-            translationKey : "hirend_",
-            dataset : {
-                "bold" : "bold"
+        sentence_id: sattrs.sentence_id_hidden,
+        hi_rend: {
+            label: "hi_rend",
+            displayType: "select",
+            translationKey: "hirend_",
+            dataset: {
+                "bold": "bold"
             },
-            opts : settings.liteOptions
+            opts: settings.liteOptions
         }
     }
 };
 
 
 settings.corpora.vnsk_kivi = {
-    title : "Kivi",
-    description : "Kivi",
-    id : "vnsk_kivi",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Kivi",
+    description: "Kivi",
+    id: "vnsk_kivi",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_keckman = {
-    title : "Keckman",
-    description : "Keckman",
-    id : "vnsk_keckman",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Keckman",
+    description: "Keckman",
+    id: "vnsk_keckman",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_cajan = {
-    title : "Cajan",
-    description : "Cajan",
-    id : "vnsk_cajan",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Cajan",
+    description: "Cajan",
+    id: "vnsk_cajan",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_cajan = {
-    title : "Cajan",
-    description : "Cajan",
-    id : "vnsk_cajan",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Cajan",
+    description: "Cajan",
+    id: "vnsk_cajan",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 
 settings.corpora.vnsk_cannelin = {
-    title : "Cannelin",
-    description : "Cannelin",
-    id : "vnsk_cannelin",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Cannelin",
+    description: "Cannelin",
+    id: "vnsk_cannelin",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_aminoff = {
-    title : "Aminoff",
-    description : "Aminoff",
-    id : "vnsk_aminoff",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Aminoff",
+    description: "Aminoff",
+    id: "vnsk_aminoff",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_ahlholm = {
-    title : "Ahlholm",
-    description : "Ahlholm",
-    id : "vnsk_ahlholm",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Ahlholm",
+    description: "Ahlholm",
+    id: "vnsk_ahlholm",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 
 settings.corpora.vnsk_yksitt = {
-    title : "Yksittäisiä",
-    description : "Yksittäisiä",
-    id : "vnsk_yksitt",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Yksittäisiä",
+    description: "Yksittäisiä",
+    id: "vnsk_yksitt",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_aejmelaeus = {
-    title : "Aejmelaeus",
-    description : "Aejmelaeus",
-    id : "vnsk_aejmelaeus",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Aejmelaeus",
+    description: "Aejmelaeus",
+    id: "vnsk_aejmelaeus",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_ahlman_kirjat = {
-    title : "Ahlman kirjat",
-    description : "Ahlman kirjat",
-    id : "vnsk_ahlman_kirjat",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Ahlman kirjat",
+    description: "Ahlman kirjat",
+    id: "vnsk_ahlman_kirjat",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_ahlman_sanastot = {
-    title : "Ahlman sanastot",
-    description : "Ahlman sanastot",
-    id : "vnsk_ahlman_sanastot",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Ahlman sanastot",
+    description: "Ahlman sanastot",
+    id: "vnsk_ahlman_sanastot",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_ahlqvist = {
-    title : "Ahlqvist",
-    description : "Ahlqvist",
-    id : "vnsk_ahlqvist",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Ahlqvist",
+    description: "Ahlqvist",
+    id: "vnsk_ahlqvist",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_akiander = {
-    title : "Akiander",
-    description : "Akiander",
-    id : "vnsk_akiander",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Akiander",
+    description: "Akiander",
+    id: "vnsk_akiander",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_almanakka = {
-    title : "Almanakka",
-    description : "Almanakka",
-    id : "vnsk_almanakka",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Almanakka",
+    description: "Almanakka",
+    id: "vnsk_almanakka",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_anonyymi = {
-    title : "Anonyymi",
-    description : "Anonyymi",
-    id : "vnsk_anonyymi",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Anonyymi",
+    description: "Anonyymi",
+    id: "vnsk_anonyymi",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_aulen = {
-    title : "Aulen",
-    description : "Aulen",
-    id : "vnsk_aulen",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Aulen",
+    description: "Aulen",
+    id: "vnsk_aulen",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_backvall = {
-    title : "Backvall",
-    description : "Backvall",
-    id : "vnsk_backvall",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Backvall",
+    description: "Backvall",
+    id: "vnsk_backvall",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_bocker = {
-    title : "Bocker",
-    description : "Bocker",
-    id : "vnsk_bocker",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Bocker",
+    description: "Bocker",
+    id: "vnsk_bocker",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_bonsdorff = {
-    title : "Bonsdorff",
-    description : "Bonsdorff",
-    id : "vnsk_bonsdorff",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Bonsdorff",
+    description: "Bonsdorff",
+    id: "vnsk_bonsdorff",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_borenius = {
-    title : "Borenius",
-    description : "Borenius",
-    id : "vnsk_borenius",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Borenius",
+    description: "Borenius",
+    id: "vnsk_borenius",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_borg = {
-    title : "Borg",
-    description : "Borg",
-    id : "vnsk_borg",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Borg",
+    description: "Borg",
+    id: "vnsk_borg",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_cantell = {
-    title : "Cantell",
-    description : "Cantell",
-    id : "vnsk_cantell",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Cantell",
+    description: "Cantell",
+    id: "vnsk_cantell",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_corander = {
-    title : "Corander",
-    description : "Corander",
-    id : "vnsk_corander",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Corander",
+    description: "Corander",
+    id: "vnsk_corander",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_costiander = {
-    title : "Costiander",
-    description : "Costiander",
-    id : "vnsk_costiander",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Costiander",
+    description: "Costiander",
+    id: "vnsk_costiander",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_dahlberg = {
-    title : "Dahlberg",
-    description : "Dahlberg",
-    id : "vnsk_dahlberg",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Dahlberg",
+    description: "Dahlberg",
+    id: "vnsk_dahlberg",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_edlund = {
-    title : "Edlund",
-    description : "Edlund",
-    id : "vnsk_edlund",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Edlund",
+    description: "Edlund",
+    id: "vnsk_edlund",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_eklof = {
-    title : "Eklof",
-    description : "Eklof",
-    id : "vnsk_eklof",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Eklof",
+    description: "Eklof",
+    id: "vnsk_eklof",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_euren = {
-    title : "Euren",
-    description : "Euren",
-    id : "vnsk_euren",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Euren",
+    description: "Euren",
+    id: "vnsk_euren",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_europaeus = {
-    title : "Europaeus",
-    description : "Europaeus",
-    id : "vnsk_europaeus",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Europaeus",
+    description: "Europaeus",
+    id: "vnsk_europaeus",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_europaeus_sanastot = {
-    title : "Europaeus sanastot",
-    description : "Europaeus sanastot",
-    id : "vnsk_europaeus_sanastot",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Europaeus sanastot",
+    description: "Europaeus sanastot",
+    id: "vnsk_europaeus_sanastot",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_fabritius = {
-    title : "Fabritius",
-    description : "Fabritius",
-    id : "vnsk_fabritius",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Fabritius",
+    description: "Fabritius",
+    id: "vnsk_fabritius",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_forsman = {
-    title : "Forsman",
-    description : "Forsman",
-    id : "vnsk_forsman",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Forsman",
+    description: "Forsman",
+    id: "vnsk_forsman",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_forstrom = {
-    title : "Forström",
-    description : "Forström",
-    id : "vnsk_forstrom",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Forström",
+    description: "Forström",
+    id: "vnsk_forstrom",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_friman = {
-    title : "Friman",
-    description : "Friman",
-    id : "vnsk_friman",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Friman",
+    description: "Friman",
+    id: "vnsk_friman",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_frosterus = {
-    title : "Frosterus",
-    description : "Frosterus",
-    id : "vnsk_frosterus",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Frosterus",
+    description: "Frosterus",
+    id: "vnsk_frosterus",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_gottlund = {
-    title : "Gottlund",
-    description : "Gottlund",
-    id : "vnsk_gottlund",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Gottlund",
+    description: "Gottlund",
+    id: "vnsk_gottlund",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_granlund = {
-    title : "Granlund",
-    description : "Granlund",
-    id : "vnsk_granlund",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Granlund",
+    description: "Granlund",
+    id: "vnsk_granlund",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_hannikainen = {
-    title : "Hannikainen",
-    description : "Hannikainen",
-    id : "vnsk_hannikainen",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Hannikainen",
+    description: "Hannikainen",
+    id: "vnsk_hannikainen",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_hjelt = {
-    title : "Hjelt",
-    description : "Hjelt",
-    id : "vnsk_hjelt",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Hjelt",
+    description: "Hjelt",
+    id: "vnsk_hjelt",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_hordh = {
-    title : "Hordh",
-    description : "Hordh",
-    id : "vnsk_hordh",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Hordh",
+    description: "Hordh",
+    id: "vnsk_hordh",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_hornborg = {
-    title : "Hornborg",
-    description : "Hornborg",
-    id : "vnsk_hornborg",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Hornborg",
+    description: "Hornborg",
+    id: "vnsk_hornborg",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_ignatius = {
-    title : "Ignatius",
-    description : "Ignatius",
-    id : "vnsk_ignatius",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Ignatius",
+    description: "Ignatius",
+    id: "vnsk_ignatius",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_ingman = {
-    title : "Ingman",
-    description : "Ingman",
-    id : "vnsk_ingman",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Ingman",
+    description: "Ingman",
+    id: "vnsk_ingman",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_innain = {
-    title : "Innain",
-    description : "Innain",
-    id : "vnsk_innain",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Innain",
+    description: "Innain",
+    id: "vnsk_innain",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_juteini = {
-    title : "Juteini",
-    description : "Juteini",
-    id : "vnsk_juteini",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Juteini",
+    description: "Juteini",
+    id: "vnsk_juteini",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_kemell = {
-    title : "Kemell",
-    description : "Kemell",
-    id : "vnsk_kemell",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Kemell",
+    description: "Kemell",
+    id: "vnsk_kemell",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_kilpinen = {
-    title : "Kilpinen",
-    description : "Kilpinen",
-    id : "vnsk_kilpinen",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Kilpinen",
+    description: "Kilpinen",
+    id: "vnsk_kilpinen",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_koskinen = {
-    title : "Koskinen",
-    description : "Koskinen",
-    id : "vnsk_koskinen",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Koskinen",
+    description: "Koskinen",
+    id: "vnsk_koskinen",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_krohn = {
-    title : "Krohn",
-    description : "Krohn",
-    id : "vnsk_krohn",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Krohn",
+    description: "Krohn",
+    id: "vnsk_krohn",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_lagervall = {
-    title : "Lagervall",
-    description : "Lagervall",
-    id : "vnsk_lagervall",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Lagervall",
+    description: "Lagervall",
+    id: "vnsk_lagervall",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_lankela = {
-    title : "Lankela",
-    description : "Lankela",
-    id : "vnsk_lankela",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Lankela",
+    description: "Lankela",
+    id: "vnsk_lankela",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_lavonius = {
-    title : "Lavonius",
-    description : "Lavonius",
-    id : "vnsk_lavonius",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Lavonius",
+    description: "Lavonius",
+    id: "vnsk_lavonius",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_lilius_anton = {
-    title : "Lilius Anton",
-    description : "Lilius Anton",
-    id : "vnsk_lilius_anton",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Lilius Anton",
+    description: "Lilius Anton",
+    id: "vnsk_lilius_anton",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_lilius_aukusti = {
-    title : "Lilius Aukusti",
-    description : "Lilius Aukusti",
-    id : "vnsk_lilius_aukusti",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Lilius Aukusti",
+    description: "Lilius Aukusti",
+    id: "vnsk_lilius_aukusti",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_lonnrot = {
-    title : "Lönnrot",
-    description : "Lönnrot",
-    id : "vnsk_lonnrot",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Lönnrot",
+    description: "Lönnrot",
+    id: "vnsk_lonnrot",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_malmberg = {
-    title : "Malmberg",
-    description : "Malmberg",
-    id : "vnsk_malmberg",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Malmberg",
+    description: "Malmberg",
+    id: "vnsk_malmberg",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_mehilainen = {
-    title : "Mehilainen",
-    description : "Mehilainen",
-    id : "vnsk_mehilainen",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Mehilainen",
+    description: "Mehilainen",
+    id: "vnsk_mehilainen",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_mela = {
-    title : "Mela",
-    description : "Mela",
-    id : "vnsk_mela",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Mela",
+    description: "Mela",
+    id: "vnsk_mela",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_meurman = {
-    title : "Meurman",
-    description : "Meurman",
-    id : "vnsk_meurman",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Meurman",
+    description: "Meurman",
+    id: "vnsk_meurman",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_mmy = {
-    title : "Maamiehen Ystävä",
-    description : "Maamiehen Ystävä (1844-1845)",
-    id : "vnsk_mmy",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Maamiehen Ystävä",
+    description: "Maamiehen Ystävä (1844-1845)",
+    id: "vnsk_mmy",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_murman = {
-    title : "Murman",
-    description : "Murman",
-    id : "vnsk_murman",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Murman",
+    description: "Murman",
+    id: "vnsk_murman",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_muut = {
-    title : "Muut",
-    description : "Muut",
-    id : "vnsk_muut",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Muut",
+    description: "Muut",
+    id: "vnsk_muut",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_nyman = {
-    title : "Nyman",
-    description : "Nyman",
-    id : "vnsk_nyman",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Nyman",
+    description: "Nyman",
+    id: "vnsk_nyman",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_ovs = {
-    title : "Oulun Viikko-Sanomat",
-    description : "Oulun Viikko-Sanomat (1829-1833, 1837, 1841)",
-    id : "vnsk_ovs",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Oulun Viikko-Sanomat",
+    description: "Oulun Viikko-Sanomat (1829-1833, 1837, 1841)",
+    id: "vnsk_ovs",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_polen = {
-    title : "Polen",
-    description : "Polen",
-    id : "vnsk_polen",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Polen",
+    description: "Polen",
+    id: "vnsk_polen",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_poppius = {
-    title : "Poppius",
-    description : "Poppius",
-    id : "vnsk_poppius",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Poppius",
+    description: "Poppius",
+    id: "vnsk_poppius",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_puhuttelija = {
-    title : "Puhuttelija",
-    description : "Puhuttelija",
-    id : "vnsk_puhuttelija",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Puhuttelija",
+    description: "Puhuttelija",
+    id: "vnsk_puhuttelija",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_rein = {
-    title : "Rein",
-    description : "Rein",
-    id : "vnsk_rein",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Rein",
+    description: "Rein",
+    id: "vnsk_rein",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_roos = {
-    title : "Roos",
-    description : "Roos",
-    id : "vnsk_roos",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Roos",
+    description: "Roos",
+    id: "vnsk_roos",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_salmelainen = {
-    title : "Salmelainen",
-    description : "Salmelainen",
-    id : "vnsk_salmelainen",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Salmelainen",
+    description: "Salmelainen",
+    id: "vnsk_salmelainen",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_salonius = {
-    title : "Salonius",
-    description : "Salonius",
-    id : "vnsk_salonius",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Salonius",
+    description: "Salonius",
+    id: "vnsk_salonius",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_sanaluettelot = {
-    title : "Sanaluettelot",
-    description : "Sanaluettelot",
-    id : "vnsk_sanaluettelot",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Sanaluettelot",
+    description: "Sanaluettelot",
+    id: "vnsk_sanaluettelot",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_sandberg = {
-    title : "Sandberg",
-    description : "Sandberg",
-    id : "vnsk_sandberg",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Sandberg",
+    description: "Sandberg",
+    id: "vnsk_sandberg",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_schroter = {
-    title : "Schröter",
-    description : "Schröter",
-    id : "vnsk_schroter",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Schröter",
+    description: "Schröter",
+    id: "vnsk_schroter",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_sirelius = {
-    title : "Sirelius",
-    description : "Sirelius",
-    id : "vnsk_sirelius",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Sirelius",
+    description: "Sirelius",
+    id: "vnsk_sirelius",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_skogman = {
-    title : "Skogman",
-    description : "Skogman",
-    id : "vnsk_skogman",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Skogman",
+    description: "Skogman",
+    id: "vnsk_skogman",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_smtr = {
-    title : "Suomettaren vuosikertoja",
-    description : "Suomettaren vuosikerrat (1847-1848)",
-    id : "vnsk_smtr",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Suomettaren vuosikertoja",
+    description: "Suomettaren vuosikerrat (1847-1848)",
+    id: "vnsk_smtr",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_sohlberg = {
-    title : "Sohlberg",
-    description : "Sohlberg",
-    id : "vnsk_sohlberg",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Sohlberg",
+    description: "Sohlberg",
+    id: "vnsk_sohlberg",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_soldan = {
-    title : "Soldan",
-    description : "Soldan",
-    id : "vnsk_soldan",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Soldan",
+    description: "Soldan",
+    id: "vnsk_soldan",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_ssv = {
-    title : "Sanan Saattaja Viipurista",
-    description : "Sanan Saattaja Viipurista",
-    id : "vnsk_ssv",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Sanan Saattaja Viipurista",
+    description: "Sanan Saattaja Viipurista",
+    id: "vnsk_ssv",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_stahlberg = {
-    title : "Ståhlberg",
-    description : "Ståhlberg",
-    id : "vnsk_stahlberg",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Ståhlberg",
+    description: "Ståhlberg",
+    id: "vnsk_stahlberg",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_tarvanen = {
-    title : "Tarvanen",
-    description : "Tarvanen",
-    id : "vnsk_tarvanen",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Tarvanen",
+    description: "Tarvanen",
+    id: "vnsk_tarvanen",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_ticklen = {
-    title : "Ticklen",
-    description : "Ticklen",
-    id : "vnsk_ticklen",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Ticklen",
+    description: "Ticklen",
+    id: "vnsk_ticklen",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_tikkanen = {
-    title : "Tikkanen",
-    description : "Tikkanen",
-    id : "vnsk_tikkanen",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Tikkanen",
+    description: "Tikkanen",
+    id: "vnsk_tikkanen",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_topelius = {
-    title : "Topelius",
-    description : "Topelius",
-    id : "vnsk_topelius",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Topelius",
+    description: "Topelius",
+    id: "vnsk_topelius",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_toppelius = {
-    title : "Toppelius",
-    description : "Toppelius",
-    id : "vnsk_toppelius",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Toppelius",
+    description: "Toppelius",
+    id: "vnsk_toppelius",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_tvs = {
-    title : "Turun Viikko-Sanomat",
-    description : "Turun Viikko-Sanomat",
-    id : "vnsk_tvs",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Turun Viikko-Sanomat",
+    description: "Turun Viikko-Sanomat",
+    id: "vnsk_tvs",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_varelius = {
-    title : "Varelius",
-    description : "Varelius",
-    id : "vnsk_varelius",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Varelius",
+    description: "Varelius",
+    id: "vnsk_varelius",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_virsikirja = {
-    title : "Virsikirja",
-    description : "Virsikirja",
-    id : "vnsk_virsikirja",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Virsikirja",
+    description: "Virsikirja",
+    id: "vnsk_virsikirja",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_wallin = {
-    title : "Wallin",
-    description : "Wallin",
-    id : "vnsk_wallin",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Wallin",
+    description: "Wallin",
+    id: "vnsk_wallin",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_wikman = {
-    title : "Wikman",
-    description : "Wikman",
-    id : "vnsk_wikman",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Wikman",
+    description: "Wikman",
+    id: "vnsk_wikman",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vnsk_wiwolin = {
-    title : "Wiwolin",
-    description : "Wiwolin",
-    id : "vnsk_wiwolin",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Wiwolin",
+    description: "Wiwolin",
+    id: "vnsk_wiwolin",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : sattrlist.vnsk
+    struct_attributes: sattrlist.vnsk
 };
 
 settings.corpora.vns_renvall = {
-    title : "Renvall",
-    description : "Gustaf Renvall: Suomalainen sana-kirja (1826)",
-    id : "vns_renvall",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
+    title: "Renvall",
+    description: "Gustaf Renvall: Suomalainen sana-kirja (1826)",
+    id: "vns_renvall",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
     },
-    struct_attributes : {
-	text_title : sattrs.text_title,
-	text_distributor : sattrs.text_distributor,
-	text_source : sattrs.text_source,
-/*	sentence_form : {
-	    label : "dict_form"
+    struct_attributes: {
+	text_title: sattrs.text_title,
+	text_distributor: sattrs.text_distributor,
+	text_source: sattrs.text_source,
+/*	sentence_form: {
+	    label: "dict_form"
 	},
-	sentence_example : {
-	    label : "dict_example"
+	sentence_example: {
+	    label: "dict_example"
 	},
-	sentence_pos : {
-	    label : "pos"
+	sentence_pos: {
+	    label: "pos"
 	},
-	sentence_xref : {
-	    label : "dict_xref"
+	sentence_xref: {
+	    label: "dict_xref"
 	},
-	sentence_etym : {
-	    label : "dict_etym"
+	sentence_etym: {
+	    label: "dict_etym"
 	},
-	sentence_etymlang : {
-	    label : "dict_etymlang",
-	    displayType : "select",
-	    translationKey : "dictetymlang_",
-	    dataset : {
-		"ru" : "ru",
-		"ve" : "ve"
+	sentence_etymlang: {
+	    label: "dict_etymlang",
+	    displayType: "select",
+	    translationKey: "dictetymlang_",
+	    dataset: {
+		"ru": "ru",
+		"ve": "ve"
 	    },
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	},  */
-	item_itemtype : {
-	    label : "dict_itemtype",
-	    displayType : "select",
-	    translationKey : "dictitemtype_",
-	    dataset : {
-		"orth" : "orth",
-		"pos" : "pos",
-		"eg" : "eg",
-		"xr" : "xr",
-		"etym" : "etym",
-		"note" : "note"
+	item_itemtype: {
+	    label: "dict_itemtype",
+	    displayType: "select",
+	    translationKey: "dictitemtype_",
+	    dataset: {
+		"orth": "orth",
+		"pos": "pos",
+		"eg": "eg",
+		"xr": "xr",
+		"etym": "etym",
+		"note": "note"
 	    },
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	},
-	item_type : {
-	    label : "dict_item_type"
+	item_type: {
+	    label: "dict_item_type"
 	},
-	item_lang : {
-	    label : "dict_etymlang",
-	    displayType : "select",
-	    translationKey : "dictetymlang_",
-	    dataset : {
-		"ru" : "ru",
-		"ve" : "ve"
+	item_lang: {
+	    label: "dict_etymlang",
+	    displayType: "select",
+	    translationKey: "dictetymlang_",
+	    dataset: {
+		"ru": "ru",
+		"ve": "ve"
 	    },
-	    opts : settings.liteOptions
+	    opts: settings.liteOptions
 	},
     }
 };
 
 settings.corpora.gutenberg = {
-    title : "Suomenkielinen Gutenberg -korpus",
-    description : "Project Gutenbergin sisältämiä suomenkielisiä teoksia, joiden tekijänoikeus on päättynyt",
-    id : "gutenberg",
-    urn : "urn:nbn:fi:lb-2014102101",
-    metadata_urn : "urn:nbn:fi:lb-2014100301",
-    homepage : {
-	url : "http://www.gutenberg.org/",
-	name : "Project Gutenberg",
-	no_label : true
+    title: "Suomenkielinen Gutenberg -korpus",
+    description: "Project Gutenbergin sisältämiä suomenkielisiä teoksia, joiden tekijänoikeus on päättynyt",
+    id: "gutenberg",
+    urn: "urn:nbn:fi:lb-2014102101",
+    metadata_urn: "urn:nbn:fi:lb-2014100301",
+    homepage: {
+	url: "http://www.gutenberg.org/",
+	name: "Project Gutenberg",
+	no_label: true
     },
     // Is the following correct? According to META-SHARE, licence
     // would be CC BY.
-    // licence_url : "http://www.gutenberg.org/wiki/Gutenberg:The_Project_Gutenberg_License",
-    licence : settings.licenceinfo.CC_BY,
-    cite_id : "Gutenberg",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
+    // licence_url: "http://www.gutenberg.org/wiki/Gutenberg:The_Project_Gutenberg_License",
+    licence: settings.licenceinfo.CC_BY,
+    cite_id: "Gutenberg",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
     },
-    struct_attributes : {
-	text_title : sattrs.text_title,
-	sentence_id : sattrs.sentence_id_hidden,
-	text_author : sattrs.text_author,
-	text_producers : sattrs.text_producers,
-	text_ebookid : sattrs.text_ebook_id,
-	text_translator : sattrs.text_translator,
-	text_published : sattrs.text_published,
-        text_url : sattrs.link_gutenberg,
-	text_directurl : sattrs.text_link_gutenberg
+    struct_attributes: {
+	text_title: sattrs.text_title,
+	sentence_id: sattrs.sentence_id_hidden,
+	text_author: sattrs.text_author,
+	text_producers: sattrs.text_producers,
+	text_ebookid: sattrs.text_ebook_id,
+	text_translator: sattrs.text_translator,
+	text_published: sattrs.text_published,
+        text_url: sattrs.link_gutenberg,
+	text_directurl: sattrs.text_link_gutenberg
 /*
-	text_producers : sattrs.text_producers,
-	sentence_id : sattrs.sentence_id_hidden
-        text_title : sattrs.text_title,
-        text_author : sattrs.text_author,
-        p_id : sattrs.paragraph_id,
-        s_id : sattrs.sentence_id_hidden,
-        s_type : sattrs.sentence_type
+	text_producers: sattrs.text_producers,
+	sentence_id: sattrs.sentence_id_hidden
+        text_title: sattrs.text_title,
+        text_author: sattrs.text_author,
+        p_id: sattrs.paragraph_id,
+        s_id: sattrs.sentence_id_hidden,
+        s_type: sattrs.sentence_type
 */
     }
 };
 
 /* testiversio
 settings.corpora.suomi24fi = {
-    title : "Suomi24",
-    description : "suomi24.fi -forumin keskustelut (2001-2014)",
-    id : "suomi24fi",
-    urn : "urn:nbn:fi:lb-201412171",
-    metadata_urn : "urn:nbn:fi:lb-201412171",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-	lemma : attrs.baseform,
-	pos : attrs.pos_klk,
-	msd : attrs.msd,
-	dephead : attrs.dephead
+    title: "Suomi24",
+    description: "suomi24.fi -forumin keskustelut (2001-2014)",
+    id: "suomi24fi",
+    urn: "urn:nbn:fi:lb-201412171",
+    metadata_urn: "urn:nbn:fi:lb-201412171",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+	lemma: attrs.baseform,
+	pos: attrs.pos_klk,
+	msd: attrs.msd,
+	dephead: attrs.dephead
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_date : sattrs.date,
-        text_time : sattrs.text_time,
-        text_sect : {
-            label : "suomi24fi_sect",
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_date: sattrs.date,
+        text_time: sattrs.text_time,
+        text_sect: {
+            label: "suomi24fi_sect",
         },
-        text_sub : {
-            label : "suomi24fi_sub",
+        text_sub: {
+            label: "suomi24fi_sub",
         },
-        text_user : {
-            label : "suomi24fi_user",
+        text_user: {
+            label: "suomi24fi_user",
         },
-        sentence_id : sattrs.sentence_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
 
-        text_urlmsg : {
-            label : "suomi24fi_urlmsg",
-            type : "url",
-            url_opts : sattrs.link_url_opts
+        text_urlmsg: {
+            label: "suomi24fi_urlmsg",
+            type: "url",
+            url_opts: sattrs.link_url_opts
         },
 
-	text_urlboard : {
-            label : "suomi24fi_urlboard",
-            type : "url",
-            url_opts : sattrs.link_url_opts
+	text_urlboard: {
+            label: "suomi24fi_urlboard",
+            type: "url",
+            url_opts: sattrs.link_url_opts
         }
     }
 };
@@ -11902,71 +11902,71 @@ settings.corpora.suomi24fi = {
 settings.corpus_aliases.murre = "skn";
 
 settings.corpora.skn = {
-    title : "SKN – Suomen kielen näytteitä",
-    description : "SKN – Suomen kielen näytteitä",
-    id : "skn",
-    urn : "urn:nbn:fi:lb-201407141",
-    metadata_urn : "urn:nbn:fi:lb-201407141",
-    licence : settings.licenceinfo.CC_BY_40,
-    cite_id : "SKN-korp",
-    features : ["paragraphs", "parsed_tdt", "finer"],
-    attributes : {
-        original : attrs.origword,
-        normalized : {
-            label : "murre_normalized",
-            opts : settings.defaultOptions,
+    title: "SKN – Suomen kielen näytteitä",
+    description: "SKN – Suomen kielen näytteitä",
+    id: "skn",
+    urn: "urn:nbn:fi:lb-201407141",
+    metadata_urn: "urn:nbn:fi:lb-201407141",
+    licence: settings.licenceinfo.CC_BY_40,
+    cite_id: "SKN-korp",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    attributes: {
+        original: attrs.origword,
+        normalized: {
+            label: "murre_normalized",
+            opts: settings.defaultOptions,
         },
-        comment : {
-	    label : "word_comment",
-	    opts : settings.defaultOptions
+        comment: {
+	    label: "word_comment",
+	    opts: settings.defaultOptions
 	},
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_date : sattrs.date,
-        text_editor : {
-            label : "murre_editor"
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_date: sattrs.date,
+        text_editor: {
+            label: "murre_editor"
 	},
-        text_parish : {
-            label : "murre_parish"
+        text_parish: {
+            label: "murre_parish"
 	},
-        text_dialect_region : {
-            label : "murre_dialect_region"
+        text_dialect_region: {
+            label: "murre_dialect_region"
 	},
-        text_dialect_group : {
-            label : "murre_dialect_group"
+        text_dialect_group: {
+            label: "murre_dialect_group"
 	},
-        text_name : {
-            label : "file_name",
+        text_name: {
+            label: "file_name",
         },
-        paragraph_speaker : {
-            label : "murre_speaker"
+        paragraph_speaker: {
+            label: "murre_speaker"
 	},
-        paragraph_sex : {
-            label : "murre_sex"
+        paragraph_sex: {
+            label: "murre_sex"
 	},
-        paragraph_role : {
-            label : "murre_role"
+        paragraph_role: {
+            label: "murre_role"
 	},
-        sentence_urlview : {
-            label : "murre_urlview",
-            type : "url",
-            url_opts : sattrs.link_url_opts
+        sentence_urlview: {
+            label: "murre_urlview",
+            type: "url",
+            url_opts: sattrs.link_url_opts
         },
-        text_urlvaw : {
-            label : "murre_urlwav",
-            type : "url",
-            url_opts : sattrs.link_url_opts
+        text_urlvaw: {
+            label: "murre_urlwav",
+            type: "url",
+            url_opts: sattrs.link_url_opts
         },
-        text_urltextgrid : {
-            label : "murre_urltextgrid",
-            type : "url",
-            url_opts : sattrs.link_url_opts
+        text_urltextgrid: {
+            label: "murre_urltextgrid",
+            type: "url",
+            url_opts: sattrs.link_url_opts
         },
-        text_urleaf : {
-            label : "murre_urleaf",
-            type : "url",
-            url_opts : sattrs.link_url_opts
+        text_urleaf: {
+            label: "murre_urleaf",
+            type: "url",
+            url_opts: sattrs.link_url_opts
         }
     }
 };
@@ -11974,135 +11974,135 @@ settings.corpora.skn = {
 /* SINEBRYCHOFF */
 
 settings.corpora.sinebrychoff_fi = {
-    id : "sinebrychoff_fi",
+    id: "sinebrychoff_fi",
     title: "Paul Sinebrychoffin kirjeenvaihto",
-    description : "Paul Sinebrychoffin kirjeenvaihto, suomenkieliset käännökset",
-    metadata_urn : "urn:nbn:fi:lb-201407303",
-    licence : settings.licenceinfo.CC_BY_30,
-    cite_id : "sinebrychoff-fi",
-    context : settings.spContext,
-    within : settings.spWithin,
+    description: "Paul Sinebrychoffin kirjeenvaihto, suomenkieliset käännökset",
+    metadata_urn: "urn:nbn:fi:lb-201407303",
+    licence: settings.licenceinfo.CC_BY_30,
+    cite_id: "sinebrychoff-fi",
+    context: settings.spContext,
+    within: settings.spWithin,
     attributes: attrlist.sinebrychoff,
-    struct_attributes : sattrlist.sinebrychoff
+    struct_attributes: sattrlist.sinebrychoff
 };
 
 
 /* TOPLING SUOMI */
 /*
 settings.corpora.topling_fi_test = {
-    id : "topling_fi_test",
-    title : "TOPLING (suomi, debug)",
-    description : "TOPLING (suomi, debug)",
-    context : settings.spContext,
-    within : settings.spWithin,
-    attributes : attrlist.topling,
-    struct_attributes : sattrlist.topling
+    id: "topling_fi_test",
+    title: "TOPLING (suomi, debug)",
+    description: "TOPLING (suomi, debug)",
+    context: settings.spContext,
+    within: settings.spWithin,
+    attributes: attrlist.topling,
+    struct_attributes: sattrlist.topling
     };*/
 
 settings.corpora.topling_fi = {
-    id : "topling_fi",
-    title : "Topling (suomi)",
-    description : "Topling – Toisen kielen oppimisen polut, suomenkielinen osakorpus",
-    urn : "urn:nbn:fi:lb-2016112902",
-    metadata_urn : "urn:nbn:fi:lb-2016111802",
-    lbr_id : "urn:nbn:fi:lb-20140730168",
-    licence : {
-	name : "CLARIN RES +NC +DEP 1.0",
-	urn : "urn:nbn:fi:lb-2016112305"
+    id: "topling_fi",
+    title: "Topling (suomi)",
+    description: "Topling – Toisen kielen oppimisen polut, suomenkielinen osakorpus",
+    urn: "urn:nbn:fi:lb-2016112902",
+    metadata_urn: "urn:nbn:fi:lb-2016111802",
+    lbr_id: "urn:nbn:fi:lb-20140730168",
+    licence: {
+	name: "CLARIN RES +NC +DEP 1.0",
+	urn: "urn:nbn:fi:lb-2016112305"
     },
-    homepage_url : "https://www.jyu.fi/topling",
-    cite_id : "topling-fi",
-    context : settings.spContext,
-    within : settings.spWithin,
-    limited_access : true,
-    licence_type : "RES",
-    attributes : attrlist.topling,
-    struct_attributes : sattrlist.topling
+    homepage_url: "https://www.jyu.fi/topling",
+    cite_id: "topling-fi",
+    context: settings.spContext,
+    within: settings.spWithin,
+    limited_access: true,
+    licence_type: "RES",
+    attributes: attrlist.topling,
+    struct_attributes: sattrlist.topling
 };
 
 settings.corpora.ceal_o = {
-    title : "CEAL-o",
-    description : "Classics of English and American Literature in Finnish (original)",
-    id : "ceal_o",
-    limited_access : true,
-    licence_type : "RES",
-    metadata_urn : "urn:nbn:fi:lb-2017011302",
-    cite_id : "ceal-o",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {},
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_year : sattrs.date,
-        text_author : {
-            label : "text_author"
+    title: "CEAL-o",
+    description: "Classics of English and American Literature in Finnish (original)",
+    id: "ceal_o",
+    limited_access: true,
+    licence_type: "RES",
+    metadata_urn: "urn:nbn:fi:lb-2017011302",
+    cite_id: "ceal-o",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {},
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_year: sattrs.date,
+        text_author: {
+            label: "text_author"
         },
-        text_translator : sattrs.text_translator
+        text_translator: sattrs.text_translator
     }
 };
 
 settings.corpora.ceal_s = {
-    title : "CEAL-s",
-    description : "Classics of English and American Literature in Finnish (scrambled)",
-    id : "ceal_s",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    metadata_urn : "urn:nbn:fi:lb-2017011303",
-    cite_id : "ceal-s",
-    limited_access : true,
-    licence_type : "ACA",
-    attributes : {},
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_year : sattrs.date,
-        text_author : {
-            label : "text_author"
+    title: "CEAL-s",
+    description: "Classics of English and American Literature in Finnish (scrambled)",
+    id: "ceal_s",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    metadata_urn: "urn:nbn:fi:lb-2017011303",
+    cite_id: "ceal-s",
+    limited_access: true,
+    licence_type: "ACA",
+    attributes: {},
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_year: sattrs.date,
+        text_author: {
+            label: "text_author"
         },
-        text_translator : sattrs.text_translator
+        text_translator: sattrs.text_translator
     }
 };
 
 settings.corpora.arkisyn = {
-    title : "Arkisyn",
-    description : "Arkisyn",
-    id : "arkisyn",
-    urn : "urn:nbn:fi:lb-2017022702",
-    metadata_urn : "urn:nbn:fi:lb-2017022801",
-    licence : settings.licenceinfo.CC_BY_ND,
-    cite_id : "ArkiSyn-korp",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_las2,
-        fun : attrs.func_la,
-        mrp : attrs.msd,
-        origword : attrs.origword
+    title: "Arkisyn",
+    description: "Arkisyn",
+    id: "arkisyn",
+    urn: "urn:nbn:fi:lb-2017022702",
+    metadata_urn: "urn:nbn:fi:lb-2017022801",
+    licence: settings.licenceinfo.CC_BY_ND,
+    cite_id: "ArkiSyn-korp",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+        lemma: attrs.baseform,
+        pos: attrs.pos_las2,
+        fun: attrs.func_la,
+        mrp: attrs.msd,
+        origword: attrs.origword
     },
-    struct_attributes : {
-        text_filename : {
-            label : "file_name",
+    struct_attributes: {
+        text_filename: {
+            label: "file_name",
         },
     }
 };
 
 settings.corpora.eduskunta = {
-    title : "Eduskunta - transkriptiot",
-    description : "Eduskunta - transkriptiot",
-    id : "eduskunta",
-    metadata_urn : "urn:nbn:fi:lb-2017020202",
-    cite_id : "edsukunta-korp",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : attrlist.standard,
-    struct_attributes : {
-        text_filename : {
-            label : "file_name",
+    title: "Eduskunta - transkriptiot",
+    description: "Eduskunta - transkriptiot",
+    id: "eduskunta",
+    metadata_urn: "urn:nbn:fi:lb-2017020202",
+    cite_id: "edsukunta-korp",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: {
+        text_filename: {
+            label: "file_name",
         },
-        text_date : sattrs.date,
-        text_time : sattrs.text_time,
-        paragraph_participant : {
-            label : "speech_speakername"
+        text_date: sattrs.date,
+        text_time: sattrs.text_time,
+        paragraph_participant: {
+            label: "speech_speakername"
         }
     }
 };
@@ -12122,57 +12122,57 @@ settings.fn.dma_stringify_dataset_value = function (attrname) {
 };
 
 settings.corpora.dma = {
-    title : "DMA – Digitaalinen muoto-opin arkisto",
-    description : "DMA – Digitaalinen muoto-opin arkisto<br/><a href='https://www.kielipankki.fi/tuki/korp-dma/' target='_blank'>Ohjeita DMA:n käyttämiseen Korpissa</a>, erityisesti verrattuna vanhaan CSC:n Tutkijan käyttöliittymän DMA:han<br/><strong>Huomaa</strong>, että vaikka aineiston tekstiosa on kaikkien käytettävisssä, PDF-muotoisten sanalippujen katseleminen edellyttää Kielipankin oikeudet -sovelluksen kautta haettua <a href='https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource=urn:nbn:fi:lb-201403261&target=application' target='_blank'>DMA:n käyttölupaa</a>.",
-    id : "dma",
-    urn : "urn:nbn:fi:lb-2016032102",
-    metadata_urn : "urn:nbn:fi:lb-201403261",
-    homepage_url : "http://www.helsinki.fi/fus/research/ma.html",
+    title: "DMA – Digitaalinen muoto-opin arkisto",
+    description: "DMA – Digitaalinen muoto-opin arkisto<br/><a href='https://www.kielipankki.fi/tuki/korp-dma/' target='_blank'>Ohjeita DMA:n käyttämiseen Korpissa</a>, erityisesti verrattuna vanhaan CSC:n Tutkijan käyttöliittymän DMA:han<br/><strong>Huomaa</strong>, että vaikka aineiston tekstiosa on kaikkien käytettävisssä, PDF-muotoisten sanalippujen katseleminen edellyttää Kielipankin oikeudet -sovelluksen kautta haettua <a href='https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource=urn:nbn:fi:lb-201403261&target=application' target='_blank'>DMA:n käyttölupaa</a>.",
+    id: "dma",
+    urn: "urn:nbn:fi:lb-2016032102",
+    metadata_urn: "urn:nbn:fi:lb-201403261",
+    homepage_url: "http://www.helsinki.fi/fus/research/ma.html",
     // TODO (util.coffee): Allow an array of values for licence.
-    licence : {
-	name : "CC BY 4.0 (teksti) / CLARIN RES +PRIV +ND (PDF-sanaliput)",
-	urn : "urn:nbn:fi:lb-2016042202",
+    licence: {
+	name: "CC BY 4.0 (teksti) / CLARIN RES +PRIV +ND (PDF-sanaliput)",
+	urn: "urn:nbn:fi:lb-2016042202",
     },
-    cite_id : "dma",
-    within : settings.defaultWithin,
-    context : settings.defaultContext,
-    attributes : {
-	searchword : {
-	    label : "search_word",
-	    opts : settings.defaultOptions,
+    cite_id: "dma",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {
+	searchword: {
+	    label: "search_word",
+	    opts: settings.defaultOptions,
 	}
     },
-    struct_attributes : {
-	text_dialect_region : {
-	    label : "dialect_region",
-	    displayType : "select",
-	    localize : false,
+    struct_attributes: {
+	text_dialect_region: {
+	    label: "dialect_region",
+	    displayType: "select",
+	    localize: false,
 	    // The values of the dataset are shown for the keys
 	    // without localization.
-	    stringify : settings.fn.dma_stringify_dataset_value(
+	    stringify: settings.fn.dma_stringify_dataset_value(
 		"text_dialect_region"),
-	    dataset : {
-		"1" : "1 Lounaismurteet",
-		"2" : "2 Lounaiset välimurteet",
-		"3" : "3 Hämäläismurteet",
-		"4" : "4 Etelä-Pohjanmaan murteet",
-		"5" : "5 Keski- ja Pohjois-Pohjanmaan murteet",
-		"6" : "6 Peräpohjolan murteet",
-		"7" : "7 Savolaismurteet",
-		"8" : "8 Kaakkoismurteet",
+	    dataset: {
+		"1": "1 Lounaismurteet",
+		"2": "2 Lounaiset välimurteet",
+		"3": "3 Hämäläismurteet",
+		"4": "4 Etelä-Pohjanmaan murteet",
+		"5": "5 Keski- ja Pohjois-Pohjanmaan murteet",
+		"6": "6 Peräpohjolan murteet",
+		"7": "7 Savolaismurteet",
+		"8": "8 Kaakkoismurteet",
 	    },
-	    opts : settings.liteOptions,
+	    opts: settings.liteOptions,
 	},
-	text_dialect_group : {
-            label : "dialect_group",
-	    displayType : "select",
-	    localize : false,
-	    stringify : function (value) {
+	text_dialect_group: {
+            label: "dialect_group",
+	    displayType: "select",
+	    localize: false,
+	    stringify: function (value) {
 		return (settings.corpora.dma.struct_attributes
 			.text_dialect_group.dataset[value]
 			.replace(/[\x00-\x1F ]+/g, ""));
 	    },
-	    dataset : {
+	    dataset: {
 		// The control characters \x01–\x08 are used to get
 		// the desired sorting order. They are invisible in
 		// the output, but could they cause problems in some
@@ -12181,61 +12181,61 @@ settings.corpora.dma = {
 		// as symbols in the extended search selection list in
 		// Chromium on Linux, even though they are invisible
 		// in Firefox on Linux.
-		"[1-6].?" : "\x011–6 Länsimurteet",
-		"1." : "\x01  1 Lounaismurteet",
-		"1a" : "\x01    1a pohjoisryhmä",
-		"1b" : "\x01    1b itäryhmä",
-		"2." : "\x02  2 Lounaiset välimurteet",
-		"2a" : "\x02    2a Porin seudun murteet",
-		"2b" : "\x02    2b Ala-Satakunnan murteet",
-		"2c" : "\x02    2c Turun ylämaan murteet",
-		"2d" : "\x02    2d Someron murre",
-		"2e" : "\x02    2e Länsi-Uudenmaan murteet",
-		"3." : "\x03  3 Hämäläismurteet",
-		"3a" : "\x03    3a Ylä-Satakunnan murteet",
-		"3b" : "\x03    3b perihämäläiset murteet",
-		"3c" : "\x03    3c etelähämäläiset murteet",
-		"3[d-f]" : "\x03    3d–f kaakkoishämäläiset murteet",
-		"3d" : "\x03      3d Hollolan ryhmä",
-		"3e" : "\x03      3e Porvoon ryhmä",
-		"3f" : "\x03      3f Kymenlaakson ryhmä",
-		"4" : "\x04  4 Etelä-Pohjanmaan murteet",
-		"5." : "\x05  5 Keski- ja Pohjois-Pohjanmaan murteet",
-		"5a" : "\x05    5a Keski-Pohjanmaan murteet",
-		"5b" : "\x05    5b Pohjois-Pohjanmaan murteet",
-		"6." : "\x06  6 Peräpohjolan murteet",
-		"6a" : "\x06    6a Tornion murre",
-		"6b" : "\x06    6b Jällivaaran murre",
-		"6c" : "\x06    6c Kemin murre",
-		"6d" : "\x06    6d Kemijärven murre",
-		"6e" : "\x06    6e Ruijan murre",
-		"[7-8]." : "\x077–8 Itämurteet",
-		"7." : "\x07  7 Savolaismurteet",
-		"7a" : "\x07    7a Päijät-Hämeen murteet",
-		"7b" : "\x07    7b Etelä-Savon murteet",
-		"7c" : "\x07    7c Säämingin–Kerimäen ryhmä",
-		"7d" : "\x07    7d itäiset savolaismurteet",
-		"7e" : "\x07    7e Pohjois-Savon murteet",
-		"7f" : "\x07    7f Keski-Suomen murteet",
-		"7g" : "\x07    7g savolaiskiilan murteet",
-		"7h" : "\x07    7h Kainuun murteet",
-		"7i" : "\x07    7i Vermlannin murteet",
-		"8." : "\x08  8 Kaakkoismurteet",
-		"8[a–b]" : "\x08    \x018a–b varsinaiset kaakkoismurteet",
-		"8a" : "\x08    \x01  8a Länsi-Kannaksen murteet",
-		"8b" : "\x08    \x01  8b Itä-Kannaksen murteet",
-		"8c" : "\x08    8c Inkerin suomalaismurteet",
-		"8d" : "\x08    8d Lemin murre",
-		"8e" : "\x08    8e Sortavalan seudun murteet",
+		"[1-6].?": "\x011–6 Länsimurteet",
+		"1.": "\x01  1 Lounaismurteet",
+		"1a": "\x01    1a pohjoisryhmä",
+		"1b": "\x01    1b itäryhmä",
+		"2.": "\x02  2 Lounaiset välimurteet",
+		"2a": "\x02    2a Porin seudun murteet",
+		"2b": "\x02    2b Ala-Satakunnan murteet",
+		"2c": "\x02    2c Turun ylämaan murteet",
+		"2d": "\x02    2d Someron murre",
+		"2e": "\x02    2e Länsi-Uudenmaan murteet",
+		"3.": "\x03  3 Hämäläismurteet",
+		"3a": "\x03    3a Ylä-Satakunnan murteet",
+		"3b": "\x03    3b perihämäläiset murteet",
+		"3c": "\x03    3c etelähämäläiset murteet",
+		"3[d-f]": "\x03    3d–f kaakkoishämäläiset murteet",
+		"3d": "\x03      3d Hollolan ryhmä",
+		"3e": "\x03      3e Porvoon ryhmä",
+		"3f": "\x03      3f Kymenlaakson ryhmä",
+		"4": "\x04  4 Etelä-Pohjanmaan murteet",
+		"5.": "\x05  5 Keski- ja Pohjois-Pohjanmaan murteet",
+		"5a": "\x05    5a Keski-Pohjanmaan murteet",
+		"5b": "\x05    5b Pohjois-Pohjanmaan murteet",
+		"6.": "\x06  6 Peräpohjolan murteet",
+		"6a": "\x06    6a Tornion murre",
+		"6b": "\x06    6b Jällivaaran murre",
+		"6c": "\x06    6c Kemin murre",
+		"6d": "\x06    6d Kemijärven murre",
+		"6e": "\x06    6e Ruijan murre",
+		"[7-8].": "\x077–8 Itämurteet",
+		"7.": "\x07  7 Savolaismurteet",
+		"7a": "\x07    7a Päijät-Hämeen murteet",
+		"7b": "\x07    7b Etelä-Savon murteet",
+		"7c": "\x07    7c Säämingin–Kerimäen ryhmä",
+		"7d": "\x07    7d itäiset savolaismurteet",
+		"7e": "\x07    7e Pohjois-Savon murteet",
+		"7f": "\x07    7f Keski-Suomen murteet",
+		"7g": "\x07    7g savolaiskiilan murteet",
+		"7h": "\x07    7h Kainuun murteet",
+		"7i": "\x07    7i Vermlannin murteet",
+		"8.": "\x08  8 Kaakkoismurteet",
+		"8[a–b]": "\x08    \x018a–b varsinaiset kaakkoismurteet",
+		"8a": "\x08    \x01  8a Länsi-Kannaksen murteet",
+		"8b": "\x08    \x01  8b Itä-Kannaksen murteet",
+		"8c": "\x08    8c Inkerin suomalaismurteet",
+		"8d": "\x08    8d Lemin murre",
+		"8e": "\x08    8e Sortavalan seudun murteet",
 	    },
-	    opts : settings.liteOptions,
+	    opts: settings.liteOptions,
 	},
-	text_parish_name : {
-            label : "parish",
-	    displayType : "select",
-	    localize : false,
-	    // translationKey : "",
-	    dataset : [
+	text_parish_name: {
+            label: "parish",
+	    displayType: "select",
+	    localize: false,
+	    // translationKey: "",
+	    dataset: [
 		"Artjärvi",
 		"Asikkala",
 		"Askola",
@@ -12389,218 +12389,218 @@ settings.corpora.dma = {
 		"Ähtäri",
 	    ],
 	    // // An alternative with dialect group code preprended
-	    // stringify : settings.fn.dma_stringify_dataset_value(
+	    // stringify: settings.fn.dma_stringify_dataset_value(
 	    // 	"text_parish_name"),
-	    // dataset : {
-	    // 	"Eurajoki" : "1a Eurajoki",
-	    // 	"Hinnerjoki" : "1a Hinnerjoki",
-	    // 	"Honkilahti" : "1a Honkilahti",
-	    // 	"Laitila" : "1a Laitila",
-	    // 	"Masku" : "1a Masku",
-	    // 	"Merimasku" : "1a Merimasku",
-	    // 	"Mietoinen" : "1a Mietoinen",
-	    // 	"Nousiainen" : "1a Nousiainen",
-	    // 	"Rauma" : "1a Rauma",
-	    // 	"Rymättylä" : "1a Rymättylä",
-	    // 	"Taivassalo" : "1a Taivassalo",
-	    // 	"Halikko" : "1b Halikko",
-	    // 	"Kaarina" : "1b Kaarina",
-	    // 	"Sauvo" : "1b Sauvo",
-	    // 	"Suomusjärvi" : "1b Suomusjärvi",
-	    // 	"Merikarvia" : "2a Merikarvia",
-	    // 	"Pori" : "2a Pori",
-	    // 	"Loimaa" : "2b Loimaa",
-	    // 	"Pöytyä" : "2c Pöytyä",
-	    // 	"Somero" : "2d Somero",
-	    // 	"Nummi" : "2e Nummi",
-	    // 	"Vihti" : "2e Vihti",
-	    // 	"Honkajoki" : "3a Honkajoki",
-	    // 	"Kankaanpää" : "3a Kankaanpää",
-	    // 	"Kiikka" : "3a Kiikka",
-	    // 	"Parkano" : "3a Parkano",
-	    // 	"Virrat" : "3a Virrat",
-	    // 	"Juupajoki" : "3b Juupajoki",
-	    // 	"Kalvola" : "3b Kalvola",
-	    // 	"Kangasala" : "3b Kangasala",
-	    // 	"Kuru" : "3b Kuru",
-	    // 	"Ruovesi" : "3b Ruovesi",
-	    // 	"Sääksmäki" : "3b Sääksmäki",
-	    // 	"Teisko" : "3b Teisko",
-	    // 	"Tuulos" : "3b Tuulos",
-	    // 	"Hausjärvi" : "3c Hausjärvi",
-	    // 	"Tammela" : "3c Tammela",
-	    // 	"Ypäjä" : "3c Ypäjä",
-	    // 	"Asikkala" : "3d Asikkala",
-	    // 	"Orimattila" : "3d Orimattila",
-	    // 	"Askola" : "3e Askola",
-	    // 	"Myrskylä" : "3e Myrskylä",
-	    // 	"Pornainen" : "3e Pornainen",
-	    // 	"Artjärvi" : "3f Artjärvi",
-	    // 	"Kymi" : "3f Kymi",
-	    // 	"Valkeala" : "3f Valkeala",
-	    // 	"Vehkalahti" : "3f Vehkalahti",
-	    // 	"Ilmajoki" : "4 Ilmajoki",
-	    // 	"Isojoki" : "4 Isojoki",
-	    // 	"Jalasjärvi" : "4 Jalasjärvi",
-	    // 	"Kauhava" : "4 Kauhava",
-	    // 	"Kurikka" : "4 Kurikka",
-	    // 	"Laihia" : "4 Laihia",
-	    // 	"Töysä" : "4 Töysä",
-	    // 	"Vähäkyrö" : "4 Vähäkyrö",
-	    // 	"Ylihärmä" : "4 Ylihärmä",
-	    // 	"Haapavesi" : "5a Haapavesi",
-	    // 	"Halsua" : "5a Halsua",
-	    // 	"Himanka" : "5a Himanka",
-	    // 	"Kalajoki" : "5a Kalajoki",
-	    // 	"Kälviä" : "5a Kälviä",
-	    // 	"Kärsämäki" : "5a Kärsämäki",
-	    // 	"Kaustinen" : "5a Kaustinen",
-	    // 	"Nivala" : "5a Nivala",
-	    // 	"Perho" : "5a Perho",
-	    // 	"Pyhäjoki" : "5a Pyhäjoki",
-	    // 	"Rautio" : "5a Rautio",
-	    // 	"Reisjärvi" : "5a Reisjärvi",
-	    // 	"Veteli" : "5a Veteli",
-	    // 	"Kuivaniemi" : "5b Kuivaniemi",
-	    // 	"Oulujoki" : "5b Oulujoki",
-	    // 	"Paavola" : "5b Paavola",
-	    // 	"Pattijoki" : "5b Pattijoki",
-	    // 	"Yli-Ii" : "5b Yli-Ii",
-	    // 	"Kolari" : "6a Kolari",
-	    // 	"Ylitornio" : "6a Ylitornio",
-	    // 	"Jällivaara" : "6b Jällivaara",
-	    // 	"Keminmlk" : "6c Keminmlk",
-	    // 	"Kittilä" : "6c Kittilä",
-	    // 	"Simo" : "6c Simo",
-	    // 	"Sodankylä" : "6c Sodankylä",
-	    // 	"Kemijärvi" : "6d Kemijärvi",
-	    // 	"Salla" : "6d Salla",
-	    // 	"Itä-Ruija" : "6e Itä-Ruija",
-	    // 	"Raisi" : "6e Raisi",
-	    // 	"Joutsa" : "7a Joutsa",
-	    // 	"Korpilahti" : "7a Korpilahti",
-	    // 	"Kuhmoinen" : "7a Kuhmoinen",
-	    // 	"Luhanka" : "7a Luhanka",
-	    // 	"Sysmä" : "7a Sysmä",
-	    // 	"Hirvensalmi" : "7b Hirvensalmi",
-	    // 	"Mäntyharju" : "7b Mäntyharju",
-	    // 	"Mikkelinmlk" : "7b Mikkelinmlk",
-	    // 	"Ristiina" : "7b Ristiina",
-	    // 	"Kerimäki" : "7c Kerimäki",
-	    // 	"Sääminki" : "7c Sääminki",
-	    // 	"Ilomantsi" : "7d Ilomantsi",
-	    // 	"Kesälahti" : "7d Kesälahti",
-	    // 	"Kitee" : "7d Kitee",
-	    // 	"Kontiolahti" : "7d Kontiolahti",
-	    // 	"Liperi" : "7d Liperi",
-	    // 	"Nurmes" : "7d Nurmes",
-	    // 	"Pielisjärvi" : "7d Pielisjärvi",
-	    // 	"Polvijärvi" : "7d Polvijärvi",
-	    // 	"Heinävesi" : "7e Heinävesi",
-	    // 	"Karttula" : "7e Karttula",
-	    // 	"Kiuruvesi" : "7e Kiuruvesi",
-	    // 	"Lapinlahti" : "7e Lapinlahti",
-	    // 	"Leppävirta" : "7e Leppävirta",
-	    // 	"Pieksämäki" : "7e Pieksämäki",
-	    // 	"Pyhäjärvi Ol." : "7e Pyhäjärvi Ol.",
-	    // 	"Siilinjärvi" : "7e Siilinjärvi",
-	    // 	"Sonkajärvi" : "7e Sonkajärvi",
-	    // 	"Tuusniemi" : "7e Tuusniemi",
-	    // 	"Vehmersalmi" : "7e Vehmersalmi",
-	    // 	"Vesanto" : "7e Vesanto",
-	    // 	"Kannonkoski" : "7f Kannonkoski",
-	    // 	"Karstula" : "7f Karstula",
-	    // 	"Laukaa" : "7f Laukaa",
-	    // 	"Pihtipudas" : "7f Pihtipudas",
-	    // 	"Saarijärvi" : "7f Saarijärvi",
-	    // 	"Sumiainen" : "7f Sumiainen",
-	    // 	"Uurainen" : "7f Uurainen",
-	    // 	"Ähtäri" : "7g Ähtäri",
-	    // 	"Keuruu" : "7g Keuruu",
-	    // 	"Lappajärvi" : "7g Lappajärvi",
-	    // 	"Kajaani" : "7h Kajaani",
-	    // 	"Pudasjärvi" : "7h Pudasjärvi",
-	    // 	"Suomussalmi" : "7h Suomussalmi",
-	    // 	"Vermlanti" : "7i Vermlanti",
-	    // 	"Heinjoki" : "8a Heinjoki",
-	    // 	"Kivennapa" : "8a Kivennapa",
-	    // 	"Koivisto" : "8a Koivisto",
-	    // 	"Lappee" : "8a Lappee",
-	    // 	"Lavansaari" : "8a Lavansaari",
-	    // 	"Luumäki" : "8a Luumäki",
-	    // 	"Miehikkälä" : "8a Miehikkälä",
-	    // 	"Uusikirkko Vpl." : "8a Uusikirkko Vpl.",
-	    // 	"Viipurin mlk." : "8a Viipurin mlk.",
-	    // 	"Virolahti" : "8a Virolahti",
-	    // 	"Joutseno" : "8b Joutseno",
-	    // 	"Käkisalmi" : "8b Käkisalmi",
-	    // 	"Lumivaara" : "8b Lumivaara",
-	    // 	"Ruokolahti" : "8b Ruokolahti",
-	    // 	"Järvisaari" : "8c Järvisaari",
-	    // 	"Markkova" : "8c Markkova",
-	    // 	"Tuutari" : "8c Tuutari",
-	    // 	"Lemi" : "8d Lemi",
-	    // 	"Savitaipale" : "8d Savitaipale",
-	    // 	"Sortavala" : "8e Sortavala",
-	    // 	"Uukuniemi" : "8e Uukuniemi",
+	    // dataset: {
+	    // 	"Eurajoki": "1a Eurajoki",
+	    // 	"Hinnerjoki": "1a Hinnerjoki",
+	    // 	"Honkilahti": "1a Honkilahti",
+	    // 	"Laitila": "1a Laitila",
+	    // 	"Masku": "1a Masku",
+	    // 	"Merimasku": "1a Merimasku",
+	    // 	"Mietoinen": "1a Mietoinen",
+	    // 	"Nousiainen": "1a Nousiainen",
+	    // 	"Rauma": "1a Rauma",
+	    // 	"Rymättylä": "1a Rymättylä",
+	    // 	"Taivassalo": "1a Taivassalo",
+	    // 	"Halikko": "1b Halikko",
+	    // 	"Kaarina": "1b Kaarina",
+	    // 	"Sauvo": "1b Sauvo",
+	    // 	"Suomusjärvi": "1b Suomusjärvi",
+	    // 	"Merikarvia": "2a Merikarvia",
+	    // 	"Pori": "2a Pori",
+	    // 	"Loimaa": "2b Loimaa",
+	    // 	"Pöytyä": "2c Pöytyä",
+	    // 	"Somero": "2d Somero",
+	    // 	"Nummi": "2e Nummi",
+	    // 	"Vihti": "2e Vihti",
+	    // 	"Honkajoki": "3a Honkajoki",
+	    // 	"Kankaanpää": "3a Kankaanpää",
+	    // 	"Kiikka": "3a Kiikka",
+	    // 	"Parkano": "3a Parkano",
+	    // 	"Virrat": "3a Virrat",
+	    // 	"Juupajoki": "3b Juupajoki",
+	    // 	"Kalvola": "3b Kalvola",
+	    // 	"Kangasala": "3b Kangasala",
+	    // 	"Kuru": "3b Kuru",
+	    // 	"Ruovesi": "3b Ruovesi",
+	    // 	"Sääksmäki": "3b Sääksmäki",
+	    // 	"Teisko": "3b Teisko",
+	    // 	"Tuulos": "3b Tuulos",
+	    // 	"Hausjärvi": "3c Hausjärvi",
+	    // 	"Tammela": "3c Tammela",
+	    // 	"Ypäjä": "3c Ypäjä",
+	    // 	"Asikkala": "3d Asikkala",
+	    // 	"Orimattila": "3d Orimattila",
+	    // 	"Askola": "3e Askola",
+	    // 	"Myrskylä": "3e Myrskylä",
+	    // 	"Pornainen": "3e Pornainen",
+	    // 	"Artjärvi": "3f Artjärvi",
+	    // 	"Kymi": "3f Kymi",
+	    // 	"Valkeala": "3f Valkeala",
+	    // 	"Vehkalahti": "3f Vehkalahti",
+	    // 	"Ilmajoki": "4 Ilmajoki",
+	    // 	"Isojoki": "4 Isojoki",
+	    // 	"Jalasjärvi": "4 Jalasjärvi",
+	    // 	"Kauhava": "4 Kauhava",
+	    // 	"Kurikka": "4 Kurikka",
+	    // 	"Laihia": "4 Laihia",
+	    // 	"Töysä": "4 Töysä",
+	    // 	"Vähäkyrö": "4 Vähäkyrö",
+	    // 	"Ylihärmä": "4 Ylihärmä",
+	    // 	"Haapavesi": "5a Haapavesi",
+	    // 	"Halsua": "5a Halsua",
+	    // 	"Himanka": "5a Himanka",
+	    // 	"Kalajoki": "5a Kalajoki",
+	    // 	"Kälviä": "5a Kälviä",
+	    // 	"Kärsämäki": "5a Kärsämäki",
+	    // 	"Kaustinen": "5a Kaustinen",
+	    // 	"Nivala": "5a Nivala",
+	    // 	"Perho": "5a Perho",
+	    // 	"Pyhäjoki": "5a Pyhäjoki",
+	    // 	"Rautio": "5a Rautio",
+	    // 	"Reisjärvi": "5a Reisjärvi",
+	    // 	"Veteli": "5a Veteli",
+	    // 	"Kuivaniemi": "5b Kuivaniemi",
+	    // 	"Oulujoki": "5b Oulujoki",
+	    // 	"Paavola": "5b Paavola",
+	    // 	"Pattijoki": "5b Pattijoki",
+	    // 	"Yli-Ii": "5b Yli-Ii",
+	    // 	"Kolari": "6a Kolari",
+	    // 	"Ylitornio": "6a Ylitornio",
+	    // 	"Jällivaara": "6b Jällivaara",
+	    // 	"Keminmlk": "6c Keminmlk",
+	    // 	"Kittilä": "6c Kittilä",
+	    // 	"Simo": "6c Simo",
+	    // 	"Sodankylä": "6c Sodankylä",
+	    // 	"Kemijärvi": "6d Kemijärvi",
+	    // 	"Salla": "6d Salla",
+	    // 	"Itä-Ruija": "6e Itä-Ruija",
+	    // 	"Raisi": "6e Raisi",
+	    // 	"Joutsa": "7a Joutsa",
+	    // 	"Korpilahti": "7a Korpilahti",
+	    // 	"Kuhmoinen": "7a Kuhmoinen",
+	    // 	"Luhanka": "7a Luhanka",
+	    // 	"Sysmä": "7a Sysmä",
+	    // 	"Hirvensalmi": "7b Hirvensalmi",
+	    // 	"Mäntyharju": "7b Mäntyharju",
+	    // 	"Mikkelinmlk": "7b Mikkelinmlk",
+	    // 	"Ristiina": "7b Ristiina",
+	    // 	"Kerimäki": "7c Kerimäki",
+	    // 	"Sääminki": "7c Sääminki",
+	    // 	"Ilomantsi": "7d Ilomantsi",
+	    // 	"Kesälahti": "7d Kesälahti",
+	    // 	"Kitee": "7d Kitee",
+	    // 	"Kontiolahti": "7d Kontiolahti",
+	    // 	"Liperi": "7d Liperi",
+	    // 	"Nurmes": "7d Nurmes",
+	    // 	"Pielisjärvi": "7d Pielisjärvi",
+	    // 	"Polvijärvi": "7d Polvijärvi",
+	    // 	"Heinävesi": "7e Heinävesi",
+	    // 	"Karttula": "7e Karttula",
+	    // 	"Kiuruvesi": "7e Kiuruvesi",
+	    // 	"Lapinlahti": "7e Lapinlahti",
+	    // 	"Leppävirta": "7e Leppävirta",
+	    // 	"Pieksämäki": "7e Pieksämäki",
+	    // 	"Pyhäjärvi Ol.": "7e Pyhäjärvi Ol.",
+	    // 	"Siilinjärvi": "7e Siilinjärvi",
+	    // 	"Sonkajärvi": "7e Sonkajärvi",
+	    // 	"Tuusniemi": "7e Tuusniemi",
+	    // 	"Vehmersalmi": "7e Vehmersalmi",
+	    // 	"Vesanto": "7e Vesanto",
+	    // 	"Kannonkoski": "7f Kannonkoski",
+	    // 	"Karstula": "7f Karstula",
+	    // 	"Laukaa": "7f Laukaa",
+	    // 	"Pihtipudas": "7f Pihtipudas",
+	    // 	"Saarijärvi": "7f Saarijärvi",
+	    // 	"Sumiainen": "7f Sumiainen",
+	    // 	"Uurainen": "7f Uurainen",
+	    // 	"Ähtäri": "7g Ähtäri",
+	    // 	"Keuruu": "7g Keuruu",
+	    // 	"Lappajärvi": "7g Lappajärvi",
+	    // 	"Kajaani": "7h Kajaani",
+	    // 	"Pudasjärvi": "7h Pudasjärvi",
+	    // 	"Suomussalmi": "7h Suomussalmi",
+	    // 	"Vermlanti": "7i Vermlanti",
+	    // 	"Heinjoki": "8a Heinjoki",
+	    // 	"Kivennapa": "8a Kivennapa",
+	    // 	"Koivisto": "8a Koivisto",
+	    // 	"Lappee": "8a Lappee",
+	    // 	"Lavansaari": "8a Lavansaari",
+	    // 	"Luumäki": "8a Luumäki",
+	    // 	"Miehikkälä": "8a Miehikkälä",
+	    // 	"Uusikirkko Vpl.": "8a Uusikirkko Vpl.",
+	    // 	"Viipurin mlk.": "8a Viipurin mlk.",
+	    // 	"Virolahti": "8a Virolahti",
+	    // 	"Joutseno": "8b Joutseno",
+	    // 	"Käkisalmi": "8b Käkisalmi",
+	    // 	"Lumivaara": "8b Lumivaara",
+	    // 	"Ruokolahti": "8b Ruokolahti",
+	    // 	"Järvisaari": "8c Järvisaari",
+	    // 	"Markkova": "8c Markkova",
+	    // 	"Tuutari": "8c Tuutari",
+	    // 	"Lemi": "8d Lemi",
+	    // 	"Savitaipale": "8d Savitaipale",
+	    // 	"Sortavala": "8e Sortavala",
+	    // 	"Uukuniemi": "8e Uukuniemi",
 	    // },
-	    opts : settings.liteOptions,
+	    opts: settings.liteOptions,
 	},
-	text_village : {
-	    label : "village",
+	text_village: {
+	    label: "village",
 	},
-	text_parish : {
+	text_parish: {
 	    // Should we have this separately? The attribute parish
 	    // contains the parish name with the dialect group code
 	    // prepended. Or should "parish_name" actually be simply
 	    // "parish"?
-	    label : "parish",
-	    displayType : "hidden",
+	    label: "parish",
+	    displayType: "hidden",
 	},
-	sentence_comment : {
-            label : "comment",
+	sentence_comment: {
+            label: "comment",
 	},
-	sentence_informant : {
-	    label : "informant",
+	sentence_informant: {
+	    label: "informant",
 	},
-	sentence_informant_sex : {
-	    label : "informant_sex",
-	    displayType : "select",
-	    translationKey : "",
-	    dataset : {
-		"m" : "male",
-		"n" : "female",
-		"" : "unknown"
+	sentence_informant_sex: {
+	    label: "informant_sex",
+	    displayType: "select",
+	    translationKey: "",
+	    dataset: {
+		"m": "male",
+		"n": "female",
+		"": "unknown"
 	    },
-	    opts : settings.liteOptions,
+	    opts: settings.liteOptions,
 	},
-	sentence_informant_birthyear : {
-            label : "informant_birthyear",
+	sentence_informant_birthyear: {
+            label: "informant_birthyear",
 	},
-	sentence_signum : {
-	    label : "signum",
-	    type : "set",
-	    opts : settings.setOptions,
+	sentence_signum: {
+	    label: "signum",
+	    type: "set",
+	    opts: settings.setOptions,
 	    // This URL is in the sidebar (i) link
-	    taginfo_url : "markup/dma_signumlist.html",
+	    taginfo_url: "markup/dma_signumlist.html",
 	    // The input field also has an (i) link opening a list of
 	    // signums as links from which one can select. This has
 	    // been copied and modified from the code for the the
 	    // Swedish msd attribute.
-	    extended_template : '<input class="arg_value" ng-model="model">' +
+	    extended_template: '<input class="arg_value" ng-model="model">' +
 		'<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
-	    controller : function($scope, $modal) {
+	    controller: function($scope, $modal) {
 		var modal = null;
 		$scope.onIconClick = function() {
 		    modal = $modal.open({
-			template : '<div>' +
+			template: '<div>' +
 			    '<div class="modal-header">' +
 			    '<h3 class="modal-title">{{\'signum\' | loc:lang}}</h3>' +
 			    '<span ng-click="clickX()" class="close-x">×</span>' +
 			    '</div>' +
 			    '<div class="modal-body" ng-click="handleClick($event)" ng-include="\'markup/dma_signumlist_links.html\'"></div>' +
 			    '</div>',
-			scope : $scope
+			scope: $scope
 		    })
 		}
 		$scope.clickX = function(event) {
@@ -12616,39 +12616,39 @@ settings.corpora.dma = {
 		}
 	    },
 	},
-	sentence_signumlist : {
-	    label : "signum_list",
-	    opts : settings.defaultOptions,
+	sentence_signumlist: {
+	    label: "signum_list",
+	    opts: settings.defaultOptions,
 	},
-	sentence_updated : {
-	    displayType : "hidden",
+	sentence_updated: {
+	    displayType: "hidden",
 	},
-	sentence_location : {
-	    label : "original_location",
-	    opts : settings.defaultOptions,
+	sentence_location: {
+	    label: "original_location",
+	    opts: settings.defaultOptions,
 	},
-	sentence_text_words : {
-	    label : "clause_any_wordform",
-	    type : "set",
+	sentence_text_words: {
+	    label: "clause_any_wordform",
+	    type: "set",
 	    // This would benefit from having also other options than
 	    // "is" and "is not" for a set-valued attribute, but that
 	    // is not (yet) possible.
-	    opts : settings.setOptions,
-	    displayOnly : "search",
+	    opts: settings.setOptions,
+	    displayOnly: "search",
 	},
-	sentence_search_words : {
-	    label : "clause_any_search_word",
-	    type : "set",
+	sentence_search_words: {
+	    label: "clause_any_search_word",
+	    type: "set",
 	    // The same applies here as in sentence_text_words.
-	    opts : settings.setOptions,
-	    displayOnly : "search",
+	    opts: settings.setOptions,
+	    displayOnly: "search",
 	},
-	sentence_pdf : {
-            label : "show_wordnote",
-            opts : settings.defaultOptions,
-            type : "url",
-            url_opts : $.extend({}, sattrs.link_url_opts, {
-                stringify_link : function (key, filename, attrs, html_attrs) {
+	sentence_pdf: {
+            label: "show_wordnote",
+            opts: settings.defaultOptions,
+            type: "url",
+            url_opts: $.extend({}, sattrs.link_url_opts, {
+                stringify_link: function (key, filename, attrs, html_attrs) {
 		    if (! filename) {
 			return "";
 		    }
@@ -12670,44 +12670,44 @@ settings.corpora.dma = {
                 }
             }),
 	},
-	sentence_id : sattrs.sentence_id,
+	sentence_id: sattrs.sentence_id,
     }
 };
 
 
 settings.corpora.ylilauta = {
-    title : "Ylilauta",
-    description : "Ylilauta",
-    id : "ylilauta",
-    urn : "urn:nbn:fi:lb-2015031802",
-    metadata_urn : "urn:nbn:fi:lb-2015031802",
-    licence : settings.licenceinfo.CC_BY_NC,
-    homepage_url : "https://ylilauta.org",
-    cite_id : "Ylilauta",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
+    title: "Ylilauta",
+    description: "Ylilauta",
+    id: "ylilauta",
+    urn: "urn:nbn:fi:lb-2015031802",
+    metadata_urn: "urn:nbn:fi:lb-2015031802",
+    licence: settings.licenceinfo.CC_BY_NC,
+    homepage_url: "https://ylilauta.org",
+    cite_id: "Ylilauta",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
 	/*
-	lemma : attrs.baseform,
-	pos : attrs.pos_klk,
-	msd : attrs.msd,
-	syn : attrs.deprel_tdt*/
-        lemma : attrs.baseform,
-        lemmacomp : attrs.baseform_compound,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        lex : attrs.lemgram_hidden,
-        nertag : attrs.ner_tags
+	lemma: attrs.baseform,
+	pos: attrs.pos_klk,
+	msd: attrs.msd,
+	syn: attrs.deprel_tdt*/
+        lemma: attrs.baseform,
+        lemmacomp: attrs.baseform_compound,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        lex: attrs.lemgram_hidden,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_date : sattrs.date,
-        text_clock : sattrs.text_time,
-        text_sec : {
-            label : "suomi24fi_sect",
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_date: sattrs.date,
+        text_clock: sattrs.text_time,
+        text_sec: {
+            label: "suomi24fi_sect",
         }
     }
 };
@@ -12720,94 +12720,94 @@ settings.corpora.ylilauta = {
 // specified in the settings of the individual subcorpora.
 
 settings.corpora.s24_001 = {
-    title : "Suomi24 (1/10)",
-    description : "Suomi24-keskustelut (1/10)",
-    id : "s24_001",
-    features : ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes : sattrlist.s24_update
+    title: "Suomi24 (1/10)",
+    description: "Suomi24-keskustelut (1/10)",
+    id: "s24_001",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: sattrlist.s24_update
 };
 
 settings.corpora.s24_002 = {
-    title : "Suomi24 (2/10)",
-    description : "Suomi24-keskustelut (2/10)",
-    id : "s24_002",
-    features : ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes : sattrlist.s24_update
+    title: "Suomi24 (2/10)",
+    description: "Suomi24-keskustelut (2/10)",
+    id: "s24_002",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: sattrlist.s24_update
 };
 
 settings.corpora.s24_003 = {
-    title : "Suomi24 (3/10)",
-    description : "Suomi24-keskustelut (3/10)",
-    id : "s24_003",
-    features : ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes : sattrlist.s24_update
+    title: "Suomi24 (3/10)",
+    description: "Suomi24-keskustelut (3/10)",
+    id: "s24_003",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: sattrlist.s24_update
 };
 
 settings.corpora.s24_004 = {
-    title : "Suomi24 (4/10)",
-    description : "Suomi24-keskustelut (4/10)",
-    id : "s24_004",
-    features : ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes : sattrlist.s24_update
+    title: "Suomi24 (4/10)",
+    description: "Suomi24-keskustelut (4/10)",
+    id: "s24_004",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: sattrlist.s24_update
 };
 
 settings.corpora.s24_005 = {
-    title : "Suomi24 (5/10)",
-    description : "Suomi24-keskustelut (5/10)",
-    id : "s24_005",
-    features : ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes : sattrlist.s24_update
+    title: "Suomi24 (5/10)",
+    description: "Suomi24-keskustelut (5/10)",
+    id: "s24_005",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: sattrlist.s24_update
 };
 
 settings.corpora.s24_006 = {
-    title : "Suomi24 (6/10)",
-    description : "Suomi24-keskustelut (6/10)",
-    id : "s24_006",
-    features : ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes : sattrlist.s24_update
+    title: "Suomi24 (6/10)",
+    description: "Suomi24-keskustelut (6/10)",
+    id: "s24_006",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: sattrlist.s24_update
 };
 
 settings.corpora.s24_007 = {
-    title : "Suomi24 (7/10)",
-    description : "Suomi24-keskustelut (7/10)",
-    id : "s24_007",
-    features : ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes : sattrlist.s24_update
+    title: "Suomi24 (7/10)",
+    description: "Suomi24-keskustelut (7/10)",
+    id: "s24_007",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: sattrlist.s24_update
 };
 
 settings.corpora.s24_008 = {
-    title : "Suomi24 (8/10)",
-    description : "Suomi24-keskustelut (8/10)",
-    id : "s24_008",
-    features : ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes : sattrlist.s24_update
+    title: "Suomi24 (8/10)",
+    description: "Suomi24-keskustelut (8/10)",
+    id: "s24_008",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: sattrlist.s24_update
 };
 /*
 settings.corpora.s24_009test = {
-    title : "Suomi24 (test)",
-    description : "Suomi24-keskustelut (test)",
-    id : "s24_009test",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.parsed_tdt,
-    struct_attributes : sattrlist.s24_update
+    title: "Suomi24 (test)",
+    description: "Suomi24-keskustelut (test)",
+    id: "s24_009test",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.parsed_tdt,
+    struct_attributes: sattrlist.s24_update
 };
 */
 
 settings.corpora.s24_009 = {
-    title : "Suomi24 (9/10)",
-    description : "Suomi24-keskustelut (9/10)",
-    id : "s24_009",
-    features : ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes : sattrlist.s24_update
+    title: "Suomi24 (9/10)",
+    description: "Suomi24-keskustelut (9/10)",
+    id: "s24_009",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: sattrlist.s24_update
 };
 
 settings.corpora.s24_010 = {
-    title : "Suomi24 (10/10)",
-    description : "Suomi24-keskustelut (10/10)",
-    id : "s24_010",
-    features : ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes : sattrlist.s24_update
+    title: "Suomi24 (10/10)",
+    description: "Suomi24-keskustelut (10/10)",
+    id: "s24_010",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: sattrlist.s24_update
 };
 
 settings.corpus_aliases.suomi24 = "s24_0[0-9][0-9]";
@@ -12821,186 +12821,186 @@ settings.short_url_config.suomi24 =
 
 
 settings.corpora.s24 = {
-    title : "Suomi24 2001–2014 (näyte)",
-    description : "Suomi24-keskusteluja 2001–2014 (näyte).<br/>Tämä korpus sisältää osan <a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskusteluista vuosilta 2001–2014; kaikki keskustelut (myös tämän korpuksen sisältämät) sisältyvät korpukseen <i>Suomi24</i>.<br/>(Tämä korpus näkyi aiemmin nimellä <i>Suomi24</i>.)",
-    id : "s24",
+    title: "Suomi24 2001–2014 (näyte)",
+    description: "Suomi24-keskusteluja 2001–2014 (näyte).<br/>Tämä korpus sisältää osan <a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskusteluista vuosilta 2001–2014; kaikki keskustelut (myös tämän korpuksen sisältämät) sisältyvät korpukseen <i>Suomi24</i>.<br/>(Tämä korpus näkyi aiemmin nimellä <i>Suomi24</i>.)",
+    id: "s24",
     // URN information also in the corpus .info file; if you need to
     // update the URNs, you should also check it.
     // TODO: Update the URNs when the new URNs are available. (2015-12-01)
-    // urn : "urn:nbn:fi:lb-2015040102",
-    // metadata_urn : "urn:nbn:fi:lb-2015091701",
-    licence : settings.licenceinfo.CC_BY_NC,
-    homepage_url : "http://keskustelu.suomi24.fi",
-    cite_id : "Suomi24-2001-2014-korp",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
+    // urn: "urn:nbn:fi:lb-2015040102",
+    // metadata_urn: "urn:nbn:fi:lb-2015091701",
+    licence: settings.licenceinfo.CC_BY_NC,
+    homepage_url: "http://keskustelu.suomi24.fi",
+    cite_id: "Suomi24-2001-2014-korp",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
 	/*
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : {
-            label : "msd",
-            opts : settings.defaultOptions
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: {
+            label: "msd",
+            opts: settings.defaultOptions
         },
-        dep : {
-            label : "dephead",
-            opts : settings.defaultOptions
+        dep: {
+            label: "dephead",
+            opts: settings.defaultOptions
         },
-        syn : attrs.deprel_tdt,
-        unk : attrs.ner_tags*/
+        syn: attrs.deprel_tdt,
+        unk: attrs.ner_tags*/
 
-        lemma : attrs.baseform,
-        lemmacomp : attrs.baseform_compound,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        lex : attrs.lemgram_hidden,
-        nertag : attrs.ner_tags
+        lemma: attrs.baseform,
+        lemmacomp: attrs.baseform_compound,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref,
+        lex: attrs.lemgram_hidden,
+        nertag: attrs.ner_tags
     },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_date : sattrs.date,
-        text_time : sattrs.text_time,
-        text_sect : {
-            label : "suomi24fi_sect",
+    struct_attributes: {
+        text_title: sattrs.text_title,
+        text_date: sattrs.date,
+        text_time: sattrs.text_time,
+        text_sect: {
+            label: "suomi24fi_sect",
         },
-        text_sub : {
-            label : "suomi24fi_sub",
+        text_sub: {
+            label: "suomi24fi_sub",
         },
-        text_user : {
-            label : "suomi24fi_user",
+        text_user: {
+            label: "suomi24fi_user",
         },
-        sentence_id : sattrs.sentence_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
 
-        text_urlmsg : {
-            label : "suomi24fi_urlmsg",
-            type : "url",
-            url_opts : sattrs.link_url_opts
+        text_urlmsg: {
+            label: "suomi24fi_urlmsg",
+            type: "url",
+            url_opts: sattrs.link_url_opts
         },
-        text_urlboard : {
-            label : "suomi24fi_urlboard",
-            type : "url",
-            url_opts : sattrs.link_url_opts
+        text_urlboard: {
+            label: "suomi24fi_urlboard",
+            type: "url",
+            url_opts: sattrs.link_url_opts
         }
     }
 };
 
 
 settings.corpora.iclfi = {
-    title : "ICLFI – Kansainvälinen oppijansuomen korpus",
-    description : "ICLFI – International Corpus of Learner Finnish – Kansainvälinen oppijansuomen korpus",
-    id : "iclfi",
-    urn : "urn:nbn:fi:lb-20140730163",
-    metadata_urn : "urn:nbn:fi:lb-20140730163",
-    licence : {
-	name : "CLARIN RES +PLAN +NC +INF +PRIV +DEP",
-	urn : "urn:nbn:fi:lb-2015050501"
+    title: "ICLFI – Kansainvälinen oppijansuomen korpus",
+    description: "ICLFI – International Corpus of Learner Finnish – Kansainvälinen oppijansuomen korpus",
+    id: "iclfi",
+    urn: "urn:nbn:fi:lb-20140730163",
+    metadata_urn: "urn:nbn:fi:lb-20140730163",
+    licence: {
+	name: "CLARIN RES +PLAN +NC +INF +PRIV +DEP",
+	urn: "urn:nbn:fi:lb-2015050501"
     },
-    homepage_url : "http://www.oulu.fi/suomitoisenakielena/node/16078",
-    cite_id : "ICLFI",
-    limited_access : true,
-    licence_type : "RES",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        msd : attrs.msd
-        /*dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref*/
+    homepage_url: "http://www.oulu.fi/suomitoisenakielena/node/16078",
+    cite_id: "ICLFI",
+    limited_access: true,
+    licence_type: "RES",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {
+        lemma: attrs.baseform,
+        msd: attrs.msd
+        /*dephead: attrs.dephead,
+        deprel: attrs.deprel_tdt,
+        ref: attrs.ref*/
     },
-    struct_attributes : {
-        text_place : {
-            label : "iclfi_place"
+    struct_attributes: {
+        text_place: {
+            label: "iclfi_place"
 	},
-        text_year : {
-            label : "iclfi_year"
+        text_year: {
+            label: "iclfi_year"
 	},
-        text_medium : {
-            label : "iclfi_medium"
+        text_medium: {
+            label: "iclfi_medium"
 	},
-        text_code : {
-            label : "iclfi_code"
+        text_code: {
+            label: "iclfi_code"
 	},
-        text_dob : {
-            label : "iclfi_dob"
+        text_dob: {
+            label: "iclfi_dob"
 	},
-        text_sex : {
-            label : "iclfi_sex"
+        text_sex: {
+            label: "iclfi_sex"
 	},
-        text_pob : {
-            label : "iclfi_pob"
+        text_pob: {
+            label: "iclfi_pob"
 	},
-        text_infloc : {
-            label : "iclfi_infloc"
+        text_infloc: {
+            label: "iclfi_infloc"
 	},
-        text_inflang : {
-            label : "iclfi_inflang"
+        text_inflang: {
+            label: "iclfi_inflang"
 	},
-        text_infmotherlang : {
-            label : "iclfi_infmotherlang"
+        text_infmotherlang: {
+            label: "iclfi_infmotherlang"
 	},
-        text_inffatherlang : {
-            label : "iclfi_inffatherlang"
+        text_inffatherlang: {
+            label: "iclfi_inffatherlang"
 	},
-        text_finnishathome : {
-            label : "iclfi_finnishathome"
+        text_finnishathome: {
+            label: "iclfi_finnishathome"
 	},
-        text_taugthfinnish : {
-            label : "iclfi_taugthfinnish"
+        text_taugthfinnish: {
+            label: "iclfi_taugthfinnish"
 	},
-        text_teacherlang : {
-            label : "iclfi_teacherlang"
+        text_teacherlang: {
+            label: "iclfi_teacherlang"
 	},
-        text_beentofinland : {
-            label : "iclfi_beentofinland"
+        text_beentofinland: {
+            label: "iclfi_beentofinland"
 	},
-        text_book : {
-            label : "iclfi_book"
+        text_book: {
+            label: "iclfi_book"
 	},
-        text_levelhour : {
-            label : "iclfi_levelhour"
+        text_levelhour: {
+            label: "iclfi_levelhour"
 	},
-        text_levelcefrone : {
-            label : "iclfi_levelcefrone"
+        text_levelcefrone: {
+            label: "iclfi_levelcefrone"
 	},
-        text_levelcefrtwo : {
-            label : "iclfi_levelcefrtwo"
+        text_levelcefrtwo: {
+            label: "iclfi_levelcefrtwo"
 	},
-        text_otherlangs : {
-            label : "iclfi_otherlangs"
+        text_otherlangs: {
+            label: "iclfi_otherlangs"
 	},
-        text_levelcefrthree : {
-            label : "iclfi_levelcefrthree"
+        text_levelcefrthree: {
+            label: "iclfi_levelcefrthree"
         },
-        text_levelcefrfour : {
-            label : "iclfi_levelcefrfour"
+        text_levelcefrfour: {
+            label: "iclfi_levelcefrfour"
         },
-        text_cefrlevel : {
-            label : "iclfi_cefrlevel"
+        text_cefrlevel: {
+            label: "iclfi_cefrlevel"
         },
-        text_texttype : {
-            label : "iclfi_texttype"
+        text_texttype: {
+            label: "iclfi_texttype"
 	},
-        text_exercise : {
-            label : "iclfi_exercise"
+        text_exercise: {
+            label: "iclfi_exercise"
 	},
-        text_examtype : {
-            label : "iclfi_examtype"
+        text_examtype: {
+            label: "iclfi_examtype"
 	},
-        text_limitedtime : {
-            label : "iclfi_limitedtime"
+        text_limitedtime: {
+            label: "iclfi_limitedtime"
 	},
-        text_wherewritten : {
-            label : "iclfi_wherewritten"
+        text_wherewritten: {
+            label: "iclfi_wherewritten"
 	},
-        text_aids : {
-            label : "iclfi_aids"
+        text_aids: {
+            label: "iclfi_aids"
 	},
-        text_filename : {
-            label : "iclfi_filename"
+        text_filename: {
+            label: "iclfi_filename"
 	}
     }
 };
@@ -13018,11 +13018,11 @@ settings.corpora.iclfi = {
 // Represented as an object instead of an array, so that we can use
 // the JavaScript "in" operator.
 settings.corporafolder_properties = {
-    title : "",
-    description : "",
-    contents : "",
-    info : "",
-    unselected : ""
+    title: "",
+    description: "",
+    contents: "",
+    info: "",
+    unselected: ""
 };
 
 
@@ -13128,12 +13128,12 @@ settings.attr_extra_properties = [
     {
 	// If displayType == "select", add properties
 	// extended_template and controller.
-	test : function (attr) {
+	test: function (attr) {
 	    return "displayType" in attr && attr.displayType == "select";
 	},
-	props : {
-	    extended_template : selectType.extended_template,
-	    controller : selectType.controller
+	props: {
+	    extended_template: selectType.extended_template,
+	    controller: selectType.controller
 	}
     }
 ];
@@ -13194,8 +13194,8 @@ settings.fn.add_attr_extra_properties(settings.corpora);
 
 // label values here represent translation keys.
 settings.arg_groups = {
-    "word" : {
-        word : {label : "word"}
+    "word": {
+        word: {label: "word"}
     }
 };
 
@@ -13290,9 +13290,9 @@ settings.reduce_statistics = function(types, ignoreCase, tokensLength) {
 
         var output = $("<span>",
             {
-            "class" : "statistics-link",
-            "data-query" : encodeURIComponent(query),
-            "data-corpora" : JSON.stringify(corpora)
+            "class": "statistics-link",
+            "data-query": encodeURIComponent(query),
+            "data-corpora": JSON.stringify(corpora)
             }).html(linkInnerHTML).outerHTML();
 
         return output;
@@ -13426,125 +13426,125 @@ delete context;
 delete ref;
 
 settings.posset = {
-   type : "set",
-   label : "posset",
-   displayType : "select",
-   opts : settings.setOptions,
-   translationKey : "pos_",
-   extended_template : selectType.extended_template,
-   controller : selectType.controller,
-   dataset :  {
-    "AB" : "AB",
-    "MID|MAD|PAD" : "DL",
-    "DT" : "DT",
-    "HA" : "HA",
-    "HD" : "HD",
-    "HP" : "HP",
-    "HS" : "HS",
-    "IE" : "IE",
-    "IN" : "IN",
-    "JJ" : "JJ",
-    "KN" : "KN",
-    "NN" : "NN",
-    "PC" : "PC",
-    "PL" : "PL",
-    "PM" : "PM",
-    "PN" : "PN",
-    "PP" : "PP",
-    "PS" : "PS",
-    "RG" : "RG",
-    "RO" : "RO",
-    "SN" : "SN",
-    "UO" : "UO",
-    "VB" : "VB"
+   type: "set",
+   label: "posset",
+   displayType: "select",
+   opts: settings.setOptions,
+   translationKey: "pos_",
+   extended_template: selectType.extended_template,
+   controller: selectType.controller,
+   dataset:  {
+    "AB": "AB",
+    "MID|MAD|PAD": "DL",
+    "DT": "DT",
+    "HA": "HA",
+    "HD": "HD",
+    "HP": "HP",
+    "HS": "HS",
+    "IE": "IE",
+    "IN": "IN",
+    "JJ": "JJ",
+    "KN": "KN",
+    "NN": "NN",
+    "PC": "PC",
+    "PL": "PL",
+    "PM": "PM",
+    "PN": "PN",
+    "PP": "PP",
+    "PS": "PS",
+    "RG": "RG",
+    "RO": "RO",
+    "SN": "SN",
+    "UO": "UO",
+    "VB": "VB"
             }
 };
 settings.fsvlemma = {
-    type : "set",
-    label : "baseform",
-    opts : settings.setOptions,
-    extended_template : "<input ng-model='model' >"
+    type: "set",
+    label: "baseform",
+    opts: settings.setOptions,
+    extended_template: "<input ng-model='model' >"
 };
 settings.fsvlex = {
-    type : "set",
-    label : "lemgram",
-    displayType : "autocomplete",
-    opts : settings.setOptions,
-    extended_template : "<autoc model='model' placeholder='placeholder' type='lemgram'/>",
-    stringify : function(str) {
+    type: "set",
+    label: "lemgram",
+    displayType: "autocomplete",
+    opts: settings.setOptions,
+    extended_template: "<autoc model='model' placeholder='placeholder' type='lemgram'/>",
+    stringify: function(str) {
         return util.lemgramToString(str, true);
     },
-    externalSearch : karpLemgramLink,
-    internalSearch : true
+    externalSearch: karpLemgramLink,
+    internalSearch: true
 };
 settings.fsvvariants = {
-    type : "set",
-    label : "variants",
-    stringify : function(str) {
+    type: "set",
+    label: "variants",
+    stringify: function(str) {
         return util.lemgramToString(str, true);
     },
-    displayType : "autocomplete",
-    extended_template : "<autoc model='model' placeholder='placeholder' type='lemgram'/>",
-    opts : settings.setOptions,
-    externalSearch : karpLemgramLink,
-    internalSearch : true
+    displayType: "autocomplete",
+    extended_template: "<autoc model='model' placeholder='placeholder' type='lemgram'/>",
+    opts: settings.setOptions,
+    externalSearch: karpLemgramLink,
+    internalSearch: true
 };
 
 
 settings.fsvdescription ='<a target="_blank" href="http://project2.sol.lu.se/fornsvenska/">Fornsvenska textbanken</a> är ett projekt som digitaliserar fornsvenska texter och gör dem tillgängliga över webben. Projektet leds av Lars-Olof Delsing vid Lunds universitet.';
 
 var fsv_yngrelagar = {
-    morf : 'fsvm',
-    id : "fsv-yngrelagar",
-    title : "Yngre lagar – Fornsvenska textbankens material",
-    description : settings.fsvdescription,
-    within : settings.defaultWithin,
-    context : settings.spContext,
-    attributes : {
-        posset : settings.posset,
-        lemma : settings.fsvlemma,
-        lex : settings.fsvlex,
-        variants : settings.fsvvariants
+    morf: 'fsvm',
+    id: "fsv-yngrelagar",
+    title: "Yngre lagar – Fornsvenska textbankens material",
+    description: settings.fsvdescription,
+    within: settings.defaultWithin,
+    context: settings.spContext,
+    attributes: {
+        posset: settings.posset,
+        lemma: settings.fsvlemma,
+        lex: settings.fsvlex,
+        variants: settings.fsvvariants
         },
-    struct_attributes : {
-        text_title : {
-            label : "title",
-            displayType : "select",
-            localize : false,
-            extended_template : selectType.extended_template,
-            controller : selectType.controller,
-            dataset : [
+    struct_attributes: {
+        text_title: {
+            label: "title",
+            displayType: "select",
+            localize: false,
+            extended_template: selectType.extended_template,
+            controller: selectType.controller,
+            dataset: [
                 "Kristoffers Landslag, nyskrivna flockar i förhållande till MEL",
                 "Kristoffers Landslag, innehållsligt ändrade flockar i förhållande til MEL",
                 "Kristoffers Landslag, flockar direkt hämtade från MEL",
                 "Kristoffers Landslag"
                 ],
         },
-        text_date : {label : "date"}
+        text_date: {label: "date"}
     }
 };
 
 var fsv_aldrelagar = {
-    morf : 'fsvm',
-    id : "fsv-aldrelagar",
-    title : "Äldre lagar – Fornsvenska textbankens material",
-    description : settings.fsvdescription,
-    within : settings.defaultWithin,
-    context : settings.spContext,
-    attributes : {
-        posset : settings.posset,
-        lemma : settings.fsvlemma,
-        lex : settings.fsvlex,
-        variants : settings.fsvvariants
+    morf: 'fsvm',
+    id: "fsv-aldrelagar",
+    title: "Äldre lagar – Fornsvenska textbankens material",
+    description: settings.fsvdescription,
+    within: settings.defaultWithin,
+    context: settings.spContext,
+    attributes: {
+        posset: settings.posset,
+        lemma: settings.fsvlemma,
+        lex: settings.fsvlex,
+        variants: settings.fsvvariants
                 },
-    struct_attributes : {
-        text_title : {
-            label : "title",
-            displayType : "select",
-            localize : false,
-            extended_template : selectType.extended_template,
-            controller : selectType.controller,
-            dataset : [
+    struct_attributes: {
+        text_title: {
+            label: "title",
+            displayType: "select",
+            localize: false,
+            extended_template: selectType.extended_template,
+            controller: selectType.controller,
+            dataset: [
                 "Yngre Västgötalagens äldsta fragment, Lydekini excerpter och anteckningar",
                 "Tillägg till Upplandslagen, hskr A (Ups B 12)",
                 "Södermannalagen, enligt Codex iuris Sudermannici",
@@ -13575,7 +13575,7 @@ var fsv_aldrelagar = {
                 "Östgötalagen, fragment E, ur Ups B 22"
                             ],
         },
-        text_date : {label : "date"}
+        text_date: {label: "date"}
     }
 };
 
