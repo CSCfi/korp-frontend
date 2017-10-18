@@ -26,8 +26,12 @@ var baseURL = (window.location.protocol + "//" + window.location.hostname
 
 settings.lemgramSelect = true;
 settings.autocomplete = true;
-settings.enableMap = !isLab;
-settings.newMapEnabled = isLab;
+// Currently always enable the old map at Kielipankki, since we do not
+// yet have data for the new map.
+settings.enableMap = true;
+settings.newMapEnabled = false;
+// settings.enableMap = !isLab;
+// settings.newMapEnabled = isLab;
 // settings.wordpicture = false;
 settings.hits_per_page_default = 25
 // If settings.show_related_words is not defined, it is considered
