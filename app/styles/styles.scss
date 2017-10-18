@@ -1876,6 +1876,9 @@ body.modal-open {
   max-height : 71vh;
   min-height : 300px;
 
+  overflow-y: auto;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
 }
 
 .related.modal {
