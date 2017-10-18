@@ -97,6 +97,10 @@
     "word_pic_warn": "Sanakuva on poissa käytöstä. ",
     "word_pic_warn_btn": "Aktivoi ja hae",
     "word_pic_bad_search": "Haustasi ei voi tuottaa sanakuvaa. Sanakuvan saa vain yksinkertaisessa haussa yksittäisestä sananmuodosta tai lemgrammista (sanan perusmuodosta ja sanaluokasta).",
+    "word_pic_show_all": "Näytä kaikki osumat",
+    "word_pic_show_some": "Näytä enintään",
+    "word_pic_hits": "osumaa",
+
     "search_aborted": "Haku keskeytettiin",
 
     "show_map": "Näytä kartta",
@@ -236,6 +240,7 @@
 
     "similar_header": "Lähimerkityksisiä sanoja",
     "show_wordclass": "Näytä sanaluokka",
+    "word_pic_number_of_hits": "Osumien määrä",
     "search": "Etsi",
     "and_include": "myös",
     "hits_per_page": "osumia sivulla",
@@ -365,6 +370,9 @@
     "corpus_compiler": "Koostaja",
     "corpus_download": "Lataa aineisto",
     "corpus_cite": "Viittaa korpukseen",
+
+    "no_geo_info": "Paikkatietoja ei saatavilla",
+    "cluster_marker": "Ryhmänmerkki",
 
     "name_classification": "Nimiluokittelu",
     "no_name_corpora": "Valitut korpukset eivät sisällä nimitietoja.",
