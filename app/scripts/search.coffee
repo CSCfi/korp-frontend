@@ -44,14 +44,6 @@ view.updateSearchHistory = (value, href) ->
         .prepend(clear)
         .prepend(placeholder)
 
-
-view.enableSearch = (bool) ->
-    # TODO: revive this
-    # if bool
-    #     $("#search-tab").tabs("enable").removeClass("ui-state-disabled").uncover()
-    # else
-    #     $("#search-tab").tabs("disable").addClass("ui-state-disabled").cover()
-
 view.initSearchOptions = ->
     selects = $("#search_options > div:first select").customSelect()
 
@@ -331,7 +323,7 @@ class view.SimpleSearch extends BaseSearch
         else
             wordArray = currentText.split(" ")
             cqp = $.map(wordArray, (item, i) ->
-                $.format "[word = \"%s\"%s]", [regescape(item), suffix]
+                return "[word = \"#{regescape(item)}\"#{suffix}]"
             )
             val = cqp.join(" ")
 

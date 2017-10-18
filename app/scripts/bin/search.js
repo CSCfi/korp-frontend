@@ -60,8 +60,6 @@
     return $("#search_history").html(opts).prepend(clear).prepend(placeholder);
   };
 
-  view.enableSearch = function(bool) {};
-
   view.initSearchOptions = function() {
     var selects;
     selects = $("#search_options > div:first select").customSelect();
@@ -325,7 +323,7 @@
       } else {
         wordArray = currentText.split(" ");
         cqp = $.map(wordArray, function(item, i) {
-          return $.format("[word = \"%s\"%s]", [regescape(item), suffix]);
+          return "[word = \"" + (regescape(item)) + "\"" + suffix + "]";
         });
         val = cqp.join(" ");
       }
@@ -365,3 +363,5 @@
   })(BaseSearch);
 
 }).call(this);
+
+//# sourceMappingURL=search.js.map

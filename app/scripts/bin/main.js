@@ -43,6 +43,8 @@
         return $.getScript("modes/" + mode + "_mode.js").done(function() {
           util.applyShortUrlConfig();
           return dfd.resolve();
+        }).error(function(jqxhr, settings, exception) {
+          return c.error("Mode file parsing error: ", exception);
         });
       } else {
         return dfd.resolve();
@@ -459,3 +461,5 @@
   };
 
 }).call(this);
+
+//# sourceMappingURL=main.js.map

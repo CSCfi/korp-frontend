@@ -150,7 +150,8 @@ class model.KWICProxy extends BaseProxy
                     kwicCallback progressObj["struct"]
         , options)
 
-        _.extend options.ajaxParams, settings.corpusListing.getWithinParameters()
+        unless options.ajaxParams.within
+            _.extend options.ajaxParams, settings.corpusListing.getWithinParameters()
 
         data =
             command: "query"
@@ -224,7 +225,8 @@ class model.LemgramProxy extends BaseProxy
             incremental: $.support.ajaxProgress
             type: type
             cache : true
-            max : settings.wordPictureMaxWords or 15
+            max : 1000
+            # max : settings.wordPictureMaxWords or 15
         @prevParams = params
         def =  $.ajax
             url: settings.cgi_script
@@ -359,7 +361,7 @@ class model.StatsProxy extends BaseProxy
         @currentPage = 0
         @page_incr = 25
 
-    processData: (def, data, reduceVals, reduceValLabels, ignoreCase, tokensLength) ->
+    processData: (def, data, reduceVals, reduceValLabels, ignoreCase) ->
         minWidth = 100
 
         columns = []
@@ -370,7 +372,7 @@ class model.StatsProxy extends BaseProxy
                 name: reduceValLabel
                 field: "hit_value"
                 sortable: true
-                formatter: settings.reduce_statistics reduceVals, ignoreCase, tokensLength
+                formatter: settings.reduce_statistics reduceVals, ignoreCase
                 minWidth: minWidth
                 cssClass: "parameter-column"
                 headerCssClass: "localized-header"
@@ -495,8 +497,7 @@ class model.StatsProxy extends BaseProxy
                     c.log "gettings stats failed with error", data.ERROR
                     def.reject(data)
                     return
-                tokensLength = (CQP.parse cqp).length
-                @processData(def, data, reduceVals, reduceValLabels, ignoreCase, tokensLength)
+                @processData(def, data, reduceVals, reduceValLabels, ignoreCase)
 
         return def.promise()
 

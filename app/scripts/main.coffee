@@ -34,6 +34,8 @@ deferred_domReady = $.Deferred((dfd) ->
                 # function for mode-specific configuration
                 util.applyShortUrlConfig()
                 dfd.resolve()
+            .error (jqxhr, settings, exception) ->
+                c.error "Mode file parsing error: ", exception
         else
             dfd.resolve()
 

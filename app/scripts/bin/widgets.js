@@ -2,12 +2,9 @@
   var Sidebar;
 
   Sidebar = {
-    options: {
-      displayOrder: ["pos", "posset", "lemma", "lex", "saldo", "variants"].reverse()
-    },
     _init: function() {},
     updateContent: function(sentenceData, wordData, corpus, tokens) {
-      var corpusObj, formattedCorpusInfo, ref, ref1, ref2, ref3, ref4, sentence, token_data, word;
+      var corpusObj, formattedCorpusInfo, posData, ref, ref1, ref2, ref3, ref4, sentence, token_data, word;
       this.element.html('<div id="selected_sentence" /><div id="selected_word" /><div id="selected_links" />');
       corpusObj = settings.corpora[corpus];
       formattedCorpusInfo = (typeof settings !== "undefined" && settings !== null ? settings.corpusExtraInfo : void 0) ? util.formatCorpusExtraInfo(corpusObj, (ref = settings.corpusExtraInfo) != null ? ref.sidebar : void 0) : "";
@@ -22,7 +19,8 @@
       };
       if (!$.isEmptyObject(corpusObj.attributes)) {
         $("#selected_word").append($("<h4>").localeKey("word_attr"));
-        this.renderCorpusContent("pos", wordData, sentenceData, corpusObj.attributes, tokens, corpusObj.synthetic_attr_names.attributes, token_data, (ref1 = corpusObj._sidebar_display_order) != null ? ref1.attributes : void 0).appendTo("#selected_word");
+        posData = this.renderCorpusContent("pos", wordData, sentenceData, corpusObj.attributes, tokens, corpusObj.synthetic_attr_names.attributes, token_data, (ref1 = corpusObj._sidebar_display_order) != null ? ref1.attributes : void 0);
+        $("#selected_word").append(posData);
       }
       if (!$.isEmptyObject(corpusObj.struct_attributes)) {
         $("#selected_sentence").append($("<h4>").localeKey("sentence_attr"));
@@ -65,7 +63,7 @@
       }).appendTo(this.element);
     },
     renderCorpusContent: function(type, wordData, sentenceData, corpus_attrs, tokens, synthetic_attr_names, token_data, attr_order) {
-      var i, item, items, key, len, order, pairs, ref, ref1, synthetic, val, value;
+      var base, i, item, items, j, key, len, len1, order, pairs, ref, ref1, ref2, synthetic, val, value;
       if (type === "struct" || type === "link") {
         pairs = _.pairs(sentenceData);
       } else if (type === "pos") {
@@ -79,30 +77,42 @@
           }
         }
       }
-      order = attr_order || this.options.displayOrder;
+      order = attr_order;
+      pairs = _.filter(pairs, function(arg) {
+        var key, val;
+        key = arg[0], val = arg[1];
+        return corpus_attrs[key];
+      });
       pairs.sort(function(arg, arg1) {
-        var a, b;
+        var a, b, ord1, ord2;
         a = arg[0];
         b = arg1[0];
-        return $.inArray(b, order) - $.inArray(a, order);
-      });
-      items = (function() {
-        var j, len1, ref2, results;
-        results = [];
-        for (j = 0, len1 = pairs.length; j < len1; j++) {
-          ref2 = pairs[j], key = ref2[0], value = ref2[1];
-          if (corpus_attrs[key]) {
-            results.push(this.renderItem(key, value, corpus_attrs[key], wordData, sentenceData, tokens, token_data));
-          }
+        ord1 = corpus_attrs[a].order;
+        ord2 = corpus_attrs[b].order;
+        if (ord1 === ord2) {
+          return 0;
         }
-        return results;
-      }).call(this);
+        if (!ord1) {
+          return 1;
+        }
+        if (!ord2) {
+          return -1;
+        } else {
+          return ord2 - ord1;
+        }
+      });
+      items = [];
+      for (j = 0, len1 = pairs.length; j < len1; j++) {
+        ref2 = pairs[j], key = ref2[0], value = ref2[1];
+        items = items.concat(typeof (base = this.renderItem(key, value, corpus_attrs[key], wordData, sentenceData, token_data, tokens)).get === "function" ? base.get(0) : void 0);
+      }
+      items = _.compact(items);
       if (synthetic_attr_names.length) {
         synthetic = (function() {
-          var j, len1, results;
+          var k, len2, results;
           results = [];
-          for (j = 0, len1 = synthetic_attr_names.length; j < len1; j++) {
-            key = synthetic_attr_names[j];
+          for (k = 0, len2 = synthetic_attr_names.length; k < len2; k++) {
+            key = synthetic_attr_names[k];
             results.push(this.renderItem(key, null, corpus_attrs[key], wordData, sentenceData, tokens, token_data));
           }
           return results;
@@ -118,9 +128,9 @@
       for (key in corpus_attrs) {
         attrs = corpus_attrs[key];
         output = this.renderItem(key, null, attrs, wordData, sentenceData, tokens);
-        if (attrs.custom_type === "struct") {
+        if (attrs.customType === "struct") {
           struct_items.push(output);
-        } else if (attrs.custom_type === "pos") {
+        } else if (attrs.customType === "pos") {
           pos_items.push(output);
         }
       }
@@ -278,21 +288,6 @@
         return results;
       });
     },
-    refreshContent: function(mode) {
-      if (mode === "lemgramWarning") {
-        return $.Deferred((function(_this) {
-          return function(dfd) {
-            return _this.element.load("markup/parse_warning.html", function() {
-              util.localize();
-              _this.element.addClass("ui-state-highlight").removeClass("kwic_sidebar");
-              return dfd.resolve();
-            });
-          };
-        })(this)).promise();
-      } else {
-        return this.element.removeClass("ui-state-highlight").addClass("kwic_sidebar");
-      }
-    },
     updatePlacement: function() {
       var max;
       max = Math.round($("#columns").position().top);
@@ -345,3 +340,5 @@
   });
 
 }).call(this);
+
+//# sourceMappingURL=widgets.js.map

@@ -1,14 +1,4 @@
 Sidebar =
-    options: {
-        displayOrder : [
-            "pos",
-            "posset",
-            "lemma",
-            "lex",
-            "saldo",
-            "variants"
-        ].reverse()
-    }
     _init: () ->
 
     updateContent: (sentenceData, wordData, corpus, tokens) ->
@@ -34,11 +24,12 @@ Sidebar =
         unless $.isEmptyObject(corpusObj.attributes)
             $("#selected_word").append $("<h4>").localeKey("word_attr")
 
-            @renderCorpusContent("pos", wordData, sentenceData,
+            posData = @renderCorpusContent("pos", wordData, sentenceData,
                 corpusObj.attributes, tokens,
                 corpusObj.synthetic_attr_names.attributes, token_data,
                 corpusObj._sidebar_display_order?.attributes)
-            .appendTo "#selected_word"
+            # posData.appendTo "#selected_word"
+            $("#selected_word").append posData
         unless $.isEmptyObject(corpusObj.struct_attributes)
             $("#selected_sentence").append $("<h4>").localeKey("sentence_attr")
 
@@ -91,6 +82,7 @@ Sidebar =
                           synthetic_attr_names, token_data, attr_order) ->
         if type == "struct" or type == "link"
             pairs = _.pairs(sentenceData)
+
         else if type == "pos"
             pairs = _.pairs(wordData)
             for item in (wordData._struct or [])
@@ -99,12 +91,30 @@ Sidebar =
                 if key of corpus_attrs
                     pairs.push([key, val])
 
-          # c.log "wordData", wordData._struct
-        order = attr_order or @options.displayOrder
+        # FIXME-KP: order is no longer used as of v5.0.6, because the
+        # way of ordering attributes has changed (Jyrki Niemi
+        # 2017-10-18)
+        order = attr_order
+        pairs = _.filter pairs, ([key, val]) -> corpus_attrs[key]
+
         pairs.sort ([a], [b]) ->
-            $.inArray(b, order) - $.inArray(a, order)
-        items = for [key, value] in pairs when corpus_attrs[key]
-            @renderItem key, value, corpus_attrs[key], wordData, sentenceData, tokens, token_data
+            ord1 = corpus_attrs[a].order
+            ord2 = corpus_attrs[b].order
+            # first three cases to handle ord1 or ord2 being undefined
+            if ord1 == ord2
+                return 0
+            if not ord1
+                return 1
+            if not ord2
+                return -1
+            else
+                return ord2 - ord1
+
+        items = []
+        for [key, value] in pairs
+            items = items.concat (@renderItem key, value, corpus_attrs[key], wordData, sentenceData, token_data, tokens).get?(0)
+
+        items = _.compact items
 
         # Append possible synthetic attributes (Jyrki Niemi 2015-02-24)
         if synthetic_attr_names.length
@@ -119,9 +129,9 @@ Sidebar =
         pos_items = []
         for key, attrs of corpus_attrs
             output = @renderItem(key, null, attrs, wordData, sentenceData, tokens)
-            if attrs.custom_type == "struct"
+            if attrs.customType == "struct"
                 struct_items.push output
-            else if attrs.custom_type == "pos"
+            else if attrs.customType == "pos"
                 pos_items.push output
         return [$(pos_items), $(struct_items)]
 
@@ -306,18 +316,6 @@ Sidebar =
                 break if midsection is "..."
 
         # @element.css "display", oldDisplay
-
-    refreshContent: (mode) ->
-        if mode is "lemgramWarning"
-            $.Deferred((dfd) =>
-                @element.load "markup/parse_warning.html", =>
-                    util.localize()
-                    @element.addClass("ui-state-highlight").removeClass "kwic_sidebar"
-                    dfd.resolve()
-
-            ).promise()
-        else
-            @element.removeClass("ui-state-highlight").addClass "kwic_sidebar"
 
     updatePlacement: ->
         max = Math.round($("#columns").position().top)

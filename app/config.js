@@ -26,7 +26,8 @@ var baseURL = (window.location.protocol + "//" + window.location.hostname
 
 settings.lemgramSelect = true;
 settings.autocomplete = true;
-settings.enableMap = true;
+settings.enableMap = !isLab;
+settings.newMapEnabled = isLab;
 // settings.wordpicture = false;
 settings.hits_per_page_default = 25
 // If settings.show_related_words is not defined, it is considered
@@ -79,7 +80,7 @@ physical_formats = {
 
 settings.downloadFormatParams = {
     "*": {
-	structs: "+"
+        structs: "+"
     },
     "annot": {
 	format: "tokens",
@@ -104,10 +105,10 @@ settings.downloadFormatParams = {
 	physical_formats: physical_formats.table,
     },
     "nooj": {
-	attrs: "+"
+        attrs: "+"
     },
     "vrt": {
-	attrs: "+"
+        attrs: "+"
     },
     "text": {
 	format: "text",
@@ -383,7 +384,7 @@ settings.templ = {};
 // Namespace for extra corpus info used in multiple corpora
 settings.corpusinfo = {};
 
-var karpLemgramLink = "http://spraakbanken.gu.se/karp/#?search=extended||and|lemgram|equals|<%= val.replace(/:\\d+/, '') %>";
+var karpLemgramLink = "https://spraakbanken.gu.se/karp/#?search=extended||and|lemgram|equals|<%= val.replace(/:\\d+/, '') %>";
 
 settings.primaryColor = "rgb(221, 233, 255)";
 settings.primaryLight = "rgb(202, 210, 230)";
@@ -579,8 +580,7 @@ attrs.pos = {
     opts: settings.liteOptions,
     extended_template: selectType.extended_template,
     controller: selectType.controller,
-
-
+    order: 50
 };
 attrs.pos_ftb2 = {
     label: "pos",
@@ -1019,6 +1019,7 @@ attrs.pos_swecg = {
     // },
 };
 
+
 attrs.msd = {
     label: "msd",
     opts: settings.defaultOptions,
@@ -1078,7 +1079,8 @@ attrs.baseform = {
     stringify: function(baseform) {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
-    opts: settings.defaultOptions
+    opts: settings.defaultOptions,
+    order: 49
 };
 attrs.baseform_ftb2 = {
     label: "baseform",
@@ -1112,6 +1114,7 @@ attrs.lemgram = {
     externalSearch: karpLemgramLink,
     internalSearch: true,
     extended_template: "<autoc model='model' placeholder='placeholder' type='lemgram'/>",
+    order: 48
 };
 attrs.lemgram_hidden = {
     label: "lemgram",
@@ -1132,6 +1135,7 @@ attrs.dalinlemgram = {
     externalSearch: karpLemgramLink,
     internalSearch: true,
     extended_template: "<autoc model='model' placeholder='placeholder' type='lemgram' variant='dalin'/>",
+    order: 48
 };
 
 attrs.saldo = {
@@ -1142,9 +1146,10 @@ attrs.saldo = {
     stringify: function(saldo) {
         return util.saldoToString(saldo, true);
     },
-    externalSearch: "http://spraakbanken.gu.se/karp/#?search=extended||and|sense|equals|<%= val %>",
+    externalSearch: "https://spraakbanken.gu.se/karp/#?search=extended||and|sense|equals|<%= val %>",
     internalSearch: true,
     extended_template: "<autoc model='model' placeholder='placeholder' type='sense'/>",
+    order: 47
 };
 attrs.dephead = {
     label: "dephead",
@@ -1789,8 +1794,7 @@ attrs.hidden = {
 sattrs.hidden = attrs.hidden;
 
 sattrs.date = {
-    label: "date",
-    displayType: "date"
+    label: "date"
 };
 
 sattrs.text_title = {
@@ -2248,73 +2252,6 @@ attrlist.parsed_tdt_ner =
     });
 
 /* --------- */
-
-
-
-/*
-settings.common_struct_types = {
-    date_interval: {
-        label: "date_interval",
-        displayType: "date_interval",
-
-        opts: settings.liteOptions,
-        extended_template: '<slider floor="{{floor}}" ceiling="{{ceiling}}" ' +
-                                'ng-model-low="values.low" ng-model-high="values.high"></slider>' +
-                                '<div><input ng-model="values.low" class="from"> <input class="to" ng-model="values.high"></div>',
-        controller: function($scope, searches, $timeout) {
-            c.log( "searches", searches)
-            var s = $scope
-
-            searches.timeDef.then(function() {
-                var all_years = _(settings.corpusListing.selected)
-                            .pluck("time")
-                            .map(_.pairs)
-                            .flatten(true)
-                            .filter(function(tuple) {
-                                return tuple[0] && tuple[1];
-                            }).map(_.compose(Number, _.head))
-                            .value();
-
-                s.values = {}
-
-                $timeout(function() {
-                    s.floor = Math.min.apply(null, all_years)
-                    s.ceiling = Math.max.apply(null, all_years)
-                    if(!s.model) {
-                        s.values.low = s.floor;
-                        s.values.high = s.ceiling;
-                    } else {
-                        s.values.low = s.model.split(",")[0].slice(0, 4);
-                        s.values.high = s.model.split(",")[1].slice(0, 4);
-                    }
-                }, 0)
-                w = s.$watch("values.low.toString() + values.high.toString()", function() {
-                    // TODO: seems to be be running too much
-                    c.log ("low", s.values.low, "high", s.values.high, s.floor, s.ceiling)
-                    if(!angular.isDefined(s.values.low) || isNaN(s.values.low) || isNaN(s.values.high) || !angular.isDefined(s.values.high)) {
-                        s.model = ""
-                        return
-                    }
-
-                    // s.model = s.values.low.toString() + s.values.high.toString()
-                    s.model = [
-                        s.values.low.toString() + "0101",
-                        s.values.high.toString() + "1231"
-                    ].join(",")
-                })
-
-                s.$on("$destroy", function() {
-                    w();
-                })
-
-            })
-
-        }
-    }
-
-}
-
-*/
 
 var modernAttrs = {
     pos: attrs.pos,
@@ -13229,7 +13166,7 @@ settings.reduce_statistics_pie_chart = function(row, cell, value, columnDef, dat
     return $.format('<img id="circlediagrambutton__%s" src="img/stats2.png" class="arcDiagramPicture"/>', value);
 };
 
-settings.reduce_statistics = function(types, ignoreCase, tokensLength) {
+settings.reduce_statistics = function(types, ignoreCase) {
 
     return function(row, cell, value, columnDef, dataContext) {
 
@@ -13240,25 +13177,7 @@ settings.reduce_statistics = function(types, ignoreCase, tokensLength) {
 
         var tokenLists = _.map(value, function(val) {
             return _.map(val.split('/'), function(as) {
-                parts = as.split(" ");
-                if(tokensLength == parts.length) {
-                    return parts;
-                } else {
-                    // Trying to match against expected number of tokens
-                    // in case token length and length if splitted tokens differ
-                    var newParts = []
-                    var chunkSize = parts.length / tokensLength
-                    if(chunkSize == 0) {
-                        // Give up
-                        return parts;
-                    }
-                    for (var i = 0, j = parts.length; i < j; i += chunkSize) {
-                        res = parts.slice(i, i + chunkSize).join(" ");
-                        newParts.push(res);
-                    }
-                    return newParts;
-                }
-
+                return as.split(" ");
             });
         });
 
@@ -13401,7 +13320,7 @@ settings.reduce_cqp = function(type, tokens, ignoreCase, isPosAttr) {
                                ? " = " : " contains ");
                 return type + comp_op + "'" + res + "'";
         case "word":
-            s = $.format('word="%s"', [window.regescape(tokens[0])]);
+            s = 'word="'+ regescape(tokens[0]) + '"';
             if(ignoreCase)
                 s = s + ' %c'
             return s
@@ -13434,30 +13353,31 @@ settings.posset = {
    extended_template: selectType.extended_template,
    controller: selectType.controller,
    dataset:  {
-    "AB": "AB",
-    "MID|MAD|PAD": "DL",
-    "DT": "DT",
-    "HA": "HA",
-    "HD": "HD",
-    "HP": "HP",
-    "HS": "HS",
-    "IE": "IE",
-    "IN": "IN",
-    "JJ": "JJ",
-    "KN": "KN",
-    "NN": "NN",
-    "PC": "PC",
-    "PL": "PL",
-    "PM": "PM",
-    "PN": "PN",
-    "PP": "PP",
-    "PS": "PS",
-    "RG": "RG",
-    "RO": "RO",
-    "SN": "SN",
-    "UO": "UO",
-    "VB": "VB"
-            }
+        "AB": "AB",
+        "MID|MAD|PAD": "DL",
+        "DT": "DT",
+        "HA": "HA",
+        "HD": "HD",
+        "HP": "HP",
+        "HS": "HS",
+        "IE": "IE",
+        "IN": "IN",
+        "JJ": "JJ",
+        "KN": "KN",
+        "NN": "NN",
+        "PC": "PC",
+        "PL": "PL",
+        "PM": "PM",
+        "PN": "PN",
+        "PP": "PP",
+        "PS": "PS",
+        "RG": "RG",
+        "RO": "RO",
+        "SN": "SN",
+        "UO": "UO",
+        "VB": "VB"
+    },
+    order: 50
 };
 settings.fsvlemma = {
     type: "set",
@@ -13487,7 +13407,8 @@ settings.fsvvariants = {
     extended_template: "<autoc model='model' placeholder='placeholder' type='lemgram'/>",
     opts: settings.setOptions,
     externalSearch: karpLemgramLink,
-    internalSearch: true
+    internalSearch: true,
+    order: 46
 };
 
 

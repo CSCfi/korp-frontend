@@ -83,7 +83,7 @@
       }), {});
     };
 
-    CorpusListing.prototype.getCurrentAttributes = function() {
+    CorpusListing.prototype.getCurrentAttributes = function(lang) {
       var attrs;
       attrs = this.mapSelectedCorpora(function(corpus) {
         return corpus.attributes;
@@ -391,11 +391,11 @@
     };
 
     CorpusListing.prototype.getTitle = function(corpus) {
-      var e, error;
+      var e;
       try {
         return this.struct[corpus].title;
-      } catch (error) {
-        e = error;
+      } catch (_error) {
+        e = _error;
         return c.log("gettitle broken", corpus);
       }
     };
@@ -422,7 +422,7 @@
     CorpusListing.prototype.getWordAttributeGroups = function(lang, setOperator) {
       var allAttrs, attrs, key, obj;
       if (setOperator === 'union') {
-        allAttrs = this.getCurrentAttributes();
+        allAttrs = this.getCurrentAttributes(lang);
       } else {
         allAttrs = this.getCurrentAttributesIntersection();
       }
@@ -446,7 +446,7 @@
     CorpusListing.prototype.getStructAttributeGroups = function(lang, setOperator) {
       var allAttrs, common, common_keys, key, obj, sentAttrs;
       if (setOperator === 'union') {
-        allAttrs = this.getStructAttrs();
+        allAttrs = this.getStructAttrs(lang);
       } else {
         allAttrs = this.getStructAttrsIntersection();
       }
@@ -544,8 +544,9 @@
   window.ParallelCorpusListing = (function(superClass) {
     extend(ParallelCorpusListing, superClass);
 
-    function ParallelCorpusListing(corpora) {
+    function ParallelCorpusListing(corpora, activeLangs) {
       ParallelCorpusListing.__super__.constructor.call(this, corpora);
+      this.setActiveLangs(activeLangs);
     }
 
     ParallelCorpusListing.prototype.select = function(idArray) {
@@ -658,6 +659,43 @@
         }
       }
       return output;
+    };
+
+    ParallelCorpusListing.prototype.getAttributeQuery = function(attr) {
+      var output, struct;
+      struct = this.getLinksFromLangs(this.activeLangs);
+      output = [];
+      $.each(struct, function(i, corps) {
+        var mainId, mainIsPivot, other, pair;
+        mainId = corps[0].id.toUpperCase();
+        mainIsPivot = !!corps[0].pivot;
+        other = corps.slice(1);
+        pair = _.map(other, function(corp) {
+          var a;
+          if (mainIsPivot) {
+            a = _.keys(corp[attr])[0];
+          } else {
+            a = _.keys(corps[0][attr])[0];
+          }
+          return mainId + "|" + corp.id.toUpperCase() + ":" + a;
+        });
+        return output.push(pair);
+      });
+      return output.join(",");
+    };
+
+    ParallelCorpusListing.prototype.getContextQueryString = function() {
+      return this.getAttributeQuery("context");
+    };
+
+    ParallelCorpusListing.prototype.getWithinParameters = function() {
+      var defaultWithin, within;
+      defaultWithin = search().within || _.keys(settings.defaultWithin)[0];
+      within = this.getAttributeQuery("within");
+      return {
+        defaultWithin: defaultWithin,
+        within: within
+      };
     };
 
     ParallelCorpusListing.prototype.stringifySelected = function(onlyMain) {
@@ -845,14 +883,14 @@
   };
 
   util.getLocaleString = function(key, lang) {
-    var e, error;
+    var e;
     if (!lang) {
       lang = window.lang || settings.defaultLanguage || "sv";
     }
     try {
       return loc_data[lang][key] || key;
-    } catch (error) {
-      e = error;
+    } catch (_error) {
+      e = _error;
       return key;
     }
   };
@@ -926,6 +964,11 @@
       c.log("downloadKwic failed");
       return;
     }
+    if (result_data.hits === 0) {
+      $('#download-links').hide();
+      return;
+    }
+    $('#download-links').show();
     get_corpus_num = function(hit_num) {
       return result_data.corpus_order.indexOf(result_data.kwic[hit_num].corpus.toLowerCase());
     };
@@ -1101,7 +1144,7 @@
         if (numSentences) {
           sentenceString = util.prettyNumbers(numSentences.toString());
         }
-        output = "<b>\n    <img class=\"popup_icon\" src=\"img/korp_icon.png\" />\n    " + corpusObj.title + "\n</b>\n" + maybeInfo + "\n<br/><br/>" + baseLangTokenHTML + "\n" + (util.getLocaleString("corpselector_numberoftokens")) + ":\n<b>" + (util.prettyNumbers(numTokens)) + "</b>" + lang + "\n<br/>" + baseLangSentenceHTML + "\n" + (util.getLocaleString("corpselector_numberofsentences")) + ": \n<b>" + sentenceString + "</b>" + lang + "\n<br/>\n" + (util.getLocaleString("corpselector_lastupdate")) + ": \n<b>" + lastUpdate + "</b>\n<br/><br/>";
+        output = "<b>\n    <img class=\"popup_icon\" src=\"img/korp_icon.png\" />\n    " + corpusObj.title + "\n</b>\n" + maybeInfo + "\n<br/><br/>" + baseLangTokenHTML + "\n" + (util.getLocaleString("corpselector_numberoftokens")) + ":\n<b>" + (util.prettyNumbers(numTokens)) + "</b>" + lang + "\n<br/>" + baseLangSentenceHTML + "\n" + (util.getLocaleString("corpselector_numberofsentences")) + ":\n<b>" + sentenceString + "</b>" + lang + "\n<br/>\n" + (util.getLocaleString("corpselector_lastupdate")) + ":\n<b>" + lastUpdate + "</b>\n<br/><br/>";
         supportsContext = _.keys(corpusObj.context).length > 1;
         if (supportsContext) {
           output += $("<div>").localeKey("corpselector_supports").html() + "<br>";
@@ -1807,12 +1850,10 @@
             event.originalEvent.preventDefault();
             return event.originalEvent.stopPropagation();
           };
-          c.log("model", s.model);
           getYear = function(val) {
             return moment(val.toString(), "YYYYMMDD").toDate();
           };
           getTime = function(val) {
-            c.log("getTime", val, moment(val.toString(), "HHmmss").toDate());
             return moment(val.toString(), "HHmmss").toDate();
           };
           if (!s.model) {
@@ -1826,10 +1867,7 @@
           return s.$watchGroup(["combined", "combined2"], function(arg) {
             var combined, combined2;
             combined = arg[0], combined2 = arg[1];
-            c.log("combined", combined);
-            c.log("combined2", combined2);
-            s.model = [moment(s.from_date).format("YYYYMMDD"), moment(s.to_date).format("YYYYMMDD"), moment(s.from_time).format("HHmmss"), moment(s.to_time).format("HHmmss")];
-            return c.log("s.model", s.model);
+            return s.model = [moment(s.from_date).format("YYYYMMDD"), moment(s.to_date).format("YYYYMMDD"), moment(s.from_time).format("HHmmss"), moment(s.to_time).format("HHmmss")];
           });
         }
       ]
@@ -2074,3 +2112,5 @@
   };
 
 }).call(this);
+
+//# sourceMappingURL=util.js.map

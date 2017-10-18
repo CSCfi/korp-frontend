@@ -206,6 +206,81 @@
       },
       relatedWordSearch: function(lemgram) {
         return lexicons.relatedWordSearch(lemgram);
+      },
+      requestMapData: function(corpora, cqp, cqpExprs, attributes) {
+        var conf, cqpSubExprs, def, params, xhr;
+        cqpSubExprs = {};
+        _.map(_.keys(cqpExprs), function(subCqp, idx) {
+          return cqpSubExprs["subcqp" + idx] = subCqp;
+        });
+        def = $q.defer();
+        params = {
+          command: "count",
+          groupby: attributes[0].label,
+          cqp: cqp,
+          corpus: corpora,
+          incremental: $.support.ajaxProgress,
+          split: attributes[0].label
+        };
+        _.extend(params, settings.corpusListing.getWithinParameters());
+        _.extend(params, cqpSubExprs);
+        conf = {
+          url: settings.cgi_script,
+          params: params,
+          method: "GET",
+          headers: {}
+        };
+        _.extend(conf.headers, model.getAuthorizationHeader());
+        xhr = $http(conf);
+        xhr.success(function(data) {
+          var createResult, i, len, ref, result, subResult;
+          createResult = function(subResult, cqp, label) {
+            var points;
+            points = [];
+            _.map(_.keys(subResult.absolute), function(hit) {
+              var countryCode, lat, lng, name, ref;
+              if (hit === "|") {
+                return;
+              }
+              ref = hit.split(";"), name = ref[0], countryCode = ref[1], lat = ref[2], lng = ref[3];
+              return points.push({
+                abs: subResult.absolute[hit],
+                rel: subResult.relative[hit],
+                name: name,
+                countryCode: countryCode,
+                lat: parseFloat(lat),
+                lng: parseFloat(lng)
+              });
+            });
+            return {
+              label: label,
+              cqp: cqp,
+              points: points
+            };
+          };
+          if (_.isEmpty(cqpExprs)) {
+            result = [createResult(data.total, cqp, "total")];
+          } else {
+            result = [];
+            ref = data.total.slice(1, data.total.length);
+            for (i = 0, len = ref.length; i < len; i++) {
+              subResult = ref[i];
+              result.push(createResult(subResult, subResult.cqp, cqpExprs[subResult.cqp]));
+            }
+          }
+          if (data.ERROR) {
+            def.reject();
+            return;
+          }
+          return def.resolve([
+            {
+              corpora: corpora,
+              data: result,
+              attribute: attributes[0].label
+            }
+          ], xhr);
+        });
+        return def.promise;
       }
     };
   });
@@ -321,12 +396,21 @@
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
           }
         }).success(function(data) {
-          var corpus, folder_name, i, len, ref;
+          var attr, corpus, folder_name, i, j, len, len1, privateStructAttrs, ref, ref1;
           c.log("data", data);
           ref = settings.corpusListing.corpora;
           for (i = 0, len = ref.length; i < len; i++) {
             corpus = ref[i];
             corpus["info"] = data["corpora"][corpus.id.toUpperCase()]["info"];
+            privateStructAttrs = [];
+            ref1 = data["corpora"][corpus.id.toUpperCase()].attrs.s;
+            for (j = 0, len1 = ref1.length; j < len1; j++) {
+              attr = ref1[j];
+              if (attr.indexOf("__") !== -1) {
+                privateStructAttrs.push(attr);
+              }
+            }
+            corpus["private_struct_attributes"] = privateStructAttrs;
             util.copyCorpusInfoToConfig(corpus);
           }
           for (folder_name in settings.corporafolders) {
@@ -635,3 +719,5 @@
   });
 
 }).call(this);
+
+//# sourceMappingURL=services.js.map

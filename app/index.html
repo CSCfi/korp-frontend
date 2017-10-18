@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css" href="styles/jquery.tooltip.css">
     <link rel="stylesheet" href="components/rickshaw/rickshaw.css">
     <link rel="stylesheet" type="text/css" href="components/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="components/leaflet.markercluster/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="components/leaflet.markercluster/dist/MarkerCluster.Default.css">
     <link rel="stylesheet" type="text/css" href="components/geokorp/dist/styles/geokorp.css">
     <!-- endbuild-->
     <link type="text/css" href="components/jquery-ui/themes/smoothness/jquery-ui.min.css" rel="stylesheet">
@@ -130,7 +132,7 @@
         <div style="clear: both;"></div>
       </div>
       <div id="content">
-        <div ng-controller="SearchCtrl">
+        <div ng-controller="SearchCtrl" click-cover="noCorporaSelected">
           <uib-tabset tab-hash="search_tab" class="tabbable search_tabs">
             <uib-tab heading="{{&quot;simple&quot; | loc:lang}}" ng-if="visibleTabs[0]">
               <div id="korp-simple" constr="SimpleSearch" constr-name="simpleSearch" ng-controller="SimpleCtrl">
@@ -234,7 +236,7 @@
           </div>
         </div>
         <div id="dsa-logo" ng-show="! (searches.activeSearch || compareTabs.length || graphTabs.length)" ng-controller="resultContainerCtrl"><a href="https://assessment.datasealofapproval.org/assessment_155/seal/html/" target="_blank"><img src="img/DSA_2014_2017.png" align="right" width="100"></a></div>
-        <div id="results-wrapper" ng-show="searches.activeSearch || compareTabs.length || graphTabs.length" ng-controller="resultContainerCtrl">
+        <div id="results-wrapper" ng-show="searches.activeSearch || compareTabs.length || graphTabs.length || mapTabs.length" ng-controller="resultContainerCtrl">
           <div id="columns">
             <div id="left-column" ng-class="{sidebar_visible : word_selected &amp;&amp; sidebar_visible}">
               <uib-tabset tab-hash="result_tab" ng-click="tabclick()" class="tabbable result_tabs">
@@ -294,6 +296,19 @@
                     <div class="stats_header">
                       <div id="statsNumValues"><span>{{'stats_num_results' | loc:lang}}: </span><span ng-bind-html="stats_num_values_display | trust" class="num-result"></span></div><br>
                       <button id="showGraph" ng-class="{disabled: !graphEnabled}" uib-tooltip="{{graphEnabled ? '' : ('material_warn' | loc:lang)}} " tooltip-placement="right" class="btn btn-sm btn-default"><span class="graph_btn_icon"><svg height="24" version="1.1" width="33" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="#666666" stroke="none" d="M3.625,25.062C3.086,24.947000000000003,2.74,24.416,2.855,23.875L2.855,23.875L6.51,6.584L8.777,15.843L10.7,10.655000000000001L14.280999999999999,14.396L18.163999999999998,1.293000000000001L21.098,13.027000000000001L23.058,11.518L28.329,23.258000000000003C28.555,23.762000000000004,28.329,24.353,27.824,24.579000000000004L27.824,24.579000000000004C27.319000000000003,24.806000000000004,26.728,24.579000000000004,26.502000000000002,24.075000000000003L26.502000000000002,24.075000000000003L22.272000000000002,14.647000000000002L19.898000000000003,16.473000000000003L18.002000000000002,8.877000000000002L15.219000000000003,18.270000000000003L11.465000000000003,14.346000000000004L8.386,22.66L6.654999999999999,15.577L4.811999999999999,24.288C4.710999999999999,24.76,4.297,25.082,3.8329999999999993,25.082L3.8329999999999993,25.082C3.765,25.083,3.695,25.076,3.625,25.062L3.625,25.062Z" transform="matrix(0.6,0,0,0.6,6.2499,5.275)" stroke-width="1.6666666666666667" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path></svg></span>{{'show_diagram' | loc:lang}}</button>
+                      <div uib-dropdown auto-close="outsideClick" ng-show="newMapEnabled" class="map-settings-container">
+                        <button uib-dropdown-toggle class="btn btn-sm btn-default">{{'show_map' | loc:lang}}<span class="caret"></span></button>
+                        <div uib-dropdown-menu>
+                          <h3 class="map-settings-title">Välj attribut</h3>
+                          <ul ng-if="mapAttributes.length != 0">
+                            <li ng-repeat="attr in mapAttributes" ng-class="attr.selected ? 'selected':''" ng-click="mapToggleSelected($index, $event)"><span>{{attr.label | loc:lang}}</span>
+                            </li>
+                          </ul><span ng-show="mapAttributes.length == 0" class="empty-attribute-list">{{ 'no_geo_info' | loc:lang}}</span>
+                          <div class="btn-container">
+                            <button ng-disabled="mapAttributes.length == 0" ng-click="showMap()" class="btn btn-sm btn-primary">{{'show_map' | loc:lang}}</button>
+                          </div>
+                        </div>
+                      </div>
                       <div id="showBarPlot"></div>
                     </div>
                     <div id="myGrid"></div>
@@ -314,20 +329,48 @@
                   <uib-tab-heading ng-class="{not_loading: progress &gt; 99, loading : loading, single: loading &amp;&amp; instance.countCorpora() &lt; 2 }">{{'word_picture' | loc:lang}}
                     <tab-preloader ng-if="loading" value="progress" spinner="instance.countCorpora() &lt; 2"></tab-preloader>
                   </uib-tab-heading>
-                  <div ng-if="!word_pic" class="wordpic_disabled">{{'word_pic_warn' | loc:lang}}
-                    <div>
-                      <button ng-click="activate()" class="btn btn-sm btn-default activate_word_pic">{{'word_pic_warn_btn' | loc:lang}}</button>
+                  <div>
+                    <div ng-if="!word_pic" class="wordpic_disabled">{{'word_pic_warn' | loc:lang}}
+                      <div>
+                        <button ng-click="activate()" class="btn btn-sm btn-default activate_word_pic">{{'word_pic_warn_btn' | loc:lang}}</button>
+                      </div>
                     </div>
-                  </div>
-                  <warning ng-if="word_pic &amp;&amp; !instance.hasData &amp;&amp; !loading &amp;&amp; !aborted">{{'word_pic_bad_search' | loc:lang}}</warning>
-                  <warning ng-if="word_pic &amp;&amp; aborted &amp;&amp; !loading">{{'search_aborted' | loc:lang}}</warning>
-                  <warning ng-if="word_pic &amp;&amp; no_hits">{{"no_stats_results" | loc:lang}}</warning>
-                  <div constr="LemgramResults" constr-name="lemgramResults">
-                    <div id="wordclassChkParent" ng-show="word_pic &amp;&amp; instance.hasData">
-                      <input id="wordclassChk" type="checkbox">
-                      <label for="wordclassChk" rel="localize[show_wordclass]"></label>
+                    <warning ng-if="word_pic &amp;&amp; !instance.hasData &amp;&amp; !loading &amp;&amp; !aborted">{{'word_pic_bad_search' | loc:lang}}</warning>
+                    <warning ng-if="word_pic &amp;&amp; aborted &amp;&amp; !loading">{{'search_aborted' | loc:lang}}</warning>
+                    <warning ng-if="word_pic &amp;&amp; no_hits">{{"no_stats_results" | loc:lang}}</warning>
+                    <div constr="LemgramResults" constr-name="lemgramResults">
+                      <div id="wordPicSettings" ng-show="word_pic &amp;&amp; instance.hasData">
+                        <div>
+                          <input id="wordclassChk" ng-model="showWordClass" type="checkbox">
+                          <label for="wordclassChk">{{'show_wordclass' | loc:lang}}</label>
+                        </div>
+                        <div>
+                          <select id="numberHitsSelect" ng-model="settings.showNumberOfHits">
+                            <option ng-repeat="hitSetting in hitSettings" value="{{hitSetting}}">{{ localeString(lang, hitSetting) }}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div ng-show="word_pic" class="content_target">
+                        <div ng-repeat="word in data" class="tableContainer radialBkg">
+                          <div ng-if="!isLemgram(word.token)" class="header">{{word.token}} (<span>{{word.wordClassShort | loc:lang}}</span>)</div>
+                          <div ng-repeat="section in word.data" ng-init="parentIndex = $index" class="lemgram_section">
+                            <div class="lemgram_help"><span ng-repeat="header in getResultHeader(parentIndex, word.wordClass)" ng-class="getHeaderClasses(header, word.token)" ng-if="renderResultHeader(parentIndex, section, word.wordClass, $index)"><span ng-if="header != '_'">{{getHeaderLabel(header, section, $index) | loc:lang}}</span><span ng-if="header == '_'"><b>{{fromLemgram(word.token)}}</b></span></span></div>
+                            <div ng-repeat="table in section" ng-if="renderTable(table.table)" ng-class="getTableClass(word.wordClass, parentIndex, $index)" class="lemgram_result">
+                              <table>
+                                <tbody>
+                                  <tr ng-repeat="row in minimize(table.table)" ng-init="data = parseLemgram(row, table.all_lemgrams)">
+                                    <td><span class="enumerate"></span></td>
+                                    <td>{{ data.label }}<sup ng-if="data.showIdx">{{data.idx}}</sup> <span ng-if="showWordClass">({{data.pos | loc:lang}})</span></td>
+                                    <td title="mi: {{row.mi | number:2}}">{{row.freq}}</td>
+                                    <td ng-click="onClickExample($event, row)"><span class="word-pic-kwic-example ui-icon ui-icon-document"></span></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div ng-show="word_pic" class="content_target"></div>
                   </div>
                 </uib-tab>
                 <uib-tab ng-show="enableMap" map-ctrl>
@@ -362,9 +405,9 @@
                     <div ng-show="true" class="name_content_target"></div>
                   </div>
                 </uib-tab>
-                <uib-tab active="active" example-ctrl ng-repeat="queryParams in kwicTabs" select="instance.onentry()" deselect="instance.onexit()">
+                <uib-tab active="active" example-ctrl ng-repeat="kwicTab in kwicTabs" select="instance.onentry()" deselect="instance.onexit()">
                   <uib-tab-heading ng-class="{not_loading: progress == 100, loading : !instance.hasData}">{{'kwic' | loc:lang}}<span ng-click="$event.preventDefault();kwicTabs.splice($index, 1)" tab-spinner="tab-spinner"></span></uib-tab-heading>
-                  <div ng-class="{reading_mode : reading_mode, not_loading: !loading, loading : loading}" constr="ExampleResults" class="results-kwic">
+                  <div ng-class="{reading_mode : exampleReadingMode, not_loading: !loading, loading : loading}" constr="ExampleResults" class="results-kwic">
                     <div class="result_controls">
                       <warning ng-if="aborted &amp;&amp; !loading">{{'search_aborted' | loc:lang}}</warning>
                       <div class="controls_n"><span>{{'num_results' | loc:lang}}: </span><span ng-bind-html="hits_display | trust" class="num-result"></span></div>
@@ -471,6 +514,26 @@
                     </div>
                   </div>
                 </uib-tab>
+                <uib-tab active="active" ng-repeat="promise in mapTabs" new-map-ctrl>
+                  <uib-tab-heading ng-class="{loading : loading}" class="map_tab">{{ 'map' | loc:lang}}<span tab-spinner="tab-spinner" ng-click="$event.preventDefault();mapTabs.splice($index, 1)"></span></uib-tab-heading>
+                  <div ng-class="{loading : loading}" class="map_result">
+                    <div ng-if="error" class="error_msg">
+                      <object type="image/svg+xml" data="img/korp_fail.svg" class="korp_fail inline_block"><img src="img/korp_fail.svg" class="korp_fail"></object>
+                      <div rel="localize[fail_text]" class="fail_text inline_block">Ett fel har uppstått. </div>
+                    </div>
+                    <div ng-if="!loading &amp;&amp; numResults != 0">
+                      <div id="mapHeader" class="legend rickshaw_legend">
+                        <div ng-repeat="(label, group) in groups" ng-class="group.selected ? '' : 'disabled'" ng-click="toggleGroup(label)" class="mapgroup"><span class="check">✔</span>
+                          <div style="background-color: {{group.color}}" class="swatch"></div><span ng-if="label != 'total'" class="label">{{label}}</span><span ng-if="label == 'total'" class="label">Σ</span>
+                        </div>
+                        <div class="mapgroup">
+                          <div class="cluster-info swatch"></div><span class="label">{{"cluster_marker" | loc:lang}}</span>
+                        </div>
+                      </div>
+                      <sb-map sb-center="center" sb-markers="markers" sb-show-time="showTime" sb-hover-template="hoverTemplate" sb-base-layer="mapSettings.baseLayer"></sb-map>
+                    </div>
+                  </div>
+                </uib-tab>
               </uib-tabset><a id="json-link" ng-href="{{jsonUrl}}" ng-show="jsonUrl" target="_blank"><img src="img/json.png"></a>
             </div>
             <div id="sidebar" ng-class="{visible : word_selected &amp;&amp; sidebar_visible}" class="ui-corner-all kwic_sidebar"></div>
@@ -479,7 +542,6 @@
           </div>
         </div>
       </div>
-      <div id="click_cover"></div>
       <div id="deptree_popup" title="Dependensträd" style="display: none;"></div>
       <div id="plot_popup">
         <div id="plot_canvas" style="width: 470px; height: 400px;"></div>
@@ -503,36 +565,6 @@
       </div>
       
       
-    </script>
-    <script id="lemgramResultsTmpl" type="text/x-jquery-tmpl">
-      <div class="lemgram_section">
-      {{if $data.length}}
-      <div class='lemgram_help' />
-      {{tmpl($data, {"lemgram" : $item.lemgram}) '#lemgramTableTmpl'}}
-      {{/if}}
-      </div>
-    </script>
-    <script id="lemgramTableTmpl" type="text/x-jquery-tmpl">
-      <div class="lemgram_result"
-      {{if word}}
-      data-word="${word}">
-      <h3 id="display_word"></h3>
-      {{else}}
-      data-rel="${$data[0].rel}"
-      data-show_rel="${$data[0].show_rel}">
-      <table>
-      {{tmpl($data, {"lemgram" : $item.lemgram}) '#lemgramRowTmpl'}}
-      </table>
-      {{/if}}
-      </div>
-    </script>
-    <script id="lemgramRowTmpl" type="text/x-jquery-tmpl">
-      <tr>
-      <td><span class="enumerate"/></td>
-      <td data-lemgram="${$.grep($item.data[show_rel].split("|"), Boolean)[0]}" data-depextra="${depextra}"></td>
-      <td title="${$.format("mi: %.2f", mi)}">${freq}</td>
-      <td class="example_link"></td>
-      </tr>
     </script>
     <script id="nameTableTmpl" type="text/x-jquery-tmpl">
       {{if $data.names.length}}
@@ -622,6 +654,7 @@
     <script src="lib/leaflet-settings.js"></script>
     <script src="components/leaflet/dist/leaflet.js"></script>
     <script src="components/leaflet/dist/leaflet-src.js"></script>
+    <script src="components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
     <script src="components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
     <script src="components/leaflet-providers/leaflet-providers.js"></script>
     <script src="components/geokorp/dist/scripts/geokorp-templates.js"></script>
@@ -638,7 +671,7 @@
     </script>
     <script src="config.js"></script>
     <!-- build:js scripts/scripts.js-->
-    <script src="scripts/cqp_parser/CQPParser2.js"></script>
+    <script src="scripts/cqp_parser/CQPParser.js"></script>
     <script src="scripts/bin/cqp_parser/cqp.js"></script>
     <script src="scripts/bin/util.js"></script>
     <script src="scripts/bin/pie-widget.js"></script>

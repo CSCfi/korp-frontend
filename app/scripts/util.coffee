@@ -74,7 +74,7 @@ class window.CorpusListing
             _.merge a, b
         ), {}
 
-    getCurrentAttributes: ->
+    getCurrentAttributes: (lang) -> # lang not used here, only in parallel mode
         attrs = @mapSelectedCorpora((corpus) ->
             corpus.attributes
         )
@@ -96,12 +96,12 @@ class window.CorpusListing
         )
         @_mapping_intersection attrs
 
-    
+
     getStructAttrs: ->
         attrs = @mapSelectedCorpora((corpus) ->
             for key, value of corpus.struct_attributes
                 value["isStructAttr"] = true
-            
+
             # if a position attribute is declared as structural, include here
             pos_attrs = _.pick corpus.attributes, (val, key) ->
                 val.isStructAttr
@@ -137,7 +137,7 @@ class window.CorpusListing
                 delete value["disabled"]
 
         union
-    
+
     # returns true if coprus has all attrs, else false
     corpusHasAttrs: (corpus, attrs) ->
         for attr in attrs
@@ -296,19 +296,19 @@ class window.CorpusListing
 
 
         return [_.first(all), _.last(all)]
-        
+
 
     getMomentInterval : () ->
         toUnix = (item) -> item.unix()
 
         infoGetter = (prop) =>
-            return _(@selected) 
+            return _(@selected)
             .pluck("info")
             .pluck(prop)
             .compact()
             .map((item) -> moment(item))
             .value()
-        
+
 
 
         froms = infoGetter("FirstDate")
@@ -322,7 +322,7 @@ class window.CorpusListing
             to = null
         else
             to = _.max tos, toUnix
-        
+
         # c.log "first", infoGetter("FirstDate")
         [from, to]
 
@@ -335,8 +335,8 @@ class window.CorpusListing
         try
             @struct[corpus].title
         catch e
-            c.log "gettitle broken", corpus 
-        
+            c.log "gettitle broken", corpus
+
 
     getWordGroup : (withCaseInsentive) ->
         word =
@@ -344,18 +344,18 @@ class window.CorpusListing
             value : "word"
             label : "word"
         if withCaseInsentive
-            wordInsensitive = 
+            wordInsensitive =
                 group : "word"
                 value : "word_insensitive"
                 label : "word_insensitive"
             return [word, wordInsensitive]
-        else 
+        else
             return [word]
 
     getWordAttributeGroups : (lang, setOperator) ->
         if setOperator == 'union'
-            allAttrs = @getCurrentAttributes()
-        else 
+            allAttrs = @getCurrentAttributes(lang)
+        else
             allAttrs = @getCurrentAttributesIntersection()
             
         attrs = for key, obj of allAttrs when obj.displayType != "hidden" and obj.displayOnly != "sidebar"
@@ -364,9 +364,9 @@ class window.CorpusListing
 
     getStructAttributeGroups : (lang, setOperator) ->
         if setOperator == 'union'
-            allAttrs = @getStructAttrs()
-        else 
-            allAttrs = @getStructAttrsIntersection() 
+            allAttrs = @getStructAttrs(lang)
+        else
+            allAttrs = @getStructAttrsIntersection()
 
         common_keys = _.compact _.flatten _.map @selected, (corp) -> _.keys corp.common_attributes
         common = _.pick settings.common_struct_types, common_keys...
@@ -467,8 +467,9 @@ class window.CorpusListing
 
 
 class window.ParallelCorpusListing extends CorpusListing
-    constructor: (corpora) ->
+    constructor: (corpora, activeLangs) ->
         super(corpora)
+        @setActiveLangs(activeLangs)
 
     select: (idArray) ->
         @selected = []
@@ -563,6 +564,41 @@ class window.ParallelCorpusListing extends CorpusListing
 
         output
 
+    getAttributeQuery : (attr) ->
+
+      #gets the within and context queries
+
+      struct = @getLinksFromLangs(@activeLangs)
+      output = []
+      $.each struct, (i, corps) ->
+
+        mainId = corps[0].id.toUpperCase()
+        mainIsPivot = !!corps[0].pivot
+
+        other = corps.slice(1)
+
+        pair = _.map(other, (corp) ->
+            if mainIsPivot
+                a = _.keys(corp[attr])[0]
+            else
+                a = _.keys(corps[0][attr])[0]
+            mainId + "|" + corp.id.toUpperCase() + ":" + a
+        )
+        output.push pair
+
+      output.join ","
+
+    getContextQueryString: ->
+        @getAttributeQuery("context")
+
+
+    getWithinParameters : ->
+        defaultWithin = search().within or _.keys(settings.defaultWithin)[0]
+        within = @getAttributeQuery("within")
+        return {defaultWithin : defaultWithin, within : within}
+
+
+
     stringifySelected : (onlyMain) ->
 
         struct = @getLinksFromLangs(@activeLangs)
@@ -634,7 +670,7 @@ window.initLocales = () ->
                     url : file,
                     dataType : "json",
                     cache : false,
-                    success : (data) -> 
+                    success : (data) ->
                         _.extend loc_data[lang], data
                         # $.localize.data[lang][pkg] = data;
                         # $.extend($.localize.data[lang]["_all"], data);
@@ -679,7 +715,7 @@ window.safeApply = (scope, fn) ->
 
 window.util.setLogin = () ->
     $("body").toggleClass("logged_in not_logged_in")
-    
+
     # $.each authenticationProxy.loginObj.credentials, (i, item) ->
     for corp in authenticationProxy.loginObj.credentials
         $("#hpcorpus_#{corp.toLowerCase()}")
@@ -888,6 +924,12 @@ util.downloadKwic = (format_params, query_url, result_data) ->
         c.log "downloadKwic failed"
         return
 
+    if result_data.hits == 0
+        $('#download-links').hide()
+        return
+
+    $('#download-links').show()
+
     # Get the number (index) of the corpus of the query result hit
     # number hit_num in the corpus order information of the query
     # result.
@@ -979,7 +1021,7 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
         $.each folder, (fol, folVal) ->
             outHTML += "<li>" + util.loadCorporaFolderRecursive(false, folVal) + "</li>" if fol isnt "contents" and fol isnt "title" and fol isnt "description" and fol isnt "info"
             return
-        
+
         # Corpora
         if folder["contents"] and folder["contents"].length > 0
             $.each folder.contents, (key, value) ->
@@ -988,7 +1030,7 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
                 return
 
     if first_level
-        
+
         # Add all corpora which have not been added to a corpus
         for val of settings.corpora
             cont = false
@@ -996,7 +1038,7 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
                 if added_corpora_ids[usedid] is val or settings.corpora[val].hide
                     cont = true
             continue if cont
-            
+
             # Add it anyway:
             outHTML += "<li id='#{val}'>#{settings.corpora[val].title + format_licence_type(val)}</li>"
     outHTML += "</ul>"
@@ -1010,7 +1052,7 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
 
 #return x.replace(".", decimalSeparator);
 
-# Helper function to turn "8455999" into "8 455 999" 
+# Helper function to turn "8455999" into "8 455 999"
 util.prettyNumbers = (numstring) ->
     regex = /(\d+)(\d{3})/
     outStrNum = numstring.toString()
@@ -1032,7 +1074,7 @@ util.suffixedNumbers = (num) ->
         out = (num/1e12).toFixed(2).toString() + "T"
     return out.replace(".","<span rel=\"localize[util_decimalseparator]\">" + util.getLocaleString("util_decimalseparator") + "</span>")
 
-# Goes through the settings.corporafolders and recursively adds the settings.corpora hierarchically to the corpus chooser widget 
+# Goes through the settings.corporafolders and recursively adds the settings.corpora hierarchically to the corpus chooser widget
 util.loadCorpora = ->
     added_corpora_ids = []
     outStr = util.loadCorporaFolderRecursive(true, settings.corporafolders)
@@ -1072,7 +1114,7 @@ util.loadCorpora = ->
             lastUpdate = "?" unless lastUpdate
             sentenceString = "-"
             sentenceString = util.prettyNumbers(numSentences.toString()) if numSentences
-            
+
             output = """
             <b>
                 <img class="popup_icon" src="img/korp_icon.png" />
@@ -1083,13 +1125,13 @@ util.loadCorpora = ->
             #{util.getLocaleString("corpselector_numberoftokens")}:
             <b>#{util.prettyNumbers(numTokens)}</b>#{lang}
             <br/>#{baseLangSentenceHTML}
-            #{util.getLocaleString("corpselector_numberofsentences")}: 
+            #{util.getLocaleString("corpselector_numberofsentences")}:
             <b>#{sentenceString}</b>#{lang}
             <br/>
-            #{util.getLocaleString("corpselector_lastupdate")}: 
+            #{util.getLocaleString("corpselector_lastupdate")}:
             <b>#{lastUpdate}</b>
             <br/><br/>"""
-            
+
             supportsContext = _.keys(corpusObj.context).length > 1
             output += $("<div>").localeKey("corpselector_supports").html() + "<br>" if supportsContext
             output += $("<div>").localeKey("corpselector_limited").html() if corpusObj.limited_access
@@ -1122,7 +1164,7 @@ util.loadCorpora = ->
             "<b><img src=\"img/folder.png\" style=\"margin-right:4px; vertical-align:middle; margin-top:-1px\"/>" + indata.title + "</b><br/><br/>" + maybeInfo + "<b>" + corporaID.length + "</b> " + glueString + ":<br/><br/><b>" + util.prettyNumbers(totalTokens.toString()) + "</b> " + util.getLocaleString("corpselector_tokens") + "<br/><b>" + totalSentencesString + "</b> " + util.getLocaleString("corpselector_sentences")
     ).bind("corpuschooserchange", (evt, corpora) ->
         c.log "corpuschooserchange", corpora
-        
+
         # c.log("corpus changed", corpora);
         safeApply $("body").scope(), (scope) ->
             scope.$broadcast "corpuschooserchange", corpora
@@ -1184,7 +1226,7 @@ util.makeAttrSelect = (groups) ->
 util.browserWarn = ->
     $.reject
         reject:
-            
+
             # all : false,
             msie5: true
             msie6: true
@@ -1239,7 +1281,7 @@ util.browserWarn = ->
     return
 
 util.convertLMFFeatsToObjects = (structure, key) ->
-    
+
     # Recursively traverse a tree, expanding each "feat" array into a real object, with the key "feat-[att]":
     if structure?
         output = null
@@ -1839,12 +1881,11 @@ util.setFolderLicenceCategory = (folder) ->
             util.setFolderLicenceCategory subfolder
 
 
-settings.common_struct_types = 
+settings.common_struct_types =
     date_interval:
         label: "date_interval"
         displayType: "date_interval"
         opts: false
-        # extended_template: "<slider floor=\"{{floor}}\" ceiling=\"{{ceiling}}\" " + "ng-model-low=\"values.low\" ng-model-high=\"values.high\"></slider>" + "<div><input ng-model=\"values.low\" class=\"from\"> <input class=\"to\" ng-model=\"values.high\"></div>"
         extended_template : '<div class="date_interval_arg_type">
             <div class="section">
                 <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top">
@@ -1852,25 +1893,25 @@ settings.common_struct_types =
                     {{"date_from" | loc:lang}}
                 </button>
                     {{combined.format("YYYY-MM-DD HH:mm")}}
-                <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" 
-                    date-model="from_date" time-model="from_time" model="combined" 
+                <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu"
+                    date-model="from_date" time-model="from_time" model="combined"
                     min-date="minDate" max-date="maxDate">
                 </time-interval>
             </div>
-            
+
             <div class="section">
                 <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top">
                     <i class="fa fa-calendar"></i>
                     {{"date_to" | loc:lang}}
                 </button>
                     {{combined2.format("YYYY-MM-DD HH:mm")}}
-                <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" 
+                <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu"
                     date-model="to_date" time-model="to_time" model="combined2" my="left top" at="right top"
                     min-date="minDate" max-date="maxDate">
                 </time-interval>
             </div>
         </div>'
-        
+
 
         controller: ["$scope", "searches", "$timeout", ($scope, searches, $timeout) ->
 
@@ -1880,7 +1921,7 @@ settings.common_struct_types =
                 moments = cl.getMomentInterval()
                 if moments.length
                     [s.minDate, s.maxDate] = _.invoke moments, "toDate"
-                else 
+                else
                     # TODO: ideally, all corpora should have momentinterval soon and this block may be removed
                     [from, to] = cl.getTimeInterval()
                     s.minDate = moment(from.toString(), "YYYY").toDate()
@@ -1889,48 +1930,34 @@ settings.common_struct_types =
             s.$on "corpuschooserchange", () ->
                 updateIntervals()
 
-
             updateIntervals()
 
             s.from_click = (event) ->
                 event.originalEvent.preventDefault()
                 event.originalEvent.stopPropagation()
 
-            c.log "model", s.model
-
             getYear = (val) ->
                 moment(val.toString(), "YYYYMMDD").toDate()
 
             getTime = (val) ->
-                c.log "getTime", val, moment(val.toString(), "HHmmss").toDate()
                 moment(val.toString(), "HHmmss").toDate()
 
             unless s.model
                 s.from_date = s.minDate
-
                 s.to_date = s.maxDate
                 [s.from_time, s.to_time] = _.invoke cl.getMomentInterval(), "toDate"
-                # s.from_time = moment("0", "h").toDate()
-                # s.to_time = moment("23:59", "hh:mm").toDate()
             else if s.model.length == 4
                 [s.from_date, s.to_date] = _.map s.model[..2], getYear
                 [s.from_time, s.to_time] = _.map s.model[2..], getTime
 
 
-            
-                    # moment(item.toString(), )
-            # s.from_date = moment()
-
             s.$watchGroup ["combined", "combined2"], ([combined, combined2]) ->
-                c.log "combined", combined
-                c.log "combined2", combined2
                 s.model = [
                     moment(s.from_date).format("YYYYMMDD"),
                     moment(s.to_date).format("YYYYMMDD"),
                     moment(s.from_time).format("HHmmss"),
                     moment(s.to_time).format("HHmmss")
                 ]
-                c.log "s.model", s.model
         ]
 
 

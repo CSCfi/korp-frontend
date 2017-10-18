@@ -43,7 +43,7 @@ module.exports = function (grunt) {
         tasks: ['newer:coffee:dist']
       },
       coffeeTest: {
-        files: ['test/spec/{,*/}*.coffee'],
+        files: ['test/karma/spec/{,*/}*.coffee'],
         tasks: ['newer:coffee:test', 'karma']
       },
       compass: {
@@ -67,6 +67,11 @@ module.exports = function (grunt) {
         ]
         // tasks: ['livereload']
       }
+    },
+    shell: {
+        postBuild: {
+            command: 'sh post_build.sh'
+        }
     },
     protractor: {
       options: {
@@ -153,6 +158,9 @@ module.exports = function (grunt) {
     },
     clean: {
       dist: {
+        options : {
+          force : true
+        },
         files: [{
           dot: true,
           src: [
@@ -177,6 +185,9 @@ module.exports = function (grunt) {
         }
       },
       e2e: {
+        options : {
+          force : true
+        },
         files: {
           src: [
             'test/e2e/bin'
@@ -210,7 +221,7 @@ module.exports = function (grunt) {
     },
     coffee: {
       options: {
-        sourceMap: false,
+        sourceMap: true,
         sourceRoot: '..'
       },
       dist: {
@@ -224,9 +235,9 @@ module.exports = function (grunt) {
       test: {
         files: [{
           expand: true,
-          cwd: 'test/spec',
+          cwd: 'test/karma/spec',
           src: '*.coffee',
-          dest: 'test/spec',
+          dest: 'test/karma/bin',
           ext: '.js'
         },
         {
@@ -261,7 +272,7 @@ module.exports = function (grunt) {
       },
       server: {
         options: {
-          debugInfo: true
+          debugInfo: false
         }
       }
     },
@@ -412,8 +423,7 @@ module.exports = function (grunt) {
             'components/jquery-ui/themes/smoothness/jquery-ui.min.css',
             'components/geokorp/dist/data/places.json',
             'components/geokorp/dist/data/name_mapping.json',
-            'components/leaflet/dist/images/layers.png',
-            'LICENSE'
+            'components/leaflet/dist/images/layers.png'
           ]
         },
         {
@@ -422,6 +432,12 @@ module.exports = function (grunt) {
           src: ['components/jquery-ui/themes/smoothness/images/*'],
           dest: '<%= yeoman.dist %>/images',
           flatten: true
+        },
+        {
+          cwd: '',
+          dest: '<%= yeoman.dist %>/',
+          src: ['LICENSE']
+
         }]
       } // removed from 0.8, not sure if we need
       // styles: {
@@ -449,7 +465,7 @@ module.exports = function (grunt) {
     },
     karma: {
       unit: {
-        configFile: 'karma.conf.js',
+        configFile: 'test/karma/karma.conf.js',
         singleRun: true
       }
     },
@@ -477,41 +493,44 @@ module.exports = function (grunt) {
     svninfo: {
 
     },
-    "file-creator": {
-      "prod": {
-        "dist/release-info": function(fs, fd, done) {
-          fs.writeSync(fd, "svnrev:" + grunt.config("svninfo.rev") + "\n");
-          fs.writeSync(fd, "korpversion:" + grunt.file.readJSON('package.json').version + "\n");
-          done();
-        }
-      },
-      "labb": {
-        "dist/release-info": function(fs, fd, done) {
-          fs.writeSync(fd, "svnrev:" + grunt.config("svninfo.rev") + "\n");
-          fs.writeSync(fd, "korpversion:" + grunt.file.readJSON('package.json').version + "\n");
-          fs.writeSync(fd, "lab:true\n");
-          done();
+    'string-replace': {
+      dist: {
+        files: {
+          'dist/korp.yaml': 'korp.yaml'
+        },
+        options: {
+          replacements: [{
+            pattern: 'KORP-VERSION',
+            replacement: grunt.file.readJSON("package.json").version
+          },
+          {
+            pattern: 'SVN-REVISION',
+            replacement: '<%= svninfo.rev %>'
+          }]
         }
       }
     }
   });
 
-  // grunt.renameTask('regarde', 'watch');
-
   grunt.registerTask('release', function(target) {
     grunt.task.run([
      'build',
-     'svninfo'
     ]);
-    if(target === 'labb') {
+    
+    var noPostBuild = grunt.option('no-post-build');
+    if(noPostBuild) {
       grunt.task.run([
-        'file-creator:labb'
+        'svninfo',
+        'string-replace:dist'
       ]);
     } else {
       grunt.task.run([
-       'file-creator:prod'
+        'svninfo',
+        'string-replace:dist',
+        'shell:postBuild'
       ]);
     }
+      
   });
 
   grunt.registerTask('serve', function (target) {
@@ -539,29 +558,37 @@ module.exports = function (grunt) {
     grunt.task.run(['serve:' + target]);
   });
 
-  // grunt.registerTask('test', [
-  //   'clean:server',
-  //   'concurrent:test',
-  //   'autoprefixer',
-  //   'connect:test',
-  //   'karma'
-  // ]);
-
-  grunt.registerTask('test', [
-    'clean:server',
-    // 'configureProxies',
-    "jade",
-    'concurrent:test',
-    'copy:dev',
-    'concurrent:server',
-    'autoprefixer',
-    // 'connect:test',
-    // 'karma'
-
-    'connect:e2e',
-    'protractor',
-    'clean:e2e'
-  ]);
+  grunt.registerTask('test', function(target) {
+    if(target === 'karma') {
+      return grunt.task.run([
+        'newer:coffee:dist',
+        'newer:coffee:test',
+        'karma'
+      ]);
+    } 
+      
+    grunt.task.run([
+        'clean:server',
+        "jade",
+        'concurrent:test',
+        'copy:dev',
+        'concurrent:server',
+        'autoprefixer'
+    ]);
+    
+    if(target !== 'e2e') {
+      grunt.task.run([
+        'karma'
+      ]);
+    } 
+    
+    grunt.task.run([
+      'connect:e2e',
+      'protractor',
+      'clean:e2e'
+    ]);
+    
+  });
 
   grunt.registerTask('build', [
     'clean:dist',

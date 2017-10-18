@@ -92,6 +92,9 @@
     "word_pic_warn": "Ordbilden är avaktiverad. ",
     "word_pic_warn_btn": "Aktivera och sök",
     "word_pic_bad_search": "En ordbild kunde inte genereras från din sökning. För närvarande stödjs endast 'Enkel sökning' på ett ord eller lemgram.",
+    "word_pic_show_all": "Visa alla träffar",
+    "word_pic_show_some": "Visa upp till",
+    "word_pic_hits": "träffar",
 
     "show_map": "Visa karta",
     "map_activate": "Kartan är avaktiverad.",
@@ -233,6 +236,7 @@
 
     "similar_header": "Relaterade ord",
     "show_wordclass": "Visa ordklass",
+    "word_pic_number_of_hits": "Antal träffar",
     "search": "   Sök   ",
     "and_include": "även som",
     "hits_per_page": "träffar per sida",
@@ -353,6 +357,9 @@
     "kwic_download_formatdescr_text_utf8": "Klartext, UTF-8-teckenkodning",
     "kwic_download_formatname_html_table": "HTML",
     "kwic_download_formatdescr_html_table": "HTML-tabell",
+    
+    "no_geo_info": "Platsinformation ej tillgänglig",
+    "cluster_marker": "Gruppmarkör",
 
     "name_classification": "Namnklassifikation",
     "no_name_corpora": "De valda korpusarna innehåller ingen namndata.",

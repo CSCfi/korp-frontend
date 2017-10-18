@@ -55,6 +55,7 @@ korpApp.run ($rootScope, $location, utils, searches, tmhDynamicLocale, $timeout)
     $rootScope.kwicTabs = []
     $rootScope.compareTabs = []
     $rootScope.graphTabs = []
+    $rootScope.mapTabs = []
     isInit = true
 
     # Copy to $rootScope to make available in expression interpolation
@@ -70,9 +71,6 @@ korpApp.run ($rootScope, $location, utils, searches, tmhDynamicLocale, $timeout)
             $location.search "corpus", corpora.join(",")
         else
             $location.search "corpus", null
-
-        enableSearch = !!corpora.length
-        view.enableSearch enableSearch
 
         isInit = false
 
