@@ -12552,10 +12552,10 @@ settings.corpora.dma = {
 		    modal = $modal.open({
 			template : '<div>' +
 			    '<div class="modal-header">' +
-			    '<h3 class="modal-title">{{\'signum\' | loc:lang}}</h3>' +
+			    '<h3 class="modal-title">{{\'signum_long\' | loc:lang}}</h3>' +
 			    '<span ng-click="clickX()" class="close-x">×</span>' +
 			    '</div>' +
-			    '<div class="modal-body" ng-click="handleClick($event)" ng-include="\'markup/dma_signumlist_links.html\'"></div>' +
+			    '<div class="modal-body" ng-click="handleClick($event)" ng-include="\'markup/dma_signumlist_links.html\'" style="font-size: 80%;"></div>' +
 			    '</div>',
 			scope : $scope
 		    })
