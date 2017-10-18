@@ -12530,10 +12530,10 @@ settings.corpora.dma = {
 	    // Swedish msd attribute.
 	    extended_template: '<input class="arg_value" ng-model="model">' +
 		'<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
-	    controller: function($scope, $modal) {
+	    controller: function($scope, $uibModal) {
 		var modal = null;
 		$scope.onIconClick = function() {
-		    modal = $modal.open({
+		    modal = $uibModal.open({
 			template: '<div>' +
 			    '<div class="modal-header">' +
 			    '<h3 class="modal-title">{{\'signum\' | loc:lang}}</h3>' +

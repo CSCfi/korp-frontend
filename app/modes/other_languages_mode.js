@@ -1775,7 +1775,7 @@ attrs.scotscorr_word = {
         '<li><a ng-click="makeSensitive()">{{"case_sensitive" | loc:lang}}</a></li>' +
         '<li><a ng-click="makeInsensitive()">{{"case_insensitive" | loc:lang}}</a></li>' +
         '</ul>',
-    controller: function ($scope, $modal) {
+    controller: function ($scope, $uibModal) {
 	var s = $scope;
 	var modal = null;
 	s.words = [];
@@ -1901,7 +1901,7 @@ attrs.scotscorr_word = {
 	// Executed on clicking the list icon
 	s.onIconClick = function () {
 	    s.setSelected();
-	    modal = $modal.open({
+	    modal = $uibModal.open({
 		template: '<div>' +
 		    '<div class="modal-header">' +
 		    '<h3 class="modal-title">{{\'wordlist\' | loc:lang}} (ScotsCorr)</h3>' +
