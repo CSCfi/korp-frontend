@@ -238,6 +238,13 @@ Sidebar =
                          " target='_blank'"
                      else
                          ""
+            # The value with class sidebar_url does not wrap and is
+            # subject to abbreviating with an ellipsis, but a link
+            # with a link text instead of an URL should be allowed to
+            # wrap and not abbreviated, so use class sidebar_link for
+            # it. (Jyrki Niemi 2017-10-19)
+            class_attr = "class='exturl sidebar_" +
+                         (if url_opts.hide_url then "link" else "url") + "'"
             # If the function attrs.url_opts.stringify_link is
             # defined, use it to make the complete link (HTML "a"
             # element(s)). The function takes as arguments the name of
@@ -248,8 +255,7 @@ Sidebar =
             # 2016-02-10)
             if url_opts.stringify_link
                 return output.append attrs.url_opts.stringify_link(
-                        key, str_value, attrs,
-                        "class='exturl sidebar_url'#{target}")
+                        key, str_value, attrs, "#{class_attr}#{target}")
             # If url_prefix is specified, prepend it to the URL
             url = (attrs.url_prefix or "") + str_value
             # If url_opts.hide_url, use the localized label as the
@@ -258,7 +264,7 @@ Sidebar =
                             "<span rel='localize[#{attrs.label}]'>#{key}</span>"
                         else
                             decodeURI(str_value)
-            return output.append "<a href='#{url}' class='exturl sidebar_url'#{target}>#{link_text}</a>"
+            return output.append "<a href='#{url}' #{class_attr}#{target}>#{link_text}</a>"
 
         else if attrs.taginfo_url or (key == "msd" and attrs.taginfo_url != "")
             # For msd, an empty taginfo_url disables the info link, a
