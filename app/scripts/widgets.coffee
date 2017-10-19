@@ -232,8 +232,9 @@ Sidebar =
 
 
         if attrs.type == "url"
+            url_opts = attrs.url_opts or {}
             # If url_opts.new_window, open the link to a new window
-            target = if attrs?.url_opts?.new_window
+            target = if url_opts.new_window
                          " target='_blank'"
                      else
                          ""
@@ -245,7 +246,7 @@ Sidebar =
             # element. stringify_link is useful e.g. when a link
             # attribute contains more than one URL. (Jyrki Niemi
             # 2016-02-10)
-            if attrs?.url_opts?.stringify_link
+            if url_opts.stringify_link
                 return output.append attrs.url_opts.stringify_link(
                         key, str_value, attrs,
                         "class='exturl sidebar_url'#{target}")
@@ -253,7 +254,7 @@ Sidebar =
             url = (attrs.url_prefix or "") + str_value
             # If url_opts.hide_url, use the localized label as the
             # link text, otherwise the URL
-            link_text = if attrs?.url_opts?.hide_url
+            link_text = if url_opts.hide_url
                             "<span rel='localize[#{attrs.label}]'>#{key}</span>"
                         else
                             decodeURI(str_value)
