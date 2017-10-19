@@ -423,6 +423,11 @@
     "textgenre_fiction" : "skönlitteratur",
     "textgenre_law" : "juridisk text",
 
+    "show_original": "Visa originaltext",
+    "show_fulltext": "Visa heltext",
+    "show_fulltext_context": "Visa kontext i heltext",
+    "show_video": "Visa video",
+
     "album" : "album",
     "album_year" : "år (album)",
     "song_title" : "låttitel",
