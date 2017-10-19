@@ -9927,8 +9927,8 @@ settings.fn.find_context_words = function (token_data, context_size) {
 settings.fn.make_klk_page_image_url = function (token_data, context_size) {
     var words = settings.fn.find_context_words(token_data, context_size);
     return (settings.fn.make_klk_url_base(token_data)
-	    + (words ? "?term=" + words : "")
-	    + "#?page=" + token_data.struct_attrs.text_page_no);
+	    + "?page=" + token_data.struct_attrs.text_page_no)
+	    + (words ? "&term=" + words : "");
 }
 
 sattrlist.klk_pagelinks = {
