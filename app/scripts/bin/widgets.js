@@ -231,7 +231,7 @@
       if (attrs.type === "url") {
         target = (attrs != null ? (ref3 = attrs.url_opts) != null ? ref3.new_window : void 0 : void 0) ? " target='_blank'" : "";
         if (attrs != null ? (ref4 = attrs.url_opts) != null ? ref4.stringify_link : void 0 : void 0) {
-          return output.append(attrs.url_opts.stringify_link(key, str_value, attrs, "class='exturl' sidebar_url'" + target));
+          return output.append(attrs.url_opts.stringify_link(key, str_value, attrs, "class='exturl sidebar_url'" + target));
         }
         url = (attrs.url_prefix || "") + str_value;
         link_text = (attrs != null ? (ref5 = attrs.url_opts) != null ? ref5.hide_url : void 0 : void 0) ? "<span rel='localize[" + attrs.label + "]'>" + key + "</span>" : decodeURI(str_value);

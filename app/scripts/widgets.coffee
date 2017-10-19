@@ -248,7 +248,7 @@ Sidebar =
             if attrs?.url_opts?.stringify_link
                 return output.append attrs.url_opts.stringify_link(
                         key, str_value, attrs,
-                        "class='exturl' sidebar_url'#{target}")
+                        "class='exturl sidebar_url'#{target}")
             # If url_prefix is specified, prepend it to the URL
             url = (attrs.url_prefix or "") + str_value
             # If url_opts.hide_url, use the localized label as the
