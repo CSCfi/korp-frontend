@@ -1720,62 +1720,82 @@ util.mapHashCorpusAliases = () ->
     return
 
 
-# Initialize the _sidebar_display_order property of all the corpora in
-# settings.corpora.
+# Initialize the "order" property (supported natively by Språkbanken's
+# Korp) of all attributes of all the corpora in settings.corpora based
+# on settings.default_sidebar_display_order and the corpus-specific
+# sidebar_display_order properties.
+#
+# Even though might be better to move eventually to specifying order
+# directly in the attribute definitions, as it is supported natively
+# by Språkbanken's Korp, this might make the transition easier.
 
 util.initCorpusSettingsAttrDisplayOrder = () ->
-    for corpus of settings.corpora
-        util.setAttrDisplayOrder settings.corpora[corpus]
-    return
+    util.forAllCorpora util.setAttrDisplayOrder
 
-# Initialize the _sidebar_display_order property of corpusInfo to
-# contain the (reverse of the) order in which attributes are to be
-# shown in the sidebar, separately for (positional) attributes,
+# Initialize the "order" property of each attribute of corpusInfo to
+# contain the order number in which the attribute is to be shown in
+# the sidebar (largest first), separately for (positional) attributes,
 # struct_attributes and link_attributes.
 #
-# The order may be specified in corpusInfo.sidebar_display_order
-# (property name without the leading underscore) or the default
-# settings.default_sidebar_display_order. These are objects with the
-# keys attributes, struct_attributes and link_attributes, whose values
-# are lists of attribute names or regular expressions matching
-# attribute names, in the order in which the attributes should be
-# shown. Unlisted attributes are shown after the listed ones in the
-# order JavaScript iterates over the attribute properties. Attributes
-# matching a regular expression are shown in the JavaScript property
-# iteration order. (Jyrki Niemi 2015-08-27)
+# The order may be specified in corpusInfo.sidebar_display_order or
+# the default settings.default_sidebar_display_order. These are
+# objects with the keys attributes, struct_attributes and
+# link_attributes, whose values are lists of attribute names or
+# regular expressions matching attribute names, in the order in which
+# the attributes should be shown. Attributes with an explicit order
+# property in the definitions are shown first, and unlisted attributes
+# are shown after the listed ones in the order JavaScript iterates
+# over the attribute properties. The mutual order of multiple
+# attributes matching a single regular expression is the JavaScript
+# property iteration order. (Jyrki Niemi 2015-08-27, 2017-10-19)
 
 util.setAttrDisplayOrder = (corpusInfo) ->
 
+    # Add change attr_info[attr_name] to a copy of itself, extended
+    # with {order: order}. We make a copy of the attribute definition
+    # object, so that the order previoiusly assigned to an attribute
+    # with a shared definition (when processing another corpus) does
+    # not affect the order of this corpus. Copies require more memory,
+    # since the attribute definitions are no longer shared, but it is
+    # enough to make a shallow copy, so that the value of the dataset
+    # property remains shared.
+    set_order = (attr_info, attr_name, order) ->
+        attr_info[attr_name] =
+            $.extend({}, attr_info[attr_name], {order: order})
+
     for attr_type in ["attributes", "struct_attributes", "link_attributes"]
-        order = (corpusInfo.sidebar_display_order?[attr_type] or
-                 settings.default_sidebar_display_order?[attr_type])
-        if order
-            attr_names = _.keys(corpusInfo[attr_type])
-            result = []
-            for pattern in order
-                if $.type pattern == "regexp"
-                    index = 0
+        order_spec = (corpusInfo.sidebar_display_order?[attr_type] or
+                      settings.default_sidebar_display_order?[attr_type])
+        # c.log "setAttrDisplayOrder", corpusInfo, order_spec
+        if order_spec
+            attr_info = corpusInfo[attr_type]
+            # If all the attributes already have an order property,
+            # nothing needs to be done here.
+            existing_orders = _.pluck(attr_info, "order")
+            if _.all(existing_orders)
+                continue
+            min_existing_order = _.min(existing_orders)
+            if min_existing_order == Infinity
+                min_existing_order = 100
+            attr_names = _(attr_info)
+                         .keys()
+                         .filter((key) -> not attr_info[key].order?)
+                         .value()
+            # Add order values in a decreasing order below the minimum
+            # existing one.
+            next_order = min_existing_order - 1
+            for pattern in order_spec
+                if $.type(pattern) == "regexp"
                     for attr_name in attr_names
-                        if attr_name.match(pattern)
-                            result.push(attr_name)
-                            attr_names[index] = ""
-                        index += 1
-                else if $.type pattern == "string"
+                        if attr_name.match(pattern) and
+                                not attr_info[attr_name].order?
+                            set_order attr_info, attr_name, next_order
+                            next_order -= 1
+                else if $.type(pattern) == "string"
                     index = $.inArray(pattern, attr_names)
                     if index != -1
-                        result.push(attr_names[index])
-                        attr_names[index] = ""
-            # if order[order.length() - 1] == "__SORTED__"
-            #     attr_names.sort()
-            for attr_name in attr_names
-                if attr_name != ""
-                    result.push(attr_name)
-            # Internally use the property name prefixed with an
-            # underscore. Reverse to make sorting work with
-            # $.inArray() returning -1 for non-existent values.
-            if not corpusInfo._sidebar_display_order
-                corpusInfo._sidebar_display_order = {}
-            corpusInfo._sidebar_display_order[attr_type] = result.reverse()
+                        set_order attr_info, attr_names[index], next_order
+                        next_order -= 1
     return
 
 

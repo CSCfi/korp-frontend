@@ -451,6 +451,12 @@ settings.short_url_config = {};
 // attributes are shown in the JavaScript property iteration order.
 // The defaults can be overridden in the property
 // sidebar_display_order of corpus settings. (Jyrki Niemi 2015-08-27)
+//
+// As of version 5.0.6, Språkbanken's Korp has similar functionality
+// implemented via the property "order" of attribute definitions. The
+// orders here are converted to "order" properties, but maybe we
+// should eventually migrate to having the "order" properties in the
+// attribute definitions. (Jyrki Niemi 2017-10-20)
 settings.default_sidebar_display_order = {
     attributes: [
 	"lemma",

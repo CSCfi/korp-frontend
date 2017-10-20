@@ -26,8 +26,7 @@ Sidebar =
 
             posData = @renderCorpusContent("pos", wordData, sentenceData,
                 corpusObj.attributes, tokens,
-                corpusObj.synthetic_attr_names.attributes, token_data,
-                corpusObj._sidebar_display_order?.attributes)
+                corpusObj.synthetic_attr_names.attributes, token_data)
             # posData.appendTo "#selected_word"
             $("#selected_word").append posData
         unless $.isEmptyObject(corpusObj.struct_attributes)
@@ -35,8 +34,7 @@ Sidebar =
 
             @renderCorpusContent("struct", wordData, sentenceData,
                 corpusObj.struct_attributes, tokens,
-                corpusObj.synthetic_attr_names.struct_attributes, token_data,
-                corpusObj._sidebar_display_order?.struct_attributes)
+                corpusObj.synthetic_attr_names.struct_attributes, token_data)
             .appendTo "#selected_sentence"
 
         unless $.isEmptyObject(corpusObj.custom_attributes)
@@ -48,8 +46,7 @@ Sidebar =
         unless $.isEmptyObject(corpusObj.link_attributes)
             @renderCorpusContent("link", wordData, sentenceData,
                 corpusObj.link_attributes,
-                corpusObj.synthetic_attr_names.link_attributes, token_data,
-                corpusObj._sidebar_display_order?.link_attributes)
+                corpusObj.synthetic_attr_names.link_attributes, token_data)
             .appendTo "#selected_links"
 
         @element.localize()
@@ -79,7 +76,7 @@ Sidebar =
         ).appendTo(@element)
 
     renderCorpusContent: (type, wordData, sentenceData, corpus_attrs, tokens,
-                          synthetic_attr_names, token_data, attr_order) ->
+                          synthetic_attr_names, token_data) ->
         if type == "struct" or type == "link"
             pairs = _.pairs(sentenceData)
 
@@ -91,10 +88,6 @@ Sidebar =
                 if key of corpus_attrs
                     pairs.push([key, val])
 
-        # FIXME-KP: order is no longer used as of v5.0.6, because the
-        # way of ordering attributes has changed (Jyrki Niemi
-        # 2017-10-18)
-        order = attr_order
         pairs = _.filter pairs, ([key, val]) -> corpus_attrs[key]
 
         pairs.sort ([a], [b]) ->

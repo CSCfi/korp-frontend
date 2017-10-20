@@ -4,7 +4,7 @@
   Sidebar = {
     _init: function() {},
     updateContent: function(sentenceData, wordData, corpus, tokens) {
-      var corpusObj, formattedCorpusInfo, posData, ref, ref1, ref2, ref3, ref4, sentence, token_data, word;
+      var corpusObj, formattedCorpusInfo, posData, ref, ref1, sentence, token_data, word;
       this.element.html('<div id="selected_sentence" /><div id="selected_word" /><div id="selected_links" />');
       corpusObj = settings.corpora[corpus];
       formattedCorpusInfo = (typeof settings !== "undefined" && settings !== null ? settings.corpusExtraInfo : void 0) ? util.formatCorpusExtraInfo(corpusObj, (ref = settings.corpusExtraInfo) != null ? ref.sidebar : void 0) : "";
@@ -19,20 +19,20 @@
       };
       if (!$.isEmptyObject(corpusObj.attributes)) {
         $("#selected_word").append($("<h4>").localeKey("word_attr"));
-        posData = this.renderCorpusContent("pos", wordData, sentenceData, corpusObj.attributes, tokens, corpusObj.synthetic_attr_names.attributes, token_data, (ref1 = corpusObj._sidebar_display_order) != null ? ref1.attributes : void 0);
+        posData = this.renderCorpusContent("pos", wordData, sentenceData, corpusObj.attributes, tokens, corpusObj.synthetic_attr_names.attributes, token_data);
         $("#selected_word").append(posData);
       }
       if (!$.isEmptyObject(corpusObj.struct_attributes)) {
         $("#selected_sentence").append($("<h4>").localeKey("sentence_attr"));
-        this.renderCorpusContent("struct", wordData, sentenceData, corpusObj.struct_attributes, tokens, corpusObj.synthetic_attr_names.struct_attributes, token_data, (ref2 = corpusObj._sidebar_display_order) != null ? ref2.struct_attributes : void 0).appendTo("#selected_sentence");
+        this.renderCorpusContent("struct", wordData, sentenceData, corpusObj.struct_attributes, tokens, corpusObj.synthetic_attr_names.struct_attributes, token_data).appendTo("#selected_sentence");
       }
       if (!$.isEmptyObject(corpusObj.custom_attributes)) {
-        ref3 = this.renderCustomContent(wordData, sentenceData, corpusObj.custom_attributes, tokens), word = ref3[0], sentence = ref3[1];
+        ref1 = this.renderCustomContent(wordData, sentenceData, corpusObj.custom_attributes, tokens), word = ref1[0], sentence = ref1[1];
         word.appendTo("#selected_word");
         sentence.appendTo("#selected_sentence");
       }
       if (!$.isEmptyObject(corpusObj.link_attributes)) {
-        this.renderCorpusContent("link", wordData, sentenceData, corpusObj.link_attributes, corpusObj.synthetic_attr_names.link_attributes, token_data, (ref4 = corpusObj._sidebar_display_order) != null ? ref4.link_attributes : void 0).appendTo("#selected_links");
+        this.renderCorpusContent("link", wordData, sentenceData, corpusObj.link_attributes, corpusObj.synthetic_attr_names.link_attributes, token_data).appendTo("#selected_links");
       }
       this.element.localize();
       this.applyEllipse();
@@ -62,8 +62,8 @@
         }).parent().find(".ui-dialog-title").localeKey("dep_tree");
       }).appendTo(this.element);
     },
-    renderCorpusContent: function(type, wordData, sentenceData, corpus_attrs, tokens, synthetic_attr_names, token_data, attr_order) {
-      var base, i, item, items, j, key, len, len1, order, pairs, ref, ref1, ref2, synthetic, val, value;
+    renderCorpusContent: function(type, wordData, sentenceData, corpus_attrs, tokens, synthetic_attr_names, token_data) {
+      var base, i, item, items, j, key, len, len1, pairs, ref, ref1, ref2, synthetic, val, value;
       if (type === "struct" || type === "link") {
         pairs = _.pairs(sentenceData);
       } else if (type === "pos") {
@@ -77,7 +77,6 @@
           }
         }
       }
-      order = attr_order;
       pairs = _.filter(pairs, function(arg) {
         var key, val;
         key = arg[0], val = arg[1];
