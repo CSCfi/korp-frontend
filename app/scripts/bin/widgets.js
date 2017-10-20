@@ -32,7 +32,7 @@
         sentence.appendTo("#selected_sentence");
       }
       if (!$.isEmptyObject(corpusObj.link_attributes)) {
-        this.renderCorpusContent("link", wordData, sentenceData, corpusObj.link_attributes, corpusObj.synthetic_attr_names.link_attributes, token_data).appendTo("#selected_links");
+        this.renderCorpusContent("link", wordData, sentenceData, corpusObj.link_attributes, tokens, corpusObj.synthetic_attr_names.link_attributes, token_data).appendTo("#selected_links");
       }
       this.element.localize();
       this.applyEllipse();

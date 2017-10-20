@@ -45,7 +45,7 @@ Sidebar =
         # Links in a separate link section
         unless $.isEmptyObject(corpusObj.link_attributes)
             @renderCorpusContent("link", wordData, sentenceData,
-                corpusObj.link_attributes,
+                corpusObj.link_attributes, tokens,
                 corpusObj.synthetic_attr_names.link_attributes, token_data)
             .appendTo "#selected_links"
 
@@ -110,6 +110,8 @@ Sidebar =
         items = _.compact items
 
         # Append possible synthetic attributes (Jyrki Niemi 2015-02-24)
+        # TODO: Support the order property; it should be possible to
+        # interleave normal and synthetic attributes.
         if synthetic_attr_names.length
             synthetic = for key in synthetic_attr_names
                 @renderItem key, null, corpus_attrs[key], wordData, sentenceData, tokens, token_data
