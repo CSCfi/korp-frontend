@@ -136,7 +136,7 @@
       return [$(pos_items), $(struct_items)];
     },
     renderItem: function(key, value, attrs, wordData, sentenceData, tokens, token_data) {
-      var address, encodeHtmlEntities, getStringVal, inner, itr, li, link_text, lis, mapViaDataset, output, pattern, prefix, ref, ref1, ref2, ref3, ref4, ref5, str_value, taginfo_url, target, ul, url, val, valueArray, x;
+      var address, class_attr, encodeHtmlEntities, getStringVal, inner, itr, li, link_text, lis, mapViaDataset, output, pattern, prefix, ref, ref1, ref2, str_value, taginfo_url, target, ul, url, url_opts, val, valueArray, x;
       encodeHtmlEntities = function(s) {
         return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
       };
@@ -239,13 +239,15 @@
       }
       str_value = attrs.stringify_synthetic ? attrs.stringify_synthetic(token_data) : (attrs.stringify || encodeHtmlEntities)(value);
       if (attrs.type === "url") {
-        target = (attrs != null ? (ref3 = attrs.url_opts) != null ? ref3.new_window : void 0 : void 0) ? " target='_blank'" : "";
-        if (attrs != null ? (ref4 = attrs.url_opts) != null ? ref4.stringify_link : void 0 : void 0) {
-          return output.append(attrs.url_opts.stringify_link(key, str_value, attrs, "class='exturl' sidebar_url'" + target));
+        url_opts = attrs.url_opts || {};
+        target = url_opts.new_window ? " target='_blank'" : "";
+        class_attr = "class='exturl sidebar_" + (url_opts.hide_url ? "link" : "url") + "'";
+        if (url_opts.stringify_link) {
+          return output.append(attrs.url_opts.stringify_link(key, str_value, attrs, "" + class_attr + target));
         }
         url = (attrs.url_prefix || "") + str_value;
-        link_text = (attrs != null ? (ref5 = attrs.url_opts) != null ? ref5.hide_url : void 0 : void 0) ? "<span rel='localize[" + attrs.label + "]'>" + key + "</span>" : decodeURI(str_value);
-        return output.append("<a href='" + url + "' class='exturl sidebar_url'" + target + ">" + link_text + "</a>");
+        link_text = url_opts.hide_url ? "<span rel='localize[" + attrs.label + "]'>" + key + "</span>" : decodeURI(str_value);
+        return output.append("<a href='" + url + "' " + class_attr + target + ">" + link_text + "</a>");
       } else if (attrs.taginfo_url || (key === "msd" && attrs.taginfo_url !== "")) {
         taginfo_url = attrs.taginfo_url || "markup/msdtags.html";
         return output.append("<span class='msd_sidebar'>" + str_value + "</span>\n    <a href='" + taginfo_url + "' target='_blank'>\n        <span id='sidbar_info' class='ui-icon ui-icon-info'></span>\n    </a>\n</span>");

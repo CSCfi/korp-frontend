@@ -5003,13 +5003,16 @@ body.modal-open {
 .modal-body {
   max-height: 71vh;
   min-height: 300px;
+  overflow-y: auto;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
 }
 
-/* line 1885, styles.scss */
+/* line 1888, styles.scss */
 .related.modal .modal-body {
   overflow: auto;
 }
-/* line 1887, styles.scss */
+/* line 1890, styles.scss */
 .related.modal .modal-body ul {
   display: flex;
   flex-direction: column;
@@ -5018,85 +5021,85 @@ body.modal-open {
   justify-content: flex-start;
   align-content: flex-start;
 }
-/* line 1894, styles.scss */
+/* line 1897, styles.scss */
 .related.modal .modal-body ul li {
   margin-right: 1em;
 }
-/* line 1900, styles.scss */
+/* line 1903, styles.scss */
 .related.modal .col .header {
   font-size: 1.1em;
 }
 
-/* line 1906, styles.scss */
+/* line 1909, styles.scss */
 .search_submit {
   display: inline;
   margin-right: 5px;
 }
 
-/* line 1913, styles.scss */
+/* line 1916, styles.scss */
 .search_tabs .nav.nav-tabs li:nth-child(4) {
   margin-left: 1em;
 }
-/* line 1916, styles.scss */
+/* line 1919, styles.scss */
 .search_tabs .tab-content {
   overflow: visible;
 }
-/* line 1919, styles.scss */
+/* line 1922, styles.scss */
 .search_tabs .search_compare {
   padding-top: 1em;
 }
-/* line 1921, styles.scss */
+/* line 1924, styles.scss */
 .search_tabs .search_compare button.delete {
   float: right;
 }
-/* line 1923, styles.scss */
+/* line 1926, styles.scss */
 .search_tabs .search_compare button.delete .fa, .search_tabs .search_compare button.delete .boxdiv.disabled .checkbox, .boxdiv.disabled .search_tabs .search_compare button.delete .checkbox,
 .search_tabs .search_compare button.delete .tree.disabled > label .checkbox,
 .tree.disabled > label .search_tabs .search_compare button.delete .checkbox {
   margin-right: 0.8em;
 }
-/* line 1927, styles.scss */
+/* line 1930, styles.scss */
 .search_tabs .search_compare button.search {
   margin-top: 2em;
   display: block;
 }
-/* line 1931, styles.scss */
+/* line 1934, styles.scss */
 .search_tabs .search_compare select {
   margin: 0 5px;
 }
 
-/* line 1937, styles.scss */
+/* line 1940, styles.scss */
 option[value^='? string:sentence ?'] {
   display: none;
 }
 
-/* line 1939, styles.scss */
+/* line 1942, styles.scss */
 .nav-tabs li.disabled {
   opacity: 0.6;
 }
 
-/* line 1943, styles.scss */
+/* line 1946, styles.scss */
 #results-wrapper .nav-tabs li:nth-child(4) {
   margin-left: 1em;
 }
 
-/* line 1947, styles.scss */
+/* line 1950, styles.scss */
 #korp-extended .within_select ~ * {
   display: none;
 }
 
-/* line 1951, styles.scss */
+/* line 1954, styles.scss */
 .lab #korp-extended #sendBtn ~ * {
   display: inline;
 }
 
-/* line 1960, styles.scss */
+/* line 1963, styles.scss */
 #search-tab {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-/* line 1965, styles.scss */
+/* line 1968, styles.scss */
 .val_mod {
   letter-spacing: 1px;
   font-size: .8em;
@@ -5104,14 +5107,14 @@ option[value^='? string:sentence ?'] {
   margin-right: 1px;
 }
 
-/* line 1972, styles.scss */
+/* line 1975, styles.scss */
 .mod_menu {
   cursor: default;
   position: absolute;
   font-size: .9em;
 }
 
-/* line 1980, styles.scss */
+/* line 1983, styles.scss */
 slider {
   display: inline-block;
   position: relative;
@@ -5120,19 +5123,19 @@ slider {
   margin: 25px 5px 25px 5px;
   vertical-align: middle;
 }
-/* line 1988, styles.scss */
+/* line 1991, styles.scss */
 slider span {
   white-space: nowrap;
   position: absolute;
   display: inline-block;
 }
-/* line 1992, styles.scss */
+/* line 1995, styles.scss */
 slider span.base {
   width: 100%;
   height: 100%;
   padding: 0;
 }
-/* line 1997, styles.scss */
+/* line 2000, styles.scss */
 slider span.bar {
   width: 100%;
   height: 100%;
@@ -5146,7 +5149,7 @@ slider span.bar {
   background-image: linear-gradient(to top, #cccccc, #ffffff);
   box-shadow: inset 0 1px 3px rgba(10, 10, 10, 0.5);
 }
-/* line 2004, styles.scss */
+/* line 2007, styles.scss */
 slider span.bar.selection {
   width: 0%;
   z-index: 1;
@@ -5158,7 +5161,7 @@ slider span.bar.selection {
   background-image: linear-gradient(to top, #ababab, #c6c6c6);
   box-shadow: none;
 }
-/* line 2011, styles.scss */
+/* line 2014, styles.scss */
 slider span.pointer {
   cursor: pointer;
   width: 15px;
@@ -5175,19 +5178,19 @@ slider span.pointer {
   border-radius: 1em/1em;
   box-shadow: 2px 2px 3px grey;
 }
-/* line 2025, styles.scss */
+/* line 2028, styles.scss */
 slider span.pointer:after {
   box-shadow: inset 2px 2px 5px;
 }
-/* line 2029, styles.scss */
+/* line 2032, styles.scss */
 slider span.pointer:hover:after {
   background-color: #000;
 }
-/* line 2032, styles.scss */
+/* line 2035, styles.scss */
 slider span.pointer.active:hover:after {
   background-color: #f00;
 }
-/* line 2037, styles.scss */
+/* line 2040, styles.scss */
 slider span.bubble {
   cursor: default;
   top: -22px;
@@ -5195,80 +5198,80 @@ slider span.bubble {
   font-size: 0.7em;
   font-family: sans-serif;
 }
-/* line 2043, styles.scss */
+/* line 2046, styles.scss */
 slider span.bubble.selection {
   top: 15px;
 }
-/* line 2046, styles.scss */
+/* line 2049, styles.scss */
 slider span.bubble.limit {
   color: #808080;
 }
 
-/* line 2055, styles.scss */
+/* line 2058, styles.scss */
 .val_mod.insensitive {
   color: lightgrey;
 }
-/* line 2058, styles.scss */
+/* line 2061, styles.scss */
 .val_mod.sensitive {
   color: black;
 }
-/* line 2060, styles.scss */
+/* line 2063, styles.scss */
 .val_mod.sensitive + .mod_menu li:first-of-type a {
   text-decoration: underline;
 }
-/* line 2064, styles.scss */
+/* line 2067, styles.scss */
 .val_mod.insensitive + .mod_menu li:nth-of-type(2) a {
   text-decoration: underline;
 }
 
-/* line 2069, styles.scss */
+/* line 2072, styles.scss */
 .enumerate {
   counter-increment: wordpic;
 }
-/* line 2071, styles.scss */
+/* line 2074, styles.scss */
 .enumerate:before {
   content: counter(wordpic) ".";
 }
 
-/* line 2076, styles.scss */
+/* line 2079, styles.scss */
 .enumerate_names {
   counter-increment: names;
 }
-/* line 2078, styles.scss */
+/* line 2081, styles.scss */
 .enumerate_names:before {
   content: counter(names) ".";
 }
 
-/* line 2083, styles.scss */
+/* line 2086, styles.scss */
 #showBarPlot {
   display: none;
 }
 
-/* line 2091, styles.scss */
+/* line 2094, styles.scss */
 .korp-warning {
   max-width: 500px;
 }
 
-/* line 2094, styles.scss */
+/* line 2097, styles.scss */
 warning ~ * {
   display: none !important;
 }
 
-/* line 2098, styles.scss */
+/* line 2101, styles.scss */
 #wordPicSettings {
   float: right;
 }
-/* line 2101, styles.scss */
+/* line 2104, styles.scss */
 #wordPicSettings #numberHitsSelect {
   margin-top: 10px;
 }
 
-/* line 2107, styles.scss */
+/* line 2110, styles.scss */
 .nav-tabs li {
   position: relative;
 }
 
-/* line 2111, styles.scss */
+/* line 2114, styles.scss */
 .tab_progress {
   height: 2px;
   background-color: darkblue;
@@ -5280,12 +5283,12 @@ warning ~ * {
   bottom: 0;
 }
 
-/* line 2122, styles.scss */
+/* line 2125, styles.scss */
 .not_loading .tab_progress {
   display: none;
 }
 
-/* line 2126, styles.scss */
+/* line 2129, styles.scss */
 .not_loading .hits_picture {
   left: 180px;
   -moz-transition: width 400ms ease;
@@ -5294,20 +5297,20 @@ warning ~ * {
   transition: width 400ms ease;
 }
 
-/* line 2132, styles.scss */
+/* line 2135, styles.scss */
 .results-kwic .controls_n {
   margin-right: 5px;
   min-width: 125px;
 }
-/* line 2136, styles.scss */
+/* line 2139, styles.scss */
 .results-kwic .pager-wrapper {
   display: inline;
 }
-/* line 2140, styles.scss */
+/* line 2143, styles.scss */
 .results-kwic .result_controls {
   position: relative;
 }
-/* line 2142, styles.scss */
+/* line 2145, styles.scss */
 .results-kwic .result_controls > * {
   display: inline-block;
   vertical-align: bottom;
@@ -5315,11 +5318,11 @@ warning ~ * {
   *zoom: 1;
   *display: inline;
 }
-/* line 2147, styles.scss */
+/* line 2150, styles.scss */
 .results-kwic .result_controls, .results-kwic .pager-wrapper {
   margin-bottom: 8px;
 }
-/* line 2150, styles.scss */
+/* line 2153, styles.scss */
 .results-kwic .pagination {
   height: auto;
   margin: 0;
@@ -5327,11 +5330,11 @@ warning ~ * {
   display: inline-block;
   vertical-align: initial;
 }
-/* line 2157, styles.scss */
+/* line 2160, styles.scss */
 .results-kwic .pagination li.active {
   font-weight: bold;
 }
-/* line 2160, styles.scss */
+/* line 2163, styles.scss */
 .results-kwic .pagination a, .results-kwic .pagination span {
   border-width: 1px;
   line-height: 18px;
@@ -5340,54 +5343,54 @@ warning ~ * {
   float: initial;
   display: inline-block;
 }
-/* line 2170, styles.scss */
+/* line 2173, styles.scss */
 .results-kwic .pagination .active a {
   color: white;
 }
-/* line 2175, styles.scss */
+/* line 2178, styles.scss */
 .results-kwic .page_input {
   display: inline-block;
   vertical-align: middle;
   margin-left: 1em;
 }
-/* line 2179, styles.scss */
+/* line 2182, styles.scss */
 .results-kwic .page_input span {
   color: #666;
 }
-/* line 2182, styles.scss */
+/* line 2185, styles.scss */
 .results-kwic .page_input input {
   width: 2em;
 }
-/* line 2187, styles.scss */
+/* line 2190, styles.scss */
 .results-kwic.loading .controls_n {
   color: darkgrey;
   font-style: italic;
 }
 
-/* line 2196, styles.scss */
+/* line 2199, styles.scss */
 .arg_value .from, .arg_value .to {
   width: 50px;
 }
-/* line 2199, styles.scss */
+/* line 2202, styles.scss */
 .arg_value .from {
   float: left;
 }
-/* line 2202, styles.scss */
+/* line 2205, styles.scss */
 .arg_value .to {
   float: right;
   text-align: left;
 }
 
-/* line 2209, styles.scss */
+/* line 2212, styles.scss */
 .arg_val_container {
   margin-top: 2px;
 }
-/* line 2211, styles.scss */
+/* line 2214, styles.scss */
 .arg_val_container select {
   max-width: 100%;
 }
 
-/* line 2216, styles.scss */
+/* line 2219, styles.scss */
 .ui-autocomplete-category {
   font-size: .7em;
   text-transform: uppercase;
@@ -5395,78 +5398,78 @@ warning ~ * {
   letter-spacing: 1.1;
 }
 
-/* line 2223, styles.scss */
+/* line 2226, styles.scss */
 #keyboard {
   cursor: pointer;
   padding: 0 3px;
   display: none;
 }
 
-/* line 2229, styles.scss */
+/* line 2232, styles.scss */
 #char_table {
   display: none;
 }
 
-/* line 2233, styles.scss */
+/* line 2236, styles.scss */
 .specialkey {
   width: 12px;
   text-align: center;
   cursor: pointer;
 }
 
-/* line 2240, styles.scss */
+/* line 2243, styles.scss */
 #deptree_popup {
   overflow-y: hidden;
 }
-/* line 2242, styles.scss */
+/* line 2245, styles.scss */
 #deptree_popup iframe {
   border: none;
   height: 400px;
 }
-/* line 2246, styles.scss */
+/* line 2249, styles.scss */
 #deptree_popup .info:empty {
   display: block;
   height: 1.3em;
 }
 
-/* line 2252, styles.scss */
+/* line 2255, styles.scss */
 .smoother.ui-slider {
   width: 200px;
 }
 
-/* line 2256, styles.scss */
+/* line 2259, styles.scss */
 .legend {
   float: right;
   margin-bottom: 1em;
 }
-/* line 2259, styles.scss */
+/* line 2262, styles.scss */
 .legend .action {
   opacity: 0.5 !important;
   color: white;
 }
 
-/* line 2265, styles.scss */
+/* line 2268, styles.scss */
 .slick-viewport .slick-cell-checkboxsel input {
   margin-left: 6px;
 }
 
-/* line 2269, styles.scss */
+/* line 2272, styles.scss */
 #myGrid .slick-header-column input[type="checkbox"] {
   margin-left: 4px;
 }
 
-/* line 2276, styles.scss */
+/* line 2279, styles.scss */
 .graph_btn_icon svg {
   margin-top: -6px;
   margin-bottom: -6px;
   margin-left: -8px;
 }
 
-/* line 2283, styles.scss */
+/* line 2286, styles.scss */
 .chart_container {
   position: relative;
 }
-/* line 2285, styles.scss */
+/* line 2288, styles.scss */
 .chart_container .preloader {
   position: absolute;
   left: 0;
@@ -5482,31 +5485,31 @@ warning ~ * {
   opacity: 0;
   transition: opacity 500ms;
 }
-/* line 2300, styles.scss */
+/* line 2303, styles.scss */
 .chart_container .preloader.loading {
   opacity: 1;
   transition: opacity 500ms;
 }
-/* line 2305, styles.scss */
+/* line 2308, styles.scss */
 .chart_container .preloader i {
   z-index: 1000;
 }
 
-/* line 2311, styles.scss */
+/* line 2314, styles.scss */
 .graph_tab {
   min-height: 430px;
 }
 
-/* line 2315, styles.scss */
+/* line 2318, styles.scss */
 .graph_header .controls {
   float: left;
 }
 
-/* line 2320, styles.scss */
+/* line 2323, styles.scss */
 .stats_header {
   margin-bottom: 1em;
 }
-/* line 2322, styles.scss */
+/* line 2325, styles.scss */
 .stats_header > * {
   display: inline-block;
   vertical-align: middle;
@@ -5515,22 +5518,22 @@ warning ~ * {
   *display: inline;
 }
 
-/* line 2326, styles.scss */
+/* line 2329, styles.scss */
 .reading_mode .show_deptree {
   display: none;
 }
 
-/* line 2330, styles.scss */
+/* line 2333, styles.scss */
 #statsNumValues {
   margin-bottom: 0.5em;
 }
 
-/* line 2334, styles.scss */
+/* line 2337, styles.scss */
 .form-table .preview {
   display: none;
 }
 
-/* line 2339, styles.scss */
+/* line 2342, styles.scss */
 .rickshaw_graph .empty_area {
   background-color: #999;
   position: absolute;
@@ -5539,50 +5542,50 @@ warning ~ * {
   opacity: 0.2;
   z-index: 1;
 }
-/* line 2347, styles.scss */
+/* line 2350, styles.scss */
 .rickshaw_graph .detail .x_label {
   top: -26px;
 }
-/* line 2350, styles.scss */
+/* line 2353, styles.scss */
 .rickshaw_graph .x_tick {
   border-left: none;
 }
-/* line 2352, styles.scss */
+/* line 2355, styles.scss */
 .rickshaw_graph .x_tick .title {
   bottom: -1.1em !important;
   left: -1.3em;
 }
-/* line 2359, styles.scss */
+/* line 2362, styles.scss */
 .rickshaw_graph .detail {
   z-index: 101;
 }
-/* line 2363, styles.scss */
+/* line 2366, styles.scss */
 .rickshaw_graph svg {
   position: relative;
   z-index: 100;
 }
 
-/* line 2370, styles.scss */
+/* line 2373, styles.scss */
 .rickshaw_legend .line {
   white-space: nowrap;
 }
 
-/* line 2375, styles.scss */
+/* line 2378, styles.scss */
 .form-bar .rickshaw_graph .x_tick .title {
   left: 0;
 }
 
-/* line 2380, styles.scss */
+/* line 2383, styles.scss */
 .y_ticks.plain g:first-of-type text {
   display: none;
 }
 
-/* line 2384, styles.scss */
+/* line 2387, styles.scss */
 .form-bar .legend li:last-child:not(:only-child) {
   display: none;
 }
 
-/* line 2387, styles.scss */
+/* line 2390, styles.scss */
 .form_switch {
   display: inline-block;
   vertical-align: bottom;
@@ -5591,110 +5594,110 @@ warning ~ * {
   *display: inline;
 }
 
-/* line 2391, styles.scss */
+/* line 2394, styles.scss */
 line.tick {
   display: none;
 }
 
-/* line 2395, styles.scss */
+/* line 2398, styles.scss */
 .dot.active {
   cursor: pointer;
 }
 
-/* line 2406, styles.scss */
+/* line 2409, styles.scss */
 .preview {
   margin-top: 30px;
 }
 
-/* line 2410, styles.scss */
+/* line 2413, styles.scss */
 #main > #msd_popup {
   display: none !important;
 }
 
-/* line 2414, styles.scss */
+/* line 2417, styles.scss */
 .msd-modal {
   overflow-y: scroll;
 }
 
-/* line 2418, styles.scss */
+/* line 2421, styles.scss */
 .popupchecks .header {
   white-space: nowrap;
 }
 
-/* line 2422, styles.scss */
+/* line 2425, styles.scss */
 .ui-button-text-only .ui-button-text {
   padding: 0;
 }
 
-/* line 2425, styles.scss */
+/* line 2428, styles.scss */
 .ui-button-text-only > .ui-button-text {
   padding: 0.4em 1em;
 }
 
-/* line 2428, styles.scss */
+/* line 2431, styles.scss */
 .ui-button-text-icon-primary .ui-button-text, .ui-button-text-icons .ui-button-text {
   padding: 0.4em 1em 0.4em 2.1em;
 }
 
-/* line 2432, styles.scss */
+/* line 2435, styles.scss */
 .time_table {
   width: 100%;
   height: 500px;
 }
 
-/* line 2436, styles.scss */
+/* line 2439, styles.scss */
 .time_table, .time_table * {
   box-sizing: content-box;
 }
 
-/* line 2439, styles.scss */
+/* line 2442, styles.scss */
 #myGrid {
   width: 100%;
   height: 500px;
 }
 
-/* line 2444, styles.scss */
+/* line 2447, styles.scss */
 #myGrid, #myGrid * {
   box-sizing: content-box;
 }
 
-/* line 2447, styles.scss */
+/* line 2450, styles.scss */
 .loading .exportStatsSection {
   display: none;
 }
 
-/* line 2451, styles.scss */
+/* line 2454, styles.scss */
 #myGrid .parameter-column {
   background-color: #f2f7ff;
 }
 
-/* line 2455, styles.scss */
+/* line 2458, styles.scss */
 #myGrid .slick-row:hover .parameter-column {
   background-color: #e6ebff;
 }
 
-/* line 2459, styles.scss */
+/* line 2462, styles.scss */
 #myGrid .statistics-link {
   color: navy;
   cursor: pointer;
 }
 
-/* line 2464, styles.scss */
+/* line 2467, styles.scss */
 #myGrid .slick-row:hover .statistics-link {
   color: indianred;
 }
 
-/* line 2469, styles.scss */
+/* line 2472, styles.scss */
 .ui-widget-header {
   background: url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") repeat-x scroll 50% 50% #CCCCCC;
 }
 
-/* line 2472, styles.scss */
+/* line 2475, styles.scss */
 .ui-state-hover {
   background: #e6e6e6 url(images/ui-bg_glass_75_dadada_1x400.png) 50% 50% repeat-x;
 }
 
-/* line 2475, styles.scss */
+/* line 2478, styles.scss */
 .nav.nav-tabs {
   background: url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") repeat-x scroll 50% 50% #CCCCCC;
   border: 1px solid #AAAAAA;
@@ -5702,42 +5705,42 @@ line.tick {
   color: #222222;
   padding-top: 0.2em;
 }
-/* line 2483, styles.scss */
+/* line 2486, styles.scss */
 .nav.nav-tabs li {
   cursor: pointer;
   margin-right: 0.2em;
 }
-/* line 2487, styles.scss */
+/* line 2490, styles.scss */
 .nav.nav-tabs .badge {
   margin-left: 1em;
 }
 
-/* line 2496, styles.scss */
+/* line 2499, styles.scss */
 .tabbable {
   border: 1px solid #AAAAAA;
   border-radius: 2px 2px 2px 2px;
   color: #222222;
   padding: 3px;
 }
-/* line 2501, styles.scss */
+/* line 2504, styles.scss */
 .tabbable .single {
   margin-right: 1em;
 }
-/* line 2504, styles.scss */
+/* line 2507, styles.scss */
 .tabbable .tab-content {
   padding: 1em;
 }
-/* line 2507, styles.scss */
+/* line 2510, styles.scss */
 .tabbable .close_icon {
   cursor: pointer;
   padding-left: 5px;
 }
-/* line 2511, styles.scss */
+/* line 2514, styles.scss */
 .tabbable .nav.nav-tabs {
   margin: 0;
   padding-left: 0;
 }
-/* line 2514, styles.scss */
+/* line 2517, styles.scss */
 .tabbable .nav.nav-tabs li {
   background: url("images/ui-bg_glass_75_e6e6e6_1x400.png") repeat-x scroll 50% 50% #E6E6E6;
   border: 1px solid #D3D3D3;
@@ -5745,11 +5748,11 @@ line.tick {
   font-weight: normal;
   margin-bottom: -1px;
 }
-/* line 2520, styles.scss */
+/* line 2523, styles.scss */
 .tabbable .nav.nav-tabs li:first-child {
   margin-left: 0.5em;
 }
-/* line 2523, styles.scss */
+/* line 2526, styles.scss */
 .tabbable .nav.nav-tabs li a {
   padding-bottom: 0.3em !important;
   padding-top: 0.3em !important;
@@ -5757,39 +5760,39 @@ line.tick {
   color: #555555;
   margin-bottom: -1px;
 }
-/* line 2530, styles.scss */
+/* line 2533, styles.scss */
 .tabbable .nav.nav-tabs li.active {
   border-bottom-color: transparent;
 }
 
-/* line 2537, styles.scss */
+/* line 2540, styles.scss */
 .search_tabs.tabbable {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-/* line 2542, styles.scss */
+/* line 2545, styles.scss */
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover {
   border-radius: 0;
   border-color: transparent;
 }
 
-/* line 2547, styles.scss */
+/* line 2550, styles.scss */
 .nav-tabs > li > a, .nav-pills > li > a {
   margin-right: 0;
 }
 
-/* line 2553, styles.scss */
+/* line 2556, styles.scss */
 .modal-header_left {
   display: none;
 }
 
-/* line 2558, styles.scss */
+/* line 2561, styles.scss */
 .compare_result.loading {
   visibility: hidden;
 }
-/* line 2561, styles.scss */
+/* line 2564, styles.scss */
 .compare_result .column {
   display: inline-block;
   vertical-align: top;
@@ -5797,7 +5800,7 @@ line.tick {
   *zoom: 1;
   *display: inline;
 }
-/* line 2564, styles.scss */
+/* line 2567, styles.scss */
 .compare_result .meter {
   cursor: pointer;
   position: relative;
@@ -5807,111 +5810,111 @@ line.tick {
   -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
 }
-/* line 2569, styles.scss */
+/* line 2572, styles.scss */
 .compare_result .meter:hover {
   color: navy;
   border: 1px solid #aac8ff;
 }
-/* line 2574, styles.scss */
+/* line 2577, styles.scss */
 .compare_result .badge {
   position: absolute;
   right: 0;
   top: 4px;
 }
-/* line 2579, styles.scss */
+/* line 2582, styles.scss */
 .compare_result .background {
   padding: 5px 0;
 }
-/* line 2583, styles.scss */
+/* line 2586, styles.scss */
 .compare_result .column_1 ul {
   background-color: #f1f6ff;
   border: 1px solid #dde9ff;
 }
-/* line 2586, styles.scss */
+/* line 2589, styles.scss */
 .compare_result .column_1 ul .background {
   background-color: #dde9ff;
 }
-/* line 2590, styles.scss */
+/* line 2593, styles.scss */
 .compare_result .column_2 ul {
   background-color: #fff9ec;
   border: 1px solid #FFF3D8;
 }
-/* line 2593, styles.scss */
+/* line 2596, styles.scss */
 .compare_result .column_2 ul .background {
   background-color: #FFF3D8;
 }
-/* line 2597, styles.scss */
+/* line 2600, styles.scss */
 .compare_result ul {
   padding: 2px;
   margin-right: 2em;
   width: 400px;
   font-size: 1.1em;
 }
-/* line 2604, styles.scss */
+/* line 2607, styles.scss */
 .compare_result ul li {
   margin-bottom: 0.5em;
   white-space: nowrap;
 }
 
-/* line 2619, styles.scss */
+/* line 2622, styles.scss */
 .popover {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
-/* line 2621, styles.scss */
+/* line 2624, styles.scss */
 .popover .popover-content {
   padding: 5px;
 }
-/* line 2624, styles.scss */
+/* line 2627, styles.scss */
 .popover .btn_container {
   margin-top: 1em;
   text-align: right;
 }
 
-/* line 2630, styles.scss */
+/* line 2633, styles.scss */
 .tab_preloaders {
   display: inline-block;
 }
-/* line 2632, styles.scss */
+/* line 2635, styles.scss */
 .tab_preloaders .preloader_spinner {
   width: 9px;
   display: inline;
 }
 
-/* line 2641, styles.scss */
+/* line 2644, styles.scss */
 .close_icon {
   display: inline;
 }
 
-/* line 2644, styles.scss */
+/* line 2647, styles.scss */
 .tab_spinner {
   display: none;
   width: 13px;
 }
 
-/* line 2648, styles.scss */
+/* line 2651, styles.scss */
 .loading .tab_spinner {
   display: inline-block;
 }
 
-/* line 2651, styles.scss */
+/* line 2654, styles.scss */
 .loading .close_icon {
   display: none;
 }
 
-/* line 2656, styles.scss */
+/* line 2659, styles.scss */
 .badge {
   padding-right: 6px;
   padding-left: 6px;
 }
 
-/* line 2661, styles.scss */
+/* line 2664, styles.scss */
 .popper_menu {
   min-width: 130px;
 }
 
-/* line 2665, styles.scss */
+/* line 2668, styles.scss */
 .tab-content {
   overflow: hidden;
 }
@@ -5919,49 +5922,49 @@ line.tick {
 /* Side notes for calling out things
 -------------------------------------------------- */
 /* Base styles (regardless of theme) */
-/* line 2677, styles.scss */
+/* line 2680, styles.scss */
 .bs-callout {
   margin: 20px 0;
   padding: 15px 30px 15px 15px;
   border-left: 5px solid #eee;
 }
 
-/* line 2682, styles.scss */
+/* line 2685, styles.scss */
 .bs-callout h4 {
   margin-top: 0;
 }
 
-/* line 2685, styles.scss */
+/* line 2688, styles.scss */
 .bs-callout p:last-child {
   margin-bottom: 0;
 }
 
-/* line 2688, styles.scss */
+/* line 2691, styles.scss */
 .bs-callout code,
 .bs-callout .highlight {
   background-color: #fff;
 }
 
 /* Themes for different contexts */
-/* line 2694, styles.scss */
+/* line 2697, styles.scss */
 .bs-callout-danger {
   background-color: #fcf2f2;
   border-color: #dFb5b4;
 }
 
-/* line 2698, styles.scss */
+/* line 2701, styles.scss */
 .bs-callout-warning {
   background-color: #fefbed;
   border-color: #f1e7bc;
 }
 
-/* line 2702, styles.scss */
+/* line 2705, styles.scss */
 .bs-callout-info {
   background-color: #f0f7fd;
   border-color: #d0e3f0;
 }
 
-/* line 2707, styles.scss */
+/* line 2710, styles.scss */
 .dropdown-menu {
   border-radius: 2px;
   max-height: 575px;
@@ -5969,19 +5972,19 @@ line.tick {
 }
 
 /* ----------- Newsdesk ----------- */
-/* line 2715, styles.scss */
+/* line 2718, styles.scss */
 #news_area {
   float: right;
   margin-right: 4px;
 }
 
-/* line 2719, styles.scss */
+/* line 2722, styles.scss */
 .newsdesk-new-news {
   font-weight: bold;
   color: #428bca;
 }
 
-/* line 2723, styles.scss */
+/* line 2726, styles.scss */
 .newsdesk-new-news div {
   background-color: red;
   color: red;
@@ -5989,7 +5992,7 @@ line.tick {
   background: #ff0000;
 }
 
-/* line 2729, styles.scss */
+/* line 2732, styles.scss */
 .newsdesk-new-news div:after {
   right: 100%;
   top: 50%;
@@ -6005,29 +6008,29 @@ line.tick {
   margin-top: -4px;
 }
 
-/* line 2743, styles.scss */
+/* line 2746, styles.scss */
 .newsdesk-no-new-news {
   font-weight: normal;
   color: #ddd;
 }
 
-/* line 2747, styles.scss */
+/* line 2750, styles.scss */
 .newsdesk-no-new-news div {
   background-color: #ddd;
 }
 
-/* line 2750, styles.scss */
+/* line 2753, styles.scss */
 .newsdesk-new-news-item {
   background-color: #ffeeee;
   border-radius: 5px;
 }
 
-/* line 2754, styles.scss */
+/* line 2757, styles.scss */
 .newsdesk-new-news-item h4 {
   color: red;
 }
 
-/* line 2757, styles.scss */
+/* line 2760, styles.scss */
 .newsdesk-popover {
   width: 440px;
   max-width: 440px;
@@ -6035,14 +6038,14 @@ line.tick {
   overflow-y: auto;
 }
 
-/* line 2764, styles.scss */
+/* line 2767, styles.scss */
 .newsdesk-bell {
   float: left;
   margin-top: 4px;
   margin-right: 3px;
 }
 
-/* line 2769, styles.scss */
+/* line 2772, styles.scss */
 .newsdesk-arrow-box {
   float: left;
   padding-left: 4px;
@@ -6050,51 +6053,51 @@ line.tick {
   border-radius: 3px;
 }
 
-/* line 2775, styles.scss */
+/* line 2778, styles.scss */
 .newsdesk-arrow-box span {
   color: #fff;
 }
 
-/* line 2778, styles.scss */
+/* line 2781, styles.scss */
 .newsdesk-news-item {
   padding-left: 4px;
   margin-bottom: 4px;
 }
 
-/* line 2782, styles.scss */
+/* line 2785, styles.scss */
 .newsdesk-opener {
   cursor: pointer;
 }
 
-/* line 2785, styles.scss */
+/* line 2788, styles.scss */
 .newsdesk-around-items {
   margin: 10px;
 }
 
-/* line 2788, styles.scss */
+/* line 2791, styles.scss */
 .newsdesk-item-date {
   font-style: italic;
   color: gray;
 }
 
 /* ----------- Autocompletion ----------- */
-/* line 2795, styles.scss */
+/* line 2798, styles.scss */
 .none-to-find {
   color: #aaa;
 }
 
-/* line 2798, styles.scss */
+/* line 2801, styles.scss */
 .num-to-find {
   visibility: hidden;
   font-size: x-small;
 }
 
-/* line 2802, styles.scss */
+/* line 2805, styles.scss */
 li.active a span .num-to-find {
   visibility: visible;
 }
 
-/* line 2805, styles.scss */
+/* line 2808, styles.scss */
 .autoc-spinner {
   margin-left: -20px;
   margin-top: 2px;
@@ -6102,23 +6105,23 @@ li.active a span .num-to-find {
 }
 
 /* Map */
-/* line 2811, styles.scss */
+/* line 2814, styles.scss */
 .name_map {
   max-width: 1000px;
 }
 
-/* line 2815, styles.scss */
+/* line 2818, styles.scss */
 .leaflet-control-layers-toggle {
   background-image: url(../components/leaflet/dist/images/layers.png);
 }
 
 /* korp multi select directive */
-/* line 2821, styles.scss */
+/* line 2824, styles.scss */
 .reduce-attr-select {
   color: #000;
   display: inline-block;
 }
-/* line 2824, styles.scss */
+/* line 2827, styles.scss */
 .reduce-attr-select .reduce-dropdown-button {
   cursor: pointer;
   width: 100%;
@@ -6126,72 +6129,72 @@ li.active a span .num-to-find {
   overflow: hidden;
   transition: border-color 200ms;
 }
-/* line 2829, styles.scss */
+/* line 2832, styles.scss */
 .reduce-attr-select .reduce-dropdown-button .caret {
   right: 7px;
   position: absolute;
   top: 10px;
 }
-/* line 2835, styles.scss */
+/* line 2838, styles.scss */
 .reduce-attr-select .reduce-dropdown-button:hover {
   border-color: #999;
 }
-/* line 2839, styles.scss */
+/* line 2842, styles.scss */
 .reduce-attr-select .reduce-dropdown-button-text {
   width: 1000px;
   padding: 2px 5px;
 }
-/* line 2843, styles.scss */
+/* line 2846, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu {
   width: 100%;
   max-height: 400px;
 }
-/* line 2846, styles.scss */
+/* line 2849, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .selected {
   background: #f2f7ff;
 }
-/* line 2849, styles.scss */
+/* line 2852, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .attribute {
   cursor: pointer;
   padding: 2px 1px;
 }
-/* line 2851, styles.scss */
+/* line 2854, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .attribute:hover {
   background-color: #e6e6e6;
 }
-/* line 2856, styles.scss */
+/* line 2859, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .reduce-check {
   margin: 0px;
   margin-top: 4px;
   margin-right: 4px;
 }
-/* line 2861, styles.scss */
+/* line 2864, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .reduce-label {
   position: absolute;
 }
-/* line 2864, styles.scss */
+/* line 2867, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu ul {
   margin: 0;
   padding: 2px;
 }
-/* line 2868, styles.scss */
+/* line 2871, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .insensitive-toggle {
   float: right;
   color: black;
 }
-/* line 2872, styles.scss */
+/* line 2875, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .insensitive-toggle.selected {
   color: grey;
 }
 
 /* sidebar video */
-/* line 2879, styles.scss */
+/* line 2882, styles.scss */
 #video-container {
   height: 320px;
   width: 568px;
   position: relative;
 }
-/* line 2883, styles.scss */
+/* line 2886, styles.scss */
 #video-container #extra-controls {
   height: 320px;
   width: 568px;
@@ -6201,7 +6204,7 @@ li.active a span .num-to-find {
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.7);
 }
-/* line 2891, styles.scss */
+/* line 2894, styles.scss */
 #video-container #extra-controls > * {
   width: 75px;
   height: 75px;
@@ -6212,79 +6215,79 @@ li.active a span .num-to-find {
   color: white;
   font-weight: bold;
 }
-/* line 2901, styles.scss */
+/* line 2904, styles.scss */
 #video-container #extra-controls .restart {
   top: 35%;
   left: 25%;
 }
-/* line 2905, styles.scss */
+/* line 2908, styles.scss */
 #video-container #extra-controls .continue {
   top: 35%;
   right: 25%;
   float: right;
 }
-/* line 2910, styles.scss */
+/* line 2913, styles.scss */
 #video-container #extra-controls .restart-icon, #video-container #extra-controls .continue-icon {
   font-size: 3em;
   display: block;
 }
 
-/* line 2917, styles.scss */
+/* line 2920, styles.scss */
 #video-meta-container .utterance, #video-meta-container .time {
   font-weight: bold;
 }
-/* line 2920, styles.scss */
+/* line 2923, styles.scss */
 #video-meta-container .time-div {
   padding-top: 15px;
 }
 
-/* line 2925, styles.scss */
+/* line 2928, styles.scss */
 .or_container .word {
   color: #222222;
 }
 
-/* line 2929, styles.scss */
+/* line 2932, styles.scss */
 .map-settings-container {
   margin-left: 20px;
 }
-/* line 2931, styles.scss */
+/* line 2934, styles.scss */
 .map-settings-container .caret {
   margin-left: 10px;
 }
-/* line 2934, styles.scss */
+/* line 2937, styles.scss */
 .map-settings-container ul {
   margin: 0;
   padding: 2px;
 }
-/* line 2937, styles.scss */
+/* line 2940, styles.scss */
 .map-settings-container ul .map-selected {
   margin: 0px;
   margin-top: 4px;
   margin-right: 4px;
 }
-/* line 2942, styles.scss */
+/* line 2945, styles.scss */
 .map-settings-container ul li {
   cursor: pointer;
   padding: 2px 1px;
   white-space: nowrap;
 }
-/* line 2947, styles.scss */
+/* line 2950, styles.scss */
 .map-settings-container ul .selected {
   background: #f2f7ff;
 }
-/* line 2951, styles.scss */
+/* line 2954, styles.scss */
 .map-settings-container .empty-attribute-list {
   font-style: italic;
   font-size: 12px;
   padding-top: 2px;
   padding-left: 2px;
 }
-/* line 2957, styles.scss */
+/* line 2960, styles.scss */
 .map-settings-container .btn-container {
   padding: 10px;
   text-align: right;
 }
-/* line 2961, styles.scss */
+/* line 2964, styles.scss */
 .map-settings-container .map-settings-title {
   margin: 0;
   padding: 8px 14px;
@@ -6294,83 +6297,83 @@ li.active a span .num-to-find {
   background-color: #f7f7f7;
   border-bottom: 1px solid #ebebeb;
 }
-/* line 2970, styles.scss */
+/* line 2973, styles.scss */
 .map-settings-container .dropdown-menu {
   padding: 0px;
 }
 
-/* line 2975, styles.scss */
+/* line 2978, styles.scss */
 #mapHeader {
   width: 100%;
 }
-/* line 2977, styles.scss */
+/* line 2980, styles.scss */
 #mapHeader div.disabled {
   opacity: 0.4;
 }
-/* line 2980, styles.scss */
+/* line 2983, styles.scss */
 #mapHeader div.mapgroup {
   display: inline-block;
   margin-right: 20px;
   cursor: pointer;
 }
-/* line 2982, styles.scss */
+/* line 2985, styles.scss */
 #mapHeader div.mapgroup div.swatch {
   display: inline-block;
   margin-right: 5px;
 }
-/* line 2986, styles.scss */
+/* line 2989, styles.scss */
 #mapHeader div.mapgroup div.cluster-info {
   background-color: rgba(136, 220, 168, 0.6);
   border-radius: 5px;
 }
-/* line 2993, styles.scss */
+/* line 2996, styles.scss */
 #mapHeader span.check {
   opacity: 0.5 !important;
   color: white;
 }
 
 /* Hide an element if or if not logged in */
-/* line 3002, styles.scss */
+/* line 3005, styles.scss */
 .logged_in .hide_if_logged_in {
   display: none;
 }
 
-/* line 3006, styles.scss */
+/* line 3009, styles.scss */
 .not_logged_in .hide_if_not_logged_in {
   display: none;
 }
 
 /* Styles for the restricted corpora access modal */
-/* line 3013, styles.scss */
+/* line 3016, styles.scss */
 #accessResCorporaModal {
   z-index: 11000;
 }
-/* line 3017, styles.scss */
+/* line 3020, styles.scss */
 #accessResCorporaModal .modal-body {
   min-height: 2em;
 }
-/* line 3024, styles.scss */
+/* line 3027, styles.scss */
 #accessResCorporaModal .close-x {
   opacity: 1;
 }
 
-/* line 3029, styles.scss */
+/* line 3032, styles.scss */
 #resCorporaList {
   display: inline;
 }
-/* line 3031, styles.scss */
+/* line 3034, styles.scss */
 #resCorporaList li {
   margin-left: 1em;
   font-size: 0.9em;
 }
 
-/* line 3037, styles.scss */
+/* line 3040, styles.scss */
 #resCorporaListContainer {
   max-height: 20em;
   overflow-y: auto;
 }
 
-/* line 3044, styles.scss */
+/* line 3047, styles.scss */
 .access-corpora-aca #accessResCorporaPreambleACARES,
 .access-corpora-aca #accessResCorporaPreambleRES,
 .access-corpora-aca #accessResCorporaPreambleACAFi,
@@ -6416,7 +6419,7 @@ li.active a span .num-to-find {
   display: none;
 }
 
-/* line 3089, styles.scss */
+/* line 3092, styles.scss */
 .access-corpora-res #accessResCorporaPostambleACA {
   display: none;
 }
@@ -6434,132 +6437,132 @@ li.active a span .num-to-find {
     margin-left: 1em;
 }
 */
-/* line 3109, styles.scss */
+/* line 3112, styles.scss */
 .modal-backdrop {
   z-index: 10040;
 }
 
 /* Styles specific to Kielipankki's corpora */
 /* DMA signum lists represented as tables */
-/* line 3122, styles.scss */
+/* line 3125, styles.scss */
 .dma-signumlist td {
   vertical-align: top;
 }
-/* line 3125, styles.scss */
+/* line 3128, styles.scss */
 .dma-signumlist .sgo0, .dma-signumlist .sgo5 {
   font-weight: bold;
 }
-/* line 3128, styles.scss */
+/* line 3131, styles.scss */
 .dma-signumlist .sgo3 {
   font-weight: bold;
   font-size: 1.2em;
 }
-/* line 3132, styles.scss */
+/* line 3135, styles.scss */
 .dma-signumlist .sgo4 {
   font-weight: bold;
   font-size: 1.4em;
 }
-/* line 3137, styles.scss */
+/* line 3140, styles.scss */
 .dma-signumlist tr.vspacer {
   font-size: 0.3em;
 }
 
 /* ScotsCorr word selector modal */
-/* line 3144, styles.scss */
+/* line 3147, styles.scss */
 .modal-value {
   font-size: 0.8em;
   width: 100%;
 }
 
-/* line 3149, styles.scss */
+/* line 3152, styles.scss */
 .modal-value-heading {
   font-weight: bold;
 }
 
-/* line 3153, styles.scss */
+/* line 3156, styles.scss */
 #wordselector-selected-words {
   display: block;
   line-height: 95%;
 }
 
-/* line 3158, styles.scss */
+/* line 3161, styles.scss */
 .modal-buttons, .modal-value {
   display: block;
 }
 
-/* line 3162, styles.scss */
+/* line 3165, styles.scss */
 .modal-buttons button {
   margin-right: 0.5em;
 }
 
-/* line 3166, styles.scss */
+/* line 3169, styles.scss */
 .modal-wordselector {
   overflow-y: auto;
   font-size: 1em;
   margin: 0.5em 1em 0.5em 1em;
 }
-/* line 3170, styles.scss */
+/* line 3173, styles.scss */
 .modal-wordselector ul {
   list-style: none;
 }
-/* line 3172, styles.scss */
+/* line 3175, styles.scss */
 .modal-wordselector ul li ul {
   margin-left: 2em;
   line-height: 70%;
 }
 
-/* line 3179, styles.scss */
+/* line 3182, styles.scss */
 .wordselector-group-heading {
   font-weight: bold;
   cursor: pointer;
 }
-/* line 3182, styles.scss */
+/* line 3185, styles.scss */
 .wordselector-group-heading:hover {
   color: darkgrey;
 }
 
-/* line 3187, styles.scss */
+/* line 3190, styles.scss */
 .wordselector-group-name {
   display: inline-block;
   min-width: 1em;
 }
 
-/* line 3192, styles.scss */
+/* line 3195, styles.scss */
 .wordselector-freq {
   color: #555555;
 }
 
-/* line 3198, styles.scss */
+/* line 3201, styles.scss */
 .wordselector-word-unselected {
   font-weight: normal;
 }
 
-/* line 3202, styles.scss */
+/* line 3205, styles.scss */
 .wordselector-word-selected {
   font-weight: bold;
 }
 
-/* line 3206, styles.scss */
+/* line 3209, styles.scss */
 .list-link-icon {
   margin-left: 0.25em;
   cursor: pointer;
 }
-/* line 3209, styles.scss */
+/* line 3212, styles.scss */
 .list-link-icon:hover {
   color: darkgrey;
 }
 
-/* line 3214, styles.scss */
+/* line 3217, styles.scss */
 .book-link-icon {
   margin-left: 0.25em;
   cursor: pointer;
 }
-/* line 3217, styles.scss */
+/* line 3220, styles.scss */
 .book-link-icon:hover {
   color: darkgrey;
 }
 
-/* line 3222, styles.scss */
+/* line 3225, styles.scss */
 .arg_value_wordselector {
   width: 85% !important;
 }
