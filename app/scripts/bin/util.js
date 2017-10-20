@@ -2221,4 +2221,89 @@
     return util.test_encodeListParams(["foobar", "foo,bar", "foo,fbar", "lam_antr,lam_ahla,foobar", "foo,bar,baz,zoo", "lam_antr,lam_ahla,lam_kosk,lam_kell", "lam_antr,lam_ahla,lam_x,lam_y", "lam_antr,lam_ahla,lam_atestipiste_x,lam_atestipiste_y", "lam_antr,lam_ahla,lam_atestipiste_x,lam_atestipiste_y,lam_atestipiste_z", "lam_antr,lam_ahla,lam_xtestipiste_x,lam_xtestipiste_y", "lam_xtestipiste_x,lam_xtestipiste_y,lam_antr,lam_ahla", "lam_antr,lam_ahla,lam_x,lam_y,lam_ypsilon", "ftb2,ftb3_ep,ftb3_ja", "ftb3x_ep,ftb3x_ja,ftb2", "ftb3x_ep,ftb2,ftb3x_ja", "ftb2,ftb3x_ep,ftb3x_ja", "ftb3xx_ep,ftb3xx_ja,ftb2", "ftb2,ftb3xx_ep,ftb3xx_ja", "ftb3xx_ep,ftb2,ftb3xx_ja", "ethesis_ma_ai,ethesis_ma_bio,ethesis_ma_el,ethesis_ma_far,ethesis_phd_bio,ethesis_phd_el", "klk_fi_1991,klk_fi_1989,klk_fi_1988,klk_fi_1987,klk_fi_1986,klk_fi_1985,klk_fi_1984,klk_fi_1983,klk_fi_1982,klk_fi_1981,klk_fi_1980,klk_fi_1979", "s24,s24_1,s24,s24_2,s24"]);
   };
 
+  util.compressUrlHashParams = function(href, opts) {
+    var compressed, fixed, min_length, params, ref;
+    if (href == null) {
+      href = null;
+    }
+    if (opts == null) {
+      opts = null;
+    }
+    ref = util.splitUrlOnHash(href), fixed = ref[0], params = ref[1];
+    min_length = (opts != null ? opts.min_length : void 0) || 2000;
+    if (fixed.length + params.length < min_length) {
+      return fixed + "#?" + params;
+    }
+    compressed = fixed + "#?gz=" + util.compressBase64(params);
+    c.log("compressUrlHashParams", fixed + "#?" + params, "=>", compressed);
+    return compressed;
+  };
+
+  util.decompressUrlHashParams = function(href) {
+    var fixed, k, len1, param, paramlist, paramnum, params, ref, uncompressed;
+    if (href == null) {
+      href = null;
+    }
+    ref = util.splitUrlOnHash(href), fixed = ref[0], params = ref[1];
+    if (!/(^|&)gz=/.test(params)) {
+      return href || window.location.href;
+    }
+    paramlist = params.split("&");
+    for (paramnum = k = 0, len1 = paramlist.length; k < len1; paramnum = ++k) {
+      param = paramlist[paramnum];
+      if (_.str.startsWith(param, "gz=")) {
+        paramlist[paramnum] = util.decompressBase64(param.slice(3));
+      }
+    }
+    uncompressed = fixed + "#?" + paramlist.join("&");
+    c.log("decompressUrlHashParams", fixed + "?#" + params, "=>", uncompressed);
+    return uncompressed;
+  };
+
+  util.decompressActiveUrlHashParams = function() {
+    var new_href;
+    new_href = util.decompressUrlHashParams();
+    if (new_href !== window.location.href) {
+      window.location.replace(new_href);
+    }
+  };
+
+  util.compressBase64 = function(str) {
+    return util.b64EncodeUnicodeUrlSafe(pako.deflate(str, {
+      to: 'string'
+    }));
+  };
+
+  util.decompressBase64 = function(str) {
+    return pako.inflate(util.b64DecodeUnicodeUrlSafe(str), {
+      to: 'string'
+    });
+  };
+
+  util.splitUrlOnHash = function(href) {
+    var comps, fixed, params;
+    if (href == null) {
+      href = null;
+    }
+    if (href == null) {
+      href = window.location.href;
+    }
+    comps = href.split("#?");
+    fixed = comps[0];
+    params = comps.slice(1).join("#?");
+    return [fixed, params];
+  };
+
+  util.b64EncodeUnicodeUrlSafe = function(str) {
+    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
+      return String.fromCharCode('0x' + p1);
+    })).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
+  };
+
+  util.b64DecodeUnicodeUrlSafe = function(str) {
+    return decodeURIComponent(atob(str.replace(/-/g, "+").replace(/_/g, "/")).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+  };
+
 }).call(this);

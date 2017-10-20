@@ -2363,3 +2363,100 @@ util.testsuite_EncodeList = () ->
         "klk_fi_1991,klk_fi_1989,klk_fi_1988,klk_fi_1987,klk_fi_1986,klk_fi_1985,klk_fi_1984,klk_fi_1983,klk_fi_1982,klk_fi_1981,klk_fi_1980,klk_fi_1979",
         "s24,s24_1,s24,s24_2,s24",
     ]
+
+
+# Functions related to compressing and decompressing the frontend URL
+# hash for Shibboleth login and logout URL parameters. (Jyrki Niemi
+# 2017-20-19)
+#
+# TODO: Also use prefix compression (util.encodeListParam,
+# util.decodeListParam) for the "corpus" parameter to get slightly
+# shorter compressed parameters.
+
+
+# Replace the hash parameters (following "#?") of href with a single
+# parameter "gz", whose value contains the original parameters
+# compressed (with zlib) and Base64-encoded, if the length of the
+# parameter list exceeds 2000 characters (or opts.min_length). If href
+# is undefined, use window.location.href.
+
+util.compressUrlHashParams = (href = null, opts = null) ->
+    [fixed, params] = util.splitUrlOnHash(href)
+    min_length = opts?.min_length or 2000
+    if fixed.length + params.length < min_length
+        return fixed + "#?" + params
+    compressed = fixed + "#?gz=" + util.compressBase64(params)
+    c.log "compressUrlHashParams", fixed + "#?" + params, "=>", compressed
+    return compressed
+
+# If href contains the hash parameter "gz", Base64-decode it,
+# decompress and replace gz with the result. If href is undefined, use
+# window.lcoation.href. Possible other hash parameters are kept
+# instact.
+
+util.decompressUrlHashParams = (href = null) ->
+    [fixed, params] = util.splitUrlOnHash(href)
+    if not /(^|&)gz=/.test(params)
+        return href or window.location.href
+    paramlist = params.split("&")
+    for param, paramnum in paramlist
+        if _.str.startsWith(param, "gz=")
+            paramlist[paramnum] = util.decompressBase64(param.slice(3))
+    uncompressed = fixed + "#?" + paramlist.join("&")
+    c.log "decompressUrlHashParams", fixed + "?#" + params, "=>", uncompressed
+    return uncompressed
+
+# If the current URL (window.location.href) contains the compressed
+# hash parameter gz, replace it with its decompressed value and use
+# the uncompressed URL.
+
+util.decompressActiveUrlHashParams = () ->
+    new_href = util.decompressUrlHashParams()
+    if new_href != window.location.href
+        window.location.replace(new_href)
+    return
+
+# Compress str (with pako zlib), encode it in URI-safe Base64 and
+# return it as a string.
+
+util.compressBase64 = (str) ->
+    util.b64EncodeUnicodeUrlSafe(pako.deflate(str, { to: 'string' }))
+
+# Decode URI-safe Base64-encoded string str, decompress it and return
+# as a string.
+
+util.decompressBase64 = (str) ->
+    pako.inflate(util.b64DecodeUnicodeUrlSafe(str), { to: 'string' })
+
+# Split href on "#?" and return it as an array of the first and last
+# part. If href is not specified, split window.location.href.
+
+util.splitUrlOnHash = (href = null) ->
+    href ?= window.location.href
+    comps = href.split("#?")
+    fixed = comps[0]
+    params = comps[1..].join("#?")
+    return [fixed, params]
+
+# The following two functions for Base64-encoding and -decoding
+# Unicode data have been slightly adapted from
+# https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#The_Unicode_Problem
+# and converted to CoffeeScript.
+
+util.b64EncodeUnicodeUrlSafe = (str) ->
+    # First we use encodeURIComponent to get percent-encoded UTF-8,
+    # then we convert the percent encodings into raw bytes which
+    # can be fed into btoa.
+    btoa(encodeURIComponent(str)
+         .replace(/%([0-9A-F]{2})/g,
+                  (match, p1) -> String.fromCharCode('0x' + p1)))
+    .replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
+
+util.b64DecodeUnicodeUrlSafe = (str) ->
+    # Going backwards: from bytestream, to percent-encoding, to
+    # original string.
+    decodeURIComponent(
+        atob(str.replace(/-/g, "+").replace(/_/g, "/"))
+        .split('')
+        .map((c) -> '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+        .join(''))
