@@ -826,8 +826,9 @@ korpApp.directive "newMapCtrl", ($timeout, searches) ->
                                     cqp : getCqpExpr()
                                     cqp2: "[_." + result.attribute + " contains " + "'" + [point.name, point.countryCode, point.lat, point.lng].join(";") + "']",
                                     cqp3: res.cqp
-                                    corpus : cl.stringifySelected()
-                                    show_struct : _.keys cl.getStructAttrs()
+                                    corpus : cl.stringifySelectedEncode()
+                                    show_struct : util.encodeListParam(
+                                            _.sortBy _.keys cl.getStructAttrs())
                                     expand_prequeries : true
                                     within: "paragraph" 
                             }
