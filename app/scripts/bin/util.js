@@ -2269,14 +2269,12 @@
   };
 
   util.compressBase64 = function(str) {
-    return util.b64EncodeUnicodeUrlSafe(pako.deflate(str, {
-      to: 'string'
-    }));
+    return util.b64EncodeBytesUrlSafe(pako.deflate(str));
   };
 
   util.decompressBase64 = function(str) {
-    return pako.inflate(util.b64DecodeUnicodeUrlSafe(str), {
-      to: 'string'
+    return pako.inflate(util.b64DecodeBytesUrlSafe(str), {
+      to: "string"
     });
   };
 
@@ -2294,16 +2292,16 @@
     return [fixed, params];
   };
 
-  util.b64EncodeUnicodeUrlSafe = function(str) {
-    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
-      return String.fromCharCode('0x' + p1);
-    })).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
+  util.b64EncodeBytesUrlSafe = function(bytes) {
+    return btoa(Array.prototype.slice.call(bytes).map(function(b) {
+      return String.fromCharCode(b);
+    }).join("")).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
   };
 
-  util.b64DecodeUnicodeUrlSafe = function(str) {
-    return decodeURIComponent(atob(str.replace(/-/g, "+").replace(/_/g, "/")).split('').map(function(c) {
-      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
+  util.b64DecodeBytesUrlSafe = function(str) {
+    return atob(str.replace(/-/g, "+").replace(/_/g, "/")).split('').map(function(c) {
+      return c.charCodeAt(0);
+    });
   };
 
 }).call(this);

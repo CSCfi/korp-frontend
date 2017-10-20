@@ -2420,13 +2420,13 @@ util.decompressActiveUrlHashParams = () ->
 # return it as a string.
 
 util.compressBase64 = (str) ->
-    util.b64EncodeUnicodeUrlSafe(pako.deflate(str, { to: 'string' }))
+    util.b64EncodeBytesUrlSafe(pako.deflate(str))
 
 # Decode URI-safe Base64-encoded string str, decompress it and return
 # as a string.
 
 util.decompressBase64 = (str) ->
-    pako.inflate(util.b64DecodeUnicodeUrlSafe(str), { to: 'string' })
+    pako.inflate(util.b64DecodeBytesUrlSafe(str), {to: "string"})
 
 # Split href on "#?" and return it as an array of the first and last
 # part. If href is not specified, split window.location.href.
@@ -2438,25 +2438,23 @@ util.splitUrlOnHash = (href = null) ->
     params = comps[1..].join("#?")
     return [fixed, params]
 
-# The following two functions for Base64-encoding and -decoding
-# Unicode data have been slightly adapted from
-# https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#The_Unicode_Problem
-# and converted to CoffeeScript.
+# Base64-encode the byte array bytes and return the encoded string.
+# This is somewhat simpler than operating with strings (see
+# https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#The_Unicode_Problem)
+# but is it faster?
 
-util.b64EncodeUnicodeUrlSafe = (str) ->
-    # First we use encodeURIComponent to get percent-encoded UTF-8,
-    # then we convert the percent encodings into raw bytes which
-    # can be fed into btoa.
-    btoa(encodeURIComponent(str)
-         .replace(/%([0-9A-F]{2})/g,
-                  (match, p1) -> String.fromCharCode('0x' + p1)))
+util.b64EncodeBytesUrlSafe = (bytes) ->
+    # Array.prototype.slice.call is needed to convert a Uint8Array to
+    # a plain Array, so that map also returns a plain Array (from
+    # https://stackoverflow.com/a/12760681).
+    btoa(Array.prototype.slice.call(bytes)
+         .map((b) -> String.fromCharCode(b))
+         .join(""))
     .replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
 
-util.b64DecodeUnicodeUrlSafe = (str) ->
-    # Going backwards: from bytestream, to percent-encoding, to
-    # original string.
-    decodeURIComponent(
-        atob(str.replace(/-/g, "+").replace(/_/g, "/"))
-        .split('')
-        .map((c) -> '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
-        .join(''))
+# Base64-decode the string str and return the result as a byte array.
+
+util.b64DecodeBytesUrlSafe = (str) ->
+    atob(str.replace(/-/g, "+").replace(/_/g, "/"))
+    .split('')
+    .map((c) -> c.charCodeAt(0))
