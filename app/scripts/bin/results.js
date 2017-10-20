@@ -81,7 +81,7 @@
 
     BaseResults.prototype.countCorpora = function() {
       var ref;
-      return (ref = this.proxy.prevParams) != null ? ref.corpus.split(",").length : void 0;
+      return (ref = this.proxy.prevParams) != null ? ref.corpus.split(/[,.]/).length : void 0;
     };
 
     BaseResults.prototype.onentry = function() {
@@ -453,7 +453,7 @@
       context = settings.corpusListing.getContextQueryString(preferredContext, avoidContext);
       opts.ajaxParams = {
         command: "query",
-        corpus: settings.corpusListing.stringifySelected(),
+        corpus: settings.corpusListing.stringifySelectedEncode(),
         queryData: this.proxy.queryData ? this.proxy.queryData : void 0,
         context: context,
         defaultcontext: preferredContext,
@@ -1017,7 +1017,7 @@
           start: 0,
           end: 24,
           command: "query",
-          corpus: $(this).data("corpora").join(",").toUpperCase(),
+          corpus: util.encodeListParam($(this).data("corpora")).toUpperCase(),
           cqp: self.proxy.prevParams.cqp,
           cqp2: decodeURIComponent(query),
           expand_prequeries: false
@@ -1346,7 +1346,7 @@
     StatsResults.prototype.updateGraphBtnState = function() {
       var cl;
       this.s.graphEnabled = true;
-      cl = settings.corpusListing.subsetFactory(this.proxy.prevParams.corpus.split(","));
+      cl = settings.corpusListing.subsetFactory(util.decodeListParam(this.proxy.prevParams.corpus));
       if (!(_.compact(cl.getTimeInterval())).length) {
         return this.s.graphEnabled = false;
       }
@@ -1581,7 +1581,7 @@
               start: 0,
               end: 24,
               command: "query",
-              corpus: _this.s.data.corpusListing.stringifySelected(),
+              corpus: _this.s.data.corpusListing.stringifySelectedEncode(),
               cqp: _this.s.data.cqp,
               cqp2: timecqp,
               expand_prequeries: false
@@ -2074,7 +2074,7 @@
       this.s.loading = true;
       this.showPreloader();
       currentZoom = this.zoom;
-      return this.proxy.makeRequest(cqp, subcqps, corpora.stringifySelected(), from, to).progress((function(_this) {
+      return this.proxy.makeRequest(cqp, subcqps, corpora.stringifySelectedEncode(), from, to).progress((function(_this) {
         return function(data) {
           return _this.onProgress(data);
         };

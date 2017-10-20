@@ -226,11 +226,12 @@
       }
       util.addPrequeryWithin(data);
       this.prevCQP = util.combineCQPs(data);
-      data.show = (_.uniq(["sentence"].concat(data.show))).join(",");
+      data.show = util.encodeListParamUniq(["sentence"].concat(data.show));
       c.log("data.show", data.show);
-      data.show_struct = (_.uniq(data.show_struct)).join(",");
+      data.show_struct = util.encodeListParamUniq(data.show_struct);
       settings.corpusListing.minimizeWithinQueryString(data);
       settings.corpusListing.minimizeContextQueryString(data);
+      data.corpus = util.encodeListParam(data.corpus);
       this.prevRequest = data;
       this.prevMisc = {
         "hitsPerPage": $("#num_hits").val()
@@ -275,7 +276,7 @@
       params = {
         command: "relations",
         word: word,
-        corpus: settings.corpusListing.stringifySelected(),
+        corpus: settings.corpusListing.stringifySelectedEncode(),
         incremental: $.support.ajaxProgress,
         type: type,
         cache: true,
@@ -504,7 +505,7 @@
       parameters = {
         command: "count",
         groupby: reduceVals.join(','),
-        corpus: settings.corpusListing.stringifySelected(true),
+        corpus: settings.corpusListing.stringifySelectedEncode(true),
         incremental: $.support.ajaxProgress
       };
       this.addExpandedCQP(parameters, cqp);
@@ -794,7 +795,7 @@
       self = this;
       params = {
         command: "count_time",
-        corpus: corpora,
+        corpus: util.encodeListParam(corpora),
         granularity: this.granularity,
         incremental: $.support.ajaxProgress
       };
@@ -866,7 +867,7 @@
       })()).join(",") : null;
       params = {
         command: "names",
-        corpus: settings.corpusListing.stringifySelected(),
+        corpus: settings.corpusListing.stringifySelectedEncode(),
         defaultwithin: "sentence",
         default_nameswithin: "text_id",
         max: settings.name_group_max_names || 30,

@@ -48,6 +48,11 @@ settings.autocompleteLemgramCount = 15;
 
 settings.textDateAllowBareYears = true;
 
+// Encode list-valued parameters for korp.cgi by extracting common
+// prefixes. If not defined, considered false. (Jyrki Niemi
+// 2017-09-29)
+settings.encodeListParams = true;
+
 settings.downloadFormats = [
     "annot",
     "ref",
@@ -206,19 +211,22 @@ settings.news_desk_url =
 // authenticationType: "basic", "shibboleth" or "none"
 settings.authenticationType = (isProductionServer ? "shibboleth" : "basic");
 // Login and logout URLs to use with Shibboleth authentication if
-// authenticationType == "shibboleth"
+// authenticationType == "shibboleth". Compress the hash parameters of
+// the return URL to make exceeding the Apache URL length limit less
+// likely.
 // for eduGAIN / CSC Account:
 // settings.shibbolethLoginUrl = baseURL + "shibboleth-ds/index.html";
 settings.shibbolethLoginUrl = function (href) {
     return ("/shibboleth-ds/index.html?"
-            + encodeURIComponent((href || window.location.href)
-				 + "&shib_logged_in"));
+            + encodeURIComponent(util.compressUrlHashParams(
+		(href || window.location.href) + "&shib_logged_in")));
 };
 // settings.shibbolethLogoutUrl =
 //     "https://korp.csc.fi/Shibboleth.sso/Logout?return=" + encodeURI(baseURL);
 settings.shibbolethLogoutUrl = function (href) {
     return ("/Shibboleth.sso/Logout?return="
-            + encodeURIComponent(href || window.location.href));
+            + encodeURIComponent(
+		util.compressUrlHashParams(href || window.location.href)));
 }
 
 // Return a direct URL to the application of a corpus in Language Bank

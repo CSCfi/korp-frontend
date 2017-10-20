@@ -688,8 +688,8 @@
                 command: "query",
                 cqp: cmp.cqp,
                 cqp2: cqp,
-                corpus: cl.stringifySelected(),
-                show_struct: _.keys(cl.getStructAttrs()),
+                corpus: cl.stringifySelectedEncode(),
+                show_struct: util.encodeListParam(_.sortBy(_.keys(cl.getStructAttrs()))),
                 expand_prequeries: false
               }
             };
@@ -743,7 +743,7 @@
           s.showMap = Boolean(val);
           if (s.showMap) {
             currentCqp = getCqpExpr();
-            currentCorpora = settings.corpusListing.stringifySelected(true);
+            currentCorpora = settings.corpusListing.stringifySelectedEncode(true);
             if (currentCqp !== ((ref = s.lastSearch) != null ? ref.cqp : void 0) || currentCorpora !== ((ref1 = s.lastSearch) != null ? ref1.corpora : void 0)) {
               return s.hasResult = false;
             }
@@ -797,7 +797,7 @@
         });
         s.countCorpora = function() {
           var ref, ref1;
-          return (ref = s.proxy) != null ? (ref1 = ref.prevParams) != null ? ref1.corpus.split(",").length : void 0 : void 0;
+          return (ref = s.proxy) != null ? (ref1 = ref.prevParams) != null ? ref1.corpus.split(/[,.]/).length : void 0 : void 0;
         };
         fixData = function(data) {
           var abs, fixedData, k, len1, name, names, rel;
@@ -838,8 +838,8 @@
                         command: "query",
                         cqp: getCqpExpr(),
                         cqp2: "[" + settings.placenameAttr + "='" + query + "' & (" + settings.placenameConstraint + ")]",
-                        corpus: cl.stringifySelected(),
-                        show_struct: _.keys(cl.getStructAttrs()),
+                        corpus: cl.stringifySelectedEncode(),
+                        show_struct: util.encodeListParam(_.sortBy(_.keys(cl.getStructAttrs()))),
                         expand_prequeries: true
                       }
                     };

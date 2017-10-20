@@ -131,9 +131,9 @@
         params = {
           command: "loglike",
           groupby: reduce.join(','),
-          set1_corpus: corpora1.join(",").toUpperCase(),
+          set1_corpus: util.encodeListParam(corpora1).toUpperCase(),
           set1_cqp: cmpObj1.cqp,
-          set2_corpus: corpora2.join(",").toUpperCase(),
+          set2_corpus: util.encodeListParam(corpora2).toUpperCase(),
           set2_cqp: cmpObj2.cqp,
           max: 50,
           split: split
@@ -526,7 +526,7 @@
     karpURL = "https://ws.spraakbanken.gu.se/ws/karp/v1";
     return {
       getLemgrams: function(wf, resources, corporaIDs) {
-        var args, deferred, url;
+        var args, deferred, http_params;
         deferred = $q.defer();
         args = {
           "q": wf,
@@ -538,15 +538,22 @@
             corpus: corporaIDs.join(","),
             limit: settings.autocompleteLemgramCount || 10
           });
-          url = settings.lemgrams_cgi_script;
+          http_params = {
+            method: "POST",
+            url: settings.lemgrams_cgi_script,
+            data: $.param(args),
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
+          };
         } else {
-          url = karpURL + "/autocomplete";
+          http_params = {
+            method: "GET",
+            url: karpURL + "/autocomplete",
+            params: args
+          };
         }
-        $http({
-          method: "GET",
-          url: url,
-          params: args
-        }).success(function(data, status, headers, config) {
+        $http(http_params).success(function(data, status, headers, config) {
           var corpora, div, karpLemgrams, lemgram;
           if (data === null) {
             return deferred.resolve([]);

@@ -100,9 +100,9 @@ korpApp.factory 'backend', ($http, $q, utils, lexicons) ->
         params =
             command : "loglike"
             groupby : reduce.join ','
-            set1_corpus : corpora1.join(",").toUpperCase()
+            set1_corpus : util.encodeListParam(corpora1).toUpperCase()
             set1_cqp : cmpObj1.cqp
-            set2_corpus : corpora2.join(",").toUpperCase()
+            set2_corpus : util.encodeListParam(corpora2).toUpperCase()
             set2_cqp : cmpObj2.cqp
             max : 50
             split : split
@@ -523,13 +523,23 @@ korpApp.factory "lexicons", ($q, $http) ->
                 corpus: corporaIDs.join(",")
                 limit: settings.autocompleteLemgramCount or 10
             }
-            url = settings.lemgrams_cgi_script
+            # Pass data to FIN-CLARIN lemgram service with POST to
+            # avoid the need to encode long lists of corpora. (Jyrki
+            # Niemi 2017-09-29)
+            http_params =
+                method : "POST"
+                url : settings.lemgrams_cgi_script
+                data : $.param(args)
+                headers : {
+                    'Content-Type' :
+                            'application/x-www-form-urlencoded; charset=UTF-8'
+                }
         else
-            url = "#{karpURL}/autocomplete"
-        $http(
-            method : "GET"
-            url : url
-            params : args
+            http_params =
+                method : "GET"
+                url : "#{karpURL}/autocomplete"
+                params : args
+        $http(http_params
         ).success((data, status, headers, config) ->
             if data is null
                 deferred.resolve []
