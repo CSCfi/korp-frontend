@@ -1080,7 +1080,8 @@ attrs.baseform_sv = {
     label: "baseform",
     type: "set",
     opts: settings.setOptions,
-    extended_template: "<input ng-model='model' >"
+    extended_template: "<input ng-model='model' >",
+    order: 49,
 };
 attrs.baseform = {
     label: "baseform",
@@ -1090,7 +1091,6 @@ attrs.baseform = {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
     opts: settings.defaultOptions,
-    order: 49
 };
 attrs.baseform_ftb2 = {
     label: "baseform",
