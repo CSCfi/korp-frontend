@@ -1079,6 +1079,10 @@ attrs.msd_sv = {
 attrs.baseform_sv = {
     label: "baseform",
     type: "set",
+    // displayType: "autocomplete",
+    stringify: function(baseform) {
+        return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
+    },
     opts: settings.setOptions,
     extended_template: "<input ng-model='model' >",
     order: 49,
