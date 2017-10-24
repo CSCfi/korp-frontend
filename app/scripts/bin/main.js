@@ -41,16 +41,19 @@
     $(function() {
       var mode;
       mode = $.deparam.querystring().mode;
-      if ((mode != null) && mode !== "default") {
+      if (!mode) {
+        mode = "default";
+      }
+      return $.getScript("modes/common.js").done(function() {
         return $.getScript("modes/" + mode + "_mode.js").done(function() {
           util.applyShortUrlConfig();
           return dfd.resolve();
         }).error(function(jqxhr, settings, exception) {
           return c.error("Mode file parsing error: ", exception);
         });
-      } else {
-        return dfd.resolve();
-      }
+      }).error(function(jqxhr, settings, exception) {
+        return c.error("common.js parsing error: ", exception);
+      });
     });
     return dfd;
   }).promise();

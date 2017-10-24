@@ -33,7 +33,9 @@ util.applyShortUrlConfig()
 deferred_domReady = $.Deferred((dfd) ->
     $ ->
         mode = $.deparam.querystring().mode
-        if mode? and mode isnt "default"
+        unless mode
+            mode = "default"
+        $.getScript("modes/common.js").done () ->
             $.getScript("modes/#{mode}_mode.js").done () ->
                 # If using a short URL, execute the corresponding
                 # function for mode-specific configuration
@@ -41,11 +43,8 @@ deferred_domReady = $.Deferred((dfd) ->
                 dfd.resolve()
             .error (jqxhr, settings, exception) ->
                 c.error "Mode file parsing error: ", exception
-        else
-            dfd.resolve()
-
-
-
+        .error (jqxhr, settings, exception) ->
+            c.error "common.js parsing error: ", exception
     return dfd
 ).promise()
 
