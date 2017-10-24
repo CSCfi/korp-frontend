@@ -37,6 +37,8 @@
       return cl;
     };
 
+    CorpusListing.prototype.getReduceLang = function() {};
+
     CorpusListing.prototype.getSelectedCorpora = function() {
       return corpusChooserInstance.corpusChooser("selectedItems");
     };
@@ -452,7 +454,7 @@
       if (setOperator === 'union') {
         allAttrs = this.getStructAttrs(lang);
       } else {
-        allAttrs = this.getStructAttrsIntersection();
+        allAttrs = this.getStructAttrsIntersection(lang);
       }
       common_keys = _.compact(_.flatten(_.map(this.selected, function(corp) {
         return _.keys(corp.common_attributes);
@@ -569,6 +571,10 @@
       return this.activeLangs = langlist;
     };
 
+    ParallelCorpusListing.prototype.getReduceLang = function() {
+      return this.activeLangs[0];
+    };
+
     ParallelCorpusListing.prototype.getCurrentAttributes = function(lang) {
       var corpora, struct;
       corpora = _.filter(this.selected, function(item) {
@@ -592,6 +598,23 @@
         return val["isStructAttr"] = true;
       });
       return struct;
+    };
+
+    ParallelCorpusListing.prototype.getStructAttrsIntersection = function(lang) {
+      var attrs, corpora;
+      corpora = _.filter(this.selected, function(item) {
+        return item.lang === lang;
+      });
+      attrs = _.map(corpora, function(corpus) {
+        var key, ref, value;
+        ref = corpus.struct_attributes;
+        for (key in ref) {
+          value = ref[key];
+          value["isStructAttr"] = true;
+        }
+        return corpus.struct_attributes;
+      });
+      return this._mapping_intersection(attrs);
     };
 
     ParallelCorpusListing.prototype.getLinked = function(corp, andSelf, only_selected) {
@@ -934,6 +957,16 @@
     infixIndex = "";
     if ((appendIndex != null) && match[2] !== "1") {
       infixIndex = $.format("<sup>%s</sup>", match[2]);
+    }
+    return $.format("%s%s", [match[1].replace(/_/g, " "), infixIndex]);
+  };
+
+  util.saldoToPlaceholderString = function(saldoId, appendIndex) {
+    var infixIndex, match;
+    match = saldoId.match(util.saldoRegExp);
+    infixIndex = "";
+    if ((appendIndex != null) && match[2] !== "1") {
+      infixIndex = $.format(" (%s)", match[2]);
     }
     return $.format("%s%s", [match[1].replace(/_/g, " "), infixIndex]);
   };

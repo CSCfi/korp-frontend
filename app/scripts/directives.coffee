@@ -608,7 +608,7 @@ korpApp.directive "autoc", ($q, $http, lexicons) ->
             if scope.type is "lemgram"
                 util.lemgramToString(placeholder).replace(/<.*?>/g, "")
             else
-                util.saldoToString(placeholder)
+                util.saldoToPlaceholderString placeholder, true
 
         scope.formatPlaceholder = (input) ->
             lemgramRegExp = /([^_\.-]*--)?([^-]*)\.\.(\w+)\.(\d\d?)/
@@ -628,7 +628,10 @@ korpApp.directive "autoc", ($q, $http, lexicons) ->
             scope.textInField = ""
 
         if scope.model
-            scope.selectedItem null, {lemgram : scope.model }
+            if scope.type == "sense"
+                scope.selectedItem null, {sense : scope.model }
+            else
+                scope.selectedItem null, {lemgram : scope.model }
 
         scope.getMorphologies = (corporaIDs) ->
             morphologies = []
@@ -649,6 +652,7 @@ korpApp.directive "autoc", ($q, $http, lexicons) ->
                 return scope.getLemgrams input, morphologies, corporaIDs
             else if scope.type is "sense"
                 return scope.getSenses input, morphologies, corporaIDs
+
         scope.getLemgrams = (input, morphologies, corporaIDs) ->
             deferred = $q.defer()
             http = lexicons.getLemgrams input, morphologies, corporaIDs, (scope.variant is "affix")

@@ -101,7 +101,7 @@
     "map_activate_btn": "Aktivera och sök",
     "map_warn": "Ingen data tillgänglig för nuvarande sökning",
     "map_warn_btn": "Sök",
-    "map_name": "Namn",
+    "map_name": "Plats",
     "map_abs_occurrences": "Absoluta förekomster",
     "map_rel_occurrences": "Relativa förekomster",
     "map_num_results": "Platser",
@@ -112,6 +112,7 @@
     "is_not": "är inte",
     "starts_with": "börjar med",
     "contains": "innehåller",
+    "contains_not": "innehåller inte",
     "ends_with": "slutar med",
 
     "word_is": "ordet är",
@@ -359,7 +360,7 @@
     "kwic_download_formatdescr_html_table": "HTML-tabell",
     
     "no_geo_info": "Platsinformation ej tillgänglig",
-    "cluster_marker": "Gruppmarkör",
+    "map_cluster": "Sammanställ",
 
     "name_classification": "Namnklassifikation",
     "no_name_corpora": "De valda korpusarna innehåller ingen namndata.",

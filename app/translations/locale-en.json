@@ -108,7 +108,7 @@
     "map_activate_btn": "Enable and search",
     "map_warn": "No data available for current search",
     "map_warn_btn": "Search",
-    "map_name": "Name",
+    "map_name": "Place",
     "map_abs_occurrences": "Absolute occurrences",
     "map_rel_occurrences": "Relative occurrences",
     "map_num_results": "Locations",
@@ -118,6 +118,7 @@
     "word_is_not": "word is not",
     "word_beginswith": "word begins with",
     "contains": "contains",
+    "contains_not": "does not contain",
     "word_endswith": "word ends with",
     "matches_regexp": "regular expression",
     "wordclass_is": "word class is",
@@ -429,7 +430,7 @@
     "kwic_download_formatdescr_html_table": "HTML table",
 
     "no_geo_info": "No location data available",
-    "cluster_marker": "Cluster marker",
+    "map_cluster": "Cluster",
 
     "name_classification": "Name classification",
     "no_name_corpora": "The selected corpora lack named-entity data.",

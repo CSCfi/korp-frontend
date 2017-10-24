@@ -6332,48 +6332,53 @@ li.active a span .num-to-find {
   color: white;
 }
 
+/* line 3002, styles.scss */
+.hide-prob > li > .prob {
+  display: none;
+}
+
 /* Hide an element if or if not logged in */
-/* line 3005, styles.scss */
+/* line 3009, styles.scss */
 .logged_in .hide_if_logged_in {
   display: none;
 }
 
-/* line 3009, styles.scss */
+/* line 3013, styles.scss */
 .not_logged_in .hide_if_not_logged_in {
   display: none;
 }
 
 /* Styles for the restricted corpora access modal */
-/* line 3016, styles.scss */
+/* line 3020, styles.scss */
 #accessResCorporaModal {
   z-index: 11000;
 }
-/* line 3020, styles.scss */
+/* line 3024, styles.scss */
 #accessResCorporaModal .modal-body {
   min-height: 2em;
 }
-/* line 3027, styles.scss */
+/* line 3031, styles.scss */
 #accessResCorporaModal .close-x {
   opacity: 1;
 }
 
-/* line 3032, styles.scss */
+/* line 3036, styles.scss */
 #resCorporaList {
   display: inline;
 }
-/* line 3034, styles.scss */
+/* line 3038, styles.scss */
 #resCorporaList li {
   margin-left: 1em;
   font-size: 0.9em;
 }
 
-/* line 3040, styles.scss */
+/* line 3044, styles.scss */
 #resCorporaListContainer {
   max-height: 20em;
   overflow-y: auto;
 }
 
-/* line 3047, styles.scss */
+/* line 3051, styles.scss */
 .access-corpora-aca #accessResCorporaPreambleACARES,
 .access-corpora-aca #accessResCorporaPreambleRES,
 .access-corpora-aca #accessResCorporaPreambleACAFi,
@@ -6419,7 +6424,7 @@ li.active a span .num-to-find {
   display: none;
 }
 
-/* line 3092, styles.scss */
+/* line 3096, styles.scss */
 .access-corpora-res #accessResCorporaPostambleACA {
   display: none;
 }
@@ -6437,132 +6442,132 @@ li.active a span .num-to-find {
     margin-left: 1em;
 }
 */
-/* line 3112, styles.scss */
+/* line 3116, styles.scss */
 .modal-backdrop {
   z-index: 10040;
 }
 
 /* Styles specific to Kielipankki's corpora */
 /* DMA signum lists represented as tables */
-/* line 3125, styles.scss */
+/* line 3129, styles.scss */
 .dma-signumlist td {
   vertical-align: top;
 }
-/* line 3128, styles.scss */
+/* line 3132, styles.scss */
 .dma-signumlist .sgo0, .dma-signumlist .sgo5 {
   font-weight: bold;
 }
-/* line 3131, styles.scss */
+/* line 3135, styles.scss */
 .dma-signumlist .sgo3 {
   font-weight: bold;
   font-size: 1.2em;
 }
-/* line 3135, styles.scss */
+/* line 3139, styles.scss */
 .dma-signumlist .sgo4 {
   font-weight: bold;
   font-size: 1.4em;
 }
-/* line 3140, styles.scss */
+/* line 3144, styles.scss */
 .dma-signumlist tr.vspacer {
   font-size: 0.3em;
 }
 
 /* ScotsCorr word selector modal */
-/* line 3147, styles.scss */
+/* line 3151, styles.scss */
 .modal-value {
   font-size: 0.8em;
   width: 100%;
 }
 
-/* line 3152, styles.scss */
+/* line 3156, styles.scss */
 .modal-value-heading {
   font-weight: bold;
 }
 
-/* line 3156, styles.scss */
+/* line 3160, styles.scss */
 #wordselector-selected-words {
   display: block;
   line-height: 95%;
 }
 
-/* line 3161, styles.scss */
+/* line 3165, styles.scss */
 .modal-buttons, .modal-value {
   display: block;
 }
 
-/* line 3165, styles.scss */
+/* line 3169, styles.scss */
 .modal-buttons button {
   margin-right: 0.5em;
 }
 
-/* line 3169, styles.scss */
+/* line 3173, styles.scss */
 .modal-wordselector {
   overflow-y: auto;
   font-size: 1em;
   margin: 0.5em 1em 0.5em 1em;
 }
-/* line 3173, styles.scss */
+/* line 3177, styles.scss */
 .modal-wordselector ul {
   list-style: none;
 }
-/* line 3175, styles.scss */
+/* line 3179, styles.scss */
 .modal-wordselector ul li ul {
   margin-left: 2em;
   line-height: 70%;
 }
 
-/* line 3182, styles.scss */
+/* line 3186, styles.scss */
 .wordselector-group-heading {
   font-weight: bold;
   cursor: pointer;
 }
-/* line 3185, styles.scss */
+/* line 3189, styles.scss */
 .wordselector-group-heading:hover {
   color: darkgrey;
 }
 
-/* line 3190, styles.scss */
+/* line 3194, styles.scss */
 .wordselector-group-name {
   display: inline-block;
   min-width: 1em;
 }
 
-/* line 3195, styles.scss */
+/* line 3199, styles.scss */
 .wordselector-freq {
   color: #555555;
 }
 
-/* line 3201, styles.scss */
+/* line 3205, styles.scss */
 .wordselector-word-unselected {
   font-weight: normal;
 }
 
-/* line 3205, styles.scss */
+/* line 3209, styles.scss */
 .wordselector-word-selected {
   font-weight: bold;
 }
 
-/* line 3209, styles.scss */
+/* line 3213, styles.scss */
 .list-link-icon {
   margin-left: 0.25em;
   cursor: pointer;
 }
-/* line 3212, styles.scss */
+/* line 3216, styles.scss */
 .list-link-icon:hover {
   color: darkgrey;
 }
 
-/* line 3217, styles.scss */
+/* line 3221, styles.scss */
 .book-link-icon {
   margin-left: 0.25em;
   cursor: pointer;
 }
-/* line 3220, styles.scss */
+/* line 3224, styles.scss */
 .book-link-icon:hover {
   color: darkgrey;
 }
 
-/* line 3225, styles.scss */
+/* line 3229, styles.scss */
 .arg_value_wordselector {
   width: 85% !important;
 }

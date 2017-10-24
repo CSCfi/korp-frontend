@@ -373,7 +373,7 @@ class model.StatsProxy extends BaseProxy
                 name: reduceValLabel
                 field: "hit_value"
                 sortable: true
-                formatter: settings.reduce_statistics reduceVals, ignoreCase
+                formatter: statisticsFormatting.reduceStatistics reduceVals, ignoreCase, _.keys(data.corpora)
                 minWidth: minWidth
                 cssClass: "parameter-column"
                 headerCssClass: "localized-header"
@@ -383,7 +383,7 @@ class model.StatsProxy extends BaseProxy
             name: ""
             field: "hit_value"
             sortable: false
-            formatter: settings.reduce_statistics_pie_chart
+            formatter: statisticsFormatting.reduceStatisticsPieChart
             maxWidth: 25
             minWidth: 25
 
@@ -406,7 +406,7 @@ class model.StatsProxy extends BaseProxy
                 minWidth : minWidth
 
         groups = _.groupBy _.keys(data.total.absolute), (item) ->
-            item.replace(/:\d+/g, "")
+            item.replace(/(:.+?)(\/|$| )/g, "$2")
 
         wordArray = _.keys groups
 
@@ -417,7 +417,11 @@ class model.StatsProxy extends BaseProxy
         statsWorker.onmessage = (e) ->
             c.log "Called back by the worker!\n"
             c.log e
-            def.resolve [data, wordArray, columns, e.data.dataset, e.data.summarizedData]
+            searchParams = 
+                reduceVals: reduceVals
+                ignoreCase: ignoreCase
+                corpora: _.keys data.corpora
+            def.resolve [data, wordArray, columns, e.data.dataset, e.data.summarizedData, searchParams]
 
         statsWorker.postMessage {
             "total" : data.total
@@ -455,10 +459,11 @@ class model.StatsProxy extends BaseProxy
 
         reduceValLabels = _.map reduceVals, (reduceVal) ->
             return "word" if reduceVal == "word"
-            if settings.corpusListing.getCurrentAttributes()[reduceVal]
-                return settings.corpusListing.getCurrentAttributes()[reduceVal].label
+            maybeReduceAttr = settings.corpusListing.getCurrentAttributes(settings.corpusListing.getReduceLang())[reduceVal]
+            if maybeReduceAttr
+                return maybeReduceAttr.label
             else
-                return settings.corpusListing.getStructAttrs()[reduceVal].label
+                return settings.corpusListing.getStructAttrs(settings.corpusListing.getReduceLang())[reduceVal].label
 
         # TODO: Make sure this works with util.addCQPs
         # Seems it didn't but with addExpandedCQP it would seem to
@@ -466,7 +471,12 @@ class model.StatsProxy extends BaseProxy
         data = @makeParameters(reduceVals, cqp)
 
         data.split = _.filter(reduceVals, (reduceVal) ->
-            settings.corpusListing.getCurrentAttributes()[reduceVal]?.type == "set").join(',')
+            settings.corpusListing.getCurrentAttributes(settings.corpusListing.getReduceLang())[reduceVal]?.type == "set").join(',')
+
+        rankedReduceVals = _.filter reduceVals, (reduceVal) ->
+            settings.corpusListing.getCurrentAttributes(settings.corpusListing.getReduceLang())[reduceVal]?.ranked
+        data.top = _.map(rankedReduceVals, (reduceVal) ->
+            return reduceVal + ":1").join(',')
 
         if ignoreCase
             $.extend data,

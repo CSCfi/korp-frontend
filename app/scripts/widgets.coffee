@@ -154,7 +154,7 @@ Sidebar =
                 return value
 
         if attrs.displayType in ["hidden", "date_interval"] or
-                attrs.displayOnly == "search"
+                attrs.displayOnly == "search" or attrs.hideSidebar
             return ""
         if attrs.type == "url" and attrs?.url_opts?.hide_url
             # If url_opts.hide_url, hide the url and show the localized
@@ -162,8 +162,10 @@ Sidebar =
             if value == ""
                 return ""
             output = $("<p></p>")
-        else
+        else if attrs.label
             output = $("<p><span rel='localize[#{attrs.label}]'></span>: </p>")
+        else
+            output = $("<p></p>")
         if attrs.renderItem
             return output.append(attrs.renderItem key, value, attrs, wordData, sentenceData, tokens)
 
@@ -184,15 +186,91 @@ Sidebar =
         # specified. (Jyrki Niemi 2015-10-26)
         if attrs.transform?
             value = attrs.transform(value)
-
-        if attrs.type == "set"
+        if attrs.type == "set" and attrs.taginfo_url
             # For a set-valued attribute, add the taginfo link right
             # after the attribute label (Jyrki Niemi 2016-02-10)
-            if attrs.taginfo_url
-                output.append """<a href='#{attrs.taginfo_url}' target='_blank'>
-                                                <span id='sidbar_info' class='ui-icon ui-icon-info'></span>
-                                            </a>
-                                    """
+            output.append """<a href='#{attrs.taginfo_url}' target='_blank'>
+                                            <span id='sidbar_info' class='ui-icon ui-icon-info'></span>
+                                        </a>
+                                """
+        if attrs.type == "set" and attrs.display?.expandList
+            valueArray = _.filter(value?.split("|") or [], Boolean)
+            attrSettings = attrs.display.expandList
+            if attrs.ranked
+                valueArray = _.map valueArray, (value) -> val = value.split(":"); [val[0], val[val.length - 1]]
+
+                lis = []
+
+                for [value, prob], outerIdx in valueArray
+                    li = $("<li></li>")
+                    subValues = if attrSettings.splitValue then attrSettings.splitValue value else [value]
+                    for subValue, idx in subValues
+                        val = (attrs.stringify or attrSettings.stringify or _.identity)(subValue)
+                        inner = $("<span>" + val + "</span>");
+
+                        if attrs.internalSearch and (attrSettings.linkAllValues or outerIdx is 0)
+                            inner.data("key", subValue)
+                            inner.addClass("link").click ->
+                                searchKey = attrSettings.searchKey or key
+                                cqpVal = $(this).data("key")
+                                cqpExpr = if attrSettings.internalSearch then attrSettings.internalSearch searchKey, cqpVal else "[#{searchKey} contains '#{cqpVal}']"
+                                search({"search": "cqp|" + cqpExpr})
+                        if attrs.externalSearch
+                            address = _.template(attrs.externalSearch, {val : subValue})
+                            karpLink = $("<a href='#{address}' class='external_link' target='_blank' style='margin-top: -6px'></a>")
+
+                        li.append inner
+                        if attrSettings.joinValues and idx isnt subValues.length - 1
+                            li.append attrSettings.joinValues
+                    li.append "<span class='prob'> (" + prob + ")</span>"
+                    if karpLink
+                        li.append karpLink
+                    lis.push li
+            else
+                lis = []
+                for value in valueArray
+                    li = $("<li></li>")
+                    li.append value
+                    lis.push li
+
+            if lis.length == 0
+                ul = $('<i rel="localize[empty]" style="color : grey"></i>')
+
+            else
+                ul = $("<ul class='hide-prob' style='list-style:initial'>")
+                ul.append lis
+
+                if lis.length isnt 1
+
+                    _.map lis, (li, idx) -> if idx != 0 then li.css('display', 'none')
+
+                    showAll = $("<span class='link' rel='localize[complemgram_show_all]'></span><span> (" + (lis.length - 1) + ")</span>")
+                    ul.append showAll
+
+                    showOne = $("<span class='link' rel='localize[complemgram_show_one]'></span>")
+                    showOne.css "display", "none"
+                    ul.append showOne
+
+                    showAll.click () ->
+                        showAll.css "display", "none"
+                        showOne.css "display", "inline"
+                        ul.removeClass "hide-prob"
+                        _.map lis, (li) ->
+                            
+                            li.css "display", "list-item"
+
+                    showOne.click () ->
+                        showAll.css "display", "inline"
+                        showOne.css "display", "none"
+                        ul.addClass "hide-prob"
+                        _.map lis, (li, i) ->
+                            if i != 0
+                                li.css "display", "none"
+
+            output.append ul
+            return output
+
+        else if attrs.type == "set"
             pattern = attrs.pattern or '<span data-key="<%= key %>"><%= val %></span>'
             ul = $("<ul>")
             getStringVal = (str) ->

@@ -199,7 +199,7 @@ settings.word_attribute_selector = "union"
 settings.struct_attribute_selector = "union"
 
 // for 'compile statistics by' selector, can be 'union' or 'intersection'
-settings.reduce_word_attribute_selector = "union"
+settings.reduce_word_attribute_selector = "intersection"
 settings.reduce_struct_attribute_selector = "intersection"
 
 // settings.news_desk_url = "https://svn.spraakdata.gu.se/sb-arkiv/pub/component_news/json/korpnews.json";
@@ -504,7 +504,7 @@ settings.corpus_features.paragraphs = {
  */
 // for optimization purposes
 settings.cqp_prio = ['deprel', 'pos', 'msd', 'suffix', 'prefix', 'grundform', 'lemgram', 'saldo', 'word'];
-
+settings.senseAutoComplete = "<autoc model='model' placeholder='placeholder' type='sense'/>";
 
 settings.defaultOptions = {
     "is": "=",
@@ -522,8 +522,13 @@ settings.liteOptions = {
 settings.setOptions = {
     "is": "contains",
     "is_not": "not contains"
-}
-
+};
+settings.probabilitySetOptions = {
+    "is": "highest_rank",
+    "is_not": "not_highest_rank",
+    "contains": "rank_contains",
+    "contains_not": "not_rank_contains",
+};
 
 var selectType = {
     extended_template: "<select ng-model='model' "
@@ -1054,7 +1059,7 @@ attrs.msd = {
 attrs.msd_sv = {
     label: "msd",
     opts: settings.defaultOptions,
-    extended_template: '<input class="arg_value" ng-model="model" escaper>' +
+    extended_template: '<input ng-model="input" ng-change="inputChange()" class="arg_value" escaper ng-model-options=\'{debounce : {default : 300, blur : 0}, updateOn: "default blur"}\'>' +
     '<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
     controller: function($scope, $uibModal) {
         var modal = null;
@@ -1077,9 +1082,8 @@ attrs.msd_sv = {
         $scope.msdClick = function(event) {
             val = $(event.target).parent().data("value")
             if(!val) return;
-            $scope.model = val;
-
-
+            $scope.input = val;
+            $scope.inputChange();
             modal.close();
         }
     }
@@ -1170,7 +1174,7 @@ attrs.saldo = {
     },
     externalSearch: "https://spraakbanken.gu.se/karp/#?search=extended||and|sense|equals|<%= val %>",
     internalSearch: true,
-    extended_template: "<autoc model='model' placeholder='placeholder' type='sense'/>",
+    extended_template: settings.senseAutoComplete,
     order: 47
 };
 attrs.dephead = {
@@ -2358,6 +2362,56 @@ settings.fn.kaino_homepage = function(urlbase) {
     };
 };
 
+
+var modernAttrs2 = _.extend({}, modernAttrs, {
+    ne_ex: attrs.ne_ex,
+    ne_type: attrs.ne_type,
+    ne_subtype: attrs.ne_subtype,
+    complemgram: {
+        label: "complemgram",
+        internalSearch: true,
+        ranked: true,
+        display: { 
+            expandList: {
+                splitValue: function(value) { return value.split("+"); },
+                searchKey: "lex",
+                joinValues: " + ",
+                stringify: function(lemgram) { return util.lemgramToString(lemgram, true); },
+                linkAllValues: true
+            }
+        },
+        type: "set",
+        hideStatistics: true,
+        hideExtended: true,
+        hideCompare: true
+    },
+    compwf: {
+        label: "compwf",
+        display: {
+            "expandList": {}
+        },
+        type: "set",
+        hideStatistics: true,
+        hideExtended: true,
+        hideCompare: true
+    },
+    sense: {
+        label: "sense",
+        type: "set",
+        ranked: true,
+        display: {
+            expandList: {
+                internalSearch: function(key, value) { return "[" + key + " = '\\|" + regescape(value) + ":.*']"},
+            }
+        },
+        stringify: function(sense) { return util.saldoToString(sense, true); },
+        opts: settings.probabilitySetOptions,
+        externalSearch: "https://spraakbanken.gu.se/karp/#?search=extended||and|sense|equals|<%= val %>",
+        internalSearch: true,
+        extended_template: settings.senseAutoComplete
+    }
+});
+delete modernAttrs2.saldo;
 
 /*
  * FOLDERS
@@ -13157,209 +13211,6 @@ settings.arg_groups = {
         word: {label: "word"}
     }
 };
-
-settings.reduce_helpers = {
-    filterCorpora: function(rowObj) {
-        return $.grepObj(rowObj, function(value, key) {
-            return key != "total_value" && key != "hit_value" && $.isArray(value);
-        });
-    },
-    getCorpora: function (dataContext) {
-        var corpora = $.grepObj(settings.reduce_helpers.filterCorpora(dataContext), function(value, key) {
-            return value[1] != null; // value[1] is an optimized value.relative
-        });
-        corpora = $.map(_.keys(corpora), function(item) {
-	    // Leave out only the last underscore-separated component
-	    // of the corpus name (probably "value", set in
-	    // statistics_worker.js), to support corpus names (ids)
-	    // containing underscores. (Jyrki Niemi 2015-09-17)
-	    var lastUscore = item.lastIndexOf("_");
-	    return ((lastUscore == -1 ? item : item.slice(0, lastUscore))
-		    .toLowerCase());
-            // return item.split("_")[0].toLowerCase();
-        });
-        return corpora;
-    }
-};
-
-settings.reduce_statistics_pie_chart = function(row, cell, value, columnDef, dataContext) {
-    if(value != "&Sigma;")
-        value = value[0].replace(/:\d+/g, "")
-    return $.format('<img id="circlediagrambutton__%s" src="img/stats2.png" class="arcDiagramPicture"/>', value);
-};
-
-settings.reduce_statistics = function(types, ignoreCase) {
-
-    return function(row, cell, value, columnDef, dataContext) {
-
-        var corpora = settings.reduce_helpers.getCorpora(dataContext);
-
-        if(value == "&Sigma;")
-            return "&Sigma;";
-
-        var tokenLists = _.map(value, function(val) {
-            return _.map(val.split('/'), function(as) {
-                return as.split(" ");
-            });
-        });
-
-        var typeIdx = types.indexOf(columnDef.id);
-        var linkInnerHTML = settings.reduce_stringify(columnDef.id, tokenLists[0][typeIdx], corpora);
-
-        var totalQuery = []
-
-        var structAttrs =
-	    settings.corpusListing.subsetFactory(corpora).getStructAttrs();
-
-        // create one query part for each token
-        for(var tokenIdx = 0; tokenIdx < tokenLists[0][0].length; tokenIdx++) {
-
-            var andParts = []
-            // for each reduce attribute: create a query part and then join all with &
-            for(var typeIdx = 0; typeIdx < types.length; typeIdx++) {
-                var type = types[typeIdx];
-                var elems = _.map(tokenLists, function(tokenList) {
-                    return tokenList[typeIdx][tokenIdx];
-                });
-                andParts.push(settings.reduce_cqp(
-                    type, _.unique(elems), ignoreCase,
-                    ! (type in structAttrs)));
-            }
-            totalQuery.push("[" + andParts.join(" & ") + "]");
-        }
-        var query = totalQuery.join(" ");
-
-        var output = $("<span>",
-            {
-            "class": "statistics-link",
-            "data-query": encodeURIComponent(query),
-            "data-corpora": JSON.stringify(corpora)
-            }).html(linkInnerHTML).outerHTML();
-
-        return output;
-    }
-
-};
-
-
-// Get the html (no linking) representation of the result for the statistics table
-settings.reduce_stringify = function(type, values, corpora) {
-    switch(type) {
-        case "word":
-        case "msd":
-            return values.join(" ");
-        case "pos":
-            var output =  _.map(values, function(token) {
-                return $("<span>")
-                .localeKey("pos_" + token)
-                .outerHTML()
-            }).join(" ");
-            return output;
-        case "saldo":
-        case "prefix":
-        case "suffix":
-        case "lex":
-        case "lemma":
-
-            if(type == "saldo")
-                stringify = util.saldoToString
-            else if(type == "lemma")
-                stringify = function(lemma) {return lemma.replace(/_/g, " ")}
-            else
-                stringify = util.lemgramToString
-
-            var html = _.map(values, function(token) {
-                if(token == "|")
-                    return "–";
-                return stringify(token.replace(/:\d+/g, ""), true);
-            });
-
-            return html.join(" ")
-
-        case "deprel":
-            var output =  _.map(values, function(token) {
-                return $("<span>")
-                .localeKey("deprel_" + token)
-                .outerHTML()
-            }).join(" ");
-            return output;
-        default: // structural and "non-standard" positional attributes
-            var cl = settings.corpusListing.subsetFactory(corpora)
-            var attrObj;
-            var structAttrs = cl.getStructAttrs();
-            // Also handle "non-standard" positional attributes (Jyrki
-            // Niemi 2015-12-04)
-            if (type in structAttrs) {
-                attrObj = structAttrs[type];
-            } else {
-                attrObj = cl.getCurrentAttributes()[type];
-            }
-            var prefix = ""
-            if(!_.isUndefined(attrObj) && attrObj.translationKey )
-                prefix = attrObj.translationKey
-            var mapped = _.map(values, function (value) {
-                return util.getLocaleString(prefix + value)
-            });
-            return mapped.join(" ");
-    }
-
-};
-
-// Get the cqp (part of) expression for linking in the statistics table
-// input type [{type:?,value:? }]
-settings.reduce_cqp = function(type, tokens, ignoreCase, isPosAttr) {
-
-    if(!tokens) {
-        return "";
-    }
-    switch(type) {
-        case "saldo":
-        case "prefix":
-        case "suffix":
-        case "lex":
-        case "lemma":
-            if(tokens[0] == "|")
-                return "ambiguity(" + type + ") = 0";
-            else
-                var res;
-                if(tokens.length > 1) {
-                    var key = tokens[0].split(":")[0];
-                    var variants = _.flatten(_.map(tokens, function(val) {
-                        return window.regescape(val.split(":")[1]);
-                    }));
-                    res = key + ":" + "(" + variants.join("|") + ")";
-                }
-                else {
-                    res = window.regescape(tokens[0]);
-                }
-                // Assume simple values (instead of feature set
-                // values) for lemmas in other modes than "swedish"
-                // and thus use the operator = instead of contains.
-                // FIXME: This does not work for the MULCOLD corpus.
-                // (Jyrki Niemi 2015-12-04)
-                var comp_op = (type == "lemma"
-                               && window.currentMode != "swedish"
-                               ? " = " : " contains ");
-                return type + comp_op + "'" + res + "'";
-        case "word":
-            s = 'word="'+ regescape(tokens[0]) + '"';
-            if(ignoreCase)
-                s = s + ' %c'
-            return s
-        case "pos":
-        case "deprel":
-        case "msd":
-            // val = tokens[0].replace(/\+/g, "\\+");
-            // Escape all regex metacharacters (Jyrki Niemi 2015-12-04)
-            return $.format('%s="%s"', [type, window.regescape(tokens[0])]);
-        default: // structural and "non-standard" positional attributes
-            // Prefix the name of the attribute with an underscore
-            // only for structural attributes (Jyrki Niemi 2015-12-04)
-            return $.format((isPosAttr ? '' : '_.') + '%s="%s"',
-			    [type, window.regescape(tokens[0])]);
-    }
-};
-
 
 delete attrs;
 delete sattrs;

@@ -2999,6 +2999,10 @@ li.active a span .num-to-find {
     }
 }
 
+.hide-prob > li > .prob {
+    display: none;
+}
+
 
 /* Hide an element if or if not logged in */
 

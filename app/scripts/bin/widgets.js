@@ -63,14 +63,14 @@
       }).appendTo(this.element);
     },
     renderCorpusContent: function(type, wordData, sentenceData, corpus_attrs, tokens, synthetic_attr_names, token_data) {
-      var base, i, item, items, j, key, len, len1, pairs, ref, ref1, ref2, synthetic, val, value;
+      var base, item, items, j, k, key, len, len1, pairs, ref, ref1, ref2, synthetic, val, value;
       if (type === "struct" || type === "link") {
         pairs = _.pairs(sentenceData);
       } else if (type === "pos") {
         pairs = _.pairs(wordData);
         ref = wordData._struct || [];
-        for (i = 0, len = ref.length; i < len; i++) {
-          item = ref[i];
+        for (j = 0, len = ref.length; j < len; j++) {
+          item = ref[j];
           ref1 = item.split(/ (.+)/, 2), key = ref1[0], val = ref1[1];
           if (key in corpus_attrs) {
             pairs.push([key, val]);
@@ -101,17 +101,17 @@
         }
       });
       items = [];
-      for (j = 0, len1 = pairs.length; j < len1; j++) {
-        ref2 = pairs[j], key = ref2[0], value = ref2[1];
+      for (k = 0, len1 = pairs.length; k < len1; k++) {
+        ref2 = pairs[k], key = ref2[0], value = ref2[1];
         items = items.concat(typeof (base = this.renderItem(key, value, corpus_attrs[key], wordData, sentenceData, token_data, tokens)).get === "function" ? base.get(0) : void 0);
       }
       items = _.compact(items);
       if (synthetic_attr_names.length) {
         synthetic = (function() {
-          var k, len2, results;
+          var l, len2, results;
           results = [];
-          for (k = 0, len2 = synthetic_attr_names.length; k < len2; k++) {
-            key = synthetic_attr_names[k];
+          for (l = 0, len2 = synthetic_attr_names.length; l < len2; l++) {
+            key = synthetic_attr_names[l];
             results.push(this.renderItem(key, null, corpus_attrs[key], wordData, sentenceData, tokens, token_data));
           }
           return results;
@@ -136,7 +136,7 @@
       return [$(pos_items), $(struct_items)];
     },
     renderItem: function(key, value, attrs, wordData, sentenceData, tokens, token_data) {
-      var address, class_attr, encodeHtmlEntities, getStringVal, inner, itr, li, link_text, lis, mapViaDataset, output, pattern, prefix, ref, ref1, ref2, str_value, taginfo_url, target, ul, url, url_opts, val, valueArray, x;
+      var address, attrSettings, class_attr, encodeHtmlEntities, getStringVal, idx, inner, itr, j, k, karpLink, l, len, len1, len2, li, link_text, lis, mapViaDataset, outerIdx, output, pattern, prefix, prob, ref, ref1, ref2, ref3, ref4, showAll, showOne, str_value, subValue, subValues, taginfo_url, target, ul, url, url_opts, val, valueArray, x;
       encodeHtmlEntities = function(s) {
         return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
       };
@@ -147,7 +147,7 @@
           return value;
         }
       };
-      if (((ref = attrs.displayType) === "hidden" || ref === "date_interval") || attrs.displayOnly === "search") {
+      if (((ref = attrs.displayType) === "hidden" || ref === "date_interval") || attrs.displayOnly === "search" || attrs.hideSidebar) {
         return "";
       }
       if (attrs.type === "url" && (attrs != null ? (ref1 = attrs.url_opts) != null ? ref1.hide_url : void 0 : void 0)) {
@@ -155,8 +155,10 @@
           return "";
         }
         output = $("<p></p>");
-      } else {
+      } else if (attrs.label) {
         output = $("<p><span rel='localize[" + attrs.label + "]'></span>: </p>");
+      } else {
+        output = $("<p></p>");
       }
       if (attrs.renderItem) {
         return output.append(attrs.renderItem(key, value, attrs, wordData, sentenceData, tokens));
@@ -172,10 +174,104 @@
       if (attrs.transform != null) {
         value = attrs.transform(value);
       }
-      if (attrs.type === "set") {
-        if (attrs.taginfo_url) {
-          output.append("<a href='" + attrs.taginfo_url + "' target='_blank'>\n    <span id='sidbar_info' class='ui-icon ui-icon-info'></span>\n</a>");
+      if (attrs.type === "set" && attrs.taginfo_url) {
+        output.append("<a href='" + attrs.taginfo_url + "' target='_blank'>\n    <span id='sidbar_info' class='ui-icon ui-icon-info'></span>\n</a>");
+      }
+      if (attrs.type === "set" && ((ref3 = attrs.display) != null ? ref3.expandList : void 0)) {
+        valueArray = _.filter((value != null ? value.split("|") : void 0) || [], Boolean);
+        attrSettings = attrs.display.expandList;
+        if (attrs.ranked) {
+          valueArray = _.map(valueArray, function(value) {
+            var val;
+            val = value.split(":");
+            return [val[0], val[val.length - 1]];
+          });
+          lis = [];
+          for (outerIdx = j = 0, len = valueArray.length; j < len; outerIdx = ++j) {
+            ref4 = valueArray[outerIdx], value = ref4[0], prob = ref4[1];
+            li = $("<li></li>");
+            subValues = attrSettings.splitValue ? attrSettings.splitValue(value) : [value];
+            for (idx = k = 0, len1 = subValues.length; k < len1; idx = ++k) {
+              subValue = subValues[idx];
+              val = (attrs.stringify || attrSettings.stringify || _.identity)(subValue);
+              inner = $("<span>" + val + "</span>");
+              if (attrs.internalSearch && (attrSettings.linkAllValues || outerIdx === 0)) {
+                inner.data("key", subValue);
+                inner.addClass("link").click(function() {
+                  var cqpExpr, cqpVal, searchKey;
+                  searchKey = attrSettings.searchKey || key;
+                  cqpVal = $(this).data("key");
+                  cqpExpr = attrSettings.internalSearch ? attrSettings.internalSearch(searchKey, cqpVal) : "[" + searchKey + " contains '" + cqpVal + "']";
+                  return search({
+                    "search": "cqp|" + cqpExpr
+                  });
+                });
+              }
+              if (attrs.externalSearch) {
+                address = _.template(attrs.externalSearch, {
+                  val: subValue
+                });
+                karpLink = $("<a href='" + address + "' class='external_link' target='_blank' style='margin-top: -6px'></a>");
+              }
+              li.append(inner);
+              if (attrSettings.joinValues && idx !== subValues.length - 1) {
+                li.append(attrSettings.joinValues);
+              }
+            }
+            li.append("<span class='prob'> (" + prob + ")</span>");
+            if (karpLink) {
+              li.append(karpLink);
+            }
+            lis.push(li);
+          }
+        } else {
+          lis = [];
+          for (l = 0, len2 = valueArray.length; l < len2; l++) {
+            value = valueArray[l];
+            li = $("<li></li>");
+            li.append(value);
+            lis.push(li);
+          }
         }
+        if (lis.length === 0) {
+          ul = $('<i rel="localize[empty]" style="color : grey"></i>');
+        } else {
+          ul = $("<ul class='hide-prob' style='list-style:initial'>");
+          ul.append(lis);
+          if (lis.length !== 1) {
+            _.map(lis, function(li, idx) {
+              if (idx !== 0) {
+                return li.css('display', 'none');
+              }
+            });
+            showAll = $("<span class='link' rel='localize[complemgram_show_all]'></span><span> (" + (lis.length - 1) + ")</span>");
+            ul.append(showAll);
+            showOne = $("<span class='link' rel='localize[complemgram_show_one]'></span>");
+            showOne.css("display", "none");
+            ul.append(showOne);
+            showAll.click(function() {
+              showAll.css("display", "none");
+              showOne.css("display", "inline");
+              ul.removeClass("hide-prob");
+              return _.map(lis, function(li) {
+                return li.css("display", "list-item");
+              });
+            });
+            showOne.click(function() {
+              showAll.css("display", "inline");
+              showOne.css("display", "none");
+              ul.addClass("hide-prob");
+              return _.map(lis, function(li, i) {
+                if (i !== 0) {
+                  return li.css("display", "none");
+                }
+              });
+            });
+          }
+        }
+        output.append(ul);
+        return output;
+      } else if (attrs.type === "set") {
         pattern = attrs.pattern || '<span data-key="<%= key %>"><%= val %></span>';
         ul = $("<ul>");
         getStringVal = function(str) {
@@ -196,10 +292,10 @@
         }
         itr = _.isArray(valueArray) ? valueArray : _.values(valueArray);
         lis = (function() {
-          var i, len, results;
+          var len3, m, results;
           results = [];
-          for (i = 0, len = itr.length; i < len; i++) {
-            x = itr[i];
+          for (m = 0, len3 = itr.length; m < len3; m++) {
+            x = itr[m];
             if (!x.length) {
               continue;
             }

@@ -338,13 +338,12 @@
         var s;
         s = $scope;
         s.onGraphShow = function(data) {
-          c.log("show graph!", arguments);
           return $rootScope.graphTabs.push(data);
         };
         s.newMapEnabled = settings.newMapEnabled;
         s.getGeoAttributes = function(corpora) {
           var attr, attrs, corpus, k, l, len1, len2, ref, ref1;
-          attrs = [];
+          attrs = {};
           ref = settings.corpusListing.subsetFactory(corpora).selected;
           for (k = 0, len1 = ref.length; k < len1; k++) {
             corpus = ref[k];
@@ -352,19 +351,23 @@
             for (l = 0, len2 = ref1.length; l < len2; l++) {
               attr = ref1[l];
               if (attr.indexOf("geo" !== -1)) {
-                attrs.push(attr);
+                if (attrs[attr]) {
+                  attrs[attr].corpora.push(corpus.id);
+                } else {
+                  attrs[attr] = {
+                    label: attr,
+                    corpora: [corpus.id]
+                  };
+                }
               }
             }
           }
-          attrs = _.map(attrs, function(attr) {
-            return {
-              label: attr
-            };
+          attrs = _.map(attrs, function(val) {
+            return val;
           });
           if (attrs && attrs.length > 0) {
             attrs[0].selected = true;
           }
-          s.searchCorpora = corpora;
           return s.mapAttributes = attrs;
         };
         s.mapToggleSelected = function(index, event) {
@@ -377,7 +380,7 @@
           return event.stopPropagation();
         };
         return s.showMap = function() {
-          var cell, chk, cqp, cqpExprs, getCqpExpr, k, len1, ref, texts;
+          var cqp, cqpExpr, cqpExprs, getCqpExpr, k, len1, ref, row, rowIx, searchParams, selectedAttribute, selectedAttributes, texts, within;
           getCqpExpr = function() {
             var cqpExpr, search;
             search = searches.activeSearch;
@@ -391,21 +394,27 @@
             }
             return cqpExpr;
           };
+          cqpExpr = CQP.expandOperators(getCqpExpr());
           cqpExprs = {};
-          ref = angular.element("#myGrid .slick-cell > input:checked");
+          ref = s.instance.getSelectedRows();
           for (k = 0, len1 = ref.length; k < len1; k++) {
-            chk = ref[k];
-            cell = angular.element(chk).parent();
-            cqp = decodeURIComponent(cell.next().find(" > .statistics-link").data("query"));
-            if (cqp === "undefined") {
+            rowIx = ref[k];
+            if (rowIx === 0) {
               continue;
             }
-            texts = _.map(cell.parent().find('.parameter-column'), function(elem) {
-              return angular.element(elem).text();
-            });
+            row = s.instance.getDataAt(rowIx);
+            searchParams = s.instance.searchParams;
+            cqp = statisticsFormatting.getCqp(searchParams.reduceVals, row.hit_value, searchParams.ignoreCase);
+            texts = statisticsFormatting.getTexts(searchParams.reduceVals, row.hit_value, searchParams.corpora);
             cqpExprs[cqp] = texts.join(", ");
           }
-          return $rootScope.mapTabs.push(backend.requestMapData(s.searchCorpora, getCqpExpr(), cqpExprs, _.filter(s.mapAttributes, "selected")));
+          selectedAttributes = _.filter(s.mapAttributes, "selected");
+          if (selectedAttributes.length > 1) {
+            c.log("Warning: more than one selected attribute, choosing first");
+          }
+          selectedAttribute = selectedAttributes[0];
+          within = settings.corpusListing.subsetFactory(selectedAttribute.corpora).getWithinParameters();
+          return $rootScope.mapTabs.push(backend.requestMapData(cqpExpr, cqpExprs, within, selectedAttribute));
         };
       }
     };
@@ -663,11 +672,26 @@
                 }
                 op = type === "set" ? "contains" : "=";
                 if (type === "set" && attrVal.length > 1) {
-                  variants = _.flatten(_.map(attrVal, function(val) {
-                    return regescape(val.split(":")[1]);
-                  }));
+                  variants = [];
+                  _.map(attrVal, function(val) {
+                    var idx, m, n, parts, ref2, ref3, results2;
+                    parts = val.split(":");
+                    if (variants.length === 0) {
+                      for (idx = m = 0, ref2 = parts.length - 2; 0 <= ref2 ? m <= ref2 : m >= ref2; idx = 0 <= ref2 ? ++m : --m) {
+                        variants.push([]);
+                      }
+                    }
+                    results2 = [];
+                    for (idx = n = 1, ref3 = parts.length - 1; 1 <= ref3 ? n <= ref3 : n >= ref3; idx = 1 <= ref3 ? ++n : --n) {
+                      results2.push(variants[idx - 1].push(regescape(parts[idx])));
+                    }
+                    return results2;
+                  });
                   key = attrVal[0].split(":")[0];
-                  val = key + ":" + "(" + variants.join("|") + ")";
+                  variants = _.map(variants, function(variant) {
+                    return ":(" + variant.join("|") + ")";
+                  });
+                  val = key + variants.join("");
                 } else {
                   val = regescape(attrVal[0]);
                 }
@@ -736,15 +760,15 @@
         s.$watch((function() {
           return $location.search().show_map;
         }), function(val) {
-          var currentCorpora, currentCqp, ref, ref1;
+          var currentCqp, ref, ref1, searchCorpora;
           if (val === s.showMap) {
             return;
           }
           s.showMap = Boolean(val);
           if (s.showMap) {
             currentCqp = getCqpExpr();
-            currentCorpora = settings.corpusListing.stringifySelectedEncode(true);
-            if (currentCqp !== ((ref = s.lastSearch) != null ? ref.cqp : void 0) || currentCorpora !== ((ref1 = s.lastSearch) != null ? ref1.corpora : void 0)) {
+            searchCorpora = settings.corpusListing.stringifySelectedEncode(true);
+            if (currentCqp !== ((ref = s.lastSearch) != null ? ref.cqp : void 0) || searchCorpora !== ((ref1 = s.lastSearch) != null ? ref1.corpora : void 0)) {
               return s.hasResult = false;
             }
           }
@@ -814,55 +838,43 @@
           }
           return fixedData;
         };
-        return updateMapData = function() {
+        updateMapData = function() {
           return nameEntitySearch.promise.then(function(data) {
-            var fixedData;
+            var fixedData, palette;
             if (data.count !== 0) {
               fixedData = fixData(data);
+              palette = new Rickshaw.Color.Palette("colorwheel");
               return markers(fixedData).then(function(markers) {
-                var fn, key, value;
-                fn = function(key, value) {
-                  var html, msgScope, name;
-                  html = "";
-                  msgScope = value.getMessageScope();
-                  for (name in msgScope.names) {
-                    html += '<div class="link" ng-click="newKWICSearch(\'' + name + '\')">' + name + '</div>';
-                  }
-                  msgScope.newKWICSearch = function(query) {
-                    var cl, opts;
-                    cl = settings.corpusListing;
-                    opts = {
-                      start: 0,
-                      end: 24,
-                      ajaxParams: {
-                        command: "query",
-                        cqp: getCqpExpr(),
-                        cqp2: "[" + settings.placenameAttr + "='" + query + "' & (" + settings.placenameConstraint + ")]",
-                        corpus: cl.stringifySelectedEncode(),
-                        show_struct: util.encodeListParam(_.sortBy(_.keys(cl.getStructAttrs()))),
-                        expand_prequeries: true
-                      }
-                    };
-                    return $rootScope.kwicTabs.push({
-                      queryParams: opts
-                    });
-                  };
-                  return markers[key]["message"] = html;
-                };
-                for (key in markers) {
-                  if (!hasProp.call(markers, key)) continue;
-                  value = markers[key];
-                  fn(key, value);
-                }
-                s.markers = markers;
                 s.numResults = _.keys(markers).length;
                 return s.loading = false;
               });
             } else {
+              s.selectedGroups = [];
               s.markers = {};
               s.numResults = 0;
               return s.loading = false;
             }
+          });
+        };
+        return s.newKWICSearch = function(marker) {
+          var cl, opts, point;
+          point = marker.point;
+          cl = settings.corpusListing.subsetFactory(s.lastSearch.corpora.split(","));
+          opts = {
+            start: 0,
+            end: 24,
+            ajaxParams: {
+              command: "query",
+              cqp: s.lastSearch.cqp,
+              cqp2: "[" + settings.placenameAttr + "='" + query + "' & (" + settings.placenameConstraint + ")]",
+              corpus: util.encodeListParam(s.lastSearch.corpora),
+              show_struct: util.encodeListParam(_.sortBy(_.keys(cl.getStructAttrs()))),
+              expand_prequeries: true,
+              defaultwithin: 'sentence'
+            }
+          };
+          return $rootScope.kwicTabs.push({
+            queryParams: opts
           });
         };
       }
@@ -872,27 +884,27 @@
   korpApp.directive("newMapCtrl", function($timeout, searches) {
     return {
       controller: function($scope, $rootScope) {
-        var getCqpExpr, getGroups, getMarkers, s;
+        var getMarkerGroups, getMarkers, s;
         s = $scope;
         s.loading = true;
         s.active = true;
         s.center = settings.mapCenter;
-        s.hoverTemplate = "<div class=\"hover-info\">\n   <div style=\"font-weight: bold; font-size: 15px\">{{label}}</div>\n   <div><span>{{ 'map_name' | loc }}: </span> <span>{{point.name}}</span></div>\n   <div><span>{{ 'map_abs_occurrences' | loc }}: </span> <span>{{point.abs}}</span></div>\n   <div><span>{{ 'map_rel_occurrences' | loc }}: </span> <span>{{point.abs}}</span></div>\n</div>";
         s.markers = {};
+        s.selectedGroups = [];
         s.markerGroups = [];
         s.mapSettings = {
-          baseLayer: "Stamen Watercolor"
+          baseLayer: "OpenStreetMap"
         };
         s.numResults = 0;
+        s.useClustering = false;
         s.promise.then(((function(_this) {
           return function(arg, xhr) {
             var result;
             result = arg[0];
             s.loading = false;
             s.numResults = 20;
-            s.result = result;
-            s.groups = getGroups(result);
-            return s.markers = getMarkers(result);
+            s.markerGroups = getMarkerGroups(result);
+            return s.selectedGroups = _.keys(s.markerGroups);
           };
         })(this)), (function(_this) {
           return function() {
@@ -900,99 +912,82 @@
             return s.error = true;
           };
         })(this));
-        getCqpExpr = function() {
-          var cqpExpr, search;
-          search = searches.activeSearch;
-          cqpExpr = null;
-          if (search) {
-            if (search.type === "word" || search.type === "lemgram") {
-              cqpExpr = simpleSearch.getCQP(search.val);
-            } else {
-              cqpExpr = search.val;
-            }
+        s.toggleMarkerGroup = function(groupName) {
+          s.markerGroups[groupName].selected = !s.markerGroups[groupName].selected;
+          if (indexOf.call(s.selectedGroups, groupName) >= 0) {
+            return s.selectedGroups.splice(s.selectedGroups.indexOf(groupName), 1);
+          } else {
+            return s.selectedGroups.push(groupName);
           }
-          return cqpExpr;
         };
-        s.toggleGroup = function(groupName) {
-          var old;
-          old = _.values(s.markers).length;
-          s.groups[groupName].selected = !s.groups[groupName].selected;
-          return s.markers = getMarkers(s.result);
-        };
-        getGroups = function(result) {
+        getMarkerGroups = function(result) {
           var groups, palette;
-          palette = new Rickshaw.Color.Palette("colorwheel");
+          palette = new Rickshaw.Color.Palette({
+            scheme: 'colorwheel'
+          });
           groups = {};
           _.map(result.data, function(res, idx) {
             return groups[res.label] = {
               selected: true,
+              order: idx,
               color: palette.color(),
-              cqp: res.cqp
+              markers: getMarkers(result.attribute.label, result.cqp, result.corpora, result.within, res, idx)
             };
           });
+          s.restColor = "#9b9fa5";
           return groups;
         };
-        return getMarkers = function(result) {
-          var markers;
+        getMarkers = function(label, cqp, corpora, within, res, idx) {
+          var fn, k, len1, markers, point, ref;
           markers = {};
-          _.map(result.data, function(res, idx) {
-            var group, icon, k, len1, point, ref, results;
-            group = s.groups[res.label];
-            if (!group.selected) {
-              return;
-            }
-            icon = {
-              iconUrl: 'http://api.tiles.mapbox.com/v3/marker/pin-m+' + group.color.split("#")[1] + '.png'
+          ref = res.points;
+          fn = function(point) {
+            var id;
+            id = point.name.replace(/-/g, "") + idx;
+            return markers[id] = {
+              lat: point.lat,
+              lng: point.lng,
+              queryData: {
+                searchCqp: cqp,
+                subCqp: res.cqp,
+                label: label,
+                corpora: util.encodeListParam(corpora),
+                within: within
+              },
+              label: res.label,
+              point: point
             };
-            ref = res.points;
-            results = [];
-            for (k = 0, len1 = ref.length; k < len1; k++) {
-              point = ref[k];
-              results.push((function(point) {
-                var childScope, html, id;
-                childScope = $rootScope.$new(true);
-                childScope.point = point;
-                childScope.cqp = res.cqp;
-                childScope.label = res.label;
-                id = point.name.replace(/-/g, "") + idx;
-                markers[id] = {
-                  layer: "clusterlayer",
-                  icon: icon,
-                  lat: point.lat,
-                  lng: point.lng
-                };
-                html = '<div class="link" ng-click="newKWICSearch(\'' + point.name + '\')">' + point.name + '</div>';
-                childScope.newKWICSearch = function(query) {
-                  var cl, opts;
-                  cl = settings.corpusListing.subsetFactory(result.corpora);
-                  opts = {
-                    start: 0,
-                    end: 24,
-                    ajaxParams: {
-                      command: "query",
-                      cqp: getCqpExpr(),
-                      cqp2: "[_." + result.attribute + " contains " + "'" + [point.name, point.countryCode, point.lat, point.lng].join(";") + "']",
-                      cqp3: res.cqp,
-                      corpus: cl.stringifySelectedEncode(),
-                      show_struct: util.encodeListParam(_.sortBy(_.keys(cl.getStructAttrs()))),
-                      expand_prequeries: true,
-                      within: "paragraph"
-                    }
-                  };
-                  return $rootScope.kwicTabs.push({
-                    readingMode: true,
-                    queryParams: opts
-                  });
-                };
-                markers[id].message = html;
-                return markers[id].getMessageScope = function() {
-                  return childScope;
-                };
-              })(point));
-            }
-            return results;
-          });
+          };
+          for (k = 0, len1 = ref.length; k < len1; k++) {
+            point = ref[k];
+            fn(point);
+          }
           return markers;
+        };
+        return s.newKWICSearch = function(marker) {
+          var cl, numberOfTokens, opts, point, queryData;
+          queryData = marker.queryData;
+          point = marker.point;
+          cl = settings.corpusListing.subsetFactory(queryData.corpora);
+          numberOfTokens = queryData.subCqp.split("[").length - 1;
+          opts = {
+            start: 0,
+            end: 24,
+            ajaxParams: {
+              command: "query",
+              cqp: queryData.searchCqp,
+              cqp2: "[_." + queryData.label + " contains " + "'" + [point.name, point.countryCode, point.lat, point.lng].join(";") + "']{" + numberOfTokens + "}",
+              cqp3: queryData.subCqp,
+              corpus: cl.stringifySelectedEncode(),
+              show_struct: util.encodeListParam(_.sortBy(_.keys(cl.getStructAttrs()))),
+              expand_prequeries: false
+            }
+          };
+          _.extend(opts.ajaxParams, queryData.within);
+          return $rootScope.kwicTabs.push({
+            readingMode: queryData.label === "paragraph__geocontext",
+            queryParams: opts
+          });
         };
       }
     };

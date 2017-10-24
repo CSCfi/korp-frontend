@@ -108,7 +108,7 @@
   korpApp.factory('backend', function($http, $q, utils, lexicons) {
     return {
       requestCompare: function(cmpObj1, cmpObj2, reduce) {
-        var attributes, conf, corpora1, corpora2, corpusListing, def, filterFun, params, reduceIsStructAttr, split, xhr;
+        var attributes, conf, corpora1, corpora2, corpusListing, def, filterFun, params, rankedReduce, reduceIsStructAttr, split, top, xhr;
         reduce = _.map(reduce, function(item) {
           return item.replace(/^_\./, "");
         });
@@ -127,6 +127,13 @@
           var ref;
           return (ref = attributes[attr]) != null ? ref.isStructAttr : void 0;
         });
+        rankedReduce = _.filter(reduce, function(item) {
+          var ref;
+          return (ref = settings.corpusListing.getCurrentAttributes(settings.corpusListing.getReduceLang())[item]) != null ? ref.ranked : void 0;
+        });
+        top = _.map(rankedReduce, function(item) {
+          return item + ":1";
+        }).join(',');
         def = $q.defer();
         params = {
           command: "loglike",
@@ -136,7 +143,8 @@
           set2_corpus: util.encodeListParam(corpora2).toUpperCase(),
           set2_cqp: cmpObj2.cqp,
           max: 50,
-          split: split
+          split: split,
+          top: top
         };
         conf = {
           url: settings.cgi_script,
@@ -171,7 +179,7 @@
           groupAndSum = function(table, currentMax) {
             var groups, res;
             groups = _.groupBy(table, function(obj) {
-              return obj.value.replace(/:\d+/g, "");
+              return obj.value.replace(/(:.+?)(\/|$| )/g, "$2");
             });
             res = _.map(groups, function(value, key) {
               var abs, cqp, elems, loglike, tokenLists;
@@ -207,7 +215,7 @@
       relatedWordSearch: function(lemgram) {
         return lexicons.relatedWordSearch(lemgram);
       },
-      requestMapData: function(corpora, cqp, cqpExprs, attributes) {
+      requestMapData: function(cqp, cqpExprs, within, attribute) {
         var conf, cqpSubExprs, def, params, xhr;
         cqpSubExprs = {};
         _.map(_.keys(cqpExprs), function(subCqp, idx) {
@@ -216,11 +224,11 @@
         def = $q.defer();
         params = {
           command: "count",
-          groupby: attributes[0].label,
+          groupby: attribute.label,
           cqp: cqp,
-          corpus: corpora,
+          corpus: attribute.corpora.join(","),
           incremental: $.support.ajaxProgress,
-          split: attributes[0].label
+          split: attribute.label
         };
         _.extend(params, settings.corpusListing.getWithinParameters());
         _.extend(params, cqpSubExprs);
@@ -239,7 +247,7 @@
             points = [];
             _.map(_.keys(subResult.absolute), function(hit) {
               var countryCode, lat, lng, name, ref;
-              if (hit === "|") {
+              if ((hit.startsWith("|")) || (hit.startsWith(" "))) {
                 return;
               }
               ref = hit.split(";"), name = ref[0], countryCode = ref[1], lat = ref[2], lng = ref[3];
@@ -259,7 +267,7 @@
             };
           };
           if (_.isEmpty(cqpExprs)) {
-            result = [createResult(data.total, cqp, "total")];
+            result = [createResult(data.total, cqp, "Σ")];
           } else {
             result = [];
             ref = data.total.slice(1, data.total.length);
@@ -274,9 +282,11 @@
           }
           return def.resolve([
             {
-              corpora: corpora,
+              corpora: attribute.corpora,
+              cqp: cqp,
+              within: within,
               data: result,
-              attribute: attributes[0].label
+              attribute: attribute
             }
           ], xhr);
         });
@@ -397,7 +407,6 @@
           }
         }).success(function(data) {
           var attr, corpus, folder_name, i, j, len, len1, privateStructAttrs, ref, ref1;
-          c.log("data", data);
           ref = settings.corpusListing.corpora;
           for (i = 0, len = ref.length; i < len; i++) {
             corpus = ref[i];
@@ -416,7 +425,6 @@
           for (folder_name in settings.corporafolders) {
             util.propagateCorpusFolderInfo(settings.corporafolders[folder_name], void 0);
           }
-          c.log("loadCorpora");
           util.loadCorpora();
           return def.resolve();
         });
@@ -444,8 +452,6 @@
         value = value.join("|");
         newValues[1] = Number(newValues[1]) || 0;
         oldValues[1] = Number(oldValues[1]) || 0;
-        c.log("newValues", newValues);
-        c.log("oldValues", oldValues);
         if (_.isEqual(newValues, oldValues)) {
           pageChanged = false;
           searchChanged = true;
@@ -643,6 +649,7 @@
                 deferred.resolve([]);
                 return;
               }
+              karpLemgrams = karpLemgrams.slice(0, 100);
               senseargs = {
                 "q": "extended||and|lemgram|equals|" + (karpLemgrams.join('|')),
                 "resource": "saldo",

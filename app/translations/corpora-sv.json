@@ -1200,6 +1200,7 @@
     "video_utterance": "Yttrande",
 
     "paragraph__geocontext" : "Samförekomst i stycke",
+    "text__geoauthorhome" : "Författarens hemort",
 
     "text_studentno" : "student id",
     "file_edulevel" : "kursnivå",

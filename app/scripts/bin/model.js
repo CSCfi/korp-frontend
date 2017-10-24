@@ -441,7 +441,7 @@
           name: reduceValLabel,
           field: "hit_value",
           sortable: true,
-          formatter: settings.reduce_statistics(reduceVals, ignoreCase),
+          formatter: statisticsFormatting.reduceStatistics(reduceVals, ignoreCase, _.keys(data.corpora)),
           minWidth: minWidth,
           cssClass: "parameter-column",
           headerCssClass: "localized-header"
@@ -452,7 +452,7 @@
         name: "",
         field: "hit_value",
         sortable: false,
-        formatter: settings.reduce_statistics_pie_chart,
+        formatter: statisticsFormatting.reduceStatisticsPieChart,
         maxWidth: 25,
         minWidth: 25
       });
@@ -478,16 +478,22 @@
         };
       })(this));
       groups = _.groupBy(_.keys(data.total.absolute), function(item) {
-        return item.replace(/:\d+/g, "");
+        return item.replace(/(:.+?)(\/|$| )/g, "$2");
       });
       wordArray = _.keys(groups);
       sizeOfDataset = wordArray.length;
       dataset = new Array(sizeOfDataset + 1);
       statsWorker = new Worker("scripts/statistics_worker.js");
       statsWorker.onmessage = function(e) {
+        var searchParams;
         c.log("Called back by the worker!\n");
         c.log(e);
-        return def.resolve([data, wordArray, columns, e.data.dataset, e.data.summarizedData]);
+        searchParams = {
+          reduceVals: reduceVals,
+          ignoreCase: ignoreCase,
+          corpora: _.keys(data.corpora)
+        };
+        return def.resolve([data, wordArray, columns, e.data.dataset, e.data.summarizedData, searchParams]);
       };
       return statsWorker.postMessage({
         "total": data.total,
@@ -515,7 +521,7 @@
     };
 
     StatsProxy.prototype.makeRequest = function(cqp, callback) {
-      var data, def, ignoreCase, insensitive, reduceValLabels, reduceVals, reduceval, self;
+      var data, def, ignoreCase, insensitive, rankedReduceVals, reduceValLabels, reduceVals, reduceval, self;
       self = this;
       StatsProxy.__super__.makeRequest.call(this);
       reduceval = search().stats_reduce || "word";
@@ -527,19 +533,28 @@
         ignoreCase = false;
       }
       reduceValLabels = _.map(reduceVals, function(reduceVal) {
+        var maybeReduceAttr;
         if (reduceVal === "word") {
           return "word";
         }
-        if (settings.corpusListing.getCurrentAttributes()[reduceVal]) {
-          return settings.corpusListing.getCurrentAttributes()[reduceVal].label;
+        maybeReduceAttr = settings.corpusListing.getCurrentAttributes(settings.corpusListing.getReduceLang())[reduceVal];
+        if (maybeReduceAttr) {
+          return maybeReduceAttr.label;
         } else {
-          return settings.corpusListing.getStructAttrs()[reduceVal].label;
+          return settings.corpusListing.getStructAttrs(settings.corpusListing.getReduceLang())[reduceVal].label;
         }
       });
       data = this.makeParameters(reduceVals, cqp);
       data.split = _.filter(reduceVals, function(reduceVal) {
         var ref;
-        return ((ref = settings.corpusListing.getCurrentAttributes()[reduceVal]) != null ? ref.type : void 0) === "set";
+        return ((ref = settings.corpusListing.getCurrentAttributes(settings.corpusListing.getReduceLang())[reduceVal]) != null ? ref.type : void 0) === "set";
+      }).join(',');
+      rankedReduceVals = _.filter(reduceVals, function(reduceVal) {
+        var ref;
+        return (ref = settings.corpusListing.getCurrentAttributes(settings.corpusListing.getReduceLang())[reduceVal]) != null ? ref.ranked : void 0;
+      });
+      data.top = _.map(rankedReduceVals, function(reduceVal) {
+        return reduceVal + ":1";
       }).join(',');
       if (ignoreCase) {
         $.extend(data, {

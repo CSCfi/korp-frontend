@@ -8,10 +8,17 @@ settings.enableMap = false;
 $("#lemgram_list_item").remove();
 $("#showLineDiagram").remove();
 
-settings.preselected_corpora = ["somali-1971-79", "somali-2001", "somali-bulsho", "somali-cilmi", "somali-cb", "somali-radioden2014", "somali-radioswe2014", "somali-sheekooyin", "somali-suugaan", "wikipedia-so"];
+settings.preselected_corpora = ["somali-ogaden", "somali-qoraallo", "somali-saynis", "somali-faces", "somali-hargeysa", "somali-1971-79", "somali-2001", "somali-itoobiya", "somali-bulsho", "somali-cilmi", "somali-cb", "somali-radioden2014", "somali-radioswe2014", "somali-sheekooyin", "somali-suugaan", "wikipedia-so"];
 
 settings.corpora = {};
 settings.corporafolders = {};
+
+// Skolböcker
+settings.corporafolders.buugaag = {
+    title: "Buugaag Dugsiyeed",
+    contents: ["somali-1971-79", "somali-2001", "somali-itoobiya", "somali-cb", "somali-hargeysa", "somali-saynis"]
+};
+
 settings.corpora["somali-1971-79"] = {
     id: "somali-1971-79",
     title: "Af Soomaali 1971–79",
@@ -46,6 +53,41 @@ settings.corpora["somali-2001"] = {
     }
 };
 
+settings.corpora["somali-itoobiya"] = {
+    id: "somali-itoobiya",
+    title: "Af-Soomaali 2006 Itoobiya",
+    description: "",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {},
+    struct_attributes: {
+        text_year: {label: "year"},
+        text_title: {label: "title"},
+        text_publisher: {label: "publisher"},
+        text_place: {label: "place"},
+        page_n: {label: "page"}
+    }
+};
+
+settings.corpora["somali-hargeysa"] = {
+    id: "somali-hargeysa",
+    title: "Cilmiga Bulshada 2001 Hargeysa",
+    description: "",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {},
+    struct_attributes: {
+        text_year: {label: "year"},
+        text_title: {label: "title"},
+        text_publisher: {label: "publisher"},
+        text_place: {label: "place"},
+        text_editor: {label: "editor"},
+        text_edition: {label: "edition"},
+        text_sponsor: {label: "sponsor"},
+        page_n: {label: "page"}
+    }
+};
+
 settings.corpora["somali-bulsho"] = {
     id: "somali-bulsho",
     title: "Bulsho",
@@ -64,7 +106,7 @@ settings.corpora["somali-bulsho"] = {
 
 settings.corpora["somali-cb"] = {
     id: "somali-cb",
-    title: "Cilmiga bulshada 1971–1980",
+    title: "Cilmiga Bulshada 1971–1980",
     description: "",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -113,6 +155,56 @@ settings.corpora["somali-kqa"] = {
     }
 };
 
+settings.corpora["somali-ogaden"] = {
+    id: "somali-ogaden",
+    title: "Ogaden Online",
+    description: "",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {},
+    struct_attributes: {
+        text_year: {label: "year"},
+        text_title: {label: "title"},
+        text_source: {label: "source", type: "url"},
+        page_purl: {label: "pagesource", type: "url"}
+    }
+};
+
+settings.corpora["somali-qoraallo"] = {
+    id: "somali-qoraallo",
+    title: "Qoraallo 1956-1970",
+    description: "",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {},
+    struct_attributes: {
+        text_date: {label: "date"},
+        text_title: {label: "title"},
+        text_author: {label: "author"},
+        text_place: {label: "place"},
+        text_source: {label: "source", type: "url"}
+    }
+};
+
+settings.corpora["somali-saynis"] = {
+    id: "somali-saynis",
+    title: "Saynis 2001 Hargeysa",
+    description: "",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {},
+    struct_attributes: {
+        text_year: {label: "year"},
+        text_title: {label: "title"},
+        text_publisher: {label: "publisher"},
+        text_place: {label: "place"},
+        text_editor: {label: "editor"},
+        text_edition: {label: "edition"},
+        text_sponsor: {label: "sponsor"},
+        page_n: {label: "page"}
+    }
+};
+
 settings.corpora["somali-radioden2014"] = {
     id: "somali-radioden2014",
     title: "Raadiyaha Denmark 2014",
@@ -155,6 +247,23 @@ settings.corpora["somali-sheekooyin"] = {
         text_date: {label: "year"},
         text_publisher: {label: "publisher"},
         text_source: {label: "source", type: "url"}
+    }
+};
+
+settings.corpora["somali-faces"] = {
+    id: "somali-faces",
+    title: "Somali Faces",
+    description: "",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {},
+    struct_attributes: {
+        page_n: {label: "page"},
+        text_year: {label: "year"},
+        text_title: {label: "title"},
+        text_publisher: {label: "publisher"},
+        text_source: {label: "source", type: "url"},
+        page_purl: {label: "pagesource", type: "url"}
     }
 };
 
