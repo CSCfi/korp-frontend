@@ -9984,7 +9984,7 @@ settings.corpora.lehdet_uiotus = {
 settings.corpora.lehdet_unioni = {
     id: "lehdet_unioni",
     title: "Unioni",
-    description: "Unioni (2/2004-2013)<br/>Julkaisija: Ilmailualan Unioni IAU ry<br/>Kotisivu: <a href='http://www.iau.fi/index.php?mid=219'>http://www.iau.fi/index.php?mid=219</a>",
+    description: "Unioni (4/2005-2013)<br/>Julkaisija: Ilmailualan Unioni IAU ry<br/>Kotisivu: <a href='http://www.iau.fi/index.php?mid=219'>http://www.iau.fi/index.php?mid=219</a>",
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
