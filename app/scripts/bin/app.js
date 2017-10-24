@@ -170,16 +170,20 @@
       });
     });
     showModal = function(key) {
-      var tmpl;
+      var params, tmpl;
       tmpl = {
         about: 'markup/about.html',
         login: 'login_modal'
       }[key];
-      modal = $uibModal.open({
+      params = {
         templateUrl: tmpl,
         scope: s,
         windowClass: key
-      });
+      };
+      if (key === 'login') {
+        params.size = 'sm';
+      }
+      modal = $uibModal.open(params);
       return modal.result.then((function() {
         return closeModals();
       }), function() {
@@ -189,9 +193,9 @@
     s.clickX = function() {
       return closeModals();
     };
-    s.loginSubmit = function(usr, pass) {
+    s.loginSubmit = function(usr, pass, saveLogin) {
       s.login_err = false;
-      return authenticationProxy.makeRequest(usr, pass).done(function(data) {
+      return authenticationProxy.makeRequest(usr, pass, saveLogin).done(function(data) {
         util.setLogin();
         return safeApply(s, function() {
           return s.show_modal = null;

@@ -83,8 +83,8 @@ Sidebar =
         else if type == "pos"
             pairs = _.pairs(wordData)
             for item in (wordData._struct or [])
-                # Allow spaces in values (Jyrki Niemi 2016-10-18)
-                [key, val] = item.split(/ (.+)/, 2)
+                key = item.substring(0, item.indexOf(" "))
+                val = item.substring(item.indexOf(" ") + 1)
                 if key of corpus_attrs
                     pairs.push([key, val])
 
@@ -375,7 +375,12 @@ Sidebar =
         else
             if attrs.translationKey?
                 str_value = mapViaDataset(str_value)
-                return output.append "<span rel='localize[#{attrs.translationKey}#{str_value}]'></span>"
+                # FIXME-KP: Do not require English translations for
+                # displaying translated values
+                if loc_data["en"][attrs.translationKey + str_value]
+                    return output.append "<span rel='localize[#{attrs.translationKey}#{str_value}]'></span>"
+                else
+                    return output.append "<span>#{str_value}</span>"
             else
                 return output.append "<span>#{str_value || ''}</span>"
 

@@ -348,6 +348,7 @@ korpApp.factory 'searches', (utils, $location, $rootScope, $http, $q, nameEntity
                         if attr.indexOf("__") isnt -1
                             privateStructAttrs.push attr
                     corpus["private_struct_attributes"] = privateStructAttrs
+
                     # Copy possible URL and URN information in "info"
                     # to top-level properties, so that it can be
                     # specified in either the backend info file or in
@@ -358,6 +359,7 @@ korpApp.factory 'searches', (utils, $location, $rootScope, $http, $q, nameEntity
                 for folder_name of settings.corporafolders
                     util.propagateCorpusFolderInfo(
                         settings.corporafolders[folder_name], undefined)
+
                 util.loadCorpora()
                 def.resolve()
 
@@ -441,7 +443,7 @@ korpApp.service "compareSearches",
 
 
 korpApp.factory "lexicons", ($q, $http) ->
-    karpURL = "https://ws.spraakbanken.gu.se/ws/karp/v1"
+    karpURL = "https://ws.spraakbanken.gu.se/ws/karp/v2"
     getLemgrams: (wf, resources, corporaIDs) ->
         deferred = $q.defer()
 
@@ -479,7 +481,7 @@ korpApp.factory "lexicons", ($q, $http) ->
             if data is null
                 deferred.resolve []
             else
-
+        
                 # Support an alternative lemgram service (Jyrki Niemi
                 # 2015-12-04)
                 if settings.lemgramService == "FIN-CLARIN"
@@ -519,13 +521,6 @@ korpApp.factory "lexicons", ($q, $http) ->
 
     getSenses: (wf) ->
         deferred = $q.defer()
-        args =
-            "cql" : "wf==" + wf
-            "resurs" : "saldom"
-            "lemgram-ac" : "true"
-            "format" : "json"
-            "sw-forms" : "false"
-            "sms-forms" : "false"
 
         args =
             "q" : wf
@@ -539,8 +534,6 @@ korpApp.factory "lexicons", ($q, $http) ->
             if data is null
                 deferred.resolve []
             else
-                #unless angular.isArray(data) then data = [data]
-
                 karpLemgrams = _.map data.hits.hits, (entry) -> entry._source.FormRepresentations[0].lemgram
                 if karpLemgrams.length is 0
                     deferred.resolve []

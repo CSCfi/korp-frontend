@@ -1,7 +1,6 @@
 settings.primaryColor = "#FFE7D2";
 settings.primaryLight = "#FFF4EB";
 settings.autocomplete = false;
-settings.lemgramSelect = false;
 settings.wordpicture = false;
 
 $("#lemgram_list_item").remove();
@@ -18,6 +17,7 @@ settings.corpora["pe77"] = {
     within: settings.defaultWithin,
     attributes: {
         pos: {label: "pos"},
+        msd: {label: "msd"},
         lemma: {label: "baseform"}
     },
     struct_attributes: {
@@ -43,6 +43,7 @@ settings.corpora["one71"] = {
     within: settings.defaultWithin,
     attributes: {
         pos: {label: "pos"},
+        msd: {label: "msd"},
         lemma: {label: "baseform"}
     },
     struct_attributes: {
@@ -68,6 +69,7 @@ settings.corpora["cor92"] = {
     within: {"speaker": "speaker"},
     attributes: {
         pos: {label: "pos"},
+        msd: {label: "msd"},
         lemma: {label: "baseform"}
     },
     struct_attributes: {

@@ -690,8 +690,6 @@ window.initLocales = () ->
                     cache : false,
                     success : (data) ->
                         _.extend loc_data[lang], data
-                        # $.localize.data[lang][pkg] = data;
-                        # $.extend($.localize.data[lang]["_all"], data);
 
     $.when.apply($, defs).then () ->
         def.resolve loc_data
@@ -734,7 +732,6 @@ window.safeApply = (scope, fn) ->
 window.util.setLogin = () ->
     $("body").toggleClass("logged_in not_logged_in")
 
-    # $.each authenticationProxy.loginObj.credentials, (i, item) ->
     for corp in authenticationProxy.loginObj.credentials
         $("#hpcorpus_#{corp.toLowerCase()}")
             .closest(".boxdiv.disabled").removeClass("disabled")
@@ -773,14 +770,16 @@ util.SelectionManager::hasSelected = ->
     @selected.length > 0
 
 util.getLocaleString = (key, lang) ->
-    # lang = (if $("body").scope() then $("body").scope().lang) or settings.defaultLanguage or "sv"
+    return util.getLocaleStringUndefined(key, lang) or key
+
+
+util.getLocaleStringUndefined = (key, lang) ->
     unless lang
         lang = window.lang or settings.defaultLanguage or "sv"
-
     try
-        return loc_data[lang][key] or key
+        return loc_data[lang][key]
     catch e
-        return key
+        return undefined
 
 
 util.localize = (root) ->

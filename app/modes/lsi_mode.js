@@ -1,7 +1,6 @@
 settings.primaryColor = "#FFE7D2";
 settings.primaryLight = "#FFF4EB";
 settings.autocomplete = false;
-settings.lemgramSelect = false;
 settings.wordpicture = false;
 
 settings.mapCenter = {
@@ -51,7 +50,8 @@ settings.corpora.lsi = {
         "page_language": {label: "language"},
         "page_iso_code": {label: "iso_code"},
         "corpus_vol": {label: "volume"},
-        "corpus_part": {label: "part"}
+        "corpus_part": {label: "part"},
+        "sentence_id": {label: "sentence"}
     },
     custom_attributes: {
         "image": {

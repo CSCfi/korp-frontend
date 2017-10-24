@@ -357,8 +357,13 @@ attrs.ne_subtype = {
         "PER"
    ],
    stringify: function(val) {
-       return util.getLocaleString("ne_subtype_" + val);
+       lString = util.getLocaleStringUndefined("ne_subtype_" + val)
+       return lString || val;
    }
+};
+attrs.ne_name = {
+    label: "ne_name",
+    isStructAttr: true
 };
 sattrs.date = {
     label: "date"
@@ -544,7 +549,7 @@ settings.common_struct_types = {
                 var cl, getTime, getYear, ref, ref1, ref2, s, updateIntervals;
                 s = $scope;
                 cl = settings.corpusListing;
-                
+
                 updateIntervals = function() {
                     var from, moments, ref, ref1, to;
                     moments = cl.getMomentInterval();
@@ -571,7 +576,7 @@ settings.common_struct_types = {
                 getYear = function(val) {
                   return moment(val.toString(), "YYYYMMDD").toDate();
                 };
-            
+
                 getTime = function(val) {
                   return moment(val.toString(), "HHmmss").toDate();
                 };

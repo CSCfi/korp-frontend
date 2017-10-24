@@ -27,11 +27,11 @@
     }
 
     BaseProxy.prototype.expandCQP = function(cqp) {
-      var e;
+      var e, error1;
       try {
         return CQP.expandOperators(cqp);
-      } catch (_error) {
-        e = _error;
+      } catch (error1) {
+        e = error1;
         c.warn("CQP expansion failed", cqp, e);
         return cqp;
       }
@@ -72,7 +72,7 @@
     };
 
     BaseProxy.prototype.parseJSON = function(data) {
-      var e, json, out;
+      var e, error1, json, out;
       try {
         json = data;
         if (json[0] !== "{") {
@@ -83,8 +83,8 @@
         }
         out = JSON.parse(json);
         return out;
-      } catch (_error) {
-        e = _error;
+      } catch (error1) {
+        e = error1;
         return JSON.parse(data);
       }
     };
@@ -103,7 +103,7 @@
       struct = {};
       try {
         struct = this.parseJSON(newText);
-      } catch (_error) {}
+      } catch (undefined) {}
       $.each(struct, (function(_this) {
         return function(key, val) {
           var currentCorpus, sum;
@@ -634,9 +634,8 @@
       this.loginObj = {};
     }
 
-    AuthenticationProxy.prototype.makeRequest = function(usr, pass) {
+    AuthenticationProxy.prototype.makeRequest = function(usr, pass, saveLogin) {
       var auth, dfd, self;
-      c.log("makeRequest: (usr, pass", usr, pass);
       self = this;
       if (window.btoa) {
         auth = window.btoa(usr + ":" + pass);
@@ -654,7 +653,6 @@
           return req.setRequestHeader("Authorization", "Basic " + auth);
         }
       }).done(function(data, status, xhr) {
-        c.log("auth done", arguments);
         if (!data.corpora) {
           dfd.reject();
           return;
@@ -664,7 +662,9 @@
           credentials: data.corpora,
           auth: auth
         };
-        $.jStorage.set("creds", self.loginObj);
+        if (saveLogin) {
+          $.jStorage.set("creds", self.loginObj);
+        }
         return dfd.resolve(data);
       }).fail(function(xhr, status, error) {
         c.log("auth fail", arguments);

@@ -24,7 +24,6 @@ c.log("Production server:", isProductionServer);
 var baseURL = (window.location.protocol + "//" + window.location.hostname
                + window.location.pathname);
 
-settings.lemgramSelect = true;
 settings.autocomplete = true;
 // Currently always enable the old map at Kielipankki, since we do not
 // yet have data for the new map.

@@ -1021,7 +1021,7 @@
             start: 0,
             end: 24,
             command: "query",
-            corpus: util.encodeListParam($(_this).data("corpora")),
+            corpus: util.encodeListParam(corpora),
             cqp: self.proxy.prevParams.cqp,
             cqp2: cqp2,
             expand_prequeries: false
@@ -2199,12 +2199,12 @@
               return ("<br><span rel='localize[rel_hits_short]'>" + (util.getLocaleString('rel_hits_short')) + "</span> ") + val;
             },
             formatter: function(series, x, y, formattedX, formattedY, d) {
-              var abs_y, e, i, rel;
+              var abs_y, e, error, i, rel;
               i = _.indexOf(_.pluck(series.data, "x"), x, true);
               try {
                 abs_y = series.abs_data[i].y;
-              } catch (_error) {
-                e = _error;
+              } catch (error) {
+                e = error;
                 c.log("i", i, x);
               }
               rel = series.name + ':&nbsp;' + formattedY;

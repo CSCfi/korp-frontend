@@ -1,5 +1,4 @@
 
-# window.searchProxy = new model.SearchProxy()
 window.authenticationProxy = new model.AuthenticationProxy()
 window.timeProxy = new model.TimeProxy()
 creds = $.jStorage.get("creds")
@@ -19,7 +18,6 @@ util.decompressActiveUrlHashParams()
 t = $.now()
 
 isDev = window.location.host is "localhost"
-# deferred_load = $.get("markup/searchbar.html")
 $.ajaxSetup
     dataType: "json"
     traditional: true
@@ -120,16 +118,12 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
     # for some reason this matches after login after browser start, but not later. --matthies 28.11.13
     if creds
         util.setLogin()
-    #     authenticationProxy.loginObj = creds
     c.log "creds", creds
 
     tab_a_selector = "ul .ui-tabs-anchor"
 
 
     $("#log_out").click ->
-        $.each authenticationProxy.loginObj.credentials, (i, item) ->
-            $(".boxdiv[data=#{item.toLowerCase()}]").addClass "disabled"
-
         authenticationProxy.loginObj = {}
         $.jStorage.deleteKey "creds"
         $("body").toggleClass "logged_in not_logged_in"
@@ -174,8 +168,6 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
             newLang = search().lang || settings.defaultLanguage
             $("body").scope().lang = newLang
             window.lang = newLang
-            # loc_dfd = util.initLocalize()
-            # loc_dfd.done ->
             util.localize()
 
             $("#languages").radioList "select", newLang
@@ -245,8 +237,7 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
 
 
     )
-    $("#sidebar").sidebar() #.sidebar "hide"
-    # $("#simple_text")[0].focus()
+    $("#sidebar").sidebar()
     $(document).click ->
         $("#simple_text.ui-autocomplete-input").autocomplete "close"
 
@@ -272,8 +263,6 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
         opacity: 1
     , ->
         $(this).css "opacity", ""
-
-    # initTimeGraph()
     return
 ), ->
     c.log "failed to load some resource at startup.", arguments

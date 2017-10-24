@@ -73,7 +73,7 @@
   });
 
   $.when(loc_dfd, deferred_domReady).then((function(loc_data) {
-    var corpus, e, j, len, login_elem, prevFragment, ref, tab_a_selector, url_corpora;
+    var corpus, e, error1, j, len, login_elem, prevFragment, ref, tab_a_selector, url_corpora;
     c.log("preloading done, t = ", $.now() - t);
     util.mapHashCorpusAliases();
     util.addDefaultTranslations();
@@ -87,8 +87,8 @@
         settings.corpusListing.select(url_corpora);
       }
       view.updateSearchHistory();
-    } catch (_error) {
-      e = _error;
+    } catch (error1) {
+      e = error1;
       c.warn("ERROR setting corpora from location:", e);
     }
     if (isLab) {
@@ -128,9 +128,6 @@
     c.log("creds", creds);
     tab_a_selector = "ul .ui-tabs-anchor";
     $("#log_out").click(function() {
-      $.each(authenticationProxy.loginObj.credentials, function(i, item) {
-        return $(".boxdiv[data=" + (item.toLowerCase()) + "]").addClass("disabled");
-      });
       authenticationProxy.loginObj = {};
       $.jStorage.deleteKey("creds");
       $("body").toggleClass("logged_in not_logged_in");

@@ -1,14 +1,11 @@
 settings.primaryColor = "#FFE7D2";
 settings.primaryLight = "#FFF4EB";
 settings.autocomplete = false;
-settings.lemgramSelect = false;
 settings.wordpicture = false;
 settings.enableMap = false;
 
 $("#lemgram_list_item").remove();
 $("#showLineDiagram").remove();
-
-settings.preselected_corpora = ["somali-ogaden", "somali-qoraallo", "somali-saynis", "somali-faces", "somali-hargeysa", "somali-1971-79", "somali-2001", "somali-itoobiya", "somali-bulsho", "somali-cilmi", "somali-cb", "somali-radioden2014", "somali-radioswe2014", "somali-sheekooyin", "somali-suugaan", "wikipedia-so"];
 
 settings.corpora = {};
 settings.corporafolders = {};
@@ -16,7 +13,7 @@ settings.corporafolders = {};
 // Skolböcker
 settings.corporafolders.buugaag = {
     title: "Buugaag Dugsiyeed",
-    contents: ["somali-1971-79", "somali-2001", "somali-itoobiya", "somali-cb", "somali-hargeysa", "somali-saynis"]
+    contents: ["somali-1971-79", "somali-2001", "somali-hargeysa-2010", "somali-itoobiya", "somali-cb", "somali-hargeysa", "somali-saynis-1972-77", "somali-saynis-1994-96", "somali-saynis"]
 };
 
 settings.corpora["somali-1971-79"] = {
@@ -65,6 +62,23 @@ settings.corpora["somali-itoobiya"] = {
         text_title: {label: "title"},
         text_publisher: {label: "publisher"},
         text_place: {label: "place"},
+        page_n: {label: "page"}
+    }
+};
+
+settings.corpora["somali-hargeysa-2010"] = {
+    id: "somali-hargeysa-2010",
+    title: "Af-Soomaali 2010 Hargeysa",
+    description: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_edition: {label: "edition"},
+        text_place: {label: "place"},
+        text_publisher: {label: "publisher"},
+        text_title: {label: "title"},
+        text_year: {label: "year"},
         page_n: {label: "page"}
     }
 };
@@ -135,6 +149,22 @@ settings.corpora["somali-cilmi"] = {
         text_place: {label: "place"},
         text_edition: {label: "edition"},
         page_n: {label: "page"}
+    }
+};
+
+settings.corpora["somali-wakiillada"] = {
+    id: "somali-wakiillada",
+    title: "Golaha Wakiillada Somaliland",
+    description: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_date: {label: "date"},
+        text_title: {label: "title"},
+        text_source: {label: "source", type: "url"},
+        text_publisher: {label: "publisher"},
+        text_place: {label: "place"}
     }
 };
 
@@ -235,6 +265,45 @@ settings.corpora["somali-radioswe2014"] = {
     }
 };
 
+
+settings.corpora["somali-saynis-1972-77"] = {
+    id: "somali-saynis-1972-77",
+    title: "Saynis 1972–77",
+    description: "",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {},
+    struct_attributes: {
+        text_edition: {label: "edition"},
+        text_editor: {label: "editor"},
+        text_place: {label: "place"},
+        text_publisher: {label: "publisher"},
+        text_source: {label: "source", type: "url"},
+        text_title: {label: "title"},
+        text_year: {label: "year"},
+        page_n: {label: "page"}
+    }
+};
+
+settings.corpora["somali-saynis-1994-96"] = {
+    id: "somali-saynis-1994-96",
+    title: "Saynis 1994–96",
+    description: "",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: {},
+    struct_attributes: {
+        text_edition: {label: "edition"},
+        text_editor: {label: "editor"},
+        text_place: {label: "place"},
+        text_publisher: {label: "publisher"},
+        text_source: {label: "source", type: "url"},
+        text_title: {label: "title"},
+        text_year: {label: "year"},
+        page_n: {label: "page"}
+    }
+};
+
 settings.corpora["somali-sheekooyin"] = {
     id: "somali-sheekooyin",
     title: "Sheekooyin Carruureed",
@@ -285,7 +354,7 @@ settings.corpora["somali-suugaan"] = {
 
 settings.corpora["wikipedia-so"] = {
     id: "wikipedia-so",
-    title: "Somaliska Wikipedia",
+    title: "Somali Wikipedia",
     description: "",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -294,6 +363,22 @@ settings.corpora["wikipedia-so"] = {
         text_title: {label: "title"},
         text_publisher: {label: "date"},
         text_source: {label: "source", type: "url"}
+    }
+};
+
+settings.corpora["somali-xeerar"] = {
+    id: "somali-xeerar",
+    title: "Xeerar Somaliland",
+    description: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: {},
+    struct_attributes: {
+        text_year: {label: "year"},
+        text_title: {label: "title"},
+        text_source: {label: "source", type: "url"},
+        text_publisher: {label: "publisher"},
+        text_place: {label: "place"}
     }
 };
 

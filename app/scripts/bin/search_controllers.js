@@ -241,12 +241,12 @@
       s.cqp = $location.search().cqp;
     }
     s.setExtendedCQP = function(val) {
-      var e;
+      var e, error;
       try {
         $rootScope.extendedCQP = CQP.expandOperators(val);
         return $rootScope.extendedCQP = settings.corpusListing.addIgnoreBetweenTokensCQP($rootScope.extendedCQP, true);
-      } catch (_error) {
-        e = _error;
+      } catch (error) {
+        e = error;
         return c.log("cqp parse error:", e);
       }
     };

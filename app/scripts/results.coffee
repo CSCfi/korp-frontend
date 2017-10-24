@@ -751,7 +751,7 @@ class view.StatsResults extends BaseResults
                 start : 0
                 end : 24
                 command : "query"
-                corpus : util.encodeListParam($(this).data("corpora"))
+                corpus : util.encodeListParam(corpora)
                 cqp : self.proxy.prevParams.cqp
                 cqp2: cqp2
                 expand_prequeries : false

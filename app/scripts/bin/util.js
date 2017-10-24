@@ -397,11 +397,11 @@
     };
 
     CorpusListing.prototype.getTitle = function(corpus) {
-      var e;
+      var e, error;
       try {
         return this.struct[corpus].title;
-      } catch (_error) {
-        e = _error;
+      } catch (error) {
+        e = error;
         return c.log("gettitle broken", corpus);
       }
     };
@@ -912,15 +912,19 @@
   };
 
   util.getLocaleString = function(key, lang) {
-    var e;
+    return util.getLocaleStringUndefined(key, lang) || key;
+  };
+
+  util.getLocaleStringUndefined = function(key, lang) {
+    var e, error;
     if (!lang) {
       lang = window.lang || settings.defaultLanguage || "sv";
     }
     try {
-      return loc_data[lang][key] || key;
-    } catch (_error) {
-      e = _error;
-      return key;
+      return loc_data[lang][key];
+    } catch (error) {
+      e = error;
+      return void 0;
     }
   };
 

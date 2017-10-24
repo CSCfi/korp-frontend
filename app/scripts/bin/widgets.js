@@ -63,7 +63,7 @@
       }).appendTo(this.element);
     },
     renderCorpusContent: function(type, wordData, sentenceData, corpus_attrs, tokens, synthetic_attr_names, token_data) {
-      var base, item, items, j, k, key, len, len1, pairs, ref, ref1, ref2, synthetic, val, value;
+      var base, item, items, j, k, key, len, len1, pairs, ref, ref1, synthetic, val, value;
       if (type === "struct" || type === "link") {
         pairs = _.pairs(sentenceData);
       } else if (type === "pos") {
@@ -71,7 +71,8 @@
         ref = wordData._struct || [];
         for (j = 0, len = ref.length; j < len; j++) {
           item = ref[j];
-          ref1 = item.split(/ (.+)/, 2), key = ref1[0], val = ref1[1];
+          key = item.substring(0, item.indexOf(" "));
+          val = item.substring(item.indexOf(" ") + 1);
           if (key in corpus_attrs) {
             pairs.push([key, val]);
           }
@@ -102,7 +103,7 @@
       });
       items = [];
       for (k = 0, len1 = pairs.length; k < len1; k++) {
-        ref2 = pairs[k], key = ref2[0], value = ref2[1];
+        ref1 = pairs[k], key = ref1[0], value = ref1[1];
         items = items.concat(typeof (base = this.renderItem(key, value, corpus_attrs[key], wordData, sentenceData, token_data, tokens)).get === "function" ? base.get(0) : void 0);
       }
       items = _.compact(items);
@@ -357,7 +358,11 @@
       } else {
         if (attrs.translationKey != null) {
           str_value = mapViaDataset(str_value);
-          return output.append("<span rel='localize[" + attrs.translationKey + str_value + "]'></span>");
+          if (loc_data["en"][attrs.translationKey + str_value]) {
+            return output.append("<span rel='localize[" + attrs.translationKey + str_value + "]'></span>");
+          } else {
+            return output.append("<span>" + str_value + "</span>");
+          }
         } else {
           return output.append("<span>" + (str_value || '') + "</span>");
         }
