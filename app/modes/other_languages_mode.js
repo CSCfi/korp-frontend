@@ -286,6 +286,10 @@ settings.corpora.ha_stories = {
 	    label : "English_translation",
 	    displayType : "select"
 	}
+	chapter_title : {
+	    label : "Title",
+	    displayType : "select"
+	}
     }
 };
 
