@@ -285,7 +285,7 @@ settings.corpora.ha_stories = {
 	sentence_transl_en : {
 	    label : "English_translation",
 	    displayType : "select"
-	}
+	},
 	chapter_title : {
 	    label : "Title",
 	    displayType : "select"
