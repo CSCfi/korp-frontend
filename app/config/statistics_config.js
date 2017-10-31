@@ -88,7 +88,15 @@ statisticsFormatting.reduceCqp = function(type, tokens, ignoreCase, isPosAttr) {
                 else {
                     res = regescape(tokens[0]);
                 }
-                return type + " contains '" + res + "'";
+                // Assume simple values (instead of feature set
+                // values) for lemmas in other modes than "swedish"
+                // and thus use the operator = instead of contains.
+                // FIXME: This does not work for the MULCOLD corpus.
+                // (Jyrki Niemi 2015-12-04)
+                var comp_op = (type == "lemma"
+                               && window.currentMode != "swedish"
+                               ? " = " : " contains ");
+                return type + comp_op + "'" + res + "'";
         case "word":
             s = 'word="'+ regescape(tokens[0]) + '"';
             if(ignoreCase)
