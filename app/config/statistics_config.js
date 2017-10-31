@@ -1,5 +1,28 @@
 var statisticsFormatting = {}
 
+// KLUDGE: A list of the names of positional attributes with an
+// underscore, so that they will not be handled as structural
+// attributes. It would be better to generate the list dynamically
+// based on corpora, but it would be slightly more complicated as
+// statistics_config.js is loaded before config.js and util.js. Maybe
+// we could compute it on the first invocation of isPosAttr and save
+// the value. (Jyrki Niemi 2017-10-27)
+statisticsFormatting.posAttrNamesWithUnderscore = [
+    "clean_note",
+    "other_note",
+    "sketchy_note",
+    "word_completed",
+    "word_note",
+    "word_tilde",
+];
+
+// Test if attrname is a positional attribute.
+statisticsFormatting.isPosAttr = function (attrname) {
+    return (attrname.indexOf("_") == -1
+	    || (statisticsFormatting.posAttrNamesWithUnderscore
+		.indexOf(attrname) != -1));
+};
+
 statisticsFormatting.getCqp = function(types, hitValue, ignoreCase) {
     var tokenLists = statisticsFormatting.splitHitValue(hitValue);
 
@@ -15,7 +38,9 @@ statisticsFormatting.getCqp = function(types, hitValue, ignoreCase) {
             var elems = _.map(tokenLists, function(tokenList) {
                 return tokenList[typeIdx][tokenIdx];
             });
-            andParts.push(statisticsFormatting.reduceCqp(type, _.unique(elems), ignoreCase));
+            andParts.push(statisticsFormatting.reduceCqp(
+		type, _.unique(elems), ignoreCase,
+		statisticsFormatting.isPosAttr(type)));
         }
         totalQuery.push("[" + andParts.join(" & ") + "]");
     }
@@ -24,7 +49,7 @@ statisticsFormatting.getCqp = function(types, hitValue, ignoreCase) {
 
 // Get the cqp (part of) expression for linking in the statistics table
 // input type [{type:?,value:? }]
-statisticsFormatting.reduceCqp = function(type, tokens, ignoreCase) {
+statisticsFormatting.reduceCqp = function(type, tokens, ignoreCase, isPosAttr) {
 
     if(!tokens) {
         return "";
@@ -73,8 +98,11 @@ statisticsFormatting.reduceCqp = function(type, tokens, ignoreCase) {
         case "deprel":
         case "msd":
             return $.format('%s="%s"', [type, tokens[0]]);
-        default: // structural attributes
-            return $.format('_.%s="%s"', [type, tokens[0]]);
+        default: // structural and "non-standard" positional attributes
+            // Prefix the name of the attribute with an underscore
+            // only for structural attributes (Jyrki Niemi 2015-12-04)
+            return $.format((isPosAttr ? '' : '_.') + '%s="%s"',
+			    [type, tokens[0]]);
     }
 };
 
@@ -169,9 +197,15 @@ statisticsFormatting.reduceStringify = function(type, values, corpora) {
                 .outerHTML()
             }).join(" ");
             return output;
-        default: // structural attributes
+        default: // structural and "non-standard" positional attributes
             var cl = settings.corpusListing.subsetFactory(corpora)
-            var attrObj = cl.getStructAttrs()[type]
+            // Also handle "non-standard" positional attributes (Jyrki
+            // Niemi 2015-12-04, 2017-10-27)
+            if (statisticsFormatting.isPosAttr(type)) {
+                attrObj = cl.getCurrentAttributes()[type];
+            } else {
+                attrObj = cl.getStructAttrs()[type];
+            }
             var prefix = ""
             if(!_.isUndefined(attrObj) && attrObj.translationKey )
                 prefix = attrObj.translationKey
