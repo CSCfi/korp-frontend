@@ -76,7 +76,7 @@ statisticsFormatting.reduceCqp = function(type, tokens, ignoreCase, isPosAttr) {
                                 variants.push([]);
                         }
                         for(var idx = 1; idx < parts.length; idx++)
-                            variants[idx - 1].push(parts[idx]);
+                            variants[idx - 1].push(regescape(parts[idx]));
                     });
 
                     variants = _.map(variants, function(variant) {
@@ -86,7 +86,7 @@ statisticsFormatting.reduceCqp = function(type, tokens, ignoreCase, isPosAttr) {
                     res = key + variants.join("")
                 }
                 else {
-                    res = tokens[0];
+                    res = regescape(tokens[0]);
                 }
                 return type + " contains '" + res + "'";
         case "word":
@@ -102,7 +102,7 @@ statisticsFormatting.reduceCqp = function(type, tokens, ignoreCase, isPosAttr) {
             // Prefix the name of the attribute with an underscore
             // only for structural attributes (Jyrki Niemi 2015-12-04)
             return $.format((isPosAttr ? '' : '_.') + '%s="%s"',
-			    [type, tokens[0]]);
+			    [type, regescape(tokens[0])]);
     }
 };
 
