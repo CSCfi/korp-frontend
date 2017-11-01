@@ -2620,6 +2620,7 @@ settings.corporafolders.lehdet.tiedelehdet.ty = {
 	"tiedelehdet_toksikologi",
 	"tiedelehdet_transmitteri",
 	"tiedelehdet_trio",
+	"tiedelehdet_tutkimustiedote"
 	"tiedelehdet_tutkivasos",
 	"tiedelehdet_tyoelama",
 	"tiedelehdet_ura",
@@ -2674,10 +2675,11 @@ settings.corporafolders.lehdet.muut_lehdet.a = {
   ]
 };
 
-settings.corporafolders.lehdet.muut_lehdet.cd = {
-    title : "C, D",
-    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (C- ja D-alkuiset)",
+settings.corporafolders.lehdet.muut_lehdet.bcd = {
+    title : "B, C, D",
+    description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (B-, C- ja D-alkuiset)",
     contents : [
+	"lehdet_bof_online",
 	"lehdet_canews",
 	"lehdet_cplehti",
 	"lehdet_curly",
@@ -2706,6 +2708,7 @@ settings.corporafolders.lehdet.muut_lehdet.e = {
 	"lehdet_esri",
 	"lehdet_ethnos",
 	"lehdet_eurooppalainen",
+	"lehdet_euro_talous",
 	"lehdet_evento",
      ]
 }
@@ -5762,6 +5765,27 @@ settings.corpora.tiedelehdet_solubiologi = {
     },
 };
 
+settings.corpora.tiedelehdet_tutkimustiedote = {
+    id: "tiedelehdet_tutkimustiedote",
+    title: "Tutkimustiedote",
+    description: "Tutkimustiedote (2000-2014)<br/>Julkaisija: Suomen Pankki<br/>Kotisivu: <a href='https://www.suomenpankki.fi/fi/media-ja-julkaisut/julkaisut/selvitykset-ja-raportit/tutkimustiedote'>https://www.suomenpankki.fi/fi/media-ja-julkaisut/julkaisut/selvitykset-ja-raportit/tutkimustiedote</a>",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_title: sattrs.text_title,
+        text_filename: sattrs.hidden,
+        text_year: {
+            label: "year",
+        },
+        text_url: sattrs.link_lehdet,
+        text_issue: {
+            label: "issue",
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
 
 
 
@@ -11466,6 +11490,51 @@ settings.corpora.lehdet_wieteri = {
         sentence_id: sattrs.sentence_id_hidden,
     },
 };
+
+settings.corpora.lehdet_bof_online = {
+    id: "lehdet_bof_online",
+    title: "BoF Online",
+    description: "BoF Online (2007-4/2015)<br/>Julkaisija: Suomen Pankki<br/>Kotisivu: <a href='https://www.suomenpankki.fi/fi/media-ja-julkaisut/julkaisut/selvitykset-ja-raportit/bof_online/'>https://www.suomenpankki.fi/fi/media-ja-julkaisut/julkaisut/selvitykset-ja-raportit/bof_online/</a>",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_issue: {
+            label: "issue",
+        },
+        text_title: sattrs.text_title,
+        text_url: sattrs.link_lehdet,
+        text_year: {
+            label: "year",
+        },
+        text_filename: sattrs.hidden,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+settings.corpora.lehdet_euro_talous = {
+    id: "lehdet_euro_talous",
+    title: "Euro & talous",
+    description: "Euro & talous (1999-2016)<br/>Julkaisija: Suomen Pankki<br/>Kotisivu: <a href='https://www.suomenpankki.fi/fi/media-ja-julkaisut/julkaisut/euro--talous/'>https://www.suomenpankki.fi/fi/media-ja-julkaisut/julkaisut/euro--talous/</a>",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_url: sattrs.link_lehdet,
+        text_year: {
+            label: "year",
+        },
+        text_title: sattrs.text_title,
+        text_issue: {
+            label: "issue",
+        },
+        text_filename: sattrs.hidden,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
 
 
 
