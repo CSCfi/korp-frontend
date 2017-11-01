@@ -358,11 +358,7 @@
       } else {
         if (attrs.translationKey != null) {
           str_value = mapViaDataset(str_value);
-          if (loc_data["en"][attrs.translationKey + str_value]) {
-            return output.append("<span rel='localize[" + attrs.translationKey + str_value + "]'></span>");
-          } else {
-            return output.append("<span>" + str_value + "</span>");
-          }
+          return output.append("<span rel='localize[" + attrs.translationKey + str_value + "]'></span>");
         } else {
           return output.append("<span>" + (str_value || '') + "</span>");
         }

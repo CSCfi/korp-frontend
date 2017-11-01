@@ -375,12 +375,17 @@ Sidebar =
         else
             if attrs.translationKey?
                 str_value = mapViaDataset(str_value)
-                # FIXME-KP: Do not require English translations for
-                # displaying translated values
-                if loc_data["en"][attrs.translationKey + str_value]
-                    return output.append "<span rel='localize[#{attrs.translationKey}#{str_value}]'></span>"
-                else
-                    return output.append "<span>#{str_value}</span>"
+                # Språkbanken's Korp requires an English translation
+                # for the localization to be used, but that is not
+                # appropriate for Kielipankki's Korp. However, would
+                # it be better to use the bare value instead of the
+                # translation key if a translation in the active
+                # language is missing? (Jyrki Niemi 2017-11-01)
+                # if loc_data["en"][attrs.translationKey + str_value]
+                #     return output.append "<span rel='localize[#{attrs.translationKey}#{str_value}]'></span>"
+                # else
+                #     return output.append "<span>#{str_value}</span>"
+                return output.append "<span rel='localize[#{attrs.translationKey}#{str_value}]'></span>"
             else
                 return output.append "<span>#{str_value || ''}</span>"
 

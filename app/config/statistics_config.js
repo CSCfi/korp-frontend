@@ -218,12 +218,18 @@ statisticsFormatting.reduceStringify = function(type, values, corpora) {
             if(!_.isUndefined(attrObj) && attrObj.translationKey )
                 prefix = attrObj.translationKey
             var mapped = _.map(values, function (value) {
-                if(value === "") {
+                if(value === "" && prefix === "") {
                     return "-";
-                } else if(loc_data["en"][prefix + value]) {
-                    return util.getLocaleString(prefix + value);
+                // Språkbanken's Korp requires an English translation
+                // for the localization to be used, but that is not
+                // appropriate for Kielipankki's Korp. However, would
+                // it be better to use the bare value instead of the
+                // translation key if a translation in the active
+                // language is missing? (Jyrki Niemi 2017-11-01)
+                // } else if(loc_data["en"][prefix + value]) {
+                //     return util.getLocaleString(prefix + value);
                 } else {
-                    return value;
+                    return util.getLocaleString(prefix + value) || value;
                 }
             });
             return mapped.join(" ");
