@@ -2620,7 +2620,7 @@ settings.corporafolders.lehdet.tiedelehdet.ty = {
 	"tiedelehdet_toksikologi",
 	"tiedelehdet_transmitteri",
 	"tiedelehdet_trio",
-	"tiedelehdet_tutkimustiedote"
+	"tiedelehdet_tutkimustiedote",
 	"tiedelehdet_tutkivasos",
 	"tiedelehdet_tyoelama",
 	"tiedelehdet_ura",
