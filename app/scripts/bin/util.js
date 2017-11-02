@@ -720,7 +720,7 @@
       defaultWithin = search().within || _.keys(settings.defaultWithin)[0];
       within = this.getAttributeQuery("within");
       return {
-        defaultWithin: defaultWithin,
+        defaultwithin: defaultWithin,
         within: within
       };
     };
