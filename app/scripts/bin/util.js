@@ -243,7 +243,7 @@
       other_vals = [];
       for (val in value_corpora) {
         corpora = value_corpora[val];
-        if (val !== maxval) {
+        if (val !== maxval && corpora.length > 0) {
           other_vals = other_vals.concat([
             (function() {
               var len3, m, results;

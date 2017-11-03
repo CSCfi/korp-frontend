@@ -217,7 +217,8 @@ class window.CorpusListing
         # c.log maxval, params
         # Construct the non-default value string
         other_vals = []
-        for val, corpora of value_corpora when val != maxval
+        for val, corpora of value_corpora when (val != maxval and
+                                                corpora.length > 0)
             # c.log val, corpora
             other_vals = other_vals.concat(
                 [corp + ':' + val for corp in corpora])
