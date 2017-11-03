@@ -2045,6 +2045,9 @@
     if (output_sep == null) {
       output_sep = ".";
     }
+    if (values == null) {
+      return "";
+    }
     min_prefix_len = 2;
     group_overhead = encodeURIComponent("()").length;
     _calc_common_prefix_len = function(s1, s2) {

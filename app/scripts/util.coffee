@@ -2133,6 +2133,9 @@ util.encoded_list_param_cache = {}
 
 util.encodeListParam = (values, output_sep = ".") ->
 
+    if not values?
+        return ""
+
     # The minimum number of characters for a prefix
     min_prefix_len = 2
     group_overhead = encodeURIComponent("()").length
