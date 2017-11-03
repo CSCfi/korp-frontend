@@ -178,7 +178,10 @@ class window.CorpusListing
     minimizeDefaultAndCorpusQueryString: (type, params) ->
         if not (params.corpus? and params[type])
             return params
-        all_corpora = params.corpus.split(',')
+        # It would save decoding the corpus list if this function were
+        # always called for an unencoded list of corpora, but it would
+        # require more modifications elsewhere.
+        all_corpora = util.decodeListParam(params.corpus)
         c.log('minimize', type, params.corpus, params['default' + type],
               params[type], params[type].length)
         default_val = params['default' + type]

@@ -204,7 +204,7 @@
       if (!((params.corpus != null) && params[type])) {
         return params;
       }
-      all_corpora = params.corpus.split(',');
+      all_corpora = util.decodeListParam(params.corpus);
       c.log('minimize', type, params.corpus, params['default' + type], params[type], params[type].length);
       default_val = params['default' + type];
       value_corpora = {};
