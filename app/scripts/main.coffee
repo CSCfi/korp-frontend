@@ -203,7 +203,7 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
         # Note that this code is called *after* successful login via Shibboleth. -- matthies 28.11.13
 
         # We don't have a username/password, so I just call it with dummy values:
-        authenticationProxy.makeRequest("dummyuser", "dummypass").done((data) ->
+        authenticationProxy.makeRequest("dummyuser", "dummypass", true).done((data) ->
             if $("body").hasClass("not_logged_in")
                 # for some reason the first login after browser start is caught further up (see my comment there)
                 # and with the user from the previous browser session(!)

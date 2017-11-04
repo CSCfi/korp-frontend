@@ -204,7 +204,7 @@
         }
       });
     } else if (search().shib_logged_in != null) {
-      authenticationProxy.makeRequest("dummyuser", "dummypass").done(function(data) {
+      authenticationProxy.makeRequest("dummyuser", "dummypass", true).done(function(data) {
         if ($("body").hasClass("not_logged_in")) {
           util.setLogin();
         } else {
