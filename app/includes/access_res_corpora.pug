@@ -10,19 +10,30 @@
         h3.modal-title {{'accessres_title' | loc:lang}}
         button.close-x.close(data-dismiss="modal") ×
       .modal-body
-        p {{'accessres_preamble_common' | loc:lang}} 
-          span.hide_if_logged_in {{'accessres_preamble_login' | loc:lang}} 
+        p
+          | {{'accessres_preamble_common' | loc:lang}} 
+          span {{'accessres_preamble_login' | loc:lang}}
           //- This might be simpler with Angular or by setting the
           //- text content in JavaScript code.
-          span#accessResCorporaPreambleACA {{'accessres_preamble_aca' | loc:lang}}
-          span#accessResCorporaPreambleACAFi {{'accessres_preamble_acafi' | loc:lang}}
+          //- If all the selected corpora have the same licence category,
+          //- add information category-specific requirements to the same
+          //- sentence, joined with "and".
+          span#accessResCorporaPreambleACA
+            |  {{'and' | loc:lang}} {{'accessres_preamble_aca' | loc:lang}}
+          span#accessResCorporaPreambleACAFi
+            |  {{'and' | loc:lang}} {{'accessres_preamble_acafi' | loc:lang}}
+          span#accessResCorporaPreambleRES
+            |  {{'and' | loc:lang}} {{'accessres_preamble_res' | loc:lang}}
+          //- If the corpora have different licence categories, begin a new
+          //- sentence for the category-specific requirements.
           span#accessResCorporaPreambleACARES
-            | {{'accessres_preamble_acares' | loc:lang}}
-          span#accessResCorporaPreambleRES {{'accessres_preamble_res' | loc:lang}}
-          span#accessResCorporaPreambleACAACAFi {{'accessres_preamble_acaacafi' | loc:lang}}
-          span#accessResCorporaPreambleACAFiRES {{'accessres_preamble_acafires' | loc:lang}}
+            | . {{'accessres_preamble_acares' | loc:lang}}
+          span#accessResCorporaPreambleACAACAFi
+            | . {{'accessres_preamble_acaacafi' | loc:lang}}
+          span#accessResCorporaPreambleACAFiRES
+            | . {{'accessres_preamble_acafires' | loc:lang}}
           span#accessResCorporaPreambleACAACAFiRES
-            | {{'accessres_preamble_acaacafires' | loc:lang}}
+            | . {{'accessres_preamble_acaacafires' | loc:lang}}
           | .
         //- p {{'accessres_preamble' | loc:lang}}
         //- Show the link to login only if not logged in and the LBR
