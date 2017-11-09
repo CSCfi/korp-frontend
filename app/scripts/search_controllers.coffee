@@ -68,22 +68,31 @@ korpApp.controller "SearchCtrl", window.SearchCtrl
 korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope, searches, compareSearches, $uibModal) ->
     s = $scope
 
-    # Simple prequery, prequery within and prequery attribute
-    s.simple_prequery = ""
-    s.prequery_within_opts = [
-        "sentence"
-        "paragraph"
-        "text"
-    ]
-    s.prequery_within_default = s.prequery_within_opts[0]
-    s.prequery_within = s.prequery_within_opts[0]
-    s.prequery_attr_opts = [
-        # Word attribute name, localization key
-        ["lemma", "baseforms"]
-        ["word", "wordforms"]
-    ]
-    # s.prequery_attr = s.prequery_attr_opts[0][0]
-    s.prequery_attr = "lemma|word"
+    prequeries_enabled = settings.simple_search_restrict_context
+
+    if prequeries_enabled
+        # Simple prequery, prequery within and prequery attribute
+        s.simple_prequery = ""
+        s.prequery_within_opts = [
+            "sentence"
+            "paragraph"
+            "text"
+        ]
+        s.prequery_within_default = s.prequery_within_opts[0]
+        s.prequery_within = s.prequery_within_opts[0]
+        s.prequery_attr_opts = [
+            # Word attribute name, localization key
+            ["lemma", "baseforms"]
+            ["word", "wordforms"]
+        ]
+        # s.prequery_attr = s.prequery_attr_opts[0][0]
+        s.prequery_attr = "lemma|word"
+
+        # Set the value of simple_prequery based on the URL parameter
+        # simple_prequery
+        s.$watch( (() -> $location.search().simple_prequery),
+            (val) -> s.simple_prequery = val
+        )
 
     s.$on "popover_submit", (event, name) ->
         cqp = s.instance.getCQP()
@@ -92,12 +101,6 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             cqp : cqp
             corpora : settings.corpusListing.getSelectedCorpora()
         }
-
-    # Set the value of simple_prequery based on the URL parameter
-    # simple_prequery
-    s.$watch( (() -> $location.search().simple_prequery),
-        (val) -> s.simple_prequery = val
-    )
 
     s.stringifyRelatedHeader = (wd) ->
         wd.replace(/_/g, " ")
@@ -146,12 +149,13 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
         page = Number($location.search().page) or 0
         s.relatedObj = null
 
-        # Set URL parameters based on simple prequery variables
-        if s.simple_prequery
-            $location.search("simple_prequery", s.simple_prequery)
-        if s.prequery_within != s.prequery_within_default
-            $location.search("prequery_within", s.prequery_within)
-            # $location.search("prequery_attr", s.prequery_attr)
+        if prequeries_enabled
+            # Set URL parameters based on simple prequery variables
+            if s.simple_prequery
+                $location.search("simple_prequery", s.simple_prequery)
+            if s.prequery_within != s.prequery_within_default
+                $location.search("prequery_within", s.prequery_within)
+                # $location.search("prequery_attr", s.prequery_attr)
 
         if search.type == "word"
             $("#simple_text input").val(search.val) # Necessary for displaying the wordform if it came from the URL
@@ -186,7 +190,8 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
                 # TODO: Check if the prequeries are always added
                 # before coming here, in which case this code would
                 # not be needed.
-                if s.simple_prequery and cqp.indexOf("||") < 0
+                if prequeries_enabled and s.simple_prequery and
+                        cqp.indexOf("||") < 0
                     # c.log("lemgram simple_prequery", cqp, s.simple_prequery)
                     cqps = simpleSearch.makePrequeryCQPs(s.simple_prequery)
                     cqps.push(cqp)
@@ -211,15 +216,17 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             key : "suffix"
         ,
             key : "isCaseInsensitive"
-        ,
-            key : "simple_prequery"
-            default : ""
-        ,
-            key : "prequery_within"
-            default : s.prequery_within_default
-        # ,
-        #     key : "prequery_attr"
     ]
+    if prequeries_enabled
+        utils.setupHash s, [
+                key : "simple_prequery"
+                default : ""
+            ,
+                key : "prequery_within"
+                default : s.prequery_within_default
+            # ,
+            #     key : "prequery_attr"
+        ]
 
     $scope.$on "btn_submit", () ->
         $location.search "within", null

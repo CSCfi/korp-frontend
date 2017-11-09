@@ -81,14 +81,22 @@
   korpApp.controller("SearchCtrl", window.SearchCtrl);
 
   korpApp.controller("SimpleCtrl", function($scope, utils, $location, backend, $rootScope, searches, compareSearches, $uibModal) {
-    var modalInstance, s;
+    var modalInstance, prequeries_enabled, s;
     s = $scope;
-    s.simple_prequery = "";
-    s.prequery_within_opts = ["sentence", "paragraph", "text"];
-    s.prequery_within_default = s.prequery_within_opts[0];
-    s.prequery_within = s.prequery_within_opts[0];
-    s.prequery_attr_opts = [["lemma", "baseforms"], ["word", "wordforms"]];
-    s.prequery_attr = "lemma|word";
+    prequeries_enabled = settings.simple_search_restrict_context;
+    if (prequeries_enabled) {
+      s.simple_prequery = "";
+      s.prequery_within_opts = ["sentence", "paragraph", "text"];
+      s.prequery_within_default = s.prequery_within_opts[0];
+      s.prequery_within = s.prequery_within_opts[0];
+      s.prequery_attr_opts = [["lemma", "baseforms"], ["word", "wordforms"]];
+      s.prequery_attr = "lemma|word";
+      s.$watch((function() {
+        return $location.search().simple_prequery;
+      }), function(val) {
+        return s.simple_prequery = val;
+      });
+    }
     s.$on("popover_submit", function(event, name) {
       var cqp;
       cqp = s.instance.getCQP();
@@ -97,11 +105,6 @@
         cqp: cqp,
         corpora: settings.corpusListing.getSelectedCorpora()
       });
-    });
-    s.$watch((function() {
-      return $location.search().simple_prequery;
-    }), function(val) {
-      return s.simple_prequery = val;
     });
     s.stringifyRelatedHeader = function(wd) {
       return wd.replace(/_/g, " ");
@@ -141,11 +144,13 @@
         }
         page = Number($location.search().page) || 0;
         s.relatedObj = null;
-        if (s.simple_prequery) {
-          $location.search("simple_prequery", s.simple_prequery);
-        }
-        if (s.prequery_within !== s.prequery_within_default) {
-          $location.search("prequery_within", s.prequery_within);
+        if (prequeries_enabled) {
+          if (s.simple_prequery) {
+            $location.search("simple_prequery", s.simple_prequery);
+          }
+          if (s.prequery_within !== s.prequery_within_default) {
+            $location.search("prequery_within", s.prequery_within);
+          }
         }
         if (search.type === "word") {
           $("#simple_text input").val(search.val);
@@ -176,7 +181,7 @@
           if (s.word_pic) {
             return searches.lemgramSearch(search.val, s.prefix, s.suffix, search.pageOnly);
           } else {
-            if (s.simple_prequery && cqp.indexOf("||") < 0) {
+            if (prequeries_enabled && s.simple_prequery && cqp.indexOf("||") < 0) {
               cqps = simpleSearch.makePrequeryCQPs(s.simple_prequery);
               cqps.push(cqp);
               cqp = util.combineCQPs(cqps);
@@ -203,14 +208,19 @@
         key: "suffix"
       }, {
         key: "isCaseInsensitive"
-      }, {
-        key: "simple_prequery",
-        "default": ""
-      }, {
-        key: "prequery_within",
-        "default": s.prequery_within_default
       }
     ]);
+    if (prequeries_enabled) {
+      utils.setupHash(s, [
+        {
+          key: "simple_prequery",
+          "default": ""
+        }, {
+          key: "prequery_within",
+          "default": s.prequery_within_default
+        }
+      ]);
+    }
     return $scope.$on("btn_submit", function() {
       return $location.search("within", null);
     });

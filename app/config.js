@@ -37,6 +37,8 @@ settings.hits_per_page_default = 25
 // true.
 settings.show_related_words = false;
 settings.name_classification = true;
+// Enable the option to restrict search context in the simple search
+settings.simple_search_restrict_context = true;
 
 // The lemgram service to use for autocompletion. If not specified,
 // use Språkbanken's Karp. (Jyrki Niemi 2015-12-04)

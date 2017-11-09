@@ -12,12 +12,13 @@
       span  {{'and' | loc:lang}} 
       input#caseChk(type='checkbox', ng-model="isCaseInsensitive") 
       label(for='caseChk')  {{'case_insensitive' | loc:lang}}  
-    //- TODO: Show the prequery div only if configured to be shown
-    .prequery
+    .prequery(ng-if='settings.simple_search_restrict_context')
       span
         | {{'in_context_prefix' | loc:lang}}
+      //- ngIf creates a new scope, so we need to use $parent.var to
+      //- refer to the model variable var
       select#prequery_within(
-        ng-model='prequery_within'
+        ng-model='$parent.prequery_within'
         ng-options='"context_" + elem + "s" | loc for elem in prequery_within_opts track by elem'
       )
       span
@@ -29,7 +30,7 @@
       input#simple_prequery(
         type='text'
         size='40'
-        ng-model='simple_prequery'
+        ng-model='$parent.simple_prequery'
         ng-model-options='{ updateOn: "blur" }'
       )
 
