@@ -36,7 +36,7 @@ settings.hits_per_page_default = 25
 // If settings.show_related_words is not defined, it is considered
 // true.
 settings.show_related_words = false;
-settings.name_classification = true;
+settings.name_classification = false;
 // Enable the option to restrict search context in the simple search
 settings.simple_search_restrict_context = true;
 
