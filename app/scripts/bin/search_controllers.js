@@ -85,6 +85,7 @@
     s = $scope;
     s.simple_prequery = "";
     s.prequery_within_opts = ["sentence", "paragraph", "text"];
+    s.prequery_within_default = s.prequery_within_opts[0];
     s.prequery_within = s.prequery_within_opts[0];
     s.prequery_attr_opts = [["lemma", "baseforms"], ["word", "wordforms"]];
     s.prequery_attr = "lemma|word";
@@ -142,6 +143,8 @@
         s.relatedObj = null;
         if (s.simple_prequery) {
           $location.search("simple_prequery", s.simple_prequery);
+        }
+        if (s.prequery_within !== s.prequery_within_default) {
           $location.search("prequery_within", s.prequery_within);
         }
         if (search.type === "word") {
@@ -201,7 +204,11 @@
       }, {
         key: "isCaseInsensitive"
       }, {
-        key: "prequery_within"
+        key: "simple_prequery",
+        "default": ""
+      }, {
+        key: "prequery_within",
+        "default": s.prequery_within_default
       }
     ]);
     return $scope.$on("btn_submit", function() {

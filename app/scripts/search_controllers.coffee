@@ -75,6 +75,7 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
         "paragraph"
         "text"
     ]
+    s.prequery_within_default = s.prequery_within_opts[0]
     s.prequery_within = s.prequery_within_opts[0]
     s.prequery_attr_opts = [
         # Word attribute name, localization key
@@ -148,6 +149,7 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
         # Set URL parameters based on simple prequery variables
         if s.simple_prequery
             $location.search("simple_prequery", s.simple_prequery)
+        if s.prequery_within != s.prequery_within_default
             $location.search("prequery_within", s.prequery_within)
             # $location.search("prequery_attr", s.prequery_attr)
 
@@ -210,7 +212,11 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
         ,
             key : "isCaseInsensitive"
         ,
+            key : "simple_prequery"
+            default : ""
+        ,
             key : "prequery_within"
+            default : s.prequery_within_default
         # ,
         #     key : "prequery_attr"
     ]
