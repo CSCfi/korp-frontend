@@ -167,24 +167,20 @@ html
                   uib-tab-heading(ng-class="{not_loading: progress > 99, loading : loading, single: loading && instance.countCorpora() < 2 }")
                     | {{'name_classification' | loc:lang}}
                     tab-preloader(ng-if="loading", value="progress", spinner="instance.countCorpora() < 2")
-                  //- div.wordpic_disabled(ng-if="!word_pic")
-                  //-   | {{'word_pic_warn' | loc}} 
-                  //-   div
-                  //-     button.btn.btn-small.activate_word_pic(ng-click="activate()")
-                  //-       | {{'word_pic_warn_btn' | loc}}
-                  //- warning(ng-if="word_pic && !instance.hasData && !loading && !aborted")
-                  //-   | {{'word_pic_bad_search' | loc}} 
-                  //- warning(ng-if="word_pic && aborted && !loading")
-                  //-   | {{'search_aborted' | loc}}
-                  //- warning(ng-if="word_pic && no_hits")
-                  //-   | {{"no_stats_results" | loc}}
-                  div(constr='NameClassificationResults', constr-name='nameClassificationResults')
-                    //- #wordclassChkParent(ng-show="word_pic && instance.hasData")
-                    //-   input#wordclassChk(type='checkbox')
-                    //-   label(for='wordclassChk', rel='localize[show_wordclass]')
-                    //- .progress_container
-                    //-   progress(value='{{progress || 0}}', max='100')
-                    .name_content_target(ng-show="true")
+                  div.nameclassif_disabled(ng-if="! show_name_classif")
+                    | {{'name_classif_warn' | loc:lang}} 
+                    div
+                      button.btn.btn-small.activate_word_pic(ng-click="activate()")
+                        | {{'name_classif_warn_btn' | loc:lang}}
+                  //- warning(ng-if="show_name_classif && !instance.hasData && !loading && !aborted")
+                  //-   | {{'name_classif_bad_search' | loc:lang}} 
+                  warning(ng-if="show_name_classif && aborted && !loading")
+                    | {{'search_aborted' | loc:lang}}
+                  warning(ng-if="show_name_classif && no_hits")
+                    | {{"no_stats_results" | loc:lang}}
+                  div(constr='NameClassificationResults'
+                      constr-name='nameClassificationResults')
+                    .name_content_target(ng-show="show_name_classif")
 
                 include includes/dynamic_result_tabs
 

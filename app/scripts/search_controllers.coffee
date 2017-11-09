@@ -24,6 +24,12 @@ window.SearchCtrl = ["$scope", "$location", "utils", "searches", ( ($scope, $loc
 
     $scope.$watch "show_map", (val) -> $location.search("show_map", Boolean(val) or null)
 
+    $scope.$watch (() -> $location.search().show_name_classif), (val) ->
+        $scope.show_name_classif = Boolean(val)
+
+    $scope.$watch "show_name_classif", (val) ->
+        $location.search("show_name_classif", Boolean(val) or null)
+
     $scope.settings = settings
     $scope.showStats = () ->
         return settings.statistics != false

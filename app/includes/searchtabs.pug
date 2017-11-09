@@ -95,3 +95,6 @@ div(ng-controller="SearchCtrl", click-cover="noCorporaSelected")
     div(ng-show="settings.enableMap")
       input#show_map(type="checkbox", ng-model="show_map")
       label(for="show_map") {{'show_map' | loc:lang}}     
+    div(ng-show="settings.name_classification")
+      input#show_map(type="checkbox", ng-model="show_name_classif")
+      label(for="show_name_classif") {{'show_name_classif' | loc:lang}}

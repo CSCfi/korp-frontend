@@ -919,14 +919,24 @@ korpApp.directive "nameClassificationCtrl", () ->
         # (Jyrki Niemi 2015-05-29)
 
         c.log("NameClassificationCtrl")
-        $scope.name_class = $location.search().name_class?
-        $scope.$watch (() -> $location.search().name_class), (val) ->
-            $scope.name_class = Boolean(val)
+        $scope.show_name_classif = $location.search().show_name_classif?
+        $scope.$watch (() -> $location.search().show_name_classif), (val) ->
+            $scope.show_name_classif = Boolean(val)
 
         $scope.activate = () ->
             c.log("NameClassificationCtrl.activate: $location", $location)
-            # $location.search("word", true)
-            search = searches.activeSearch
-            # FIXME (janiemi): search.type should probably be replaced
-            # with the value for within, but where do we get it?
-            $scope.instance.makeRequest(search.val, search.type)
+            $location.search("show_name_classif", true)
+
+            getCqpExpr = () ->
+                # TODO currently copy pasted from watch on
+                # "searches.activeSearch"
+                search = searches.activeSearch
+                cqpExpr = null
+                if search
+                    if search.type == "word" or search.type == "lemgram"
+                        cqpExpr = simpleSearch.getCQP(search.val)
+                    else
+                        cqpExpr = search.val
+                return cqpExpr
+
+            $scope.instance.makeRequest(getCqpExpr())

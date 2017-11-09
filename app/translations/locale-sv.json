@@ -365,8 +365,11 @@
     "map_cluster": "Sammanställ",
 
     "name_classification": "Namnklassifikation",
+    "show_name_classif": "Visa namnklassifikation",
     "no_name_corpora": "De valda korpusarna innehåller ingen namndata.",
     "no_name_results": "Hittade inga namn.",
+    "name_classif_warn": "Namnklassifikationen är avaktiverad.",
+    "name_classif_warn_btn": "Aktivera och sök",
     "namegroup_person": "Personer",
     "namegroup_place": "Platser",
     "namegroup_organization": "Organisationer",

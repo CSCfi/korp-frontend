@@ -378,8 +378,11 @@
     "map_cluster": "Ryhmittele",
 
     "name_classification": "Nimiluokittelu",
+    "show_name_classif": "Näytä nimiluokittelu",
     "no_name_corpora": "Valitut korpukset eivät sisällä nimitietoja.",
     "no_name_results": "Nimiä ei löytynyt.",
+    "name_classif_warn": "Nimiluokittelu on poissa käytöstä.",
+    "name_classif_warn_btn": "Aktivoi ja hae",
     "namegroup_person": "Henkilöt",
     "namegroup_place": "Paikat",
     "namegroup_organization": "Organisaatiot",

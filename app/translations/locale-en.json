@@ -435,8 +435,11 @@
     "map_cluster": "Cluster",
 
     "name_classification": "Name classification",
+    "show_name_classif": "Show name classification",
     "no_name_corpora": "The selected corpora lack named-entity data.",
     "no_name_results": "No names were found.",
+    "name_classif_warn": "Name classification is disabled.",
+    "name_classif_warn_btn": "Enable and search",
     "namegroup_person": "Persons",
     "namegroup_place": "Places",
     "namegroup_organization": "Organizations",

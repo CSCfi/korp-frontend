@@ -225,6 +225,10 @@
               <input id="show_map" type="checkbox" ng-model="show_map">
               <label for="show_map">{{'show_map' | loc:lang}}     </label>
             </div>
+            <div ng-show="settings.name_classification">
+              <input id="show_map" type="checkbox" ng-model="show_name_classif">
+              <label for="show_name_classif">{{'show_name_classif' | loc:lang}}</label>
+            </div>
           </div>
         </div>
         <div id="dsa-logo" ng-show="! (searches.activeSearch || compareTabs.length || graphTabs.length)" ng-controller="resultContainerCtrl"><a href="https://assessment.datasealofapproval.org/assessment_155/seal/html/" target="_blank"><img src="img/DSA_2014_2017.png" align="right" width="100"></a></div>
@@ -392,8 +396,15 @@
                   <uib-tab-heading ng-class="{not_loading: progress &gt; 99, loading : loading, single: loading &amp;&amp; instance.countCorpora() &lt; 2 }">{{'name_classification' | loc:lang}}
                     <tab-preloader ng-if="loading" value="progress" spinner="instance.countCorpora() &lt; 2"></tab-preloader>
                   </uib-tab-heading>
+                  <div class="nameclassif_disabled" ng-if="! show_name_classif">{{'name_classif_warn' | loc:lang}} 
+                    <div>
+                      <button class="btn btn-small activate_word_pic" ng-click="activate()">{{'name_classif_warn_btn' | loc:lang}}</button>
+                    </div>
+                  </div>
+                  <warning ng-if="show_name_classif &amp;&amp; aborted &amp;&amp; !loading">{{'search_aborted' | loc:lang}}</warning>
+                  <warning ng-if="show_name_classif &amp;&amp; no_hits">{{"no_stats_results" | loc:lang}}</warning>
                   <div constr="NameClassificationResults" constr-name="nameClassificationResults">
-                    <div class="name_content_target" ng-show="true"></div>
+                    <div class="name_content_target" ng-show="show_name_classif"></div>
                   </div>
                 </uib-tab>
                 <uib-tab active="active" example-ctrl ng-repeat="kwicTab in kwicTabs" select="instance.onentry()" deselect="instance.onexit()">

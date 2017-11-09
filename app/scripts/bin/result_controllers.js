@@ -1091,17 +1091,30 @@
     return {
       controller: function($scope, $location, utils, searches) {
         c.log("NameClassificationCtrl");
-        $scope.name_class = $location.search().name_class != null;
+        $scope.show_name_classif = $location.search().show_name_classif != null;
         $scope.$watch((function() {
-          return $location.search().name_class;
+          return $location.search().show_name_classif;
         }), function(val) {
-          return $scope.name_class = Boolean(val);
+          return $scope.show_name_classif = Boolean(val);
         });
         return $scope.activate = function() {
-          var search;
+          var getCqpExpr;
           c.log("NameClassificationCtrl.activate: $location", $location);
-          search = searches.activeSearch;
-          return $scope.instance.makeRequest(search.val, search.type);
+          $location.search("show_name_classif", true);
+          getCqpExpr = function() {
+            var cqpExpr, search;
+            search = searches.activeSearch;
+            cqpExpr = null;
+            if (search) {
+              if (search.type === "word" || search.type === "lemgram") {
+                cqpExpr = simpleSearch.getCQP(search.val);
+              } else {
+                cqpExpr = search.val;
+              }
+            }
+            return cqpExpr;
+          };
+          return $scope.instance.makeRequest(getCqpExpr());
         };
       }
     };

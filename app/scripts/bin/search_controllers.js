@@ -32,6 +32,14 @@
       $scope.$watch("show_map", function(val) {
         return $location.search("show_map", Boolean(val) || null);
       });
+      $scope.$watch((function() {
+        return $location.search().show_name_classif;
+      }), function(val) {
+        return $scope.show_name_classif = Boolean(val);
+      });
+      $scope.$watch("show_name_classif", function(val) {
+        return $location.search("show_name_classif", Boolean(val) || null);
+      });
       $scope.settings = settings;
       $scope.showStats = function() {
         return settings.statistics !== false;
