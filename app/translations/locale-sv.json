@@ -358,6 +358,8 @@
     "kwic_download_formatdescr_xls": "Microsoft Excel 97–2003 kalkylblad",
     "kwic_download_formatname_text_utf8": "Klartext (UTF-8)",
     "kwic_download_formatdescr_text_utf8": "Klartext, UTF-8-teckenkodning",
+    "kwic_download_formatname_html": "HTML",
+    "kwic_download_formatdescr_html": "Text i HTML-format",
     "kwic_download_formatname_html_table": "HTML",
     "kwic_download_formatdescr_html_table": "HTML-tabell",
     
