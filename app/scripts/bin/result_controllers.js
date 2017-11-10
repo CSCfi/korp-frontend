@@ -846,6 +846,13 @@
               fixedData = fixData(data);
               palette = new Rickshaw.Color.Palette("colorwheel");
               return markers(fixedData).then(function(markers) {
+                s.markers = {
+                  "all": {
+                    "markers": markers,
+                    "color": palette.color()
+                  }
+                };
+                s.selectedGroups = ["all"];
                 s.numResults = _.keys(markers).length;
                 return s.loading = false;
               });
@@ -867,9 +874,9 @@
             ajaxParams: {
               command: "query",
               cqp: s.lastSearch.cqp,
-              cqp2: "[" + settings.placenameAttr + "='" + query + "' & (" + settings.placenameConstraint + ")]",
+              cqp2: "[" + settings.placenameAttr + "='" + point.name + "' & (" + settings.placenameConstraint + ")]",
               corpus: util.encodeListParam(s.lastSearch.corpora),
-              show_struct: util.encodeListParam(_.sortBy(_.keys(cl.getStructAttrs()))),
+              show_struct: _.keys(cl.getStructAttrs()),
               expand_prequeries: true,
               defaultwithin: 'sentence'
             }
