@@ -229,7 +229,7 @@ class KwicCtrl
             s.instance.downloadKwic(
                 format: downloadFormat
                 physical_format: s.downloadFormatPhysical[downloadFormat]
-                                 .selected
+                                 ?.selected
             )
             return
 

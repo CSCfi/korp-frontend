@@ -261,9 +261,10 @@
         s.downloadFormatPhysical[fmtname] = params.physical_formats;
       }
       s.downloadKwic = function(downloadFormat) {
+        var ref1;
         s.instance.downloadKwic({
           format: downloadFormat,
-          physical_format: s.downloadFormatPhysical[downloadFormat].selected
+          physical_format: (ref1 = s.downloadFormatPhysical[downloadFormat]) != null ? ref1.selected : void 0
         });
       };
     }
