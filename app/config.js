@@ -3678,9 +3678,7 @@ settings.corpora.tiedelehdet_liikenteensuunta_v2 = {
     title : "Liikenteen suunta",
     description : "Liikenteen suunta (2010-2/2014)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Liikennevirasto<br/>Kotisivu: <a href='http://www.liikenteensuunta.fi/fi/'>http://www.liikenteensuunta.fi/fi/</a>",
     id : "tiedelehdet_liikenteensuunta_v2",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_url : sattrs.link_lehdet,
         text_title : sattrs.text_title,
@@ -3829,9 +3827,7 @@ settings.corpora.tiedelehdet_niinnain_v2 = {
     title : "niin & näin",
     description : "niin & näin (2000-4/2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Eurooppalaisen filosofian seura ry<br/>Kotisivu: <a href='http://netn.fi/lehti'>http://netn.fi/</a>",
     id : "tiedelehdet_niinnain_v2",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {},
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_url : sattrs.link_lehdet,
         text_title : sattrs.text_title,
