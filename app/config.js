@@ -4025,9 +4025,7 @@ settings.corpora.tiedelehdet_avain = {
     title : "Avain",
     description : "Kirjallisuudentutkimuksen aikakauslehti Avain (2004-2015)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kirjallisuudentutkijain Seura<br/>Kotisivu: <a href='http://pro.tsv.fi/skts/avain.html'>http://pro.tsv.fi/skts/avain.html</a>",
     id : "tiedelehdet_avain",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_issue : {
             label : "issue"
@@ -4039,9 +4037,7 @@ settings.corpora.tiedelehdet_ennenjanyt = {
     title : "Ennen ja nyt",
     description : "Ennen ja nyt (2001-1/2016)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisijat: Agricola -Suomen historiaverkko, Historiallinen Yhdistys ry, Suomen Historiallinen Seura ry ja Turun Historiallinen Yhdistys ry.<br/>Kotisivu: <a href='http://www.ennenjanyt.net/'>http://www.ennenjanyt.net/</a>",
     id : "tiedelehdet_ennenjanyt",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
@@ -4052,9 +4048,7 @@ settings.corpora.tiedelehdet_historianystava = {
     title : "Historian ystävä",
     description : "Historian ystävä (2010-1/2016)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Historian Ystäväin Liitto<br/>Kotisivu: <a href='http://www.historianyst.fi/historianystava/'>http://www.historianyst.fi/historianystava/</a>",
     id : "tiedelehdet_historianystava",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_url : sattrs.link_lehdet
     }
@@ -4064,9 +4058,7 @@ settings.corpora.tiedelehdet_ilmansuojelu = {
     title : "Ilmansuojelu-lehti",
     description : "Ilmansuojelu-lehti (2007-2015)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Ilmansuojeluyhdistys ry<br/>Kotisivu: <a href='https://isy.fi/julkaisut/ilmansuojelulehti/'>https://isy.fi/julkaisut/ilmansuojelulehti/</a>",
     id : "tiedelehdet_ilmansuojelu",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_url : sattrs.link_lehdet
     }
@@ -4076,9 +4068,7 @@ settings.corpora.tiedelehdet_kieliskooppi = {
     title : "Kieliskooppi",
     description : "Kieliskooppi (2012-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Jyväskylän yliopiston kielikampus<br/>Kotisivu:<a href='http://research.jyu.fi/kieliskooppi/journals/'>http://research.jyu.fi/kieliskooppi/journals/</a>",
     id : "tiedelehdet_kieliskooppi",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_url : sattrs.link_lehdet,
         text_title : sattrs.text_title
@@ -4114,9 +4104,7 @@ settings.corpora.tiedelehdet_poliittinentalous = {
     title : "Poliittinen talous",
     description : "Poliittinen talous (1/2013-1/2014)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Poliittisen talouden tutkimuksen seura<br/>Kotisivu: <a href='http://poliittinentalous.fi/ojs/'>http://poliittinentalous.fi/ojs/</a>",
     id : "tiedelehdet_poliittinentalous",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_url : sattrs.link_lehdet
     }
@@ -4127,9 +4115,7 @@ settings.corpora.tiedelehdet_skas = {
     title : "SKAS",
     description : "SKAS (2007-2013)<br/>Julkaisija: Suomen keskiajan arkeologian seura<br/>Kotisivu: <a href='http://www.skas.fi/skas-lehti/'>http://www.skas.fi/skas-lehti/</a>",
     id : "tiedelehdet_skas",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_url : sattrs.link_lehdet,
         text_issue : {
@@ -4155,9 +4141,7 @@ settings.corpora.tiedelehdet_vartija = {
     title : "Vartija-lehti",
     description : "Vartija-lehti (2006-2/2015)<br/>Julkaisija: Vartija-lehden kannatusyhdistys<br/>Kotisivu: <a href='http://www.vartija-lehti.fi/'>http://www.vartija-lehti.fi/</a>",
     id : "tiedelehdet_vartija",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_issue : {
             label : "issue"
@@ -4194,9 +4178,7 @@ settings.corpora.tiedelehdet_tietolinja = {
     title : "Tietolinja",
     description : "Tietolinja (1/2000-2/2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='http://tietolinja.kansalliskirjasto.fi/'>http://tietolinja.kansalliskirjasto.fi/</a>",
     id : "tiedelehdet_tietolinja",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_url : sattrs.link_lehdet,
         text_issue : {
@@ -4209,9 +4191,7 @@ settings.corpora.tiedelehdet_mediajaviestinta = {
     title : "Media & Viestintä/Tiedotustutkimus",
     description : "Tiedotustutkimus (2005-2009) / Media & Viestintä (2010-2014)<br/>Julkaisija: Media- ja viestintätieteellinen seura<br/>Kotisivu: <a href='http://mediaviestinta.fi/blogi/'>http://mediaviestinta.fi/blogi/</a>",
     id : "tiedelehdet_mediajaviestinta",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : attrlist.standard,
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
 	text_issue : {
 	    label : "issue"
@@ -4250,17 +4230,7 @@ settings.corpora.tiedelehdet_rakmek = {
     title : "Rakenteiden mekaniikka",
     description : "Rakenteiden mekaniikka (2000-2014)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Rakenteiden mekaniikan seura<br/>Kotisivu: <a href='http://rmseura.tkk.fi/rmlehti/'>http://rmseura.tkk.fi/rmlehti/</a>",
     id : "tiedelehdet_rakmek",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet,
@@ -4275,17 +4245,7 @@ settings.corpora.tiedelehdet_nimi = {
     title : "NMI-Bulletin",
     description : "NMI-Bulletin (2002-2003, 2007-2012)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Niilo Mäki instituutti<br/>Kotisivu: <a href='http://bulletin.nmi.fi/arkisto/'>http://bulletin.nmi.fi/arkisto/</a>",
     id : "tiedelehdet_nimi",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
@@ -4307,17 +4267,7 @@ settings.corpora.tiedelehdet_metsatiede = {
     title : "Metsätieteen aikakauskirja",
     description : "Metsätieteen aikakauskirja (2000-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Luonnonvarakeskus & Suomen Metsätieteellinen Seura<br/>Kotisivu: <a href='http://www.metla.fi/aikakauskirja/'>http://www.metla.fi/aikakauskirja/</a>",
     id : "tiedelehdet_metsatiede",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
@@ -4328,17 +4278,7 @@ settings.corpora.tiedelehdet_ravitsemus = {
     title : "Ravitsemuskatsaus",
     description : "Ravitsemuskatsaus (2007-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Maito ja Terveys ry<br/>Kotisivu: <a href='http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php'>http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php</a>",
     id : "tiedelehdet_ravitsemus",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_issue : {
@@ -4352,17 +4292,7 @@ settings.corpora.tiedelehdet_kulutustutkimus = {
     title : "Kulutustutkimus.Nyt",
     description : "Kulutustutkimus.Nyt (2007-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kulutustutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulutustutkimus.net/nyt/'>http://www.kulutustutkimus.net/nyt/</a>",
     id : "tiedelehdet_kulutustutkimus",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_issue : {
@@ -4376,17 +4306,7 @@ settings.corpora.tiedelehdet_sananjalka = {
     title : "Sananjalka",
     description : "Sananjalka (2006-2013)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen kielen seura<br/>Kotisivu: <a href='http://www.suomenkielenseura.fi/sananjalka/'>http://www.suomenkielenseura.fi/sananjalka/</a>",
     id : "tiedelehdet_sananjalka",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_citationabstracthtmlurl : sattrs.link_lehdet,
         text_citationauthors : {
@@ -4412,17 +4332,7 @@ settings.corpora.tiedelehdet_kirkkohistoria = {
     title : "Suomen kirkkohistoriallisen seuran vuosikirja",
     description : "Suomen kirkkohistoriallisen seuran vuosikirja (2000-2014)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen kirkkohistoriallinen seura<br/>Kotisivu: <a href='http://www.skhs.fi/julkaisut/vuosikirja/'>http://www.skhs.fi/julkaisut/vuosikirja/</a>",
     id : "tiedelehdet_kirkkohistoria",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_citationabstracthtmlurl : sattrs.link_lehdet,
         text_citationauthors : {
@@ -4448,17 +4358,7 @@ settings.corpora.tiedelehdet_skholion = {
     title : "Skholion",
     description : "Skholion (2009-1/2012)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen Bysantin tutkimuksen seura ry<br/>Kotisivu: <a href='http://www.protsv.fi/bts/BTSskholion.html'>http://www.protsv.fi/bts/BTSskholion.html</a>",
     id : "tiedelehdet_skholion",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_url : sattrs.link_lehdet,
         text_issue : {
@@ -4473,17 +4373,7 @@ settings.corpora.tiedelehdet_siirtolaisuus = {
     title : "Siirtolaisuus-Migration",
     description : "Siirtolaisuus-Migration (2000-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Siirtolaisuusinstituutti<br/>Kotisivu: <a href='http://www.migrationinstitute.fi/fi/julkaisut/siirtolaisuus-migration'>http://www.migrationinstitute.fi/fi/julkaisut/siirtolaisuus-migration</a>",
     id : "tiedelehdet_siirtolaisuus",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_url : sattrs.link_lehdet,
         text_issue : {
@@ -4499,17 +4389,7 @@ settings.corpora.tiedelehdet_taimiuutiset = {
     title : "Taimiuutiset",
     description : "Taimiuutiset (2000-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Luonnonvarakeskus Suonenjoki<br/>Kotisivu: <a href='http://www.metla.fi/taimiuutiset/'>http://www.metla.fi/taimiuutiset/</a>",
     id : "tiedelehdet_taimiuutiset",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_issue : {
@@ -4523,17 +4403,7 @@ settings.corpora.tiedelehdet_kulttuurintutkimus = {
     title : "Kulttuurintutkimus",
     description : "Kulttuurintutkimus (2004-2013)<br/>Sisältää lehden kotisivulla ja <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kulttuurintutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulttuurintutkimus.fi/lehti/'>http://www.kulttuurintutkimus.fi/lehti/</a>",
     id : "tiedelehdet_kulttuurintutkimus",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_citationabstracthtmlurl : sattrs.link_lehdet,
         text_citationauthors : {
@@ -4558,17 +4428,7 @@ settings.corpora.tiedelehdet_matkailututkimus = {
     title : "Matkailututkimus",
     description : "Matkailututkimus (2005-2013)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen matkailututkimuksen seura ry<br/>Kotisivu: <a href='http://matkailututkimus.org/'>http://matkailututkimus.org/</a>",
     id : "tiedelehdet_matkailututkimus",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_citationabstracthtmlurl : sattrs.link_lehdet,
         text_citationauthors : {
@@ -4593,17 +4453,7 @@ settings.corpora.tiedelehdet_kunnallistiede = {
     title : "Kunnallistieteellinen aikakauskirja",
     description : "Kunnallistieteellinen aikakauskirja (2002-2012)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kunnallistieteen yhdistys<br/>Kotisivu: <a href='http://www.kunnallistiede.fi/aikakauskirja/'>http://www.kunnallistiede.fi/aikakauskirja/</a>",
     id : "tiedelehdet_kunnallistiede",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_citationabstracthtmlurl : sattrs.link_lehdet,
         text_citationauthors : {
@@ -4628,17 +4478,7 @@ settings.corpora.tiedelehdet_maaseudunuusiaika = {
     title : "Maaseudun uusi aika",
     description : "Maaseudun uusi aika (2000-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Maaseudun uusi aika -yhdistys<br/>Kotisivu: <a href='http://www.mua.fi/lehti/'>http://www.mua.fi/lehti/</a>",
     id : "tiedelehdet_maaseudunuusiaika",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         /*text_title : sattrs.text_title,*/
         text_url : sattrs.link_lehdet,
@@ -4667,17 +4507,7 @@ settings.corpora.tiedelehdet_bryobrotherella = {
     title : "Bryobrotherella",
     description : "Bryobrotherella (2008–2012)<br/>Julkaisija: Suomen Sammalseura<br/>Kotisivu: <a href='http://www.suomensammalseura.fi/'>http://www.suomensammalseura.fi</a>",
     id : "tiedelehdet_bryobrotherella",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_issue : {
             label : "issue"
@@ -4689,17 +4519,7 @@ settings.corpora.tiedelehdet_lounaishame = {
     title : "Lounais-Hämeen Luonto",
     description : "Lounais-Hämeen Luonto (2000-2010)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Lounais-Hämeen Luonnonsuojeluyhdistys ry<br/>Kotisivu: <a href='http://www.lounaisluonto.net/'>http://www.lounaisluonto.net/</a>",
     id : "tiedelehdet_lounaishame",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet,
@@ -4713,17 +4533,7 @@ settings.corpora.tiedelehdet_kompositio = {
     title : "Kompositio",
     description : "Kompositio (2007-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen Säveltäjät ry<br/>Kotisivu: <a href='http://www.composers.fi/tietoa-yhdistyksesta/kompositio/'>http://www.composers.fi/tietoa-yhdistyksesta/kompositio/</a>",
     id : "tiedelehdet_kompositio",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet,
@@ -4737,17 +4547,7 @@ settings.corpora.tiedelehdet_liiketalous = {
     title : "Liiketaloudellinen Aikakauskirja",
     description : "Liiketaloudellinen Aikakauskirja (2000-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Liiketaloustieteellinen Yhdistys ry<br/>Kotisivu: <a href='http://lta.hse.fi/'>http://lta.hse.fi/</a>",
     id : "tiedelehdet_liiketalous",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet,
@@ -4762,17 +4562,7 @@ settings.corpora.tiedelehdet_geofoorumi = {
     title : "GeoFoorumi",
     description : "GeoFoorumi (2006-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Geologian tutkimuskeskus (GTK)<br/><a href='http://www.gtk.fi/ajankohtaista/painotuotteet/geofoorumi/'>http://www.gtk.fi/ajankohtaista/painotuotteet/geofoorumi/</a>",
     id : "tiedelehdet_geofoorumi",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet,
@@ -4786,17 +4576,7 @@ settings.corpora.tiedelehdet_agricola = {
     title : "Agricolan Tietosanomat",
     description : "Agricolan Tietosanomat (2000)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: <br/>Kotisivu: <a href='http://agricola.utu.fi/julkaisut/tietosanomat/'>http://agricola.utu.fi/julkaisut/tietosanomat/</a>",
     id : "tiedelehdet_agricola",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_atitle : sattrs.text_title,
         text_url : sattrs.link_lehdet,
@@ -4811,17 +4591,7 @@ settings.corpora.tiedelehdet_diakonia = {
     title : "Diakonian tutkimus –aikakauskirja",
     description : "Diakonian tutkimus -aikakauskirja (2004–2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Diakonian Tutkimuksen Seura<br/>Kotisivu: <a href='http://dts.fi/aikakauskirja/'>http://dts.fi/aikakauskirja/</a>",
     id : "tiedelehdet_diakonia",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         /*text_url : sattrs.link_lehdet,*/
         text_issue : {
@@ -4834,17 +4604,7 @@ settings.corpora.tiedelehdet_psykologia = {
     title : "Psykologia-lehti",
     description : "Psykologia-lehti (2009-2010)<br/>Julkaisija: Suomen psykologinen seura<br/>Kotisivu: <a href='http://www.psykologia.fi/'>http://www.psykologia.fi/</a>",
     id : "tiedelehdet_psykologia",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         /*text_url : sattrs.link_lehdet,*/
         text_issue : {
@@ -4857,17 +4617,7 @@ settings.corpora.tiedelehdet_ruralia = {
     title : "Ruralia-lehti",
     description : "Ruralia-lehti (2006-2014)<br/>Julkaisija: Ruralia-instituutti<br/>Kotisivu: <a href='http://www.helsinki.fi/ruralia/'>http://www.helsinki.fi/ruralia/</a>",
     id : "tiedelehdet_ruralia",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_url : sattrs.link_lehdet,
         text_issue : {
@@ -4880,17 +4630,7 @@ settings.corpora.tiedelehdet_historiallinen = {
     title : "Historiallinen Aikakauskirja",
     description : "Historiallinen Aikakauskirja (2001-2013)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen Historiallinen Seura & Historian Ystäväin Liitto<br/>Kotisivu: <a href='http://www.historiallinenaikakauskirja.fi/'>http://www.historiallinenaikakauskirja.fi/</a>",
     id : "tiedelehdet_historiallinen",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_citationabstracthtmlurl : sattrs.link_lehdet,
         text_citationauthors : {
@@ -4915,17 +4655,7 @@ settings.corpora.tiedelehdet_havina = {
     title : "Havina",
     description : "Havina (2009-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Oulun yliopisto, Historiatieteet</br>Kotisivu: <a href='http://www.havina.net/'>http://www.havina.net/</a>",
     id : "tiedelehdet_havina",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_atitle : sattrs.text_title,
         text_date : sattrs.date,
@@ -4941,17 +4671,7 @@ settings.corpora.tiedelehdet_harukaze = {
     title : "Harukaze",
     description : "Harukaze (2000-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Japani-opinnot, Oulun yliopisto, Oulu<br/>Kotisivu: <a href='http://www.oulu.fi/Harukaze/'>http://www.oulu.fi/Harukaze/</a>",
     id : "tiedelehdet_harukaze",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_atitle : sattrs.text_title,
         text_url : sattrs.link_lehdet,
@@ -4967,17 +4687,7 @@ settings.corpora.tiedelehdet_glossae = {
     title : "Glossae",
     description : "Glossae (2000-2012)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Keskiajan opinto- ja tutkimusyhdistys<br/>Kotisivu: <a href='http://www.glossa.fi/glossae/arkisto.php'>http://www.glossa.fi/glossae/arkisto.php</a>",
     id : "tiedelehdet_glossae",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_url : sattrs.link_lehdet,
         text_issue : {
@@ -4991,17 +4701,7 @@ settings.corpora.tiedelehdet_musiikkikasv = {
     title : "Musiikkikasvatuslehti",
     description : "Musiikkikasvatuslehti (2014)<br/>Julkaisijat: Sibelius-Akatemia & Suomen Taidekasvatuksen tutkimusseura<br/>Kotisivu: <a href='http://www2.siba.fi/musiikkikasvatuslehti/'>http://www2.siba.fi/musiikkikasvatuslehti/</a>",
     id : "tiedelehdet_musiikkikasv",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_url : sattrs.link_lehdet,
         text_issue : {
@@ -5014,17 +4714,7 @@ settings.corpora.tiedelehdet_areiopagi = {
     title : "Areiopagi",
     description : "Areiopagi (2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Areiopagi ry<br/>Kotisivu: <a href='http://www.areiopagi.fi/'>http://www.areiopagi.fi/</a>",
     id : "tiedelehdet_areiopagi",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_atitle : sattrs.text_title,
         text_url : sattrs.link_lehdet,
@@ -5040,17 +4730,7 @@ settings.corpora.tiedelehdet_ats = {
     title : "ATS-Ydintekniikka",
     description : "ATS-Ydintekniikka (2000–2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen Atomiteknillinen Seura<br/>Kotisivu: <a href='http://www.ats-fns.fi/fi/ats-ydintekniikka/lehdet'>http://www.ats-fns.fi/fi/ats-ydintekniikka/lehdet</a>",
     id : "tiedelehdet_ats",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         /*text_url : sattrs.link_lehdet,*/
         text_issue : {
@@ -5064,17 +4744,7 @@ settings.corpora.tiedelehdet_auraica = {
     title : "Auraica",
     description : "Auraica (2008–2012)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Porthan-Seura ry<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/Aur/issue/archive'>http://ojs.tsv.fi/index.php/Aur/issue/archive</a>",
     id : "tiedelehdet_auraica",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet,
@@ -5088,17 +4758,7 @@ settings.corpora.tiedelehdet_aikuiskasvatus = {
     title : "Aikuiskasvatus",
     description : "Aikuiskasvatus (2011–2014)<br/><a href='https://www.kielipankki.fi/wp-content/uploads/Aikuiskasvatus_artikkeliluettelo.pdf'>Artikkeliluettelo</a><br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura<br/>Kotisivu: <a href='http://www.doria.fi/handle/10024/7300'>http://www.doria.fi/handle/10024/7300</a>",
     id : "tiedelehdet_aikuiskasvatus",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_atitle : sattrs.text_title,
         /*text_date : sattrs.date,*/
@@ -5114,17 +4774,7 @@ settings.corpora.tiedelehdet_toksikologi = {
     title : "Toksikologi-lehti",
     description : "Toksikologi-lehti (2000-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen toksikologiyhdistys<br/>Kotisivu: <a href='http://www.toksikologit.fi/lehti.html'>http://www.toksikologit.fi/lehti.html</a>",
     id : "tiedelehdet_toksikologi",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
@@ -5135,17 +4785,7 @@ settings.corpora.tiedelehdet_walbum = {
     title : "W-album",
     description : "W-album (2004-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Turun Eläin- ja Kasvitieteellisen seuran Hyönteiskerho<br/>Kotisivu: <a href='http://org.utu.fi/harrastus/TEKS/w-album/'>http://org.utu.fi/harrastus/TEKS/w-album/</a>",
     id : "tiedelehdet_walbum",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
@@ -5156,17 +4796,7 @@ settings.corpora.tiedelehdet_tyoelama = {
     title : "Työelämän tutkimus",
     description : "Työelämän tutkimus (2003-2012)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Työelämän tutkimusyhdistys<br/>Kotisivu: <a href='http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/'>http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/</a>",
     id : "tiedelehdet_tyoelama",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
@@ -5186,29 +4816,6 @@ settings.corpora.tiedelehdet_ura = {
         }
     }
 };
-/*
-settings.corpora.tiedelehdet_virittaja = {
-    title : "Virittäjä",
-    description : "Virittäjä (2009-2013)<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
-    id : "tiedelehdet_virittaja",
-    urn : "",
-    metadata_urn : "",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
-    struct_attributes : {
-        text_title : sattrs.text_title,
-        text_url : sattrs.link_lehdet
-    }
-    };*/
 
 settings.corpora.tiedelehdet_virittaja = {
     title : "Virittäjä",
@@ -5239,17 +4846,7 @@ settings.corpora.tiedelehdet_ymparistohistoria = {
     title : "Ympäristöhistoria",
     description : "Ympäristöhistoria (2011-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: <br/>Kotisivu: <a href='http://www.uta.fi/yky/tutkimus/historia/projektit/iehg/Ymparistohistoria/12011.html'>http://www.uta.fi/yky/tutkimus/historia/projektit/iehg/Ymparistohistoria/12011.html</a>",
     id : "tiedelehdet_ymparistohistoria",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet,
@@ -5264,17 +4861,7 @@ settings.corpora.tiedelehdet_trio = {
     title : "Trio",
     description : "Trio (2012-2014)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Sibelius Akatemia (DocMus)<br/>Kotisivu: <a href='http://www5.siba.fi/services-for-all/publications/printed-publications/periodicals'>http://www5.siba.fi/services-for-all/publications/printed-publications/periodicals</a>",
     id : "tiedelehdet_trio",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_issue : {
@@ -5288,17 +4875,7 @@ settings.corpora.tiedelehdet_transmitteri = {
     title : "Transmitteri",
     description : "Transmitteri (2000-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomen farmakologiyhdistys<br/>Kotisivu: <a href='http://www.sfy.fi/transmitteri.html'>http://www.sfy.fi/transmitteri.html</a>",
     id : "tiedelehdet_transmitteri",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
@@ -5310,17 +4887,7 @@ settings.corpora.tiedelehdet_thanatos = {
     title : "Thanatos",
     description : "Thanatos (2012-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Suomalaisen Kuolemantutkimuksen Seura ry<br/>Kotisivu: <a href='http://thanatos-journal.com/'>http://thanatos-journal.com/</a>",
     id : "tiedelehdet_thanatos",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         text_url : sattrs.link_lehdet
@@ -5333,17 +4900,7 @@ settings.corpora.tiedelehdet_aluejaymparisto = {
     title : "Alue ja ympäristö",
     description : "Alue ja ympäristö (2005–2014)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Alue- ja ympäristötutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/aluejaymparisto'>http://www.ays.fi/aluejaymparisto</a>",
     id : "tiedelehdet_aluejaymparisto",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         /*text_date : sattrs.date,*/
@@ -5358,17 +4915,7 @@ settings.corpora.tiedelehdet_aakusti = {
     title : "Aakusti",
     description : "Aakusti (2008–2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Savon kielen seura ry<br/>Kotisivu: <a href='http://savonkielenseura.fi/arkistosivu/'>http://savonkielenseura.fi/arkistosivu/</a>",
     id : "tiedelehdet_aakusti",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         /*text_date : sattrs.date,*/
@@ -5383,17 +4930,7 @@ settings.corpora.tiedelehdet_30paivaa = {
     title : "30 Päivää",
     description : "30 Päivää (2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Sosiaalialan korkeakoulutettujen ammattijärjestö Talentia ry<br/>Kotisivu: <a href='http://www.talentia.isinteksas.com/julkaisut/'>http://www.talentia.isinteksas.com/julkaisut/</a>",
     id : "tiedelehdet_30paivaa",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         /*text_date : sattrs.date,*/
@@ -5408,17 +4945,7 @@ settings.corpora.tiedelehdet_aidinkieli = {
     title : "Aikakauskirja Äidinkielen opetustiede",
     description : "Aikakauskirja Äidinkielen opetustiede (2008–2012)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Äidinkielen Opetustieteen Seura ry<br/>Kotisivu: <a href='http://www.aidinkielenopetustieteenseurary.com/'>http://www.aidinkielenopetustieteenseurary.com/</a>",
     id : "tiedelehdet_aidinkieli",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_title : sattrs.text_title,
         /*text_date : sattrs.date,*/
@@ -5433,17 +4960,7 @@ settings.corpora.tiedelehdet_kognitiivinen = {
     title : "Kognitiivinen psykoterapia",
     description : "Kognitiivinen psykoterapia (2004-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Kognitiivisen psykoterapian yhdistys<br/>Kotisivu: <a href='http://www.kognitiivinenpsykoterapia.fi/'>http://www.kognitiivinenpsykoterapia.fi/</a>",
     id : "tiedelehdet_kognitiivinen",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-        lemma : attrs.baseform,
-        pos : attrs.pos_klk,
-        msd : attrs.msd,
-        dephead : attrs.dephead,
-        deprel : attrs.deprel_tdt,
-        ref : attrs.ref,
-        nertag : attrs.ner_tags
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
         text_url : sattrs.link_lehdet
     }
