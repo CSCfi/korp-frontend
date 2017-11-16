@@ -18,6 +18,8 @@
     location.hash = "#?" + _.str.lstrip(location.hash, "#");
   }
 
+  util.decompressActiveUrlHashParams();
+
   t = $.now();
 
   isDev = window.location.host === "localhost";

@@ -11,6 +11,11 @@ if creds
 if(location.hash.length && location.hash[1] != "?")
     location.hash = "#?" + _.str.lstrip(location.hash, "#")
 
+# If the URL hash parameters are compressed (after Shibboleth login or
+# logout), decompress them.
+util.decompressActiveUrlHashParams()
+
+
 t = $.now()
 
 isDev = window.location.host is "localhost"

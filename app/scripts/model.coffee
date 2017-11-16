@@ -181,11 +181,12 @@ class model.KWICProxy extends BaseProxy
 
         # @prevCQP = data.cqp
         @prevCQP = util.combineCQPs data
-        data.show = (_.uniq ["sentence"].concat(data.show)).join(",")
+        data.show = util.encodeListParamUniq ["sentence"].concat(data.show)
         c.log "data.show", data.show
-        data.show_struct = (_.uniq data.show_struct).join(",")
+        data.show_struct = util.encodeListParamUniq data.show_struct
         settings.corpusListing.minimizeWithinQueryString data
         settings.corpusListing.minimizeContextQueryString data
+        data.corpus = util.encodeListParam data.corpus
         @prevRequest = data
         @prevMisc = {"hitsPerPage" : $("#num_hits").val()}
         @prevParams = data
@@ -222,7 +223,7 @@ class model.LemgramProxy extends BaseProxy
         params =
             command: "relations"
             word: word
-            corpus: settings.corpusListing.stringifySelected()
+            corpus: settings.corpusListing.stringifySelectedEncode()
             incremental: $.support.ajaxProgress
             type: type
             cache : true
@@ -448,7 +449,7 @@ class model.StatsProxy extends BaseProxy
             command: "count"
             groupby: reduceVals.join ','
             # cqp: @expandCQP cqp
-            corpus: settings.corpusListing.stringifySelected(true)
+            corpus: settings.corpusListing.stringifySelectedEncode(true)
             incremental: $.support.ajaxProgress
         @addExpandedCQP parameters, cqp
         _.extend parameters, settings.corpusListing.getWithinParameters()
@@ -678,7 +679,7 @@ class model.GraphProxy extends BaseProxy
         params =
             command : "count_time"
             # cqp : @expandCQP cqp
-            corpus : corpora
+            corpus : util.encodeListParam corpora
             granularity : @granularity
             incremental: $.support.ajaxProgress
         
@@ -738,7 +739,7 @@ class model.NameClassificationProxy extends BaseProxy
         params =
             command: "names"
             # cqp: cqp
-            corpus: settings.corpusListing.stringifySelected()
+            corpus: settings.corpusListing.stringifySelectedEncode()
             defaultwithin: "sentence"
             default_nameswithin: "text_id"
             max: settings.name_group_max_names or 30

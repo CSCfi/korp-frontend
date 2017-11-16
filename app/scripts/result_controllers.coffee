@@ -375,8 +375,9 @@ korpApp.controller "compareCtrl", ($scope, $rootScope) ->
                     command : "query"
                     cqp : cmp.cqp
                     cqp2 : cqp
-                    corpus : cl.stringifySelected()
-                    show_struct : _.keys cl.getStructAttrs()
+                    corpus : cl.stringifySelectedEncode()
+                    show_struct : util.encodeListParam(
+                            _.sortBy _.keys cl.getStructAttrs())
                     expand_prequeries : false
 
             }
@@ -409,7 +410,7 @@ korpApp.controller "MapCtrl", ($scope, $rootScope, $location, $timeout, searches
         s.showMap = Boolean(val)
         if s.showMap
             currentCqp = getCqpExpr()
-            currentCorpora = settings.corpusListing.stringifySelected(true)
+            currentCorpora = settings.corpusListing.stringifySelectedEncode(true)
             if currentCqp != s.lastSearch?.cqp or currentCorpora != s.lastSearch?.corpora
                 s.hasResult = false
 
@@ -457,7 +458,9 @@ korpApp.controller "MapCtrl", ($scope, $rootScope, $location, $timeout, searches
             s.hasResult = true
 
     s.countCorpora = () ->
-        s.proxy.prevParams?.corpus.split(",").length
+        # Allow full stop as a list item separator in addition to
+        # comma. (Jyrki Niemi 2017-09-28)
+        s.proxy.prevParams?.corpus.split(/[,.]/).length
 
     fixData = (data) ->
         fixedData = {}
@@ -496,8 +499,9 @@ korpApp.controller "MapCtrl", ($scope, $rootScope, $location, $timeout, searches
                                         cqp2 : ("[" + settings.placenameAttr +
                                                 "='" + query + "' & (" +
                                                 settings.placenameConstraint + ")]")
-                                        corpus : cl.stringifySelected()
-                                        show_struct : _.keys cl.getStructAttrs()
+                                        corpus : cl.stringifySelectedEncode()
+                                        show_struct : util.encodeListParam(
+                                                _.sortBy _.keys cl.getStructAttrs())
                                         expand_prequeries : true
                                 }
                                 $rootScope.kwicTabs.push opts

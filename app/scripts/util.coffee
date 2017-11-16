@@ -148,6 +148,11 @@ class window.CorpusListing
     stringifySelected: ->
         _(@selected).pluck("id").invoke("toUpperCase").join ","
 
+    # Stringify selected corpora and encode them as a list parameter
+    # for korp.cgi
+    stringifySelectedEncode: ->
+        util.encodeListParam @stringifySelected()
+
     stringifyAll: ->
         _(@corpora).pluck("id").invoke("toUpperCase").join ","
 
@@ -170,7 +175,10 @@ class window.CorpusListing
     minimizeDefaultAndCorpusQueryString: (type, params) ->
         if not (params.corpus? and params[type])
             return params
-        all_corpora = params.corpus.split(',')
+        # It would save decoding the corpus list if this function were
+        # always called for an unencoded list of corpora, but it would
+        # require more modifications elsewhere.
+        all_corpora = util.decodeListParam(params.corpus)
         c.log('minimize', type, params.corpus, params['default' + type],
               params[type], params[type].length)
         default_val = params['default' + type]
@@ -546,6 +554,8 @@ class window.ParallelCorpusListing extends CorpusListing
             output.push(pair)
         return output.join(",")
 
+    stringifySelectedEncode : (onlyMain) ->
+        util.encodeListParam(@stringifySelected onlyMain)
 
     getTitle : (corpus) ->
         @struct[corpus.split("|")[1]].title
@@ -2101,3 +2111,356 @@ util.checkTryingRestrictedCorpora = (selected_corpora) ->
             settings.corpusListing.select selected_all
             corpusChooserInstance?.corpusChooser "selectItems", selected_all
     return
+
+
+# Encoding list-valued parameters by extracting common prefixes (Jyrki
+# Niemi 2017-09)
+
+# Cache for the encoded values, since encoding long values is slowish
+util.encoded_list_param_cache = {}
+
+# Encode values as a list-valued parameter for korp.cgi. Reduce the
+# length of the value by encoding common prefixes: LAM_AHLA,LAM_ANTR
+# -> LAM_A(HLA,ANTR). values can be either an array or a string with
+# items separated by commas. In addition, join the values in the
+# output with output_sep; the default full stop need not be
+# percent-encoded.
+#
+# TODO: Support extracting common prefixes from the ids of aligned
+# corpora: PARFIN_2016_FI|PARFIN_2016_RU -> PARFIN_2016_(FI|RU). The
+# vertical bar could also be encoded as a tilde to avoid percent
+# encoding. (korp.cgi needs the appropriate decoding support.)
+
+util.encodeListParam = (values, output_sep = ".") ->
+
+    if not values?
+        return ""
+
+    # The minimum number of characters for a prefix
+    min_prefix_len = 2
+    group_overhead = encodeURIComponent("()").length
+
+    # Calculate the number of common characters at the beginning of s1
+    # and s2.
+    _calc_common_prefix_len = (s1, s2) ->
+        maxlen = _.max [s1.length, s2.length]
+        i = 0
+        while i < maxlen
+            if s1.charAt(i) != s2.charAt(i)
+                break
+            i += 1
+        return i
+
+    # Calculate prefix groups based on the array prefix_lens, whose
+    # each item is the length of a common prefix with the preceding
+    # value. Return an array of triples (arrays) containing prefix
+    # groups [start_index, end_index, common_prefix_length].
+    #
+    # NOTE: This functions uses heuristics and the result may not be
+    # optimal, but it seems to work reasonably well. However, it is
+    # slow for long lists. Maybe a better algorithm could be found
+    # that would also be faster.
+    _make_groups = (prefix_lens) ->
+        groups = []
+
+        # Add a group from start to end, having as the prefix length
+        # the minimum in the prefix_lens of the range.
+        _add_group = (start, end) ->
+            if start > end
+                return
+            len = _.min prefix_lens.slice(start + 1, end + 1)
+            if len < min_prefix_len or len == Infinity
+                len = 0
+            # c.log "add group", start, end, len
+            groups.push [start, end, len]
+
+        # The start index for the current prefix group
+        start = 0
+        i = 1
+        # Effective prefix length: the minimum since start
+        eff_len = prefix_lens[0]
+        while i < prefix_lens.length
+            len = prefix_lens[i]
+            prev_len = prefix_lens[i - 1]
+            if eff_len == 0 or prev_len < eff_len
+                eff_len = prev_len
+            # c.log "_make_groups", i, values[i], len, prev_len, eff_len
+            if len < min_prefix_len
+                # If the common prefix between this and the previous
+                # item is shorter than min_prefix_len, add a group
+                # ending in the previous item.
+                # c.log "_make_groups len < min_prefix_len"
+                _add_group start, i - 1
+                start = i
+                eff_len = len
+            else if prev_len < min_prefix_len
+                # Do nothing if the previous prefix length was below
+                # the minimum: a new group will begin from it.
+                # c.log "_make_groups prev_len < min_prefix_len"
+            else if len < eff_len
+                # If the common prefix between this and the previosu
+                # item is shorter than the minimum since start, (try
+                # to) calculate if it would save more space to have
+                # this length since start or to begin a new group here.
+                # c.log "_make_groups len < eff_len", (i - start) * eff_len - group_overhead, (i - start + 1) * len, i, start, eff_len, len
+                # FIXME: The following condition is a bit hacky (found
+                # by trial and error) and may not always produce
+                # optimal results.
+                if (i - start) * eff_len - group_overhead >
+                        (i - start + 1) * len
+                    # Better to begin a new group here, so end the
+                    # current group to the previous item.
+                    # c.log "_make_groups len < eff_len: add group"
+                    _add_group start, i - 1
+                    start = i
+                    eff_len = len
+            else if len > eff_len
+                # If the common prefix between this and the previous
+                # item is longer than the minimum since start, (try
+                # to) calculate if it would save more space to end the
+                # current group to the item before the previous one or
+                # to include the previous item to the current group
+                # with the current effective prefix length by checking
+                # the following items that have a common prefix len of
+                # at least as long as the current prefix len.
+                # FIXME: The following condition is a bit hacky (found
+                # by trial and error) and slowish and may not always
+                # produce optimal results.
+                j = i + 1
+                while j < prefix_lens.length and prefix_lens[j] >= len and
+                        ((j - start) * eff_len >=
+                        (j - i + 1) * len - group_overhead)
+                    j += 1
+                # c.log "_make_groups len > eff_len", (j - start) * eff_len, (j - i + 1) * len - group_overhead, i, j, start, eff_len, len
+                if (j - start) * eff_len < (j - i + 1) * len - group_overhead
+                    # Better to begin a new group from the previous
+                    # item, so end the current group to the item
+                    # before that.
+                    # c.log "_make_groups len > eff_len: add group"
+                    _add_group start, i - 2
+                    start = i - 1
+                    eff_len = len
+            i += 1
+        # Add the remaining group
+        _add_group start, prefix_lens.length - 1
+        return groups
+
+    # Generate a list of grouped values based on the original values
+    # and their groupinng in groups.
+    _make_elems = (values, groups) ->
+        result = []
+        for group in groups
+            [start, end, prefix_len] = group
+            if prefix_len == 0
+                for i in [start .. end]
+                    result.push values[i]
+            else
+                result.push(values[start].substring(0, prefix_len) +
+                            "(" + values[start].substring(prefix_len))
+                if end - start > 1
+                    for i in [start + 1 .. end - 1]
+                        result.push(values[i].substring(prefix_len))
+                result.push(values[end].substring(prefix_len) + ")")
+        return result
+
+    # c.log "encodeListParam call", values
+    if typeof values == "string" or values instanceof String
+        values_str = values
+        values = values.split(",")
+    else
+        values_str = values.join(",")
+    if not settings.encodeListParams
+        return values_str
+    # Use a cached value if one exists, since recomputing it would
+    # take time.
+    if values_str of util.encoded_list_param_cache
+        return util.encoded_list_param_cache[values_str]
+    # The length of the prefix common with the previous item
+    prefix_lens = []
+    for value, i in values
+        if i == 0
+            prefix_lens.push(0)
+        else
+            prefix_lens.push(_calc_common_prefix_len(values[i - 1], value))
+    groups = _make_groups(prefix_lens)
+    # c.log "encodeListParam", values, prefix_lens, groups
+    return _make_elems(values, groups).join(output_sep)
+
+# Sort, uniquify and encode a list-valued parameter value for
+# korp.cgi. (Does not preserve the original order.)
+
+util.encodeListParamUniq = (values, output_sep = ".") ->
+    return util.encodeListParam _.sortBy _.uniq(values), output_sep
+
+# Decode the list-valued parameter str_list with common prefixes
+# extracted into an array.
+
+util.decodeListParam = (str_list) ->
+    if not str_list
+        return []
+    values = str_list.split /[,.]/
+    if not settings.encodeListParams
+        return values
+    result = []
+    prefix = ""
+    for elem in values
+        match = /^([^()]*)([()])?(.*)$/.exec elem
+        [_, pref, sep, suff] = match
+        suff ?= ""
+        if sep == "("
+            prefix = pref
+            result.push(prefix + suff)
+        else if sep == ')'
+            result.push(prefix + pref)
+            prefix = ""
+        else
+            result.push(prefix + pref)
+    return result
+
+# Test functions for encodeListParam.
+# TODO: Convert to # real unit tests for some testing framework.
+
+# Return true if encoding a single string or array values and if a
+# round-trip encoding and decoding produces the same result.
+
+util.test_encodeListParam = (values) ->
+    if $.isArray values
+        values = values.join ","
+    ec = util.encodeListParam values
+    dc = (util.decodeListParam ec).join ","
+    success = (dc == values)
+    c.log "encodeListParam", values, "=>", ec, "=>", dc, "|",
+        if success then "success" else "FAIL"
+    return success
+
+# Return true if all the values in values_list are encoded (and
+# decoded) successfully.
+
+util.test_encodeListParams = (values_list) ->
+    success = true
+    for values in values_list
+        success = success and util.test_encodeListParam values
+    return success
+
+# Check some test cases.
+
+util.testsuite_EncodeList = () ->
+    util.test_encodeListParams [
+        "foobar",
+        "foo,bar",
+        "foo,fbar",
+        "lam_antr,lam_ahla,foobar",
+        "foo,bar,baz,zoo",
+        "lam_antr,lam_ahla,lam_kosk,lam_kell",
+        "lam_antr,lam_ahla,lam_x,lam_y",
+        "lam_antr,lam_ahla,lam_atestipiste_x,lam_atestipiste_y",
+        "lam_antr,lam_ahla,lam_atestipiste_x,lam_atestipiste_y,lam_atestipiste_z",
+        "lam_antr,lam_ahla,lam_xtestipiste_x,lam_xtestipiste_y",
+        "lam_xtestipiste_x,lam_xtestipiste_y,lam_antr,lam_ahla",
+        "lam_antr,lam_ahla,lam_x,lam_y,lam_ypsilon",
+        "ftb2,ftb3_ep,ftb3_ja",
+        "ftb3x_ep,ftb3x_ja,ftb2",
+        "ftb3x_ep,ftb2,ftb3x_ja",
+        "ftb2,ftb3x_ep,ftb3x_ja",
+        "ftb3xx_ep,ftb3xx_ja,ftb2",
+        "ftb2,ftb3xx_ep,ftb3xx_ja",
+        "ftb3xx_ep,ftb2,ftb3xx_ja",
+        "ethesis_ma_ai,ethesis_ma_bio,ethesis_ma_el,ethesis_ma_far,ethesis_phd_bio,ethesis_phd_el",
+        "klk_fi_1991,klk_fi_1989,klk_fi_1988,klk_fi_1987,klk_fi_1986,klk_fi_1985,klk_fi_1984,klk_fi_1983,klk_fi_1982,klk_fi_1981,klk_fi_1980,klk_fi_1979",
+        "s24,s24_1,s24,s24_2,s24",
+    ]
+
+
+# Functions related to compressing and decompressing the frontend URL
+# hash for Shibboleth login and logout URL parameters. (Jyrki Niemi
+# 2017-20-19)
+#
+# TODO: Also use prefix compression (util.encodeListParam,
+# util.decodeListParam) for the "corpus" parameter to get slightly
+# shorter compressed parameters.
+
+
+# Replace the hash parameters (following "#?") of href with a single
+# parameter "gz", whose value contains the original parameters
+# compressed (with zlib) and Base64-encoded, if the length of the
+# parameter list exceeds 2000 characters (or opts.min_length). If href
+# is undefined, use window.location.href.
+
+util.compressUrlHashParams = (href = null, opts = null) ->
+    [fixed, params] = util.splitUrlOnHash(href)
+    min_length = opts?.min_length or 2000
+    if fixed.length + params.length < min_length
+        return fixed + "#?" + params
+    compressed = fixed + "#?gz=" + util.compressBase64(params)
+    c.log "compressUrlHashParams", fixed + "#?" + params, "=>", compressed
+    return compressed
+
+# If href contains the hash parameter "gz", Base64-decode it,
+# decompress and replace gz with the result. If href is undefined, use
+# window.lcoation.href. Possible other hash parameters are kept
+# instact.
+
+util.decompressUrlHashParams = (href = null) ->
+    [fixed, params] = util.splitUrlOnHash(href)
+    if not /(^|&)gz=/.test(params)
+        return href or window.location.href
+    paramlist = params.split("&")
+    for param, paramnum in paramlist
+        if _.str.startsWith(param, "gz=")
+            paramlist[paramnum] = util.decompressBase64(param.slice(3))
+    uncompressed = fixed + "#?" + paramlist.join("&")
+    c.log "decompressUrlHashParams", fixed + "?#" + params, "=>", uncompressed
+    return uncompressed
+
+# If the current URL (window.location.href) contains the compressed
+# hash parameter gz, replace it with its decompressed value and use
+# the uncompressed URL.
+
+util.decompressActiveUrlHashParams = () ->
+    new_href = util.decompressUrlHashParams()
+    if new_href != window.location.href
+        window.location.replace(new_href)
+    return
+
+# Compress str (with pako zlib), encode it in URI-safe Base64 and
+# return it as a string.
+
+util.compressBase64 = (str) ->
+    util.b64EncodeBytesUrlSafe(pako.deflate(str))
+
+# Decode URI-safe Base64-encoded string str, decompress it and return
+# as a string.
+
+util.decompressBase64 = (str) ->
+    pako.inflate(util.b64DecodeBytesUrlSafe(str), {to: "string"})
+
+# Split href on "#?" and return it as an array of the first and last
+# part. If href is not specified, split window.location.href.
+
+util.splitUrlOnHash = (href = null) ->
+    href ?= window.location.href
+    comps = href.split("#?")
+    fixed = comps[0]
+    params = comps[1..].join("#?")
+    return [fixed, params]
+
+# Base64-encode the byte array bytes and return the encoded string.
+# This is somewhat simpler than operating with strings (see
+# https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#The_Unicode_Problem)
+# but is it faster?
+
+util.b64EncodeBytesUrlSafe = (bytes) ->
+    # Array.prototype.slice.call is needed to convert a Uint8Array to
+    # a plain Array, so that map also returns a plain Array (from
+    # https://stackoverflow.com/a/12760681).
+    btoa(Array.prototype.slice.call(bytes)
+         .map((b) -> String.fromCharCode(b))
+         .join(""))
+    .replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
+
+# Base64-decode the string str and return the result as a byte array.
+
+util.b64DecodeBytesUrlSafe = (str) ->
+    atob(str.replace(/-/g, "+").replace(/_/g, "/"))
+    .split('')
+    .map((c) -> c.charCodeAt(0))

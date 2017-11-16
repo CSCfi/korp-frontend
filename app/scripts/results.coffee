@@ -70,7 +70,9 @@ class BaseResults
         @$result.find(".error_msg").remove()
 
     countCorpora : () ->
-        @proxy.prevParams?.corpus.split(",").length
+        # Allow full stop as a list item separator in addition to
+        # comma. (Jyrki Niemi 2017-09-28)
+        @proxy.prevParams?.corpus.split(/[,.]/).length
 
     onentry : () ->
         @s.$root.jsonUrl = null
@@ -415,7 +417,7 @@ class view.KWICResults extends BaseResults
 
         opts.ajaxParams = {
             command : "query"
-            corpus : settings.corpusListing.stringifySelected()
+            corpus : settings.corpusListing.stringifySelectedEncode()
             # cqp : cqp or @proxy.prevCQP
             queryData : @proxy.queryData if @proxy.queryData
             context : context
@@ -947,7 +949,8 @@ class view.StatsResults extends BaseResults
                 start : 0
                 end : 24
                 command : "query"
-                corpus : $(this).data("corpora").join(",").toUpperCase()
+                corpus : util.encodeListParam(
+                        $(this).data("corpora")).toUpperCase()
                 cqp : self.proxy.prevParams.cqp
                 cqp2: decodeURIComponent query
                 expand_prequeries : false
@@ -1202,7 +1205,8 @@ class view.StatsResults extends BaseResults
     updateGraphBtnState : () ->
 
         @s.graphEnabled = true
-        cl = settings.corpusListing.subsetFactory(@proxy.prevParams.corpus.split(","))
+        cl = settings.corpusListing.subsetFactory(
+                util.decodeListParam(@proxy.prevParams.corpus))
 
         if not (_.compact cl.getTimeInterval()).length
             @s.graphEnabled = false
@@ -1461,7 +1465,7 @@ class view.GraphResults extends BaseResults
                     start : 0
                     end : 24
                     command : "query"
-                    corpus: @s.data.corpusListing.stringifySelected()
+                    corpus: @s.data.corpusListing.stringifySelectedEncode()
                     cqp: @s.data.cqp
                     # cqp2 : cqp
                     cqp2 : timecqp
@@ -1958,7 +1962,8 @@ class view.GraphResults extends BaseResults
         @showPreloader()
         currentZoom = @zoom
         # @proxy.granularity = @granularity
-        @proxy.makeRequest(cqp, subcqps, corpora.stringifySelected(), from, to).progress( (data) =>
+        @proxy.makeRequest(cqp, subcqps, corpora.stringifySelectedEncode(),
+                from, to).progress( (data) =>
             @onProgress(data)
 
 
