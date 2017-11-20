@@ -5776,10 +5776,7 @@ settings.corpora.skk_aho = {
     title : "Aho",
     description : "Juhani Ahon teoksia vuosilta 1891–1921.",
     id : "skk_aho",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
 	sentence_type : sattrs.sentence_type,
         text_title : sattrs.text_title,
@@ -5794,8 +5791,7 @@ settings.corpora.skk_canth = {
     id : "skk_canth",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    features: ["parsed_tdt", "finer"],
     struct_attributes : {
         sentence_type : sattrs.sentence_type,
         text_title : sattrs.text_title,
@@ -5810,8 +5806,7 @@ settings.corpora.skk_finne = {
     id : "skk_finne",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    features: ["parsed_tdt", "finer"],
     struct_attributes : {
         sentence_type : sattrs.sentence_type,
         text_title : sattrs.text_title,
@@ -5826,8 +5821,7 @@ settings.corpora.skk_jarnefelt = {
     id : "skk_jarnefelt",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    features: ["parsed_tdt", "finer"],
     struct_attributes : {
         sentence_type : sattrs.sentence_type,
         text_title : sattrs.text_title,
@@ -5842,8 +5836,7 @@ settings.corpora.skk_kailas = {
     id : "skk_kailas",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    features: ["parsed_tdt", "finer"],
     struct_attributes : {
         sentence_type : sattrs.sentence_type,
         text_title : sattrs.text_title,
@@ -5858,8 +5851,7 @@ settings.corpora.skk_lassila = {
     id : "skk_lassila",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    features: ["parsed_tdt", "finer"],
     struct_attributes : {
         sentence_type : sattrs.sentence_type,
         text_title : sattrs.text_title,
@@ -5874,8 +5866,7 @@ settings.corpora.skk_linnankoski = {
     id : "skk_linnankoski",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    features: ["parsed_tdt", "finer"],
     struct_attributes : {
         sentence_type : sattrs.sentence_type,
         text_title : sattrs.text_title,
@@ -5890,8 +5881,7 @@ settings.corpora.skk_kramsu = {
     id : "skk_kramsu",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    features: ["parsed_tdt", "finer"],
     struct_attributes : {
         sentence_type : sattrs.sentence_type,
         text_author : sattrs.text_author,
@@ -5924,8 +5914,7 @@ settings.corpora.skk_leino = {
     id : "skk_leino",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    features: ["parsed_tdt", "finer"],
     struct_attributes : {
         sentence_type : sattrs.sentence_type,
         text_author : sattrs.text_author,
@@ -5941,8 +5930,7 @@ settings.corpora.skk_pakkala = {
     id : "skk_pakkala",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    features: ["parsed_tdt", "finer"],
     struct_attributes : {
         sentence_type : sattrs.sentence_type,
         text_author : sattrs.text_author,
@@ -5958,8 +5946,7 @@ settings.corpora.skk_siljo = {
     id : "skk_siljo",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    features: ["parsed_tdt", "finer"],
     struct_attributes : {
         sentence_type : sattrs.sentence_type,
         text_author : sattrs.text_author,
@@ -5975,8 +5962,7 @@ settings.corpora.skk_wilkuna = {
     id : "skk_wilkuna",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    features: ["parsed_tdt", "finer"],
     struct_attributes : {
         sentence_type : sattrs.sentence_type,
         text_author : sattrs.text_author,
@@ -5992,8 +5978,7 @@ settings.corpora.skk_sodergran = {
     id : "skk_sodergran",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    features: ["parsed_tdt", "finer"],
     struct_attributes : {
         sentence_type : sattrs.sentence_type,
         text_author : sattrs.text_author,
@@ -6821,8 +6806,7 @@ settings.corpora.kotus_sp = {
     cite_id : "Sananparsikokoelma",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes : {
-    },
+    features: ["parsed_tdt", "finer"],
     struct_attributes : {
 	text_title : sattrs.text_title,
 	text_distributor : sattrs.text_distributor,
@@ -7720,8 +7704,7 @@ settings.corpora.sks_kivi_fi = {
     licence : settings.licenceinfo.CC_BY_NC,
     cite_id : "Kivi",
     homepage_url : "http://www.edith.fi/kivikorpus/index.htm",
-    within : settings.spWithin,
-    context : settings.spContext,
+    features: ["paragraphs", "parsed_tdt", "finer"],
     attributes : {
 	sketchyword : {
 	    label : "sketchyword",
@@ -8300,8 +8283,7 @@ settings.corpora.kfspc_fi = {
     lang : "fin",
     context : settings.defaultContext,
     within : settings.defaultWithin,
-    attributes : {
-    },
+    features: ["parsed_tdt", "finer"],
     struct_attributes : sattrlist.kfspc
 };
 
@@ -11793,10 +11775,7 @@ settings.corpora.gutenberg = {
     // licence_url : "http://www.gutenberg.org/wiki/Gutenberg:The_Project_Gutenberg_License",
     licence : settings.licenceinfo.CC_BY,
     cite_id : "Gutenberg",
-    within : settings.spWithin,
-    context : settings.spContext,
-    attributes : {
-    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes : {
 	text_title : sattrs.text_title,
 	sentence_id : sattrs.sentence_id_hidden,
@@ -11945,9 +11924,8 @@ settings.corpora.sinebrychoff_fi = {
     metadata_urn : "urn:nbn:fi:lb-201407303",
     licence : settings.licenceinfo.CC_BY_30,
     cite_id : "sinebrychoff-fi",
-    context : settings.spContext,
-    within : settings.spWithin,
-    attributes: attrlist.sinebrychoff,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    // attributes: attrlist.sinebrychoff,
     struct_attributes : sattrlist.sinebrychoff
 };
 
@@ -11977,10 +11955,9 @@ settings.corpora.topling_fi = {
     },
     homepage_url : "https://www.jyu.fi/topling",
     cite_id : "topling-fi",
-    context : settings.spContext,
-    within : settings.spWithin,
     limited_access : true,
     licence_type : "RES",
+    features: ["paragraphs", "parsed_tdt", "finer"],
     attributes : attrlist.topling,
     struct_attributes : sattrlist.topling
 };

@@ -7582,8 +7582,7 @@ settings.corpora.kfspc_fi = {
     within : {
         "sentence": "sentence"
         },
-    attributes : {
-    },
+    features: ["parsed_tdt", "finer"],
     struct_attributes : sattrlist.kfspc
 };
 
