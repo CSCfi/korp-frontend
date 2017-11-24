@@ -2489,7 +2489,7 @@ settings.corporafolders.lehdet = {
     title : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
     description : "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
     info : {
-	urn : "urn:nbn:fi:lb-2016021202",
+	urn : "urn:nbn:fi:lb-201711241",
 	metadata_urn : "urn:nbn:fi:lb-2017091901",
 	licence : settings.licenceinfo.CC_BY_40,
     }
