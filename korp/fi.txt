@@ -1,4 +1,20 @@
 
+<!-- Dependenssijäsennyksiä ja nimitietoja muutamiin suomen aineistoihin 2017-11-30b -->
+
+Muutamat aiemmin jäsentämättömät suomen aineistot on nyt
+dependenssijäsennetty Turku Dependency Treebank -jäsentimellä, ja
+niiden sisältämiä nimiä on tunnistettu FiNER-nimientunnistimella. Nämä
+aineistot ovat:
+
+* Aleksis Kivi (SKS)
+* Gutenberg
+* KFSPC (suomi)
+* Paul Sinebrychoffin kirjeenvaihto (suomi)
+* Sananparsikokoelma
+* Suomalaisen kirjallisuuden klassikoita (paitsi osakorpus Lehtonen)
+* Topling (suomi)
+
+
 <!-- Korpiin lisättyjä aineistoja 2017-11-30a -->
 
 Korpiin on noin puolentoista viime vuoden aikana lisätty useita

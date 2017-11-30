@@ -1,4 +1,19 @@
 
+<!-- Dependency parses and named-entity information added to a few Finnish corpora 2017-11-30b -->
+
+A few previously unparsed Finnish corpora have now been parsed with
+the Turku Dependency Treebank parser, and their names have been
+recognized with the FiNER named-entity recognizer. These corpora are:
+
+* Aleksis Kivi (SKS)
+* Gutenberg
+* KFSPC (Finnish)
+* Letters of Paul Sinebrychoff (Finnish)
+* Finnish Proverb Collection
+* Classics of Finnish Literature (except subcorpus Lehtonen)
+* Topling (Finnish)
+
+
 <!-- Corpora added to Korp 2017-11-30a -->
 
 Several corpora have been added to Korp during a year and a half
