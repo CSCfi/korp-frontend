@@ -2525,7 +2525,7 @@ settings.corporafolders.lehdet = {
 	urn : "urn:nbn:fi:lb-201711241",
 	metadata_urn : "urn:nbn:fi:lb-2017091901",
 	licence : settings.licenceinfo.CC_BY_40,
-	cite_id : "lehdet90ff",
+	cite_id : "lehdet90ff-v2",
     }
 };
 
@@ -9605,7 +9605,7 @@ settings.corpora.lehdet_veturimies = {
 settings.corpora.lehdet_via_helsinki = {
     id: "lehdet_via_helsinki",
     title: "Via Helsinki",
-    description: "Via Helsinki (2009-1/2013)<br/>Julkaisija: Finavia<br/>Kotisivu: <a href='https://www.finavia.fi/fi/tiedottaminen/arkisto/asiakaslehdet/'>https://www.finavia.fi/fi/tiedottaminen/arkisto/asiakaslehdet/</a>",
+    description: "Via Helsinki (2/2012, 1/2013)<br/>Julkaisija: Finavia<br/>Kotisivu: <a href='https://www.finavia.fi/fi/tiedottaminen/arkisto/asiakaslehdet/'>https://www.finavia.fi/fi/tiedottaminen/arkisto/asiakaslehdet/</a>",
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
