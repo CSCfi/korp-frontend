@@ -1,4 +1,22 @@
 
+<!-- WWW-Lemmien aineistoja Korpissa 2016-05-03 -->
+
+Käytöstä poistuneessa WWW-Lemmiessä olleet aineistot [FTC (Suomen
+kielen tekstikokoelma)](?mode=default#?corpus=ftc), [FSTC
+(Suomenruotsin tekstikokoelma (UHLCS))](?mode=swedish#?corpus=fstc) ja
+[Parole ruotsi](?mode=swedish#?corpus=parole_sv) ovat nyt
+käytettävissä Korpissa. Korpusten käyttäminen edellyttää erillistä
+käyttölupaa (hae lupaa <a
+href="https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource=urn:nbn:fi:lb-201403268&target=application"
+target="_blank">FTC:hen</a>, <a
+href="https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource=urn:nbn:fi:lb-2014032621&target=application"
+target="_blank">FSTC:hen (ja Svenska Paroleen)</a>).
+
+Katso <a href="https://www.kielipankki.fi/support/lemmiekorp/"
+target="_blank">ohjeita Lemmiestä siirrettyjen aineistojen
+käyttämiseksi Korpissa</a> (englanniksi).
+
+
 <!-- Uusi aineisto: Digitaalinen muoto-opin arkisto (DMA) 2016-03-18b -->
 
 [Digitaalinen muoto-opin arkisto (DMA)](?mode=default#?corpus=dma) on

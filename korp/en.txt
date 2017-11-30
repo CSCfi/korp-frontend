@@ -1,4 +1,23 @@
 
+<!-- Corpora from WWW-Lemmie in Korp 2016-05-03 -->
+
+Corpora that were in the shut-down WWW-Lemmie are now available in
+Korp: [FTC (Finnish Text
+Collection)](?mode=default#?corpus=ftc&lang=en), [FSTC
+(Finland-Swedish Text Collection
+(UHLCS))](?mode=swedish#?corpus=fstc&lang=en) and [Swedish
+Parole](?mode=swedish#?corpus=parole_sv&lang=en). The corpora require
+personal access rights (apply for rights to <a
+href="https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource=urn:nbn:fi:lb-201403268&target=application"
+target="_blank">FTC</a>, <a
+href="https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource=urn:nbn:fi:lb-2014032621&target=application"
+target="_blank">FSTC (and Swedish Parole)</a>).
+
+Please also read <a
+href="https://www.kielipankki.fi/support/lemmiekorp/"
+target="_blank">instructions for moving from Lemmie to Korp</a>.
+
+
 <!-- New corpus: Digital Morphology Archives (DMA) 2016-03-18b -->
 
 The Finnish [Digital Morphology Archives

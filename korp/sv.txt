@@ -1,0 +1,18 @@
+
+<!-- Korpusar från WWW-Lemmie i Korp 2016-05-03 -->
+
+Korpusar från den stängda WWW-Lemmie är nu i Korp: [FTC (Finska
+textkorpus)](?mode=default#?corpus=ftc&lang=sv), [FSTC (Finlandssvensk
+textkorpus (UHLCS))](?mode=swedish#?corpus=fstc&lang=sv) och [Svenska
+Parole](?mode=swedish#?corpus=parole_sv&lang=sv). Dessa korpusar
+förutsätter personliga åtkomsträttigheter (ansök om åtkomsträttigheter
+till <a
+href="https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource=urn:nbn:fi:lb-201403268&target=application"
+target="_blank">FTC</a>, <a
+href="https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource=urn:nbn:fi:lb-2014032621&target=application"
+target="_blank">FSTC (och Svenska Parole)</a>).
+
+Läs gärna också <a
+href="https://www.kielipankki.fi/support/lemmiekorp/"
+target="_blank">användarhandledning för Lemmies korpusar i Korp</a>
+(på engelska).
