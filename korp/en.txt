@@ -1,4 +1,54 @@
 
+<!-- Corpora added to Korp 2017-11-30a -->
+
+Several corpora have been added to Korp during a year and a half
+without announcing them here. Some corpora require logging in to Korp
+and an active membership of an academic institution or individual
+access rights.
+
+* Finnish corpora
+
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2017022801" target="_blank">ArkiSyn: Database of Finnish Conversational Discourse</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2017020202" target="_blank">Plenary Sessions of the Parliament of Finland</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2016090601" target="_blank">E-thesis (Finnish)</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2014092601" target="_blank">The Karelian Finnish Newspaper Corpus</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-20140730126" target="_blank">Laws and Directives (Kotus)</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2016092802" target="_blank">Letters of Paul Sinebrychoff (Finnish)</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-20140730176" target="_blank">Finnish Proverb Collection</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-20140730186" target="_blank">Classics of Finnish Literature (Kotus)</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2016111802" target="_blank">Topling:  Paths in Second Language Acquisition (Finnish)</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-20140730147" target="_blank">Corpus of Early Modern Finnish (Kotus)</a>
+
+* Swedish corpora
+
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2016102810" target="_blank">E-thesis (Swedish)</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2016092801" target="_blank">Letters of Paul Sinebrychoff (Swedish)</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2016111801" target="_blank">Topling: Paths in Second Language Acquisition (Swedish)</a>
+
+* English corpora
+
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2017061922" target="_blank">COCA: Corpus of Contemporary American English</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2017061925" target="_blank">COHA: Corpus of Historical American English</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2016102401" target="_blank">E-thesis</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2016061302" target="_blank">ELFA: The Corpus of English as a Lingua Franca in Academic Settings</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2017061928" target="_blank">GloWbE: Global Web-based English</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-201411071" target="_blank">ScotsCorr: Helsinki Corpus of Scottish Correspondence (1540–1750)</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2016111803" target="_blank">Topling: Paths in Second Language Acquisition (English)</a>
+
+* Corpora in other languages
+
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2015081401" target="_blank">The Corpus of Beserman Udmurt</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-201407306" target="_blank">ERME: Erzya and Moksha Extended Corpora</a>
+    * E-thesis (<a href="http://urn.fi/urn:nbn:fi:lb-2016102807" target="_blank">saksa</a>, <a href="http://urn.fi/urn:nbn:fi:lb-2016102806" target="_blank">ranska</a>, <a href="http://urn.fi/urn:nbn:fi:lb-2016102809" target="_blank">espanja</a>, <a href="http://urn.fi/urn:nbn:fi:lb-2016102808" target="_blank">venäjä</a>)</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2016011301" target="_blank">HCS2: Helsinki Corpus of Swahili 2.0</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2016110801" target="_blank">ORACC: Open Richly Annotated Cuneiform Corpus</a>
+
+* Parallel corpora
+
+    * <a href="http://urn.fi/urn:nbn:fi:lb-2016121610" target="_blank">ParFin 2016 (Finnish–Russian, new version)</a>
+    * <a href="http://urn.fi/urn:nbn:fi:lb-20140730173" target="_blank">ParRus 2016 (Russian–Finnish, new version)</a>
+
+
 <!-- Corpora from WWW-Lemmie in Korp 2016-05-03 -->
 
 Corpora that were in the shut-down WWW-Lemmie are now available in
