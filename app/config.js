@@ -12217,6 +12217,7 @@ attrs.pos_la = {
 	"cnj:coord" : "cnj:coord",
 	"cnj:rel" : "cnj:rel",
 	"cnj:sub" : "cnj:sub",
+	"intj" : "intj",
 	"muu" : "muu",
 	"n" : "n",
 	"neg" : "neg",
