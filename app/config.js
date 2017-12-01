@@ -2378,11 +2378,6 @@ settings.corporafolders.sv = {
 };
 */
 
-settings.corporafolders.ceal = {
-    title : "CEAL",
-    contents : ["ceal_o", "ceal_s"]
-};
-
 settings.corporafolders.ethesis = {
     title : "E-thesis",
     contents : ["ethesis_maabs", "ethesis_dissabs"],
