@@ -1304,6 +1304,8 @@
     "topling_subject" : "subjekt",
     "topling_comment" : "lärares komment",
 
+    "link_to_original" : "länk till originalet",
+
     "studentsvenska_code" : "syntaktisk funktion",
     "studentsvenska_properties" : "satstyp",
     "studentsvenska_textnumber" : "textnummer",
