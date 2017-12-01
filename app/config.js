@@ -387,8 +387,11 @@ settings.corpusinfo = {};
 
 var karpLemgramLink = "https://spraakbanken.gu.se/karp/#?search=extended||and|lemgram|equals|<%= val.replace(/:\\d+/, '') %>";
 
-settings.primaryColor = "rgb(221, 233, 255)";
-settings.primaryLight = "rgb(202, 210, 230)";
+// settings.primaryColor = "#DDE9FF";
+// CHECK if having the same colour as the primary and the light one
+// causes problems somewhere. (Jyrki Niemi 2017-12-01)
+settings.primaryColor = "#CAD2E6";
+settings.primaryLight = "#CAD2E6";
 settings.secondaryColor = "";
 
 settings.defaultOverviewContext = "1 sentence"

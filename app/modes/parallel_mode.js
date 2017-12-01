@@ -262,7 +262,8 @@ model.StatsProxy = Subclass(model.StatsProxy, function() {
 
 // model.StatsProxy.prototype.makeRequest = function(){};
 
-settings.primaryColor = "#7A90C3";
+// settings.primaryColor = "#7A90C3";
+settings.primaryColor = "#CAD2E6";
 settings.primaryLight = "#CAD2E6";
 
 var context = {
