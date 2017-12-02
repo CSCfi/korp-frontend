@@ -6087,41 +6087,46 @@ line.tick {
   padding-left: 4px;
   margin-bottom: 4px;
 }
+/* line 2795, styles.scss */
+.newsdesk-news-item ul {
+  list-style: initial;
+  margin-left: 1.2em;
+}
 
-/* line 2796, styles.scss */
+/* line 2801, styles.scss */
 .newsdesk-opener {
   cursor: pointer;
 }
 
-/* line 2799, styles.scss */
+/* line 2804, styles.scss */
 .newsdesk-around-items {
   margin: 10px;
 }
 
-/* line 2802, styles.scss */
+/* line 2807, styles.scss */
 .newsdesk-item-date {
   font-style: italic;
   color: gray;
 }
 
 /* ----------- Autocompletion ----------- */
-/* line 2809, styles.scss */
+/* line 2814, styles.scss */
 .none-to-find {
   color: #aaa;
 }
 
-/* line 2812, styles.scss */
+/* line 2817, styles.scss */
 .num-to-find {
   visibility: hidden;
   font-size: x-small;
 }
 
-/* line 2816, styles.scss */
+/* line 2821, styles.scss */
 li.active a span .num-to-find {
   visibility: visible;
 }
 
-/* line 2819, styles.scss */
+/* line 2824, styles.scss */
 .autoc-spinner {
   margin-left: -20px;
   margin-top: 2px;
@@ -6129,23 +6134,23 @@ li.active a span .num-to-find {
 }
 
 /* Map */
-/* line 2825, styles.scss */
+/* line 2830, styles.scss */
 .name_map {
   max-width: 1000px;
 }
 
-/* line 2829, styles.scss */
+/* line 2834, styles.scss */
 .leaflet-control-layers-toggle {
   background-image: url(../components/leaflet/dist/images/layers.png);
 }
 
 /* korp multi select directive */
-/* line 2835, styles.scss */
+/* line 2840, styles.scss */
 .reduce-attr-select {
   color: #000;
   display: inline-block;
 }
-/* line 2838, styles.scss */
+/* line 2843, styles.scss */
 .reduce-attr-select .reduce-dropdown-button {
   cursor: pointer;
   width: 100%;
@@ -6153,72 +6158,72 @@ li.active a span .num-to-find {
   overflow: hidden;
   transition: border-color 200ms;
 }
-/* line 2843, styles.scss */
+/* line 2848, styles.scss */
 .reduce-attr-select .reduce-dropdown-button .caret {
   right: 7px;
   position: absolute;
   top: 10px;
 }
-/* line 2849, styles.scss */
+/* line 2854, styles.scss */
 .reduce-attr-select .reduce-dropdown-button:hover {
   border-color: #999;
 }
-/* line 2853, styles.scss */
+/* line 2858, styles.scss */
 .reduce-attr-select .reduce-dropdown-button-text {
   width: 1000px;
   padding: 2px 5px;
 }
-/* line 2857, styles.scss */
+/* line 2862, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu {
   width: 100%;
   max-height: 400px;
 }
-/* line 2860, styles.scss */
+/* line 2865, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .selected {
   background: #f2f7ff;
 }
-/* line 2863, styles.scss */
+/* line 2868, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .attribute {
   cursor: pointer;
   padding: 2px 1px;
 }
-/* line 2865, styles.scss */
+/* line 2870, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .attribute:hover {
   background-color: #e6e6e6;
 }
-/* line 2870, styles.scss */
+/* line 2875, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .reduce-check {
   margin: 0px;
   margin-top: 4px;
   margin-right: 4px;
 }
-/* line 2875, styles.scss */
+/* line 2880, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .reduce-label {
   position: absolute;
 }
-/* line 2878, styles.scss */
+/* line 2883, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu ul {
   margin: 0;
   padding: 2px;
 }
-/* line 2882, styles.scss */
+/* line 2887, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .insensitive-toggle {
   float: right;
   color: black;
 }
-/* line 2886, styles.scss */
+/* line 2891, styles.scss */
 .reduce-attr-select .reduce-dropdown-menu .insensitive-toggle.selected {
   color: grey;
 }
 
 /* sidebar video */
-/* line 2893, styles.scss */
+/* line 2898, styles.scss */
 #video-container {
   height: 320px;
   width: 568px;
   position: relative;
 }
-/* line 2897, styles.scss */
+/* line 2902, styles.scss */
 #video-container #extra-controls {
   height: 320px;
   width: 568px;
@@ -6228,7 +6233,7 @@ li.active a span .num-to-find {
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.7);
 }
-/* line 2905, styles.scss */
+/* line 2910, styles.scss */
 #video-container #extra-controls > * {
   width: 75px;
   height: 75px;
@@ -6239,79 +6244,79 @@ li.active a span .num-to-find {
   color: white;
   font-weight: bold;
 }
-/* line 2915, styles.scss */
+/* line 2920, styles.scss */
 #video-container #extra-controls .restart {
   top: 35%;
   left: 25%;
 }
-/* line 2919, styles.scss */
+/* line 2924, styles.scss */
 #video-container #extra-controls .continue {
   top: 35%;
   right: 25%;
   float: right;
 }
-/* line 2924, styles.scss */
+/* line 2929, styles.scss */
 #video-container #extra-controls .restart-icon, #video-container #extra-controls .continue-icon {
   font-size: 3em;
   display: block;
 }
 
-/* line 2931, styles.scss */
+/* line 2936, styles.scss */
 #video-meta-container .utterance, #video-meta-container .time {
   font-weight: bold;
 }
-/* line 2934, styles.scss */
+/* line 2939, styles.scss */
 #video-meta-container .time-div {
   padding-top: 15px;
 }
 
-/* line 2939, styles.scss */
+/* line 2944, styles.scss */
 .or_container .word {
   color: #222222;
 }
 
-/* line 2943, styles.scss */
+/* line 2948, styles.scss */
 .map-settings-container {
   margin-left: 20px;
 }
-/* line 2945, styles.scss */
+/* line 2950, styles.scss */
 .map-settings-container .caret {
   margin-left: 10px;
 }
-/* line 2948, styles.scss */
+/* line 2953, styles.scss */
 .map-settings-container ul {
   margin: 0;
   padding: 2px;
 }
-/* line 2951, styles.scss */
+/* line 2956, styles.scss */
 .map-settings-container ul .map-selected {
   margin: 0px;
   margin-top: 4px;
   margin-right: 4px;
 }
-/* line 2956, styles.scss */
+/* line 2961, styles.scss */
 .map-settings-container ul li {
   cursor: pointer;
   padding: 2px 1px;
   white-space: nowrap;
 }
-/* line 2961, styles.scss */
+/* line 2966, styles.scss */
 .map-settings-container ul .selected {
   background: #f2f7ff;
 }
-/* line 2965, styles.scss */
+/* line 2970, styles.scss */
 .map-settings-container .empty-attribute-list {
   font-style: italic;
   font-size: 12px;
   padding-top: 2px;
   padding-left: 2px;
 }
-/* line 2971, styles.scss */
+/* line 2976, styles.scss */
 .map-settings-container .btn-container {
   padding: 10px;
   text-align: right;
 }
-/* line 2975, styles.scss */
+/* line 2980, styles.scss */
 .map-settings-container .map-settings-title {
   margin: 0;
   padding: 8px 14px;
@@ -6321,88 +6326,88 @@ li.active a span .num-to-find {
   background-color: #f7f7f7;
   border-bottom: 1px solid #ebebeb;
 }
-/* line 2984, styles.scss */
+/* line 2989, styles.scss */
 .map-settings-container .dropdown-menu {
   padding: 0px;
 }
 
-/* line 2989, styles.scss */
+/* line 2994, styles.scss */
 #mapHeader {
   width: 100%;
 }
-/* line 2991, styles.scss */
+/* line 2996, styles.scss */
 #mapHeader div.disabled {
   opacity: 0.4;
 }
-/* line 2994, styles.scss */
+/* line 2999, styles.scss */
 #mapHeader div.mapgroup {
   display: inline-block;
   margin-right: 20px;
   cursor: pointer;
 }
-/* line 2996, styles.scss */
+/* line 3001, styles.scss */
 #mapHeader div.mapgroup div.swatch {
   display: inline-block;
   margin-right: 5px;
 }
-/* line 3000, styles.scss */
+/* line 3005, styles.scss */
 #mapHeader div.mapgroup div.cluster-info {
   background-color: rgba(136, 220, 168, 0.6);
   border-radius: 5px;
 }
-/* line 3007, styles.scss */
+/* line 3012, styles.scss */
 #mapHeader span.check {
   opacity: 0.5 !important;
   color: white;
 }
 
-/* line 3013, styles.scss */
+/* line 3018, styles.scss */
 .hide-prob > li > .prob {
   display: none;
 }
 
 /* Hide an element if or if not logged in */
-/* line 3020, styles.scss */
+/* line 3025, styles.scss */
 .logged_in .hide_if_logged_in {
   display: none;
 }
 
-/* line 3024, styles.scss */
+/* line 3029, styles.scss */
 .not_logged_in .hide_if_not_logged_in {
   display: none;
 }
 
 /* Styles for the restricted corpora access modal */
-/* line 3031, styles.scss */
+/* line 3036, styles.scss */
 #accessResCorporaModal {
   z-index: 11000;
 }
-/* line 3035, styles.scss */
+/* line 3040, styles.scss */
 #accessResCorporaModal .modal-body {
   min-height: 2em;
 }
-/* line 3042, styles.scss */
+/* line 3047, styles.scss */
 #accessResCorporaModal .close-x {
   opacity: 1;
 }
 
-/* line 3047, styles.scss */
+/* line 3052, styles.scss */
 #resCorporaList {
   display: inline;
 }
-/* line 3049, styles.scss */
+/* line 3054, styles.scss */
 #resCorporaList li {
   margin-left: 1em;
   font-size: 0.9em;
 }
 
-/* line 3055, styles.scss */
+/* line 3060, styles.scss */
 #resCorporaListContainer {
   max-height: 20em;
   overflow-y: auto;
 }
 
-/* line 3062, styles.scss */
+/* line 3067, styles.scss */
 .access-corpora-aca #accessResCorporaPreambleACARES,
 .access-corpora-aca #accessResCorporaPreambleRES,
 .access-corpora-aca #accessResCorporaPreambleACAFi,
@@ -6448,7 +6453,7 @@ li.active a span .num-to-find {
   display: none;
 }
 
-/* line 3107, styles.scss */
+/* line 3112, styles.scss */
 .access-corpora-res #accessResCorporaPostambleACA {
   display: none;
 }
@@ -6466,132 +6471,132 @@ li.active a span .num-to-find {
     margin-left: 1em;
 }
 */
-/* line 3127, styles.scss */
+/* line 3132, styles.scss */
 .modal-backdrop {
   z-index: 10040;
 }
 
 /* Styles specific to Kielipankki's corpora */
 /* DMA signum lists represented as tables */
-/* line 3140, styles.scss */
+/* line 3145, styles.scss */
 .dma-signumlist td {
   vertical-align: top;
 }
-/* line 3143, styles.scss */
+/* line 3148, styles.scss */
 .dma-signumlist .sgo0, .dma-signumlist .sgo5 {
   font-weight: bold;
 }
-/* line 3146, styles.scss */
+/* line 3151, styles.scss */
 .dma-signumlist .sgo3 {
   font-weight: bold;
   font-size: 1.2em;
 }
-/* line 3150, styles.scss */
+/* line 3155, styles.scss */
 .dma-signumlist .sgo4 {
   font-weight: bold;
   font-size: 1.4em;
 }
-/* line 3155, styles.scss */
+/* line 3160, styles.scss */
 .dma-signumlist tr.vspacer {
   font-size: 0.3em;
 }
 
 /* ScotsCorr word selector modal */
-/* line 3162, styles.scss */
+/* line 3167, styles.scss */
 .modal-value {
   font-size: 0.8em;
   width: 100%;
 }
 
-/* line 3167, styles.scss */
+/* line 3172, styles.scss */
 .modal-value-heading {
   font-weight: bold;
 }
 
-/* line 3171, styles.scss */
+/* line 3176, styles.scss */
 #wordselector-selected-words {
   display: block;
   line-height: 95%;
 }
 
-/* line 3176, styles.scss */
+/* line 3181, styles.scss */
 .modal-buttons, .modal-value {
   display: block;
 }
 
-/* line 3180, styles.scss */
+/* line 3185, styles.scss */
 .modal-buttons button {
   margin-right: 0.5em;
 }
 
-/* line 3184, styles.scss */
+/* line 3189, styles.scss */
 .modal-wordselector {
   overflow-y: auto;
   font-size: 1em;
   margin: 0.5em 1em 0.5em 1em;
 }
-/* line 3188, styles.scss */
+/* line 3193, styles.scss */
 .modal-wordselector ul {
   list-style: none;
 }
-/* line 3190, styles.scss */
+/* line 3195, styles.scss */
 .modal-wordselector ul li ul {
   margin-left: 2em;
   line-height: 70%;
 }
 
-/* line 3197, styles.scss */
+/* line 3202, styles.scss */
 .wordselector-group-heading {
   font-weight: bold;
   cursor: pointer;
 }
-/* line 3200, styles.scss */
+/* line 3205, styles.scss */
 .wordselector-group-heading:hover {
   color: darkgrey;
 }
 
-/* line 3205, styles.scss */
+/* line 3210, styles.scss */
 .wordselector-group-name {
   display: inline-block;
   min-width: 1em;
 }
 
-/* line 3210, styles.scss */
+/* line 3215, styles.scss */
 .wordselector-freq {
   color: #555555;
 }
 
-/* line 3216, styles.scss */
+/* line 3221, styles.scss */
 .wordselector-word-unselected {
   font-weight: normal;
 }
 
-/* line 3220, styles.scss */
+/* line 3225, styles.scss */
 .wordselector-word-selected {
   font-weight: bold;
 }
 
-/* line 3224, styles.scss */
+/* line 3229, styles.scss */
 .list-link-icon {
   margin-left: 0.25em;
   cursor: pointer;
 }
-/* line 3227, styles.scss */
+/* line 3232, styles.scss */
 .list-link-icon:hover {
   color: darkgrey;
 }
 
-/* line 3232, styles.scss */
+/* line 3237, styles.scss */
 .book-link-icon {
   margin-left: 0.25em;
   cursor: pointer;
 }
-/* line 3235, styles.scss */
+/* line 3240, styles.scss */
 .book-link-icon:hover {
   color: darkgrey;
 }
 
-/* line 3240, styles.scss */
+/* line 3245, styles.scss */
 .arg_value_wordselector {
   width: 85% !important;
 }

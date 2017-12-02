@@ -2792,6 +2792,11 @@ line.tick {
 .newsdesk-news-item {
     padding-left:4px;
     margin-bottom:4px;
+    ul {
+        list-style: initial;
+        // Bullet approximately justified with non-list text
+        margin-left: 1.2em;
+    }
 }
 .newsdesk-opener {
     cursor:pointer;
