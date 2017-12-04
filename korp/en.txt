@@ -1,4 +1,29 @@
 
+<!-- Korp updated 2017-12-04b -->
+
+Korp has been updated to a newer version that is based on
+Språkbanken’s Korp version 5.0.10. New features, fixes and changes:
+
+* You can compile the statistics by more than one attribute.
+* You can choose the maximum number of rows in the word picture.
+* To download the KWIC result, choose the format from selection lists
+  and then press the button *Download KWIC*. You can choose the
+  logical and physical format separately where appropriate; for
+  example, *Annotations* as *Excel (XLS)*.
+* Such extended searches now work that combine repeating *any word*
+  with a *starts with*, *ends with* or *contains* condition on another
+  token.
+* Korp uses Kielipankki colours and font, and the Kielipankki symbol
+  and logo are shown.
+
+If a previously working feature no longer works or if you notice other
+bugs, please send a bug report via the <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback"
+target="_blank">Korp feedback form</a>. The previous Korp version is
+still accessible at <a href="/old/#?lang=en"
+target="_blank">https://korp.csc.fi/old/</a>.
+
+
 <!-- The old versions of ParFin and ParRus have been removed 2017-12-04a -->
 
 The old, deprecated versions of the ParFin and ParRus corpora have

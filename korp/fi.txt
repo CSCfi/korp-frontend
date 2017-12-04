@@ -1,4 +1,31 @@
 
+<!-- Korp päivitetty 2017-12-04b -->
+
+Korp on päivitetty uudempaan versioon, joka pohjautuu Språkbankenin
+Korp-versioon 5.0.10. Uusia ominaisuuksia, korjauksia ja muutoksia:
+
+* Tilastot voi laskea usean piirteen (attribuutin) perusteella.
+* Sanakuvassa voi valita rivien enimmäismäärän.
+* Konkordanssin latausmuoto valitaan konkordanssin alapuolella
+  olevasta listasta, jonka jälkeen täytyy painaa painiketta *Lataa
+  konkordanssi*. Monissa latausmuodoissa voi valita erikseen loogisen
+  ja fyysisen muodon, esim. *Annotaatiot*, *Excel (XLS)* -muodossa.
+* Sellaiset laajennetut hakuehdot toimivat, jotka sisältävät *minkä
+  tahansa sanan* toistamisen sekä *alkaa*-, *loppuu*- tai
+  *sisältää*-ehdon jollekin toiselle saneelle.
+* Muutamia nimityksiä on muutettu; erityisesti *Etsi* &rarr; *Hae* ja
+  *attribuutti* &rarr; *piirre*.
+* Ulkoasu käyttää Kielipankin tunnusvärejä ja kirjasintyyppiä, ja
+  Kielipankin tunnus on esillä.
+
+Jos jokin aiemmin toiminut ominaisuus ei toimi tai jos huomaat muita
+vikoja, ilmoita niistä <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html"
+target="_blank">Korp-palautelomakkeen</a> kautta. Edellinen
+Korp-versio on toistaiseksi käytettävissä osoitteessa <a href="/old/"
+target="_blank">https://korp.csc.fi/old/</a>.
+
+
 <!-- ParFin- ja ParRus-korpusten vanhat versiot poistettu 2017-12-04a -->
 
 ParFin- ja ParRus-korpusten vanhat versiot on poistettu käytöstä; <a
