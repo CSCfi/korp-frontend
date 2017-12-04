@@ -1,4 +1,15 @@
 
+<!-- ParFin- ja ParRus-korpusten vanhat versiot poistettu 2017-12-04a -->
+
+ParFin- ja ParRus-korpusten vanhat versiot on poistettu käytöstä; <a
+href="http://urn.fi/urn:nbn:fi:lb-2016121610" target="_blank">ParFin
+2016</a> ja <a href="http://urn.fi/urn:nbn:fi:lb-20140730173"
+target="_blank">ParRus 2016</a> korvaavat ne. Jos välttämättä
+tarvitset vanhoja versioita, voit käyttää niitä vielä toistaiseksi
+vanhassa Korpissa osoitteessa <a href="/old/"
+target="_blank">https://korp.csc.fi/old/</a>.
+
+
 <!-- Dependenssijäsennyksiä ja nimitietoja muutamiin suomen aineistoihin 2017-11-30b -->
 
 Muutamat aiemmin jäsentämättömät suomen aineistot on nyt

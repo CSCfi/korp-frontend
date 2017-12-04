@@ -1,4 +1,15 @@
 
+<!-- The old versions of ParFin and ParRus have been removed 2017-12-04a -->
+
+The old, deprecated versions of the ParFin and ParRus corpora have
+been removed; they have been replaced with <a
+href="http://urn.fi/urn:nbn:fi:lb-2016121610" target="_blank">ParFin
+2016</a> and <a href="http://urn.fi/urn:nbn:fi:lb-20140730173"
+target="_blank">ParRus 2016</a>. If you absolutely need the older
+versions, you can still use them in the old Korp at <a
+href="/old/#?lang=en" target="_blank">https://korp.csc.fi/old/</a>.
+
+
 <!-- Dependency parses and named-entity information added to a few Finnish corpora 2017-11-30b -->
 
 A few previously unparsed Finnish corpora have now been parsed with
