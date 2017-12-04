@@ -10,7 +10,6 @@
       this.s = scope;
       this.$tab = $(tabSelector);
       this.$result = $(resultSelector);
-      this.optionWidget = $("#search_options");
       this.$result.add(this.$tab).addClass("not_loading");
       this.injector = $("body").injector();
       def = this.injector.get("$q").defer();
@@ -50,7 +49,7 @@
         this.resultError(data);
         return false;
       } else {
-        safeApply(this.s, (function(_this) {
+        return safeApply(this.s, (function(_this) {
           return function() {
             c.log("firstResultDef.resolve");
             _this.firstResultDef.resolve();
@@ -58,7 +57,6 @@
           };
         })(this));
       }
-      return util.setDownloadLinks(this.proxy.prevRequest, data);
     };
 
     BaseResults.prototype.resultError = function(data) {
@@ -91,7 +89,6 @@
       return this.firstResultDef.promise.then((function(_this) {
         return function() {
           var ref;
-          c.log("firstResultDef.then", _this.isActive());
           if (_this.isActive()) {
             return _this.s.$root.jsonUrl = (ref = _this.proxy) != null ? ref.prevUrl : void 0;
           }
@@ -153,7 +150,7 @@
 
     KWICResults.prototype.onWordClick = function(event) {
       var obj, scope, sent, word;
-      c.log("wordclick", this.tabindex, this.s);
+      c.log("word click in kwic");
       if (this.isActive()) {
         this.s.$root.sidebar_visible = true;
       }
@@ -162,7 +159,7 @@
       sent = scope.sentence;
       event.stopPropagation();
       word = $(event.target);
-      if ($("#sidebar").data().korpSidebar != null) {
+      if ($("#sidebar").data()["korp-sidebar"]) {
         $("#sidebar").sidebar("updateContent", sent.structs, obj, sent.corpus.toLowerCase(), sent.tokens);
       }
       return this.selectWord(word, scope, sent);
@@ -189,7 +186,6 @@
           return $(item).is(word) || $(item).is(querySentStart);
         });
         sent_start = paragraph.index(l.eq(l.index(word) - 1));
-        c.log("i", l.index(word), i, sent_start);
       }
       aux = $(paragraph.get(sent_start + i - 1));
       scope.selectionManager.select(word, aux);
@@ -285,7 +281,6 @@
     };
 
     KWICResults.prototype.renderCompleteResult = function(data) {
-      c.log("renderCompleteResult", data);
       this.current_page = search().page || 0;
       safeApply(this.s, (function(_this) {
         return function() {
@@ -305,7 +300,6 @@
 
     KWICResults.prototype.renderResult = function(data) {
       var firstWord, isReading, k, len, linked, mainrow, offset, ref, resultError, scrollLeft;
-      c.log("data", data, this.proxy.prevUrl);
       resultError = KWICResults.__super__.renderResult.call(this, data);
       if (resultError === false) {
         return;
@@ -313,14 +307,12 @@
       if (!data.kwic) {
         data.kwic = [];
       }
-      c.log("corpus_results");
       isReading = this.isReadingMode();
       if (this.isActive()) {
         this.s.$root.jsonUrl = this.proxy.prevUrl;
       }
       this.s.$apply((function(_this) {
         return function($scope) {
-          c.log("apply kwic search data", data);
           if (isReading) {
             $scope.setContextData(data);
             _this.selectionManager.deselect();
@@ -352,12 +344,12 @@
           $(linked).find(".lnk").css("padding-left", Math.round(offset));
         }
       }
-      util.setDownloadLinks(this.proxy.prevRequest, data);
       this.$result.localize();
       this.centerScrollbar();
       if (!this.selectionManager.hasSelected() && !isReading) {
-        return this.$result.find(".match").children().first().click();
+        this.$result.find(".match").children().first().click();
       }
+      return this.resultData = data;
     };
 
     KWICResults.prototype.showNoResults = function() {
@@ -424,52 +416,8 @@
       });
     };
 
-    KWICResults.prototype.buildPager = function(number_of_hits) {
-      var items_per_page;
-      items_per_page = this.optionWidget.find(".num_hits").val();
-      this.$result.find(".pager-wrapper").unbind().empty();
-      if (number_of_hits > items_per_page) {
-        this.$result.find(".pager-wrapper").pagination(number_of_hits, {
-          items_per_page: items_per_page,
-          callback: $.proxy(this.handlePaginationClick, this),
-          next_text: util.getLocaleString("next"),
-          prev_text: util.getLocaleString("prev"),
-          link_to: "javascript:void(0)",
-          num_edge_entries: 2,
-          ellipse_text: "..",
-          current_page: this.current_page || 0
-        });
-        this.$result.find(".next").attr("rel", "localize[next]");
-        return this.$result.find(".prev").attr("rel", "localize[prev]");
-      }
-    };
-
-    KWICResults.prototype.handlePaginationClick = function(new_page_index, pagination_container, force_click) {
-      var isReading, kwicCallback, page, self;
-      page = search().page || 0;
-      c.log("handlePaginationClick", new_page_index, page);
-      self = this;
-      if (new_page_index !== page || !!force_click) {
-        isReading = this.isReadingMode();
-        kwicCallback = this.renderResult;
-        this.getProxy().makeRequest(this.buildQueryOptions(), new_page_index, (function(progressObj) {
-          return self.$tab.find(".tab_progress").css("width", Math.round(progressObj["stats"]).toString() + "%");
-        }), (function(data) {
-          return self.buildPager(data.hits);
-        }), $.proxy(kwicCallback, this));
-        safeApply(this.s, function() {
-          return search({
-            page: new_page_index
-          });
-        });
-        this.current_page = new_page_index;
-      }
-      return false;
-    };
-
     KWICResults.prototype.buildQueryOptions = function(cqp, isPaging) {
       var avoidContext, context, getSortParams, opts, pq_within, preferredContext;
-      c.log("buildQueryOptions", cqp);
       opts = {};
       getSortParams = function() {
         var rnd, sort;
@@ -690,6 +638,10 @@
       return output;
     };
 
+    KWICResults.prototype.downloadKwic = function(format_params) {
+      return util.downloadKwic(format_params, this.proxy.prevRequest.url, this.resultData);
+    };
+
     return KWICResults;
 
   })(BaseResults);
@@ -701,8 +653,8 @@
       c.log("ExampleResults constructor", tabSelector, resultSelector, scope);
       ExampleResults.__super__.constructor.call(this, tabSelector, resultSelector, scope);
       this.proxy = new model.KWICProxy();
-      this.current_page = 0;
-      if (this.s.$parent.queryParams) {
+      this.current_page = 1;
+      if (this.s.$parent.kwicTab.queryParams) {
         this.makeRequest().then((function(_this) {
           return function() {
             return _this.onentry();
@@ -714,23 +666,37 @@
 
     ExampleResults.prototype.setupReadingHash = function() {};
 
+    ExampleResults.prototype.isReadingMode = function() {
+      return this.s.exampleReadingMode;
+    };
+
     ExampleResults.prototype.makeRequest = function() {
-      var def, items_per_page, opts, prev, progress;
+      var avoidContext, context, def, items_per_page, opts, preferredContext, prev, progress;
       c.log("ExampleResults.makeRequest()", this.current_page);
-      items_per_page = parseInt(this.optionWidget.find(".num_hits").val());
-      opts = this.s.$parent.queryParams;
-      c.log("opts", opts);
+      items_per_page = parseInt($("#search_options").find(".num_hits").val());
+      opts = this.s.$parent.kwicTab.queryParams;
       this.resetView();
       opts.ajaxParams.incremental = false;
-      opts.ajaxParams.start = this.current_page * items_per_page;
-      opts.ajaxParams.end = opts.ajaxParams.start + items_per_page;
+      opts.ajaxParams.start = (this.current_page - 1) * items_per_page;
+      opts.ajaxParams.end = opts.ajaxParams.start + items_per_page - 1;
       prev = _.pick(this.proxy.prevParams, "cqp", "command", "corpus", "head", "rel", "source", "dep", "depextra");
       _.extend(opts.ajaxParams, prev);
+      if (this.isReadingMode()) {
+        preferredContext = settings.defaultReadingContext;
+        avoidContext = settings.defaultOverviewContext;
+      } else {
+        preferredContext = settings.defaultOverviewContext;
+        avoidContext = settings.defaultReadingContext;
+      }
+      context = settings.corpusListing.getContextQueryString(preferredContext, avoidContext);
+      _.extend(opts.ajaxParams, {
+        context: context,
+        defaultcontext: preferredContext
+      });
       this.showPreloader();
       progress = opts.command === "query" ? $.proxy(this.onProgress, this) : $.noop;
       def = this.proxy.makeRequest(opts, null, progress, (function(_this) {
         return function(data) {
-          c.log("first part done", data);
           _this.renderResult(data, opts.cqp);
           _this.renderCompleteResult(data);
           return safeApply(_this.s, function() {
@@ -772,21 +738,11 @@
       LemgramResults.__super__.constructor.call(this, tabSelector, resultSelector, scope);
       this.s = scope;
       this.tabindex = 3;
-      this.resultDeferred = $.Deferred();
       this.proxy = new model.LemgramProxy();
-      window.lemgramProxy = this.proxy;
-      this.$result.find("#wordclassChk").change(function() {
-        if ($(this).is(":checked")) {
-          return $(".lemgram_result .wordclass_suffix", self.$result).show();
-        } else {
-          return $(".lemgram_result .wordclass_suffix", self.$result).hide();
-        }
-      });
     }
 
     LemgramResults.prototype.resetView = function() {
       LemgramResults.__super__.resetView.call(this);
-      $(".content_target", this.$result).empty();
       return safeApply(this.s, (function(_this) {
         return function() {
           _this.s.$parent.aborted = false;
@@ -822,13 +778,11 @@
         return function(jqXHR, status, errorThrown) {
           c.log("def fail", status);
           if (_this.ignoreAbort) {
-            c.log("lemgram ignoreabort");
             return;
           }
           if (status === "abort") {
             return safeApply(_this.s, function() {
               _this.hidePreloader();
-              c.log("aborted true", _this.s);
               return _this.s.$parent.aborted = true;
             });
           }
@@ -838,8 +792,6 @@
 
     LemgramResults.prototype.renderResult = function(data, query) {
       var resultError;
-      c.log("lemgram renderResult", data, query);
-      $(".content_target", this.$result).empty();
       resultError = LemgramResults.__super__.renderResult.call(this, data);
       this.hidePreloader();
       this.s.$parent.progress = 100;
@@ -847,53 +799,16 @@
         return;
       }
       if (!data.relations) {
-        this.s.$parent.no_hits = true;
-        return this.resultDeferred.reject();
+        return this.s.$parent.no_hits = true;
       } else if (util.isLemgramId(query)) {
-        this.renderTables(query, data.relations);
-        return this.resultDeferred.resolve();
+        return this.renderTables(query, data.relations);
       } else {
-        this.renderWordTables(query, data.relations);
-        return this.resultDeferred.resolve();
+        return this.renderWordTables(query, data.relations);
       }
     };
 
-    LemgramResults.prototype.renderHeader = function(wordClass, isLemgram) {
-      wordClass = (_.invert(settings.wordpictureTagset))[wordClass.toLowerCase()];
-      return $(".tableContainer:last .lemgram_section").each(function(i) {
-        var $parent;
-        $parent = $(this).find(".lemgram_help");
-        return $(this).find(".lemgram_result").each(function(j) {
-          var cell, classes, confObj, label;
-          confObj = settings.wordPictureConf[wordClass][i][j];
-          if (confObj !== "_") {
-            if (!$(this).find("table").length) {
-              return;
-            }
-            if (confObj.alt_label) {
-              label = confObj.alt_label;
-            } else {
-              label = "rel_" + $(this).data("rel");
-            }
-            cell = $("<span />", {
-              "class": "lemgram_header_item"
-            }).localeKey(label).addClass(confObj.css_class || "").appendTo($parent);
-            return $(this).addClass(confObj.css_class).css("border-color", $(this).css("background-color"));
-          } else {
-            label = $(this).data("word") || $(this).tmplItem().lemgram;
-            classes = "hit";
-            if (isLemgram) {
-              classes += " lemgram";
-            }
-            return $("<span class='" + classes + "'><b>" + label + "</b></span>").appendTo($parent);
-          }
-        });
-      }).append("<div style='clear:both;'/>");
-    };
-
     LemgramResults.prototype.renderWordTables = function(word, data) {
-      var self, tagsetTrans, unique_words, wordlist;
-      self = this;
+      var tagsetTrans, unique_words, wordlist;
       wordlist = $.map(data, function(item) {
         var output;
         output = [];
@@ -920,19 +835,7 @@
         this.showNoResults();
         return;
       }
-      $.each(unique_words, (function(_this) {
-        return function(i, arg) {
-          var content, currentWd, pos;
-          currentWd = arg[0], pos = arg[1];
-          self.drawTable(currentWd, pos, data);
-          self.renderHeader(pos, false);
-          content = currentWd + " (<span rel=\"localize[pos]\">" + (util.getLocaleString(pos)) + "</span>)";
-          return $(".tableContainer:last").prepend($("<div>", {
-            "class": "header"
-          }).html(content)).find(".hit .wordclass_suffix").hide();
-        };
-      })(this));
-      $(".lemgram_result .wordclass_suffix").hide();
+      this.drawTables(unique_words, data);
       return this.hidePreloader();
     };
 
@@ -943,14 +846,12 @@
       } else {
         wordClass = data[0].deppos;
       }
-      this.drawTable(lemgram, wordClass, data);
-      $(".lemgram_result .wordclass_suffix").hide();
-      this.renderHeader(wordClass, true);
+      this.drawTables([[lemgram, wordClass]], data);
       return this.hidePreloader();
     };
 
-    LemgramResults.prototype.drawTable = function(token, wordClass, data) {
-      var container, getRelType, inArray, orderArrays, tagsetTrans;
+    LemgramResults.prototype.drawTables = function(tables, data) {
+      var inArray, res, tagsetTrans;
       inArray = function(rel, orderList) {
         var i, type;
         i = _.findIndex(orderList, function(item) {
@@ -963,142 +864,110 @@
         };
       };
       tagsetTrans = _.invert(settings.wordpictureTagset);
-      getRelType = function(item) {
-        return {
-          rel: tagsetTrans[item.rel.toLowerCase()],
-          field_reverse: item.dep === token
+      res = _.map(tables, function(arg) {
+        var getRelType, orderArrays, token, wordClass, wordClassShort;
+        token = arg[0], wordClass = arg[1];
+        getRelType = function(item) {
+          return {
+            rel: tagsetTrans[item.rel.toLowerCase()],
+            field_reverse: item.dep === token
+          };
         };
-      };
-      wordClass = (_.invert(settings.wordpictureTagset))[wordClass.toLowerCase()];
-      if (settings.wordPictureConf[wordClass] == null) {
-        return;
-      }
-      orderArrays = [[], [], []];
-      $.each(data, (function(_this) {
-        return function(index, item) {
-          return $.each(settings.wordPictureConf[wordClass] || [], function(i, rel_type_list) {
-            var list, rel, ret;
-            list = orderArrays[i];
-            rel = getRelType(item);
-            if (!rel.rel) {
-              return;
-            }
-            ret = inArray(rel, rel_type_list);
-            if (ret.i === -1) {
-              return;
-            }
-            if (!list[ret.i]) {
-              list[ret.i] = [];
-            }
-            item.show_rel = ret.type;
-            return list[ret.i].push(item);
-          });
-        };
-      })(this));
-      $.each(orderArrays, function(i, unsortedList) {
-        var toIndex;
-        $.each(unsortedList, function(_, list) {
-          if (list) {
-            return list.sort(function(first, second) {
-              return second.mi - first.mi;
-            });
-          }
-        });
-        if (settings.wordPictureConf[wordClass][i] && unsortedList.length) {
-          toIndex = $.inArray("_", settings.wordPictureConf[wordClass][i]);
-          if (util.isLemgramId(token)) {
-            unsortedList.splice(toIndex, 0, {
-              word: token.split("..")[0].replace(/_/g, " ")
-            });
-          } else {
-            unsortedList.splice(toIndex, 0, {
-              word: util.lemgramToString(token)
-            });
-          }
+        wordClassShort = wordClass.toLowerCase();
+        wordClass = (_.invert(settings.wordpictureTagset))[wordClassShort];
+        if (settings.wordPictureConf[wordClass] == null) {
+          return;
         }
-        return unsortedList = $.grep(unsortedList, function(item, index) {
-          return Boolean(item);
-        });
-      });
-      container = $("<div>", {
-        "class": "tableContainer radialBkg"
-      }).appendTo(".content_target", this.$result);
-      c.log("orderArrays", orderArrays);
-      $("#lemgramResultsTmpl").tmpl(orderArrays, {
-        lemgram: token
-      }).find(".example_link").append($("<span>").addClass("ui-icon ui-icon-document")).css("cursor", "pointer").click((function(_this) {
-        return function(event) {
-          return _this.onClickExample(event);
-        };
-      })(this)).end().appendTo(container);
-      return $("td:nth-child(2)", this.$result).each(function() {
-        var $siblings, hasHomograph, label, prefix, siblingLemgrams;
-        $siblings = $(this).parent().siblings().find("td:nth-child(2)");
-        siblingLemgrams = $.map($siblings, function(item) {
-          return $(item).data("lemgram").toString().slice(0, -1);
-        });
-        hasHomograph = $.inArray($(this).data("lemgram").toString().slice(0, -1), siblingLemgrams) !== -1;
-        prefix = ($(this).data("depextra").length ? $(this).data("depextra") + " " : "");
-        data = $(this).tmplItem().data;
-        if (!data.dep) {
-          label = "&mdash;";
-        } else {
-          label = util.lemgramToString($(this).data("lemgram"), hasHomograph);
-        }
-        return $(this).html(prefix + label);
-      });
-    };
-
-    LemgramResults.prototype.onClickExample = function(event) {
-      var $target, data, opts, self;
-      self = this;
-      $target = $(event.currentTarget);
-      c.log("onClickExample", $target);
-      data = $target.parent().tmplItem().data;
-      opts = {};
-      opts.ajaxParams = {
-        start: 0,
-        end: 24,
-        command: "relations_sentences",
-        source: data.source.join(","),
-        head: data.head,
-        dep: data.dep,
-        rel: data.rel,
-        depextra: data.depextra,
-        corpus: data.corpus
-      };
-      return this.s.$root.kwicTabs.push(opts);
-    };
-
-    LemgramResults.prototype.showWarning = function() {
-      var hasWarned;
-      hasWarned = !!$.jStorage.get("lemgram_warning");
-      if (!hasWarned) {
-        $.jStorage.set("lemgram_warning", true);
-        $("#sidebar").sidebar("refreshContent", "lemgramWarning");
-        safeApply(this.s, (function(_this) {
-          return function() {
-            return _this.s.$root.sidebar_visible = true;
+        orderArrays = [[], [], []];
+        $.each(data, (function(_this) {
+          return function(index, item) {
+            return $.each(settings.wordPictureConf[wordClass] || [], function(i, rel_type_list) {
+              var list, rel, ret;
+              list = orderArrays[i];
+              rel = getRelType(item);
+              if (!rel) {
+                return;
+              }
+              ret = inArray(rel, rel_type_list);
+              if (ret.i === -1) {
+                return;
+              }
+              if (!list[ret.i]) {
+                list[ret.i] = [];
+              }
+              item.show_rel = ret.type;
+              return list[ret.i].push(item);
+            });
           };
         })(this));
-        return self.timeout = setTimeout((function(_this) {
-          return function() {
-            return safeApply(_this.s, function() {
-              _this.s.$root.sidebar_visible = false;
-              return $("#sidebar").sidebar("refreshContent");
-            });
-          };
-        })(this), 5000);
-      }
+        $.each(orderArrays, function(i, unsortedList) {
+          var toIndex;
+          $.each(unsortedList, function(_, list) {
+            if (list) {
+              return list.sort(function(first, second) {
+                return second.mi - first.mi;
+              });
+            }
+          });
+          if (settings.wordPictureConf[wordClass][i] && unsortedList.length) {
+            toIndex = $.inArray("_", settings.wordPictureConf[wordClass][i]);
+            if (util.isLemgramId(token)) {
+              unsortedList[toIndex] = {
+                word: token.split("..")[0].replace(/_/g, " ")
+              };
+            } else {
+              unsortedList[toIndex] = {
+                word: util.lemgramToString(token)
+              };
+            }
+          }
+          return unsortedList = $.grep(unsortedList, function(item, index) {
+            return Boolean(item);
+          });
+        });
+        orderArrays = _.map(orderArrays, function(section, i) {
+          return _.map(section, function(table, j) {
+            var all_lemgrams, rel, show_rel;
+            if (table && table[0]) {
+              rel = table[0].rel;
+              show_rel = table[0].show_rel;
+              all_lemgrams = _.unique(_.map(_.pluck(table, show_rel), function(item) {
+                if (util.isLemgramId(item)) {
+                  return item.slice(0, -1);
+                } else {
+                  return item;
+                }
+              }));
+              return {
+                table: table,
+                rel: rel,
+                show_rel: show_rel,
+                all_lemgrams: all_lemgrams
+              };
+            } else {
+              return {
+                table: table
+              };
+            }
+          });
+        });
+        return {
+          "token": token,
+          "wordClass": wordClass,
+          "wordClassShort": wordClassShort,
+          "data": orderArrays
+        };
+      });
+      return this.s.$root.$broadcast('word_picture_data_available', res);
     };
 
     LemgramResults.prototype.onentry = function() {
-      c.log("lemgram onentry");
+      c.log("word pic onentry");
       LemgramResults.__super__.onentry.call(this);
-      this.resultDeferred.done(this.showWarning);
     };
 
     LemgramResults.prototype.onexit = function() {
+      c.log("word pic onexit");
       LemgramResults.__super__.onexit.call(this);
       clearTimeout(self.timeout);
       safeApply(this.s, (function(_this) {
@@ -1110,12 +979,6 @@
 
     LemgramResults.prototype.showNoResults = function() {
       return this.hidePreloader();
-    };
-
-    LemgramResults.prototype.hideWordclass = function() {
-      return $("td:first-child", this.$result).each(function() {
-        return $(this).html($.format("%s <span class='wordClass'>%s</span>", $(this).html().split(" ")));
-      });
     };
 
     return LemgramResults;
@@ -1146,23 +1009,30 @@
           }
         };
       })(this));
-      this.$result.on("click", ".slick-cell .link", function() {
-        var opts, query;
-        query = $(this).data("query");
-        opts = {};
-        opts.ajaxParams = {
-          start: 0,
-          end: 24,
-          command: "query",
-          corpus: util.encodeListParam($(this).data("corpora")).toUpperCase(),
-          cqp: self.proxy.prevParams.cqp,
-          cqp2: decodeURIComponent(query),
-          expand_prequeries: false
+      this.$result.on("click", ".slick-cell .statistics-link", (function(_this) {
+        return function(e) {
+          var corpora, cqp2, opts, rowData, rowIx;
+          rowIx = $(e.currentTarget).data("row");
+          rowData = _this.grid.getData()[rowIx];
+          cqp2 = statisticsFormatting.getCqp(_this.searchParams.reduceVals, rowData.hit_value, _this.searchParams.ignoreCase);
+          corpora = _this.searchParams.corpora;
+          opts = {};
+          opts.ajaxParams = {
+            start: 0,
+            end: 24,
+            command: "query",
+            corpus: util.encodeListParam(corpora),
+            cqp: self.proxy.prevParams.cqp,
+            cqp2: cqp2,
+            expand_prequeries: false
+          };
+          return safeApply(scope.$root, function() {
+            return scope.$root.kwicTabs.push({
+              queryParams: opts
+            });
+          });
         };
-        return safeApply(scope.$root, function() {
-          return scope.$root.kwicTabs.push(opts);
-        });
-      });
+      })(this));
       $(window).resize(_.debounce((function(_this) {
         return function() {
           return _this.resizeGrid();
@@ -1170,15 +1040,13 @@
       })(this), 100));
       $("#kindOfData,#kindOfFormat").change((function(_this) {
         return function() {
-          $("#exportButton").hide();
-          return $("#generateExportButton").show();
+          return _this.showGenerateExport();
         };
       })(this));
       $("#exportButton").hide();
       $("#generateExportButton").unbind("click").click((function(_this) {
         return function() {
-          $("#exportButton").show();
-          $("#generateExportButton").hide();
+          _this.hideGenerateExport();
           return _this.updateExportBlob();
         };
       })(this));
@@ -1188,7 +1056,7 @@
       }
       $("#showGraph").on("click", (function(_this) {
         return function() {
-          var activeCorpora, cell, chk, cqp, k, key, labelMapping, len, params, reduceVal, ref, showTotal, subExprs, texts, val;
+          var activeCorpora, cqp, k, key, labelMapping, len, params, reduceVal, ref, row, rowIx, showTotal, subExprs, texts, val;
           if ($("#showGraph").is(".disabled")) {
             return;
           }
@@ -1197,20 +1065,17 @@
           subExprs = [];
           labelMapping = {};
           showTotal = false;
-          console.log("DOING GRAPH CHECKING");
-          ref = _this.$result.find(".slick-cell > input:checked");
+          ref = _this.getSelectedRows();
           for (k = 0, len = ref.length; k < len; k++) {
-            chk = ref[k];
-            cell = $(chk).parent();
-            cqp = decodeURIComponent(cell.next().find(" > .link").data("query"));
-            if (cqp === "undefined") {
+            rowIx = ref[k];
+            if (rowIx === 0) {
               showTotal = true;
               continue;
             }
+            row = _this.getDataAt(rowIx);
+            cqp = statisticsFormatting.getCqp(_this.searchParams.reduceVals, row.hit_value, _this.searchParams.ignoreCase);
             subExprs.push(cqp);
-            texts = $.map(cell.parent().find('.parameter-column'), function(elem) {
-              return $(elem).text();
-            });
+            texts = statisticsFormatting.getTexts(_this.searchParams.reduceVals, row.hit_value, _this.searchParams.corpora);
             labelMapping[cqp] = texts.join(", ");
           }
           activeCorpora = _.flatten([
@@ -1269,14 +1134,14 @@
       ref = this.savedWordArray;
       for (k = 0, len = ref.length; k < len; k++) {
         wd = ref[k];
-        row = [wd, fmt(this.savedData.total[selVal][wd])];
+        row = [wd, fmt(this.savedSummarizedData.total[selVal][wd])];
         values = (function() {
           var len1, o, ref1, results;
           ref1 = _.pluck(cl.corpora, "id");
           results = [];
           for (o = 0, len1 = ref1.length; o < len1; o++) {
             corp = ref1[o];
-            val = this.savedData.corpora[corp.toUpperCase()][selVal][wd];
+            val = this.savedSummarizedData[corp.toUpperCase()][selVal][wd];
             if (val) {
               results.push(val = fmt(val));
             } else {
@@ -1303,7 +1168,7 @@
     };
 
     StatsResults.prototype.makeRequest = function(cqp) {
-      c.log("statsrequest makerequest", cqp);
+      c.log("StatsResults makeRequest", cqp);
       if (currentMode === "parallel") {
         cqp = cqp.replace(/\:LINKED_CORPUS.*/, "");
       }
@@ -1322,14 +1187,15 @@
         };
       })(this))).done((function(_this) {
         return function(arg) {
-          var columns, data, dataset, summarizedData, wordArray;
-          data = arg[0], wordArray = arg[1], columns = arg[2], dataset = arg[3], summarizedData = arg[4];
+          var columns, data, dataset, searchParams, summarizedData, wordArray;
+          data = arg[0], wordArray = arg[1], columns = arg[2], dataset = arg[3], summarizedData = arg[4], searchParams = arg[5];
           safeApply(_this.s, function() {
             return _this.hidePreloader();
           });
           _this.savedData = data;
           _this.savedSummarizedData = summarizedData;
           _this.savedWordArray = wordArray;
+          _this.searchParams = searchParams;
           return _this.renderResult(columns, dataset);
         };
       })(this)).fail((function(_this) {
@@ -1354,8 +1220,31 @@
       })(this));
     };
 
+    StatsResults.prototype.getSelectedRows = function() {
+      if (this.grid) {
+        return this.grid.getSelectedRows().sort();
+      } else {
+        return [];
+      }
+    };
+
+    StatsResults.prototype.getDataAt = function(rowIx) {
+      return this.grid.getData()[rowIx];
+    };
+
+    StatsResults.prototype.showGenerateExport = function() {
+      $("#exportButton").hide();
+      return $("#generateExportButton").show();
+    };
+
+    StatsResults.prototype.hideGenerateExport = function() {
+      $("#exportButton").show();
+      return $("#generateExportButton").hide();
+    };
+
     StatsResults.prototype.renderResult = function(columns, data) {
       var checkboxSelector, grid, log, refreshHeaders, resultError, sortCol;
+      this.showGenerateExport();
       refreshHeaders = function() {
         return $(".localized-header .slick-column-name").not("[rel^=localize]").each(function() {
           return $(this).localeKey($(this).text());
@@ -1403,10 +1292,16 @@
             sortCol = args.sortCol;
             data.sort(function(a, b) {
               var ret, x, y;
+              if (a.id === "row_total") {
+                return -1;
+              }
+              if (b.id === "row_total") {
+                return -1;
+              }
               log();
               if (sortCol.field === "hit_value") {
-                x = a[sortCol.field];
-                y = b[sortCol.field];
+                x = a[sortColumns.columnId];
+                y = b[sortColumns.columnId];
               } else {
                 x = a[sortCol.field][0] || 0;
                 y = b[sortCol.field][0] || 0;
@@ -1455,6 +1350,7 @@
           });
         };
       })(this));
+      this.s.getGeoAttributes(this.proxy.prevParams.corpus.split(","));
       return safeApply(this.s, (function(_this) {
         return function() {
           return _this.hidePreloader();
@@ -1505,6 +1401,9 @@
       $.each(this.savedSummarizedData, (function(_this) {
         return function(corpus, obj) {
           var freq, totfreq;
+          if (corpus === "total") {
+            return;
+          }
           if (dataName === "SIGMA_ALL") {
             totfreq = 0;
             $.each(obj["relative"], function(wordform, freq) {
@@ -1561,6 +1460,9 @@
             dataName = _this.lastDataName;
             $.each(_this.savedSummarizedData, function(corpus, obj) {
               var freq, totfreq;
+              if (corpus === "total") {
+                return;
+              }
               if (dataName === "SIGMA_ALL") {
                 totfreq = 0;
                 $.each(obj[typestring], function(wordform, freq) {
@@ -1669,7 +1571,7 @@
             datefrom = moment(m).startOf(_this.zoom).format("YYYYMMDD");
             dateto = moment(m).endOf(_this.zoom).format("YYYYMMDD");
             if ((_this.validZoomLevels.indexOf(_this.zoom)) < 3) {
-              timecqp = "(int(_.text_datefrom) >= " + datefrom + " & int(_.text_dateto) <= " + dateto + ") | \n(int(_.text_datefrom) <= " + datefrom + " & int(_.text_dateto) >= " + dateto + ")";
+              timecqp = "(int(_.text_datefrom) >= " + datefrom + " & int(_.text_dateto) <= " + dateto + ") |\n(int(_.text_datefrom) <= " + datefrom + " & int(_.text_dateto) >= " + dateto + ")";
               if (settings.textDateAllowBareYears) {
                 year = m.format("YYYY");
                 timecqp = "(" + timecqp + (" | (int(_.text_datefrom) = " + year + " & int(_.text_dateto) = " + year + "))");
@@ -1700,7 +1602,9 @@
               expand_prequeries: false
             };
             return safeApply(_this.s.$root, function() {
-              return _this.s.$root.kwicTabs.push(opts);
+              return _this.s.$root.kwicTabs.push({
+                queryParams: opts
+              });
             });
           }
         };
@@ -1940,7 +1844,7 @@
     GraphResults.prototype.setLineMode = function() {};
 
     GraphResults.prototype.setTableMode = function(series) {
-      var h, nRows, ref, setExportUrl;
+      var h, nRows, ref;
       $(".chart,.legend", this.$result).hide();
       $(".time_table", this.$result.parent()).show();
       nRows = series.length || 2;
@@ -1951,9 +1855,9 @@
         ref.resizeCanvas();
       }
       $(".exportTimeStatsSection", this.$result).show();
-      setExportUrl = (function(_this) {
+      return $(".exportTimeStatsSection .btn.export", this.$result).click((function(_this) {
         return function() {
-          var blob, cell, cells, csv, csvUrl, csvstr, dataDelimiter, header, i, k, len, len1, len2, o, output, p, ref1, ref2, row, selType, selVal, stampformat;
+          var a, blob, cell, cells, csv, csvUrl, csvstr, dataDelimiter, header, i, k, len, len1, len2, o, output, p, ref1, ref2, row, selType, selVal, stampformat;
           selVal = $(".timeKindOfData option:selected", _this.$result).val();
           selType = $(".timeKindOfFormat option:selected", _this.$result).val();
           dataDelimiter = selType === "TSV" ? "%09" : ";";
@@ -1988,13 +1892,13 @@
             type: "text/" + selType
           });
           csvUrl = URL.createObjectURL(blob);
-          return $(".exportTimeStatsSection .btn.export", _this.$result).attr({
-            download: "export." + selType,
-            href: csvUrl
-          });
+          a = document.createElement("a");
+          a.href = csvUrl;
+          a.download = "export." + selType;
+          a.click();
+          return window.URL.revokeObjectURL(csvUrl);
         };
-      })(this);
-      return setExportUrl();
+      })(this));
     };
 
     GraphResults.prototype.zoomLevelToFormat = function(zoom) {
@@ -2295,16 +2199,13 @@
               return ("<br><span rel='localize[rel_hits_short]'>" + (util.getLocaleString('rel_hits_short')) + "</span> ") + val;
             },
             formatter: function(series, x, y, formattedX, formattedY, d) {
-              var abs_y, e, i, rel;
+              var abs_y, e, error, i, rel;
               i = _.indexOf(_.pluck(series.data, "x"), x, true);
               try {
                 abs_y = series.abs_data[i].y;
-              } catch (_error) {
-                e = _error;
+              } catch (error) {
+                e = error;
                 c.log("i", i, x);
-              }
-              if (!abs_y) {
-                c.log("abs_y", i, x);
               }
               rel = series.name + ':&nbsp;' + formattedY;
               return "<span data-cqp=\"" + (encodeURIComponent(series.cqp)) + "\">\n    " + rel + "\n    <br>\n    " + (util.getLocaleString('abs_hits_short')) + ": " + abs_y + "\n</span>";
@@ -2564,3 +2465,5 @@
   })(BaseResults);
 
 }).call(this);
+
+//# sourceMappingURL=results.js.map

@@ -27,6 +27,9 @@ class window.CorpusListing
         cl.selected = cl.corpora
         return cl
 
+    # only applicable for parallel corpora
+    getReduceLang: ->
+        return
 
     # Returns an array of all the selected corpora's IDs in uppercase
     getSelectedCorpora: ->
@@ -74,7 +77,7 @@ class window.CorpusListing
             _.merge a, b
         ), {}
 
-    getCurrentAttributes: ->
+    getCurrentAttributes: (lang) -> # lang not used here, only in parallel mode
         attrs = @mapSelectedCorpora((corpus) ->
             corpus.attributes
         )
@@ -96,12 +99,12 @@ class window.CorpusListing
         )
         @_mapping_intersection attrs
 
-    
+
     getStructAttrs: ->
         attrs = @mapSelectedCorpora((corpus) ->
             for key, value of corpus.struct_attributes
                 value["isStructAttr"] = true
-            
+
             # if a position attribute is declared as structural, include here
             pos_attrs = _.pick corpus.attributes, (val, key) ->
                 val.isStructAttr
@@ -137,7 +140,7 @@ class window.CorpusListing
                 delete value["disabled"]
 
         union
-    
+
     # returns true if coprus has all attrs, else false
     corpusHasAttrs: (corpus, attrs) ->
         for attr in attrs
@@ -214,7 +217,8 @@ class window.CorpusListing
         # c.log maxval, params
         # Construct the non-default value string
         other_vals = []
-        for val, corpora of value_corpora when val != maxval
+        for val, corpora of value_corpora when (val != maxval and
+                                                corpora.length > 0)
             # c.log val, corpora
             other_vals = other_vals.concat(
                 [corp + ':' + val for corp in corpora])
@@ -304,19 +308,19 @@ class window.CorpusListing
 
 
         return [_.first(all), _.last(all)]
-        
+
 
     getMomentInterval : () ->
         toUnix = (item) -> item.unix()
 
         infoGetter = (prop) =>
-            return _(@selected) 
+            return _(@selected)
             .pluck("info")
             .pluck(prop)
             .compact()
             .map((item) -> moment(item))
             .value()
-        
+
 
 
         froms = infoGetter("FirstDate")
@@ -330,7 +334,7 @@ class window.CorpusListing
             to = null
         else
             to = _.max tos, toUnix
-        
+
         # c.log "first", infoGetter("FirstDate")
         [from, to]
 
@@ -343,29 +347,49 @@ class window.CorpusListing
         try
             @struct[corpus].title
         catch e
-            c.log "gettitle broken", corpus 
-        
+            c.log "gettitle broken", corpus
 
 
-    getAttributeGroups : (lang) ->
+    getWordGroup : (withCaseInsentive) ->
         word =
             group : "word"
             value : "word"
             label : "word"
-        
-        attrs = for key, obj of @getCurrentAttributes(lang) when obj.displayType != "hidden" and obj.displayOnly != "sidebar"
-            _.extend({group : "word_attr", value : key}, obj)
+        if withCaseInsentive
+            wordInsensitive =
+                group : "word"
+                value : "word_insensitive"
+                label : "word_insensitive"
+            return [word, wordInsensitive]
+        else
+            return [word]
+
+    getWordAttributeGroups : (lang, setOperator) ->
+        if setOperator == 'union'
+            allAttrs = @getCurrentAttributes(lang)
+        else
+            allAttrs = @getCurrentAttributesIntersection()
+            
+        attrs = for key, obj of allAttrs when obj.displayType != "hidden" and obj.displayOnly != "sidebar"
+                    _.extend({group : "word_attr", value : key}, obj)
+        return attrs
+
+    getStructAttributeGroups : (lang, setOperator) ->
+        if setOperator == 'union'
+            allAttrs = @getStructAttrs(lang)
+        else
+            allAttrs = @getStructAttrsIntersection(lang)
 
         common_keys = _.compact _.flatten _.map @selected, (corp) -> _.keys corp.common_attributes
         common = _.pick settings.common_struct_types, common_keys...
 
-        sent_attrs = for key, obj of (_.extend {}, common, @getStructAttrs(lang)) when obj.displayType != "hidden" and obj.displayOnly != "sidebar"
-            _.extend({group : "sentence_attr", value : key}, obj)
+        sentAttrs = for key, obj of (_.extend {}, common, allAttrs) when obj.displayType != "hidden" and obj.displayOnly != "sidebar"
+                         _.extend({group : "sentence_attr", value : key}, obj)
 
-        sent_attrs = _.sortBy sent_attrs, (item) ->
+        sentAttrs = _.sortBy sentAttrs, (item) ->
             util.getLocaleString(item.label)
 
-        return [word].concat(attrs, sent_attrs)
+        return sentAttrs
 
 
     # Update the CQP token expression to be ignored between tokens: it
@@ -433,10 +457,31 @@ class window.CorpusListing
                          token
         result.join("")
 
+    getAttributeGroups : (lang) ->
+        words = @getWordGroup false
+        attrs = @getWordAttributeGroups lang, 'union'
+        sentAttrs = @getStructAttributeGroups lang, 'union'
+        return words.concat attrs, sentAttrs
+
+    getStatsAttributeGroups : (lang) ->
+        words = @getWordGroup true
+
+        wordOp = settings.reduce_word_attribute_selector or "union"
+        attrs = @getWordAttributeGroups lang, wordOp
+
+        structOp = settings.reduce_struct_attribute_selector or "union"
+        sentAttrs = @getStructAttributeGroups lang, structOp
+
+        # todo check if this is neccessary?
+        sentAttrs = _.filter sentAttrs, (attr) -> attr.displayType isnt "date_interval"
+
+        return words.concat attrs, sentAttrs
+
 
 class window.ParallelCorpusListing extends CorpusListing
-    constructor: (corpora) ->
+    constructor: (corpora, activeLangs) ->
         super(corpora)
+        @setActiveLangs(activeLangs)
 
     select: (idArray) ->
         @selected = []
@@ -449,6 +494,8 @@ class window.ParallelCorpusListing extends CorpusListing
     setActiveLangs : (langlist) ->
         @activeLangs = langlist
 
+    getReduceLang : () ->
+        return @activeLangs[0]
 
     getCurrentAttributes: (lang) ->
         corpora = _.filter(@selected, (item) ->
@@ -470,6 +517,17 @@ class window.ParallelCorpusListing extends CorpusListing
             val["isStructAttr"] = true
 
         struct
+
+    getStructAttrsIntersection: (lang) ->
+        corpora = _.filter(@selected, (item) ->
+            item.lang is lang
+        )
+        attrs = _.map corpora, (corpus) ->
+            for key, value of corpus.struct_attributes
+                value["isStructAttr"] = true
+
+            corpus.struct_attributes
+        @_mapping_intersection attrs
 
     getLinked : (corp, andSelf=false, only_selected=true) ->
         target = if only_selected then @selected else @struct
@@ -531,6 +589,41 @@ class window.ParallelCorpusListing extends CorpusListing
 
         output
 
+    getAttributeQuery : (attr) ->
+
+      #gets the within and context queries
+
+      struct = @getLinksFromLangs(@activeLangs)
+      output = []
+      $.each struct, (i, corps) ->
+
+        mainId = corps[0].id.toUpperCase()
+        mainIsPivot = !!corps[0].pivot
+
+        other = corps.slice(1)
+
+        pair = _.map(other, (corp) ->
+            if mainIsPivot
+                a = _.keys(corp[attr])[0]
+            else
+                a = _.keys(corps[0][attr])[0]
+            mainId + "|" + corp.id.toUpperCase() + ":" + a
+        )
+        output.push pair
+
+      output.join ","
+
+    getContextQueryString: ->
+        @getAttributeQuery("context")
+
+
+    getWithinParameters : ->
+        defaultWithin = search().within or _.keys(settings.defaultWithin)[0]
+        within = @getAttributeQuery("within")
+        return {defaultwithin : defaultWithin, within : within}
+
+
+
     stringifySelected : (onlyMain) ->
 
         struct = @getLinksFromLangs(@activeLangs)
@@ -559,11 +652,6 @@ class window.ParallelCorpusListing extends CorpusListing
 
     getTitle : (corpus) ->
         @struct[corpus.split("|")[1]].title
-
-
-
-settings.corpusListing = new CorpusListing(settings.corpora)
-
 
 
 window.applyTo = (ctrl, f) ->
@@ -604,10 +692,8 @@ window.initLocales = () ->
                     url : file,
                     dataType : "json",
                     cache : false,
-                    success : (data) -> 
+                    success : (data) ->
                         _.extend loc_data[lang], data
-                        # $.localize.data[lang][pkg] = data;
-                        # $.extend($.localize.data[lang]["_all"], data);
 
     $.when.apply($, defs).then () ->
         def.resolve loc_data
@@ -649,8 +735,7 @@ window.safeApply = (scope, fn) ->
 
 window.util.setLogin = () ->
     $("body").toggleClass("logged_in not_logged_in")
-    
-    # $.each authenticationProxy.loginObj.credentials, (i, item) ->
+
     for corp in authenticationProxy.loginObj.credentials
         $("#hpcorpus_#{corp.toLowerCase()}")
             .closest(".boxdiv.disabled").removeClass("disabled")
@@ -689,14 +774,16 @@ util.SelectionManager::hasSelected = ->
     @selected.length > 0
 
 util.getLocaleString = (key, lang) ->
-    # lang = (if $("body").scope() then $("body").scope().lang) or settings.defaultLanguage or "sv"
+    return util.getLocaleStringUndefined(key, lang) or key
+
+
+util.getLocaleStringUndefined = (key, lang) ->
     unless lang
         lang = window.lang or settings.defaultLanguage or "sv"
-
     try
-        return loc_data[lang][key] or key
+        return loc_data[lang][key]
     catch e
-        return key
+        return undefined
 
 
 util.localize = (root) ->
@@ -732,6 +819,15 @@ util.saldoToString = (saldoId, appendIndex) ->
         infixIndex
     ]
 
+util.saldoToPlaceholderString = (saldoId, appendIndex) ->
+    match = saldoId.match(util.saldoRegExp)
+    infixIndex = ""
+    infixIndex = $.format(" (%s)", match[2]) if appendIndex? and match[2] isnt "1"
+    $.format "%s%s", [
+        match[1].replace(/_/g, " ")
+        infixIndex
+    ]
+
 util.sblexArraytoString = (idArray, labelFunction) ->
     labelFunction = labelFunction or util.lemgramToString
     return _.map idArray, (lemgram) -> labelFunction lemgram, true
@@ -762,90 +858,159 @@ util.splitLemgram = (lemgram) ->
 util.splitSaldo = (saldo) ->
     saldo.match util.saldoRegExp
 
-# Add download links for other formats, defined in
-# settings.downloadFormats (Jyrki Niemi <jyrki.niemi@helsinki.fi>
-# 2014-02-26/04-30)
 
-util.setDownloadLinks = (xhr_settings, result_data) ->
+# util.setDownloadLinks = (xhr_settings, result_data) ->
+#     # If some of the required parameters are null, return without
+#     # adding the download links.
+#     if ! (xhr_settings? and result_data? and
+#             result_data.corpus_order? and result_data.kwic?)
+#         c.log 'failed to do setDownloadLinks'
+#         return
+
+#     # Get the number (index) of the corpus of the query result hit
+#     # number hit_num in the corpus order information of the query
+#     # result.
+#     get_corpus_num = (hit_num) ->
+#         result_data.corpus_order.indexOf result_data.kwic[hit_num].corpus
+
+#     c.log 'setDownloadLinks data:', result_data
+#     $('#download-links').empty()
+#     # Corpora in the query result
+#     result_corpora = result_data.corpus_order.slice(
+#         get_corpus_num(0), get_corpus_num(result_data.kwic.length - 1) + 1)
+#     # Settings of the corpora in the result, to be passed to the
+#     # download script
+#     result_corpora_settings = {}
+#     i = 0
+#     while i < result_corpora.length
+#         corpus_ids = result_corpora[i].toLowerCase().split('|')
+#         j = 0
+#         while j < corpus_ids.length
+#             corpus_id = corpus_ids[j]
+#             result_corpora_settings[corpus_id] = settings.corpora[corpus_id]
+#             j++
+#         i++
+#     $('#download-links').append("<option value='init' rel='localize[download_kwic]'></option>")
+#     i = 0
+#     while i < settings.downloadFormats.length
+#         format = settings.downloadFormats[i]
+#         # NOTE: Using attribute rel="localize[...]" to localize the
+#         # title attribute requires a small change to
+#         # lib/jquery.localize.js. Without that, we could use
+#         # util.getLocaleString, but it would not change the
+#         # localizations immediately when switching languages but only
+#         # after reloading the page.
+#         # # title = util.getLocaleString('formatdescr_' + format)
+#         option = $ """
+#             <option 
+#                 value="#{format}"
+#                 title="#{util.getLocaleString('formatdescr_' + format)}"
+#                 class="download_link">#{format.toUpperCase()}</option>
+#             """
+
+#         download_params =
+#             query_params: JSON.stringify(
+#                 $.deparam.querystring(xhr_settings.url))
+#             format: format
+#             korp_url: window.location.href
+#             korp_server_url: settings.cgi_script
+#             corpus_config: JSON.stringify(result_corpora_settings)
+#             # corpus_config_info_keys previously excluded "urn", but
+#             # now it is included if listed in
+#             # settings.corpusExtraInfoItems. Does it matter?
+#             corpus_config_info_keys:
+#                 (settings.corpusExtraInfoItems or []).join(',')
+#             urn_resolver: settings.urnResolver
+#         if 'downloadFormatParams' of settings
+#             if '*' of settings.downloadFormatParams
+#                 $.extend download_params, settings.downloadFormatParams['*']
+#             if format of settings.downloadFormatParams
+#                 $.extend download_params, settings.downloadFormatParams[format]
+#         option.appendTo('#download-links').data("params", download_params)
+#         i++
+#     $('#download-links').localize().click(false).change (event) ->
+#         params = $(":selected", this).data("params")
+#         unless params then return
+#         $.generateFile settings.download_cgi_script, params
+#         self = $(this)
+#         setTimeout( () ->
+#             self.val("init")
+#         , 1000)
+
+
+#     return
+
+
+# Download KWIC in a format defined in settings.downloadFormats, given
+# a Korp query URL (query_url) and the resulting data (result_data).
+# (Jyrki Niemi <jyrki.niemi@helsinki.fi> 2014-02-26/04-30, 2016-05-17)
+
+util.downloadKwic = (format_params, query_url, result_data) ->
+    c.log "downloadKwic", format_params, query_url, result_data
     # If some of the required parameters are null, return without
-    # adding the download links.
-    if ! (xhr_settings? and result_data? and
+    # downloading.
+    if ! (query_url? and result_data? and
             result_data.corpus_order? and result_data.kwic?)
-        c.log 'failed to do setDownloadLinks'
+        c.log "downloadKwic failed"
         return
+
+    if result_data.hits == 0
+        $('#download-links').hide()
+        return
+
+    $('#download-links').show()
 
     # Get the number (index) of the corpus of the query result hit
     # number hit_num in the corpus order information of the query
     # result.
     get_corpus_num = (hit_num) ->
-        result_data.corpus_order.indexOf result_data.kwic[hit_num].corpus
+        result_data.corpus_order.indexOf(
+            result_data.kwic[hit_num].corpus.toLowerCase())
 
-    c.log 'setDownloadLinks data:', result_data
-    $('#download-links').empty()
     # Corpora in the query result
     result_corpora = result_data.corpus_order.slice(
         get_corpus_num(0), get_corpus_num(result_data.kwic.length - 1) + 1)
     # Settings of the corpora in the result, to be passed to the
     # download script
     result_corpora_settings = {}
-    i = 0
-    while i < result_corpora.length
-        corpus_ids = result_corpora[i].toLowerCase().split('|')
-        j = 0
-        while j < corpus_ids.length
-            corpus_id = corpus_ids[j]
+    for result_corpus in result_corpora
+        corpus_ids = result_corpus.toLowerCase().split("|")
+        for corpus_id in corpus_ids
             result_corpora_settings[corpus_id] = settings.corpora[corpus_id]
-            j++
-        i++
-    i = 0
-    while i < settings.downloadFormats.length
-        format = settings.downloadFormats[i]
-        link_id = format + '-link'
-        # NOTE: Using attribute rel="localize[...]" to localize the
-        # title attribute requires a small change to
-        # lib/jquery.localize.js. Without that, we could use
-        # util.getLocaleString, but it would not change the
-        # localizations immediately when switching languages but only
-        # after reloading the page.
-        # # title = util.getLocaleString('formatdescr_' + format)
-        $('#download-links').append(
-            '<a href="javascript:" ' + ' id="' + link_id + '"' +
-            ' title="' + format + '"' +
-            ' rel="localize[formatdescr_' + format + ']"' +
-            ' class="download_link"><img src="img/' + format + '.png" alt="' +
-            format.toUpperCase() + '" /></a>')
-        download_params =
-            query_params: JSON.stringify(
-                $.deparam.querystring(xhr_settings.url))
-            format: format
-            korp_url: window.location.href
-            korp_server_url: settings.cgi_script
-            corpus_config: JSON.stringify(result_corpora_settings,
-                (key, value) ->
-                    # logical_corpus may refer to the corpus object
-                    # itself, and since JSON does not support circular
-                    # objects, replace the value with corpus title
-                    if key == "logical_corpus" then value.title else value)
-            # corpus_config_info_keys previously excluded "urn", but
-            # now it is included if listed in
-            # settings.corpusExtraInfoItems. Does it matter?
-            corpus_config_info_keys:
-                (settings.corpusExtraInfoItems or []).join(',')
-            urn_resolver: settings.urnResolver
-        if 'downloadFormatParams' of settings
-            if '*' of settings.downloadFormatParams
-                $.extend download_params, settings.downloadFormatParams['*']
-            if format of settings.downloadFormatParams
-                $.extend download_params, settings.downloadFormatParams[format]
-        $('#' + link_id).click ((params) ->
-            (e) ->
-                $.generateFile settings.download_cgi_script, params
-                e.preventDefault()
-                return
-        )(download_params)
-        i++
-    $('#download-links').localize()
+    format = format_params.format
+    download_params =
+        query_params: JSON.stringify($.deparam.querystring(query_url))
+        format: format
+        korp_url: window.location.href
+        korp_server_url: settings.cgi_script
+        corpus_config: JSON.stringify(result_corpora_settings,
+            (key, value) ->
+                # logical_corpus may refer to the corpus object
+                # itself, and since JSON does not support circular
+                # objects, replace the value with corpus title
+                if key == "logical_corpus" then value.title else value)
+        # corpus_config_info_keys previously excluded "urn", but now
+        # it is included if listed in settings.corpusExtraInfoItems.
+        # Does it matter?
+        corpus_config_info_keys:
+            (settings.corpusExtraInfoItems or []).join(",")
+        urn_resolver: settings.urnResolver
+    if "downloadFormatParams" of settings
+        if "*" of settings.downloadFormatParams
+            $.extend download_params, settings.downloadFormatParams["*"]
+        if format of settings.downloadFormatParams
+            $.extend download_params, settings.downloadFormatParams[format]
+        if "downloadFormatParamsPhysical" of settings
+            phys_format = format_params.physical_format
+            phys_formats = settings.downloadFormatParams[format]
+                                   ?.physical_formats?.formats
+            if phys_format? and phys_formats and phys_format in phys_formats
+                phys_params = settings.downloadFormatParamsPhysical[phys_format]
+                if "format_suffix" of phys_params
+                    download_params.format += phys_params.format_suffix
+    $.generateFile settings.download_cgi_script, download_params
     return
+
 
 util.searchHash = (type, value) ->
     search
@@ -886,7 +1051,7 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
         $.each folder, (fol, folVal) ->
             outHTML += "<li>" + util.loadCorporaFolderRecursive(false, folVal) + "</li>" if fol isnt "contents" and fol isnt "title" and fol isnt "description" and fol isnt "info"
             return
-        
+
         # Corpora
         if folder["contents"] and folder["contents"].length > 0
             $.each folder.contents, (key, value) ->
@@ -895,7 +1060,7 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
                 return
 
     if first_level
-        
+
         # Add all corpora which have not been added to a corpus
         for val of settings.corpora
             cont = false
@@ -903,7 +1068,7 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
                 if added_corpora_ids[usedid] is val or settings.corpora[val].hide
                     cont = true
             continue if cont
-            
+
             # Add it anyway:
             outHTML += "<li id='#{val}'>#{settings.corpora[val].title + format_licence_type(val)}</li>"
     outHTML += "</ul>"
@@ -917,7 +1082,7 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
 
 #return x.replace(".", decimalSeparator);
 
-# Helper function to turn "8455999" into "8 455 999" 
+# Helper function to turn "8455999" into "8 455 999"
 util.prettyNumbers = (numstring) ->
     regex = /(\d+)(\d{3})/
     outStrNum = numstring.toString()
@@ -939,7 +1104,7 @@ util.suffixedNumbers = (num) ->
         out = (num/1e12).toFixed(2).toString() + "T"
     return out.replace(".","<span rel=\"localize[util_decimalseparator]\">" + util.getLocaleString("util_decimalseparator") + "</span>")
 
-# Goes through the settings.corporafolders and recursively adds the settings.corpora hierarchically to the corpus chooser widget 
+# Goes through the settings.corporafolders and recursively adds the settings.corpora hierarchically to the corpus chooser widget
 util.loadCorpora = ->
     added_corpora_ids = []
     outStr = util.loadCorporaFolderRecursive(true, settings.corporafolders)
@@ -979,7 +1144,7 @@ util.loadCorpora = ->
             lastUpdate = "?" unless lastUpdate
             sentenceString = "-"
             sentenceString = util.prettyNumbers(numSentences.toString()) if numSentences
-            
+
             output = """
             <b>
                 <img class="popup_icon" src="img/korp_icon.png" />
@@ -990,13 +1155,13 @@ util.loadCorpora = ->
             #{util.getLocaleString("corpselector_numberoftokens")}:
             <b>#{util.prettyNumbers(numTokens)}</b>#{lang}
             <br/>#{baseLangSentenceHTML}
-            #{util.getLocaleString("corpselector_numberofsentences")}: 
+            #{util.getLocaleString("corpselector_numberofsentences")}:
             <b>#{sentenceString}</b>#{lang}
             <br/>
-            #{util.getLocaleString("corpselector_lastupdate")}: 
+            #{util.getLocaleString("corpselector_lastupdate")}:
             <b>#{lastUpdate}</b>
             <br/><br/>"""
-            
+
             supportsContext = _.keys(corpusObj.context).length > 1
             output += $("<div>").localeKey("corpselector_supports").html() + "<br>" if supportsContext
             output += $("<div>").localeKey("corpselector_limited").html() if corpusObj.limited_access
@@ -1029,7 +1194,7 @@ util.loadCorpora = ->
             "<b><img src=\"img/folder.png\" style=\"margin-right:4px; vertical-align:middle; margin-top:-1px\"/>" + indata.title + "</b><br/><br/>" + maybeInfo + "<b>" + corporaID.length + "</b> " + glueString + ":<br/><br/><b>" + util.prettyNumbers(totalTokens.toString()) + "</b> " + util.getLocaleString("corpselector_tokens") + "<br/><b>" + totalSentencesString + "</b> " + util.getLocaleString("corpselector_sentences")
     ).bind("corpuschooserchange", (evt, corpora) ->
         c.log "corpuschooserchange", corpora
-        
+
         # c.log("corpus changed", corpora);
         safeApply $("body").scope(), (scope) ->
             scope.$broadcast "corpuschooserchange", corpora
@@ -1091,7 +1256,7 @@ util.makeAttrSelect = (groups) ->
 util.browserWarn = ->
     $.reject
         reject:
-            
+
             # all : false,
             msie5: true
             msie6: true
@@ -1146,7 +1311,7 @@ util.browserWarn = ->
     return
 
 util.convertLMFFeatsToObjects = (structure, key) ->
-    
+
     # Recursively traverse a tree, expanding each "feat" array into a real object, with the key "feat-[att]":
     if structure?
         output = null
@@ -1585,62 +1750,82 @@ util.mapHashCorpusAliases = () ->
     return
 
 
-# Initialize the _sidebar_display_order property of all the corpora in
-# settings.corpora.
+# Initialize the "order" property (supported natively by Språkbanken's
+# Korp) of all attributes of all the corpora in settings.corpora based
+# on settings.default_sidebar_display_order and the corpus-specific
+# sidebar_display_order properties.
+#
+# Even though might be better to move eventually to specifying order
+# directly in the attribute definitions, as it is supported natively
+# by Språkbanken's Korp, this might make the transition easier.
 
 util.initCorpusSettingsAttrDisplayOrder = () ->
-    for corpus of settings.corpora
-        util.setAttrDisplayOrder settings.corpora[corpus]
-    return
+    util.forAllCorpora util.setAttrDisplayOrder
 
-# Initialize the _sidebar_display_order property of corpusInfo to
-# contain the (reverse of the) order in which attributes are to be
-# shown in the sidebar, separately for (positional) attributes,
+# Initialize the "order" property of each attribute of corpusInfo to
+# contain the order number in which the attribute is to be shown in
+# the sidebar (largest first), separately for (positional) attributes,
 # struct_attributes and link_attributes.
 #
-# The order may be specified in corpusInfo.sidebar_display_order
-# (property name without the leading underscore) or the default
-# settings.default_sidebar_display_order. These are objects with the
-# keys attributes, struct_attributes and link_attributes, whose values
-# are lists of attribute names or regular expressions matching
-# attribute names, in the order in which the attributes should be
-# shown. Unlisted attributes are shown after the listed ones in the
-# order JavaScript iterates over the attribute properties. Attributes
-# matching a regular expression are shown in the JavaScript property
-# iteration order. (Jyrki Niemi 2015-08-27)
+# The order may be specified in corpusInfo.sidebar_display_order or
+# the default settings.default_sidebar_display_order. These are
+# objects with the keys attributes, struct_attributes and
+# link_attributes, whose values are lists of attribute names or
+# regular expressions matching attribute names, in the order in which
+# the attributes should be shown. Attributes with an explicit order
+# property in the definitions are shown first, and unlisted attributes
+# are shown after the listed ones in the order JavaScript iterates
+# over the attribute properties. The mutual order of multiple
+# attributes matching a single regular expression is the JavaScript
+# property iteration order. (Jyrki Niemi 2015-08-27, 2017-10-19)
 
 util.setAttrDisplayOrder = (corpusInfo) ->
 
+    # Add change attr_info[attr_name] to a copy of itself, extended
+    # with {order: order}. We make a copy of the attribute definition
+    # object, so that the order previoiusly assigned to an attribute
+    # with a shared definition (when processing another corpus) does
+    # not affect the order of this corpus. Copies require more memory,
+    # since the attribute definitions are no longer shared, but it is
+    # enough to make a shallow copy, so that the value of the dataset
+    # property remains shared.
+    set_order = (attr_info, attr_name, order) ->
+        attr_info[attr_name] =
+            $.extend({}, attr_info[attr_name], {order: order})
+
     for attr_type in ["attributes", "struct_attributes", "link_attributes"]
-        order = (corpusInfo.sidebar_display_order?[attr_type] or
-                 settings.default_sidebar_display_order?[attr_type])
-        if order
-            attr_names = _.keys(corpusInfo[attr_type])
-            result = []
-            for pattern in order
-                if $.type pattern == "regexp"
-                    index = 0
+        order_spec = (corpusInfo.sidebar_display_order?[attr_type] or
+                      settings.default_sidebar_display_order?[attr_type])
+        # c.log "setAttrDisplayOrder", corpusInfo, order_spec
+        if order_spec
+            attr_info = corpusInfo[attr_type]
+            # If all the attributes already have an order property,
+            # nothing needs to be done here.
+            existing_orders = _.pluck(attr_info, "order")
+            if _.all(existing_orders)
+                continue
+            min_existing_order = _.min(existing_orders)
+            if min_existing_order == Infinity
+                min_existing_order = 100
+            attr_names = _(attr_info)
+                         .keys()
+                         .filter((key) -> not attr_info[key].order?)
+                         .value()
+            # Add order values in a decreasing order below the minimum
+            # existing one.
+            next_order = min_existing_order - 1
+            for pattern in order_spec
+                if $.type(pattern) == "regexp"
                     for attr_name in attr_names
-                        if attr_name.match(pattern)
-                            result.push(attr_name)
-                            attr_names[index] = ""
-                        index += 1
-                else if $.type pattern == "string"
+                        if attr_name.match(pattern) and
+                                not attr_info[attr_name].order?
+                            set_order attr_info, attr_name, next_order
+                            next_order -= 1
+                else if $.type(pattern) == "string"
                     index = $.inArray(pattern, attr_names)
                     if index != -1
-                        result.push(attr_names[index])
-                        attr_names[index] = ""
-            # if order[order.length() - 1] == "__SORTED__"
-            #     attr_names.sort()
-            for attr_name in attr_names
-                if attr_name != ""
-                    result.push(attr_name)
-            # Internally use the property name prefixed with an
-            # underscore. Reverse to make sorting work with
-            # $.inArray() returning -1 for non-existent values.
-            if not corpusInfo._sidebar_display_order
-                corpusInfo._sidebar_display_order = {}
-            corpusInfo._sidebar_display_order[attr_type] = result.reverse()
+                        set_order attr_info, attr_names[index], next_order
+                        next_order -= 1
     return
 
 
@@ -1744,101 +1929,6 @@ util.setFolderLicenceCategory = (folder) ->
     for own subfolder_name, subfolder of folder
         if subfolder_name not in ["title", "contents", "description", "info"]
             util.setFolderLicenceCategory subfolder
-
-
-settings.common_struct_types = 
-    date_interval:
-        label: "date_interval"
-        displayType: "date_interval"
-        opts: false
-        # extended_template: "<slider floor=\"{{floor}}\" ceiling=\"{{ceiling}}\" " + "ng-model-low=\"values.low\" ng-model-high=\"values.high\"></slider>" + "<div><input ng-model=\"values.low\" class=\"from\"> <input class=\"to\" ng-model=\"values.high\"></div>"
-        extended_template : '<div class="date_interval_arg_type">
-            <div class="section">
-                <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top">
-                    <i class="fa fa-calendar"></i>
-                    {{"date_from" | loc:lang}}
-                </button>
-                    {{combined.format("YYYY-MM-DD HH:mm")}}
-                <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" 
-                    date-model="from_date" time-model="from_time" model="combined" 
-                    min-date="minDate" max-date="maxDate">
-                </time-interval>
-            </div>
-            
-            <div class="section">
-                <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top">
-                    <i class="fa fa-calendar"></i>
-                    {{"date_to" | loc:lang}}
-                </button>
-                    {{combined2.format("YYYY-MM-DD HH:mm")}}
-                <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" 
-                    date-model="to_date" time-model="to_time" model="combined2" my="left top" at="right top"
-                    min-date="minDate" max-date="maxDate">
-                </time-interval>
-            </div>
-        </div>'
-        
-
-        controller: ["$scope", "searches", "$timeout", ($scope, searches, $timeout) ->
-
-            s = $scope
-            cl = settings.corpusListing
-            updateIntervals = () ->
-                moments = cl.getMomentInterval()
-                if moments.length
-                    [s.minDate, s.maxDate] = _.invoke moments, "toDate"
-                else 
-                    # TODO: ideally, all corpora should have momentinterval soon and this block may be removed
-                    [from, to] = cl.getTimeInterval()
-                    s.minDate = moment(from.toString(), "YYYY").toDate()
-                    s.maxDate = moment(to.toString(), "YYYY").toDate()
-
-            s.$on "corpuschooserchange", () ->
-                updateIntervals()
-
-
-            updateIntervals()
-
-            s.from_click = (event) ->
-                event.originalEvent.preventDefault()
-                event.originalEvent.stopPropagation()
-
-            c.log "model", s.model
-
-            getYear = (val) ->
-                moment(val.toString(), "YYYYMMDD").toDate()
-
-            getTime = (val) ->
-                c.log "getTime", val, moment(val.toString(), "HHmmss").toDate()
-                moment(val.toString(), "HHmmss").toDate()
-
-            unless s.model
-                s.from_date = s.minDate
-
-                s.to_date = s.maxDate
-                [s.from_time, s.to_time] = _.invoke cl.getMomentInterval(), "toDate"
-                # s.from_time = moment("0", "h").toDate()
-                # s.to_time = moment("23:59", "hh:mm").toDate()
-            else if s.model.length == 4
-                [s.from_date, s.to_date] = _.map s.model[..2], getYear
-                [s.from_time, s.to_time] = _.map s.model[2..], getTime
-
-
-            
-                    # moment(item.toString(), )
-            # s.from_date = moment()
-
-            s.$watchGroup ["combined", "combined2"], ([combined, combined2]) ->
-                c.log "combined", combined
-                c.log "combined2", combined2
-                s.model = [
-                    moment(s.from_date).format("YYYYMMDD"),
-                    moment(s.to_date).format("YYYYMMDD"),
-                    moment(s.from_time).format("HHmmss"),
-                    moment(s.to_time).format("HHmmss")
-                ]
-                c.log "s.model", s.model
-        ]
 
 
 # Add additional CQP queries ("pre-queries") in cqp to params (Korp

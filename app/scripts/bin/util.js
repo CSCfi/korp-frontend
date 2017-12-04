@@ -37,6 +37,8 @@
       return cl;
     };
 
+    CorpusListing.prototype.getReduceLang = function() {};
+
     CorpusListing.prototype.getSelectedCorpora = function() {
       return corpusChooserInstance.corpusChooser("selectedItems");
     };
@@ -83,7 +85,7 @@
       }), {});
     };
 
-    CorpusListing.prototype.getCurrentAttributes = function() {
+    CorpusListing.prototype.getCurrentAttributes = function(lang) {
       var attrs;
       attrs = this.mapSelectedCorpora(function(corpus) {
         return corpus.attributes;
@@ -241,7 +243,7 @@
       other_vals = [];
       for (val in value_corpora) {
         corpora = value_corpora[val];
-        if (val !== maxval) {
+        if (val !== maxval && corpora.length > 0) {
           other_vals = other_vals.concat([
             (function() {
               var len3, m, results;
@@ -395,28 +397,46 @@
     };
 
     CorpusListing.prototype.getTitle = function(corpus) {
-      var e;
+      var e, error;
       try {
         return this.struct[corpus].title;
-      } catch (_error) {
-        e = _error;
+      } catch (error) {
+        e = error;
         return c.log("gettitle broken", corpus);
       }
     };
 
-    CorpusListing.prototype.getAttributeGroups = function(lang) {
-      var attrs, common, common_keys, key, obj, sent_attrs, word;
+    CorpusListing.prototype.getWordGroup = function(withCaseInsentive) {
+      var word, wordInsensitive;
       word = {
         group: "word",
         value: "word",
         label: "word"
       };
+      if (withCaseInsentive) {
+        wordInsensitive = {
+          group: "word",
+          value: "word_insensitive",
+          label: "word_insensitive"
+        };
+        return [word, wordInsensitive];
+      } else {
+        return [word];
+      }
+    };
+
+    CorpusListing.prototype.getWordAttributeGroups = function(lang, setOperator) {
+      var allAttrs, attrs, key, obj;
+      if (setOperator === 'union') {
+        allAttrs = this.getCurrentAttributes(lang);
+      } else {
+        allAttrs = this.getCurrentAttributesIntersection();
+      }
       attrs = (function() {
-        var ref, results;
-        ref = this.getCurrentAttributes(lang);
+        var results;
         results = [];
-        for (key in ref) {
-          obj = ref[key];
+        for (key in allAttrs) {
+          obj = allAttrs[key];
           if (obj.displayType !== "hidden" && obj.displayOnly !== "sidebar") {
             results.push(_.extend({
               group: "word_attr",
@@ -425,14 +445,24 @@
           }
         }
         return results;
-      }).call(this);
+      })();
+      return attrs;
+    };
+
+    CorpusListing.prototype.getStructAttributeGroups = function(lang, setOperator) {
+      var allAttrs, common, common_keys, key, obj, sentAttrs;
+      if (setOperator === 'union') {
+        allAttrs = this.getStructAttrs(lang);
+      } else {
+        allAttrs = this.getStructAttrsIntersection(lang);
+      }
       common_keys = _.compact(_.flatten(_.map(this.selected, function(corp) {
         return _.keys(corp.common_attributes);
       })));
       common = _.pick.apply(_, [settings.common_struct_types].concat(slice.call(common_keys)));
-      sent_attrs = (function() {
+      sentAttrs = (function() {
         var ref, results;
-        ref = _.extend({}, common, this.getStructAttrs(lang));
+        ref = _.extend({}, common, allAttrs);
         results = [];
         for (key in ref) {
           obj = ref[key];
@@ -444,11 +474,11 @@
           }
         }
         return results;
-      }).call(this);
-      sent_attrs = _.sortBy(sent_attrs, function(item) {
+      })();
+      sentAttrs = _.sortBy(sentAttrs, function(item) {
         return util.getLocaleString(item.label);
       });
-      return [word].concat(attrs, sent_attrs);
+      return sentAttrs;
     };
 
     CorpusListing.prototype.updateIgnoreBetweenTokensCQP = function() {
@@ -492,6 +522,27 @@
       return result.join("");
     };
 
+    CorpusListing.prototype.getAttributeGroups = function(lang) {
+      var attrs, sentAttrs, words;
+      words = this.getWordGroup(false);
+      attrs = this.getWordAttributeGroups(lang, 'union');
+      sentAttrs = this.getStructAttributeGroups(lang, 'union');
+      return words.concat(attrs, sentAttrs);
+    };
+
+    CorpusListing.prototype.getStatsAttributeGroups = function(lang) {
+      var attrs, sentAttrs, structOp, wordOp, words;
+      words = this.getWordGroup(true);
+      wordOp = settings.reduce_word_attribute_selector || "union";
+      attrs = this.getWordAttributeGroups(lang, wordOp);
+      structOp = settings.reduce_struct_attribute_selector || "union";
+      sentAttrs = this.getStructAttributeGroups(lang, structOp);
+      sentAttrs = _.filter(sentAttrs, function(attr) {
+        return attr.displayType !== "date_interval";
+      });
+      return words.concat(attrs, sentAttrs);
+    };
+
     return CorpusListing;
 
   })();
@@ -499,8 +550,9 @@
   window.ParallelCorpusListing = (function(superClass) {
     extend(ParallelCorpusListing, superClass);
 
-    function ParallelCorpusListing(corpora) {
+    function ParallelCorpusListing(corpora, activeLangs) {
       ParallelCorpusListing.__super__.constructor.call(this, corpora);
+      this.setActiveLangs(activeLangs);
     }
 
     ParallelCorpusListing.prototype.select = function(idArray) {
@@ -517,6 +569,10 @@
 
     ParallelCorpusListing.prototype.setActiveLangs = function(langlist) {
       return this.activeLangs = langlist;
+    };
+
+    ParallelCorpusListing.prototype.getReduceLang = function() {
+      return this.activeLangs[0];
     };
 
     ParallelCorpusListing.prototype.getCurrentAttributes = function(lang) {
@@ -542,6 +598,23 @@
         return val["isStructAttr"] = true;
       });
       return struct;
+    };
+
+    ParallelCorpusListing.prototype.getStructAttrsIntersection = function(lang) {
+      var attrs, corpora;
+      corpora = _.filter(this.selected, function(item) {
+        return item.lang === lang;
+      });
+      attrs = _.map(corpora, function(corpus) {
+        var key, ref, value;
+        ref = corpus.struct_attributes;
+        for (key in ref) {
+          value = ref[key];
+          value["isStructAttr"] = true;
+        }
+        return corpus.struct_attributes;
+      });
+      return this._mapping_intersection(attrs);
     };
 
     ParallelCorpusListing.prototype.getLinked = function(corp, andSelf, only_selected) {
@@ -615,6 +688,43 @@
       return output;
     };
 
+    ParallelCorpusListing.prototype.getAttributeQuery = function(attr) {
+      var output, struct;
+      struct = this.getLinksFromLangs(this.activeLangs);
+      output = [];
+      $.each(struct, function(i, corps) {
+        var mainId, mainIsPivot, other, pair;
+        mainId = corps[0].id.toUpperCase();
+        mainIsPivot = !!corps[0].pivot;
+        other = corps.slice(1);
+        pair = _.map(other, function(corp) {
+          var a;
+          if (mainIsPivot) {
+            a = _.keys(corp[attr])[0];
+          } else {
+            a = _.keys(corps[0][attr])[0];
+          }
+          return mainId + "|" + corp.id.toUpperCase() + ":" + a;
+        });
+        return output.push(pair);
+      });
+      return output.join(",");
+    };
+
+    ParallelCorpusListing.prototype.getContextQueryString = function() {
+      return this.getAttributeQuery("context");
+    };
+
+    ParallelCorpusListing.prototype.getWithinParameters = function() {
+      var defaultWithin, within;
+      defaultWithin = search().within || _.keys(settings.defaultWithin)[0];
+      within = this.getAttributeQuery("within");
+      return {
+        defaultwithin: defaultWithin,
+        within: within
+      };
+    };
+
     ParallelCorpusListing.prototype.stringifySelected = function(onlyMain) {
       var i, item, k, len1, main, output, pair, struct;
       struct = this.getLinksFromLangs(this.activeLangs);
@@ -652,8 +762,6 @@
     return ParallelCorpusListing;
 
   })(CorpusListing);
-
-  settings.corpusListing = new CorpusListing(settings.corpora);
 
   window.applyTo = function(ctrl, f) {
     var s;
@@ -804,15 +912,19 @@
   };
 
   util.getLocaleString = function(key, lang) {
-    var e;
+    return util.getLocaleStringUndefined(key, lang) || key;
+  };
+
+  util.getLocaleStringUndefined = function(key, lang) {
+    var e, error;
     if (!lang) {
       lang = window.lang || settings.defaultLanguage || "sv";
     }
     try {
-      return loc_data[lang][key] || key;
-    } catch (_error) {
-      e = _error;
-      return key;
+      return loc_data[lang][key];
+    } catch (error) {
+      e = error;
+      return void 0;
     }
   };
 
@@ -851,6 +963,16 @@
     return $.format("%s%s", [match[1].replace(/_/g, " "), infixIndex]);
   };
 
+  util.saldoToPlaceholderString = function(saldoId, appendIndex) {
+    var infixIndex, match;
+    match = saldoId.match(util.saldoRegExp);
+    infixIndex = "";
+    if ((appendIndex != null) && match[2] !== "1") {
+      infixIndex = $.format(" (%s)", match[2]);
+    }
+    return $.format("%s%s", [match[1].replace(/_/g, " "), infixIndex]);
+  };
+
   util.sblexArraytoString = function(idArray, labelFunction) {
     labelFunction = labelFunction || util.lemgramToString;
     return _.map(idArray, function(lemgram) {
@@ -878,67 +1000,66 @@
     return saldo.match(util.saldoRegExp);
   };
 
-  util.setDownloadLinks = function(xhr_settings, result_data) {
-    var corpus_id, corpus_ids, download_params, format, get_corpus_num, i, j, link_id, result_corpora, result_corpora_settings;
-    if (!((xhr_settings != null) && (result_data != null) && (result_data.corpus_order != null) && (result_data.kwic != null))) {
-      c.log('failed to do setDownloadLinks');
+  util.downloadKwic = function(format_params, query_url, result_data) {
+    var corpus_id, corpus_ids, download_params, format, get_corpus_num, k, l, len1, len2, phys_format, phys_formats, phys_params, ref, ref1, result_corpora, result_corpora_settings, result_corpus;
+    c.log("downloadKwic", format_params, query_url, result_data);
+    if (!((query_url != null) && (result_data != null) && (result_data.corpus_order != null) && (result_data.kwic != null))) {
+      c.log("downloadKwic failed");
       return;
     }
+    if (result_data.hits === 0) {
+      $('#download-links').hide();
+      return;
+    }
+    $('#download-links').show();
     get_corpus_num = function(hit_num) {
-      return result_data.corpus_order.indexOf(result_data.kwic[hit_num].corpus);
+      return result_data.corpus_order.indexOf(result_data.kwic[hit_num].corpus.toLowerCase());
     };
-    c.log('setDownloadLinks data:', result_data);
-    $('#download-links').empty();
     result_corpora = result_data.corpus_order.slice(get_corpus_num(0), get_corpus_num(result_data.kwic.length - 1) + 1);
     result_corpora_settings = {};
-    i = 0;
-    while (i < result_corpora.length) {
-      corpus_ids = result_corpora[i].toLowerCase().split('|');
-      j = 0;
-      while (j < corpus_ids.length) {
-        corpus_id = corpus_ids[j];
+    for (k = 0, len1 = result_corpora.length; k < len1; k++) {
+      result_corpus = result_corpora[k];
+      corpus_ids = result_corpus.toLowerCase().split("|");
+      for (l = 0, len2 = corpus_ids.length; l < len2; l++) {
+        corpus_id = corpus_ids[l];
         result_corpora_settings[corpus_id] = settings.corpora[corpus_id];
-        j++;
       }
-      i++;
     }
-    i = 0;
-    while (i < settings.downloadFormats.length) {
-      format = settings.downloadFormats[i];
-      link_id = format + '-link';
-      $('#download-links').append('<a href="javascript:" ' + ' id="' + link_id + '"' + ' title="' + format + '"' + ' rel="localize[formatdescr_' + format + ']"' + ' class="download_link"><img src="img/' + format + '.png" alt="' + format.toUpperCase() + '" /></a>');
-      download_params = {
-        query_params: JSON.stringify($.deparam.querystring(xhr_settings.url)),
-        format: format,
-        korp_url: window.location.href,
-        korp_server_url: settings.cgi_script,
-        corpus_config: JSON.stringify(result_corpora_settings, function(key, value) {
-          if (key === "logical_corpus") {
-            return value.title;
-          } else {
-            return value;
+    format = format_params.format;
+    download_params = {
+      query_params: JSON.stringify($.deparam.querystring(query_url)),
+      format: format,
+      korp_url: window.location.href,
+      korp_server_url: settings.cgi_script,
+      corpus_config: JSON.stringify(result_corpora_settings, function(key, value) {
+        if (key === "logical_corpus") {
+          return value.title;
+        } else {
+          return value;
+        }
+      }),
+      corpus_config_info_keys: (settings.corpusExtraInfoItems || []).join(","),
+      urn_resolver: settings.urnResolver
+    };
+    if ("downloadFormatParams" in settings) {
+      if ("*" in settings.downloadFormatParams) {
+        $.extend(download_params, settings.downloadFormatParams["*"]);
+      }
+      if (format in settings.downloadFormatParams) {
+        $.extend(download_params, settings.downloadFormatParams[format]);
+      }
+      if ("downloadFormatParamsPhysical" in settings) {
+        phys_format = format_params.physical_format;
+        phys_formats = (ref = settings.downloadFormatParams[format]) != null ? (ref1 = ref.physical_formats) != null ? ref1.formats : void 0 : void 0;
+        if ((phys_format != null) && phys_formats && indexOf.call(phys_formats, phys_format) >= 0) {
+          phys_params = settings.downloadFormatParamsPhysical[phys_format];
+          if ("format_suffix" in phys_params) {
+            download_params.format += phys_params.format_suffix;
           }
-        }),
-        corpus_config_info_keys: (settings.corpusExtraInfoItems || []).join(','),
-        urn_resolver: settings.urnResolver
-      };
-      if ('downloadFormatParams' in settings) {
-        if ('*' in settings.downloadFormatParams) {
-          $.extend(download_params, settings.downloadFormatParams['*']);
-        }
-        if (format in settings.downloadFormatParams) {
-          $.extend(download_params, settings.downloadFormatParams[format]);
         }
       }
-      $('#' + link_id).click((function(params) {
-        return function(e) {
-          $.generateFile(settings.download_cgi_script, params);
-          e.preventDefault();
-        };
-      })(download_params));
-      i++;
     }
-    $('#download-links').localize();
+    $.generateFile(settings.download_cgi_script, download_params);
   };
 
   util.searchHash = function(type, value) {
@@ -1066,7 +1187,7 @@
         if (numSentences) {
           sentenceString = util.prettyNumbers(numSentences.toString());
         }
-        output = "<b>\n    <img class=\"popup_icon\" src=\"img/korp_icon.png\" />\n    " + corpusObj.title + "\n</b>\n" + maybeInfo + "\n<br/><br/>" + baseLangTokenHTML + "\n" + (util.getLocaleString("corpselector_numberoftokens")) + ":\n<b>" + (util.prettyNumbers(numTokens)) + "</b>" + lang + "\n<br/>" + baseLangSentenceHTML + "\n" + (util.getLocaleString("corpselector_numberofsentences")) + ": \n<b>" + sentenceString + "</b>" + lang + "\n<br/>\n" + (util.getLocaleString("corpselector_lastupdate")) + ": \n<b>" + lastUpdate + "</b>\n<br/><br/>";
+        output = "<b>\n    <img class=\"popup_icon\" src=\"img/korp_icon.png\" />\n    " + corpusObj.title + "\n</b>\n" + maybeInfo + "\n<br/><br/>" + baseLangTokenHTML + "\n" + (util.getLocaleString("corpselector_numberoftokens")) + ":\n<b>" + (util.prettyNumbers(numTokens)) + "</b>" + lang + "\n<br/>" + baseLangSentenceHTML + "\n" + (util.getLocaleString("corpselector_numberofsentences")) + ":\n<b>" + sentenceString + "</b>" + lang + "\n<br/>\n" + (util.getLocaleString("corpselector_lastupdate")) + ":\n<b>" + lastUpdate + "</b>\n<br/><br/>";
         supportsContext = _.keys(corpusObj.context).length > 1;
         if (supportsContext) {
           output += $("<div>").localeKey("corpselector_supports").html() + "<br>";
@@ -1600,51 +1721,52 @@
   };
 
   util.initCorpusSettingsAttrDisplayOrder = function() {
-    var corpus;
-    for (corpus in settings.corpora) {
-      util.setAttrDisplayOrder(settings.corpora[corpus]);
-    }
+    return util.forAllCorpora(util.setAttrDisplayOrder);
   };
 
   util.setAttrDisplayOrder = function(corpusInfo) {
-    var attr_name, attr_names, attr_type, index, k, l, len1, len2, len3, len4, m, n, order, pattern, ref, ref1, ref2, result;
+    var attr_info, attr_name, attr_names, attr_type, existing_orders, index, k, l, len1, len2, len3, m, min_existing_order, next_order, order_spec, pattern, ref, ref1, ref2, set_order;
+    set_order = function(attr_info, attr_name, order) {
+      return attr_info[attr_name] = $.extend({}, attr_info[attr_name], {
+        order: order
+      });
+    };
     ref = ["attributes", "struct_attributes", "link_attributes"];
     for (k = 0, len1 = ref.length; k < len1; k++) {
       attr_type = ref[k];
-      order = ((ref1 = corpusInfo.sidebar_display_order) != null ? ref1[attr_type] : void 0) || ((ref2 = settings.default_sidebar_display_order) != null ? ref2[attr_type] : void 0);
-      if (order) {
-        attr_names = _.keys(corpusInfo[attr_type]);
-        result = [];
-        for (l = 0, len2 = order.length; l < len2; l++) {
-          pattern = order[l];
-          if ($.type(pattern === "regexp")) {
-            index = 0;
+      order_spec = ((ref1 = corpusInfo.sidebar_display_order) != null ? ref1[attr_type] : void 0) || ((ref2 = settings.default_sidebar_display_order) != null ? ref2[attr_type] : void 0);
+      if (order_spec) {
+        attr_info = corpusInfo[attr_type];
+        existing_orders = _.pluck(attr_info, "order");
+        if (_.all(existing_orders)) {
+          continue;
+        }
+        min_existing_order = _.min(existing_orders);
+        if (min_existing_order === Infinity) {
+          min_existing_order = 100;
+        }
+        attr_names = _(attr_info).keys().filter(function(key) {
+          return attr_info[key].order == null;
+        }).value();
+        next_order = min_existing_order - 1;
+        for (l = 0, len2 = order_spec.length; l < len2; l++) {
+          pattern = order_spec[l];
+          if ($.type(pattern) === "regexp") {
             for (m = 0, len3 = attr_names.length; m < len3; m++) {
               attr_name = attr_names[m];
-              if (attr_name.match(pattern)) {
-                result.push(attr_name);
-                attr_names[index] = "";
+              if (attr_name.match(pattern) && (attr_info[attr_name].order == null)) {
+                set_order(attr_info, attr_name, next_order);
+                next_order -= 1;
               }
-              index += 1;
             }
-          } else if ($.type(pattern === "string")) {
+          } else if ($.type(pattern) === "string") {
             index = $.inArray(pattern, attr_names);
             if (index !== -1) {
-              result.push(attr_names[index]);
-              attr_names[index] = "";
+              set_order(attr_info, attr_names[index], next_order);
+              next_order -= 1;
             }
           }
         }
-        for (n = 0, len4 = attr_names.length; n < len4; n++) {
-          attr_name = attr_names[n];
-          if (attr_name !== "") {
-            result.push(attr_name);
-          }
-        }
-        if (!corpusInfo._sidebar_display_order) {
-          corpusInfo._sidebar_display_order = {};
-        }
-        corpusInfo._sidebar_display_order[attr_type] = result.reverse();
       }
     }
   };
@@ -1740,65 +1862,6 @@
       }
     }
     return results;
-  };
-
-  settings.common_struct_types = {
-    date_interval: {
-      label: "date_interval",
-      displayType: "date_interval",
-      opts: false,
-      extended_template: '<div class="date_interval_arg_type"> <div class="section"> <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top"> <i class="fa fa-calendar"></i> {{"date_from" | loc:lang}} </button> {{combined.format("YYYY-MM-DD HH:mm")}} <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" date-model="from_date" time-model="from_time" model="combined" min-date="minDate" max-date="maxDate"> </time-interval> </div> <div class="section"> <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top"> <i class="fa fa-calendar"></i> {{"date_to" | loc:lang}} </button> {{combined2.format("YYYY-MM-DD HH:mm")}} <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" date-model="to_date" time-model="to_time" model="combined2" my="left top" at="right top" min-date="minDate" max-date="maxDate"> </time-interval> </div> </div>',
-      controller: [
-        "$scope", "searches", "$timeout", function($scope, searches, $timeout) {
-          var cl, getTime, getYear, ref, ref1, ref2, s, updateIntervals;
-          s = $scope;
-          cl = settings.corpusListing;
-          updateIntervals = function() {
-            var from, moments, ref, ref1, to;
-            moments = cl.getMomentInterval();
-            if (moments.length) {
-              return ref = _.invoke(moments, "toDate"), s.minDate = ref[0], s.maxDate = ref[1], ref;
-            } else {
-              ref1 = cl.getTimeInterval(), from = ref1[0], to = ref1[1];
-              s.minDate = moment(from.toString(), "YYYY").toDate();
-              return s.maxDate = moment(to.toString(), "YYYY").toDate();
-            }
-          };
-          s.$on("corpuschooserchange", function() {
-            return updateIntervals();
-          });
-          updateIntervals();
-          s.from_click = function(event) {
-            event.originalEvent.preventDefault();
-            return event.originalEvent.stopPropagation();
-          };
-          c.log("model", s.model);
-          getYear = function(val) {
-            return moment(val.toString(), "YYYYMMDD").toDate();
-          };
-          getTime = function(val) {
-            c.log("getTime", val, moment(val.toString(), "HHmmss").toDate());
-            return moment(val.toString(), "HHmmss").toDate();
-          };
-          if (!s.model) {
-            s.from_date = s.minDate;
-            s.to_date = s.maxDate;
-            ref = _.invoke(cl.getMomentInterval(), "toDate"), s.from_time = ref[0], s.to_time = ref[1];
-          } else if (s.model.length === 4) {
-            ref1 = _.map(s.model.slice(0, 3), getYear), s.from_date = ref1[0], s.to_date = ref1[1];
-            ref2 = _.map(s.model.slice(2), getTime), s.from_time = ref2[0], s.to_time = ref2[1];
-          }
-          return s.$watchGroup(["combined", "combined2"], function(arg) {
-            var combined, combined2;
-            combined = arg[0], combined2 = arg[1];
-            c.log("combined", combined);
-            c.log("combined2", combined2);
-            s.model = [moment(s.from_date).format("YYYYMMDD"), moment(s.to_date).format("YYYYMMDD"), moment(s.from_time).format("HHmmss"), moment(s.to_time).format("HHmmss")];
-            return c.log("s.model", s.model);
-          });
-        }
-      ]
-    }
   };
 
   util.addCQPs = function(params, cqp, cqp_mapper) {
@@ -2308,3 +2371,5 @@
   };
 
 }).call(this);
+
+//# sourceMappingURL=util.js.map

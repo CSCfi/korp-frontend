@@ -27,12 +27,12 @@
     }
 
     BaseProxy.prototype.expandCQP = function(cqp) {
-      var e;
+      var e, error1;
       try {
         return CQP.expandOperators(cqp);
-      } catch (_error) {
-        e = _error;
-        c.warn("CQP expansion failed", cqp);
+      } catch (error1) {
+        e = error1;
+        c.warn("CQP expansion failed", cqp, e);
         return cqp;
       }
     };
@@ -72,7 +72,7 @@
     };
 
     BaseProxy.prototype.parseJSON = function(data) {
-      var e, json, out;
+      var e, error1, json, out;
       try {
         json = data;
         if (json[0] !== "{") {
@@ -83,8 +83,8 @@
         }
         out = JSON.parse(json);
         return out;
-      } catch (_error) {
-        e = _error;
+      } catch (error1) {
+        e = error1;
         return JSON.parse(data);
       }
     };
@@ -103,7 +103,7 @@
       struct = {};
       try {
         struct = this.parseJSON(newText);
-      } catch (_error) {}
+      } catch (undefined) {}
       $.each(struct, (function(_this) {
         return function(key, val) {
           var currentCorpus, sum;
@@ -189,7 +189,9 @@
           }
         }
       }, options);
-      _.extend(options.ajaxParams, settings.corpusListing.getWithinParameters());
+      if (!options.ajaxParams.within) {
+        _.extend(options.ajaxParams, settings.corpusListing.getWithinParameters());
+      }
       data = {
         command: "query",
         defaultcontext: settings.defaultOverviewContext,
@@ -278,7 +280,7 @@
         incremental: $.support.ajaxProgress,
         type: type,
         cache: true,
-        max: settings.wordPictureMaxWords || 15
+        max: 1000
       };
       this.prevParams = params;
       def = $.ajax({
@@ -428,7 +430,7 @@
     }
 
     StatsProxy.prototype.processData = function(def, data, reduceVals, reduceValLabels, ignoreCase) {
-      var columns, corpus, corpusData, dataset, groups, j, len, minWidth, newAbsolute, newRelative, reduceVal, reduceValLabel, ref, ref1, ref2, sizeOfDataset, statsWorker, summarizedData, wordArray;
+      var columns, dataset, groups, j, len, minWidth, reduceVal, reduceValLabel, ref, ref1, sizeOfDataset, statsWorker, wordArray;
       minWidth = 100;
       columns = [];
       ref = _.zip(reduceVals, reduceValLabels);
@@ -439,7 +441,7 @@
           name: reduceValLabel,
           field: "hit_value",
           sortable: true,
-          formatter: settings.reduce_statistics(reduceVals, ignoreCase),
+          formatter: statisticsFormatting.reduceStatistics(reduceVals, ignoreCase, _.keys(data.corpora)),
           minWidth: minWidth,
           cssClass: "parameter-column",
           headerCssClass: "localized-header"
@@ -450,7 +452,7 @@
         name: "",
         field: "hit_value",
         sortable: false,
-        formatter: settings.reduce_statistics_pie_chart,
+        formatter: statisticsFormatting.reduceStatisticsPieChart,
         maxWidth: 25,
         minWidth: 25
       });
@@ -476,39 +478,22 @@
         };
       })(this));
       groups = _.groupBy(_.keys(data.total.absolute), function(item) {
-        return item.replace(/:\d+/g, "");
+        return item.replace(/(:.+?)(\/|$| )/g, "$2");
       });
       wordArray = _.keys(groups);
       sizeOfDataset = wordArray.length;
       dataset = new Array(sizeOfDataset + 1);
-      summarizedData = {};
-      ref2 = data.corpora;
-      for (corpus in ref2) {
-        corpusData = ref2[corpus];
-        newAbsolute = _.reduce(corpusData.absolute, (function(result, value, key) {
-          var currentValue, newKey;
-          newKey = key.replace(/:\d+/g, "");
-          currentValue = result[newKey] || 0;
-          result[newKey] = currentValue + value;
-          return result;
-        }), {});
-        newRelative = _.reduce(corpusData.relative, (function(result, value, key) {
-          var currentValue, newKey;
-          newKey = key.replace(/:\d+/g, "");
-          currentValue = result[newKey] || 0;
-          result[newKey] = currentValue + value;
-          return result;
-        }), {});
-        summarizedData[corpus] = {
-          absolute: newAbsolute,
-          relative: newRelative
-        };
-      }
       statsWorker = new Worker("scripts/statistics_worker.js");
       statsWorker.onmessage = function(e) {
+        var searchParams;
         c.log("Called back by the worker!\n");
         c.log(e);
-        return def.resolve([data, wordArray, columns, e.data, summarizedData]);
+        searchParams = {
+          reduceVals: reduceVals,
+          ignoreCase: ignoreCase,
+          corpora: _.keys(data.corpora)
+        };
+        return def.resolve([data, wordArray, columns, e.data.dataset, e.data.summarizedData, searchParams]);
       };
       return statsWorker.postMessage({
         "total": data.total,
@@ -516,7 +501,8 @@
         "allrows": wordArray,
         "corpora": data.corpora,
         "groups": groups,
-        loc: settings.locales[$("body").scope().lang]
+        loc: settings.locales[$("body").scope().lang],
+        "attrs": reduceVals
       });
     };
 
@@ -535,30 +521,40 @@
     };
 
     StatsProxy.prototype.makeRequest = function(cqp, callback) {
-      var data, def, ignoreCase, reduceValLabels, reduceVals, reduceval, self;
+      var data, def, ignoreCase, insensitive, rankedReduceVals, reduceValLabels, reduceVals, reduceval, self;
       self = this;
       StatsProxy.__super__.makeRequest.call(this);
       reduceval = search().stats_reduce || "word";
-      ignoreCase = false;
-      if (reduceval === "word_insensitive") {
-        ignoreCase = true;
-        reduceval = "word";
-      }
       reduceVals = reduceval.split(",");
+      insensitive = search().stats_reduce_insensitive;
+      if (insensitive) {
+        ignoreCase = true;
+      } else {
+        ignoreCase = false;
+      }
       reduceValLabels = _.map(reduceVals, function(reduceVal) {
+        var maybeReduceAttr;
         if (reduceVal === "word") {
           return "word";
         }
-        if (settings.corpusListing.getCurrentAttributes()[reduceVal]) {
-          return settings.corpusListing.getCurrentAttributes()[reduceVal].label;
+        maybeReduceAttr = settings.corpusListing.getCurrentAttributes(settings.corpusListing.getReduceLang())[reduceVal];
+        if (maybeReduceAttr) {
+          return maybeReduceAttr.label;
         } else {
-          return settings.corpusListing.getStructAttrs()[reduceVal].label;
+          return settings.corpusListing.getStructAttrs(settings.corpusListing.getReduceLang())[reduceVal].label;
         }
       });
       data = this.makeParameters(reduceVals, cqp);
       data.split = _.filter(reduceVals, function(reduceVal) {
         var ref;
-        return ((ref = settings.corpusListing.getCurrentAttributes()[reduceVal]) != null ? ref.type : void 0) === "set";
+        return ((ref = settings.corpusListing.getCurrentAttributes(settings.corpusListing.getReduceLang())[reduceVal]) != null ? ref.type : void 0) === "set";
+      }).join(',');
+      rankedReduceVals = _.filter(reduceVals, function(reduceVal) {
+        var ref;
+        return (ref = settings.corpusListing.getCurrentAttributes(settings.corpusListing.getReduceLang())[reduceVal]) != null ? ref.ranked : void 0;
+      });
+      data.top = _.map(rankedReduceVals, function(reduceVal) {
+        return reduceVal + ":1";
       }).join(',');
       if (ignoreCase) {
         $.extend(data, {
@@ -638,9 +634,8 @@
       this.loginObj = {};
     }
 
-    AuthenticationProxy.prototype.makeRequest = function(usr, pass) {
+    AuthenticationProxy.prototype.makeRequest = function(usr, pass, saveLogin) {
       var auth, dfd, self;
-      c.log("makeRequest: (usr, pass", usr, pass);
       self = this;
       if (window.btoa) {
         auth = window.btoa(usr + ":" + pass);
@@ -658,7 +653,6 @@
           return req.setRequestHeader("Authorization", "Basic " + auth);
         }
       }).done(function(data, status, xhr) {
-        c.log("auth done", arguments);
         if (!data.corpora) {
           dfd.reject();
           return;
@@ -668,7 +662,9 @@
           credentials: data.corpora,
           auth: auth
         };
-        $.jStorage.set("creds", self.loginObj);
+        if (saveLogin) {
+          $.jStorage.set("creds", self.loginObj);
+        }
         return dfd.resolve(data);
       }).fail(function(xhr, status, error) {
         c.log("auth fail", arguments);
@@ -926,3 +922,5 @@
   })(BaseProxy);
 
 }).call(this);
+
+//# sourceMappingURL=model.js.map

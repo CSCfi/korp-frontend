@@ -1,11 +1,9 @@
 class BaseResults
     constructor: (resultSelector, tabSelector, scope) ->
         @s = scope
-        # @s.instance = this
         @$tab = $(tabSelector)
         @$result = $(resultSelector)
-        @optionWidget = $("#search_options")
-        # @num_result = @$result.find(".num-result")
+
         @$result.add(@$tab).addClass "not_loading"
 
         @injector = $("body").injector()
@@ -13,13 +11,10 @@ class BaseResults
         def = @injector.get("$q").defer()
         @firstResultDef = def
 
-
     onProgress: (progressObj) ->
         safeApply @s, () =>
             @s.$parent.progress = Math.round(progressObj["stats"])
             @s.hits_display = util.prettyNumbers(progressObj["total_results"])
-
-
 
     abort : () ->
         @ignoreAbort = false
@@ -32,7 +27,6 @@ class BaseResults
         $(".result_tabs > ul").scope().tabs
 
     renderResult: (data) ->
-        #       this.resetView();
         @$result.find(".error_msg").remove()
         if data.ERROR
             safeApply @s, () =>
@@ -45,7 +39,6 @@ class BaseResults
                 c.log "firstResultDef.resolve"
                 @firstResultDef.resolve()
                 @hasData = true
-        util.setDownloadLinks @proxy.prevRequest, data
 
     resultError: (data) ->
         c.error "json fetch error: ", data
@@ -77,7 +70,6 @@ class BaseResults
     onentry : () ->
         @s.$root.jsonUrl = null
         @firstResultDef.promise.then () =>
-            c.log "firstResultDef.then", @isActive()
             if @isActive()
                 @s.$root.jsonUrl = @proxy?.prevUrl
     onexit : () ->
@@ -92,8 +84,6 @@ class view.KWICResults extends BaseResults
         self = this
         @prevCQP = null
         super tabSelector, resultSelector, scope
-        # @s.$parent.loading = false
-        # @initHTML = @$result.html()
         window.kwicProxy = new model.KWICProxy()
         @proxy = kwicProxy
         @readingProxy = new model.KWICProxy()
@@ -114,29 +104,23 @@ class view.KWICResults extends BaseResults
 
         @$result.on "click", ".word", (event) => @onWordClick(event)
 
-
-        # @$result.addClass "reading_mode" if $.bbq.getState("reading_mode")
-
     setupReadingHash : () ->
         @s.setupReadingHash()
 
     onWordClick : (event) ->
-        c.log "wordclick", @tabindex, @s
+        c.log "word click in kwic"
         if @isActive()
             @s.$root.sidebar_visible = true
-        # c.log "click", obj, event
-        # c.log "word click", $(this).scope().wd, event.currentTarget
         scope = $(event.currentTarget).scope()
         obj = scope.wd
         sent = scope.sentence
         event.stopPropagation()
         word = $(event.target)
-        # $.sm.send("word.select")
-        if $("#sidebar").data().korpSidebar?
+
+        if $("#sidebar").data()["korp-sidebar"]
             $("#sidebar").sidebar "updateContent", sent.structs, obj, sent.corpus.toLowerCase(), sent.tokens
 
         @selectWord word, scope, sent
-
 
 
     selectWord : (word, scope) ->
@@ -160,19 +144,15 @@ class view.KWICResults extends BaseResults
                 $(item).is(word) or $(item).is(querySentStart)
             )
             sent_start = paragraph.index(l.eq(l.index(word) - 1))
-            c.log "i", l.index(word), i, sent_start
         aux = $(paragraph.get(sent_start + i - 1))
         scope.selectionManager.select word, aux
         safeApply @s.$root, (s) ->
             s.$root.word_selected = word
 
-
-
     resetView: ->
         super()
 
     getProxy: ->
-        # return @readingProxy if @isReadingMode()
         @proxy
 
     isReadingMode : () ->
@@ -185,15 +165,12 @@ class view.KWICResults extends BaseResults
 
         @$result.find(".token_selected").click()
         _.defer () => @centerScrollbar()
-        # @centerScrollbar()
-        # $(document).keydown $.proxy(@onKeydown, this)
         return
 
     onexit: ->
         super()
         c.log "onexit kwic"
         @s.$root.sidebar_visible = false
-        # $(document).unbind "keydown", @onKeydown
         return
 
     onKeydown: (event) ->
@@ -235,7 +212,6 @@ class view.KWICResults extends BaseResults
         output
 
     renderCompleteResult: (data) ->
-        c.log "renderCompleteResult", data
         @current_page = search().page or 0
         safeApply @s, () =>
             @hidePreloader()
@@ -245,30 +221,19 @@ class view.KWICResults extends BaseResults
             c.log "no kwic results"
             @showNoResults()
             return
-        # @s.$parent.loading = false
         @$result.removeClass "zero_results"
-        # @$result.find(".num-result").html util.prettyNumbers(data.hits)
         @renderHitsPicture data
 
-
-
-
     renderResult: (data) ->
-        c.log "data", data, @proxy.prevUrl
         resultError = super(data)
         return if resultError is false
         unless data.kwic then data.kwic = []
-        c.log "corpus_results"
         isReading = @isReadingMode()
-
-
 
         if @isActive()
             @s.$root.jsonUrl = @proxy.prevUrl
 
-        # applyTo "kwicCtrl", ($scope) ->
         @s.$apply ($scope) =>
-            c.log "apply kwic search data", data
             if isReading
                 $scope.setContextData(data)
                 @selectionManager.deselect()
@@ -281,7 +246,6 @@ class view.KWICResults extends BaseResults
                     @s.gotFirstKwic = true
 
             , 0)
-            # @hidePreloader()
 
         if currentMode == "parallel" and not isReading
             scrollLeft = $(".table_scrollarea", @$result).scrollLeft() or 0
@@ -293,21 +257,18 @@ class view.KWICResults extends BaseResults
                 offset = (firstWord.position().left + scrollLeft) - 25
                 $(linked).find(".lnk").css("padding-left", Math.round(offset))
 
-        util.setDownloadLinks @proxy.prevRequest, data
+        # util.setDownloadLinks @proxy.prevRequest, data
 
         @$result.localize()
         @centerScrollbar()
         if not @selectionManager.hasSelected() and not isReading
             @$result.find(".match").children().first().click()
 
-    showNoResults: ->
-        # @$result.find(".results_table").empty()
-        # @$result.find(".pager-wrapper").empty()
-        @hidePreloader()
-        # @$result.find(".num-result").html 0
-        @$result.addClass("zero_results").click()
+        @resultData = data
 
-        #   this.$result.find(".sort_select").hide();
+    showNoResults: ->
+        @hidePreloader()
+        @$result.addClass("zero_results").click()
         @$result.find(".hits_picture").html ""
 
     renderHitsPicture: (data) ->
@@ -343,52 +304,7 @@ class view.KWICResults extends BaseResults
         else newX -= offset if wordLeft < area.offset().left
         area.stop(true, true).animate scrollLeft: newX
 
-    buildPager: (number_of_hits) ->
-        items_per_page = @optionWidget.find(".num_hits").val()
-        # @movePager "up"
-        # $.onScrollOut "unbind"
-        @$result.find(".pager-wrapper").unbind().empty()
-        if number_of_hits > items_per_page
-            @$result.find(".pager-wrapper").pagination number_of_hits,
-                items_per_page: items_per_page
-                callback: $.proxy(@handlePaginationClick, this)
-                next_text: util.getLocaleString("next")
-                prev_text: util.getLocaleString("prev")
-                link_to: "javascript:void(0)"
-                num_edge_entries: 2
-                ellipse_text: ".."
-                current_page: @current_page or 0
-
-            @$result.find(".next").attr "rel", "localize[next]"
-            @$result.find(".prev").attr "rel", "localize[prev]"
-    
-    # pagination_container is used by the pagination lib
-    handlePaginationClick: (new_page_index, pagination_container, force_click) ->
-        page = search().page or 0
-        c.log "handlePaginationClick", new_page_index, page
-        self = this
-        if new_page_index isnt page or !!force_click
-            isReading = @isReadingMode()
-            kwicCallback = @renderResult
-
-            # this.showPreloader();
-
-            @getProxy().makeRequest @buildQueryOptions(), new_page_index, ((progressObj) ->
-
-                #progress
-                self.$tab.find(".tab_progress").css "width", Math.round(progressObj["stats"]).toString() + "%"
-            ), ((data) ->
-                #success
-                self.buildPager data.hits
-            ), $.proxy(kwicCallback, this)
-            # $.bbq.pushState page: new_page_index
-            safeApply @s, () ->
-                search page: new_page_index
-            @current_page = new_page_index
-        false
-
     buildQueryOptions: (cqp, isPaging) ->
-        c.log "buildQueryOptions", cqp
         opts = {}
         getSortParams = () ->
             sort = search().sort
@@ -567,47 +483,59 @@ class view.KWICResults extends BaseResults
 
         output
 
+    downloadKwic: (format_params) ->
+        util.downloadKwic format_params, @proxy.prevRequest.url, @resultData
+
+
 class view.ExampleResults extends view.KWICResults
     constructor: (tabSelector, resultSelector, scope) ->
         c.log "ExampleResults constructor", tabSelector, resultSelector, scope
         super tabSelector, resultSelector, scope
         @proxy = new model.KWICProxy()
 
-        @current_page = 0
-        if @s.$parent.queryParams
+        @current_page = 1
+        if @s.$parent.kwicTab.queryParams
             @makeRequest().then () =>
                 @onentry()
         @tabindex = (@getResultTabs().length - 1) + @s.$parent.$index
 
     setupReadingHash : () ->
 
+    isReadingMode: () ->
+        return @s.exampleReadingMode
+
     makeRequest: () ->
-        # debugger
         c.log "ExampleResults.makeRequest()", @current_page
-        items_per_page = parseInt(@optionWidget.find(".num_hits").val())
-        opts = @s.$parent.queryParams
-        c.log "opts", opts
+        items_per_page = parseInt($("#search_options").find(".num_hits").val())
+        opts = @s.$parent.kwicTab.queryParams
+
         @resetView()
         opts.ajaxParams.incremental = false
 
-        opts.ajaxParams.start = @current_page * items_per_page
-        opts.ajaxParams.end = (opts.ajaxParams.start + items_per_page)
+        opts.ajaxParams.start = (@current_page - 1) * items_per_page
+        opts.ajaxParams.end = (opts.ajaxParams.start + items_per_page - 1)
 
         prev = _.pick @proxy.prevParams, "cqp", "command", "corpus", "head", "rel", "source", "dep", "depextra"
         _.extend opts.ajaxParams, prev
 
+        if @isReadingMode()
+            preferredContext = settings.defaultReadingContext
+            avoidContext = settings.defaultOverviewContext
+        else
+            preferredContext = settings.defaultOverviewContext
+            avoidContext = settings.defaultReadingContext
+
+        context = settings.corpusListing.getContextQueryString(preferredContext, avoidContext)
+        _.extend opts.ajaxParams, {context: context, defaultcontext : preferredContext }
+
         @showPreloader()
 
-        #   this.proxy.makeRequest(opts, $.proxy(this.onProgress, this));
         progress = if opts.command == "query" then $.proxy(this.onProgress, this) else $.noop
         def = @proxy.makeRequest opts, null, progress, (data) =>
-            c.log "first part done", data
             @renderResult data, opts.cqp
             @renderCompleteResult data
             safeApply @s, () =>
                 @hidePreloader()
-
-        # def.success = (data) ->
 
         def.fail () ->
             safeApply @s, () =>
@@ -632,26 +560,15 @@ class view.LemgramResults extends BaseResults
         super tabSelector, resultSelector, scope
         @s = scope
         @tabindex = 3
-        #   TODO: figure out what I use this for.
-        @resultDeferred = $.Deferred()
         @proxy = new model.LemgramProxy()
-        window.lemgramProxy = @proxy
-        @$result.find("#wordclassChk").change ->
-            if $(this).is(":checked")
-                $(".lemgram_result .wordclass_suffix", self.$result).show()
-            else
-                $(".lemgram_result .wordclass_suffix", self.$result).hide()
-
-
 
     resetView: ->
         super()
-        $(".content_target", @$result).empty()
         safeApply @s, () =>
             @s.$parent.aborted = false
             @s.$parent.no_hits = false
 
-    makeRequest : (word, type) ->
+    makeRequest: (word, type) ->
         if @proxy.hasPending()
             @ignoreAbort = true
         else
@@ -665,70 +582,29 @@ class view.LemgramResults extends BaseResults
         def.success (data) =>
             safeApply @s, () =>
                 @renderResult(data, word)
-
-
         def.fail (jqXHR, status, errorThrown) =>
             c.log "def fail", status
             if @ignoreAbort
-                c.log "lemgram ignoreabort"
                 return
             if status == "abort"
                 safeApply @s, () =>
                     @hidePreloader()
-                    c.log "aborted true", @s
                     @s.$parent.aborted = true
 
 
     renderResult: (data, query) ->
-        c.log "lemgram renderResult", data, query
-        # @resetView()
-        $(".content_target", @$result).empty()
         resultError = super(data)
         @hidePreloader()
         @s.$parent.progress = 100
         return if resultError is false
         unless data.relations
             @s.$parent.no_hits = true
-                # @hasData = false
-
-            @resultDeferred.reject()
         else if util.isLemgramId(query)
             @renderTables query, data.relations
-            @resultDeferred.resolve()
         else
             @renderWordTables query, data.relations
-            @resultDeferred.resolve()
-
-    renderHeader: (wordClass, isLemgram) ->
-
-        wordClass = (_.invert settings.wordpictureTagset)[wordClass.toLowerCase()]
-        $(".tableContainer:last .lemgram_section").each((i) ->
-            $parent = $(this).find(".lemgram_help")
-            $(this).find(".lemgram_result").each (j) ->
-                confObj = settings.wordPictureConf[wordClass][i][j]
-                if confObj != "_"
-
-                    unless $(this).find("table").length then return
-
-                    if confObj.alt_label
-                        label = confObj.alt_label
-                    else
-                        label = "rel_" + $(this).data("rel")
-                    cell = $("<span />", class: "lemgram_header_item")
-                        .localeKey(label)
-                        .addClass(confObj.css_class or "").appendTo($parent)
-                    $(this).addClass(confObj.css_class).css "border-color", $(this).css("background-color")
-                else
-                    # c.log "header data", $(this).data("word"), $(this).tmplItem().lemgram
-                    label = $(this).data("word") or $(this).tmplItem().lemgram
-                    classes = "hit"
-                    if isLemgram
-                        classes += " lemgram"
-                    $("<span class='#{classes}'><b>#{label}</b></span>").appendTo $parent
-        ).append "<div style='clear:both;'/>"
 
     renderWordTables: (word, data) ->
-        self = this
         wordlist = $.map(data, (item) ->
             output = []
             output.push [item.head, item.headpos.toLowerCase()] if item.head.split("_")[0] is word
@@ -737,7 +613,6 @@ class view.LemgramResults extends BaseResults
         )
         unique_words = _.uniq wordlist, ([word, pos]) ->
             word + pos
-
         tagsetTrans = _.invert settings.wordpictureTagset
         unique_words = _.filter unique_words, ([currentWd, pos]) ->
             settings.wordPictureConf[tagsetTrans[pos]]?
@@ -745,36 +620,19 @@ class view.LemgramResults extends BaseResults
             @showNoResults()
             return
 
-
-
-        $.each unique_words, (i, [currentWd, pos]) =>
-            self.drawTable currentWd, pos, data
-            self.renderHeader pos, false
-            content = """
-                #{currentWd} (<span rel="localize[pos]">#{util.getLocaleString(pos)}</span>)
-            """
-            $(".tableContainer:last").prepend($("<div>",
-                class: "header"
-            ).html(content)).find(".hit .wordclass_suffix").hide()
-
-        $(".lemgram_result .wordclass_suffix").hide()
+        @drawTables unique_words, data
         @hidePreloader()
 
 
     renderTables: (lemgram, data) ->
-        # wordClass = util.splitLemgram(lemgram).pos.slice(0, 2)
         if data[0].head == lemgram
             wordClass = data[0].headpos
         else
             wordClass = data[0].deppos
-
-        @drawTable lemgram, wordClass, data #, getRelType
-        $(".lemgram_result .wordclass_suffix").hide()
-        @renderHeader wordClass, true
+        @drawTables [[lemgram, wordClass]], data
         @hidePreloader()
 
-    drawTable: (token, wordClass, data) ->
-        # c.log "token, wordClass", token, wordClass
+    drawTables: (tables, data) ->
         inArray = (rel, orderList) ->
             i = _.findIndex orderList, (item) ->
                 (item.field_reverse or false) == (rel.field_reverse or false) and item.rel == rel.rel
@@ -782,127 +640,74 @@ class view.LemgramResults extends BaseResults
             i : i
             type : type
 
-
-
         tagsetTrans = _.invert settings.wordpictureTagset
-        getRelType = (item) ->
-            return {rel : tagsetTrans[item.rel.toLowerCase()] , field_reverse : item.dep == token}
 
-        wordClass = (_.invert settings.wordpictureTagset)[wordClass.toLowerCase()]
+        res = _.map(tables, ([token, wordClass]) ->
+            getRelType = (item) ->
+                return {rel : tagsetTrans[item.rel.toLowerCase()] , field_reverse : item.dep == token}
 
-        unless settings.wordPictureConf[wordClass]?
-            return
-        orderArrays = [[], [], []]
-        $.each data, (index, item) =>
-            $.each settings.wordPictureConf[wordClass] or [], (i, rel_type_list) =>
-                list = orderArrays[i]
-                rel = getRelType(item)
+            wordClassShort = wordClass.toLowerCase()
+            wordClass = (_.invert settings.wordpictureTagset)[wordClassShort]
 
-                return unless rel.rel
-                ret = inArray(rel, rel_type_list)
-                return if ret.i is -1
-                list[ret.i] = [] unless list[ret.i]
-                item.show_rel = ret.type
-                list[ret.i].push item
+            unless settings.wordPictureConf[wordClass]?
+                return
+            orderArrays = [[], [], []]
+            $.each data, (index, item) =>
+                $.each settings.wordPictureConf[wordClass] or [], (i, rel_type_list) =>
+                    list = orderArrays[i]
+                    rel = getRelType(item)
 
+                    return unless rel
+                    ret = inArray(rel, rel_type_list)
+                    return if ret.i is -1
+                    list[ret.i] = [] unless list[ret.i]
+                    item.show_rel = ret.type
+                    list[ret.i].push item
 
-        $.each orderArrays, (i, unsortedList) ->
-            $.each unsortedList, (_, list) ->
-                if list
-                    list.sort (first, second) ->
-                        second.mi - first.mi
-
-
-            if settings.wordPictureConf[wordClass][i] and unsortedList.length
-                toIndex = $.inArray("_", settings.wordPictureConf[wordClass][i])
-                if util.isLemgramId(token)
-                    unsortedList.splice toIndex, 0,
-                        word: token.split("..")[0].replace(/_/g, " ")
-
-                else
-                    unsortedList.splice toIndex, 0,
-                        word: util.lemgramToString(token)
-
-            unsortedList = $.grep(unsortedList, (item, index) ->
-                Boolean item
-            )
+            $.each orderArrays, (i, unsortedList) ->
+                $.each unsortedList, (_, list) ->
+                    if list
+                        list.sort (first, second) ->
+                            second.mi - first.mi
 
 
-        container = $("<div>", class: "tableContainer radialBkg")
-        .appendTo(".content_target", @$result)
+                if settings.wordPictureConf[wordClass][i] and unsortedList.length
+                    toIndex = $.inArray("_", settings.wordPictureConf[wordClass][i])
+                    if util.isLemgramId(token)
+                        unsortedList[toIndex] = word: token.split("..")[0].replace(/_/g, " ")
 
-        c.log "orderArrays", orderArrays
-        $("#lemgramResultsTmpl").tmpl(orderArrays,
-            lemgram: token
-        ).find(".example_link")
-        .append($("<span>")
-            .addClass("ui-icon ui-icon-document")
-        ).css("cursor", "pointer")
-        .click( (event) =>
-            @onClickExample(event)
-        ).end()
-        .appendTo container
+                    else
+                        unsortedList[toIndex] = word: util.lemgramToString(token)
 
-        $("td:nth-child(2)", @$result).each -> # labels
-            $siblings = $(this).parent().siblings().find("td:nth-child(2)")
-            siblingLemgrams = $.map($siblings, (item) ->
-                $(item).data("lemgram").toString().slice 0, -1
-            )
-            hasHomograph = $.inArray($(this).data("lemgram").toString().slice(0, -1), siblingLemgrams) isnt -1
-            prefix = (if $(this).data("depextra").length then $(this).data("depextra") + " " else "")
-            data = $(this).tmplItem().data
-            if not data.dep
-                label = "&mdash;"
-            else
-                label = util.lemgramToString($(this).data("lemgram"), hasHomograph)
-            $(this).html prefix + label
+                unsortedList = $.grep(unsortedList, (item, index) ->
+                    Boolean item
+                )
 
+            orderArrays = _.map orderArrays, (section, i) ->
+                return _.map section, (table, j) ->
+                    if table and table[0]
+                        rel = table[0].rel
+                        show_rel = table[0].show_rel
+                        all_lemgrams = _.unique (_.map (_.pluck table, show_rel), (item) ->
+                            if util.isLemgramId item
+                                return item.slice 0, -1
+                            else
+                                return item)
+                        return { table: table, rel: rel, show_rel: show_rel, all_lemgrams: all_lemgrams }
+                    else
+                        return { table: table }
 
+            return {"token": token, "wordClass": wordClass, "wordClassShort": wordClassShort, "data": orderArrays})
 
-    #   self.renderHeader(wordClass);
-    onClickExample: (event) ->
-        self = this
-        $target = $(event.currentTarget)
-        c.log "onClickExample", $target
-        data = $target.parent().tmplItem().data
-
-        opts = {}
-        opts.ajaxParams =
-            start : 0
-            end : 24
-            command : "relations_sentences"
-            source : data.source.join(",")
-            head: data.head
-            dep: data.dep
-            rel: data.rel
-            depextra: data.depextra
-            corpus: data.corpus
-
-
-        @s.$root.kwicTabs.push opts
-
-    showWarning: ->
-        hasWarned = !!$.jStorage.get("lemgram_warning")
-
-        #   var hasWarned = false;
-        unless hasWarned
-            $.jStorage.set "lemgram_warning", true
-            $("#sidebar").sidebar "refreshContent", "lemgramWarning"
-            safeApply @s, () =>
-                @s.$root.sidebar_visible = true
-            self.timeout = setTimeout(=>
-                safeApply @s, () =>
-                    @s.$root.sidebar_visible = false
-                    $("#sidebar").sidebar "refreshContent"
-            , 5000)
+        @s.$root.$broadcast 'word_picture_data_available', res
 
     onentry: ->
-        c.log "lemgram onentry"
+        c.log "word pic onentry"
         super()
-        @resultDeferred.done @showWarning
         return
 
     onexit: ->
+        c.log "word pic onexit"
         super()
         clearTimeout self.timeout
         safeApply @s, () =>
@@ -911,13 +716,6 @@ class view.LemgramResults extends BaseResults
 
     showNoResults: ->
         @hidePreloader()
-        # @$result.find(".content_target").html $("<i />").localeKey("no_lemgram_results")
-
-
-
-    hideWordclass: ->
-        $("td:first-child", @$result).each ->
-            $(this).html $.format("%s <span class='wordClass'>%s</span>", $(this).html().split(" "))
 
 
 class view.StatsResults extends BaseResults
@@ -927,10 +725,10 @@ class view.StatsResults extends BaseResults
         self = this
         @tabindex = 2
         @gridData = null
-        
+
         @doSort = true
-        @sortColumn = null 
-        
+        @sortColumn = null
+
         @proxy = new model.StatsProxy()
         window.statsProxy = @proxy
         @$result.on "click", ".arcDiagramPicture", (event) =>
@@ -941,38 +739,36 @@ class view.StatsResults extends BaseResults
             else # The ∑ row
                 @newDataInGraph "SIGMA_ALL"
 
-        @$result.on "click", ".slick-cell .link", () ->
-            query = $(this).data("query")
+        @$result.on "click", ".slick-cell .statistics-link", (e) =>
+            rowIx = $(e.currentTarget).data "row"
+            rowData = @grid.getData()[rowIx]
+
+            cqp2 = statisticsFormatting.getCqp(@searchParams.reduceVals, rowData.hit_value, @searchParams.ignoreCase)
+            corpora = @searchParams.corpora
 
             opts = {}
             opts.ajaxParams =
                 start : 0
                 end : 24
                 command : "query"
-                corpus : util.encodeListParam(
-                        $(this).data("corpora")).toUpperCase()
+                corpus : util.encodeListParam(corpora)
                 cqp : self.proxy.prevParams.cqp
-                cqp2: decodeURIComponent query
+                cqp2: cqp2
                 expand_prequeries : false
 
             safeApply scope.$root, () ->
-                scope.$root.kwicTabs.push opts
-
-
-
+                scope.$root.kwicTabs.push { queryParams: opts }
 
         $(window).resize _.debounce( () =>
             @resizeGrid()
         , 100)
 
         $("#kindOfData,#kindOfFormat").change () =>
-            $("#exportButton").hide();
-            $("#generateExportButton").show();
+            @showGenerateExport()
 
         $("#exportButton").hide();
         $("#generateExportButton").unbind("click").click () =>
-            $("#exportButton").show()
-            $("#generateExportButton").hide();
+            @hideGenerateExport()
             @updateExportBlob()
 
         if $("html.msie7,html.msie8").length
@@ -989,25 +785,16 @@ class view.StatsResults extends BaseResults
 
             showTotal = false
 
-            console.log "DOING GRAPH CHECKING"
-            # THIS IS FLAWED AND SHOULD USE 'getSelectedRows()' INSTEAD.
-            # FIXED FOR NOW BUT MIGHT ONLY WORK FOR VISIBLE CHECKBOXES!
-            #for chk in @$result.find(".include_chk:checked")
-            for chk in @$result.find(".slick-cell > input:checked")
-                cell = $(chk).parent()
-                #if cell.parent().is ".slick-row:nth-child(1)"
-                #    showTotal = true
-                #    continue
-                cqp = decodeURIComponent cell.next().find(" > .link").data("query")
-                unless cqp isnt "undefined" # TODO: make a better check
+            for rowIx in @getSelectedRows()
+                if rowIx == 0
                     showTotal = true
                     continue
+
+                row = @getDataAt(rowIx)
+                cqp = statisticsFormatting.getCqp @searchParams.reduceVals, row.hit_value, @searchParams.ignoreCase
                 subExprs.push cqp
-                texts = $.map cell.parent().find('.parameter-column'), (elem) ->
-                    $(elem).text()
+                texts = statisticsFormatting.getTexts @searchParams.reduceVals, row.hit_value, @searchParams.corpora
                 labelMapping[cqp] = texts.join ", "
-
-
 
             activeCorpora = _.flatten [key for key, val of @savedData.corpora when val.sums.absolute]
 
@@ -1047,9 +834,9 @@ class view.StatsResults extends BaseResults
         ]
 
         for wd in @savedWordArray
-            row = [wd, fmt @savedData.total[selVal][wd]]
+            row = [wd, fmt @savedSummarizedData.total[selVal][wd]]
             values = for corp in _.pluck cl.corpora, "id"
-                val = @savedData.corpora[corp.toUpperCase()][selVal][wd]
+                val = @savedSummarizedData[corp.toUpperCase()][selVal][wd]
                 if val
                     val = fmt val
                 else
@@ -1062,7 +849,6 @@ class view.StatsResults extends BaseResults
         csv = new CSV(output, {
             header : header
             delimiter : dataDelimiter
-            # line : escape(String.fromCharCode(0x0D) + String.fromCharCode(0x0A))
         })
 
         csvstr = csv.encode()
@@ -1076,7 +862,7 @@ class view.StatsResults extends BaseResults
         })
 
     makeRequest : (cqp) ->
-        c.log "statsrequest makerequest", cqp
+        c.log "StatsResults makeRequest", cqp
 
         if currentMode == "parallel"
             cqp = cqp.replace(/\:LINKED_CORPUS.*/, "")
@@ -1089,22 +875,18 @@ class view.StatsResults extends BaseResults
 
         @showPreloader()
         @proxy.makeRequest(cqp, ((args...) => @onProgress(args...))
-        ).done( ([data, wordArray, columns, dataset, summarizedData]) =>
+        ).done( ([data, wordArray, columns, dataset, summarizedData, searchParams]) =>
             safeApply @s, () =>
                 @hidePreloader()
             @savedData = data
             @savedSummarizedData = summarizedData
             @savedWordArray = wordArray
-
+            @searchParams = searchParams
             @renderResult columns, dataset
 
         ).fail (textStatus, err) =>
-            # _.map(@proxy.pendingRequests, function(item){return item.readyState})
             c.log "fail", arguments
             c.log "stats fail", @s.$parent.loading, _.map @proxy.pendingRequests, (item) -> item.readyState
-            # if @proxy.hasPending()
-                # c.log "stats makerequest abort exited"
-                # return
             if @ignoreAbort
                 c.log "stats ignoreabort"
                 return
@@ -1115,7 +897,26 @@ class view.StatsResults extends BaseResults
                 else
                     @resultError err
 
+    getSelectedRows: () ->
+        if @grid
+            return @grid.getSelectedRows().sort()
+        else
+            return []
+
+    getDataAt: (rowIx) ->
+        return @grid.getData()[rowIx]
+
+    showGenerateExport: () ->
+        $("#exportButton").hide();
+        $("#generateExportButton").show();
+
+    hideGenerateExport: () ->
+        $("#exportButton").show();
+        $("#generateExportButton").hide();
+
     renderResult: (columns, data) ->
+        @showGenerateExport()
+      
         refreshHeaders = ->
             $(".localized-header .slick-column-name").not("[rel^=localize]").each ->
                 $(this).localeKey $(this).text()
@@ -1125,7 +926,6 @@ class view.StatsResults extends BaseResults
         return if resultError is false
 
         if data[0].total_value.absolute == 0
-            # @hidePreloader()
             safeApply @s, () =>
                 @s.no_hits = true
             return
@@ -1156,19 +956,23 @@ class view.StatsResults extends BaseResults
                 sortColumns = grid.getSortColumns()[0]
                 @sortColumn = sortColumns.columnId
                 @sortAsc = sortColumns.sortAsc
-                sortCol = args.sortCol  
+                sortCol = args.sortCol
                 data.sort (a, b) ->
+                    if(a.id == "row_total")
+                        return -1
+                    if(b.id == "row_total")
+                        return -1
                     log()
                     if sortCol.field is "hit_value"
-                        x = a[sortCol.field]
-                        y = b[sortCol.field]
+                        x = a[sortColumns.columnId]
+                        y = b[sortColumns.columnId]
                     else
                         x = a[sortCol.field][0] or 0
                         y = b[sortCol.field][0] or 0
                     ret = ((if x is y then 0 else ((if x > y then 1 else -1))))
                     ret *= -1 unless args.sortAsc
                     ret
-    
+
                 grid.setData data
                 grid.updateRowCount()
                 grid.render()
@@ -1182,7 +986,7 @@ class view.StatsResults extends BaseResults
             @doSort = false # if sort event triggered, sorting will not occur
             @resizeGrid()
             e.stopImmediatePropagation()
-            
+
         grid.onHeaderClick.subscribe (e, args) =>
             @doSort = true # enable sorting again, resize is done
             e.stopImmediatePropagation()
@@ -1190,8 +994,6 @@ class view.StatsResults extends BaseResults
         grid.onHeaderCellRendered.subscribe (e, args) ->
             refreshHeaders()
 
-        # remove first checkbox
-        # c.log "remove", $(".slick-row:nth(0) .l0.r0 input", @$result).remove()
         refreshHeaders()
         $(".slick-row:first input", @$result).click()
         $(window).trigger("resize")
@@ -1199,6 +1001,9 @@ class view.StatsResults extends BaseResults
         $.when(timeDeferred).then =>
             safeApply @s, () =>
                 @updateGraphBtnState()
+
+        @s.getGeoAttributes(@proxy.prevParams.corpus.split(","))
+
         safeApply @s, () =>
             @hidePreloader()
 
@@ -1228,7 +1033,7 @@ class view.StatsResults extends BaseResults
         if width > ($(window).width() - 40)
             width = $(window).width() - 40
         $("#myGrid:visible.slick-viewport").width width
-        
+
         @grid?.resizeCanvas()
         @grid?.invalidate()
 
@@ -1239,8 +1044,10 @@ class view.StatsResults extends BaseResults
         @lastDataName = dataName
 
         $.each @savedSummarizedData, (corpus, obj) =>
-            if dataName is "SIGMA_ALL"
+            if corpus == "total"
+                return
 
+            if dataName is "SIGMA_ALL"
                 # ∑ selected
                 totfreq = 0
                 $.each obj["relative"], (wordform, freq) ->
@@ -1301,6 +1108,9 @@ class view.StatsResults extends BaseResults
                 dataItems = []
                 dataName = @lastDataName
                 $.each @savedSummarizedData, (corpus, obj) ->
+                    if corpus == "total"
+                        return;
+
                     if dataName is "SIGMA_ALL"
 
                         # sigma selected
@@ -1361,22 +1171,8 @@ class view.StatsResults extends BaseResults
             download : null,
             href : null
         })
-        # safeApply @s, () ->
         @s.no_hits = false
         @s.aborted = false
-
-    # showNoResults: ->
-    #     c.log "showNoResults", @$result
-    #     safeApply @s, () =>
-    #         @hidePreloader()
-    #     @$result.prepend $("<span class=' bad_search bs-callout bs-callout-warning'>")
-    #         .localeKey("no_stats_results")
-    #     $("#exportStatsSection").hide()
-
-    # onProgress : (progressObj) ->
-    #     super(progressObj)
-        # c.log "onProgress", progressObj.stats
-
 
 
 class view.GraphResults extends BaseResults
@@ -1433,7 +1229,7 @@ class view.GraphResults extends BaseResults
                 datefrom = moment(m).startOf(@zoom).format("YYYYMMDD")
                 dateto = moment(m).endOf(@zoom).format("YYYYMMDD")
                 if (@validZoomLevels.indexOf @zoom) < 3 # year, month, day
-                    timecqp = """(int(_.text_datefrom) >= #{datefrom} & int(_.text_dateto) <= #{dateto}) | 
+                    timecqp = """(int(_.text_datefrom) >= #{datefrom} & int(_.text_dateto) <= #{dateto}) |
                         (int(_.text_datefrom) <= #{datefrom} & int(_.text_dateto) >= #{dateto})"""
                     # If specified, allow bare years in text_datefrom and
                     # text_dateto for backward compatibility
@@ -1448,7 +1244,7 @@ class view.GraphResults extends BaseResults
                     timefrom = moment(m).startOf(@zoom).format("HHmmss")
                     timeto = moment(m).endOf(@zoom).format("HHmmss")
                     c.log "timefrom", timefrom, timeto
-                    
+
                     timecqp = """[(int(_.text_datefrom) = #{datefrom} & int(_.text_timefrom) >= #{timefrom} & int(_.text_dateto) <= #{dateto} & int(_.text_timeto) <= #{timeto}) |
                      ((int(_.text_datefrom) < #{datefrom} | (int(_.text_datefrom) = #{datefrom} & int(_.text_timefrom) <= #{timefrom})) & (int(_.text_dateto) > #{dateto} | (int(_.text_dateto) = #{dateto} & int(_.text_timeto) >= #{timeto})))]"""
 
@@ -1473,7 +1269,7 @@ class view.GraphResults extends BaseResults
 
 
                 safeApply @s.$root, () =>
-                    @s.$root.kwicTabs.push opts
+                    @s.$root.kwicTabs.push { queryParams: opts }
 
 
 
@@ -1492,12 +1288,12 @@ class view.GraphResults extends BaseResults
     resetPreloader : () ->
         # $(".preloader", @$result).css
         #     width : 0;
-        
+
     drawPreloader : (from, to) ->
         if @graph
             left = @graph.x from.unix()
             width = (@graph.x to.unix()) - left
-        else 
+        else
             left = 0
             width = "100%"
 
@@ -1526,7 +1322,7 @@ class view.GraphResults extends BaseResults
             from = moment.unix(from)
             from.start
             to = moment.unix(to)
-        
+
 
         oldZoom = @zoom
 
@@ -1630,7 +1426,7 @@ class view.GraphResults extends BaseResults
         # c.log "output before", (_.map output, prettyDate).join(" | ")
         output = @fillMissingDate output
         # c.log "output before", (_.map output, prettyDate).join(" | ")
-        
+
 
         output =  output.sort (a, b) ->
             a.x.unix() - b.x.unix()
@@ -1746,8 +1542,8 @@ class view.GraphResults extends BaseResults
         $(".time_table:visible", @$result).height "#{h}.1em"
         @time_grid?.resizeCanvas()
         $(".exportTimeStatsSection", @$result).show()
-        
-        setExportUrl = () =>
+
+        $(".exportTimeStatsSection .btn.export", @$result).click(() =>
             selVal = $(".timeKindOfData option:selected", @$result).val()
             selType = $(".timeKindOfFormat option:selected", @$result).val()
             dataDelimiter = if selType is "TSV" then "%09" else ";"
@@ -1769,21 +1565,20 @@ class view.GraphResults extends BaseResults
                         i = _.indexOf (_.pluck row.abs_data, "x"), cell.x, true
                         cells.push row.abs_data[i].y
                 output.push cells
-            
+
             csv = new CSV(output, {
-                #header : header
                 delimiter : dataDelimiter
-                # line : escape(String.fromCharCode(0x0D) + String.fromCharCode(0x0A))
             })
             csvstr = csv.encode()
             blob = new Blob([csvstr], { type: "text/#{selType}"})
             csvUrl = URL.createObjectURL(blob)
-            $(".exportTimeStatsSection .btn.export", @$result).attr({
-                download : "export.#{selType}"
-                href : csvUrl    
-            })
-
-        setExportUrl()
+            
+            a = document.createElement "a"
+            a.href = csvUrl
+            a.download = "export.#{selType}"
+            a.click()
+            window.URL.revokeObjectURL(csvUrl)
+        )
 
     zoomLevelToFormat : (zoom) ->
         stampFormats =
@@ -1815,7 +1610,7 @@ class view.GraphResults extends BaseResults
                         fmt = (valTup) ->
                             if typeof valTup[0] == "undefined" then return ""
                             return "<span>" +
-                                    "<span class='relStat'>" + Number(valTup[1].toFixed(1)).toLocaleString(loc) + "</span> " + 
+                                    "<span class='relStat'>" + Number(valTup[1].toFixed(1)).toLocaleString(loc) + "</span> " +
                                     "<span class='absStat'>(" + valTup[0].toLocaleString(loc) + ")</span> " +
                               "<span>"
                         return fmt(value)
@@ -1868,7 +1663,7 @@ class view.GraphResults extends BaseResults
                     }]
         Rickshaw.Series.zeroFill(series)
         # window.data = series[0].data
-        
+
         # c.log "emptyIntervals", emptyIntervals
 
         emptyIntervals = @getEmptyIntervals(series[0].data)
@@ -2005,7 +1800,7 @@ class view.GraphResults extends BaseResults
 
 
             nontime = @getNonTime()
-            
+
             if nontime
                 $(".non_time", @$result).empty().text(nontime.toFixed(2) + "%").parent().localize()
             else
@@ -2022,11 +1817,11 @@ class view.GraphResults extends BaseResults
                 padding :
                     top : 0.1
                     right : 0.01
-                # min : 
+                # min :
             graph.render()
             window._graph = @graph = graph
-            
-            
+
+
             @drawIntervals(graph)
 
 
@@ -2060,7 +1855,7 @@ class view.GraphResults extends BaseResults
                     graph.render()
                     $(".exportTimeStatsSection", @$result).hide()
 
-            
+
             legend = new Rickshaw.Graph.Legend
                 element: $(".legend", @$result).get(0)
                 graph: graph
@@ -2097,13 +1892,10 @@ class view.GraphResults extends BaseResults
                     "<br><span rel='localize[rel_hits_short]'>#{util.getLocaleString 'rel_hits_short'}</span> " + val
                 formatter : (series, x, y, formattedX, formattedY, d) ->
                     i = _.indexOf (_.pluck series.data, "x"), x, true
-                    try 
+                    try
                         abs_y = series.abs_data[i].y
                     catch e
                         c.log "i", i, x
-                    
-                    if not abs_y
-                        c.log "abs_y", i, x
 
                     rel = series.name + ':&nbsp;' + formattedY
                     return """<span data-cqp="#{encodeURIComponent(series.cqp)}">
@@ -2170,11 +1962,11 @@ class view.GraphResults extends BaseResults
                 # @updateTicks()
                 @drawIntervals(graph)
 
-                
+
                 @checkZoomLevel()
 
             , 20
-            
+
 
             # old_tickOffsets = xAxis.tickOffsets
             # xAxis.tickOffsets = () =>

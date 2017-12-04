@@ -1,26 +1,31 @@
 window.korpApp = angular.module 'korpApp', [
                                             'ui.bootstrap',
-                                            "template/tabs/tabset.html"
-                                            "template/tabs/tab.html"
-                                            "template/modal/backdrop.html"
-                                            "template/modal/window.html"
-                                            "template/typeahead/typeahead-match.html",
-                                            "template/typeahead/typeahead-popup.html"
-                                            "template/pagination/pagination.html"
+                                            "uib/template/tabs/tabset.html"
+                                            "uib/template/tabs/tab.html"
+                                            "uib/template/modal/backdrop.html"
+                                            "uib/template/modal/window.html"
+                                            "uib/template/typeahead/typeahead-match.html",
+                                            "uib/template/typeahead/typeahead-popup.html"
+                                            "uib/template/pagination/pagination.html"
                                             "angularSpinner"
                                             # "ui.slider"
                                             "ui.sortable"
                                             "newsdesk"
                                             "sbMap"
                                             "tmh.dynamicLocale"
+                                            "angular.filter"
                                         ]
 
+
+# This is due to angular-leaflet-directive logging, move to geokorp-component?
+korpApp.config ($logProvider) ->
+    $logProvider.debugEnabled false
 
 korpApp.config (tmhDynamicLocaleProvider) ->
     tmhDynamicLocaleProvider.localeLocationPattern("translations/angular-locale_{{locale}}.js")
 
-korpApp.config ($tooltipProvider) ->
-    $tooltipProvider.options
+korpApp.config ($uibTooltipProvider) ->
+    $uibTooltipProvider.options
         appendToBody: true
 
 korpApp.run ($rootScope, $location, utils, searches, tmhDynamicLocale, $timeout) ->
@@ -54,6 +59,7 @@ korpApp.run ($rootScope, $location, utils, searches, tmhDynamicLocale, $timeout)
     $rootScope.kwicTabs = []
     $rootScope.compareTabs = []
     $rootScope.graphTabs = []
+    $rootScope.mapTabs = []
     isInit = true
 
     # Copy to $rootScope to make available in expression interpolation
@@ -69,11 +75,6 @@ korpApp.run ($rootScope, $location, utils, searches, tmhDynamicLocale, $timeout)
             $location.search "corpus", corpora.join(",")
         else
             $location.search "corpus", null
-        if corpora.length
-            view.updateReduceSelect()
-
-        enableSearch = !!corpora.length
-        view.enableSearch enableSearch
 
         isInit = false
 
@@ -101,8 +102,8 @@ korpApp.run ($rootScope, $location, utils, searches, tmhDynamicLocale, $timeout)
             settings.preselected_corpora = all_default_corpora
             settings.corpusListing.select all_default_corpora
             corpusChooserInstance.corpusChooser "selectItems", all_default_corpora
-        
-korpApp.controller "headerCtrl", ($scope, $location, $modal, utils) ->
+
+korpApp.controller "headerCtrl", ($scope, $location, $uibModal, utils) ->
     s = $scope
 
     s.citeClick = () ->
@@ -123,7 +124,7 @@ korpApp.controller "headerCtrl", ($scope, $location, $modal, utils) ->
 
     i = $.inArray currentMode, (_.pluck s.menu, "mode")
     if i != -1
-        s.visible.push s.menu[i] 
+        s.visible.push s.menu[i]
         s.menu.splice(i, 1)
 
 
@@ -133,7 +134,7 @@ korpApp.controller "headerCtrl", ($scope, $location, $modal, utils) ->
             if mode.mode == modeId
                 mode.selected = true
 
-    s.select(currentMode)
+    s.select currentMode
     s.getUrl = (modeId) ->
         langParam = "#lang=#{s.$root.lang}"
         if modeId is "default" and not window.short_url
@@ -168,17 +169,20 @@ korpApp.controller "headerCtrl", ($scope, $location, $modal, utils) ->
         s.show_modal = false
 
     #hack for buggy backdrop, remove when angular bootstrap fixes bug
-    $("body").on "click", ".modal-backdrop", () -> 
+    $("body").on "click", ".modal-backdrop", () ->
         scp = $(this).next().scope()
         scp.$apply () ->
             scp.$close()
 
     showModal = (key) ->
         tmpl = {about: 'markup/about.html', login: 'login_modal'}[key]
-        modal = $modal.open
+        params = 
             templateUrl : tmpl
             scope : s
             windowClass : key
+        if key == 'login'
+            params.size = 'sm'
+        modal = $uibModal.open params
 
         modal.result.then (() ->
             closeModals()
@@ -189,9 +193,9 @@ korpApp.controller "headerCtrl", ($scope, $location, $modal, utils) ->
         closeModals()
 
 
-    s.loginSubmit = (usr, pass) ->
+    s.loginSubmit = (usr, pass, saveLogin) ->
         s.login_err = false
-        authenticationProxy.makeRequest(usr, pass).done((data) ->
+        authenticationProxy.makeRequest(usr, pass, saveLogin).done((data) ->
             util.setLogin()
             safeApply s, () ->
                 s.show_modal = null
@@ -216,4 +220,3 @@ korpApp.controller "headerCtrl", ($scope, $location, $modal, utils) ->
 korpApp.filter "trust", ($sce) ->
     return (input) ->
         $sce.trustAsHtml input
-

@@ -1,5 +1,4 @@
 
-# window.searchProxy = new model.SearchProxy()
 window.authenticationProxy = new model.AuthenticationProxy()
 window.timeProxy = new model.TimeProxy()
 creds = $.jStorage.get("creds")
@@ -19,7 +18,6 @@ util.decompressActiveUrlHashParams()
 t = $.now()
 
 isDev = window.location.host is "localhost"
-# deferred_load = $.get("markup/searchbar.html")
 $.ajaxSetup
     dataType: "json"
     traditional: true
@@ -33,17 +31,18 @@ util.applyShortUrlConfig()
 deferred_domReady = $.Deferred((dfd) ->
     $ ->
         mode = $.deparam.querystring().mode
-        if mode? and mode isnt "default"
+        unless mode
+            mode = "default"
+        $.getScript("modes/common.js").done () ->
             $.getScript("modes/#{mode}_mode.js").done () ->
                 # If using a short URL, execute the corresponding
                 # function for mode-specific configuration
                 util.applyShortUrlConfig()
                 dfd.resolve()
-        else
-            dfd.resolve()
-                
-            
-
+            .error (jqxhr, settings, exception) ->
+                c.error "Mode file parsing error: ", exception
+        .error (jqxhr, settings, exception) ->
+            c.error "common.js parsing error: ", exception
     return dfd
 ).promise()
 
@@ -69,7 +68,7 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
 
     angular.bootstrap(document, ['korpApp'])
 
-    try 
+    try
         corpus = search()["corpus"]
         if corpus
             # Save the corpora in the URL to url_corpora, because the
@@ -81,13 +80,13 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
         view.updateSearchHistory()
     catch e
         c.warn "ERROR setting corpora from location:", e
-    
-    
+
+
     $("body").addClass "lab" if isLab
-    
+
     $("body").addClass "mode-" + currentMode
     util.browserWarn()
-    
+
 
     $("#logo").click ->
         window.location = window.location.protocol + "//" + window.location.host + window.location.pathname + location.search
@@ -114,20 +113,17 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
         sessionStorage.setItem("newSession", true)
         $.jStorage.deleteKey("creds")
         c.log "delete creds"
+
     creds = $.jStorage.get("creds")
     # for some reason this matches after login after browser start, but not later. --matthies 28.11.13
     if creds
         util.setLogin()
-    #     authenticationProxy.loginObj = creds
     c.log "creds", creds
 
     tab_a_selector = "ul .ui-tabs-anchor"
 
 
     $("#log_out").click ->
-        $.each authenticationProxy.loginObj.credentials, (i, item) ->
-            $(".boxdiv[data=#{item.toLowerCase()}]").addClass "disabled"
-
         authenticationProxy.loginObj = {}
         $.jStorage.deleteKey "creds"
         $("body").toggleClass "logged_in not_logged_in"
@@ -172,8 +168,6 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
             newLang = search().lang || settings.defaultLanguage
             $("body").scope().lang = newLang
             window.lang = newLang
-            # loc_dfd = util.initLocalize()
-            # loc_dfd.done ->
             util.localize()
 
             $("#languages").radioList "select", newLang
@@ -209,7 +203,7 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
         # Note that this code is called *after* successful login via Shibboleth. -- matthies 28.11.13
 
         # We don't have a username/password, so I just call it with dummy values:
-        authenticationProxy.makeRequest("dummyuser", "dummypass").done((data) ->
+        authenticationProxy.makeRequest("dummyuser", "dummypass", true).done((data) ->
             if $("body").hasClass("not_logged_in")
                 # for some reason the first login after browser start is caught further up (see my comment there)
                 # and with the user from the previous browser session(!)
@@ -243,8 +237,7 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
 
 
     )
-    $("#sidebar").sidebar() #.sidebar "hide"
-    # $("#simple_text")[0].focus()
+    $("#sidebar").sidebar()
     $(document).click ->
         $("#simple_text.ui-autocomplete-input").autocomplete "close"
 
@@ -257,7 +250,7 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
     # after the corpora are set after a login, to ensure that
     # initSearchOptions gets options from all the selected corpora.
     # How to ensure that? (Jyrki Niemi 2017-01-26)
-    setTimeout(() -> 
+    setTimeout(() ->
         view.initSearchOptions()
         onHashChange null, true
     , 0)
@@ -270,8 +263,6 @@ $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
         opacity: 1
     , ->
         $(this).css "opacity", ""
-
-    # initTimeGraph()
     return
 ), ->
     c.log "failed to load some resource at startup.", arguments
@@ -321,7 +312,8 @@ window.initTimeGraph = (def) ->
     all_timestruct = null
     restdata = null
     restyear = null
-    # time_comb = timeProxy.makeRequest(true)
+    hasRest = false
+
     onTimeGraphChange = () ->
 
     getValByDate = (date, struct) ->
@@ -337,8 +329,7 @@ window.initTimeGraph = (def) ->
         .fail (error) ->
             $("#time_graph").html("<i>Could not draw graph due to a backend error.</i>")
         .done ([dataByCorpus, all_timestruct, rest]) ->
-            c.log "write time"
-            # $.each data, (corpus, struct) ->
+
             for corpus, struct of dataByCorpus
                 if corpus isnt "time"
                     cor = settings.corpora[corpus.toLowerCase()]
@@ -360,24 +351,15 @@ window.initTimeGraph = (def) ->
                         cor.common_attributes ?= {}
                         cor.common_attributes.date_interval = true
 
-                        
-                    #     cor.struct_attributes.date_interval =
-                    #         label: "date_interval"
-                    #         displayType: "date_interval"
-                    #         opts: settings.liteOptions
-
-            # $("#corpusbox").trigger "corpuschooserchange", [settings.corpusListing.getSelectedCorpora()]
-            # onTimeGraphChange()
             safeApply $("body").scope(), (scope) ->
                 scope.$broadcast("corpuschooserchange", corpusChooserInstance.corpusChooser("selectedItems"));
                 def.resolve()
-            
+
 
             onTimeGraphChange = (evt, data) ->
                 # the 46 here is the presumed value of
                 # the height of the graph
                 one_px = max / 46
-                # c.log "one_px", one_px
 
                 normalize = (array) ->
                     _.map array, (item) ->
@@ -390,7 +372,7 @@ window.initTimeGraph = (def) ->
                     .filter(Boolean)
                     .map(_.pairs)
                     .flatten(true)
-                    .reduce((memo, [a, b]) -> 
+                    .reduce((memo, [a, b]) ->
                         if typeof memo[a] is "undefined"
                             memo[a] = b
                         else
@@ -406,8 +388,6 @@ window.initTimeGraph = (def) ->
 
 
                 timestruct = timeProxy.compilePlotArray(output)
-                # c.log "output", output
-                # c.log "timestruct", timestruct
                 endyear = all_timestruct.slice(-1)[0][0]
                 yeardiff = endyear - all_timestruct[0][0]
                 restyear = endyear + (yeardiff / 25)
@@ -417,6 +397,9 @@ window.initTimeGraph = (def) ->
                     ).reduce((accu, corp) ->
                         accu + parseInt(corp.non_time or "0")
                     , 0)
+
+                hasRest = yeardiff > 0
+
                 plots = [
                     data: normalize([].concat(all_timestruct, [[restyear, rest]]))
                     bars:
@@ -447,6 +430,7 @@ window.initTimeGraph = (def) ->
 
                     xaxis:
                         show: true
+                        tickDecimals: 0
 
                     hoverable: true
                     colors: ["lightgrey", "navy"]
@@ -458,10 +442,9 @@ window.initTimeGraph = (def) ->
 
             $("#time_graph,#rest_time_graph").bind "plothover", _.throttle((event, pos, item) ->
                 if item
-                    # c.log "hover", pos, item, item.datapoint
                     date = item.datapoint[0]
                     header = $("<h4>")
-                    if date is restyear
+                    if date is restyear && hasRest
                         header.text util.getLocaleString("corpselector_rest_time")
                         val = restdata
                         total = rest
@@ -469,6 +452,7 @@ window.initTimeGraph = (def) ->
                         header.text util.getLocaleString("corpselector_time") + " " + item.datapoint[0]
                         val = getValByDate(date, timestruct)
                         total = getValByDate(date, all_timestruct)
+
                     pTmpl = _.template("<p><span rel='localize[<%= loc %>]'></span>: <%= num %> <span rel='localize[corpselector_tokens]' </p>")
                     firstrow = pTmpl(
                         loc: "corpselector_time_chosen"
@@ -495,4 +479,3 @@ window.initTimeGraph = (def) ->
     $.when(timeDeferred, opendfd).then ->
         $("#corpusbox").bind "corpuschooserchange", onTimeGraphChange
         onTimeGraphChange()
-

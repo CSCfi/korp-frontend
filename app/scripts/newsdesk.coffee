@@ -51,9 +51,6 @@ angular.module('newsdesk', []).directive "newsDesk", ($window, $document, $rootE
                         for n_item in s.newsitems
                             if n_item.d > s.lastChecked
                                 n += 1
-                        # Avoid the Angular error "$apply already in progress"
-                        # by using safeApply instead of $apply, according to
-                        # Johan Roxendal's suggestion. (Jyrki Niemi 2015-04-27)
                         # s.$apply(() -> s.numNewNews = n)
                         safeApply s, (() -> s.numNewNews = n)
 
