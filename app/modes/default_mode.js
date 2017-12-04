@@ -142,8 +142,7 @@ settings.corporafolders.sks = {
 settings.corporafolders.literature = {
     title: "Kirjallisuutta",
     contents: ["gutenberg", "sks_kivi_fi", "skvr",
-		"parfin_2016_fi", "parrus_2016_fi",
-		"parfin_fi", "parrus_fi"]
+		"parfin_2016_fi", "parrus_2016_fi"]
 };
 
 settings.corporafolders.literature.skk = {
@@ -10910,6 +10909,8 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
 
 /* ParFin Finnish */
 
+/*
+// Deprecated version
 settings.corpora.parfin_fi = {
     id: "parfin_fi",
     title: "ParFin (suomi) [poistuva]",
@@ -10924,10 +10925,13 @@ settings.corpora.parfin_fi = {
 };
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.parfin, ["parfin_fi"]);
+*/
 
 
 /* ParRus Finnish */
 
+/*
+// Deprecated version
 settings.corpora.parrus_fi = {
     id: "parrus_fi",
     title: "ParRus (suomi) [poistuva]",
@@ -10940,6 +10944,7 @@ settings.corpora.parrus_fi = {
     struct_attributes: sattrlist.parrus_fi,
 };
 settings.fn.extend_corpus_settings(settings.corpusinfo.parrus, ["parrus_fi"]);
+*/
 
 
 /* ParFin 2016 Finnish */

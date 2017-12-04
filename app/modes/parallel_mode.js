@@ -604,9 +604,6 @@ settings.corporafolders.parfin_parrus = {
 	"parfin_2016_fi",
 	// "parrus_2016_fi",
 	"parrus_2016_ru",
-	"parfin_fi",
-	"parrus_fi",
-	"parrus_ru",
     ],
 };
 
@@ -7808,6 +7805,9 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parfin,
 
 /* ParFin (updated version) */
 
+/*
+// Deprecated version
+
 settings.corpora.parfin_fi = {
     id: "parfin_fi",
     lang: "fin",
@@ -7839,6 +7839,7 @@ settings.fn.extend_corpus_settings(
 );
 settings.fn.extend_corpus_settings(settings.corpusinfo.parfin,
 				   ["parfin_fi", "parfin_ru"]);
+*/
 
 
 /* ParRus */
@@ -7857,6 +7858,9 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parfin,
 //
 // Both parrus_fi and parrus_ru are shown in the corpus selector,
 // whereas the _fiN versions are not.
+
+/*
+// Deprecated version
 
 settings.corpora.parrus_fi = {
     id: "parrus_fi",
@@ -7924,6 +7928,7 @@ settings.fn.extend_corpus_settings(
 settings.fn.extend_corpus_settings(
     settings.corpusinfo.parrus,
     ["parrus_fi", "parrus_fi1", "parrus_fi2", "parrus_fi3", "parrus_ru"]);
+*/
 
 
 /* ParFin 2016 */

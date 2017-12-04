@@ -95,8 +95,6 @@ settings.corporafolders.russian = {
 	"mulcold_ru",
 	"parrus_2016_ru",
 	"parfin_2016_ru",
-	"parrus_ru",
-	"parfin_ru",
 	"ethesis_ru"
     ],
     // unselected: true
@@ -1023,6 +1021,8 @@ settings.corpora.ethesis_en_phd_valt = {
 
 /* ParRus ru */
 
+/*
+// Deprecated version
 settings.corpora.parrus_ru = {
     id: "parrus_ru",
     title: "ParRus (venäjä) [deprecated]",
@@ -1036,10 +1036,12 @@ settings.corpora.parrus_ru = {
     struct_attributes: sattrlist.parrus_ru,
 };
 settings.fn.extend_corpus_settings(settings.corpusinfo.parrus, ["parrus_ru"]);
-
+*/
 
 /* ParFin ru */
 
+/*
+// Deprecated version
 settings.corpora.parfin_ru = {
     id: "parfin_ru",
     title: "ParFin (venäjä) [deprecated]",
@@ -1052,7 +1054,7 @@ settings.corpora.parfin_ru = {
     struct_attributes: sattrlist.parfin_ru,
 };
 settings.fn.extend_corpus_settings(settings.corpusinfo.parfin, ["parfin_ru"]);
-
+*/
 
 /* ParRus 2016 ru */
 
