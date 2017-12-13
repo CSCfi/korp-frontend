@@ -1061,16 +1061,14 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
 
     if first_level
 
-        # Add all corpora which have not been added to a corpus
-        for val of settings.corpora
-            cont = false
-            for usedid of added_corpora_ids
-                if added_corpora_ids[usedid] is val or settings.corpora[val].hide
-                    cont = true
-            continue if cont
+        # Add all corpora which have not been added to a corpus and
+        # which are not hidden
+        non_added_corpora_ids = _.difference(_.keys(settings.corpora),
+                                             added_corpora_ids)
+        for val in non_added_corpora_ids
+            if not settings.corpora[val].hide
+                outHTML += "<li id='#{val}'>#{settings.corpora[val].title + format_licence_type(val)}</li>"
 
-            # Add it anyway:
-            outHTML += "<li id='#{val}'>#{settings.corpora[val].title + format_licence_type(val)}</li>"
     outHTML += "</ul>"
     outHTML
 

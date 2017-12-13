@@ -1072,7 +1072,7 @@
   added_corpora_ids = [];
 
   util.loadCorporaFolderRecursive = function(first_level, folder) {
-    var cont, folder_descr, format_licence_type, outHTML, usedid, val;
+    var folder_descr, format_licence_type, k, len1, non_added_corpora_ids, outHTML, val;
     format_licence_type = function(corpus_id) {
       var licence_type;
       licence_type = settings.corpora[corpus_id]["licence_type"];
@@ -1103,17 +1103,12 @@
       }
     }
     if (first_level) {
-      for (val in settings.corpora) {
-        cont = false;
-        for (usedid in added_corpora_ids) {
-          if (added_corpora_ids[usedid] === val || settings.corpora[val].hide) {
-            cont = true;
-          }
+      non_added_corpora_ids = _.difference(_.keys(settings.corpora), added_corpora_ids);
+      for (k = 0, len1 = non_added_corpora_ids.length; k < len1; k++) {
+        val = non_added_corpora_ids[k];
+        if (!settings.corpora[val].hide) {
+          outHTML += "<li id='" + val + "'>" + (settings.corpora[val].title + format_licence_type(val)) + "</li>";
         }
-        if (cont) {
-          continue;
-        }
-        outHTML += "<li id='" + val + "'>" + (settings.corpora[val].title + format_licence_type(val)) + "</li>";
       }
     }
     outHTML += "</ul>";
