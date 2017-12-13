@@ -497,7 +497,6 @@ settings.corporafolders.lehdet.muut_lehdet.k = {
 	"lehdet_kide",
 	"lehdet_kide_taidelehti",
 	"lehdet_kielipolku_dysfasia",
-	"lehdet_kiitotie",
 	"lehdet_kirjo",
 	"lehdet_kita",
 	"lehdet_koiviston_viesti",
