@@ -10,6 +10,7 @@
   window.CorpusListing = (function() {
     function CorpusListing(corpora) {
       if (corpora === settings.corpora) {
+        util.checkCorporafolderContents("settings.corporafolders");
         util.removeUnavailableCorpora(corpora);
         util.adjustPreselectedCorpora();
       }
@@ -2505,6 +2506,35 @@
       }
     }
     settings.preselected_corpora = adjusted;
+  };
+
+  util.checkCorporafolderContents = function(folder_path, corpora, folder, missing_func) {
+    var corpname, k, len1, prop, ref;
+    if (folder_path == null) {
+      folder_path = "settings.corporafolders";
+    }
+    if (corpora == null) {
+      corpora = settings.corpora;
+    }
+    if (folder == null) {
+      folder = settings.corporafolders;
+    }
+    if (missing_func == null) {
+      missing_func = c.error;
+    }
+    ref = folder.contents || [];
+    for (k = 0, len1 = ref.length; k < len1; k++) {
+      corpname = ref[k];
+      if (!(corpname in corpora)) {
+        missing_func((folder_path + ".contents refers to corpus " + corpname) + " with no configuration");
+      }
+    }
+    for (prop in folder) {
+      if (!hasProp.call(folder, prop)) continue;
+      if (!(prop in settings.corporafolder_properties)) {
+        util.checkCorporafolderContents(folder_path + "." + prop, corpora, folder[prop], missing_func);
+      }
+    }
   };
 
 }).call(this);

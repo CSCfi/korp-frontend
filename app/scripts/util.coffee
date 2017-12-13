@@ -4,6 +4,7 @@ window.util = {}
 class window.CorpusListing
     constructor: (corpora) ->
         if corpora == settings.corpora
+            util.checkCorporafolderContents "settings.corporafolders"
             util.removeUnavailableCorpora corpora
             util.adjustPreselectedCorpora()
         @struct = corpora
@@ -2677,4 +2678,29 @@ util.adjustPreselectedCorpora = () ->
         else
             check_item item, "corpus", (item) -> item of settings.corpora
     settings.preselected_corpora = adjusted
+    return
+
+
+# Check if the contents property of folder (default:
+# settings.corporafolders) or any of its subfolders (recursively)
+# refers to a corpus without a configuration in corpora (default:
+# settings.corpora). For each such unconfigured corpus, call
+# missing_func (default: console.error) with a message argument.
+# (Jyrki Niemi 2017-12-13)
+
+util.checkCorporafolderContents = (
+        folder_path = "settings.corporafolders",
+        corpora = settings.corpora,
+        folder = settings.corporafolders,
+        missing_func = c.error) ->
+    for corpname in (folder.contents or [])
+        if not (corpname of corpora)
+            missing_func(
+                "#{folder_path}.contents refers to corpus #{corpname}" +
+                " with no configuration")
+    for own prop of folder
+        if not (prop of settings.corporafolder_properties)
+            util.checkCorporafolderContents(
+                    "#{folder_path}.#{prop}", corpora, folder[prop],
+                    missing_func)
     return
