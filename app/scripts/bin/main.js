@@ -1,5 +1,5 @@
 (function() {
-  var creds, deferred_domReady, isDev, loc_dfd, t,
+  var avail_corpora_dfd, creds, deferred_domReady, isDev, loc_dfd, t,
     indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   window.authenticationProxy = new model.AuthenticationProxy();
@@ -37,6 +37,8 @@
 
   util.applyShortUrlConfig();
 
+  avail_corpora_dfd = util.initAvailableCorpora();
+
   deferred_domReady = $.Deferred(function(dfd) {
     $(function() {
       var mode;
@@ -44,15 +46,17 @@
       if (!mode) {
         mode = "default";
       }
-      return $.getScript("modes/common.js").done(function() {
-        return $.getScript("modes/" + mode + "_mode.js").done(function() {
-          util.applyShortUrlConfig();
-          return dfd.resolve();
+      return $.when(avail_corpora_dfd).then(function() {
+        return $.getScript("modes/common.js").done(function() {
+          return $.getScript("modes/" + mode + "_mode.js").done(function() {
+            util.applyShortUrlConfig();
+            return dfd.resolve();
+          }).error(function(jqxhr, settings, exception) {
+            return c.error("Mode file parsing error: ", exception);
+          });
         }).error(function(jqxhr, settings, exception) {
-          return c.error("Mode file parsing error: ", exception);
+          return c.error("common.js parsing error: ", exception);
         });
-      }).error(function(jqxhr, settings, exception) {
-        return c.error("common.js parsing error: ", exception);
       });
     });
     return dfd;
@@ -75,6 +79,7 @@
   $.when(loc_dfd, deferred_domReady).then((function(loc_data) {
     var corpus, e, error1, j, len, login_elem, prevFragment, ref, tab_a_selector, url_corpora;
     c.log("preloading done, t = ", $.now() - t);
+    c.log("available corpora:", window.availableCorpora);
     util.mapHashCorpusAliases();
     util.addDefaultTranslations();
     util.initCorpusSettingsLogicalCorpora();

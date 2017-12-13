@@ -9,6 +9,10 @@
 
   window.CorpusListing = (function() {
     function CorpusListing(corpora) {
+      if (corpora === settings.corpora) {
+        util.removeUnavailableCorpora(corpora);
+        util.adjustPreselectedCorpora();
+      }
       this.struct = corpora;
       this.corpora = _.values(corpora);
       this.selected = _.filter(this.corpora, function(corp) {
@@ -2363,6 +2367,144 @@
     return atob(str.replace(/-/g, "+").replace(/_/g, "/")).split('').map(function(c) {
       return c.charCodeAt(0);
     });
+  };
+
+  util.initAvailableCorpora = function() {
+    var def, defs;
+    defs = [];
+    window.availableCorpora = [];
+    def = $.Deferred();
+    defs.push($.ajax({
+      url: settings.cgi_script,
+      data: "command=info",
+      success: function(data) {
+        var corp;
+        return window.availableCorpora = (function() {
+          var k, len1, ref, results;
+          ref = data["corpora"];
+          results = [];
+          for (k = 0, len1 = ref.length; k < len1; k++) {
+            corp = ref[k];
+            results.push(corp.toLowerCase());
+          }
+          return results;
+        })();
+      }
+    }));
+    $.when.apply($, defs).then(function() {
+      return def.resolve(window.availableCorpora);
+    });
+    return def;
+  };
+
+  util.removeUnavailableCorpora = function(corpora) {
+    var handle_type, message, msg_funcs, remove_listed, removed_corpora;
+    handle_type = settings.handleUnavailableCorpora || "none";
+    if (handle_type !== "none" && handle_type !== "fatal") {
+      removed_corpora = util.filterListedCorpora(window.availableCorpora, remove_listed = false, corpora);
+    }
+    if (removed_corpora.length > 0) {
+      message = "Unavailable corpora removed from configuration: ";
+      msg_funcs = {
+        warn: c.warn,
+        error: c.error,
+        log: c.log
+      };
+      (msg_funcs[handle_type] || c.log)(message, removed_corpora);
+    }
+  };
+
+  util.removeEmptyCorporafolders = function(folder, corpora_settings) {
+    var corpname, empty, k, len1, new_contents, prop, ref;
+    if (corpora_settings == null) {
+      corpora_settings = settings.corpora;
+    }
+    empty = true;
+    if ("contents" in folder) {
+      new_contents = [];
+      ref = folder.contents;
+      for (k = 0, len1 = ref.length; k < len1; k++) {
+        corpname = ref[k];
+        if (corpname in corpora_settings) {
+          new_contents.push(corpname);
+        }
+      }
+      if (new_contents.length === 0) {
+        delete folder.contents;
+      } else {
+        folder.contents = new_contents;
+        empty = false;
+      }
+    }
+    for (prop in folder) {
+      if (!hasProp.call(folder, prop)) continue;
+      if (!(prop in settings.corporafolder_properties)) {
+        if (util.removeEmptyCorporafolders(folder[prop])) {
+          delete folder[prop];
+        } else {
+          empty = false;
+        }
+      }
+    }
+    return empty;
+  };
+
+  util.filterListedCorpora = function(filter_list, remove_listed, corpora_settings, folder_settings) {
+    var corpora_to_remove, corpus, k, len1;
+    if (remove_listed == null) {
+      remove_listed = false;
+    }
+    if (corpora_settings == null) {
+      corpora_settings = settings.corpora;
+    }
+    if (folder_settings == null) {
+      folder_settings = settings.corporafolders;
+    }
+    corpora_to_remove = util.filterListed(_.keys(corpora_settings), filter_list, remove_listed);
+    for (k = 0, len1 = corpora_to_remove.length; k < len1; k++) {
+      corpus = corpora_to_remove[k];
+      delete corpora_settings[corpus];
+    }
+    util.removeEmptyCorporafolders(folder_settings, corpora_settings);
+    return corpora_to_remove;
+  };
+
+  util.filterListed = function(base_list, filter_list, keep_listed) {
+    var operation;
+    if (keep_listed == null) {
+      keep_listed = true;
+    }
+    operation = keep_listed ? _.intersection : _.difference;
+    return operation(base_list, filter_list);
+  };
+
+  util.adjustPreselectedCorpora = function() {
+    var adjusted, check_item, folderExists, item, k, len1, ref;
+    folderExists = function(folder, subfolders) {
+      return folder && (subfolders.length === 0 || folderExists(folder[subfolders[0]], subfolders.slice(1)));
+    };
+    adjusted = [];
+    check_item = function(item, type, exists_func) {
+      if (exists_func(item)) {
+        return adjusted.push(item);
+      } else {
+        return c.log("Removed unavailable " + type + " " + item + " from settings.preselected_corpora");
+      }
+    };
+    ref = settings.preselected_corpora;
+    for (k = 0, len1 = ref.length; k < len1; k++) {
+      item = ref[k];
+      if (/^__/.test(item)) {
+        check_item(item, "corpus folder", function(folder_path) {
+          return folderExists(settings.corporafolders, folder_path.substring(2).split("."));
+        });
+      } else {
+        check_item(item, "corpus", function(item) {
+          return item in settings.corpora;
+        });
+      }
+    }
+    settings.preselected_corpora = adjusted;
   };
 
 }).call(this);

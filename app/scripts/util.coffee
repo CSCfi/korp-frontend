@@ -3,6 +3,9 @@ window.util = {}
 
 class window.CorpusListing
     constructor: (corpora) ->
+        if corpora == settings.corpora
+            util.removeUnavailableCorpora corpora
+            util.adjustPreselectedCorpora()
         @struct = corpora
         @corpora = _.values(corpora)
         @selected = _.filter @corpora, (corp) -> not corp.limited_access
@@ -2552,3 +2555,126 @@ util.b64DecodeBytesUrlSafe = (str) ->
     atob(str.replace(/-/g, "+").replace(/_/g, "/"))
     .split('')
     .map((c) -> c.charCodeAt(0))
+
+
+# Functions for modifying settings.corpora, settings.corporafolders
+# and related data based on actually available corpora. (Jyrki Niemi
+# 2017-12-13)
+
+
+# Initialize window.availableCorpora; return a $.Deferred object.
+
+util.initAvailableCorpora = () ->
+    # Modelled after window.initLocales; is that appropriate? (Jyrki
+    # Niemi)
+    defs = []
+    window.availableCorpora = []
+    def = $.Deferred()
+    defs.push $.ajax
+        url: settings.cgi_script
+        data: "command=info"
+        success: (data) ->
+            window.availableCorpora =
+                corp.toLowerCase() for corp in data["corpora"]
+    $.when.apply($, defs).then () ->
+        def.resolve window.availableCorpora
+    return def
+
+# Remove properties that do not correspond to any existing corpus from
+# the object corpora (of the kind of settings.corpora), unless
+# settings.handleUnavailableCorpora is "none" or "fatal". If some
+# properties were removed, report the removal on the console based on
+# the value of settings.handleUnavailableCorpora.
+
+util.removeUnavailableCorpora = (corpora) ->
+    handle_type = settings.handleUnavailableCorpora or "none"
+    if handle_type != "none" and handle_type != "fatal"
+        removed_corpora = util.filterListedCorpora(
+                window.availableCorpora, remove_listed = false, corpora)
+    if removed_corpora.length > 0
+        message = "Unavailable corpora removed from configuration: "
+        msg_funcs =
+            warn: c.warn
+            error: c.error
+            log: c.log
+        (msg_funcs[handle_type] or c.log)(message, removed_corpora)
+    return
+
+# Recursively remove the corpora folders in folder that contain no
+# corpora (or folders) that are in corpora_settings (default:
+# settings.corpora). Returns true if folder is empty.
+
+util.removeEmptyCorporafolders = (
+        folder, corpora_settings = settings.corpora) ->
+    empty = true
+    if "contents" of folder
+        new_contents = []
+        for corpname in folder.contents
+            if corpname of corpora_settings
+                new_contents.push corpname
+        if new_contents.length == 0
+            delete folder.contents
+        else
+            folder.contents = new_contents
+            empty = false
+    for own prop of folder
+        if not (prop of settings.corporafolder_properties)
+            if util.removeEmptyCorporafolders folder[prop]
+                delete folder[prop]
+            else
+                empty = false
+    return empty
+
+# Filter corpora_settings (default: settings.corpora) by corpus ids in
+# filter_list. By default, remove properties (corpora) whose names are
+# not in filter_list, but if remove_listed is true, remove corpora
+# whose names *are* in filter_list. After that, remove corpora folders
+# in folder_settings (default: settings.corporafolders) that would be
+# empty after removing the corpora.
+
+util.filterListedCorpora = (
+        filter_list, remove_listed = false,
+        corpora_settings = settings.corpora,
+        folder_settings = settings.corporafolders) ->
+    corpora_to_remove = util.filterListed(
+        _.keys(corpora_settings), filter_list, remove_listed)
+    for corpus in corpora_to_remove
+        delete corpora_settings[corpus]
+    util.removeEmptyCorporafolders folder_settings, corpora_settings
+    return corpora_to_remove
+
+# Return values in base_list that are also in filter_list, except if
+# keep_listed is false, in which case return values in base_list that
+# are not in filter_list.
+
+util.filterListed = (base_list, filter_list, keep_listed = true) ->
+    operation = if keep_listed then _.intersection else _.difference
+    return operation base_list, filter_list
+
+# Remove from settings.preselected_corpora corpora not in
+# settings.corpora and corpus folders not in settings.corporafolders.
+
+util.adjustPreselectedCorpora = () ->
+
+    folderExists = (folder, subfolders) ->
+        return (folder and
+                (subfolders.length == 0 or
+                 folderExists(folder[subfolders[0]], subfolders.slice(1))))
+
+    adjusted = []
+
+    check_item = (item, type, exists_func) ->
+        if exists_func item
+            adjusted.push item
+        else
+            c.log "Removed unavailable #{type} #{item} from settings.preselected_corpora"
+
+    for item in settings.preselected_corpora
+        if /^__/.test item
+            check_item item, "corpus folder", (folder_path) ->
+                folderExists(settings.corporafolders,
+                             folder_path.substring(2).split("."))
+        else
+            check_item item, "corpus", (item) -> item of settings.corpora
+    settings.preselected_corpora = adjusted
+    return

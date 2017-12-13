@@ -28,21 +28,27 @@ $.ajaxPrefilter "json", (options, orig, jqXHR) ->
 # If using a short URL, execute the corresponding function
 util.applyShortUrlConfig()
 
+avail_corpora_dfd = util.initAvailableCorpora()
+
 deferred_domReady = $.Deferred((dfd) ->
     $ ->
         mode = $.deparam.querystring().mode
         unless mode
             mode = "default"
-        $.getScript("modes/common.js").done () ->
-            $.getScript("modes/#{mode}_mode.js").done () ->
-                # If using a short URL, execute the corresponding
-                # function for mode-specific configuration
-                util.applyShortUrlConfig()
-                dfd.resolve()
+        # The mode files initialize settings.corpusListing, which
+        # requires window.availableCorpora initialized by
+        # avail_corpora_dfd. (Jyrki Niemi 2017-12-12)
+        $.when(avail_corpora_dfd).then () ->
+            $.getScript("modes/common.js").done () ->
+                $.getScript("modes/#{mode}_mode.js").done () ->
+                    # If using a short URL, execute the corresponding
+                    # function for mode-specific configuration
+                    util.applyShortUrlConfig()
+                    dfd.resolve()
+                .error (jqxhr, settings, exception) ->
+                    c.error "Mode file parsing error: ", exception
             .error (jqxhr, settings, exception) ->
-                c.error "Mode file parsing error: ", exception
-        .error (jqxhr, settings, exception) ->
-            c.error "common.js parsing error: ", exception
+                c.error "common.js parsing error: ", exception
     return dfd
 ).promise()
 
@@ -55,6 +61,8 @@ $(document).keyup (event) ->
 
 $.when(loc_dfd, deferred_domReady).then ((loc_data) ->
     c.log "preloading done, t = ", $.now() - t
+
+    c.log "available corpora:", window.availableCorpora
 
     # Map possible corpus id aliases to actual corpus ids in the URL hash
     # parameter "corpus". (Jyrki Niemi 2015-04-23)

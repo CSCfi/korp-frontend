@@ -47,6 +47,16 @@ settings.lemgramService = "FIN-CLARIN";
 // FIN-CLARIN lemgram service).
 settings.autocompleteLemgramCount = 15;
 
+// Specify how to handle corpora defined in the configuration but not
+// found by the backend. Supported values are:
+// - "none" or "fatal": no handling: an undefined corpus causes an
+//   error that stops loading Korp; the default if no value specified;
+// - "error": error on the console;
+// - "warn": warning on the console; and
+// - "log": normal log message on the console.
+// (Jyrki Niemi 2017-12-13)
+settings.handleUnavailableCorpora = "warn";
+
 settings.textDateAllowBareYears = true;
 
 // Encode list-valued parameters for korp.cgi by extracting common
