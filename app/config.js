@@ -550,6 +550,18 @@ settings.corporafolder_properties = {
 
 // Remove non-existing or irrelevant corpora (and folders) based on
 // the server from which the code is being run.
+//
+// NOTE: These functions have less use now that the corpus
+// configurations for unavailable corpora are removed by default
+// (util.removeUnavailableCorpora).
+//
+// settings.fn.remove_empty_corporafolders has been replaced by
+// util.removeEmptyCorporafolders, but there is not yet an exact
+// replacement for settings.fn.remove_matching_corpora that would
+// remove corpora based on regular expressions.
+//
+// TODO: Remove these functions from here when a replacement for
+// settings.fn.remove_matching_corpora has been implemented in util.
 
 
 // Recursively remove corpora folders in folder containing no corpora

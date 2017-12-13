@@ -414,10 +414,6 @@ settings.corpora.parole_sv = $.extend(true, {}, settings.templ.fstc, {
 });
 
 
-if (! isPublicServer) {
-    settings.fn.remove_matching_corpora(["mulcold_.*"], true);
-}
-
 
 settings.fn.add_attr_extra_properties(settings.corpora);
 

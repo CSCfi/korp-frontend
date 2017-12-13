@@ -3083,22 +3083,6 @@ settings.corpus_aliases["glowbe-2017h1"] = "glowbe_.*";
 
 
 
-var locally_available_corpora = ["(mulcold|legal)_..",
-				 "elfa",
-				 "kildin_sample",
-				 "sust_.*",
-				 "swahili_sample",
-				 "scots_.*",];
-
-if (! isPublicServer) {
-    settings.fn.remove_matching_corpora(locally_available_corpora, true);
-} else {
-    settings.fn.remove_matching_corpora(["test.*"]);
-}
-
-delete locally_available_corpora;
-
-
 settings.fn.add_attr_extra_properties(settings.corpora);
 
 

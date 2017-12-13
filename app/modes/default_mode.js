@@ -13932,34 +13932,6 @@ settings.corpora.iclfi = {
     }
 };
 
-// Corpora available locally on the development laptop
-var locally_available_corpora =
-    ["dma",
-     "ftb(2|3_.*)",
-     "reittidemo",
-     "klk_fi_18[234][0-9]",
-     "kotus_ns_presidentti_.*",
-     "kotus_klassikot",
-     "kotus_sananparret",
-     "lam_.*",
-     "(mulcold|legal)_..",
-     "s24",
-     "skvr",
-     "sks_kivi_fi",
-     "v[kn]s_.*",
-     "test.*"];
-
-// Remove all but the locally available corpora if running on the
-// development and all with names beginning with "test" from the
-// public servers.
-
-if (! isPublicServer) {
-    settings.fn.remove_matching_corpora(locally_available_corpora, true);
-} else {
-    settings.fn.remove_matching_corpora(["test.*"]);
-}
-
-delete locally_available_corpora;
 
 
 // Add the extra properties to corpora
