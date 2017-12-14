@@ -2537,6 +2537,20 @@
     }
   };
 
+  util.makeLogInfoItems = function() {
+    var items, search_tab_names;
+    items = [];
+    search_tab_names = {
+      "0": "simple",
+      "1": "ext",
+      "2": "adv",
+      "3": "comp"
+    };
+    items.push("lang=" + (search().lang || settings.defaultLanguage));
+    items.push("search=" + search_tab_names[search().search_tab || "0"]);
+    return items;
+  };
+
 }).call(this);
 
 //# sourceMappingURL=util.js.map

@@ -113,6 +113,24 @@ class BaseProxy
         stats: stats
         total_results: @total_results
 
+    # Add to the backend query parameters in data the parameter
+    # "loginfo", to be written to the backend log. The value is based
+    # on its existing value, the values returned by
+    # util.makeLogInfoItems and the values in argument loginfo (either
+    # a single string or an array of strings). This is done only if
+    # settings.addBackendLogInfo is true. (Jyrki Niemi 2017-12-14)
+    addLogInfo: (data, loginfo) ->
+        if settings.addBackendLogInfo
+            new_loginfo = [data.loginfo].concat util.makeLogInfoItems()
+            if _.isArray loginfo
+                new_loginfo = new_loginfo.concat loginfo
+            else
+                new_loginfo.push loginfo
+            new_loginfo = _.compact(new_loginfo).join(" ")
+            if new_loginfo
+                data.loginfo = new_loginfo
+        return data
+
 
 class model.KWICProxy extends BaseProxy
     constructor: ->
@@ -127,7 +145,7 @@ class model.KWICProxy extends BaseProxy
         i = $.inArray(@pendingRequests, xhr)
         @pendingRequests.pop i unless i is -1
 
-    makeRequest: (options, page, progressCallback, kwicCallback) ->
+    makeRequest: (options, page, progressCallback, kwicCallback, loginfo) ->
         c.log "kwicproxy.makeRequest", options, page, kwicResults.getPageInterval(Number(page))
         self = this
         @foundKwic = false
@@ -186,6 +204,7 @@ class model.KWICProxy extends BaseProxy
         settings.corpusListing.minimizeWithinQueryString data
         settings.corpusListing.minimizeContextQueryString data
         data.corpus = util.encodeListParam data.corpus
+        @addLogInfo data, loginfo
         @prevRequest = data
         @prevMisc = {"hitsPerPage" : $("#num_hits").val()}
         @prevParams = data
@@ -216,7 +235,7 @@ class model.LemgramProxy extends BaseProxy
         super()
         # @pendingRequest = abort: $.noop
 
-    makeRequest: (word, type, callback) ->
+    makeRequest: (word, type, callback, loginfo) ->
         super()
         self = this
         params =
@@ -228,6 +247,7 @@ class model.LemgramProxy extends BaseProxy
             cache : true
             max : 1000
             # max : settings.wordPictureMaxWords or 15
+        @addLogInfo params, loginfo
         @prevParams = params
         def =  $.ajax
             url: settings.cgi_script
@@ -445,7 +465,7 @@ class model.StatsProxy extends BaseProxy
         util.addPrequeryWithin parameters
         return parameters
 
-    makeRequest: (cqp, callback) ->
+    makeRequest: (cqp, callback, loginfo) ->
         self = this
         super()
         reduceval = search().stats_reduce or "word"
@@ -484,6 +504,7 @@ class model.StatsProxy extends BaseProxy
 
         settings.corpusListing.minimizeWithinQueryString data
         @prevNonExpandedCQP = cqp
+        @addLogInfo data, loginfo
         @prevParams = data
         def = $.Deferred()
         @pendingRequests.push $.ajax
@@ -665,7 +686,7 @@ class model.GraphProxy extends BaseProxy
             ["subcqp#{p}#{i}", cqp]
         return _.object array
 
-    makeRequest: (cqp, subcqps, corpora, from, to) ->
+    makeRequest: (cqp, subcqps, corpora, from, to, loginfo) ->
         super()
         self = this
         params =
@@ -684,6 +705,7 @@ class model.GraphProxy extends BaseProxy
         @addExpandedCQP params, cqp
         #TODO: fix this for struct attrs
         _.extend params, @expandSubCqps subcqps
+        @addLogInfo params, loginfo
         @prevParams = params
         def = $.Deferred()
 
@@ -721,7 +743,7 @@ class model.NameClassificationProxy extends BaseProxy
     constructor: ->
         super()
 
-    makeRequest: (cqp, within, callback) ->
+    makeRequest: (cqp, within, callback, loginfo) ->
         super()
         self = this
         groups = if settings.name_groups
@@ -739,6 +761,7 @@ class model.NameClassificationProxy extends BaseProxy
             incremental: $.support.ajaxProgress
             cache: true
         @addExpandedCQP params, cqp
+        @addLogInfo params, loginfo
         @prevParams = params
         def =  $.ajax
             url: settings.cgi_script

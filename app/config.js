@@ -64,6 +64,11 @@ settings.textDateAllowBareYears = true;
 // 2017-09-29)
 settings.encodeListParams = true;
 
+// Enable passing additional information (UI language, search mode) to
+// the backend for writing the backend log. If not defined, considered
+// false. (Jyrki Niemi 2017-12-14)
+settings.addBackendLogInfo = true;
+
 settings.downloadFormats = [
     "annot",
     "ref",

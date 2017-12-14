@@ -531,11 +531,12 @@ class view.ExampleResults extends view.KWICResults
         @showPreloader()
 
         progress = if opts.command == "query" then $.proxy(this.onProgress, this) else $.noop
-        def = @proxy.makeRequest opts, null, progress, (data) =>
+        def = @proxy.makeRequest opts, null, progress, ((data) =>
             @renderResult data, opts.cqp
             @renderCompleteResult data
             safeApply @s, () =>
-                @hidePreloader()
+                @hidePreloader()),
+            "ex_kwic"        # loginfo
 
         def.fail () ->
             safeApply @s, () =>

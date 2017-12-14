@@ -695,7 +695,7 @@
       });
       this.showPreloader();
       progress = opts.command === "query" ? $.proxy(this.onProgress, this) : $.noop;
-      def = this.proxy.makeRequest(opts, null, progress, (function(_this) {
+      def = this.proxy.makeRequest(opts, null, progress, ((function(_this) {
         return function(data) {
           _this.renderResult(data, opts.cqp);
           _this.renderCompleteResult(data);
@@ -703,7 +703,7 @@
             return _this.hidePreloader();
           });
         };
-      })(this));
+      })(this)), "ex_kwic");
       return def.fail(function() {
         return safeApply(this.s, (function(_this) {
           return function() {

@@ -142,6 +142,23 @@
       };
     };
 
+    BaseProxy.prototype.addLogInfo = function(data, loginfo) {
+      var new_loginfo;
+      if (settings.addBackendLogInfo) {
+        new_loginfo = [data.loginfo].concat(util.makeLogInfoItems());
+        if (_.isArray(loginfo)) {
+          new_loginfo = new_loginfo.concat(loginfo);
+        } else {
+          new_loginfo.push(loginfo);
+        }
+        new_loginfo = _.compact(new_loginfo).join(" ");
+        if (new_loginfo) {
+          data.loginfo = new_loginfo;
+        }
+      }
+      return data;
+    };
+
     return BaseProxy;
 
   })();
@@ -165,7 +182,7 @@
       }
     };
 
-    KWICProxy.prototype.makeRequest = function(options, page, progressCallback, kwicCallback) {
+    KWICProxy.prototype.makeRequest = function(options, page, progressCallback, kwicCallback, loginfo) {
       var corpus, data, def, j, key, len, o, ref, ref1, ref2, self, val;
       c.log("kwicproxy.makeRequest", options, page, kwicResults.getPageInterval(Number(page)));
       self = this;
@@ -232,6 +249,7 @@
       settings.corpusListing.minimizeWithinQueryString(data);
       settings.corpusListing.minimizeContextQueryString(data);
       data.corpus = util.encodeListParam(data.corpus);
+      this.addLogInfo(data, loginfo);
       this.prevRequest = data;
       this.prevMisc = {
         "hitsPerPage": $("#num_hits").val()
@@ -269,7 +287,7 @@
       LemgramProxy.__super__.constructor.call(this);
     }
 
-    LemgramProxy.prototype.makeRequest = function(word, type, callback) {
+    LemgramProxy.prototype.makeRequest = function(word, type, callback, loginfo) {
       var def, params, self;
       LemgramProxy.__super__.makeRequest.call(this);
       self = this;
@@ -282,6 +300,7 @@
         cache: true,
         max: 1000
       };
+      this.addLogInfo(params, loginfo);
       this.prevParams = params;
       def = $.ajax({
         url: settings.cgi_script,
@@ -520,7 +539,7 @@
       return parameters;
     };
 
-    StatsProxy.prototype.makeRequest = function(cqp, callback) {
+    StatsProxy.prototype.makeRequest = function(cqp, callback, loginfo) {
       var data, def, ignoreCase, insensitive, rankedReduceVals, reduceValLabels, reduceVals, reduceval, self;
       self = this;
       StatsProxy.__super__.makeRequest.call(this);
@@ -563,6 +582,7 @@
       }
       settings.corpusListing.minimizeWithinQueryString(data);
       this.prevNonExpandedCQP = cqp;
+      this.addLogInfo(data, loginfo);
       this.prevParams = data;
       def = $.Deferred();
       this.pendingRequests.push($.ajax({
@@ -804,7 +824,7 @@
       return _.object(array);
     };
 
-    GraphProxy.prototype.makeRequest = function(cqp, subcqps, corpora, from, to) {
+    GraphProxy.prototype.makeRequest = function(cqp, subcqps, corpora, from, to, loginfo) {
       var def, params, self;
       GraphProxy.__super__.makeRequest.call(this);
       self = this;
@@ -822,6 +842,7 @@
       }
       this.addExpandedCQP(params, cqp);
       _.extend(params, this.expandSubCqps(subcqps));
+      this.addLogInfo(params, loginfo);
       this.prevParams = params;
       def = $.Deferred();
       $.ajax({
@@ -866,7 +887,7 @@
       NameClassificationProxy.__super__.constructor.call(this);
     }
 
-    NameClassificationProxy.prototype.makeRequest = function(cqp, within, callback) {
+    NameClassificationProxy.prototype.makeRequest = function(cqp, within, callback, loginfo) {
       var def, group, groups, params, self;
       NameClassificationProxy.__super__.makeRequest.call(this);
       self = this;
@@ -891,6 +912,7 @@
         cache: true
       };
       this.addExpandedCQP(params, cqp);
+      this.addLogInfo(params, loginfo);
       this.prevParams = params;
       def = $.ajax({
         url: settings.cgi_script,

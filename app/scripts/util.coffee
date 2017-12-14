@@ -2704,3 +2704,20 @@ util.checkCorporafolderContents = (
                     "#{folder_path}.#{prop}", corpora, folder[prop],
                     missing_func)
     return
+
+
+# Make info items for the "loginfo" parameter passed to the backend.
+# This information describes the state of the Korp frontend, to be
+# written to the backend log: currently the interface language and
+# search mode. (Jyrki Niemi 2017-12-14)
+
+util.makeLogInfoItems = () ->
+    items = []
+    search_tab_names =
+        "0": "simple"
+        "1": "ext"
+        "2": "adv"
+        "3": "comp"
+    items.push("lang=" + (search().lang or settings.defaultLanguage))
+    items.push("search=" + search_tab_names[search().search_tab or "0"])
+    return items
