@@ -2371,7 +2371,12 @@
   };
 
   util.initAvailableCorpora = function() {
-    var def, defs;
+    var def, defs, handle_type;
+    handle_type = settings.handleUnavailableCorpora || "none";
+    if (handle_type === "none" || handle_type === "fatal") {
+      window.availableCorpora = null;
+      return null;
+    }
     defs = [];
     window.availableCorpora = [];
     def = $.Deferred();
@@ -2401,9 +2406,10 @@
   util.removeUnavailableCorpora = function(corpora) {
     var handle_type, message, msg_funcs, remove_listed, removed_corpora;
     handle_type = settings.handleUnavailableCorpora || "none";
-    if (handle_type !== "none" && handle_type !== "fatal") {
-      removed_corpora = util.filterListedCorpora(window.availableCorpora, remove_listed = false, corpora);
+    if (handle_type === "none" || handle_type === "fatal" || (window.availableCorpora == null)) {
+      return;
     }
+    removed_corpora = util.filterListedCorpora(window.availableCorpora, remove_listed = false, corpora);
     if (removed_corpora.length > 0) {
       message = "Unavailable corpora removed from configuration: ";
       msg_funcs = {

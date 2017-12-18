@@ -54,6 +54,10 @@ settings.autocompleteLemgramCount = 15;
 // - "error": error on the console;
 // - "warn": warning on the console; and
 // - "log": normal log message on the console.
+// Handling unavailable corpora results in a somewhat slower startup
+// of Korp, currently at most about half a second. One option would
+// be to enable it only for development environments, so that the
+// production environment would have a slightly faster startup.
 // (Jyrki Niemi 2017-12-13)
 settings.handleUnavailableCorpora = "warn";
 

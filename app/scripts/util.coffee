@@ -2566,6 +2566,10 @@ util.b64DecodeBytesUrlSafe = (str) ->
 # Initialize window.availableCorpora; return a $.Deferred object.
 
 util.initAvailableCorpora = () ->
+    handle_type = settings.handleUnavailableCorpora or "none"
+    if handle_type == "none" or handle_type == "fatal"
+        window.availableCorpora = null
+        return null
     # Modelled after window.initLocales; is that appropriate? (Jyrki
     # Niemi)
     defs = []
@@ -2589,9 +2593,11 @@ util.initAvailableCorpora = () ->
 
 util.removeUnavailableCorpora = (corpora) ->
     handle_type = settings.handleUnavailableCorpora or "none"
-    if handle_type != "none" and handle_type != "fatal"
-        removed_corpora = util.filterListedCorpora(
-                window.availableCorpora, remove_listed = false, corpora)
+    if handle_type == "none" or handle_type == "fatal" or
+            not window.availableCorpora?
+        return
+    removed_corpora = util.filterListedCorpora(
+            window.availableCorpora, remove_listed = false, corpora)
     if removed_corpora.length > 0
         message = "Unavailable corpora removed from configuration: "
         msg_funcs =

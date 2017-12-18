@@ -37,7 +37,10 @@ deferred_domReady = $.Deferred((dfd) ->
             mode = "default"
         # The mode files initialize settings.corpusListing, which
         # requires window.availableCorpora initialized by
-        # avail_corpora_dfd. (Jyrki Niemi 2017-12-12)
+        # avail_corpora_dfd. If settings.handleUnavailableCorpora is
+        # undefined, "none" or "fatal", avail_corpora_dfd is set null
+        # by util.initAvailableCorpora, so that the mode files are
+        # loaded immediately. (Jyrki Niemi 2017-12-12/18)
         $.when(avail_corpora_dfd).then () ->
             $.getScript("modes/common.js").done () ->
                 $.getScript("modes/#{mode}_mode.js").done () ->
