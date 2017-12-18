@@ -1810,6 +1810,9 @@
     ref = folder.contents || [];
     for (k = 0, len1 = ref.length; k < len1; k++) {
       corpus_id = ref[k];
+      if (!(corpus_id in settings.corpora)) {
+        continue;
+      }
       corpus = settings.corpora[corpus_id];
       corpus.logical_corpus = logical_corpus || settings.corpora[corpus_id];
     }

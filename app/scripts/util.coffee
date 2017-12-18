@@ -1890,6 +1890,8 @@ util.initCorpusSettingsLogicalCorpora = () ->
 util.setFolderLogicalCorpora = (folder, logical_corpus = null) ->
     c.log "setFolderLogicalCorpora", folder, logical_corpus?.title
     for corpus_id in folder.contents or []
+        if not (corpus_id of settings.corpora)
+            continue
         corpus = settings.corpora[corpus_id]
         corpus.logical_corpus = logical_corpus or settings.corpora[corpus_id]
         # c.log "logical corpus of", corpus_id, "is", corpus.logical_corpus?.title
