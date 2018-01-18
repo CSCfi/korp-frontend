@@ -996,6 +996,10 @@
     "sentence_part_deleted": "part of the sentence has been deleted",
     "original_url": "URL of original",
 
+    "work_title": "title",
+    "part_num": "part number",
+    "chapter_num": "chapter number",
+
     "iclfi_place": "collection place",
     "iclfi_year": "collection year",
     "iclfi_medium": "medium",

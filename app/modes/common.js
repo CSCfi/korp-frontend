@@ -1733,6 +1733,14 @@ sattrs.paragraph_type = {
     label: "paragraph_type"
 };
 
+sattrs.chapter_num = {
+    label: "chapter_num"
+};
+
+sattrs.part_num = {
+    label: "part_num"
+};
+
 // Text genre values specifically for Mikhail Mikhailov's (UTA)
 // corpora (MULCOLD, FiRuLex, ParFin, ParRus)
 sattrs.mikhailov_text_genre = {
@@ -1772,6 +1780,10 @@ sattrs.text_publ_place = {
 
 sattrs.filename = {
     label: "file_name"
+};
+
+sattrs.work_title = {
+    label: "work_title",
 };
 
 sattrs.year = {

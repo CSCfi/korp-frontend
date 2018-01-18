@@ -561,6 +561,10 @@
     "show_page_image_context": "Visa originalsida med ordkontext i fet stil",
     "download_publ_pdf": "Ladda ner publikationen som PDF",
 
+    "work_title": "titel",
+    "part_num": "delnummer",
+    "chapter_num": "kapitelnummer",
+
     "librisid": "Libris-ID",
 
     "edition": "utgåva",

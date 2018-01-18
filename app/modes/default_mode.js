@@ -163,6 +163,13 @@ leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"]
 
 settings.corporafolders.literature.ceal = {
     title: "CEAL",
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi<br/>Classics of English and American Literature in Finnish<br/><br/><strong>Huomaa</strong>, että korpukset CEAL-o ja CEAL-s sisältävät samat tekstit, mutta CEAL-s:ssä kappaleet on sekoitettu kunkin teoksen sisällä, kun taas CEAL-o:ssa kappaleet ovat alkuperäisessä järjestyksessä. Hakuja varten kannattaa valita vain toinen korpus. CEAL-o vaatii aina henkilökohtaisen käyttöluvan.",
+    info: {
+	metadata_urn: "urn:nbn:fi:lb-2016110901",
+	iprholder: {
+	    name: "Kersti Juva",
+	},
+    },
     contents: ["ceal_o", "ceal_s"]
 };
 
@@ -12946,47 +12953,87 @@ settings.corpora.topling_fi = {
     struct_attributes: sattrlist.topling
 };
 
+
+// CEAL
+
+sattrlist.ceal_common = {
+    text_title: {
+	label: "work_title",
+	displayType: "select",
+	localize: false,
+	opts: settings.liteOptions,
+	dataset: [
+	    "Ylpeys ja ennakkoluulo",
+	    "Kolea talo",
+	    "Washingtonin aukio",
+	],
+    },
+    text_year: sattrs.year,
+    text_author: {
+	label: "author",
+	displayType: "select",
+	localize: false,
+	opts: settings.liteOptions,
+	dataset: [
+	    "Jane Austen",
+	    "Charles Dickens",
+	    "Henry James",
+	],
+    },
+    text_translator: {
+	label: "text_translator",
+	// All the works in CEAL have been translated by Kersti Juva,
+	// so having the translator as a search criterion would make
+	// little sense. How about statistics and comparison?
+	hideExtended: true,
+	// hideStatistics: true,
+	// hideCompare: true,
+    },
+};
+
+var ceal_work_list = "Korpus sisältää seuraavat Kersti Juvan kääntämät teokset:<ul><li>Jane Austen: Ylpeys ja ennakkoluulo (Teos 2013) (Pride and Prejudice)</li><li>Charles Dickens: Kolea talo (Otava 2003) (Bleak House)</li><li>Henry James: Washingtonin aukio (Tammi 2006) (Washington Square)</li>";
+
 settings.corpora.ceal_o = {
     title: "CEAL-o",
-    description: "Classics of English and American Literature in Finnish (original)",
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi, kappaleet alkuperäisessä järjestyksessä<br/>CEAL-o: Classics of English and American Literature in Finnish, paragraphs in the original order<br/><br/>" + ceal_work_list,
     id: "ceal_o",
+    urn: "urn:nbn:fi:lb-2018011201",
+    metadata_urn: "urn:nbn:fi:lb-2017011302",
+    licence: {
+	name: "CLARIN RES +NC 1.0",
+	urn: "urn:nbn:fi:lb-2017011306",
+    },
+    cite_id: "ceal-o",
     limited_access: true,
     licence_type: "RES",
-    metadata_urn: "urn:nbn:fi:lb-2017011302",
-    cite_id: "ceal-o",
-    within: settings.defaultWithin,
-    context: settings.defaultContext,
-    attributes: {},
-    struct_attributes: {
-        text_title: sattrs.text_title,
-        text_year: sattrs.date,
-        text_author: {
-            label: "text_author"
-        },
-        text_translator: sattrs.text_translator
-    }
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: $.extend(
+	{}, sattrlist.ceal_common,
+	{
+	    part_num: sattrs.part_num,
+	    chapter_num: sattrs.chapter_num,
+	}),
 };
 
 settings.corpora.ceal_s = {
     title: "CEAL-s",
-    description: "Classics of English and American Literature in Finnish (scrambled)",
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi, sekoitetut kappaleet<br/>CEAL-s: Classics of English and American Literature in Finnish, scrambled paragraphs<br/><br/>" + ceal_work_list,
     id: "ceal_s",
-    within: settings.defaultWithin,
-    context: settings.defaultContext,
+    urn: "urn:nbn:fi:lb-2018011202",
     metadata_urn: "urn:nbn:fi:lb-2017011303",
+    licence: {
+	name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
+	urn: "urn:nbn:fi:lb-2017011308",
+    },
     cite_id: "ceal-s",
     limited_access: true,
     licence_type: "ACA",
-    attributes: {},
-    struct_attributes: {
-        text_title: sattrs.text_title,
-        text_year: sattrs.date,
-        text_author: {
-            label: "text_author"
-        },
-        text_translator: sattrs.text_translator
-    }
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: sattrlist.ceal_common,
 };
+
+delete ceal_work_list;
+
 
 settings.corpora.arkisyn = {
     title: "Arkisyn",
