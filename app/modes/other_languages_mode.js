@@ -1762,8 +1762,15 @@ attrs.scotscorr_word = {
     // list of words with checkboxes from which the user can select.
     // This has been copied and modified from the code for the the
     // Swedish msd attribute.
+    // TODO: Parametrize the default template in the directive
+    // "tokenValue" so that possibly changes to it would be reflected
+    // here automatically. The additional features here could be
+    // simply parameter values
     extended_template: '<input class="arg_value arg_value_wordselector"' +
-	' ng-model="model" placeholder=\'<{{"any" | loc:lang}}>\'>' +
+	' ng-model="input"' +
+	' ng-model-options=\'{debounce : {default : 300, blur : 0}, updateOn: "default blur"}\'' +
+	' ng-change="inputChange()" escaper' +
+	' placeholder=\'<{{"any" | loc:lang}}>\'>' +
 	'<span ng-click="onIconClick()" class="fa fa-list list-link-icon"' +
 	' title="{{\'scotscorr_open_wordlist\' | loc:lang}}"></span>' +
 	'<a href="http://www.dsl.ac.uk/" target="_blank"' +
@@ -1939,18 +1946,18 @@ attrs.scotscorr_word = {
 	// Set the selected property of words based on the current
 	// input value
 	s.setSelected = function () {
-	    s.model_prev = s.model;
+	    s.input_prev = s.input;
 	    var op = s.$parent.orObj.op;
 	    var select_fn = null;
-	    if (s.model == "" || op == "!=" || op == "!*=") {
+	    if (s.input == "" || op == "!=" || op == "!*=") {
 		// Nothing selected for the empty word nor the negated
 		// operations
 		s.selected_words = [];
 		select_fn = function (word) { return false; };
 	    } else if (op == "=") {
 		// Select only the word literally
-		s.selected_words = [s.model];
-		select_fn = function (word) { return word == s.model };
+		s.selected_words = [s.input];
+		select_fn = function (word) { return word == s.input };
 	    } else {
 		// Construct a regular expression for testing if a
 		// word matches the condition. This assumes that the
@@ -1959,16 +1966,16 @@ attrs.scotscorr_word = {
 		var word_re = "";
 		if (op == "*=") {
 		    // Regular expression
-		    word_re = "^(" + s.model + ")$";
+		    word_re = "^(" + s.input + ")$";
 		} else if (op == "^=") {
 		    // Starts with
-		    word_re = "^(" + window.regescape(s.model) + ")";
+		    word_re = "^(" + window.regescape(s.input) + ")";
 		} else if (op == "&=") {
 		    // Ends with
-		    word_re = "(" + window.regescape(s.model) + ")$";
+		    word_re = "(" + window.regescape(s.input) + ")$";
 		} else if (op == "_=") {
 		    // Contains
-		    word_re = window.regescape(s.model)
+		    word_re = window.regescape(s.input)
 		}
 		// c.log("matching", word_re);
 		word_re = RegExp(word_re);
@@ -2042,22 +2049,27 @@ attrs.scotscorr_word = {
 	s.done = function (event) {
 	    modal.close();
 	    if (s.selected_words.length > 1) {
-		s.model = (
+		s.input = (
 		    _.map(s.selected_words, window.regescape)
 			.join("|"));
 		// Force regular expression
 		s.$parent.orObj.op = "*=";
 	    } else {
-		s.model = (s.selected_words.length == 1
+		s.input = (s.selected_words.length == 1
 			   ? s.selected_words[0]
 			   : "");
 		// For a single word, use "=" unless the word is the
 		// same as before
-		if (s.model != s.model_prev) {
+		if (s.input != s.input_prev) {
 		    s.$parent.orObj.op = "=";
 		}
 	    }
-	    c.log("scotscorr_word model", s.model);
+	    // s.inputChange() (from escaper) seems to be needed to
+	    // update the input value to the model; specifying it in
+	    // the ng-change attribute of the template appears not to
+	    // suffice.
+	    s.inputChange();
+	    c.log("scotscorr_word input", s.input);
 	};
 	// Clear the selected words
 	s.clearSelected = function (event) {
