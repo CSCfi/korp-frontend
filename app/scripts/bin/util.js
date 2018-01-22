@@ -531,6 +531,7 @@
       var attrs, sentAttrs, words;
       words = this.getWordGroup(false);
       attrs = this.getWordAttributeGroups(lang, 'union');
+      this.adjustWordAttributeGroup(words, attrs);
       sentAttrs = this.getStructAttributeGroups(lang, 'union');
       return words.concat(attrs, sentAttrs);
     };
@@ -540,12 +541,26 @@
       words = this.getWordGroup(true);
       wordOp = settings.reduce_word_attribute_selector || "union";
       attrs = this.getWordAttributeGroups(lang, wordOp);
+      this.adjustWordAttributeGroup(words, attrs);
       structOp = settings.reduce_struct_attribute_selector || "union";
       sentAttrs = this.getStructAttributeGroups(lang, structOp);
       sentAttrs = _.filter(sentAttrs, function(attr) {
         return attr.displayType !== "date_interval";
       });
       return words.concat(attrs, sentAttrs);
+    };
+
+    CorpusListing.prototype.adjustWordAttributeGroup = function(words, attrs) {
+      var word_attr, word_attr_num;
+      word_attr_num = _.findIndex(attrs, function(obj) {
+        return obj.value === "word";
+      });
+      if (word_attr_num !== -1) {
+        word_attr = attrs[word_attr_num];
+        word_attr.group = "word";
+        words[0] = word_attr;
+        attrs.splice(word_attr_num, 1);
+      }
     };
 
     return CorpusListing;

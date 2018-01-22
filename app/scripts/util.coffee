@@ -464,6 +464,7 @@ class window.CorpusListing
     getAttributeGroups : (lang) ->
         words = @getWordGroup false
         attrs = @getWordAttributeGroups lang, 'union'
+        @adjustWordAttributeGroup words, attrs
         sentAttrs = @getStructAttributeGroups lang, 'union'
         return words.concat attrs, sentAttrs
 
@@ -472,6 +473,7 @@ class window.CorpusListing
 
         wordOp = settings.reduce_word_attribute_selector or "union"
         attrs = @getWordAttributeGroups lang, wordOp
+        @adjustWordAttributeGroup words, attrs
 
         structOp = settings.reduce_struct_attribute_selector or "union"
         sentAttrs = @getStructAttributeGroups lang, structOp
@@ -480,6 +482,22 @@ class window.CorpusListing
         sentAttrs = _.filter sentAttrs, (attr) -> attr.displayType isnt "date_interval"
 
         return words.concat attrs, sentAttrs
+
+    # If the positional (word) attributes contain "word" (typically,
+    # to add special features to searching word forms), replace with
+    # it the "word" attribute in the group "word" and remove it from
+    # the word attribute group, so that "word" is not duplicated in
+    # the word attribute group. (Jyrki Niemi 2018-01-22)
+    adjustWordAttributeGroup : (words, attrs) ->
+        word_attr_num = _.findIndex(attrs, (obj) -> obj.value == "word")
+        if word_attr_num != -1
+            # c.log "adjustWordAttributeGroup", words, attrs, word_attr_num
+            word_attr = attrs[word_attr_num]
+            word_attr.group = "word"
+            words[0] = word_attr
+            attrs.splice(word_attr_num, 1)
+            # c.log "=>", words, attrs
+        return
 
 
 class window.ParallelCorpusListing extends CorpusListing
