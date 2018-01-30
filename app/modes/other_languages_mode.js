@@ -2615,12 +2615,15 @@ attrlist.byu = {
 	displayType: "select",
 	translationKey: "pos_",
 	opts: settings.setOptions,
-	// PoS tags from http://ucrel.lancs.ac.uk/claws7tags.html
+	// PoS tags from http://ucrel.lancs.ac.uk/claws7tags.html,
+	// with some additions of BYU.
 	dataset: {
 	    "appge": "byu_appge",
+	    "a": "byu_a",       // Not in CLAWS7
 	    "at": "byu_at",
 	    "at1": "byu_at1",
 	    "bcl": "byu_bcl",
+	    "c": "byu_c",       // Not in CLAWS7
 	    "cc": "byu_cc",
 	    "ccb": "byu_ccb",
 	    "cs": "byu_cs",
@@ -2628,6 +2631,7 @@ attrlist.byu = {
 	    "csn": "byu_csn",
 	    "cst": "byu_cst",
 	    "csw": "byu_csw",
+	    "d": "byu_d",       // Not in CLAWS7
 	    "da": "byu_da",
 	    "da1": "byu_da1",
 	    "da2": "byu_da2",
@@ -2642,18 +2646,25 @@ attrlist.byu = {
 	    "ddqge": "byu_ddqge",
 	    "ddqv": "byu_ddqv",
 	    "ex": "byu_ex",
+	    "f": "byu_f",       // Not in CLAWS7
 	    "fo": "byu_fo",
 	    "fu": "byu_fu",
 	    "fw": "byu_fw",
 	    "ge": "byu_ge",
+	    "i": "byu_i",       // Not in CLAWS7
 	    "if": "byu_if",
 	    "ii": "byu_ii",
 	    "io": "byu_io",
 	    "iw": "byu_iw",
+	    "j": "byu_j",       // Not in CLAWS7
 	    "jj": "byu_jj",
 	    "jjr": "byu_jjr",
 	    "jjt": "byu_jjt",
 	    "jk": "byu_jk",
+	    "m": "byu_m",       // Not in CLAWS7
+	    "m#": "byu_m#",     // Not in CLAWS7
+	    "m\$": "byu_m$",     // Not in CLAWS7
+	    "m#": "byu_m1",     // Not in CLAWS7
 	    "mc": "byu_mc",
 	    "mc1": "byu_mc1",
 	    "mc2": "byu_mc2",
@@ -2661,6 +2672,7 @@ attrlist.byu = {
 	    "mcmc": "byu_mcmc",
 	    "md": "byu_md",
 	    "mf": "byu_mf",
+	    "n": "byu_n",       // Not in CLAWS7
 	    "nd1": "byu_nd1",
 	    "nn": "byu_nn",
 	    "nn1": "byu_nn1",
@@ -2683,6 +2695,9 @@ attrlist.byu = {
 	    "npd2": "byu_npd2",
 	    "npm1": "byu_npm1",
 	    "npm2": "byu_npm2",
+	    "npx": "byu_npx",   // Not in CLAWS7
+	    "null": "byu_null", // Not in CLAWS7
+	    "p": "byu_p",       // Not in CLAWS7
 	    "pn": "byu_pn",
 	    "pn1": "byu_pn1",
 	    "pnqo": "byu_pnqo",
@@ -2720,6 +2735,7 @@ attrlist.byu = {
 	    "rt": "byu_rt",
 	    "to": "byu_to",
 	    "uh": "byu_uh",
+	    "v": "byu_v",       // Not in CLAWS7
 	    "vb0": "byu_vb0",
 	    "vbdr": "byu_vbdr",
 	    "vbdz": "byu_vbdz",
@@ -2729,6 +2745,7 @@ attrlist.byu = {
 	    "vbn": "byu_vbn",
 	    "vbr": "byu_vbr",
 	    "vbz": "byu_vbz",
+	    "vd": "byu_vd",     // Not in CLAWS7
 	    "vd0": "byu_vd0",
 	    "vdd": "byu_vdd",
 	    "vdg": "byu_vdg",
@@ -2751,12 +2768,19 @@ attrlist.byu = {
 	    "vvn": "byu_vvn",
 	    "vvnk": "byu_vvnk",
 	    "vvz": "byu_vvz",
+	    "x": "byu_x",       // Not in CLAWS7
 	    "xx": "byu_xx",
-	    "y": "Punct",
+	    "xxy": "byu_xxy",   // Not in CLAWS7
+	    "y": "Punct",   // Not in CLAWS7
+	    "[-!\\\"(),.:;?]|\\\"@|\\.\\.\\.": "byu_y0",  // Not in CLAWS7
+	    "z": "byu_z",       // Not in CLAWS7
+	    "z'": "byu_z'",     // Not in CLAWS7
 	    "zz1": "byu_zz1",
 	    "zz2": "byu_zz2",
-	    "GAP": "byu_GAP",
-	    "UNKNOWN": "Unknown",
+	    "zzc": "byu_zzc",   // Not in CLAWS7
+	    "zzq": "byu_zzq",   // Not in CLAWS7
+	    "GAP": "byu_GAP",   // Not in CLAWS7
+	    "UNKNOWN": "Unknown",   // Not in CLAWS7
 	},
     },
     posorig: {
