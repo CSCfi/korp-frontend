@@ -44,6 +44,14 @@ statisticsFormatting.getCqp = function(types, hitValue, ignoreCase) {
 // input type [{type:?,value:? }]
 statisticsFormatting.reduceCqp = function(type, tokens, ignoreCase, isPosAttr) {
 
+    // Make a CQP expression testing for "value" in attribute "type"
+    // that may have either simple or feature-set values (depending on
+    // corpus).
+    function make_opt_featset_cond(type, value) {
+	return $.format('%s="%s" | %s contains "%s"',
+			[type, value, type, value]);
+    }
+
     if(!tokens) {
         return "";
     }
@@ -96,6 +104,24 @@ statisticsFormatting.reduceCqp = function(type, tokens, ignoreCase, isPosAttr) {
                 s = s + ' %c'
             return s
         case "pos":
+        case "pos_major":
+            var escaped_val = regescape(tokens[0]);
+            if (window.currentMode != "other_languages") {
+                return $.format('%s="%s"', [type, escaped_val]);
+            } else {
+                // Currently, the BYU corpora have feature-set values
+                // for pos and pos_major, whereas the others have
+                // single values, so test for both, even if it is
+                // slower. FIXME: To avoid special-casing by mode and
+                // attribute here, we might precompute attributes
+                // which have feature-set or simple values (or either)
+                // based on the currently selected corpora, but where
+                // should that be done and how could we access the
+                // information here? The information should be updated
+                // whenever the set of selected corpora changes.
+                // (Jyrki Niemi 2018-01-31)
+                return make_opt_featset_cond(type, escaped_val);
+            }
         case "deprel":
         case "msd":
             return $.format('%s="%s"', [type, regescape(tokens[0])]);
