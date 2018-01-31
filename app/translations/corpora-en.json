@@ -57,6 +57,11 @@
     "pos_orig": "part-of-speech (original)",
     "func": "function",
 
+    "ambiguous_msd": "morphosyntactic features (ambiguous)",
+
+    "major_pos": "part of speech (major)",
+    "detailed_pos": "part of speech (detailed)",
+
     "url": "url",
     "referensnummer": "reference number",
 
@@ -456,6 +461,23 @@
     "pos_byu_zzc": "transcript metainformation @(...)",
     "pos_byu_zzq": "transcript metainformation @!...",
     "pos_byu_GAP": "deleted",
+
+    "pos_ADJ": "adjective",
+    "pos_ADP": "adposition",
+    "pos_ADV": "adverb",
+    "pos_CCONJ": "coordinating conjunction",
+    "pos_DET": "determiner",
+    "pos_INTJ": "interjection",
+    "pos_NOUN": "noun",
+    "pos_NUM": "numeral",
+    "pos_PART": "particle",
+    "pos_PRON": "pronoun",
+    "pos_PROPN": "proper noun",
+    "pos_PUNCT": "punctuation mark",
+    "pos_SCONJ": "subordinating conjunction",
+    "pos_SYM": "symbol",
+    "pos_VERB": "verb",
+    "pos_X": "other",
 
     "deprelftb2_advl": "adverbial",
     "deprelftb2_attr": "attribute",

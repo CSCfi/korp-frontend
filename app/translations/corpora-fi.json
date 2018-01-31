@@ -39,6 +39,9 @@
     "ambiguous_pos": "monitulkintainen sanaluokka",
     "ambiguous_msd": "monitulkintainen morfologinen analyysi",
 
+    "major_pos": "sanaluokka (karkea)",
+    "detailed_pos": "sanaluokka (yksityiskohtainen)",
+
     "year_from": "alkaen vuodesta",
     "year_to": "päättyen vuoteen",
 
@@ -423,6 +426,23 @@
     "pos_CompPart": "yhdyssanan osa",
     "pos_NounNoun": "substantiivi/substantiivi",
     "pos_Prep": "prepositio",
+
+    "pos_ADJ": "adjektiivi",
+    "pos_ADP": "adpositio",
+    "pos_ADV": "adverbi",
+    "pos_CCONJ": "rinnastuskonjunktio",
+    "pos_DET": "determineri",
+    "pos_INTJ": "interjektio",
+    "pos_NOUN": "substantiivi",
+    "pos_NUM": "numeraali",
+    "pos_PART": "partikkeli",
+    "pos_PRON": "pronomini",
+    "pos_PROPN": "erisnimi",
+    "pos_PUNCT": "välimerkki",
+    "pos_SCONJ": "alistuskonjunktio",
+    "pos_SYM": "symboli",
+    "pos_VERB": "verbi",
+    "pos_X": "muu",
 
     "deprelftb2_advl": "adverbiaali",
     "deprelftb2_attr": "attribuutti",

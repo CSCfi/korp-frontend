@@ -2608,13 +2608,41 @@ settings.corpora.besercorp = {
 // Common definitions
 
 attrlist.byu = {
-    lemma: attrs.baseform,
-    pos: {
-	label: "pos",
+    lemma: $.extend({}, attrs.baseform, { order: 50 }),
+    pos_major: {
+	label: "major_pos",
 	type: "set",
 	displayType: "select",
 	translationKey: "pos_",
 	opts: settings.setOptions,
+	order: 49,
+	// TODO: Map the UD2 PoS codes below to existing PoS keys
+	dataset: {
+	    "ADJ": "ADJ",
+	    "ADP": "ADP",
+	    "ADV": "ADV",
+	    "CCONJ": "CCONJ",
+	    "DET": "DET",
+	    "INTJ": "INTJ",
+	    "NOUN": "NOUN",
+	    "NUM": "NUM",
+	    "PART": "PART",
+	    "PRON": "PRON",
+	    "PROPN": "PROPN",
+	    "PUNCT": "PUNCT",
+	    "SCONJ": "SCONJ",
+	    "SYM": "SYM",
+	    "VERB": "VERB",
+	    "X": "X",
+	},
+    },
+    pos: {
+	label: "detailed_pos",
+	type: "set",
+	displayType: "select",
+	translationKey: "pos_",
+	opts: settings.setOptions,
+	order: 48,
 	// PoS tags from http://ucrel.lancs.ac.uk/claws7tags.html,
 	// with some additions of BYU.
 	dataset: {
@@ -2785,6 +2813,14 @@ attrlist.byu = {
     },
     posorig: {
 	label: "pos_orig",
+	order: 47,
+    },
+    msd_ambig: {
+	label: "ambiguous_msd",
+	order: 46,
+	transform: function(val) {
+	    return val.replace(/(.)\|(.)/g, "$1\n|$2");
+	},
     },
     lex: attrs.lemgram_hidden,
     // // This does not seem to work without a valued attribute.
