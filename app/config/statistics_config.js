@@ -7,20 +7,13 @@ var statisticsFormatting = {}
 // statistics_config.js is loaded before config.js and util.js. Maybe
 // we could compute it on the first invocation of isPosAttr and save
 // the value. (Jyrki Niemi 2017-10-27)
-statisticsFormatting.posAttrNamesWithUnderscore = [
-    "clean_note",
-    "other_note",
-    "sketchy_note",
-    "word_completed",
-    "word_note",
-    "word_tilde",
-];
+statisticsFormatting.posAttrNamesWithUnderscore =
+    /^((word|lemma|pos|msd|dephead|deprel|ref)_.*|(clean|other|sketchy)_note)$/;
 
 // Test if attrname is a positional attribute.
 statisticsFormatting.isPosAttr = function (attrname) {
     return (attrname.indexOf("_") == -1
-	    || (statisticsFormatting.posAttrNamesWithUnderscore
-		.indexOf(attrname) != -1));
+	    || attrname.match(statisticsFormatting.posAttrNamesWithUnderscore));
 };
 
 statisticsFormatting.getCqp = function(types, hitValue, ignoreCase) {
