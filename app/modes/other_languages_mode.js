@@ -10,6 +10,10 @@ $("#lemgram_list_item").remove();
 $("#results-lemgram").remove();
 
 
+// Proper nouns for BYU and HCS2 annotations.
+settings.placenameConstraint = "pos contains 'np1?' | pos='PROPNAME'";
+
+
 settings.preselected_corpora = ["mulcold_en"];
 
 
