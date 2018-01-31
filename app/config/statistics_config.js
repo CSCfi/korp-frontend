@@ -89,15 +89,17 @@ statisticsFormatting.reduceCqp = function(type, tokens, ignoreCase, isPosAttr) {
                 else {
                     res = regescape(tokens[0]);
                 }
-                // Assume simple values (instead of feature set
+                // Assume simple values (instead of feature-set
                 // values) for lemmas in other modes than "swedish"
-                // and thus use the operator = instead of contains.
-                // FIXME: This does not work for the MULCOLD corpus.
-                // (Jyrki Niemi 2015-12-04)
-                var comp_op = (type == "lemma"
-                               && window.currentMode != "swedish"
-                               ? " = " : " contains ");
-                return type + comp_op + "'" + res + "'";
+                // and thus use the operator = instead of contains. In
+                // the Swedish mode, MULCOLD uses simple values
+                // whereas the others use feature-set values, so allow
+                // both. (Jyrki Niemi 2015-12-04, 2018-01-31)
+                if (type == "lemma" && window.currentMode == "swedish") {
+                    return make_opt_featset_cond(type, res);
+                } else {
+                    return $.format('%s="%s"', [type, res]);
+                }
         case "word":
             s = 'word="'+ regescape(tokens[0]) + '"';
             if(ignoreCase)
@@ -128,6 +130,8 @@ statisticsFormatting.reduceCqp = function(type, tokens, ignoreCase, isPosAttr) {
         default: // structural and "non-standard" positional attributes
             // Prefix the name of the attribute with an underscore
             // only for structural attributes (Jyrki Niemi 2015-12-04)
+            // FIXME: This does not work for attributes with
+            // feature-set values.
             return $.format((isPosAttr ? '' : '_.') + '%s="%s"',
 			    [type, regescape(tokens[0])]);
     }
