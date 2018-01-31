@@ -98,7 +98,7 @@ statisticsFormatting.reduceCqp = function(type, tokens, ignoreCase, isPosAttr) {
         case "pos":
         case "deprel":
         case "msd":
-            return $.format('%s="%s"', [type, tokens[0]]);
+            return $.format('%s="%s"', [type, regescape(tokens[0])]);
         default: // structural and "non-standard" positional attributes
             // Prefix the name of the attribute with an underscore
             // only for structural attributes (Jyrki Niemi 2015-12-04)
