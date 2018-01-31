@@ -341,10 +341,12 @@ settings.wordPictureConf = {
 // The positional attribute in which to find place names, typically
 // word or lemma
 settings.placenameAttr = "lemma";
-// Additional CQP attribute constraints for place names:
-// different annotations for a proper name in different corpora
-settings.placenameConstraint =
-    "pos='PM' | pos='NNP' | pos='NNPS' | msd='.*(SUBCAT_)?(Prop|PROP).*' | pos='n:prop'";
+// Additional CQP attribute constraints for place names: different
+// annotations for a proper name in different corpora. The value below
+// is the one used by Språkbanken's Korp for Swedish (and other?)
+// corpora, so it should be overridden in the configuration of
+// individual modes as appropriate.
+settings.placenameConstraint = "pos='PM' | pos='NNP' | pos='NNPS'";;
 
 // Initial map centre: latitude, longitude and zoom level
 settings.mapCenter = {

@@ -49,6 +49,12 @@ var modernAttrs2 = _.extend({}, modernAttrs, {
 });
 delete modernAttrs2.saldo;
 
+
+// Proper nouns for TDT, FTB and LA annotations.
+settings.placenameConstraint =
+    "msd='.*\b(SUBCAT_)?(Prop|PROP)\b.*' | pos='n:prop'";
+
+
 settings.corpora = {};
 settings.corporafolders = {};
 
