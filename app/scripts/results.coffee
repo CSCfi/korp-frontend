@@ -44,13 +44,52 @@ class BaseResults
         c.error "json fetch error: ", data
         @hidePreloader()
         @resetView()
+        detail = ""
+        if settings.resultErrorDetails
+            detail = @makeResultErrorDetails data
         $('<object class="korp_fail" type="image/svg+xml" data="img/korp_fail.svg">')
             .append("<img class='korp_fail' src='img/korp_fail.svg'>")
             .add($("<div class='fail_text' />")
             .localeKey("fail_text"))
             .addClass("inline_block")
             .prependTo(@$result)
+            .append(detail)
             .wrapAll "<div class='error_msg'>"
+
+    makeResultErrorDetails: (data) ->
+        if not data
+            return ""
+        detailed_msg = data.ERROR?.value
+        if detailed_msg?
+            # Remove the end of CQP syntax error messages, which
+            # is not relevant to the user
+            detailed_msg = detailed_msg.replace(/ <-- Synchronizing.*/, "")
+            # Remove enclosing single quotation marks
+            detailed_msg = detailed_msg.replace(/^'(.*)'$/, "$1")
+            return $("<div class='fail_detail'>" + detailed_msg + "</div>")
+        else
+            report_msg = $("<span />").localeKey("fail_please_report")
+            if data?.message
+                return $("<div class='fail_detail' />")
+                        .append($("<span />").localeKey("fail_invalid_json"))
+                        .append(": " + data.message)
+                        .append("<br /><br />")
+                        .append(report_msg)
+            else
+                locale_key = ""
+                if data.match(/Request-URI Too Large/i)
+                    locale_key = "fail_too_many_corpora"
+                else if data.match(/Internal Server Error/i)
+                    locale_key = "fail_internal_error"
+                localized_msg = ""
+                if locale_key
+                    localized_msg = $("<span />").localeKey(locale_key)
+                result = $("<div class='fail_detail' />")
+                result.append(localized_msg)
+                if locale_key != "fail_too_many_corpora"
+                    result.append(".<br /><br />").append(report_msg)
+                result.append("<br /><br />Server error message: " + data)
+                return result
 
     showPreloader : () ->
         @s.$parent.loading = true
@@ -386,12 +425,14 @@ class view.KWICResults extends BaseResults
         req.fail (jqXHR, status, errorThrown) =>
             c.log "kwic fail"
             if @ignoreAbort
-                c.log "stats ignoreabort"
+                c.log "kwic ignoreabort"
                 return
             if status == "abort"
                 safeApply @s, () =>
                     @hidePreloader()
                     @s.aborted = true
+            else
+                @resultError errorThrown
 
 
 
@@ -538,9 +579,13 @@ class view.ExampleResults extends view.KWICResults
                 @hidePreloader()),
             "ex_kwic"        # loginfo
 
-        def.fail () ->
+        def.fail (jqXHR, status, errorThrown) ->
             safeApply @s, () =>
                 @hidePreloader()
+                if status == "abort"
+                    @s.aborted = true
+                else
+                    @resultError errorThrown
 
 
 
@@ -591,6 +636,8 @@ class view.LemgramResults extends BaseResults
                 safeApply @s, () =>
                     @hidePreloader()
                     @s.$parent.aborted = true
+            else
+                @resultError errorThrown
 
 
     renderResult: (data, query) ->
@@ -2054,6 +2101,8 @@ class view.NameClassificationResults extends BaseResults
                     @hidePreloader()
                     c.log "aborted true", @s
                     @s.$parent.aborted = true
+            else
+                @resultError errorThrown
 
     renderResult: (data, cqp, within) ->
         c.log "name renderResult", data, cqp, within

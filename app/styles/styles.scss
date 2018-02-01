@@ -1798,6 +1798,11 @@ label[for=lemgram_select]:before {
   font-size: 1.3em;
 }
 
+.fail_detail {
+  font-size: 0.8em;
+  margin-top: 1em;
+}
+
 .error_msg ~ * {
   display: none !important;
 }

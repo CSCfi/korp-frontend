@@ -60,10 +60,51 @@
     };
 
     BaseResults.prototype.resultError = function(data) {
+      var detail;
       c.error("json fetch error: ", data);
       this.hidePreloader();
       this.resetView();
-      return $('<object class="korp_fail" type="image/svg+xml" data="img/korp_fail.svg">').append("<img class='korp_fail' src='img/korp_fail.svg'>").add($("<div class='fail_text' />").localeKey("fail_text")).addClass("inline_block").prependTo(this.$result).wrapAll("<div class='error_msg'>");
+      detail = "";
+      if (settings.resultErrorDetails) {
+        detail = this.makeResultErrorDetails(data);
+      }
+      return $('<object class="korp_fail" type="image/svg+xml" data="img/korp_fail.svg">').append("<img class='korp_fail' src='img/korp_fail.svg'>").add($("<div class='fail_text' />").localeKey("fail_text")).addClass("inline_block").prependTo(this.$result).append(detail).wrapAll("<div class='error_msg'>");
+    };
+
+    BaseResults.prototype.makeResultErrorDetails = function(data) {
+      var detailed_msg, locale_key, localized_msg, ref, report_msg, result;
+      if (!data) {
+        return "";
+      }
+      detailed_msg = (ref = data.ERROR) != null ? ref.value : void 0;
+      if (detailed_msg != null) {
+        detailed_msg = detailed_msg.replace(/ <-- Synchronizing.*/, "");
+        detailed_msg = detailed_msg.replace(/^'(.*)'$/, "$1");
+        return $("<div class='fail_detail'>" + detailed_msg + "</div>");
+      } else {
+        report_msg = $("<span />").localeKey("fail_please_report");
+        if (data != null ? data.message : void 0) {
+          return $("<div class='fail_detail' />").append($("<span />").localeKey("fail_invalid_json")).append(": " + data.message).append("<br /><br />").append(report_msg);
+        } else {
+          locale_key = "";
+          if (data.match(/Request-URI Too Large/i)) {
+            locale_key = "fail_too_many_corpora";
+          } else if (data.match(/Internal Server Error/i)) {
+            locale_key = "fail_internal_error";
+          }
+          localized_msg = "";
+          if (locale_key) {
+            localized_msg = $("<span />").localeKey(locale_key);
+          }
+          result = $("<div class='fail_detail' />");
+          result.append(localized_msg);
+          if (locale_key !== "fail_too_many_corpora") {
+            result.append(".<br /><br />").append(report_msg);
+          }
+          result.append("<br /><br />Server error message: " + data);
+          return result;
+        }
+      }
     };
 
     BaseResults.prototype.showPreloader = function() {
@@ -507,7 +548,7 @@
         return function(jqXHR, status, errorThrown) {
           c.log("kwic fail");
           if (_this.ignoreAbort) {
-            c.log("stats ignoreabort");
+            c.log("kwic ignoreabort");
             return;
           }
           if (status === "abort") {
@@ -515,6 +556,8 @@
               _this.hidePreloader();
               return _this.s.aborted = true;
             });
+          } else {
+            return _this.resultError(errorThrown);
           }
         };
       })(this));
@@ -704,10 +747,15 @@
           });
         };
       })(this)), "ex_kwic");
-      return def.fail(function() {
+      return def.fail(function(jqXHR, status, errorThrown) {
         return safeApply(this.s, (function(_this) {
           return function() {
-            return _this.hidePreloader();
+            _this.hidePreloader();
+            if (status === "abort") {
+              return _this.s.aborted = true;
+            } else {
+              return _this.resultError(errorThrown);
+            }
           };
         })(this));
       });
@@ -785,6 +833,8 @@
               _this.hidePreloader();
               return _this.s.$parent.aborted = true;
             });
+          } else {
+            return _this.resultError(errorThrown);
           }
         };
       })(this));
@@ -2334,6 +2384,8 @@
               c.log("aborted true", _this.s);
               return _this.s.$parent.aborted = true;
             });
+          } else {
+            return _this.resultError(errorThrown);
           }
         };
       })(this));

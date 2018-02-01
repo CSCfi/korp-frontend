@@ -61,6 +61,10 @@ settings.autocompleteLemgramCount = 15;
 // (Jyrki Niemi 2017-12-13)
 settings.handleUnavailableCorpora = "warn";
 
+// If true, give a more detailed result error message in addition to
+// "An error occurred". (Jyrki Niemi 2018-01-29)
+settings.resultErrorDetails = true;
+
 settings.textDateAllowBareYears = true;
 
 // Encode list-valued parameters for korp.cgi by extracting common
