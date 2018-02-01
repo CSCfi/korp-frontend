@@ -176,7 +176,7 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             if settings.wordpicture != false and s.word_pic and " " not in search.val
                 lemgramResults.makeRequest(search.val, "word")
             else
-                lemgramResults.resetView()
+                lemgramResults?.resetView()
 
         else if search.type == "lemgram"
             s.placeholder = search.val

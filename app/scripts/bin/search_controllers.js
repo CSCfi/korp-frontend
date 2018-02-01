@@ -174,7 +174,7 @@
           if (settings.wordpicture !== false && s.word_pic && indexOf.call(search.val, " ") < 0) {
             return lemgramResults.makeRequest(search.val, "word");
           } else {
-            return lemgramResults.resetView();
+            return typeof lemgramResults !== "undefined" && lemgramResults !== null ? lemgramResults.resetView() : void 0;
           }
         } else if (search.type === "lemgram") {
           s.placeholder = search.val;
