@@ -2535,10 +2535,11 @@ util.decompressActiveUrlHashParams = () ->
     return
 
 # Compress str (with pako zlib), encode it in URI-safe Base64 and
-# return it as a string.
+# return it as a string. Parameter opts is passed to
+# util.b64EncodeBytesUrlSafe.
 
-util.compressBase64 = (str) ->
-    util.b64EncodeBytesUrlSafe(pako.deflate(str))
+util.compressBase64 = (str, opts) ->
+    util.b64EncodeBytesUrlSafe(pako.deflate(str), opts)
 
 # Decode URI-safe Base64-encoded string str, decompress it and return
 # as a string.
@@ -2557,18 +2558,24 @@ util.splitUrlOnHash = (href = null) ->
     return [fixed, params]
 
 # Base64-encode the byte array bytes and return the encoded string.
-# This is somewhat simpler than operating with strings (see
+# Strip padding unless opts.keep_padding is true.
+#
+# This approach is somewhat simpler than operating with strings (see
 # https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#The_Unicode_Problem)
 # but is it faster?
 
-util.b64EncodeBytesUrlSafe = (bytes) ->
+util.b64EncodeBytesUrlSafe = (bytes, opts) ->
     # Array.prototype.slice.call is needed to convert a Uint8Array to
     # a plain Array, so that map also returns a plain Array (from
     # https://stackoverflow.com/a/12760681).
-    btoa(Array.prototype.slice.call(bytes)
-         .map((b) -> String.fromCharCode(b))
-         .join(""))
-    .replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
+    result = (btoa(Array.prototype.slice.call(bytes)
+                   .map((b) -> String.fromCharCode(b))
+                   .join(""))
+              .replace(/\+/g, "-").replace(/\//g, "_"))
+    if not opts?.keep_padding
+        result.replace(/=/g, "")
+    else
+        result
 
 # Base64-decode the string str and return the result as a byte array.
 
@@ -2576,6 +2583,45 @@ util.b64DecodeBytesUrlSafe = (str) ->
     atob(str.replace(/-/g, "+").replace(/_/g, "/"))
     .split('')
     .map((c) -> c.charCodeAt(0))
+
+
+# Compress the backend query parameters in data (by default excluding
+# "command") to a single parameter "params_z" containing the
+# parameters as a zlib-compressed Base64-encoded URI-encoded string.
+# Return an object containing params_z and (by default) command.
+# Parameters are compressed only if settings.compressBackendParams is
+# true and if the length of the parameter "corpus" (or "set1_corpus"
+# and "set2_corpus" together) exceeds a limit; otherwise the parameter
+# data is returned as is. Options in opts override
+# settings.compressBackendParamsOpts. (Jyrki Niemi 2018-02-02)
+
+util.compressQueryParams = (data, opts) ->
+    if not settings.compressBackendParams or
+            not (data.corpus? or data.set1_corpus?)
+        return data
+    opts = $.extend({}, settings.compressBackendParamsOpts, opts)
+    # Only the length of the corpus parameter is tested, since testing
+    # the length of the whole parameter list would require calling
+    # $.param (or similar) anyway, which this avoids for shorter
+    # parameter lists.
+    min_length = opts.corpus_min_length or 2000
+    if ((data.corpus or "").length + (data.set1_corpus or "").length +
+            (data.set2_corpus or "").length) < min_length
+        return data
+    params = $.param(data)
+    if data.command? and not opts.compressed_command
+        # Keep the "command" parameter uncompressed so that it is
+        # easier to see which URL corresponds to what command in the
+        # browser's developer tools. The whole result is (typically)
+        # only two bytes longer than when also compressing "command".
+        base_params = command: data.command
+        params = params.replace(/command=.+?(&|$)/, "")
+    else
+        base_params = {}
+    return $.extend(
+            base_params,
+            # Python's Base64-decoding in the backend requires padding
+            params_z: util.compressBase64(params, keep_padding: true))
 
 
 # Functions for modifying settings.corpora, settings.corporafolders

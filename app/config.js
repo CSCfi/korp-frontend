@@ -72,6 +72,21 @@ settings.textDateAllowBareYears = true;
 // 2017-09-29)
 settings.encodeListParams = true;
 
+// Compress query parameters to the backend to a single params_gz
+// parameter. If not defined, considered false. (Jyrki Niemi
+// 2018-02-02)
+settings.compressBackendParams = true;
+// Options for compressing backend query parameters
+settings.compressBackendParamsOpts = {
+    // The minimum length of the corpus parameter for which the whole
+    // parameter list is compressed (default: 2000)
+    corpus_min_length: 2000,
+    // Also compress the parameter "command", which is by default left
+    // outside params_gz for slightly easier frontend debugging
+    // (default: false)
+    compressed_command: false,
+};
+
 // Enable passing additional information (UI language, search mode) to
 // the backend for writing the backend log. If not defined, considered
 // false. (Jyrki Niemi 2017-12-14)

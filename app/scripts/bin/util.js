@@ -2352,8 +2352,8 @@
     }
   };
 
-  util.compressBase64 = function(str) {
-    return util.b64EncodeBytesUrlSafe(pako.deflate(str));
+  util.compressBase64 = function(str, opts) {
+    return util.b64EncodeBytesUrlSafe(pako.deflate(str), opts);
   };
 
   util.decompressBase64 = function(str) {
@@ -2376,15 +2376,47 @@
     return [fixed, params];
   };
 
-  util.b64EncodeBytesUrlSafe = function(bytes) {
-    return btoa(Array.prototype.slice.call(bytes).map(function(b) {
+  util.b64EncodeBytesUrlSafe = function(bytes, opts) {
+    var result;
+    result = btoa(Array.prototype.slice.call(bytes).map(function(b) {
       return String.fromCharCode(b);
-    }).join("")).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
+    }).join("")).replace(/\+/g, "-").replace(/\//g, "_");
+    if (!(opts != null ? opts.keep_padding : void 0)) {
+      return result.replace(/=/g, "");
+    } else {
+      return result;
+    }
   };
 
   util.b64DecodeBytesUrlSafe = function(str) {
     return atob(str.replace(/-/g, "+").replace(/_/g, "/")).split('').map(function(c) {
       return c.charCodeAt(0);
+    });
+  };
+
+  util.compressQueryParams = function(data, opts) {
+    var base_params, min_length, params;
+    if (!settings.compressBackendParams || !((data.corpus != null) || (data.set1_corpus != null))) {
+      return data;
+    }
+    opts = $.extend({}, settings.compressBackendParamsOpts, opts);
+    min_length = opts.corpus_min_length || 2000;
+    if (((data.corpus || "").length + (data.set1_corpus || "").length + (data.set2_corpus || "").length) < min_length) {
+      return data;
+    }
+    params = $.param(data);
+    if ((data.command != null) && !opts.compressed_command) {
+      base_params = {
+        command: data.command
+      };
+      params = params.replace(/command=.+?(&|$)/, "");
+    } else {
+      base_params = {};
+    }
+    return $.extend(base_params, {
+      params_z: util.compressBase64(params, {
+        keep_padding: true
+      })
     });
   };
 

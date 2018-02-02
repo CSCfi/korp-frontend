@@ -210,7 +210,7 @@ class model.KWICProxy extends BaseProxy
         @prevParams = data
         def = $.ajax(
             url: settings.cgi_script
-            data: data
+            data: util.compressQueryParams data
             beforeSend: (req, settings) ->
                 self.prevRequest = settings
                 self.addAuthorizationHeader req
@@ -251,7 +251,7 @@ class model.LemgramProxy extends BaseProxy
         @prevParams = params
         def =  $.ajax
             url: settings.cgi_script
-            data: params
+            data: util.compressQueryParams params
             # beforeSend: (jqXHR, settings) ->
             #   c.log "before relations send", settings
             #   # self.prevRequest = settings
@@ -509,7 +509,7 @@ class model.StatsProxy extends BaseProxy
         def = $.Deferred()
         @pendingRequests.push $.ajax
             url: settings.cgi_script
-            data: data
+            data: util.compressQueryParams data
             beforeSend: (req, settings) ->
                 self.prevRequest = settings
                 self.addAuthorizationHeader req
@@ -713,7 +713,7 @@ class model.GraphProxy extends BaseProxy
             url: settings.cgi_script
             # url : "data.json"
             dataType : "json"
-            data : params
+            data : util.compressQueryParams params
 
             beforeSend: (req, settings) =>
                 @prevRequest = settings
@@ -765,7 +765,7 @@ class model.NameClassificationProxy extends BaseProxy
         @prevParams = params
         def =  $.ajax
             url: settings.cgi_script
-            data: params
+            data: util.compressQueryParams params
             # beforeSend: (jqXHR, settings) ->
             #   c.log "before relations send", settings
             #   # self.prevRequest = settings

@@ -103,7 +103,7 @@ korpApp.factory 'backend', ($http, $q, utils, lexicons) ->
 
         conf =
             url : settings.cgi_script
-            params : params
+            params : util.compressQueryParams params
             method : "GET"
             headers : {}
 
@@ -190,7 +190,7 @@ korpApp.factory 'backend', ($http, $q, utils, lexicons) ->
 
         conf =
             url : settings.cgi_script
-            params : params
+            params : util.compressQueryParams params
             method : "GET"
             headers : {}
 

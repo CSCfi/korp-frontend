@@ -257,7 +257,7 @@
       this.prevParams = data;
       def = $.ajax({
         url: settings.cgi_script,
-        data: data,
+        data: util.compressQueryParams(data),
         beforeSend: function(req, settings) {
           self.prevRequest = settings;
           self.addAuthorizationHeader(req);
@@ -304,7 +304,7 @@
       this.prevParams = params;
       def = $.ajax({
         url: settings.cgi_script,
-        data: params,
+        data: util.compressQueryParams(params),
         success: function(data) {
           c.log("relations success", data);
           return self.prevRequest = params;
@@ -587,7 +587,7 @@
       def = $.Deferred();
       this.pendingRequests.push($.ajax({
         url: settings.cgi_script,
-        data: data,
+        data: util.compressQueryParams(data),
         beforeSend: function(req, settings) {
           self.prevRequest = settings;
           self.addAuthorizationHeader(req);
@@ -848,7 +848,7 @@
       $.ajax({
         url: settings.cgi_script,
         dataType: "json",
-        data: params,
+        data: util.compressQueryParams(params),
         beforeSend: (function(_this) {
           return function(req, settings) {
             _this.prevRequest = settings;
@@ -916,7 +916,7 @@
       this.prevParams = params;
       def = $.ajax({
         url: settings.cgi_script,
-        data: params,
+        data: util.compressQueryParams(params),
         success: function(data) {
           c.log("names success", data);
           return self.prevRequest = params;

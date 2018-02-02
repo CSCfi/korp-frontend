@@ -148,7 +148,7 @@
         };
         conf = {
           url: settings.cgi_script,
-          params: params,
+          params: util.compressQueryParams(params),
           method: "GET",
           headers: {}
         };
@@ -234,7 +234,7 @@
         _.extend(params, cqpSubExprs);
         conf = {
           url: settings.cgi_script,
-          params: params,
+          params: util.compressQueryParams(params),
           method: "GET",
           headers: {}
         };
