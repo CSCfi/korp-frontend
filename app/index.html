@@ -322,7 +322,7 @@
                 </uib-tab>
                 <uib-tab ng-if="_settings.wordpicture != false" wordpic-ctrl select="instance.onentry()" deselect="instance.onexit()">
                   <uib-tab-heading ng-class="{not_loading: progress &gt; 99, loading : loading, single: loading &amp;&amp; instance.countCorpora() &lt; 2 }">{{'word_picture' | loc:lang}}
-                    <tab-preloader ng-if="loading" value="progress" spinner="instance.countCorpora() &lt; 2"></tab-preloader>
+                    <tab-preloader ng-if="word_pic &amp;&amp; loading" value="progress" spinner="instance.countCorpora() &lt; 2"></tab-preloader>
                   </uib-tab-heading>
                   <div>
                     <div class="wordpic_disabled" ng-if="!word_pic">{{'word_pic_warn' | loc:lang}}
@@ -370,7 +370,7 @@
                 </uib-tab>
                 <uib-tab ng-show="enableMap" map-ctrl>
                   <uib-tab-heading ng-class="{not_loading: progress &gt; 99, loading : loading, single: loading &amp;&amp; countCorpora() &lt; 2 }">{{'map' | loc:lang }}
-                    <tab-preloader ng-if="loading" value="progress" spinner="countCorpora() &lt; 2"></tab-preloader>
+                    <tab-preloader ng-if="showMap &amp;&amp; loading" value="progress" spinner="countCorpora() &lt; 2"></tab-preloader>
                   </uib-tab-heading>
                   <div>
                     <div id="mapTab">

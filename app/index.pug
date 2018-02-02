@@ -151,13 +151,13 @@ html
                     deselect="instance.onexit()")
                   uib-tab-heading(ng-class="{not_loading: progress > 99, loading : loading, single: loading && instance.countCorpora() < 2 }")
                     | {{'word_picture' | loc:lang}}
-                    tab-preloader(ng-if="loading", value="progress", spinner="instance.countCorpora() < 2")
+                    tab-preloader(ng-if="word_pic && loading", value="progress", spinner="instance.countCorpora() < 2")
                   div()
                     include includes/word_picture
                 uib-tab(ng-show="enableMap" map-ctrl)
                   uib-tab-heading(ng-class="{not_loading: progress > 99, loading : loading, single: loading && countCorpora() < 2 }")
                     | {{'map' | loc:lang }}
-                    tab-preloader(ng-if="loading", value="progress", spinner="countCorpora() < 2")
+                    tab-preloader(ng-if="showMap && loading", value="progress", spinner="countCorpora() < 2")
                   div()
                     include includes/mapresult
                 //- Copied and modified from the word picture tab
