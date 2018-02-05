@@ -889,27 +889,17 @@ util.downloadKwic = (format_params, query_url, result_data) ->
     c.log "downloadKwic", format_params, query_url, result_data
     # If some of the required parameters are null, return without
     # downloading.
-    if ! (query_url? and result_data? and
-            result_data.corpus_order? and result_data.kwic?)
+    if not (query_url? and result_data? and result_data.kwic?)
         c.log "downloadKwic failed"
         return
 
-    if result_data.hits == 0
+    if result_data.kwic.length == 0
         $('#download-links').hide()
         return
-
     $('#download-links').show()
 
-    # Get the number (index) of the corpus of the query result hit
-    # number hit_num in the corpus order information of the query
-    # result.
-    get_corpus_num = (hit_num) ->
-        result_data.corpus_order.indexOf(
-            result_data.kwic[hit_num].corpus.toLowerCase())
-
     # Corpora in the query result
-    result_corpora = result_data.corpus_order.slice(
-        get_corpus_num(0), get_corpus_num(result_data.kwic.length - 1) + 1)
+    result_corpora = _(result_data.kwic).pluck("corpus").uniq().value()
     # Settings of the corpora in the result, to be passed to the
     # download script
     result_corpora_settings = {}

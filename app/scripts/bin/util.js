@@ -1021,21 +1021,18 @@
   };
 
   util.downloadKwic = function(format_params, query_url, result_data) {
-    var corpus_id, corpus_ids, download_params, format, get_corpus_num, k, l, len1, len2, phys_format, phys_formats, phys_params, ref, ref1, result_corpora, result_corpora_settings, result_corpus;
+    var corpus_id, corpus_ids, download_params, format, k, l, len1, len2, phys_format, phys_formats, phys_params, ref, ref1, result_corpora, result_corpora_settings, result_corpus;
     c.log("downloadKwic", format_params, query_url, result_data);
-    if (!((query_url != null) && (result_data != null) && (result_data.corpus_order != null) && (result_data.kwic != null))) {
+    if (!((query_url != null) && (result_data != null) && (result_data.kwic != null))) {
       c.log("downloadKwic failed");
       return;
     }
-    if (result_data.hits === 0) {
+    if (result_data.kwic.length === 0) {
       $('#download-links').hide();
       return;
     }
     $('#download-links').show();
-    get_corpus_num = function(hit_num) {
-      return result_data.corpus_order.indexOf(result_data.kwic[hit_num].corpus.toLowerCase());
-    };
-    result_corpora = result_data.corpus_order.slice(get_corpus_num(0), get_corpus_num(result_data.kwic.length - 1) + 1);
+    result_corpora = _(result_data.kwic).pluck("corpus").uniq().value();
     result_corpora_settings = {};
     for (k = 0, len1 = result_corpora.length; k < len1; k++) {
       result_corpus = result_corpora[k];
