@@ -480,6 +480,11 @@
     "accessres_postamble_aca": "If Korp does not recognize you as an active member of an academic institution for technical reasons, please",
     "accessres_postamble_aca_linktext": "apply for recognition as an academic user",
 
+    "relogin_title": "Log in to Korp again",
+    "relogin_preamble": "You are trying to use corpora which require logging in to Korp, but your login appears to have expired.",
+    "relogin_login": "Please log in to Korp",
+    "relogin_login_postamble": "to be able to make the search that you tried",
+
     "wordlist": "Word list",
     "selected_words": "Selected words",
     "button_done": "Done",

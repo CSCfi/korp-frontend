@@ -2116,6 +2116,29 @@
     }
   };
 
+  util.showReloginModal = function() {
+    var modal_class, relogin_modal;
+    relogin_modal = $("#reloginModal");
+    if ((relogin_modal.data("bs.modal") || {}).isShown) {
+      return;
+    }
+    c.log("showReloginModal");
+    util.makeShibbolethLink("#relogin", "shibbolethLoginUrl", (function(_this) {
+      return function(elem, href) {
+        return elem.find("a").attr("href", href);
+      };
+    })(this));
+    modal_class = "relogin";
+    relogin_modal.addClass(modal_class);
+    relogin_modal.on("hidden.bs.modal", function() {
+      return relogin_modal.removeClass(modal_class);
+    });
+    relogin_modal.on("click", function(evt) {
+      return evt.stopPropagation();
+    });
+    relogin_modal.modal();
+  };
+
   util.encoded_list_param_cache = {};
 
   util.encodeListParam = function(values, output_sep) {

@@ -418,6 +418,11 @@
     "accessres_postamble_aca": "Jos Korp ei tunnista sinua akateemiseksi käyttäjäksi teknisistä syistä,",
     "accessres_postamble_aca_linktext": "hae tunnistamista akateemiseksi käyttäjäksi",
 
+    "relogin_title": "Kirjaudu Korpiin uudelleen",
+    "relogin_preamble": "Yrität käyttää korpuksia, joiden käyttäminen vaatii kirjautumisen Korpiin, mutta kirjautumisesi näyttää vanhentuneen.",
+    "relogin_login": "Kirjaudu Korpiin",
+    "relogin_login_postamble": "voidaksesi tehdä yrittämäsi haun",
+
     "wordlist": "Sanalista",
     "selected_words": "Valitut sanat",
     "button_done": "Valmis",

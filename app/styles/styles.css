@@ -6383,17 +6383,17 @@ li.active a span .num-to-find {
   display: none;
 }
 
-/* Styles for the restricted corpora access modal */
+/* Styles for the restricted corpora access (and re-login) modal */
 /* line 3041, styles.scss */
-#accessResCorporaModal {
+#accessResCorporaModal, #reloginModal {
   z-index: 11000;
 }
 /* line 3045, styles.scss */
-#accessResCorporaModal .modal-body {
+#accessResCorporaModal .modal-body, #reloginModal .modal-body {
   min-height: 2em;
 }
 /* line 3052, styles.scss */
-#accessResCorporaModal .close-x {
+#accessResCorporaModal .close-x, #reloginModal .close-x {
   opacity: 1;
 }
 

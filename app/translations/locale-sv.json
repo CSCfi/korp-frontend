@@ -410,6 +410,11 @@
     "accessres_postamble_aca": "Om Korp inte identifierar dig som en akademisk användare av tekniska skäl, var god",
     "accessres_postamble_aca_linktext": "ansök om identifiering som en akademisk användare",
 
+    "relogin_title": "Logga in till Korp på nytt",
+    "relogin_preamble": "Du försöker använda korpusar som kräver inloggning till Korp, men din inloggning verkar ha gått ut.",
+    "relogin_login": "Logga in till Korp",
+    "relogin_login_postamble": "för att kunna göra den sökning som du försökte",
+
     "wordlist": "Ordlista",
     "selected_words": "Valda ord",
     "button_done": "Klart",

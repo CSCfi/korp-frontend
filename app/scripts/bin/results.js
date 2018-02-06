@@ -60,15 +60,26 @@
     };
 
     BaseResults.prototype.resultError = function(data) {
-      var detail;
+      var detail, ref;
       c.error("json fetch error: ", data);
       this.hidePreloader();
       this.resetView();
       detail = "";
+      this.checkExpiredLogin(data != null ? (ref = data.ERROR) != null ? ref.value : void 0 : void 0);
       if (settings.resultErrorDetails) {
         detail = this.makeResultErrorDetails(data);
       }
       return $('<object class="korp_fail" type="image/svg+xml" data="img/korp_fail.svg">').append("<img class='korp_fail' src='img/korp_fail.svg'>").add($("<div class='fail_text' />").localeKey("fail_text")).addClass("inline_block").prependTo(this.$result).append(detail).wrapAll("<div class='error_msg'>");
+    };
+
+    BaseResults.prototype.checkExpiredLogin = function(err_msg) {
+      if (err_msg && err_msg.match(/^You do not have access/)) {
+        if ($("body").hasClass("logged_in")) {
+          $("body").toggleClass("logged_in not_logged_in");
+        }
+        $.jStorage.deleteKey("creds");
+        util.showReloginModal();
+      }
     };
 
     BaseResults.prototype.makeResultErrorDetails = function(data) {

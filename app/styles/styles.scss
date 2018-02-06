@@ -3036,9 +3036,9 @@ li.active a span .num-to-find {
 }
 
 
-/* Styles for the restricted corpora access modal */
+/* Styles for the restricted corpora access (and re-login) modal */
 
-#accessResCorporaModal {
+#accessResCorporaModal, #reloginModal {
     // Show on top of the corpus chooser and corpus info boxes
     z-index: 11000;
 

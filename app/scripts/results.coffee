@@ -45,6 +45,7 @@ class BaseResults
         @hidePreloader()
         @resetView()
         detail = ""
+        @checkExpiredLogin data?.ERROR?.value
         if settings.resultErrorDetails
             detail = @makeResultErrorDetails data
         $('<object class="korp_fail" type="image/svg+xml" data="img/korp_fail.svg">')
@@ -55,6 +56,18 @@ class BaseResults
             .prependTo(@$result)
             .append(detail)
             .wrapAll "<div class='error_msg'>"
+
+    # Check if the login appears to have expired and if so, present
+    # the relogin modal. (Jyrki Niemi 2018-02-06)
+    checkExpiredLogin: (err_msg) ->
+        if err_msg and err_msg.match(/^You do not have access/)
+            # This error means that the login status is out of
+            # date, so log out and present the relogin modal.
+            if $("body").hasClass("logged_in")
+                $("body").toggleClass("logged_in not_logged_in")
+            $.jStorage.deleteKey("creds")
+            util.showReloginModal()
+        return
 
     makeResultErrorDetails: (data) ->
         if not data

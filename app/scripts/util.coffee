@@ -2133,6 +2133,33 @@ util.checkTryingRestrictedCorpora = (selected_corpora) ->
     return
 
 
+# Show a modal dialogue with a link to re-logging in to Korp. (Jyrki
+# Niemi 2018-02-06)
+
+util.showReloginModal = () ->
+    relogin_modal = $("#reloginModal")
+    # Do not reopen the modal, even if showReloginModal is called
+    # several times in a row. Note that in Bootstrap 4, the property
+    # would be _isShown instead of isShown.
+    # <https://stackoverflow.com/a/21341587>.
+    if (relogin_modal.data("bs.modal") or {}).isShown
+        return
+    c.log "showReloginModal"
+    # TODO: Support non-Shibboleth authentication.
+    util.makeShibbolethLink(
+        "#relogin", "shibbolethLoginUrl",
+        (elem, href) => elem.find("a").attr("href", href))
+    modal_class = "relogin"
+    relogin_modal.addClass modal_class
+    relogin_modal.on("hidden.bs.modal", () ->
+        relogin_modal.removeClass modal_class)
+    relogin_modal.on("click", (evt) ->
+        evt.stopPropagation()
+    )
+    relogin_modal.modal()
+    return
+
+
 # Encoding list-valued parameters by extracting common prefixes (Jyrki
 # Niemi 2017-09)
 
