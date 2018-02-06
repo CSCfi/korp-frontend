@@ -2014,12 +2014,14 @@
   };
 
   util.url_add_corpora = function(href, corpora) {
-    var corpora_str;
-    corpora_str = corpora.join(",");
+    var corpora_str, href_corpora;
     if (href.indexOf("corpus=") === -1) {
+      corpora_str = corpora.join(",");
       return href + "&corpus=" + corpora_str;
     } else {
-      return href.replace(/(&corpus=[^&]+)/, "$1," + corpora_str);
+      href_corpora = /&corpus=([^&]*)/.exec(href)[1].split(",");
+      corpora_str = _.union(href_corpora, corpora).join(",");
+      return href.replace(/(&corpus=)[^&]+/, "$1" + corpora_str);
     }
   };
 

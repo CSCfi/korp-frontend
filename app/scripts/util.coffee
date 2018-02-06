@@ -2015,13 +2015,15 @@ util.makeShibbolethLink = (selector, url_prop, add_link_fn,
 
 
 # Return href with the corpora in the array corpora added to its URL
-# parameter "corpus".
+# parameter "corpus" (duplicates are removed).
 util.url_add_corpora = (href, corpora) ->
-    corpora_str = corpora.join(",")
     if href.indexOf("corpus=") == -1
+        corpora_str = corpora.join(",")
         "#{href}&corpus=#{corpora_str}"
     else
-        href.replace(/(&corpus=[^&]+)/, "$1,#{corpora_str}")
+        href_corpora = /&corpus=([^&]*)/.exec(href)[1].split(",")
+        corpora_str = _.union(href_corpora, corpora).join(",")
+        href.replace(/(&corpus=)[^&]+/, "$1#{corpora_str}")
 
 
 # Return href with the corpora in the array corpora removed from its
