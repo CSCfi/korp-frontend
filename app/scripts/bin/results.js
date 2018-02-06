@@ -338,7 +338,7 @@
         return function() {
           _this.hidePreloader();
           _this.s.hits = data.hits;
-          return _this.s.hits_display = util.prettyNumbers(data.hits);
+          return _this.s.hits_display = util.prettyNumbers(data.hits || 0);
         };
       })(this));
       if (!data.hits) {

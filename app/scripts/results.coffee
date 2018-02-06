@@ -268,7 +268,7 @@ class view.KWICResults extends BaseResults
         safeApply @s, () =>
             @hidePreloader()
             @s.hits = data.hits
-            @s.hits_display  = util.prettyNumbers(data.hits)
+            @s.hits_display  = util.prettyNumbers(data.hits or 0)
         unless data.hits
             c.log "no kwic results"
             @showNoResults()
