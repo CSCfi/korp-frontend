@@ -71,7 +71,9 @@ korpApp.run ($rootScope, $location, utils, searches, tmhDynamicLocale, $timeout)
         settings.corpusListing.select corpora
         nonprotected = _.pluck(settings.corpusListing.getNonProtected(), "id")
         # c.log "corpus change", corpora.length, _.intersection(corpora, nonprotected).length, nonprotected.length
-        if corpora.length and _.intersection(corpora, nonprotected).length isnt nonprotected.length
+        if corpora.length and
+                (settings.showAllCorporaInHash or
+                 _.intersection(corpora, nonprotected).length isnt nonprotected.length)
             $location.search "corpus", corpora.join(",")
         else
             $location.search "corpus", null

@@ -65,6 +65,11 @@ settings.handleUnavailableCorpora = "warn";
 // "An error occurred". (Jyrki Niemi 2018-01-29)
 settings.resultErrorDetails = true;
 
+// Show the corpus hash parameter in the URL even when all corpora
+// accessible to the user are selected, so that a Korp URL without the
+// corpus parameter is unambiguous. (Jyrki Niemi 2018-02-05)
+settings.showAllCorporaInHash = true;
+
 settings.textDateAllowBareYears = true;
 
 // Encode list-valued parameters for korp.cgi by extracting common

@@ -52,7 +52,7 @@
       c.log("corpuschooserchange", corpora);
       settings.corpusListing.select(corpora);
       nonprotected = _.pluck(settings.corpusListing.getNonProtected(), "id");
-      if (corpora.length && _.intersection(corpora, nonprotected).length !== nonprotected.length) {
+      if (corpora.length && (settings.showAllCorporaInHash || _.intersection(corpora, nonprotected).length !== nonprotected.length)) {
         $location.search("corpus", corpora.join(","));
       } else {
         $location.search("corpus", null);
