@@ -953,8 +953,10 @@ class view.StatsResults extends BaseResults
                 @hidePreloader()
                 if textStatus == "abort"
                     @s.aborted = true
-                else
+                else if err?
                     @resultError err
+                else
+                    @resultError textStatus
 
     getSelectedRows: () ->
         if @grid

@@ -1273,8 +1273,10 @@
             _this.hidePreloader();
             if (textStatus === "abort") {
               return _this.s.aborted = true;
-            } else {
+            } else if (err != null) {
               return _this.resultError(err);
+            } else {
+              return _this.resultError(textStatus);
             }
           });
         };
