@@ -73,15 +73,36 @@ class BaseResults
         if not data
             return ""
         detailed_msg = data.ERROR?.value
+        report_msg = $("<span />").localeKey("fail_please_report")
         if detailed_msg?
             # Remove the end of CQP syntax error messages, which
             # is not relevant to the user
             detailed_msg = detailed_msg.replace(/ <-- Synchronizing.*/, "")
             # Remove enclosing single quotation marks
             detailed_msg = detailed_msg.replace(/^'(.*)'$/, "$1")
-            return $("<div class='fail_detail'>" + detailed_msg + "</div>")
+            error_type = data.ERROR?.type
+            result = $("<div class='fail_detail'>")
+            result.append($("<span />").localeKey("fail_backend_error_msg"))
+                  .append(": " + error_type + ": " + detailed_msg)
+            # CQPError probably results from a mistake made by the
+            # user, the Korp authentication error is handled when
+            # checking for an expired login, and "Key is required:
+            # corpus" appears when a non-logged in user tries to
+            # access restricted corpora and the user is presented the
+            # restricted corpora access dialogue. Other backend errors
+            # probably indicate a programming error and should be
+            # reported.
+            if error_type == "CQPError"
+                result.append("<br /><br />")
+                      .append($("<span />").localeKey("fail_cqp_error"))
+            else if not ((error_type == "KorpAuthenticationError" and
+                          detailed_msg.match(/^You do not have access/)) or
+                         (error_type == "KeyError" and
+                          detailed_msg == "Key is required: corpus"))
+                result.append("<br /><br />").append(report_msg)
+            result.append("</div>")
+            return result
         else
-            report_msg = $("<span />").localeKey("fail_please_report")
             if data?.message
                 return $("<div class='fail_detail' />")
                         .append($("<span />").localeKey("fail_invalid_json"))
@@ -95,13 +116,16 @@ class BaseResults
                 else if data.match(/Internal Server Error/i)
                     locale_key = "fail_internal_error"
                 localized_msg = ""
+                result = $("<div class='fail_detail' />")
                 if locale_key
                     localized_msg = $("<span />").localeKey(locale_key)
-                result = $("<div class='fail_detail' />")
-                result.append(localized_msg)
+                    result.append(localized_msg)
+                    result.append(".<br /><br />")
                 if locale_key != "fail_too_many_corpora"
-                    result.append(".<br /><br />").append(report_msg)
-                result.append("<br /><br />Server error message: " + data)
+                    result.append(report_msg)
+                result.append("<br /><br />")
+                result.append($("<span />").localeKey("fail_server_error_msg"))
+                result.append(": " + data)
                 return result
 
     showPreloader : () ->

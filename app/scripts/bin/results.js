@@ -83,17 +83,26 @@
     };
 
     BaseResults.prototype.makeResultErrorDetails = function(data) {
-      var detailed_msg, locale_key, localized_msg, ref, report_msg, result;
+      var detailed_msg, error_type, locale_key, localized_msg, ref, ref1, report_msg, result;
       if (!data) {
         return "";
       }
       detailed_msg = (ref = data.ERROR) != null ? ref.value : void 0;
+      report_msg = $("<span />").localeKey("fail_please_report");
       if (detailed_msg != null) {
         detailed_msg = detailed_msg.replace(/ <-- Synchronizing.*/, "");
         detailed_msg = detailed_msg.replace(/^'(.*)'$/, "$1");
-        return $("<div class='fail_detail'>" + detailed_msg + "</div>");
+        error_type = (ref1 = data.ERROR) != null ? ref1.type : void 0;
+        result = $("<div class='fail_detail'>");
+        result.append($("<span />").localeKey("fail_backend_error_msg")).append(": " + error_type + ": " + detailed_msg);
+        if (error_type === "CQPError") {
+          result.append("<br /><br />").append($("<span />").localeKey("fail_cqp_error"));
+        } else if (!((error_type === "KorpAuthenticationError" && detailed_msg.match(/^You do not have access/)) || (error_type === "KeyError" && detailed_msg === "Key is required: corpus"))) {
+          result.append("<br /><br />").append(report_msg);
+        }
+        result.append("</div>");
+        return result;
       } else {
-        report_msg = $("<span />").localeKey("fail_please_report");
         if (data != null ? data.message : void 0) {
           return $("<div class='fail_detail' />").append($("<span />").localeKey("fail_invalid_json")).append(": " + data.message).append("<br /><br />").append(report_msg);
         } else {
@@ -104,15 +113,18 @@
             locale_key = "fail_internal_error";
           }
           localized_msg = "";
+          result = $("<div class='fail_detail' />");
           if (locale_key) {
             localized_msg = $("<span />").localeKey(locale_key);
+            result.append(localized_msg);
+            result.append(".<br /><br />");
           }
-          result = $("<div class='fail_detail' />");
-          result.append(localized_msg);
           if (locale_key !== "fail_too_many_corpora") {
-            result.append(".<br /><br />").append(report_msg);
+            result.append(report_msg);
           }
-          result.append("<br /><br />Server error message: " + data);
+          result.append("<br /><br />");
+          result.append($("<span />").localeKey("fail_server_error_msg"));
+          result.append(": " + data);
           return result;
         }
       }
