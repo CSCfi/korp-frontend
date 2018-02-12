@@ -1,4 +1,17 @@
 
+<!-- Pieniä korjauksia ja käytettävyysparannuksia 2018-02-12 -->
+
+Korpiin on tehty pieniä korjauksia ja käytettävyysparannuksia,
+erityisesti:
+
+* Konkordanssin lataaminen tiedostona toimii aiempaa varmemmin.
+* Suomen osastossa haku onnistuu, vaikka valittuina olisivat kaikki
+  ilman kirjautumista käytettävissä olevat korpukset.
+* Jos kirjautumisesi on vanhentunut, Korp pyytää kirjautumaan
+  uudelleen.
+* Useissa virhetilanteissa tulee aiempaa tarkempi virheilmoitus.
+
+
 <!-- Korp päivitetty 2017-12-04b -->
 
 Korp on päivitetty uudempaan versioon, joka pohjautuu Språkbankenin

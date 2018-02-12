@@ -1,4 +1,16 @@
 
+<!-- Minor fixes and usability improvements 2018-02-12 -->
+
+Korp has received minor fixes and usability improvements, including
+the following:
+
+* Downloading the KWIC concordance works more reliably.
+* Search works in the Finnish mode even if all publicly accessible
+  corpora are selected.
+* If your login has expired, Korp asks you to log in again.
+* Korp shows a more detailed error message in many error situations.
+
+
 <!-- Korp updated 2017-12-04b -->
 
 Korp has been updated to a newer version that is based on
