@@ -10627,7 +10627,7 @@ attrlist.agricola = {
         label: "normalized_lemma",
     }
     type: attrs.type_la,
-    mrp: attrs.msd
+    mrp: attrs.msd,
     fun: attrs.func_la,
     com: {
         label: "note",
@@ -10639,8 +10639,7 @@ attrlist.agricola = {
 
 sattrlist.agricola = {
     text_title: {
-        label: "datefrom",
-        displayType: "hidden",
+        label: "text_title",
     },
     text_dateto: {
         label: "text_date",
