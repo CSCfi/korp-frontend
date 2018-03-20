@@ -72,6 +72,16 @@ settings.corporafolders.sv = {
 };
 */
 
+settings.corporafolders.agricola = {
+    title: "Agricola",
+    contents: ["agricola_messu"],
+    info: {
+        metadata_urn: "urn:nbn:fi:lb-20140730170",
+        homepage_url: "http://www.hum.utu.fi/oppiaineet/suomi/tutkimus/tutkimushankkeet/Tutkimushanke_Hakkinen1.html"
+    }
+};
+
+
 settings.corporafolders.ethesis = {
     title: "E-thesis",
     contents: ["ethesis_maabs", "ethesis_dissabs"],
@@ -10608,6 +10618,98 @@ delete las2_common_props;
 
 settings.corpus_aliases.las2 = "las2_tentit,las2_esseet";
 
+// AGRICOLA
+
+attrlist.agricola = {
+    lemma: attrs.baseform,
+    pos: attrs.pos_las2,
+    nrm: {
+        label: "normalized_lemma",
+    }
+    type: attrs.type_la,
+    mrp: attrs.msd
+    fun: attrs.func_la,
+    com: {
+        label: "note",
+    },
+    tunit: {
+        displayType: "hidden",
+    }
+};
+
+sattrlist.agricola = {
+    text_title: {
+        label: "datefrom",
+        displayType: "hidden",
+    },
+    text_dateto: {
+        label: "text_date",
+    },
+    text_datefrom: {
+        label: "datefrom",
+        displayType: "hidden",
+    },
+    text_timeto: {
+        displayType: "hidden",
+    },
+    text_timefrom: {
+        displayType: "hidden",
+    },
+    text_date_orig: {
+        displayType: "hidden",
+    },
+    div_id: {
+        displayType: "hidden",
+    },
+    paragraph_id: {
+        displayType: "hidden",
+    },
+    sentence_id: sattrs.sentence_id_hidden,
+    sentence_type: {
+        displayType: "hidden",
+    },
+    sentence_biblia: {
+        label: "bible_index",
+    },
+    sentence_loc: {
+        label: "location",
+    },
+    clause_id: {
+        displayType: "hidden",
+    },
+    clause_loc: {
+        displayType: "hidden",
+    },
+    clause_biblia: {
+        displayType: "hidden",
+    },
+    clause_type: {
+        label: "clause_type",
+        displayType: "select",
+        translationKey: "clausetype_",
+        dataset: {
+            "affdecl": "affdecl",
+            "negdecl": "negdecl",
+            "affint": "affint",
+            "negint": "negint",
+            "affopt": "affopt",
+            "negopt": "negopt",
+            "muu": "muu",
+        },
+        opts: settings.liteOptions
+    }
+};
+
+
+settings.corpora.agricola_messu = {
+    id: "agricola_messu",
+    title: "Messu",
+    description: "Agricola - Messu",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
 
 settings.corpora.sks_kivi_fi = {
     title: "Aleksis Kivi (SKS)",

@@ -25,7 +25,10 @@
     "day": "päivä",
     "party": "party",
     "normalized_wordform": "normalisoitu sananmuoto",
+    "normalized_lemma": "normalisoitu perusmuoto",
     "spoken": "puhemuoto",
+
+    "bible_index": "raamatunkohta",
 
     "OCR": "OCR",
 
