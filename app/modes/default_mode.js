@@ -10626,7 +10626,19 @@ attrlist.agricola = {
     nrm: {
         label: "normalized_lemma",
     },
-    type: attrs.type_la,
+    type: {
+	label: "lang",
+	displayType: "select",
+	translationKey: "agricola_lang_",
+	dataset: {
+	    "": "fin",
+	    "swe": "swe",
+	    "lat": "lat",
+	    "gre": "gre",
+	    "heb": "heb",
+	},
+	opts: settings.liteOptions
+    },	
     mrp: attrs.msd,
     fun: attrs.func_la,
     com: {
