@@ -10625,7 +10625,7 @@ attrlist.agricola = {
     pos: attrs.pos_las2,
     nrm: {
         label: "normalized_lemma",
-    }
+    },
     type: attrs.type_la,
     mrp: attrs.msd,
     fun: attrs.func_la,
