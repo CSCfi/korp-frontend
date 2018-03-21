@@ -74,7 +74,8 @@ settings.corporafolders.sv = {
 
 settings.corporafolders.agricola = {
     title: "Agricola",
-    contents: ["agricola_messu"],
+    contents: ["agricola_abckiria","agricola_kasikiria","agricola_messu","agricola_piina",
+	       "agricola_psaltari","agricola_rucouskiria","agricola_sewsitestamenti","agricola_veisut"],
     info: {
         metadata_urn: "urn:nbn:fi:lb-20140730170",
         homepage_url: "http://www.hum.utu.fi/oppiaineet/suomi/tutkimus/tutkimushankkeet/Tutkimushanke_Hakkinen1.html"
@@ -10711,6 +10712,25 @@ sattrlist.agricola = {
     }
 };
 
+settings.corpora.agricola_abckiria = {
+    id: "agricola_abckiria",
+    title: "Abckiria",
+    description: "Agricola - Abckiria",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_kasikiria = {
+    id: "agricola_kasikiria",
+    title: "Käsikiria",
+    description: "Agricola - Käsikiria",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
 
 settings.corpora.agricola_messu = {
     id: "agricola_messu",
@@ -10721,6 +10741,57 @@ settings.corpora.agricola_messu = {
     attributes: attrlist.agricola,
     struct_attributes: sattrlist.agricola
 };
+
+settings.corpora.agricola_piina = {
+    id: "agricola_piina",
+    title: "Piina",
+    description: "Agricola - Piina",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_psaltari = {
+    id: "agricola_psaltari",
+    title: "Psaltari",
+    description: "Agricola - Psaltari",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_rucouskiria = {
+    id: "agricola_rucouskiria",
+    title: "Rucouskiria",
+    description: "Agricola - Rucouskiria",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_sewsitestamenti = {
+    id: "agricola_sewsitestamenti",
+    title: "Se Wsi Testamenti",
+    description: "Agricola - Se Wsi Testamenti",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_veisut = {
+    id: "agricola_veisut",
+    title: "Veisut",
+    description: "Agricola - Veisut",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
 
 settings.corpora.sks_kivi_fi = {
     title: "Aleksis Kivi (SKS)",
