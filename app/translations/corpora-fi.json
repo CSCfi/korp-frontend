@@ -770,7 +770,13 @@
     "verk": "kirjan sijainti",
     "lang": "kieli",
     "fulltext": "kokoteksti",
-
+    
+    "agricola_lang_fin": "suomi",
+    "agricola_lang_swe": "ruotsi",
+    "agricola_lang_heb": "heprea",
+    "agricola_lang_lat": "latina",
+    "agricola_lang_gre": "kreikka",
+    
     "album": "album",
     "album_year": "album year",
     "song_title": "song title",
