@@ -10755,7 +10755,7 @@ settings.corpora.agricola_piina = {
     struct_attributes: sattrlist.agricola
 };
 
-settings.corpora.agricola_psaltari = {
+settings.corpora.agricola_profeetat = {
     id: "agricola_profeetat",
     title: "Agricola: Ne Prophetat",
     description: "Ne Prophetat. Haggai. SacharJa. Maleachi.",
