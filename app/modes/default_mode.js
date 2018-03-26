@@ -74,7 +74,7 @@ settings.corporafolders.sv = {
 
 settings.corporafolders.agricola = {
     title: "Agricola",
-    contents: ["agricola_abckiria","agricola_kasikiria","agricola_messu","agricola_piina",
+    contents: ["agricola_abckiria","agricola_kasikiria","agricola_messu","agricola_piina","agricola_profeetat",
 	       "agricola_psaltari","agricola_rucouskiria","agricola_sewsitestamenti","agricola_veisut"],
     info: {
         metadata_urn: "urn:nbn:fi:lb-20140730170",
@@ -10623,7 +10623,9 @@ settings.corpus_aliases.las2 = "las2_tentit,las2_esseet";
 
 attrlist.agricola = {
     lemma: attrs.baseform,
-    pos: attrs.pos_las2,
+    pos: {
+	label: "pos",
+    },
     nrm: {
         label: "normalized_lemma",
     },
@@ -10641,7 +10643,9 @@ attrlist.agricola = {
 	opts: settings.liteOptions
     },	
     mrp: attrs.msd,
-    fun: attrs.func_la,
+    fun: {
+	label: "func",
+    },
     com: {
         label: "note",
     },
@@ -10655,10 +10659,9 @@ sattrlist.agricola = {
         label: "text_title",
     },
     text_dateto: {
-        label: "text_date",
+	displayType: "hidden",
     },
     text_datefrom: {
-        label: "datefrom",
         displayType: "hidden",
     },
     text_timeto: {
@@ -10668,7 +10671,7 @@ sattrlist.agricola = {
         displayType: "hidden",
     },
     text_date_orig: {
-        displayType: "hidden",
+        label: "text_date",
     },
     div_id: {
         displayType: "hidden",
@@ -10714,8 +10717,8 @@ sattrlist.agricola = {
 
 settings.corpora.agricola_abckiria = {
     id: "agricola_abckiria",
-    title: "Abckiria",
-    description: "Agricola - Abckiria",
+    title: "Agricola: Abckiria",
+    description: "Abckiria",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.agricola,
@@ -10724,8 +10727,8 @@ settings.corpora.agricola_abckiria = {
 
 settings.corpora.agricola_kasikiria = {
     id: "agricola_kasikiria",
-    title: "Käsikiria",
-    description: "Agricola - Käsikiria",
+    title: "Agricola: Käsikiria",
+    description: "Käsikiria Castesta ia muista Christikunnan Menoista",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.agricola,
@@ -10734,8 +10737,8 @@ settings.corpora.agricola_kasikiria = {
 
 settings.corpora.agricola_messu = {
     id: "agricola_messu",
-    title: "Messu",
-    description: "Agricola - Messu",
+    title: "Agricola: Messu",
+    description: "Messu eli Herran echtolinen",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.agricola,
@@ -10744,8 +10747,8 @@ settings.corpora.agricola_messu = {
 
 settings.corpora.agricola_piina = {
     id: "agricola_piina",
-    title: "Piina",
-    description: "Agricola - Piina",
+    title: "Agricola: Piina",
+    description: "Se meiden Herran Jesusen Christusen Pina, ylesnousemus ia taiuaisen astumus, niste Neliest Euangelisterist coghottu",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.agricola,
@@ -10753,9 +10756,20 @@ settings.corpora.agricola_piina = {
 };
 
 settings.corpora.agricola_psaltari = {
+    id: "agricola_profeetat",
+    title: "Agricola: Ne Prophetat",
+    description: "Ne Prophetat. Haggai. SacharJa. Maleachi.",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+
+settings.corpora.agricola_psaltari = {
     id: "agricola_psaltari",
-    title: "Psaltari",
-    description: "Agricola - Psaltari",
+    title: "Agricola: Dauidin Psaltari",
+    description: "Dauidin Psaltari",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.agricola,
@@ -10764,8 +10778,8 @@ settings.corpora.agricola_psaltari = {
 
 settings.corpora.agricola_rucouskiria = {
     id: "agricola_rucouskiria",
-    title: "Rucouskiria",
-    description: "Agricola - Rucouskiria",
+    title: "Agricola: Rucouskiria",
+    description: "Rucouskiria Bibliasta",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.agricola,
@@ -10774,8 +10788,8 @@ settings.corpora.agricola_rucouskiria = {
 
 settings.corpora.agricola_sewsitestamenti = {
     id: "agricola_sewsitestamenti",
-    title: "Se Wsi Testamenti",
-    description: "Agricola - Se Wsi Testamenti",
+    title: "Agricola: Se Wsi Testamenti",
+    description: "Se Wsi Testamenti",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.agricola,
@@ -10784,8 +10798,8 @@ settings.corpora.agricola_sewsitestamenti = {
 
 settings.corpora.agricola_veisut = {
     id: "agricola_veisut",
-    title: "Veisut",
-    description: "Agricola - Veisut",
+    title: "Agricola: Weisut",
+    description: "Weisut ia Ennustoxet Mosesen Laista ia Prophetista Wloshaetut",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.agricola,
