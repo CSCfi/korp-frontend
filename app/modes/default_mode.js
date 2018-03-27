@@ -10712,6 +10712,12 @@ sattrlist.agricola = {
             "muu": "muu",
         },
         opts: settings.liteOptions
+    },
+    clause_depth: {
+	label: "clause_depth"
+    },
+    clause_partnum: {
+	label: "clause_partnum",
     }
 };
 
