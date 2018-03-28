@@ -10685,19 +10685,21 @@ las2_common_props = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.las2,
-    struct_attributes: sattrlist.las2,
+    //struct_attributes: sattrlist.las2,
 };
 
 settings.corpora.las2_tentit = {
     title: "LAS2 (tentit)",
     description: "Edistyneiden suomenoppijoiden korpus (tentit)",
     id: "las2_tentit",
+    struct_attributes: sattrlist.las2,
 };
 
 settings.corpora.las2_esseet = {
     title: "LAS2 (esseet)",
     description: "Edistyneiden suomenoppijoiden korpus (esseet)",
     id: "las2_esseet",
+    struct_attributes: sattrlist.las2,
 };
 
 settings.corpora.las2_esseet_v = {
