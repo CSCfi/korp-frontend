@@ -10713,7 +10713,7 @@ settings.corpora.las2_esseet = {
 
 settings.corpora.las2_esseet_v = {
     title: "LAS2 (esseet, vertailuaineisto)",
-    description: "Edistyneiden suomenoppijoiden korpus (esseet)",
+    description: "Edistyneiden suomenoppijoiden korpuksen vertailuaineisto (esseet)",
     id: "las2_esseet_v",
     struct_attributes: sattrlist.las2_v,
 };
