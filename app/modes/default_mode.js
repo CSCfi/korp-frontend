@@ -78,8 +78,11 @@ settings.corporafolders.agricola = {
 	       "agricola_psaltari","agricola_rucouskiria","agricola_sewsitestamenti","agricola_veisut"],
     info: {
         metadata_urn: "urn:nbn:fi:lb-20140730170",
-        homepage_url: "http://www.hum.utu.fi/oppiaineet/suomi/tutkimus/tutkimushankkeet/Tutkimushanke_Hakkinen1.html"
-    }
+        homepage_url: "http://www.hum.utu.fi/oppiaineet/suomi/tutkimus/tutkimushankkeet/Tutkimushanke_Hakkinen1.html",
+	urn: "urn:nbn:fi:lb-201803273",
+	cite_id: "agricola-korp",
+	licence: settings.licenceinfo.CC_BY_ND_40,
+    }    
 };
 
 
@@ -10923,6 +10926,9 @@ settings.corpora.agricola_veisut = {
     struct_attributes: sattrlist.agricola
 };
 
+settings.corpus_aliases.agricola = "agricola_.*";
+
+// SKS-KIVI
 
 settings.corpora.sks_kivi_fi = {
     title: "Aleksis Kivi (SKS)",
