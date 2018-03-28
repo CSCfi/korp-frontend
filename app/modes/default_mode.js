@@ -858,7 +858,7 @@ settings.corporafolders.learner.las2 = {
         },
 	cite_id: "LAS2",
     },
-    contents: ["las2_tentit", "las2_esseet"]
+    contents: ["las2_tentit", "las2_esseet", "las2_esseet_v"]
 };
 
 settings.corporafolders.vks = {
@@ -10500,10 +10500,99 @@ attrlist.las2 = {
 
 sattrlist.las2 = {
     text_dateto: {
+	label: "text_date",
+    },
+    text_datefrom: {
+	label: "datefrom",
+	displayType: "hidden",
+    },
+    text_num: {
+	label: "exam_num",
+    },
+    text_inf: {
+	label: "text_inf",
+    },
+    text_tt: {
+	label: "text_tt",
+    },
+    text_te: {
+	label: "text_te",
+    },
+    text_lo: {
+	label: "text_lo",
+    },
+    text_l1: {
+	label: "text_l1",
+    },
+    text_alin_cefr: {
+	label: "text_alin_cefr",
+    },
+    text_ylin_cefr: {
+	label: "text_ylin_cefr",
+    },
+    text_tekstin_cefr: {
+	label: "text_tekstin_cefr",
+    },
+    // // Uncomment when showing info pages is implemented
+    // text_inf_url: {
+    //     label: "text_inf_url",
+    //     type: "url",
+    // },
+    div_id: {
+	displayType: "hidden",
+    },
+    div_question: {
+	label: "div_question",
+    },
+    paragraph_id: {
+	displayType: "hidden",
+    },
+    paragraph_type: {
+	displayType: "hidden",
+    },
+    sentence_id: sattrs.sentence_id_hidden,
+    sentence_type: {
+	displayType: "hidden",
+    },
+    clause_id: {
+	displayType: "hidden",
+    },
+    clause_type: {
+	label: "clause_type",
+	displayType: "select",
+	translationKey: "clausetype_",
+	dataset: {
+	    "affdecl": "affdecl",
+	    "negdecl": "negdecl",
+	    "affint": "affint",
+	    "negint": "negint",
+	    "affopt": "affopt",
+	    "negopt": "negopt",
+	    "muu": "muu",
+	},
+	opts: settings.liteOptions
+    },
+    clause_fun: {
+	label: "clause_fun",
+    },
+    clause_com: {
+	label: "note",
+
+    }
+};
+
+sattrlist.las2_v = {
+    text_dateto: {
         label: "text_date",
     },
     text_datefrom: {
         label: "datefrom",
+	displayType: "hidden",
+    },
+    text_timeto: {
+	displayType: "hidden",
+    },
+    text_timefrom: {
 	displayType: "hidden",
     },
     text_num: {
@@ -10577,6 +10666,18 @@ sattrlist.las2 = {
     },
     clause_com: {
         label: "note",
+    },
+    clause_depth: {
+	label: "clause_depth"
+    },
+    clause_partnum: {
+	label: "clause_partnum",
+    },
+    misc_id: {
+	displayType: "hidden",
+    },
+    misc_type: {
+	label: "misc_type",
     }
 };
 
@@ -10610,14 +10711,22 @@ settings.corpora.las2_esseet = {
     id: "las2_esseet",
 };
 
+settings.corpora.las2_esseet_v = {
+    title: "LAS2 (esseet, vertailuaineisto)",
+    description: "Edistyneiden suomenoppijoiden korpus (esseet)",
+    id: "las2_esseet_v",
+    struct_attributes: sattrlist.las2_v,
+};
+
+
 // Add the common properties to the corpus settings of las2_tentit and
 // las2_esseet
 settings.fn.extend_corpus_settings(
-    las2_common_props, ["las2_tentit", "las2_esseet"]);
+    las2_common_props, ["las2_tentit", "las2_esseet", "las2_esseet_v"]);
 
 delete las2_common_props;
 
-settings.corpus_aliases.las2 = "las2_tentit,las2_esseet";
+settings.corpus_aliases.las2 = "las2_tentit,las2_esseet,las2_esseet_v";
 
 // AGRICOLA
 
