@@ -888,7 +888,8 @@
     "text_tekstin_cefr":"tekstin taso (CEFR)",
     "div_question":"kysymys/tehtävänanto",
     "clause_fun":"lauseen funktio",
-
+    "misc_type":"merkinnän tyyppi",
+    
     "normalized":"normalisoitu sanamuoto",
     "skvr_item_osa":"osan numero",
     "skvr_item_loc":"paikkakunta/pitäjä",
