@@ -847,7 +847,7 @@ settings.corporafolders.learner.las2 = {
         },
 	cite_id: "LAS2",
     },
-    contents: ["las2_tentit", "las2_esseet", "las2_esseet_v"]
+    contents: ["las2_tentit_s2", "las2_esseet_s2", "las2_tentit_v", "las2_esseet_v"]
 };
 
 settings.corporafolders.vks = {
@@ -10570,7 +10570,7 @@ sattrlist.las2 = {
     }
 };
 
-sattrlist.las2_v = {
+sattrlist.las2_new = {
     text_dateto: {
         label: "text_date",
     },
@@ -10632,6 +10632,9 @@ sattrlist.las2_v = {
     sentence_type: {
         displayType: "hidden",
     },
+    sentence_num: {
+	displayType: "hidden",
+    },
     clause_id: {
         displayType: "hidden",
     },
@@ -10685,8 +10688,11 @@ las2_common_props = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.las2,
-    //struct_attributes: sattrlist.las2,
+    struct_attributes: sattrlist.las2_new,
 };
+
+/*
+Deprecated LAS2 corpora
 
 settings.corpora.las2_tentit = {
     title: "LAS2 (tentit)",
@@ -10700,24 +10706,40 @@ settings.corpora.las2_esseet = {
     description: "Edistyneiden suomenoppijoiden korpus (esseet)",
     id: "las2_esseet",
     struct_attributes: sattrlist.las2,
-};
+};*/
 
 settings.corpora.las2_esseet_v = {
     title: "LAS2 (esseet, vertailuaineisto)",
     description: "Edistyneiden suomenoppijoiden korpuksen vertailuaineisto (esseet)",
     id: "las2_esseet_v",
-    struct_attributes: sattrlist.las2_v,
 };
 
+settings.corpora.las2_tentit_v = {
+    title: "LAS2 (tentit, vertailuaineisto)",
+    description: "Edistyneiden suomenoppijoiden korpuksen vertailuaineisto (tentit)",
+    id: "las2_tentit_v",
+};
 
-// Add the common properties to the corpus settings of las2_tentit and
-// las2_esseet
+settings.corpora.las2_esseet_s2 = {
+    title: "LAS2 (esseet)",
+    description: "Edistyneiden suomenoppijoiden korpus (esseet)",
+    id: "las2_esseet_s2",
+};
+
+settings.corpora.las2_tentit_s2 = {
+    title: "LAS2 (tentit)",
+    description: "Edistyneiden suomenoppijoiden korpus (tentit)",
+    id: "las2_tentit_s2",
+};
+
+// Add the common properties to the corpus settings of las2_tentit_* and
+// las2_esseet_*
 settings.fn.extend_corpus_settings(
-    las2_common_props, ["las2_tentit", "las2_esseet", "las2_esseet_v"]);
+    las2_common_props, ["las2_tentit_s2", "las2_esseet_s2", "las2_tentit_v", "las2_esseet_v"]);
 
 delete las2_common_props;
 
-settings.corpus_aliases.las2 = "las2_tentit,las2_esseet,las2_esseet_v";
+settings.corpus_aliases.las2 = "las2_tentit_s2,las2_esseet_s2,las2_tentit_v,las2_esseet_v";
 
 
 settings.corpora.sks_kivi_fi = {
