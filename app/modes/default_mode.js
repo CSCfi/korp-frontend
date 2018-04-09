@@ -78,7 +78,7 @@ settings.corporafolders.agricola = {
 	       "agricola_psaltari","agricola_rucouskiria","agricola_sewsitestamenti","agricola_veisut"],
     info: {
         metadata_urn: "urn:nbn:fi:lb-20140730170",
-        homepage_url: "http://www.hum.utu.fi/oppiaineet/suomi/tutkimus/tutkimushankkeet/Tutkimushanke_Hakkinen1.html",
+        homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/palvelut-yhteistyo/arkistot/Sivut/home.aspx",
 	urn: "urn:nbn:fi:lb-201803273",
 	cite_id: "agricola-korp",
 	licence: settings.licenceinfo.CC_BY_ND_40,
@@ -10653,7 +10653,16 @@ attrlist.agricola = {
         label: "note",
     },
     tunit: {
-        displayType: "hidden",
+        label: "comp_tense",
+	displayType: "select",
+	translationKey: "agricola_tense_",
+	dataset: {
+	    "p": "p",
+	    "P": "p",
+	    "pl": "pl",
+	    "f": "f",
+	    "lp": "pl",
+	},
     }
 };
 
@@ -10773,7 +10782,6 @@ settings.corpora.agricola_profeetat = {
     attributes: attrlist.agricola,
     struct_attributes: sattrlist.agricola
 };
-
 
 settings.corpora.agricola_psaltari = {
     id: "agricola_psaltari",
