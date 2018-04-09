@@ -770,12 +770,18 @@
     "verk": "kirjan sijainti",
     "lang": "kieli",
     "fulltext": "kokoteksti",
-    
+
+    "comp_tense": "liittotempus",
     "agricola_lang_fin": "suomi",
     "agricola_lang_swe": "ruotsi",
     "agricola_lang_heb": "heprea",
     "agricola_lang_lat": "latina",
     "agricola_lang_gre": "kreikka",
+
+    "agricola_tense_p": "perfekti",
+    "agricola_tense_pl": "pluskvamperfekti",
+    "agricola_tense_ppl": "perfekti tai pluskvamperfekti",
+    "agricola_tense_f": "futuuri",
     
     "album": "album",
     "album_year": "album year",
