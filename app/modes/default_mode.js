@@ -10795,6 +10795,7 @@ attrlist.agricola = {
 	    "pl": "pl",
 	    "f": "f",
 	    "lp": "pl",
+	    "p pl": "ppl",
 	},
     }
 };
