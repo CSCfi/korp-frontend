@@ -10650,7 +10650,7 @@ attrlist.agricola = {
 	label: "func",
     },
     com: {
-        label: "note",
+        displayType: "hidden",
     },
     tunit: {
         label: "comp_tense",
