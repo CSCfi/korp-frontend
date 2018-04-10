@@ -10657,11 +10657,9 @@ attrlist.agricola = {
 	displayType: "select",
 	translationKey: "agricola_tense_",
 	dataset: {
-	    "p": "p",
-	    "P": "p",
-	    "pl": "pl",
 	    "f": "f",
-	    "lp": "pl",
+	    "p": "p",
+	    "pl": "pl",
 	    "p pl": "ppl",
 	},
     }
