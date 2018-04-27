@@ -13086,6 +13086,49 @@ settings.corpora.eduskunta = {
     }
 };
 
+settings.corpora.eduskunta_test = {
+    title: "Eduskunta - transkriptiot - testi",
+    description: "Eduskunta - transkriptiot - testi",
+    id: "eduskunta_test",
+    metadata_urn: "urn:nbn:fi:lb-2017020202",
+    cite_id: "edsukunta-korp",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.standard,
+    struct_attributes: {
+        text_filename: {
+            label: "file_name",
+        },
+        text_date: sattrs.date,
+        text_time: sattrs.text_time,
+        paragraph_participant: {
+            label: "speech_speakername"
+        },
+	utterance_id: {
+	    label: "utterance_num",
+	},
+	utterance_participant: {
+	    label: "speaker",
+	    displayType: "select",
+	    dataset: [
+		"ML",
+		"TA"
+	    ],
+	    opts: settings.liteOptions
+	},
+	utterance_begin_time: {
+	    label: "utterance_begin_time"
+	},
+	utterance_end_time: {
+	    label: "utterance_end_time"
+	},
+	utterance_duration: {
+	    label: "utterance_duration"
+	},
+	utterance_annex_link: sattrs.link_show_video_annex,
+    }
+};
+
 settings.corpus_aliases["topling-fi"] = "topling_fi";
 
 
