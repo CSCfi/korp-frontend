@@ -72,9 +72,19 @@ settings.corporafolders.sv = {
 };
 */
 
+settings.corporafolders.finlex_par_test = {
+    title : "Finlex parallel test",
+    description : "Finlex parallel test",
+    contents : ["test_asd_1980_fi"],
+    info :
+    {
+	licence : settings.licenceinfo.CC_BY,
+	homepage_url : "http://data.finlex.fi/#/fi/main"
+    }
+};
+
 settings.corporafolders.finlex = {
     title : "Finlex",
-    contents : ["asd_fi","kho_fi","kko_fi"],
     description : "Semanttinen Finlex",
     contents : ["asd_fi","kho_fi","kko_fi"],
     info :
@@ -982,6 +992,25 @@ settings.corpora.testcorp_deptree = {
     }
 };
 */
+
+settings.corpora.test_asd_1980_fi = {
+    id : "test_asd_1980_fi",
+    lang : "fin",
+    linked_to : ["test_asd_1980_sv"],
+    title : "Säädöskokoelmatesti (pelkät sanat)",
+    description : "Alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1918-2017.",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    licence : settings.licenceinfo.CC_BY,
+    attributes : {},
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	}
+    }
+};
 
 settings.corpora.kko_fi = {
     id : "kko_fi",

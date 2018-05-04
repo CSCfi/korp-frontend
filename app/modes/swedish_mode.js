@@ -79,6 +79,12 @@ settings.corporafolders.koff = {
     };
 */
 
+settings.corporafolders.finlex_par_test = {
+    title : "Finlex parallel test",
+    contents : ["test_asd_1980_sv"],
+    info: {}
+};
+
 settings.corporafolders.ethesis = {
     title: "E-thesis",
     contents: ["ethesis_sv_dissabs", "ethesis_sv_maabs", "ethesis_sv_phd", "ethesis_sv_ma"],
@@ -147,6 +153,26 @@ settings.fn.make_corpus_settings_by_year_decade(
 
 
 delete klk_sv_parsed_years;
+
+settings.corpora.test_asd_1980_sv = {
+    id : "test_asd_1980_sv",
+    lang : "swe",
+    linked_to : ["test_asd_1980_fi"],
+    title : "Statutes test in Swedish",
+    description : "Statutes test in Swedish",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    licence : settings.licenceinfo.CC_BY,
+    attributes: {},
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	}
+    },
+    hide : true
+};
 
 /*ETHESIS*/
 settings.corpora.ethesis_sv_ma = {

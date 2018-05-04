@@ -304,6 +304,18 @@ settings.linkWithin = { "link": "link" };
 
 settings.corporafolders = {};
 
+settings.corporafolders.finlex_par_test = {
+    title: "Finlex parallel test corpus (only words)",
+    description: "Finlex fi/sv parallel test corpora (only words)",
+    contents: [
+	"test_asd_1980_fi",
+	"test_asd_1980_sv",
+    ],
+    info: {
+	licence: settings.licenceinfo.CC_BY,
+    }
+};
+
 settings.corporafolders.europarl = {
     title: "HeKo-EuroParl 7",
     description: "Helsinki Korp EuroParl v7 -aineistokokoelma",
@@ -646,6 +658,47 @@ var wordlink = {
 	label: "wordlink",
 	displayType: "hidden"
 }
+
+/* FINLEX parallel test corpus */
+    
+settings.corpora.test_asd_1980_fi = {
+    id : "test_asd_1980_fi",
+    lang : "fin",
+    linked_to : ["test_asd_1980_sv"],
+    title : "Säädöskokoelmatesti (pelkät sanat)",
+    description : "Alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1918-2017.",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    licence : settings.licenceinfo.CC_BY,
+    attributes : {},
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	}
+    }
+};
+
+settings.corpora.test_asd_1980_sv = {
+    id : "test_asd_1980_sv",
+    lang : "swe",
+    linked_to : ["test_asd_1980_fi"],
+    title : "Statutes test in Swedish",
+    description : "Statutes test in Swedish",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    licence : settings.licenceinfo.CC_BY,
+    attributes: {},
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	}
+    },
+    hide : true
+};
 
 /* OPUS – Open Source Paraller Corpus */
 
