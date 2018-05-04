@@ -72,6 +72,18 @@ settings.corporafolders.sv = {
 };
 */
 
+settings.corporafolders.finlex = {
+    title : "Finlex",
+    contents : ["asd_fi","kho_fi","kko_fi"],
+    description : "Semanttinen Finlex",
+    contents : ["asd_fi","kho_fi","kko_fi"],
+    info :
+    {
+	licence : settings.licenceinfo.CC_BY,
+	homepage_url : "http://data.finlex.fi/#/fi/main"
+    }
+};
+
 settings.corporafolders.ethesis = {
     title: "E-thesis",
     contents: ["ethesis_maabs", "ethesis_dissabs"],
@@ -970,6 +982,60 @@ settings.corpora.testcorp_deptree = {
     }
 };
 */
+
+settings.corpora.kko_fi = {
+    id : "kko_fi",
+    title : "KKO:n päätökset",
+    description : "Korkeimman oikeuden päätökset 1987-2017",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes : attrlist.standard,
+    licence : settings.licenceinfo.CC_BY,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	}
+    }
+};
+
+settings.corpora.kho_fi = {
+    id : "kho_fi",
+    title : "KHO:n päätökset",
+    description : "Korkeimman hallinto-oikeuden päätökset 1987-2017.",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes : attrlist.standard,
+    licence : settings.licenceinfo.CC_BY,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	}
+    }
+};
+
+settings.corpora.asd_fi = {
+    id : "asd_fi",
+    title : "Säädöskokoelma",
+    description : "Alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1918-2017.",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes : attrlist.standard,
+    licence : settings.licenceinfo.CC_BY,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	}
+    }
+};
 
 settings.corpora.finstud = {
     id: "finstud",
