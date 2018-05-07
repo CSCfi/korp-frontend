@@ -304,7 +304,7 @@ settings.linkWithin = { "link": "link" };
 
 settings.corporafolders = {};
 
-settings.corporafolders.finlex = {
+settings.corporafolders.finlex_par_test = {
     title: "Finlex parallel test corpus (only words)",
     description: "Finlex fi/sv parallel test corpora (only words)",
     contents: [
