@@ -83,7 +83,7 @@ settings.corporafolders.finlex_par_test = {
     title: "Finlex parallel test corpus (only words) - Swedish part",
     description: "Finlex fi/sv parallel test corpora (only words) - Swedish part",
     contents: [
-	"test_asd_1980_sv"
+	"asd_1980_sv"
     ],
     info: {
 	licence: settings.licenceinfo.CC_BY,
@@ -159,8 +159,8 @@ settings.fn.make_corpus_settings_by_year_decade(
 
 delete klk_sv_parsed_years;
 
-settings.corpora.test_asd_1980_sv = {
-    id : "test_asd_1980_sv",
+settings.corpora.asd_1980_sv = {
+    id : "asd_1980_sv",
     title : "Statutes test in Swedish",
     description : "Statutes test in Swedish",
     within : settings.defaultWithin,

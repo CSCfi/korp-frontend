@@ -308,8 +308,8 @@ settings.corporafolders.finlex_par_test = {
     title: "Finlex parallel test corpus (only words)",
     description: "Finlex fi/sv parallel test corpora (only words)",
     contents: [
-	"test_asd_1980_fi",
-	"test_asd_1980_sv",
+	"asd_1980_fi",
+	"asd_1980_sv",
     ],
     info: {
 	licence: settings.licenceinfo.CC_BY,
@@ -659,10 +659,10 @@ var wordlink = {
 	displayType: "hidden"
 }
 
-settings.corpora.test_asd_1980_fi = {
-    id : "test_asd_1980_fi",
+settings.corpora.asd_1980_fi = {
+    id : "asd_1980_fi",
     lang : "fin",
-    linked_to : ["test_asd_1980_sv"],
+    linked_to : ["asd_1980_sv"],
     title : "Säädöskokoelmatesti (pelkät sanat)",
     description : "Alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1918-2017.",
     context : settings.defaultContext,
@@ -678,10 +678,10 @@ settings.corpora.test_asd_1980_fi = {
     }
 };
 
-settings.corpora.test_asd_1980_sv = {
-    id : "test_asd_1980_sv",
+settings.corpora.asd_1980_sv = {
+    id : "asd_1980_sv",
     lang : "swe",
-    linked_to : ["test_asd_1980_fi"],
+    linked_to : ["asd_1980_fi"],
     title : "Statutes test in Swedish",
     description : "Statutes test in Swedish",
     context : settings.defaultContext,

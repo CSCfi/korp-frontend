@@ -75,7 +75,7 @@ settings.corporafolders.sv = {
 settings.corporafolders.finlex_par_test = {
     title : "Finlex parallel test (only words) - Finnish part",
     description : "Finlex parallel test (only words) - Finnish part",
-    contents : ["test_asd_1980_fi"],
+    contents : ["asd_1980_fi"],
     info :
     {
 	licence : settings.licenceinfo.CC_BY,
@@ -13098,10 +13098,9 @@ settings.corpora.eduskunta = {
 };
 
 /* Finlex test corpus */
-settings.corpora.test_asd_1980_fi = {
-    id : "test_asd_1980_fi",
+settings.corpora.asd_1980_fi = {
+    id : "asd_1980_fi",
     lang : "fin",
-    linked_to : ["test_asd_1980_sv"],
     title : "Säädöskokoelmatesti (pelkät sanat)",
     description : "Alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1918-2017.",
     context : settings.defaultContext,
