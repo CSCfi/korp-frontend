@@ -1838,6 +1838,10 @@ sattrlist.oracc = {
     },
     sentence_translation: {
         label: "oracc_sent_translation"
+    },
+    paragraph_id : {
+        label : "paragraph_id",
+        displayType : "hidden",
     }
 };
 
@@ -1866,9 +1870,6 @@ attrlist.oracc = {
         translationKey: "oracc_pos_",
         dataset: {},
         opts: settings.liteOptions
-    },
-    cuneiform: {
-        label: "oracc_cuneiform"
     },
     ref: {
         label: "oracc_ref"
