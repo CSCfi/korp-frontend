@@ -269,7 +269,7 @@ settings.corpora.fennougrica = {
 settings.corpora.oracc_other = {
     id: "oracc_other",
     title: "Others",
-    description: "Others",
+    description: "Other corpora",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.oracc,
