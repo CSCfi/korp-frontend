@@ -1845,7 +1845,7 @@ sattrlist.oracc = {
     }
 };
 
-/* ORACC */
+/* ORACC add links later */
 attrlist.oracc = {
     lemma: attrs.baseform,
     ltrans:  {
