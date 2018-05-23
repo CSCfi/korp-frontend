@@ -147,7 +147,7 @@ settings.corporafolders.sks = {
 
 settings.corporafolders.literature = {
     title: "Kirjallisuutta",
-    contents: ["gutenberg", "sks_kivi_fi", "skvr",
+    contents: ["gutenberg", "nlfcl_fi", "sks_kivi_fi", "skvr",
 		"parfin_2016_fi", "parrus_2016_fi"]
 };
 
@@ -12793,6 +12793,37 @@ settings.corpora.gutenberg = {
         s_type: sattrs.sentence_type
 */
     }
+};
+
+settings.corpora.nlfcl_fi = {
+    id: "nlfcl_fi",
+    title: "Kansalliskirjaston klassikkokirjasto (suomi)",
+    description: "Kansalliskirjaston klassikkokirjaston sisältämiä suomenkielisiä teoksia vuosilta 1549–1944, Kielipankki-versio",
+    urn: "urn:nbn:fi:lb-201803282";
+    metadata_urn: "urn:nbn:fi:lb-201803281";
+    cite_id: "nlfcl-fi-korp",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	    text_title: sattrs.text_title,
+	    text_author: sattrs.text_author,
+	    text_contributor: {
+            label: "contributor"
+		}, 
+	    text_rights: sattrs.hidden,             
+	    text_filename: sattrs.hidden,
+	    text_digitized: {
+            label: "digitization_date"
+		},
+	    text_book_number: {
+            label: "book_number"
+		},  
+	    text_year: sattrs.year,
+	    paragraph_id: sattrs.paragraph_id_hidden,
+	    sentence_id: sattrs.sentence_id_hidden,
+	    }
+    
 };
 
 /* testiversio

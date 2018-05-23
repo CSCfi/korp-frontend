@@ -74,6 +74,8 @@
     "text_volume": "nide",
     "subject": "aihe",
 
+    "book_number": "kirjan numero",
+
     "sentence_link": "sentence link",
     "text_issue": "numero",
 

@@ -124,6 +124,9 @@
     "subject": "subject",
     "volume": "volume",
 
+    "book_number": "book number",
+    "contributor": "contributor",
+
     "sentence_link": "sentence link",
     "text_issue": "issue",
 
