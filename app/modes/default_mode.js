@@ -12799,8 +12799,8 @@ settings.corpora.nlfcl_fi = {
     id: "nlfcl_fi",
     title: "Kansalliskirjaston klassikkokirjasto (suomi)",
     description: "Kansalliskirjaston klassikkokirjaston sisältämiä suomenkielisiä teoksia vuosilta 1549–1944, Kielipankki-versio",
-    urn: "urn:nbn:fi:lb-201803282";
-    metadata_urn: "urn:nbn:fi:lb-201803281";
+    urn: "urn:nbn:fi:lb-201803282",
+    metadata_urn: "urn:nbn:fi:lb-201803281",
     cite_id: "nlfcl-fi-korp",
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
