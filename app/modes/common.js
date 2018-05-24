@@ -4207,3 +4207,79 @@ settings.fn.make_klk_page_image_url = function (token_data, context_size) {
 	    + "?page=" + token_data.struct_attrs.text_page_no)
 	    + (words ? "&term=" + words : "");
 }
+
+
+// Common settings template for FTC, FSTC and Svenska Parole (may be
+// overridden)
+settings.templ.lemmie_common = {
+    title: "",
+    description: "",
+    id: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    limited_access: true,
+    licence_type: "RES",
+    attributes: {
+    },
+    struct_attributes: {
+	text_title: sattrs.text_title,
+	text_creator: sattrs.author,
+	text_publisher: sattrs.publisher,
+	text_wordcount: {
+	    label: "text_word_count",
+	},
+	text_lemmie_id: {
+	    label: "lemmie_text_id",
+	},
+	text_lang: {
+	    label: "lang",
+	    displayType: "select",
+	    opts: settings.liteOptions,
+	    translationKey: "",
+	    dataset: [
+		"fin",
+		"eng",
+		"swe",
+	    ]
+	},
+	text_date: sattrs.date,
+	text_filename: {
+	    label: "file_name",
+	},
+	text_rights: {
+	    label: "access_rights_cat",
+	},
+	text_contributor: {
+	    label: "contributor",
+	},
+	text_source: {
+	    label: "source",
+	    displayType: "select",
+	    localize: false,
+	    opts: settings.liteOptions,
+	    // dataset: [],
+	},
+	text_lemmie_corpus: {
+	    label: "lemmie_corpus",
+	},
+	// // Always empty
+	// text_type: {
+	//     label: "text_type",
+	// },
+	text_subject: {
+	    label: "subject",
+	},
+	// paragraph_id: sattrs.paragraph_id,
+	paragraph_type: {
+	    label: "paragraph_type",
+	    displayType: "select",
+	    translationKey: "paragraphtype_",
+	    dataset: {},
+	    opts: settings.liteOptions
+	},
+	sentence_id: sattrs.sentence_id_hidden,
+	sentence_within: {
+	    label: "enclosing_elems",
+	},
+    }
+};
