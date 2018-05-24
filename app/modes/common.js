@@ -1612,6 +1612,9 @@ sattrs.text_source = {
 sattrs.text_published = {
     label: "text_pubdate2"
 };
+sattrs.publisher = {
+    label: "publisher"
+};
 
 sattrs.author = {
     label: "author"
