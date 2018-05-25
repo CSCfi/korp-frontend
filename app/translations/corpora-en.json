@@ -126,6 +126,8 @@
 
     "book_number": "book number",
     "contributor": "contributor",
+    
+    "nlfcl_contributor": "collaborator",
 
     "sentence_link": "sentence link",
     "text_issue": "issue",

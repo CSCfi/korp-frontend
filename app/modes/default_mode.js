@@ -12734,7 +12734,7 @@ settings.corpora.nlfcl_fi = {
 	    text_title: sattrs.text_title,
 	    text_author: sattrs.text_author,
 	    text_contributor: {
-            label: "contributor"
+            label: "nlfcl_contributor"
 		}, 
 	    text_rights: sattrs.hidden,             
 	    text_filename: sattrs.hidden,
