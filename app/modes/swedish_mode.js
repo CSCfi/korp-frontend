@@ -80,11 +80,9 @@ settings.corporafolders.koff = {
 */
 
 settings.corporafolders.finlex_par_test = {
-    title: "Finlex parallel test corpus (only words) - Swedish part",
-    description: "Finlex fi/sv parallel test corpora (only words) - Swedish part",
-    contents: [
-	"test_asd_par_sv"
-    ],
+    title : "Finlex-parallelltest (bara orden) - svenska delen",
+    description : "Finlex-parallelltest (bara orden) - svenska delen",
+    contents: ["test_asd_par_sv", "test_kko_sv", "test_kho_sv"],
     info: {
 	licence: settings.licenceinfo.CC_BY,
     }
@@ -161,8 +159,40 @@ delete klk_sv_parsed_years;
 
 settings.corpora.test_asd_par_sv = {
     id : "test_asd_par_sv",
-    title : "Statutes test in Swedish",
-    description : "Statutes test in Swedish",
+    title : "på svenska: Säädöskokoelmatesti (pelkät sanat)",
+    description : "på svenska: Alkuperäisiä säädöksiä vuosilta 1920-2017.",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes: {},
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	}
+    }
+};
+
+settings.corpora.test_kko_sv = {
+    id : "test_kko_sv",
+    title : "på svenska: Korkeimman oikeuden aineistotesti (pelkät sanat)",
+    description : "på svenska: Alkuperäisiä aineistoja vuosilta 1980-2018.",
+    within : settings.defaultWithin,
+    context : settings.defaultContext,
+    attributes: {},
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	}
+    }
+};
+
+settings.corpora.test_kho_sv = {
+    id : "test_kho_sv",
+    title : "på svenska: Korkeimman hallinto-oikeuden aineistotesti (pelkät sanat)",
+    description : "på svenska: Alkuperäisiä aineistoja vuosilta 2001-2018.",
     within : settings.defaultWithin,
     context : settings.defaultContext,
     attributes: {},

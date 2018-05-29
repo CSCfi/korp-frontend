@@ -73,9 +73,9 @@ settings.corporafolders.sv = {
 */
 
 settings.corporafolders.finlex_par_test = {
-    title : "Finlex parallel test (only words) - Finnish part",
-    description : "Finlex parallel test (only words) - Finnish part",
-    contents : ["test_asd_par_fi"],
+    title : "Finlexin rinnakkaistesti (pelkät sanat) - suomenkielinen osuus",
+    description : "Finlexin rinnakkaistesti (pelkät sanat) - suomenkielinen osuus",
+    contents : ["test_asd_par_fi", "test_kko_fi", "test_kho_fi"],
     info :
     {
 	licence : settings.licenceinfo.CC_BY,
@@ -13103,6 +13103,42 @@ settings.corpora.test_asd_par_fi = {
     lang : "fin",
     title : "Säädöskokoelmatesti (pelkät sanat)",
     description : "Alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1918-2017.",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    licence : settings.licenceinfo.CC_BY,
+    attributes : {},
+    struct_attributes : {
+        text_url : {
+            label : "URL",
+            type : "url",
+            url_opts : sattrs.link_url_opts
+        }
+    }
+};
+
+settings.corpora.test_kko_fi = {
+    id : "test_kko_fi",
+    lang : "fin",
+    title : "Korkeimman oikeuden aineistotesti (pelkät sanat)",
+    description : "Alkuperäisiä aineistoja vuosilta 1980-2018.",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    licence : settings.licenceinfo.CC_BY,
+    attributes : {},
+    struct_attributes : {
+        text_url : {
+            label : "URL",
+            type : "url",
+            url_opts : sattrs.link_url_opts
+        }
+    }
+};
+
+settings.corpora.test_kho_fi = {
+    id : "test_kho_fi",
+    lang : "fin",
+    title : "Korkeimman halinto-oikeuden aineistotesti (pelkät sanat)",
+    description : "Alkuperäisiä aineistoja vuosilta 1987-2018",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
