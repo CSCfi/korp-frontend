@@ -72,10 +72,10 @@ settings.corporafolders.sv = {
 };
 */
 
-settings.corporafolders.finlex_par_test = {
-    title : "Finlexin rinnakkaistesti (pelkät sanat) - suomenkielinen osuus",
-    description : "Finlexin rinnakkaistesti (pelkät sanat) - suomenkielinen osuus",
-    contents : ["test_asd_par_fi", "test_kko_fi", "test_kho_fi"],
+settings.corporafolders.finlex = {
+    title : "Finlex",
+    description : "Semanttisen Finlexin aineistoja. Sisältää valikoiman alkuperäisiä säädöksiä (1917- sekä muutamia varhaisempia), KKO:n päätöksiä (1980-) ja KHO:n päätöksiä (1987-).",
+    contents : ["asd_fi", "kko_fi", "kho_fi"],
     info :
     {
 	licence : settings.licenceinfo.CC_BY,
@@ -13097,16 +13097,16 @@ settings.corpora.eduskunta = {
     }
 };
 
-/* Finlex test corpus */
-settings.corpora.test_asd_par_fi = {
-    id : "test_asd_par_fi",
+
+settings.corpora.asd_fi = {
+    id : "asd_fi",
     lang : "fin",
-    title : "Säädöskokoelmatesti (pelkät sanat)",
-    description : "Alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1918-2017.",
+    title : "Säädöskokoelma",
+    description : "Alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1917-2017.",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
-    attributes : {},
+    attributes : attrlist.standard,
     struct_attributes : {
         text_url : {
             label : "URL",
@@ -13116,15 +13116,15 @@ settings.corpora.test_asd_par_fi = {
     }
 };
 
-settings.corpora.test_kko_fi = {
-    id : "test_kko_fi",
+settings.corpora.kko_fi = {
+    id : "kko_fi",
     lang : "fin",
-    title : "Korkeimman oikeuden aineistotesti (pelkät sanat)",
-    description : "Alkuperäisiä aineistoja vuosilta 1980-2018.",
+    title : "KKO:n päätöksiä",
+    description : "Korkeimman oikeuden päätöksiä vuosilta 1980-2017.",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
-    attributes : {},
+    attributes : attrlist.standard,
     struct_attributes : {
         text_url : {
             label : "URL",
@@ -13134,15 +13134,15 @@ settings.corpora.test_kko_fi = {
     }
 };
 
-settings.corpora.test_kho_fi = {
-    id : "test_kho_fi",
+settings.corpora.kho_fi = {
+    id : "kho_fi",
     lang : "fin",
-    title : "Korkeimman halinto-oikeuden aineistotesti (pelkät sanat)",
-    description : "Alkuperäisiä aineistoja vuosilta 1987-2018",
+    title : "KHO:n päätöksiä",
+    description : "Korkeimman hallinto-oikeuden päätöksiä vuosilta 1987-2017",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
-    attributes : {},
+    attributes : attrlist.standard,
     struct_attributes : {
         text_url : {
             label : "URL",

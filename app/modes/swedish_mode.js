@@ -79,14 +79,19 @@ settings.corporafolders.koff = {
     };
 */
 
-settings.corporafolders.finlex_par_test = {
-    title : "Finlex-parallelltest (bara orden) - svenska delen",
-    description : "Finlex-parallelltest (bara orden) - svenska delen",
-    contents: ["test_asd_par_sv", "test_kko_sv", "test_kho_sv"],
+
+/*
+// Upcoming Finlex corpora in Swedish
+settings.corporafolders.finlex = {
+    title : "Finlex",
+    description : "Material från Semantiska Finlex. Innehåller ett urval av författningar i originalform (1920-), avgörande av Högsta domstolen (1980-) och avgörande av Högsta förvaltningsdomstolen (2001-).",
+    contents: ["asd_sv", "kko_sv", "kho_sv"],
     info: {
 	licence: settings.licenceinfo.CC_BY,
+	homepage_url : "http://data.finlex.fi/#/fi/main"
     }
 };
+*/
 
 settings.corporafolders.ethesis = {
     title: "E-thesis",
@@ -157,13 +162,16 @@ settings.fn.make_corpus_settings_by_year_decade(
 
 delete klk_sv_parsed_years;
 
-settings.corpora.test_asd_par_sv = {
-    id : "test_asd_par_sv",
-    title : "på svenska: Säädöskokoelmatesti (pelkät sanat)",
-    description : "på svenska: Alkuperäisiä säädöksiä vuosilta 1920-2017.",
+
+/*
+// Upcoming Finlex corpora in Swedish
+settings.corpora.asd_sv = {
+    id : "asd_sv",
+    title : "Författningar",
+    description : "Författningar i originalform (1920-).",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes: {},
+    attributes: attrlist.standard,
     struct_attributes : {
 	text_url : {
 	    label : "URL",
@@ -173,13 +181,14 @@ settings.corpora.test_asd_par_sv = {
     }
 };
 
-settings.corpora.test_kko_sv = {
-    id : "test_kko_sv",
-    title : "på svenska: Korkeimman oikeuden aineistotesti (pelkät sanat)",
-    description : "på svenska: Alkuperäisiä aineistoja vuosilta 1980-2018.",
+// Upcoming Finlex corpora in Swedish
+settings.corpora.kko_sv = {
+    id : "kko_sv",
+    title : "Avgörande av Högsta domstolen",
+    description : "Avgörande av Högsta domstolen (1980-).",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes: {},
+    attributes: attrlist.standard,
     struct_attributes : {
 	text_url : {
 	    label : "URL",
@@ -189,13 +198,14 @@ settings.corpora.test_kko_sv = {
     }
 };
 
-settings.corpora.test_kho_sv = {
-    id : "test_kho_sv",
-    title : "på svenska: Korkeimman hallinto-oikeuden aineistotesti (pelkät sanat)",
-    description : "på svenska: Alkuperäisiä aineistoja vuosilta 2001-2018.",
+// Upcoming Finlex corpora in Swedish
+settings.corpora.kho_sv = {
+    id : "kho_sv",
+    title : "Avgörande av Högsta förvaltningsdomstolen",
+    description : "Avgörande av Högsta förvaltningsdomstolen (2001-)",
     within : settings.defaultWithin,
     context : settings.defaultContext,
-    attributes: {},
+    attributes: attrlist.standard,
     struct_attributes : {
 	text_url : {
 	    label : "URL",
@@ -204,6 +214,7 @@ settings.corpora.test_kho_sv = {
 	}
     }
 };
+*/
 
 
 /*ETHESIS*/

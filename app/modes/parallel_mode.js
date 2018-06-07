@@ -304,17 +304,21 @@ settings.linkWithin = { "link": "link" };
 
 settings.corporafolders = {};
 
-settings.corporafolders.finlex_par_test = {
-    title: "Finlex parallel test corpus (only words)",
-    description: "Finlex fi/sv parallel test corpora (only words)",
+/*
+// Upcoming Finlex parallel corpus
+settings.corporafolders.finlex_fi_sv = {
+    title: "Finlex Finnish-Swedish parallel corpus",
+    description: "Original statutes from Semantic Finlex in Finnish and Swedish (1920-).",
     contents: [
-	"test_asd_par_fi",
-	"test_asd_par_sv",
+	"asd_par_fi",
+	"asd_par_sv",
     ],
     info: {
 	licence: settings.licenceinfo.CC_BY,
+	homepage_url : "http://data.finlex.fi/#/en/main"
     }
 };
+*/
 
 settings.corporafolders.europarl = {
     title: "HeKo-EuroParl 7",
@@ -659,16 +663,18 @@ var wordlink = {
 	displayType: "hidden"
 }
 
-settings.corpora.test_asd_par_fi = {
-    id : "test_asd_par_fi",
+/*
+// Upcoming Finlex parallel corpus
+settings.corpora.asd_par_fi = {
+    id : "asd_par_fi",
     lang : "fin",
-    linked_to : ["test_asd_par_sv"],
-    title : "Säädöskokoelmatesti (pelkät sanat)",
-    description : "Alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1918-2017.",
+    linked_to : ["asd_par_sv"],
+    title : "Finlex Finnish-Swedish parallel corpus, Finnish part",
+    description : "Original statutes from Semantic Finlex in Finnish (1920-).",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
-    attributes : {},
+    attributes : attrlist.standard,
     struct_attributes : {
 	text_url : {
 	    label : "URL",
@@ -678,16 +684,17 @@ settings.corpora.test_asd_par_fi = {
     }
 };
 
-settings.corpora.test_asd_par_sv = {
-    id : "test_asd_par_sv",
+// Upcoming Finlex parallel corpus
+settings.corpora.asd_par_sv = {
+    id : "asd_par_sv",
     lang : "swe",
-    linked_to : ["test_asd_par_fi"],
-    title : "på svenska: Säädöskokoelmatesti (pelkät sanat)",
-    description : "på svenska: Alkuperäisiä säädöksiä vuosilta 1920-2017.",
+    linked_to : ["asd_par_fi"],
+    title : "Finlex Finnish-Swedish parallel corpus, Swedish part",
+    description : "Original statutes from Semantic Finlex in Swedish (1920-).",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
-    attributes: {},
+    attributes: attrlist.standard,
     struct_attributes : {
 	text_url : {
 	    label : "URL",
@@ -697,7 +704,7 @@ settings.corpora.test_asd_par_sv = {
     },
     hide : true
 };
-
+*/
 
 /* OPUS – Open Source Paraller Corpus */
 
