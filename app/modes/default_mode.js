@@ -145,6 +145,43 @@ settings.corporafolders.sks = {
 };
 */
 
+settings.corporafolders.kal = {
+    title: "Kotuksen aikakauslehtikorpus",
+    description: "Kotimaisten kielten keskuksen aikakauslehtikorpus",
+    info: {
+	lbr_id: "urn:nbn:fi:lb-201407301",
+	licence: settings.licenceinfo.ACA_NC,
+	limited_access: true,
+	licence_type: "ACA",
+    }
+};
+
+settings.corporafolders.kal.kal_perus = {
+    title: "Kotuksen aikakauslehtikorpus, tarkistamaton",
+    description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistamaton",
+    id: "kal_perus",
+    contents: ["kal_perus_ha"],
+    info: {
+	urn: "urn:nbn:fi:lb-2018060706",
+	metadata_urn: "urn:nbn:fi:lb-2018060702",
+	cite_id: "kotus-al-unrev-korp",
+    }
+};
+
+
+settings.corporafolders.kal.kal_ydin = {
+    title: "Kotuksen aikakauslehtikorpus, tarkistettu",
+    description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistettu",
+    id: "kal_ydin",
+    contents: ["kal_ydin_ha"],
+    info: {
+	urn: "urn:nbn:fi:lb-2018060705",
+	metadata_urn: "urn:nbn:fi:lb-2018060701",
+	cite_id: "kotus-al-rev-korp",
+    }
+};
+
+
 settings.corporafolders.literature = {
     title: "Kirjallisuutta",
     contents: ["gutenberg", "nlfcl_fi", "sks_kivi_fi", "skvr",
@@ -970,6 +1007,73 @@ settings.corpora.testcorp_deptree = {
     }
 };
 */
+
+settings.corpora.kal_perus_ha = {
+    title: "Historiallinen Aikakauskirja",
+    description: "Historiallinen Aikakauskirja's volumes : 1917, 1920, 1925, 1935, 1945",
+    id: "kal_perus_ha",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_page: {
+            label: "page"
+        },
+        text_contributor: {
+            label: "contributor"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_digitized: {
+            label: "digitization_date"
+        },
+        text_modified: {
+            label: "modified"
+        },
+        text_words: {
+            label: "words"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+settings.corpora.kal_ydin_ha = {
+    title: "Historiallinen Aikakauskirja",
+    description: "Historiallinen Aikakauskirja, numero 1/1935, OCR tarkistettu",
+    id: "kal_ydin_ha",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_page: {
+            label: "page"
+        },
+        text_contributor: {
+            label: "contributor"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_digitized: {
+            label: "digitization_date"
+        },
+        text_modified: {
+            label: "modified"
+        },
+        text_words: {
+            label: "words"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
 
 settings.corpora.finstud = {
     id: "finstud",
