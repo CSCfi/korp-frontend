@@ -159,7 +159,6 @@ settings.corporafolders.kal = {
 settings.corporafolders.kal.kal_perus = {
     title: "Kotuksen aikakauslehtikorpus, tarkistamaton",
     description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistamaton",
-    id: "kal_perus",
     contents: ["kal_perus_ha"],
     info: {
 	urn: "urn:nbn:fi:lb-2018060706",
@@ -172,7 +171,6 @@ settings.corporafolders.kal.kal_perus = {
 settings.corporafolders.kal.kal_ydin = {
     title: "Kotuksen aikakauslehtikorpus, tarkistettu",
     description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistettu",
-    id: "kal_ydin",
     contents: ["kal_ydin_ha"],
     info: {
 	urn: "urn:nbn:fi:lb-2018060705",
@@ -1010,7 +1008,7 @@ settings.corpora.testcorp_deptree = {
 
 settings.corpora.kal_perus_ha = {
     title: "Historiallinen Aikakauskirja",
-    description: "Historiallinen Aikakauskirja's volumes : 1917, 1920, 1925, 1935, 1945",
+    description: "Historiallinen Aikakauskirja's volumes : 1917, 1920, 1925, 1935, 1945. OCR tarkistamaton",
     id: "kal_perus_ha",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
