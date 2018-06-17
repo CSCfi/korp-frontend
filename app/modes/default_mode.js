@@ -1025,14 +1025,14 @@ settings.corpora.kal_perus_ha = {
             label: "contributor"
         },
         text_publisher: sattrs.text_publisher,
-        text_digitized: {
-            label: "digitization_date"
+        text_year_digitized: {
+            label: "digitized"
         },
-        text_modified: {
+        text_date_modified: {
             label: "modified"
         },
-        text_words: {
-            label: "words"
+        text_wordcount: {
+            label: "wordcount"
         },
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
@@ -1058,14 +1058,14 @@ settings.corpora.kal_ydin_ha = {
             label: "contributor"
         },
         text_publisher: sattrs.text_publisher,
-        text_digitized: {
-            label: "digitization_date"
+        text_year_digitized: {
+            label: "digitized"
         },
-        text_modified: {
+        text_date_modified: {
             label: "modified"
         },
-        text_words: {
-            label: "words"
+        text_wordcount: {
+            label: "wordcount"
         },
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
