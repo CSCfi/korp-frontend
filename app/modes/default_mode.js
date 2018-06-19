@@ -1008,7 +1008,7 @@ settings.corpora.testcorp_deptree = {
 
 settings.corpora.kal_perus_ha = {
     title: "Historiallinen Aikakauskirja (tarkistamaton)",
-    description: "Historiallinen Aikakauskirja's volumes : 1917, 1920, 1925, 1935, 1945 (OCR tarkistamaton)",
+    description: "Historiallinen Aikakauskirja; numerot 1917, 1920, 1925, 1935, 1945 (OCR tarkistamaton)",
     id: "kal_perus_ha",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
@@ -1036,7 +1036,7 @@ settings.corpora.kal_perus_ha = {
 
 settings.corpora.kal_perus_la = {
     title: "Lakimies (tarkistamaton)",
-    description: "Lakimies' volumes : 1917, 1920, 1925, 1935, 1945, 1955, 1965, 1972 (OCR tarkistamaton)",
+    description: "Lakimies; numerot 1917, 1920, 1925, 1935, 1945, 1955, 1965, 1972 (OCR tarkistamaton)",
     id: "kal_perus_la",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
@@ -1064,7 +1064,7 @@ settings.corpora.kal_perus_la = {
 
 settings.corpora.kal_perus_sk = {
     title: "Suomen Kuvalehti (tarkistamaton)",
-    description: "Suomen Kuvalehti's volumes: 1916, 1917, 1925, 1935, 1945, 1955, 1965, 1972 (OCR tarkistamaton)",
+    description: "Suomen Kuvalehti; numerot 1916, 1917, 1925, 1935, 1945, 1955, 1965, 1972 (OCR tarkistamaton)",
     id: "kal_perus_sk",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
@@ -1091,7 +1091,7 @@ settings.corpora.kal_perus_sk = {
 
 settings.corpora.kal_perus_su = {
     title: "Suomi (tarkistamaton)",
-    description: "Suomi's volumes: 1917, 1920, 1923, 1935, 1938 (OCR tarkistamaton)",
+    description: "Suomi; numerot 1917, 1920, 1923, 1935, 1938 (OCR tarkistamaton)",
     id: "kal_perus_su",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
@@ -1118,7 +1118,7 @@ settings.corpora.kal_perus_su = {
 
 settings.corpora.kal_ydin_ha = {
     title: "Historiallinen Aikakauskirja (tarkistettu)",
-    description: "Historiallinen Aikakauskirja, numero 1/1935 (OCR tarkistettu)",
+    description: "Historiallinen Aikakauskirja; numero 1/1935 (OCR tarkistettu)",
     id: "kal_ydin_ha",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
@@ -1148,7 +1148,7 @@ settings.corpora.kal_ydin_ha = {
 
 settings.corpora.kal_ydin_la = {
     title: "Lakimies (tarkistettu)",
-    description: "Lakimies, 1935 (OCR tarkistettu)",
+    description: "Lakimies; numero 1935 (OCR tarkistettu)",
     id: "kal_ydin_la",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
@@ -1178,7 +1178,7 @@ settings.corpora.kal_ydin_la = {
 
 settings.corpora.kal_ydin_sk = {
     title: "Suomen Kuvalehti (tarkistettu)",
-    description: "Suomen Kuvalehti, neljä numeroa (4, 17, 30 ja 43) per vuosi 1917, 1925, 1935, 1945, 1955, 1965 ja 1972 (OCR tarkistettu)",
+    description: "Suomen Kuvalehti; neljä numeroa (4, 17, 30 ja 43) per vuosi 1917, 1925, 1935, 1945, 1955, 1965 ja 1972 (OCR tarkistettu)",
     id: "kal_ydin_sk",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
@@ -1208,7 +1208,7 @@ settings.corpora.kal_ydin_sk = {
 
 settings.corpora.kal_ydin_su = {
     title: "Suomi (tarkistettu)",
-    description: "Suomi, 1935 (OCR tarkistettu)",
+    description: "Suomi; numero 1935 (OCR tarkistettu)",
     id: "kal_ydin_su",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {

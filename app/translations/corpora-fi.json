@@ -78,7 +78,6 @@
 
     "nlfcl_contributor": "muu tekijä",
 
-    "page": "sivu",
     "digitized": "digitoitu",
     "modified": "muunnettu",
     "wordcount": "sanamäärä",
@@ -105,7 +104,7 @@
     "tags": "tags",
     "post_url": "post address",
 
-    "page": "page",
+    "page": "sivu",
     "author_type": "author type",
     "gender": "gender",
     "journalist": "journalist",
