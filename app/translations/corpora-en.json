@@ -128,6 +128,7 @@
     "contributor": "contributor",
     
     "nlfcl_contributor": "collaborator",
+    "nlfcl_year": "publication year",
 
     "sentence_link": "sentence link",
     "text_issue": "issue",
