@@ -375,7 +375,9 @@
       };
       infoGetter = (function(_this) {
         return function(prop) {
-          return _(_this.selected).pluck("info").pluck(prop).compact().map(function(item) {
+          return _(_this.selected).pluck("info").pluck(prop).compact().filter(function(val) {
+            return val.slice(0, 4) !== "0000";
+          }).map(function(item) {
             return moment(item);
           }).value();
         };
