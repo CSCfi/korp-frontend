@@ -12731,23 +12731,25 @@ settings.corpora.nlfcl_fi = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_id: sattrs.hidden,
-	    text_title: sattrs.text_title,
-	    text_author: sattrs.text_author,
-	    text_contributor: {
+	text_title: sattrs.text_title,
+	text_author: sattrs.text_author,
+	text_contributor: {
             label: "nlfcl_contributor"
-		}, 
-	    text_rights: sattrs.hidden,             
-	    text_filename: sattrs.hidden,
-	    text_digitized: {
+	}, 
+	text_rights: sattrs.hidden,             
+	text_filename: sattrs.hidden,
+	text_digitized: {
             label: "digitization_date"
-		},
-	    text_book_number: {
+	},
+	text_book_number: {
             label: "book_number"
-		},  
-	    text_year: sattrs.year,
-	    paragraph_id: sattrs.paragraph_id_hidden,
-	    sentence_id: sattrs.sentence_id_hidden,
-	    }
+	},  
+	text_year: {
+	    label: "nlfcl_year"
+	},
+	paragraph_id: sattrs.paragraph_id_hidden,
+	sentence_id: sattrs.sentence_id_hidden,
+    }
     
 };
 
