@@ -322,6 +322,12 @@ class window.CorpusListing
             .pluck("info")
             .pluck(prop)
             .compact()
+            # Filter out null dates, as Moment converts them to having
+            # a negative year and formats as 00-1, which causes a
+            # backend error. However, a null date as
+            # FirstDate/LastDate still causes an error in the backend.
+            # (Jyrki Niemi 2018-06-11)
+            .filter((val) -> val.slice(0, 10) != "0000-00-00")
             .map((item) -> moment(item))
             .value()
 
