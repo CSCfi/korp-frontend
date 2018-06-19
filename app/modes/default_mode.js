@@ -159,7 +159,7 @@ settings.corporafolders.kal = {
 settings.corporafolders.kal.kal_perus = {
     title: "Kotuksen aikakauslehtikorpus, tarkistamaton",
     description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistamaton",
-    contents: ["kal_perus_ha"],
+    contents: ["kal_perus_ha", "kal_perus_la", "kal_perus_sk", "kal_perus_su"],
     info: {
 	urn: "urn:nbn:fi:lb-2018060706",
 	metadata_urn: "urn:nbn:fi:lb-2018060702",
@@ -171,7 +171,7 @@ settings.corporafolders.kal.kal_perus = {
 settings.corporafolders.kal.kal_ydin = {
     title: "Kotuksen aikakauslehtikorpus, tarkistettu",
     description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistettu",
-    contents: ["kal_ydin_ha"],
+    contents: ["kal_ydin_ha", "kal_ydin_la", "kal_ydin_sk", "kal_ydin_su"],
     info: {
 	urn: "urn:nbn:fi:lb-2018060705",
 	metadata_urn: "urn:nbn:fi:lb-2018060701",
@@ -1007,8 +1007,8 @@ settings.corpora.testcorp_deptree = {
 */
 
 settings.corpora.kal_perus_ha = {
-    title: "Historiallinen Aikakauskirja",
-    description: "Historiallinen Aikakauskirja's volumes : 1917, 1920, 1925, 1935, 1945. OCR tarkistamaton",
+    title: "Historiallinen Aikakauskirja (tarkistamaton)",
+    description: "Historiallinen Aikakauskirja's volumes : 1917, 1920, 1925, 1935, 1945 (OCR tarkistamaton)",
     id: "kal_perus_ha",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
@@ -1018,11 +1018,88 @@ settings.corpora.kal_perus_ha = {
         text_issue: {
             label: "issue"
         },
-        text_page: {
-            label: "page"
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
         },
-        text_contributor: {
-            label: "contributor"
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+
+settings.corpora.kal_perus_la = {
+    title: "Lakimies (tarkistamaton)",
+    description: "Lakimies' volumes : 1917, 1920, 1925, 1935, 1945, 1955, 1965, 1972 (OCR tarkistamaton)",
+    id: "kal_perus_la",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+
+settings.corpora.kal_perus_sk = {
+    title: "Suomen Kuvalehti (tarkistamaton)",
+    description: "Suomen Kuvalehti's volumes: 1916, 1917, 1925, 1935, 1945, 1955, 1965, 1972 (OCR tarkistamaton)",
+    id: "kal_perus_sk",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+settings.corpora.kal_perus_su = {
+    title: "Suomi (tarkistamaton)",
+    description: "Suomi's volumes: 1917, 1920, 1923, 1935, 1938 (OCR tarkistamaton)",
+    id: "kal_perus_su",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
         },
         text_publisher: sattrs.text_publisher,
         text_year_digitized: {
@@ -1040,8 +1117,8 @@ settings.corpora.kal_perus_ha = {
 };
 
 settings.corpora.kal_ydin_ha = {
-    title: "Historiallinen Aikakauskirja",
-    description: "Historiallinen Aikakauskirja, numero 1/1935, OCR tarkistettu",
+    title: "Historiallinen Aikakauskirja (tarkistettu)",
+    description: "Historiallinen Aikakauskirja, numero 1/1935 (OCR tarkistettu)",
     id: "kal_ydin_ha",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
@@ -1053,9 +1130,6 @@ settings.corpora.kal_ydin_ha = {
         },
         text_page: {
             label: "page"
-        },
-        text_contributor: {
-            label: "contributor"
         },
         text_publisher: sattrs.text_publisher,
         text_year_digitized: {
@@ -1072,6 +1146,95 @@ settings.corpora.kal_ydin_ha = {
     }
 };
 
+settings.corpora.kal_ydin_la = {
+    title: "Lakimies (tarkistettu)",
+    description: "Lakimies, 1935 (OCR tarkistettu)",
+    id: "kal_ydin_la",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_page: {
+            label: "page"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+settings.corpora.kal_ydin_sk = {
+    title: "Suomen Kuvalehti (tarkistettu)",
+    description: "Suomen Kuvalehti, neljä numeroa (4, 17, 30 ja 43) per vuosi 1917, 1925, 1935, 1945, 1955, 1965 ja 1972 (OCR tarkistettu)",
+    id: "kal_ydin_sk",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_page: {
+            label: "page"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+settings.corpora.kal_ydin_su = {
+    title: "Suomi (tarkistettu)",
+    description: "Suomi, 1935 (OCR tarkistettu)",
+    id: "kal_ydin_su",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_page: {
+            label: "page"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
 
 settings.corpora.finstud = {
     id: "finstud",

@@ -74,6 +74,11 @@
     "text_volume": "nide",
     "subject": "aihe",
 
+    "page": "sivu",
+    "digitized": "digitoitu",
+    "modified": "muunnettu",
+    "wordcount": "sanamäärä",
+
     "sentence_link": "sentence link",
     "text_issue": "numero",
 
