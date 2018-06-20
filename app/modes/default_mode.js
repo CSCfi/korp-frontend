@@ -12745,7 +12745,7 @@ settings.corpora.nlfcl_fi = {
             label: "book_number"
 	},  
 	text_year: {
-	    label: "nlfcl_year"
+	    label: "publication_year"
 	},
 	paragraph_id: sattrs.paragraph_id_hidden,
 	sentence_id: sattrs.sentence_id_hidden,
