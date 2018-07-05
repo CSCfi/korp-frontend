@@ -376,7 +376,7 @@
       infoGetter = (function(_this) {
         return function(prop) {
           return _(_this.selected).pluck("info").pluck(prop).compact().filter(function(val) {
-            return val.slice(0, 4) !== "0000";
+            return val.slice(0, 10) !== "0000-00-00";
           }).map(function(item) {
             return moment(item);
           }).value();
