@@ -973,14 +973,16 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
     if first_level
         outHTML = "<ul>"
     else
-        folder_descr = (folder.description or "") +
+        folder_descr = util.runCorpusInfoDescrProcessors(
+            (folder.description or ""), folder)
+        extra_info =
             if folder.info and settings.corpusExtraInfo
-                (if folder.description then "<br/><br/>" else "") +
-                    util.formatCorpusExtraInfo(
-                        folder.info,
-                        settings.corpusExtraInfo.corpus_infobox)
+                util.formatCorpusExtraInfo(
+                    folder.info, settings.corpusExtraInfo.corpus_infobox)
             else
                 ""
+        folder_descr += ((if folder_descr and extra_info then "<br/><br/>" else "") +
+            extra_info)
         outHTML = "<ul title=\"" + folder.title + "\" description=\"" + escape(folder_descr) + "\">"
     if folder #This check makes the code work even if there isn't a ___settings.corporafolders = {};___ in config.js
         # Folders
@@ -1041,6 +1043,14 @@ util.suffixedNumbers = (num) ->
 # Goes through the settings.corporafolders and recursively adds the settings.corpora hierarchically to the corpus chooser widget
 util.loadCorpora = ->
     added_corpora_ids = []
+
+    # Run "plugin functions" for corpus folders and corpus settings.
+    # The functions may use corpus information obtained in
+    # Searches.getInfoData, so they cannot be run (reliably) in
+    # main.coffee. (Jyrki Niemi 2018-07-05)
+    util.runCorpusFolderProcessors()
+    util.runCorpusSettingsProcessors()
+
     outStr = util.loadCorporaFolderRecursive(true, settings.corporafolders)
     window.corpusChooserInstance = $("#corpusbox").corpusChooser(
         template: outStr
@@ -1048,6 +1058,8 @@ util.loadCorpora = ->
             corpusObj = settings.corpora[corpusID]
             maybeInfo = ""
             maybeInfo = "<br/><br/>" + corpusObj.description if corpusObj.description
+            maybeInfo = util.runCorpusInfoDescrProcessors(
+                (maybeInfo or ""), corpusObj)
             corpusExtraInfo =
                 if settings.corpusExtraInfo
                     util.formatCorpusExtraInfo(
@@ -1532,6 +1544,20 @@ util.forAllCorpora = (func) ->
     for corpus of settings.corpora
         func settings.corpora[corpus]
     return
+
+# Call function func for all corpus folders in settings.corporafolders
+# and their subfolders, with the folder object and possible args as
+# arguments. (Jyrki Niemi 2018-07-05)
+
+util.forAllFolders = (func, args...) ->
+
+    for_all_subfolders = (folder, func, args...) ->
+        for own prop_name of folder
+            if prop_name not in ["title", "description", "contents", "info"]
+                func folder[prop_name], args...
+                for_all_subfolders folder[prop_name], func, args...
+
+    for_all_subfolders settings.corporafolders, func, args...
 
 
 # Initialize the link_attributes properties in all the corpora in
@@ -2736,3 +2762,123 @@ util.makeLogInfoItems = () ->
     items.push("lang=" + (search().lang or settings.defaultLanguage))
     items.push("search=" + search_tab_names[search().search_tab or "0"])
     return items
+
+
+# The code below could perhaps be a basis for a simple plugin facility
+# for processing (modifying) corpus settings and the information in
+# the corpus (and corpus folder) info box. (Jyrki Niemi 2018-07-05)
+
+
+# Processing corpus settings
+
+# Array of functions for processing corpus settings.
+util.corpusSettingsProcessors = [];
+
+# Add function func to the functions processing corpus settings. The
+# arguments of func are the corpus configuration object and the corpus
+# id.
+
+util.addCorpusSettingsProcessor = (func) ->
+    util.corpusSettingsProcessors.push func
+    return
+
+# Run functions for processing corpus settings for the corpus
+# specified as the argument, or for all corpora, if the argument is
+# omitted.
+
+util.runCorpusSettingsProcessors = (corpus) ->
+    if corpus?
+        for func in util.corpusSettingsProcessors
+            func settings.corpora[corpus], corpus
+    else
+        for func in util.corpusSettingsProcessors
+            for own corpus, config of settings.corpora
+                func config, corpus
+    return
+
+
+# Processing corpus folder settings
+
+# Array of functions for processing corpus folder settings.
+util.corpusFolderProcessors = [];
+
+# Add function func to the functions processing corpus folder
+# settings. The argument of func is the corpus folder configuration
+# object.
+
+util.addCorpusFolderProcessor = (func) ->
+    util.corpusFolderProcessors.push func
+    return
+
+# Run functions for processing corpus folder settings for the corpus
+# folder specified as the argument, or for all corpus folders, if the
+# argument is omitted.
+
+util.runCorpusFolderProcessors = (folder) ->
+    if folder
+        for func in util.corpusFolderProcessors
+            func folder
+    else
+        for func in util.corpusFolderProcessors
+            util.forAllFolders func
+
+
+# Processing the description in corpus and corpus folder info boxes
+
+# Array of functions for processing the descriptions in info boxes
+util.corpusInfoDescrProcessors = [];
+
+# Add function func to the functions processing corpus (folder)
+# description in info boxes. The arguments of func are the description
+# string and the corpus or corpus folder configuration object, and
+# func returns a possibly modified description.
+
+util.addCorpusInfoDescrProcessor = (func) ->
+    util.corpusInfoDescrProcessors.push func
+    return
+
+# Run functions for processing the description descr in the info box
+# of the corpus (folder) config. The description returned by one
+# function is passed as the descr argument to tne next one.
+
+util.runCorpusInfoDescrProcessors = (descr, config) ->
+    for func in util.corpusInfoDescrProcessors
+        descr = func descr, config
+    return descr
+
+
+# "Plugin" functions for adding labels, such as "beta", to corpora,
+# based on the "labels" property of the corpus (folder) configuration.
+# (Jyrki Niemi 2018-07-05)
+
+# Modify the corpus (folder) configuration config by appending each
+# label specified in the "labels" property (an array of strings) to
+# the corpus title in parentheses. If
+# settings.corpus_label_texts[label] is defined, use it instead of the
+# bare label.
+
+util.addCorpusTitleLabel = (config) ->
+    for label in (config.labels or config.info?.labels or [])
+        label_text = settings.corpus_label_texts?[label] or label
+        config.title += " (#{label_text})"
+    return
+
+# Add the function to the processor function lists.
+util.addCorpusSettingsProcessor util.addCorpusTitleLabel
+util.addCorpusFolderProcessor util.addCorpusTitleLabel
+
+# If the corpus (or folder) configuration config contains a "labels"
+# property, append to the description text descr the localized text in
+# corpuslabel_descr_<label> for each label. This is intended to work
+# for the description in the corpus (folder) info box, because of
+# using localization.
+
+util.addCorpusInfoDescrLabel = (descr, config) ->
+    for label in (config.labels or config.info?.labels or [])
+        # Angular.js localization does not seem to work here. Why?
+        descr += ((if descr then "<br/><br/>" else "") +
+            "<span rel=\"localize[corpuslabel_descr_#{label}]\">#{label}</span>")
+    return descr
+
+# Add the function to the processor function lists
+util.addCorpusInfoDescrProcessor util.addCorpusInfoDescrLabel

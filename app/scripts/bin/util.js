@@ -1091,7 +1091,7 @@
   added_corpora_ids = [];
 
   util.loadCorporaFolderRecursive = function(first_level, folder) {
-    var folder_descr, format_licence_type, k, len1, non_added_corpora_ids, outHTML, val;
+    var extra_info, folder_descr, format_licence_type, k, len1, non_added_corpora_ids, outHTML, val;
     format_licence_type = function(corpus_id) {
       var licence_type;
       licence_type = settings.corpora[corpus_id]["licence_type"];
@@ -1105,7 +1105,9 @@
     if (first_level) {
       outHTML = "<ul>";
     } else {
-      folder_descr = (folder.description || "") + (folder.info && settings.corpusExtraInfo ? (folder.description ? "<br/><br/>" : "") + util.formatCorpusExtraInfo(folder.info, settings.corpusExtraInfo.corpus_infobox) : "");
+      folder_descr = util.runCorpusInfoDescrProcessors(folder.description || "", folder);
+      extra_info = folder.info && settings.corpusExtraInfo ? util.formatCorpusExtraInfo(folder.info, settings.corpusExtraInfo.corpus_infobox) : "";
+      folder_descr += (folder_descr && extra_info ? "<br/><br/>" : "") + extra_info;
       outHTML = "<ul title=\"" + folder.title + "\" description=\"" + escape(folder_descr) + "\">";
     }
     if (folder) {
@@ -1164,6 +1166,8 @@
   util.loadCorpora = function() {
     var outStr, selected;
     added_corpora_ids = [];
+    util.runCorpusFolderProcessors();
+    util.runCorpusSettingsProcessors();
     outStr = util.loadCorporaFolderRecursive(true, settings.corporafolders);
     window.corpusChooserInstance = $("#corpusbox").corpusChooser({
       template: outStr,
@@ -1174,6 +1178,7 @@
         if (corpusObj.description) {
           maybeInfo = "<br/><br/>" + corpusObj.description;
         }
+        maybeInfo = util.runCorpusInfoDescrProcessors(maybeInfo || "", corpusObj);
         corpusExtraInfo = settings.corpusExtraInfo ? util.formatCorpusExtraInfo(corpusObj, settings.corpusExtraInfo.corpus_infobox) : void 0;
         if (corpusExtraInfo) {
           maybeInfo += (maybeInfo ? "<br/><br/>" : "") + corpusExtraInfo;
@@ -1597,6 +1602,27 @@
     for (corpus in settings.corpora) {
       func(settings.corpora[corpus]);
     }
+  };
+
+  util.forAllFolders = function() {
+    var args, for_all_subfolders, func;
+    func = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
+    for_all_subfolders = function() {
+      var args, folder, func, prop_name, results;
+      folder = arguments[0], func = arguments[1], args = 3 <= arguments.length ? slice.call(arguments, 2) : [];
+      results = [];
+      for (prop_name in folder) {
+        if (!hasProp.call(folder, prop_name)) continue;
+        if (prop_name !== "title" && prop_name !== "description" && prop_name !== "contents" && prop_name !== "info") {
+          func.apply(null, [folder[prop_name]].concat(slice.call(args)));
+          results.push(for_all_subfolders.apply(null, [folder[prop_name], func].concat(slice.call(args))));
+        } else {
+          results.push(void 0);
+        }
+      }
+      return results;
+    };
+    return for_all_subfolders.apply(null, [settings.corporafolders, func].concat(slice.call(args)));
   };
 
   util.initCorpusSettingsLinkAttrs = function() {
@@ -2630,6 +2656,103 @@
     items.push("search=" + search_tab_names[search().search_tab || "0"]);
     return items;
   };
+
+  util.corpusSettingsProcessors = [];
+
+  util.addCorpusSettingsProcessor = function(func) {
+    util.corpusSettingsProcessors.push(func);
+  };
+
+  util.runCorpusSettingsProcessors = function(corpus) {
+    var config, func, k, l, len1, len2, ref, ref1, ref2;
+    if (corpus != null) {
+      ref = util.corpusSettingsProcessors;
+      for (k = 0, len1 = ref.length; k < len1; k++) {
+        func = ref[k];
+        func(settings.corpora[corpus], corpus);
+      }
+    } else {
+      ref1 = util.corpusSettingsProcessors;
+      for (l = 0, len2 = ref1.length; l < len2; l++) {
+        func = ref1[l];
+        ref2 = settings.corpora;
+        for (corpus in ref2) {
+          if (!hasProp.call(ref2, corpus)) continue;
+          config = ref2[corpus];
+          func(config, corpus);
+        }
+      }
+    }
+  };
+
+  util.corpusFolderProcessors = [];
+
+  util.addCorpusFolderProcessor = function(func) {
+    util.corpusFolderProcessors.push(func);
+  };
+
+  util.runCorpusFolderProcessors = function(folder) {
+    var func, k, l, len1, len2, ref, ref1, results, results1;
+    if (folder) {
+      ref = util.corpusFolderProcessors;
+      results = [];
+      for (k = 0, len1 = ref.length; k < len1; k++) {
+        func = ref[k];
+        results.push(func(folder));
+      }
+      return results;
+    } else {
+      ref1 = util.corpusFolderProcessors;
+      results1 = [];
+      for (l = 0, len2 = ref1.length; l < len2; l++) {
+        func = ref1[l];
+        results1.push(util.forAllFolders(func));
+      }
+      return results1;
+    }
+  };
+
+  util.corpusInfoDescrProcessors = [];
+
+  util.addCorpusInfoDescrProcessor = function(func) {
+    util.corpusInfoDescrProcessors.push(func);
+  };
+
+  util.runCorpusInfoDescrProcessors = function(descr, config) {
+    var func, k, len1, ref;
+    ref = util.corpusInfoDescrProcessors;
+    for (k = 0, len1 = ref.length; k < len1; k++) {
+      func = ref[k];
+      descr = func(descr, config);
+    }
+    return descr;
+  };
+
+  util.addCorpusTitleLabel = function(config) {
+    var k, label, label_text, len1, ref, ref1, ref2;
+    ref1 = config.labels || ((ref = config.info) != null ? ref.labels : void 0) || [];
+    for (k = 0, len1 = ref1.length; k < len1; k++) {
+      label = ref1[k];
+      label_text = ((ref2 = settings.corpus_label_texts) != null ? ref2[label] : void 0) || label;
+      config.title += " (" + label_text + ")";
+    }
+  };
+
+  util.addCorpusSettingsProcessor(util.addCorpusTitleLabel);
+
+  util.addCorpusFolderProcessor(util.addCorpusTitleLabel);
+
+  util.addCorpusInfoDescrLabel = function(descr, config) {
+    var k, label, len1, ref, ref1;
+    ref1 = config.labels || ((ref = config.info) != null ? ref.labels : void 0) || [];
+    for (k = 0, len1 = ref1.length; k < len1; k++) {
+      label = ref1[k];
+      descr += (descr ? "<br/><br/>" : "") + ("<span rel=\"localize[corpuslabel_descr_" + label + "]\">" + label + "</span>");
+    }
+    return descr;
+  };
+
+  util.addCorpusInfoDescrProcessor(util.addCorpusInfoDescrLabel);
 
 }).call(this);
 

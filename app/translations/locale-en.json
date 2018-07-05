@@ -488,6 +488,9 @@
     "relogin_login": "Please log in to Korp",
     "relogin_login_postamble": "to be able to make the search that you tried",
 
+    "corpuslabel_descr_beta": "<strong>Please note</strong> that the corpus is in beta testing stage, so it may change without notice.",
+    "corpuslabel_descr_test": "<strong>Please note</strong> that the corpus is in testing stage, so it may change significantly without notice.",
+
     "wordlist": "Word list",
     "selected_words": "Selected words",
     "button_done": "Done",
