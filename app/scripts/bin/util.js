@@ -1105,7 +1105,7 @@
     if (first_level) {
       outHTML = "<ul>";
     } else {
-      folder_descr = util.runCorpusInfoDescrProcessors(folder.description || "", folder);
+      folder_descr = util.callPluginFunctionsValued("CorpusInfoDescrProcessor", folder.description || "", folder);
       extra_info = folder.info && settings.corpusExtraInfo ? util.formatCorpusExtraInfo(folder.info, settings.corpusExtraInfo.corpus_infobox) : "";
       folder_descr += (folder_descr && extra_info ? "<br/><br/>" : "") + extra_info;
       outHTML = "<ul title=\"" + folder.title + "\" description=\"" + escape(folder_descr) + "\">";
@@ -1166,8 +1166,12 @@
   util.loadCorpora = function() {
     var outStr, selected;
     added_corpora_ids = [];
-    util.runCorpusFolderProcessors();
-    util.runCorpusSettingsProcessors();
+    util.forAllFolders(function(folder) {
+      return util.callPluginFunctions("CorpusFolderProcessor", folder);
+    });
+    util.forAllCorpora(function(config) {
+      return util.callPluginFunctions("CorpusSettingsProcessor", config);
+    });
     outStr = util.loadCorporaFolderRecursive(true, settings.corporafolders);
     window.corpusChooserInstance = $("#corpusbox").corpusChooser({
       template: outStr,
@@ -1178,7 +1182,7 @@
         if (corpusObj.description) {
           maybeInfo = "<br/><br/>" + corpusObj.description;
         }
-        maybeInfo = util.runCorpusInfoDescrProcessors(maybeInfo || "", corpusObj);
+        maybeInfo = util.callPluginFunctionsValued("CorpusInfoDescrProcessor", maybeInfo || "", corpusObj);
         corpusExtraInfo = settings.corpusExtraInfo ? util.formatCorpusExtraInfo(corpusObj, settings.corpusExtraInfo.corpus_infobox) : void 0;
         if (corpusExtraInfo) {
           maybeInfo += (maybeInfo ? "<br/><br/>" : "") + corpusExtraInfo;
@@ -1597,10 +1601,11 @@
     }
   };
 
-  util.forAllCorpora = function(func) {
-    var corpus;
+  util.forAllCorpora = function() {
+    var args, corpus, func;
+    func = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
     for (corpus in settings.corpora) {
-      func(settings.corpora[corpus]);
+      func.apply(null, [settings.corpora[corpus], corpus].concat(slice.call(args)));
     }
   };
 
@@ -2657,75 +2662,52 @@
     return items;
   };
 
-  util.corpusSettingsProcessors = [];
+  util.pluginFunctions = {};
 
-  util.addCorpusSettingsProcessor = function(func) {
-    util.corpusSettingsProcessors.push(func);
+  util.addPluginFunction = function(type, funcs) {
+    if (!(type in util.pluginFunctions)) {
+      util.pluginFunctions[type] = [];
+    }
+    if (!_.isArray(funcs)) {
+      funcs = [funcs];
+    }
+    return util.pluginFunctions[type] = util.pluginFunctions[type].concat(funcs);
   };
 
-  util.runCorpusSettingsProcessors = function(corpus) {
-    var config, func, k, l, len1, len2, ref, ref1, ref2;
-    if (corpus != null) {
-      ref = util.corpusSettingsProcessors;
+  util.addPluginFunctions = function(types_funcs) {
+    var funcs, results, type;
+    results = [];
+    for (type in types_funcs) {
+      if (!hasProp.call(types_funcs, type)) continue;
+      funcs = types_funcs[type];
+      results.push(util.addPluginFunction(type, funcs));
+    }
+    return results;
+  };
+
+  util.callPluginFunctions = function() {
+    var args, func, k, len1, ref, type;
+    type = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
+    if (type in util.pluginFunctions) {
+      ref = util.pluginFunctions[type];
       for (k = 0, len1 = ref.length; k < len1; k++) {
         func = ref[k];
-        func(settings.corpora[corpus], corpus);
-      }
-    } else {
-      ref1 = util.corpusSettingsProcessors;
-      for (l = 0, len2 = ref1.length; l < len2; l++) {
-        func = ref1[l];
-        ref2 = settings.corpora;
-        for (corpus in ref2) {
-          if (!hasProp.call(ref2, corpus)) continue;
-          config = ref2[corpus];
-          func(config, corpus);
-        }
+        func.apply(null, args);
       }
     }
   };
 
-  util.corpusFolderProcessors = [];
-
-  util.addCorpusFolderProcessor = function(func) {
-    util.corpusFolderProcessors.push(func);
-  };
-
-  util.runCorpusFolderProcessors = function(folder) {
-    var func, k, l, len1, len2, ref, ref1, results, results1;
-    if (folder) {
-      ref = util.corpusFolderProcessors;
-      results = [];
+  util.callPluginFunctionsValued = function() {
+    var arg1, func, k, len1, ref, rest, type;
+    type = arguments[0], arg1 = arguments[1], rest = 3 <= arguments.length ? slice.call(arguments, 2) : [];
+    if (type in util.pluginFunctions) {
+      ref = util.pluginFunctions[type];
       for (k = 0, len1 = ref.length; k < len1; k++) {
         func = ref[k];
-        results.push(func(folder));
+        arg1 = func.apply(null, [arg1].concat(slice.call(rest)));
       }
-      return results;
-    } else {
-      ref1 = util.corpusFolderProcessors;
-      results1 = [];
-      for (l = 0, len2 = ref1.length; l < len2; l++) {
-        func = ref1[l];
-        results1.push(util.forAllFolders(func));
-      }
-      return results1;
     }
-  };
-
-  util.corpusInfoDescrProcessors = [];
-
-  util.addCorpusInfoDescrProcessor = function(func) {
-    util.corpusInfoDescrProcessors.push(func);
-  };
-
-  util.runCorpusInfoDescrProcessors = function(descr, config) {
-    var func, k, len1, ref;
-    ref = util.corpusInfoDescrProcessors;
-    for (k = 0, len1 = ref.length; k < len1; k++) {
-      func = ref[k];
-      descr = func(descr, config);
-    }
-    return descr;
+    return arg1;
   };
 
   util.addCorpusTitleLabel = function(config) {
@@ -2738,10 +2720,6 @@
     }
   };
 
-  util.addCorpusSettingsProcessor(util.addCorpusTitleLabel);
-
-  util.addCorpusFolderProcessor(util.addCorpusTitleLabel);
-
   util.addCorpusInfoDescrLabel = function(descr, config) {
     var k, label, len1, ref, ref1;
     ref1 = config.labels || ((ref = config.info) != null ? ref.labels : void 0) || [];
@@ -2752,7 +2730,11 @@
     return descr;
   };
 
-  util.addCorpusInfoDescrProcessor(util.addCorpusInfoDescrLabel);
+  util.addPluginFunctions({
+    CorpusSettingsProcessor: util.addCorpusTitleLabel,
+    CorpusFolderProcessor: util.addCorpusTitleLabel,
+    CorpusInfoDescrProcessor: util.addCorpusInfoDescrLabel
+  });
 
 }).call(this);
 

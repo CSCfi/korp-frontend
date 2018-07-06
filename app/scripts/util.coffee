@@ -973,8 +973,8 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
     if first_level
         outHTML = "<ul>"
     else
-        folder_descr = util.runCorpusInfoDescrProcessors(
-            (folder.description or ""), folder)
+        folder_descr = util.callPluginFunctionsValued(
+            "CorpusInfoDescrProcessor", (folder.description or ""), folder)
         extra_info =
             if folder.info and settings.corpusExtraInfo
                 util.formatCorpusExtraInfo(
@@ -1048,8 +1048,10 @@ util.loadCorpora = ->
     # The functions may use corpus information obtained in
     # Searches.getInfoData, so they cannot be run (reliably) in
     # main.coffee. (Jyrki Niemi 2018-07-05)
-    util.runCorpusFolderProcessors()
-    util.runCorpusSettingsProcessors()
+    util.forAllFolders(
+        (folder) -> util.callPluginFunctions "CorpusFolderProcessor", folder)
+    util.forAllCorpora(
+        (config) -> util.callPluginFunctions "CorpusSettingsProcessor", config)
 
     outStr = util.loadCorporaFolderRecursive(true, settings.corporafolders)
     window.corpusChooserInstance = $("#corpusbox").corpusChooser(
@@ -1058,8 +1060,8 @@ util.loadCorpora = ->
             corpusObj = settings.corpora[corpusID]
             maybeInfo = ""
             maybeInfo = "<br/><br/>" + corpusObj.description if corpusObj.description
-            maybeInfo = util.runCorpusInfoDescrProcessors(
-                (maybeInfo or ""), corpusObj)
+            maybeInfo = util.callPluginFunctionsValued(
+                "CorpusInfoDescrProcessor", (maybeInfo or ""), corpusObj)
             corpusExtraInfo =
                 if settings.corpusExtraInfo
                     util.formatCorpusExtraInfo(
@@ -1538,11 +1540,12 @@ util.propagateCorpusFolderInfo = (corpusFolder, info) ->
 
 
 # Call function func for all corpora in settings.corpora with the
-# corpus settings object as an argument. (Jyrki Niemi 2016-10-18)
+# corpus settings object as the first argument and optional args... as
+# the rest. (Jyrki Niemi 2016-10-18, 2018-07-06)
 
-util.forAllCorpora = (func) ->
+util.forAllCorpora = (func, args...) ->
     for corpus of settings.corpora
-        func settings.corpora[corpus]
+        func settings.corpora[corpus], corpus, args...
     return
 
 # Call function func for all corpus folders in settings.corporafolders
@@ -2766,85 +2769,58 @@ util.makeLogInfoItems = () ->
 
 # The code below could perhaps be a basis for a simple plugin facility
 # for processing (modifying) corpus settings and the information in
-# the corpus (and corpus folder) info box. (Jyrki Niemi 2018-07-05)
+# the corpus (and corpus folder) info box. (Jyrki Niemi 2018-07-05/06)
 
 
-# Processing corpus settings
+# Generic functions for plugin functions
 
-# Array of functions for processing corpus settings.
-util.corpusSettingsProcessors = [];
+# Plugin functions object: each property corresponds to a type of
+# plugin function and its value is an array of functions of the type.
+util.pluginFunctions = {}
 
-# Add function func to the functions processing corpus settings. The
-# arguments of func are the corpus configuration object and the corpus
-# id.
+# Add (register) plugin functions funcs of type; funcs may be either a
+# single function or an array of functions.
+# TODO: Should we perhaps also register plugin function types, to
+# avoid registering plugins with incorrectly written types?
 
-util.addCorpusSettingsProcessor = (func) ->
-    util.corpusSettingsProcessors.push func
+util.addPluginFunction = (type, funcs) ->
+    if not (type of util.pluginFunctions)
+        util.pluginFunctions[type] = []
+    if not _.isArray(funcs)
+        funcs = [funcs]
+    util.pluginFunctions[type] = util.pluginFunctions[type].concat(funcs)
+
+# Add plugin functions of possibly multiple types: types_funcs is an
+# object whose properties are plugin function types and property
+# values are functions or arrays of functions to be added to the
+# corresponding function type.
+
+util.addPluginFunctions = (types_funcs) ->
+    for own type, funcs of types_funcs
+        util.addPluginFunction type, funcs
+
+# Call plugin functions of type in the order they are in
+# util.pluginFunctions, with the (optional) arguments args...
+
+util.callPluginFunctions = (type, args...) ->
+    # c.log "callPluginFunctions", type, args...
+    if type of util.pluginFunctions
+        for func in util.pluginFunctions[type]
+            func args...
     return
 
-# Run functions for processing corpus settings for the corpus
-# specified as the argument, or for all corpora, if the argument is
-# omitted.
+# Call plugin functions of type in the order they are in
+# util.pluginFunctions, with the argument arg1 and optional rest...
+# Each plugin function gets as its arg1 the return value of the
+# previous function, and this function returns the value returned by
+# the last plugin function.
 
-util.runCorpusSettingsProcessors = (corpus) ->
-    if corpus?
-        for func in util.corpusSettingsProcessors
-            func settings.corpora[corpus], corpus
-    else
-        for func in util.corpusSettingsProcessors
-            for own corpus, config of settings.corpora
-                func config, corpus
-    return
-
-
-# Processing corpus folder settings
-
-# Array of functions for processing corpus folder settings.
-util.corpusFolderProcessors = [];
-
-# Add function func to the functions processing corpus folder
-# settings. The argument of func is the corpus folder configuration
-# object.
-
-util.addCorpusFolderProcessor = (func) ->
-    util.corpusFolderProcessors.push func
-    return
-
-# Run functions for processing corpus folder settings for the corpus
-# folder specified as the argument, or for all corpus folders, if the
-# argument is omitted.
-
-util.runCorpusFolderProcessors = (folder) ->
-    if folder
-        for func in util.corpusFolderProcessors
-            func folder
-    else
-        for func in util.corpusFolderProcessors
-            util.forAllFolders func
-
-
-# Processing the description in corpus and corpus folder info boxes
-
-# Array of functions for processing the descriptions in info boxes
-util.corpusInfoDescrProcessors = [];
-
-# Add function func to the functions processing corpus (folder)
-# description in info boxes. The arguments of func are the description
-# string and the corpus or corpus folder configuration object, and
-# func returns a possibly modified description.
-
-util.addCorpusInfoDescrProcessor = (func) ->
-    util.corpusInfoDescrProcessors.push func
-    return
-
-# Run functions for processing the description descr in the info box
-# of the corpus (folder) config. The description returned by one
-# function is passed as the descr argument to tne next one.
-
-util.runCorpusInfoDescrProcessors = (descr, config) ->
-    for func in util.corpusInfoDescrProcessors
-        descr = func descr, config
-    return descr
+util.callPluginFunctionsValued = (type, arg1, rest...) ->
+    # c.log "callPluginFunctions", type, arg1, rest...
+    if type of util.pluginFunctions
+        for func in util.pluginFunctions[type]
+            arg1 = func arg1, rest...
+    return arg1
 
 
 # "Plugin" functions for adding labels, such as "beta", to corpora,
@@ -2863,10 +2839,6 @@ util.addCorpusTitleLabel = (config) ->
         config.title += " (#{label_text})"
     return
 
-# Add the function to the processor function lists.
-util.addCorpusSettingsProcessor util.addCorpusTitleLabel
-util.addCorpusFolderProcessor util.addCorpusTitleLabel
-
 # If the corpus (or folder) configuration config contains a "labels"
 # property, append to the description text descr the localized text in
 # corpuslabel_descr_<label> for each label. This is intended to work
@@ -2880,5 +2852,8 @@ util.addCorpusInfoDescrLabel = (descr, config) ->
             "<span rel=\"localize[corpuslabel_descr_#{label}]\">#{label}</span>")
     return descr
 
-# Add the function to the processor function lists
-util.addCorpusInfoDescrProcessor util.addCorpusInfoDescrLabel
+# Add the function to the appropriate plugin function lists.
+util.addPluginFunctions
+    CorpusSettingsProcessor: util.addCorpusTitleLabel
+    CorpusFolderProcessor: util.addCorpusTitleLabel
+    CorpusInfoDescrProcessor: util.addCorpusInfoDescrLabel
