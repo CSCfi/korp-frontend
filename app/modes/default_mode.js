@@ -54,6 +54,14 @@ delete modernAttrs2.saldo;
 settings.placenameConstraint =
     "msd='.*\\b(SUBCAT_)?(Prop|PROP)\\b.*' | pos='n:prop'";
 
+// Corpus and corpus folder label texts, to be appended to corpus
+// title in parentheses
+settings.corpus_label_texts = {
+    // Should this be "beeta"?
+    beta: "beta",
+    test: "testi",
+};
+
 
 settings.corpora = {};
 settings.corporafolders = {};
