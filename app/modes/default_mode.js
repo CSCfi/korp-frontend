@@ -80,6 +80,25 @@ settings.corporafolders.sv = {
 };
 */
 
+settings.corporafolders.agricola = {
+    title: "Agricola",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta",
+    contents: ["agricola_abckiria","agricola_kasikiria","agricola_messu","agricola_piina","agricola_profeetat",
+	       "agricola_psaltari","agricola_rucouskiria","agricola_sewsitestamenti","agricola_veisut"],
+    info: {
+        metadata_urn: "urn:nbn:fi:lb-20140730170",
+        homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/palvelut-yhteistyo/arkistot/Sivut/home.aspx",
+	urn: "urn:nbn:fi:lb-201803273",
+	cite_id: "agricola-korp",
+	licence: settings.licenceinfo.CC_BY_ND_40,
+	iprholder: {
+	    name: "Turun yliopisto; Kotimaisten kielten keskus",
+	},
+	labels: ["beta"],
+    }    
+};
+
+
 settings.corporafolders.ethesis = {
     title: "E-thesis",
     contents: ["ethesis_maabs", "ethesis_dissabs"],
@@ -10541,6 +10560,211 @@ delete las2_common_props;
 
 settings.corpus_aliases.las2 = "las2_tentit,las2_esseet";
 
+// AGRICOLA
+
+attrlist.agricola = {
+    lemma: attrs.baseform,
+    pos: {
+	label: "pos",
+    },
+    nrm: {
+        label: "normalized_lemma",
+    },
+    type: {
+	label: "lang",
+	displayType: "select",
+	translationKey: "agricola_lang_",
+	dataset: {
+	    "": "fin",
+	    "swe": "swe",
+	    "lat": "lat",
+	    "gre": "gre",
+	    "heb": "heb",
+	},
+	opts: settings.liteOptions
+    },	
+    mrp: attrs.msd,
+    fun: {
+	label: "func",
+    },
+    com: {
+        displayType: "hidden",
+    },
+    tunit: {
+        label: "comp_tense",
+	displayType: "select",
+	translationKey: "agricola_tense_",
+	dataset: {
+	    "f": "f",
+	    "p": "p",
+	    "pl": "pl",
+	    "p pl": "ppl",
+	},
+    }
+};
+
+sattrlist.agricola = {
+    text_title: {
+        label: "text_title",
+    },
+    text_dateto: {
+	displayType: "hidden",
+    },
+    text_datefrom: {
+        displayType: "hidden",
+    },
+    text_timeto: {
+        displayType: "hidden",
+    },
+    text_timefrom: {
+        displayType: "hidden",
+    },
+    text_date_orig: {
+        label: "text_date",
+    },
+    div_id: {
+        displayType: "hidden",
+    },
+    paragraph_id: {
+        displayType: "hidden",
+    },
+    sentence_id: sattrs.sentence_id_hidden,
+    sentence_type: {
+        displayType: "hidden",
+    },
+    sentence_biblia: {
+        label: "bible_index",
+    },
+    sentence_loc: {
+        label: "location",
+    },
+    clause_id: {
+        displayType: "hidden",
+    },
+    clause_loc: {
+        displayType: "hidden",
+    },
+    clause_biblia: {
+        displayType: "hidden",
+    },
+    clause_type: {
+        label: "clause_type",
+        displayType: "select",
+        translationKey: "clausetype_",
+        dataset: {
+            "affdecl": "affdecl",
+            "negdecl": "negdecl",
+            "affint": "affint",
+            "negint": "negint",
+            "affopt": "affopt",
+            "negopt": "negopt",
+            "muu": "muu",
+        },
+        opts: settings.liteOptions
+    },
+    clause_depth: {
+	label: "clause_depth"
+    },
+    clause_partnum: {
+	label: "clause_partnum",
+    }
+};
+
+settings.corpora.agricola_abckiria = {
+    id: "agricola_abckiria",
+    title: "Agricola: Abckiria",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Abckiria",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_kasikiria = {
+    id: "agricola_kasikiria",
+    title: "Agricola: Käsikiria",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Käsikiria Castesta ia muista Christikunnan Menoista",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_messu = {
+    id: "agricola_messu",
+    title: "Agricola: Messu",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Messu eli Herran echtolinen",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_piina = {
+    id: "agricola_piina",
+    title: "Agricola: Piina",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Se meiden Herran Jesusen Christusen Pina, ylesnousemus ia taiuaisen astumus, niste Neliest Euangelisterist coghottu",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_profeetat = {
+    id: "agricola_profeetat",
+    title: "Agricola: Ne Prophetat",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Ne Prophetat. Haggai. SacharJa. Maleachi.",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_psaltari = {
+    id: "agricola_psaltari",
+    title: "Agricola: Dauidin Psaltari",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Dauidin Psaltari",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_rucouskiria = {
+    id: "agricola_rucouskiria",
+    title: "Agricola: Rucouskiria",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Rucouskiria Bibliasta",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_sewsitestamenti = {
+    id: "agricola_sewsitestamenti",
+    title: "Agricola: Se Wsi Testamenti",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Se Wsi Testamenti",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_veisut = {
+    id: "agricola_veisut",
+    title: "Agricola: Weisut",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Weisut ia Ennustoxet Mosesen Laista ia Prophetista Wloshaetut",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpus_aliases.agricola = "agricola_.*";
+settings.corpus_aliases["agricola-korp"] = "agricola_.*";
+
+
+// SKS-KIVI
 
 settings.corpora.sks_kivi_fi = {
     title: "Aleksis Kivi (SKS)",

@@ -25,7 +25,10 @@
     "day": "päivä",
     "party": "party",
     "normalized_wordform": "normalisoitu sananmuoto",
+    "normalized_lemma": "normalisoitu perusmuoto",
     "spoken": "puhemuoto",
+
+    "bible_index": "raamatunkohta",
 
     "OCR": "OCR",
 
@@ -768,6 +771,18 @@
     "lang": "kieli",
     "fulltext": "kokoteksti",
 
+    "comp_tense": "liittotempus",
+    "agricola_lang_fin": "suomi",
+    "agricola_lang_swe": "ruotsi",
+    "agricola_lang_heb": "heprea",
+    "agricola_lang_lat": "latina",
+    "agricola_lang_gre": "kreikka",
+
+    "agricola_tense_p": "perfekti",
+    "agricola_tense_pl": "pluskvamperfekti",
+    "agricola_tense_ppl": "perfekti tai pluskvamperfekti",
+    "agricola_tense_f": "futuuri",
+    
     "album": "album",
     "album_year": "album year",
     "song_title": "song title",
@@ -838,7 +853,7 @@
     "interviewee": "interviewee",
     "part": "part",
 
-    "location": "location",
+    "location": "sijainti",
 
     "coctaill_level": "level",
     "coctaill_genre": "genre",
