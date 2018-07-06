@@ -1,4 +1,11 @@
 
+<!-- New corpus: The morpho-syntactic database of Mikael Agricola’s works 2018-07-06 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-20140730170">The morpho-syntactic
+database of Mikael Agricola’s works</a> is now available in Korp as a
+beta test version.
+
+
 <!-- Searching from the FSTC and Svenska Parole corpora works again 2018-05-25 -->
 
 Searching from the Swedish corpora FSTC and Svenska Parole works

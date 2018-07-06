@@ -1,4 +1,12 @@
 
+<!-- Uusi aineisto: Mikael Agricolan teosten morfosyntaktinen tietokanta 2018-07-06 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-20140730170"
+target="_blank">Mikael Agricolan suomenkielisten teosten
+morfosyntaktinen tietokanta</a> on nyt käytettävissä Korpissa
+beetatestiversiona.
+
+
 <!-- Haku FSTC (FISC)- ja Svenska Parole -aineistoista toimii jälleen 2018-05-25 -->
 
 Haku ruotsin FSTC (FISC)- ja Svenska Parole -aineistoista toimii
