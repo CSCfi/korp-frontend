@@ -1,4 +1,11 @@
 
+<!-- Haku FSTC (FISC)- ja Svenska Parole -aineistoista toimii jälleen 2018-05-25 -->
+
+Haku ruotsin FSTC (FISC)- ja Svenska Parole -aineistoista toimii
+jälleen. Haut näistä aineistoista eivät olleet tuottanueet tuloksia
+joulukuussa 2017 tehdyn Korp-päivityksen jälkeen. Pahoittelemme asiaa.
+
+
 <!-- Pieniä korjauksia ja käytettävyysparannuksia 2018-02-12 -->
 
 Korpiin on tehty pieniä korjauksia ja käytettävyysparannuksia,

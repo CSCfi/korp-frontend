@@ -1,4 +1,11 @@
 
+<!-- Sökning från FSTC (FISC) och Svenska Parole fungerar igen 2018-05-25 -->
+
+Sökning från FSTC (FISC) och Svenska Parole korpusar fungerar igen.
+Sökningar från dessa korpusar hade genererat inga resultat sedan Korp
+uppdaterats i december 2017. Vi beklagar detta.
+
+
 <!-- Korpusar tillsatts till Korp 2017-11-30a -->
 
 Under de senaste ett och ett halvt år har flera korpusar tillsatts

@@ -1,4 +1,11 @@
 
+<!-- Searching from the FSTC and Svenska Parole corpora works again 2018-05-25 -->
+
+Searching from the Swedish corpora FSTC and Svenska Parole works
+again. Searches from these corpora had not produced any results since
+the Korp update in December 2017. We apologize for that.
+
+
 <!-- Minor fixes and usability improvements 2018-02-12 -->
 
 Korp has received minor fixes and usability improvements, including
