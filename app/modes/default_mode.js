@@ -82,6 +82,7 @@ settings.corporafolders.sv = {
 
 settings.corporafolders.agricola = {
     title: "Agricola",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta",
     contents: ["agricola_abckiria","agricola_kasikiria","agricola_messu","agricola_piina","agricola_profeetat",
 	       "agricola_psaltari","agricola_rucouskiria","agricola_sewsitestamenti","agricola_veisut"],
     info: {
@@ -90,6 +91,10 @@ settings.corporafolders.agricola = {
 	urn: "urn:nbn:fi:lb-201803273",
 	cite_id: "agricola-korp",
 	licence: settings.licenceinfo.CC_BY_ND_40,
+	iprholder: {
+	    name: "Turun yliopisto; Kotimaisten kielten keskus",
+	},
+	labels: ["beta"],
     }    
 };
 
@@ -10668,7 +10673,7 @@ sattrlist.agricola = {
 settings.corpora.agricola_abckiria = {
     id: "agricola_abckiria",
     title: "Agricola: Abckiria",
-    description: "Abckiria",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Abckiria",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.agricola,
@@ -10678,7 +10683,7 @@ settings.corpora.agricola_abckiria = {
 settings.corpora.agricola_kasikiria = {
     id: "agricola_kasikiria",
     title: "Agricola: Käsikiria",
-    description: "Käsikiria Castesta ia muista Christikunnan Menoista",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Käsikiria Castesta ia muista Christikunnan Menoista",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.agricola,
@@ -10688,7 +10693,7 @@ settings.corpora.agricola_kasikiria = {
 settings.corpora.agricola_messu = {
     id: "agricola_messu",
     title: "Agricola: Messu",
-    description: "Messu eli Herran echtolinen",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Messu eli Herran echtolinen",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.agricola,
@@ -10698,7 +10703,7 @@ settings.corpora.agricola_messu = {
 settings.corpora.agricola_piina = {
     id: "agricola_piina",
     title: "Agricola: Piina",
-    description: "Se meiden Herran Jesusen Christusen Pina, ylesnousemus ia taiuaisen astumus, niste Neliest Euangelisterist coghottu",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Se meiden Herran Jesusen Christusen Pina, ylesnousemus ia taiuaisen astumus, niste Neliest Euangelisterist coghottu",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.agricola,
@@ -10708,7 +10713,7 @@ settings.corpora.agricola_piina = {
 settings.corpora.agricola_profeetat = {
     id: "agricola_profeetat",
     title: "Agricola: Ne Prophetat",
-    description: "Ne Prophetat. Haggai. SacharJa. Maleachi.",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Ne Prophetat. Haggai. SacharJa. Maleachi.",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.agricola,
@@ -10718,7 +10723,7 @@ settings.corpora.agricola_profeetat = {
 settings.corpora.agricola_psaltari = {
     id: "agricola_psaltari",
     title: "Agricola: Dauidin Psaltari",
-    description: "Dauidin Psaltari",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Dauidin Psaltari",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.agricola,
@@ -10728,7 +10733,7 @@ settings.corpora.agricola_psaltari = {
 settings.corpora.agricola_rucouskiria = {
     id: "agricola_rucouskiria",
     title: "Agricola: Rucouskiria",
-    description: "Rucouskiria Bibliasta",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Rucouskiria Bibliasta",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.agricola,
@@ -10738,7 +10743,7 @@ settings.corpora.agricola_rucouskiria = {
 settings.corpora.agricola_sewsitestamenti = {
     id: "agricola_sewsitestamenti",
     title: "Agricola: Se Wsi Testamenti",
-    description: "Se Wsi Testamenti",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Se Wsi Testamenti",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.agricola,
@@ -10748,7 +10753,7 @@ settings.corpora.agricola_sewsitestamenti = {
 settings.corpora.agricola_veisut = {
     id: "agricola_veisut",
     title: "Agricola: Weisut",
-    description: "Weisut ia Ennustoxet Mosesen Laista ia Prophetista Wloshaetut",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Weisut ia Ennustoxet Mosesen Laista ia Prophetista Wloshaetut",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.agricola,
@@ -10756,6 +10761,8 @@ settings.corpora.agricola_veisut = {
 };
 
 settings.corpus_aliases.agricola = "agricola_.*";
+settings.corpus_aliases["agricola-korp"] = "agricola_.*";
+
 
 // SKS-KIVI
 
