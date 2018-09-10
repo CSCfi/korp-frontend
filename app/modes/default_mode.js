@@ -8650,6 +8650,8 @@ settings.corpora.opensub_fi_2017 = {
     cite_id: "opensub-fi-2017-korp",
     licence: settings.licenceinfo.CC_BY_40,
     homepage_url: "http://www.opensubtitles.org/",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
     features: ["parsed_tdt", "finer"],
     struct_attributes: {
         text_id: sattrs.hidden,
