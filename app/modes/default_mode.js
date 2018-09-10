@@ -216,6 +216,11 @@ settings.corporafolders.internet = {
     contents: ["s24", "ylilauta", "hsfi"]
 };
 
+settings.corporafolders.user_generated_content = {
+    title: "User-generated content",
+    contents: ["opensub_fi_2017"]
+};
+
 settings.corporafolders.internet.suomi24 = {
     title: "Suomi24",
     description: "<a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut 1.1.2001–24.9.2016.<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu useaan osakorpukseen suuren kokonsa vuoksi.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-201412171' target='_blank' title='Kuvailutiedot'>koko Suomi24-aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2015040801' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).",
@@ -8633,6 +8638,33 @@ settings.corpora.hsfi = {
 	text_title: sattrs.text_title
     }
 
+};
+
+
+settings.corpora.opensub_fi_2017 = {
+    id: "opensub_fi_2017",
+    title: "Suomenkielinen OpenSubtitles 2017",
+    description: "Suomenkielinen OpenSubtitles 2017 sisältää elokuvien ja TV-sarjien suomenkielisiä tekstityksiä, otettu osoitteesta http://www.opensubtitles.org/",
+    urn: "";
+    metadata_urn: "urn:nbn:fi:lb-2018060403";
+    cite_id: "opensub-fi-2017-korp",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	    text_year: sattrs.year,
+	    text_genre: {
+            label: "genre"
+		},
+	    text_lang_orig: {
+            label: "origlang"
+		},
+	    text_country: {
+            label: "country"
+		},   
+	    paragraph_id: sattrs.paragraph_id_hidden,
+	    sentence_id: sattrs.sentence_id_hidden,
+	    }
 };
 
 
