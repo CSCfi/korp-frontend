@@ -217,7 +217,7 @@ settings.corporafolders.internet = {
 };
 
 settings.corporafolders.user_generated_content = {
-    title: "User-generated content",
+    title: "Käyttäjien tuottama sisältö",
     contents: ["opensub_fi_2017"]
 };
 
@@ -8644,11 +8644,12 @@ settings.corpora.hsfi = {
 settings.corpora.opensub_fi_2017 = {
     id: "opensub_fi_2017",
     title: "Suomenkielinen OpenSubtitles 2017",
-    description: "Suomenkielinen OpenSubtitles 2017 sisältää elokuvien ja TV-sarjien suomenkielisiä tekstityksiä, otettu osoitteesta http://www.opensubtitles.org/",
-    urn: "";
-    metadata_urn: "urn:nbn:fi:lb-2018060403";
+    description: "<a href='http://www.opensubtitles.org/' target='_blank'>OpenSubtitles-palvelun</a> sisältämiä käyttäjien tuottamia elokuvien ja tv-sarjojen suomenkielisiä tekstityksiä.",
+    urn: "urn:nbn:fi:lb-2018060404",
+    metadata_urn: "urn:nbn:fi:lb-2018060403",
     cite_id: "opensub-fi-2017-korp",
     licence: settings.licenceinfo.CC_BY_40,
+    homepage_url: "http://www.opensubtitles.org/",
     features: ["parsed_tdt", "finer"],
     struct_attributes: {
         text_id: sattrs.hidden,
