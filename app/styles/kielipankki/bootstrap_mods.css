@@ -1,0 +1,195 @@
+
+/*
+ * Modifications to bootstrap.css for the Kielipankki style of Korp
+ *
+ * Extracted by Jyrki Niemi from styles.css modified by Tero Aalto.
+ * This file is included read in index.html after bootstrap.css to
+ * override definitions in bootstrap.css.
+ *
+ * This might be converted to an SCSS stylesheet, so that some rules
+ * could be generalized. At least some of the colour definitions could
+ * also be changed in compass_twitter_bootstrap/_variables.scss (or a
+ * new file overriding that).
+ */
+
+
+.dropdown-menu {
+  background-color: #E4E9F3;
+}
+
+.dropdown-menu li > a:hover,
+.dropdown-menu li > a:focus,
+.dropdown-submenu:hover > a {
+  background-color: #495387;
+  background-color: #0081c2;
+  background-image: linear-gradient(to bottom, #CAD2E6, #7A90C3);
+}
+
+.dropdown-menu .active > a,
+.dropdown-menu .active > a:hover {
+  background-color: #495387;
+  background-color: #35548D;
+  background-image: linear-gradient(to bottom, #495387, #3F4875);
+}
+
+
+.well {
+  background-color: #E3E8F3;
+}
+
+
+.btn {
+  background-color: #E3E8F3;
+}
+
+.btn-primary {
+  background-image: linear-gradient(to bottom, #798FC2, #646D9D);
+  border-color: #485284 #485284 #2D3353;
+  *background-color: #485284;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+  background-color: #485284;
+  *background-color: #3F4875;
+}
+
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #3F4875 \9;
+}
+
+.btn-warning {
+  background-color: #FF962F;
+  background-image: linear-gradient(to bottom, #FAA952, #FE7E00);
+  border-color: #FE7E00 #FE7E00 #B25800;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #FE7E00;
+}
+
+.btn-warning:hover,
+.btn-warning:active,
+.btn-warning.active,
+.btn-warning.disabled,
+.btn-warning[disabled] {
+  background-color: #FE7E00;
+  *background-color: #E47100;
+}
+
+.btn-warning:active,
+.btn-warning.active {
+  background-color: #CC6500 \9;
+}
+
+.btn-link {
+  color: #495387;
+}
+
+.btn-link:hover {
+  color: #2D3353;
+}
+
+.btn-group.open .btn-primary.dropdown-toggle {
+  background-color: #485284;
+}
+
+.btn-group.open .btn-warning.dropdown-toggle {
+  background-color: #FE7E00;
+}
+
+
+.alert {
+  background-color: #FFF0E1;
+  border: 1px solid #E1E3EF;
+}
+
+.alert-info {
+  background-color: #D2E5FE;
+  border-color: #B1D1FD;
+  color: #4065A8;
+}
+
+
+.nav-list > .active > a,
+.nav-list > .active > a:hover {
+  background-color: #495387;
+}
+
+.nav-pills > .active > a,
+.nav-pills > .active > a:hover {
+  background-color: #495387;
+}
+
+
+.nav .dropdown-toggle .caret {
+  border-top-color: #495387;
+  border-bottom-color: #495387;
+}
+
+.nav .dropdown-toggle:hover .caret {
+  border-top-color: #2D3353;
+  border-bottom-color: #2D3353;
+}
+
+
+.navbar-search .search-query {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.navbar .btn-navbar:hover,
+.navbar .btn-navbar:active,
+.navbar .btn-navbar.active,
+.navbar .btn-navbar.disabled,
+.navbar .btn-navbar[disabled] {
+  background-color: #35e5e5;
+}
+
+
+a.thumbnail:hover {
+  border-color: #495387;
+}
+
+
+.label-warning,
+.badge-warning {
+  background-color: #FE7E00;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #CC6500;
+}
+
+.label-info,
+.badge-info {
+  background-color: #4065A8;
+}
+
+.label-info[href],
+.badge-info[href] {
+  background-color: #3F4875;
+}
+
+
+.progress .bar {
+  background-color: #4F5A91;
+  background-image: linear-gradient(to bottom, #436AB1, #444E7E);
+}
+
+.progress-striped .bar {
+  background-color: #436AB1;
+}
+
+.progress-warning .bar,
+.progress .bar-warning {
+  background-color: #FF962F;
+  background-image: linear-gradient(to bottom, #FAA952, #FE7E00);
+}
+
+.progress-warning.progress-striped .bar,
+.progress-striped .bar-warning {
+  background-color: #FAA952;
+}

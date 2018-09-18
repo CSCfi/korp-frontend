@@ -25,7 +25,7 @@ korpApp.directive 'kwicWord', ->
             return (x for [x, y] in _.pairs output when y).join " "
 
 korpApp.directive "tabHash", (utils, $location) ->
-    scope : true
+    # scope : true
     link : (scope, elem, attr) ->
         s = scope
         contentScope = elem.find(".tab-content").scope()
@@ -61,7 +61,7 @@ korpApp.directive "tabHash", (utils, $location) ->
 
             unless out? then out = contentScope.tabs.length - 1
             return out
-        
+
         s.setSelected = (index) ->
             for t in contentScope.tabs
                 t.active = false
@@ -94,31 +94,34 @@ korpApp.directive "escaper", () ->
         $scope.input = unescape $scope.model
         $scope.inputChange = () ->
             $scope.model = escape($scope.input)
-        
+
         $scope.$watch "orObj.op", () ->
             $scope.model = escape($scope.input)
 
 
 
 korpApp.directive "tokenValue", ($compile, $controller) ->
-    # defaultTmpl = "<input ng-model='model' 
+    # defaultTmpl = "<input ng-model='model'
     #             placeholder='{{tokenValue.value == \"word\" && !model.length && \"any\" | loc:lang}} '>"
-    
+
     getDefaultTmpl = _.template """
                 <input ng-model='input' ng-change="inputChange()" class='arg_value' escaper ng-model-options='{debounce : {default : 300, blur : 0}, updateOn: "default blur"}'
                 <%= maybe_placeholder %>>
                 <span class='val_mod' popper
                     ng-class='{sensitive : case == "sensitive", insensitive : case == "insensitive"}'>
                         Aa
-                </span> 
+                </span>
                 <ul class='mod_menu popper_menu dropdown-menu'>
                     <li><a ng-click='makeSensitive()'>{{'case_sensitive' | loc:lang}}</a></li>
                     <li><a ng-click='makeInsensitive()'>{{'case_insensitive' | loc:lang}}</a></li>
                 </ul>
                 """
     defaultController = ["$scope", ($scope) ->
+        if $scope.orObj.flags?.c
+            $scope.case = "insensitive"
+        else
+            $scope.case = "sensitive"
 
-        $scope.case = "sensitive"
         $scope.makeSensitive = () ->
             $scope.case = "sensitive"
             delete $scope.orObj.flags?["c"]
@@ -139,6 +142,7 @@ korpApp.directive "tokenValue", ($compile, $controller) ->
         tokenValue : "="
         model : "=model"
         orObj : "=orObj"
+        lang : "="
     template : """
         <div>{{tokenValue.label}}</div>
     """
@@ -149,18 +153,19 @@ korpApp.directive "tokenValue", ($compile, $controller) ->
         scope.$watch "tokenValue", (valueObj) ->
             unless valueObj then return
             if valueObj.value == current?.value then return
+
             # # Delete the properties of the current (previous) value
             # # from scope, so that the values of properties absent from
             # # the new valueObj are cleared. (Jyrki Niemi 2015-09-02)
             # for own key of current
             #     delete scope[key]
             # Does the new code below achieve the same?
+
             prevScope?.$destroy()
             childWatch?()
+
             prevScope = null
             current = valueObj
-
-            
 
             childScope = scope.$new(false, scope)
             childWatch = childScope.$watch "model", (val) ->
@@ -168,7 +173,7 @@ korpApp.directive "tokenValue", ($compile, $controller) ->
             childScope.orObj = scope.orObj
             _.extend childScope, valueObj
 
-            locals = {$scope : childScope} 
+            locals = {$scope : childScope}
             prevScope = childScope
             $controller(valueObj.controller or defaultController, locals)
 
@@ -182,6 +187,8 @@ korpApp.directive "tokenValue", ($compile, $controller) ->
             tmplElem = $compile(valueObj.extended_template or defaultTmpl)(childScope)
             elem.html(tmplElem).addClass("arg_value")
 
+
+
 korpApp.directive "constr", ($window, searches) ->
     scope : true
 
@@ -193,7 +200,7 @@ korpApp.directive "constr", ($window, searches) ->
 
         scope.instance = instance
         scope.$parent.instance = instance
-            
+
 
 
 
@@ -238,9 +245,9 @@ korpApp.directive "searchSubmit", ($window, $document, $rootElement) ->
         s.onPopoverClick = (event) ->
             unless event.target == popover.find(".btn")[0]
                 event.preventDefault()
-                event.stopPropagation()            
+                event.stopPropagation()
         s.isPopoverVisible = false
-        trans = 
+        trans =
             bottom : "top"
             top : "bottom"
             right : "left"
@@ -290,7 +297,7 @@ korpApp.directive "meter", () ->
     template: '''
         <div>
             <div class="background" ng-bind-html="displayWd | trust"></div>
-            <div class="abs badge" tooltip-html-unsafe="{{tooltipHTML}}">{{meter.abs}}</div>
+            <div class="abs badge" uib-tooltip-html="tooltipHTML | trust">{{meter.abs}}</div>
         </div>
     '''
     replace: true
@@ -332,7 +339,7 @@ korpApp.directive "popper", ($rootElement) ->
         popup.appendTo("body").hide()
         closePopup = () ->
             popup.hide()
-        
+
         if !attrs.noCloseOnClick?
             popup.on "click", (event) ->
                 closePopup()
@@ -345,7 +352,7 @@ korpApp.directive "popper", ($rootElement) ->
             if popup.is(":visible") then closePopup()
             else popup.show()
 
-            pos = 
+            pos =
                 my : attrs.my or "right top"
                 at : attrs.at or "bottom right"
                 of : elem
@@ -364,8 +371,8 @@ korpApp.directive "popper", ($rootElement) ->
 
 korpApp.directive "tabSpinner", ($rootElement) ->
     template : """
-    <i class="fa fa-times-circle close_icon"></i> 
-    <span class="tab_spinner" 
+    <i class="fa fa-times-circle close_icon"></i>
+    <span class="tab_spinner"
         us-spinner="{lines : 8 ,radius:4, width:1.5, length: 2.5, left : 4, top : -12}"></span>
     """
 
@@ -375,7 +382,8 @@ korpApp.directive "extendedList", ($location, $rootScope) ->
     # scope : true
     scope : {
         cqp : "="
-    }, 
+        lang: "="
+    },
     link : ($scope, elem, attr) ->
         s = $scope
 
@@ -424,7 +432,7 @@ korpApp.directive "extendedList", ($location, $rootScope) ->
             # if val
                 # setCQP(val)
             s.cqp = val
-            
+
         s.getCQPString = ->
             return (CQP.stringify s.data) or ""
 
@@ -446,17 +454,17 @@ korpApp.directive "extendedList", ($location, $rootScope) ->
             unless s.data.length > 1 then return
             s.data.splice(i, 1)
 
-  
+
 korpApp.directive "tabPreloader", () ->
     restrict : "E"
-    scope : 
+    scope :
         value : "="
         spinner : "="
     replace : true
     template : """
         <div class="tab_preloaders">
             <div ng-if="!spinner" class="tab_progress" style="width:{{value || 0}}%"></div>
-                <span ng-if="spinner" class="preloader_spinner" 
+                <span ng-if="spinner" class="preloader_spinner"
                     us-spinner="{lines : 8 ,radius:4, width:1.5, length: 2.5, left : 7, top : -12}"></span>
         </div>
     """
@@ -465,25 +473,22 @@ korpApp.directive "tabPreloader", () ->
 
 
 korpApp.directive "clickCover", () ->
-    # scope : 
+    # scope :
         # clickCover : "="
     link : (scope, elem, attr) ->
-        cover = $("<div>").css(
-            position: "absolute"
-            top: 0
-            left: 0
-            right : 0
-            bottom : 0
-        ).on "click", () -> return false
+        cover = $("<div class='click-cover'>").on "click", () -> return false
+            
         pos = elem.css("position") or "static"
-        scope.$watch () -> 
+        scope.$watch () ->
             scope.$eval attr.clickCover
         , (val) ->
             if val
                 elem.prepend(cover)
+                elem.css "pointer-events" ,"none"
                 elem.css("position", "relative").addClass("covered")
             else
                 cover.remove()
+                elem.css "pointer-events", ""
                 elem.css("position", pos).removeClass("covered")
 
 korpApp.directive 'toBody', ($compile) ->
@@ -510,20 +515,20 @@ korpApp.directive "kwicPager", () ->
     restrict: "E"
     scope: false
     template: """
-    <div class="pager-wrapper" ng-show="gotFirstKwic" >
-      <pagination
+    <div class="pager-wrapper" ng-show="gotFirstKwic && hits > 0" >
+      <uib-pagination
          total-items="hits"
          ng-if="gotFirstKwic"
          ng-model="pageObj.pager"
          ng-click="pageChange($event, pageObj.pager)"
          max-size="15"
          items-per-page="::$root._searchOpts.hits_per_page"
-         previous-text="‹" next-text="›" first-text="«" last-text="»" 
-         boundary-links="true" 
-         rotate="false" 
+         previous-text="‹" next-text="›" first-text="«" last-text="»"
+         boundary-links="true"
+         rotate="false"
          num-pages="$parent.numPages"> </pagination>
       <div class="page_input"><span>{{'goto_page' | loc:lang}} </span>
-        <input ng-model="gotoPage" ng-keyup="onPageInput($event, gotoPage, numPages)" 
+        <input ng-model="gotoPage" ng-keyup="onPageInput($event, gotoPage, numPages)"
             ng-click="$event.stopPropagation()" />
         {{'of' | loc:lang}} {{numPages}}
       </div>
@@ -539,7 +544,7 @@ korpApp.directive "autoc", ($q, $http, lexicons) ->
         "model" : "="
         "type" : "@"
         "variant" : "@"
-        "disableLemgramAutocomplete" : "=" 
+        "disableLemgramAutocomplete" : "="
     template: """
         <div>
             <script type="text/ng-template" id="lemgramautocomplete.html">
@@ -561,9 +566,9 @@ korpApp.directive "autoc", ($q, $http, lexicons) ->
                 <div style="float:left"><input
                     class="autocomplete_searchbox"
                     autofocus
-                    type="text" 
+                    type="text"
                     ng-model="textInField"
-                    typeahead="row for row in getRows($viewValue)"
+                    uib-typeahead="row for row in getRows($viewValue)"
                     typeahead-wait-ms="500"
                     typeahead-template-url="lemgramautocomplete.html"
                     typeahead-loading="isLoading"
@@ -572,7 +577,7 @@ korpApp.directive "autoc", ($q, $http, lexicons) ->
                 <div style="margin-left:-20px;margin-top:2px;float:left" ng-if="isLoading"><i class="fa fa-spinner fa-pulse"></i></div>
             </div>
             <div ng-show="disableLemgramAutocomplete">
-                <div style="float:left"> 
+                <div style="float:left">
                     <input class="standard_searchbox" autofocus type="text">
                 </div>
             </div>
@@ -603,7 +608,7 @@ korpApp.directive "autoc", ($q, $http, lexicons) ->
             if scope.type is "lemgram"
                 util.lemgramToString(placeholder).replace(/<.*?>/g, "")
             else
-                util.saldoToString(placeholder)
+                util.saldoToPlaceholderString placeholder, true
 
         scope.formatPlaceholder = (input) ->
             lemgramRegExp = /([^_\.-]*--)?([^-]*)\.\.(\w+)\.(\d\d?)/
@@ -623,7 +628,10 @@ korpApp.directive "autoc", ($q, $http, lexicons) ->
             scope.textInField = ""
 
         if scope.model
-            scope.selectedItem null, {lemgram : scope.model }
+            if scope.type == "sense"
+                scope.selectedItem null, {sense : scope.model }
+            else
+                scope.selectedItem null, {lemgram : scope.model }
 
         scope.getMorphologies = (corporaIDs) ->
             morphologies = []
@@ -644,6 +652,7 @@ korpApp.directive "autoc", ($q, $http, lexicons) ->
                 return scope.getLemgrams input, morphologies, corporaIDs
             else if scope.type is "sense"
                 return scope.getSenses input, morphologies, corporaIDs
+
         scope.getLemgrams = (input, morphologies, corporaIDs) ->
             deferred = $q.defer()
             http = lexicons.getLemgrams input, morphologies, corporaIDs, (scope.variant is "affix")
@@ -675,7 +684,7 @@ korpApp.directive "autoc", ($q, $http, lexicons) ->
 
 
 korpApp.directive "timeInterval", () ->
-    scope : 
+    scope :
         dateModel : "="
         timeModel : "="
         model : "="
@@ -685,13 +694,13 @@ korpApp.directive "timeInterval", () ->
     restrict : "E"
     template : """
         <div>
-            <datepicker class="well well-sm" ng-model="dateModel" 
+            <uib-datepicker class="well well-sm" ng-model="dateModel"
                 min-date="minDate" max-date="maxDate" init-date="minDate"
-                show-weeks="true" starting-day="1"></datepicker>
+                show-weeks="true" starting-day="1"></uib-datepicker>
 
             <div class="time">
-                <i class="fa fa-3x fa-clock-o"></i><timepicker class="timepicker" ng-model="timeModel" 
-                    hour-step="1" minute-step="1" show-meridian="false"></timepicker>
+                <i class="fa fa-3x fa-clock-o"></i><uib-timepicker class="timepicker" ng-model="timeModel"
+                    hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
             </div>
         </div>
         """
@@ -701,22 +710,119 @@ korpApp.directive "timeInterval", () ->
         s.open = (event) ->
             event.preventDefault()
             event.stopPropagation()
-            s.isOpen = true 
-
-           # s.model = null
+            s.isOpen = true
 
         time_units = ["hour", "minute"]
         w = s.$watchGroup ["dateModel", "timeModel"], ([date, time]) ->
             if date and time
                 m = moment(moment(date).format("YYYY-MM-DD"))
-                # c.log "time", time, date, s
                 for t in time_units
                     m_time = moment(time)
-                    # c.log "add", m_time[t](), t
                     m.add(m_time[t](), t)
-
                 s.model = m
-                # c.log "s.model", s.model
+
+korpApp.directive 'reduceSelect', ($timeout) ->
+    restrict: 'AE'
+    scope:
+      items: '=reduceItems'
+      selected: '=reduceSelected'
+      insensitive: '=reduceInsensitive'
+      lang: '=reduceLang'
+    replace : true
+    template: '''
+                  <div uib-dropdown auto-close="outsideClick" class="reduce-attr-select" on-toggle="toggled(open)">
+                    <div uib-dropdown-toggle class="reduce-dropdown-button inline_block ui-state-default">
+                      <div class="reduce-dropdown-button-text">
+                        <span>{{ "reduce_text" | loc:lang }}:</span>
+                        <span>
+                          {{keyItems[selected[0]].label | loc:lang}}
+                        </span>
+                        <span ng-if="selected.length > 1">
+                          (+{{ numberAttributes - 1 }})
+                        </span>
+                        <span class="caret"></span>
+                      </div>
+                    </div>
+                    <div class="reduce-dropdown-menu " uib-dropdown-menu>
+                      <ul>
+                        <li ng-click="toggleSelected('word', $event)" ng-class="keyItems['word'].selected ? 'selected':''" class="attribute">
+                          <input type="checkbox" class="reduce-check" ng-checked="keyItems['word'].selected">
+                          <span class="reduce-label">{{keyItems['word'].label | loc:lang }}</span>
+                          <span ng-class="keyItems['word'].insensitive ? 'selected':''"
+                                class="insensitive-toggle"
+                                ng-click="toggleWordInsensitive($event)"><b>Aa</b></span>
+                        </li>
+                        <b ng-if="hasWordAttrs">{{'word_attr' | loc:lang}}</b>
+                        <li ng-repeat="item in items | filter:{ group: 'word_attr' }"
+                            ng-click="toggleSelected(item.value, $event)"
+                            ng-class="item.selected ? 'selected':''" class="attribute">
+                          <input type="checkbox" class="reduce-check" ng-checked="item.selected">
+                          <span class="reduce-label">{{item.label | loc:lang }}</span>
+                        </li>
+                        <b ng-if="hasStructAttrs">{{'sentence_attr' | loc:lang}}</b>
+                        <li ng-repeat="item in items | filter:{ group: 'sentence_attr' }"
+                            ng-click="toggleSelected(item.value, $event)"
+                            ng-class="item.selected ? 'selected':''" class="attribute">
+                          <input type="checkbox" class="reduce-check" ng-checked="item.selected">
+                          <span class="reduce-label">{{item.label | loc:lang }}</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>'''
+
+    link: (scope, element, attribute) ->
+
+        scope.$watchCollection 'items', (() ->
+            if scope.items
+                scope.keyItems = {}
+                for item in scope.items
+                    scope.keyItems[item.value] = item
+
+                scope.hasWordAttrs = _.filter(scope.keyItems, { 'group': 'word_attr' }).length > 0
+                scope.hasStructAttrs = _.filter(scope.keyItems, { 'group': 'sentence_attr' }).length > 0
+
+                if scope.selected and scope.selected.length > 0
+                    for select in scope.selected
+                        item = scope.keyItems[select]
+                        if item
+                            item.selected = true
+                else
+                    scope.keyItems["word"].selected = true
+                if scope.insensitive
+                    for insensitive in scope.insensitive
+                        scope.keyItems[insensitive].insensitive = true
+                updateSelected scope
+        )
+
+        updateSelected = (scope) ->
+            scope.selected = _.pluck (_.filter scope.keyItems, (item, key) -> item.selected), "value"
+            scope.numberAttributes = scope.selected.length
+
+        scope.toggleSelected = (value, event) ->
+            item = scope.keyItems[value]
+            item.selected = not item.selected
+            if value == "word" and not item.selected
+                item.insensitive = false
+                scope.insensitive = []
+            updateSelected scope
+
+            event.stopPropagation()
+
+        scope.toggleWordInsensitive = (event) ->
+            event.stopPropagation()
+            scope.keyItems["word"].insensitive = not scope.keyItems["word"].insensitive
+            if scope.keyItems["word"].insensitive
+                scope.insensitive = ["word"]
+            else
+                scope.insensitive = []
+
+            if not scope.keyItems["word"].selected
+                scope.toggleSelected "word"
+
+        scope.toggled = (open) ->
+            # if no element is selected when closing popop, select word
+            if not open and scope.numberAttributes == 0
+                $timeout (() -> scope.toggleSelected "word"), 0
 
 
 angular.module("template/datepicker/day.html", []).run ($templateCache) ->

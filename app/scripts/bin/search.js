@@ -60,12 +60,9 @@
     return $("#search_history").html(opts).prepend(clear).prepend(placeholder);
   };
 
-  view.enableSearch = function(bool) {};
-
   view.initSearchOptions = function() {
     var selects;
     selects = $("#search_options > div:first select").customSelect();
-    view.updateReduceSelect();
     $("#search_options select").each(function() {
       var state;
       state = search()[$(this).data("history")];
@@ -94,52 +91,6 @@
         return search("search", null);
       }
     });
-  };
-
-  view.updateReduceSelect = function() {
-    var cl, groups, prevVal, select, sentence_attr, word_attr;
-    cl = settings.corpusListing;
-    if ((settings.reduce_word_attribute_selector || "union") === "union") {
-      word_attr = cl.getCurrentAttributes();
-    } else if (settings.reduce_word_attribute_selector === "intersection") {
-      word_attr = cl.getCurrentAttributesIntersection();
-    }
-    if ((settings.reduce_struct_attribute_selector || "union") === "union") {
-      sentence_attr = cl.getStructAttrs();
-    } else if (settings.reduce_struct_attribute_selector === "intersection") {
-      sentence_attr = cl.getStructAttrsIntersection();
-    }
-    if (sentence_attr == null) {
-      sentence_attr = [];
-    }
-    groups = $.extend({
-      word: {
-        word: {
-          label: "word"
-        },
-        word_insensitive: {
-          label: "word_insensitive"
-        }
-      }
-    }, {
-      word_attr: word_attr,
-      sentence_attr: $.grepObj(sentence_attr, function(val, key) {
-        if (val.displayType === "date_interval") {
-          return false;
-        }
-        return true;
-      })
-    });
-    prevVal = $("#reduceSelect select").val();
-    select = util.makeAttrSelect(groups);
-    $("#reduceSelect").html(select);
-    c.log("updateReduceSelect", groups, select);
-    select.attr("data-history", "stats_reduce").attr("data-prefix", "reduce_text").customSelect();
-    if (prevVal) {
-      select.val(prevVal);
-      select.trigger("change");
-    }
-    return select;
   };
 
   BaseSearch = (function() {
@@ -335,7 +286,7 @@
     };
 
     SimpleSearch.prototype.getCQP = function(word) {
-      var cqp, currentText, lemgram, prequeries, query, suffix, val, wordArray;
+      var cqp, currentText, lemgram, prequeries, query, suffix, val, wordArray, word_attrs;
       currentText = $.trim(word || this.getWordInput() || "", '"');
       suffix = ($("#caseChk").is(":checked") ? " %c" : "");
       if (util.isLemgramId(currentText)) {
@@ -343,11 +294,20 @@
       } else if (this.s.placeholder) {
         lemgram = regescape(this.s.placeholder);
         val = "[lex contains '" + lemgram + "'";
+        word_attrs = settings.corpusListing.getCurrentAttributesIntersection();
         if (this.isSearchPrefix()) {
-          val += " | prefix contains '" + lemgram + "' ";
+          if ("prefix" in word_attrs) {
+            val += " | prefix contains '" + lemgram + "'";
+          } else {
+            val += " | lex contains '" + lemgram.replace(/(.*)(\\.\\.)/, "$1.*$2") + "'";
+          }
         }
         if (this.isSearchSuffix()) {
-          val += " | suffix contains '" + lemgram + "'";
+          if ("suffix" in word_attrs) {
+            val += " | suffix contains '" + lemgram + "'";
+          } else {
+            val += " | lex contains '.*" + lemgram + "'";
+          }
         }
         val += "]";
       } else if (this.isSearchPrefix() || this.isSearchSuffix()) {
@@ -363,7 +323,7 @@
       } else {
         wordArray = currentText.split(" ");
         cqp = $.map(wordArray, function(item, i) {
-          return $.format("[word = \"%s\"%s]", [regescape(item), suffix]);
+          return "[word = \"" + (regescape(item)) + "\"" + suffix + "]";
         });
         val = cqp.join(" ");
       }
@@ -403,3 +363,5 @@
   })(BaseSearch);
 
 }).call(this);
+
+//# sourceMappingURL=search.js.map
