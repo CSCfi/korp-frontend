@@ -3051,6 +3051,82 @@ delete coha_hierarchy;
 settings.corpus_aliases.coha = "coha_.*";
 settings.corpus_aliases["coha-2017h1"] = "coha_.*";
 
+// Ha language corpora
+
+settings.corporafolders.ha = {
+    title : "Ha",
+    description : "Ha language stories and sentences collected during years 1997, 2000 and 2003 in Kibondo (Kigoma Region, Tanzania) and nearby areas.",
+    contents : ["ha_stories", "ha_sentences"],
+    info : {
+	licence : settings.licenceinfo.CC_BY,
+	metadata_urn : "http://urn.fi/urn:nbn:fi:lb-2017022101",
+    },
+};
+
+attrlist.ha = {
+    lemma : { label : "baseform" },
+    morph : { label : "morphological_analysis" },
+    gloss : { label : "English_gloss" },
+    pos : { label : "part-of-speech" },
+};
+
+sattrlist.ha_sentence = {
+    sentence_transl_en : {
+	label : "English_translation",
+	displayType : "select"
+    },
+    sentence_transl_sw : {
+	label : "Swahili_translation",
+	displayType : "select"
+    },
+    sentence_mood : {
+	label : "Mood",
+	displayType : "select"
+    },
+    sentence_reference : {
+	label : "Reference",
+	displayType : "select"
+    },
+    sentence_date : {
+	label : "Date",
+	displayType : "select"
+    },
+    sentence_note : {
+	label : "Note",
+	displayType : "select"
+    },
+};
+
+sattrlist.ha_story = {
+    chapter_title : {
+	label : "Title",
+	displayType : "select"
+    },
+    chapter_informant : {
+	label : "Informant",
+	displayType : "select"
+    },
+};
+
+settings.corpora.ha_sentences = {
+    title : "Ha sentences",
+    description : "Ha language sentences",
+    id : "ha_sentences",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes : attrlist.ha,
+    struct_attributes : sattrlist.ha_sentence,
+};
+
+settings.corpora.ha_stories = {
+    title : "Ha stories",
+    description : "Ha language stories",
+    id : "ha_stories",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes : attrlist.ha,
+    struct_attributes : $.concat(sattrlist.ha_sentence, sattrlist.ha_story),
+};
 
 // GloWbE
 
