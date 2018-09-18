@@ -3125,7 +3125,7 @@ settings.corpora.ha_stories = {
     context : settings.defaultContext,
     within : settings.defaultWithin,
     attributes : attrlist.ha,
-    struct_attributes : $.concat(sattrlist.ha_sentence, sattrlist.ha_story),
+    struct_attributes : $.extend({}, sattrlist.ha_sentence, sattrlist.ha_story),
 };
 
 // GloWbE
