@@ -48,6 +48,7 @@
     "party": "party",
     "normalized_wordform": "normalized word form",
     "spoken": "spoken form",
+    "pos_full": "full part-of-speech",
 
     "OCR": "OCR",
 
@@ -56,6 +57,7 @@
     "lemmacomp": "baseform (compound boundaries)",
     "pos_orig": "part-of-speech (original)",
     "func": "function",
+    "morphemes": "morphemes",
 
     "ambiguous_msd": "morphosyntactic features (ambiguous)",
 
@@ -1152,6 +1154,8 @@
     "gloss": "gloss",
     "syntactic_function": "syntactic function",
     "extra_features": "extra features",
+    "gloss_en": "gloss (English)",
+    "gloss_en_full": "full gloss (English)",
 
     "published": "published",
 

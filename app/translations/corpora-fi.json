@@ -27,6 +27,7 @@
     "normalized_wordform": "normalisoitu sananmuoto",
     "normalized_lemma": "normalisoitu perusmuoto",
     "spoken": "puhemuoto",
+    "pos_full", "koko sanaluokka",
 
     "bible_index": "raamatunkohta",
 
@@ -37,6 +38,7 @@
     "lemmacomp": "perusmuoto (yhdyssanarajat)",
     "pos_orig": "sanaluokka (siivoamaton)",
     "func": "lauseenjäsen",
+    "morphemes": "morfeemit",
 
     "ambiguous_lemma": "monitulkintainen perusmuoto",
     "ambiguous_pos": "monitulkintainen sanaluokka",
@@ -1712,6 +1714,8 @@
     "gloss": "glossi",
     "syntactic_function": "syntaktinen funktio",
     "extra_features": "lisäpiirteet",
+    "gloss_en": "glossi (englanti)",
+    "gloss_en_full": "täysi glossi (englanti)",
     "studentsvenska_code": "syntaktinen funktio",
     "studentsvenska_properties": "lausetyyppi",
     "studentsvenska_textnumber": "tekstin numero",

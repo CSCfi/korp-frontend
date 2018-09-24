@@ -3065,9 +3065,11 @@ settings.corporafolders.ha = {
 
 attrlist.ha = {
     lemma : { label : "baseform" },
-    morph : { label : "morphological_analysis" },
-    gloss : { label : "English_gloss" },
-    pos : { label : "part-of-speech" },
+    morphemes : { label : "morphemes" },
+    gloss_full : { label : "gloss_en_full" },
+    pos_full : { label : "pos_full" },
+    gloss : { label : "gloss_en" },
+    pos : { label : "pos" },
 };
 
 sattrlist.ha_sentence = {
