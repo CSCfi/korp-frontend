@@ -801,7 +801,7 @@
     "peripheral_elements": "peripheral elements",
     "compound_patterns": "compound patterns",
     "compound_pattern_examples": "compound pattern examples",
-    "notes": "notes",
+    "notes": "huomautuksia",
 
     "thread": "thread",
     "forum": "forum",
@@ -1870,5 +1870,5 @@
 
     "english_translation" : "käännös englanniksi",
     "swahili_translation" : "käännös swahiliksi",
-    "mood" : "modus",
+    "mood" : "modus"
 }
