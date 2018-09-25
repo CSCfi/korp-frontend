@@ -27,7 +27,7 @@
     "normalized_wordform": "normalisoitu sananmuoto",
     "normalized_lemma": "normalisoitu perusmuoto",
     "spoken": "puhemuoto",
-    "pos_full", "koko sanaluokka",
+    "pos_full": "koko sanaluokka",
 
     "bible_index": "raamatunkohta",
 
