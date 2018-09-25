@@ -1866,5 +1866,9 @@
     "oracc_lang_sy": "tavukirjoitus",
     "oracc_lang_sux-x-udgalnun": "udgalnun-ortografia",
     "oracc_lang_qpc": "protonuolenpää",
-"klk_img_url": "Katso asiakirja Revizorissa"
+    "klk_img_url": "Katso asiakirja Revizorissa",
+
+    "english_translation" : "käännös englanniksi",
+    "swahili_translation" : "käännös swahiliksi",
+    "mood" : "modus",
 }

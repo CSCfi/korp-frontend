@@ -3069,43 +3069,46 @@ attrlist.ha = {
     gloss_full : { label : "gloss_en_full" },
     pos_full : { label : "pos_full" },
     gloss : { label : "gloss_en" },
-    pos : { label : "pos" },
+    pos : { label : "pos",
+	    type : "set",
+	    opts : settings.setOptions,
+	  },
 };
 
 sattrlist.ha_sentence = {
     sentence_transl_en : {
-	label : "English_translation",
+	label : "english_translation",
 	displayType : "select"
     },
     sentence_transl_sw : {
-	label : "Swahili_translation",
+	label : "swahili_translation",
 	displayType : "select"
     },
     sentence_mood : {
-	label : "Mood",
+	label : "mood",
 	displayType : "select"
     },
     sentence_reference : {
-	label : "Reference",
+	label : "referensnummer",
 	displayType : "select"
     },
     sentence_date : {
-	label : "Date",
+	label : "date",
 	displayType : "select"
     },
     sentence_note : {
-	label : "Note",
+	label : "notes",
 	displayType : "select"
     },
 };
 
 sattrlist.ha_story = {
     chapter_title : {
-	label : "Title",
+	label : "title",
 	displayType : "select"
     },
     chapter_informant : {
-	label : "Informant",
+	label : "informant",
 	displayType : "select"
     },
 };
