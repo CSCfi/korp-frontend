@@ -16,6 +16,23 @@ statisticsFormatting.isPosAttr = function (attrname) {
 	    || attrname.match(statisticsFormatting.posAttrNamesWithUnderscore));
 };
 
+// A function to make a group value for grouping values in the
+// statistics result.
+//
+// Apparently, the corresponding inline code was originally intended
+// to remove the final colon and digits from lemma, saldo and lemgram
+// values in the Swedish corpora tagged with Språkbanken's corpus
+// pipeline. However, that is too broad for Kielipankki's corpora
+// having annotations with colons, so this function makes the grouping
+// value configurable. The function should be overridden in the
+// Swedish mode. (Jyrki Niemi 2018-10-04)
+//
+// NOTE: The corresponding code has been changed in Korp 7.0.0.
+statisticsFormatting.makeGroupingValue = function (value) {
+    // The original code by Språkbanken:
+    return value.replace(/(:.+?)(\/|$| )/g, "$2");
+}
+
 statisticsFormatting.getCqp = function(types, hitValue, ignoreCase) {
     var tokenLists = statisticsFormatting.splitHitValue(hitValue);
 
@@ -139,7 +156,7 @@ statisticsFormatting.reduceCqp = function(type, tokens, ignoreCase, isPosAttr) {
 
 statisticsFormatting.reduceStatisticsPieChart = function(row, cell, value, columnDef, dataContext) {
     if(value != "&Sigma;") {
-        value = value[0].replace(/(:.+?)(\/|$| )/g, "$2");
+        value = statisticsFormatting.makeGroupingValue(value[0]);
     }
     return $.format('<img id="circlediagrambutton__%s" src="img/stats2.png" class="arcDiagramPicture"/>', value);
 };
@@ -259,5 +276,3 @@ statisticsFormatting.reduceStringify = function(type, values, corpora) {
     }
 
 };
-
-
