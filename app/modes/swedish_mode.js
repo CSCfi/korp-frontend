@@ -8,6 +8,17 @@ settings.wordpicture = false;
 settings.show_related_words = true;
 
 
+// Override the default statisticsFormatting.makeGroupingValue (in
+// statistics_config.js) to group lemmas, saldo values and lemgrams in
+// the same way as Språkbanken's Korp (ignoring the possible trailing
+// digits preceded by a colon). (Jyrki Niemi 2018-10-04)
+statisticsFormatting.makeGroupingValue = function (value) {
+    // This is slightly more precise than the original, as this
+    // requires that the colon is followed by digits.
+    return value.replace(/(:[0-9]+?)(\/|$| )/g, "$2");
+}
+
+
 settings.preselected_corpora = ["mulcold_sv", "kfspc_sv"];
 
 

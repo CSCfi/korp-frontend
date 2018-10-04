@@ -29,8 +29,10 @@ statisticsFormatting.isPosAttr = function (attrname) {
 //
 // NOTE: The corresponding code has been changed in Korp 7.0.0.
 statisticsFormatting.makeGroupingValue = function (value) {
+    // Return the value as is (no grouping)
+    return value;
     // The original code by Språkbanken:
-    return value.replace(/(:.+?)(\/|$| )/g, "$2");
+    // return value.replace(/(:.+?)(\/|$| )/g, "$2");
 }
 
 statisticsFormatting.getCqp = function(types, hitValue, ignoreCase) {
