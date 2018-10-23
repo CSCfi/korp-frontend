@@ -66,7 +66,7 @@ settings.corporafolders.fennougrica = {
 settings.corporafolders.english = {
     title: "English / Englanti",
     description: "Texts in English<br/>Englanninkielisiä tekstejä",
-    contents: ["mulcold_en", "elfa", "topling_en"]
+    contents: ["mulcold_en", "elfa", "topling_en", "hc"]
 };
 
 settings.corporafolders.german = {
@@ -265,6 +265,16 @@ settings.corpora.fennougrica = {
     unselected: true
 };
 */
+
+settings.corpora.hc = {
+    id : "hc",
+    title : "Helsinki Corpus",
+    description : "Helsinki Corpus",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes : attrlist.hc,
+    struct_attributes : sattrlist.hc
+};
 
 settings.corpora.oracc_other = {
     id: "oracc_other",

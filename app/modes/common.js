@@ -1819,6 +1819,28 @@ sattrs.link_lehdet = {
     url_opts: sattrs.link_url_opts
 };
 
+/* HC */
+
+sattrlist.hc = {
+    sentence_id : sattrs.sentence_id_hidden,
+    text_date : {label: "date"},
+    text_title : {label: "title"},
+    text_xmlid : {label: "hc_xmlid"},
+    text_id : {label: "hc_textid"},
+    text_source : {label: "source"},
+    text_lang : {label: "lang"},
+    text_langid : {label: "hc_lang_id"}
+};
+
+attrlist.hc = {
+    page : {label: "page_num",
+            opts : settings.defaultOptions},
+
+    note : {label: "note",
+            opts : settings.defaultOptions}
+};
+
+
 /* ORACC */
 
 sattrlist.oracc = {

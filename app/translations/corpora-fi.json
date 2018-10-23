@@ -1862,5 +1862,8 @@
     "oracc_lang_sy": "tavukirjoitus",
     "oracc_lang_sux-x-udgalnun": "udgalnun-ortografia",
     "oracc_lang_qpc": "protonuolenpää",
-"klk_img_url": "Katso asiakirja Revizorissa"
+"klk_img_url": "Katso asiakirja Revizorissa",
+"hc_xmlid": "XML-tunniste",
+"hc_textid": "HC-tekstitunniste",
+"hc_lang_id": "HC-kielitunniste"
 }
