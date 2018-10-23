@@ -280,10 +280,9 @@ settings.shibbolethLogoutUrl = function (href) {
 settings.make_direct_LBR_URL = function (lbr_id) {
     console.log ("make_direct_LBR_URL", lbr_id);
     if (lbr_id) {
-	return ("https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource="
+	return ("https://www.kielipankki.fi/lbr3/"
 		+ (lbr_id.slice(0, 3) != "urn" ? "urn:nbn:fi:lb-" : "")
-		+ lbr_id
-		+ "&target=application");
+		+ lbr_id);
     } else {
 	return "https://lbr.csc.fi";
     }

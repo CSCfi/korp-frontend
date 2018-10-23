@@ -497,7 +497,7 @@
         };
       })(this));
       groups = _.groupBy(_.keys(data.total.absolute), function(item) {
-        return item.replace(/(:.+?)(\/|$| )/g, "$2");
+        return statisticsFormatting.makeGroupingValue(item);
       });
       wordArray = _.keys(groups);
       sizeOfDataset = wordArray.length;
