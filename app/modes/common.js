@@ -429,6 +429,12 @@ attrs.ne_name = {
 sattrs.date = {
     label: "date"
 };
+sattrs.time = {
+    label: "time"
+};
+sattrs.datetime = {
+    label: "timestamp",
+};
 
 var modernAttrs = {
     pos: attrs.pos,
@@ -2065,6 +2071,15 @@ attrlist.parsed_tdt_ner =
     $.extend({}, attrlist.parsed_tdt, {
 	nertag: attrs.ner_tags
     });
+
+
+settings.corpus_features.spaces = {
+    attributes: {
+	spaces: {
+	    label: "spaces_around_token",
+	},
+    },
+};
 
 
 // KLK structural attributes, for both Finnish and Swedish
@@ -3939,6 +3954,29 @@ settings.fn.extend_corpus_settings = function (props, corpus_ids) {
     for (var i = 0; i < corpus_ids.length; i++) {
 	$.extend(true, settings.corpora[corpus_ids[i]], props);
     }
+};
+
+// Generate a declaration for an attribute with yes/no-values.
+// Arguments:
+// - label: attribute translation label
+// - yes_no: an array of two items: the corpus values for "yes" and
+//   "no"; if omitted, use "yes" and "no".
+settings.fn.make_yes_no_attr = function (label, yes_no) {
+    var dataset;
+    if (arguments.length < 2) {
+	dataset = ["yes", "no"];
+    } else {
+	dataset = {};
+	dataset[yes_no[0]] = "yes";
+	dataset[yes_no[1]] = "no";
+    }
+    return {
+	label: label,
+	displayType: "select",
+	translationKey: "",
+	dataset: dataset,
+	opts: settings.liteOptions,
+    };
 };
 
 // Recursively create a corpus folder hierarchy under parent_folder
