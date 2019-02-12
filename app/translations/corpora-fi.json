@@ -58,6 +58,7 @@
     "text_year": "vuosi",
     "text_party": "puolue",
     "date": "päiväys",
+    "datetime": "päiväys ja kellonaika",
     "author": "tekijä",
     "writer": "kirjoittaja",
     "title": "otsikko",
@@ -1383,6 +1384,8 @@
     "show_fulltext": "Näytä kokoteksti",
     "show_fulltext_context": "Näytä konteksti kokotekstissä",
     "show_video": "Näytä video",
+    "show_orig_thread": "Näytä alkuperäinen keskusteluketju",
+    "show_orig_message": "Näytä alkuperäinen viesti",
     "listen_sentence": "Kuuntele virke",
     "listen_speech": "Kuuntele puheenvuoro",
 
@@ -1415,6 +1418,33 @@
     "text_translator": "kääntäjä",
     "show_gutenberg": "Lataa teksti Project Gutenbergistä",
     "show_gutenberg_text": "Tarkastele alkuperäistä Project Gutenbergissä",
+
+    "writer_nickname": "kirjoittajan nimimerkki",
+    "user_logged_in": "kirjautunut käyttäjä",
+    "nickname_type": "nimimerkin tyyppi",
+    "nicktype_anonymous": "anonyymi",
+    "nicktype_registered": "rekisteröitynyt",
+    "time": "kellonaika",
+    "timestamp_approximated": "aikaleima arvioitu",
+
+    "s24_topic_full": "aihealue",
+    "s24_topic_main": "aihealueen ylin taso",
+    "s24_topic_leaf": "aihealueen alin taso",
+    "s24_topic_set": "aihealue joukkona",
+    "s24_topic_nums": "aihealueen numero",
+    "s24_topic_nums_set": "aihealueen numero joukkona",
+    "s24_topic_is_adultonly": "aihealue vain aikuisille",
+
+    "message_type": "viestin tyyppi",
+    "msgtype_thread_begin": "keskusteluketjun aloitus",
+    "msgtype_comment": "kommentti",
+    "message_thread_id": "keskusteluketjun tunniste",
+    "message_thread_begin_timestamp": "keskusteluketjun alkuaikaleima",
+    "comment_id": "kommentin tunniste",
+    "parent_comment_id": "kommentin vanhemman tunniste",
+    "quoted_comment_id": "lainatun kommentin tunniste",
+
+    "spaces_around_token": "tyhjä saneen ympärillä",
 
     "timestamp": "aikaleima",
 

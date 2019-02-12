@@ -104,6 +104,7 @@
     "text_year": "year",
     "text_party": "party",
     "date": "date",
+    "datetime": "date and time",
     "author": "author",
     "writer": "writer",
     "title": "title",
@@ -829,6 +830,8 @@
     "show_fulltext": "Show full text",
     "show_fulltext_context": "Show context in full text",
     "show_video": "Show video",
+    "show_orig_thread": "Show original discussion thread",
+    "show_orig_comment": "Show original message",
 
     "album": "album",
     "album_year": "album year",
@@ -944,6 +947,33 @@
     "download_publ_pdf": "Download publication as PDF",
 
     "file_name" : "file name",
+
+    "writer_nickname": "writer nickname",
+    "user_logged_in": "user logged in",
+    "nickname_type": "nickname type",
+    "nicktype_anonymous": "anonymous",
+    "nicktype_registered": "registered",
+    "time": "time",
+    "timestamp_approximated": "timestamp approximated",
+
+    "s24_topic_full": "topic",
+    "s24_topic_main": "topic: main",
+    "s24_topic_leaf": "topic: lowest level",
+    "s24_topic_set": "topic set",
+    "s24_topic_nums": "topic number",
+    "s24_topic_nums_set": "topic number set",
+    "s24_topic_is_adultonly": "topic adult-only",
+
+    "message_type": "message type",
+    "msgtype_thread_begin": "discussion thread begin",
+    "msgtype_comment": "comment",
+    "message_thread_id": "discussion thread id",
+    "message_thread_begin_timestamp": "discussion thread begin timestamp",
+    "comment_id": "comment id",
+    "parent_comment_id": "comment parent id",
+    "quoted_comment_id": "quoted comment id",
+
+    "spaces_around_token": "spaces around token",
 
     "ner_tags": "name classification",
     "ner_tags_EnamexPrsHum": "person: person name",

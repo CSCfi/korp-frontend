@@ -240,6 +240,39 @@ settings.corporafolders.internet.suomi24 = {
     }
 };
 
+settings.corporafolders.internet.suomi24_2017h2 = {
+    title: "Suomi24 virkkeet -korpus (2017H2)",
+    description: "<a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut vuosilta 2001–2017 (1.1.2001–31.12.2017).<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu osakorpuksiin vuosittain.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-2019010801' target='_blank' title='Kuvailutiedot'>koko Suomi24-aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2019010802' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).",
+    contents: [
+	"s24_2001",
+	"s24_2002",
+	"s24_2003",
+	"s24_2004",
+	"s24_2005",
+	"s24_2006",
+	"s24_2007",
+	"s24_2008",
+	"s24_2009",
+	"s24_2010",
+	"s24_2011",
+	"s24_2012",
+	"s24_2013",
+	"s24_2014",
+	"s24_2015",
+	"s24_2016",
+	"s24_2017",
+    ],
+    info: {
+	urn: "[to be added]", // "urn:nbn:fi:lb-2019021102",
+	url: "https://korp.csc.fi/#?corpora=suomi24_2017h2",
+	metadata_urn: "urn:nbn:fi:lb-2019021101",
+	licence: settings.licenceinfo.CC_BY_NC,
+	homepage_url: "http://keskustelu.suomi24.fi",
+	cite_id: "Suomi24-Korp-2017H2",
+	labels: ["beta"],
+    }
+};
+
 settings.corporafolders.lehdet = {
     title: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
@@ -14022,6 +14055,179 @@ settings.corpora.s24 = {
         }
     }
 };
+
+
+/* Suomi24 2017H2 */
+
+sattrlist.s24_2018 = {
+    text_title: sattrs.title,
+    // text_datetime: sattrs.datetime,
+    text_date: sattrs.date,
+    text_time: sattrs.time,
+    // text_datetime_approx: settings.fn.make_yes_no_attr(
+    //	"timestamp_approximated", ["true", "false"]),
+    text_author_nick: {
+	label: "writer_nickname",
+    },
+    text_author_logged_in: settings.fn.make_yes_no_attr(
+	"user_logged_in", ["true", "false"]),
+    text_nick_type: {
+	label: "nickname_type",
+	displayType: "select",
+	translationKey: "nicktype_",
+	dataset: [
+	    "anonymous",
+	    "registered",
+	],
+	opts: settings.liteOptions,
+    },
+    text_topic_names: {
+	label: "s24_topic_full",
+    },
+    text_topic_name_top: {
+	label: "s24_topic_main",
+	displayType: "select",
+	localize: false,
+	dataset: [
+	    "Ajanviete",
+	    "Ajoneuvot ja liikenne",
+	    "Harrastukset",
+	    "Koti ja rakentaminen",
+	    // "Kysy Mitä Vain",
+	    "Lemmikit",
+	    "Matkailu",
+	    "Muoti ja kauneus",
+	    "Nuoret",
+	    "Paikkakunnat",
+	    "Perhe",
+	    "Ruoka ja juoma",
+	    "Ryhmät",
+	    "Seksi",
+	    "Suhteet",
+	    // "Suomi24 Blogi ★",
+	    "Talous",
+	    "Terveys",
+	    "Tiede ja teknologia",
+	    "Työ ja opiskelu",
+	    "Urheilu ja kuntoilu",
+	    "Viihde ja kulttuuri",
+	    "Yhteiskunta",
+	],
+	opts: settings.liteOptions,
+	hideSidebar: true,
+    },
+    text_topic_name_leaf: {
+	label: "s24_topic_leaf",
+	hideSidebar: true,
+    },
+    // text_topic_names_set: {
+    //	label: "s24_topic_set",
+    //	type: "set",
+    //	opts: settings.setOptions,
+    // },
+    // text_topic_nums: {
+    //	label: "s24_topic_nums",
+    // },
+    // text_topic_nums_set: {
+    //	label: "s24_topic_nums_set",
+    // },
+    text_topic_adultonly: settings.fn.make_yes_no_attr(
+	"s24_topic_is_adultonly", ["true", "false"]),
+    text_msg_type: {
+	label: "message_type",
+	displayType: "select",
+	translationKey: "msgtype_",
+	dataset: [
+	    "thread_begin",
+	    "comment",
+	],
+	opts: settings.liteOptions,
+    },
+    text_id: {
+	label: "text_id",
+    },
+    text_thread_id: {
+	label: "message_thread_id",
+    },
+    text_thread_begin_datetime: {
+	label: "message_thread_begin_timestamp",
+    },
+    text_comment_id: {
+	label: "comment_id",
+    },
+    text_parent_comment_id: {
+	label: "parent_comment_id",
+    },
+    text_quoted_comment_id: {
+	label: "quoted_comment_id",
+    },
+    text_filename: sattrs.filename,
+    text_thread_link: {
+	label: "show_orig_thread",
+	type: "url",
+	url_opts: sattrs.link_url_opts,
+	synthetic: true,
+	stringify_synthetic: function (token_data) {
+	    return ("https://keskustelu.suomi24.fi/t/"
+		    + token_data.struct_attrs.text_thread_id);
+	},
+    },
+    text_comment_link: {
+	label: "show_orig_message",
+	type: "url",
+	url_opts: sattrs.link_url_opts,
+	synthetic: true,
+	stringify_synthetic: function (token_data) {
+	    var comment_id = token_data.struct_attrs.text_comment_id
+	    var url = ("https://keskustelu.suomi24.fi/t/"
+		       + token_data.struct_attrs.text_thread_id);
+	    if (comment_id != "0") {
+		url += "#comment-" + token_data.struct_attrs.text_comment_id;
+	    }
+	    return url;
+	},
+    },
+    paragraph_type: {
+	label: "paragraph_type",
+	displayType: "select",
+	translationKey: "paratype_",
+	dataset: {
+	    "title": "heading",
+	    "body": "paragraph",
+	},
+	opts: settings.liteOptions,
+    },
+    sentence_id: sattrs.sentence_id_hidden,
+};
+
+settings.templ.s24_2018 = {
+    title: "",
+    description: "",
+    id: "",
+    features: ["paragraphs", "parsed_tdt", "spaces"],
+    struct_attributes: sattrlist.s24_2018,
+};
+
+settings.fn.add_corpus_settings(
+    settings.templ.s24_2018,
+    (function (year1, year2) {
+	var result = [];
+	for (var y = year1; y <= year2; y++) {
+	    var ystr = y.toString();
+	    result.push({
+		title: "Suomi24 (2017H2) " + ystr,
+		description: "Suomi24 (2017H2): Suomi24-keskustelujen viestit vuodelta " + ystr,
+		id: ystr,
+	    });
+	}
+	return result;
+    })(2001, 2017),
+    settings.corporafolders.s24_2017h2,
+    "s24_");
+
+settings.corpus_aliases["suomi24-2017h2"] = "s24_20(0[1-9]|1[0-7])";
+settings.corpus_aliases.suomi24_2017h2
+    = settings.corpus_aliases["suomi24-2017h2"];
 
 
 settings.corpora.iclfi = {
