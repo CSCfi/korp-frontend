@@ -3956,6 +3956,7 @@ settings.fn.extend_corpus_settings = function (props, corpus_ids) {
     }
 };
 
+
 // Generate a declaration for an attribute with yes/no-values.
 // Arguments:
 // - label: attribute translation label
@@ -3978,6 +3979,27 @@ settings.fn.make_yes_no_attr = function (label, yes_no) {
 	opts: settings.liteOptions,
     };
 };
+
+
+// Add an explanation to specific values of an attribute in the
+// sidebar. The explanation text is localized, in grey italics,
+// enclosed in square brackets. This function is inteded to be used in
+// the value of the "pattern" property of an attribute declaration.
+// Arguments:
+// - value: the value of the attribute
+// - value_map: an object whose keys are attribute values to be
+//   explained and their values are the explanations of the attribute
+//   values corresponding to the keys
+// Example:
+//   pattern: "<%=settings.fn.make_explained_value(val, {'0': 'no_quote'})%>",
+settings.fn.make_explained_value = function (value, value_map) {
+    if (value in value_map) {
+	value += (" <i style=\"color: grey;\">[<span rel=\"localize["
+		  + value_map[value] + "]\"></span>]</i>");
+    }
+    return value;
+};
+
 
 // Recursively create a corpus folder hierarchy under parent_folder
 // and the configurations for its corpora. The hierarchy is specified
