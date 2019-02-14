@@ -2076,7 +2076,7 @@ attrlist.parsed_tdt_ner =
 settings.corpus_features.spaces = {
     attributes: {
 	spaces: {
-	    label: "spaces_around_token",
+	    label: "whitespace_related_to_token",
 	},
     },
 };

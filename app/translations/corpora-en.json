@@ -973,7 +973,8 @@
     "parent_comment_id": "comment parent id",
     "quoted_comment_id": "quoted comment id",
 
-    "spaces_around_token": "spaces around token",
+    "whitespace": "whitespace",
+    "whitespace_related_to_token": "whitespace related to token",
 
     "ner_tags": "name classification",
     "ner_tags_EnamexPrsHum": "person: person name",

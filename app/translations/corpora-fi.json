@@ -1444,7 +1444,8 @@
     "parent_comment_id": "kommentin vanhemman tunniste",
     "quoted_comment_id": "lainatun kommentin tunniste",
 
-    "spaces_around_token": "tyhjä saneen ympärillä",
+    "whitespace": "tyhjämerkit",
+    "whitespace_related_to_token": "saneeseen liittyvät tyhjämerkit",
 
     "timestamp": "aikaleima",
 
