@@ -1444,6 +1444,9 @@
     "parent_comment_id": "kommentin vanhemman tunniste",
     "quoted_comment_id": "lainatun kommentin tunniste",
 
+    "thread_start_message": "ketjun aloitusviesti",
+    "no_quotation": "ei lainausta",
+
     "whitespace": "tyhjämerkit",
     "whitespace_related_to_token": "saneeseen liittyvät tyhjämerkit",
 

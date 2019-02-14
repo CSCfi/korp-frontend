@@ -14154,12 +14154,15 @@ sattrlist.s24_2018 = {
     },
     text_comment_id: {
 	label: "comment_id",
+	pattern: "<%=settings.fn.make_explained_value(val, {'0': 'thread_start_message'})%>",
     },
     text_parent_comment_id: {
 	label: "parent_comment_id",
+	pattern: "<%=settings.fn.make_explained_value(val, {'0': 'thread_start_message'})%>",
     },
     text_quoted_comment_id: {
 	label: "quoted_comment_id",
+	pattern: "<%=settings.fn.make_explained_value(val, {'0': 'no_quotation'})%>",
     },
     text_filename: sattrs.filename,
     text_thread_link: {

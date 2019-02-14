@@ -973,6 +973,9 @@
     "parent_comment_id": "comment parent id",
     "quoted_comment_id": "quoted comment id",
 
+    "thread_start_message": "thread start message",
+    "no_quotation": "no quotation",
+
     "whitespace": "whitespace",
     "whitespace_related_to_token": "whitespace related to token",
 
