@@ -950,9 +950,7 @@
 
     "writer_nickname": "writer nickname",
     "user_logged_in": "user logged in",
-    "nickname_type": "nickname type",
-    "nicktype_anonymous": "anonymous",
-    "nicktype_registered": "registered",
+    "registered_nick": "registered nickname",
     "time": "time",
     "timestamp_approximated": "timestamp approximated",
 
@@ -965,13 +963,15 @@
     "s24_topic_is_adultonly": "topic adult-only",
 
     "message_type": "message type",
-    "msgtype_thread_begin": "discussion thread begin",
+    "msgtype_thread_start": "discussion thread start",
     "msgtype_comment": "comment",
+    "message_is_completely_empty": "message is completely empty",
     "message_thread_id": "discussion thread id",
-    "message_thread_begin_timestamp": "discussion thread begin timestamp",
+    "message_thread_start_timestamp": "discussion thread start timestamp",
     "comment_id": "comment id",
     "parent_comment_id": "comment parent id",
     "quoted_comment_id": "quoted comment id",
+    "parent_timestamp": "parent timestamp",
 
     "thread_start_message": "thread start message",
     "no_quotation": "no quotation",
@@ -1993,6 +1993,7 @@
     "paratype_heading": "heading",
     "paratype_paragraph/heading": "paragraph or heading",
     "paratype_sentence": "sentence",
+    "paratype_empty": "empty",
 
     "country": "country",
 

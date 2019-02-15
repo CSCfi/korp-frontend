@@ -1045,6 +1045,7 @@
     "paratype_heading": "otsikko",
     "paratype_paragraph/heading": "kappale tai otsikko",
     "paratype_sentence": "virke",
+    "paratype_empty": "tyhjä",
     "paragraph_topic": "kappaleen aihe",
     "paragraph_span": "kappaleen viittaama aika",
     "div_type": "jakson tyyppi",
@@ -1421,9 +1422,7 @@
 
     "writer_nickname": "kirjoittajan nimimerkki",
     "user_logged_in": "kirjautunut käyttäjä",
-    "nickname_type": "nimimerkin tyyppi",
-    "nicktype_anonymous": "anonyymi",
-    "nicktype_registered": "rekisteröitynyt",
+    "registered_nick": "rekisteröity nimimerkki",
     "time": "kellonaika",
     "timestamp_approximated": "aikaleima arvioitu",
 
@@ -1436,13 +1435,15 @@
     "s24_topic_is_adultonly": "aihealue vain aikuisille",
 
     "message_type": "viestin tyyppi",
-    "msgtype_thread_begin": "keskusteluketjun aloitus",
+    "msgtype_thread_start": "keskusteluketjun aloitus",
     "msgtype_comment": "kommentti",
+    "message_is_completely_empty": "viesti on täysin tyhjä",
     "message_thread_id": "keskusteluketjun tunniste",
-    "message_thread_begin_timestamp": "keskusteluketjun alkuaikaleima",
+    "message_thread_start_timestamp": "keskusteluketjun alkuaikaleima",
     "comment_id": "kommentin tunniste",
     "parent_comment_id": "kommentin vanhemman tunniste",
     "quoted_comment_id": "lainatun kommentin tunniste",
+    "parent_timestamp": "kommentin vanhemman aikaleima",
 
     "thread_start_message": "ketjun aloitusviesti",
     "no_quotation": "ei lainausta",

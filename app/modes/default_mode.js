@@ -14064,23 +14064,13 @@ sattrlist.s24_2018 = {
     // text_datetime: sattrs.datetime,
     text_date: sattrs.date,
     text_time: sattrs.time,
-    // text_datetime_approx: settings.fn.make_yes_no_attr(
-    //	"timestamp_approximated", ["true", "false"]),
-    text_author_nick: {
+    // text_datetime_approximated: settings.fn.make_bool_attr(
+    //	"timestamp_approximated"),
+    text_author: {
 	label: "writer_nickname",
     },
-    text_author_logged_in: settings.fn.make_yes_no_attr(
-	"user_logged_in", ["true", "false"]),
-    text_nick_type: {
-	label: "nickname_type",
-	displayType: "select",
-	translationKey: "nicktype_",
-	dataset: [
-	    "anonymous",
-	    "registered",
-	],
-	opts: settings.liteOptions,
-    },
+    text_author_logged_in: settings.fn.make_bool_attr("user_logged_in"),
+    text_author_nick_registered: settings.fn.make_bool_attr("registered_nick"),
     text_topic_names: {
 	label: "s24_topic_full",
     },
@@ -14131,26 +14121,26 @@ sattrlist.s24_2018 = {
     // text_topic_nums_set: {
     //	label: "s24_topic_nums_set",
     // },
-    text_topic_adultonly: settings.fn.make_yes_no_attr(
-	"s24_topic_is_adultonly", ["true", "false"]),
+    text_topic_adultonly: settings.fn.make_bool_attr("s24_topic_is_adultonly"),
     text_msg_type: {
 	label: "message_type",
 	displayType: "select",
 	translationKey: "msgtype_",
 	dataset: [
-	    "thread_begin",
+	    "thread_start",
 	    "comment",
 	],
 	opts: settings.liteOptions,
     },
+    text_empty: settings.fn.make_bool_attr("message_is_completely_empty"),
     text_id: {
 	label: "text_id",
     },
     text_thread_id: {
 	label: "message_thread_id",
     },
-    text_thread_begin_datetime: {
-	label: "message_thread_begin_timestamp",
+    text_thread_start_datetime: {
+	label: "message_thread_start_timestamp",
     },
     text_comment_id: {
 	label: "comment_id",
@@ -14160,11 +14150,14 @@ sattrlist.s24_2018 = {
 	label: "parent_comment_id",
 	pattern: "<%=settings.fn.make_explained_value(val, {'0': 'thread_start_message'})%>",
     },
+    text_parent_datetime: {
+	label: "parent_timestamp",
+    },
     text_quoted_comment_id: {
 	label: "quoted_comment_id",
 	pattern: "<%=settings.fn.make_explained_value(val, {'0': 'no_quotation'})%>",
     },
-    text_filename: sattrs.filename,
+    text_filename_vrt: sattrs.filename,
     text_thread_link: {
 	label: "show_orig_thread",
 	type: "url",
@@ -14197,6 +14190,7 @@ sattrlist.s24_2018 = {
 	dataset: {
 	    "title": "heading",
 	    "body": "paragraph",
+	    "empty": "empty",
 	},
 	opts: settings.liteOptions,
     },
