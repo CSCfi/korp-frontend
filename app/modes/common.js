@@ -3957,17 +3957,19 @@ settings.fn.extend_corpus_settings = function (props, corpus_ids) {
 };
 
 
-// Generate a declaration for an attribute with yes/no-values.
+// Generate a declaration for an attribute with Boolean values.
 // Arguments:
 // - label: attribute translation label
 // - yes_no: an array of two items: the corpus values for "yes" and
-//   "no"; if omitted, use "yes" and "no".
-settings.fn.make_yes_no_attr = function (label, yes_no) {
-    var dataset;
+//   "no"; if omitted, use "y" and "n".
+settings.fn.make_bool_attr = function (label, yes_no) {
+    var dataset = {};
     if (arguments.length < 2) {
-	dataset = ["yes", "no"];
+	dataset = {
+	    "y": "yes",
+	    "n": "no",
+	};
     } else {
-	dataset = {};
 	dataset[yes_no[0]] = "yes";
 	dataset[yes_no[1]] = "no";
     }
