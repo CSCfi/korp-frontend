@@ -1,4 +1,50 @@
 
+<!-- New corpus version: Suomi24 sentences (2017H2) (beta) 2019-02-18 -->
+
+The <a href="http://urn.fi/urn:nbn:fi:lb-2019021101"
+target="_blank">Suomi24 sentences corpus, version 2017H2</a> is now
+available in Korp as a [beta test
+version](#?corpus=suomi24_2017h2&lang=en).
+
+The corpus covers the discussions in the <a
+href="https://keskustelu.suomi24.fi" target="_blank">Suomi24
+discussion forum site</a> from 1 January 2001 to 31 December 2017. The
+corpus also contains messages missing from the previous version, but
+no messages removed from the Suomi24 site nor messages in closed
+discussion topics.
+
+Differences from the previous version:
+
+* The corpus has been divided into subcorpora by the year.
+* Within each year, the messages of a discussion thread are
+  contiguous, and the comments to a message follow the message
+  commented on. Discussion threads are sorted by the time of the first
+  message of the thread during that year.
+* Text attributes have been renamed and the form of some attribute
+  values differs from that in the previous version.
+* The titles of discussion threads are also part of the text content,
+  which allows searching from them using, e.g., lemmas. In contrast,
+  the writer nicknames are not part of the text content.
+
+Known deficiencies:
+
+* The word picture does not yet work. We are investigating the issue.
+* The corpus has no named-entity information yet, but we intend to add
+  that during spring 2019.
+* The lemmas of some words differ from those in the previous version.
+  We intend to add alternative, more likely correct lemmas later.
+
+<a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback"
+target="_blank">Feedback on the corpus</a> is welcome, in particular
+if a feature does not work that worked in the previous version and
+that is not mentioned above.
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2017021505" target="_blank">The
+previous version of Suomi24</a> will remain in use in Korp for the
+time being.
+
+
 <!-- New corpus: The morpho-syntactic database of Mikael Agricola’s works 2018-07-06 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-20140730170">The morpho-syntactic

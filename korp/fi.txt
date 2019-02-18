@@ -1,4 +1,47 @@
 
+<!-- Uusi aineistoversio: Suomi24 virkkeet (2017H2) (beta) 2019-02-18 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2019021101"
+target="_blank">Suomi24 virkkeet -aineiston versio 2017H2</a> on nyt
+käytettävissä Korpissa [beetatestiversiona](#?corpus=suomi24_2017h2).
+
+Aineisto kattaa <a href="https://keskustelu.suomi24.fi"
+target="_blank">Suomi24-keskustelupalvelun</a> keskustelut
+1.1.2001–31.12.2017. Aineisto sisältää myös aiemmasta versiosta
+puuttuneita viestejä, mutta ei Suomi24-keskustelupalvelusta
+poistettuja eikä suljettujen keskustelualueiden viestejä.
+
+Eroja verrattuna aiempaan versioon:
+
+* Aineisto on jaettu osakorpuksiin vuosittain.
+* Kunkin vuoden sisällä saman keskusteluketjun viestit ovat peräkkäin
+  niin, että kommenttiviestit ovat kommentoidun viestin jäljessä
+  aikajärjestyksessä. Keskusteluketjut on järjestetty ketjun kyseisen
+  vuoden ensimmäisen viestin ajankohdan mukaan.
+* Tekstin piirteitä on nimetty uudelleen ja joidenkin attribuuttien
+  arvojen muoto poikkeaa aiemmasta.
+* Keskusteluketjujen otsikot ovat myös osana itse tekstiä, mikä
+  mahdollistaa haun niistä esim. sanojen perusmuodoilla. Sen sijaan
+  kirjoittajien nimimerkit eivät ole osana tekstiä.
+
+Tiedossa olevia puutteita:
+
+* Sanakuva ei vielä toimi. Selvitämme asiaa.
+* Nimitietoja ei vielä ole, mutta ne on tarkoitus lisätä kevään 2019
+  aikana.
+* Joidenkin sanojen perusmuoto poikkeaa aiemmasta. Tarkoituksena on
+  lisätä vaihtoehtoinen, todennäköisemmin oikea perusmuoto myöhemmin.
+
+<a href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html"
+target="_blank">Palaute aineistosta</a> on tervetullutta, erityisesti
+jos jokin aineiston edellisessä versiossa toiminut, yllä mainitsematon
+ominaisuus ei toimi.
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2017021505"
+target="_blank">Suomi24-aineiston aiempi versio</a> säilyy
+käytettävissä Korpissa toistaiseksi.
+
+
 <!-- Uusi aineisto: Mikael Agricolan teosten morfosyntaktinen tietokanta 2018-07-06 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-20140730170"
