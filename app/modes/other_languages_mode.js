@@ -269,7 +269,7 @@ settings.corpora.fennougrica = {
 settings.corpora.hc = {
     id : "hc",
     title : "Helsinki Corpus",
-    description : "Helsinki Corpus",
+    description : "The Helsinki Corpus of English Texts is a structured multi-genre diachronic corpus, which includes periodically organized text samples from Old, Middle and Early Modern English. Each sample is preceded by a list of parameter codes giving information on the text and its author. The Corpus is useful particularly in the study of the change of linguistic features in long diachrony. It can be used as a diagnostic corpus giving general information of the occurrence of forms, structures and lexemes in different periods of English. This information can be supplemented by evidence yielded by more special and focused historical corpora.",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     attributes : attrlist.hc,
