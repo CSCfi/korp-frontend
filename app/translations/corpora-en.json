@@ -2075,6 +2075,26 @@
 "klk_img_url": "View document in Revizor",
 "hc_xmlid": "XML id",
 "hc_textid": "HC text id",
-"hc_lang_id": "HC language id"
+"hc_lang_id": "HC language id",
+    "note" : "note",
+    "unit" : "unit",
+    "type" : "type",
+    "supplement" : "supplement",
+    "hc_proto" : "prototypical category",
+    "hc_contemporaneity" : "contemporaneity"
+    "hc_dialect" : "dialect",
+    "hc_form" : "form",
+    "hc_texttype" : "genre",
+    "hc_foreignorig" : "foreign origin"
+    "hc_foreignlang" : "foreign language",
+    "hc_spoken" : "spoken language",
+    "hc_authorsex" : "author's sex",
+    "hc_author" : "author",
+    "hc_authorage" : "auhtor's age",
+    "hc_socialrank" : "auhtor's social rank",
+    "hc_audience" : "audience",
+    "hc_partrel" : "participant's relation to the author",
+    "hc_interaction" : "interaction",
+    "hc_setting" : "setting"
 
 }
