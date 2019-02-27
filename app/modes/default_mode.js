@@ -13260,7 +13260,7 @@ settings.corpora.eduskunta = {
     description: "Eduskunta - transkriptiot",
     id: "eduskunta",
     metadata_urn: "urn:nbn:fi:lb-2017020202",
-    cite_id: "edsukunta-korp",
+    cite_id: "eduskunta-korp",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.standard,
@@ -13281,7 +13281,7 @@ settings.corpora.eduskunta_test = {
     description: "Eduskunta - transkriptiot - testi",
     id: "eduskunta_test",
     metadata_urn: "urn:nbn:fi:lb-2017020202",
-    cite_id: "edsukunta-korp",
+    cite_id: "eduskunta-korp",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.standard,
@@ -13294,17 +13294,67 @@ settings.corpora.eduskunta_test = {
         paragraph_participant: {
             label: "speech_speakername"
         },
+	paragraph_group: {
+            label: "eduskunta_group",
+	    dataset: {
+		"emus": "?",
+		"kd": "Kristillisdemokraattinen eduskuntaryhmä",
+		"kesk": "Keskustan eduskuntaryhmä",
+		"kok": "Kokoomuksen eduskuntaryhmä",
+		"m11": "Muutos 2011 (?)",
+		"ps": "Perussuomalaisten eduskuntaryhmä ",
+		"r": "Ruotsalainen eduskuntaryhmä",
+		"sd": "Sosialidemokraattinen eduskuntaryhmä",
+		"vas": "Vasemmistoliiton eduskuntaryhmä",
+		"vihr": "Vihreä eduskuntaryhmä",
+		"vr": "Vasemmistoryhmä",
+		"vs": "?"
+	    }
+        },
+	paragraph_role: {
+	    label: "eduskunta_role",
+	    dataset: {
+		"Puhemies",
+		"Ensimmäinen varapuhemies",
+		"Toinen varapuhemies",
+		"Valtiovarainministeri",
+		"Elinkeinoministeri",
+		"Peruspalveluministeri",
+		"Sosiaali- ja terveysministeri",
+		"Oikeusministeri",
+		"Ulkoasiainministeri",
+		"Maa- ja metsätalousministeri",
+		"Opetusministeri",
+		"Puolustusministeri",
+		"Hallinto- ja kuntaministeri",
+		"Liikenneministeri",
+		"Sisäasiainministeri",
+		"Kehitysministeri",
+		"Puhuja",
+		"Perhe- ja peruspalveluministeri",
+		"Kulttuuri- ja urheiluministeri",
+		"Opetus- ja kulttuuriministeri",
+		"Ensimmäinen (vara)puhemies",
+		"Maahanmuutto- ja eurooppaministeri",
+		"Toinen (vara)puhemies",
+		"Ulkomaankauppa- ja kehitysministeri",
+		"Asuntoministeri",
+		"Liikenne- ja kuntaministeri",
+		"Eurooppa- ja ulkomaankauppaministeri",
+		"Kulttuuri- ja asuntoministeri",
+		"Kunta- ja uudistusministeri",
+		"Eduskunnan oikeusasiamies",
+		"Ikäpuhemies",
+		"Valtioneuvoston oikeuskansleri",
+		"Valtioneuvoston apulaisoikeuskansleri",
+		"Ensimmäinen puhemies"
+	    }
+	},
+	paragraph_note: {
+            label: "note"
+        },
 	utterance_id: {
 	    label: "utterance_num",
-	},
-	utterance_participant: {
-	    label: "speaker",
-	    displayType: "select",
-	    dataset: [
-		"ML",
-		"TA"
-	    ],
-	    opts: settings.liteOptions
 	},
 	utterance_begin_time: {
 	    label: "utterance_begin_time"
