@@ -54,6 +54,14 @@ delete modernAttrs2.saldo;
 settings.placenameConstraint =
     "msd='.*\\b(SUBCAT_)?(Prop|PROP)\\b.*' | pos='n:prop'";
 
+// Corpus and corpus folder label texts, to be appended to corpus
+// title in parentheses
+settings.corpus_label_texts = {
+    // Should this be "beeta"?
+    beta: "beta",
+    test: "testi",
+};
+
 
 settings.corpora = {};
 settings.corporafolders = {};
@@ -71,6 +79,25 @@ settings.corporafolders.sv = {
     contents: ["testcorpus"]
 };
 */
+
+settings.corporafolders.agricola = {
+    title: "Agricola",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta",
+    contents: ["agricola_abckiria","agricola_kasikiria","agricola_messu","agricola_piina","agricola_profeetat",
+	       "agricola_psaltari","agricola_rucouskiria","agricola_sewsitestamenti","agricola_veisut"],
+    info: {
+        metadata_urn: "urn:nbn:fi:lb-20140730170",
+        homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/palvelut-yhteistyo/arkistot/Sivut/home.aspx",
+	urn: "urn:nbn:fi:lb-201803273",
+	cite_id: "agricola-korp",
+	licence: settings.licenceinfo.CC_BY_ND_40,
+	iprholder: {
+	    name: "Turun yliopisto; Kotimaisten kielten keskus",
+	},
+	labels: ["beta"],
+    }    
+};
+
 
 settings.corporafolders.ethesis = {
     title: "E-thesis",
@@ -210,6 +237,39 @@ settings.corporafolders.internet.suomi24 = {
 	licence: settings.licenceinfo.CC_BY_NC,
 	homepage_url: "http://keskustelu.suomi24.fi",
 	cite_id: "Suomi24-korp-2016H2",
+    }
+};
+
+settings.corporafolders.internet.suomi24_2017h2 = {
+    title: "Suomi24 virkkeet -korpus (2017H2)",
+    description: "<a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut vuosilta 2001–2017 (1.1.2001–31.12.2017).<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu osakorpuksiin vuosittain.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-2019010801' target='_blank' title='Kuvailutiedot'>koko Suomi24-aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2019010802' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).",
+    contents: [
+	"s24_2001",
+	"s24_2002",
+	"s24_2003",
+	"s24_2004",
+	"s24_2005",
+	"s24_2006",
+	"s24_2007",
+	"s24_2008",
+	"s24_2009",
+	"s24_2010",
+	"s24_2011",
+	"s24_2012",
+	"s24_2013",
+	"s24_2014",
+	"s24_2015",
+	"s24_2016",
+	"s24_2017",
+    ],
+    info: {
+	urn: "[to be added]", // "urn:nbn:fi:lb-2019021102",
+	url: "https://korp.csc.fi/#?corpora=suomi24_2017h2",
+	metadata_urn: "urn:nbn:fi:lb-2019021101",
+	licence: settings.licenceinfo.CC_BY_NC,
+	homepage_url: "http://keskustelu.suomi24.fi",
+	cite_id: "Suomi24-Korp-2017H2",
+	labels: ["beta"],
     }
 };
 
@@ -838,7 +898,7 @@ settings.corporafolders.learner = {
 settings.corporafolders.learner.las2 = {
     title: "LAS2 – Edistyneiden suomenoppijoiden korpus",
     info: {
-        urn: "urn:nbn:fi:lb-201604120",
+        urn: "urn:nbn:fi:lb-2016041201",
         metadata_urn: "urn:nbn:fi:lb-201407167",
         homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
         licence: {
@@ -9265,81 +9325,6 @@ ftc_hierarchy = [
     ["otava1993", "Kustannusosakeyhtiö Otava 1993",],
 ];
 
-// Common settings template for FTC, FSTC and Svenska Parole (may be
-// overridden)
-settings.templ.lemmie_common = {
-    title: "",
-    description: "",
-    id: "",
-    within: settings.spWithin,
-    context: settings.spContext,
-    limited_access: true,
-    licence_type: "RES",
-    attributes: {
-    },
-    struct_attributes: {
-	text_title: sattrs.text_title,
-	text_creator: sattrs.author,
-	text_publisher: sattrs.publisher,
-	text_wordcount: {
-	    label: "text_word_count",
-	},
-	text_lemmie_id: {
-	    label: "lemmie_text_id",
-	},
-	text_lang: {
-	    label: "lang",
-	    displayType: "select",
-	    opts: settings.liteOptions,
-	    translationKey: "",
-	    dataset: [
-		"fin",
-		"eng",
-		"swe",
-	    ]
-	},
-	text_date: sattrs.date,
-	text_filename: {
-	    label: "file_name",
-	},
-	text_rights: {
-	    label: "access_rights_cat",
-	},
-	text_contributor: {
-	    label: "contributor",
-	},
-	text_source: {
-	    label: "source",
-	    displayType: "select",
-	    localize: false,
-	    opts: settings.liteOptions,
-	    // dataset: [],
-	},
-	text_lemmie_corpus: {
-	    label: "lemmie_corpus",
-	},
-	// // Always empty
-	// text_type: {
-	//     label: "text_type",
-	// },
-	text_subject: {
-	    label: "subject",
-	},
-	// paragraph_id: sattrs.paragraph_id,
-	paragraph_type: {
-	    label: "paragraph_type",
-	    displayType: "select",
-	    translationKey: "paragraphtype_",
-	    dataset: {},
-	    opts: settings.liteOptions
-	},
-	sentence_id: sattrs.sentence_id_hidden,
-	sentence_within: {
-	    label: "enclosing_elems",
-	},
-    }
-};
-
 // Settings template for FTC subcorpora
 settings.templ.ftc = $.extend(true, {}, settings.templ.lemmie_common, {
     attributes: {
@@ -10608,6 +10593,211 @@ delete las2_common_props;
 
 settings.corpus_aliases.las2 = "las2_tentit,las2_esseet";
 
+// AGRICOLA
+
+attrlist.agricola = {
+    lemma: attrs.baseform,
+    pos: {
+	label: "pos",
+    },
+    nrm: {
+        label: "normalized_lemma",
+    },
+    type: {
+	label: "lang",
+	displayType: "select",
+	translationKey: "agricola_lang_",
+	dataset: {
+	    "": "fin",
+	    "swe": "swe",
+	    "lat": "lat",
+	    "gre": "gre",
+	    "heb": "heb",
+	},
+	opts: settings.liteOptions
+    },	
+    mrp: attrs.msd,
+    fun: {
+	label: "func",
+    },
+    com: {
+        displayType: "hidden",
+    },
+    tunit: {
+        label: "comp_tense",
+	displayType: "select",
+	translationKey: "agricola_tense_",
+	dataset: {
+	    "f": "f",
+	    "p": "p",
+	    "pl": "pl",
+	    "p pl": "ppl",
+	},
+    }
+};
+
+sattrlist.agricola = {
+    text_title: {
+        label: "text_title",
+    },
+    text_dateto: {
+	displayType: "hidden",
+    },
+    text_datefrom: {
+        displayType: "hidden",
+    },
+    text_timeto: {
+        displayType: "hidden",
+    },
+    text_timefrom: {
+        displayType: "hidden",
+    },
+    text_date_orig: {
+        label: "text_date",
+    },
+    div_id: {
+        displayType: "hidden",
+    },
+    paragraph_id: {
+        displayType: "hidden",
+    },
+    sentence_id: sattrs.sentence_id_hidden,
+    sentence_type: {
+        displayType: "hidden",
+    },
+    sentence_biblia: {
+        label: "bible_index",
+    },
+    sentence_loc: {
+        label: "location",
+    },
+    clause_id: {
+        displayType: "hidden",
+    },
+    clause_loc: {
+        displayType: "hidden",
+    },
+    clause_biblia: {
+        displayType: "hidden",
+    },
+    clause_type: {
+        label: "clause_type",
+        displayType: "select",
+        translationKey: "clausetype_",
+        dataset: {
+            "affdecl": "affdecl",
+            "negdecl": "negdecl",
+            "affint": "affint",
+            "negint": "negint",
+            "affopt": "affopt",
+            "negopt": "negopt",
+            "muu": "muu",
+        },
+        opts: settings.liteOptions
+    },
+    clause_depth: {
+	label: "clause_depth"
+    },
+    clause_partnum: {
+	label: "clause_partnum",
+    }
+};
+
+settings.corpora.agricola_abckiria = {
+    id: "agricola_abckiria",
+    title: "Agricola: Abckiria",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Abckiria",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_kasikiria = {
+    id: "agricola_kasikiria",
+    title: "Agricola: Käsikiria",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Käsikiria Castesta ia muista Christikunnan Menoista",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_messu = {
+    id: "agricola_messu",
+    title: "Agricola: Messu",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Messu eli Herran echtolinen",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_piina = {
+    id: "agricola_piina",
+    title: "Agricola: Piina",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Se meiden Herran Jesusen Christusen Pina, ylesnousemus ia taiuaisen astumus, niste Neliest Euangelisterist coghottu",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_profeetat = {
+    id: "agricola_profeetat",
+    title: "Agricola: Ne Prophetat",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Ne Prophetat. Haggai. SacharJa. Maleachi.",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_psaltari = {
+    id: "agricola_psaltari",
+    title: "Agricola: Dauidin Psaltari",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Dauidin Psaltari",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_rucouskiria = {
+    id: "agricola_rucouskiria",
+    title: "Agricola: Rucouskiria",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Rucouskiria Bibliasta",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_sewsitestamenti = {
+    id: "agricola_sewsitestamenti",
+    title: "Agricola: Se Wsi Testamenti",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Se Wsi Testamenti",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpora.agricola_veisut = {
+    id: "agricola_veisut",
+    title: "Agricola: Weisut",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Weisut ia Ennustoxet Mosesen Laista ia Prophetista Wloshaetut",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.agricola,
+    struct_attributes: sattrlist.agricola
+};
+
+settings.corpus_aliases.agricola = "agricola_.*";
+settings.corpus_aliases["agricola-korp"] = "agricola_.*";
+
+
+// SKS-KIVI
 
 settings.corpora.sks_kivi_fi = {
     title: "Aleksis Kivi (SKS)",
@@ -13908,6 +14098,176 @@ settings.corpora.s24 = {
         }
     }
 };
+
+
+/* Suomi24 2017H2 */
+
+sattrlist.s24_2018 = {
+    text_title: sattrs.title,
+    // text_datetime: sattrs.datetime,
+    text_date: sattrs.date,
+    text_time: sattrs.time,
+    // text_datetime_approximated: settings.fn.make_bool_attr(
+    //	"timestamp_approximated"),
+    text_author: {
+	label: "writer_nickname",
+    },
+    text_author_logged_in: settings.fn.make_bool_attr("user_logged_in"),
+    text_author_nick_registered: settings.fn.make_bool_attr("registered_nick"),
+    text_topic_names: {
+	label: "s24_topic_full",
+    },
+    text_topic_name_top: {
+	label: "s24_topic_main",
+	displayType: "select",
+	localize: false,
+	dataset: [
+	    "Ajanviete",
+	    "Ajoneuvot ja liikenne",
+	    "Harrastukset",
+	    "Koti ja rakentaminen",
+	    // "Kysy Mitä Vain",
+	    "Lemmikit",
+	    "Matkailu",
+	    "Muoti ja kauneus",
+	    "Nuoret",
+	    "Paikkakunnat",
+	    "Perhe",
+	    "Ruoka ja juoma",
+	    "Ryhmät",
+	    "Seksi",
+	    "Suhteet",
+	    // "Suomi24 Blogi ★",
+	    "Talous",
+	    "Terveys",
+	    "Tiede ja teknologia",
+	    "Työ ja opiskelu",
+	    "Urheilu ja kuntoilu",
+	    "Viihde ja kulttuuri",
+	    "Yhteiskunta",
+	],
+	opts: settings.liteOptions,
+	hideSidebar: true,
+    },
+    text_topic_name_leaf: {
+	label: "s24_topic_leaf",
+	hideSidebar: true,
+    },
+    // text_topic_names_set: {
+    //	label: "s24_topic_set",
+    //	type: "set",
+    //	opts: settings.setOptions,
+    // },
+    // text_topic_nums: {
+    //	label: "s24_topic_nums",
+    // },
+    // text_topic_nums_set: {
+    //	label: "s24_topic_nums_set",
+    // },
+    text_topic_adultonly: settings.fn.make_bool_attr("s24_topic_is_adultonly"),
+    text_msg_type: {
+	label: "message_type",
+	displayType: "select",
+	translationKey: "msgtype_",
+	dataset: [
+	    "thread_start",
+	    "comment",
+	],
+	opts: settings.liteOptions,
+    },
+    text_empty: settings.fn.make_bool_attr("message_is_completely_empty"),
+    text_id: {
+	label: "text_id",
+    },
+    text_thread_id: {
+	label: "message_thread_id",
+    },
+    text_thread_start_datetime: {
+	label: "message_thread_start_timestamp",
+    },
+    text_comment_id: {
+	label: "comment_id",
+	pattern: "<%=settings.fn.make_explained_value(val, {'0': 'thread_start_message'})%>",
+    },
+    text_parent_comment_id: {
+	label: "parent_comment_id",
+	pattern: "<%=settings.fn.make_explained_value(val, {'0': 'thread_start_message'})%>",
+    },
+    text_parent_datetime: {
+	label: "parent_timestamp",
+    },
+    text_quoted_comment_id: {
+	label: "quoted_comment_id",
+	pattern: "<%=settings.fn.make_explained_value(val, {'0': 'no_quotation'})%>",
+    },
+    text_filename_vrt: sattrs.filename,
+    text_thread_link: {
+	label: "show_orig_thread",
+	type: "url",
+	url_opts: sattrs.link_url_opts,
+	synthetic: true,
+	stringify_synthetic: function (token_data) {
+	    return ("https://keskustelu.suomi24.fi/t/"
+		    + token_data.struct_attrs.text_thread_id);
+	},
+    },
+    text_comment_link: {
+	label: "show_orig_message",
+	type: "url",
+	url_opts: sattrs.link_url_opts,
+	synthetic: true,
+	stringify_synthetic: function (token_data) {
+	    var comment_id = token_data.struct_attrs.text_comment_id
+	    var url = ("https://keskustelu.suomi24.fi/t/"
+		       + token_data.struct_attrs.text_thread_id);
+	    if (comment_id != "0") {
+		url += "#comment-" + token_data.struct_attrs.text_comment_id;
+	    }
+	    return url;
+	},
+    },
+    paragraph_type: {
+	label: "paragraph_type",
+	displayType: "select",
+	translationKey: "paratype_",
+	dataset: {
+	    "title": "heading",
+	    "body": "paragraph",
+	    "empty": "empty",
+	},
+	opts: settings.liteOptions,
+    },
+    sentence_id: sattrs.sentence_id_hidden,
+};
+
+settings.templ.s24_2018 = {
+    title: "",
+    description: "",
+    id: "",
+    features: ["paragraphs", "parsed_tdt", "spaces"],
+    struct_attributes: sattrlist.s24_2018,
+};
+
+settings.fn.add_corpus_settings(
+    settings.templ.s24_2018,
+    (function (year1, year2) {
+	var result = [];
+	for (var y = year1; y <= year2; y++) {
+	    var ystr = y.toString();
+	    result.push({
+		title: "Suomi24 (2017H2) " + ystr,
+		description: "Suomi24 (2017H2): Suomi24-keskustelujen viestit vuodelta " + ystr,
+		id: ystr,
+	    });
+	}
+	return result;
+    })(2001, 2017),
+    settings.corporafolders.s24_2017h2,
+    "s24_");
+
+settings.corpus_aliases["suomi24-2017h2"] = "s24_20(0[1-9]|1[0-7])";
+settings.corpus_aliases.suomi24_2017h2
+    = settings.corpus_aliases["suomi24-2017h2"];
 
 
 settings.corpora.iclfi = {

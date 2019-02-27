@@ -429,6 +429,12 @@ attrs.ne_name = {
 sattrs.date = {
     label: "date"
 };
+sattrs.time = {
+    label: "time"
+};
+sattrs.datetime = {
+    label: "timestamp",
+};
 
 var modernAttrs = {
     pos: attrs.pos,
@@ -1612,6 +1618,9 @@ sattrs.text_source = {
 sattrs.text_published = {
     label: "text_pubdate2"
 };
+sattrs.publisher = {
+    label: "publisher"
+};
 
 sattrs.author = {
     label: "author"
@@ -2062,6 +2071,15 @@ attrlist.parsed_tdt_ner =
     $.extend({}, attrlist.parsed_tdt, {
 	nertag: attrs.ner_tags
     });
+
+
+settings.corpus_features.spaces = {
+    attributes: {
+	spaces: {
+	    label: "whitespace_related_to_token",
+	},
+    },
+};
 
 
 // KLK structural attributes, for both Finnish and Swedish
@@ -3938,6 +3956,53 @@ settings.fn.extend_corpus_settings = function (props, corpus_ids) {
     }
 };
 
+
+// Generate a declaration for an attribute with Boolean values.
+// Arguments:
+// - label: attribute translation label
+// - yes_no: an array of two items: the corpus values for "yes" and
+//   "no"; if omitted, use "y" and "n".
+settings.fn.make_bool_attr = function (label, yes_no) {
+    var dataset = {};
+    if (arguments.length < 2) {
+	dataset = {
+	    "y": "yes",
+	    "n": "no",
+	};
+    } else {
+	dataset[yes_no[0]] = "yes";
+	dataset[yes_no[1]] = "no";
+    }
+    return {
+	label: label,
+	displayType: "select",
+	translationKey: "",
+	dataset: dataset,
+	opts: settings.liteOptions,
+    };
+};
+
+
+// Add an explanation to specific values of an attribute in the
+// sidebar. The explanation text is localized, in grey italics,
+// enclosed in square brackets. This function is inteded to be used in
+// the value of the "pattern" property of an attribute declaration.
+// Arguments:
+// - value: the value of the attribute
+// - value_map: an object whose keys are attribute values to be
+//   explained and their values are the explanations of the attribute
+//   values corresponding to the keys
+// Example:
+//   pattern: "<%=settings.fn.make_explained_value(val, {'0': 'no_quote'})%>",
+settings.fn.make_explained_value = function (value, value_map) {
+    if (value in value_map) {
+	value += (" <i style=\"color: grey;\">[<span rel=\"localize["
+		  + value_map[value] + "]\"></span>]</i>");
+    }
+    return value;
+};
+
+
 // Recursively create a corpus folder hierarchy under parent_folder
 // and the configurations for its corpora. The hierarchy is specified
 // in subfolder_tree, and options control how the data is mapped to
@@ -4204,3 +4269,79 @@ settings.fn.make_klk_page_image_url = function (token_data, context_size) {
 	    + "?page=" + token_data.struct_attrs.text_page_no)
 	    + (words ? "&term=" + words : "");
 }
+
+
+// Common settings template for FTC, FSTC and Svenska Parole (may be
+// overridden)
+settings.templ.lemmie_common = {
+    title: "",
+    description: "",
+    id: "",
+    within: settings.spWithin,
+    context: settings.spContext,
+    limited_access: true,
+    licence_type: "RES",
+    attributes: {
+    },
+    struct_attributes: {
+	text_title: sattrs.text_title,
+	text_creator: sattrs.author,
+	text_publisher: sattrs.publisher,
+	text_wordcount: {
+	    label: "text_word_count",
+	},
+	text_lemmie_id: {
+	    label: "lemmie_text_id",
+	},
+	text_lang: {
+	    label: "lang",
+	    displayType: "select",
+	    opts: settings.liteOptions,
+	    translationKey: "",
+	    dataset: [
+		"fin",
+		"eng",
+		"swe",
+	    ]
+	},
+	text_date: sattrs.date,
+	text_filename: {
+	    label: "file_name",
+	},
+	text_rights: {
+	    label: "access_rights_cat",
+	},
+	text_contributor: {
+	    label: "contributor",
+	},
+	text_source: {
+	    label: "source",
+	    displayType: "select",
+	    localize: false,
+	    opts: settings.liteOptions,
+	    // dataset: [],
+	},
+	text_lemmie_corpus: {
+	    label: "lemmie_corpus",
+	},
+	// // Always empty
+	// text_type: {
+	//     label: "text_type",
+	// },
+	text_subject: {
+	    label: "subject",
+	},
+	// paragraph_id: sattrs.paragraph_id,
+	paragraph_type: {
+	    label: "paragraph_type",
+	    displayType: "select",
+	    translationKey: "paragraphtype_",
+	    dataset: {},
+	    opts: settings.liteOptions
+	},
+	sentence_id: sattrs.sentence_id_hidden,
+	sentence_within: {
+	    label: "enclosing_elems",
+	},
+    }
+};

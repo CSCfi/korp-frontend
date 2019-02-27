@@ -375,7 +375,9 @@
       };
       infoGetter = (function(_this) {
         return function(prop) {
-          return _(_this.selected).pluck("info").pluck(prop).compact().map(function(item) {
+          return _(_this.selected).pluck("info").pluck(prop).compact().filter(function(val) {
+            return val.slice(0, 10) !== "0000-00-00";
+          }).map(function(item) {
             return moment(item);
           }).value();
         };
@@ -1089,7 +1091,7 @@
   added_corpora_ids = [];
 
   util.loadCorporaFolderRecursive = function(first_level, folder) {
-    var folder_descr, format_licence_type, k, len1, non_added_corpora_ids, outHTML, val;
+    var extra_info, folder_descr, format_licence_type, k, len1, non_added_corpora_ids, outHTML, val;
     format_licence_type = function(corpus_id) {
       var licence_type;
       licence_type = settings.corpora[corpus_id]["licence_type"];
@@ -1103,7 +1105,9 @@
     if (first_level) {
       outHTML = "<ul>";
     } else {
-      folder_descr = (folder.description || "") + (folder.info && settings.corpusExtraInfo ? (folder.description ? "<br/><br/>" : "") + util.formatCorpusExtraInfo(folder.info, settings.corpusExtraInfo.corpus_infobox) : "");
+      folder_descr = util.callPluginFunctionsValued("CorpusInfoDescrProcessor", folder.description || "", folder);
+      extra_info = folder.info && settings.corpusExtraInfo ? util.formatCorpusExtraInfo(folder.info, settings.corpusExtraInfo.corpus_infobox) : "";
+      folder_descr += (folder_descr && extra_info ? "<br/><br/>" : "") + extra_info;
       outHTML = "<ul title=\"" + folder.title + "\" description=\"" + escape(folder_descr) + "\">";
     }
     if (folder) {
@@ -1162,6 +1166,12 @@
   util.loadCorpora = function() {
     var outStr, selected;
     added_corpora_ids = [];
+    util.forAllFolders(function(folder) {
+      return util.callPluginFunctions("CorpusFolderProcessor", folder);
+    });
+    util.forAllCorpora(function(config) {
+      return util.callPluginFunctions("CorpusSettingsProcessor", config);
+    });
     outStr = util.loadCorporaFolderRecursive(true, settings.corporafolders);
     window.corpusChooserInstance = $("#corpusbox").corpusChooser({
       template: outStr,
@@ -1172,6 +1182,7 @@
         if (corpusObj.description) {
           maybeInfo = "<br/><br/>" + corpusObj.description;
         }
+        maybeInfo = util.callPluginFunctionsValued("CorpusInfoDescrProcessor", maybeInfo || "", corpusObj);
         corpusExtraInfo = settings.corpusExtraInfo ? util.formatCorpusExtraInfo(corpusObj, settings.corpusExtraInfo.corpus_infobox) : void 0;
         if (corpusExtraInfo) {
           maybeInfo += (maybeInfo ? "<br/><br/>" : "") + corpusExtraInfo;
@@ -1590,11 +1601,33 @@
     }
   };
 
-  util.forAllCorpora = function(func) {
-    var corpus;
+  util.forAllCorpora = function() {
+    var args, corpus, func;
+    func = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
     for (corpus in settings.corpora) {
-      func(settings.corpora[corpus]);
+      func.apply(null, [settings.corpora[corpus], corpus].concat(slice.call(args)));
     }
+  };
+
+  util.forAllFolders = function() {
+    var args, for_all_subfolders, func;
+    func = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
+    for_all_subfolders = function() {
+      var args, folder, func, prop_name, results;
+      folder = arguments[0], func = arguments[1], args = 3 <= arguments.length ? slice.call(arguments, 2) : [];
+      results = [];
+      for (prop_name in folder) {
+        if (!hasProp.call(folder, prop_name)) continue;
+        if (prop_name !== "title" && prop_name !== "description" && prop_name !== "contents" && prop_name !== "info") {
+          func.apply(null, [folder[prop_name]].concat(slice.call(args)));
+          results.push(for_all_subfolders.apply(null, [folder[prop_name], func].concat(slice.call(args))));
+        } else {
+          results.push(void 0);
+        }
+      }
+      return results;
+    };
+    return for_all_subfolders.apply(null, [settings.corporafolders, func].concat(slice.call(args)));
   };
 
   util.initCorpusSettingsLinkAttrs = function() {
@@ -2628,6 +2661,80 @@
     items.push("search=" + search_tab_names[search().search_tab || "0"]);
     return items;
   };
+
+  util.pluginFunctions = {};
+
+  util.addPluginFunction = function(type, funcs) {
+    if (!(type in util.pluginFunctions)) {
+      util.pluginFunctions[type] = [];
+    }
+    if (!_.isArray(funcs)) {
+      funcs = [funcs];
+    }
+    return util.pluginFunctions[type] = util.pluginFunctions[type].concat(funcs);
+  };
+
+  util.addPluginFunctions = function(types_funcs) {
+    var funcs, results, type;
+    results = [];
+    for (type in types_funcs) {
+      if (!hasProp.call(types_funcs, type)) continue;
+      funcs = types_funcs[type];
+      results.push(util.addPluginFunction(type, funcs));
+    }
+    return results;
+  };
+
+  util.callPluginFunctions = function() {
+    var args, func, k, len1, ref, type;
+    type = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
+    if (type in util.pluginFunctions) {
+      ref = util.pluginFunctions[type];
+      for (k = 0, len1 = ref.length; k < len1; k++) {
+        func = ref[k];
+        func.apply(null, args);
+      }
+    }
+  };
+
+  util.callPluginFunctionsValued = function() {
+    var arg1, func, k, len1, ref, rest, type;
+    type = arguments[0], arg1 = arguments[1], rest = 3 <= arguments.length ? slice.call(arguments, 2) : [];
+    if (type in util.pluginFunctions) {
+      ref = util.pluginFunctions[type];
+      for (k = 0, len1 = ref.length; k < len1; k++) {
+        func = ref[k];
+        arg1 = func.apply(null, [arg1].concat(slice.call(rest)));
+      }
+    }
+    return arg1;
+  };
+
+  util.addCorpusTitleLabel = function(config) {
+    var k, label, label_text, len1, ref, ref1, ref2;
+    ref1 = config.labels || ((ref = config.info) != null ? ref.labels : void 0) || [];
+    for (k = 0, len1 = ref1.length; k < len1; k++) {
+      label = ref1[k];
+      label_text = ((ref2 = settings.corpus_label_texts) != null ? ref2[label] : void 0) || label;
+      config.title += " (" + label_text + ")";
+    }
+  };
+
+  util.addCorpusInfoDescrLabel = function(descr, config) {
+    var k, label, len1, ref, ref1;
+    ref1 = config.labels || ((ref = config.info) != null ? ref.labels : void 0) || [];
+    for (k = 0, len1 = ref1.length; k < len1; k++) {
+      label = ref1[k];
+      descr += (descr ? "<br/><br/>" : "") + ("<span rel=\"localize[corpuslabel_descr_" + label + "]\">" + label + "</span>");
+    }
+    return descr;
+  };
+
+  util.addPluginFunctions({
+    CorpusSettingsProcessor: util.addCorpusTitleLabel,
+    CorpusFolderProcessor: util.addCorpusTitleLabel,
+    CorpusInfoDescrProcessor: util.addCorpusInfoDescrLabel
+  });
 
 }).call(this);
 

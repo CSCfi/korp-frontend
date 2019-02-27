@@ -426,6 +426,9 @@
     "relogin_login": "Kirjaudu Korpiin",
     "relogin_login_postamble": "voidaksesi tehdä yrittämäsi haun",
 
+    "corpuslabel_descr_beta": "<strong>Huomaa</strong>, että korpus on beetatestausvaiheessa, joten siihen voi tulla muutoksia ilman ilmoitusta.",
+    "corpuslabel_descr_test": "<strong>Huomaa</strong>, että korpus on testausvaiheessa, joten siihen voi tulla merkittäviäkin muutoksia ilman ilmoitusta.",
+
     "wordlist": "Sanalista",
     "selected_words": "Valitut sanat",
     "button_done": "Valmis",

@@ -322,6 +322,12 @@ class window.CorpusListing
             .pluck("info")
             .pluck(prop)
             .compact()
+            # Filter out null dates, as Moment converts them to having
+            # a negative year and formats as 00-1, which causes a
+            # backend error. However, a null date as
+            # FirstDate/LastDate still causes an error in the backend.
+            # (Jyrki Niemi 2018-06-11)
+            .filter((val) -> val.slice(0, 10) != "0000-00-00")
             .map((item) -> moment(item))
             .value()
 
@@ -967,14 +973,16 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
     if first_level
         outHTML = "<ul>"
     else
-        folder_descr = (folder.description or "") +
+        folder_descr = util.callPluginFunctionsValued(
+            "CorpusInfoDescrProcessor", (folder.description or ""), folder)
+        extra_info =
             if folder.info and settings.corpusExtraInfo
-                (if folder.description then "<br/><br/>" else "") +
-                    util.formatCorpusExtraInfo(
-                        folder.info,
-                        settings.corpusExtraInfo.corpus_infobox)
+                util.formatCorpusExtraInfo(
+                    folder.info, settings.corpusExtraInfo.corpus_infobox)
             else
                 ""
+        folder_descr += ((if folder_descr and extra_info then "<br/><br/>" else "") +
+            extra_info)
         outHTML = "<ul title=\"" + folder.title + "\" description=\"" + escape(folder_descr) + "\">"
     if folder #This check makes the code work even if there isn't a ___settings.corporafolders = {};___ in config.js
         # Folders
@@ -1035,6 +1043,16 @@ util.suffixedNumbers = (num) ->
 # Goes through the settings.corporafolders and recursively adds the settings.corpora hierarchically to the corpus chooser widget
 util.loadCorpora = ->
     added_corpora_ids = []
+
+    # Run "plugin functions" for corpus folders and corpus settings.
+    # The functions may use corpus information obtained in
+    # Searches.getInfoData, so they cannot be run (reliably) in
+    # main.coffee. (Jyrki Niemi 2018-07-05)
+    util.forAllFolders(
+        (folder) -> util.callPluginFunctions "CorpusFolderProcessor", folder)
+    util.forAllCorpora(
+        (config) -> util.callPluginFunctions "CorpusSettingsProcessor", config)
+
     outStr = util.loadCorporaFolderRecursive(true, settings.corporafolders)
     window.corpusChooserInstance = $("#corpusbox").corpusChooser(
         template: outStr
@@ -1042,6 +1060,8 @@ util.loadCorpora = ->
             corpusObj = settings.corpora[corpusID]
             maybeInfo = ""
             maybeInfo = "<br/><br/>" + corpusObj.description if corpusObj.description
+            maybeInfo = util.callPluginFunctionsValued(
+                "CorpusInfoDescrProcessor", (maybeInfo or ""), corpusObj)
             corpusExtraInfo =
                 if settings.corpusExtraInfo
                     util.formatCorpusExtraInfo(
@@ -1520,12 +1540,27 @@ util.propagateCorpusFolderInfo = (corpusFolder, info) ->
 
 
 # Call function func for all corpora in settings.corpora with the
-# corpus settings object as an argument. (Jyrki Niemi 2016-10-18)
+# corpus settings object as the first argument and optional args... as
+# the rest. (Jyrki Niemi 2016-10-18, 2018-07-06)
 
-util.forAllCorpora = (func) ->
+util.forAllCorpora = (func, args...) ->
     for corpus of settings.corpora
-        func settings.corpora[corpus]
+        func settings.corpora[corpus], corpus, args...
     return
+
+# Call function func for all corpus folders in settings.corporafolders
+# and their subfolders, with the folder object and possible args as
+# arguments. (Jyrki Niemi 2018-07-05)
+
+util.forAllFolders = (func, args...) ->
+
+    for_all_subfolders = (folder, func, args...) ->
+        for own prop_name of folder
+            if prop_name not in ["title", "description", "contents", "info"]
+                func folder[prop_name], args...
+                for_all_subfolders folder[prop_name], func, args...
+
+    for_all_subfolders settings.corporafolders, func, args...
 
 
 # Initialize the link_attributes properties in all the corpora in
@@ -2730,3 +2765,95 @@ util.makeLogInfoItems = () ->
     items.push("lang=" + (search().lang or settings.defaultLanguage))
     items.push("search=" + search_tab_names[search().search_tab or "0"])
     return items
+
+
+# The code below could perhaps be a basis for a simple plugin facility
+# for processing (modifying) corpus settings and the information in
+# the corpus (and corpus folder) info box. (Jyrki Niemi 2018-07-05/06)
+
+
+# Generic functions for plugin functions
+
+# Plugin functions object: each property corresponds to a type of
+# plugin function and its value is an array of functions of the type.
+util.pluginFunctions = {}
+
+# Add (register) plugin functions funcs of type; funcs may be either a
+# single function or an array of functions.
+# TODO: Should we perhaps also register plugin function types, to
+# avoid registering plugins with incorrectly written types?
+
+util.addPluginFunction = (type, funcs) ->
+    if not (type of util.pluginFunctions)
+        util.pluginFunctions[type] = []
+    if not _.isArray(funcs)
+        funcs = [funcs]
+    util.pluginFunctions[type] = util.pluginFunctions[type].concat(funcs)
+
+# Add plugin functions of possibly multiple types: types_funcs is an
+# object whose properties are plugin function types and property
+# values are functions or arrays of functions to be added to the
+# corresponding function type.
+
+util.addPluginFunctions = (types_funcs) ->
+    for own type, funcs of types_funcs
+        util.addPluginFunction type, funcs
+
+# Call plugin functions of type in the order they are in
+# util.pluginFunctions, with the (optional) arguments args...
+
+util.callPluginFunctions = (type, args...) ->
+    # c.log "callPluginFunctions", type, args...
+    if type of util.pluginFunctions
+        for func in util.pluginFunctions[type]
+            func args...
+    return
+
+# Call plugin functions of type in the order they are in
+# util.pluginFunctions, with the argument arg1 and optional rest...
+# Each plugin function gets as its arg1 the return value of the
+# previous function, and this function returns the value returned by
+# the last plugin function.
+
+util.callPluginFunctionsValued = (type, arg1, rest...) ->
+    # c.log "callPluginFunctions", type, arg1, rest...
+    if type of util.pluginFunctions
+        for func in util.pluginFunctions[type]
+            arg1 = func arg1, rest...
+    return arg1
+
+
+# "Plugin" functions for adding labels, such as "beta", to corpora,
+# based on the "labels" property of the corpus (folder) configuration.
+# (Jyrki Niemi 2018-07-05)
+
+# Modify the corpus (folder) configuration config by appending each
+# label specified in the "labels" property (an array of strings) to
+# the corpus title in parentheses. If
+# settings.corpus_label_texts[label] is defined, use it instead of the
+# bare label.
+
+util.addCorpusTitleLabel = (config) ->
+    for label in (config.labels or config.info?.labels or [])
+        label_text = settings.corpus_label_texts?[label] or label
+        config.title += " (#{label_text})"
+    return
+
+# If the corpus (or folder) configuration config contains a "labels"
+# property, append to the description text descr the localized text in
+# corpuslabel_descr_<label> for each label. This is intended to work
+# for the description in the corpus (folder) info box, because of
+# using localization.
+
+util.addCorpusInfoDescrLabel = (descr, config) ->
+    for label in (config.labels or config.info?.labels or [])
+        # Angular.js localization does not seem to work here. Why?
+        descr += ((if descr then "<br/><br/>" else "") +
+            "<span rel=\"localize[corpuslabel_descr_#{label}]\">#{label}</span>")
+    return descr
+
+# Add the function to the appropriate plugin function lists.
+util.addPluginFunctions
+    CorpusSettingsProcessor: util.addCorpusTitleLabel
+    CorpusFolderProcessor: util.addCorpusTitleLabel
+    CorpusInfoDescrProcessor: util.addCorpusInfoDescrLabel
