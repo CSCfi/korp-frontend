@@ -554,11 +554,12 @@
     "speakerrole_valtioneuvoston_oikeuskansleri": "",
     "speakerrole_valtioneuvoston_apulaisoikeuskansleri": "",
     "speakerrole_ensimmainen_puhemies": "Förste talman",
+    "speakerrole_varajasen": "",
 
     "speaker_parl_group": "riksdagsgrupp",
     "speech_type": "taltyp",
 
-    "speechtype_ryhmapuheenvuoro": "",
+    "speechtype_ryhmapuheenvuoro": "gruppanförande",
     "speechtype_esittelypuheenvuoro": "",
     "speechtype_vastauspuheenvuoro": "",
     "speechtype_koputtaa": "",

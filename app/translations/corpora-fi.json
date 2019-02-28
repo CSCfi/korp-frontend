@@ -895,15 +895,16 @@
     "speakerrole_valtioneuvoston_oikeuskansleri": "Valtioneuvoston oikeuskansleri",
     "speakerrole_valtioneuvoston_apulaisoikeuskansleri": "Valtioneuvoston apulaisoikeuskansleri",
     "speakerrole_ensimmainen_puhemies": "Ensimmäinen puhemies",
+    "speakerrole_varajasen": "varajäsen",
 
     "speaker_parl_group": "eduskuntaryhmä",
     "speakerrole": "puhujan rooli",
     "speech_type": "puheenvuoron tyyppi",
 
-    "speechtype_ryhmapuheenvuoro": "",
-    "speechtype_esittelypuheenvuoro": "",
-    "speechtype_vastauspuheenvuoro": "",
-    "speechtype_koputtaa": "",
+    "speechtype_ryhmapuheenvuoro": "ryhmäpuheenvuoro",
+    "speechtype_esittelypuheenvuoro": "esittelypuheenvuoro",
+    "speechtype_vastauspuheenvuoro": "vastauspuheenvuoro",
+    "speechtype_koputtaa": "(koputtaa)",
 
     "group": "group",
     "interview": "interview",

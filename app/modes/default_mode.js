@@ -13348,7 +13348,8 @@ settings.corpora.eduskunta_test = {
 		"ikapuhemies",
 		"valtioneuvoston_oikeuskansleri",
 		"valtioneuvoston_apulaisoikeuskansleri",
-		"ensimmainen_puhemies"
+		"ensimmainen_puhemies",
+		"varajasen"
 	    ]
 	},
 	paragraph_type: {
