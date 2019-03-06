@@ -13294,8 +13294,10 @@ settings.corpora.eduskunta_test = {
         paragraph_speaker: {
             label: "speech_speakername"
         },
-	paragraph_group: {
+	paragraph_speaker_parl_group: {
             label: "speaker_parl_group",
+	    displayType: "select",
+	    opts: settings.liteOptions,
 	    translationKey: "parlgroup_",
 	    dataset: [
 		"kd",
@@ -13310,8 +13312,10 @@ settings.corpora.eduskunta_test = {
 		"vr"
 	    ]
         },
-	paragraph_role: {
+	paragraph_speaker_role: {
 	    label: "speakerrole",
+	    displayType: "select",
+	    opts: settings.liteOptions,
 	    translationKey: "speakerrole_",
 	    dataset: [
 		"puhemies",
@@ -13358,8 +13362,10 @@ settings.corpora.eduskunta_test = {
 		"valtioneuvoston_apulaisoikeuskansleri"
 	    ]
 	},
-	paragraph_type: {
+	paragraph_speech_type: {
             label: "speech_type",
+	    displayType: "select",
+	    opts: settings.liteOptions,
 	    translationKey: "speechtype_",
 	    dataset: [
 		"ryhmapuheenvuoro",
