@@ -13309,7 +13309,8 @@ settings.corpora.eduskunta_test = {
 		"sd",
 		"vas",
 		"vihr",
-		"vr"
+		"vr",
+		""
 	    ]
         },
 	paragraph_speaker_role: {
@@ -13359,7 +13360,8 @@ settings.corpora.eduskunta_test = {
 		"ikapuhemies",
 		"valtioneuvoston_oikeuskansleri",
 		"varajasen",
-		"valtioneuvoston_apulaisoikeuskansleri"
+		"valtioneuvoston_apulaisoikeuskansleri",
+		""
 	    ]
 	},
 	paragraph_speech_type: {
@@ -13371,7 +13373,8 @@ settings.corpora.eduskunta_test = {
 		"ryhmapuheenvuoro",
 		"esittelypuheenvuoro",
 		"vastauspuheenvuoro",
-		"koputtaa"
+		"koputtaa",
+		""
 	    ]
         },
 	utterance_id: {
