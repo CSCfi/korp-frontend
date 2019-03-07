@@ -13278,7 +13278,7 @@ settings.corpora.eduskunta = {
 
 settings.corpora.eduskunta_test = {
     title: "Eduskunta - transkriptiot - testi",
-    description: "Eduskunta - transkriptiot - testi",
+    description: "Eduskunnan täysistuntojen videotallenteista tehdyt transkriptiot. Istunnot ovat ajalta 10.09.2008 - 01.07.2016. Osa aineistosta on tarjolla myös LAT-palvelussa. Hakutuloksissa on tällin linkki istunnon LAT-versioon. Transkriptiot perustuvat suomen kielimalliin, joten ruotsinkieliset puheenvuorot ovat tunnistuneet enimmäkseen vierassanoiksi.",
     id: "eduskunta_test",
     metadata_urn: "urn:nbn:fi:lb-2017020202",
     cite_id: "eduskunta-korp",
