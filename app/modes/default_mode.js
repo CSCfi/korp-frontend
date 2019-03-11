@@ -13255,33 +13255,16 @@ settings.corpora.arkisyn = {
     }
 };
 
+
 settings.corpora.eduskunta = {
     title: "Eduskunta - transkriptiot",
-    description: "Eduskunta - transkriptiot",
-    id: "eduskunta",
-    metadata_urn: "urn:nbn:fi:lb-2017020202",
-    cite_id: "eduskunta-korp",
-    within: settings.defaultWithin,
-    context: settings.defaultContext,
-    attributes: attrlist.standard,
-    struct_attributes: {
-        text_filename: {
-            label: "file_name",
-        },
-        text_date: sattrs.date,
-        text_time: sattrs.text_time,
-        paragraph_participant: {
-            label: "speech_speakername"
-        }
-    }
-};
-
-settings.corpora.eduskunta_test = {
-    title: "Eduskunta - transkriptiot - testi",
     description: "Eduskunnan täysistuntojen videotallenteista tehdyt transkriptiot. Istunnot ovat ajalta 10.09.2008 - 01.07.2016. Osa aineistosta on tarjolla myös LAT-palvelussa. Hakutuloksissa on tällin linkki istunnon LAT-versioon. Transkriptiot perustuvat suomen kielimalliin, joten ruotsinkieliset puheenvuorot ovat tunnistuneet enimmäkseen vierassanoiksi.",
-    id: "eduskunta_test",
+    id: "eduskunta",
+    urn: "urn:nbn:fi:lb-2017020201",
     metadata_urn: "urn:nbn:fi:lb-2017020202",
+    licence: settings.licenceinfo.CC_BY_NC_ND,
     cite_id: "eduskunta-korp",
+    homepage_url: "https://www.eduskunta.fi/FI/lakiensaataminen/taysistunnon_verkkolahetykset/tallenteet/Sivut/default.aspx",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.standard,
