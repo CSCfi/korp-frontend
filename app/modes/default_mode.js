@@ -13257,7 +13257,7 @@ settings.corpora.arkisyn = {
 
 
 settings.corpora.eduskunta = {
-    title: "Eduskunta - transkriptiot",
+    title: "Eduskunnan täysistunnot",
     description: "Eduskunnan täysistuntojen videotallenteista tehdyt transkriptiot. Istunnot ovat ajalta 10.09.2008 - 01.07.2016. Osa aineistosta on tarjolla myös LAT-palvelussa. Hakutuloksissa on tällöin linkki istunnon LAT-versioon. Transkriptiot perustuvat suomen kielimalliin, joten ruotsinkieliset puheenvuorot ovat tunnistuneet enimmäkseen vierassanoiksi.",
     id: "eduskunta",
     urn: "urn:nbn:fi:lb-2017020201",
