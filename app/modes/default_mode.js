@@ -13258,7 +13258,7 @@ settings.corpora.arkisyn = {
 
 settings.corpora.eduskunta = {
     title: "Eduskunta - transkriptiot",
-    description: "Eduskunnan täysistuntojen videotallenteista tehdyt transkriptiot. Istunnot ovat ajalta 10.09.2008 - 01.07.2016. Osa aineistosta on tarjolla myös LAT-palvelussa. Hakutuloksissa on tällin linkki istunnon LAT-versioon. Transkriptiot perustuvat suomen kielimalliin, joten ruotsinkieliset puheenvuorot ovat tunnistuneet enimmäkseen vierassanoiksi.",
+    description: "Eduskunnan täysistuntojen videotallenteista tehdyt transkriptiot. Istunnot ovat ajalta 10.09.2008 - 01.07.2016. Osa aineistosta on tarjolla myös LAT-palvelussa. Hakutuloksissa on tällöin linkki istunnon LAT-versioon. Transkriptiot perustuvat suomen kielimalliin, joten ruotsinkieliset puheenvuorot ovat tunnistuneet enimmäkseen vierassanoiksi.",
     id: "eduskunta",
     urn: "urn:nbn:fi:lb-2017020201",
     metadata_urn: "urn:nbn:fi:lb-2017020202",
@@ -13275,7 +13275,7 @@ settings.corpora.eduskunta = {
         text_date: sattrs.date,
         text_time: sattrs.text_time,
         paragraph_speaker: {
-            label: "speech_speakername"
+            label: "speaker_name"
         },
 	paragraph_speaker_parl_group: {
             label: "speaker_parl_group",
@@ -13360,6 +13360,9 @@ settings.corpora.eduskunta = {
 		""
 	    ]
         },
+	paragraph_participant: {
+	    label: "speaker"
+	},
 	utterance_id: {
 	    label: "utterance_num",
 	},

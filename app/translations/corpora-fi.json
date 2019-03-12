@@ -908,6 +908,7 @@
     "speaker_parl_group": "eduskuntaryhmä",
     "speakerrole": "puhujan rooli",
     "speech_type": "puheenvuoron tyyppi",
+    "speaker_name": "puhujan nimi",
 
     "speechtype_ryhmapuheenvuoro": "ryhmäpuheenvuoro",
     "speechtype_esittelypuheenvuoro": "esittelypuheenvuoro",
