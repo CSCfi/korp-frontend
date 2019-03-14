@@ -13258,13 +13258,17 @@ settings.corpora.arkisyn = {
 
 settings.corpora.eduskunta = {
     title: "Eduskunnan täysistunnot",
-    description: "Eduskunnan täysistuntojen videotallenteista tehdyt transkriptiot. Istunnot ovat ajalta 10.09.2008 - 01.07.2016. Osa aineistosta on tarjolla myös LAT-palvelussa. Hakutuloksissa on tällöin linkki istunnon LAT-versioon. Transkriptiot perustuvat suomen kielimalliin, joten ruotsinkieliset puheenvuorot ovat tunnistuneet enimmäkseen vierassanoiksi.",
+    description: "Eduskunnan täysistuntojen videotallenteista tehdyt transkriptiot. Istunnot ovat ajalta 10.9.2008–1.7.2016. Osa aineistosta on tarjolla myös LAT-palvelussa. Hakutuloksissa on tällöin linkki istunnon LAT-versioon. Transkriptiot perustuvat suomen kielimalliin, joten ruotsinkieliset puheenvuorot ovat tunnistuneet enimmäkseen vierassanoiksi.",
     id: "eduskunta",
     urn: "urn:nbn:fi:lb-2017020201",
     metadata_urn: "urn:nbn:fi:lb-2017020202",
     licence: settings.licenceinfo.CC_BY_NC_ND,
     cite_id: "eduskunta-korp",
-    homepage_url: "https://www.eduskunta.fi/FI/lakiensaataminen/taysistunnon_verkkolahetykset/tallenteet/Sivut/default.aspx",
+    homepage: {
+	url: "https://www.eduskunta.fi/FI/lakiensaataminen/taysistunnon_verkkolahetykset/tallenteet/Sivut/default.aspx",
+	name: "Eduskunnan täysistuntojen verkkolähetysten tallenteet",
+	no_label: true,
+    },
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.standard,
