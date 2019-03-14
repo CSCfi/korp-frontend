@@ -3,7 +3,8 @@
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2019021101"
 target="_blank">Suomi24 virkkeet -aineiston versio 2017H2</a> on nyt
-käytettävissä Korpissa [beetatestiversiona](#?corpus=suomi24_2017h2).
+käytettävissä Korpissa
+[beetatestiversiona](?mode=default#?corpus=suomi24_2017h2).
 
 Aineisto kattaa <a href="https://keskustelu.suomi24.fi"
 target="_blank">Suomi24-keskustelupalvelun</a> keskustelut

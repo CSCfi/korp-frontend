@@ -4,7 +4,7 @@
 The <a href="http://urn.fi/urn:nbn:fi:lb-2019021101"
 target="_blank">Suomi24 sentences corpus, version 2017H2</a> is now
 available in Korp as a [beta test
-version](#?corpus=suomi24_2017h2&lang=en).
+version](?mode=default#?corpus=suomi24_2017h2&lang=en).
 
 The corpus covers the discussions in the <a
 href="https://keskustelu.suomi24.fi" target="_blank">Suomi24
