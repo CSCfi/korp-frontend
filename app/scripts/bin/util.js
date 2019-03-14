@@ -1487,9 +1487,17 @@
       if (info_item === 'urn' && corpusObj.urn) {
         link_info = {
           url: makeUrnUrl(corpusObj.urn),
-          text: corpusObj.urn,
-          label: label
+          text: label
         };
+      } else if (info_item === 'pid') {
+        pid = corpusObj.pid_urn || ((ref = corpusObj.pid) != null ? ref.urn : void 0) || corpusObj.metadata_urn || ((ref1 = corpusObj.metadata) != null ? ref1.urn : void 0);
+        if (pid) {
+          link_info = {
+            url: makeUrnUrl(pid),
+            text: '<span style="white-space: nowrap;">' + pid + '</span>',
+            label: label
+          };
+        }
       } else if (info_item === 'homepage' && !('homepage' in corpusObj) && corpusObj.url) {
         link_info = {
           url: corpusObj.url,

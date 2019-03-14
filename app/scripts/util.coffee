@@ -1411,8 +1411,20 @@ util.formatCorpusExtraInfo = (corpusObj, opts = {}) ->
         if info_item == 'urn' and corpusObj.urn
             link_info =
                 url: makeUrnUrl(corpusObj.urn)
-                text: corpusObj.urn
-                label: label
+                text: label
+        else if info_item == 'pid'
+            # If the PID of a corpus is not specified explicitly, use
+            # the metadata URN.
+            pid = (corpusObj.pid_urn or corpusObj.pid?.urn or
+                   corpusObj.metadata_urn or corpusObj.metadata?.urn)
+            if pid
+                link_info =
+                    url: makeUrnUrl(pid)
+                    # Prevent breaking the URN at the hyphen by using
+                    # white-space: nowrap.
+                    text: '<span style="white-space: nowrap;">' + pid +
+                          '</span>'
+                    label: label
         else if info_item == 'homepage' and ! ('homepage' of corpusObj) and
                 corpusObj.url
             # Assume that the top-level property "url" refers to the
