@@ -1106,7 +1106,9 @@
       outHTML = "<ul>";
     } else {
       folder_descr = util.callPluginFunctionsValued("CorpusInfoDescrProcessor", folder.description || "", folder);
-      extra_info = folder.info && settings.corpusExtraInfo ? util.formatCorpusExtraInfo(folder.info, settings.corpusExtraInfo.corpus_infobox) : "";
+      extra_info = folder.info && settings.corpusExtraInfo ? util.formatCorpusExtraInfo(folder.info, {
+        info_items: settings.corpusExtraInfo.corpus_infobox
+      }) : "";
       folder_descr += (folder_descr && extra_info ? "<br/><br/>" : "") + extra_info;
       outHTML = "<ul title=\"" + folder.title + "\" description=\"" + escape(folder_descr) + "\">";
     }
@@ -1183,7 +1185,9 @@
           maybeInfo = "<br/><br/>" + corpusObj.description;
         }
         maybeInfo = util.callPluginFunctionsValued("CorpusInfoDescrProcessor", maybeInfo || "", corpusObj);
-        corpusExtraInfo = settings.corpusExtraInfo ? util.formatCorpusExtraInfo(corpusObj, settings.corpusExtraInfo.corpus_infobox) : void 0;
+        corpusExtraInfo = settings.corpusExtraInfo ? util.formatCorpusExtraInfo(corpusObj, {
+          info_items: settings.corpusExtraInfo.corpus_infobox
+        }) : void 0;
         if (corpusExtraInfo) {
           maybeInfo += (maybeInfo ? "<br/><br/>" : "") + corpusExtraInfo;
         }
@@ -1432,9 +1436,13 @@
     }
   };
 
-  util.formatCorpusExtraInfo = function(corpusObj) {
-    var getUrnOrUrl, i, info_item, info_items, info_obj, label, link_info, makeLinkItem, makeUrnUrl, result;
-    info_items = arguments.length > 1 && arguments[1] ? arguments[1] : (settings.corpusExtraInfoItems != null) || [];
+  util.formatCorpusExtraInfo = function(corpusObj, opts) {
+    var getUrnOrUrl, i, info_item, info_items, info_obj, item_paragraphs, label, link_info, makeLinkItem, makeUrnUrl, pid, ref, ref1, result;
+    if (opts == null) {
+      opts = {};
+    }
+    info_items = opts.info_items ? opts.info_items : (settings.corpusExtraInfoItems != null) || [];
+    item_paragraphs = opts.item_paragraphs || false;
     makeUrnUrl = function(urn) {
       if (urn.indexOf('http') !== 0) {
         return settings.urnResolver + urn;
@@ -1515,10 +1523,14 @@
         };
       }
       if (link_info.url || link_info.text) {
-        if (result) {
-          result += '<br/>';
+        if (item_paragraphs) {
+          result += '<p>' + makeLinkItem(link_info) + '</p>';
+        } else {
+          if (result) {
+            result += '<br/>';
+          }
+          result += makeLinkItem(link_info);
         }
-        result += makeLinkItem(link_info);
       }
       i++;
     }

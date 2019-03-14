@@ -7,11 +7,14 @@
       var corpusObj, formattedCorpusInfo, posData, ref, ref1, sentence, token_data, word;
       this.element.html('<div id="selected_sentence" /><div id="selected_word" /><div id="selected_links" />');
       corpusObj = settings.corpora[corpus];
-      formattedCorpusInfo = (typeof settings !== "undefined" && settings !== null ? settings.corpusExtraInfo : void 0) ? util.formatCorpusExtraInfo(corpusObj, (ref = settings.corpusExtraInfo) != null ? ref.sidebar : void 0) : "";
+      formattedCorpusInfo = (typeof settings !== "undefined" && settings !== null ? settings.corpusExtraInfo : void 0) ? util.formatCorpusExtraInfo(corpusObj, {
+        info_items: (ref = settings.corpusExtraInfo) != null ? ref.sidebar : void 0,
+        item_paragraphs: true
+      }) : "";
       if (formattedCorpusInfo) {
         formattedCorpusInfo = "<br/>" + formattedCorpusInfo;
       }
-      $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>" + corpusObj.title + "</p><p id='sidebar-corpus-info'>" + formattedCorpusInfo + "</p>").prependTo("#selected_sentence");
+      $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>" + corpusObj.title + "</p><div id='sidebar-corpus-info'>" + formattedCorpusInfo + "</div>").prependTo("#selected_sentence");
       token_data = {
         pos_attrs: wordData,
         struct_attrs: sentenceData,

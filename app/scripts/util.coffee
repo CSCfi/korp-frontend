@@ -978,7 +978,8 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
         extra_info =
             if folder.info and settings.corpusExtraInfo
                 util.formatCorpusExtraInfo(
-                    folder.info, settings.corpusExtraInfo.corpus_infobox)
+                    folder.info,
+                    info_items: settings.corpusExtraInfo.corpus_infobox)
             else
                 ""
         folder_descr += ((if folder_descr and extra_info then "<br/><br/>" else "") +
@@ -1065,7 +1066,8 @@ util.loadCorpora = ->
             corpusExtraInfo =
                 if settings.corpusExtraInfo
                     util.formatCorpusExtraInfo(
-                        corpusObj, settings.corpusExtraInfo.corpus_infobox)
+                        corpusObj,
+                        info_items: settings.corpusExtraInfo.corpus_infobox)
                 else
                     undefined
             if corpusExtraInfo
@@ -1316,18 +1318,22 @@ util.findoutType = (variable) ->
 
 # Format extra information associated with a corpus object, typically
 # a URN, licence information and various links. An optional second
-# argument specifies a list of items (properties in the corpus
-# configuration) to be formatted.
+# argument specifies an object containing options as properties. The
+# supported options are:
+# - info_items: an array of items (properties in the corpus
+#   configuration) to be formatted.
+# - item_paragraphs: if true, enclose each item in <p>...</p>;
+#   otherwise separate them with <br/>
 #
-# The properties are usually composite objects which may contain the
-# properties "name", "description", and "url" or "urn". If the
-# information contains "name", it is presented as follows: a label
+# The information items are usually composite objects which may
+# contain the properties "name", "description", and "url" or "urn". If
+# the information contains "name", it is presented as follows: a label
 # and a colon (unless the property "no_label" is true or the item is
-# "homepage"), followed by the name as a link to the URN or URL (or
-# if neither URN nor URL, no link). Otherwise, the label is a link to
-# the URN or URL. The label is the localized string for the key
-# "corpus_" + item name. The optional description is a represented as
-# a tooltip (HTML title attribute).
+# "homepage"), followed by the name as a link to the URN or URL (or if
+# neither URN nor URL, no link). Otherwise, the label is a link to the
+# URN or URL. The label is the localized string for the key "corpus_"
+# + item name. The optional description is a represented as a tooltip
+# (HTML title attribute).
 #
 # If an item needs no separate name, the simple properties X_urn and
 # X_url can be used instead of X: { urn: ... } (similarly for url).
@@ -1338,12 +1344,13 @@ util.findoutType = (variable) ->
 # following the link text. It could be used in the corpus info box
 # instead of the tooltip.
 
-util.formatCorpusExtraInfo = (corpusObj) ->
+util.formatCorpusExtraInfo = (corpusObj, opts = {}) ->
     info_items =
-        if arguments.length > 1 and arguments[1]
-            arguments[1]
+        if opts.info_items
+            opts.info_items
         else
             settings.corpusExtraInfoItems? or []
+    item_paragraphs = opts.item_paragraphs or false
 
     # Return the URN resolver URL for an URN: prefix
     # settings.urnResolver unless the URN string begins with "http".
@@ -1449,9 +1456,12 @@ util.formatCorpusExtraInfo = (corpusObj) ->
                 url: getUrnOrUrl(corpusObj, info_item + '_')
                 text: label
         if link_info.url or link_info.text
-            if result
-                result += '<br/>'
-            result += makeLinkItem(link_info)
+            if item_paragraphs
+                result += '<p>' + makeLinkItem(link_info) + '</p>'
+            else
+                if result
+                    result += '<br/>'
+                result += makeLinkItem(link_info)
         i++
     result
 
