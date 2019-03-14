@@ -293,9 +293,10 @@ settings.make_direct_LBR_URL = function (lbr_id) {
 // a new item X, also remember to add corresponding translations for
 // the link text to locale-??.json with the key "corpus_X".
 settings.corpusExtraInfoItems = [
+    "pid",
     "metadata",
-    "licence",
     "cite",
+    "licence",
     "urn",
     "homepage",
     "iprholder",
@@ -308,9 +309,10 @@ settings.corpusExtraInfoItems = [
 settings.corpusExtraInfo = {
     corpus_infobox: settings.corpusExtraInfoItems,
     sidebar: [
+	"pid",
 	"metadata",
-	"licence",
 	"cite",
+	"licence",
 	"urn",
 	"download",
     ]
