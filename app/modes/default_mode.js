@@ -13255,12 +13255,20 @@ settings.corpora.arkisyn = {
     }
 };
 
+
 settings.corpora.eduskunta = {
-    title: "Eduskunta - transkriptiot",
-    description: "Eduskunta - transkriptiot",
+    title: "Eduskunnan täysistunnot",
+    description: "Eduskunnan täysistuntojen videotallenteista tehdyt transkriptiot. Istunnot ovat ajalta 10.9.2008–1.7.2016. Osa aineistosta on tarjolla myös LAT-palvelussa. Hakutuloksissa on tällöin linkki istunnon LAT-versioon. Transkriptiot perustuvat suomen kielimalliin, joten ruotsinkieliset puheenvuorot ovat tunnistuneet enimmäkseen vierassanoiksi.",
     id: "eduskunta",
+    urn: "urn:nbn:fi:lb-2017020201",
     metadata_urn: "urn:nbn:fi:lb-2017020202",
-    cite_id: "edsukunta-korp",
+    licence: settings.licenceinfo.CC_BY_NC_ND,
+    cite_id: "eduskunta-korp",
+    homepage: {
+	url: "https://www.eduskunta.fi/FI/lakiensaataminen/taysistunnon_verkkolahetykset/tallenteet/Sivut/default.aspx",
+	name: "Eduskunnan täysistuntojen verkkolähetysten tallenteet",
+	no_label: true,
+    },
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.standard,
@@ -13270,9 +13278,108 @@ settings.corpora.eduskunta = {
         },
         text_date: sattrs.date,
         text_time: sattrs.text_time,
-        paragraph_participant: {
-            label: "speech_speakername"
-        }
+        paragraph_speaker: {
+            label: "speaker_name"
+        },
+	paragraph_speaker_parl_group: {
+            label: "speaker_parl_group",
+	    displayType: "select",
+	    opts: settings.liteOptions,
+	    translationKey: "parlgroup_",
+	    dataset: [
+		"kd",
+		"kesk",
+		"kok",
+		"m11",
+		"ps",
+		"r",
+		"sd",
+		"vas",
+		"vihr",
+		"vr",
+		""
+	    ]
+        },
+	paragraph_speaker_role: {
+	    label: "speakerrole",
+	    displayType: "select",
+	    opts: settings.liteOptions,
+	    translationKey: "speakerrole_",
+	    dataset: [
+		"puhemies",
+		"ensimmainen_varapuhemies",
+		"toinen_varapuhemies",
+		"paaministeri",
+		"valtiovarainministeri",
+		"elinkeinoministeri",
+		"peruspalveluministeri",
+		"sosiaali_ja_terveysministeri",
+		"oikeusministeri",
+		"tyoministeri",
+		"ulkoasiainministeri",
+		"maa_ja_metsatalousministeri",
+		"opetusministeri",
+		"puolustusministeri",
+		"hallinto_ja_kuntaministeri",
+		"ymparistoministeri",
+		"liikenneministeri",
+		"sisaasiainministeri",
+		"sisaministeri",
+		"oikeus_ja_tyoministeri",
+		"kehitysministeri",
+		"puhuja",
+		"asunto_ja_viestintaministeri",
+		"perhe_ja_peruspalveluministeri",
+		"kulttuuri_ja_urheiluministeri",
+		"opetus_ja_kulttuuriministeri",
+		"viestintaministeri",
+		"opetus_ja_viestintaministeri",
+		"maatalous_ja_ymparistoministeri",
+		"maahanmuutto_ja_eurooppaministeri",
+		"ulkomaankauppa_ja_kehitysministeri",
+		"asuntoministeri",
+		"liikenne_ja_viestintaministeri",
+		"liikenne_ja_kuntaministeri",
+		"eurooppa_ja_ulkomaankauppaministeri",
+		"kulttuuri_ja_asuntoministeri",
+		"kunta_ja_uudistusministeri",
+		"eduskunnan_oikeusasiamies",
+		"ikapuhemies",
+		"valtioneuvoston_oikeuskansleri",
+		"varajasen",
+		"valtioneuvoston_apulaisoikeuskansleri",
+		""
+	    ]
+	},
+	paragraph_speech_type: {
+            label: "speech_type",
+	    displayType: "select",
+	    opts: settings.liteOptions,
+	    translationKey: "speechtype_",
+	    dataset: [
+		"ryhmapuheenvuoro",
+		"esittelypuheenvuoro",
+		"vastauspuheenvuoro",
+		"koputtaa",
+		""
+	    ]
+        },
+	paragraph_participant: {
+	    label: "speaker"
+	},
+	utterance_id: {
+	    label: "utterance_num",
+	},
+	utterance_begin_time: {
+	    label: "utterance_begin_time"
+	},
+	utterance_end_time: {
+	    label: "utterance_end_time"
+	},
+	utterance_duration: {
+	    label: "utterance_duration"
+	},
+	utterance_annex_link: sattrs.link_show_video_annex,
     }
 };
 

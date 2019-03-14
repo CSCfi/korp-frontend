@@ -898,6 +898,9 @@
     "party_s": "Sveriges socialdemokratiska arbetareparti",
     "party_v": "Vänsterpartiet",
 
+    "eduskunta_group": "parliamentary group",
+    "eduskunta_role": "role",
+
     "group": "group",
     "interview": "interview",
     "interviewee": "interviewee",
