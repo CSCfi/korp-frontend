@@ -1397,9 +1397,7 @@ util.formatCorpusExtraInfo = (corpusObj, opts = {}) ->
         result
 
     result = ''
-    i = 0
-    while i < info_items.length
-        info_item = info_items[i]
+    for info_item in info_items
         link_info = {}
         label = ''
         # Use rel='localize[...]' instead of util.getLocaleString, so
@@ -1474,8 +1472,7 @@ util.formatCorpusExtraInfo = (corpusObj, opts = {}) ->
                 if result
                     result += '<br/>'
                 result += makeLinkItem(link_info)
-        i++
-    result
+    return result
 
 # Copy information from the "info" property of corpusObj to the top
 # level of corpusObj. This information may come from the backend .info

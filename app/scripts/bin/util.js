@@ -1437,7 +1437,7 @@
   };
 
   util.formatCorpusExtraInfo = function(corpusObj, opts) {
-    var getUrnOrUrl, i, info_item, info_items, info_obj, item_paragraphs, label, link_info, makeLinkItem, makeUrnUrl, pid, ref, ref1, result;
+    var getUrnOrUrl, info_item, info_items, info_obj, item_paragraphs, k, label, len1, link_info, makeLinkItem, makeUrnUrl, pid, ref, ref1, result;
     if (opts == null) {
       opts = {};
     }
@@ -1478,9 +1478,8 @@
       return result;
     };
     result = '';
-    i = 0;
-    while (i < info_items.length) {
-      info_item = info_items[i];
+    for (k = 0, len1 = info_items.length; k < len1; k++) {
+      info_item = info_items[k];
       link_info = {};
       label = '';
       label = '<span rel=\'localize[corpus_' + info_item + ']\'>' + 'Corpus ' + info_item + '</span>';
@@ -1540,7 +1539,6 @@
           result += makeLinkItem(link_info);
         }
       }
-      i++;
     }
     return result;
   };
