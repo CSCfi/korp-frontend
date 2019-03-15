@@ -1437,24 +1437,17 @@
   };
 
   util.formatCorpusExtraInfo = function(corpusObj, opts) {
-    var getUrnOrUrl, info_item, info_items, info_obj, item_paragraphs, k, label, len1, link_info, makeLinkItem, makeUrnUrl, pid, ref, ref1, result;
+    var getUrnOrUrl, info_item, info_items, info_obj, item_paragraphs, k, label, len1, link_info, makeLinkItem, result;
     if (opts == null) {
       opts = {};
     }
     info_items = opts.info_items ? opts.info_items : (settings.corpusExtraInfoItems != null) || [];
     item_paragraphs = opts.item_paragraphs || false;
-    makeUrnUrl = function(urn) {
-      if (urn.indexOf('http') !== 0) {
-        return settings.urnResolver + urn;
-      } else {
-        return urn;
-      }
-    };
     getUrnOrUrl = function(obj) {
       var prefix;
       prefix = arguments.length > 1 ? arguments[1] : '';
       if (prefix + 'urn' in obj) {
-        return makeUrnUrl(obj[prefix + 'urn']);
+        return util.makeUrnUrl(obj[prefix + 'urn']);
       } else {
         return obj[prefix + 'url'];
       }
@@ -1480,56 +1473,37 @@
     result = '';
     for (k = 0, len1 = info_items.length; k < len1; k++) {
       info_item = info_items[k];
-      link_info = {};
+      link_info = null;
       label = '';
       label = '<span rel=\'localize[corpus_' + info_item + ']\'>' + 'Corpus ' + info_item + '</span>';
-      if (info_item === 'urn' && corpusObj.urn) {
-        link_info = {
-          url: makeUrnUrl(corpusObj.urn),
-          text: label
-        };
-      } else if (info_item === 'pid') {
-        pid = corpusObj.pid_urn || ((ref = corpusObj.pid) != null ? ref.urn : void 0) || corpusObj.metadata_urn || ((ref1 = corpusObj.metadata) != null ? ref1.urn : void 0);
-        if (pid) {
+      if (settings.makeCorpusExtraInfoItem && info_item in settings.makeCorpusExtraInfoItem) {
+        link_info = settings.makeCorpusExtraInfoItem[info_item](corpusObj, label);
+      }
+      if (!link_info) {
+        if (corpusObj[info_item]) {
+          info_obj = corpusObj[info_item];
           link_info = {
-            url: makeUrnUrl(pid),
-            text: '<span style="white-space: nowrap;">' + pid + '</span>',
-            label: label
+            url: getUrnOrUrl(info_obj)
+          };
+          if (info_obj.name) {
+            link_info.text = info_obj.name;
+            if (!info_obj.no_label) {
+              link_info.label = label;
+            }
+          } else {
+            link_info.text = label;
+          }
+          if (info_obj.description) {
+            link_info.tooltip = info_obj.description;
+          }
+        } else if (corpusObj[info_item + '_urn'] || corpusObj[info_item + '_url']) {
+          link_info = {
+            url: getUrnOrUrl(corpusObj, info_item + '_'),
+            text: label
           };
         }
-      } else if (info_item === 'homepage' && !('homepage' in corpusObj) && corpusObj.url) {
-        link_info = {
-          url: corpusObj.url,
-          text: label
-        };
-      } else if (info_item === 'cite' && corpusObj.cite_id && (settings.corpus_cite_base_url != null)) {
-        link_info = {
-          url: settings.corpus_cite_base_url + escape(corpusObj.cite_id) + '&lang=' + window.lang,
-          text: label
-        };
-      } else if (corpusObj[info_item]) {
-        info_obj = corpusObj[info_item];
-        link_info = {
-          url: getUrnOrUrl(info_obj)
-        };
-        if (info_obj.name) {
-          link_info.text = info_obj.name;
-          if (!info_obj.no_label) {
-            link_info.label = label;
-          }
-        } else {
-          link_info.text = label;
-        }
-        if (info_obj.description) {
-          link_info.tooltip = info_obj.description;
-        }
-      } else if (corpusObj[info_item + '_urn'] || corpusObj[info_item + '_url']) {
-        link_info = {
-          url: getUrnOrUrl(corpusObj, info_item + '_'),
-          text: label
-        };
       }
-      if (link_info.url || link_info.text) {
+      if (link_info && (link_info.url || link_info.text)) {
         if (item_paragraphs) {
           result += '<p>' + makeLinkItem(link_info) + '</p>';
         } else {
@@ -1541,6 +1515,14 @@
       }
     }
     return result;
+  };
+
+  util.makeUrnUrl = function(urn) {
+    if (urn.indexOf('http') !== 0) {
+      return settings.urnResolver + urn;
+    } else {
+      return urn;
+    }
   };
 
   util.copyCorpusInfoToConfig = function(corpusObj) {
