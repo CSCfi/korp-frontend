@@ -840,7 +840,7 @@ settings.corporafolders.ftc = {
 
 settings.corporafolders.other_texts = {
     title: "Muita tekstejä",
-    contents: ["finstud", "kfspc_fi"]
+    contents: ["finstud", "kfspc_fi", "yo_aineet"]
 };
 
 settings.corporafolders.other_texts.kotus_ns_presidentti = {
@@ -11084,6 +11084,39 @@ settings.corpora.kfspc_fi = {
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_fi"]);
 
+// Ylioppilasaineet
+
+settings.corpora.yo_aineet = {
+    id: "yo_aineet",
+    title: "Ylioppilasaineet",
+    description: "1994, 1999 ja 2004 äidinkielen ylioppilaskokeiden esseitä sisältävä korpus",
+    urn: "",
+    metadata_urn: "urn:nbn:fi:lb-2017030301",
+    licence: {
+        name: "CLARIN RES loppukäyttäjän lisenssisopimus +NC +PRIV 1.0",
+        urn: "urn:nbn:fi:lb-2017030601",
+    },
+    cite_id: "ylioppilasaineet",
+    limited_access: true,
+    licence_type: "RES",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    features: ["paragraphs", "parsed_tdt"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_year: sattrs.text_year,
+        text_author: sattrs.text_author,
+        text_author_sex: {
+            label: "author_sex"
+        },
+        text_title: sattrs.text_title,
+        text_grade: {
+            label: "grade"
+        },   
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
 
 // FiRuLex
 
