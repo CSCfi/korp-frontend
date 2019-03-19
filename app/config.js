@@ -293,6 +293,7 @@ settings.make_direct_LBR_URL = function (lbr_id) {
 // a new item X, also remember to add corresponding translations for
 // the link text to locale-??.json with the key "corpus_X".
 settings.corpusExtraInfoItems = [
+    "subcorpus_of",
     "pid",
     // PID is represented as a metadata link so a separate metadata
     // link is not needed.
@@ -311,6 +312,7 @@ settings.corpusExtraInfoItems = [
 settings.corpusExtraInfo = {
     corpus_infobox: settings.corpusExtraInfoItems,
     sidebar: [
+	"subcorpus_of",
 	"pid",
 	// "metadata",
 	"cite",
@@ -330,6 +332,15 @@ settings.corpusExtraInfo = {
 // and "tooltip", or undefined if the default handling should be
 // tried.
 settings.makeCorpusExtraInfoItem = {
+    subcorpus_of: function (corpusObj, label) {
+	if (corpusObj.logical_corpus
+	    && corpusObj.logical_corpus.title != corpusObj.title) {
+	    return {
+		text: corpusObj.logical_corpus.title,
+		label: label,
+	    };
+	}
+    },
     pid: function (corpusObj, label) {
         // If the PID of a corpus is not specified explicitly, use
         // the metadata URN.

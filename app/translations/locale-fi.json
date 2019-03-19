@@ -372,15 +372,16 @@
 
     "privacy": "Tietosuojaseloste",
 
-    "corpus_urn": "Linkki korpukseen Korpissa",
-    "corpus_pid": "Pysyvä tunniste (kuvailutiedot)",
+    "corpus_subcorpus_of": "Osa aineistoa",
+    "corpus_pid": "Aineiston pysyvä tunniste (kuvailutiedot)",
+    "corpus_urn": "Linkki aineistoon Korpissa",
     "corpus_licence": "Lisenssi",
     "corpus_metadata": "Kuvailutiedot",
     "corpus_homepage": "Kotisivu",
     "corpus_iprholder": "Oikeudenhaltija",
     "corpus_compiler": "Koostaja",
     "corpus_download": "Lataa aineisto",
-    "corpus_cite": "Viittaa korpukseen",
+    "corpus_cite": "Viittaa aineistoon",
 
     "no_geo_info": "Paikkatietoja ei saatavilla",
     "map_cluster": "Ryhmittele",
