@@ -8,11 +8,13 @@ Sidebar =
         formattedCorpusInfo =
             if settings?.corpusExtraInfo
             then util.formatCorpusExtraInfo(
-                corpusObj, settings.corpusExtraInfo?.sidebar)
+                corpusObj,
+                info_items: settings.corpusExtraInfo?.sidebar
+                item_paragraphs: true)
             else ""
         if formattedCorpusInfo
             formattedCorpusInfo = "<br/>" + formattedCorpusInfo
-        $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>#{corpusObj.title}</p><p id='sidebar-corpus-info'>#{formattedCorpusInfo}</p>").prependTo "#selected_sentence"
+        $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>#{corpusObj.title}</p><div id='sidebar-corpus-info'>#{formattedCorpusInfo}</div>").prependTo "#selected_sentence"
         # All token data, to be passed to the function stringify_synthtetic
         # of a synthetic attribute (Jyrki Niemi 2015-02-24)
         # TODO (Jyrki Niemi): This could now be removed as Språkbanken's code
