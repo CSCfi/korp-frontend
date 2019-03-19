@@ -11093,7 +11093,7 @@ settings.corpora.yo_aineet = {
     urn: "",
     metadata_urn: "urn:nbn:fi:lb-2017030301",
     licence: {
-        name: "CLARIN RES loppukäyttäjän lisenssisopimus +NC +PRIV 1.0",
+        name: "CLARIN RES +NC +PRIV 1.0",
         urn: "urn:nbn:fi:lb-2017030601",
     },
     cite_id: "ylioppilasaineet",
@@ -11104,7 +11104,7 @@ settings.corpora.yo_aineet = {
     features: ["paragraphs", "parsed_tdt"],
     struct_attributes: {
         text_id: sattrs.hidden,
-        text_year: sattrs.text_year,
+        text_year: sattrs.year,
         text_author: sattrs.text_author,
         text_author_sex: {
             label: "author_sex"
