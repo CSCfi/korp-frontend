@@ -294,7 +294,9 @@ settings.make_direct_LBR_URL = function (lbr_id) {
 // the link text to locale-??.json with the key "corpus_X".
 settings.corpusExtraInfoItems = [
     "pid",
-    "metadata",
+    // PID is represented as a metadata link so a separate metadata
+    // link is not needed.
+    // // "metadata",
     "cite",
     "licence",
     "urn",
@@ -310,7 +312,7 @@ settings.corpusExtraInfo = {
     corpus_infobox: settings.corpusExtraInfoItems,
     sidebar: [
 	"pid",
-	"metadata",
+	// "metadata",
 	"cite",
 	"licence",
 	"urn",

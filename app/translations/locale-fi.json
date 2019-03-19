@@ -372,8 +372,8 @@
 
     "privacy": "Tietosuojaseloste",
 
-    "corpus_pid": "Pysyvä tunniste",
     "corpus_urn": "Linkki korpukseen Korpissa",
+    "corpus_pid": "Pysyvä tunniste (kuvailutiedot)",
     "corpus_licence": "Lisenssi",
     "corpus_metadata": "Kuvailutiedot",
     "corpus_homepage": "Kotisivu",
