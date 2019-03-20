@@ -1,4 +1,22 @@
 
+<!-- Updated corpus: Plenary Sessions of the Parliament of Finland 2019-03-14 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2017020202" target="_blank">The
+Plenary Sessions of the Parliament of Finland corpus</a> has been
+updated:
+
+* The name of the corpus in the corpus chooser is [*Eduskunnan
+  täysistunnot*](?mode=default#?corpus=eduskunta).
+* Links to video recordings in the <a href="https://lat.csc.fi"
+  target="_blank">LAT service</a> have been added. For technical
+  reasons, only parts of the corpus have links.
+* Speaker name, parliamentary group, speaker role and speech type have
+  been extracted into separate attributes from the speaker
+  information.
+* The date and time of a speech are in ISO 8601 format *YYYY-MM-DD
+  hh:mm:ss*.
+
+
 <!-- New corpus version: Suomi24 sentences (2017H2) (beta) 2019-02-18 -->
 
 The <a href="http://urn.fi/urn:nbn:fi:lb-2019021101"

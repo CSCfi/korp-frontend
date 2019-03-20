@@ -1,4 +1,20 @@
 
+<!-- Päivitetty aineisto: Eduskunnan täysistunnot 2019-03-14 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2017020202"
+target="_blank">Eduskunnan täysistunnot -aineistoa</a> on päivitetty:
+
+* Aineiston nimi korpusvalikossa on [*Eduskunnan
+  täysistunnot*](?mode=default#?corpus=eduskunta).
+* Ainestoon on lisätty linkkejä <a href="https://lat.csc.fi"
+  target="_blank">LAT-palvelussa</a> oleviin videoihin. Teknisistä
+  syistä linkkejä on vain osassa aineistoa.
+* Puhujan tiedoista on eristetty omiksi piirteikseen puhujan nimi,
+  eduskuntaryhmä, puhujan rooli ja puheenvuoron tyyppi.
+* Puheenvuoron päiväys ja kellonaika ovat ISO 8601 -muodossa
+  *YYYY-MM-DD hh:mm:ss*.
+
+
 <!-- Uusi aineistoversio: Suomi24 virkkeet (2017H2) (beta) 2019-02-18 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2019021101"
