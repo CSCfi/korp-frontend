@@ -978,7 +978,8 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
         extra_info =
             if folder.info and settings.corpusExtraInfo
                 util.formatCorpusExtraInfo(
-                    folder.info, settings.corpusExtraInfo.corpus_infobox)
+                    folder.info,
+                    info_items: settings.corpusExtraInfo.corpus_infobox)
             else
                 ""
         folder_descr += ((if folder_descr and extra_info then "<br/><br/>" else "") +
@@ -1065,7 +1066,8 @@ util.loadCorpora = ->
             corpusExtraInfo =
                 if settings.corpusExtraInfo
                     util.formatCorpusExtraInfo(
-                        corpusObj, settings.corpusExtraInfo.corpus_infobox)
+                        corpusObj,
+                        info_items: settings.corpusExtraInfo.corpus_infobox)
                 else
                     undefined
             if corpusExtraInfo
@@ -1316,18 +1318,22 @@ util.findoutType = (variable) ->
 
 # Format extra information associated with a corpus object, typically
 # a URN, licence information and various links. An optional second
-# argument specifies a list of items (properties in the corpus
-# configuration) to be formatted.
+# argument specifies an object containing options as properties. The
+# supported options are:
+# - info_items: an array of items (properties in the corpus
+#   configuration) to be formatted.
+# - item_paragraphs: if true, enclose each item in <p>...</p>;
+#   otherwise separate them with <br/>
 #
-# The properties are usually composite objects which may contain the
-# properties "name", "description", and "url" or "urn". If the
-# information contains "name", it is presented as follows: a label
+# The information items are usually composite objects which may
+# contain the properties "name", "description", and "url" or "urn". If
+# the information contains "name", it is presented as follows: a label
 # and a colon (unless the property "no_label" is true or the item is
-# "homepage"), followed by the name as a link to the URN or URL (or
-# if neither URN nor URL, no link). Otherwise, the label is a link to
-# the URN or URL. The label is the localized string for the key
-# "corpus_" + item name. The optional description is a represented as
-# a tooltip (HTML title attribute).
+# "homepage"), followed by the name as a link to the URN or URL (or if
+# neither URN nor URL, no link). Otherwise, the label is a link to the
+# URN or URL. The label is the localized string for the key "corpus_"
+# + item name. The optional description is a represented as a tooltip
+# (HTML title attribute).
 #
 # If an item needs no separate name, the simple properties X_urn and
 # X_url can be used instead of X: { urn: ... } (similarly for url).
@@ -1338,20 +1344,13 @@ util.findoutType = (variable) ->
 # following the link text. It could be used in the corpus info box
 # instead of the tooltip.
 
-util.formatCorpusExtraInfo = (corpusObj) ->
+util.formatCorpusExtraInfo = (corpusObj, opts = {}) ->
     info_items =
-        if arguments.length > 1 and arguments[1]
-            arguments[1]
+        if opts.info_items
+            opts.info_items
         else
             settings.corpusExtraInfoItems? or []
-
-    # Return the URN resolver URL for an URN: prefix
-    # settings.urnResolver unless the URN string begins with "http".
-    makeUrnUrl = (urn) ->
-        if urn.indexOf('http') != 0
-            settings.urnResolver + urn
-        else
-            urn
+    item_paragraphs = opts.item_paragraphs or false
 
     # Get the value of a URN (preferred, prefixed with resolver URL)
     # or URL property in obj. The optional second argument specifies
@@ -1359,11 +1358,11 @@ util.formatCorpusExtraInfo = (corpusObj) ->
     getUrnOrUrl = (obj) ->
         prefix = if arguments.length > 1 then arguments[1] else ''
         if prefix + 'urn' of obj
-            makeUrnUrl(obj[prefix + 'urn'])
+            util.makeUrnUrl(obj[prefix + 'urn'])
         else
             obj[prefix + 'url']
 
-    # Return a HTML link (or text), given link_info, which may
+    # Return an HTML link (or text), given link_info, which may
     # contain the properties "label", "url", "text" and "tooltip".
     makeLinkItem = (link_info) ->
         result = ''
@@ -1390,10 +1389,8 @@ util.formatCorpusExtraInfo = (corpusObj) ->
         result
 
     result = ''
-    i = 0
-    while i < info_items.length
-        info_item = info_items[i]
-        link_info = {}
+    for info_item in info_items
+        link_info = null
         label = ''
         # Use rel='localize[...]' instead of util.getLocaleString, so
         # that the texts are re-localized immediately when switching
@@ -1401,59 +1398,44 @@ util.formatCorpusExtraInfo = (corpusObj) ->
         # TODO: Convert to use the new localization method
         label = '<span rel=\'localize[corpus_' + info_item + ']\'>' +
             'Corpus ' + info_item + '</span>'
-        if info_item == 'urn' and corpusObj.urn
-            link_info =
-                url: makeUrnUrl(corpusObj.urn)
-                text: corpusObj.urn
-                label: label
-        else if info_item == 'homepage' and ! ('homepage' of corpusObj) and
-                corpusObj.url
-            # Assume that the top-level property "url" refers to the
-            # home page of the corpus (unless the there is a property
-            # "homepage").
-            link_info =
-                url: corpusObj.url
-                text: label
-        else if info_item == 'cite' and corpusObj.cite_id and
-                settings.corpus_cite_base_url?
-            link_info =
-                # Using ng-href would require using Angular $compile,
-                # but how could we use it here or where should it be
-                # called?
-                # http://stackoverflow.com/questions/11771513/angularjs-jquery-how-to-get-dynamic-content-working-in-angularjs
-                # url: settings.corpus_cite_base_url + corpusObj.cite_id +
-                #      '&lang={{lang}}'
-                # This does not change the lang parameter in the
-                # corpus info box, although it works in the sidebar.
-                #
-                # escape call is needed for a cite_id containing a &,
-                # but the escaped % then seems to be escaped again
-                # somewhere else. Where?
-                url: settings.corpus_cite_base_url +
-                     escape(corpusObj.cite_id) + '&lang=' + window.lang
-                text: label
-        else if corpusObj[info_item]
-            info_obj = corpusObj[info_item]
-            link_info = url: getUrnOrUrl(info_obj)
-            if info_obj.name
-                link_info.text = info_obj.name
-                if ! info_obj.no_label
-                    link_info.label = label
+        if (settings.makeCorpusExtraInfoItem and
+                info_item of settings.makeCorpusExtraInfoItem)
+            link_info = settings.makeCorpusExtraInfoItem[info_item](
+                corpusObj, label)
+        if not link_info
+            if corpusObj[info_item]
+                info_obj = corpusObj[info_item]
+                link_info = url: getUrnOrUrl(info_obj)
+                if info_obj.name
+                    link_info.text = info_obj.name
+                    if ! info_obj.no_label
+                        link_info.label = label
+                else
+                    link_info.text = label
+                if info_obj.description
+                    link_info.tooltip = info_obj.description
+            else if (corpusObj[info_item + '_urn'] or
+                     corpusObj[info_item + '_url'])
+                # Simple *_urn or *_url properties
+                link_info =
+                    url: getUrnOrUrl(corpusObj, info_item + '_')
+                    text: label
+        if link_info and (link_info.url or link_info.text)
+            if item_paragraphs
+                result += '<p>' + makeLinkItem(link_info) + '</p>'
             else
-                link_info.text = label
-            if info_obj.description
-                link_info.tooltip = info_obj.description
-        else if corpusObj[info_item + '_urn'] or corpusObj[info_item + '_url']
-            # Simple *_urn or *_url properties
-            link_info =
-                url: getUrnOrUrl(corpusObj, info_item + '_')
-                text: label
-        if link_info.url or link_info.text
-            if result
-                result += '<br/>'
-            result += makeLinkItem(link_info)
-        i++
-    result
+                if result
+                    result += '<br/>'
+                result += makeLinkItem(link_info)
+    return result
+
+# Return the URN resolver URL for an URN: prefix settings.urnResolver
+# unless the URN string begins with "http".
+util.makeUrnUrl = (urn) ->
+    if urn.indexOf('http') != 0
+        settings.urnResolver + urn
+    else
+        urn
 
 # Copy information from the "info" property of corpusObj to the top
 # level of corpusObj. This information may come from the backend .info

@@ -456,6 +456,8 @@
 
     "privacy": "Privacy policy",
 
+    "corpus_subcorpus_of": "Subcorpus of",
+    "corpus_pid": "Persistent Identifier (metadata)",
     "corpus_urn": "Link to corpus in Korp",
     "corpus_licence": "Licence",
     "corpus_metadata": "Metadata",
