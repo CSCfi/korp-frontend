@@ -1,4 +1,19 @@
 
+<!-- Small changes to corpus information 2019-03-20 -->
+
+The pieces of information on a corpus shown in the corpus chooser and
+the KWIC sidebar have been changed slightly:
+
+* For a subcorpus of a larger corpus, the first piece of information
+  is the name of the whole corpus (“Subcorpus of”).
+* The Persistent Identifier (URN) of a corpus is shown as its own
+  item. It is a link to the metadata of the corpus, so it replaces the
+  “Metadata” link.
+* The Persistent Identifier (URN) for the Korp location of the corpus
+  is not shown, but the text “Link to corpus in Korp” itself is a
+  link.
+
+
 <!-- Updated corpus: Plenary Sessions of the Parliament of Finland 2019-03-14 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2017020202" target="_blank">The

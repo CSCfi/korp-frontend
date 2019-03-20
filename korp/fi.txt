@@ -1,4 +1,18 @@
 
+<!-- Pieniä muutoksia aineistosta näkyviin tietoihin 2019-03-20 -->
+
+Korpusvalikon tietolaatikoissa ja konkordanssin reunapalkissa
+aineistosta näkyviin tietoihin on tehty pieniä muutoksia:
+
+* Laajemman aineiston osakorpuksesta näkyy ensimmäisenä koko aineiston
+  nimi (”Osa aineistoa”).
+* Aineiston pysyvä tunniste (URN) näkyy omana tietonaan. Se on linkki,
+  joka vie aineiston kuvailutietoihin, joten se korvaa
+  ”Kuvailutiedot”-linkin.
+* Aineiston Korp-sijainnin pysyvä tunniste (URN) ei näy erikseen, vaan
+  ”Linkki aineistoon Korpissa” on itsessään linkki.
+
+
 <!-- Päivitetty aineisto: Eduskunnan täysistunnot 2019-03-14 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2017020202"
