@@ -87,14 +87,14 @@ and
 
 
 or
-  = lhs:("_."? [A-Za-z_]+) " "? infix_op:infix_op " "? rhs:value_expr flags:(" %"[cd]+)? {
+  = lhs:("_."? [A-Za-z_][A-Za-z0-9_]*) " "? infix_op:infix_op " "? rhs:value_expr flags:(" %"[cd]+)? {
     var prefix = ""
     if(lhs[0])
       prefix = lhs[0]
 
     if(flags)
       flags = _.zipObject(flags[1], _.map(flags[1], function() { return true; }));
-    return makeObj(prefix + lhs[1].join(""), infix_op, rhs, flags)
+    return makeObj(prefix + lhs[1] + lhs[2].join(""), infix_op, rhs, flags)
   }
   / date
 
