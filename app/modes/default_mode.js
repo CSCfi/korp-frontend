@@ -11102,20 +11102,7 @@ settings.corpora.yo_aineet = {
     context: settings.defaultContext,
     within: settings.defaultWithin,
     features: ["paragraphs", "parsed_tdt"],
-    struct_attributes: {
-        text_id: sattrs.hidden,
-        text_year: sattrs.year,
-        text_author: sattrs.text_author,
-        text_author_sex: {
-            label: "author_sex"
-        },
-        text_title: sattrs.text_title,
-        text_grade: {
-            label: "grade"
-        },   
-        paragraph_id: sattrs.paragraph_id_hidden,
-        sentence_id: sattrs.sentence_id_hidden,
-    }
+    struct_attributes: sattrlist.yo_aineet
 };
 
 // FiRuLex
