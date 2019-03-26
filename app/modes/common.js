@@ -1652,6 +1652,7 @@ sattrs.sex = {
 	"m": "male",
 	"x": "other",
 	"u": "unknown",
+	"m[?]": "male_unsure", 
     },
     opts: settings.liteOptions,
 };
