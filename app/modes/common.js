@@ -1642,6 +1642,20 @@ sattrs.author_deathyear = {
     label: "author_deathyear"
 };
 
+
+sattrs.sex = {
+    label: "sex",
+    displayType: "select",
+    translationKey: "sex_",
+    dataset: {
+	"f": "female",
+	"m": "male",
+	"x": "other",
+	"u": "unknown",
+    },
+    opts: settings.liteOptions,
+};
+
 sattrs.publ_year = {
     label: "year_published"
 };
@@ -1994,27 +2008,7 @@ attrlist.finstud = {
     }
 };
 
-/* YO_AINEET */
-sattrlist.yo_aineet = {
-    text_id: sattrs.hidden,
-    sentence_id: sattrs.sentence_id_hidden,
-    paragraph_id: sattrs.paragraph_id_hidden,
-    text_year: sattrs.year,
-    text_author: sattrs.text_author,
-    text_author_name_type: {
-	label: "author_name_type"
-    },
-    text_author_sex: {
-	label: "studentsvenska_gender"
-    },
-    text_title: sattrs.text_title,
-    text_topic_number: {
-        label: "studentsvenska_textnumber"
-    },
-    text_grade: {
-        label: "studentsvenska_gradeexam"
-    },
-};
+
 
 /* BESERCORP */
 attrlist.besercorp = {

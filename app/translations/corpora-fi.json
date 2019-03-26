@@ -110,7 +110,15 @@
     "unknown": "tuntematon",
     "male_female": "mies ja nainen",
 
-    "author_name_type": "tekijän nimin tyyppi",
+    "sex_female": "nainen",
+    "sex_male": "mies",
+    "sex_other": "muu",
+    "sex_unknown": "tuntematon",
+
+    "author_name_type": "tekijän nimen tyyppi",
+    "topic_number": "tekstin numero",
+    "grade": "koearvosana",
+    "sex": "sukupuoli",
 
     "yes": "kyllä",
     "no": "ei",
