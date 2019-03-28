@@ -11106,9 +11106,7 @@ settings.corpora.yo_aineet = {
 	text_id: sattrs.hidden,
 	text_year: sattrs.year,
 	text_author: sattrs.text_author,
-	text_author_name_type: {
-	    label: "author_name_type"
-	},
+	text_author_name_type: sattrs.author_name_type,
 	text_author_sex: sattrs.sex,
 	text_title: sattrs.text_title,
 	text_topic_num: {

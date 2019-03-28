@@ -1656,6 +1656,17 @@ sattrs.sex = {
     opts: settings.liteOptions,
 };
 
+sattrs.author_name_type = {
+    label: "author_name_type",
+    displayType: "select",
+    translationKey: "author_name_type_",
+    dataset: {
+	"candidate id": "candidate_id",
+    },
+    opts: settings.liteOptions,
+}; 
+
+
 sattrs.publ_year = {
     label: "year_published"
 };

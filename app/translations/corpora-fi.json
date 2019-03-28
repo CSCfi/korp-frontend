@@ -116,6 +116,7 @@
     "sex_unknown": "tuntematon",
 
     "author_name_type": "tekijän nimen tyyppi",
+    "author_name_type_candidate_id": "kokelaan tunniste",
     "topic_number": "tekstin numero",
     "grade": "koearvosana",
     "sex": "sukupuoli",
