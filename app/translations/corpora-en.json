@@ -125,6 +125,16 @@
     "subject": "subject",
     "volume": "volume",
 
+    "author_name_type": "author's name type",
+    "author_name_type_candidate_id": "candidate id",
+    "sex": "sex",
+    "grade": "grade",
+    "sex_male": "male",
+    "sex_female": "female",
+    "sex_other": "other",
+    "sex_unknown": "unknown",
+    "topic_number": "text number",
+
     "sentence_link": "sentence link",
     "text_issue": "issue",
 
