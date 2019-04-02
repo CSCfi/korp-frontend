@@ -125,7 +125,7 @@
     "subject": "subject",
     "volume": "volume",
 
-    "author_name_type": "author's name type",
+    "author_name_type": "type of author name",
     "author_name_type_candidate_id": "candidate id",
     "sex": "sex",
     "grade": "grade",

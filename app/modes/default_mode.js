@@ -840,7 +840,7 @@ settings.corporafolders.ftc = {
 
 settings.corporafolders.other_texts = {
     title: "Muita tekstejä",
-    contents: ["finstud", "kfspc_fi", "yo_aineet"]
+    contents: ["finstud", "kfspc_fi", "yoaineet"]
 };
 
 settings.corporafolders.other_texts.kotus_ns_presidentti = {
@@ -11086,8 +11086,8 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_fi"]);
 
 // Ylioppilasaineet
 
-settings.corpora.yo_aineet = {
-    id: "yo_aineet",
+settings.corpora.yoaineet = {
+    id: "yoaineet",
     title: "Ylioppilasaineet",
     description: "1994, 1999 ja 2004 äidinkielen ylioppilaskokeiden esseitä sisältävä korpus",
     urn: "",
