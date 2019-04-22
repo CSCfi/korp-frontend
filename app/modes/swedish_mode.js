@@ -173,7 +173,7 @@ settings.corpora.asd_sv_parsed = {
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
-    attributes : {},
+    attributes : attrlist.parsed_sv,
     struct_attributes : {
 	text_url : {
 	    label : "URL",
@@ -191,7 +191,7 @@ settings.corpora.kho_sv_parsed = {
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
-    attributes : {},
+    attributes : attrlist.parsed_sv,
     struct_attributes : {
 	text_url : {
 	    label : "URL",
@@ -209,7 +209,7 @@ settings.corpora.kko_sv_parsed = {
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
-    attributes : {},
+    attributes : attrlist.parsed_sv,
     struct_attributes : {
 	text_url : {
 	    label : "URL",

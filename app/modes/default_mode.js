@@ -1045,6 +1045,7 @@ settings.corpora.asd_fi_parsed = {
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
+    features: ["paragraphs", "parsed_tdt"],
     attributes : {},
     struct_attributes : {
 	text_url : {
@@ -1063,6 +1064,7 @@ settings.corpora.kho_fi_parsed = {
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
+    features: ["paragraphs", "parsed_tdt"],
     attributes : {},
     struct_attributes : {
 	text_url : {
@@ -1081,6 +1083,7 @@ settings.corpora.kko_fi_parsed = {
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
+    features: ["paragraphs", "parsed_tdt"],
     attributes : {},
     struct_attributes : {
 	text_url : {
