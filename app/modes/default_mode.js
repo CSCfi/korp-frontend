@@ -868,8 +868,15 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
 
 settings.corporafolders.semfinlex = {
     title: "Kokoelma Eduskunnnan alkuperäisiä säädöksiä sekä KKO:n ja KHO:n päätöksiä",
-    description: "Sisältää valikoiman alkuperäisiä säädöksiä (1917-2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980-2018) ja KHO:n päätöksiä (1987-2018).",
+    description: "Sisältää valikoiman Eduskunnan alkuperäisiä säädöksiä (1917-2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980-2018) ja KHO:n päätöksiä (1987-2018).",
     contents: ["asd_fi_parsed", "kko_fi_parsed", "kho_fi_parsed"],
+    info: {
+	urn: "",
+	metadata_urn: "",
+	licence: settings.licenceinfo.CC_BY,
+	homepage_url: "",
+	cite_id: "semfinlex",
+    }
 }
 
 settings.corporafolders.spoken = {
@@ -1038,15 +1045,14 @@ settings.corpora.testcorp_deptree = {
 */
 
 settings.corpora.asd_fi_parsed = {
-    id: "",
-    lang: "",
-    title: "Säädöskokoelma",
-    description: "Alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1917-2018.",
+    id: "asd_fi",
+    lang: "fin",
+    title: "Eduskunnan säädöskokoelma",
+    description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1917-2018.",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
     features: ["paragraphs", "parsed_tdt"],
-    attributes : {},
     struct_attributes : {
 	text_url : {
 	    label : "URL",
@@ -1057,15 +1063,14 @@ settings.corpora.asd_fi_parsed = {
 }
 
 settings.corpora.kho_fi_parsed = {
-    id: "",
-    lang: "",
+    id: "kho_fi",
+    lang: "fin",
     title: "KHO:n päätöksiä",
     description: "Korkeimman hallinto-oikeuden päätöksiä vuosilta 1987-2018.",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
     features: ["paragraphs", "parsed_tdt"],
-    attributes : {},
     struct_attributes : {
 	text_url : {
 	    label : "URL",
@@ -1076,15 +1081,14 @@ settings.corpora.kho_fi_parsed = {
 }
 
 settings.corpora.kko_fi_parsed = {
-    id: "",
-    lang: "",
+    id: "kko_fi",
+    lang: "fin",
     title: "KKO:n päätöksiä",
     description: "Korkeimman oikeuden päätöksiä vuosilta 1980-2018.",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
     features: ["paragraphs", "parsed_tdt"],
-    attributes : {},
     struct_attributes : {
 	text_url : {
 	    label : "URL",

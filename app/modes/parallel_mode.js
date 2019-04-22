@@ -614,7 +614,7 @@ settings.corporafolders.parfin_parrus = {
 };
 
 settings.corporafolders.semfinlex = {
-    title: "Collection of Finnish Parliament original statutes (in Finnish and Swedish)",
+    title: "Collection of Finnish Parliament original statutes in Finnish and Swedish",
     description: "Collection of Finnish Parliament original statutes in Finnish and Swedish from 1920-2018.",
     contents: ["asd_par_parsed_fi", "asd_par_parsed_sv"],
 }
@@ -656,7 +656,7 @@ var wordlink = {
 settings.corpora.asd_par_parsed_fi = {
     title : "Collection of Finnish Parliament original statutes (Finnish part)",
     description: "Collection of Finnish Parliament original statutes in Finnish from 1920-2018.",
-    id: "",
+    id: "asd_par_fi",
     urn: "",
     metadata_urn: "",
     lang: "fin"
@@ -666,7 +666,7 @@ settings.corpora.asd_par_parsed_fi = {
 settings.corpora.asd_par_parsed_sv = {
     title : "Collection of Finnish Parliament original statutes (Swedish part)",
     description: "Collection of Finnish Parliament original statutes in Swedish from 1920-2018.",
-    id: "",
+    id: "asd_par_sv",
     urn: "",
     metadata_urn: "",
     lang: "swe",

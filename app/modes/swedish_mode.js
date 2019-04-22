@@ -129,9 +129,10 @@ settings.corporafolders.fstc = {
     },
 };
 
+
 settings.corporafolders.semfinlex = {
-    title: "på svenska: Kokoelma Eduskunnnan alkuperäisiä säädöksiä sekä KKO:n ja KHO:n päätöksiä",
-    description: "på svenska: Sisältää valikoiman alkuperäisiä säädöksiä (1920-2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980-2018) ja KHO:n päätöksiä (2001-2018).",
+    title: "Ett urval av författningar av Riksdagen i originalform samt avgörande av Högsta domstolen (KKO) och Högsta förvaltningsdomstolen (KHO)",
+    description: "Innehåller ett urval av författningar av Riksdagen i originalform (1920-2018), avgörande av Högsta domstolen (1980-) och avgörande av Högsta förvaltningsdomstolen (2001-).",
     contents: ["asd_sv_parsed", "kko_sv_parsed", "kho_sv_parsed"],
 }
 
@@ -166,10 +167,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 delete klk_sv_parsed_years;
 
 settings.corpora.asd_sv_parsed = {
-    id: "",
-    lang: "",
-    title: "på svenska: Säädöskokoelma",
-    description: "på svenska: Alkuperäisiä säädöksiä vuosilta 1920-2018.",
+    id: "asd_sv",
+    lang: "swe",
+    title: "Författningar av Riksdagen",
+    description: "Ett urval av författningar av Riksdagen i originalform (1920-2018).",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
@@ -184,10 +185,10 @@ settings.corpora.asd_sv_parsed = {
 }
 
 settings.corpora.kho_sv_parsed = {
-    id: "",
-    lang: "",
-    title: "på svenska: KHO:n päätöksiä",
-    description: "på svenska: Korkeimman hallinto-oikeuden päätöksiä vuosilta 2001-2018.",
+    id: "kho_sv",
+    lang: "swe",
+    title: "Avgörande av Högsta domstolen (KKO)",
+    description: "Ett urval av avgörande av Högsta domstolen (1980-2018).",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
@@ -202,10 +203,10 @@ settings.corpora.kho_sv_parsed = {
 }
 
 settings.corpora.kko_sv_parsed = {
-    id: "",
-    lang: "",
-    title: "på svenska: KKO:n päätöksiä",
-    description: "på svenska: Korkeimman oikeuden päätöksiä vuosilta 1980-2018.",
+    id: "kko_sv",
+    lang: "swe",
+    title: "Avgörande av Högsta förvaltningsdomstolen (KHO)",
+    description: "Ett urval av avgörande av Högsta förvaltningsdomstolen (2001-2018).",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
