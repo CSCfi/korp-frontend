@@ -129,6 +129,12 @@ settings.corporafolders.fstc = {
     },
 };
 
+settings.corporafolders.semfinlex = {
+    title: "på svenska: Kokoelma Eduskunnnan alkuperäisiä säädöksiä sekä KKO:n ja KHO:n päätöksiä",
+    description: "på svenska: Sisältää valikoiman alkuperäisiä säädöksiä (1920-2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980-2018) ja KHO:n päätöksiä (2001-2018).",
+    contents: ["asd_sv_parsed", "kko_sv_parsed", "kho_sv_parsed"],
+}
+
 
 var klk_sv_parsed_years = settings.fn.make_yearlist(1771, 1948);
 
@@ -158,6 +164,61 @@ settings.fn.make_corpus_settings_by_year_decade(
 
 
 delete klk_sv_parsed_years;
+
+settings.corpora.asd_sv_parsed = {
+    id: "",
+    lang: "",
+    title: "på svenska: Säädöskokoelma",
+    description: "på svenska: Alkuperäisiä säädöksiä vuosilta 1920-2018.",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    licence : settings.licenceinfo.CC_BY,
+    attributes : {},
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	}
+    },
+}
+
+settings.corpora.kho_sv_parsed = {
+    id: "",
+    lang: "",
+    title: "på svenska: KHO:n päätöksiä",
+    description: "på svenska: Korkeimman hallinto-oikeuden päätöksiä vuosilta 2001-2018.",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    licence : settings.licenceinfo.CC_BY,
+    attributes : {},
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	}
+    },
+}
+
+settings.corpora.kko_sv_parsed = {
+    id: "",
+    lang: "",
+    title: "på svenska: KKO:n päätöksiä",
+    description: "på svenska: Korkeimman oikeuden päätöksiä vuosilta 1980-2018.",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    licence : settings.licenceinfo.CC_BY,
+    attributes : {},
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	}
+    },
+}
+
 
 /*ETHESIS*/
 settings.corpora.ethesis_sv_ma = {

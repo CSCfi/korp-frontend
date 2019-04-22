@@ -613,6 +613,12 @@ settings.corporafolders.parfin_parrus = {
     ],
 };
 
+settings.corporafolders.semfinlex = {
+    title: "Collection of Finnish Parliament original statutes (in Finnish and Swedish)",
+    description: "Collection of Finnish Parliament original statutes in Finnish and Swedish from 1920-2018.",
+    contents: ["asd_par_parsed_fi", "asd_par_parsed_sv"],
+}
+
 /*
 settings.corporafolders.kfspc = {
     title: "Kotus Finnish-Swedish Parallel Corpus (KFSPC)",
@@ -645,6 +651,26 @@ var linkref = {
 var wordlink = {
 	label: "wordlink",
 	displayType: "hidden"
+}
+
+settings.corpora.asd_par_parsed_fi = {
+    title : "Collection of Finnish Parliament original statutes (Finnish part)",
+    description: "Collection of Finnish Parliament original statutes in Finnish from 1920-2018.",
+    id: "",
+    urn: "",
+    metadata_urn: "",
+    lang: "fin"
+    linked_to: ["asd_par_parsed_sv"],
+}
+
+settings.corpora.asd_par_parsed_sv = {
+    title : "Collection of Finnish Parliament original statutes (Swedish part)",
+    description: "Collection of Finnish Parliament original statutes in Swedish from 1920-2018.",
+    id: "",
+    urn: "",
+    metadata_urn: "",
+    lang: "swe",
+    linked_to: ["asd_par_parsed_fi"],
 }
 
 /* OPUS – Open Source Paraller Corpus */
