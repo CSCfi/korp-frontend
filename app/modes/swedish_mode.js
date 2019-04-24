@@ -134,6 +134,13 @@ settings.corporafolders.semfinlex = {
     title: "Ett urval av författningar av Riksdagen i originalform samt avgörande av Högsta domstolen (KKO) och Högsta förvaltningsdomstolen (KHO)",
     description: "Innehåller ett urval av författningar av Riksdagen i originalform (1920-2018), avgörande av Högsta domstolen (1980-) och avgörande av Högsta förvaltningsdomstolen (2001-).",
     contents: ["asd_sv_parsed", "kko_sv_parsed", "kho_sv_parsed"],
+    info: {
+	urn: "",
+	metadata_urn: "",
+	licence: settings.licenceinfo.CC_BY,
+	homepage_url: "",
+	cite_id: "semfinlex",
+    }
 }
 
 
@@ -167,7 +174,7 @@ settings.fn.make_corpus_settings_by_year_decade(
 delete klk_sv_parsed_years;
 
 settings.corpora.asd_sv_parsed = {
-    id: "asd_sv",
+    id: "asd_sv_parsed",
     lang: "swe",
     title: "Författningar av Riksdagen",
     description: "Ett urval av författningar av Riksdagen i originalform (1920-2018).",
@@ -181,11 +188,11 @@ settings.corpora.asd_sv_parsed = {
 	    type : "url",
 	    url_opts : sattrs.link_url_opts
 	}
-    },
+    }
 }
 
 settings.corpora.kho_sv_parsed = {
-    id: "kho_sv",
+    id: "kho_sv_parsed",
     lang: "swe",
     title: "Avgörande av Högsta domstolen (KKO)",
     description: "Ett urval av avgörande av Högsta domstolen (1980-2018).",
@@ -199,11 +206,11 @@ settings.corpora.kho_sv_parsed = {
 	    type : "url",
 	    url_opts : sattrs.link_url_opts
 	}
-    },
+    }
 }
 
 settings.corpora.kko_sv_parsed = {
-    id: "kko_sv",
+    id: "kko_sv_parsed",
     lang: "swe",
     title: "Avgörande av Högsta förvaltningsdomstolen (KHO)",
     description: "Ett urval av avgörande av Högsta förvaltningsdomstolen (2001-2018).",
@@ -217,7 +224,7 @@ settings.corpora.kko_sv_parsed = {
 	    type : "url",
 	    url_opts : sattrs.link_url_opts
 	}
-    },
+    }
 }
 
 

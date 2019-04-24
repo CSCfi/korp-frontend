@@ -617,6 +617,13 @@ settings.corporafolders.semfinlex = {
     title: "Collection of Finnish Parliament original statutes in Finnish and Swedish",
     description: "Collection of Finnish Parliament original statutes in Finnish and Swedish from 1920-2018.",
     contents: ["asd_par_parsed_fi", "asd_par_parsed_sv"],
+    info: {
+	urn: "",
+	metadata_urn: "",
+	licence: settings.licenceinfo.CC_BY,
+	homepage_url: "",
+	cite_id: "semfinlex",
+    }
 }
 
 /*
@@ -656,21 +663,21 @@ var wordlink = {
 settings.corpora.asd_par_parsed_fi = {
     title : "Collection of Finnish Parliament original statutes (Finnish part)",
     description: "Collection of Finnish Parliament original statutes in Finnish from 1920-2018.",
-    id: "asd_par_fi",
+    id: "asd_par_parsed_fi",
     urn: "",
     metadata_urn: "",
-    lang: "fin"
-    linked_to: ["asd_par_parsed_sv"],
+    lang: "fin",
+    linked_to: ["asd_par_parsed_sv"]
 }
 
 settings.corpora.asd_par_parsed_sv = {
     title : "Collection of Finnish Parliament original statutes (Swedish part)",
     description: "Collection of Finnish Parliament original statutes in Swedish from 1920-2018.",
-    id: "asd_par_sv",
+    id: "asd_par_parsed_sv",
     urn: "",
     metadata_urn: "",
     lang: "swe",
-    linked_to: ["asd_par_parsed_fi"],
+    linked_to: ["asd_par_parsed_fi"]
 }
 
 /* OPUS – Open Source Paraller Corpus */
