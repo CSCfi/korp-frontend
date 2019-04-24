@@ -1045,7 +1045,7 @@ settings.corpora.testcorp_deptree = {
 */
 
 settings.corpora.asd_fi_parsed = {
-    id: "asd_fi",
+    id: "asd_fi_parsed",
     lang: "fin",
     title: "Eduskunnan säädöskokoelma",
     description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1917-2018.",
@@ -1063,7 +1063,7 @@ settings.corpora.asd_fi_parsed = {
 }
 
 settings.corpora.kho_fi_parsed = {
-    id: "kho_fi",
+    id: "kho_fi_parsed",
     lang: "fin",
     title: "KHO:n päätöksiä",
     description: "Korkeimman hallinto-oikeuden päätöksiä vuosilta 1987-2018.",
@@ -1081,7 +1081,7 @@ settings.corpora.kho_fi_parsed = {
 }
 
 settings.corpora.kko_fi_parsed = {
-    id: "kko_fi",
+    id: "kko_fi_parsed",
     lang: "fin",
     title: "KKO:n päätöksiä",
     description: "Korkeimman oikeuden päätöksiä vuosilta 1980-2018.",
