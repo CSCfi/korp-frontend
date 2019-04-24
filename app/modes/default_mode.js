@@ -867,7 +867,7 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
 }
 
 settings.corporafolders.semfinlex = {
-    title: "Kokoelma Eduskunnnan alkuperäisiä säädöksiä sekä KKO:n ja KHO:n päätöksiä",
+    title: "SEMFINLEX",
     description: "Sisältää valikoiman Eduskunnan alkuperäisiä säädöksiä (1917-2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980-2018) ja KHO:n päätöksiä (1987-2018).",
     contents: ["asd_fi_parsed", "kko_fi_parsed", "kho_fi_parsed"],
     info: {
@@ -1047,7 +1047,7 @@ settings.corpora.testcorp_deptree = {
 settings.corpora.asd_fi_parsed = {
     id: "asd_fi_parsed",
     lang: "fin",
-    title: "Eduskunnan säädöskokoelma",
+    title: "Alkuperäissäädöksiä",
     description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1917-2018.",
     context : settings.defaultContext,
     within : settings.defaultWithin,
