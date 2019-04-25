@@ -653,9 +653,10 @@ var wordlink = {
 settings.corpora.asd_par_parsed_fi = {
     id: "asd_par_parsed_fi",
     lang: "fin",
-    title : "Alkuperäissäädöksiä",
+    title : "Original statutes (Finnish-Swedish)",
     description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1918-2018.",
     context: context.linkAligned,
+    within: settings.linkWithin,
     licence : settings.licenceinfo.CC_BY,
     features: ["paragraphs", "parsed_tdt"],
     struct_attributes : {
@@ -674,9 +675,10 @@ settings.corpora.asd_par_parsed_fi = {
 settings.corpora.asd_par_parsed_sv = {
     id: "asd_par_parsed_sv",
     lang: "swe",
-    title : "Författningar i originalform",
+    title : "Original statutes (Finnish-Swedish)",
     description: "Ett urval av författningar av Riksdagen i originalform (1920-2018).",
     context: context.linkAligned,
+    within: settings.linkWithin,
     licence : settings.licenceinfo.CC_BY,
     attributes : attrlist.parsed_sv,
     struct_attributes : {
