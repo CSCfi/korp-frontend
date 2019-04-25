@@ -869,7 +869,7 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
 settings.corporafolders.semfinlex = {
     title: "SEMFINLEX",
     description: "Sisältää valikoiman Eduskunnan alkuperäisiä säädöksiä (1917-2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980-2018) ja KHO:n päätöksiä (1987-2018).",
-    contents: ["asd_fi_parsed", "kko_fi_parsed", "kho_fi_parsed"],
+    contents: ["semfinlex_asd_fi_2018", "semfinlex_kko_fi_2018", "semfinlex_kho_fi_2018"],
     info: {
 	urn: "",
 	metadata_urn: "",
@@ -1044,8 +1044,8 @@ settings.corpora.testcorp_deptree = {
 };
 */
 
-settings.corpora.asd_fi_parsed = {
-    id: "asd_fi_parsed",
+settings.corpora.semfinlex_asd_fi_2018 = {
+    id: "semfinlex_asd_fi_2018",
     lang: "fin",
     title: "Alkuperäissäädöksiä",
     description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1917-2018.",
@@ -1062,26 +1062,8 @@ settings.corpora.asd_fi_parsed = {
     },
 }
 
-settings.corpora.kho_fi_parsed = {
-    id: "kho_fi_parsed",
-    lang: "fin",
-    title: "KHO:n päätöksiä",
-    description: "Korkeimman hallinto-oikeuden päätöksiä vuosilta 1987-2018.",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    licence : settings.licenceinfo.CC_BY,
-    features: ["paragraphs", "parsed_tdt"],
-    struct_attributes : {
-	text_url : {
-	    label : "URL",
-	    type : "url",
-	    url_opts : sattrs.link_url_opts
-	}
-    },
-}
-
-settings.corpora.kko_fi_parsed = {
-    id: "kko_fi_parsed",
+settings.corpora.semfinlex_kko_fi_2018 = {
+    id: "semfinlex_kko_fi_2018",
     lang: "fin",
     title: "KKO:n päätöksiä",
     description: "Korkeimman oikeuden päätöksiä vuosilta 1980-2018.",
@@ -1098,6 +1080,23 @@ settings.corpora.kko_fi_parsed = {
     },
 }
 
+settings.corpora.semfinlex_kho_fi_2018 = {
+    id: "semfinlex_kho_fi_2018",
+    lang: "fin",
+    title: "KHO:n päätöksiä",
+    description: "Korkeimman hallinto-oikeuden päätöksiä vuosilta 1987-2018.",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    licence : settings.licenceinfo.CC_BY,
+    features: ["paragraphs", "parsed_tdt"],
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	}
+    },
+}
 
 settings.corpora.finstud = {
     id: "finstud",

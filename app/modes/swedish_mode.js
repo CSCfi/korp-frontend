@@ -133,7 +133,7 @@ settings.corporafolders.fstc = {
 settings.corporafolders.semfinlex = {
     title: "SEMFINLEX",
     description: "Innehåller ett urval av författningar av Riksdagen i originalform (1920-2018), avgörande av Högsta domstolen (1980-) och avgörande av Högsta förvaltningsdomstolen (2001-).",
-    contents: ["asd_sv_parsed", "kko_sv_parsed", "kho_sv_parsed"],
+    contents: ["semfinlex_asd_sv_2018", "semfinlex_kko_sv_2018", "semfinlex_kho_sv_2018"],
     info: {
 	urn: "",
 	metadata_urn: "",
@@ -173,8 +173,8 @@ settings.fn.make_corpus_settings_by_year_decade(
 
 delete klk_sv_parsed_years;
 
-settings.corpora.asd_sv_parsed = {
-    id: "asd_sv_parsed",
+settings.corpora.semfinlex_asd_sv_2018 = {
+    id: "semfinlex_asd_sv_2018",
     lang: "swe",
     title: "Författningar i originalform",
     description: "Ett urval av författningar av Riksdagen i originalform (1920-2018).",
@@ -191,8 +191,8 @@ settings.corpora.asd_sv_parsed = {
     }
 }
 
-settings.corpora.kho_sv_parsed = {
-    id: "kho_sv_parsed",
+settings.corpora.semfinlex_kko_sv_2018 = {
+    id: "semfinlex_kko_sv_2018",
     lang: "swe",
     title: "Avgörande av KKO",
     description: "Ett urval av avgörande av Högsta domstolen (1980-2018).",
@@ -209,8 +209,8 @@ settings.corpora.kho_sv_parsed = {
     }
 }
 
-settings.corpora.kko_sv_parsed = {
-    id: "kko_sv_parsed",
+settings.corpora.semfinlex_kho_sv_2018 = {
+    id: "semfinlex_kho_sv_2018",
     lang: "swe",
     title: "Avgörande av KHO",
     description: "Ett urval av avgörande av Högsta förvaltningsdomstolen (2001-2018).",

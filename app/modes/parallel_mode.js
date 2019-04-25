@@ -650,8 +650,8 @@ var wordlink = {
 
 /* SEMFINLEX */
 
-settings.corpora.asd_par_parsed_fi = {
-    id: "asd_par_parsed_fi",
+settings.corpora.semfinlex_asd_par_2018_fi = {
+    id: "semfinlex_asd_par_2018_fi",
     lang: "fin",
     title : "Original statutes (Finnish-Swedish)",
     description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1918-2018.",
@@ -672,8 +672,8 @@ settings.corpora.asd_par_parsed_fi = {
     linked_to: ["asd_par_parsed_sv"]
 }
 
-settings.corpora.asd_par_parsed_sv = {
-    id: "asd_par_parsed_sv",
+settings.corpora.semfinlex_asd_par_2018_sv = {
+    id: "semfinlex_asd_par_2018_sv",
     lang: "swe",
     title : "Original statutes (Finnish-Swedish)",
     description: "Ett urval av författningar av Riksdagen i originalform (1920-2018).",
