@@ -132,7 +132,7 @@ settings.corporafolders.fstc = {
 
 settings.corporafolders.semfinlex = {
     title: "SEMFINLEX",
-    description: "Innehåller ett urval av författningar av Riksdagen i originalform (1920-2018), avgörande av Högsta domstolen (1980-) och avgörande av Högsta förvaltningsdomstolen (2001-).",
+    description: "Innehåller ett urval av ursprungliga författningar av Riksdagen (1920-2018), avgöranden av Högsta domstolen (1980-) och avgöranden av Högsta förvaltningsdomstolen (2001-).",
     contents: ["semfinlex_asd_sv_2018", "semfinlex_kko_sv_2018", "semfinlex_kho_sv_2018"],
     info: {
 	urn: "",
@@ -176,8 +176,8 @@ delete klk_sv_parsed_years;
 settings.corpora.semfinlex_asd_sv_2018 = {
     id: "semfinlex_asd_sv_2018",
     lang: "swe",
-    title: "Författningar i originalform",
-    description: "Ett urval av författningar av Riksdagen i originalform (1920-2018).",
+    title: "Ursprungliga författningar",
+    description: "Ett urval av ursprungliga författningar av Riksdagen från 1920-2018.",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
@@ -194,8 +194,8 @@ settings.corpora.semfinlex_asd_sv_2018 = {
 settings.corpora.semfinlex_kko_sv_2018 = {
     id: "semfinlex_kko_sv_2018",
     lang: "swe",
-    title: "Avgörande av KKO",
-    description: "Ett urval av avgörande av Högsta domstolen (1980-2018).",
+    title: "Avgöranden av KKO",
+    description: "Ett urval av avgöranden av Högsta domstolen (KKO) från 1980-2018.",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
@@ -212,8 +212,8 @@ settings.corpora.semfinlex_kko_sv_2018 = {
 settings.corpora.semfinlex_kho_sv_2018 = {
     id: "semfinlex_kho_sv_2018",
     lang: "swe",
-    title: "Avgörande av KHO",
-    description: "Ett urval av avgörande av Högsta förvaltningsdomstolen (2001-2018).",
+    title: "Avgöranden av KHO",
+    description: "Ett urval av avgöranden av Högsta förvaltningsdomstolen (KHO) från 2001-2018.",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,

@@ -868,7 +868,7 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
 
 settings.corporafolders.semfinlex = {
     title: "SEMFINLEX",
-    description: "Sisältää valikoiman Eduskunnan alkuperäisiä säädöksiä (1917-2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980-2018) ja KHO:n päätöksiä (1987-2018).",
+    description: "Valikoima Eduskunnan alkuperäisiä säädöksiä (1917-2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980-2018) ja KHO:n päätöksiä (1987-2018).",
     contents: ["semfinlex_asd_fi_2018", "semfinlex_kko_fi_2018", "semfinlex_kho_fi_2018"],
     info: {
 	urn: "",

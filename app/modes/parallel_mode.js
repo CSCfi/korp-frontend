@@ -676,7 +676,7 @@ settings.corpora.semfinlex_asd_par_2018_sv = {
     id: "semfinlex_asd_par_2018_sv",
     lang: "swe",
     title : "Original statutes (Finnish-Swedish)",
-    description: "Ett urval av författningar av Riksdagen i originalform (1920-2018).",
+    description: "Ett urval av ursprungliga författningar av Riksdagen från 1920-2018.",
     context: context.linkAligned,
     within: settings.linkWithin,
     licence : settings.licenceinfo.CC_BY,
