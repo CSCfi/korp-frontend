@@ -613,19 +613,6 @@ settings.corporafolders.parfin_parrus = {
     ],
 };
 
-settings.corporafolders.semfinlex = {
-    title: "SEMFINLEX",
-    description: "Collection of Finnish Parliament original statutes in Finnish and Swedish from 1920-2018.",
-    contents: ["asd_par_parsed_fi", "asd_par_parsed_sv"],
-    info: {
-	urn: "",
-	metadata_urn: "",
-	licence: settings.licenceinfo.CC_BY,
-	homepage_url: "",
-	cite_id: "semfinlex",
-    }
-}
-
 /*
 settings.corporafolders.kfspc = {
     title: "Kotus Finnish-Swedish Parallel Corpus (KFSPC)",
@@ -660,24 +647,50 @@ var wordlink = {
 	displayType: "hidden"
 }
 
+
+/* SEMFINLEX */
+
 settings.corpora.asd_par_parsed_fi = {
-    title : "Original statutes (Finnish)",
-    description: "Collection of Finnish Parliament original statutes in Finnish from 1920-2018.",
     id: "asd_par_parsed_fi",
+    lang: "fin",
+    title : "Alkuperäissäädöksiä",
+    description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1918-2018.",
+    context: context.linkAligned,
+    licence : settings.licenceinfo.CC_BY,
+    features: ["paragraphs", "parsed_tdt"],
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	}
+    },
+    cite_id: "semfinlex-asd-par-2018-korp",
     urn: "",
     metadata_urn: "",
-    lang: "fin",
     linked_to: ["asd_par_parsed_sv"]
 }
 
 settings.corpora.asd_par_parsed_sv = {
-    title : "Original statutes (Swedish)",
-    description: "Collection of Finnish Parliament original statutes in Swedish from 1920-2018.",
     id: "asd_par_parsed_sv",
+    lang: "swe",
+    title : "Författningar i originalform",
+    description: "Ett urval av författningar av Riksdagen i originalform (1920-2018).",
+    context: context.linkAligned,
+    licence : settings.licenceinfo.CC_BY,
+    attributes : attrlist.parsed_sv,
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	}
+    },
+    cite_id: "semfinlex-asd-par-2018-korp",
     urn: "",
     metadata_urn: "",
-    lang: "swe",
-    linked_to: ["asd_par_parsed_fi"]
+    linked_to: ["asd_par_parsed_fi"],
+    hide: true
 }
 
 /* OPUS – Open Source Paraller Corpus */
