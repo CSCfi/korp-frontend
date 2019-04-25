@@ -2058,10 +2058,11 @@ sattrlist.studentsvenska = {
 
 attrlist.parsed_sv = {
     lemma: attrs.baseform,
+    pos: attrs.pos,
     msd: attrs.msd,
-    id: attrs.id_hidden,
-    head: attrs.dephead,
-    rel: attrs.deprel,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel,
+    ref: attrs.ref
 };
 
 // Common positional attributes for corpora parsed with the Turku
