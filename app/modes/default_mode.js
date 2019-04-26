@@ -208,7 +208,7 @@ settings.corporafolders.literature.ceal = {
 
 settings.corporafolders.legal = {
     title: "Juridisia tekstejä",
-    contents: ["kotus_lakidir", "legal_fi", "mulcold_fi"]
+    contents: ["kotus_lakidir", "legal_fi", "mulcold_fi", "semfinlex"]
 };
 
 settings.corporafolders.internet = {
@@ -866,7 +866,7 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
     }
 }
 
-settings.corporafolders.semfinlex = {
+settings.corporafolders.legal.semfinlex = {
     title: "Semfinlex",
     description: "Valikoima Eduskunnan alkuperäisiä säädöksiä (1917-2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980-2018) ja KHO:n päätöksiä (1987-2018).",
     contents: ["semfinlex_asd_fi_2018", "semfinlex_kko_fi_2018", "semfinlex_kho_fi_2018"],
