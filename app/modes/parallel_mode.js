@@ -653,7 +653,7 @@ var wordlink = {
 settings.corpora.semfinlex_asd_par_2018_fi = {
     id: "semfinlex_asd_par_2018_fi",
     lang: "fin",
-    title : "Alkuperäissäädöksiä (suomi–ruotsi)",
+    title : "Semfinlex: Alkuperäisiä säädöksiä (suomi–ruotsi)",
     description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1918-2018.",
     context: context.linkAligned,
     within: settings.linkWithin,
@@ -669,7 +669,7 @@ settings.corpora.semfinlex_asd_par_2018_fi = {
     cite_id: "semfinlex-asd-par-2018-korp",
     urn: "urn:nbn:fi:lb-2019042606",
     metadata_urn: "urn:nbn:fi:lb-2019042605",
-    linked_to: ["asd_par_parsed_sv"]
+    linked_to: ["semfinlex_asd_par_2018_sv"]
 }
 
 settings.corpora.semfinlex_asd_par_2018_sv = {
@@ -691,7 +691,7 @@ settings.corpora.semfinlex_asd_par_2018_sv = {
     cite_id: "semfinlex-asd-par-2018-korp",
     urn: "urn:nbn:fi:lb-2019042606",
     metadata_urn: "urn:nbn:fi:lb-2019042605",
-    linked_to: ["asd_par_parsed_fi"],
+    linked_to: ["semfinlex_asd_par_2018_fi"],
     hide: true
 }
 

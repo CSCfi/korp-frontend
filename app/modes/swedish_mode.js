@@ -131,7 +131,7 @@ settings.corporafolders.fstc = {
 
 
 settings.corporafolders.semfinlex = {
-    title: "SEMFINLEX",
+    title: "Semfinlex",
     description: "Innehåller ett urval av ursprungliga författningar av Riksdagen (1920-2018), avgöranden av Högsta domstolen (1980-) och avgöranden av Högsta förvaltningsdomstolen (2001-).",
     contents: ["semfinlex_asd_sv_2018", "semfinlex_kko_sv_2018", "semfinlex_kho_sv_2018"],
     info: {
