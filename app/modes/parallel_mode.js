@@ -653,7 +653,7 @@ var wordlink = {
 settings.corpora.semfinlex_asd_par_2018_fi = {
     id: "semfinlex_asd_par_2018_fi",
     lang: "fin",
-    title : "Original statutes (Finnish-Swedish)",
+    title : "Alkuperäissäädöksiä (suomi–ruotsi)",
     description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1918-2018.",
     context: context.linkAligned,
     within: settings.linkWithin,
@@ -675,7 +675,7 @@ settings.corpora.semfinlex_asd_par_2018_fi = {
 settings.corpora.semfinlex_asd_par_2018_sv = {
     id: "semfinlex_asd_par_2018_sv",
     lang: "swe",
-    title : "Original statutes (Finnish-Swedish)",
+    title : "Ursprungliga författningar (finska–svenska)",
     description: "Ett urval av ursprungliga författningar av Riksdagen från 1920-2018.",
     context: context.linkAligned,
     within: settings.linkWithin,
