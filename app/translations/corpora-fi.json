@@ -916,6 +916,19 @@
     "speechtype_koputtaa": "(koputtaa)",
     "speechtype_": "ei tiedossa",
 
+    "parl_statute_type": "säädöstyyppi",
+
+    "parlstatutetype_laki": "laki",
+    "parlstatutetype_asetus": "asetus",
+    "parlstatutetype_paatos": "päätös",
+    "parlstatutetype_ilmoitus": "ilmoitus",
+    "parlstatutetype_tyojarjestys": "työjärjestys",
+    "parlstatutetype_kirje": "kirje",
+    "parlstatutetype_luettelo": "luettelo",
+    "parlstatutetype_kuulutus": "kuulutus",
+    "parlstatutetype_kaari": "kaari",
+    "parlstatutetype_": "ei tiedossa",
+
     "group": "group",
     "interview": "interview",
     "interviewee": "interviewee",

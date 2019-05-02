@@ -664,6 +664,24 @@ settings.corpora.semfinlex_asd_par_2018_fi = {
 	    label : "URL",
 	    type : "url",
 	    url_opts : sattrs.link_url_opts
+	},
+	text_parl_statute_type: {
+	    label: "parl_statute_type",
+	    displayType: "select",
+	    opts: settings.liteOptions,
+	    translationKey: "parlstatutetype_",
+	    dataset: [
+		"laki",
+		"asetus",
+		"paatos",
+		"ilmoitus",
+		"tyojarjestys",
+		"kirje",
+		"luettelo",
+		"kuulutus",
+		"kaari",
+		""
+	    ]
 	}
     },
     cite_id: "semfinlex-asd-par-2018-korp",
@@ -686,6 +704,24 @@ settings.corpora.semfinlex_asd_par_2018_sv = {
 	    label : "URL",
 	    type : "url",
 	    url_opts : sattrs.link_url_opts
+	},
+	text_parl_statute_type: {
+	    label: "parl_statute_type",
+	    displayType: "select",
+	    opts: settings.liteOptions,
+	    translationKey: "parlstatutetype_",
+	    dataset: [
+		"laki",
+		"asetus",
+		"paatos",
+		"ilmoitus",
+		"tyojarjestys",
+		"kirje",
+		"luettelo",
+		"kuulutus",
+		"kaari",
+		""
+	    ]
 	}
     },
     cite_id: "semfinlex-asd-par-2018-korp",
