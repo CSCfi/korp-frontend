@@ -1080,7 +1080,8 @@ settings.corpora.semfinlex_kko_fi_2018 = {
 	    label : "URL",
 	    type : "url",
 	    url_opts : sattrs.link_url_opts
-	}
+	},
+	text_keywords: {label: "keywords"}
     },
 }
 
@@ -1100,7 +1101,8 @@ settings.corpora.semfinlex_kho_fi_2018 = {
 	    label : "URL",
 	    type : "url",
 	    url_opts : sattrs.link_url_opts
-	}
+	},
+	text_keywords: {label: "keywords"}
     },
 }
 
