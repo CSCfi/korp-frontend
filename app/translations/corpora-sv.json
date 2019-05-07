@@ -123,6 +123,8 @@
     "author_name_type_candidate_id": "abiturientsignum",
     "sex": "kön",
     "grade": "vitsord",
+    "grade_teacher": "vitsord, lärare",
+    "grade_censor": "vitsord, censor",
     "sex_male": "man",
     "sex_female": "kvinna",
     "sex_other": "annat",

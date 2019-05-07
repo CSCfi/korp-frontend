@@ -11112,9 +11112,12 @@ settings.corpora.yoaineet = {
 	text_topic_num: {
 	    label: "topic_number"
 	},
-	text_grade: {
-	    label: "grade"
+	text_grade_teacher: {
+	    label: "grade_teacher"
 	},
+	text_grade_censor: {
+	    label: "grade_censor"
+	},    
 	paragraph_id: sattrs.paragraph_id_hidden,
 	sentence_id: sattrs.sentence_id_hidden,
     }
