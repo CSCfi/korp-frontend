@@ -132,13 +132,10 @@ settings.corporafolders.fstc = {
 
 settings.corporafolders.semfinlex = {
     title: "Semfinlex",
-    description: "Innehåller ett urval av ursprungliga författningar av Riksdagen (1920-2018), avgöranden av Högsta domstolen (1980-) och avgöranden av Högsta förvaltningsdomstolen (2001-).",
+    description: "Innehåller ett urval av ursprungliga författningar av Riksdagen (1920–2018), avgöranden av Högsta domstolen (1980–) och avgöranden av Högsta förvaltningsdomstolen (2001–).",
     contents: ["semfinlex_asd_sv_2018", "semfinlex_kko_sv_2018", "semfinlex_kho_sv_2018"],
     info: {
-	urn: "",
-	metadata_urn: "",
 	licence: settings.licenceinfo.CC_BY,
-	homepage_url: "",
 	cite_id: "semfinlex",
     }
 }
@@ -177,8 +174,8 @@ settings.corpora.semfinlex_asd_sv_2018 = {
     id: "semfinlex_asd_sv_2018",
     lang: "swe",
     title: "Ursprungliga författningar",
-    description: "Ett urval av ursprungliga författningar av Riksdagen från 1920-2018.",
     urn: "urn:nbn:fi:lb-2019042604",
+    description: "Ett urval av ursprungliga författningar av Riksdagen från 1920̣–2018.",
     metadata_urn: "urn:nbn:fi:lb-2019042603",
     context : settings.defaultContext,
     within : settings.defaultWithin,
@@ -215,8 +212,8 @@ settings.corpora.semfinlex_kko_sv_2018 = {
     id: "semfinlex_kko_sv_2018",
     lang: "swe",
     title: "Avgöranden av KKO",
-    description: "Ett urval av avgöranden av Högsta domstolen (KKO) från 1980-2018.",
     urn: "urn:nbn:fi:lb-2019042610",
+    description: "Ett urval av avgöranden av Högsta domstolen (KKO) från 1980̣–2018.",
     metadata_urn: "urn:nbn:fi:lb-2019042609",
     context : settings.defaultContext,
     within : settings.defaultWithin,
@@ -236,8 +233,8 @@ settings.corpora.semfinlex_kho_sv_2018 = {
     id: "semfinlex_kho_sv_2018",
     lang: "swe",
     title: "Avgöranden av KHO",
-    description: "Ett urval av avgöranden av Högsta förvaltningsdomstolen (KHO) från 2001-2018.",
     urn: "urn:nbn:fi:lb-2019042610",
+    description: "Ett urval av avgöranden av Högsta förvaltningsdomstolen (KHO) från 2001–2018.",
     metadata_urn: "urn:nbn:fi:lb-2019042609",
     context : settings.defaultContext,
     within : settings.defaultWithin,

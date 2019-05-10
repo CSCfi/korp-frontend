@@ -868,13 +868,10 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
 
 settings.corporafolders.legal.semfinlex = {
     title: "Semfinlex",
-    description: "Valikoima Eduskunnan alkuperäisiä säädöksiä (1917-2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980-2018) ja KHO:n päätöksiä (1987-2018).",
+    description: "Valikoima Eduskunnan alkuperäisiä säädöksiä (1917–2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980–2018) ja KHO:n päätöksiä (1987–2018).",
     contents: ["semfinlex_asd_fi_2018", "semfinlex_kko_fi_2018", "semfinlex_kho_fi_2018"],
     info: {
-	urn: "",
-	metadata_urn: "",
 	licence: settings.licenceinfo.CC_BY,
-	homepage_url: "",
 	cite_id: "semfinlex",
     }
 }
@@ -1048,8 +1045,8 @@ settings.corpora.semfinlex_asd_fi_2018 = {
     id: "semfinlex_asd_fi_2018",
     lang: "fin",
     title: "Alkuperäisiä säädöksiä",
-    description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1917-2018.",
     urn: "urn:nbn:fi:lb-2019042602",
+    description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1917–2018.",
     metadata_urn: "urn:nbn:fi:lb-2019042601",
     context : settings.defaultContext,
     within : settings.defaultWithin,
@@ -1086,8 +1083,8 @@ settings.corpora.semfinlex_kko_fi_2018 = {
     id: "semfinlex_kko_fi_2018",
     lang: "fin",
     title: "KKO:n päätöksiä",
-    description: "Korkeimman oikeuden päätöksiä vuosilta 1980-2018.",
     urn: "urn:nbn:fi:lb-2019042608",
+    description: "Korkeimman oikeuden päätöksiä vuosilta 1980–2018.",
     metadata_urn: "urn:nbn:fi:lb-2019042607",
     context : settings.defaultContext,
     within : settings.defaultWithin,
@@ -1107,8 +1104,8 @@ settings.corpora.semfinlex_kho_fi_2018 = {
     id: "semfinlex_kho_fi_2018",
     lang: "fin",
     title: "KHO:n päätöksiä",
-    description: "Korkeimman hallinto-oikeuden päätöksiä vuosilta 1987-2018.",
     urn: "urn:nbn:fi:lb-2019042608",
+    description: "Korkeimman hallinto-oikeuden päätöksiä vuosilta 1987–2018.",
     metadata_urn: "urn:nbn:fi:lb-2019042607",
     context : settings.defaultContext,
     within : settings.defaultWithin,
