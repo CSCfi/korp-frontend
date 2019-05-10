@@ -2056,7 +2056,14 @@ sattrlist.studentsvenska = {
     }
 };
 
-
+attrlist.parsed_sv = {
+    lemma: attrs.baseform,
+    pos: attrs.pos,
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel,
+    ref: attrs.ref
+};
 
 // Common positional attributes for corpora parsed with the Turku
 // Dependency Treebank parser (with lemgrams and lemmas without

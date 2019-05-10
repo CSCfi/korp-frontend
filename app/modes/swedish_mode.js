@@ -130,6 +130,18 @@ settings.corporafolders.fstc = {
 };
 
 
+settings.corporafolders.semfinlex = {
+    title: "Semfinlex",
+    description: "Innehåller ett urval av ursprungliga författningar av Riksdagen (1920–2018), avgöranden av Högsta domstolen (1980–) och avgöranden av Högsta förvaltningsdomstolen (2001–).",
+    contents: ["semfinlex_asd_sv_2018", "semfinlex_kko_sv_2018", "semfinlex_kho_sv_2018"],
+    info: {
+	licence: settings.licenceinfo.CC_BY,
+	cite_id: "semfinlex",
+	labels: ["beta"],
+    }
+}
+
+
 var klk_sv_parsed_years = settings.fn.make_yearlist(1771, 1948);
 
 
@@ -158,6 +170,90 @@ settings.fn.make_corpus_settings_by_year_decade(
 
 
 delete klk_sv_parsed_years;
+
+settings.corpora.semfinlex_asd_sv_2018 = {
+    id: "semfinlex_asd_sv_2018",
+    lang: "swe",
+    title: "Ursprungliga författningar",
+    description: "Ett urval av ursprungliga författningar av Riksdagen från 1920̣–2018.",
+    // Uncomment location URN after the beta stage
+    // urn: "urn:nbn:fi:lb-2019042604",
+    metadata_urn: "urn:nbn:fi:lb-2019042603",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    licence : settings.licenceinfo.CC_BY,
+    attributes : attrlist.parsed_sv,
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	},
+	text_parl_statute_type: {
+	    label: "parl_statute_type",
+	    displayType: "select",
+	    opts: settings.liteOptions,
+	    translationKey: "parlstatutetype_",
+	    dataset: [
+		"laki",
+		"asetus",
+		"paatos",
+		"ilmoitus",
+		"tyojarjestys",
+		"kirje",
+		"luettelo",
+		"kuulutus",
+		"kaari",
+		""
+	    ]
+	}
+    }
+}
+
+settings.corpora.semfinlex_kko_sv_2018 = {
+    id: "semfinlex_kko_sv_2018",
+    lang: "swe",
+    title: "Avgöranden av KKO",
+    description: "Ett urval av avgöranden av Högsta domstolen (KKO) från 1980̣–2018.",
+    // Uncomment location URN after the beta stage
+    // urn: "urn:nbn:fi:lb-2019042610",
+    metadata_urn: "urn:nbn:fi:lb-2019042609",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    licence : settings.licenceinfo.CC_BY,
+    attributes : attrlist.parsed_sv,
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	},
+	text_keywords: {label: "keywords"}
+    }
+}
+
+settings.corpora.semfinlex_kho_sv_2018 = {
+    id: "semfinlex_kho_sv_2018",
+    lang: "swe",
+    title: "Avgöranden av KHO",
+    description: "Ett urval av avgöranden av Högsta förvaltningsdomstolen (KHO) från 2001–2018.",
+    // Uncomment location URN after the beta stage
+    // urn: "urn:nbn:fi:lb-2019042610",
+    metadata_urn: "urn:nbn:fi:lb-2019042609",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    licence : settings.licenceinfo.CC_BY,
+    attributes : attrlist.parsed_sv,
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	},
+	text_keywords: {label: "keywords"}
+    }
+}
+
 
 /*ETHESIS*/
 settings.corpora.ethesis_sv_ma = {

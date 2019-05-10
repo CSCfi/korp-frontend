@@ -647,6 +647,92 @@ var wordlink = {
 	displayType: "hidden"
 }
 
+
+/* SEMFINLEX */
+
+settings.corpora.semfinlex_asd_par_2018_fi = {
+    id: "semfinlex_asd_par_2018_fi",
+    lang: "fin",
+    title : "Semfinlex: Alkuperäisiä säädöksiä (suomi–ruotsi)",
+    description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1918–2018.",
+    context: context.linkAligned,
+    within: settings.linkWithin,
+    licence : settings.licenceinfo.CC_BY,
+    features: ["paragraphs", "parsed_tdt"],
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	},
+	text_parl_statute_type: {
+	    label: "parl_statute_type",
+	    displayType: "select",
+	    opts: settings.liteOptions,
+	    translationKey: "parlstatutetype_",
+	    dataset: [
+		"laki",
+		"asetus",
+		"paatos",
+		"ilmoitus",
+		"tyojarjestys",
+		"kirje",
+		"luettelo",
+		"kuulutus",
+		"kaari",
+		""
+	    ]
+	}
+    },
+    cite_id: "semfinlex-asd-par-2018-korp",
+    // Uncomment location URN after the beta stage
+    // urn: "urn:nbn:fi:lb-2019042606",
+    metadata_urn: "urn:nbn:fi:lb-2019042605",
+    linked_to: ["semfinlex_asd_par_2018_sv"]
+}
+
+settings.corpora.semfinlex_asd_par_2018_sv = {
+    id: "semfinlex_asd_par_2018_sv",
+    lang: "swe",
+    title : "Semfinlex: Ursprungliga författningar (finska–svenska)",
+    description: "Ett urval av ursprungliga författningar av Riksdagen från 1920–2018.",
+    context: context.linkAligned,
+    within: settings.linkWithin,
+    licence : settings.licenceinfo.CC_BY,
+    attributes : attrlist.parsed_sv,
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	},
+	text_parl_statute_type: {
+	    label: "parl_statute_type",
+	    displayType: "select",
+	    opts: settings.liteOptions,
+	    translationKey: "parlstatutetype_",
+	    dataset: [
+		"laki",
+		"asetus",
+		"paatos",
+		"ilmoitus",
+		"tyojarjestys",
+		"kirje",
+		"luettelo",
+		"kuulutus",
+		"kaari",
+		""
+	    ]
+	}
+    },
+    cite_id: "semfinlex-asd-par-2018-korp",
+    // Uncomment location URN after the beta stage
+    // urn: "urn:nbn:fi:lb-2019042606",
+    metadata_urn: "urn:nbn:fi:lb-2019042605",
+    linked_to: ["semfinlex_asd_par_2018_fi"],
+    hide: true
+}
+
 /* OPUS – Open Source Paraller Corpus */
 
 settings.corpus_aliases.opus = "opus_.*_fi";

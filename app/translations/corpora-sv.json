@@ -573,6 +573,19 @@
     "speechtype_koputtaa": "",
     "speechtype_": "",
 
+    "parl_statute_type": "författningstyp",
+
+    "parlstatutetype_laki": "lag",
+    "parlstatutetype_asetus": "förordning",
+    "parlstatutetype_paatos": "beslut",
+    "parlstatutetype_ilmoitus": "meddelande",
+    "parlstatutetype_tyojarjestys": "arbetsordning",
+    "parlstatutetype_kirje": "brev",
+    "parlstatutetype_luettelo": "förteckning",
+    "parlstatutetype_kuulutus": "kungörelse",
+    "parlstatutetype_kaari": "balk",
+    "parlstatutetype_": "",
+
     "group": "grupp",
     "interview": "intervju",
     "interviewee": "intervjuad",

@@ -208,7 +208,7 @@ settings.corporafolders.literature.ceal = {
 
 settings.corporafolders.legal = {
     title: "Juridisia tekstejä",
-    contents: ["kotus_lakidir", "legal_fi", "mulcold_fi"]
+    contents: ["kotus_lakidir", "legal_fi", "mulcold_fi", "semfinlex"]
 };
 
 settings.corporafolders.internet = {
@@ -866,6 +866,17 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
     }
 }
 
+settings.corporafolders.legal.semfinlex = {
+    title: "Semfinlex",
+    description: "Valikoima Eduskunnan alkuperäisiä säädöksiä (1917–2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980–2018) ja KHO:n päätöksiä (1987–2018).",
+    contents: ["semfinlex_asd_fi_2018", "semfinlex_kko_fi_2018", "semfinlex_kho_fi_2018"],
+    info: {
+	licence: settings.licenceinfo.CC_BY,
+	cite_id: "semfinlex",
+	labels: ["beta"],
+    }
+}
+
 settings.corporafolders.spoken = {
     title: "Puhuttua kieltä (tekstiksi litteroituna)",
     contents: ["kotus_sp", "skn", "dma", "arkisyn"],
@@ -1030,6 +1041,89 @@ settings.corpora.testcorp_deptree = {
     }
 };
 */
+
+settings.corpora.semfinlex_asd_fi_2018 = {
+    id: "semfinlex_asd_fi_2018",
+    lang: "fin",
+    title: "Alkuperäisiä säädöksiä",
+    description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1917–2018.",
+    // Uncomment location URN after the beta stage
+    // urn: "urn:nbn:fi:lb-2019042602",
+    metadata_urn: "urn:nbn:fi:lb-2019042601",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    licence : settings.licenceinfo.CC_BY,
+    features: ["paragraphs", "parsed_tdt"],
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	},
+	text_parl_statute_type: {
+            label: "parl_statute_type",
+	    displayType: "select",
+	    opts: settings.liteOptions,
+	    translationKey: "parlstatutetype_",
+	    dataset: [
+		"laki",
+		"asetus",
+		"paatos",
+		"ilmoitus",
+		"tyojarjestys",
+		"kirje",
+		"luettelo",
+		"kuulutus",
+		"kaari",
+		""
+	    ]
+	}
+    },
+}
+
+settings.corpora.semfinlex_kko_fi_2018 = {
+    id: "semfinlex_kko_fi_2018",
+    lang: "fin",
+    title: "KKO:n päätöksiä",
+    description: "Korkeimman oikeuden päätöksiä vuosilta 1980–2018.",
+    // Uncomment location URN after the beta stage
+    // urn: "urn:nbn:fi:lb-2019042608",
+    metadata_urn: "urn:nbn:fi:lb-2019042607",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    licence : settings.licenceinfo.CC_BY,
+    features: ["paragraphs", "parsed_tdt"],
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	},
+	text_keywords: {label: "keywords"}
+    },
+}
+
+settings.corpora.semfinlex_kho_fi_2018 = {
+    id: "semfinlex_kho_fi_2018",
+    lang: "fin",
+    title: "KHO:n päätöksiä",
+    description: "Korkeimman hallinto-oikeuden päätöksiä vuosilta 1987–2018.",
+    // Uncomment location URN after the beta stage
+    // urn: "urn:nbn:fi:lb-2019042608",
+    metadata_urn: "urn:nbn:fi:lb-2019042607",
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    licence : settings.licenceinfo.CC_BY,
+    features: ["paragraphs", "parsed_tdt"],
+    struct_attributes : {
+	text_url : {
+	    label : "URL",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	},
+	text_keywords: {label: "keywords"}
+    },
+}
 
 settings.corpora.finstud = {
     id: "finstud",
