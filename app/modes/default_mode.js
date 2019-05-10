@@ -873,6 +873,7 @@ settings.corporafolders.legal.semfinlex = {
     info: {
 	licence: settings.licenceinfo.CC_BY,
 	cite_id: "semfinlex",
+	labels: ["beta"],
     }
 }
 
@@ -1045,8 +1046,9 @@ settings.corpora.semfinlex_asd_fi_2018 = {
     id: "semfinlex_asd_fi_2018",
     lang: "fin",
     title: "Alkuperäisiä säädöksiä",
-    urn: "urn:nbn:fi:lb-2019042602",
     description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1917–2018.",
+    // Uncomment location URN after the beta stage
+    // urn: "urn:nbn:fi:lb-2019042602",
     metadata_urn: "urn:nbn:fi:lb-2019042601",
     context : settings.defaultContext,
     within : settings.defaultWithin,
@@ -1083,8 +1085,9 @@ settings.corpora.semfinlex_kko_fi_2018 = {
     id: "semfinlex_kko_fi_2018",
     lang: "fin",
     title: "KKO:n päätöksiä",
-    urn: "urn:nbn:fi:lb-2019042608",
     description: "Korkeimman oikeuden päätöksiä vuosilta 1980–2018.",
+    // Uncomment location URN after the beta stage
+    // urn: "urn:nbn:fi:lb-2019042608",
     metadata_urn: "urn:nbn:fi:lb-2019042607",
     context : settings.defaultContext,
     within : settings.defaultWithin,
@@ -1104,8 +1107,9 @@ settings.corpora.semfinlex_kho_fi_2018 = {
     id: "semfinlex_kho_fi_2018",
     lang: "fin",
     title: "KHO:n päätöksiä",
-    urn: "urn:nbn:fi:lb-2019042608",
     description: "Korkeimman hallinto-oikeuden päätöksiä vuosilta 1987–2018.",
+    // Uncomment location URN after the beta stage
+    // urn: "urn:nbn:fi:lb-2019042608",
     metadata_urn: "urn:nbn:fi:lb-2019042607",
     context : settings.defaultContext,
     within : settings.defaultWithin,
