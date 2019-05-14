@@ -11120,7 +11120,8 @@ settings.corpora.yoaineet = {
 	},    
 	paragraph_id: sattrs.paragraph_id_hidden,
 	sentence_id: sattrs.sentence_id_hidden,
-    }
+    },
+    labels: ["beta"],
 };
 
 // FiRuLex
