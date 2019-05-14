@@ -11089,7 +11089,7 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_fi"]);
 settings.corpora.yoaineet = {
     id: "yoaineet",
     title: "Ylioppilasaineet",
-    description: "1994, 1999 ja 2004 äidinkielen ylioppilaskokeiden esseitä sisältävä korpus",
+    description: "Ylioppilaskokelaiden äidinkielen (suomen) esseitä vuosilta 1994, 1999 ja 2004",
     urn: "",
     metadata_urn: "urn:nbn:fi:lb-2017030301",
     licence: {
