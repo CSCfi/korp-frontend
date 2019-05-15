@@ -1,4 +1,33 @@
 
+<!-- Uusi aineisto (beta): Semfinlex 2019-05-15 -->
+
+Korpissa on nyt käytettävissä beetatestiversiona Semfinlex-aineisto,
+joka sisältää Eduskunnan alkuperäisiä säädöksiä <a
+href="http://urn.fi/urn:nbn:fi:lb-2019042601"
+target="_blank">suomeksi</a>, <a
+href="http://urn.fi/urn:nbn:fi:lb-2019042603"
+target="_blank">ruotsiksi</a> ja <a
+href="http://urn.fi/urn:nbn:fi:lb-2019042605"
+target="_blank">suomi–ruotsi rinnakkaisaineistona</a> sekä Korkeimman oikeuden ja
+Korkeimman hallinto-oikeuden päätöksiä <a
+href="http://urn.fi/urn:nbn:fi:lb-2019042607"
+target="_blank">suomeksi</a> ja <a
+href="http://urn.fi/urn:nbn:fi:lb-2019042609"
+target="_blank">ruotsiksi</a>.
+
+Aineistot Korpissa: <a
+href="?mode=default#?corpus=semfinlex_asd_fi_2018,semfinlex_kko_fi_2018,semfinlex_kho_fi_2018"
+target="_blank">suomenkieliset</a>, <a
+href="?mode=swedish#?corpus=semfinlex_asd_sv_2018,semfinlex_kko_sv_2018,semfinlex_kho_sv_2018"
+target="_blank">ruotsinkieliset</a> ja <a
+href="?mode=parallel#?corpus=semfinlex_asd_par_2018_fi"
+target="_blank">rinnakkaisaineisto</a>.
+
+Katso myös <a
+href="https://www.kielipankki.fi/uutiset/havainnoi-ja-kommentoi-semfinlex-aineistot-beta-fi-sv-ja-fi-sv-julkaistu-korpissa/"
+target="_blank">Kielipankki-portaalin Semfinlex-uutinen</a>.
+
+
 <!-- Lyhyt käyttökatko 2019-03-28 2019-04-03 -->
 
 Korp-palvelu käynnistetään uudelleen <b>2.4.2019 klo

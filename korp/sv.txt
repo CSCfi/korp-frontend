@@ -1,4 +1,34 @@
 
+<!-- Ny korpus (beta): Semfinlex 2019-05-15 -->
+
+Semfinlex är nu tillgänglig i Korp som en betaversion. I korpusen
+ingår Riksdagens ursprungliga författningar på <a
+href="http://urn.fi/urn:nbn:fi:lb-2019042601"
+target="_blank">finska</a> och <a
+href="http://urn.fi/urn:nbn:fi:lb-2019042603"
+target="_blank">svenska</a> och <a
+href="http://urn.fi/urn:nbn:fi:lb-2019042605" target="_blank">som en
+finsk-svensk parallelkorpus</a>, samt avgöranden av Högsta domstolen
+och Högsta förvaltningsdomstolen på <a
+href="http://urn.fi/urn:nbn:fi:lb-2019042607"
+target="_blank">finska</a> och <a
+href="http://urn.fi/urn:nbn:fi:lb-2019042609"
+target="_blank">svenska</a>.
+
+Korpusarna i Korp: <a
+href="?mode=default#?corpus=semfinlex_asd_fi_2018,semfinlex_kko_fi_2018,semfinlex_kho_fi_2018&lang=sv"
+target="_blank">på finska</a>, <a
+href="?mode=swedish#?corpus=semfinlex_asd_sv_2018,semfinlex_kko_sv_2018,semfinlex_kho_sv_2018&lang=sv"
+target="_blank">på svenska</a> och <a
+href="?mode=parallel#?corpus=semfinlex_asd_par_2018_fi&lang=sv"
+target="_blank">parallelkorpus</a>.
+
+Se även <a
+href="https://www.kielipankki.fi/news/test-and-comment-semfinlex-corpora-beta-published-in-korp/"
+target="_blank">nyheten om Semfinlex på Språkbankens i Finland
+webbportal</a> (på engelska).
+
+
 <!-- Sökning från FSTC (FISC) och Svenska Parole fungerar igen 2018-05-25 -->
 
 Sökning från FSTC (FISC) och Svenska Parole korpusar fungerar igen.
