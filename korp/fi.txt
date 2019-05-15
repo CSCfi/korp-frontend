@@ -1,8 +1,9 @@
 
-<!-- Lyhyt käyttökatko 2019-03-28 -->
+<!-- Lyhyt käyttökatko 2019-03-28 2019-04-03 -->
 
 Korp-palvelu käynnistetään uudelleen <b>2.4.2019 klo
 9:00</b>. Käyttökatko kestää noin 5 minuuttia. Pahoittelemme häiriötä.
+
 
 <!-- Pieniä muutoksia aineistosta näkyviin tietoihin 2019-03-20 -->
 
