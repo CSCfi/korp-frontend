@@ -840,7 +840,11 @@ settings.corporafolders.ftc = {
 
 settings.corporafolders.other_texts = {
     title: "Muita tekstejä",
-    contents: ["finstud", "kfspc_fi", "yoaineet"]
+    contents: [
+	"kfspc_fi",
+	"finstud",
+	"yoaineet",
+    ]
 };
 
 settings.corporafolders.other_texts.kotus_ns_presidentti = {
