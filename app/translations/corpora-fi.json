@@ -110,6 +110,19 @@
     "unknown": "tuntematon",
     "male_female": "mies ja nainen",
 
+    "sex_female": "nainen",
+    "sex_male": "mies",
+    "sex_other": "muu",
+    "sex_unknown": "tuntematon",
+
+    "author_name_type": "tekijän nimen tyyppi",
+    "author_name_type_candidate_id": "kokelaan tunniste",
+    "topic_number": "tekstin numero",
+    "grade": "koearvosana",
+    "grade_teacher": "koearvosana, opettaja",
+    "grade_censor": "koearvosana, sensori",
+    "sex": "sukupuoli",
+
     "yes": "kyllä",
     "no": "ei",
 

@@ -1642,6 +1642,31 @@ sattrs.author_deathyear = {
     label: "author_deathyear"
 };
 
+
+sattrs.sex = {
+    label: "sex",
+    displayType: "select",
+    translationKey: "sex_",
+    dataset: {
+	"f": "female",
+	"m": "male",
+	"x": "other",
+	"u": "unknown",
+    },
+    opts: settings.liteOptions,
+};
+
+sattrs.author_name_type = {
+    label: "author_name_type",
+    displayType: "select",
+    translationKey: "author_name_type_",
+    dataset: {
+	"candidate id": "candidate_id",
+    },
+    opts: settings.liteOptions,
+}; 
+
+
 sattrs.publ_year = {
     label: "year_published"
 };
@@ -1993,6 +2018,7 @@ attrlist.finstud = {
         opts: settings.defaultOptions
     }
 };
+
 
 
 /* BESERCORP */

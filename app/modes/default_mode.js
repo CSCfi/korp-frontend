@@ -840,7 +840,7 @@ settings.corporafolders.ftc = {
 
 settings.corporafolders.other_texts = {
     title: "Muita tekstejä",
-    contents: ["finstud", "kfspc_fi"]
+    contents: ["finstud", "kfspc_fi", "yoaineet"]
 };
 
 settings.corporafolders.other_texts.kotus_ns_presidentti = {
@@ -11178,6 +11178,45 @@ settings.corpora.kfspc_fi = {
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_fi"]);
 
+// Ylioppilasaineet
+
+settings.corpora.yoaineet = {
+    id: "yoaineet",
+    title: "Ylioppilasaineet",
+    description: "Ylioppilaskokelaiden äidinkielen (suomen) esseitä vuosilta 1994, 1999 ja 2004",
+    urn: "",
+    metadata_urn: "urn:nbn:fi:lb-2017030301",
+    licence: {
+        name: "CLARIN RES +NC +PRIV 1.0",
+        urn: "urn:nbn:fi:lb-2017030601",
+    },
+    cite_id: "ylioppilasaineet",
+    limited_access: true,
+    licence_type: "RES",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    features: ["paragraphs", "parsed_tdt"],
+    struct_attributes: {
+	text_id: sattrs.hidden,
+	text_year: sattrs.year,
+	text_author: sattrs.text_author,
+	text_author_name_type: sattrs.author_name_type,
+	text_author_sex: sattrs.sex,
+	text_title: sattrs.text_title,
+	text_topic_num: {
+	    label: "topic_number"
+	},
+	text_grade_teacher: {
+	    label: "grade_teacher"
+	},
+	text_grade_censor: {
+	    label: "grade_censor"
+	},    
+	paragraph_id: sattrs.paragraph_id_hidden,
+	sentence_id: sattrs.sentence_id_hidden,
+    },
+    labels: ["beta"],
+};
 
 // FiRuLex
 

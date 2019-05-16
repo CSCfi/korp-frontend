@@ -119,6 +119,18 @@
     "subject": "ämne",
     "volume": "band",
 
+    "author_name_type": "författarnamnets typ",
+    "author_name_type_candidate_id": "abiturientsignum",
+    "sex": "kön",
+    "grade": "vitsord",
+    "grade_teacher": "vitsord, lärare",
+    "grade_censor": "vitsord, censor",
+    "sex_male": "man",
+    "sex_female": "kvinna",
+    "sex_other": "annat",
+    "sex_unknown": "okänd",
+    "topic_number": "text nummer",
+
     "sentence_link": "meningslänk",
     "text_issue": "utgåva",
 
