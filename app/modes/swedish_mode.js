@@ -137,7 +137,6 @@ settings.corporafolders.semfinlex = {
     info: {
 	licence: settings.licenceinfo.CC_BY,
 	cite_id: "semfinlex",
-	labels: ["beta"],
     }
 }
 
@@ -176,8 +175,7 @@ settings.corpora.semfinlex_asd_sv_2018 = {
     lang: "swe",
     title: "Ursprungliga författningar",
     description: "Ett urval av ursprungliga författningar av Riksdagen från 1920̣–2018.",
-    // Uncomment location URN after the beta stage
-    // urn: "urn:nbn:fi:lb-2019042604",
+    urn: "urn:nbn:fi:lb-2019042604",
     metadata_urn: "urn:nbn:fi:lb-2019042603",
     context : settings.defaultContext,
     within : settings.defaultWithin,
@@ -215,8 +213,7 @@ settings.corpora.semfinlex_kko_sv_2018 = {
     lang: "swe",
     title: "Avgöranden av KKO",
     description: "Ett urval av avgöranden av Högsta domstolen (KKO) från 1980̣–2018.",
-    // Uncomment location URN after the beta stage
-    // urn: "urn:nbn:fi:lb-2019042610",
+    urn: "urn:nbn:fi:lb-2019042610",
     metadata_urn: "urn:nbn:fi:lb-2019042609",
     context : settings.defaultContext,
     within : settings.defaultWithin,
@@ -237,8 +234,7 @@ settings.corpora.semfinlex_kho_sv_2018 = {
     lang: "swe",
     title: "Avgöranden av KHO",
     description: "Ett urval av avgöranden av Högsta förvaltningsdomstolen (KHO) från 2001–2018.",
-    // Uncomment location URN after the beta stage
-    // urn: "urn:nbn:fi:lb-2019042610",
+    urn: "urn:nbn:fi:lb-2019042610",
     metadata_urn: "urn:nbn:fi:lb-2019042609",
     context : settings.defaultContext,
     within : settings.defaultWithin,

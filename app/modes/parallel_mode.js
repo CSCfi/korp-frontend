@@ -685,8 +685,7 @@ settings.corpora.semfinlex_asd_par_2018_fi = {
 	}
     },
     cite_id: "semfinlex-asd-par-2018-korp",
-    // Uncomment location URN after the beta stage
-    // urn: "urn:nbn:fi:lb-2019042606",
+    urn: "urn:nbn:fi:lb-2019042606",
     metadata_urn: "urn:nbn:fi:lb-2019042605",
     linked_to: ["semfinlex_asd_par_2018_sv"]
 }
@@ -726,8 +725,7 @@ settings.corpora.semfinlex_asd_par_2018_sv = {
 	}
     },
     cite_id: "semfinlex-asd-par-2018-korp",
-    // Uncomment location URN after the beta stage
-    // urn: "urn:nbn:fi:lb-2019042606",
+    urn: "urn:nbn:fi:lb-2019042606",
     metadata_urn: "urn:nbn:fi:lb-2019042605",
     linked_to: ["semfinlex_asd_par_2018_fi"],
     hide: true
