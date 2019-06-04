@@ -1853,7 +1853,7 @@ sattrlist.oracc = {
             "sumerian, akkadian" : "sumerian, akkadian",
             "uncertain or unspecified" : "uncertain or unspecified",
             "urartian" : "urartian"
-        },
+        }
     },
     text_genre : {
         label : "oracc_genre",
@@ -1874,7 +1874,7 @@ sattrlist.oracc = {
             "scholarly" : "scholarly",
             "school" : "school",
             "uncertain or unspecified" : "uncertain or unspecified"
-        },
+        }
     },
     text_period : {
         label : "oracc_period",
@@ -1904,7 +1904,7 @@ sattrlist.oracc = {
             "Uruk III" : "Uruk III",
             "Uruk IV" : "Uruk IV",
             "Uncertain or unspecified" : "Uncertain or unspecified"
-        },
+        }
     },
     text_subgenre : {
         label : "oracc_subgenre"
@@ -1954,7 +1954,7 @@ attrlist.oracc = {
             "pronoun" : "pronoun",
             "proper noun" : "proper noun",
             "verb" : "verb"
-        },
+        }
     },
     possub : {
         // Sub POS
@@ -1993,7 +1993,7 @@ attrlist.oracc = {
             "Sumerian Emesal" : "Sumerian Emesal",
             "Ugaritic" : "Ugaritic",
             "Urartian" : "Urartian"
-        },
+        }
     },
     url : {
         in_link_section : true,
