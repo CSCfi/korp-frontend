@@ -1974,7 +1974,7 @@ sattrlist.oracc = {
 /* ORACC add links */
 
 attrlist.oracc = {
-    /*
+
     lemma : attrs.baseform,
     ltrans :  {
         // Lemma translation
@@ -1987,6 +1987,7 @@ attrlist.oracc = {
         // Contextual sense
         label : "oracc_sense"
     },
+    /*
     pos : {
         label : "pos",
         displayType : "select",
@@ -2006,6 +2007,7 @@ attrlist.oracc = {
             "verb" : "verb"
         }
     },
+    */
     possub : {
         // Sub POS
         label : "oracc_pos_subcategory"
@@ -2013,6 +2015,7 @@ attrlist.oracc = {
     standard : {
         label : "oracc_standardized"
     },
+    /*
     lang : {
         label : "oracc_lang"
         displayType : "select",
