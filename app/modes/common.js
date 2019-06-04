@@ -1904,7 +1904,6 @@ sattrlist.oracc = {
             "urartian" : "urartian"
         }
     },
-    /*
     text_genre : {
         label : "oracc_genre",
         displayType : "select",
@@ -1969,7 +1968,6 @@ sattrlist.oracc = {
         label : "paragraph_id",
         displayType : "hidden",
     }
-    */
 };
 
 
