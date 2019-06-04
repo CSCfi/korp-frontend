@@ -1832,7 +1832,7 @@ sattrlist.oracc = {
     text_language : {
         label : "oracc_textlang",
         displayType : "select",
-        translationKey : "oracc_textlang_",
+        //translationKey : "oracc_textlang_",
         dataset : {
             "akkadian" : "akkadian",
             "akkadian, aramaic" : "akkadian, aramaic",
