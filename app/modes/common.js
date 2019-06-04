@@ -1966,9 +1966,9 @@ attrlist.oracc = {
     standard : {
         label : "oracc_standardized"
     },
-    /*
+
     lang : {
-        label : "oracc_lang"
+        label : "oracc_lang",
         displayType : "select",
         translationKey : "oracc_lang_",
         dataset : {
@@ -2008,7 +2008,6 @@ attrlist.oracc = {
         label : "oracc_url",
         type : "url"
     }
-    */
 };
 
 
