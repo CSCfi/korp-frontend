@@ -1987,7 +1987,7 @@ attrlist.oracc = {
         // Contextual sense
         label : "oracc_sense"
     },
-    /*
+
     pos : {
         label : "pos",
         displayType : "select",
@@ -2007,7 +2007,6 @@ attrlist.oracc = {
             "verb" : "verb"
         }
     },
-    */
     possub : {
         // Sub POS
         label : "oracc_pos_subcategory"
