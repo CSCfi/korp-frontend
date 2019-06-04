@@ -1876,6 +1876,7 @@ sattrlist.oracc = {
     text_provenance : {
         label : "oracc_provenance",
     },
+    /*
     text_language : {
         label : "oracc_textlang",
         displayType : "select",
@@ -1967,12 +1968,14 @@ sattrlist.oracc = {
         label : "paragraph_id",
         displayType : "hidden",
     }
+    */
 };
 
 
 /* ORACC add links */
 
 attrlist.oracc = {
+    /*
     lemma : attrs.baseform,
     ltrans :  {
         // Lemma translation
@@ -2052,6 +2055,7 @@ attrlist.oracc = {
         label : "oracc_url",
         type : "url"
     }
+    */
 };
 
 
