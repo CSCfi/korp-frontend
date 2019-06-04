@@ -1828,7 +1828,7 @@ sattrlist.oracc = {
     text_provenance : {
         label : "oracc_provenance",
     },
-    /*
+    
     text_language : {
         label : "oracc_textlang",
         displayType : "select",
@@ -1856,6 +1856,7 @@ sattrlist.oracc = {
             "urartian" : "urartian"
         }
     },
+    /*
     text_genre : {
         label : "oracc_genre",
         displayType : "select",
