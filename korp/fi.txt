@@ -1,4 +1,15 @@
 
+<!-- Uusi aineisto: Ylioppilasaineet 2019-06-06 -->
+
+Korpissa on nyt käytettävissä <a
+href="http://urn.fi/urn:nbn:fi:lb-2017030301"
+target="_blank">Ylioppilasaineet-aineisto</a>, joka sisältää
+ylioppilaskokelaiden äidinkielen (suomen) esseitä vuosilta 1994, 1999
+ja 2004. Aineiston käyttäminen edellyttää erillistä käyttölupaa (<a
+href="https://www.kielipankki.fi/lbr3/urn:nbn:fi:lb-2017030301"
+target="_blank">hae käyttölupaa</a>).
+
+
 <!-- Uusi aineisto (beta): Semfinlex 2019-05-15 -->
 
 Korpissa on nyt käytettävissä beetatestiversiona Semfinlex-aineisto,

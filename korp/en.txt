@@ -1,4 +1,15 @@
 
+<!-- New corpus: Finnish Matriculation Examination Essays 2019-06-06 -->
+
+The <a href="http://urn.fi/urn:nbn:fi:lb-2017030301"
+target="_blank">Finnish Matriculation Examination Essays corpus</a> is
+now available in Korp. The corpus contains Finnish matriculation
+examination essays from 1994, 1999 and 2004. Using the corpus requires
+personal access rights (<a
+href="https://www.kielipankki.fi/lbr3/urn:nbn:fi:lb-2017030301"
+target="_blank">apply for rights</a>).
+
+
 <!-- New corpus (beta): Semfinlex 2019-05-15 -->
 
 The Semfinlex corpus is now available in Korp as a beta test version.
