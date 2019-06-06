@@ -11184,7 +11184,7 @@ settings.corpora.yoaineet = {
     id: "yoaineet",
     title: "Ylioppilasaineet",
     description: "Ylioppilaskokelaiden äidinkielen (suomen) esseitä vuosilta 1994, 1999 ja 2004",
-    urn: "",
+    urn: "urn:nbn:fi:lb-2019032801",
     metadata_urn: "urn:nbn:fi:lb-2017030301",
     licence: {
         name: "CLARIN RES +NC +PRIV 1.0",
@@ -11215,8 +11215,11 @@ settings.corpora.yoaineet = {
 	paragraph_id: sattrs.paragraph_id_hidden,
 	sentence_id: sattrs.sentence_id_hidden,
     },
-    labels: ["beta"],
 };
+
+settings.corpus_aliases.ylioppilasaineet = "yoaineet";
+settings.corpus_aliases["yo-aineet"] = "yoaineet";
+
 
 // FiRuLex
 
