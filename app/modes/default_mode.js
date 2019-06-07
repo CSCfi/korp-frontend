@@ -94,7 +94,6 @@ settings.corporafolders.agricola = {
 	iprholder: {
 	    name: "Turun yliopisto; Kotimaisten kielten keskus",
 	},
-	labels: ["beta"],
     }    
 };
 
