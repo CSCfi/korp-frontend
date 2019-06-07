@@ -216,33 +216,9 @@ settings.corporafolders.internet = {
     contents: ["s24", "ylilauta", "hsfi"]
 };
 
-settings.corporafolders.internet.suomi24 = {
-    title: "Suomi24",
-    description: "<a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut 1.1.2001–24.9.2016.<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu useaan osakorpukseen suuren kokonsa vuoksi.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-201412171' target='_blank' title='Kuvailutiedot'>koko Suomi24-aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2015040801' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).",
-    contents: [
-	"s24_001",
-	"s24_002",
-	"s24_003",
-	"s24_004",
-	"s24_005",
-	"s24_006",
-	"s24_007",
-	"s24_008",
-	"s24_009",
-	"s24_010"
-    ],
-    info: {
-	urn: "urn:nbn:fi:lb-2015120401",
-	metadata_urn: "urn:nbn:fi:lb-2017021505",
-	licence: settings.licenceinfo.CC_BY_NC,
-	homepage_url: "http://keskustelu.suomi24.fi",
-	cite_id: "Suomi24-korp-2016H2",
-    }
-};
-
 settings.corporafolders.internet.suomi24_2017h2 = {
-    title: "Suomi24 virkkeet -korpus (2017H2)",
-    description: "<a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut vuosilta 2001–2017 (1.1.2001–31.12.2017).<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu osakorpuksiin vuosittain.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-2019010801' target='_blank' title='Kuvailutiedot'>koko Suomi24-aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2019010802' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).",
+    title: "Suomi24 2017H2",
+    description: "<a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut vuosilta 2001–2017 (1.1.2001–31.12.2017).<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu osakorpuksiin vuosittain.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-2019010801' target='_blank' title='Kuvailutiedot'>koko Suomi24 2017H2 -aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2019010802' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).<br/><br/>(Tämä aineisto näkyi beetatestausvaiheessa Korpissa nimellä <i>Suomi24 virkkeet -korpus (2017H2)</i>.)",
     contents: [
 	"s24_2001",
 	"s24_2002",
@@ -263,13 +239,35 @@ settings.corporafolders.internet.suomi24_2017h2 = {
 	"s24_2017",
     ],
     info: {
-	urn: "[to be added]", // "urn:nbn:fi:lb-2019021102",
-	url: "https://korp.csc.fi/#?corpora=suomi24_2017h2",
+	urn: "urn:nbn:fi:lb-2019021102",
 	metadata_urn: "urn:nbn:fi:lb-2019021101",
 	licence: settings.licenceinfo.CC_BY_NC,
 	homepage_url: "http://keskustelu.suomi24.fi",
 	cite_id: "Suomi24-Korp-2017H2",
-	labels: ["beta"],
+    }
+};
+
+settings.corporafolders.internet.suomi24 = {
+    title: "Suomi24 2016H2",
+    description: "<a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut 1.1.2001–24.9.2016.<br/><br/><strong>Huomaa</strong>, että aineisto ei ole kattava mainitulta aikaväliltä. <strong>Käytä ensisijaisesti uudempaa ja selvästi kattavampaa <a href='http://urn.fi/urn:nbn:fi:lb-2019021101' target='_blank'>Suomi24 2017H2 -aineistoa</a></strong>, jollet tarvitse vertailukelpoisuutta tähän aineistoon perustuvan tutkimuksen kanssa.<br/><br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu useaan osakorpukseen suuren kokonsa vuoksi.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-201412171' target='_blank' title='Kuvailutiedot'>koko Suomi24-aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2015040801' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).<br/><br/>(Tämä aineisto näkyi ennen Suomi24 2017H2 -version julkaisemista Korpissa nimellä <i>Suomi24</i>.)",
+    contents: [
+	"s24_001",
+	"s24_002",
+	"s24_003",
+	"s24_004",
+	"s24_005",
+	"s24_006",
+	"s24_007",
+	"s24_008",
+	"s24_009",
+	"s24_010"
+    ],
+    info: {
+	urn: "urn:nbn:fi:lb-2015120401",
+	metadata_urn: "urn:nbn:fi:lb-2017021505",
+	licence: settings.licenceinfo.CC_BY_NC,
+	homepage_url: "http://keskustelu.suomi24.fi",
+	cite_id: "Suomi24-korp-2016H2",
     }
 };
 
@@ -14132,64 +14130,64 @@ settings.corpora.ylilauta = {
 // specified in the settings of the individual subcorpora.
 
 settings.corpora.s24_001 = {
-    title: "Suomi24 (1/10)",
-    description: "Suomi24-keskustelut (1/10)",
+    title: "Suomi24 2016H2: 1/10",
+    description: "Suomi24-keskustelut, versio 2016H2, osa 1/10",
     id: "s24_001",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: sattrlist.s24_update
 };
 
 settings.corpora.s24_002 = {
-    title: "Suomi24 (2/10)",
-    description: "Suomi24-keskustelut (2/10)",
+    title: "Suomi24 2016H2: 2/10",
+    description: "Suomi24-keskustelut, versio 2016H2, osa 2/10",
     id: "s24_002",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: sattrlist.s24_update
 };
 
 settings.corpora.s24_003 = {
-    title: "Suomi24 (3/10)",
-    description: "Suomi24-keskustelut (3/10)",
+    title: "Suomi24 2016H2: 3/10",
+    description: "Suomi24-keskustelut, versio 2016H2, osa 3/10",
     id: "s24_003",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: sattrlist.s24_update
 };
 
 settings.corpora.s24_004 = {
-    title: "Suomi24 (4/10)",
-    description: "Suomi24-keskustelut (4/10)",
+    title: "Suomi24 2016H2: 4/10",
+    description: "Suomi24-keskustelut, versio 2016H2, osa 4/10",
     id: "s24_004",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: sattrlist.s24_update
 };
 
 settings.corpora.s24_005 = {
-    title: "Suomi24 (5/10)",
-    description: "Suomi24-keskustelut (5/10)",
+    title: "Suomi24 2016H2: 5/10",
+    description: "Suomi24-keskustelut, versio 2016H2, osa 5/10",
     id: "s24_005",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: sattrlist.s24_update
 };
 
 settings.corpora.s24_006 = {
-    title: "Suomi24 (6/10)",
-    description: "Suomi24-keskustelut (6/10)",
+    title: "Suomi24 2016H2: 6/10",
+    description: "Suomi24-keskustelut, versio 2016H2, osa 6/10",
     id: "s24_006",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: sattrlist.s24_update
 };
 
 settings.corpora.s24_007 = {
-    title: "Suomi24 (7/10)",
-    description: "Suomi24-keskustelut (7/10)",
+    title: "Suomi24 2016H2: 7/10",
+    description: "Suomi24-keskustelut, versio 2016H2, osa 7/10",
     id: "s24_007",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: sattrlist.s24_update
 };
 
 settings.corpora.s24_008 = {
-    title: "Suomi24 (8/10)",
-    description: "Suomi24-keskustelut (8/10)",
+    title: "Suomi24 2016H2: 8/10",
+    description: "Suomi24-keskustelut, versio 2016H2, osa 8/10",
     id: "s24_008",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: sattrlist.s24_update
@@ -14207,22 +14205,25 @@ settings.corpora.s24_009test = {
 */
 
 settings.corpora.s24_009 = {
-    title: "Suomi24 (9/10)",
-    description: "Suomi24-keskustelut (9/10)",
+    title: "Suomi24 2016H2: 9/10",
+    description: "Suomi24-keskustelut, versio 2016H2, osa 9/10",
     id: "s24_009",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: sattrlist.s24_update
 };
 
 settings.corpora.s24_010 = {
-    title: "Suomi24 (10/10)",
-    description: "Suomi24-keskustelut (10/10)",
+    title: "Suomi24 2016H2: 10/10",
+    description: "Suomi24-keskustelut, versio 2016H2, osa 10/10",
     id: "s24_010",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: sattrlist.s24_update
 };
 
-settings.corpus_aliases.suomi24 = "s24_0[0-9][0-9]";
+settings.corpus_aliases.suomi24 = "s24_0(0[1-9]|10)";
+settings.corpus_aliases["suomi24-2016h2"] = "s24_0(0[1-9]|10)";
+settings.corpus_aliases.suomi24_2016h2
+    = settings.corpus_aliases["suomi24-2016h2"];
 
 // Configure a short URL: preselect only the Suomi24 corpus folder
 // (all its subcorpora)
@@ -14455,8 +14456,8 @@ settings.fn.add_corpus_settings(
 	for (var y = year1; y <= year2; y++) {
 	    var ystr = y.toString();
 	    result.push({
-		title: "Suomi24 (2017H2) " + ystr,
-		description: "Suomi24 (2017H2): Suomi24-keskustelujen viestit vuodelta " + ystr,
+		title: "Suomi24 2017H2: " + ystr,
+		description: "Suomi24 2017H2: Suomi24-keskustelujen viestit vuodelta " + ystr,
 		id: ystr,
 	    });
 	}
