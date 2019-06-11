@@ -2049,14 +2049,24 @@ attrlist.oracc = {
 		   "Urartian"
         ]
     },
+
+    // links won't work 
+    /* 
     url : {
 	label: "oracc_url",
 	type: "url",
 	url_opts: {
 	    in_link_section : true,
-	    hide_url : false,
+	    hide_url : true,
 	    new_window : true,
 	}
+	}*/
+    url : {
+        in_link_section : true,
+        hide_url : true,
+        new_window : true,
+        label : "oracc_url",
+        type : "url"
     }
 
 };
