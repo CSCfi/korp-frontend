@@ -2051,7 +2051,6 @@ attrlist.oracc = {
     },
 
     // links won't work 
-    /* 
     url : {
 	label: "oracc_url",
 	type: "url",
@@ -2060,14 +2059,15 @@ attrlist.oracc = {
 	    hide_url : true,
 	    new_window : true,
 	}
-	}*/
+    }
+/*
     url : {
         in_link_section : true,
         hide_url : true,
         new_window : true,
         label : "oracc_url",
         type : "url"
-    }
+	}*/
 
 };
 
