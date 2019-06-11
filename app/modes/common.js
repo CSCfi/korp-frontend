@@ -2055,8 +2055,8 @@ attrlist.oracc = {
 	label: "oracc_url",
 	type: "url",
 	url_opts: {
-	    in_link_section : true,
-	    hide_url : true,
+	    //in_link_section : true,
+	    //hide_url : true,
 	    new_window : true,
 	}
     }
