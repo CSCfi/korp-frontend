@@ -1,4 +1,24 @@
 
+<!-- Suomi24 2017H2:n beetatestausvaihe päättynyt ja muutoksia Suomi24-aineistojen nimissä 2019-06-12b -->
+
+Suomi24-aineiston version 2017H2 beetatestausvaihe on viimein
+virallisesti päättynyt. Aineistoon ei tullut muutoksia beetavaiheen
+aikana, joten sen aikana aineiston avulla saadut tulokset ovat
+toistettavissa.
+
+Suomi24 2017H2 näkyy nyt Korpissa nimellä *Suomi24 2017H2* (aiemmin
+*Suomi24 virkkeet -korpus (2017H2)*) ja vanhempi versio 2016H2 nimellä
+*Suomi24 2016H2* (aiemmin *Suomi24*). Lisäksi uudempi versio Suomi24
+2017H2 on siirretty Korpin aineistovalikossa vanhemman version
+yläpuolelle. Aineiston versio näkyy myös osakorpusten nimissä.
+
+**Suosittelemme käyttämään kattavampaa <a
+href="http://urn.fi/urn:nbn:fi:lb-2019021101" target="_blank">Suomi24
+2017H2 -versiota</a>**, jollet tarvitse vertailukelpoisuutta versioon
+2016H2 perustuvan tutkimuksen kanssa tai sanakuvaa tai
+nimientunnistustietoja, jotka puuttuvat toistaiseksi.
+
+
 <!-- Vanhentuneita beetamerkintöjä poistettu aineistoista 2019-06-12a -->
 
 Seuraavista aineistoista on poistettu beetamerkintä, joka oli jäänyt

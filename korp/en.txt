@@ -1,4 +1,25 @@
 
+<!-- The beta test stage of Suomi 2017H2 has ended, and changes in the names of Suomi24 corpora 2019-06-12b -->
+
+The beta test stage of Suomi24 version 2017H2 has finally officially
+ended. The corpus was not changed during the beta test stage, so
+results obtained from the corpus during the beta stage are
+reproducible.
+
+The version 2017H2 of the Suomi24 corpus is now named *Suomi24 2017H2*
+in Korp (previously *Suomi24 virkkeet -korpus (2017H2)*) and
+the older version 2016H2 is *Suomi24 2016H2* (previously *Suomi24*).
+In addition, the newer version Suomi24 2017H2 has been moved above the
+older version in the Korp corpus chooser. The version of the corpus is
+also shown in the names of the subcorpora.
+
+**We recommend using the more comprehensive <a
+href="http://urn.fi/urn:nbn:fi:lb-2019021101" target="_blank">Suomi24
+2017H2</a>**, unless you need comparability to research based on
+version 2016H2, or the word picture or named entity information, which
+are missing for the while.
+
+
 <!-- Obsolete beta labels removed from corpora 2019-06-12a -->
 
 A “beta” label that had been left for much longer than intended has
