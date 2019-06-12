@@ -1,4 +1,21 @@
 
+<!-- Obsolete beta labels removed from corpora 2019-06-12a -->
+
+A “beta” label that had been left for much longer than intended has
+been removed from the following corpora: <a
+href="http://urn.fi/urn:nbn:fi:lb-20140730170"
+target="_blank">Agricola</a>, <a
+href="href="http://urn.fi/urn:nbn:fi:lb-2017061922"
+target="_blank">COCA</a>, <a
+href="href="http://urn.fi/urn:nbn:fi:lb-2017061925"
+target="_blank">COHA</a>, <a
+href="href="http://urn.fi/urn:nbn:fi:lb-2017061928"
+target="_blank">GloWbE</a> and <a
+href="href="http://urn.fi/urn:nbn:fi:lb-201411071"
+target="_blank">ScotsCorr</a>. The corpora have not changed since
+publishing them, so results obtained from them are reproducible.
+
+
 <!-- New corpus: Finnish Matriculation Examination Essays 2019-06-06 -->
 
 The <a href="http://urn.fi/urn:nbn:fi:lb-2017030301"

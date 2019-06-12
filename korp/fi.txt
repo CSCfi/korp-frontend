@@ -1,4 +1,22 @@
 
+<!-- Vanhentuneita beetamerkintöjä poistettu aineistoista 2019-06-12a -->
+
+Seuraavista aineistoista on poistettu beetamerkintä, joka oli jäänyt
+niihin huomattavasti tarkoitettua pidemmäksi aikaa: <a
+href="http://urn.fi/urn:nbn:fi:lb-20140730170"
+target="_blank">Agricola</a>, <a
+href="href="http://urn.fi/urn:nbn:fi:lb-2017061922"
+target="_blank">COCA</a>, <a
+href="href="http://urn.fi/urn:nbn:fi:lb-2017061925"
+target="_blank">COHA</a>, <a
+href="href="http://urn.fi/urn:nbn:fi:lb-2017061928"
+target="_blank">GloWbE</a> ja <a
+href="href="http://urn.fi/urn:nbn:fi:lb-201411071"
+target="_blank">ScotsCorr</a>. Aineistoihin ei ole tullut muutoksia
+alkuperäisen julkaisemisen jälkeen, joten niillä saadut tulokset ovat
+toistettavissa.
+
+
 <!-- Uusi aineisto: Ylioppilasaineet 2019-06-06 -->
 
 Korpissa on nyt käytettävissä <a
