@@ -39,10 +39,20 @@ settings.corporafolders.oracc = {
                "oracc_ecut", "oracc_etcsri", "oracc_hbtin", "oracc_obmc",
                "oracc_riao", "oracc_ribo", "oracc_rimanum", "oracc_rinap", "oracc_saao", "oracc_others"],
     info: {
-        licence: settings.licenceinfo.CC_BY,
-        cite_id: "ORACC",
+	metadata_urn: "urn:nbn:fi:lb-2019060601",
+	urn: "urn:nbn:fi:lb-2019060602",
+        licence: settings.licenceinfo.CC_BY_SA_30,
+	iprholder: {
+	    name: "Open Richly Annotated Cuneiform Corpus Project",
+	    url: "http://oracc.museum.upenn.edu/doc/about/licensing/index.html",
+	},
+        cite_id: "oracc-korp-2019-05",
     }
 };
+
+settings.corpus_aliases["oracc-2019-05"] = "oracc_adsd,oracc_ario,oracc_blms,oracc_cams,oracc_caspo,oracc_ctij,oracc_dcclt,oracc_dccmt,oracc_ecut,oracc_etcsri,oracc_hbtin,oracc_obmc,oracc_riao,oracc_ribo,oracc_rimanum,oracc_rinap,oracc_saao,oracc_others";
+settings.corpus_aliases.oracc_2919_05
+    = settings.corpus_aliases["oracc-2019-05"];
 
 settings.corporafolders.testikansio = {
     title: "ERME",

@@ -69,6 +69,11 @@ settings.licenceinfo = {
 	description: "Creative Commons Attribution-NoDerivatives 4.0",
 	url: "https://creativecommons.org/licenses/by-nd/4.0/",
     },
+    CC_BY_SA_30: {
+	name: "CC BY-SA 3.0 (CLARIN PUB)",
+	description: "Creative Commons Attribution-ShareAlike",
+	url: "https://creativecommons.org/licenses/by-sa/3.0/",
+    },
     EUPL_11: {
 	name: "EUPL v1.1 (CLARIN PUB)",
 	description: "European Union Public Licence, version 1.1",
