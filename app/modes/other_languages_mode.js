@@ -47,6 +47,7 @@ settings.corporafolders.oracc = {
 	    url: "http://oracc.museum.upenn.edu/doc/about/licensing/index.html",
 	},
         cite_id: "oracc-korp-2019-05",
+	infopage_url: "https://www.kielipankki.fi/corpora/oracc/",
     }
 };
 
