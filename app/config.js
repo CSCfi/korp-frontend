@@ -300,6 +300,7 @@ settings.corpusExtraInfoItems = [
     // // "metadata",
     "cite",
     "licence",
+    "infopage",
     "urn",
     "homepage",
     "iprholder",
@@ -317,6 +318,7 @@ settings.corpusExtraInfo = {
 	// "metadata",
 	"cite",
 	"licence",
+	"infopage",
 	"urn",
 	"download",
     ]
