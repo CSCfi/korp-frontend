@@ -1824,7 +1824,7 @@ sattrs.link_lehdet = {
     url_opts: sattrs.link_url_opts
 };
 
-/* ORACC */
+/* Oracc */
 
 sattrlist.oracc = {
     text_cdlinumber : {
@@ -1930,7 +1930,7 @@ sattrlist.oracc = {
 };
 
 
-/* ORACC add links */
+/* Oracc add links */
 
 attrlist.oracc = {
 

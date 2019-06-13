@@ -32,8 +32,8 @@ settings.spContext = {
 
 
 settings.corporafolders.oracc = {
-    title: "ORACC",
-    description: "ORACC – Open Richly Annotated Cuneiform Corpus",
+    title: "Oracc",
+    description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2019-05",
     contents: ["oracc_adsd", "oracc_ario", "oracc_blms", "oracc_cams",
                "oracc_caspo", "oracc_ctij", "oracc_dcclt", "oracc_dccmt",
                "oracc_ecut", "oracc_etcsri", "oracc_hbtin", "oracc_obmc",
