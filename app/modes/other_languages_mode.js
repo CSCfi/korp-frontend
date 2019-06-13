@@ -39,7 +39,7 @@ settings.corporafolders.oracc = {
                "oracc_ecut", "oracc_etcsri", "oracc_hbtin", "oracc_obmc",
                "oracc_riao", "oracc_ribo", "oracc_rimanum", "oracc_rinap", "oracc_saao", "oracc_others"],
     info: {
-        licence: settings.licenceinfo.CC_BY_30,
+        licence: settings.licenceinfo.CC_BY,
         cite_id: "ORACC",
     }
 };
