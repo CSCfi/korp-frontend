@@ -1863,6 +1863,29 @@
     "oracc_textlang_uncertain or unspecified" : "uncertain or unspecified",
     "oracc_textlang_urartian" : "urartian",
 
-    "klk_img_url": "Katso asiakirja Revizorissa"
+    "oracc_period_Achaemenid" : "Achaemenid",
+    "oracc_period_Archaic" : "Archaic",
+    "oracc_period_Early Dynastic" : "Early Dynastic",
+    "oracc_period_Ebla" : "Ebla",
+    "oracc_period_First Millennium" : "First Millennium",
+    "oracc_period_Hellenistic" : "Hellenistic",
+    "oracc_period_Lagaš II" : "Lagaš II",
+    "oracc_period_Late Babylonian" : "Late Babylonian",
+    "oracc_period_Middle Assyrian" : "Middle Assyrian",
+    "oracc_period_Middle Babylonian" : "Middle Babylonian",
+    "oracc_period_Middle Hittite" : "Middle Hittite",
+    "oracc_period_Neo-Assyrian" : "Neo-Assyrian",
+    "oracc_period_Neo-Babylonian" : "Neo-Babylonian",
+    "oracc_period_Old Akkadian" : "Old Akkadian",
+    "oracc_period_Old Assyrian" : "Old Assyrian",
+    "oracc_period_Old Babylonian" : "Old Babylonian",
+    "oracc_period_Parthian" : "Parthian",
+    "oracc_period_Standard Babylonian" : "Standard Babylonian",
+    "oracc_period_Ur III" : "Ur III",
+    "oracc_period_Urartian" : "Urartian",
+    "oracc_period_Uruk III" : "Uruk III",
+    "oracc_period_Uruk IV" : "Uruk IV",
+    "oracc_period_Uncertain or unspecified" : "Uncertain or unspecified",
 
+    "klk_img_url": "Katso asiakirja Revizorissa"
 }
