@@ -1,5 +1,15 @@
 
-<!-- Updated corpus: Oracc (Korp Version, 2019-05) 2019-06-14 -->
+<!-- New corpus (beta): Helsinki Corpus 2019-06-14b -->
+
+The <a href="http://urn.fi/urn:nbn:fi:lb-2017083001"
+target="_blank">Helsinki Corpus TEI XML Edition (2011), Korp
+Version</a> is now available in Korp as a beta test version. The
+Helsinki Corpus is a diachronic corpus of Old, Middle and Early Modern
+English. Using the corpus in Korp requires an active membership of an
+academic institution and logging in to Korp.
+
+
+<!-- Updated corpus: Oracc (Korp Version, 2019-05) 2019-06-14a -->
 
 The <a href="http://urn.fi/urn:nbn:fi:lb-2019060602"
 target="_blank">Open Richly Annotated Cuneiform Corpus (Oracc)</a>
