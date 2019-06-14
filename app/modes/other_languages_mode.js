@@ -303,8 +303,8 @@ settings.corpora.hc = {
     },
     cite_id: "HC-TEI-XML",
     labels: ["beta"],
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
+    context : settings.spContext,
+    within : settings.spWithin,
     attributes : attrlist.hc,
     struct_attributes : sattrlist.hc
 };
