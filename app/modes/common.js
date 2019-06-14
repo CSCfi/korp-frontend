@@ -1865,6 +1865,54 @@ sattrs.link_lehdet = {
     url_opts: sattrs.link_url_opts
 };
 
+/* HC */
+
+sattrlist.hc = {
+    sentence_id : sattrs.sentence_id_hidden,
+    text_date : {label: "date"},
+    text_title : {label: "title"},
+    text_xmlid : {label: "hc_xmlid"},
+    text_id : {label: "hc_textid"},
+    text_source : {label: "source"},
+    text_lang : {label: "lang"},
+    text_langid : {label: "hc_lang_id"},
+    text_contemporaneity : {label: "hc_contemporaneity"},
+    //text_dialect : {label: "hc_dialect"},
+    text_form : {label: "hc_form"},
+    text_texttype : {label: "hc_texttype"},
+    text_foreignorig : {label: "hc_foreignorig"},
+    text_foreignlang : {label: "hc_foreignlang"},
+    text_spoken : {label: "hc_spoken"},
+    text_authorsex : {label: "hc_authorsex"},
+    text_author : {label: "hc_author"},
+    text_authorage : {label: "hc_authorage"},
+    text_socialrank : {label: "hc_socialrank"},
+    text_audience : {label: "hc_audience"},
+    text_partrel : {label: "hc_partrel"},
+    text_interaction : {label: "hc_interaction"},
+    text_setting : {label: "hc_setting"},
+    text_proto : {label: "hc_proto"}
+};
+
+attrlist.hc = {
+    page : {label: "page_num",
+            opts : settings.defaultOptions},
+
+    note : {label: "note",
+            opts : settings.defaultOptions},
+
+    unit : {label: "unit",
+            opts : settings.defaultOptions},
+
+    type : {label: "type",
+            opts : settings.defaultOptions},
+
+    supplement : {label: "supplement",
+		  opts : settings.defaultOptions}
+
+};
+
+
 /* Oracc */
 
 sattrlist.oracc = {

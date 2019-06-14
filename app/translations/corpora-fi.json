@@ -1918,7 +1918,6 @@
     "oracc_textlang" : "tekstin kielet",
     "oracc_textlang" : "tekstin kielet",
     "oracc_lang": "kielimuoto",
-    
     "oracc_genre_administrativerecord": "hallinnollinen",
     "oracc_genre_astrologicalastronomical": "astrologinen/astronominen",
     "oracc_genre_grantdecreegift": "lahjoitus/määräys",
@@ -2016,6 +2015,29 @@
     "oracc_lang_Ugaritic": "ugarit",
     "oracc_lang_Urartian": "urartu",
     
+    "klk_img_url": "Katso asiakirja Revizorissa",
 
-    "klk_img_url": "Katso asiakirja Revizorissa"
+    "hc_xmlid": "XML-tunniste",
+    "hc_textid": "tekstitunniste",
+    "hc_lang_id": "kielitunniste",
+    "supplement" : "täydennys",
+    "note" : "huomio",
+    "unit" : "yksikkö",
+    "type" : "tyyppi",
+    "hc_proto" : "prototyyppinen tekstikategoria",
+    "hc_contemporaneity" : "käsikirjoituksen ajallinen suhde kirjoittajaan",
+    "hc_dialect" : "murre",
+    "hc_form" : "muoto",
+    "hc_texttype" : "genre",
+    "hc_foreignorig" : "suhde alkuperäiskieliseen tekstiin",
+    "hc_foreignlang" : "alkuperäiskieli",
+    "hc_spoken" : "puhekielisyys",
+    "hc_authorsex" : "kirjoittajan sukupuoli",
+    "hc_author" : "kirjoittaja",
+    "hc_authorage" : "kirjoittajan ikä",
+    "hc_socialrank" : "sosiaalinen status",
+    "hc_audience" : "kohdeyleisö",
+    "hc_partrel" : "osallisen suhde kirjoittajaan",
+    "hc_interaction" : "interaktiivisuus",
+    "hc_setting" : "muodollisuus"
 }

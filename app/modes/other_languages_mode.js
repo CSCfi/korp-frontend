@@ -81,7 +81,12 @@ settings.corporafolders.fennougrica = {
 settings.corporafolders.english = {
     title: "English / Englanti",
     description: "Texts in English<br/>Englanninkielisiä tekstejä",
-    contents: ["mulcold_en", "elfa", "topling_en"]
+    contents: [
+	"mulcold_en",
+	"elfa",
+	"hc",
+	"topling_en",
+    ]
 };
 
 settings.corporafolders.german = {
@@ -281,6 +286,28 @@ settings.corpora.fennougrica = {
 };
 */
 
+settings.corpora.hc = {
+    id : "hc",
+    title : "Helsinki Corpus",
+    description : "Helsinki Corpus TEI XML Edition (2011), Korp Version<br/><br/>The Helsinki Corpus of English Texts is a structured multi-genre diachronic corpus, which includes periodically organized text samples from Old, Middle and Early Modern English. Each sample is preceded by a list of parameter codes giving information on the text and its author. The Corpus is useful particularly in the study of the change of linguistic features in long diachrony. It can be used as a diagnostic corpus giving general information of the occurrence of forms, structures and lexemes in different periods of English. This information can be supplemented by evidence yielded by more special and focused historical corpora.<br/><br/><strong>Note</strong> that this version of the corpus is based on the Helsinki Corpus TEI XML Edition of 2011, so it does not contain word-level annotations.",
+    metadata_urn: "urn:nbn:fi:lb-2017083001",
+    // Uncomment location URN when the beta stage ends
+    // urn: "urn:nbn:fi:lb-2019061401",
+    homepage_url: "http://www.helsinki.fi/varieng/CoRD/corpora/HelsinkiCorpus/HC_XML.html",
+    limited_access: true,
+    licence_type: "ACA",
+    licence: {
+	name: "CLARIN ACA +NC +DEP 1.0",
+	description: "CLARIN ACA (Academic) End-User License 1.0, Non-commercial, No redistribution, Redeposit",
+	urn: "urn:nbn:fi:lb-2019061301",
+    },
+    cite_id: "HC-TEI-XML",
+    labels: ["beta"],
+    context : settings.defaultContext,
+    within : settings.defaultWithin,
+    attributes : attrlist.hc,
+    struct_attributes : sattrlist.hc
+};
 
 settings.corpora.oracc_adsd = {
     id : "oracc_adsd",
