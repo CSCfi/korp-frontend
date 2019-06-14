@@ -30,15 +30,30 @@ settings.spContext = {
     "1 paragraph": "1 paragraph"
 };
 
+
 settings.corporafolders.oracc = {
-    title: "ORACC",
-    description: "ORACC – Open Richly Annotated Cuneiform Corpus",
-    contents: ["oracc_cams", "oracc_dcclt", "oracc_ribo", "oracc_rinap", "oracc_saao", "oracc_other"],
+    title: "Oracc",
+    description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2019-05",
+    contents: ["oracc_adsd", "oracc_ario", "oracc_blms", "oracc_cams",
+               "oracc_caspo", "oracc_ctij", "oracc_dcclt", "oracc_dccmt",
+               "oracc_ecut", "oracc_etcsri", "oracc_hbtin", "oracc_obmc",
+               "oracc_riao", "oracc_ribo", "oracc_rimanum", "oracc_rinap", "oracc_saao", "oracc_others"],
     info: {
-        licence: settings.licenceinfo.CC_BY_30,
-	cite_id: "ORACC",
+	metadata_urn: "urn:nbn:fi:lb-2019060601",
+	urn: "urn:nbn:fi:lb-2019060602",
+        licence: settings.licenceinfo.CC_BY_SA_30,
+	iprholder: {
+	    name: "Open Richly Annotated Cuneiform Corpus Project",
+	    url: "http://oracc.museum.upenn.edu/doc/about/licensing/index.html",
+	},
+        cite_id: "oracc-korp-2019-05",
+	infopage_url: "https://www.kielipankki.fi/corpora/oracc/",
     }
 };
+
+settings.corpus_aliases["oracc-2019-05"] = "oracc_adsd,oracc_ario,oracc_blms,oracc_cams,oracc_caspo,oracc_ctij,oracc_dcclt,oracc_dccmt,oracc_ecut,oracc_etcsri,oracc_hbtin,oracc_obmc,oracc_riao,oracc_ribo,oracc_rimanum,oracc_rinap,oracc_saao,oracc_others";
+settings.corpus_aliases.oracc_2919_05
+    = settings.corpus_aliases["oracc-2019-05"];
 
 settings.corporafolders.testikansio = {
     title: "ERME",
@@ -266,65 +281,170 @@ settings.corpora.fennougrica = {
 };
 */
 
-settings.corpora.oracc_other = {
-    id: "oracc_other",
-    title: "Others",
-    description: "Others",
-    context: settings.defaultContext,
-    within: settings.defaultWithin,
-    attributes: attrlist.oracc,
-    struct_attributes: sattrlist.oracc,
-};
 
-settings.corpora.oracc_saao = {
-    id: "oracc_saao",
-    title: "State Archives of Assyria Online",
-    description: "SAAo – State Archives of Assyria Online",
-    context: settings.defaultContext,
-    within: settings.defaultWithin,
+settings.corpora.oracc_adsd = {
+    id : "oracc_adsd",
+    title : "Astronomical Diaries Digital",
+    description : "ADsD: Astronomical Diaries Digital",
+    context : settings.spContext,
+    within : settings.spWithin,
     attributes: attrlist.oracc,
-    struct_attributes: sattrlist.oracc,
+    struct_attributes : sattrlist.oracc
 };
-
-settings.corpora.oracc_ribo = {
-    id: "oracc_ribo",
-    title: "Royal Inscriptions of Babylonia online",
-    description: "RIBo – Royal Inscriptions of Babylonia online",
-    context: settings.defaultContext,
-    within: settings.defaultWithin,
+settings.corpora.oracc_ario = {
+    id : "oracc_ario",
+    title : "Achaemenid Royal Inscriptions online",
+    description : "ARIo: Achaemenid Royal Inscriptions online",
+    context : settings.spContext,
+    within : settings.spWithin,
     attributes: attrlist.oracc,
-    struct_attributes: sattrlist.oracc,
+    struct_attributes : sattrlist.oracc
 };
-
-settings.corpora.oracc_rinap = {
-    id: "oracc_rinap",
-    title: "Royal Inscriptions of the Neo-Assyrian Period",
-    description: "RINAP – Royal Inscriptions of the Neo-Assyrian Period",
-    context: settings.defaultContext,
-    within: settings.defaultWithin,
+settings.corpora.oracc_blms = {
+    id : "oracc_blms",
+    title : "Bilinguals in Late Mesopotamian Scholarship",
+    description : "blms: Bilinguals in Late Mesopotamian Scholarship",
+    context : settings.spContext,
+    within : settings.spWithin,
     attributes: attrlist.oracc,
-    struct_attributes: sattrlist.oracc,
+    struct_attributes : sattrlist.oracc
 };
-
-settings.corpora.oracc_dcclt = {
-    id: "oracc_dcclt",
-    title: "Digital Corpus of Cuneiform Lexical Texts",
-    description: "DCCLT – Digital Corpus of Cuneiform Lexical Texts",
-    context: settings.defaultContext,
-    within: settings.defaultWithin,
-    attributes: attrlist.oracc,
-    struct_attributes: sattrlist.oracc,
-};
-
 settings.corpora.oracc_cams = {
-    id: "oracc_cams",
-    title: "Corpus of Ancient Mesopotamian Scholarship",
-    description: "CAMS – Corpus of Ancient Mesopotamian Scholarship",
-    context: settings.defaultContext,
-    within: settings.defaultWithin,
+    id : "oracc_cams",
+    title : "Corpus of Ancient Mesopotamian Scholarship",
+    description : "CAMS: Corpus of Ancient Mesopotamian Scholarship",
+    context : settings.spContext,
+    within : settings.spWithin,
     attributes: attrlist.oracc,
-    struct_attributes: sattrlist.oracc,
+    struct_attributes : sattrlist.oracc
 };
+settings.corpora.oracc_caspo = {
+    id : "oracc_caspo",
+    title : "Corpus of Akkadian Shuila-Prayers online",
+    description : "CASPo: Corpus of Akkadian Shuila-Prayers online",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_ctij = {
+    id : "oracc_ctij",
+    title : "Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups",
+    description : "CTIJ: Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_dcclt = {
+    id : "oracc_dcclt",
+    title : "Digital Corpus of Cuneiform Lexical Texts",
+    description : "DCCLT: Digital Corpus of Cuneiform Lexical Texts",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_dccmt = {
+    id : "oracc_dccmt",
+    title : "Digital Corpus of Cuneiform Mathematical Texts",
+    description : "DCCMT: Digital Corpus of Cuneiform Mathematical Texts",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_ecut = {
+    id : "oracc_ecut",
+    title : "Electronic Corpus of Urartian Texts",
+    description : "eCUT: Electronic Corpus of Urartian Texts",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_etcsri = {
+    id : "oracc_etcsri",
+    title : "Electronic Text Corpus of Sumerian Royal Inscriptions",
+    description : "ETCSRI: Electronic Text Corpus of Sumerian Royal Inscriptions",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_hbtin = {
+    id : "oracc_hbtin",
+    title : "Hellenistic Babylonia",
+    description : "HBTIN: Hellenistic Babylonia: Texts, Iconography, Names",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_obmc = {
+    id : "oracc_obmc",
+    title : "Old Babylonian Model Contracts",
+    description : "OBMC: Old Babylonian Model Contracts",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_others = {
+    id : "oracc_others",
+    title : "Other projects",
+    description : "Other projects",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_riao = {
+    id : "oracc_riao",
+    title : "Royal Inscriptions of Assyria online",
+    description : "RIAo: Royal Inscriptions of Assyria online",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_ribo = {
+    id : "oracc_ribo",
+    title : "Royal Inscriptions of Babylonia online",
+    description : "RIBo: Royal Inscriptions of Babylonia online",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_rimanum = {
+    id : "oracc_rimanum",
+    title : "The House of Prisoners",
+    description : "Rīm-Anum: The House of Prisoners",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_rinap = {
+    id : "oracc_rinap",
+    title : "Royal Inscriptions of the Neo-Assyrian Period",
+    description : "RINAP: Royal Inscriptions of the Neo-Assyrian Period",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_saao = {
+    id : "oracc_saao",
+    title : "State Archives of Assyria Online",
+    description : "SAAo: State Archives of Assyria Online",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+
 
 settings.corpora.ethesis_ru = {
     title: "E-thesis",

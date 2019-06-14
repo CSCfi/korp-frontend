@@ -79,6 +79,11 @@ settings.licenceinfo = {
 	description: "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0",
 	url: "https://creativecommons.org/licenses/by-nc-nd/4.0/",
     },
+    CC_BY_SA_30: {
+	name: "CC BY-SA 3.0 (CLARIN PUB)",
+	description: "Creative Commons Attribution-ShareAlike",
+	url: "https://creativecommons.org/licenses/by-sa/3.0/",
+    },
     EUPL_11: {
 	name: "EUPL v1.1 (CLARIN PUB)",
 	description: "European Union Public Licence, version 1.1",
@@ -1860,80 +1865,212 @@ sattrs.link_lehdet = {
     url_opts: sattrs.link_url_opts
 };
 
-/* ORACC */
+/* Oracc */
 
 sattrlist.oracc = {
-    text_provenance: {
-        label: "oracc_provenance",
+    text_cdlinumber : {
+        label : "oracc_cdlinumber",
     },
-    text_period: {
-        label: "oracc_period",
+    text_provenance : {
+        label : "oracc_provenance",
     },
-    text_genre: {
-        label: "oracc_genre"
+    
+    text_language : {
+        label : "oracc_textlang",
+        displayType : "select",
+        translationKey : "oracc_textlang_",
+        dataset : [
+		   "Akkadian",
+		   "AkkadianAramaic",
+		   "AkkadianAramaicLuwian",
+		   "AkkadianEgyptian",
+		   "AkkadianOldPersian",
+		   "AkkadianOldPersianElamite",
+		   "AkkadianOldPersianElamiteEgyptian",
+		   "AkkadianUrartian",
+		   "Aramaic",
+		   "Eblaite",
+		   "Elamite",
+		   "Hittite",
+		   "Neo-Assyrian",
+		   "Neo-Babylonian",
+		   "OldPersian",
+		   "OldPersianElamite",
+		   "Sumerian",
+		   "SumerianAkkadian",
+		   "Uncertainorunspecified",
+		   "Urartian"
+        ]
     },
-    text_url: {
-        url_opts: sattrs.link_url_opts,
-        label: "oracc_url",
-        type: "url"
+    text_genre : {
+        label : "oracc_genre",
+        displayType : "select",
+        translationKey : "oracc_genre_",
+        dataset : [
+		   "administrativerecord",
+		   "astrologicalastronomical",
+		   "grantdecreegift",
+		   "legaltransaction",
+		   "letter",
+		   "lexical",
+		   "literary",
+		   "miscellaneous",
+		   "omendivination",
+		   "prayerritualincantation",
+		   "royalinscription",
+		   "scholarly",
+		   "school",
+		   "uncertainorunspecified"
+        ]
     },
-    sentence_line: {
-        label: "oracc_line",
+    text_period : {
+        label : "oracc_period",
+        displayType : "select",
+        translationKey : "oracc_period_",
+        dataset : [
+	    "Achaemenid",
+	    "Archaic",
+	    "EarlyDynastic",
+	    "Ebla",
+	    "FirstMillennium",
+	    "Hellenistic",
+	    "LagašII",
+	    "LateBabylonian",
+	    "MiddleAssyrian",
+	    "MiddleBabylonian",
+	    "MiddleHittite",
+	    "NeoAssyrian",
+	    "Neo-Assyrian",
+	    "NeoBabylonian",
+	    "Neo-Babylonian",
+	    "OldAkkadian",
+	    "OldAssyrian",
+	    "OldBabylonian",
+	    "Parthian",
+	    "StandardBabylonian",
+	    "Uncertainorunspecified",
+	    "Urartian",
+	    "UrIII",
+	    "UrukIII",
+	    "UrukIV"
+        ]
     },
-    sentence_translation: {
-        label: "oracc_sent_translation"
+    text_subgenre : {
+        label : "oracc_subgenre"
+    },
+    sentence_line : {
+        label : "oracc_line",
+    },
+    sentence_translation : {
+        label : "oracc_sent_translation"
+    },
+    paragraph_id : {
+        label : "paragraph_id",
+        displayType : "hidden",
     }
 };
 
-/* ORACC */
+
+/* Oracc add links */
+
 attrlist.oracc = {
-    lemma: attrs.baseform,
-    ltrans:  {
-	label: "oracc_lemmatrans"
+
+    lemma : attrs.baseform,
+    ltrans :  {
+        // Lemma translation
+        label : "oracc_lemmatrans"
     },
-    transcription: {
-	label: "oracc_transcription"
+    transcription : {
+        label : "oracc_transcription"
     },
-    pos: {
-	label: "pos",
-	displayType: "select",
-	translationKey: "oracc_pos_",
-	dataset: {},
-	opts: settings.liteOptions
+    sense : {
+        // Contextual sense
+        label : "oracc_sense"
     },
-    sense: {
-	label: "oracc_sense"
-	},
-    sensepos: {
-        label: "oracc_sensepos",
-        displayType: "select",
-        translationKey: "oracc_pos_",
-        dataset: {},
-        opts: settings.liteOptions
+
+    pos : {
+        label : "pos",
+        displayType : "select",
+        translationKey : "oracc_pos_",
+        dataset : [
+	    "adjective",
+	    "adverb",
+	    "commonnoun",
+	    "conjunction",
+	    "interjection",
+	    "miscellaneousundetermined",
+	    "number",
+	    "particle",
+	    "prepositionpostposition",
+	    "pronoun",
+	    "propernoun",
+	    "verb"
+        ]
     },
-    cuneiform: {
-        label: "oracc_cuneiform"
+    possub : {
+        // Sub POS
+        label : "oracc_pos_subcategory"
     },
-    ref: {
-        label: "oracc_ref"
+    standard : {
+        label : "oracc_standardized"
     },
-    lang: {
-        label: "oracc_lang",
-        displayType: "select",
-        translationKey: "oracc_lang_",
-        dataset: {},
-        opts: settings.liteOptions
+
+    lang : {
+        label : "oracc_lang",
+        displayType : "select",
+        translationKey : "oracc_lang_",
+        dataset : [
+		   "Akkadian",
+		   "Aramaic",
+		   "Cuneiform",
+		   "EarlyAkkadian",
+		   "Eblaite",
+		   "Elamite",
+		   "Greek",
+		   "Hittite",
+		   "Hurrian",
+		   "LateBabylonian",
+		   "MiddleAssyrian",
+		   "MiddleBabylonian",
+		   "MiddleBabylonianperipheral",
+		   "Neo-Assyrian",
+		   "Neo-Babylonian",
+		   "OldAkkadian",
+		   "OldAssyrian",
+		   "OldBabylonian",
+		   "OldPersian",
+		   "Proto-cuneiform",
+		   "StandardBabylonian",
+		   "Sumerian",
+		   "SumerianEmesal",
+		   "Ugaritic",
+		   "Urartian"
+        ]
     },
-    asciitranslitt: {
-        label: "oracc_asciixlit"
-    },
-    asciitranscript: {
-        label: "oracc_asciixcrip"
-    },
-    asciilemma: {
-        label: "oracc_asciilemma"
+
+    // links won't work 
+    url : {
+	label: "oracc_url",
+	type: "url",
+	url_opts: {
+	    //in_link_section : true,
+	    //hide_url : true,
+	    new_window : true,
+	}
     }
+/*
+    url : {
+        in_link_section : true,
+        hide_url : true,
+        new_window : true,
+        label : "oracc_url",
+        type : "url"
+	}*/
+
 };
+
+
+
 
 /* E-thesis */
 

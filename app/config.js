@@ -787,7 +787,7 @@ settings.fn.add_attr_extra_properties = function (corpora) {
 
 /*
  * MISC
- */
+*/
 
 
 // label values here represent translation keys.
