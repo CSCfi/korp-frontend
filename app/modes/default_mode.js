@@ -826,11 +826,12 @@ settings.corporafolders.ftc = {
 	    name: "CLARIN RES +PLAN +NC +ND",
 	    urn: "urn:nbn:fi:lb-20150304137",
 	},
-	homepage: {
-	    name: "Aineiston kuvaus",
-	    url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFtc",
-	    no_label: true,
-	},
+	// KitWiki is no longer available and there is no replacement page yet
+	// homepage: {
+	//     name: "Aineiston kuvaus",
+	//     url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFtc",
+	//     no_label: true,
+	// },
 	cite_id: "ftc-korp",
     },
 };
@@ -891,11 +892,7 @@ settings.corporafolders.spoken.la_murre = {
 	urn: "urn:nbn:fi:lb-2014052715",
 	metadata_urn: "urn:nbn:fi:lb-2014052716",
 	licence: settings.licenceinfo.CC_BY_ND_40,
-	homepage: {
-	    name: "Aineiston tietosivu Kielipankissa",
-	    url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotLAmurre",
-	    no_label: true
-	},
+	infopage_url: "https://www.kielipankki.fi/aineistot/la-murre/",
 	cite_id: "LA-murre-korp",
     }
  };

@@ -120,11 +120,12 @@ settings.corporafolders.fstc = {
 	    name: "CLARIN RES +PLAN +NC +LOC +ND",
 	    urn: "urn:nbn:fi:lb-20150304123",
 	},
-	homepage: {
-	    name: "Beskrivning",
-	    url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFstc",
-	    no_label: true,
-	},
+	// KitWiki is no longer available and there is no replacement page yet
+	// homepage: {
+	//     name: "Beskrivning",
+	//     url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFstc",
+	//     no_label: true,
+	// },
 	cite_id: "fstc-korp",
     },
 };
