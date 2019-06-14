@@ -1,4 +1,18 @@
 
+<!-- Päivitetty aineisto: Oracc (Korp-versio, 2019-05) 2019-06-14 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2019060602" target="_blank">Open
+Richly Annotated Cuneiform Corpus (Oracc)</a> -aineistokokoelmaan on
+lisätty uusia osakorpuksia ja annotaatioita sekä piirteiden arvojen
+valintalistoja Korpin laajennettuun hakuun. Tämä Oraccin Korp-versio
+sisältää lähes kaiken datan, joka oli saatavilla <a
+href="http://oracc.museum.upenn.edu/index.html"
+target="_blank">Oracc-hankkeen WWW-sivustolla</a> toukokuussa 2019.
+Sisältö on eristetty Oraccista saaduista JSON-tiedostoista. <a
+href="https://www.kielipankki.fi/corpora/oracc/"
+target="_blank">Lisätietoja aineiston tietosivulta.</a>
+
+
 <!-- Suomi24 2017H2:n beetatestausvaihe päättynyt ja muutoksia Suomi24-aineistojen nimissä 2019-06-12b -->
 
 Suomi24-aineiston version 2017H2 beetatestausvaihe on viimein

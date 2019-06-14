@@ -1,4 +1,18 @@
 
+<!-- Updated corpus: Oracc (Korp Version, 2019-05) 2019-06-14 -->
+
+The <a href="http://urn.fi/urn:nbn:fi:lb-2019060602"
+target="_blank">Open Richly Annotated Cuneiform Corpus (Oracc)</a>
+collection has been updated with new subcorpora, more annotations and
+attribute value selection lists in Korp’s extended search. This
+version of Oracc in Korp contains almost all the data that were
+available on the <a href="http://oracc.museum.upenn.edu/index.html"
+target="_blank">Oracc project website</a> in May 2019. The data have
+been extracted from the JSON files provided by Oracc. <a
+href="https://www.kielipankki.fi/corpora/oracc/" target="_blank">More
+information on the corpus information page</a>.
+
+
 <!-- The beta test stage of Suomi 2017H2 has ended, and changes in the names of Suomi24 corpora 2019-06-12b -->
 
 The beta test stage of Suomi24 version 2017H2 has finally officially
