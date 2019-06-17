@@ -236,6 +236,45 @@ settings.corporafolders.sust = {
     contents: ["sust_myv", "sust_kpv", "sust_mdf"]
 };
 
+settings.corporafolders.wanca_test = {
+    title: "Wanca corpus (test version)",
+    description: "A collection of web corpora in small Uralic languages (test version)",
+    info: {
+	metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2019052401",
+	licence: settings.licenceinfo.CC_BY,
+	cite_id: "wanca-korp",
+    },
+    contents: ["wanca_test_fit_multili",
+	       "wanca_test_fkv_multili",
+	       "wanca_test_izh",
+	       "wanca_test_kca_multili",
+	       "wanca_test_koi_multili",
+	       "wanca_test_kpv_multili",
+	       "wanca_test_krl_multili",
+	       "wanca_test_liv",
+	       "wanca_test_lud",
+	       "wanca_test_mdf_multili",
+	       "wanca_test_mhr_multili",
+	       "wanca_test_mns_multili",
+	       "wanca_test_mrj_multili",
+	       "wanca_test_myv_multili",
+	       "wanca_test_nio",
+	       "wanca_test_olo_multili",
+	       "wanca_test_sjd",
+	       "wanca_test_sjk",
+	       "wanca_test_sju",
+	       "wanca_test_sma_multili",
+	       "wanca_test_sme_multili",
+	       "wanca_test_smj_multili",
+	       "wanca_test_smn_multili",
+	       "wanca_test_sms_multili",
+	       "wanca_test_udm_multili",
+	       "wanca_test_vep_multili",
+	       "wanca_test_vot",
+	       "wanca_test_vro_multili",
+	       "wanca_test_yrk" ]
+};
+
 settings.corporafolders.english.scotscorr = {
     title: "ScotsCorr",
     // Description copied from META-SHARE
@@ -713,6 +752,46 @@ settings.corpora.sust_kpv = {
     attributes: attrlist.sust_tagged,
     struct_attributes: sattrlist.sust_common
 };
+
+// TODO: check how attribute spaces should be shown
+attrlist.wanca_common = {
+    spaces: {
+	label: "whitespace_related_to_token",
+	dataset: {
+	    "_" : "_",
+	    "SpaceAfter=No" : "SpaceAfter=No",
+	    "SpacesAfter=\n\n" : "SpacesAfter=\n\n",
+	    "SpacesBefore=\s" : "SpacesBefore=\s",
+	    "SpacesAfter= " : "SpacesAfter= ",
+	    "SpacesAfter=\s\s" : "SpacesAfter=\s\s",
+	    "SpacesBefore=\s|SpaceAfter=No" : "SpacesBefore=\s|SpaceAfter=No",
+//	    "SpacesAfter=　\s" : "SpacesAfter=　\s",
+	    "SpacesAfter=  " : "SpacesAfter=  ",
+	},
+    },
+    ref: attrs.ref,
+};
+
+sattrlist.wanca_common = {
+    text_url : {
+	label : "URL",
+	type : "url",
+	url_opts : sattrs.link_url_opts
+    },
+};
+
+settings.corpora.wanca_test_fit_multili = {
+    id: "wanca_test_fit_multili",
+    title: "Wanca: Tornedalen Finnish (meänkieli)",
+    description: "A collection of web corpora in small Uralic languages: Tornedalen Finnish (meänkieli)",
+    lang: "fit"
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+// TODO: the same for all other languages in wanca
 
 settings.corpora.fennougrica_izh = {
     id: "fennougrica_izh",
