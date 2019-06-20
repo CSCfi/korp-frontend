@@ -54,7 +54,7 @@
     "lemma": "lemma",
     "baseform_compound": "baseform (compound boundaries)",
     "lemmacomp": "baseform (compound boundaries)",
-    "pos_orig": "part-of-speech (original)",
+    "pos_orig": "part of speech (original)",
     "func": "function",
 
     "ambiguous_msd": "morphosyntactic features (ambiguous)",
