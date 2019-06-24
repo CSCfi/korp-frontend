@@ -765,7 +765,7 @@ attrlist.wanca_common = {
 	    "SpacesAfter= " : "SpacesAfter= ",
 	    "SpacesAfter=\s\s" : "SpacesAfter=\s\s",
 	    "SpacesBefore=\s|SpaceAfter=No" : "SpacesBefore=\s|SpaceAfter=No",
-//	    "SpacesAfter=　\s" : "SpacesAfter=　\s",
+	    "SpacesAfter=　\s" : "SpacesAfter=　\s",
 	    "SpacesAfter=  " : "SpacesAfter=  ",
 	},
     },
@@ -1057,8 +1057,8 @@ settings.corpora.wanca_test_udm_multili = {
 
 settings.corpora.wanca_test_vep_multili = {
     id: "wanca_test_vep_multili",
-    title: "Wanca: ...",
-    description: "A collection of web corpora in small Uralic languages: ...",
+    title: "Wanca: Veps (vepsän kel')",
+    description: "A collection of web corpora in small Uralic languages: Veps (vepsän kel')",
     lang: "vep"
     within: settings.spWithin,
     context: settings.spContext,
