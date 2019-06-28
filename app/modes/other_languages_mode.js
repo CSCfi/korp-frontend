@@ -244,8 +244,8 @@ settings.corporafolders.wanca_test = {
 	licence: settings.licenceinfo.CC_BY,
 	cite_id: "wanca-korp",
     },
-    contents: ["wanca_test_fit_multili",
-	       "wanca_test_fkv_multili",
+    contents: ["wanca_test_fit_multili"]
+/*	       "wanca_test_fkv_multili",
 	       "wanca_test_izh",
 	       "wanca_test_kca_multili",
 	       "wanca_test_koi_multili",
@@ -272,7 +272,7 @@ settings.corporafolders.wanca_test = {
 	       "wanca_test_vep_multili",
 	       "wanca_test_vot",
 	       "wanca_test_vro_multili",
-	       "wanca_test_yrk" ]
+	       "wanca_test_yrk" ]*/
 };
 
 settings.corporafolders.english.scotscorr = {
@@ -784,18 +784,18 @@ settings.corpora.wanca_test_fit_multili = {
     id: "wanca_test_fit_multili",
     title: "Wanca: Tornedalen Finnish (meänkieli)",
     description: "A collection of web corpora in small Uralic languages: Tornedalen Finnish (meänkieli)",
-    lang: "fit"
+    lang: "fit",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
     struct_attributes: sattrlist.wanca_common
 };
 
-settings.corpora.wanca_test_fkv_multili = {
+/*settings.corpora.wanca_test_fkv_multili = {
     id: "wanca_test_fkv_multili",
     title: "Wanca: Kven (kvääni)",
     description: "A collection of web corpora in small Uralic languages: Kven (kvääni)",
-    lang: "fkv"
+    lang: "fkv",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -806,7 +806,7 @@ settings.corpora.wanca_test_izh = {
     id: "wanca_test_izh",
     title: "Wanca: Ingrian (ižoran keel)",
     description: "A collection of web corpora in small Uralic languages: Ingrian (ižoran keel)",
-    lang: "izh"
+    lang: "izh",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -817,7 +817,7 @@ settings.corpora.wanca_test_kca_multili = {
     id: "wanca_test_kca_multili",
     title: "Wanca: Khanty (ханты ясанг)",
     description: "A collection of web corpora in small Uralic languages: Khanty (ханты ясанг)",
-    lang: "kca"
+    lang: "kca",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -828,7 +828,7 @@ settings.corpora.wanca_test_koi_multili = {
     id: "wanca_test_koi_multili",
     title: "Wanca: Komi-Permyak (перем коми кыв)",
     description: "A collection of web corpora in small Uralic languages: Komi-Permyak (перем коми кыв)",
-    lang: "koi"
+    lang: "koi",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -839,7 +839,7 @@ settings.corpora.wanca_test_kpv_multili = {
     id: "wanca_test_kpv_multili",
     title: "Wanca: Komi-Zyrian (Коми кыв)",
     description: "A collection of web corpora in small Uralic languages: Komi-Zyrian (Коми кыв)",
-    lang: "kpv"
+    lang: "kpv",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -850,7 +850,7 @@ settings.corpora.wanca_test_krl_multili = {
     id: "wanca_test_krl_multili",
     title: "Wanca: Karelian (karjal)",
     description: "A collection of web corpora in small Uralic languages: Karelian (karjal)",
-    lang: "krl"
+    lang: "krl",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -861,7 +861,7 @@ settings.corpora.wanca_test_liv = {
     id: "wanca_test_liv",
     title: "Wanca: Liv (līvõ kēļ)",
     description: "A collection of web corpora in small Uralic languages: Liv (līvõ kēļ)",
-    lang: "liv"
+    lang: "liv",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -872,7 +872,7 @@ settings.corpora.wanca_test_lud = {
     id: "wanca_test_lud",
     title: "Wanca: Ludian (lüüdin kiel')",
     description: "A collection of web corpora in small Uralic languages: Ludian (lüüdin kiel')",
-    lang: "lud"
+    lang: "lud",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -883,7 +883,7 @@ settings.corpora.wanca_test_mdf_multili = {
     id: "wanca_test_mdf_multili",
     title: "Wanca: Moksha (мокшень)",
     description: "A collection of web corpora in small Uralic languages: Moksha (мокшень)",
-    lang: "mdf"
+    lang: "mdf",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -894,7 +894,7 @@ settings.corpora.wanca_test_mhr_multili = {
     id: "wanca_test_mhr_multili",
     title: "Wanca: Eastern and Meadow Mari (марий йылме)",
     description: "A collection of web corpora in small Uralic languages: Eastern and Meadow Mari (марий йылме)",
-    lang: "mhr"
+    lang: "mhr",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -905,7 +905,7 @@ settings.corpora.wanca_test_mns_multili = {
     id: "wanca_test_mns_multili",
     title: "Wanca: Mansi (мāньси лāтыӈ)",
     description: "A collection of web corpora in small Uralic languages: Mansi (мāньси лāтыӈ)",
-    lang: "mns"
+    lang: "mns",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -916,7 +916,7 @@ settings.corpora.wanca_test_mrj_multili = {
     id: "wanca_test_mrj_multili",
     title: "Wanca: Western or Hill Mari (Кырык мары)",
     description: "A collection of web corpora in small Uralic languages: Western or Hill Mari (Кырык мары)",
-    lang: "mrj"
+    lang: "mrj",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -927,7 +927,7 @@ settings.corpora.wanca_test_myv_multili = {
     id: "wanca_test_myv_multili",
     title: "Wanca: Erzya (эрзянь)",
     description: "A collection of web corpora in small Uralic languages: Erzya (эрзянь)",
-    lang: "myv"
+    lang: "myv",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -938,7 +938,7 @@ settings.corpora.wanca_test_nio = {
     id: "wanca_test_nio",
     title: "Wanca: Nganasan (ня”)",
     description: "A collection of web corpora in small Uralic languages: Nganasan (ня”)",
-    lang: "nio"
+    lang: "nio",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -949,7 +949,7 @@ settings.corpora.wanca_test_olo_multili = {
     id: "wanca_test_olo_multili",
     title: "Wanca: Livvi (Olonets / livvin karjal)",
     description: "A collection of web corpora in small Uralic languages: Livvi (Olonets / livvin karjal)",
-    lang: "olo"
+    lang: "olo",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -960,7 +960,7 @@ settings.corpora.wanca_test_sjd = {
     id: "wanca_test_sjd",
     title: "Wanca: Kildin Sami (Кӣллт са̄мь кӣлл)",
     description: "A collection of web corpora in small Uralic languages: Kildin Sami (Кӣллт са̄мь кӣлл)",
-    lang: "sjd"
+    lang: "sjd",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -971,7 +971,7 @@ settings.corpora.wanca_test_sjk = {
     id: "wanca_test_sjk",
     title: "Wanca: Kemi Sami (samääškiela)",
     description: "A collection of web corpora in small Uralic languages: Kemi Sami (samääškiela)",
-    lang: "sjk"
+    lang: "sjk",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -982,7 +982,7 @@ settings.corpora.wanca_test_sju = {
     id: "wanca_test_sju",
     title: "Wanca: Ume Sami (uumajanlappi)",
     description: "A collection of web corpora in small Uralic languages: Ume Sami (uumajanlappi)",
-    lang: "sju"
+    lang: "sju",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -993,7 +993,7 @@ settings.corpora.wanca_test_sma_multili = {
     id: "wanca_test_sma_multili",
     title: "Wanca: Southern Sami (åarjel-saemien)",
     description: "A collection of web corpora in small Uralic languages: Southern Sami (åarjel-saemien)",
-    lang: "sma"
+    lang: "sma",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -1004,7 +1004,7 @@ settings.corpora.wanca_test_sme_multili = {
     id: "wanca_test_sme_multili",
     title: "Wanca: Northern Sami (davvisámi, davvisámegiella)",
     description: "A collection of web corpora in small Uralic languages: Northern Sami (davvisámi, davvisámegiella)",
-    lang: "sme"
+    lang: "sme",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -1015,7 +1015,7 @@ settings.corpora.wanca_test_smj_multili = {
     id: "wanca_test_smj_multili",
     title: "Wanca: Lule Sami (julevsábme)",
     description: "A collection of web corpora in small Uralic languages: Lule Sami (julevsábme)",
-    lang: "smj"
+    lang: "smj",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -1026,7 +1026,7 @@ settings.corpora.wanca_test_smn_multili = {
     id: "wanca_test_smn_multili",
     title: "Wanca: Inari Sami (anarâškielâ)",
     description: "A collection of web corpora in small Uralic languages: Inari Sami (anarâškielâ)",
-    lang: "smn"
+    lang: "smn",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -1037,7 +1037,7 @@ settings.corpora.wanca_test_sms_multili = {
     id: "wanca_test_sms_multili",
     title: "Wanca: Skolt Sami (sää´mǩiõll)",
     description: "A collection of web corpora in small Uralic languages: Skolt Sami (sää´mǩiõll)",
-    lang: "sms"
+    lang: "sms",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -1048,7 +1048,7 @@ settings.corpora.wanca_test_udm_multili = {
     id: "wanca_test_udm_multili",
     title: "Wanca: Udmurt (удмурт кыл)",
     description: "A collection of web corpora in small Uralic languages: Udmurt (удмурт кыл)",
-    lang: "udm"
+    lang: "udm",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -1059,7 +1059,7 @@ settings.corpora.wanca_test_vep_multili = {
     id: "wanca_test_vep_multili",
     title: "Wanca: Veps (vepsän kel')",
     description: "A collection of web corpora in small Uralic languages: Veps (vepsän kel')",
-    lang: "vep"
+    lang: "vep",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -1070,7 +1070,7 @@ settings.corpora.wanca_test_vot = {
     id: "wanca_test_vot",
     title: "Wanca: Votic (vad̕d̕a ceeli)",
     description: "A collection of web corpora in small Uralic languages: Votic (vad̕d̕a ceeli)",
-    lang: "vot"
+    lang: "vot",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -1081,7 +1081,7 @@ settings.corpora.wanca_test_vro_multili = {
     id: "wanca_test_vro_multili",
     title: "Wanca: Võro (võro kiil)",
     description: "A collection of web corpora in small Uralic languages: Võro (võro kiil)",
-    lang: "vro"
+    lang: "vro",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
@@ -1092,12 +1092,12 @@ settings.corpora.wanca_test_yrk = {
     id: "wanca_test_yrk",
     title: "Wanca: Nenets (ненэцяʼ вада)",
     description: "A collection of web corpora in small Uralic languages: Nenets (ненэцяʼ вада)",
-    lang: "yrk"
+    lang: "yrk",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.wanca_common,
     struct_attributes: sattrlist.wanca_common
-};
+};*/
 
 settings.corpora.fennougrica_izh = {
     id: "fennougrica_izh",
