@@ -244,8 +244,8 @@ settings.corporafolders.wanca_test = {
 	licence: settings.licenceinfo.CC_BY,
 	cite_id: "wanca-korp",
     },
-    contents: ["wanca_test_fit_multili"]
-/*	       "wanca_test_fkv_multili",
+    contents: ["wanca_test_fit_multili",
+	       "wanca_test_fkv_multili",
 	       "wanca_test_izh",
 	       "wanca_test_kca_multili",
 	       "wanca_test_koi_multili",
@@ -272,7 +272,7 @@ settings.corporafolders.wanca_test = {
 	       "wanca_test_vep_multili",
 	       "wanca_test_vot",
 	       "wanca_test_vro_multili",
-	       "wanca_test_yrk" ]*/
+	       "wanca_test_yrk" ]
 };
 
 settings.corporafolders.english.scotscorr = {
@@ -791,7 +791,7 @@ settings.corpora.wanca_test_fit_multili = {
     struct_attributes: sattrlist.wanca_common
 };
 
-/*settings.corpora.wanca_test_fkv_multili = {
+settings.corpora.wanca_test_fkv_multili = {
     id: "wanca_test_fkv_multili",
     title: "Wanca: Kven (kvääni)",
     description: "A collection of web corpora in small Uralic languages: Kven (kvääni)",
@@ -1097,7 +1097,7 @@ settings.corpora.wanca_test_yrk = {
     context: settings.spContext,
     attributes: attrlist.wanca_common,
     struct_attributes: sattrlist.wanca_common
-};*/
+};
 
 settings.corpora.fennougrica_izh = {
     id: "fennougrica_izh",
