@@ -236,6 +236,46 @@ settings.corporafolders.sust = {
     contents: ["sust_myv", "sust_kpv", "sust_mdf"]
 };
 
+settings.corporafolders.wanca_2016 = {
+    title: "Wanca 2016",
+    description: "A collection of web corpora in small Uralic languages",
+    info: {
+	metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2019052401",
+	licence: settings.licenceinfo.CC_BY,
+	cite_id: "wanca2016-korp",
+	labels: ["beta"],
+    },
+    contents: ["wanca_2016_fit_multili",
+	       "wanca_2016_fkv_multili",
+	       "wanca_2016_izh",
+	       "wanca_2016_kca_multili",
+	       "wanca_2016_koi_multili",
+	       "wanca_2016_kpv_multili",
+	       "wanca_2016_krl_multili",
+	       "wanca_2016_liv",
+	       "wanca_2016_lud",
+	       "wanca_2016_mdf_multili",
+	       "wanca_2016_mhr_multili",
+	       "wanca_2016_mns_multili",
+	       "wanca_2016_mrj_multili",
+	       "wanca_2016_myv_multili",
+	       "wanca_2016_nio",
+	       "wanca_2016_olo_multili",
+	       "wanca_2016_sjd",
+	       "wanca_2016_sjk",
+	       "wanca_2016_sju",
+	       "wanca_2016_sma_multili",
+	       "wanca_2016_sme_multili",
+	       "wanca_2016_smj_multili",
+	       "wanca_2016_smn_multili",
+	       "wanca_2016_sms_multili",
+	       "wanca_2016_udm_multili",
+	       "wanca_2016_vep_multili",
+	       "wanca_2016_vot",
+	       "wanca_2016_vro_multili",
+	       "wanca_2016_yrk" ]
+};
+
 settings.corporafolders.english.scotscorr = {
     title: "ScotsCorr",
     // Description copied from META-SHARE
@@ -712,6 +752,352 @@ settings.corpora.sust_kpv = {
     context: settings.spContext,
     attributes: attrlist.sust_tagged,
     struct_attributes: sattrlist.sust_common
+};
+
+// TODO: check how attribute spaces should be shown
+attrlist.wanca_common = {
+    spaces: {
+	label: "whitespace_related_to_token",
+	dataset: {
+	    "_" : "_",
+	    "SpaceAfter=No" : "SpaceAfter=No",
+	    "SpacesAfter=\n\n" : "SpacesAfter=\n\n",
+	    "SpacesBefore=\s" : "SpacesBefore=\s",
+	    "SpacesAfter= " : "SpacesAfter= ",
+	    "SpacesAfter=\s\s" : "SpacesAfter=\s\s",
+	    "SpacesBefore=\s|SpaceAfter=No" : "SpacesBefore=\s|SpaceAfter=No",
+	    "SpacesAfter=　\s" : "SpacesAfter=　\s",
+	    "SpacesAfter=  " : "SpacesAfter=  ",
+	},
+    },
+    ref: attrs.ref,
+};
+
+sattrlist.wanca_common = {
+    text_url : {
+	label : "URL",
+	type : "url",
+	url_opts : sattrs.link_url_opts
+    },
+};
+
+settings.corpora.wanca_2016_fit_multili = {
+    id: "wanca_2016_fit_multili",
+    title: "Wanca 2016: Tornedalen Finnish (meänkieli)",
+    description: "A collection of web corpora in small Uralic languages: Tornedalen Finnish (meänkieli)",
+    lang: "fit",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_fkv_multili = {
+    id: "wanca_2016_fkv_multili",
+    title: "Wanca 2016: Kven (kvääni)",
+    description: "A collection of web corpora in small Uralic languages: Kven (kvääni)",
+    lang: "fkv",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_izh = {
+    id: "wanca_2016_izh",
+    title: "Wanca 2016: Ingrian (ižoran keel)",
+    description: "A collection of web corpora in small Uralic languages: Ingrian (ižoran keel)",
+    lang: "izh",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_kca_multili = {
+    id: "wanca_2016_kca_multili",
+    title: "Wanca 2016: Khanty (ханты ясанг)",
+    description: "A collection of web corpora in small Uralic languages: Khanty (ханты ясанг)",
+    lang: "kca",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_koi_multili = {
+    id: "wanca_2016_koi_multili",
+    title: "Wanca 2016: Komi-Permyak (перем коми кыв)",
+    description: "A collection of web corpora in small Uralic languages: Komi-Permyak (перем коми кыв)",
+    lang: "koi",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_kpv_multili = {
+    id: "wanca_2016_kpv_multili",
+    title: "Wanca 2016: Komi-Zyrian (Коми кыв)",
+    description: "A collection of web corpora in small Uralic languages: Komi-Zyrian (Коми кыв)",
+    lang: "kpv",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_krl_multili = {
+    id: "wanca_2016_krl_multili",
+    title: "Wanca 2016: Karelian (karjal)",
+    description: "A collection of web corpora in small Uralic languages: Karelian (karjal)",
+    lang: "krl",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_liv = {
+    id: "wanca_2016_liv",
+    title: "Wanca 2016: Liv (līvõ kēļ)",
+    description: "A collection of web corpora in small Uralic languages: Liv (līvõ kēļ)",
+    lang: "liv",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_lud = {
+    id: "wanca_2016_lud",
+    title: "Wanca 2016: Ludian (lüüdin kiel')",
+    description: "A collection of web corpora in small Uralic languages: Ludian (lüüdin kiel')",
+    lang: "lud",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_mdf_multili = {
+    id: "wanca_2016_mdf_multili",
+    title: "Wanca 2016: Moksha (мокшень)",
+    description: "A collection of web corpora in small Uralic languages: Moksha (мокшень)",
+    lang: "mdf",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_mhr_multili = {
+    id: "wanca_2016_mhr_multili",
+    title: "Wanca 2016: Eastern and Meadow Mari (марий йылме)",
+    description: "A collection of web corpora in small Uralic languages: Eastern and Meadow Mari (марий йылме)",
+    lang: "mhr",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_mns_multili = {
+    id: "wanca_2016_mns_multili",
+    title: "Wanca 2016: Mansi (мāньси лāтыӈ)",
+    description: "A collection of web corpora in small Uralic languages: Mansi (мāньси лāтыӈ)",
+    lang: "mns",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_mrj_multili = {
+    id: "wanca_2016_mrj_multili",
+    title: "Wanca 2016: Western or Hill Mari (Кырык мары)",
+    description: "A collection of web corpora in small Uralic languages: Western or Hill Mari (Кырык мары)",
+    lang: "mrj",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_myv_multili = {
+    id: "wanca_2016_myv_multili",
+    title: "Wanca 2016: Erzya (эрзянь)",
+    description: "A collection of web corpora in small Uralic languages: Erzya (эрзянь)",
+    lang: "myv",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_nio = {
+    id: "wanca_2016_nio",
+    title: "Wanca 2016: Nganasan (ня”)",
+    description: "A collection of web corpora in small Uralic languages: Nganasan (ня”)",
+    lang: "nio",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_olo_multili = {
+    id: "wanca_2016_olo_multili",
+    title: "Wanca 2016: Livvi (Olonets / livvin karjal)",
+    description: "A collection of web corpora in small Uralic languages: Livvi (Olonets / livvin karjal)",
+    lang: "olo",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_sjd = {
+    id: "wanca_2016_sjd",
+    title: "Wanca 2016: Kildin Sami (Кӣллт са̄мь кӣлл)",
+    description: "A collection of web corpora in small Uralic languages: Kildin Sami (Кӣллт са̄мь кӣлл)",
+    lang: "sjd",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_sjk = {
+    id: "wanca_2016_sjk",
+    title: "Wanca 2016: Kemi Sami (samääškiela)",
+    description: "A collection of web corpora in small Uralic languages: Kemi Sami (samääškiela)",
+    lang: "sjk",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_sju = {
+    id: "wanca_2016_sju",
+    title: "Wanca 2016: Ume Sami (uumajanlappi)",
+    description: "A collection of web corpora in small Uralic languages: Ume Sami (uumajanlappi)",
+    lang: "sju",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_sma_multili = {
+    id: "wanca_2016_sma_multili",
+    title: "Wanca 2016: Southern Sami (åarjel-saemien)",
+    description: "A collection of web corpora in small Uralic languages: Southern Sami (åarjel-saemien)",
+    lang: "sma",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_sme_multili = {
+    id: "wanca_2016_sme_multili",
+    title: "Wanca 2016: Northern Sami (davvisámi, davvisámegiella)",
+    description: "A collection of web corpora in small Uralic languages: Northern Sami (davvisámi, davvisámegiella)",
+    lang: "sme",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_smj_multili = {
+    id: "wanca_2016_smj_multili",
+    title: "Wanca 2016: Lule Sami (julevsábme)",
+    description: "A collection of web corpora in small Uralic languages: Lule Sami (julevsábme)",
+    lang: "smj",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_smn_multili = {
+    id: "wanca_2016_smn_multili",
+    title: "Wanca 2016: Inari Sami (anarâškielâ)",
+    description: "A collection of web corpora in small Uralic languages: Inari Sami (anarâškielâ)",
+    lang: "smn",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_sms_multili = {
+    id: "wanca_2016_sms_multili",
+    title: "Wanca 2016: Skolt Sami (sää´mǩiõll)",
+    description: "A collection of web corpora in small Uralic languages: Skolt Sami (sää´mǩiõll)",
+    lang: "sms",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_udm_multili = {
+    id: "wanca_2016_udm_multili",
+    title: "Wanca 2016: Udmurt (удмурт кыл)",
+    description: "A collection of web corpora in small Uralic languages: Udmurt (удмурт кыл)",
+    lang: "udm",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_vep_multili = {
+    id: "wanca_2016_vep_multili",
+    title: "Wanca 2016: Veps (vepsän kel')",
+    description: "A collection of web corpora in small Uralic languages: Veps (vepsän kel')",
+    lang: "vep",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_vot = {
+    id: "wanca_2016_vot",
+    title: "Wanca 2016: Votic (vad̕d̕a ceeli)",
+    description: "A collection of web corpora in small Uralic languages: Votic (vad̕d̕a ceeli)",
+    lang: "vot",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_vro_multili = {
+    id: "wanca_2016_vro_multili",
+    title: "Wanca 2016: Võro (võro kiil)",
+    description: "A collection of web corpora in small Uralic languages: Võro (võro kiil)",
+    lang: "vro",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_yrk = {
+    id: "wanca_2016_yrk",
+    title: "Wanca 2016: Nenets (ненэцяʼ вада)",
+    description: "A collection of web corpora in small Uralic languages: Nenets (ненэцяʼ вада)",
+    lang: "yrk",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
 };
 
 settings.corpora.fennougrica_izh = {
