@@ -237,12 +237,12 @@ settings.corporafolders.sust = {
 };
 
 settings.corporafolders.wanca_test = {
-    title: "Wanca corpus (test version)",
+    title: "Wanca 2016 (test version)",
     description: "A collection of web corpora in small Uralic languages (test version)",
     info: {
 	metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2019052401",
 	licence: settings.licenceinfo.CC_BY,
-	cite_id: "wanca-korp",
+	cite_id: "wanca2016-korp",
     },
     contents: ["wanca_test_fit_multili",
 	       "wanca_test_fkv_multili",
@@ -782,7 +782,7 @@ sattrlist.wanca_common = {
 
 settings.corpora.wanca_test_fit_multili = {
     id: "wanca_test_fit_multili",
-    title: "Wanca: Tornedalen Finnish (meänkieli)",
+    title: "Wanca 2016: Tornedalen Finnish (meänkieli)",
     description: "A collection of web corpora in small Uralic languages: Tornedalen Finnish (meänkieli)",
     lang: "fit",
     within: settings.spWithin,
@@ -793,7 +793,7 @@ settings.corpora.wanca_test_fit_multili = {
 
 settings.corpora.wanca_test_fkv_multili = {
     id: "wanca_test_fkv_multili",
-    title: "Wanca: Kven (kvääni)",
+    title: "Wanca 2016: Kven (kvääni)",
     description: "A collection of web corpora in small Uralic languages: Kven (kvääni)",
     lang: "fkv",
     within: settings.spWithin,
@@ -804,7 +804,7 @@ settings.corpora.wanca_test_fkv_multili = {
 
 settings.corpora.wanca_test_izh = {
     id: "wanca_test_izh",
-    title: "Wanca: Ingrian (ižoran keel)",
+    title: "Wanca 2016: Ingrian (ižoran keel)",
     description: "A collection of web corpora in small Uralic languages: Ingrian (ižoran keel)",
     lang: "izh",
     within: settings.spWithin,
@@ -815,7 +815,7 @@ settings.corpora.wanca_test_izh = {
 
 settings.corpora.wanca_test_kca_multili = {
     id: "wanca_test_kca_multili",
-    title: "Wanca: Khanty (ханты ясанг)",
+    title: "Wanca 2016: Khanty (ханты ясанг)",
     description: "A collection of web corpora in small Uralic languages: Khanty (ханты ясанг)",
     lang: "kca",
     within: settings.spWithin,
@@ -826,7 +826,7 @@ settings.corpora.wanca_test_kca_multili = {
 
 settings.corpora.wanca_test_koi_multili = {
     id: "wanca_test_koi_multili",
-    title: "Wanca: Komi-Permyak (перем коми кыв)",
+    title: "Wanca 2016: Komi-Permyak (перем коми кыв)",
     description: "A collection of web corpora in small Uralic languages: Komi-Permyak (перем коми кыв)",
     lang: "koi",
     within: settings.spWithin,
@@ -837,7 +837,7 @@ settings.corpora.wanca_test_koi_multili = {
 
 settings.corpora.wanca_test_kpv_multili = {
     id: "wanca_test_kpv_multili",
-    title: "Wanca: Komi-Zyrian (Коми кыв)",
+    title: "Wanca 2016: Komi-Zyrian (Коми кыв)",
     description: "A collection of web corpora in small Uralic languages: Komi-Zyrian (Коми кыв)",
     lang: "kpv",
     within: settings.spWithin,
@@ -848,7 +848,7 @@ settings.corpora.wanca_test_kpv_multili = {
 
 settings.corpora.wanca_test_krl_multili = {
     id: "wanca_test_krl_multili",
-    title: "Wanca: Karelian (karjal)",
+    title: "Wanca 2016: Karelian (karjal)",
     description: "A collection of web corpora in small Uralic languages: Karelian (karjal)",
     lang: "krl",
     within: settings.spWithin,
@@ -859,7 +859,7 @@ settings.corpora.wanca_test_krl_multili = {
 
 settings.corpora.wanca_test_liv = {
     id: "wanca_test_liv",
-    title: "Wanca: Liv (līvõ kēļ)",
+    title: "Wanca 2016: Liv (līvõ kēļ)",
     description: "A collection of web corpora in small Uralic languages: Liv (līvõ kēļ)",
     lang: "liv",
     within: settings.spWithin,
@@ -870,7 +870,7 @@ settings.corpora.wanca_test_liv = {
 
 settings.corpora.wanca_test_lud = {
     id: "wanca_test_lud",
-    title: "Wanca: Ludian (lüüdin kiel')",
+    title: "Wanca 2016: Ludian (lüüdin kiel')",
     description: "A collection of web corpora in small Uralic languages: Ludian (lüüdin kiel')",
     lang: "lud",
     within: settings.spWithin,
@@ -881,7 +881,7 @@ settings.corpora.wanca_test_lud = {
 
 settings.corpora.wanca_test_mdf_multili = {
     id: "wanca_test_mdf_multili",
-    title: "Wanca: Moksha (мокшень)",
+    title: "Wanca 2016: Moksha (мокшень)",
     description: "A collection of web corpora in small Uralic languages: Moksha (мокшень)",
     lang: "mdf",
     within: settings.spWithin,
@@ -892,7 +892,7 @@ settings.corpora.wanca_test_mdf_multili = {
 
 settings.corpora.wanca_test_mhr_multili = {
     id: "wanca_test_mhr_multili",
-    title: "Wanca: Eastern and Meadow Mari (марий йылме)",
+    title: "Wanca 2016: Eastern and Meadow Mari (марий йылме)",
     description: "A collection of web corpora in small Uralic languages: Eastern and Meadow Mari (марий йылме)",
     lang: "mhr",
     within: settings.spWithin,
@@ -903,7 +903,7 @@ settings.corpora.wanca_test_mhr_multili = {
 
 settings.corpora.wanca_test_mns_multili = {
     id: "wanca_test_mns_multili",
-    title: "Wanca: Mansi (мāньси лāтыӈ)",
+    title: "Wanca 2016: Mansi (мāньси лāтыӈ)",
     description: "A collection of web corpora in small Uralic languages: Mansi (мāньси лāтыӈ)",
     lang: "mns",
     within: settings.spWithin,
@@ -914,7 +914,7 @@ settings.corpora.wanca_test_mns_multili = {
 
 settings.corpora.wanca_test_mrj_multili = {
     id: "wanca_test_mrj_multili",
-    title: "Wanca: Western or Hill Mari (Кырык мары)",
+    title: "Wanca 2016: Western or Hill Mari (Кырык мары)",
     description: "A collection of web corpora in small Uralic languages: Western or Hill Mari (Кырык мары)",
     lang: "mrj",
     within: settings.spWithin,
@@ -925,7 +925,7 @@ settings.corpora.wanca_test_mrj_multili = {
 
 settings.corpora.wanca_test_myv_multili = {
     id: "wanca_test_myv_multili",
-    title: "Wanca: Erzya (эрзянь)",
+    title: "Wanca 2016: Erzya (эрзянь)",
     description: "A collection of web corpora in small Uralic languages: Erzya (эрзянь)",
     lang: "myv",
     within: settings.spWithin,
@@ -936,7 +936,7 @@ settings.corpora.wanca_test_myv_multili = {
 
 settings.corpora.wanca_test_nio = {
     id: "wanca_test_nio",
-    title: "Wanca: Nganasan (ня”)",
+    title: "Wanca 2016: Nganasan (ня”)",
     description: "A collection of web corpora in small Uralic languages: Nganasan (ня”)",
     lang: "nio",
     within: settings.spWithin,
@@ -947,7 +947,7 @@ settings.corpora.wanca_test_nio = {
 
 settings.corpora.wanca_test_olo_multili = {
     id: "wanca_test_olo_multili",
-    title: "Wanca: Livvi (Olonets / livvin karjal)",
+    title: "Wanca 2016: Livvi (Olonets / livvin karjal)",
     description: "A collection of web corpora in small Uralic languages: Livvi (Olonets / livvin karjal)",
     lang: "olo",
     within: settings.spWithin,
@@ -958,7 +958,7 @@ settings.corpora.wanca_test_olo_multili = {
 
 settings.corpora.wanca_test_sjd = {
     id: "wanca_test_sjd",
-    title: "Wanca: Kildin Sami (Кӣллт са̄мь кӣлл)",
+    title: "Wanca 2016: Kildin Sami (Кӣллт са̄мь кӣлл)",
     description: "A collection of web corpora in small Uralic languages: Kildin Sami (Кӣллт са̄мь кӣлл)",
     lang: "sjd",
     within: settings.spWithin,
@@ -969,7 +969,7 @@ settings.corpora.wanca_test_sjd = {
 
 settings.corpora.wanca_test_sjk = {
     id: "wanca_test_sjk",
-    title: "Wanca: Kemi Sami (samääškiela)",
+    title: "Wanca 2016: Kemi Sami (samääškiela)",
     description: "A collection of web corpora in small Uralic languages: Kemi Sami (samääškiela)",
     lang: "sjk",
     within: settings.spWithin,
@@ -980,7 +980,7 @@ settings.corpora.wanca_test_sjk = {
 
 settings.corpora.wanca_test_sju = {
     id: "wanca_test_sju",
-    title: "Wanca: Ume Sami (uumajanlappi)",
+    title: "Wanca 2016: Ume Sami (uumajanlappi)",
     description: "A collection of web corpora in small Uralic languages: Ume Sami (uumajanlappi)",
     lang: "sju",
     within: settings.spWithin,
@@ -991,7 +991,7 @@ settings.corpora.wanca_test_sju = {
 
 settings.corpora.wanca_test_sma_multili = {
     id: "wanca_test_sma_multili",
-    title: "Wanca: Southern Sami (åarjel-saemien)",
+    title: "Wanca 2016: Southern Sami (åarjel-saemien)",
     description: "A collection of web corpora in small Uralic languages: Southern Sami (åarjel-saemien)",
     lang: "sma",
     within: settings.spWithin,
@@ -1002,7 +1002,7 @@ settings.corpora.wanca_test_sma_multili = {
 
 settings.corpora.wanca_test_sme_multili = {
     id: "wanca_test_sme_multili",
-    title: "Wanca: Northern Sami (davvisámi, davvisámegiella)",
+    title: "Wanca 2016: Northern Sami (davvisámi, davvisámegiella)",
     description: "A collection of web corpora in small Uralic languages: Northern Sami (davvisámi, davvisámegiella)",
     lang: "sme",
     within: settings.spWithin,
@@ -1013,7 +1013,7 @@ settings.corpora.wanca_test_sme_multili = {
 
 settings.corpora.wanca_test_smj_multili = {
     id: "wanca_test_smj_multili",
-    title: "Wanca: Lule Sami (julevsábme)",
+    title: "Wanca 2016: Lule Sami (julevsábme)",
     description: "A collection of web corpora in small Uralic languages: Lule Sami (julevsábme)",
     lang: "smj",
     within: settings.spWithin,
@@ -1024,7 +1024,7 @@ settings.corpora.wanca_test_smj_multili = {
 
 settings.corpora.wanca_test_smn_multili = {
     id: "wanca_test_smn_multili",
-    title: "Wanca: Inari Sami (anarâškielâ)",
+    title: "Wanca 2016: Inari Sami (anarâškielâ)",
     description: "A collection of web corpora in small Uralic languages: Inari Sami (anarâškielâ)",
     lang: "smn",
     within: settings.spWithin,
@@ -1035,7 +1035,7 @@ settings.corpora.wanca_test_smn_multili = {
 
 settings.corpora.wanca_test_sms_multili = {
     id: "wanca_test_sms_multili",
-    title: "Wanca: Skolt Sami (sää´mǩiõll)",
+    title: "Wanca 2016: Skolt Sami (sää´mǩiõll)",
     description: "A collection of web corpora in small Uralic languages: Skolt Sami (sää´mǩiõll)",
     lang: "sms",
     within: settings.spWithin,
@@ -1046,7 +1046,7 @@ settings.corpora.wanca_test_sms_multili = {
 
 settings.corpora.wanca_test_udm_multili = {
     id: "wanca_test_udm_multili",
-    title: "Wanca: Udmurt (удмурт кыл)",
+    title: "Wanca 2016: Udmurt (удмурт кыл)",
     description: "A collection of web corpora in small Uralic languages: Udmurt (удмурт кыл)",
     lang: "udm",
     within: settings.spWithin,
@@ -1057,7 +1057,7 @@ settings.corpora.wanca_test_udm_multili = {
 
 settings.corpora.wanca_test_vep_multili = {
     id: "wanca_test_vep_multili",
-    title: "Wanca: Veps (vepsän kel')",
+    title: "Wanca 2016: Veps (vepsän kel')",
     description: "A collection of web corpora in small Uralic languages: Veps (vepsän kel')",
     lang: "vep",
     within: settings.spWithin,
@@ -1068,7 +1068,7 @@ settings.corpora.wanca_test_vep_multili = {
 
 settings.corpora.wanca_test_vot = {
     id: "wanca_test_vot",
-    title: "Wanca: Votic (vad̕d̕a ceeli)",
+    title: "Wanca 2016: Votic (vad̕d̕a ceeli)",
     description: "A collection of web corpora in small Uralic languages: Votic (vad̕d̕a ceeli)",
     lang: "vot",
     within: settings.spWithin,
@@ -1079,7 +1079,7 @@ settings.corpora.wanca_test_vot = {
 
 settings.corpora.wanca_test_vro_multili = {
     id: "wanca_test_vro_multili",
-    title: "Wanca: Võro (võro kiil)",
+    title: "Wanca 2016: Võro (võro kiil)",
     description: "A collection of web corpora in small Uralic languages: Võro (võro kiil)",
     lang: "vro",
     within: settings.spWithin,
@@ -1090,7 +1090,7 @@ settings.corpora.wanca_test_vro_multili = {
 
 settings.corpora.wanca_test_yrk = {
     id: "wanca_test_yrk",
-    title: "Wanca: Nenets (ненэцяʼ вада)",
+    title: "Wanca 2016: Nenets (ненэцяʼ вада)",
     description: "A collection of web corpora in small Uralic languages: Nenets (ненэцяʼ вада)",
     lang: "yrk",
     within: settings.spWithin,
