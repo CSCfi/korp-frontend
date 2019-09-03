@@ -1,4 +1,14 @@
 
+<!-- Discrepancies in dependency parses: Suomi24 2017H2, Semfinlex 2019-09-02 -->
+
+The dependency parses and relations in the Finnish Suomi24 2017H2 and
+Semfinlex corpora added to Korp in spring 2019 differ significantly
+from the parses in other corpora parsed earlier with the same parser.
+We are investigating the issue. **If you need dependency parse
+information, we recommend using other corpora than Suomi24 2017H2 and
+Semfinlex for the time being.** We apologize for the situation.
+
+
 <!-- New corpus (beta): Helsinki Corpus 2019-06-14b -->
 
 The <a href="http://urn.fi/urn:nbn:fi:lb-2017083001"

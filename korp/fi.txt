@@ -1,4 +1,15 @@
 
+<!-- Poikkeavuuksia dependenssijäsennyksissä: Suomi24 2017H2, Semfinlex 2019-09-02 -->
+
+Keväällä 2019 Korpiin lisättyjen suomenkielisten Suomi24 2017H2- ja
+Semfinlex-aineistojen dependenssijäsennysten ja -relaatioiden on
+todettu poikkeavan merkittävästi aiemmin samalla jäsentimellä
+jäsennettyjen aineistojen jäsennyksistä. Selvitämme asiaa. **Jos
+tarvitset dependenssijäsennystietoja, suosittelemme käyttämään
+toistaiseksi muita aineistoja kuin Suomi24 2017H2 ja Semfinlex.**
+Pahoittelemme tilannetta.
+
+
 <!-- Uusi aineisto (beta): Helsinki Corpus 2019-06-14b -->
 
 Korpissa on nyt käytettävissä beetatestiversiona <a
