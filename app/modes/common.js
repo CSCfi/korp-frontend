@@ -2294,6 +2294,19 @@ settings.corpus_features.parsed_tdt = {
     attributes: attrlist.parsed_tdt,
 };
 
+// The same but without dependency attributes
+attrlist.parsed_tdt_nodep = {
+    lemma: attrs.baseform,
+    lemmacomp: attrs.baseform_compound,
+    pos: attrs.pos_klk,
+    msd: attrs.msd,
+    lex: attrs.lemgram_hidden,
+};
+
+settings.corpus_features.parsed_tdt_nodep = {
+    attributes: attrlist.parsed_tdt_nodep,
+};
+
 // Corpora parsed with TDT and run through FiNER
 attrlist.parsed_tdt_ner =
     $.extend({}, attrlist.parsed_tdt, {
