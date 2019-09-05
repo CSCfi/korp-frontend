@@ -13276,6 +13276,16 @@ settings.corpora.eduskunta = {
         text_filename: {
             label: "file_name",
         },
+        text_video : {
+	    label : "Alkuperäinen video",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	},
+	text_transcript : {
+	    label : "Pöytäkirja",
+	    type : "url",
+	    url_opts : sattrs.link_url_opts
+	},
         text_date: sattrs.date,
         text_time: sattrs.text_time,
         paragraph_speaker: {
