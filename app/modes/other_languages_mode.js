@@ -328,7 +328,7 @@ settings.corpora.fennougrica = {
 
 settings.corpora.hc = {
     id : "hc",
-    title : "Helsinki Corpus",
+    title : "Helsinki Corpus TEI XML Edition (2011)",
     description : "Helsinki Corpus TEI XML Edition (2011), Korp Version<br/><br/>The Helsinki Corpus of English Texts is a structured multi-genre diachronic corpus, which includes periodically organized text samples from Old, Middle and Early Modern English. Each sample is preceded by a list of parameter codes giving information on the text and its author. The Corpus is useful particularly in the study of the change of linguistic features in long diachrony. It can be used as a diagnostic corpus giving general information of the occurrence of forms, structures and lexemes in different periods of English. This information can be supplemented by evidence yielded by more special and focused historical corpora.<br/><br/><strong>Note</strong> that this version of the corpus is based on the Helsinki Corpus TEI XML Edition of 2011, so it does not contain word-level annotations.",
     metadata_urn: "urn:nbn:fi:lb-2017083001",
     // Uncomment location URN when the beta stage ends
