@@ -1,0 +1,92 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Videotesti 3</title>
+<style>
+  table, th, td {
+  border: 1px solid black;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Videotesti 3</h1>
+
+<video id="myvideo" width="800">
+    <source id="myvideo_source" src="" type="video/mp4"></source>
+    Your browser does not support HTML5 video.</video>
+<div>
+    <p>
+        <button id="playme">Play/Pause Video</button>
+    </p>
+    <p>
+        <button id="jump">Jump to parametrized time</button>
+    </p>
+    <form>
+    <input type="radio" id="stop" name="stop_or_continue" value="Stop" checked>Stop playing at utterance end<br>
+    <input type="radio" id="continue" name="stop_or_continue" value="Continue">Continue playing after utterance end<br>
+    </form>
+</div>
+
+<script>
+
+var myvideo = document.getElementById('myvideo'),
+    playbutton = document.getElementById('playme'),
+    jumplink = document.getElementById('jump');
+  
+var params = new URLSearchParams(document.location.search.substring(1));
+var metadata_urn = params.get("metadata_urn");
+var korp_url = params.get("korp_url");
+var text_attributes = params.get("text_attributes");
+var attr = JSON.parse(text_attributes);
+  var utterance = params.get("utterance");
+  var duration = params.get("duration");
+  var time = params.get("time");
+  var src_url = params.get("src");
+  var source_elem = document.getElementById('myvideo_source');
+  source_elem.setAttribute("src", src_url);
+  myvideo.currentTime = time;
+
+document.write("<p><b>Utterance:</b> " + utterance + "</p>");
+document.write("<p><b>Metadata:</b> <a href='http://urn.fi/" + metadata_urn + "'>" + metadata_urn + "</a></p>");
+document.write("<p><a href='" + korp_url + "'>Korp search</a></p>");
+document.write("<p><a href='" + src_url + "'>Original video</a></p>");
+document.write("<h3>Text attributes</h3>");
+document.write("<table><tr><th>Attribute</th><th>Value</th></tr>");
+for (var key in attr){
+var attrName = key;
+var attrValue = attr[key];
+document.write("<tr><td>" + attrName + "</td><td>" + attrValue + "</td></tr>")
+}
+document.write("</table>");
+
+var pausing_function = function(){
+var stop_or_continue = document.querySelector("input[name = 'stop_or_continue']:checked").value;
+if(this.currentTime >= Number(time) + Number(duration) && stop_or_continue == "Stop") {
+myvideo.pause();}}
+
+myvideo.addEventListener("timeupdate", pausing_function);
+
+jumplink.addEventListener("click", function (event) {
+    event.preventDefault();
+    myvideo.play();
+    myvideo.pause();
+    myvideo.currentTime = time;
+    myvideo.play();
+}, false);
+
+// only in to demonstrate video
+playbutton.addEventListener("click", function () {
+    if (myvideo.paused) {
+        myvideo.play();
+    } else {
+        myvideo.pause();
+    }
+}, false);
+</script>
+
+<hr size="3" color="#800080">
+</body>
+</html>
