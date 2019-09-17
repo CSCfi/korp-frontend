@@ -342,7 +342,6 @@ settings.corpora.hc = {
 	urn: "urn:nbn:fi:lb-2019061301",
     },
     cite_id: "HC-TEI-XML",
-    labels: ["beta"],
     context : settings.spContext,
     within : settings.spWithin,
     attributes : attrlist.hc,
