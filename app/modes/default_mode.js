@@ -869,7 +869,7 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
 settings.corporafolders.legal.semfinlex = {
     title: "Semfinlex",
     description: "Valikoima Eduskunnan alkuperäisiä säädöksiä (1917–2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980–2018) ja KHO:n päätöksiä (1987–2018).",
-    contents: ["semfinlex_asd_fi_2018", "semfinlex_kko_fi_2018", "semfinlex_kho_fi_2018"],
+    contents: ["semfinlex_asd_fi_2018_v2", "semfinlex_kko_fi_2018_v2", "semfinlex_kho_fi_2018_v2"],
     info: {
 	licence: settings.licenceinfo.CC_BY,
 	cite_id: "semfinlex",
@@ -1042,8 +1042,8 @@ settings.corpora.testcorp_deptree = {
 };
 */
 
-settings.corpora.semfinlex_asd_fi_2018 = {
-    id: "semfinlex_asd_fi_2018",
+settings.corpora.semfinlex_asd_fi_2018_v2 = {
+    id: "semfinlex_asd_fi_2018_v2",
     lang: "fin",
     title: "Alkuperäisiä säädöksiä",
     description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1917–2018.",
@@ -1081,8 +1081,8 @@ settings.corpora.semfinlex_asd_fi_2018 = {
     },
 }
 
-settings.corpora.semfinlex_kko_fi_2018 = {
-    id: "semfinlex_kko_fi_2018",
+settings.corpora.semfinlex_kko_fi_2018_v2 = {
+    id: "semfinlex_kko_fi_2018_v2",
     lang: "fin",
     title: "KKO:n päätöksiä",
     description: "Korkeimman oikeuden päätöksiä vuosilta 1980–2018.",
@@ -1103,8 +1103,8 @@ settings.corpora.semfinlex_kko_fi_2018 = {
     },
 }
 
-settings.corpora.semfinlex_kho_fi_2018 = {
-    id: "semfinlex_kho_fi_2018",
+settings.corpora.semfinlex_kho_fi_2018_v2 = {
+    id: "semfinlex_kho_fi_2018_v2",
     lang: "fin",
     title: "KHO:n päätöksiä",
     description: "Korkeimman hallinto-oikeuden päätöksiä vuosilta 1987–2018.",
