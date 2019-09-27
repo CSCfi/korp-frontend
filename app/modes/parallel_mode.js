@@ -650,8 +650,8 @@ var wordlink = {
 
 /* SEMFINLEX */
 
-settings.corpora.semfinlex_asd_par_2018_fi = {
-    id: "semfinlex_asd_par_2018_fi",
+settings.corpora.semfinlex_asd_par_2018_v2_fi = {
+    id: "semfinlex_asd_par_2018_v2_fi",
     lang: "fin",
     title : "Semfinlex: Alkuperäisiä säädöksiä (suomi–ruotsi)",
     description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1918–2018.",
@@ -684,15 +684,15 @@ settings.corpora.semfinlex_asd_par_2018_fi = {
 	    ]
 	}
     },
-    cite_id: "semfinlex-asd-par-2018-korp",
+    cite_id: "semfinlex-asd-par-2018-v2-korp",
     // Uncomment location URN after the beta stage
     // urn: "urn:nbn:fi:lb-2019042606",
     metadata_urn: "urn:nbn:fi:lb-2019042605",
-    linked_to: ["semfinlex_asd_par_2018_sv"]
+    linked_to: ["semfinlex_asd_par_2018_v2_sv"]
 }
 
-settings.corpora.semfinlex_asd_par_2018_sv = {
-    id: "semfinlex_asd_par_2018_sv",
+settings.corpora.semfinlex_asd_par_2018_v2_sv = {
+    id: "semfinlex_asd_par_2018_v2_sv",
     lang: "swe",
     title : "Semfinlex: Ursprungliga författningar (finska–svenska)",
     description: "Ett urval av ursprungliga författningar av Riksdagen från 1920–2018.",
@@ -725,11 +725,11 @@ settings.corpora.semfinlex_asd_par_2018_sv = {
 	    ]
 	}
     },
-    cite_id: "semfinlex-asd-par-2018-korp",
+    cite_id: "semfinlex-asd-par-2018-v2-korp",
     // Uncomment location URN after the beta stage
     // urn: "urn:nbn:fi:lb-2019042606",
     metadata_urn: "urn:nbn:fi:lb-2019042605",
-    linked_to: ["semfinlex_asd_par_2018_fi"],
+    linked_to: ["semfinlex_asd_par_2018_v2_fi"],
     hide: true
 }
 
