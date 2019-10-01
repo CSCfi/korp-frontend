@@ -1039,6 +1039,33 @@ settings.corpora.testcorp_deptree = {
 };
 */
 
+settings.corpora.iijoki = {
+    id: "iijoki-korp",
+    title: "Iijoki, Oulun yliopiston Päätalo-kokoelma",
+    description: "Kalle Päätalon (11.11.1919-20.11.2000) omaelämäkerrallinen pääteos.",
+    urn: "urn:nbn:fi:lb-2019041401",
+    metadata_urn: "urn:nbn:fi:lb-2019041401",
+    licence: {
+        name: "CLARIN RES +NC +PRIV 1.0",
+        urn: "urn:nbn:fi:lb-2019041401",
+    },
+    cite_id: "iijoki-korp",
+    limited_access: true,
+    licence_type: "RES",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    features: ["paragraphs", "parsed_tdt_nodep"],
+    struct_attributes: {
+	text_id: sattrs.hidden,
+	text_author: sattrs.text_author,
+	text_title: sattrs.text_year,
+	text_year: sattrs.text_year,
+	paragraph_id: sattrs.paragraph_id_hidden,
+	sentence_id: sattrs.sentence_id_hidden,
+    },
+};
+
+
 settings.corpora.semfinlex_asd_fi_2018 = {
     id: "semfinlex_asd_fi_2018",
     lang: "fin",
