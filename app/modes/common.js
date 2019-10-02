@@ -1695,7 +1695,7 @@ sattrs.link_prefixed = function (label, url_prefix) {
     };
 };
 sattrs.link_show_video_prefixed = function (url_prefix) {
-    return sattrs.link_prefixed("show_video", url_prefix);
+    return sattrs.link_prefixed("show_video_in_lat", url_prefix);
 };
 sattrs.link_show_video_annex = sattrs.link_show_video_prefixed(
     "https://lat.csc.fi/ds/annex/runLoader?viewType=timeline&");
