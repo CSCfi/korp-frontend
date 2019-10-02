@@ -13256,10 +13256,10 @@ settings.corpora.arkisyn = {
 };
 
 
-settings.corpora.eduskunta = {
+settings.corpora.eduskunta_test = {
     title: "Eduskunnan täysistunnot",
     description: "Eduskunnan täysistuntojen videotallenteista tehdyt transkriptiot. Istunnot ovat ajalta 10.9.2008–1.7.2016. Osa aineistosta on tarjolla myös LAT-palvelussa. Hakutuloksissa on tällöin linkki istunnon LAT-versioon. Transkriptiot perustuvat suomen kielimalliin, joten ruotsinkieliset puheenvuorot ovat tunnistuneet enimmäkseen vierassanoiksi.",
-    id: "eduskunta",
+    id: "eduskunta_test",
     urn: "urn:nbn:fi:lb-2017020201",
     metadata_urn: "urn:nbn:fi:lb-2017020202",
     licence: settings.licenceinfo.CC_BY_NC_ND,
@@ -13276,15 +13276,17 @@ settings.corpora.eduskunta = {
         text_filename: {
             label: "file_name",
         },
-        text_video : {
+        text_original_video : {
 	    label : "Alkuperäinen video",
 	    type : "url",
-	    url_opts : sattrs.link_url_opts
+	    url_opts : sattrs.link_url_opts,
+	    order: 2,
 	},
-	text_transcript : {
-	    label : "Pöytäkirja",
+	text_original_transcript : {
+	    label : "Alkuperäinen pöytäkirja",
 	    type : "url",
-	    url_opts : sattrs.link_url_opts
+	    url_opts : sattrs.link_url_opts,
+	    order: 1,
 	},
         text_date: sattrs.date,
         text_time: sattrs.text_time,
@@ -13389,7 +13391,7 @@ settings.corpora.eduskunta = {
 	utterance_duration: {
 	    label: "utterance_duration"
 	},
-	utterance_annex_link: sattrs.link_show_video_annex,
+	utterance_annex_link: $extend({}, sattrs.link_show_video_annex, { order: 3 }),
     }
 };
 
