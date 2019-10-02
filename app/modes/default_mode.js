@@ -13279,14 +13279,12 @@ settings.corpora.eduskunta_test = {
         text_original_video : {
 	    label : "Alkuperäinen video",
 	    type : "url",
-	    url_opts : sattrs.link_url_opts,
-	    order: 2,
+	    url_opts : sattrs.link_url_opts
 	},
 	text_original_transcript : {
 	    label : "Alkuperäinen pöytäkirja",
 	    type : "url",
-	    url_opts : sattrs.link_url_opts,
-	    order: 1,
+	    url_opts : sattrs.link_url_opts
 	},
         text_date: sattrs.date,
         text_time: sattrs.text_time,
@@ -13391,7 +13389,7 @@ settings.corpora.eduskunta_test = {
 	utterance_duration: {
 	    label: "utterance_duration"
 	},
-	utterance_annex_link: $extend({}, sattrs.link_show_video_annex, { order: 3 }),
+	utterance_annex_link: sattrs.link_show_video_annex,
     }
 };
 
