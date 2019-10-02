@@ -13279,12 +13279,14 @@ settings.corpora.eduskunta_test = {
         text_original_video : {
 	    label : "Alkuperäinen video",
 	    type : "url",
-	    url_opts : sattrs.link_url_opts
+	    url_opts : sattrs.link_url_opts,
+	    order : 1
 	},
 	text_original_transcript : {
 	    label : "Alkuperäinen pöytäkirja",
 	    type : "url",
-	    url_opts : sattrs.link_url_opts
+	    url_opts : sattrs.link_url_opts,
+	    order : 2
 	},
         text_date: sattrs.date,
         text_time: sattrs.text_time,
