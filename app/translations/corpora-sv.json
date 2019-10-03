@@ -784,6 +784,18 @@
     "namecat_NumexMsrXxx": "annat numeriskt uttryck",
     "namecat_TimexTmeDat": "tidsuttryck",
 
+    "name_category_omorfi": "namnkategori (Omorfi)",
+
+    "namecat_omorfi_ARTWORK": "konstverk",
+    "namecat_omorfi_CULTGRP": "kulturgrupp",
+    "namecat_omorfi_FIRST": "förnamn",
+    "namecat_omorfi_GEO": "geographical name",
+    "namecat_omorfi_LAST": "efternamn",
+    "namecat_omorfi_MISC": "annat namn",
+    "namecat_omorfi_ORG": "organisation",
+    "namecat_omorfi_PRODUCT": "produkt",
+    "namecat_omorfi_": "inget namn",
+
     "annotation": "annotation",
     "ogl_pos_Nb": "substantiv",
     "ogl_pos_Ne": "egennamn",

@@ -1056,6 +1056,18 @@
     "namecat_NumexMsrXxx": "other numeric expression",
     "namecat_TimexTmeDat": "temporal expression",
 
+    "name_category_omorfi": "name category (Omorfi)",
+
+    "namecat_omorfi_ARTWORK": "artwork",
+    "namecat_omorfi_CULTGRP": "culture group",
+    "namecat_omorfi_FIRST": "first name",
+    "namecat_omorfi_GEO": "geographical name",
+    "namecat_omorfi_LAST": "last name",
+    "namecat_omorfi_MISC": "other name",
+    "namecat_omorfi_ORG": "organization",
+    "namecat_omorfi_PRODUCT": "product",
+    "namecat_omorfi_": "not a name",
+
     "suomi24fi_user": "username",
     "suomi24fi_user_lemmas": "username word lemmas",
     "suomi24fi_sub": "subsection",

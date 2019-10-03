@@ -807,6 +807,24 @@ attrs.ner_tags = {
     }
 };
 
+attrs.namecat_omorfi = {
+    label: "name_category_omorfi",
+    type: "set",
+    displayType: "select",
+    translationKey: "namecat_omorfi_",
+    dataset: [
+	"ARTWORK",
+	"CULTGRP",
+	"FIRST",
+	"GEO",
+	"LAST",
+	"MISC",
+	"ORG",
+	"PRODUCT",
+	"_",
+    ],
+    opts: settings.setOptions,
+};
 
 attrs.pos_ftb31 = {
     label: "pos",
