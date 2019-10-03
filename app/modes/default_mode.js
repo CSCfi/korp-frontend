@@ -11189,7 +11189,7 @@ settings.corpora.yoaineet = {
     licence_type: "RES",
     context: settings.defaultContext,
     within: settings.defaultWithin,
-    features: ["paragraphs", "parsed_tdt_nodep"],
+    features: ["paragraphs", "parsed_tdt"],
     struct_attributes: {
 	text_id: sattrs.hidden,
 	text_year: sattrs.year,
