@@ -13403,6 +13403,9 @@ settings.corpora.eduskunta = {
         },
         text_date: sattrs.date,
         text_time: sattrs.text_time,
+	// text_video needs to be declared to be retrieved so that it
+	// can be referred to in utterance_videopage_link.
+	text_video: attrs.hidden,
         paragraph_speaker: {
             label: "speaker_name"
         },
@@ -13503,6 +13506,59 @@ settings.corpora.eduskunta = {
 	},
 	utterance_duration: {
 	    label: "utterance_duration"
+	},
+	utterance_videopage_link: {
+	    label: "show_video",
+	    type: "url",
+	    url_opts: sattrs.link_url_opts,
+	    synthetic: true,
+	    stringify_synthetic: function (token_data) {
+		console.log(token_data);
+		var msec_to_sec = function (sec) {
+		    return (parseInt(sec) / 1000).toString();
+		};
+		// Temporary URL (requires access to CSC Jira)
+		var prefix =
+		    "https://jira.csc.fi/secure/attachment/52917/videotesti3.html?";
+		var words = [];
+		var tokens = token_data.tokens;
+		for (var i = 0; i < tokens.length; i++) {
+		    var word = tokens[i].word;
+		    if (tokens[i]._match) {
+			if (i == 0 || ! tokens[i - 1]._match) {
+			    word = "<b>" + word;
+			}
+			if (i == tokens.length - 1 || ! tokens[i + 1]._match) {
+			    word += "</b>";
+			}
+		    }
+		    words.push(word);
+		}
+		var text_attrs = {};
+		for (var key in token_data.struct_attrs) {
+		    text_attrs[util.getLocaleString(settings.corpora.eduskunta.struct_attributes[key].label)] =
+			token_data.struct_attrs[key];
+		}
+		var params = {
+		    src: token_data.struct_attrs.text_video,
+		    metadata_urn: settings.corpora.eduskunta.metadata_urn,
+		    korp_url: window.location.href,
+		    time: msec_to_sec(
+			token_data.struct_attrs.utterance_begin_time),
+		    duration: msec_to_sec(
+			token_data.struct_attrs.utterance_duration),
+		    utterance: words.join(" "),
+		    text_attributes: JSON.stringify(text_attrs),
+		};
+		var paramstr = "";
+		for (var key in params) {
+		    if (paramstr != "") {
+			paramstr += "&";
+		    }
+		    paramstr += key + "=" + encodeURIComponent(params[key]);
+		}
+		return prefix + paramstr;
+	    },
 	},
 	utterance_annex_link: sattrs.link_show_video_annex,
     }
