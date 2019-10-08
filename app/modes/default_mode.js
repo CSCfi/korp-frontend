@@ -13536,8 +13536,28 @@ settings.corpora.eduskunta = {
 		}
 		var text_attrs = {};
 		for (var key in token_data.struct_attrs) {
-		    text_attrs[util.getLocaleString(settings.corpora.eduskunta.struct_attributes[key].label)] =
-			token_data.struct_attrs[key];
+		    if (key != "utterance_annex_link") {
+			var attrdef =
+			    settings.corpora.eduskunta.struct_attributes[key];
+			var name = util.getLocaleStringUndefined(attrdef.label);
+			if (name) {
+			    var val = token_data.struct_attrs[key];
+			    if (attrdef.translationKey != undefined) {
+				if (attrdef.dataset
+				    && ! _.isArray(attrdef.dataset)) {
+				    val = (attrdef.dataset != undefined
+					   ? attrdef.dataset[val]
+					   : val);
+				}
+				var loc_val = util.getLocaleStringUndefined(
+				    attrdef.translationKey + val);
+				if (loc_val != undefined) {
+				    val = loc_val;
+				}
+			    }
+			    text_attrs[name] = val;
+			}
+		    }
 		}
 		var params = {
 		    src: token_data.struct_attrs.text_video,
