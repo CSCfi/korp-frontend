@@ -140,7 +140,7 @@
       return [$(pos_items), $(struct_items)];
     },
     renderItem: function(key, value, attrs, wordData, sentenceData, tokens, token_data) {
-      var address, attrSettings, class_attr, encodeHtmlEntities, getStringVal, idx, inner, itr, j, k, karpLink, l, len, len1, len2, li, link_text, lis, mapViaDataset, outerIdx, output, pattern, prefix, prob, ref, ref1, ref2, ref3, ref4, showAll, showOne, str_value, subValue, subValues, taginfo_url, target, ul, url, url_opts, val, valueArray, x;
+      var address, attrSettings, class_attr, encodeHtmlEntities, getStringVal, idx, inner, itr, j, k, karpLink, l, len, len1, len2, li, link_text, lis, mapViaDataset, outerIdx, output, pattern, prefix, prob, ref, ref1, ref2, ref3, ref4, ref5, showAll, showOne, str_value, subValue, subValues, taginfo_url, target, ul, url, url_opts, val, valueArray, x;
       encodeHtmlEntities = function(s) {
         return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
       };
@@ -339,6 +339,9 @@
       }
       str_value = attrs.stringify_synthetic ? attrs.stringify_synthetic(token_data) : (attrs.stringify || encodeHtmlEntities)(value);
       if (attrs.type === "url") {
+        if (!str_value && (attrs != null ? (ref5 = attrs.url_opts) != null ? ref5.hide_url : void 0 : void 0)) {
+          return "";
+        }
         url_opts = attrs.url_opts || {};
         target = url_opts.new_window ? " target='_blank'" : "";
         class_attr = "class='exturl sidebar_" + (url_opts.hide_url ? "link" : "url") + "'";

@@ -160,7 +160,10 @@ Sidebar =
             return ""
         if attrs.type == "url" and attrs?.url_opts?.hide_url
             # If url_opts.hide_url, hide the url and show the localized
-            # label as the link, or nothing, if the value is empty
+            # label as the link, or nothing, if the value is empty.
+            # Note that this does not work for synthetic attributes,
+            # as their value is null at this point, so they are
+            # handled further below.
             if value == ""
                 return ""
             output = $("<p></p>")
@@ -323,6 +326,11 @@ Sidebar =
 
 
         if attrs.type == "url"
+            # If the value is empty or undefined and the URL is not to
+            # be shown, do not show the link at all. This handles
+            # synthetic attribute values; others are handled above.
+            if not str_value and attrs?.url_opts?.hide_url
+                return ""
             url_opts = attrs.url_opts or {}
             # If url_opts.new_window, open the link to a new window
             target = if url_opts.new_window
