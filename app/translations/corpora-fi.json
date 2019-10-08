@@ -1478,6 +1478,7 @@
     "show_fulltext": "Näytä kokoteksti",
     "show_fulltext_context": "Näytä konteksti kokotekstissä",
     "show_video": "Näytä video",
+    "show_video_lat": "Näytä video (LAT)",
     "show_orig_thread": "Näytä alkuperäinen keskusteluketju",
     "show_orig_message": "Näytä alkuperäinen viesti",
     "listen_sentence": "Kuuntele virke",

@@ -13512,6 +13512,7 @@ settings.corpora.eduskunta = {
 	    type: "url",
 	    url_opts: sattrs.link_url_opts,
 	    synthetic: true,
+	    order: 50,
 	    stringify_synthetic: function (token_data) {
 		console.log(token_data);
 		var msec_to_sec = function (sec) {
@@ -13580,7 +13581,19 @@ settings.corpora.eduskunta = {
 		return prefix + paramstr;
 	    },
 	},
-	utterance_annex_link: sattrs.link_show_video_annex,
+	// Kludge to get the LAT/Annex link after the other video
+	// link, as synthetic attributes are currently shown after
+	// non-synthetic ones.
+	utterance_annex_link: sattrs.hidden,
+	utterance_annex_link_synth: $.extend(
+	    {}, sattrs.link_show_video_annex,
+	    {
+		synthetic: true,
+		order: 40,
+		stringify_synthetic: function (token_data) {
+		    return token_data.struct_attrs.utterance_annex_link;
+		},
+	    }),
     }
 };
 

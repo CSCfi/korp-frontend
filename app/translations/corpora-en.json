@@ -842,6 +842,7 @@
     "show_fulltext": "Show full text",
     "show_fulltext_context": "Show context in full text",
     "show_video": "Show video",
+    "show_video_lat": "Show video (LAT)",
     "show_orig_thread": "Show original discussion thread",
     "show_orig_comment": "Show original message",
 
