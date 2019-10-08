@@ -13518,6 +13518,12 @@ settings.corpora.eduskunta = {
 		var msec_to_sec = function (sec) {
 		    return (parseInt(sec) / 1000).toString();
 		};
+		// Temporary fix for ä's missing from URL attribute values
+		var fix_video_url = function (url) {
+		    return (url.replace(/Kevt/, "Kevät")
+			    .replace(/keskuu/, "kesäkuu")
+			    .replace(/heinkuu/, "heinäkuu"));
+		}
 		// Temporary URL (requires access to CSC Jira)
 		var prefix =
 		    "https://jira.csc.fi/secure/attachment/52917/videotesti3.html?";
@@ -13561,7 +13567,7 @@ settings.corpora.eduskunta = {
 		    }
 		}
 		var params = {
-		    src: token_data.struct_attrs.text_video,
+		    src: fix_video_url(token_data.struct_attrs.text_video),
 		    metadata_urn: settings.corpora.eduskunta.metadata_urn,
 		    korp_url: window.location.href,
 		    time: msec_to_sec(
