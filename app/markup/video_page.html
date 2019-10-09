@@ -2,13 +2,12 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Videotesti 6</title>
+<title>Aineistonäyte - Corpus sample (Kielipankki - The Language Bank of Finland)</title>
 </head>
 
+<!-- In the left column, display video and some buttons   -->
+
 <body>
-
-<h1>Videotesti 6</h1>
-
 <table border="0">
 <tr>
   <td width="70%">
@@ -28,7 +27,7 @@
 		<button id="jump30fwd"><span id="jump_30fwd">+30 s</span></button>
 			</p>
 		 </td>
-		 <td style="vertical-align:top; horizontal-align:right" width="100px">
+		 <td style="vertical-align:top" width="100px">
 		<p>
 		<button id="jump"><span id="play_utterance">Play utterance</span></button>
 		</p>
@@ -36,13 +35,15 @@
 	<td style="vertical-align:top">
 		<form>
 				<input type="radio" id="stop" name="stop_or_continue" value="Stop" checked><span id="stop_playing_at_utterance_end">Stop playing at utterance end</span><br>
-				<input type="radio" id="continue" name="stop_or_continue" value="Continue"><span id="continue_playing_after_utterance_end">Continue playing after utterance end</span><br>
+				<input type="radio" id="continue" name="stop_or_continue" value="Continue"><span id="continue_playing_after_utterance_end">Continue playing after utterance end</span>
 		</form>
 	</td>
 		</tr>
 	</table>
 
 <script>
+
+<!-- Set up the buttons below the video   -->
 
 var myvideo = document.getElementById('myvideo');
 var playbutton = document.getElementById('playme');
@@ -109,22 +110,28 @@ else if (unloc == "text_time" ) { published_time = loc_and_val; }
 
 }
 
+<!-- Settings for the video  -->
+
 var source_elem = document.getElementById('myvideo_source');
 source_elem.setAttribute("src", src_url);
 myvideo.currentTime = begin_time[1];
+
+<!-- Localize and display the utterance transcript and speaker information below the video  -->
 
 var utterance_loc = "";
 if (lang == "fi") { utterance_loc = "Puhunnos"; }
 else if (lang == "sv") { utterance_loc = "Utterance (sv)"; }
 else { utterance_loc = "Utterance"; }
-document.write("<b>" + utterance_loc + ":</b> " + utterance + "<br/><br>");
+document.write("<b>" + utterance_loc + ":</b> " + utterance + "</p>");
 
-document.write('<table width="100%" style="border-spacing: 0;" ><tr><td style="vertical-align:top" width="50%">');
+document.write('<table width="97%" style="border-spacing: 0;" ><tr><td style="vertical-align:top" width="50%">');
 
 document.write("<p><b>" + speaker[0] + ":</b> " + speaker[1] + "<br/>");
 document.write("<b>" + speaker_parl_group[0] + ":</b> " + speaker_parl_group[1] + "<br/>");
 document.write("<b>" + speaker_role[0] + ":</b> " + speaker_role[1] + "<br/>");
 document.write("<b>" + speech_type[0] + ":</b> " + speech_type[1] + "</p>");
+
+<!-- Localize and display time information about the utterance  -->
 
 var sec = "";
 if (lang == "fi") { sec = "sekuntia"; }
@@ -139,15 +146,16 @@ document.write(duration[0] + ": " + duration[1] + " " + sec + "</p>");
 
 document.write('</td></tr></table>');
 
+<!-- Begin right column of page: information on the original media, the corpus and text/session  -->
 
 document.write('</td><td style="vertical-align:top">');
 
 document.write('<div style="border:1px solid black;">')
 
 var external_media_stream_loc = "";
-if (lang == "fi") { external_media_stream_loc = "Ulkoinen media"; }
-else if (lang == "sv") { external_media_stream_loc = "External media stream (sv)"; }
-else { external_media_stream_loc = "External media stream"; }
+if (lang == "fi") { external_media_stream_loc = "Medialähde"; }
+else if (lang == "sv") { external_media_stream_loc = "Media source (sv)"; }
+else { external_media_stream_loc = "Media source"; }
 
 var corpus_in_kielipankki_loc = "";
 if (lang == "fi") { corpus_in_kielipankki_loc = "Korpus"; }
@@ -168,10 +176,14 @@ document.write("<p><b>" + external_media_stream_loc + ":</b><br/><a href='" + sr
 
 document.write("</div>")
 
+<!-- Display Kielipankki logo and corpus properties  -->
+
 document.write("<br/><a href='https://www.kielipankki.fi' target='_blank'><img src='" + "../img/Kielipankki-logo-cropped.png" + "' width='200px' align='right'></a>")
 document.write("<h3>" + corpus_in_kielipankki_loc + "</h3><p>" + corpusname + "</p>");
 document.write("<p><b>" + persistent_id_metadata_loc + ":</b><br/><a href='http://urn.fi/" + metadata_urn + "'>" + metadata_urn + "</a><br/>");
 document.write("<a href='" + korp_url + "'>" + link_to_search_in_korp_loc + "</a><br/></p>");
+
+<!-- Text/session attributes (from Korp)  -->
 
 var text_session_attributes = "";
 if (lang == "fi") { text_session_attributes_loc = "Tekstin attribuutit"; }
@@ -182,6 +194,16 @@ document.write("<h3>" + text_session_attributes_loc + "</h3>");
 document.write("<p><b>" + published_date[0] + ":</b> " + published_date[1] + "<br/>");
 document.write("<b>" + published_time[0] + ":</b> " + published_time[1] + "</p>");
 <!-- todo: session duration -->
+
+<!-- Disclaimer (is this necessary)???  -->
+var disclaimer_loc = "";
+if (lang == "fi") { disclaimer_loc = "Alkuperäinen litteraatti on kohdistettu mediatiedostoon ja annotoitu automaattisin menetelmin. Tästä syystä kohdistuksessa ja annotaatioissa saattaa esiintyä virheitä."; }
+else if (lang == "sv") { disclaimer_loc = "The original transcript has been aligned with the media file and annotated by using automatic methods. The alignment or the annotations may thus contain errors. (sv)>"; }
+else { disclaimer_loc = "The original transcript has been aligned with the media file and annotated by using automatic methods. The alignment or the annotations may thus contain errors. (en)"; }
+
+document.write('<br/><hr/>')
+document.write('<p style="font-size:80%"><i>' + disclaimer_loc + '</i></p>');
+document.write('</div>')
 
 document.write("</td></tr></table>");
 
