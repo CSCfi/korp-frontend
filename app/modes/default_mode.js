@@ -1046,8 +1046,6 @@ settings.corpora.semfinlex_asd_fi_2018 = {
     description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1917–2018.",
     urn: "urn:nbn:fi:lb-2019042602",
     metadata_urn: "urn:nbn:fi:lb-2019042601",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
     features: ["paragraphs", "parsed_tdt"],
     struct_attributes : {
@@ -1084,8 +1082,6 @@ settings.corpora.semfinlex_kko_fi_2018 = {
     description: "Korkeimman oikeuden päätöksiä vuosilta 1980–2018.",
     urn: "urn:nbn:fi:lb-2019042608",
     metadata_urn: "urn:nbn:fi:lb-2019042607",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
     features: ["paragraphs", "parsed_tdt"],
     struct_attributes : {
@@ -1105,8 +1101,6 @@ settings.corpora.semfinlex_kho_fi_2018 = {
     description: "Korkeimman hallinto-oikeuden päätöksiä vuosilta 1987–2018.",
     urn: "urn:nbn:fi:lb-2019042608",
     metadata_urn: "urn:nbn:fi:lb-2019042607",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
     features: ["paragraphs", "parsed_tdt"],
     struct_attributes : {
@@ -11187,8 +11181,6 @@ settings.corpora.yoaineet = {
     cite_id: "ylioppilasaineet",
     limited_access: true,
     licence_type: "RES",
-    context: settings.defaultContext,
-    within: settings.defaultWithin,
     features: ["paragraphs", "parsed_tdt", "finer"],
     attributes: {
 	namecat_omorfi: attrs.namecat_omorfi,
