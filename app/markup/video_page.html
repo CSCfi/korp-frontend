@@ -12,7 +12,7 @@
 <tr>
   <td width="70%">
     <div>
-		<video id="myvideo" width="97%" controls>
+		<video id="myvideo" width="97%" controls preload="true">
 	<source id="myvideo_source" src="" type="video/mp4"></source>
 	Your browser does not support HTML5 video.</video>
     </div>
@@ -47,9 +47,11 @@
 
 var myvideo = document.getElementById('myvideo');
 var playbutton = document.getElementById('playme');
-var jumplink = document.getElementById('jump');
-var jump5back = document.getElementById('jump_5back');
-var jump5fwd = document.getElementById('jump_5fwd');
+var jumpbutton = document.getElementById('jump');
+var jump30backbutton = document.getElementById('jump30back');
+var jump5backbutton = document.getElementById('jump5back');
+var jump5fwdbutton = document.getElementById('jump5fwd');
+var jump30fwdbutton = document.getElementById('jump30fwd');
 
 var params = new URLSearchParams(document.location.search.substring(1));
 
@@ -61,6 +63,10 @@ document.getElementById("play_pause_video").innerHTML = "Soita/Pysäytä";
 document.getElementById("play_utterance").innerHTML = "Soita alue";
 document.getElementById("stop_playing_at_utterance_end").innerHTML = "Lopeta alueen loppuun";
 document.getElementById("continue_playing_after_utterance_end").innerHTML = "Jatka alueen jälkeen";
+document.getElementById("jump_30back").innerHTML = "-30 s";
+document.getElementById("jump_5back").innerHTML = "-5 s";
+document.getElementById("jump_5fwd").innerHTML = "+5 s";
+document.getElementById("jump_30fwd").innerHTML = "+30 s";
 }
 else if (lang == "sv")
 {
@@ -68,6 +74,10 @@ document.getElementById("play_pause_video").innerHTML = "Play/Pause (sv)";
 document.getElementById("play_utterance").innerHTML = "Play selection (sv)";
 document.getElementById("stop_playing_at_utterance_end").innerHTML = "Stop playing at selection end (sv)";
 document.getElementById("continue_playing_after_utterance_end").innerHTML = "Continue playing after selection end (sv)";
+document.getElementById("jump_30back").innerHTML = "-30 s";
+document.getElementById("jump_5back").innerHTML = "-5 s";
+document.getElementById("jump_5fwd").innerHTML = "+5 s";
+document.getElementById("jump_30fwd").innerHTML = "+30 s";
 }
 
 var src_url = params.get("src");
@@ -197,9 +207,9 @@ document.write("<b>" + published_time[0] + ":</b> " + published_time[1] + "</p>"
 
 <!-- Disclaimer (is this necessary)???  -->
 var disclaimer_loc = "";
-if (lang == "fi") { disclaimer_loc = "Alkuperäinen litteraatti on kohdistettu mediatiedostoon ja annotoitu automaattisin menetelmin. Tästä syystä kohdistuksessa ja annotaatioissa saattaa esiintyä virheitä."; }
-else if (lang == "sv") { disclaimer_loc = "The original transcript has been aligned with the media file and annotated by using automatic methods. The alignment or the annotations may thus contain errors. (sv)>"; }
-else { disclaimer_loc = "The original transcript has been aligned with the media file and annotated by using automatic methods. The alignment or the annotations may thus contain errors. (en)"; }
+if (lang == "fi") { disclaimer_loc = "Huom. Kaikki selaimet eivät tue tälle sivulle upotettua videota. Varmimmin sivu toimii Firefox-selaimella. </p><p style='font-size:80%'>Alkuperäinen litteraatti on kohdistettu mediatiedostoon ja annotoitu automaattisin menetelmin. Tästä syystä kohdistuksessa ja annotaatioissa saattaa esiintyä virheitä.</p>"; }
+else if (lang == "sv") { disclaimer_loc = "Please note that the video feature on this page is not supported by all browsers. The page is most likely to work in a Firefox browser.</p><p style='font-size:80%'>The original transcript has been aligned with the media file and annotated by using automatic methods. The alignment or the annotations may thus contain errors. (sv)</p>"; }
+else { disclaimer_loc = "Please note that the video feature on this page is not supported by all browsers. The page is most likely to work in a Firefox browser.</p><p style='font-size:80%'>The original transcript has been aligned with the media file and annotated by using automatic methods. The alignment or the annotations may thus contain errors. (sv)</p>"; }
 
 document.write('<br/><hr/>')
 document.write('<p style="font-size:80%"><i>' + disclaimer_loc + '</i></p>');
@@ -214,7 +224,7 @@ myvideo.pause();}}
 
 myvideo.addEventListener("timeupdate", pausing_function);
 
-jumplink.addEventListener("click", function (event) {
+jumpbutton.addEventListener("click", function (event) {
 event.preventDefault();
 myvideo.play();
 myvideo.pause();
@@ -222,22 +232,22 @@ myvideo.currentTime = begin_time[1];
 myvideo.play();
 }, false);
 
-jump30back.addEventListener("click", function (event) {
+jump30backbutton.addEventListener("click", function (event) {
 event.preventDefault();
 myvideo.currentTime = myvideo.currentTime - 30;
 }, false);
 
-jump5back.addEventListener("click", function (event) {
+jump5backbutton.addEventListener("click", function (event) {
 event.preventDefault();
 myvideo.currentTime = myvideo.currentTime - 5;
 }, false);
 
-jump5fwd.addEventListener("click", function (event) {
+jump5fwdbutton.addEventListener("click", function (event) {
 event.preventDefault();
 myvideo.currentTime = myvideo.currentTime + 5;
 }, false);
 
-jump30fwd.addEventListener("click", function (event) {
+jump30fwdbutton.addEventListener("click", function (event) {
 event.preventDefault();
 myvideo.currentTime = myvideo.currentTime + 30;
 }, false);
