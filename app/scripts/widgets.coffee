@@ -8,11 +8,13 @@ Sidebar =
         formattedCorpusInfo =
             if settings?.corpusExtraInfo
             then util.formatCorpusExtraInfo(
-                corpusObj, settings.corpusExtraInfo?.sidebar)
+                corpusObj,
+                info_items: settings.corpusExtraInfo?.sidebar
+                item_paragraphs: true)
             else ""
         if formattedCorpusInfo
             formattedCorpusInfo = "<br/>" + formattedCorpusInfo
-        $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>#{corpusObj.title}</p><p id='sidebar-corpus-info'>#{formattedCorpusInfo}</p>").prependTo "#selected_sentence"
+        $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>#{corpusObj.title}</p><div id='sidebar-corpus-info'>#{formattedCorpusInfo}</div>").prependTo "#selected_sentence"
         # All token data, to be passed to the function stringify_synthtetic
         # of a synthetic attribute (Jyrki Niemi 2015-02-24)
         # TODO (Jyrki Niemi): This could now be removed as Språkbanken's code
@@ -158,7 +160,10 @@ Sidebar =
             return ""
         if attrs.type == "url" and attrs?.url_opts?.hide_url
             # If url_opts.hide_url, hide the url and show the localized
-            # label as the link, or nothing, if the value is empty
+            # label as the link, or nothing, if the value is empty.
+            # Note that this does not work for synthetic attributes,
+            # as their value is null at this point, so they are
+            # handled further below.
             if value == ""
                 return ""
             output = $("<p></p>")
@@ -321,6 +326,11 @@ Sidebar =
 
 
         if attrs.type == "url"
+            # If the value is empty or undefined and the URL is not to
+            # be shown, do not show the link at all. This handles
+            # synthetic attribute values; others are handled above.
+            if not str_value and attrs?.url_opts?.hide_url
+                return ""
             url_opts = attrs.url_opts or {}
             # If url_opts.new_window, open the link to a new window
             target = if url_opts.new_window

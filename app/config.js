@@ -293,9 +293,14 @@ settings.make_direct_LBR_URL = function (lbr_id) {
 // a new item X, also remember to add corresponding translations for
 // the link text to locale-??.json with the key "corpus_X".
 settings.corpusExtraInfoItems = [
-    "metadata",
-    "licence",
+    "subcorpus_of",
+    "pid",
+    // PID is represented as a metadata link so a separate metadata
+    // link is not needed.
+    // // "metadata",
     "cite",
+    "licence",
+    "infopage",
     "urn",
     "homepage",
     "iprholder",
@@ -308,13 +313,96 @@ settings.corpusExtraInfoItems = [
 settings.corpusExtraInfo = {
     corpus_infobox: settings.corpusExtraInfoItems,
     sidebar: [
-	"metadata",
-	"licence",
+	"subcorpus_of",
+	"pid",
+	// "metadata",
 	"cite",
+	"licence",
+	"infopage",
 	"urn",
 	"download",
     ]
 };
+
+// Special handling for specified corpus extra info items: property
+// names refer to info item names (keys) and their values are
+// functions called by util.formatCorpusExtraInfo, with two arguments:
+// - corpusObj: corpus configuration
+// - label: the HTML generated for the label of the info item
+// The functions should return an object for creating a link, with at
+// least the property "url" or "text" (or both) and possibly "label"
+// and "tooltip", or undefined if the default handling should be
+// tried.
+settings.makeCorpusExtraInfoItem = {
+    subcorpus_of: function (corpusObj, label) {
+	if (corpusObj.logical_corpus
+	    && corpusObj.logical_corpus.title != corpusObj.title) {
+	    return {
+		text: corpusObj.logical_corpus.title,
+		label: label,
+	    };
+	}
+    },
+    pid: function (corpusObj, label) {
+        // If the PID of a corpus is not specified explicitly, use
+        // the metadata URN.
+        var pid = ((corpusObj.pid ? corpusObj.pid.urn : null)
+		   || corpusObj.pid_urn
+		   || (corpusObj.metadata ? corpusObj.metadata.urn : null)
+		   || corpusObj.metadata_urn);
+	if (pid) {
+	    return {
+		url: util.makeUrnUrl(pid),
+		// Prevent breaking the URN at the hyphen by using
+		// white-space: nowrap.
+		text: ('<span style="white-space: nowrap;">' + pid +
+		       '</span>'),
+		label: label,
+	    };
+	}
+    },
+    cite: function (corpusObj, label) {
+	if (corpusObj.cite_id && settings.corpus_cite_base_url) {
+	    return {
+                // Using ng-href would require using Angular $compile,
+                // but how could we use it here or where should it be
+                // called?
+                // http://stackoverflow.com/questions/11771513/angularjs-jquery-how-to-get-dynamic-content-working-in-angularjs
+                // url: settings.corpus_cite_base_url + corpusObj.cite_id +
+                //      '&lang={{lang}}'
+                // This does not change the lang parameter in the
+                // corpus info box, although it works in the sidebar.
+                //
+                // escape call is needed for a cite_id containing a &,
+                // but the escaped % then seems to be escaped again
+                // somewhere else. Where?
+                url: (settings.corpus_cite_base_url
+                      + escape(corpusObj.cite_id) + '&lang=' + window.lang),
+                text: label,
+	    };
+	}
+    },
+    urn: function (corpusObj, label) {
+	if (corpusObj.urn) {
+	    return {
+		url: util.makeUrnUrl(corpusObj.urn),
+		text: label,
+	    };
+	}
+    },
+    homepage: function (corpusObj, label) {
+        if (! ("homepage" in corpusObj) && corpusObj.url) {
+            // Assume that the top-level property "url" refers to the
+            // home page of the corpus (unless the there is a property
+            // "homepage").
+            return {
+                url: corpusObj.url,
+                text: label,
+	    };
+	}
+    },
+};
+
 
 settings.wordPictureMaxWords = 30;
 
@@ -699,7 +787,7 @@ settings.fn.add_attr_extra_properties = function (corpora) {
 
 /*
  * MISC
- */
+*/
 
 
 // label values here represent translation keys.

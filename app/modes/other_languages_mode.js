@@ -30,15 +30,30 @@ settings.spContext = {
     "1 paragraph": "1 paragraph"
 };
 
+
 settings.corporafolders.oracc = {
-    title: "ORACC",
-    description: "ORACC – Open Richly Annotated Cuneiform Corpus",
-    contents: ["oracc_cams", "oracc_dcclt", "oracc_ribo", "oracc_rinap", "oracc_saao", "oracc_other"],
+    title: "Oracc",
+    description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2019-05",
+    contents: ["oracc_adsd", "oracc_ario", "oracc_blms", "oracc_cams",
+               "oracc_caspo", "oracc_ctij", "oracc_dcclt", "oracc_dccmt",
+               "oracc_ecut", "oracc_etcsri", "oracc_hbtin", "oracc_obmc",
+               "oracc_riao", "oracc_ribo", "oracc_rimanum", "oracc_rinap", "oracc_saao", "oracc_others"],
     info: {
-        licence: settings.licenceinfo.CC_BY_30,
-	cite_id: "ORACC",
+	metadata_urn: "urn:nbn:fi:lb-2019060601",
+	urn: "urn:nbn:fi:lb-2019060602",
+        licence: settings.licenceinfo.CC_BY_SA_30,
+	iprholder: {
+	    name: "Open Richly Annotated Cuneiform Corpus Project",
+	    url: "http://oracc.museum.upenn.edu/doc/about/licensing/index.html",
+	},
+        cite_id: "oracc-korp-2019-05",
+	infopage_url: "https://www.kielipankki.fi/corpora/oracc/",
     }
 };
+
+settings.corpus_aliases["oracc-2019-05"] = "oracc_adsd,oracc_ario,oracc_blms,oracc_cams,oracc_caspo,oracc_ctij,oracc_dcclt,oracc_dccmt,oracc_ecut,oracc_etcsri,oracc_hbtin,oracc_obmc,oracc_riao,oracc_ribo,oracc_rimanum,oracc_rinap,oracc_saao,oracc_others";
+settings.corpus_aliases.oracc_2919_05
+    = settings.corpus_aliases["oracc-2019-05"];
 
 settings.corporafolders.testikansio = {
     title: "ERME",
@@ -66,7 +81,12 @@ settings.corporafolders.fennougrica = {
 settings.corporafolders.english = {
     title: "English / Englanti",
     description: "Texts in English<br/>Englanninkielisiä tekstejä",
-    contents: ["mulcold_en", "elfa", "topling_en"]
+    contents: [
+	"mulcold_en",
+	"elfa",
+	"hc",
+	"topling_en",
+    ]
 };
 
 settings.corporafolders.german = {
@@ -131,8 +151,8 @@ settings.corporafolders.english.ethesis.matheses = {
 var byu_fulltext_note = "<br/><br/><strong>Note:</strong> To follow the US Fair Use Law, every 200 words, ten words have been removed and replaced with “@” (<a href='http://corpus.byu.edu/full-text/limitations.asp' target='_blank'>more information</a>).";
 
 settings.corporafolders.english.coca = {
-    title: "COCA: Corpus of Contemporary American English (beta)",
-    description: "COCA: Corpus of Contemporary American English – Kielipankki Korp version 2017H1 (beta)<br/><br/>The COCA corpus contains about 520 million words in 220,000 texts of US English from the years 1990–2015. The corpus is evenly divided into spoken, fiction, magazine, newspaper and academic genres." + byu_fulltext_note,
+    title: "COCA: Corpus of Contemporary American English",
+    description: "COCA: Corpus of Contemporary American English – Kielipankki Korp version 2017H1<br/><br/>The COCA corpus contains about 520 million words in 220,000 texts of US English from the years 1990–2015. The corpus is evenly divided into spoken, fiction, magazine, newspaper and academic genres." + byu_fulltext_note,
     // contents will be added further below
     info: {
 	urn: "urn:nbn:fi:lb-2017061933",
@@ -151,8 +171,8 @@ settings.corporafolders.english.coca = {
 };
 
 settings.corporafolders.english.coha = {
-    title: "COHA: Corpus of Historical American English (beta)",
-    description: "COHA: Corpus of Historical American English – Kielipankki Korp version 2017H1 (beta)<br/><br/>The COHA corpus contains about 400 million words in 107,000 texts of US English from the years 1810–2009. Each decade has roughly the same balance of fiction, popular magazine, newspaper, and non-fiction books." + byu_fulltext_note,
+    title: "COHA: Corpus of Historical American English",
+    description: "COHA: Corpus of Historical American English – Kielipankki Korp version 2017H1<br/><br/>The COHA corpus contains about 400 million words in 107,000 texts of US English from the years 1810–2009. Each decade has roughly the same balance of fiction, popular magazine, newspaper, and non-fiction books." + byu_fulltext_note,
     // contents will be added futher below
     info: {
 	urn: "urn:nbn:fi:lb-2017061934",
@@ -171,8 +191,8 @@ settings.corporafolders.english.coha = {
 };
 
 settings.corporafolders.english.glowbe = {
-    title: "GloWbE: Global Web-based English (beta)",
-    description: "GloWbE: Global Web-based English – Kielipankki Korp version 2017H1 (beta)<br/><br/>The GloWbE corpus contains about 1.8 billion words on 1.8 million Web pages of English from the United States, Great Britain, Australia, India and 16 other countries, collected in 2013. About 60% of the text is from blogs." + byu_fulltext_note,
+    title: "GloWbE: Global Web-based English",
+    description: "GloWbE: Global Web-based English – Kielipankki Korp version 2017H1<br/><br/>The GloWbE corpus contains about 1.8 billion words on 1.8 million Web pages of English from the United States, Great Britain, Australia, India and 16 other countries, collected in 2013. About 60% of the text is from blogs." + byu_fulltext_note,
     // contents will be added futher below
     info: {
 	urn: "urn:nbn:fi:lb-2017061935",
@@ -216,8 +236,48 @@ settings.corporafolders.sust = {
     contents: ["sust_myv", "sust_kpv", "sust_mdf"]
 };
 
+settings.corporafolders.wanca_2016 = {
+    title: "Wanca 2016",
+    description: "A collection of web corpora in small Uralic languages",
+    info: {
+	metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2019052401",
+	licence: settings.licenceinfo.CC_BY,
+	cite_id: "wanca2016-korp",
+	labels: ["beta"],
+    },
+    contents: ["wanca_2016_fit_multili",
+	       "wanca_2016_fkv_multili",
+	       "wanca_2016_izh",
+	       "wanca_2016_kca_multili",
+	       "wanca_2016_koi_multili",
+	       "wanca_2016_kpv_multili",
+	       "wanca_2016_krl_multili",
+	       "wanca_2016_liv",
+	       "wanca_2016_lud",
+	       "wanca_2016_mdf_multili",
+	       "wanca_2016_mhr_multili",
+	       "wanca_2016_mns_multili",
+	       "wanca_2016_mrj_multili",
+	       "wanca_2016_myv_multili",
+	       "wanca_2016_nio",
+	       "wanca_2016_olo_multili",
+	       "wanca_2016_sjd",
+	       "wanca_2016_sjk",
+	       "wanca_2016_sju",
+	       "wanca_2016_sma_multili",
+	       "wanca_2016_sme_multili",
+	       "wanca_2016_smj_multili",
+	       "wanca_2016_smn_multili",
+	       "wanca_2016_sms_multili",
+	       "wanca_2016_udm_multili",
+	       "wanca_2016_vep_multili",
+	       "wanca_2016_vot",
+	       "wanca_2016_vro_multili",
+	       "wanca_2016_yrk" ]
+};
+
 settings.corporafolders.english.scotscorr = {
-    title: "ScotsCorr (beta)",
+    title: "ScotsCorr",
     // Description copied from META-SHARE
     description: "Helsinki Corpus of Scottish Correspondence (1540–1750)<br/><br/>The corpus comprises circa 0.5 million tokens (417,709 words) of early Scottish correspondence by male and female writers dating from the period 1540–1750. The corpus consists of transcripts of original letter manuscripts, which reproduce the text disallowing any modernisation, normalisation or emendation. Language-external variables such as date, region, gender, addressee, hand and script type have been coded into the database. The writers originate from fifteen different regions of Scotland; these can be grouped to represent the areas of North, North-East, Central, South-East, and South-West. In addition, there are two categories of informants that have not been defined by geographical origin: representatives of the court and professional people such as members of the clergy. The proportion of female informants in the corpus is 21 per cent.<br/><br/><strong>Please note</strong> that the Korp version of the corpus is in test use and may change without notification, although the corpus data itself should be stable.<br/><br/><a href='https://www.kielipankki.fi/corpora/scotscorr/' target='_blank'>ScotsCorr information page with links to documentation</a>.",
     info: {
@@ -266,65 +326,191 @@ settings.corpora.fennougrica = {
 };
 */
 
-settings.corpora.oracc_other = {
-    id: "oracc_other",
-    title: "Others",
-    description: "Others",
-    context: settings.defaultContext,
-    within: settings.defaultWithin,
-    attributes: attrlist.oracc,
-    struct_attributes: sattrlist.oracc,
+settings.corpora.hc = {
+    id : "hc",
+    title : "Helsinki Corpus TEI XML Edition (2011)",
+    description : "Helsinki Corpus TEI XML Edition (2011), Korp Version<br/><br/>The Helsinki Corpus of English Texts is a structured multi-genre diachronic corpus, which includes periodically organized text samples from Old, Middle and Early Modern English. Each sample is preceded by a list of parameter codes giving information on the text and its author. The Corpus is useful particularly in the study of the change of linguistic features in long diachrony. It can be used as a diagnostic corpus giving general information of the occurrence of forms, structures and lexemes in different periods of English. This information can be supplemented by evidence yielded by more special and focused historical corpora.<br/><br/><strong>Note</strong> that this version of the corpus is based on the Helsinki Corpus TEI XML Edition of 2011, so it does not contain word-level annotations.",
+    metadata_urn: "urn:nbn:fi:lb-2017083001",
+    // Uncomment location URN when the beta stage ends
+    // urn: "urn:nbn:fi:lb-2019061401",
+    homepage_url: "http://www.helsinki.fi/varieng/CoRD/corpora/HelsinkiCorpus/HC_XML.html",
+    limited_access: true,
+    licence_type: "ACA",
+    licence: {
+	name: "CLARIN ACA +NC +DEP 1.0",
+	description: "CLARIN ACA (Academic) End-User License 1.0, Non-commercial, No redistribution, Redeposit",
+	urn: "urn:nbn:fi:lb-2019061301",
+    },
+    cite_id: "HC-TEI-XML",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes : attrlist.hc,
+    struct_attributes : sattrlist.hc
 };
 
-settings.corpora.oracc_saao = {
-    id: "oracc_saao",
-    title: "State Archives of Assyria Online",
-    description: "SAAo – State Archives of Assyria Online",
-    context: settings.defaultContext,
-    within: settings.defaultWithin,
+settings.corpora.oracc_adsd = {
+    id : "oracc_adsd",
+    title : "Astronomical Diaries Digital",
+    description : "ADsD: Astronomical Diaries Digital",
+    context : settings.spContext,
+    within : settings.spWithin,
     attributes: attrlist.oracc,
-    struct_attributes: sattrlist.oracc,
+    struct_attributes : sattrlist.oracc
 };
-
-settings.corpora.oracc_ribo = {
-    id: "oracc_ribo",
-    title: "Royal Inscriptions of Babylonia online",
-    description: "RIBo – Royal Inscriptions of Babylonia online",
-    context: settings.defaultContext,
-    within: settings.defaultWithin,
+settings.corpora.oracc_ario = {
+    id : "oracc_ario",
+    title : "Achaemenid Royal Inscriptions online",
+    description : "ARIo: Achaemenid Royal Inscriptions online",
+    context : settings.spContext,
+    within : settings.spWithin,
     attributes: attrlist.oracc,
-    struct_attributes: sattrlist.oracc,
+    struct_attributes : sattrlist.oracc
 };
-
-settings.corpora.oracc_rinap = {
-    id: "oracc_rinap",
-    title: "Royal Inscriptions of the Neo-Assyrian Period",
-    description: "RINAP – Royal Inscriptions of the Neo-Assyrian Period",
-    context: settings.defaultContext,
-    within: settings.defaultWithin,
+settings.corpora.oracc_blms = {
+    id : "oracc_blms",
+    title : "Bilinguals in Late Mesopotamian Scholarship",
+    description : "blms: Bilinguals in Late Mesopotamian Scholarship",
+    context : settings.spContext,
+    within : settings.spWithin,
     attributes: attrlist.oracc,
-    struct_attributes: sattrlist.oracc,
+    struct_attributes : sattrlist.oracc
 };
-
-settings.corpora.oracc_dcclt = {
-    id: "oracc_dcclt",
-    title: "Digital Corpus of Cuneiform Lexical Texts",
-    description: "DCCLT – Digital Corpus of Cuneiform Lexical Texts",
-    context: settings.defaultContext,
-    within: settings.defaultWithin,
-    attributes: attrlist.oracc,
-    struct_attributes: sattrlist.oracc,
-};
-
 settings.corpora.oracc_cams = {
-    id: "oracc_cams",
-    title: "Corpus of Ancient Mesopotamian Scholarship",
-    description: "CAMS – Corpus of Ancient Mesopotamian Scholarship",
-    context: settings.defaultContext,
-    within: settings.defaultWithin,
+    id : "oracc_cams",
+    title : "Corpus of Ancient Mesopotamian Scholarship",
+    description : "CAMS: Corpus of Ancient Mesopotamian Scholarship",
+    context : settings.spContext,
+    within : settings.spWithin,
     attributes: attrlist.oracc,
-    struct_attributes: sattrlist.oracc,
+    struct_attributes : sattrlist.oracc
 };
+settings.corpora.oracc_caspo = {
+    id : "oracc_caspo",
+    title : "Corpus of Akkadian Shuila-Prayers online",
+    description : "CASPo: Corpus of Akkadian Shuila-Prayers online",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_ctij = {
+    id : "oracc_ctij",
+    title : "Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups",
+    description : "CTIJ: Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_dcclt = {
+    id : "oracc_dcclt",
+    title : "Digital Corpus of Cuneiform Lexical Texts",
+    description : "DCCLT: Digital Corpus of Cuneiform Lexical Texts",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_dccmt = {
+    id : "oracc_dccmt",
+    title : "Digital Corpus of Cuneiform Mathematical Texts",
+    description : "DCCMT: Digital Corpus of Cuneiform Mathematical Texts",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_ecut = {
+    id : "oracc_ecut",
+    title : "Electronic Corpus of Urartian Texts",
+    description : "eCUT: Electronic Corpus of Urartian Texts",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_etcsri = {
+    id : "oracc_etcsri",
+    title : "Electronic Text Corpus of Sumerian Royal Inscriptions",
+    description : "ETCSRI: Electronic Text Corpus of Sumerian Royal Inscriptions",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_hbtin = {
+    id : "oracc_hbtin",
+    title : "Hellenistic Babylonia",
+    description : "HBTIN: Hellenistic Babylonia: Texts, Iconography, Names",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_obmc = {
+    id : "oracc_obmc",
+    title : "Old Babylonian Model Contracts",
+    description : "OBMC: Old Babylonian Model Contracts",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_others = {
+    id : "oracc_others",
+    title : "Other projects",
+    description : "Other projects",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_riao = {
+    id : "oracc_riao",
+    title : "Royal Inscriptions of Assyria online",
+    description : "RIAo: Royal Inscriptions of Assyria online",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_ribo = {
+    id : "oracc_ribo",
+    title : "Royal Inscriptions of Babylonia online",
+    description : "RIBo: Royal Inscriptions of Babylonia online",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_rimanum = {
+    id : "oracc_rimanum",
+    title : "The House of Prisoners",
+    description : "Rīm-Anum: The House of Prisoners",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_rinap = {
+    id : "oracc_rinap",
+    title : "Royal Inscriptions of the Neo-Assyrian Period",
+    description : "RINAP: Royal Inscriptions of the Neo-Assyrian Period",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+settings.corpora.oracc_saao = {
+    id : "oracc_saao",
+    title : "State Archives of Assyria Online",
+    description : "SAAo: State Archives of Assyria Online",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc,
+    struct_attributes : sattrlist.oracc
+};
+
 
 settings.corpora.ethesis_ru = {
     title: "E-thesis",
@@ -565,6 +751,352 @@ settings.corpora.sust_kpv = {
     context: settings.spContext,
     attributes: attrlist.sust_tagged,
     struct_attributes: sattrlist.sust_common
+};
+
+// TODO: check how attribute spaces should be shown
+attrlist.wanca_common = {
+    spaces: {
+	label: "whitespace_related_to_token",
+	dataset: {
+	    "_" : "_",
+	    "SpaceAfter=No" : "SpaceAfter=No",
+	    "SpacesAfter=\n\n" : "SpacesAfter=\n\n",
+	    "SpacesBefore=\s" : "SpacesBefore=\s",
+	    "SpacesAfter= " : "SpacesAfter= ",
+	    "SpacesAfter=\s\s" : "SpacesAfter=\s\s",
+	    "SpacesBefore=\s|SpaceAfter=No" : "SpacesBefore=\s|SpaceAfter=No",
+	    "SpacesAfter=　\s" : "SpacesAfter=　\s",
+	    "SpacesAfter=  " : "SpacesAfter=  ",
+	},
+    },
+    ref: attrs.ref,
+};
+
+sattrlist.wanca_common = {
+    text_url : {
+	label : "URL",
+	type : "url",
+	url_opts : sattrs.link_url_opts
+    },
+};
+
+settings.corpora.wanca_2016_fit_multili = {
+    id: "wanca_2016_fit_multili",
+    title: "Wanca 2016: Tornedalen Finnish (meänkieli)",
+    description: "A collection of web corpora in small Uralic languages: Tornedalen Finnish (meänkieli)",
+    lang: "fit",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_fkv_multili = {
+    id: "wanca_2016_fkv_multili",
+    title: "Wanca 2016: Kven (kvääni)",
+    description: "A collection of web corpora in small Uralic languages: Kven (kvääni)",
+    lang: "fkv",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_izh = {
+    id: "wanca_2016_izh",
+    title: "Wanca 2016: Ingrian (ižoran keel)",
+    description: "A collection of web corpora in small Uralic languages: Ingrian (ižoran keel)",
+    lang: "izh",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_kca_multili = {
+    id: "wanca_2016_kca_multili",
+    title: "Wanca 2016: Khanty (ханты ясанг)",
+    description: "A collection of web corpora in small Uralic languages: Khanty (ханты ясанг)",
+    lang: "kca",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_koi_multili = {
+    id: "wanca_2016_koi_multili",
+    title: "Wanca 2016: Komi-Permyak (перем коми кыв)",
+    description: "A collection of web corpora in small Uralic languages: Komi-Permyak (перем коми кыв)",
+    lang: "koi",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_kpv_multili = {
+    id: "wanca_2016_kpv_multili",
+    title: "Wanca 2016: Komi-Zyrian (Коми кыв)",
+    description: "A collection of web corpora in small Uralic languages: Komi-Zyrian (Коми кыв)",
+    lang: "kpv",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_krl_multili = {
+    id: "wanca_2016_krl_multili",
+    title: "Wanca 2016: Karelian (karjal)",
+    description: "A collection of web corpora in small Uralic languages: Karelian (karjal)",
+    lang: "krl",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_liv = {
+    id: "wanca_2016_liv",
+    title: "Wanca 2016: Liv (līvõ kēļ)",
+    description: "A collection of web corpora in small Uralic languages: Liv (līvõ kēļ)",
+    lang: "liv",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_lud = {
+    id: "wanca_2016_lud",
+    title: "Wanca 2016: Ludian (lüüdin kiel')",
+    description: "A collection of web corpora in small Uralic languages: Ludian (lüüdin kiel')",
+    lang: "lud",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_mdf_multili = {
+    id: "wanca_2016_mdf_multili",
+    title: "Wanca 2016: Moksha (мокшень)",
+    description: "A collection of web corpora in small Uralic languages: Moksha (мокшень)",
+    lang: "mdf",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_mhr_multili = {
+    id: "wanca_2016_mhr_multili",
+    title: "Wanca 2016: Eastern and Meadow Mari (марий йылме)",
+    description: "A collection of web corpora in small Uralic languages: Eastern and Meadow Mari (марий йылме)",
+    lang: "mhr",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_mns_multili = {
+    id: "wanca_2016_mns_multili",
+    title: "Wanca 2016: Mansi (мāньси лāтыӈ)",
+    description: "A collection of web corpora in small Uralic languages: Mansi (мāньси лāтыӈ)",
+    lang: "mns",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_mrj_multili = {
+    id: "wanca_2016_mrj_multili",
+    title: "Wanca 2016: Western or Hill Mari (Кырык мары)",
+    description: "A collection of web corpora in small Uralic languages: Western or Hill Mari (Кырык мары)",
+    lang: "mrj",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_myv_multili = {
+    id: "wanca_2016_myv_multili",
+    title: "Wanca 2016: Erzya (эрзянь)",
+    description: "A collection of web corpora in small Uralic languages: Erzya (эрзянь)",
+    lang: "myv",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_nio = {
+    id: "wanca_2016_nio",
+    title: "Wanca 2016: Nganasan (ня”)",
+    description: "A collection of web corpora in small Uralic languages: Nganasan (ня”)",
+    lang: "nio",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_olo_multili = {
+    id: "wanca_2016_olo_multili",
+    title: "Wanca 2016: Livvi (Olonets / livvin karjal)",
+    description: "A collection of web corpora in small Uralic languages: Livvi (Olonets / livvin karjal)",
+    lang: "olo",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_sjd = {
+    id: "wanca_2016_sjd",
+    title: "Wanca 2016: Kildin Sami (Кӣллт са̄мь кӣлл)",
+    description: "A collection of web corpora in small Uralic languages: Kildin Sami (Кӣллт са̄мь кӣлл)",
+    lang: "sjd",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_sjk = {
+    id: "wanca_2016_sjk",
+    title: "Wanca 2016: Kemi Sami (samääškiela)",
+    description: "A collection of web corpora in small Uralic languages: Kemi Sami (samääškiela)",
+    lang: "sjk",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_sju = {
+    id: "wanca_2016_sju",
+    title: "Wanca 2016: Ume Sami (uumajanlappi)",
+    description: "A collection of web corpora in small Uralic languages: Ume Sami (uumajanlappi)",
+    lang: "sju",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_sma_multili = {
+    id: "wanca_2016_sma_multili",
+    title: "Wanca 2016: Southern Sami (åarjel-saemien)",
+    description: "A collection of web corpora in small Uralic languages: Southern Sami (åarjel-saemien)",
+    lang: "sma",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_sme_multili = {
+    id: "wanca_2016_sme_multili",
+    title: "Wanca 2016: Northern Sami (davvisámi, davvisámegiella)",
+    description: "A collection of web corpora in small Uralic languages: Northern Sami (davvisámi, davvisámegiella)",
+    lang: "sme",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_smj_multili = {
+    id: "wanca_2016_smj_multili",
+    title: "Wanca 2016: Lule Sami (julevsábme)",
+    description: "A collection of web corpora in small Uralic languages: Lule Sami (julevsábme)",
+    lang: "smj",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_smn_multili = {
+    id: "wanca_2016_smn_multili",
+    title: "Wanca 2016: Inari Sami (anarâškielâ)",
+    description: "A collection of web corpora in small Uralic languages: Inari Sami (anarâškielâ)",
+    lang: "smn",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_sms_multili = {
+    id: "wanca_2016_sms_multili",
+    title: "Wanca 2016: Skolt Sami (sää´mǩiõll)",
+    description: "A collection of web corpora in small Uralic languages: Skolt Sami (sää´mǩiõll)",
+    lang: "sms",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_udm_multili = {
+    id: "wanca_2016_udm_multili",
+    title: "Wanca 2016: Udmurt (удмурт кыл)",
+    description: "A collection of web corpora in small Uralic languages: Udmurt (удмурт кыл)",
+    lang: "udm",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_vep_multili = {
+    id: "wanca_2016_vep_multili",
+    title: "Wanca 2016: Veps (vepsän kel')",
+    description: "A collection of web corpora in small Uralic languages: Veps (vepsän kel')",
+    lang: "vep",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_vot = {
+    id: "wanca_2016_vot",
+    title: "Wanca 2016: Votic (vad̕d̕a ceeli)",
+    description: "A collection of web corpora in small Uralic languages: Votic (vad̕d̕a ceeli)",
+    lang: "vot",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_vro_multili = {
+    id: "wanca_2016_vro_multili",
+    title: "Wanca 2016: Võro (võro kiil)",
+    description: "A collection of web corpora in small Uralic languages: Võro (võro kiil)",
+    lang: "vro",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
+};
+
+settings.corpora.wanca_2016_yrk = {
+    id: "wanca_2016_yrk",
+    title: "Wanca 2016: Nenets (ненэцяʼ вада)",
+    description: "A collection of web corpora in small Uralic languages: Nenets (ненэцяʼ вада)",
+    lang: "yrk",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.wanca_common,
+    struct_attributes: sattrlist.wanca_common
 };
 
 settings.corpora.fennougrica_izh = {
@@ -2098,55 +2630,55 @@ attrs.scotscorr_word = {
 
 settings.corpora.scots_f1540_1599 = {
     id: "scots_f1540_1599",
-    title: "ScotsCorr: Female 1540–1599 (beta)",
+    title: "ScotsCorr: Female 1540–1599",
     description: "Helsinki Corpus of Scottish Correspondence: Female 1540–1599",
 };
 
 settings.corpora.scots_f1600_1649 = {
     id: "scots_f1600_1649",
-    title: "ScotsCorr: Female 1600–1649 (beta)",
+    title: "ScotsCorr: Female 1600–1649",
     description: "Helsinki Corpus of Scottish Correspondence: Female 1600–1649",
 };
 
 settings.corpora.scots_f1650_1699 = {
     id: "scots_f1650_1699",
-    title: "ScotsCorr: Female 1650–1699 (beta)",
+    title: "ScotsCorr: Female 1650–1699",
     description: "Helsinki Corpus of Scottish Correspondence: Female 1650–1699",
 };
 
 settings.corpora.scots_f1700_1749 = {
     id: "scots_f1700_1749",
-    title: "ScotsCorr: Female 1700–1749 (beta)",
+    title: "ScotsCorr: Female 1700–1749",
     description: "Helsinki Corpus of Scottish Correspondence: Female 1700–1749",
 };
 
 settings.corpora.scots_m1540_1599 = {
     id: "scots_m1540_1599",
-    title: "ScotsCorr: Male 1540–1599 (beta)",
+    title: "ScotsCorr: Male 1540–1599",
     description: "Helsinki Corpus of Scottish Correspondence: Male 1540–1599",
 };
 
 settings.corpora.scots_m1600_1649 = {
     id: "scots_m1600_1649",
-    title: "ScotsCorr: Male 1600–1649 (beta)",
+    title: "ScotsCorr: Male 1600–1649",
     description: "Helsinki Corpus of Scottish Correspondence: Male 1600–1649",
 };
 
 settings.corpora.scots_m1650_1699 = {
     id: "scots_m1650_1699",
-    title: "ScotsCorr: Male 1650–1699 (beta)",
+    title: "ScotsCorr: Male 1650–1699",
     description: "Helsinki Corpus of Scottish Correspondence: Male 1650–1699",
 };
 
 settings.corpora.scots_m1700_1749 = {
     id: "scots_m1700_1749",
-    title: "ScotsCorr: Male 1700–1749 (beta)",
+    title: "ScotsCorr: Male 1700–1749",
     description: "Helsinki Corpus of Scottish Correspondence: Male 1700–1749",
 };
 
 settings.corpora.scots_royal = {
     id: "scots_royal",
-    title: "ScotsCorr: Royal (beta)",
+    title: "ScotsCorr: Royal",
     description: "Helsinki Corpus of Scottish Correspondence: Royal",
 };
 
@@ -2924,9 +3456,8 @@ settings.fn.make_folder_hierarchy(
     {
 	id_prefix: "coca_",
 	title_prefix: "COCA: ",
-	title_suffix: " (beta)",
 	description_prefix: "COCA: Corpus of Contemporary American English (genre: ",
-	description_suffix: ") – Kielipankki Korp version 2017H1 (beta)",
+	description_suffix: ") – Kielipankki Korp version 2017H1",
 	corpus_template: settings.templ.coca_common,
     });
 
@@ -3038,9 +3569,8 @@ settings.fn.make_folder_hierarchy(
     {
 	id_prefix: "coha_",
 	title_prefix: "COHA: ",
-	title_suffix: " (beta)",
 	description_prefix: "COHA: Corpus of Historical American English: ",
-	description_suffix: " – Kielipankki Korp version 2017H1 (beta)",
+	description_suffix: " – Kielipankki Korp version 2017H1",
 	corpus_template: settings.templ.coha_common,
     });
 
@@ -3146,9 +3676,8 @@ settings.fn.make_folder_hierarchy(
     {
 	id_prefix: "glowbe_",
 	title_prefix: "GloWbE: ",
-	title_suffix: " (beta)",
 	description_prefix: "GloWbE: Global Web-based English: ",
-	description_suffix: " – Kielipankki Korp version 2017H1 (beta)",
+	description_suffix: " – Kielipankki Korp version 2017H1",
 	corpus_template: settings.templ.glowbe_common,
     });
 

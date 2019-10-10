@@ -386,10 +386,13 @@
 
     "privacy": "Dataskyddsbeskrivning",
 
+    "corpus_subcorpus_of": "Delkorpus av",
+    "corpus_pid": "Persistent identifierare (metadata)",
     "corpus_urn": "Länk till korpusen i Korp",
     "corpus_licence": "Lisens",
     "corpus_metadata": "Metadata",
     "corpus_homepage": "Hemsida",
+    "corpus_infopage": "Informationssida",
     "corpus_iprholder": "Rättsinnehavare",
     "corpus_compiler": "Sammanställare",
     "corpus_download": "Ladda ner korpusen",
