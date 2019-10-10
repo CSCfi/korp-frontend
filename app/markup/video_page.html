@@ -1,0 +1,266 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Aineistonäyte - Corpus sample (Kielipankki - The Language Bank of Finland)</title>
+</head>
+
+<!-- In the left column, display video and some buttons   -->
+
+<body>
+<table border="0">
+<tr>
+  <td width="70%">
+    <div>
+		<video id="myvideo" width="97%" controls preload="true">
+	<source id="myvideo_source" src="" type="video/mp4"></source>
+	Your browser does not support HTML5 video.</video>
+    </div>
+	<table width="100%">
+		<tr>
+	<td style="vertical-align:top" width="50%">
+		<p>
+		<button id="playme"><span id="play_pause_video">Play/Pause Video</span></button>
+		<button id="jump30back"><span id="jump_30back">-30 s</span></button>
+		<button id="jump5back"><span id="jump_5back">-5 s</span></button>
+		<button id="jump5fwd"><span id="jump_5fwd">+5 s</span></button>
+		<button id="jump30fwd"><span id="jump_30fwd">+30 s</span></button>
+			</p>
+		 </td>
+		 <td style="vertical-align:top" width="100px">
+		<p>
+		<button id="jump"><span id="play_utterance">Play utterance</span></button>
+		</p>
+	    </td>
+	<td style="vertical-align:top">
+		<form>
+				<input type="radio" id="stop" name="stop_or_continue" value="Stop" checked><span id="stop_playing_at_utterance_end">Stop playing at utterance end</span><br>
+				<input type="radio" id="continue" name="stop_or_continue" value="Continue"><span id="continue_playing_after_utterance_end">Continue playing after utterance end</span>
+		</form>
+	</td>
+		</tr>
+	</table>
+
+<script>
+
+<!-- Set up the buttons below the video   -->
+
+var myvideo = document.getElementById('myvideo');
+var playbutton = document.getElementById('playme');
+var jumpbutton = document.getElementById('jump');
+var jump30backbutton = document.getElementById('jump30back');
+var jump5backbutton = document.getElementById('jump5back');
+var jump5fwdbutton = document.getElementById('jump5fwd');
+var jump30fwdbutton = document.getElementById('jump30fwd');
+
+var params = new URLSearchParams(document.location.search.substring(1));
+
+var lang = params.get("lang");
+
+if (lang == "fi")
+{
+document.getElementById("play_pause_video").innerHTML = "Soita/Pysäytä";
+document.getElementById("play_utterance").innerHTML = "Soita alue";
+document.getElementById("stop_playing_at_utterance_end").innerHTML = "Lopeta alueen loppuun";
+document.getElementById("continue_playing_after_utterance_end").innerHTML = "Jatka alueen jälkeen";
+document.getElementById("jump_30back").innerHTML = "-30 s";
+document.getElementById("jump_5back").innerHTML = "-5 s";
+document.getElementById("jump_5fwd").innerHTML = "+5 s";
+document.getElementById("jump_30fwd").innerHTML = "+30 s";
+}
+else if (lang == "sv")
+{
+document.getElementById("play_pause_video").innerHTML = "Play/Pause (sv)";
+document.getElementById("play_utterance").innerHTML = "Play selection (sv)";
+document.getElementById("stop_playing_at_utterance_end").innerHTML = "Stop playing at selection end (sv)";
+document.getElementById("continue_playing_after_utterance_end").innerHTML = "Continue playing after selection end (sv)";
+document.getElementById("jump_30back").innerHTML = "-30 s";
+document.getElementById("jump_5back").innerHTML = "-5 s";
+document.getElementById("jump_5fwd").innerHTML = "+5 s";
+document.getElementById("jump_30fwd").innerHTML = "+30 s";
+}
+
+var src_url = params.get("src");
+var corpusname = params.get("corpusname");
+var metadata_urn = params.get("metadata_urn");
+var korp_url = params.get("korp_url");
+var utterance = params.get("utterance");
+
+var text_attributes = params.get("text_attributes");
+var attr = JSON.parse(text_attributes);
+
+var speaker = "";
+var speaker_parl_group = "";
+var speaker_role = "";
+var speech_type = "";
+var begin_time = "";
+var end_time = "";
+var duration = "";
+var published_date = "";
+var published_time = "";
+<!-- todo: session duration -->
+
+for (var key in attr)
+{
+
+var unloc = key;
+var attrValue = attr[key];
+var loc_and_val = attrValue.split(",");
+
+if (unloc == "paragraph_speaker") { speaker = loc_and_val; }
+else if (unloc == "paragraph_speaker_parl_group") { speaker_parl_group = loc_and_val; }
+else if (unloc == "paragraph_speaker_role" ) { speaker_role = loc_and_val; }
+else if (unloc == "paragraph_speech_type" ) { speech_type = loc_and_val; }
+else if (unloc == "utterance_begin_time" ) { begin_time = loc_and_val; }
+else if (unloc == "utterance_end_time" ) { end_time = loc_and_val; }
+else if (unloc == "utterance_duration" ) { duration = loc_and_val; }
+else if (unloc == "text_date" ) { published_date = loc_and_val; }
+else if (unloc == "text_time" ) { published_time = loc_and_val; }
+<!-- todo: session duration -->
+
+}
+
+<!-- Settings for the video  -->
+
+var source_elem = document.getElementById('myvideo_source');
+source_elem.setAttribute("src", src_url);
+myvideo.currentTime = begin_time[1];
+
+<!-- Localize and display the utterance transcript and speaker information below the video  -->
+
+var utterance_loc = "";
+if (lang == "fi") { utterance_loc = "Puhunnos"; }
+else if (lang == "sv") { utterance_loc = "Utterance (sv)"; }
+else { utterance_loc = "Utterance"; }
+document.write("<b>" + utterance_loc + ":</b> " + utterance + "</p>");
+
+document.write('<table width="97%" style="border-spacing: 0;" ><tr><td style="vertical-align:top" width="50%">');
+
+document.write("<p><b>" + speaker[0] + ":</b> " + speaker[1] + "<br/>");
+document.write("<b>" + speaker_parl_group[0] + ":</b> " + speaker_parl_group[1] + "<br/>");
+document.write("<b>" + speaker_role[0] + ":</b> " + speaker_role[1] + "<br/>");
+document.write("<b>" + speech_type[0] + ":</b> " + speech_type[1] + "</p>");
+
+<!-- Localize and display time information about the utterance  -->
+
+var sec = "";
+if (lang == "fi") { sec = "sekuntia"; }
+else if (lang == "sv") { sec = "seconds (sv)"; }
+else { sec = "seconds"; }
+
+document.write('</td><td style="vertical-align:top">');
+
+document.write("<p>" + begin_time[0] + ": " + begin_time[1] + " " + sec + "<br/>");
+document.write(end_time[0] + ": " + end_time[1] + " " + sec + "<br/>");
+document.write(duration[0] + ": " + duration[1] + " " + sec + "</p>");
+
+document.write('</td></tr></table>');
+
+<!-- Begin right column of page: information on the original media, the corpus and text/session  -->
+
+document.write('</td><td style="vertical-align:top">');
+
+document.write('<div style="border:1px solid black;">')
+
+var external_media_stream_loc = "";
+if (lang == "fi") { external_media_stream_loc = "Medialähde"; }
+else if (lang == "sv") { external_media_stream_loc = "Media source (sv)"; }
+else { external_media_stream_loc = "Media source"; }
+
+var corpus_in_kielipankki_loc = "";
+if (lang == "fi") { corpus_in_kielipankki_loc = "Korpus"; }
+else if (lang == "sv") { corpus_in_kielipankki_loc = "Corpus (sv)"; }
+else { corpus_in_kielipankki_loc = "Corpus"; }
+
+var persistent_id_metadata_loc = "";
+if (lang == "fi") { persistent_id_metadata_loc = "Aineiston pysyvä tunniste (kuvailutiedot)"; }
+else if (lang == "sv") { persistent_id_metadata_loc = "Persistent identifierare (metadata)"; }
+else { persistent_id_metadata_loc = "Persistent Identifier (metadata)"; }
+
+var link_to_search_in_korp_loc = "";
+if (lang == "fi") { link_to_search_in_korp_loc = "Linkki Korp-hakuun"; }
+else if (lang == "sv") { link_to_search_in_korp_loc = "Link to search in Korp (sv)"; }
+else { link_to_search_in_korp_loc = "Link to search in Korp"; }
+
+document.write("<p><b>" + external_media_stream_loc + ":</b><br/><a href='" + src_url + "'>" + src_url + "</a></p>");
+
+document.write("</div>")
+
+<!-- Display Kielipankki logo and corpus properties  -->
+
+document.write("<br/><a href='https://www.kielipankki.fi' target='_blank'><img src='" + "../img/Kielipankki-logo-cropped.png" + "' width='200px' align='right'></a>")
+document.write("<h3>" + corpus_in_kielipankki_loc + "</h3><p>" + corpusname + "</p>");
+document.write("<p><b>" + persistent_id_metadata_loc + ":</b><br/><a href='http://urn.fi/" + metadata_urn + "'>" + metadata_urn + "</a><br/>");
+document.write("<a href='" + korp_url + "'>" + link_to_search_in_korp_loc + "</a><br/></p>");
+
+<!-- Text/session attributes (from Korp)  -->
+
+var text_session_attributes = "";
+if (lang == "fi") { text_session_attributes_loc = "Tekstin attribuutit"; }
+else if (lang == "sv") { text_session_attributes_loc ="Text attributes (sv)"; }
+else { text_session_attributes_loc = "Text attributes"; };
+
+document.write("<h3>" + text_session_attributes_loc + "</h3>");
+document.write("<p><b>" + published_date[0] + ":</b> " + published_date[1] + "<br/>");
+document.write("<b>" + published_time[0] + ":</b> " + published_time[1] + "</p>");
+<!-- todo: session duration -->
+
+<!-- Disclaimer (is this necessary)???  -->
+var disclaimer_loc = "";
+if (lang == "fi") { disclaimer_loc = "Huom. Kaikki selaimet eivät tue tälle sivulle upotettua videota. Varmimmin sivu toimii Firefox-selaimella. </p><p style='font-size:80%'>Alkuperäinen litteraatti on kohdistettu mediatiedostoon ja annotoitu automaattisin menetelmin. Tästä syystä kohdistuksessa ja annotaatioissa saattaa esiintyä virheitä.</p>"; }
+else if (lang == "sv") { disclaimer_loc = "Please note that the video feature on this page is not supported by all browsers. The page is most likely to work in a Firefox browser.</p><p style='font-size:80%'>The original transcript has been aligned with the media file and annotated by using automatic methods. The alignment or the annotations may thus contain errors. (sv)</p>"; }
+else { disclaimer_loc = "Please note that the video feature on this page is not supported by all browsers. The page is most likely to work in a Firefox browser.</p><p style='font-size:80%'>The original transcript has been aligned with the media file and annotated by using automatic methods. The alignment or the annotations may thus contain errors. (sv)</p>"; }
+
+document.write('<br/><hr/>')
+document.write('<p style="font-size:80%"><i>' + disclaimer_loc + '</i></p>');
+document.write('</div>')
+
+document.write("</td></tr></table>");
+
+var pausing_function = function(){
+var stop_or_continue = document.querySelector("input[name = 'stop_or_continue']:checked").value;
+if(this.currentTime >= Number(end_time[1]) && stop_or_continue == "Stop") {
+myvideo.pause();}}
+
+myvideo.addEventListener("timeupdate", pausing_function);
+
+jumpbutton.addEventListener("click", function (event) {
+event.preventDefault();
+myvideo.play();
+myvideo.pause();
+myvideo.currentTime = begin_time[1];
+myvideo.play();
+}, false);
+
+jump30backbutton.addEventListener("click", function (event) {
+event.preventDefault();
+myvideo.currentTime = myvideo.currentTime - 30;
+}, false);
+
+jump5backbutton.addEventListener("click", function (event) {
+event.preventDefault();
+myvideo.currentTime = myvideo.currentTime - 5;
+}, false);
+
+jump5fwdbutton.addEventListener("click", function (event) {
+event.preventDefault();
+myvideo.currentTime = myvideo.currentTime + 5;
+}, false);
+
+jump30fwdbutton.addEventListener("click", function (event) {
+event.preventDefault();
+myvideo.currentTime = myvideo.currentTime + 30;
+}, false);
+
+playbutton.addEventListener("click", function () {
+    if (myvideo.paused) {
+	myvideo.play();
+    } else {
+	myvideo.pause();
+    }
+}, false);
+</script>
+
+<hr size="3" color="#800080">
+</body>
+</html>

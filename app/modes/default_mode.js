@@ -13381,6 +13381,78 @@ settings.corpora.arkisyn = {
 };
 
 
+settings.fn.make_videopage_url = function (token_data) {
+    console.log(token_data);
+    var msec_to_sec = function (sec) {
+	return (parseInt(sec) / 1000).toString();
+    };
+    // Temporary fix for ä's missing from URL attribute values
+    var fix_video_url = function (url) {
+	return (url.replace(/Kevt/, "Kevät")
+		.replace(/keskuu/, "kesäkuu")
+		.replace(/heinkuu/, "heinäkuu"));
+    }
+    var prefix = "markup/video_page.html?";
+    var words = [];
+    var tokens = token_data.tokens;
+    for (var i = 0; i < tokens.length; i++) {
+	var word = tokens[i].word;
+	if (tokens[i]._match) {
+	    if (i == 0 || ! tokens[i - 1]._match) {
+		word = "<b>" + word;
+	    }
+	    if (i == tokens.length - 1 || ! tokens[i + 1]._match) {
+		word += "</b>";
+	    }
+	}
+	words.push(word);
+    }
+    var text_attrs = {};
+    for (var key in token_data.struct_attrs) {
+	if (key != "utterance_annex_link") {
+	    var attrdef = settings.corpora.eduskunta_test.struct_attributes[key];
+	    var name = util.getLocaleStringUndefined(attrdef.label);
+	    if (name) {
+		var val = token_data.struct_attrs[key];
+		if (["utterance_begin_time", "utterance_end_time",
+		     "utterance_duration"].includes(key)) {
+		    val = msec_to_sec(val);
+		} else if (attrdef.translationKey != undefined) {
+		    if (attrdef.dataset && ! _.isArray(attrdef.dataset)) {
+			val = (attrdef.dataset != undefined
+			       ? attrdef.dataset[val]
+			       : val);
+		    }
+		    var loc_val = util.getLocaleStringUndefined(
+			attrdef.translationKey + val);
+		    if (loc_val != undefined) {
+			val = loc_val;
+		    }
+		}
+		text_attrs[key] = name + "," + val;
+	    }
+	}
+    }
+    var params = {
+	lang: window.lang || settings.defaultLanguage,
+	src: fix_video_url(token_data.struct_attrs.text_original_video),
+	corpusname: "Eduskunnan täysistunnot",
+	metadata_urn: settings.corpora.eduskunta_test.metadata_urn,
+	korp_url: window.location.href,
+	utterance: words.join(" "),
+	text_attributes: JSON.stringify(text_attrs),
+    };
+    var paramstr = "";
+    for (var key in params) {
+	if (paramstr != "") {
+	    paramstr += "&";
+	}
+	paramstr += key + "=" + encodeURIComponent(params[key]);
+    }
+    return prefix + paramstr;
+};
+
+
 settings.corpora.eduskunta_test = {
     title: "Eduskunnan täysistunnot",
     description: "Eduskunnan täysistuntojen videotallenteista tehdyt transkriptiot. Istunnot ovat ajalta 10.9.2008–1.7.2016. Osa aineistosta on tarjolla myös LAT-palvelussa. Hakutuloksissa on tällöin linkki istunnon LAT-versioon. Transkriptiot perustuvat suomen kielimalliin, joten ruotsinkieliset puheenvuorot ovat tunnistuneet enimmäkseen vierassanoiksi.",
@@ -13516,7 +13588,27 @@ settings.corpora.eduskunta_test = {
 	utterance_duration: {
 	    label: "utterance_duration"
 	},
-	utterance_annex_link: sattrs.link_show_video_annex,
+	utterance_videopage_link: {
+	    label: "show_video",
+	    type: "url",
+	    url_opts: sattrs.link_url_opts,
+	    synthetic: true,
+	    order: 50,
+	    stringify_synthetic: settings.fn.make_videopage_url,
+	},
+	// Kludge to get the LAT/Annex link after the other video
+	// link, as synthetic attributes are currently shown after
+	// non-synthetic ones.
+	utterance_annex_link: sattrs.hidden,
+	utterance_annex_link_synth: $.extend(
+	    {}, sattrs.link_show_video_annex,
+	    {
+		synthetic: true,
+		order: 40,
+		stringify_synthetic: function (token_data) {
+		    return token_data.struct_attrs.utterance_annex_link;
+		},
+	    }),
     }
 };
 
