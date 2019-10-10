@@ -13414,7 +13414,10 @@ settings.fn.make_videopage_url = function (token_data) {
 	    var name = util.getLocaleStringUndefined(attrdef.label);
 	    if (name) {
 		var val = token_data.struct_attrs[key];
-		if (attrdef.translationKey != undefined) {
+		if (["utterance_begin_time", "utterance_end_time",
+		     "utterance_duration"].includes(key)) {
+		    val = msec_to_sec(val);
+		} else if (attrdef.translationKey != undefined) {
 		    if (attrdef.dataset && ! _.isArray(attrdef.dataset)) {
 			val = (attrdef.dataset != undefined
 			       ? attrdef.dataset[val]
@@ -13426,16 +13429,16 @@ settings.fn.make_videopage_url = function (token_data) {
 			val = loc_val;
 		    }
 		}
-		text_attrs[name] = val;
+		text_attrs[key] = name + "," + val;
 	    }
 	}
     }
     var params = {
+	lang: window.lang || settings.defaultLanguage,
 	src: fix_video_url(token_data.struct_attrs.text_video),
+	corpusname: "Eduskunnan täysistunnot",
 	metadata_urn: settings.corpora.eduskunta.metadata_urn,
 	korp_url: window.location.href,
-	time: msec_to_sec(token_data.struct_attrs.utterance_begin_time),
-	duration: msec_to_sec(token_data.struct_attrs.utterance_duration),
 	utterance: words.join(" "),
 	text_attributes: JSON.stringify(text_attrs),
     };
