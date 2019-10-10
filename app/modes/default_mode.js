@@ -13392,9 +13392,7 @@ settings.fn.make_videopage_url = function (token_data) {
 		.replace(/keskuu/, "kesäkuu")
 		.replace(/heinkuu/, "heinäkuu"));
     }
-    // Temporary URL (requires access to CSC Jira)
-    var prefix =
-	"https://jira.csc.fi/secure/attachment/52917/videotesti3.html?";
+    var prefix = "markup/video_page.html?";
     var words = [];
     var tokens = token_data.tokens;
     for (var i = 0; i < tokens.length; i++) {
