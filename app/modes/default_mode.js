@@ -13473,20 +13473,24 @@ settings.corpora.eduskunta_test = {
         text_filename: {
             label: "file_name",
         },
+        text_date: sattrs.date,
+        text_time: sattrs.text_time,
         text_original_video : {
 	    label : "Alkuperäinen video",
 	    type : "url",
-	    url_opts : sattrs.link_url_opts,
-	    order : 1
+	    url_opts: {
+		hide_url: true,
+		new_window: true,
+	    },
 	},
 	text_original_transcript : {
 	    label : "Alkuperäinen pöytäkirja",
 	    type : "url",
-	    url_opts : sattrs.link_url_opts,
-	    order : 2
+	    url_opts: {
+		hide_url: true,
+		new_window: true,
+	    },
 	},
-        text_date: sattrs.date,
-        text_time: sattrs.text_time,
         paragraph_speaker: {
             label: "speaker_name"
         },
