@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -21,7 +22,7 @@
   <td width="70%">
     <div>
 		<video id="myvideo" width="97%" controls preload="true">
-	<source id="myvideo_source" src="" type="video/mp4"></source>
+	<source id="myvideo_source" src="" type="video/mp4"/>
 	Your browser does not support HTML5 video.</video>
     </div>
 	<table width="100%">
@@ -140,7 +141,7 @@ var utterance_loc = "";
 if (lang == "fi") { utterance_loc = "Puhunnos"; }
 else if (lang == "sv") { utterance_loc = "Utterance (sv)"; }
 else { utterance_loc = "Utterance"; }
-document.write("<b>" + utterance_loc + ":</b> " + utterance + "</p>");
+document.write("<p><b>" + utterance_loc + ":</b> " + utterance + "</p>");
 
 document.write('<table width="97%" style="border-spacing: 0;" ><tr><td style="vertical-align:top" width="50%">');
 
@@ -223,7 +224,7 @@ document.write('<br/><hr/>')
 document.write('<p style="font-size:80%"><i>' + disclaimer_loc + '</i></p>');
 document.write('</div>')
 
-document.write("</td></tr></table>");
+document.write("</td></tr>");
 
 var pausing_function = function(){
 var stop_or_continue = document.querySelector("input[name = 'stop_or_continue']:checked").value;
@@ -268,6 +269,8 @@ playbutton.addEventListener("click", function () {
     }
 }, false);
 </script>
+
+</table>
 
 <hr size="3" color="#800080">
 </body>
