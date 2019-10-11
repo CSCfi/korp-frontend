@@ -13466,9 +13466,7 @@ settings.corpora.eduskunta_test = {
 	name: "Eduskunnan täysistuntojen verkkolähetysten tallenteet",
 	no_label: true,
     },
-    within: settings.defaultWithin,
-    context: settings.defaultContext,
-    attributes: attrlist.standard,
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_filename: {
             label: "file_name",
