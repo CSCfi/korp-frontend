@@ -11435,11 +11435,12 @@ sattrs.vks_sentence_code = {
 };
 sattrs.vks_sentence_type = {
     label: "vks_sentence_type",
+    displayType: "select",
     translationKey: "vks_sentence_type_",
-    dataset: {
-	"sentence": "Sentence",
-	"heading": "Heading"
-    }
+    dataset: [
+	"sentence",
+	"heading",
+    ],
 };
 sattrs.vks_text_year = {
     label: "vks_text_year"
