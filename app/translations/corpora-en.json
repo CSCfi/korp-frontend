@@ -49,6 +49,8 @@
     "normalized_wordform": "normalized word form",
     "spoken": "spoken form",
 
+    "head_deprel_pairs": "head-deprel pairs",
+
     "OCR": "OCR",
 
     "lemma": "lemma",

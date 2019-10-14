@@ -1043,7 +1043,7 @@ attrs.pos_ud2_universal = {
     },
 };
 
-attr.pos_ud2_fi = {
+attrs.pos_ud2_fi = {
     label: "pos",
     displayType: "select",
     translationKey: "pos_",
@@ -1736,6 +1736,36 @@ attrlist.finer = {
     ne_placename_source: attrs.ne_placename_source,
     nertag: attrs.ner_rawtag,
     nerbio: attrs.ner_bio,
+};
+
+attrlist.ud2_fi = {
+    id: attrs.ref,
+    lemma: attrs.baseform,
+    upos: attrs.pos_ud2_universal,
+    xpos: attrs.pos_ud2_fi,
+    feats: attrs.msd,
+    head: attrs.dephead,
+    deprel: attrs.deprel_ud2,
+    deps: {
+	label: "head_deprel_pairs",
+	dataset: {
+	    "_": "_"
+	}
+    },
+    misc: {
+	label: "whitespace_related_to_token",
+	dataset: {
+	    "_":"_",
+	    "SpaceAfter=No": "SpaceAfter=No",
+	    "SpacesAfter=\n": "SpacesAfter=\n",
+	    "SpacesAfter=\n\n": "SpacesAfter=\n\n",
+	    "SpacesAfter=\n\n\n": "SpacesAfter=\n\n\n",
+	    "SpacesAfter=\n\n\n\n": "SpacesAfter=\n\n\n\n",
+	    "SpacesAfter=\n\n\n\n\n": "SpacesAfter=\n\n\n\n\n",
+	    "SpacesAfter=\n\n\n\n\n\n": "SpacesAfter=\n\n\n\n\n\n",
+	    "SpacesBefore=\n|SpaceAfter=No": "SpacesBefore=\n|SpaceAfter=No",
+	}
+    },
 };
 
 settings.corpus_features.finer = {

@@ -28,6 +28,8 @@
     "normalized_lemma": "normalisoitu perusmuoto",
     "spoken": "puhemuoto",
 
+    "head_deprel_pairs": "pääsana-dependenssisuhde-parit",
+
     "bible_index": "raamatunkohta",
 
     "OCR": "OCR",
