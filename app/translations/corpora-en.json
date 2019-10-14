@@ -644,6 +644,14 @@
     "deprel_voc": "vocative",
     "deprel__": "unspecified",
 
+    "deprel_cop_own": "copula (own)",
+    "deprel_fixed_mwe": "fixed multiword expression",
+    "deprel_flat_mwe": "flat multiword expression",
+    "deprel_flat_mwe_foreign": "flat multiword expression (foreign)",
+    "deprel_flat_mwe_name": "flat multiword expression (name)",
+    "deprel_obl": "oblique nominal",
+    "deprel_orphan": "orphan",
+
     "nn": "noun", 
     "av": "adjective", 
     "jj": "adjective", 
