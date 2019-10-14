@@ -11621,7 +11621,7 @@ settings.corpora.vks_saarnat = {
 
 settings.corpora.vks_agricola = {
     title: "Mikael Agricolan teoksia",
-    description: "Mikael Agricola: Suomalaisen Kirjallisuuden Seuran näköispainossarja Mikael Agricolan teoksista",
+    description: "Mikael Agricolan teokset: Mikael Agricolan teosten 1–3 uudistettu näköispainos (WSOY: Porvoo 1987)",
     id: "vks_agricola",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -11633,6 +11633,9 @@ settings.corpora.vks_agricola = {
     struct_attributes: {
 	text_year: sattrs.vks_text_year,
 	text_title: sattrs.vks_text_title,
+	text_title_facsimile: {
+	    label: "facsimile_title",
+	},
 	sentence_type: sattrs.vks_sentence_type,
 	sentence_code: sattrs.vks_sentence_code,
 	sentence_id: sattrs.sentence_id_hidden,

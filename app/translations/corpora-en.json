@@ -994,6 +994,8 @@
     "whitespace": "whitespace",
     "whitespace_related_to_token": "whitespace related to token",
 
+    "facsimile_title": "facsimile title",
+
     "ner_tags": "name classification",
     "ner_tags_EnamexPrsHum": "person: person name",
     "ner_tags__": "unidentified",

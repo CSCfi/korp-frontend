@@ -680,6 +680,8 @@
     "sponsor": "sponsor",
     "place": "plats",
 
+    "facsimile_title": "faksimilupplaga",
+
     "ne_expr": "uttryck",
     "ne_type": "namntyp",
     "ne_subtype": "namnundertyp",
