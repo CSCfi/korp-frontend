@@ -13614,6 +13614,11 @@ settings.corpora.eduskunta_test = {
     }
 };
 
+// TODO: Reverse the following alias when the current eduskunta_test
+// is put into production as eduskunta.
+settings.corpus_aliases["eduskunta"] = "eduskunta_test";
+
+
 settings.corpus_aliases["topling-fi"] = "topling_fi";
 
 
