@@ -1018,6 +1018,51 @@ attrs.pos_uta_ru = {
     },
 };
 
+attrs.pos_ud2_universal = {
+    label: "pos",
+    displayType: "select",
+    translationKey: "pos_",
+    dataset: {
+	"ADJ": "A",
+	"ADP": "Adp",
+	"ADV": "Adv",
+	"AUX": "Aux",
+	"CCONJ": "CC",
+	"DET": "DT",
+	"INTJ": "Interj",
+	"NOUN": "N",
+	"NUM": "Num",
+	"PART": "PL",
+	"PRON": "Pron",
+	"PROPN": "Prop",
+	"PUNCT": "Punct",
+	"SCONJ": "CS",
+	"SYM": "Symb",
+	"VERB": "V",
+	"X": "Other",
+    },
+};
+
+attr.pos_ud2_fi = {
+    label: "pos",
+    displayType: "select",
+    translationKey: "pos_",
+    dataset: {
+	"A": "A",
+	"Adp": "Adp",
+	"Adv": "Adv",
+	"C": "C",
+	"Foreign": "Foreign",
+	"Interj": "Interj",
+	"N": "N",
+	"Num": "Num",
+	"Pron": "Pron",
+	"Punct": "Punct",
+	"Symb": "Symb",
+	"V": "V",
+    },
+};
+
 attrs.pos_ud_fi = {
     label: "pos",
     displayType: "select",
