@@ -13385,6 +13385,21 @@ settings.corpora.arkisyn = {
 };
 
 
+settings.corpora.iijoki_tnpp_test = {
+    id: "iijoki_tnpp_test",
+    lang: "fin",
+    title: "Iijoki-sarja (testikorpus)",
+    description: "Kalle Päätalon Iijoki-sarja",
+    licence : settings.licenceinfo.CC_BY,
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.ud2_fi,
+    struct_attributes: {
+	text_filename: { label: "file_name" },
+        text_title: { label: "text_title" },
+    }
+};
+
 settings.corpora.eduskunta = {
     title: "Eduskunnan täysistunnot",
     description: "Eduskunnan täysistuntojen videotallenteista tehdyt transkriptiot. Istunnot ovat ajalta 10.9.2008–1.7.2016. Osa aineistosta on tarjolla myös LAT-palvelussa. Hakutuloksissa on tällöin linkki istunnon LAT-versioon. Transkriptiot perustuvat suomen kielimalliin, joten ruotsinkieliset puheenvuorot ovat tunnistuneet enimmäkseen vierassanoiksi.",
