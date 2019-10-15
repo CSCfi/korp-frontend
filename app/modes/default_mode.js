@@ -13384,13 +13384,13 @@ settings.corpora.arkisyn = {
     }
 };
 
-
 settings.corpora.iijoki_test_tnpp = {
     id: "iijoki_test_tnpp",
     lang: "fin",
     title: "Iijoki-sarja (testikorpus)",
     description: "Kalle Päätalon Iijoki-sarja",
-    licence : settings.licenceinfo.CC_BY,
+    limited_access: true,
+    licence_type: "RES",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.ud2_fi,
