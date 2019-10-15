@@ -13385,8 +13385,8 @@ settings.corpora.arkisyn = {
 };
 
 
-settings.corpora.iijoki_tnpp_test = {
-    id: "iijoki_tnpp_test",
+settings.corpora.iijoki_test_tnpp = {
+    id: "iijoki_test_tnpp",
     lang: "fin",
     title: "Iijoki-sarja (testikorpus)",
     description: "Kalle Päätalon Iijoki-sarja",
