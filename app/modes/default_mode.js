@@ -1040,7 +1040,7 @@ settings.corpora.testcorp_deptree = {
 */
 
 settings.corpora.iijoki = {
-    id: "iijoki-korp",
+    id: "iijoki",
     title: "Iijoki, Oulun yliopiston Päätalo-kokoelma",
     description: "Kalle Päätalon (11.11.1919-20.11.2000) omaelämäkerrallinen pääteos.",
     urn: "urn:nbn:fi:lb-2019041401",
@@ -1052,9 +1052,7 @@ settings.corpora.iijoki = {
     cite_id: "iijoki-korp",
     limited_access: true,
     licence_type: "RES",
-    context: settings.defaultContext,
-    within: settings.defaultWithin,
-    features: ["paragraphs", "parsed_tdt_nodep"],
+    features: ["paragraphs", "parsed_tdt"],
     struct_attributes: {
 	text_id: sattrs.hidden,
 	text_author: sattrs.text_author,
