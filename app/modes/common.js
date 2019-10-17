@@ -1739,19 +1739,14 @@ attrlist.finer = {
 };
 
 attrlist.ud2_fi = {
-    id: attrs.ref,
+    ref: attrs.ref,
     lemma: attrs.baseform,
-    upos: attrs.pos_ud2_universal,
-    xpos: attrs.pos_ud2_fi,
-    feats: attrs.msd,
-    head: attrs.dephead,
+    pos: attrs.pos_ud2_universal,
+    xpos: { label: "", displayType: "hidden" },
+    msd: attrs.msd,
+    dephead: attrs.dephead,
     deprel: attrs.deprel_ud2,
-    deps: {
-	label: "head_deprel_pairs",
-	dataset: {
-	    "_": "_"
-	}
-    },
+    deps: { label: "", displayType: "hidden" },
     misc: {
 	label: "whitespace_related_to_token",
 	dataset: {
