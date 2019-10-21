@@ -13397,6 +13397,7 @@ settings.corpora.iijoki_test_tnpp = {
     struct_attributes: {
 	text_filename: { label: "file_name" },
         text_title: { label: "text_title" },
+	text_year: { label: "text_year" },
     }
 };
 
