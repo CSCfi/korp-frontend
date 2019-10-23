@@ -174,7 +174,8 @@ settings.corporafolders.sks = {
 settings.corporafolders.literature = {
     title: "Kirjallisuutta",
     contents: ["gutenberg", "sks_kivi_fi", "skvr",
-		"parfin_2016_fi", "parrus_2016_fi"]
+	       "parfin_2016_fi", "parrus_2016_fi",
+	       "iijoki_test_tnpp"]
 };
 
 settings.corporafolders.literature.skk = {
@@ -13384,19 +13385,26 @@ settings.corpora.arkisyn = {
     }
 };
 
-settings.corpora.iijoki_test_tnpp = {
-    id: "iijoki_test_tnpp",
+settings.corpora.iijoki_test_tnpp = { // todo: iijoki_test_tnpp -> iijoki
+    id: "iijoki_test_tnpp",           // todo: iijoki_test_tnpp -> iijoki
+    cite_id: "iijoki-korp",
+    urn: "urn:nbn:fi:lb-2019102102",
+    metadata_urn: "urn:nbn:fi:lb-2019102101",
     lang: "fin",
-    title: "Iijoki-sarja (testikorpus)",
-    description: "Kalle Päätalon Iijoki-sarja",
+    title: "Kalle Päätalon Iijoki-sarja",
+    description: "Kalle Päätalon Iijoki-sarja, Oulun yliopiston Päätalo-kokoelma. Sarja sisältää yhteensä 26 kirjaa. Kirjat on jäsennetty Turku Neural Parser Pipeline (TNPP) -jäsentimellä. Aineisto sisältää murresanoja, joiden perusmuotoistamiseen jäsennysmenetelmillä ei ole luotettavia keinoja.",
     limited_access: true,
-    licence_type: "RES",
+    licence_type: "RES",              // todo: RES -> ACA
+    licence: {
+	name: "CLARIN ACA +NC +DEP 1.0",
+	urn: "urn:nbn:fi:lb-2019102106"
+    },
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.ud2_fi,
     struct_attributes: {
 	text_filename: { label: "file_name" },
-        text_title: { label: "text_title" },
+        text_title: { label: "work_title" },
 	text_year: { label: "text_year" },
     }
 };
