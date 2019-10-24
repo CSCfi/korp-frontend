@@ -1055,9 +1055,9 @@ settings.corpora.iijoki = {
     features: ["paragraphs", "parsed_tdt"],
     struct_attributes: {
 	text_id: sattrs.hidden,
-	text_author: sattrs.text_author,
-	text_title: sattrs.text_year,
-	text_year: sattrs.text_year,
+	text_author: sattrs.author,
+	text_title: sattrs.title,
+	text_year: sattrs.year,
 	paragraph_id: sattrs.paragraph_id_hidden,
 	sentence_id: sattrs.sentence_id_hidden,
     },
