@@ -658,7 +658,7 @@ settings.corpora.semfinlex_asd_par_2018_fi = {
     context: context.linkAligned,
     within: settings.linkWithin,
     licence : settings.licenceinfo.CC_BY,
-    features: ["paragraphs", "parsed_tdt"],
+    features: ["parsed_tdt"],
     struct_attributes : {
 	text_url : {
 	    label : "URL",

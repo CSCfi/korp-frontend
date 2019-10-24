@@ -807,6 +807,24 @@ attrs.ner_tags = {
     }
 };
 
+attrs.namecat_omorfi = {
+    label: "name_category_omorfi",
+    type: "set",
+    displayType: "select",
+    translationKey: "namecat_omorfi_",
+    dataset: [
+	"ARTWORK",
+	"CULTGRP",
+	"FIRST",
+	"GEO",
+	"LAST",
+	"MISC",
+	"ORG",
+	"PRODUCT",
+	"_",
+    ],
+    opts: settings.setOptions,
+};
 
 attrs.pos_ftb31 = {
     label: "pos",
@@ -1487,9 +1505,10 @@ attrs.ne_type_fi = {
 	"LOC",
 	"PRS",
 	"ORG",
-	// "EVN",
+	"EVT",
 	// "WRK",
 	// "OBJ",
+	"PRO",
 	"MSR",
 	"TME"
    ]
@@ -1501,14 +1520,20 @@ attrs.ne_subtype_fi = {
     translationKey: "ne_subtype_",
     isStructAttr: true,
     dataset: [
+	"ANM",
+	"AST",
 	"ATH",
 	"CLT",
 	"CRP",
 	"CUR",
 	"DAT",
 	"EDU",
+	"FIN",
+	"FNC",
 	"GPL",
+	"HRM",
 	"HUM",
+	"MYT",
 	"PLT",
 	"PPL",
 	"STR",
@@ -1524,21 +1549,29 @@ attrs.ne_fulltype_fi = {
     translationKey: "namecat_",
     isStructAttr: true,
     dataset: [
+	"EnamexEvtXxx",
+	"EnamexProXxx",
+	"EnamexPrsAnm",
 	"EnamexPrsHum",
+	"EnamexPrsMyt",
 	"EnamexPrsTit",
 	"EnamexLocXxx",
 	"EnamexLocGpl",
 	"EnamexLocPpl",
 	"EnamexLocStr",
+	"EnamexLocFnc",
+	"EnamexLocAst",
 	"EnamexOrgAth",
 	"EnamexOrgClt",
 	"EnamexOrgCrp",
 	"EnamexOrgEdu",
+	"EnamexOrgFin",
 	"EnamexOrgPlt",
 	"EnamexOrgTvr",
 	"NumexMsrCur",
 	"NumexMsrXxx",
 	"TimexTmeDat",
+	"TimexTmeHrm",
     ],
 };
 // The name (tokens) within the ne structure
