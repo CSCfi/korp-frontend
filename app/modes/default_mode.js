@@ -174,7 +174,7 @@ settings.corporafolders.sks = {
 settings.corporafolders.literature = {
     title: "Kirjallisuutta",
     contents: ["gutenberg", "sks_kivi_fi", "skvr",
-		"parfin_2016_fi", "parrus_2016_fi", "iijoki"]
+		"parfin_2016_fi", "parrus_2016_fi", "iijoki_tdpp"]
 };
 
 settings.corporafolders.literature.skk = {
@@ -1039,17 +1039,17 @@ settings.corpora.testcorp_deptree = {
 };
 */
 
-settings.corpora.iijoki = {
-    id: "iijoki",
+settings.corpora.iijoki_tdpp = {
+    id: "iijoki_tdpp",
     title: "Iijoki, Oulun yliopiston Päätalo-kokoelma",
     description: "Kalle Päätalon (11.11.1919-20.11.2000) omaelämäkerrallinen pääteos.",
-    urn: "urn:nbn:fi:lb-2019041401",
-    metadata_urn: "urn:nbn:fi:lb-2019041401",
+    urn: "urn:nbn:fi:lb-2019102104",
+    metadata_urn: "urn:nbn:fi:lb-2019102103",
     licence: {
         name: "CLARIN RES +NC +PRIV 1.0",
         urn: "urn:nbn:fi:lb-2019041401",
     },
-    cite_id: "iijoki-korp",
+    cite_id: "iijoki-tdpp-korp",
     limited_access: true,
     licence_type: "RES",
     features: ["paragraphs", "parsed_tdt"],
