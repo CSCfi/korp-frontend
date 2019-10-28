@@ -31,7 +31,7 @@
 	    <tr>
 	      <td style="vertical-align:top" width="50%">
 		<p>
-		  <button id="playme"><span id="play_pause_video">Play/Pause Video</span></button>
+		  <button id="playme"><span id="play_pause_video">Play/Pause</span></button>
 		  <button id="jump30back"><span id="jump_30back">-30 s</span></button>
 		  <button id="jump5back"><span id="jump_5back">-5 s</span></button>
 		  <button id="jump5fwd"><span id="jump_5fwd">+5 s</span></button>
@@ -40,14 +40,11 @@
 	      </td>
 	      <td style="vertical-align:top" width="100px">
 		<p>
-		  <button id="jump"><span id="play_utterance">Play utterance</span></button>
+		  <button id="jump"><span id="play_utterance">Play selection</span></button>
 		</p>
 	      </td>
-	      <td style="vertical-align:top">
-		<form>
-		  <input type="radio" id="stop" name="stop_or_continue" value="Stop" checked><span id="stop_playing_at_utterance_end">Stop playing at utterance end</span><br>
-		  <input type="radio" id="continue" name="stop_or_continue" value="Continue"><span id="continue_playing_after_utterance_end">Continue playing after utterance end</span>
-		</form>
+	      <td style="vertical-align:middle">
+		<span id="stop_video_at_selection_end">Stop video at selection end</span>: <input type="checkbox" id="checkbox_stop_video_at_selection_end">
 	      </td>
 	    </tr>
 	  </table>
@@ -117,13 +114,18 @@
 	  play_pause_video: {
 	      en: "Play/Pause",
 	      fi: "Soita/Pysäytä",
-	      sv: "Play/Pause (sv)",
+	      sv: "Spela/Pausa",
 	  },
 	  play_utterance: {
 	      en: "Play selection",
 	      fi: "Soita alue",
-	      sv: "Play selection (sv)",
-	  },
+	      sv: "Spela region",
+          },
+          stop_video_at_selection_end: {
+              en: "&nbsp;&nbsp;Stop video at selection end",
+              fi: "&nbsp;&nbsp;Pysäytä video alueen loppuun",
+              sv: "&nbsp;&nbsp;Pausa video i slutet av region",
+          },
 	  stop_playing_at_utterance_end: {
 	      en: "Stop playing at selection end",
 	      fi: "Lopeta alueen loppuun",
@@ -157,22 +159,22 @@
 	  utterance: {
 	      en: "Utterance",
 	      fi: "Puhunnos",
-	      sv: "Utterance (sv)",
+	      sv: "Yttrande",
 	  },
 	  seconds: {
 	      en: "seconds",
 	      fi: "sekuntia",
-	      sv: "seconds (sv)",
+	      sv: "sekunder",
 	  },
 	  external_media_stream: {
 	      en: "Media source",
 	      fi: "Medialähde",
-	      sv: "Media source (sv)",
+	      sv: "Mediakälla",
 	  },
 	  corpus_in_kielipankki: {
 	      en: "Corpus",
 	      fi: "Korpus",
-	      sv: "Corpus (sv)",
+	      sv: "Korpus",
 	  },
 	  persistent_id_metadata: {
 	      en: "Persistent Identifier (metadata)",
@@ -182,22 +184,22 @@
 	  link_to_search_in_korp: {
 	      en: "Link to search in Korp",
 	      fi: "Linkki Korp-hakuun",
-	      sv: "Link to search in Korp (sv)",
+	      sv: "Länk till sök i Korp",
 	  },
 	  text_session_attributes: {
 	      en: "Text attributes",
-	      fi: "Tekstin attribuutit",
-	      sv: "Text attributes (sv)",
+	      fi: "Tekstin piirteet",
+	      sv: "Textattribut",
 	  },
 	  disclaimer_browser: {
 	      en: "Please note that the video feature on this page is not supported by all browsers. The page is most likely to work in a Firefox browser.",
 	      fi: "Huom. Kaikki selaimet eivät tue tälle sivulle upotettua videota. Varmimmin sivu toimii Firefox-selaimella.",
-	      sv: "Please note that the video feature on this page is not supported by all browsers. The page is most likely to work in a Firefox browser. (sv)",
+	      sv: "Obs. Alla webbläsare stöder inte videon på denna sida. Sidan fungerar säkrast med Firefox-webbläsare.",
 	  },
 	  disclaimer_data: {
 	      en: "The original transcript has been aligned with the media file and annotated by using automatic methods. The alignment or the annotations may thus contain errors.",
 	      fi: "Alkuperäinen litteraatti on kohdistettu mediatiedostoon ja annotoitu automaattisin menetelmin. Tästä syystä kohdistuksessa ja annotaatioissa saattaa esiintyä virheitä.",
-	      sv: "The original transcript has been aligned with the media file and annotated by using automatic methods. The alignment or the annotations may thus contain errors. (sv)",
+	      sv: "Den originala transkriptionen har länkats med mediafilen och annoterats med automatiska metoder. Därför förekommer det fel i länkning och annotering.",
 	  },
       };
 
@@ -211,17 +213,24 @@
       var jump5fwdbutton = document.getElementById('jump5fwd');
       var jump30fwdbutton = document.getElementById('jump30fwd');
 
-      var params = new URLSearchParams(document.location.search.substring(1));
+      var hashstring = document.location.hash.split("#")[1];
+      var hashparams = hashstring.split("&");
+      var params = {};
+      for (index = 0; index < hashparams.length; index++) {
+			      var param = hashparams[index].split("=");
+			      var k = param[0];
+			      var v = param[1];
+			      params[k] = v;
+      }
 
-      var lang = params.get("lang");
+      var lang = decodeURIComponent(params["lang"]);
+      var src_url = decodeURIComponent(params["src"]);
+      var corpusname = decodeURIComponent(params["corpusname"]);
+      var metadata_urn = decodeURIComponent(params["metadata_urn"]);
+      var korp_url = decodeURIComponent(params["korp_url"]);
+      var utterance = decodeURIComponent(params["utterance"]);
 
-      var src_url = params.get("src");
-      var corpusname = params.get("corpusname");
-      var metadata_urn = params.get("metadata_urn");
-      var korp_url = params.get("korp_url");
-      var utterance = params.get("utterance");
-
-      var text_attributes = params.get("text_attributes");
+      var text_attributes = decodeURIComponent(params["text_attributes"]);
       var attr = JSON.parse(text_attributes);
 
       var speaker = "";
@@ -319,8 +328,8 @@
       // todo: session duration
 
       var pausing_function = function() {
-	  var stop_or_continue = document.querySelector("input[name = 'stop_or_continue']:checked").value;
-	  if (this.currentTime >= Number(end_time[1]) && stop_or_continue == "Stop") {
+	  var checkBox = document.getElementById("checkbox_stop_video_at_selection_end");
+	  if (this.currentTime >= Number(end_time[1]) && checkBox.checked == true) {
 	      myvideo.pause();
 	  }
       }
