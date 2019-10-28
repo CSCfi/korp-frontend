@@ -13402,9 +13402,9 @@ settings.corpora.iijoki_test_tnpp = { // todo: iijoki_test_tnpp -> iijoki
     context: settings.spContext,
     attributes: attrlist.ud2_fi,
     struct_attributes: {
-	text_filename: { label: "file_name" },
-        text_title: { label: "work_title" },
-	text_year: { label: "text_year" },
+        text_title: { label: "work_title", order: 3 },
+	text_year: { label: "text_year", order: 2 },
+	text_filename: { label: "file_name", order: 1 },
     }
 };
 
