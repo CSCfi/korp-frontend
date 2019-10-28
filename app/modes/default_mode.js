@@ -174,7 +174,7 @@ settings.corporafolders.sks = {
 settings.corporafolders.literature = {
     title: "Kirjallisuutta",
     contents: ["gutenberg", "sks_kivi_fi", "skvr",
-	       "parfin_2016_fi", "parrus_2016_fi"]
+	       "parfin_2016_fi", "parrus_2016_fi", "iijoki_test_tnpp"]
 };
 
 settings.corporafolders.literature.skk = {
