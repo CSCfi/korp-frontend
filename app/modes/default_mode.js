@@ -13397,6 +13397,14 @@ settings.fn.make_videopage_url = function (token_data) {
     var tokens = token_data.tokens;
     for (var i = 0; i < tokens.length; i++) {
 	var word = tokens[i].word;
+	if (tokens[i]._matchSentence) {
+	    if (i == 0 || ! tokens[i - 1]._matchSentence) {
+		word = "<span style=\"color: black;\">" + word;
+	    }
+	    if (i == tokens.length - 1 || ! tokens[i + 1]._matchSentence) {
+		word += "</span>";
+	    }
+	}
 	if (tokens[i]._match) {
 	    if (i == 0 || ! tokens[i - 1]._match) {
 		word = "<b>" + word;
@@ -13439,7 +13447,8 @@ settings.fn.make_videopage_url = function (token_data) {
 	corpusname: "Eduskunnan täysistunnot",
 	metadata_urn: settings.corpora.eduskunta_test.metadata_urn,
 	korp_url: window.location.href,
-	utterance: words.join(" "),
+	utterance: ("<span style=\"color: grey;\">" + words.join(" ")
+		    + "<span>"),
 	text_attributes: JSON.stringify(text_attrs),
     };
     var paramstr = "";
