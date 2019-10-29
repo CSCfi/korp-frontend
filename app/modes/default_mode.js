@@ -174,7 +174,7 @@ settings.corporafolders.sks = {
 settings.corporafolders.literature = {
     title: "Kirjallisuutta",
     contents: ["gutenberg", "sks_kivi_fi", "skvr",
-	       "parfin_2016_fi", "parrus_2016_fi", "iijoki_test_tnpp"]
+	       "parfin_2016_fi", "parrus_2016_fi", "iijoki"]
 };
 
 settings.corporafolders.literature.skk = {
@@ -13384,8 +13384,8 @@ settings.corpora.arkisyn = {
     }
 };
 
-settings.corpora.iijoki_test_tnpp = { // todo: iijoki_test_tnpp -> iijoki
-    id: "iijoki_test_tnpp",           // todo: iijoki_test_tnpp -> iijoki
+settings.corpora.iijoki = {
+    id: "iijoki",
     cite_id: "iijoki-korp",
     urn: "urn:nbn:fi:lb-2019102102",
     metadata_urn: "urn:nbn:fi:lb-2019102101",
