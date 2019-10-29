@@ -13392,7 +13392,7 @@ settings.fn.make_videopage_url = function (token_data) {
 		.replace(/keskuu/, "kesäkuu")
 		.replace(/heinkuu/, "heinäkuu"));
     }
-    var prefix = "markup/video_page.html?";
+    var prefix = "markup/video_page.html#";
     var words = [];
     var tokens = token_data.tokens;
     for (var i = 0; i < tokens.length; i++) {
