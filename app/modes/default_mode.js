@@ -13418,26 +13418,29 @@ settings.fn.make_videopage_url = function (token_data) {
     var text_attrs = {};
     for (var key in token_data.struct_attrs) {
 	if (key != "utterance_annex_link") {
-	    var attrdef = settings.corpora.eduskunta_test.struct_attributes[key];
-	    var name = util.getLocaleStringUndefined(attrdef.label);
-	    if (name) {
-		var val = token_data.struct_attrs[key];
-		if (["utterance_begin_time", "utterance_end_time",
-		     "utterance_duration"].includes(key)) {
-		    val = msec_to_sec(val);
-		} else if (attrdef.translationKey != undefined) {
-		    if (attrdef.dataset && ! _.isArray(attrdef.dataset)) {
-			val = (attrdef.dataset != undefined
-			       ? attrdef.dataset[val]
-			       : val);
+	    var attrdef
+		= settings.corpora.eduskunta_test.struct_attributes[key];
+	    if (attrdef) {
+		var name = util.getLocaleStringUndefined(attrdef.label);
+		if (name) {
+		    var val = token_data.struct_attrs[key];
+		    if (["utterance_begin_time", "utterance_end_time",
+			 "utterance_duration"].includes(key)) {
+			val = msec_to_sec(val);
+		    } else if (attrdef.translationKey != undefined) {
+			if (attrdef.dataset && ! _.isArray(attrdef.dataset)) {
+			    val = (attrdef.dataset != undefined
+				   ? attrdef.dataset[val]
+				   : val);
+			}
+			var loc_val = util.getLocaleStringUndefined(
+			    attrdef.translationKey + val);
+			if (loc_val != undefined) {
+			    val = loc_val;
+			}
 		    }
-		    var loc_val = util.getLocaleStringUndefined(
-			attrdef.translationKey + val);
-		    if (loc_val != undefined) {
-			val = loc_val;
-		    }
+		    text_attrs[key] = name + "," + val;
 		}
-		text_attrs[key] = name + "," + val;
 	    }
 	}
     }
