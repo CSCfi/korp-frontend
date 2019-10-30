@@ -225,6 +225,8 @@
 
       var lang = decodeURIComponent(params["lang"]);
       var src_url = decodeURIComponent(params["src"]);
+      // allow line break after slash in src url
+      var src_url_str = src_url.replace(/\//g,"/<wbr>");
       var corpusname = decodeURIComponent(params["corpusname"]);
       var metadata_urn = decodeURIComponent(params["metadata_urn"]);
       var korp_url = decodeURIComponent(params["korp_url"]);
@@ -312,7 +314,7 @@
       // Begin right column of page: information on the original media, the corpus and text/session
 
       document.getElementById("src_url").innerHTML = (
-	  "<a href='" + src_url + "'>" + src_url + "</a>");
+	  "<a href='" + src_url + "'>" + src_url_str + "</a>");
 
       // Display corpus properties
 
