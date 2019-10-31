@@ -615,11 +615,12 @@
     "deprel_xsubj": "ulkoinen subjekti",
     "deprel_xsubj-cop": "kopulan ulkoinen subjekti",
 
-    "deprel_cop_own": "kopula (omistus)",
-    "deprel_fixed_mwe": "kiinteä monisanainen ilmaus",
-    "deprel_flat_mwe": "? monisanainen ilmaus",
-    "deprel_flat_mwe_foreign": "? monisanainen ilmaus (vierasperäinen)",
-    "deprel_flat_mwe_name": "? monisanainen ilmaus (nimi)",
+    "deprel_acl": "clausal modifier of noun (adjectival clause)",
+    "deprel_cop:own": "kopula (omistus)",
+    "deprel_fixed": "kiinteä monisanainen ilmaus",
+    "deprel_flat": "puolikiinteä monisanainen ilmaus",
+    "deprel_flat:foreign": "puolikiinteä monisanainen ilmaus (vierasperäinen)",
+    "deprel_flat:name": "puolikiinteä monisanainen ilmaus (nimi)",
     "deprel_obl": "oblique nominal",
     "deprel_orphan": "orphan",
 
