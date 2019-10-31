@@ -13382,7 +13382,7 @@ settings.corpora.arkisyn = {
 
 
 settings.fn.make_videopage_url = function (token_data) {
-    console.log(token_data);
+    console.log("settings.fn.make_videopage_url", token_data);
     var msec_to_sec = function (sec) {
 	return (parseInt(sec) / 1000).toString();
     };
@@ -13391,7 +13391,29 @@ settings.fn.make_videopage_url = function (token_data) {
 	return (url.replace(/Kevt/, "Kevät")
 		.replace(/keskuu/, "kesäkuu")
 		.replace(/heinkuu/, "heinäkuu"));
-    }
+    };
+    var append_attr = function (key, val, attrdef, text_attrs) {
+	var name = (util.getLocaleStringUndefined(attrdef.label)
+		    || attrdef.label);
+	if (name) {
+	    if (["utterance_begin_time", "utterance_end_time",
+		 "utterance_duration"].includes(key)) {
+		val = msec_to_sec(val);
+	    } else if (attrdef.translationKey != undefined) {
+		if (attrdef.dataset && ! _.isArray(attrdef.dataset)) {
+		    val = (attrdef.dataset != undefined
+			   ? attrdef.dataset[val]
+			   : val);
+		}
+		var loc_val = util.getLocaleStringUndefined(
+		    attrdef.translationKey + val);
+		if (loc_val != undefined) {
+		    val = loc_val;
+		}
+	    }
+	    text_attrs[key] = name + "," + val;
+	}
+    };
     var prefix = "markup/video_page.html#";
     var words = [];
     var tokens = token_data.tokens;
@@ -13420,28 +13442,8 @@ settings.fn.make_videopage_url = function (token_data) {
 	if (key != "utterance_annex_link") {
 	    var attrdef
 		= settings.corpora.eduskunta_test.struct_attributes[key];
-	    if (attrdef) {
-		var name = util.getLocaleStringUndefined(attrdef.label);
-		if (name) {
-		    var val = token_data.struct_attrs[key];
-		    if (["utterance_begin_time", "utterance_end_time",
-			 "utterance_duration"].includes(key)) {
-			val = msec_to_sec(val);
-		    } else if (attrdef.translationKey != undefined) {
-			if (attrdef.dataset && ! _.isArray(attrdef.dataset)) {
-			    val = (attrdef.dataset != undefined
-				   ? attrdef.dataset[val]
-				   : val);
-			}
-			var loc_val = util.getLocaleStringUndefined(
-			    attrdef.translationKey + val);
-			if (loc_val != undefined) {
-			    val = loc_val;
-			}
-		    }
-		    text_attrs[key] = name + "," + val;
-		}
-	    }
+	    console.log(key, attrdef);
+	    append_attr(key, token_data.struct_attrs[key], attrdef, text_attrs);
 	}
     }
     var params = {
@@ -13454,6 +13456,7 @@ settings.fn.make_videopage_url = function (token_data) {
 		    + "<span>"),
 	text_attributes: JSON.stringify(text_attrs),
     };
+    console.log(params);
     var paramstr = "";
     for (var key in params) {
 	if (paramstr != "") {
