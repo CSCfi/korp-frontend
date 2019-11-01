@@ -13381,23 +13381,17 @@ settings.corpora.arkisyn = {
 };
 
 
-settings.fn.make_videopage_url = function (token_data) {
+settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
+					   msec2sec_attrs, omit_attrs) {
     console.log("settings.fn.make_videopage_url", token_data);
     var msec_to_sec = function (sec) {
 	return (parseInt(sec) / 1000).toString();
-    };
-    // Temporary fix for ä's missing from URL attribute values
-    var fix_video_url = function (url) {
-	return (url.replace(/Kevt/, "Kevät")
-		.replace(/keskuu/, "kesäkuu")
-		.replace(/heinkuu/, "heinäkuu"));
     };
     var append_attr = function (key, val, attrdef, text_attrs) {
 	var name = (util.getLocaleStringUndefined(attrdef.label)
 		    || attrdef.label);
 	if (name) {
-	    if (["utterance_begin_time", "utterance_end_time",
-		 "utterance_duration"].includes(key)) {
+	    if (msec2sec_attrs.includes(key)) {
 		val = msec_to_sec(val);
 	    } else if (attrdef.translationKey != undefined) {
 		if (attrdef.dataset && ! _.isArray(attrdef.dataset)) {
@@ -13439,18 +13433,17 @@ settings.fn.make_videopage_url = function (token_data) {
     }
     var text_attrs = {};
     for (var key in token_data.struct_attrs) {
-	if (key != "utterance_annex_link") {
-	    var attrdef
-		= settings.corpora.eduskunta_test.struct_attributes[key];
+	if (! omit_attrs.includes(key)) {
+	    var attrdef = settings.corpora[corpus_id].struct_attributes[key];
 	    console.log(key, attrdef);
 	    append_attr(key, token_data.struct_attrs[key], attrdef, text_attrs);
 	}
     }
     var params = {
 	lang: window.lang || settings.defaultLanguage,
-	src: fix_video_url(token_data.struct_attrs.text_original_video),
-	corpusname: "Eduskunnan täysistunnot",
-	metadata_urn: settings.corpora.eduskunta_test.metadata_urn,
+	src: video_url,
+	corpusname: settings.corpora[corpus_id].title,
+	metadata_urn: settings.corpora[corpus_id].metadata_urn,
 	korp_url: window.location.href,
 	utterance: ("<span style=\"color: grey;\">" + words.join(" ")
 		    + "<span>"),
@@ -13611,7 +13604,22 @@ settings.corpora.eduskunta_test = {
 	    url_opts: sattrs.link_url_opts,
 	    synthetic: true,
 	    order: 50,
-	    stringify_synthetic: settings.fn.make_videopage_url,
+	    stringify_synthetic: function (token_data) {
+		return settings.fn.make_videopage_url(
+		    // NOTE: Change the following when publishing the
+		    // corpus with the id "eduskunta"
+		    "eduskunta_test",
+		    token_data,
+		    token_data.struct_attrs.text_original_video
+		    // Temporary fix for ä's missing from URL attribute values
+			.replace(/Kevt/, "Kevät")
+			.replace(/keskuu/, "kesäkuu")
+			.replace(/heinkuu/, "heinäkuu"),
+		    ["utterance_begin_time",
+		     "utterance_end_time",
+		     "utterance_duration"],
+		    ["utterance_annex_link"]);
+	    },
 	},
 	// Kludge to get the LAT/Annex link after the other video
 	// link, as synthetic attributes are currently shown after
