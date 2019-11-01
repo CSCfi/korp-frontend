@@ -1741,26 +1741,14 @@ attrlist.finer = {
 attrlist.ud2_fi = {
     ref: attrs.ref,
     lemma: attrs.baseform,
+    lemmacomp: attrs.baseform_compound,
     pos: attrs.pos_ud2_universal,
     xpos: { label: "", displayType: "hidden" },
     msd: attrs.msd,
     dephead: attrs.dephead,
     deprel: attrs.deprel_ud2,
     deps: { label: "", displayType: "hidden" },
-    misc: {
-	label: "whitespace_related_to_token",
-	dataset: {
-	    "_":"_",
-	    "SpaceAfter=No": "SpaceAfter=No",
-	    "SpacesAfter=\n": "SpacesAfter=\n",
-	    "SpacesAfter=\n\n": "SpacesAfter=\n\n",
-	    "SpacesAfter=\n\n\n": "SpacesAfter=\n\n\n",
-	    "SpacesAfter=\n\n\n\n": "SpacesAfter=\n\n\n\n",
-	    "SpacesAfter=\n\n\n\n\n": "SpacesAfter=\n\n\n\n\n",
-	    "SpacesAfter=\n\n\n\n\n\n": "SpacesAfter=\n\n\n\n\n\n",
-	    "SpacesBefore=\n|SpaceAfter=No": "SpacesBefore=\n|SpaceAfter=No",
-	}
-    },
+    misc: { label: "", displayType: "hidden" },
 };
 
 settings.corpus_features.finer = {
