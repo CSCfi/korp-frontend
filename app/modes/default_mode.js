@@ -13624,9 +13624,7 @@ settings.corpora.eduskunta_test = {
 			.replace(/Kevt/, "Kevät")
 			.replace(/keskuu/, "kesäkuu")
 			.replace(/heinkuu/, "heinäkuu"),
-		    ["utterance_begin_time",
-		     "utterance_end_time",
-		     "utterance_duration"],
+		    [],
 		    ["utterance_videopage_link",
 		     "utterance_annex_link",
 		     "utterance_annex_link_synth",]);

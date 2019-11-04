@@ -263,8 +263,8 @@
 
       var source_elem = document.getElementById('myvideo_source');
       source_elem.setAttribute("src", src_url);
-      var begin_time = loc_vals["utterance_begin_time"][1];
-      var end_time = loc_vals["utterance_end_time"][1]
+      var begin_time = parseInt(loc_vals["utterance_begin_time"][1]) / 1000;
+      var end_time = parseInt(loc_vals["utterance_end_time"][1]) / 1000;
       myvideo.currentTime = begin_time;
 
       function display_info (elem_id, info_items, bold, suffix) {
@@ -305,8 +305,7 @@
 		   ["utterance_begin_time",
 		    "utterance_end_time",
 		    "utterance_duration"],
-		   false,
-		   " " + transls["seconds"][lang]);
+		   false);
 
 
       // Begin right column of page: information on the original media, the corpus and text/session
