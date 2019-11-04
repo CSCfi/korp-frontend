@@ -179,6 +179,10 @@
     "yes": "ja",
     "no": "nej",
 
+    "utterance_num": "yttrandets nummer",
+    "utterance_begin_time": "yttrandets starttid",
+    "utterance_end_time": "yttrandets sluttid",
+    "utterance_duration": "yttrandets längd",
     "entryword": "uppslagsord",
     "entryno": "uppslagsord (nummer)",
     "sense1": "huvudbetydelse",
