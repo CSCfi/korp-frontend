@@ -183,6 +183,10 @@
     "utterance_begin_time": "yttrandets starttid",
     "utterance_end_time": "yttrandets sluttid",
     "utterance_duration": "yttrandets längd",
+    "utterance_begin_time_ms": "yttrandets starttid (ms)",
+    "utterance_end_time_ms": "yttrandets sluttid (ms)",
+    "utterance_duration_ms": "yttrandets längd (ms)",
+
     "entryword": "uppslagsord",
     "entryno": "uppslagsord (nummer)",
     "sense1": "huvudbetydelse",

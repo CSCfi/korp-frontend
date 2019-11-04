@@ -190,6 +190,9 @@
     "utterance_begin_time": "utterance begin time",
     "utterance_end_time": "utterance end time",
     "utterance_duration": "utterance duration",
+    "utterance_begin_time_ms": "utterance begin time (ms)",
+    "utterance_end_time_ms": "utterance end time (ms)",
+    "utterance_duration_ms": "utterance duration (ms)",
 
     "subcorpus_name": "subcorpus name",
     "sentence_id": "sentence identifier",

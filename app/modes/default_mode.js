@@ -13469,6 +13469,34 @@ settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
     return prefix + paramstr;
 };
 
+settings.fn.ms_to_hms = function (ms0) {
+    // Adapted from https://stackoverflow.com/a/2998822
+    var pad = function (num, len) {
+	var s = "000" + Math.floor(num).toString();
+	return s.substr(s.length - len);
+    }
+    ms0 = parseInt(ms0);
+    var ms = pad(ms0 % 1000, 3);
+    var s = pad(ms0 / 1000 % 60, 2);
+    var m = pad(ms0 / 60000 % 60, 2);
+    var h = pad(ms0 / 3600000, 1);
+    return (h + ":" + m + ":" + s
+	    + util.getLocaleString("util_decimalseparator") + ms);
+};
+
+settings.fn.make_hms_custom_attr = function (label, base_attr) {
+    return {
+        customType: "struct",
+        label: label,
+        order: 6,
+        renderItem: function (key, value, attrs, wordData, sentenceData,
+                              tokens) {
+            console.log(base_attr + "_hms", key, value, attrs, wordData, sentenceData, tokens);
+            return settings.fn.ms_to_hms(sentenceData[base_attr]);
+        }
+    };
+};
+
 
 settings.corpora.eduskunta_test = {
     title: "Eduskunnan täysistunnot",
@@ -13599,13 +13627,13 @@ settings.corpora.eduskunta_test = {
 	    label: "utterance_num",
 	},
 	utterance_begin_time: {
-	    label: "utterance_begin_time"
+	    label: "utterance_begin_time_ms",
 	},
 	utterance_end_time: {
-	    label: "utterance_end_time"
+	    label: "utterance_end_time_ms",
 	},
 	utterance_duration: {
-	    label: "utterance_duration"
+	    label: "utterance_duration_ms"
 	},
 	utterance_videopage_link: {
 	    label: "show_video",
@@ -13643,7 +13671,15 @@ settings.corpora.eduskunta_test = {
 		    return token_data.struct_attrs.utterance_annex_link;
 		},
 	    }),
-    }
+    },
+    custom_attributes: {
+	utterance_begin_time_hms: settings.fn.make_hms_custom_attr(
+	    "utterance_begin_time", "utterance_begin_time"),
+	utterance_end_time_hms: settings.fn.make_hms_custom_attr(
+	    "utterance_end_time", "utterance_end_time"),
+	utterance_duration_hms: settings.fn.make_hms_custom_attr(
+	    "utterance_duration", "utterance_duration"),
+    },
 };
 
 // TODO: Reverse the following alias when the current eduskunta_test

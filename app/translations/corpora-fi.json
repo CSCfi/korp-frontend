@@ -136,6 +136,9 @@
     "utterance_begin_time": "puhunnoksen alkuaika",
     "utterance_end_time": "puhunnoksen loppuaika",
     "utterance_duration": "puhunnoksen kesto",
+    "utterance_begin_time_ms": "puhunnoksen alkuaika (ms)",
+    "utterance_end_time_ms": "puhunnoksen loppuaika (ms)",
+    "utterance_duration_ms": "puhunnoksen kesto (ms)",
     "speaker": "puhuja",
 
     "speech_begin_time": "puheenvuoron alkuaika",
