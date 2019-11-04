@@ -13393,6 +13393,10 @@ settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
 	if (name) {
 	    if (msec2sec_attrs.includes(key)) {
 		val = msec_to_sec(val);
+	    } else if (attrdef.renderItem) {
+	    	val = attrdef.renderItem(
+	    	    key, val, attrdef, token_data.pos_attrs,
+	    	    token_data.struct_attrs, token_data.tokens);
 	    } else if (attrdef.translationKey != undefined) {
 		if (attrdef.dataset && ! _.isArray(attrdef.dataset)) {
 		    val = (attrdef.dataset != undefined
@@ -13429,18 +13433,27 @@ settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
 	words.push(word);
     }
     var text_attrs = {};
-    for (var key in token_data.struct_attrs) {
-	if (! omit_attrs.includes(key)) {
-	    var attrdef = settings.corpora[corpus_id].struct_attributes[key];
-	    console.log(key, attrdef);
-	    append_attr(key, token_data.struct_attrs[key], attrdef, text_attrs);
+    var corpus_conf = settings.corpora[corpus_id];
+    var attr_types = ["struct", "custom"];
+    for (var i = 0; i < attr_types.length; i++) {
+	var attr_type = attr_types[i] + "_attributes";
+	for (var key in corpus_conf[attr_type]) {
+	    if (! omit_attrs.includes(key)) {
+		var attrdef = corpus_conf[attr_type][key];
+		console.log(key, attrdef);
+		append_attr(
+		    key,
+		    (attr_type == "struct_attributes"
+		     ? token_data.struct_attrs[key] : null),
+		    attrdef, text_attrs);
+	    }
 	}
     }
     var params = {
 	lang: window.lang || settings.defaultLanguage,
 	src: video_url,
-	corpusname: settings.corpora[corpus_id].title,
-	metadata_urn: settings.corpora[corpus_id].metadata_urn,
+	corpusname: corpus_conf.title,
+	metadata_urn: corpus_conf.metadata_urn,
 	korp_url: window.location.href,
 	utterance: "<span class=\"utterance\">" + words.join(" ") + "<span>",
 	text_attributes: JSON.stringify(text_attrs),
@@ -13614,7 +13627,9 @@ settings.corpora.eduskunta_test = {
 		    ["utterance_begin_time",
 		     "utterance_end_time",
 		     "utterance_duration"],
-		    ["utterance_annex_link"]);
+		    ["utterance_videopage_link",
+		     "utterance_annex_link",
+		     "utterance_annex_link_synth",]);
 	    },
 	},
 	// Kludge to get the LAT/Annex link after the other video
