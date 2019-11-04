@@ -13411,22 +13411,19 @@ settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
     var prefix = "markup/video_page.html#";
     var words = [];
     var tokens = token_data.tokens;
+    var match_types = ["_matchSentence", "_match"];
     for (var i = 0; i < tokens.length; i++) {
 	var word = tokens[i].word;
-	if (tokens[i]._matchSentence) {
-	    if (i == 0 || ! tokens[i - 1]._matchSentence) {
-		word = "<span style=\"color: black;\">" + word;
-	    }
-	    if (i == tokens.length - 1 || ! tokens[i + 1]._matchSentence) {
-		word += "</span>";
-	    }
-	}
-	if (tokens[i]._match) {
-	    if (i == 0 || ! tokens[i - 1]._match) {
-		word = "<b>" + word;
-	    }
-	    if (i == tokens.length - 1 || ! tokens[i + 1]._match) {
-		word += "</b>";
+	for (var j = 0; j < match_types.length; j++) {
+	    var match_type = match_types[j];
+	    if (tokens[i][match_type]) {
+		if (i == 0 || ! tokens[i - 1][match_type]) {
+		    word = ("<span class=\"" + match_type.substr(1) + "\">"
+			    + word);
+		}
+		if (i == tokens.length - 1 || ! tokens[i + 1][match_type]) {
+		    word += "</span>";
+		}
 	    }
 	}
 	words.push(word);
@@ -13445,8 +13442,7 @@ settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
 	corpusname: settings.corpora[corpus_id].title,
 	metadata_urn: settings.corpora[corpus_id].metadata_urn,
 	korp_url: window.location.href,
-	utterance: ("<span style=\"color: grey;\">" + words.join(" ")
-		    + "<span>"),
+	utterance: "<span class=\"utterance\">" + words.join(" ") + "<span>",
 	text_attributes: JSON.stringify(text_attrs),
     };
     console.log(params);
