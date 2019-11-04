@@ -13393,7 +13393,7 @@ settings.corpora.iijoki = {
     title: "Kalle Päätalon Iijoki-sarja",
     description: "Kalle Päätalon Iijoki-sarja, Oulun yliopiston Päätalo-kokoelma. Sarja sisältää yhteensä 26 kirjaa. Kirjat on jäsennetty Turku Neural Parser Pipeline (TNPP) -jäsentimellä. Aineisto sisältää murresanoja, joiden perusmuotoistamiseen jäsennysmenetelmillä ei ole luotettavia keinoja.",
     limited_access: true,
-    licence_type: "RES",              // todo: RES -> ACA
+    licence_type: "ACA",
     licence: {
 	name: "CLARIN ACA +NC +DEP 1.0",
 	urn: "urn:nbn:fi:lb-2019102106"
