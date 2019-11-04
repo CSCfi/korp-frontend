@@ -244,35 +244,9 @@
       var text_attributes = decodeURIComponent(params["text_attributes"]);
       var attr = JSON.parse(text_attributes);
 
-      var speaker = "";
-      var speaker_parl_group = "";
-      var speaker_role = "";
-      var speech_type = "";
-      var begin_time = "";
-      var end_time = "";
-      var duration = "";
-      var published_date = "";
-      var published_time = "";
-      // todo: session duration
-
-      for (var key in attr)
-      {
-
-	  var unloc = key;
-	  var attrValue = attr[key];
-	  var loc_and_val = attrValue.split(",");
-
-	  if (unloc == "paragraph_speaker") { speaker = loc_and_val; }
-	  else if (unloc == "paragraph_speaker_parl_group") { speaker_parl_group = loc_and_val; }
-	  else if (unloc == "paragraph_speaker_role" ) { speaker_role = loc_and_val; }
-	  else if (unloc == "paragraph_speech_type" ) { speech_type = loc_and_val; }
-	  else if (unloc == "utterance_begin_time" ) { begin_time = loc_and_val; }
-	  else if (unloc == "utterance_end_time" ) { end_time = loc_and_val; }
-	  else if (unloc == "utterance_duration" ) { duration = loc_and_val; }
-	  else if (unloc == "text_date" ) { published_date = loc_and_val; }
-	  else if (unloc == "text_time" ) { published_time = loc_and_val; }
-	  // todo: session duration
-
+      var loc_vals = {};
+      for (var key in attr) {
+	  loc_vals[key] = attr[key].split(",");
       }
 
       for (key in transls) {
@@ -286,7 +260,9 @@
 
       var source_elem = document.getElementById('myvideo_source');
       source_elem.setAttribute("src", src_url);
-      myvideo.currentTime = begin_time[1];
+      var begin_time = loc_vals["utterance_begin_time"][1];
+      var end_time = loc_vals["utterance_end_time"][1]
+      myvideo.currentTime = begin_time;
 
       function display_info (elem_id, info_items, bold, suffix) {
 	  var html = "";
@@ -294,13 +270,16 @@
 	      suffix = "";
 	  }
 	  for (var i = 0; i < info_items.length; i++) {
-	      var label = info_items[i][0];
-	      if (bold) {
-		  label = "<b>" + label + "</b>";
-	      }
-	      html += label + ": " + info_items[i][1] + suffix;
-	      if (i < info_items.length - 1) {
-		  html += "<br/>"
+	      var info_item = loc_vals[info_items[i]];
+	      if (info_item != undefined) {
+		  var label = info_item[0];
+		  if (bold) {
+		      label = "<b>" + label + "</b>";
+		  }
+		  html += label + ": " + info_item[1] + suffix;
+		  if (i < info_items.length - 1) {
+		      html += "<br/>"
+		  }
 	      }
 	  }
 	  document.getElementById(elem_id).innerHTML = html;
@@ -311,12 +290,19 @@
       document.getElementById("utterance_value").innerHTML = utterance;
 
       display_info("speech_info",
-		   [speaker, speaker_parl_group, speaker_role, speech_type],
+		   ["paragraph_speaker",
+		    "paragraph_speaker_parl_group",
+		    "paragraph_speaker_role",
+		    "paragraph_speech_type"],
 		   true);
 
       // Localize and display time information about the utterance
 
-      display_info("time_info", [begin_time, end_time, duration], false,
+      display_info("time_info",
+		   ["utterance_begin_time",
+		    "utterance_end_time",
+		    "utterance_duration"],
+		   false,
 		   " " + transls["seconds"][lang]);
 
 
@@ -335,12 +321,15 @@
 
       // Text/session attributes (from Korp)
 
-      display_info("session_info", [published_date, published_time], true);
+      display_info("session_info",
+		   ["text_published_date",
+		    "text_published_time"],
+		   true);
       // todo: session duration
 
       var pausing_function = function() {
 	  var checkBox = document.getElementById("checkbox_stop_video_at_selection_end");
-	  if (this.currentTime >= Number(end_time[1]) && checkBox.checked == true) {
+	  if (this.currentTime >= Number(end_time) && checkBox.checked == true) {
 	      myvideo.pause();
 	  }
       }
