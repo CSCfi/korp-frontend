@@ -246,7 +246,10 @@
 
       var loc_vals = {};
       for (var key in attr) {
-	  loc_vals[key] = attr[key].split(",");
+	  var loc_val = attr[key].split(",");
+	  // Needed if the attribute value contains commas; the key is
+	  // assumed not to contain them.
+	  loc_vals[key] = [loc_val[0], loc_val.slice(1).join(",")];
       }
 
       for (key in transls) {
