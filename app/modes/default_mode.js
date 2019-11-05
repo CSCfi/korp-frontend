@@ -174,7 +174,7 @@ settings.corporafolders.sks = {
 settings.corporafolders.literature = {
     title: "Kirjallisuutta",
     contents: ["gutenberg", "sks_kivi_fi", "skvr",
-		"parfin_2016_fi", "parrus_2016_fi"]
+	       "parfin_2016_fi", "parrus_2016_fi", "iijoki"]
 };
 
 settings.corporafolders.literature.skk = {
@@ -13384,6 +13384,29 @@ settings.corpora.arkisyn = {
     }
 };
 
+settings.corpora.iijoki = {
+    id: "iijoki",
+    cite_id: "iijoki-korp",
+    urn: "urn:nbn:fi:lb-2019102102",
+    metadata_urn: "urn:nbn:fi:lb-2019102101",
+    lang: "fin",
+    title: "Kalle Päätalon Iijoki-sarja",
+    description: "Kalle Päätalon Iijoki-sarja, Oulun yliopiston Päätalo-kokoelma. Sarja sisältää yhteensä 26 kirjaa. Kirjat on jäsennetty Turku Neural Parser Pipeline (TNPP) -jäsentimellä. Aineisto sisältää murresanoja, joiden perusmuotoistamiseen jäsennysmenetelmillä ei ole luotettavia keinoja.",
+    limited_access: true,
+    licence_type: "ACA",
+    licence: {
+	name: "CLARIN ACA +NC +DEP 1.0",
+	urn: "urn:nbn:fi:lb-2019102106"
+    },
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.ud2_fi,
+    struct_attributes: {
+        text_title: { label: "work_title", order: 3 },
+	text_year: { label: "text_year", order: 2 },
+	text_filename: { label: "file_name", order: 1 },
+    }
+};
 
 settings.corpora.eduskunta = {
     title: "Eduskunnan täysistunnot",
