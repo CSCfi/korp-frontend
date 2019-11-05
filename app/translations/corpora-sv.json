@@ -452,6 +452,7 @@
     "text_type": "texttyp",
     "text_genre": "genre",
     "text_period": "textperiod",
+    "text_time": "tid",
 
     "publication_date": "publikationsdatum",
 
@@ -541,7 +542,10 @@
     "parlgroup_vr": "Vänstergruppens riksdagsgrupp",
     "parlgroup_": "",
 
-    "speakerrole_puhemies": "",
+    "original_video": "original video",
+    "original_transcript": "originalt protokoll",
+
+    /*"speakerrole_puhemies": "",
     "speakerrole_ensimmainen_varapuhemies": "",
     "speakerrole_toinen_varapuhemies": "",
     "speakerrole_paaministeri": "",
@@ -583,16 +587,16 @@
     "speakerrole_valtioneuvoston_oikeuskansleri": "",
     "speakerrole_valtioneuvoston_apulaisoikeuskansleri": "",
     "speakerrole_varajasen": "",
-    "speakerrole_": "",
+    "speakerrole_": "",*/
 
     "speaker_parl_group": "riksdagsgrupp",
     "speech_type": "taltyp",
-
-    "speechtype_ryhmapuheenvuoro": "gruppanförande",
+    "speaker_name": "talarens namn",
+    /*"speechtype_ryhmapuheenvuoro": "gruppanförande",
     "speechtype_esittelypuheenvuoro": "",
     "speechtype_vastauspuheenvuoro": "",
     "speechtype_koputtaa": "",
-    "speechtype_": "",
+    "speechtype_": "",*/
 
     "parl_statute_type": "författningstyp",
 

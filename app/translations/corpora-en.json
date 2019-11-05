@@ -830,6 +830,7 @@
     "text_type": "text type",
     "text_genre": "text genre",
     "text_period": "text period",
+    "text_time": "time",
 
     "publication_date": "publication date",
     "publication_year": "publication year",
@@ -914,8 +915,14 @@
     "party_s": "Sveriges socialdemokratiska arbetareparti",
     "party_v": "Vänsterpartiet",
 
+    "speaker_parl_group": "parliamentary group",
+    "speech_type": "type of speech",
+    "speaker_name": "name of speaker",
     "eduskunta_group": "parliamentary group",
     "eduskunta_role": "role",
+
+    "original_video": "original video",
+    "original_transcript": "original transcript",
 
     "group": "group",
     "interview": "interview",
