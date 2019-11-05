@@ -1164,10 +1164,12 @@ attrs.msd = {
     // used sidebar; another value would link to the given URL; and an
     // undefined value would link to the default markup/msd.html.
     taginfo_url: "",
-    // Add a zero-width space character after each vertical bar to
-    // allow breaking the line there in the sidebar.
-    transform: function(val) {
-	return val.replace(/\|/g, "|\u200b");
+    // Add a <wbr> tag after each vertical bar to allow breaking the
+    // line there in the sidebar, while retaining the ability to copy
+    // and paste to a further search expression (unlike if we added a
+    // zero-width space U+200B).
+    stringify: function(val) {
+	return val.replace(/\|/g, "|<wbr>");
     }
 };
 attrs.baseform = {
