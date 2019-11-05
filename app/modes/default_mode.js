@@ -13519,7 +13519,7 @@ settings.corpora.eduskunta_test = {
         text_date: sattrs.date,
         text_time: sattrs.text_time,
         text_original_video : {
-	    label : "Alkuperäinen video",
+	    label : "original_video",
 	    type : "url",
 	    url_opts: {
 		hide_url: true,
@@ -13527,7 +13527,7 @@ settings.corpora.eduskunta_test = {
 	    },
 	},
 	text_original_transcript : {
-	    label : "Alkuperäinen pöytäkirja",
+	    label : "original_transcript",
 	    type : "url",
 	    url_opts: {
 		hide_url: true,
