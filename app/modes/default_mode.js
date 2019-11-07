@@ -13391,7 +13391,7 @@ settings.corpora.iijoki = {
     metadata_urn: "urn:nbn:fi:lb-2019102101",
     lang: "fin",
     title: "Kalle Päätalon Iijoki-sarja",
-    description: "Kalle Päätalon Iijoki-sarja, Oulun yliopiston Päätalo-kokoelma. Sarja sisältää yhteensä 26 kirjaa. Kirjat on jäsennetty Turku Neural Parser Pipeline (TNPP) -jäsentimellä. Aineisto sisältää murresanoja, joiden perusmuotoistamiseen jäsennysmenetelmillä ei ole luotettavia keinoja.",
+    description: "Iijoki, Oulun yliopiston Päätalo-kokoelma, Kielipankki Korp -versio<br/><br/>Kalle Päätalon Iijoki-sarja sisältää yhteensä 26 kirjaa.<br/>Aineisto on jäsennetty Turku Neural Parser Pipeline (TNPP) -jäsentimellä.<br/><strong>Huomaa</strong>, että aineisto sisältää murresanoja, joiden perusmuotoistamiseen jäsennysmenetelmillä ei ole luotettavia keinoja.",
     limited_access: true,
     licence_type: "ACA",
     licence: {
