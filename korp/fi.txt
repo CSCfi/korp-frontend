@@ -1,4 +1,26 @@
 
+<!-- Uusi aineisto: Kalle Päätalon Iijoki-sarja 2019-11-08 -->
+
+Korpissa on nyt tutkijoiden käytettävissä aineisto <a
+href="http://urn.fi/urn:nbn:fi:lb-2019102101" target="_blank">Iijoki,
+Oulun yliopiston Päätalo-kokoelma, Kielipankki Korp-versio</a>, joka
+sisältää Kalle Päätalon omaelämäkerrallisen Iijoki-sarjan 26 teosta.
+Iijoki-aineiston lisenssi on <a href="http://urn.fi/urn:nbn:fi:lb-2019102106"
+target="_blank">CLARIN ACA +NC +DEP 1.0</a>, joten aineiston
+käyttäminen edellyttää jonkin yliopiston käyttäjätunnusta ja
+kirjautumista Korpiin.
+
+Iijoki on ensimmäinen Korpiin viety aineisto, joka on jäsennetty <a
+href="http://turkunlp.org/Turku-neural-parser-pipeline/"
+target="_blank">Turku Neural Parser Pipeline (TNPP) -jäsentimellä</a>.
+**Huomaa**, että aineisto sisältää murresanoja, joiden
+perusmuotoistamiseen jäsennysmenetelmillä ei ole luotettavia keinoja.
+
+<a
+href="https://www.kielipankki.fi/uutiset/iijoki-sarja-julkaistu-kielipankissa/"
+target="_blank">Lisätietoja Kielipankki-portaalin uutisessa.</a>
+
+
 <!-- Poikkeavuuksia dependenssijäsennyksissä: Suomi24 2017H2, Semfinlex 2019-09-02 -->
 
 Keväällä 2019 Korpiin lisättyjen suomenkielisten Suomi24 2017H2- ja

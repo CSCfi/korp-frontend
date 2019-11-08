@@ -1,4 +1,27 @@
 
+<!-- New corpus: Kalle Päätalo’s Iijoki series 2019-11-08 -->
+
+The corpus <a href="http://urn.fi/urn:nbn:fi:lb-2019102101"
+target="_blank">Iijoki, the University of Oulu Päätalo collection,
+Kielipankki Korp version</a> is now available for researchers in Korp.
+The corpus consists of the 26 volumes of Kalle Päätalo’s
+autobiographical Iijoki series. The licence of the Iijoki corpus is <a
+href="http://urn.fi/urn:nbn:fi:lb-2019102106" target="_blank">CLARIN
+ACA +NC +DEP 1.0</a>, so using the corpus requires an active
+membership of an academic institution and logging in to Korp.
+
+Iijoki is the first corpus in Korp parsed with the <a
+href="http://turkunlp.org/Turku-neural-parser-pipeline/"
+target="_blank">Turku Neural Parser Pipeline (TNPP) parser</a>.
+**Please note** that the corpus contains dialect words, for whose
+lemmatization automatic parsing methods have no reliable means.
+
+<a
+href="https://www.kielipankki.fi/uutiset/iijoki-sarja-julkaistu-kielipankissa/"
+target="_blank">More information in Finnish on the Portal of the
+Language Bank of Finland.</a>
+
+
 <!-- Discrepancies in dependency parses: Suomi24 2017H2, Semfinlex 2019-09-02 -->
 
 The dependency parses and relations in the Finnish Suomi24 2017H2 and
