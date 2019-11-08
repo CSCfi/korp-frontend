@@ -95,7 +95,7 @@
 	  <p>
 	    <b><span id="persistent_id_metadata"></span>:</b><br/>
 	    <span id="metadata_urn"></span><br/>
-	    <a id="korp_url" href=""><span id="link_to_search_in_korp"></span></a><br/>
+	    <a id="korp_url" href="" target="_blank"><span id="link_to_search_in_korp"></span></a><br/>
 	  </p>
 	  <!-- Text/session attributes (from Korp)  -->
 	  <h3 id="text_session_attributes"></h3>
@@ -314,13 +314,13 @@
       // Begin right column of page: information on the original media, the corpus and text/session
 
       document.getElementById("src_url").innerHTML = (
-	  "<a href='" + src_url + "'>" + src_url_str + "</a>");
+	  "<a href='" + src_url + "' target='_blank'>" + src_url_str + "</a>");
 
       // Display corpus properties
 
       document.getElementById("corpusname").innerHTML = corpusname;
       document.getElementById("metadata_urn").innerHTML = (
-	  "<a href='http://urn.fi/" + metadata_urn + "'>"
+	  "<a href='http://urn.fi/" + metadata_urn + "' target='_blank'>"
 	      + metadata_urn + "</a>");
       document.getElementById("korp_url").setAttribute("href", korp_url);
 
