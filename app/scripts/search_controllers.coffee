@@ -1,7 +1,6 @@
 korpApp = angular.module("korpApp")
 
-
-korpApp.controller "SearchCtrl", ($scope, $location, utils, searches) ->
+window.SearchCtrl = ["$scope", "$location", "utils", "searches", ( ($scope, $location, utils, searches) ->
     $scope.visibleTabs = [true, true, true, true]
     $scope.extendedTmpl = "views/extended_tmpl.html"
     # for parallel mode
@@ -23,8 +22,13 @@ korpApp.controller "SearchCtrl", ($scope, $location, utils, searches) ->
     $scope.$watch (() -> $location.search().show_map), (val) ->
         $scope.show_map = Boolean(val)
 
-    $scope.$watch "show_map", (val) ->
-        $location.search("show_map", Boolean(val) or null)
+    $scope.$watch "show_map", (val) -> $location.search("show_map", Boolean(val) or null)
+
+    $scope.$watch (() -> $location.search().show_name_classif), (val) ->
+        $scope.show_name_classif = Boolean(val)
+
+    $scope.$watch "show_name_classif", (val) ->
+        $location.search("show_name_classif", Boolean(val) or null)
 
     $scope.settings = settings
     $scope.showStats = () ->
@@ -37,25 +41,64 @@ korpApp.controller "SearchCtrl", ($scope, $location, utils, searches) ->
         output = _.map union, (item) -> {value : item}
         return output
 
+    unless $location.search().stats_reduce
+        $location.search 'stats_reduce', ("word")
+    
+    $scope.corpusChangeListener = $scope.$on "corpuschooserchange", (event, selected) ->
+        c.log "SearchCtrl corpuschooserchange"
+        $scope.noCorporaSelected = not selected.length
+        allAttrs = settings.corpusListing.getStatsAttributeGroups()
+        $scope.statCurrentAttrs = _.filter allAttrs, (item) -> not item.hideStatistics
+        $scope.statSelectedAttrs = $location.search().stats_reduce.split ','
+        insensitiveAttrs = $location.search().stats_reduce_insensitive
+        if insensitiveAttrs
+            $scope.statInsensitiveAttrs = insensitiveAttrs.split ','
 
-korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope, searches, compareSearches, $modal) ->
+        
+
+    $scope.$watch 'statSelectedAttrs', ((selected) ->
+        if selected and selected.length > 0
+            $location.search 'stats_reduce', ($scope.statSelectedAttrs.join ',')
+    ), true
+
+    $scope.$watch 'statInsensitiveAttrs', ((insensitive) ->
+        if insensitive and insensitive.length > 0
+            $location.search 'stats_reduce_insensitive', ($scope.statInsensitiveAttrs.join ',')
+        else if insensitive
+            $location.search 'stats_reduce_insensitive', null
+    ), true
+)]
+
+
+korpApp.controller "SearchCtrl", window.SearchCtrl
+korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope, searches, compareSearches, $uibModal) ->
     s = $scope
 
-    # Simple prequery, prequery within and prequery attribute
-    s.simple_prequery = ""
-    s.prequery_within_opts = [
-        "sentence"
-        "paragraph"
-        "text"
-    ]
-    s.prequery_within = s.prequery_within_opts[0]
-    s.prequery_attr_opts = [
-        # Word attribute name, localization key
-        ["lemma", "baseforms"]
-        ["word", "wordforms"]
-    ]
-    # s.prequery_attr = s.prequery_attr_opts[0][0]
-    s.prequery_attr = "lemma|word"
+    prequeries_enabled = settings.simple_search_restrict_context
+
+    if prequeries_enabled
+        # Simple prequery, prequery within and prequery attribute
+        s.simple_prequery = ""
+        s.prequery_within_opts = [
+            "sentence"
+            "paragraph"
+            "text"
+        ]
+        s.prequery_within_default = s.prequery_within_opts[0]
+        s.prequery_within = s.prequery_within_opts[0]
+        s.prequery_attr_opts = [
+            # Word attribute name, localization key
+            ["lemma", "baseforms"]
+            ["word", "wordforms"]
+        ]
+        # s.prequery_attr = s.prequery_attr_opts[0][0]
+        s.prequery_attr = "lemma|word"
+
+        # Set the value of simple_prequery based on the URL parameter
+        # simple_prequery
+        s.$watch( (() -> $location.search().simple_prequery),
+            (val) -> s.simple_prequery = val
+        )
 
     s.$on "popover_submit", (event, name) ->
         cqp = s.instance.getCQP()
@@ -64,12 +107,6 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             cqp : cqp
             corpora : settings.corpusListing.getSelectedCorpora()
         }
-
-    # Set the value of simple_prequery based on the URL parameter
-    # simple_prequery
-    s.$watch( (() -> $location.search().simple_prequery),
-        (val) -> s.simple_prequery = val
-    )
 
     s.stringifyRelatedHeader = (wd) ->
         wd.replace(/_/g, " ")
@@ -90,7 +127,7 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
         modalInstance.dismiss()
 
     s.showAllRelated = () ->
-        modalInstance = $modal.open(
+        modalInstance = $uibModal.open(
             template: """
             <div class="modal-header">
                 <h3 class="modal-title">{{'similar_header' | loc:lang}} (SWE-FN)</h3>
@@ -113,18 +150,18 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
 
     s.searches = searches
     s.$watch "searches.activeSearch", (search) =>
-        # if search.type in ["word", "lemgram"]
         c.log "search", search
         unless search then return
         page = Number($location.search().page) or 0
-        c.log "activesearch", search
         s.relatedObj = null
 
-        # Set URL parameters based on simple prequery variables
-        if s.simple_prequery
-            $location.search("simple_prequery", s.simple_prequery)
-            $location.search("prequery_within", s.prequery_within)
-            # $location.search("prequery_attr", s.prequery_attr)
+        if prequeries_enabled
+            # Set URL parameters based on simple prequery variables
+            if s.simple_prequery
+                $location.search("simple_prequery", s.simple_prequery)
+            if s.prequery_within != s.prequery_within_default
+                $location.search("prequery_within", s.prequery_within)
+                # $location.search("prequery_attr", s.prequery_attr)
 
         if search.type == "word"
             $("#simple_text input").val(search.val) # Necessary for displaying the wordform if it came from the URL
@@ -136,17 +173,15 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
                 return
             else
                 searches.kwicSearch(cqp)
-            # simpleSearch.makeLemgramSelect() if settings.lemgramSelect
             if settings.wordpicture != false and s.word_pic and " " not in search.val
                 lemgramResults.makeRequest(search.val, "word")
-                # lemgramProxy.makeRequest(search.val, "word", $.proxy(lemgramResults.onProgress, lemgramResults));
             else
-                lemgramResults.resetView()
+                lemgramResults?.resetView()
 
         else if search.type == "lemgram"
             s.placeholder = search.val
             s.simple_text = ""
-            # cqp = "[lex contains '#{search.val}']"
+            s.model = search.val
             cqp = simpleSearch.getCQP()
             # Show related words if show_related_words is undefined or
             # true (Jyrki Niemi 2016-01-15)
@@ -161,7 +196,8 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
                 # TODO: Check if the prequeries are always added
                 # before coming here, in which case this code would
                 # not be needed.
-                if s.simple_prequery and cqp.indexOf("||") < 0
+                if prequeries_enabled and s.simple_prequery and
+                        cqp.indexOf("||") < 0
                     # c.log("lemgram simple_prequery", cqp, s.simple_prequery)
                     cqps = simpleSearch.makePrequeryCQPs(s.simple_prequery)
                     cqps.push(cqp)
@@ -186,11 +222,17 @@ korpApp.controller "SimpleCtrl", ($scope, utils, $location, backend, $rootScope,
             key : "suffix"
         ,
             key : "isCaseInsensitive"
-        ,
-            key : "prequery_within"
-        # ,
-        #     key : "prequery_attr"
     ]
+    if prequeries_enabled
+        utils.setupHash s, [
+                key : "simple_prequery"
+                default : ""
+            ,
+                key : "prequery_within"
+                default : s.prequery_within_default
+            # ,
+            #     key : "prequery_attr"
+        ]
 
     $scope.$on "btn_submit", () ->
         $location.search "within", null
@@ -270,9 +312,7 @@ korpApp.controller "ExtendedSearch", ($scope, utils, $location, backend, $rootSc
 
 korpApp.controller "ExtendedToken", ($scope, utils, $location) ->
     s = $scope
-    c.log "ExtendedToken", s
     cqp = '[]'
-
     s.valfilter = utils.valfilter
 
     s.setDefault = (or_obj) ->
@@ -289,7 +329,7 @@ korpApp.controller "ExtendedToken", ($scope, utils, $location) ->
 
     # returning new array each time kills angular, hence the memoizing
     s.getOpts = _.memoize (type) ->
-        unless type of s.typeMapping then return
+        unless type of (s.typeMapping or {}) then return
         confObj = s.typeMapping?[type]
         unless confObj
             c.log "confObj missing", type, s.typeMapping
@@ -299,43 +339,25 @@ korpApp.controller "ExtendedToken", ($scope, utils, $location) ->
 
         if confObj.type == "set"
             confObj.is = "contains"
-        
+
         return _.pairs confObj
 
 
     onCorpusChange = (event, selected) ->
-        # TODO: respece the setting 'word_attribute_selector' and similar
-        # attrs = for key, obj of settings.corpusListing.getCurrentAttributes() when obj.displayType != "hidden"
-        #     _.extend({group : "word_attr", value : key}, obj)
-
-        # sent_attrs = for key, obj of settings.corpusListing.getStructAttrs() when obj.displayType != "hidden"
-        #     _.extend({group : "sentence_attr", value : key}, obj)
-
-        c.log "onCorpusChange", selected, s.l
-
+        # TODO: respect the setting 'word_attribute_selector' and similar
+        unless selected?.length then return
         lang = s.$parent.$parent?.l?.lang
-        # c.log "lang", lang
-        s.types = settings.corpusListing.getAttributeGroups(lang)
-        # "obj | mapper:valfilter as obj.label | loc:lang group by obj.group | loc:lang for obj in types"
-        # s.typeOpts = []
-        # for obj in types
-        #     utils.valfilter obj
+        allAttrs = settings.corpusListing.getAttributeGroups(lang)
+        s.types = _.filter allAttrs, (item) -> not item.hideExtended
         s.typeMapping = _.object _.map s.types, (item) ->
             if item.isStructAttr
                 ["_." + item.value, item]
             else
                 [item.value, item]
 
-
-        c.log "typeMapping", s.typeMapping
-        # s.types = _.sortBy s.types, "label"
-
-
-
     s.$on "corpuschooserchange", onCorpusChange
 
-    onCorpusChange()
-
+    onCorpusChange(null, settings.corpusListing.selected)
 
     s.removeOr = (token, and_array, i) ->
         if and_array.length > 1
@@ -345,7 +367,6 @@ korpApp.controller "ExtendedToken", ($scope, utils, $location) ->
 
 
     s.addAnd = (token) ->
-        # c.log "s", s, s.token,
         token.and_block.push s.addOr([])
 
     toggleBound = (token, bnd) ->
@@ -367,7 +388,6 @@ korpApp.controller "ExtendedToken", ($scope, utils, $location) ->
         else
             delete token.repeat
 
-
     s.getTokenCqp = ->
         if not s.token.cqp
             return ""
@@ -377,113 +397,90 @@ korpApp.controller "ExtendedToken", ($scope, utils, $location) ->
         event.stopPropagation()
 
 
+korpApp.directive "advancedSearch", () ->
+    controller : ($scope, compareSearches, $location, $timeout) ->
+        s = $scope
+        expr = ""
+        if $location.search().search
+            [type, expr...] = $location.search().search?.split("|")
+            expr = expr.join("|")
 
-korpApp.controller "AdvancedCtrl", ($scope, compareSearches, $location, $timeout) ->
-    s = $scope
-    expr = ""
-    if $location.search().search
-        [type, expr...] = $location.search().search?.split("|")
-        expr = expr.join("|")
+        if type == "cqp"
+            $scope.cqp = expr or "[]"
+        else
+            $scope.cqp = "[]"
 
-    if type == "cqp"
-        $scope.cqp = expr or "[]"
-    else
-        $scope.cqp = "[]"
-
-    # $scope.getSimpleCQP = () ->
-    #     out = simpleSearch.getCQP()
-    #     c.log "getSimpleCQP", out
-    #     out
-
-    # Show the within selection list unless settings.advanced_search_within
-    # is false. (Jyrki Niemi 2015-09-24)
-    s.showWithin = if settings.advanced_search_within?
-                       settings.advanced_search_within
+        # Show the within selection list unless settings.advanced_search_within
+        # is false. (Jyrki Niemi 2015-09-24)
+        s.showWithin = if settings.advanced_search_within?
+                           settings.advanced_search_within
+                       else
+                           true
+        s.within = if s.showWithin
+                       $location.search().within or "sentence"
                    else
-                       true
-    s.within = if s.showWithin
-                   $location.search().within or "sentence"
-               else
-                   "sentence"
+                       "sentence"
 
-    $scope.$watch () ->
-        simpleSearch?.getCQP()
-    , (val) ->
-        $scope.simpleCQP = val
+        $scope.$watch () ->
+            simpleSearch?.getCQP()
+        , (val) ->
+            $scope.simpleCQP = val
 
-    $scope.$on "popover_submit", (event, name) ->
-        compareSearches.saveSearch {
-            label : name or $rootScope.extendedCQP
-            cqp : $scope.cqp
-            corpora : settings.corpusListing.getSelectedCorpora()
+        $scope.$on "popover_submit", (event, name) ->
+            compareSearches.saveSearch {
+                label : name or $rootScope.extendedCQP
+                cqp : $scope.cqp
+                corpora : settings.corpusListing.getSelectedCorpora()
 
-        }
+            }
 
-    $scope.$on "btn_submit", () ->
-        c.log "advanced cqp", $scope.cqp
-        $location.search "search", null
-        $location.search "page", null
-        $location.search "within", null
-        $timeout( () ->
+        $scope.$on "btn_submit", () ->
+            c.log "advanced cqp", $scope.cqp
+            $location.search "search", null
+            $location.search "page", null
+            $location.search "within", null
+            $timeout( () ->
+                # Copied from "ExtendedSearch" (Jyrki Niemi 2015-09-24)
+                within = s.within unless s.within in _.keys settings.defaultWithin
+                $location.search("within", within or null)
+                $location.search "search", "cqp|" + $scope.cqp
+            , 0)
+
+        if s.showWithin
             # Copied from "ExtendedSearch" (Jyrki Niemi 2015-09-24)
-            within = s.within unless s.within in _.keys settings.defaultWithin
-            $location.search("within", within or null)
-            $location.search "search", "cqp|" + $scope.cqp
-        , 0)
-
-    if s.showWithin
-        # Copied from "ExtendedSearch" (Jyrki Niemi 2015-09-24)
-        s.withins = []
-        s.$on "corpuschooserchange", () ->
-            s.withins = s.getWithins()
-
+            s.withins = []
+            s.$on "corpuschooserchange", () ->
+                s.withins = s.getWithins()
 
 korpApp.filter "mapper", () ->
     return (item, f) ->
         return f(item)
 
 
+korpApp.directive "compareSearchCtrl", () ->
+    controller: ($scope, utils, $location, backend, $rootScope, compareSearches) ->
+        s = $scope
+        s.valfilter = utils.valfilter
 
+        s.savedSearches = compareSearches.savedSearches
+        s.$watch "savedSearches.length", () ->
+            s.cmp1 = compareSearches.savedSearches[0]
+            s.cmp2 = compareSearches.savedSearches[1]
+            unless s.cmp1 and s.cmp2 then return
 
-korpApp.controller "CompareSearchCtrl", ($scope, utils, $location, backend, $rootScope, compareSearches) ->
-    s = $scope
-    s.valfilter = utils.valfilter
+            listing = settings.corpusListing.subsetFactory(_.uniq ([].concat s.cmp1.corpora, s.cmp2.corpora))
+            allAttrs = listing.getAttributeGroups()
+            s.currentAttrs = _.filter allAttrs, (item) -> not item.hideCompare
 
-    # compareSearches.saveSearch {
-    #     label : "frihet"
-    #     cqp : "[lex contains 'frihet..nn.1']"
-    #     corpora : ["VIVILL"]
-    # }
-    # compareSearches.saveSearch {
-    #     label : "jämlikhet"
-    #     cqp : "[lex contains 'jämlikhet..nn.1']"
-    #     corpora : ["VIVILL"]
-    # }
+        s.reduce = 'word'
 
-    s.savedSearches = compareSearches.savedSearches
-    s.$watch "savedSearches.length", () ->
-        s.cmp1 = compareSearches.savedSearches[0]
-        s.cmp2 = compareSearches.savedSearches[1]
-        unless s.cmp1 and s.cmp2 then return
-        listing = settings.corpusListing.subsetFactory(_.uniq ([].concat s.cmp1.corpora, s.cmp2.corpora))
-        s.currentAttrs = listing.getAttributeGroups()
+        s.sendCompare = () ->
+            $rootScope.compareTabs.push backend.requestCompare(s.cmp1, s.cmp2, [s.reduce])
 
-    
-    s.reduce = 'word'
-    s.currentAttrs = []
-
-    s.sendCompare = () ->
-        ## todo backend supports multiple reduce parameters
-        $rootScope.compareTabs.push backend.requestCompare(s.cmp1, s.cmp2, [s.reduce])
-
-    s.deleteCompares = () ->
-        compareSearches.flush()
-
-
-
+        s.deleteCompares = () ->
+            compareSearches.flush()
 
 
 korpApp.filter "loc", ($rootScope) ->
     (translationKey, lang) ->
         return util.getLocaleString translationKey, lang
-

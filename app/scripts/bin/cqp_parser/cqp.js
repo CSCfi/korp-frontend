@@ -66,12 +66,19 @@
             for (k = 0, len2 = and_array.length; k < len2; k++) {
               ref1 = and_array[k], type = ref1.type, op = ref1.op, val = ref1.val, flags = ref1.flags;
               if (expanded_format) {
+                if (op === "highest_rank" || op === "not_highest_rank" || op === "rank_contains" || op === "not_rank_contains") {
+                  val = regescape(val);
+                }
                 ref2 = {
                   "^=": [val + ".*", "="],
                   "_=": [".*" + val + ".*", "="],
                   "&=": [".*" + val, "="],
                   "*=": [val, "="],
-                  "!*=": [val, "!="]
+                  "!*=": [val, "!="],
+                  "rank_contains": [val + ":.*", "contains"],
+                  "not_rank_contains": [val + ":.*", "not contains"],
+                  "highest_rank": ["\\|" + val + ":.*", "="],
+                  "not_highest_rank": ["\\|" + val + ":.*", "!="]
                 }[op] || [val, op], val = ref2[0], op = ref2[1];
               }
               flagstr = "";
@@ -199,45 +206,6 @@
     }
   };
 
-  c.log(CQP.stringify(CQP.parse('[(word &= "ge" | pos = "JJ")]'), true));
-
-  c.log(CQP.stringify([
-    {
-      "and_block": [
-        [
-          {
-            "type": "date_interval",
-            "op": "!=",
-            "val": "18870101,20101231"
-          }, {
-            "type": "word",
-            "op": "!=",
-            "val": "value"
-          }, {
-            "type": "word",
-            "op": "&=",
-            "val": "value2"
-          }
-        ], [
-          {
-            "type": "word",
-            "op": "not contains",
-            "val": "ge..vb.1"
-          }
-        ]
-      ]
-    }, {
-      "and_block": [
-        [
-          {
-            "type": "word",
-            "op": "=",
-            "val": ""
-          }
-        ]
-      ],
-      "repeat": [1, 2]
-    }
-  ]));
-
 }).call(this);
+
+//# sourceMappingURL=cqp.js.map

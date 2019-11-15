@@ -251,9 +251,16 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, input:pla
     @include inline-block();
     margin-right: 10px;
   }
-  &.covered {
-    opacity: 0.6;
-  }
+}
+.click-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right : 0;
+  bottom : 0;
+  background-color: white;
+  z-index: 100;
+  opacity: 0.6;
 }
 
 #corpus_id {
@@ -348,11 +355,11 @@ time-interval {
  .fa-clock-o {
     vertical-align : middle;
     color : #333;
-  } 
+  }
 
   .time {
     margin : 0 auto;
-    width : 60%;  
+    width : 60%;
   }
 }
 
@@ -702,7 +709,7 @@ table {
     cursor: default;
     @include transition(opacity 200ms ease);
   }
-  
+
   .remove_arg {
     position: relative;
     top: 15px;
@@ -848,6 +855,11 @@ table {
 .activate_word_pic {
   margin-top : 1em;
 }
+
+.word-pic-kwic-example {
+    cursor: pointer;
+}
+
 .lemgram_result {
   float: left;
   padding-top: 4px;
@@ -1156,25 +1168,11 @@ table {
   }
 }
 
-.loading #download-links-container {
+.loading #kwic-download-container {
   display: none;
 }
 
-#download-links {
-  float: right;
-}
-
-.download_link {
-  img {
-    border: 0px;
-  }
-}
-
-.loading .download_link {
-  display: none;
-}
-
-#download-heading {
+#download-heading, #btn-download {
   float: right;
   margin-right: 8px;
   // Try to align vertically with the download link buttons
@@ -1274,13 +1272,6 @@ table {
     padding-left: 1em;
     text-indent: -1em;
   }
-  #sidebar-corpus-info {
-    // But no hanging indent for sidebar corpus info items, which are
-    // in a single paragraph and would thus be indented incorrectly.
-    // (Jyrki Niemi 2015-09-03)
-    padding-left: 0em;
-    text-indent: 0em;
-  }
   ul {
     margin-top: 0;
     margin-bottom: 2px;
@@ -1292,6 +1283,10 @@ table {
   #selected_sentence > h4:last-child {
     display : none;
   }
+}
+
+.video-modal-bootstrap {
+    top: 25%
 }
 
 #dialog ol {
@@ -1349,7 +1344,7 @@ a {
   position: relative;
   &:after {
     content: "";
-    z-index: -1;
+    z-index: 0;
     position: absolute;
     top : 245px;
     right : 0;
@@ -1365,20 +1360,17 @@ a {
   margin-top: 8px;
 }
 
-#login {
-  /*display : none;*/
-}
-
-.modal.login {
-  // width: 280px;
-  // height : 370px;
-  // margin-left : -120px;
-
+.login-modal-header {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  
+  .login-header {
+    font-weight: bold;
+  }
 }
 
 #login_popup {
-  // display: none;
-  min-height: 210px;
+  min-height: 190px;
   * {
     display: block;
   }
@@ -1386,12 +1378,26 @@ a {
     margin-top: 5px;
   }
   .err_msg {
-    // display: none;
     font-size: .8em;
+    color: red;
+  }
+  .password-reset {
+    font-size: 0.7em;
+    float: right;
+  }
+  input[type=text] {
+    width: 100%;
+  }
+  input[type=password] {
+    width: 100%;
   }
   input[type=submit] {
+    margin-top: 5px;
     float: right;
-    margin-top: 2em;
+  }
+  .save-login {
+    display: inline;
+    font-size: 0.9em;
   }
 }
 
@@ -1765,7 +1771,7 @@ label[for=lemgram_select]:before {
   position: absolute;
   font-size: inherit;
   text-align: right;
-  width: 210px;
+  width: 230px;
 }
 
 .ui-menu {
@@ -1783,6 +1789,11 @@ label[for=lemgram_select]:before {
   vertical-align: top;
   font-family: Garamond,Cochin,Serif;
   font-size: 1.3em;
+}
+
+.fail_detail {
+  font-size: 0.8em;
+  margin-top: 1em;
 }
 
 .error_msg ~ * {
@@ -1813,7 +1824,7 @@ label[for=lemgram_select]:before {
     margin-top : 1em;
     margin-bottom : 1em;
   }
-  
+
   #similar_wrapper {
     margin-left : 3em;
     // display: inline-block;
@@ -1824,7 +1835,7 @@ label[for=lemgram_select]:before {
     .btn_header {
       font-size: 1.1em;
     }
-    
+
     button {
       display : block;
     }
@@ -1871,7 +1882,7 @@ body.modal-open {
   overflow: hidden;
 }
 .modal-body {
-  
+
   // max-height : 710px;
   max-height : 71vh;
   min-height : 300px;
@@ -2016,7 +2027,7 @@ slider {
       top: -5px;
       @include background(linear-gradient(to left, #fff, #dfdfdf));
       border-top: 1px solid #ddd;
-              
+
       border: 1px solid #666;
       z-index: 14;
 
@@ -2033,7 +2044,7 @@ slider {
       &.active:hover:after {
         background-color: #f00;
       }
-      
+
     }
     &.bubble {
       cursor: default;
@@ -2096,11 +2107,14 @@ warning ~ * {
   display : none !important;
 }
 
-#wordclassChkParent {
+#wordPicSettings {
   float: right;
-}
 
-// #wordclassChk! {}
+  #numberHitsSelect {
+      margin-top: 10px;
+  }
+
+}
 
 .nav-tabs li {
   position : relative;
@@ -2149,7 +2163,7 @@ warning ~ * {
     height: auto;
     margin : 0;
     margin-bottom : 8px;
-    display: inline-block; 
+    display: inline-block;
     vertical-align: initial;
 
     li.active {
@@ -2169,7 +2183,7 @@ warning ~ * {
       color : white;
     }
   }
-  
+
   .page_input {
     display: inline-block;
     vertical-align: middle;
@@ -2293,13 +2307,13 @@ warning ~ * {
     justify-content: center;
     overflow: hidden;
     opacity : 0;
-    transition: opacity 500ms; 
+    transition: opacity 500ms;
 
     &.loading {
       opacity : 1;
-      transition: opacity 500ms; 
+      transition: opacity 500ms;
     }
-    
+
     i {
       z-index : 1000;
       // flex
@@ -2350,19 +2364,19 @@ warning ~ * {
     .title {
       bottom : -1.1em !important;
       left : -1.3em;
-      
+
     }
   }
 
   .detail {
-    z-index : 101;  
+    z-index : 101;
   }
 
   svg {
     position: relative;
     z-index : 100;
   }
-  
+
 }
 .rickshaw_legend {
   .line {
@@ -2399,7 +2413,7 @@ line.tick {
 
 // .zoom_slider {
 //   width : 100% !important;
-// } 
+// }
 
 .preview {
   margin-top : 30px;
@@ -2407,6 +2421,10 @@ line.tick {
 
 #main > #msd_popup {
   display : none !important;
+}
+
+.msd-modal {
+    overflow-y: scroll;
 }
 
 .popupchecks .header {
@@ -2450,6 +2468,16 @@ line.tick {
   background-color: rgb(230, 235, 255);
 }
 
+#myGrid .statistics-link {
+    color: navy;
+    cursor: pointer;
+}
+
+#myGrid .slick-row:hover .statistics-link {
+    color: indianred;
+}
+
+
 .ui-widget-header {
   background: url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") repeat-x scroll 50% 50% #CCCCCC;
 }
@@ -2473,7 +2501,7 @@ line.tick {
   }
 
 
-  
+
 }
 
 
@@ -2512,7 +2540,7 @@ line.tick {
           margin-bottom: -1px;
       }
       &.active {
-        border-bottom-color : transparent; 
+        border-bottom-color : transparent;
       }
     }
   }
@@ -2523,7 +2551,7 @@ line.tick {
   border-bottom-left-radius : 0;
 }
 
-.nav-tabs > .active > a, 
+.nav-tabs > .active > a,
 .nav-tabs > .active > a:hover {
   border-radius : 0;
   border-color: transparent;
@@ -2620,7 +2648,7 @@ line.tick {
 }
 
 
-  
+
 
 .close_icon {
   display : inline;
@@ -2652,11 +2680,11 @@ line.tick {
 
 
 
- 
- 
+
+
 /* Side notes for calling out things
 -------------------------------------------------- */
- 
+
 /* Base styles (regardless of theme) */
 .bs-callout {
   margin: 20px 0;
@@ -2673,7 +2701,7 @@ line.tick {
 .bs-callout .highlight {
   background-color: #fff;
 }
- 
+
 /* Themes for different contexts */
 .bs-callout-danger {
   background-color: #fcf2f2;
@@ -2762,6 +2790,11 @@ line.tick {
 .newsdesk-news-item {
     padding-left:4px;
     margin-bottom:4px;
+    ul {
+        list-style: initial;
+        // Bullet approximately justified with non-list text
+        margin-left: 1.2em;
+    }
 }
 .newsdesk-opener {
     cursor:pointer;
@@ -2801,6 +2834,190 @@ li.active a span .num-to-find {
 }
 
 
+/* korp multi select directive */
+.reduce-attr-select {
+  color: #000;
+  display: inline-block;
+  .reduce-dropdown-button {
+    cursor: pointer;
+    width: 100%;
+    height: 23px;
+    overflow: hidden;
+    .caret {
+      right: 7px;
+      position: absolute;
+      top: 10px;
+    }
+    transition : border-color 200ms;
+    &:hover {
+      border-color : #999;
+    }
+  }
+  .reduce-dropdown-button-text {
+    width: 1000px;
+    padding: 2px 5px;
+  }
+  .reduce-dropdown-menu {
+    width: 100%;
+    max-height: 400px;
+    .selected {
+      background: rgb(242, 247, 255);
+    }
+    .attribute {
+      cursor: pointer;
+      &:hover {
+        background-color : lighten(#999, 30%);
+      }
+      padding: 2px 1px;
+    }
+    .reduce-check {
+      margin: 0px;
+      margin-top: 4px;
+      margin-right: 4px;
+    }
+    .reduce-label {
+      position: absolute;
+    }
+    ul {
+      margin: 0;
+      padding: 2px;
+    }
+    .insensitive-toggle {
+      float: right;
+      color: black;
+    }
+    .insensitive-toggle.selected {
+      color: grey;
+    }
+  }
+}
+
+/* sidebar video */
+#video-container {
+    height: 320px;
+    width: 568px;
+    position: relative;
+    #extra-controls {
+        height: 320px;
+        width: 568px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        background-color: rgba(0,0,0,0.7);
+        >* {
+            width: 75px;
+            height: 75px;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+        .restart {
+            top: 35%;
+            left: 25%;
+        }
+        .continue {
+            top: 35%;
+            right: 25%;
+            float: right;
+        }
+        .restart-icon, .continue-icon {
+            font-size: 3em;
+            display: block;
+        }
+    }
+}
+#video-meta-container {
+    .utterance, .time {
+        font-weight: bold;
+    }
+    .time-div {
+        padding-top: 15px;
+    }
+}
+
+.or_container .word {
+    color: #222222;
+}
+
+.map-settings-container {
+    margin-left: 20px;
+    .caret {
+        margin-left: 10px;
+    }
+    ul {
+        margin: 0;
+        padding: 2px;
+        .map-selected {
+            margin: 0px;
+            margin-top: 4px;
+            margin-right: 4px
+        }
+        li {
+            cursor: pointer;
+            padding: 2px 1px;
+            white-space: nowrap;
+        }
+        .selected {
+            background: #f2f7ff;
+        }
+    }
+    .empty-attribute-list {
+        font-style: italic;
+        font-size: 12px;
+        padding-top: 2px;
+        padding-left: 2px;
+    }
+    .btn-container {
+        padding: 10px;
+        text-align: right;
+    }
+    .map-settings-title {
+        margin: 0;
+        padding: 8px 14px;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 18px;
+        background-color: #f7f7f7;
+        border-bottom: 1px solid #ebebeb;
+    }
+    .dropdown-menu {
+        padding: 0px;
+    }
+}
+
+#mapHeader {
+    width: 100%;
+    div.disabled {
+        opacity: 0.4;
+    }
+    div.mapgroup {
+        display: inline-block;
+        div.swatch {
+            display: inline-block;
+            margin-right: 5px;
+        }
+        div.cluster-info {
+            background-color: rgba(136, 220, 168, 0.6); 
+            border-radius: 5px;
+        }
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    span.check {
+        opacity: 0.5 !important;
+        color: white;
+    }
+}
+
+.hide-prob > li > .prob {
+    display: none;
+}
+
+
 /* Hide an element if or if not logged in */
 
 .logged_in .hide_if_logged_in {
@@ -2812,9 +3029,9 @@ li.active a span .num-to-find {
 }
 
 
-/* Styles for the restricted corpora access modal */
+/* Styles for the restricted corpora access (and re-login) modal */
 
-#accessResCorporaModal {
+#accessResCorporaModal, #reloginModal {
     // Show on top of the corpus chooser and corpus info boxes
     z-index: 11000;
 

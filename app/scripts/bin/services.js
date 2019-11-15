@@ -108,7 +108,7 @@
   korpApp.factory('backend', function($http, $q, utils, lexicons) {
     return {
       requestCompare: function(cmpObj1, cmpObj2, reduce) {
-        var attributes, conf, corpora1, corpora2, corpusListing, def, filterFun, params, reduceIsStructAttr, split, xhr;
+        var attributes, conf, corpora1, corpora2, corpusListing, def, filterFun, params, rankedReduce, reduceIsStructAttr, split, top, xhr;
         reduce = _.map(reduce, function(item) {
           return item.replace(/^_\./, "");
         });
@@ -127,20 +127,28 @@
           var ref;
           return (ref = attributes[attr]) != null ? ref.isStructAttr : void 0;
         });
+        rankedReduce = _.filter(reduce, function(item) {
+          var ref;
+          return (ref = settings.corpusListing.getCurrentAttributes(settings.corpusListing.getReduceLang())[item]) != null ? ref.ranked : void 0;
+        });
+        top = _.map(rankedReduce, function(item) {
+          return item + ":1";
+        }).join(',');
         def = $q.defer();
         params = {
           command: "loglike",
           groupby: reduce.join(','),
-          set1_corpus: corpora1.join(",").toUpperCase(),
+          set1_corpus: util.encodeListParam(corpora1).toUpperCase(),
           set1_cqp: cmpObj1.cqp,
-          set2_corpus: corpora2.join(",").toUpperCase(),
+          set2_corpus: util.encodeListParam(corpora2).toUpperCase(),
           set2_cqp: cmpObj2.cqp,
           max: 50,
-          split: split
+          split: split,
+          top: top
         };
         conf = {
           url: settings.cgi_script,
-          params: params,
+          params: util.compressQueryParams(params),
           method: "GET",
           headers: {}
         };
@@ -171,7 +179,7 @@
           groupAndSum = function(table, currentMax) {
             var groups, res;
             groups = _.groupBy(table, function(obj) {
-              return obj.value.replace(/:\d+/g, "");
+              return obj.value.replace(/(:.+?)(\/|$| )/g, "$2");
             });
             res = _.map(groups, function(value, key) {
               var abs, cqp, elems, loglike, tokenLists;
@@ -206,6 +214,83 @@
       },
       relatedWordSearch: function(lemgram) {
         return lexicons.relatedWordSearch(lemgram);
+      },
+      requestMapData: function(cqp, cqpExprs, within, attribute) {
+        var conf, cqpSubExprs, def, params, xhr;
+        cqpSubExprs = {};
+        _.map(_.keys(cqpExprs), function(subCqp, idx) {
+          return cqpSubExprs["subcqp" + idx] = subCqp;
+        });
+        def = $q.defer();
+        params = {
+          command: "count",
+          groupby: attribute.label,
+          cqp: cqp,
+          corpus: util.encodeListParam(corpora),
+          incremental: $.support.ajaxProgress,
+          split: attribute.label
+        };
+        _.extend(params, settings.corpusListing.getWithinParameters());
+        _.extend(params, cqpSubExprs);
+        conf = {
+          url: settings.cgi_script,
+          params: util.compressQueryParams(params),
+          method: "GET",
+          headers: {}
+        };
+        _.extend(conf.headers, model.getAuthorizationHeader());
+        xhr = $http(conf);
+        xhr.success(function(data) {
+          var createResult, i, len, ref, result, subResult;
+          createResult = function(subResult, cqp, label) {
+            var points;
+            points = [];
+            _.map(_.keys(subResult.absolute), function(hit) {
+              var countryCode, lat, lng, name, ref;
+              if ((hit.startsWith("|")) || (hit.startsWith(" "))) {
+                return;
+              }
+              ref = hit.split(";"), name = ref[0], countryCode = ref[1], lat = ref[2], lng = ref[3];
+              return points.push({
+                abs: subResult.absolute[hit],
+                rel: subResult.relative[hit],
+                name: name,
+                countryCode: countryCode,
+                lat: parseFloat(lat),
+                lng: parseFloat(lng)
+              });
+            });
+            return {
+              label: label,
+              cqp: cqp,
+              points: points
+            };
+          };
+          if (_.isEmpty(cqpExprs)) {
+            result = [createResult(data.total, cqp, "Σ")];
+          } else {
+            result = [];
+            ref = data.total.slice(1, data.total.length);
+            for (i = 0, len = ref.length; i < len; i++) {
+              subResult = ref[i];
+              result.push(createResult(subResult, subResult.cqp, cqpExprs[subResult.cqp]));
+            }
+          }
+          if (data.ERROR) {
+            def.reject();
+            return;
+          }
+          return def.resolve([
+            {
+              corpora: attribute.corpora,
+              cqp: cqp,
+              within: within,
+              data: result,
+              attribute: attribute
+            }
+          ], xhr);
+        });
+        return def.promise;
       }
     };
   });
@@ -321,18 +406,25 @@
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
           }
         }).success(function(data) {
-          var corpus, folder_name, i, len, ref;
-          c.log("data", data);
+          var attr, corpus, folder_name, i, j, len, len1, privateStructAttrs, ref, ref1;
           ref = settings.corpusListing.corpora;
           for (i = 0, len = ref.length; i < len; i++) {
             corpus = ref[i];
             corpus["info"] = data["corpora"][corpus.id.toUpperCase()]["info"];
+            privateStructAttrs = [];
+            ref1 = data["corpora"][corpus.id.toUpperCase()].attrs.s;
+            for (j = 0, len1 = ref1.length; j < len1; j++) {
+              attr = ref1[j];
+              if (attr.indexOf("__") !== -1) {
+                privateStructAttrs.push(attr);
+              }
+            }
+            corpus["private_struct_attributes"] = privateStructAttrs;
             util.copyCorpusInfoToConfig(corpus);
           }
           for (folder_name in settings.corporafolders) {
             util.propagateCorpusFolderInfo(settings.corporafolders[folder_name], void 0);
           }
-          c.log("loadCorpora");
           util.loadCorpora();
           return def.resolve();
         });
@@ -360,8 +452,6 @@
         value = value.join("|");
         newValues[1] = Number(newValues[1]) || 0;
         oldValues[1] = Number(oldValues[1]) || 0;
-        c.log("newValues", newValues);
-        c.log("oldValues", oldValues);
         if (_.isEqual(newValues, oldValues)) {
           pageChanged = false;
           searchChanged = true;
@@ -439,10 +529,10 @@
 
   korpApp.factory("lexicons", function($q, $http) {
     var karpURL;
-    karpURL = "https://ws.spraakbanken.gu.se/ws/karp/v1";
+    karpURL = "https://ws.spraakbanken.gu.se/ws/karp/v2";
     return {
       getLemgrams: function(wf, resources, corporaIDs) {
-        var args, deferred, url;
+        var args, deferred, http_params;
         deferred = $q.defer();
         args = {
           "q": wf,
@@ -454,15 +544,22 @@
             corpus: corporaIDs.join(","),
             limit: settings.autocompleteLemgramCount || 10
           });
-          url = settings.lemgrams_cgi_script;
+          http_params = {
+            method: "POST",
+            url: settings.lemgrams_cgi_script,
+            data: $.param(args),
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
+          };
         } else {
-          url = karpURL + "/autocomplete";
+          http_params = {
+            method: "GET",
+            url: karpURL + "/autocomplete",
+            params: args
+          };
         }
-        $http({
-          method: "GET",
-          url: url,
-          params: args
-        }).success(function(data, status, headers, config) {
+        $http(http_params).success(function(data, status, headers, config) {
           var corpora, div, karpLemgrams, lemgram;
           if (data === null) {
             return deferred.resolve([]);
@@ -524,14 +621,6 @@
         var args, deferred;
         deferred = $q.defer();
         args = {
-          "cql": "wf==" + wf,
-          "resurs": "saldom",
-          "lemgram-ac": "true",
-          "format": "json",
-          "sw-forms": "false",
-          "sms-forms": "false"
-        };
-        args = {
           "q": wf,
           "resource": "saldom"
         };
@@ -552,6 +641,7 @@
                 deferred.resolve([]);
                 return;
               }
+              karpLemgrams = karpLemgrams.slice(0, 100);
               senseargs = {
                 "q": "extended||and|lemgram|equals|" + (karpLemgrams.join('|')),
                 "resource": "saldo",
@@ -635,3 +725,5 @@
   });
 
 }).call(this);
+
+//# sourceMappingURL=services.js.map

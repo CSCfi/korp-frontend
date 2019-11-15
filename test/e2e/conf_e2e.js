@@ -1,8 +1,11 @@
 
 
 // var HtmlReporter = require('protractor-html-screenshot-reporter');
-
 exports.config = {
+
+  params: {
+    url: 'http://localhost:9001/'
+  },
 
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
@@ -20,12 +23,13 @@ exports.config = {
   },
 
   // Spec patterns are relative to the current working directly when protractor is called.
-  specs: ['bin/misc.js',
-          'bin/map.js',
-          'bin/autocomplete.js',
-          'bin/statistics.js',
-          'bin/compare.js',
-          'bin/statistics_export.js'],
+  specs: ['bin/*.js'],
+  // specs: ['bin/parallel.js'],
+          // 'bin/map.js',
+          // 'bin/autocomplete.js',
+          // 'bin/statistics.js',
+          // 'bin/compare.js',
+          // 'bin/statistics_export.js'],
 
   // Options to be passed to Jasmine-node.
   jasmineNodeOpts: {

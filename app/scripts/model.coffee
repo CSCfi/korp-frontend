@@ -22,7 +22,7 @@ class BaseProxy
         try
             return CQP.expandOperators cqp
         catch e
-            c.warn "CQP expansion failed", cqp
+            c.warn "CQP expansion failed", cqp, e
             return cqp
 
     # Add the possibly combined and unexpanded CQP query cqp (or
@@ -99,7 +99,7 @@ class BaseProxy
         stats = (@progress / @total) * 100
         if not @total? and struct.progress_corpora?.length
             @total = $.reduce($.map(struct["progress_corpora"], (corpus) ->
-                return if not corpus.length 
+                return if not corpus.length
                 _(corpus.split("|")).map((corpus) ->
                     parseInt settings.corpora[corpus.toLowerCase()].info.Size
                 ).reduce((a, b) ->
@@ -112,6 +112,24 @@ class BaseProxy
         struct: struct
         stats: stats
         total_results: @total_results
+
+    # Add to the backend query parameters in data the parameter
+    # "loginfo", to be written to the backend log. The value is based
+    # on its existing value, the values returned by
+    # util.makeLogInfoItems and the values in argument loginfo (either
+    # a single string or an array of strings). This is done only if
+    # settings.addBackendLogInfo is true. (Jyrki Niemi 2017-12-14)
+    addLogInfo: (data, loginfo) ->
+        if settings.addBackendLogInfo
+            new_loginfo = [data.loginfo].concat util.makeLogInfoItems()
+            if _.isArray loginfo
+                new_loginfo = new_loginfo.concat loginfo
+            else
+                new_loginfo.push loginfo
+            new_loginfo = _.compact(new_loginfo).join(" ")
+            if new_loginfo
+                data.loginfo = new_loginfo
+        return data
 
 
 class model.KWICProxy extends BaseProxy
@@ -127,14 +145,14 @@ class model.KWICProxy extends BaseProxy
         i = $.inArray(@pendingRequests, xhr)
         @pendingRequests.pop i unless i is -1
 
-    makeRequest: (options, page, progressCallback, kwicCallback) ->
+    makeRequest: (options, page, progressCallback, kwicCallback, loginfo) ->
         c.log "kwicproxy.makeRequest", options, page, kwicResults.getPageInterval(Number(page))
         self = this
         @foundKwic = false
         super()
         kwicCallback = kwicCallback or $.proxy(kwicResults.renderResult, kwicResults)
         self.progress = 0
-        
+
 
         o = $.extend(
             queryData: null
@@ -149,8 +167,9 @@ class model.KWICProxy extends BaseProxy
                     @foundKwic = true
                     kwicCallback progressObj["struct"]
         , options)
-        
-        _.extend options.ajaxParams, settings.corpusListing.getWithinParameters()
+
+        unless options.ajaxParams.within
+            _.extend options.ajaxParams, settings.corpusListing.getWithinParameters()
 
         data =
             command: "query"
@@ -174,24 +193,24 @@ class model.KWICProxy extends BaseProxy
         if data.cqp
             # data.cqp = @expandCQP(data.cqp)
             @addExpandedCQP data, data.cqp
-            # escape +
-            # data.cqp = data.cqp.replace /\+/g, "\\+"
 
         util.addPrequeryWithin data
 
         # @prevCQP = data.cqp
         @prevCQP = util.combineCQPs data
-        data.show = (_.uniq ["sentence"].concat(data.show)).join(",")
+        data.show = util.encodeListParamUniq ["sentence"].concat(data.show)
         c.log "data.show", data.show
-        data.show_struct = (_.uniq data.show_struct).join(",")
+        data.show_struct = util.encodeListParamUniq data.show_struct
         settings.corpusListing.minimizeWithinQueryString data
         settings.corpusListing.minimizeContextQueryString data
+        data.corpus = util.encodeListParam data.corpus
+        @addLogInfo data, loginfo
         @prevRequest = data
         @prevMisc = {"hitsPerPage" : $("#num_hits").val()}
         @prevParams = data
         def = $.ajax(
             url: settings.cgi_script
-            data: data
+            data: util.compressQueryParams data
             beforeSend: (req, settings) ->
                 self.prevRequest = settings
                 self.addAuthorizationHeader req
@@ -216,21 +235,23 @@ class model.LemgramProxy extends BaseProxy
         super()
         # @pendingRequest = abort: $.noop
 
-    makeRequest: (word, type, callback) ->
+    makeRequest: (word, type, callback, loginfo) ->
         super()
         self = this
         params =
             command: "relations"
             word: word
-            corpus: settings.corpusListing.stringifySelected()
+            corpus: settings.corpusListing.stringifySelectedEncode()
             incremental: $.support.ajaxProgress
             type: type
             cache : true
-            max : settings.wordPictureMaxWords or 15
+            max : 1000
+            # max : settings.wordPictureMaxWords or 15
+        @addLogInfo params, loginfo
         @prevParams = params
         def =  $.ajax
             url: settings.cgi_script
-            data: params
+            data: util.compressQueryParams params
             # beforeSend: (jqXHR, settings) ->
             #   c.log "before relations send", settings
             #   # self.prevRequest = settings
@@ -238,10 +259,10 @@ class model.LemgramProxy extends BaseProxy
             # error: (data, status) ->
             #     c.log "relationsearch abort", arguments
             #     if status == "abort"
-                    
+
             #     else
             #         lemgramResults.resultError()
-                    
+
 
             success: (data) ->
                 c.log "relations success", data
@@ -280,14 +301,14 @@ class model.LemgramProxy extends BaseProxy
                         dfd.reject()
                         return
                     c.log "karp success", data, sw_forms
-                    
+
                     div = (if $.isPlainObject(data.div) then [data.div] else data.div)
                     output = $.map(div.slice(0, Number(data.count)), (item) ->
                         # item = util.convertLMFFeatsToObjects(item)
                         # item.LexicalEntry.Lemma.FormRepresentation.feat_lemgram
                         item.LexicalEntry.lem
                     )
-                    
+
                     dfd.resolve output, textStatus, xhr
 
                 error: (jqXHR, textStatus, errorThrown) ->
@@ -312,7 +333,7 @@ class model.LemgramProxy extends BaseProxy
                     c.log "saldo search 0 results"
                     return
                 div = (if $.isPlainObject(data.div) then [data.div] else data.div)
-                
+
                 output = $.map(div.slice(0, Number(data.count)), (item) ->
                     sense = item.LexicalEntry.Sense
                     sense = [sense] unless $.isArray(sense)
@@ -344,10 +365,10 @@ class model.LemgramProxy extends BaseProxy
                 self.addAuthorizationHeader req
 
             method: "POST"
-            
+
     lemgramSearch: (lemgram, searchPrefix, searchSuffix) ->
         return $.format("[(lex contains \"%s\")%s%s]", [lemgram, @buildAffixQuery(searchPrefix, "prefix", lemgram), @buildAffixQuery(searchSuffix, "suffix", lemgram)])
-        
+
     buildAffixQuery: (isValid, key, value) ->
         return "" unless isValid
         $.format "| (%s contains \"%s\")", [key, value]
@@ -372,7 +393,7 @@ class model.StatsProxy extends BaseProxy
                 name: reduceValLabel
                 field: "hit_value"
                 sortable: true
-                formatter: settings.reduce_statistics reduceVals, ignoreCase 
+                formatter: statisticsFormatting.reduceStatistics reduceVals, ignoreCase, _.keys(data.corpora)
                 minWidth: minWidth
                 cssClass: "parameter-column"
                 headerCssClass: "localized-header"
@@ -382,11 +403,11 @@ class model.StatsProxy extends BaseProxy
             name: ""
             field: "hit_value"
             sortable: false
-            formatter: settings.reduce_statistics_pie_chart
+            formatter: statisticsFormatting.reduceStatisticsPieChart
             maxWidth: 25
             minWidth: 25
-            
-        columns.push  
+
+        columns.push
             id: "total"
             name: "stats_total"
             field: "total_value"
@@ -394,7 +415,7 @@ class model.StatsProxy extends BaseProxy
             formatter: @valueFormatter
             minWidth : minWidth
             headerCssClass: "localized-header"
-        
+
         $.each _.keys(data.corpora).sort(), (i, corpus) =>
             columns.push
                 id: corpus
@@ -405,34 +426,22 @@ class model.StatsProxy extends BaseProxy
                 minWidth : minWidth
 
         groups = _.groupBy _.keys(data.total.absolute), (item) ->
-            item.replace(/:\d+/g, "")
+            statisticsFormatting.makeGroupingValue(item)
 
         wordArray = _.keys groups
 
         sizeOfDataset = wordArray.length
         dataset = new Array(sizeOfDataset + 1)
 
-        summarizedData = {}
-        for corpus, corpusData of data.corpora
-            newAbsolute = _.reduce corpusData.absolute, ((result, value, key) ->
-                    newKey = key.replace(/:\d+/g, "")
-                    currentValue = result[newKey] or 0
-                    result[newKey] = currentValue + value
-                    return result;
-                ), {}
-            newRelative = _.reduce corpusData.relative, ((result, value, key) ->
-                    newKey = key.replace(/:\d+/g, "")
-                    currentValue = result[newKey] or 0
-                    result[newKey] = currentValue + value
-                    return result;
-                ), {}
-            summarizedData[corpus] = { absolute: newAbsolute, relative: newRelative }
-        
         statsWorker = new Worker "scripts/statistics_worker.js"
         statsWorker.onmessage = (e) ->
             c.log "Called back by the worker!\n"
             c.log e
-            def.resolve [data, wordArray, columns, e.data, summarizedData]
+            searchParams = 
+                reduceVals: reduceVals
+                ignoreCase: ignoreCase
+                corpora: _.keys data.corpora
+            def.resolve [data, wordArray, columns, e.data.dataset, e.data.summarizedData, searchParams]
 
         statsWorker.postMessage {
             "total" : data.total
@@ -441,46 +450,53 @@ class model.StatsProxy extends BaseProxy
             "corpora" : data.corpora
             "groups" : groups
             loc : settings.locales[$("body").scope().lang]
+            "attrs" : reduceVals
         }
 
     makeParameters: (reduceVals, cqp) ->
-        parameters = 
+        parameters =
             command: "count"
             groupby: reduceVals.join ','
             # cqp: @expandCQP cqp
-            corpus: settings.corpusListing.stringifySelected(true)
+            corpus: settings.corpusListing.stringifySelectedEncode(true)
             incremental: $.support.ajaxProgress
         @addExpandedCQP parameters, cqp
         _.extend parameters, settings.corpusListing.getWithinParameters()
         util.addPrequeryWithin parameters
         return parameters
 
-    makeRequest: (cqp, callback) ->
+    makeRequest: (cqp, callback, loginfo) ->
         self = this
         super()
         reduceval = search().stats_reduce or "word"
-        ignoreCase = false
-        if reduceval is "word_insensitive"
-            ignoreCase = true
-            reduceval = "word" 
-        
-        ## todo: now supports multipe reduce parameters to backend 
         reduceVals = reduceval.split ","
+
+        insensitive = search().stats_reduce_insensitive
+        if insensitive
+            ignoreCase = true
+        else
+            ignoreCase = false
+
         reduceValLabels = _.map reduceVals, (reduceVal) ->
             return "word" if reduceVal == "word"
-            if settings.corpusListing.getCurrentAttributes()[reduceVal]
-                return settings.corpusListing.getCurrentAttributes()[reduceVal].label
+            maybeReduceAttr = settings.corpusListing.getCurrentAttributes(settings.corpusListing.getReduceLang())[reduceVal]
+            if maybeReduceAttr
+                return maybeReduceAttr.label
             else
-                return settings.corpusListing.getStructAttrs()[reduceVal].label
+                return settings.corpusListing.getStructAttrs(settings.corpusListing.getReduceLang())[reduceVal].label
 
         # TODO: Make sure this works with util.addCQPs
         # Seems it didn't but with addExpandedCQP it would seem to
         # work. (Jyrki Niemi 2016-02-02)
         data = @makeParameters(reduceVals, cqp)
 
-        # util.addCQPs data, cqp
-        data.split = _.filter(reduceVals, (reduceVal) -> 
-            settings.corpusListing.getCurrentAttributes()[reduceVal]?.type == "set").join(',')
+        data.split = _.filter(reduceVals, (reduceVal) ->
+            settings.corpusListing.getCurrentAttributes(settings.corpusListing.getReduceLang())[reduceVal]?.type == "set").join(',')
+
+        rankedReduceVals = _.filter reduceVals, (reduceVal) ->
+            settings.corpusListing.getCurrentAttributes(settings.corpusListing.getReduceLang())[reduceVal]?.ranked
+        data.top = _.map(rankedReduceVals, (reduceVal) ->
+            return reduceVal + ":1").join(',')
 
         if ignoreCase
             $.extend data,
@@ -488,11 +504,12 @@ class model.StatsProxy extends BaseProxy
 
         settings.corpusListing.minimizeWithinQueryString data
         @prevNonExpandedCQP = cqp
+        @addLogInfo data, loginfo
         @prevParams = data
         def = $.Deferred()
         @pendingRequests.push $.ajax
             url: settings.cgi_script
-            data: data
+            data: util.compressQueryParams data
             beforeSend: (req, settings) ->
                 self.prevRequest = settings
                 self.addAuthorizationHeader req
@@ -521,24 +538,23 @@ class model.StatsProxy extends BaseProxy
 
 class model.NameProxy extends model.StatsProxy
     constructor: ->
-        super()    
-        
+        super()
+
     makeParameters: (reduceVal, cqp) ->
         # ignore reduceVal, map only works for word
         parameters = super([settings.placenameAttr], cqp)
         parameters.cqp2 = "[" + settings.placenameConstraint + "]"
         return parameters
-    
+
     processData: (def, data, reduceval) ->
         def.resolve data
-    
+
 
 class model.AuthenticationProxy
     constructor: ->
         @loginObj = {}
 
-    makeRequest: (usr, pass) ->
-        c.log "makeRequest: (usr, pass", usr, pass
+    makeRequest: (usr, pass, saveLogin) ->
         self = this
         if window.btoa
             auth = window.btoa(usr + ":" + pass)
@@ -554,7 +570,6 @@ class model.AuthenticationProxy
             beforeSend: (req) ->
                 req.setRequestHeader "Authorization", "Basic " + auth
         ).done((data, status, xhr) ->
-            c.log "auth done", arguments
             unless data.corpora
                 dfd.reject()
                 return
@@ -567,12 +582,11 @@ class model.AuthenticationProxy
                         usr
                 credentials: data.corpora
                 auth: auth
-
-            $.jStorage.set "creds", self.loginObj
+            if saveLogin
+                $.jStorage.set "creds", self.loginObj
             dfd.resolve data
         ).fail (xhr, status, error) ->
             c.log "auth fail", arguments
-
             dfd.reject()
 
         dfd
@@ -598,7 +612,7 @@ class model.TimeProxy extends BaseProxy
 
         xhr.done (data, status, xhr) =>
             c.log "timespan done", data
-            if data.ERROR 
+            if data.ERROR
                 c.error "timespan error", data.ERROR
                 dfd.reject(data.ERROR )
                 return
@@ -614,7 +628,7 @@ class model.TimeProxy extends BaseProxy
                 dfd.reject()
                 return
             # @corpusdata = data
-            
+
             dfd.resolve [data.corpora, combined, rest]
 
 
@@ -672,16 +686,16 @@ class model.GraphProxy extends BaseProxy
             ["subcqp#{p}#{i}", cqp]
         return _.object array
 
-    makeRequest: (cqp, subcqps, corpora, from, to) ->
+    makeRequest: (cqp, subcqps, corpora, from, to, loginfo) ->
         super()
         self = this
         params =
             command : "count_time"
             # cqp : @expandCQP cqp
-            corpus : corpora
+            corpus : util.encodeListParam corpora
             granularity : @granularity
             incremental: $.support.ajaxProgress
-        
+
         if from
             params.from = from
         if to
@@ -691,6 +705,7 @@ class model.GraphProxy extends BaseProxy
         @addExpandedCQP params, cqp
         #TODO: fix this for struct attrs
         _.extend params, @expandSubCqps subcqps
+        @addLogInfo params, loginfo
         @prevParams = params
         def = $.Deferred()
 
@@ -698,7 +713,7 @@ class model.GraphProxy extends BaseProxy
             url: settings.cgi_script
             # url : "data.json"
             dataType : "json"
-            data : params
+            data : util.compressQueryParams params
 
             beforeSend: (req, settings) =>
                 @prevRequest = settings
@@ -728,7 +743,7 @@ class model.NameClassificationProxy extends BaseProxy
     constructor: ->
         super()
 
-    makeRequest: (cqp, within, callback) ->
+    makeRequest: (cqp, within, callback, loginfo) ->
         super()
         self = this
         groups = if settings.name_groups
@@ -738,7 +753,7 @@ class model.NameClassificationProxy extends BaseProxy
         params =
             command: "names"
             # cqp: cqp
-            corpus: settings.corpusListing.stringifySelected()
+            corpus: settings.corpusListing.stringifySelectedEncode()
             defaultwithin: "sentence"
             default_nameswithin: "text_id"
             max: settings.name_group_max_names or 30
@@ -746,10 +761,11 @@ class model.NameClassificationProxy extends BaseProxy
             incremental: $.support.ajaxProgress
             cache: true
         @addExpandedCQP params, cqp
+        @addLogInfo params, loginfo
         @prevParams = params
         def =  $.ajax
             url: settings.cgi_script
-            data: params
+            data: util.compressQueryParams params
             # beforeSend: (jqXHR, settings) ->
             #   c.log "before relations send", settings
             #   # self.prevRequest = settings

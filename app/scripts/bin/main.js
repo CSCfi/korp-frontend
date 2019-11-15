@@ -1,5 +1,5 @@
 (function() {
-  var creds, deferred_domReady, isDev, loc_dfd, t,
+  var avail_corpora_dfd, creds, deferred_domReady, isDev, loc_dfd, t,
     indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   window.authenticationProxy = new model.AuthenticationProxy();
@@ -18,6 +18,8 @@
     location.hash = "#?" + _.str.lstrip(location.hash, "#");
   }
 
+  util.decompressActiveUrlHashParams();
+
   t = $.now();
 
   isDev = window.location.host === "localhost";
@@ -35,18 +37,27 @@
 
   util.applyShortUrlConfig();
 
+  avail_corpora_dfd = util.initAvailableCorpora();
+
   deferred_domReady = $.Deferred(function(dfd) {
     $(function() {
       var mode;
       mode = $.deparam.querystring().mode;
-      if ((mode != null) && mode !== "default") {
-        return $.getScript("modes/" + mode + "_mode.js").done(function() {
-          util.applyShortUrlConfig();
-          return dfd.resolve();
-        });
-      } else {
-        return dfd.resolve();
+      if (!mode) {
+        mode = "default";
       }
+      return $.when(avail_corpora_dfd).then(function() {
+        return $.getScript("modes/common.js").done(function() {
+          return $.getScript("modes/" + mode + "_mode.js").done(function() {
+            util.applyShortUrlConfig();
+            return dfd.resolve();
+          }).error(function(jqxhr, settings, exception) {
+            return c.error("Mode file parsing error: ", exception);
+          });
+        }).error(function(jqxhr, settings, exception) {
+          return c.error("common.js parsing error: ", exception);
+        });
+      });
     });
     return dfd;
   }).promise();
@@ -66,8 +77,9 @@
   });
 
   $.when(loc_dfd, deferred_domReady).then((function(loc_data) {
-    var corpus, e, j, len, login_elem, prevFragment, ref, tab_a_selector, url_corpora;
+    var corpus, e, error1, j, len, login_elem, prevFragment, ref, tab_a_selector, url_corpora;
     c.log("preloading done, t = ", $.now() - t);
+    c.log("available corpora:", window.availableCorpora);
     util.mapHashCorpusAliases();
     util.addDefaultTranslations();
     util.initCorpusSettingsLogicalCorpora();
@@ -80,8 +92,8 @@
         settings.corpusListing.select(url_corpora);
       }
       view.updateSearchHistory();
-    } catch (_error) {
-      e = _error;
+    } catch (error1) {
+      e = error1;
       c.warn("ERROR setting corpora from location:", e);
     }
     if (isLab) {
@@ -121,9 +133,6 @@
     c.log("creds", creds);
     tab_a_selector = "ul .ui-tabs-anchor";
     $("#log_out").click(function() {
-      $.each(authenticationProxy.loginObj.credentials, function(i, item) {
-        return $(".boxdiv[data=" + (item.toLowerCase()) + "]").addClass("disabled");
-      });
       authenticationProxy.loginObj = {};
       $.jStorage.deleteKey("creds");
       $("body").toggleClass("logged_in not_logged_in");
@@ -200,7 +209,7 @@
         }
       });
     } else if (search().shib_logged_in != null) {
-      authenticationProxy.makeRequest("dummyuser", "dummypass").done(function(data) {
+      authenticationProxy.makeRequest("dummyuser", "dummypass", true).done(function(data) {
         if ($("body").hasClass("not_logged_in")) {
           util.setLogin();
         } else {
@@ -283,11 +292,12 @@
   };
 
   window.initTimeGraph = function(def) {
-    var all_timestruct, getValByDate, onTimeGraphChange, opendfd, restdata, restyear, timestruct;
+    var all_timestruct, getValByDate, hasRest, onTimeGraphChange, opendfd, restdata, restyear, timestruct;
     timestruct = null;
     all_timestruct = null;
     restdata = null;
     restyear = null;
+    hasRest = false;
     onTimeGraphChange = function() {};
     getValByDate = function(date, struct) {
       var output;
@@ -305,7 +315,6 @@
     }).done(function(arg) {
       var all_timestruct, cor, corpus, dataByCorpus, rest, struct;
       dataByCorpus = arg[0], all_timestruct = arg[1], rest = arg[2];
-      c.log("write time");
       for (corpus in dataByCorpus) {
         struct = dataByCorpus[corpus];
         if (corpus !== "time") {
@@ -367,6 +376,7 @@
         }).reduce(function(accu, corp) {
           return accu + parseInt(corp.non_time || "0");
         }, 0);
+        hasRest = yeardiff > 0;
         plots = [
           {
             data: normalize([].concat(all_timestruct, [[restyear, rest]])),
@@ -402,7 +412,8 @@
             show: false
           },
           xaxis: {
-            show: true
+            show: true,
+            tickDecimals: 0
           },
           hoverable: true,
           colors: ["lightgrey", "navy"]
@@ -418,7 +429,7 @@
         if (item) {
           date = item.datapoint[0];
           header = $("<h4>");
-          if (date === restyear) {
+          if (date === restyear && hasRest) {
             header.text(util.getLocaleString("corpselector_rest_time"));
             val = restdata;
             total = rest;
@@ -457,3 +468,5 @@
   };
 
 }).call(this);
+
+//# sourceMappingURL=main.js.map

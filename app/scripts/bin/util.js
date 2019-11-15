@@ -9,6 +9,11 @@
 
   window.CorpusListing = (function() {
     function CorpusListing(corpora) {
+      if (corpora === settings.corpora) {
+        util.checkCorporafolderContents("settings.corporafolders");
+        util.removeUnavailableCorpora(corpora);
+        util.adjustPreselectedCorpora();
+      }
       this.struct = corpora;
       this.corpora = _.values(corpora);
       this.selected = _.filter(this.corpora, function(corp) {
@@ -36,6 +41,8 @@
       cl.selected = cl.corpora;
       return cl;
     };
+
+    CorpusListing.prototype.getReduceLang = function() {};
 
     CorpusListing.prototype.getSelectedCorpora = function() {
       return corpusChooserInstance.corpusChooser("selectedItems");
@@ -83,7 +90,7 @@
       }), {});
     };
 
-    CorpusListing.prototype.getCurrentAttributes = function() {
+    CorpusListing.prototype.getCurrentAttributes = function(lang) {
       var attrs;
       attrs = this.mapSelectedCorpora(function(corpus) {
         return corpus.attributes;
@@ -167,8 +174,8 @@
     };
 
     CorpusListing.prototype.corpusHasAttrs = function(corpus, attrs) {
-      var attr, k, len;
-      for (k = 0, len = attrs.length; k < len; k++) {
+      var attr, k, len1;
+      for (k = 0, len1 = attrs.length; k < len1; k++) {
         attr = attrs[k];
         if (!(attr === "word" || attr in $.extend({}, this.struct[corpus].attributes, this.struct[corpus].struct_attributes))) {
           return false;
@@ -179,6 +186,10 @@
 
     CorpusListing.prototype.stringifySelected = function() {
       return _(this.selected).pluck("id").invoke("toUpperCase").join(",");
+    };
+
+    CorpusListing.prototype.stringifySelectedEncode = function() {
+      return util.encodeListParam(this.stringifySelected());
     };
 
     CorpusListing.prototype.stringifyAll = function() {
@@ -194,17 +205,17 @@
     };
 
     CorpusListing.prototype.minimizeDefaultAndCorpusQueryString = function(type, params) {
-      var all_corpora, corp, corpname, corpora, corpval, default_corpora, default_val, k, l, len, len1, lengths, lensum, maxval, nondefault_corpora, other_vals, ref, ref1, val, value_corpora;
+      var all_corpora, corp, corpname, corpora, corpval, default_corpora, default_val, k, l, len1, len2, lengths, lensum, maxval, nondefault_corpora, other_vals, ref, ref1, val, value_corpora;
       if (!((params.corpus != null) && params[type])) {
         return params;
       }
-      all_corpora = params.corpus.split(',');
+      all_corpora = util.decodeListParam(params.corpus);
       c.log('minimize', type, params.corpus, params['default' + type], params[type], params[type].length);
       default_val = params['default' + type];
       value_corpora = {};
       nondefault_corpora = [];
       ref = params[type].split(',');
-      for (k = 0, len = ref.length; k < len; k++) {
+      for (k = 0, len1 = ref.length; k < len1; k++) {
         corpval = ref[k];
         ref1 = corpval.split(':'), corpname = ref1[0], val = ref1[1];
         if (value_corpora[val] == null) {
@@ -219,7 +230,7 @@
       for (val in value_corpora) {
         corpora = value_corpora[val];
         lensum = 0;
-        for (l = 0, len1 = corpora.length; l < len1; l++) {
+        for (l = 0, len2 = corpora.length; l < len2; l++) {
           corp = corpora[l];
           lensum += corp.length;
         }
@@ -237,12 +248,12 @@
       other_vals = [];
       for (val in value_corpora) {
         corpora = value_corpora[val];
-        if (val !== maxval) {
+        if (val !== maxval && corpora.length > 0) {
           other_vals = other_vals.concat([
             (function() {
-              var len2, m, results;
+              var len3, m, results;
               results = [];
-              for (m = 0, len2 = corpora.length; m < len2; m++) {
+              for (m = 0, len3 = corpora.length; m < len3; m++) {
                 corp = corpora[m];
                 results.push(corp + ':' + val);
               }
@@ -270,10 +281,10 @@
     CorpusListing.prototype.getContextQueryString = function(prefer, avoid) {
       var contexts, corpus, output;
       output = (function() {
-        var k, len, ref, results;
+        var k, len1, ref, results;
         ref = this.selected;
         results = [];
-        for (k = 0, len = ref.length; k < len; k++) {
+        for (k = 0, len1 = ref.length; k < len1; k++) {
           corpus = ref[k];
           contexts = _.keys(corpus.context);
           if (indexOf.call(contexts, prefer) < 0) {
@@ -294,10 +305,10 @@
       var corpus, defaultWithin, output, within, withins;
       defaultWithin = search().within || _.keys(settings.defaultWithin)[0];
       output = (function() {
-        var k, len, ref, results;
+        var k, len1, ref, results;
         ref = this.selected;
         results = [];
-        for (k = 0, len = ref.length; k < len; k++) {
+        for (k = 0, len1 = ref.length; k < len1; k++) {
           corpus = ref[k];
           withins = _.keys(corpus.within);
           if (indexOf.call(withins, defaultWithin) < 0) {
@@ -320,10 +331,10 @@
       prefer_within = search().within;
       if (prefer_within && !(prefer_within in settings.defaultWithin)) {
         output = (function() {
-          var k, len, ref, results;
+          var k, len1, ref, results;
           ref = this.selected;
           results = [];
-          for (k = 0, len = ref.length; k < len; k++) {
+          for (k = 0, len1 = ref.length; k < len1; k++) {
             corpus = ref[k];
             if (prefer_within in corpus.within) {
               results.push(corpus.id.toUpperCase() + ":" + prefer_within);
@@ -364,7 +375,9 @@
       };
       infoGetter = (function(_this) {
         return function(prop) {
-          return _(_this.selected).pluck("info").pluck(prop).compact().map(function(item) {
+          return _(_this.selected).pluck("info").pluck(prop).compact().filter(function(val) {
+            return val.slice(0, 10) !== "0000-00-00";
+          }).map(function(item) {
             return moment(item);
           }).value();
         };
@@ -391,28 +404,46 @@
     };
 
     CorpusListing.prototype.getTitle = function(corpus) {
-      var e;
+      var e, error;
       try {
         return this.struct[corpus].title;
-      } catch (_error) {
-        e = _error;
+      } catch (error) {
+        e = error;
         return c.log("gettitle broken", corpus);
       }
     };
 
-    CorpusListing.prototype.getAttributeGroups = function(lang) {
-      var attrs, common, common_keys, key, obj, sent_attrs, word;
+    CorpusListing.prototype.getWordGroup = function(withCaseInsentive) {
+      var word, wordInsensitive;
       word = {
         group: "word",
         value: "word",
         label: "word"
       };
+      if (withCaseInsentive) {
+        wordInsensitive = {
+          group: "word",
+          value: "word_insensitive",
+          label: "word_insensitive"
+        };
+        return [word, wordInsensitive];
+      } else {
+        return [word];
+      }
+    };
+
+    CorpusListing.prototype.getWordAttributeGroups = function(lang, setOperator) {
+      var allAttrs, attrs, key, obj;
+      if (setOperator === 'union') {
+        allAttrs = this.getCurrentAttributes(lang);
+      } else {
+        allAttrs = this.getCurrentAttributesIntersection();
+      }
       attrs = (function() {
-        var ref, results;
-        ref = this.getCurrentAttributes(lang);
+        var results;
         results = [];
-        for (key in ref) {
-          obj = ref[key];
+        for (key in allAttrs) {
+          obj = allAttrs[key];
           if (obj.displayType !== "hidden" && obj.displayOnly !== "sidebar") {
             results.push(_.extend({
               group: "word_attr",
@@ -421,14 +452,24 @@
           }
         }
         return results;
-      }).call(this);
+      })();
+      return attrs;
+    };
+
+    CorpusListing.prototype.getStructAttributeGroups = function(lang, setOperator) {
+      var allAttrs, common, common_keys, key, obj, sentAttrs;
+      if (setOperator === 'union') {
+        allAttrs = this.getStructAttrs(lang);
+      } else {
+        allAttrs = this.getStructAttrsIntersection(lang);
+      }
       common_keys = _.compact(_.flatten(_.map(this.selected, function(corp) {
         return _.keys(corp.common_attributes);
       })));
       common = _.pick.apply(_, [settings.common_struct_types].concat(slice.call(common_keys)));
-      sent_attrs = (function() {
+      sentAttrs = (function() {
         var ref, results;
-        ref = _.extend({}, common, this.getStructAttrs(lang));
+        ref = _.extend({}, common, allAttrs);
         results = [];
         for (key in ref) {
           obj = ref[key];
@@ -440,11 +481,11 @@
           }
         }
         return results;
-      }).call(this);
-      sent_attrs = _.sortBy(sent_attrs, function(item) {
+      })();
+      sentAttrs = _.sortBy(sentAttrs, function(item) {
         return util.getLocaleString(item.label);
       });
-      return [word].concat(attrs, sent_attrs);
+      return sentAttrs;
     };
 
     CorpusListing.prototype.updateIgnoreBetweenTokensCQP = function() {
@@ -473,9 +514,9 @@
         return token.charAt(0) === "[";
       }).lastIndexOf(true);
       result = (function() {
-        var k, len, results;
+        var k, len1, results;
         results = [];
-        for (token_num = k = 0, len = cqp_tokens.length; k < len; token_num = ++k) {
+        for (token_num = k = 0, len1 = cqp_tokens.length; k < len1; token_num = ++k) {
           token = cqp_tokens[token_num];
           if (token.charAt(0) === "[" && token_num < last_token_num) {
             results.push("(" + token + " " + insert_cqp + ")");
@@ -488,6 +529,42 @@
       return result.join("");
     };
 
+    CorpusListing.prototype.getAttributeGroups = function(lang) {
+      var attrs, sentAttrs, words;
+      words = this.getWordGroup(false);
+      attrs = this.getWordAttributeGroups(lang, 'union');
+      this.adjustWordAttributeGroup(words, attrs);
+      sentAttrs = this.getStructAttributeGroups(lang, 'union');
+      return words.concat(attrs, sentAttrs);
+    };
+
+    CorpusListing.prototype.getStatsAttributeGroups = function(lang) {
+      var attrs, sentAttrs, structOp, wordOp, words;
+      words = this.getWordGroup(true);
+      wordOp = settings.reduce_word_attribute_selector || "union";
+      attrs = this.getWordAttributeGroups(lang, wordOp);
+      this.adjustWordAttributeGroup(words, attrs);
+      structOp = settings.reduce_struct_attribute_selector || "union";
+      sentAttrs = this.getStructAttributeGroups(lang, structOp);
+      sentAttrs = _.filter(sentAttrs, function(attr) {
+        return attr.displayType !== "date_interval";
+      });
+      return words.concat(attrs, sentAttrs);
+    };
+
+    CorpusListing.prototype.adjustWordAttributeGroup = function(words, attrs) {
+      var word_attr, word_attr_num;
+      word_attr_num = _.findIndex(attrs, function(obj) {
+        return obj.value === "word";
+      });
+      if (word_attr_num !== -1) {
+        word_attr = attrs[word_attr_num];
+        word_attr.group = "word";
+        words[0] = word_attr;
+        attrs.splice(word_attr_num, 1);
+      }
+    };
+
     return CorpusListing;
 
   })();
@@ -495,8 +572,9 @@
   window.ParallelCorpusListing = (function(superClass) {
     extend(ParallelCorpusListing, superClass);
 
-    function ParallelCorpusListing(corpora) {
+    function ParallelCorpusListing(corpora, activeLangs) {
       ParallelCorpusListing.__super__.constructor.call(this, corpora);
+      this.setActiveLangs(activeLangs);
     }
 
     ParallelCorpusListing.prototype.select = function(idArray) {
@@ -513,6 +591,10 @@
 
     ParallelCorpusListing.prototype.setActiveLangs = function(langlist) {
       return this.activeLangs = langlist;
+    };
+
+    ParallelCorpusListing.prototype.getReduceLang = function() {
+      return this.activeLangs[0];
     };
 
     ParallelCorpusListing.prototype.getCurrentAttributes = function(lang) {
@@ -538,6 +620,23 @@
         return val["isStructAttr"] = true;
       });
       return struct;
+    };
+
+    ParallelCorpusListing.prototype.getStructAttrsIntersection = function(lang) {
+      var attrs, corpora;
+      corpora = _.filter(this.selected, function(item) {
+        return item.lang === lang;
+      });
+      attrs = _.map(corpora, function(corpus) {
+        var key, ref, value;
+        ref = corpus.struct_attributes;
+        for (key in ref) {
+          value = ref[key];
+          value["isStructAttr"] = true;
+        }
+        return corpus.struct_attributes;
+      });
+      return this._mapping_intersection(attrs);
     };
 
     ParallelCorpusListing.prototype.getLinked = function(corp, andSelf, only_selected) {
@@ -583,7 +682,7 @@
     };
 
     ParallelCorpusListing.prototype.getLinksFromLangs = function(activeLangs) {
-      var cps, k, l, lang, len, len1, linked, main, other, output, ref;
+      var cps, k, l, lang, len1, len2, linked, main, other, output, ref;
       if (activeLangs.length === 1) {
         return this.getEnabledByLang(activeLangs[0], true, false);
       }
@@ -592,12 +691,12 @@
       });
       output = [];
       ref = activeLangs.slice(1);
-      for (k = 0, len = ref.length; k < len; k++) {
+      for (k = 0, len1 = ref.length; k < len1; k++) {
         lang = ref[k];
         other = _.filter(this.selected, function(corp) {
           return corp.lang === lang;
         });
-        for (l = 0, len1 = other.length; l < len1; l++) {
+        for (l = 0, len2 = other.length; l < len2; l++) {
           cps = other[l];
           linked = _(main).filter(function(mainCorpus) {
             var ref1;
@@ -611,8 +710,45 @@
       return output;
     };
 
+    ParallelCorpusListing.prototype.getAttributeQuery = function(attr) {
+      var output, struct;
+      struct = this.getLinksFromLangs(this.activeLangs);
+      output = [];
+      $.each(struct, function(i, corps) {
+        var mainId, mainIsPivot, other, pair;
+        mainId = corps[0].id.toUpperCase();
+        mainIsPivot = !!corps[0].pivot;
+        other = corps.slice(1);
+        pair = _.map(other, function(corp) {
+          var a;
+          if (mainIsPivot) {
+            a = _.keys(corp[attr])[0];
+          } else {
+            a = _.keys(corps[0][attr])[0];
+          }
+          return mainId + "|" + corp.id.toUpperCase() + ":" + a;
+        });
+        return output.push(pair);
+      });
+      return output.join(",");
+    };
+
+    ParallelCorpusListing.prototype.getContextQueryString = function() {
+      return this.getAttributeQuery("context");
+    };
+
+    ParallelCorpusListing.prototype.getWithinParameters = function() {
+      var defaultWithin, within;
+      defaultWithin = search().within || _.keys(settings.defaultWithin)[0];
+      within = this.getAttributeQuery("within");
+      return {
+        defaultwithin: defaultWithin,
+        within: within
+      };
+    };
+
     ParallelCorpusListing.prototype.stringifySelected = function(onlyMain) {
-      var i, item, k, len, main, output, pair, struct;
+      var i, item, k, len1, main, output, pair, struct;
       struct = this.getLinksFromLangs(this.activeLangs);
       if (onlyMain) {
         struct = _.map(struct, (function(_this) {
@@ -626,7 +762,7 @@
       }
       c.log("struct", struct);
       output = [];
-      for (i = k = 0, len = struct.length; k < len; i = ++k) {
+      for (i = k = 0, len1 = struct.length; k < len1; i = ++k) {
         item = struct[i];
         main = item[0];
         pair = _.map(item.slice(1), function(corp) {
@@ -637,6 +773,10 @@
       return output.join(",");
     };
 
+    ParallelCorpusListing.prototype.stringifySelectedEncode = function(onlyMain) {
+      return util.encodeListParam(this.stringifySelected(onlyMain));
+    };
+
     ParallelCorpusListing.prototype.getTitle = function(corpus) {
       return this.struct[corpus.split("|")[1]].title;
     };
@@ -644,8 +784,6 @@
     return ParallelCorpusListing;
 
   })(CorpusListing);
-
-  settings.corpusListing = new CorpusListing(settings.corpora);
 
   window.applyTo = function(ctrl, f) {
     var s;
@@ -674,14 +812,14 @@
   };
 
   window.initLocales = function() {
-    var def, defs, fn1, k, l, lang, len, len1, packages, pkg, prefix, ref;
+    var def, defs, fn1, k, l, lang, len1, len2, packages, pkg, prefix, ref;
     packages = ["locale", "corpora"];
     prefix = "translations";
     defs = [];
     window.loc_data = {};
     def = $.Deferred();
     ref = settings.languages;
-    for (k = 0, len = ref.length; k < len; k++) {
+    for (k = 0, len1 = ref.length; k < len1; k++) {
       lang = ref[k];
       loc_data[lang] = {};
       fn1 = function(lang, pkg) {
@@ -697,7 +835,7 @@
           }
         }));
       };
-      for (l = 0, len1 = packages.length; l < len1; l++) {
+      for (l = 0, len2 = packages.length; l < len2; l++) {
         pkg = packages[l];
         fn1(lang, pkg);
       }
@@ -709,20 +847,20 @@
   };
 
   util.addDefaultTranslations = function() {
-    var all_keys, k, key, l, lang, lang2, len, len1, len2, loc_data, m, ref, ref1;
+    var all_keys, k, key, l, lang, lang2, len1, len2, len3, loc_data, m, ref, ref1;
     if ((settings.defaultTranslations == null) || settings.defaultTranslations.length === 0) {
       return;
     }
     loc_data = window.loc_data;
     all_keys = _(loc_data).map(_.keys).flatten().uniq().value();
     ref = settings.languages;
-    for (k = 0, len = ref.length; k < len; k++) {
+    for (k = 0, len1 = ref.length; k < len1; k++) {
       lang = ref[k];
-      for (l = 0, len1 = all_keys.length; l < len1; l++) {
+      for (l = 0, len2 = all_keys.length; l < len2; l++) {
         key = all_keys[l];
         if (!(key in loc_data[lang])) {
           ref1 = settings.defaultTranslations;
-          for (m = 0, len2 = ref1.length; m < len2; m++) {
+          for (m = 0, len3 = ref1.length; m < len3; m++) {
             lang2 = ref1[m];
             if (lang2 !== lang) {
               if (lang2 === 'KEY') {
@@ -748,10 +886,10 @@
   };
 
   window.util.setLogin = function() {
-    var corp, k, len, ref;
+    var corp, k, len1, ref;
     $("body").toggleClass("logged_in not_logged_in");
     ref = authenticationProxy.loginObj.credentials;
-    for (k = 0, len = ref.length; k < len; k++) {
+    for (k = 0, len1 = ref.length; k < len1; k++) {
       corp = ref[k];
       $("#hpcorpus_" + (corp.toLowerCase())).closest(".boxdiv.disabled").removeClass("disabled");
     }
@@ -796,15 +934,19 @@
   };
 
   util.getLocaleString = function(key, lang) {
-    var e;
+    return util.getLocaleStringUndefined(key, lang) || key;
+  };
+
+  util.getLocaleStringUndefined = function(key, lang) {
+    var e, error;
     if (!lang) {
       lang = window.lang || settings.defaultLanguage || "sv";
     }
     try {
-      return loc_data[lang][key] || key;
-    } catch (_error) {
-      e = _error;
-      return key;
+      return loc_data[lang][key];
+    } catch (error) {
+      e = error;
+      return void 0;
     }
   };
 
@@ -843,6 +985,16 @@
     return $.format("%s%s", [match[1].replace(/_/g, " "), infixIndex]);
   };
 
+  util.saldoToPlaceholderString = function(saldoId, appendIndex) {
+    var infixIndex, match;
+    match = saldoId.match(util.saldoRegExp);
+    infixIndex = "";
+    if ((appendIndex != null) && match[2] !== "1") {
+      infixIndex = $.format(" (%s)", match[2]);
+    }
+    return $.format("%s%s", [match[1].replace(/_/g, " "), infixIndex]);
+  };
+
   util.sblexArraytoString = function(idArray, labelFunction) {
     labelFunction = labelFunction || util.lemgramToString;
     return _.map(idArray, function(lemgram) {
@@ -870,67 +1022,63 @@
     return saldo.match(util.saldoRegExp);
   };
 
-  util.setDownloadLinks = function(xhr_settings, result_data) {
-    var corpus_id, corpus_ids, download_params, format, get_corpus_num, i, j, link_id, result_corpora, result_corpora_settings;
-    if (!((xhr_settings != null) && (result_data != null) && (result_data.corpus_order != null) && (result_data.kwic != null))) {
-      c.log('failed to do setDownloadLinks');
+  util.downloadKwic = function(format_params, query_url, result_data) {
+    var corpus_id, corpus_ids, download_params, format, k, l, len1, len2, phys_format, phys_formats, phys_params, ref, ref1, result_corpora, result_corpora_settings, result_corpus;
+    c.log("downloadKwic", format_params, query_url, result_data);
+    if (!((query_url != null) && (result_data != null) && (result_data.kwic != null))) {
+      c.log("downloadKwic failed");
       return;
     }
-    get_corpus_num = function(hit_num) {
-      return result_data.corpus_order.indexOf(result_data.kwic[hit_num].corpus);
-    };
-    c.log('setDownloadLinks data:', result_data);
-    $('#download-links').empty();
-    result_corpora = result_data.corpus_order.slice(get_corpus_num(0), get_corpus_num(result_data.kwic.length - 1) + 1);
+    if (result_data.kwic.length === 0) {
+      $('#download-links').hide();
+      return;
+    }
+    $('#download-links').show();
+    result_corpora = _(result_data.kwic).pluck("corpus").uniq().value();
     result_corpora_settings = {};
-    i = 0;
-    while (i < result_corpora.length) {
-      corpus_ids = result_corpora[i].toLowerCase().split('|');
-      j = 0;
-      while (j < corpus_ids.length) {
-        corpus_id = corpus_ids[j];
+    for (k = 0, len1 = result_corpora.length; k < len1; k++) {
+      result_corpus = result_corpora[k];
+      corpus_ids = result_corpus.toLowerCase().split("|");
+      for (l = 0, len2 = corpus_ids.length; l < len2; l++) {
+        corpus_id = corpus_ids[l];
         result_corpora_settings[corpus_id] = settings.corpora[corpus_id];
-        j++;
       }
-      i++;
     }
-    i = 0;
-    while (i < settings.downloadFormats.length) {
-      format = settings.downloadFormats[i];
-      link_id = format + '-link';
-      $('#download-links').append('<a href="javascript:" ' + ' id="' + link_id + '"' + ' title="' + format + '"' + ' rel="localize[formatdescr_' + format + ']"' + ' class="download_link"><img src="img/' + format + '.png" alt="' + format.toUpperCase() + '" /></a>');
-      download_params = {
-        query_params: JSON.stringify($.deparam.querystring(xhr_settings.url)),
-        format: format,
-        korp_url: window.location.href,
-        korp_server_url: settings.cgi_script,
-        corpus_config: JSON.stringify(result_corpora_settings, function(key, value) {
-          if (key === "logical_corpus") {
-            return value.title;
-          } else {
-            return value;
+    format = format_params.format;
+    download_params = {
+      query_params: JSON.stringify($.deparam.querystring(query_url)),
+      format: format,
+      korp_url: window.location.href,
+      korp_server_url: settings.cgi_script,
+      corpus_config: JSON.stringify(result_corpora_settings, function(key, value) {
+        if (key === "logical_corpus") {
+          return value.title;
+        } else {
+          return value;
+        }
+      }),
+      corpus_config_info_keys: (settings.corpusExtraInfoItems || []).join(","),
+      urn_resolver: settings.urnResolver
+    };
+    if ("downloadFormatParams" in settings) {
+      if ("*" in settings.downloadFormatParams) {
+        $.extend(download_params, settings.downloadFormatParams["*"]);
+      }
+      if (format in settings.downloadFormatParams) {
+        $.extend(download_params, settings.downloadFormatParams[format]);
+      }
+      if ("downloadFormatParamsPhysical" in settings) {
+        phys_format = format_params.physical_format;
+        phys_formats = (ref = settings.downloadFormatParams[format]) != null ? (ref1 = ref.physical_formats) != null ? ref1.formats : void 0 : void 0;
+        if ((phys_format != null) && phys_formats && indexOf.call(phys_formats, phys_format) >= 0) {
+          phys_params = settings.downloadFormatParamsPhysical[phys_format];
+          if ("format_suffix" in phys_params) {
+            download_params.format += phys_params.format_suffix;
           }
-        }),
-        corpus_config_info_keys: (settings.corpusExtraInfoItems || []).join(','),
-        urn_resolver: settings.urnResolver
-      };
-      if ('downloadFormatParams' in settings) {
-        if ('*' in settings.downloadFormatParams) {
-          $.extend(download_params, settings.downloadFormatParams['*']);
-        }
-        if (format in settings.downloadFormatParams) {
-          $.extend(download_params, settings.downloadFormatParams[format]);
         }
       }
-      $('#' + link_id).click((function(params) {
-        return function(e) {
-          $.generateFile(settings.download_cgi_script, params);
-          e.preventDefault();
-        };
-      })(download_params));
-      i++;
     }
-    $('#download-links').localize();
+    $.generateFile(settings.download_cgi_script, download_params);
   };
 
   util.searchHash = function(type, value) {
@@ -943,7 +1091,7 @@
   added_corpora_ids = [];
 
   util.loadCorporaFolderRecursive = function(first_level, folder) {
-    var cont, folder_descr, format_licence_type, outHTML, usedid, val;
+    var extra_info, folder_descr, format_licence_type, k, len1, non_added_corpora_ids, outHTML, val;
     format_licence_type = function(corpus_id) {
       var licence_type;
       licence_type = settings.corpora[corpus_id]["licence_type"];
@@ -957,7 +1105,11 @@
     if (first_level) {
       outHTML = "<ul>";
     } else {
-      folder_descr = (folder.description || "") + (folder.info && settings.corpusExtraInfo ? (folder.description ? "<br/><br/>" : "") + util.formatCorpusExtraInfo(folder.info, settings.corpusExtraInfo.corpus_infobox) : "");
+      folder_descr = util.callPluginFunctionsValued("CorpusInfoDescrProcessor", folder.description || "", folder);
+      extra_info = folder.info && settings.corpusExtraInfo ? util.formatCorpusExtraInfo(folder.info, {
+        info_items: settings.corpusExtraInfo.corpus_infobox
+      }) : "";
+      folder_descr += (folder_descr && extra_info ? "<br/><br/>" : "") + extra_info;
       outHTML = "<ul title=\"" + folder.title + "\" description=\"" + escape(folder_descr) + "\">";
     }
     if (folder) {
@@ -974,17 +1126,12 @@
       }
     }
     if (first_level) {
-      for (val in settings.corpora) {
-        cont = false;
-        for (usedid in added_corpora_ids) {
-          if (added_corpora_ids[usedid] === val || settings.corpora[val].hide) {
-            cont = true;
-          }
+      non_added_corpora_ids = _.difference(_.keys(settings.corpora), added_corpora_ids);
+      for (k = 0, len1 = non_added_corpora_ids.length; k < len1; k++) {
+        val = non_added_corpora_ids[k];
+        if (!settings.corpora[val].hide) {
+          outHTML += "<li id='" + val + "'>" + (settings.corpora[val].title + format_licence_type(val)) + "</li>";
         }
-        if (cont) {
-          continue;
-        }
-        outHTML += "<li id='" + val + "'>" + (settings.corpora[val].title + format_licence_type(val)) + "</li>";
       }
     }
     outHTML += "</ul>";
@@ -1021,17 +1168,26 @@
   util.loadCorpora = function() {
     var outStr, selected;
     added_corpora_ids = [];
+    util.forAllFolders(function(folder) {
+      return util.callPluginFunctions("CorpusFolderProcessor", folder);
+    });
+    util.forAllCorpora(function(config) {
+      return util.callPluginFunctions("CorpusSettingsProcessor", config);
+    });
     outStr = util.loadCorporaFolderRecursive(true, settings.corporafolders);
     window.corpusChooserInstance = $("#corpusbox").corpusChooser({
       template: outStr,
       infoPopup: function(corpusID) {
-        var baseLang, baseLangSentenceHTML, baseLangTokenHTML, baseLangs, corpusExtraInfo, corpusObj, k, lang, lastUpdate, len, maybeInfo, numSentences, numTokens, output, ref, sentenceString, supportsContext;
+        var baseLang, baseLangSentenceHTML, baseLangTokenHTML, baseLangs, corpusExtraInfo, corpusObj, k, lang, lastUpdate, len1, maybeInfo, numSentences, numTokens, output, ref, sentenceString, supportsContext;
         corpusObj = settings.corpora[corpusID];
         maybeInfo = "";
         if (corpusObj.description) {
           maybeInfo = "<br/><br/>" + corpusObj.description;
         }
-        corpusExtraInfo = settings.corpusExtraInfo ? util.formatCorpusExtraInfo(corpusObj, settings.corpusExtraInfo.corpus_infobox) : void 0;
+        maybeInfo = util.callPluginFunctionsValued("CorpusInfoDescrProcessor", maybeInfo || "", corpusObj);
+        corpusExtraInfo = settings.corpusExtraInfo ? util.formatCorpusExtraInfo(corpusObj, {
+          info_items: settings.corpusExtraInfo.corpus_infobox
+        }) : void 0;
         if (corpusExtraInfo) {
           maybeInfo += (maybeInfo ? "<br/><br/>" : "") + corpusExtraInfo;
         }
@@ -1041,7 +1197,7 @@
         baseLangs = (ref = settings.corpora[corpusID]) != null ? ref.linked_to : void 0;
         if (baseLangs) {
           lang = " (" + util.getLocaleString(settings.corpora[corpusID].lang) + ")";
-          for (k = 0, len = baseLangs.length; k < len; k++) {
+          for (k = 0, len1 = baseLangs.length; k < len1; k++) {
             baseLang = baseLangs[k];
             baseLangTokenHTML += (util.getLocaleString("corpselector_numberoftokens")) + ": <b>" + (util.prettyNumbers(settings.corpora[baseLang].info.Size)) + "\n</b> (" + (util.getLocaleString(settings.corpora[baseLang].lang)) + ")<br/>";
             baseLangSentenceHTML += (util.getLocaleString("corpselector_numberofsentences")) + ": <b>" + (util.prettyNumbers(settings.corpora[baseLang].info.Sentences)) + "\n</b> (" + (util.getLocaleString(settings.corpora[baseLang].lang)) + ")<br/>";
@@ -1058,7 +1214,7 @@
         if (numSentences) {
           sentenceString = util.prettyNumbers(numSentences.toString());
         }
-        output = "<b>\n    <img class=\"popup_icon\" src=\"img/korp_icon.png\" />\n    " + corpusObj.title + "\n</b>\n" + maybeInfo + "\n<br/><br/>" + baseLangTokenHTML + "\n" + (util.getLocaleString("corpselector_numberoftokens")) + ":\n<b>" + (util.prettyNumbers(numTokens)) + "</b>" + lang + "\n<br/>" + baseLangSentenceHTML + "\n" + (util.getLocaleString("corpselector_numberofsentences")) + ": \n<b>" + sentenceString + "</b>" + lang + "\n<br/>\n" + (util.getLocaleString("corpselector_lastupdate")) + ": \n<b>" + lastUpdate + "</b>\n<br/><br/>";
+        output = "<b>\n    <img class=\"popup_icon\" src=\"img/korp_icon.png\" />\n    " + corpusObj.title + "\n</b>\n" + maybeInfo + "\n<br/><br/>" + baseLangTokenHTML + "\n" + (util.getLocaleString("corpselector_numberoftokens")) + ":\n<b>" + (util.prettyNumbers(numTokens)) + "</b>" + lang + "\n<br/>" + baseLangSentenceHTML + "\n" + (util.getLocaleString("corpselector_numberofsentences")) + ":\n<b>" + sentenceString + "</b>" + lang + "\n<br/>\n" + (util.getLocaleString("corpselector_lastupdate")) + ":\n<b>" + lastUpdate + "</b>\n<br/><br/>";
         supportsContext = _.keys(corpusObj.context).length > 1;
         if (supportsContext) {
           output += $("<div>").localeKey("corpselector_supports").html() + "<br>";
@@ -1280,21 +1436,18 @@
     }
   };
 
-  util.formatCorpusExtraInfo = function(corpusObj) {
-    var getUrnOrUrl, i, info_item, info_items, info_obj, label, link_info, makeLinkItem, makeUrnUrl, result;
-    info_items = arguments.length > 1 && arguments[1] ? arguments[1] : (settings.corpusExtraInfoItems != null) || [];
-    makeUrnUrl = function(urn) {
-      if (urn.indexOf('http') !== 0) {
-        return settings.urnResolver + urn;
-      } else {
-        return urn;
-      }
-    };
+  util.formatCorpusExtraInfo = function(corpusObj, opts) {
+    var getUrnOrUrl, info_item, info_items, info_obj, item_paragraphs, k, label, len1, link_info, makeLinkItem, result;
+    if (opts == null) {
+      opts = {};
+    }
+    info_items = opts.info_items ? opts.info_items : (settings.corpusExtraInfoItems != null) || [];
+    item_paragraphs = opts.item_paragraphs || false;
     getUrnOrUrl = function(obj) {
       var prefix;
       prefix = arguments.length > 1 ? arguments[1] : '';
       if (prefix + 'urn' in obj) {
-        return makeUrnUrl(obj[prefix + 'urn']);
+        return util.makeUrnUrl(obj[prefix + 'urn']);
       } else {
         return obj[prefix + 'url'];
       }
@@ -1318,68 +1471,67 @@
       return result;
     };
     result = '';
-    i = 0;
-    while (i < info_items.length) {
-      info_item = info_items[i];
-      link_info = {};
+    for (k = 0, len1 = info_items.length; k < len1; k++) {
+      info_item = info_items[k];
+      link_info = null;
       label = '';
       label = '<span rel=\'localize[corpus_' + info_item + ']\'>' + 'Corpus ' + info_item + '</span>';
-      if (info_item === 'urn' && corpusObj.urn) {
-        link_info = {
-          url: makeUrnUrl(corpusObj.urn),
-          text: corpusObj.urn,
-          label: label
-        };
-      } else if (info_item === 'homepage' && !('homepage' in corpusObj) && corpusObj.url) {
-        link_info = {
-          url: corpusObj.url,
-          text: label
-        };
-      } else if (info_item === 'cite' && corpusObj.cite_id && (settings.corpus_cite_base_url != null)) {
-        link_info = {
-          url: settings.corpus_cite_base_url + escape(corpusObj.cite_id) + '&lang=' + window.lang,
-          text: label
-        };
-      } else if (corpusObj[info_item]) {
-        info_obj = corpusObj[info_item];
-        link_info = {
-          url: getUrnOrUrl(info_obj)
-        };
-        if (info_obj.name) {
-          link_info.text = info_obj.name;
-          if (!info_obj.no_label) {
-            link_info.label = label;
+      if (settings.makeCorpusExtraInfoItem && info_item in settings.makeCorpusExtraInfoItem) {
+        link_info = settings.makeCorpusExtraInfoItem[info_item](corpusObj, label);
+      }
+      if (!link_info) {
+        if (corpusObj[info_item]) {
+          info_obj = corpusObj[info_item];
+          link_info = {
+            url: getUrnOrUrl(info_obj)
+          };
+          if (info_obj.name) {
+            link_info.text = info_obj.name;
+            if (!info_obj.no_label) {
+              link_info.label = label;
+            }
+          } else {
+            link_info.text = label;
           }
+          if (info_obj.description) {
+            link_info.tooltip = info_obj.description;
+          }
+        } else if (corpusObj[info_item + '_urn'] || corpusObj[info_item + '_url']) {
+          link_info = {
+            url: getUrnOrUrl(corpusObj, info_item + '_'),
+            text: label
+          };
+        }
+      }
+      if (link_info && (link_info.url || link_info.text)) {
+        if (item_paragraphs) {
+          result += '<p>' + makeLinkItem(link_info) + '</p>';
         } else {
-          link_info.text = label;
+          if (result) {
+            result += '<br/>';
+          }
+          result += makeLinkItem(link_info);
         }
-        if (info_obj.description) {
-          link_info.tooltip = info_obj.description;
-        }
-      } else if (corpusObj[info_item + '_urn'] || corpusObj[info_item + '_url']) {
-        link_info = {
-          url: getUrnOrUrl(corpusObj, info_item + '_'),
-          text: label
-        };
       }
-      if (link_info.url || link_info.text) {
-        if (result) {
-          result += '<br/>';
-        }
-        result += makeLinkItem(link_info);
-      }
-      i++;
     }
     return result;
+  };
+
+  util.makeUrnUrl = function(urn) {
+    if (urn.indexOf('http') !== 0) {
+      return settings.urnResolver + urn;
+    } else {
+      return urn;
+    }
   };
 
   util.copyCorpusInfoToConfig = function(corpusObj) {
     var added_properties, corpusInfo, i, info_key_prefix, info_key_sects, info_subkeys, item, j, key, sect, sect_name, subkey, subobj, value;
     info_key_sects = (function() {
-      var k, len, ref, results;
+      var k, len1, ref, results;
       ref = settings.corpusExtraInfoItems;
       results = [];
-      for (k = 0, len = ref.length; k < len; k++) {
+      for (k = 0, len1 = ref.length; k < len1; k++) {
         item = ref[k];
         if (item !== 'urn') {
           results.push(item.charAt(0).toUpperCase() + item.slice(1));
@@ -1449,11 +1601,33 @@
     }
   };
 
-  util.forAllCorpora = function(func) {
-    var corpus;
+  util.forAllCorpora = function() {
+    var args, corpus, func;
+    func = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
     for (corpus in settings.corpora) {
-      func(settings.corpora[corpus]);
+      func.apply(null, [settings.corpora[corpus], corpus].concat(slice.call(args)));
     }
+  };
+
+  util.forAllFolders = function() {
+    var args, for_all_subfolders, func;
+    func = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
+    for_all_subfolders = function() {
+      var args, folder, func, prop_name, results;
+      folder = arguments[0], func = arguments[1], args = 3 <= arguments.length ? slice.call(arguments, 2) : [];
+      results = [];
+      for (prop_name in folder) {
+        if (!hasProp.call(folder, prop_name)) continue;
+        if (prop_name !== "title" && prop_name !== "description" && prop_name !== "contents" && prop_name !== "info") {
+          func.apply(null, [folder[prop_name]].concat(slice.call(args)));
+          results.push(for_all_subfolders.apply(null, [folder[prop_name], func].concat(slice.call(args))));
+        } else {
+          results.push(void 0);
+        }
+      }
+      return results;
+    };
+    return for_all_subfolders.apply(null, [settings.corporafolders, func].concat(slice.call(args)));
   };
 
   util.initCorpusSettingsLinkAttrs = function() {
@@ -1555,11 +1729,11 @@
       }
     };
     expandAlias = function(alias) {
-      var corp_spec, corp_specs, corpora, k, len;
+      var corp_spec, corp_specs, corpora, k, len1;
       if (/[^a-z0-9_,-]/.test(alias)) {
         corpora = [];
         corp_specs = alias.split(",");
-        for (k = 0, len = corp_specs.length; k < len; k++) {
+        for (k = 0, len1 = corp_specs.length; k < len1; k++) {
           corp_spec = corp_specs[k];
           if (/[^a-z0-9_,-]/.test(corp_spec)) {
             corpora = corpora.concat(util.listMatchingCorpora(corp_spec));
@@ -1592,51 +1766,52 @@
   };
 
   util.initCorpusSettingsAttrDisplayOrder = function() {
-    var corpus;
-    for (corpus in settings.corpora) {
-      util.setAttrDisplayOrder(settings.corpora[corpus]);
-    }
+    return util.forAllCorpora(util.setAttrDisplayOrder);
   };
 
   util.setAttrDisplayOrder = function(corpusInfo) {
-    var attr_name, attr_names, attr_type, index, k, l, len, len1, len2, len3, m, n, order, pattern, ref, ref1, ref2, result;
+    var attr_info, attr_name, attr_names, attr_type, existing_orders, index, k, l, len1, len2, len3, m, min_existing_order, next_order, order_spec, pattern, ref, ref1, ref2, set_order;
+    set_order = function(attr_info, attr_name, order) {
+      return attr_info[attr_name] = $.extend({}, attr_info[attr_name], {
+        order: order
+      });
+    };
     ref = ["attributes", "struct_attributes", "link_attributes"];
-    for (k = 0, len = ref.length; k < len; k++) {
+    for (k = 0, len1 = ref.length; k < len1; k++) {
       attr_type = ref[k];
-      order = ((ref1 = corpusInfo.sidebar_display_order) != null ? ref1[attr_type] : void 0) || ((ref2 = settings.default_sidebar_display_order) != null ? ref2[attr_type] : void 0);
-      if (order) {
-        attr_names = _.keys(corpusInfo[attr_type]);
-        result = [];
-        for (l = 0, len1 = order.length; l < len1; l++) {
-          pattern = order[l];
-          if ($.type(pattern === "regexp")) {
-            index = 0;
-            for (m = 0, len2 = attr_names.length; m < len2; m++) {
+      order_spec = ((ref1 = corpusInfo.sidebar_display_order) != null ? ref1[attr_type] : void 0) || ((ref2 = settings.default_sidebar_display_order) != null ? ref2[attr_type] : void 0);
+      if (order_spec) {
+        attr_info = corpusInfo[attr_type];
+        existing_orders = _.pluck(attr_info, "order");
+        if (_.all(existing_orders)) {
+          continue;
+        }
+        min_existing_order = _.min(existing_orders);
+        if (min_existing_order === Infinity) {
+          min_existing_order = 100;
+        }
+        attr_names = _(attr_info).keys().filter(function(key) {
+          return attr_info[key].order == null;
+        }).value();
+        next_order = min_existing_order - 1;
+        for (l = 0, len2 = order_spec.length; l < len2; l++) {
+          pattern = order_spec[l];
+          if ($.type(pattern) === "regexp") {
+            for (m = 0, len3 = attr_names.length; m < len3; m++) {
               attr_name = attr_names[m];
-              if (attr_name.match(pattern)) {
-                result.push(attr_name);
-                attr_names[index] = "";
+              if (attr_name.match(pattern) && (attr_info[attr_name].order == null)) {
+                set_order(attr_info, attr_name, next_order);
+                next_order -= 1;
               }
-              index += 1;
             }
-          } else if ($.type(pattern === "string")) {
+          } else if ($.type(pattern) === "string") {
             index = $.inArray(pattern, attr_names);
             if (index !== -1) {
-              result.push(attr_names[index]);
-              attr_names[index] = "";
+              set_order(attr_info, attr_names[index], next_order);
+              next_order -= 1;
             }
           }
         }
-        for (n = 0, len3 = attr_names.length; n < len3; n++) {
-          attr_name = attr_names[n];
-          if (attr_name !== "") {
-            result.push(attr_name);
-          }
-        }
-        if (!corpusInfo._sidebar_display_order) {
-          corpusInfo._sidebar_display_order = {};
-        }
-        corpusInfo._sidebar_display_order[attr_type] = result.reverse();
       }
     }
   };
@@ -1646,9 +1821,9 @@
   };
 
   util.setCorpusFeatures = function(corpusInfo) {
-    var featname, features, k, len, ref, ref1;
+    var featname, features, k, len1, ref, ref1;
     ref = corpusInfo.features || [];
-    for (k = 0, len = ref.length; k < len; k++) {
+    for (k = 0, len1 = ref.length; k < len1; k++) {
       featname = ref[k];
       features = (ref1 = settings.corpus_features) != null ? ref1[featname] : void 0;
       if (!features) {
@@ -1672,14 +1847,17 @@
   };
 
   util.setFolderLogicalCorpora = function(folder, logical_corpus) {
-    var corpus, corpus_id, k, len, ref, ref1, ref2, subfolder, subfolder_logical_corpus, subfolder_name;
+    var corpus, corpus_id, k, len1, ref, ref1, ref2, subfolder, subfolder_logical_corpus, subfolder_name;
     if (logical_corpus == null) {
       logical_corpus = null;
     }
     c.log("setFolderLogicalCorpora", folder, logical_corpus != null ? logical_corpus.title : void 0);
     ref = folder.contents || [];
-    for (k = 0, len = ref.length; k < len; k++) {
+    for (k = 0, len1 = ref.length; k < len1; k++) {
       corpus_id = ref[k];
+      if (!(corpus_id in settings.corpora)) {
+        continue;
+      }
       corpus = settings.corpora[corpus_id];
       corpus.logical_corpus = logical_corpus || settings.corpora[corpus_id];
     }
@@ -1734,65 +1912,6 @@
     return results;
   };
 
-  settings.common_struct_types = {
-    date_interval: {
-      label: "date_interval",
-      displayType: "date_interval",
-      opts: false,
-      extended_template: '<div class="date_interval_arg_type"> <div class="section"> <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top"> <i class="fa fa-calendar"></i> {{"date_from" | loc:lang}} </button> {{combined.format("YYYY-MM-DD HH:mm")}} <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" date-model="from_date" time-model="from_time" model="combined" min-date="minDate" max-date="maxDate"> </time-interval> </div> <div class="section"> <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top"> <i class="fa fa-calendar"></i> {{"date_to" | loc:lang}} </button> {{combined2.format("YYYY-MM-DD HH:mm")}} <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" date-model="to_date" time-model="to_time" model="combined2" my="left top" at="right top" min-date="minDate" max-date="maxDate"> </time-interval> </div> </div>',
-      controller: [
-        "$scope", "searches", "$timeout", function($scope, searches, $timeout) {
-          var cl, getTime, getYear, ref, ref1, ref2, s, updateIntervals;
-          s = $scope;
-          cl = settings.corpusListing;
-          updateIntervals = function() {
-            var from, moments, ref, ref1, to;
-            moments = cl.getMomentInterval();
-            if (moments.length) {
-              return ref = _.invoke(moments, "toDate"), s.minDate = ref[0], s.maxDate = ref[1], ref;
-            } else {
-              ref1 = cl.getTimeInterval(), from = ref1[0], to = ref1[1];
-              s.minDate = moment(from.toString(), "YYYY").toDate();
-              return s.maxDate = moment(to.toString(), "YYYY").toDate();
-            }
-          };
-          s.$on("corpuschooserchange", function() {
-            return updateIntervals();
-          });
-          updateIntervals();
-          s.from_click = function(event) {
-            event.originalEvent.preventDefault();
-            return event.originalEvent.stopPropagation();
-          };
-          c.log("model", s.model);
-          getYear = function(val) {
-            return moment(val.toString(), "YYYYMMDD").toDate();
-          };
-          getTime = function(val) {
-            c.log("getTime", val, moment(val.toString(), "HHmmss").toDate());
-            return moment(val.toString(), "HHmmss").toDate();
-          };
-          if (!s.model) {
-            s.from_date = s.minDate;
-            s.to_date = s.maxDate;
-            ref = _.invoke(cl.getMomentInterval(), "toDate"), s.from_time = ref[0], s.to_time = ref[1];
-          } else if (s.model.length === 4) {
-            ref1 = _.map(s.model.slice(0, 3), getYear), s.from_date = ref1[0], s.to_date = ref1[1];
-            ref2 = _.map(s.model.slice(2), getTime), s.from_time = ref2[0], s.to_time = ref2[1];
-          }
-          return s.$watchGroup(["combined", "combined2"], function(arg) {
-            var combined, combined2;
-            combined = arg[0], combined2 = arg[1];
-            c.log("combined", combined);
-            c.log("combined2", combined2);
-            s.model = [moment(s.from_date).format("YYYYMMDD"), moment(s.to_date).format("YYYYMMDD"), moment(s.from_time).format("HHmmss"), moment(s.to_time).format("HHmmss")];
-            return c.log("s.model", s.model);
-          });
-        }
-      ]
-    }
-  };
-
   util.addCQPs = function(params, cqp, cqp_mapper) {
     var cqps, i, k, key, ref, val;
     if (cqp_mapper == null) {
@@ -1839,9 +1958,9 @@
         return parseInt(key.substr(4) || "0");
       });
       return ((function() {
-        var k, len, results;
+        var k, len1, results;
         results = [];
-        for (k = 0, len = cqp_keys.length; k < len; k++) {
+        for (k = 0, len1 = cqp_keys.length; k < len1; k++) {
           key = cqp_keys[k];
           results.push(params[key]);
         }
@@ -1928,12 +2047,14 @@
   };
 
   util.url_add_corpora = function(href, corpora) {
-    var corpora_str;
-    corpora_str = corpora.join(",");
+    var corpora_str, href_corpora;
     if (href.indexOf("corpus=") === -1) {
+      corpora_str = corpora.join(",");
       return href + "&corpus=" + corpora_str;
     } else {
-      return href.replace(/(&corpus=[^&]+)/, "$1," + corpora_str);
+      href_corpora = /&corpus=([^&]*)/.exec(href)[1].split(",");
+      corpora_str = _.union(href_corpora, corpora).join(",");
+      return href.replace(/(&corpus=)[^&]+/, "$1" + corpora_str);
     }
   };
 
@@ -2030,4 +2151,591 @@
     }
   };
 
+  util.showReloginModal = function() {
+    var modal_class, relogin_modal;
+    relogin_modal = $("#reloginModal");
+    if ((relogin_modal.data("bs.modal") || {}).isShown) {
+      return;
+    }
+    c.log("showReloginModal");
+    util.makeShibbolethLink("#relogin", "shibbolethLoginUrl", (function(_this) {
+      return function(elem, href) {
+        return elem.find("a").attr("href", href);
+      };
+    })(this));
+    modal_class = "relogin";
+    relogin_modal.addClass(modal_class);
+    relogin_modal.on("hidden.bs.modal", function() {
+      return relogin_modal.removeClass(modal_class);
+    });
+    relogin_modal.on("click", function(evt) {
+      return evt.stopPropagation();
+    });
+    relogin_modal.modal();
+  };
+
+  util.encoded_list_param_cache = {};
+
+  util.encodeListParam = function(values, output_sep) {
+    var _calc_common_prefix_len, _make_elems, _make_groups, group_overhead, groups, i, k, len1, min_prefix_len, prefix_lens, value, values_str;
+    if (output_sep == null) {
+      output_sep = ".";
+    }
+    if (values == null) {
+      return "";
+    }
+    min_prefix_len = 2;
+    group_overhead = encodeURIComponent("()").length;
+    _calc_common_prefix_len = function(s1, s2) {
+      var i, maxlen;
+      maxlen = _.max([s1.length, s2.length]);
+      i = 0;
+      while (i < maxlen) {
+        if (s1.charAt(i) !== s2.charAt(i)) {
+          break;
+        }
+        i += 1;
+      }
+      return i;
+    };
+    _make_groups = function(prefix_lens) {
+      var _add_group, eff_len, groups, i, j, len, prev_len, start;
+      groups = [];
+      _add_group = function(start, end) {
+        var len;
+        if (start > end) {
+          return;
+        }
+        len = _.min(prefix_lens.slice(start + 1, end + 1));
+        if (len < min_prefix_len || len === Infinity) {
+          len = 0;
+        }
+        return groups.push([start, end, len]);
+      };
+      start = 0;
+      i = 1;
+      eff_len = prefix_lens[0];
+      while (i < prefix_lens.length) {
+        len = prefix_lens[i];
+        prev_len = prefix_lens[i - 1];
+        if (eff_len === 0 || prev_len < eff_len) {
+          eff_len = prev_len;
+        }
+        if (len < min_prefix_len) {
+          _add_group(start, i - 1);
+          start = i;
+          eff_len = len;
+        } else if (prev_len < min_prefix_len) {
+
+        } else if (len < eff_len) {
+          if ((i - start) * eff_len - group_overhead > (i - start + 1) * len) {
+            _add_group(start, i - 1);
+            start = i;
+            eff_len = len;
+          }
+        } else if (len > eff_len) {
+          j = i + 1;
+          while (j < prefix_lens.length && prefix_lens[j] >= len && ((j - start) * eff_len >= (j - i + 1) * len - group_overhead)) {
+            j += 1;
+          }
+          if ((j - start) * eff_len < (j - i + 1) * len - group_overhead) {
+            _add_group(start, i - 2);
+            start = i - 1;
+            eff_len = len;
+          }
+        }
+        i += 1;
+      }
+      _add_group(start, prefix_lens.length - 1);
+      return groups;
+    };
+    _make_elems = function(values, groups) {
+      var end, group, i, k, l, len1, m, prefix_len, ref, ref1, ref2, ref3, result, start;
+      result = [];
+      for (k = 0, len1 = groups.length; k < len1; k++) {
+        group = groups[k];
+        start = group[0], end = group[1], prefix_len = group[2];
+        if (prefix_len === 0) {
+          for (i = l = ref = start, ref1 = end; ref <= ref1 ? l <= ref1 : l >= ref1; i = ref <= ref1 ? ++l : --l) {
+            result.push(values[i]);
+          }
+        } else {
+          result.push(values[start].substring(0, prefix_len) + "(" + values[start].substring(prefix_len));
+          if (end - start > 1) {
+            for (i = m = ref2 = start + 1, ref3 = end - 1; ref2 <= ref3 ? m <= ref3 : m >= ref3; i = ref2 <= ref3 ? ++m : --m) {
+              result.push(values[i].substring(prefix_len));
+            }
+          }
+          result.push(values[end].substring(prefix_len) + ")");
+        }
+      }
+      return result;
+    };
+    if (typeof values === "string" || values instanceof String) {
+      values_str = values;
+      values = values.split(",");
+    } else {
+      values_str = values.join(",");
+    }
+    if (!settings.encodeListParams) {
+      return values_str;
+    }
+    if (values_str in util.encoded_list_param_cache) {
+      return util.encoded_list_param_cache[values_str];
+    }
+    prefix_lens = [];
+    for (i = k = 0, len1 = values.length; k < len1; i = ++k) {
+      value = values[i];
+      if (i === 0) {
+        prefix_lens.push(0);
+      } else {
+        prefix_lens.push(_calc_common_prefix_len(values[i - 1], value));
+      }
+    }
+    groups = _make_groups(prefix_lens);
+    return _make_elems(values, groups).join(output_sep);
+  };
+
+  util.encodeListParamUniq = function(values, output_sep) {
+    if (output_sep == null) {
+      output_sep = ".";
+    }
+    return util.encodeListParam(_.sortBy(_.uniq(values), output_sep));
+  };
+
+  util.decodeListParam = function(str_list) {
+    var _, elem, k, len1, match, pref, prefix, result, sep, suff, values;
+    if (!str_list) {
+      return [];
+    }
+    values = str_list.split(/[,.]/);
+    if (!settings.encodeListParams) {
+      return values;
+    }
+    result = [];
+    prefix = "";
+    for (k = 0, len1 = values.length; k < len1; k++) {
+      elem = values[k];
+      match = /^([^()]*)([()])?(.*)$/.exec(elem);
+      _ = match[0], pref = match[1], sep = match[2], suff = match[3];
+      if (suff == null) {
+        suff = "";
+      }
+      if (sep === "(") {
+        prefix = pref;
+        result.push(prefix + suff);
+      } else if (sep === ')') {
+        result.push(prefix + pref);
+        prefix = "";
+      } else {
+        result.push(prefix + pref);
+      }
+    }
+    return result;
+  };
+
+  util.test_encodeListParam = function(values) {
+    var dc, ec, success;
+    if ($.isArray(values)) {
+      values = values.join(",");
+    }
+    ec = util.encodeListParam(values);
+    dc = (util.decodeListParam(ec)).join(",");
+    success = dc === values;
+    c.log("encodeListParam", values, "=>", ec, "=>", dc, "|", success ? "success" : "FAIL");
+    return success;
+  };
+
+  util.test_encodeListParams = function(values_list) {
+    var k, len1, success, values;
+    success = true;
+    for (k = 0, len1 = values_list.length; k < len1; k++) {
+      values = values_list[k];
+      success = success && util.test_encodeListParam(values);
+    }
+    return success;
+  };
+
+  util.testsuite_EncodeList = function() {
+    return util.test_encodeListParams(["foobar", "foo,bar", "foo,fbar", "lam_antr,lam_ahla,foobar", "foo,bar,baz,zoo", "lam_antr,lam_ahla,lam_kosk,lam_kell", "lam_antr,lam_ahla,lam_x,lam_y", "lam_antr,lam_ahla,lam_atestipiste_x,lam_atestipiste_y", "lam_antr,lam_ahla,lam_atestipiste_x,lam_atestipiste_y,lam_atestipiste_z", "lam_antr,lam_ahla,lam_xtestipiste_x,lam_xtestipiste_y", "lam_xtestipiste_x,lam_xtestipiste_y,lam_antr,lam_ahla", "lam_antr,lam_ahla,lam_x,lam_y,lam_ypsilon", "ftb2,ftb3_ep,ftb3_ja", "ftb3x_ep,ftb3x_ja,ftb2", "ftb3x_ep,ftb2,ftb3x_ja", "ftb2,ftb3x_ep,ftb3x_ja", "ftb3xx_ep,ftb3xx_ja,ftb2", "ftb2,ftb3xx_ep,ftb3xx_ja", "ftb3xx_ep,ftb2,ftb3xx_ja", "ethesis_ma_ai,ethesis_ma_bio,ethesis_ma_el,ethesis_ma_far,ethesis_phd_bio,ethesis_phd_el", "klk_fi_1991,klk_fi_1989,klk_fi_1988,klk_fi_1987,klk_fi_1986,klk_fi_1985,klk_fi_1984,klk_fi_1983,klk_fi_1982,klk_fi_1981,klk_fi_1980,klk_fi_1979", "s24,s24_1,s24,s24_2,s24"]);
+  };
+
+  util.compressUrlHashParams = function(href, opts) {
+    var compressed, fixed, min_length, params, ref;
+    if (href == null) {
+      href = null;
+    }
+    if (opts == null) {
+      opts = null;
+    }
+    ref = util.splitUrlOnHash(href), fixed = ref[0], params = ref[1];
+    min_length = (opts != null ? opts.min_length : void 0) || 2000;
+    if (fixed.length + params.length < min_length) {
+      return fixed + "#?" + params;
+    }
+    compressed = fixed + "#?gz=" + util.compressBase64(params);
+    c.log("compressUrlHashParams", fixed + "#?" + params, "=>", compressed);
+    return compressed;
+  };
+
+  util.decompressUrlHashParams = function(href) {
+    var fixed, k, len1, param, paramlist, paramnum, params, ref, uncompressed;
+    if (href == null) {
+      href = null;
+    }
+    ref = util.splitUrlOnHash(href), fixed = ref[0], params = ref[1];
+    if (!/(^|&)gz=/.test(params)) {
+      return href || window.location.href;
+    }
+    paramlist = params.split("&");
+    for (paramnum = k = 0, len1 = paramlist.length; k < len1; paramnum = ++k) {
+      param = paramlist[paramnum];
+      if (_.str.startsWith(param, "gz=")) {
+        paramlist[paramnum] = util.decompressBase64(param.slice(3));
+      }
+    }
+    uncompressed = fixed + "#?" + paramlist.join("&");
+    c.log("decompressUrlHashParams", fixed + "?#" + params, "=>", uncompressed);
+    return uncompressed;
+  };
+
+  util.decompressActiveUrlHashParams = function() {
+    var new_href;
+    new_href = util.decompressUrlHashParams();
+    if (new_href !== window.location.href) {
+      window.location.replace(new_href);
+    }
+  };
+
+  util.compressBase64 = function(str, opts) {
+    return util.b64EncodeBytesUrlSafe(pako.deflate(str), opts);
+  };
+
+  util.decompressBase64 = function(str) {
+    return pako.inflate(util.b64DecodeBytesUrlSafe(str), {
+      to: "string"
+    });
+  };
+
+  util.splitUrlOnHash = function(href) {
+    var comps, fixed, params;
+    if (href == null) {
+      href = null;
+    }
+    if (href == null) {
+      href = window.location.href;
+    }
+    comps = href.split("#?");
+    fixed = comps[0];
+    params = comps.slice(1).join("#?");
+    return [fixed, params];
+  };
+
+  util.b64EncodeBytesUrlSafe = function(bytes, opts) {
+    var result;
+    result = btoa(Array.prototype.slice.call(bytes).map(function(b) {
+      return String.fromCharCode(b);
+    }).join("")).replace(/\+/g, "-").replace(/\//g, "_");
+    if (!(opts != null ? opts.keep_padding : void 0)) {
+      return result.replace(/=/g, "");
+    } else {
+      return result;
+    }
+  };
+
+  util.b64DecodeBytesUrlSafe = function(str) {
+    return atob(str.replace(/-/g, "+").replace(/_/g, "/")).split('').map(function(c) {
+      return c.charCodeAt(0);
+    });
+  };
+
+  util.compressQueryParams = function(data, opts) {
+    var base_params, min_length, params;
+    if (!settings.compressBackendParams || !((data.corpus != null) || (data.set1_corpus != null))) {
+      return data;
+    }
+    opts = $.extend({}, settings.compressBackendParamsOpts, opts);
+    min_length = opts.corpus_min_length || 2000;
+    if (((data.corpus || "").length + (data.set1_corpus || "").length + (data.set2_corpus || "").length) < min_length) {
+      return data;
+    }
+    params = $.param(data);
+    if ((data.command != null) && !opts.compressed_command) {
+      base_params = {
+        command: data.command
+      };
+      params = params.replace(/command=.+?(&|$)/, "");
+    } else {
+      base_params = {};
+    }
+    return $.extend(base_params, {
+      params_z: util.compressBase64(params, {
+        keep_padding: true
+      })
+    });
+  };
+
+  util.initAvailableCorpora = function() {
+    var def, defs, handle_type;
+    handle_type = settings.handleUnavailableCorpora || "none";
+    if (handle_type === "none" || handle_type === "fatal") {
+      window.availableCorpora = null;
+      return null;
+    }
+    defs = [];
+    window.availableCorpora = [];
+    def = $.Deferred();
+    defs.push($.ajax({
+      url: settings.cgi_script,
+      data: "command=info",
+      success: function(data) {
+        var corp;
+        return window.availableCorpora = (function() {
+          var k, len1, ref, results;
+          ref = data["corpora"];
+          results = [];
+          for (k = 0, len1 = ref.length; k < len1; k++) {
+            corp = ref[k];
+            results.push(corp.toLowerCase());
+          }
+          return results;
+        })();
+      }
+    }));
+    $.when.apply($, defs).then(function() {
+      return def.resolve(window.availableCorpora);
+    });
+    return def;
+  };
+
+  util.removeUnavailableCorpora = function(corpora) {
+    var handle_type, message, msg_funcs, remove_listed, removed_corpora;
+    handle_type = settings.handleUnavailableCorpora || "none";
+    if (handle_type === "none" || handle_type === "fatal" || (window.availableCorpora == null)) {
+      return;
+    }
+    removed_corpora = util.filterListedCorpora(window.availableCorpora, remove_listed = false, corpora);
+    if (removed_corpora.length > 0) {
+      message = "Unavailable corpora removed from configuration: ";
+      msg_funcs = {
+        warn: c.warn,
+        error: c.error,
+        log: c.log
+      };
+      (msg_funcs[handle_type] || c.log)(message, removed_corpora);
+    }
+  };
+
+  util.removeEmptyCorporafolders = function(folder, corpora_settings) {
+    var corpname, empty, k, len1, new_contents, prop, ref;
+    if (corpora_settings == null) {
+      corpora_settings = settings.corpora;
+    }
+    empty = true;
+    if ("contents" in folder) {
+      new_contents = [];
+      ref = folder.contents;
+      for (k = 0, len1 = ref.length; k < len1; k++) {
+        corpname = ref[k];
+        if (corpname in corpora_settings) {
+          new_contents.push(corpname);
+        }
+      }
+      if (new_contents.length === 0) {
+        delete folder.contents;
+      } else {
+        folder.contents = new_contents;
+        empty = false;
+      }
+    }
+    for (prop in folder) {
+      if (!hasProp.call(folder, prop)) continue;
+      if (!(prop in settings.corporafolder_properties)) {
+        if (util.removeEmptyCorporafolders(folder[prop])) {
+          delete folder[prop];
+        } else {
+          empty = false;
+        }
+      }
+    }
+    return empty;
+  };
+
+  util.filterListedCorpora = function(filter_list, remove_listed, corpora_settings, folder_settings) {
+    var corpora_to_remove, corpus, k, len1;
+    if (remove_listed == null) {
+      remove_listed = false;
+    }
+    if (corpora_settings == null) {
+      corpora_settings = settings.corpora;
+    }
+    if (folder_settings == null) {
+      folder_settings = settings.corporafolders;
+    }
+    corpora_to_remove = util.filterListed(_.keys(corpora_settings), filter_list, remove_listed);
+    for (k = 0, len1 = corpora_to_remove.length; k < len1; k++) {
+      corpus = corpora_to_remove[k];
+      delete corpora_settings[corpus];
+    }
+    util.removeEmptyCorporafolders(folder_settings, corpora_settings);
+    return corpora_to_remove;
+  };
+
+  util.filterListed = function(base_list, filter_list, keep_listed) {
+    var operation;
+    if (keep_listed == null) {
+      keep_listed = true;
+    }
+    operation = keep_listed ? _.intersection : _.difference;
+    return operation(base_list, filter_list);
+  };
+
+  util.adjustPreselectedCorpora = function() {
+    var adjusted, check_item, folderExists, item, k, len1, ref;
+    folderExists = function(folder, subfolders) {
+      return folder && (subfolders.length === 0 || folderExists(folder[subfolders[0]], subfolders.slice(1)));
+    };
+    adjusted = [];
+    check_item = function(item, type, exists_func) {
+      if (exists_func(item)) {
+        return adjusted.push(item);
+      } else {
+        return c.log("Removed unavailable " + type + " " + item + " from settings.preselected_corpora");
+      }
+    };
+    ref = settings.preselected_corpora;
+    for (k = 0, len1 = ref.length; k < len1; k++) {
+      item = ref[k];
+      if (/^__/.test(item)) {
+        check_item(item, "corpus folder", function(folder_path) {
+          return folderExists(settings.corporafolders, folder_path.substring(2).split("."));
+        });
+      } else {
+        check_item(item, "corpus", function(item) {
+          return item in settings.corpora;
+        });
+      }
+    }
+    settings.preselected_corpora = adjusted;
+  };
+
+  util.checkCorporafolderContents = function(folder_path, corpora, folder, missing_func) {
+    var corpname, k, len1, prop, ref;
+    if (folder_path == null) {
+      folder_path = "settings.corporafolders";
+    }
+    if (corpora == null) {
+      corpora = settings.corpora;
+    }
+    if (folder == null) {
+      folder = settings.corporafolders;
+    }
+    if (missing_func == null) {
+      missing_func = c.error;
+    }
+    ref = folder.contents || [];
+    for (k = 0, len1 = ref.length; k < len1; k++) {
+      corpname = ref[k];
+      if (!(corpname in corpora)) {
+        missing_func((folder_path + ".contents refers to corpus " + corpname) + " with no configuration");
+      }
+    }
+    for (prop in folder) {
+      if (!hasProp.call(folder, prop)) continue;
+      if (!(prop in settings.corporafolder_properties)) {
+        util.checkCorporafolderContents(folder_path + "." + prop, corpora, folder[prop], missing_func);
+      }
+    }
+  };
+
+  util.makeLogInfoItems = function() {
+    var items, search_tab_names;
+    items = [];
+    search_tab_names = {
+      "0": "simple",
+      "1": "ext",
+      "2": "adv",
+      "3": "comp"
+    };
+    items.push("lang=" + (search().lang || settings.defaultLanguage));
+    items.push("search=" + search_tab_names[search().search_tab || "0"]);
+    return items;
+  };
+
+  util.pluginFunctions = {};
+
+  util.addPluginFunction = function(type, funcs) {
+    if (!(type in util.pluginFunctions)) {
+      util.pluginFunctions[type] = [];
+    }
+    if (!_.isArray(funcs)) {
+      funcs = [funcs];
+    }
+    return util.pluginFunctions[type] = util.pluginFunctions[type].concat(funcs);
+  };
+
+  util.addPluginFunctions = function(types_funcs) {
+    var funcs, results, type;
+    results = [];
+    for (type in types_funcs) {
+      if (!hasProp.call(types_funcs, type)) continue;
+      funcs = types_funcs[type];
+      results.push(util.addPluginFunction(type, funcs));
+    }
+    return results;
+  };
+
+  util.callPluginFunctions = function() {
+    var args, func, k, len1, ref, type;
+    type = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
+    if (type in util.pluginFunctions) {
+      ref = util.pluginFunctions[type];
+      for (k = 0, len1 = ref.length; k < len1; k++) {
+        func = ref[k];
+        func.apply(null, args);
+      }
+    }
+  };
+
+  util.callPluginFunctionsValued = function() {
+    var arg1, func, k, len1, ref, rest, type;
+    type = arguments[0], arg1 = arguments[1], rest = 3 <= arguments.length ? slice.call(arguments, 2) : [];
+    if (type in util.pluginFunctions) {
+      ref = util.pluginFunctions[type];
+      for (k = 0, len1 = ref.length; k < len1; k++) {
+        func = ref[k];
+        arg1 = func.apply(null, [arg1].concat(slice.call(rest)));
+      }
+    }
+    return arg1;
+  };
+
+  util.addCorpusTitleLabel = function(config) {
+    var k, label, label_text, len1, ref, ref1, ref2;
+    ref1 = config.labels || ((ref = config.info) != null ? ref.labels : void 0) || [];
+    for (k = 0, len1 = ref1.length; k < len1; k++) {
+      label = ref1[k];
+      label_text = ((ref2 = settings.corpus_label_texts) != null ? ref2[label] : void 0) || label;
+      config.title += " (" + label_text + ")";
+    }
+  };
+
+  util.addCorpusInfoDescrLabel = function(descr, config) {
+    var k, label, len1, ref, ref1;
+    ref1 = config.labels || ((ref = config.info) != null ? ref.labels : void 0) || [];
+    for (k = 0, len1 = ref1.length; k < len1; k++) {
+      label = ref1[k];
+      descr += (descr ? "<br/><br/>" : "") + ("<span rel=\"localize[corpuslabel_descr_" + label + "]\">" + label + "</span>");
+    }
+    return descr;
+  };
+
+  util.addPluginFunctions({
+    CorpusSettingsProcessor: util.addCorpusTitleLabel,
+    CorpusFolderProcessor: util.addCorpusTitleLabel,
+    CorpusInfoDescrProcessor: util.addCorpusInfoDescrLabel
+  });
+
 }).call(this);
+
+//# sourceMappingURL=util.js.map

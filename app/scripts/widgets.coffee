@@ -1,14 +1,4 @@
 Sidebar =
-    options: {
-        displayOrder : [
-            "pos",
-            "posset",
-            "lemma",
-            "lex",
-            "saldo",
-            "variants"
-        ].reverse()
-    }
     _init: () ->
 
     updateContent: (sentenceData, wordData, corpus, tokens) ->
@@ -18,13 +8,17 @@ Sidebar =
         formattedCorpusInfo =
             if settings?.corpusExtraInfo
             then util.formatCorpusExtraInfo(
-                corpusObj, settings.corpusExtraInfo?.sidebar)
+                corpusObj,
+                info_items: settings.corpusExtraInfo?.sidebar
+                item_paragraphs: true)
             else ""
         if formattedCorpusInfo
             formattedCorpusInfo = "<br/>" + formattedCorpusInfo
-        $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>#{corpusObj.title}</p><p id='sidebar-corpus-info'>#{formattedCorpusInfo}</p>").prependTo "#selected_sentence"
+        $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>#{corpusObj.title}</p><div id='sidebar-corpus-info'>#{formattedCorpusInfo}</div>").prependTo "#selected_sentence"
         # All token data, to be passed to the function stringify_synthtetic
         # of a synthetic attribute (Jyrki Niemi 2015-02-24)
+        # TODO (Jyrki Niemi): This could now be removed as Språkbanken's code
+        # also passes tokens to @renderCorpusContent and @renderCustomContent
         token_data =
             pos_attrs : wordData
             struct_attrs : sentenceData
@@ -32,31 +26,29 @@ Sidebar =
         unless $.isEmptyObject(corpusObj.attributes)
             $("#selected_word").append $("<h4>").localeKey("word_attr")
 
-            @renderCorpusContent("pos", wordData, sentenceData,
-                corpusObj.attributes,
-                corpusObj.synthetic_attr_names.attributes, token_data,
-                corpusObj._sidebar_display_order?.attributes)
-            .appendTo "#selected_word"
+            posData = @renderCorpusContent("pos", wordData, sentenceData,
+                corpusObj.attributes, tokens,
+                corpusObj.synthetic_attr_names.attributes, token_data)
+            # posData.appendTo "#selected_word"
+            $("#selected_word").append posData
         unless $.isEmptyObject(corpusObj.struct_attributes)
             $("#selected_sentence").append $("<h4>").localeKey("sentence_attr")
 
             @renderCorpusContent("struct", wordData, sentenceData,
-                corpusObj.struct_attributes,
-                corpusObj.synthetic_attr_names.struct_attributes, token_data,
-                corpusObj._sidebar_display_order?.struct_attributes)
+                corpusObj.struct_attributes, tokens,
+                corpusObj.synthetic_attr_names.struct_attributes, token_data)
             .appendTo "#selected_sentence"
 
         unless $.isEmptyObject(corpusObj.custom_attributes)
-            [word, sentence] = @renderCustomContent(wordData, sentenceData, corpusObj.custom_attributes)
+            [word, sentence] = @renderCustomContent(wordData, sentenceData, corpusObj.custom_attributes, tokens)
             word.appendTo "#selected_word"
             sentence.appendTo "#selected_sentence"
 
         # Links in a separate link section
         unless $.isEmptyObject(corpusObj.link_attributes)
             @renderCorpusContent("link", wordData, sentenceData,
-                corpusObj.link_attributes,
-                corpusObj.synthetic_attr_names.link_attributes, token_data,
-                corpusObj._sidebar_display_order?.link_attributes)
+                corpusObj.link_attributes, tokens,
+                corpusObj.synthetic_attr_names.link_attributes, token_data)
             .appendTo "#selected_links"
 
         @element.localize()
@@ -85,45 +77,62 @@ Sidebar =
 
         ).appendTo(@element)
 
-    renderCorpusContent: (type, wordData, sentenceData, corpus_attrs,
-                          synthetic_attr_names, token_data, attr_order) ->
+    renderCorpusContent: (type, wordData, sentenceData, corpus_attrs, tokens,
+                          synthetic_attr_names, token_data) ->
         if type == "struct" or type == "link"
             pairs = _.pairs(sentenceData)
+
         else if type == "pos"
             pairs = _.pairs(wordData)
             for item in (wordData._struct or [])
-                # Allow spaces in values (Jyrki Niemi 2016-10-18)
-                [key, val] = item.split(/ (.+)/, 2)
+                key = item.substring(0, item.indexOf(" "))
+                val = item.substring(item.indexOf(" ") + 1)
                 if key of corpus_attrs
                     pairs.push([key, val])
 
-          # c.log "wordData", wordData._struct
-        order = attr_order or @options.displayOrder
+        pairs = _.filter pairs, ([key, val]) -> corpus_attrs[key]
+
         pairs.sort ([a], [b]) ->
-            $.inArray(b, order) - $.inArray(a, order)
-        items = for [key, value] in pairs when corpus_attrs[key]
-            @renderItem key, value, corpus_attrs[key], wordData, sentenceData, token_data
+            ord1 = corpus_attrs[a].order
+            ord2 = corpus_attrs[b].order
+            # first three cases to handle ord1 or ord2 being undefined
+            if ord1 == ord2
+                return 0
+            if not ord1
+                return 1
+            if not ord2
+                return -1
+            else
+                return ord2 - ord1
+
+        items = []
+        for [key, value] in pairs
+            items = items.concat (@renderItem key, value, corpus_attrs[key], wordData, sentenceData, token_data, tokens).get?(0)
+
+        items = _.compact items
 
         # Append possible synthetic attributes (Jyrki Niemi 2015-02-24)
+        # TODO: Support the order property; it should be possible to
+        # interleave normal and synthetic attributes.
         if synthetic_attr_names.length
             synthetic = for key in synthetic_attr_names
-                @renderItem key, null, corpus_attrs[key], wordData, sentenceData, token_data
+                @renderItem key, null, corpus_attrs[key], wordData, sentenceData, tokens, token_data
             items = items.concat(synthetic)
 
         return $(items)
 
-    renderCustomContent: (wordData, sentenceData, corpus_attrs) ->
+    renderCustomContent: (wordData, sentenceData, corpus_attrs, tokens) ->
         struct_items = []
         pos_items = []
         for key, attrs of corpus_attrs
-            output = @renderItem(key, null, attrs, wordData, sentenceData)
-            if attrs.custom_type == "struct"
+            output = @renderItem(key, null, attrs, wordData, sentenceData, tokens)
+            if attrs.customType == "struct"
                 struct_items.push output
-            else if attrs.custom_type == "pos"
+            else if attrs.customType == "pos"
                 pos_items.push output
         return [$(pos_items), $(struct_items)]
 
-    renderItem: (key, value, attrs, wordData, sentenceData, token_data) ->
+    renderItem: (key, value, attrs, wordData, sentenceData, tokens, token_data) ->
 
         # Convert &, < and > to HTML character entities (for
         # stringifying attribute values for which stringify is not
@@ -147,16 +156,24 @@ Sidebar =
                 return value
 
         if attrs.displayType in ["hidden", "date_interval"] or
-                attrs.displayOnly == "search"
+                attrs.displayOnly == "search" or attrs.hideSidebar
             return ""
         if attrs.type == "url" and attrs?.url_opts?.hide_url
             # If url_opts.hide_url, hide the url and show the localized
-            # label as the link, or nothing, if the value is empty
+            # label as the link, or nothing, if the value is empty.
+            # Note that this does not work for synthetic attributes,
+            # as their value is null at this point, so they are
+            # handled further below.
             if value == ""
                 return ""
             output = $("<p></p>")
-        else
+        else if attrs.label
             output = $("<p><span rel='localize[#{attrs.label}]'></span>: </p>")
+        else
+            output = $("<p></p>")
+        if attrs.renderItem
+            return output.append(attrs.renderItem key, value, attrs, wordData, sentenceData, tokens)
+
         output.data("attrs", attrs)
         # Convert an undefined value to the empty string (Jyrki Niemi
         # 2015-08-26)
@@ -174,16 +191,92 @@ Sidebar =
         # specified. (Jyrki Niemi 2015-10-26)
         if attrs.transform?
             value = attrs.transform(value)
-
-        if attrs.type == "set"
+        if attrs.type == "set" and attrs.taginfo_url
             # For a set-valued attribute, add the taginfo link right
             # after the attribute label (Jyrki Niemi 2016-02-10)
-            if attrs.taginfo_url
-                output.append """<a href='#{attrs.taginfo_url}' target='_blank'>
-                                                <span id='sidbar_info' class='ui-icon ui-icon-info'></span>
-                                            </a>
-                                    """
-            pattern = attrs.pattern or '<span data-key="<% key %>"><%= val %></span>'
+            output.append """<a href='#{attrs.taginfo_url}' target='_blank'>
+                                            <span id='sidbar_info' class='ui-icon ui-icon-info'></span>
+                                        </a>
+                                """
+        if attrs.type == "set" and attrs.display?.expandList
+            valueArray = _.filter(value?.split("|") or [], Boolean)
+            attrSettings = attrs.display.expandList
+            if attrs.ranked
+                valueArray = _.map valueArray, (value) -> val = value.split(":"); [val[0], val[val.length - 1]]
+
+                lis = []
+
+                for [value, prob], outerIdx in valueArray
+                    li = $("<li></li>")
+                    subValues = if attrSettings.splitValue then attrSettings.splitValue value else [value]
+                    for subValue, idx in subValues
+                        val = (attrs.stringify or attrSettings.stringify or _.identity)(subValue)
+                        inner = $("<span>" + val + "</span>");
+
+                        if attrs.internalSearch and (attrSettings.linkAllValues or outerIdx is 0)
+                            inner.data("key", subValue)
+                            inner.addClass("link").click ->
+                                searchKey = attrSettings.searchKey or key
+                                cqpVal = $(this).data("key")
+                                cqpExpr = if attrSettings.internalSearch then attrSettings.internalSearch searchKey, cqpVal else "[#{searchKey} contains '#{cqpVal}']"
+                                search({"search": "cqp|" + cqpExpr})
+                        if attrs.externalSearch
+                            address = _.template(attrs.externalSearch, {val : subValue})
+                            karpLink = $("<a href='#{address}' class='external_link' target='_blank' style='margin-top: -6px'></a>")
+
+                        li.append inner
+                        if attrSettings.joinValues and idx isnt subValues.length - 1
+                            li.append attrSettings.joinValues
+                    li.append "<span class='prob'> (" + prob + ")</span>"
+                    if karpLink
+                        li.append karpLink
+                    lis.push li
+            else
+                lis = []
+                for value in valueArray
+                    li = $("<li></li>")
+                    li.append value
+                    lis.push li
+
+            if lis.length == 0
+                ul = $('<i rel="localize[empty]" style="color : grey"></i>')
+
+            else
+                ul = $("<ul class='hide-prob' style='list-style:initial'>")
+                ul.append lis
+
+                if lis.length isnt 1
+
+                    _.map lis, (li, idx) -> if idx != 0 then li.css('display', 'none')
+
+                    showAll = $("<span class='link' rel='localize[complemgram_show_all]'></span><span> (" + (lis.length - 1) + ")</span>")
+                    ul.append showAll
+
+                    showOne = $("<span class='link' rel='localize[complemgram_show_one]'></span>")
+                    showOne.css "display", "none"
+                    ul.append showOne
+
+                    showAll.click () ->
+                        showAll.css "display", "none"
+                        showOne.css "display", "inline"
+                        ul.removeClass "hide-prob"
+                        _.map lis, (li) ->
+                            
+                            li.css "display", "list-item"
+
+                    showOne.click () ->
+                        showAll.css "display", "inline"
+                        showOne.css "display", "none"
+                        ul.addClass "hide-prob"
+                        _.map lis, (li, i) ->
+                            if i != 0
+                                li.css "display", "none"
+
+            output.append ul
+            return output
+
+        else if attrs.type == "set"
+            pattern = attrs.pattern or '<span data-key="<%= key %>"><%= val %></span>'
             ul = $("<ul>")
             getStringVal = (str) ->
                 return _.reduce(_.invoke(_.invoke(str, "charCodeAt", 0), "toString"), (a,b) -> a + b);
@@ -207,15 +300,16 @@ Sidebar =
                     prefix = attrs.translationKey or ""
                     val = mapViaDataset(val)
                     inner.localeKey(prefix + val)
+
+                if attrs.internalSearch
+                    inner.addClass("link").click ->
+                        cqpVal = $(this).data("key")
+                        search({"search": "cqp|[#{key} contains '#{cqpVal}']"})
+
                 li = $("<li></li>").data("key", x).append inner
                 if attrs.externalSearch
                     address = _.template(attrs.externalSearch, {val : x})
                     li.append $("<a href='#{address}' class='external_link' target='_blank'></a>")
-                                                    .click (event) -> event.stopImmediatePropagation()
-                if attrs.internalSearch
-                    li.addClass("link").click ->
-                        cqpVal = $(this).data("key")
-                        search({"search": "cqp|[#{key} contains '#{cqpVal}']"})
 
 
                 li
@@ -232,6 +326,11 @@ Sidebar =
 
 
         if attrs.type == "url"
+            # If the value is empty or undefined and the URL is not to
+            # be shown, do not show the link at all. This handles
+            # synthetic attribute values; others are handled above.
+            if not str_value and attrs?.url_opts?.hide_url
+                return ""
             url_opts = attrs.url_opts or {}
             # If url_opts.new_window, open the link to a new window
             target = if url_opts.new_window
@@ -286,6 +385,16 @@ Sidebar =
         else
             if attrs.translationKey?
                 str_value = mapViaDataset(str_value)
+                # Språkbanken's Korp requires an English translation
+                # for the localization to be used, but that is not
+                # appropriate for Kielipankki's Korp. However, would
+                # it be better to use the bare value instead of the
+                # translation key if a translation in the active
+                # language is missing? (Jyrki Niemi 2017-11-01)
+                # if loc_data["en"][attrs.translationKey + str_value]
+                #     return output.append "<span rel='localize[#{attrs.translationKey}#{str_value}]'></span>"
+                # else
+                #     return output.append "<span>#{str_value}</span>"
                 return output.append "<span rel='localize[#{attrs.translationKey}#{str_value}]'></span>"
             else
                 return output.append "<span>#{str_value || ''}</span>"
@@ -307,18 +416,6 @@ Sidebar =
                 break if midsection is "..."
 
         # @element.css "display", oldDisplay
-
-    refreshContent: (mode) ->
-        if mode is "lemgramWarning"
-            $.Deferred((dfd) =>
-                @element.load "markup/parse_warning.html", =>
-                    util.localize()
-                    @element.addClass("ui-state-highlight").removeClass "kwic_sidebar"
-                    dfd.resolve()
-
-            ).promise()
-        else
-            @element.removeClass("ui-state-highlight").addClass "kwic_sidebar"
 
     updatePlacement: ->
         max = Math.round($("#columns").position().top)
