@@ -131,17 +131,17 @@ settings.corporafolders.fstc = {
 };
 
 settings.corporafolders.yle_sv = {
-    title : "Svenska Yles webbartiklar (beta)",
-    description : "Svenska Yles webbartiklar (beta)<br/><br/>Mappen innehåller två korpusar med samma meningar men med olika tillgänglighet och egenskaper: den ena korpusen är öppen för alla och har meningarna i en blandad ordning inom varje text och utan utökad kontextvisning, medan den andra korpusen är tillgänglig för forskare och har meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning.",
-    contents : [
+    title: "Svenska Yles webbartiklar (beta)",
+    description: "Svenska Yles webbartiklar (beta)<br/><br/>Mappen innehåller två korpusar med samma meningar men med olika tillgänglighet och egenskaper: den ena korpusen är öppen för alla och har meningarna i en blandad ordning inom varje text och utan utökad kontextvisning, medan den andra korpusen är tillgänglig för forskare och har meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning.",
+    contents: [
 	"yle_sv_a",
 	"yle_sv_s",
     ],
-    info : {
-	homepage : {
-	    name : "Svenska Yle",
-	    url : "https://svenska.yle.fi",
-	    no_label : true,
+    info: {
+	homepage: {
+	    name: "Svenska Yle",
+	    url: "https://svenska.yle.fi",
+	    no_label: true,
 	},
     },
 };
@@ -543,11 +543,11 @@ var transform_datetime = function (val) {
 };
 
 sattrlist.yle_sv_common = {
-    text_main_department : {
-	label : "main_section",
-	displayType : "select",
-	opts : settings.liteOptions,
-	dataset : [
+    text_main_department: {
+	label: "main_section",
+	displayType: "select",
+	opts: settings.liteOptions,
+	dataset: [
 	    "",
 	    "Abimix",
 	    "Åboland",
@@ -655,12 +655,12 @@ sattrlist.yle_sv_common = {
 	    "Yle Fem",
 	],
     },
-    text_departments : {
-	label : "sections",
-	type : "set",
-	opts : settings.setOpts,
-	displayType : "select",
-	dataset : [
+    text_departments: {
+	label: "sections",
+	type: "set",
+	opts: settings.setOpts,
+	displayType: "select",
+	dataset: [
 	    "",
 	    "Abimix",
 	    "Åboland",
@@ -803,114 +803,114 @@ sattrlist.yle_sv_common = {
 	    "Yles ansvar",
 	],
     },
-    text_id : {
-	label : "text_id",
+    text_id: {
+	label: "text_id",
     },
-    text_publisher : sattrs.text_publisher,
-    text_url : sattrs.link_original,
-    text_datetime_published : {
-	label : "datetime_published",
-	transform : transform_datetime,
+    text_publisher: sattrs.text_publisher,
+    text_url: sattrs.link_original,
+    text_datetime_published: {
+	label: "datetime_published",
+	transform: transform_datetime,
     },
-    text_datetime_content_modified : {
-	label : "datetime_content_modified",
-	transform : transform_datetime,
+    text_datetime_content_modified: {
+	label: "datetime_content_modified",
+	transform: transform_datetime,
     },
-    text_datetime_json_modified : {
-	label : "datetime_json_modified",
-	transform : transform_datetime,
+    text_datetime_json_modified: {
+	label: "datetime_json_modified",
+	transform: transform_datetime,
     },
-    // paragraph_id : {
+    // paragraph_id: {
     // },
-    // sentence_id : {
+    // sentence_id: {
     // },
-    sentence_type : {
-	label : "sentence_type",
-	displayType : "select",
-	opts : settings.liteOptions,
-	translationKey : "textpart_",
-	dataset : {
-	    "alt" : "image_alt",
-	    "by" : "byline",
-	    "caption" : "caption",
-	    "heading" : "heading",
-	    "heading-alt" : "heading_alt",
-	    "heading-caption" : "heading_caption",
-	    "text" : "text",
+    sentence_type: {
+	label: "sentence_type",
+	displayType: "select",
+	opts: settings.liteOptions,
+	translationKey: "textpart_",
+	dataset: {
+	    "alt": "image_alt",
+	    "by": "byline",
+	    "caption": "caption",
+	    "heading": "heading",
+	    "heading-alt": "heading_alt",
+	    "heading-caption": "heading_caption",
+	    "text": "text",
 	},
     },
 };
 
 sattrs.yle_sv_paragraph_type = {
-    label : "paragraph_type",
-    displayType : "select",
-    opts : settings.liteOptions,
-    translationKey : "textpart_",
-    dataset : {
-	"by" : "byline",
-	"heading" : "heading",
-	"headline" : "headline",
-	"image" : "image",
-	"lead" : "lead",
-	"quote" : "quote",
-	"shortSummary" : "short_summary",
-	"summary" : "summary",
-	"text" : "text",
+    label: "paragraph_type",
+    displayType: "select",
+    opts: settings.liteOptions,
+    translationKey: "textpart_",
+    dataset: {
+	"by": "byline",
+	"heading": "heading",
+	"headline": "headline",
+	"image": "image",
+	"lead": "lead",
+	"quote": "quote",
+	"shortSummary": "short_summary",
+	"summary": "summary",
+	"text": "text",
     },
 };
 
 
 // settings.corpora.yle_sv_sample = {
-//     title : "Svenska Yles webbartiklar (test)",
-//     description : "Svenska Yles webbartiklar (test)",
-//     id : "yle_sv_sample",
-//     urn : "[to be added]",
-//     metadata_urn : "urn:nbn:fi:lb-2016111401",
-//     licence : settings.licenceinfo.ACA_NC,
-//     cite_id : "yle-sv",
-//     context : settings.spContext,
-//     within : settings.spWithin,
-//     limited_access : true,
-//     licence_type : "ACA",
-//     attributes : {},
-//     struct_attributes : sattrlist.yle_sv_common,
+//     title: "Svenska Yles webbartiklar (test)",
+//     description: "Svenska Yles webbartiklar (test)",
+//     id: "yle_sv_sample",
+//     urn: "[to be added]",
+//     metadata_urn: "urn:nbn:fi:lb-2016111401",
+//     licence: settings.licenceinfo.ACA_NC,
+//     cite_id: "yle-sv",
+//     context: settings.spContext,
+//     within: settings.spWithin,
+//     limited_access: true,
+//     licence_type: "ACA",
+//     attributes: {},
+//     struct_attributes: sattrlist.yle_sv_common,
 // };
 
 settings.corpora.yle_sv_a = {
-    title : "Svenska Yles webbartiklar 2012– (2017H1) (för forskare) (beta)",
-    description : "Svenska Yles webbartiklar 2012– (version 2017H1), variant tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning",
-    id : "yle_sv_a",
-    urn : "[to be added]",
-    metadata_urn : "urn:nbn:fi:lb-2016111401",
-    licence : settings.licenceinfo.ACA_NC,
-    cite_id : "yle-sv",
-    context : settings.spContext,
-    within : settings.spWithin,
-    limited_access : true,
-    licence_type : "ACA",
-    attributes : {},
-    struct_attributes : $.extend(
+    title: "Svenska Yles webbartiklar 2012– (2017H1) (för forskare) (beta)",
+    description: "Svenska Yles webbartiklar 2012– (version 2017H1), variant tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning",
+    id: "yle_sv_a",
+    urn: "[to be added]",
+    metadata_urn: "urn:nbn:fi:lb-2016111401",
+    licence: settings.licenceinfo.ACA_NC,
+    cite_id: "yle-sv",
+    context: settings.spContext,
+    within: settings.spWithin,
+    limited_access: true,
+    licence_type: "ACA",
+    attributes: {},
+    struct_attributes: $.extend(
 	{}, sattrlist.yle_sv_common,
 	{
-	    paragraph_type : sattrs.yle_sv_paragraph_type,
+	    paragraph_type: sattrs.yle_sv_paragraph_type,
 	}),
 };
 
 settings.corpora.yle_sv_s = {
-    title : "Svenska Yles webbartiklar 2012– (2017H1) (för alla) (beta)",
-    description : "Svenska Yles webbartiklar 2012– (version 2017H1), variant öppen för alla: meningarna i en blandad ordning inom varje text och ingen utökad kontextvisning",
-    id : "yle_sv_s",
-    urn : "[to be added]",
-    metadata_urn : "urn:nbn:fi:lb-2016111401",
-    licence : settings.licenceinfo.CC_BY,
-    cite_id : "yle-sv",
-    context : settings.defaultContext,
-    within : settings.defaultWithin,
-    attributes : {},
-    struct_attributes : $.extend(
+    title: "Svenska Yles webbartiklar 2012– (2017H1) (för alla) (beta)",
+    description: "Svenska Yles webbartiklar 2012– (version 2017H1), variant öppen för alla: meningarna i en blandad ordning inom varje text och ingen utökad kontextvisning",
+    id: "yle_sv_s",
+    urn: "[to be added]",
+    metadata_urn: "urn:nbn:fi:lb-2016111401",
+    licence: settings.licenceinfo.CC_BY,
+    cite_id: "yle-sv",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: {},
+    struct_attributes: $.extend(
 	{}, sattrlist.yle_sv_common,
 	{
-	    sentence_paragraph_type : sattrs.yle_sv_paragraph_type,
+	    sentence_paragraph_type: sattrs.yle_sv_paragraph_type,
 	}),
 };
 
