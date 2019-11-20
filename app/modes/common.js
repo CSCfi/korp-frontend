@@ -103,7 +103,11 @@ settings.licenceinfo = {
 	name: "CLARIN ACA +NC",
 	description: "CLARIN ACA (Academic) End-User License 1.0, Non-commercial",
 	url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
-    }
+    },
+    Ylenews_sv_en: {
+	name: "CLARIN ACA +NC +OTHER 1.0",
+	urn: "urn:nbn:fi:lb-2019032201",
+    },
 };
 
 
@@ -2415,6 +2419,15 @@ sattrlist.studentsvenska = {
 
 attrlist.parsed_sv = {
     lemma: attrs.baseform,
+    pos: attrs.pos,
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel,
+    ref: attrs.ref
+};
+
+attrlist.parsed_sv_lemmaset = {
+    lemma: attrs.baseform_sv,
     pos: attrs.pos,
     msd: attrs.msd,
     dephead: attrs.dephead,
