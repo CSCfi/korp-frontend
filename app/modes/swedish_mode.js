@@ -4,7 +4,7 @@ settings.primaryColor = "#EEBA94";
 settings.primaryLight = "#F5D4BB";
 settings.autocomplete = true;
 settings.lemgramSelect = true;
-settings.wordpicture = false;
+settings.wordpicture = true;
 settings.show_related_words = true;
 
 
