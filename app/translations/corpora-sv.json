@@ -455,6 +455,8 @@
     "text_time": "tid",
 
     "publication_date": "publikationsdatum",
+    "publication_date_2": "publikationsdatum",
+    "publication_time": "publikationstid",
 
     "textgenre_fiction": "skönlitteratur",
     "textgenre_law": "juridisk text",

@@ -833,11 +833,13 @@
     "text_time": "time",
 
     "publication_date": "publication date",
+    "publication_date_2": "publication date",
     "publication_year": "publication year",
     "publication_place": "place of publication",
     "publication_name": "publication name",
     "publication_info": "publication information",
     "publication_place": "place of publication",
+    "publication_time": "publication time",
 
     "textgenre_fiction": "fiction",
     "textgenre_law": "legal text",

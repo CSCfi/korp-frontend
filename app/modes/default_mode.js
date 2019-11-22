@@ -13518,8 +13518,12 @@ settings.corpora.eduskunta_test = {
         text_filename: {
             label: "file_name",
         },
-        text_date: sattrs.date,
-        text_time: sattrs.text_time,
+        text_date: {
+	    label: "publication_date_2",
+	},
+        text_time: {
+	    label: "publication_time",
+	},
         text_original_video : {
 	    label : "original_video",
 	    type : "url",

@@ -1469,10 +1469,12 @@
     "text_period": "tekstin ajankohta",
 
     "publication_date": "julkaisuajankohta",
+    "publication_date_2": "julkaisupäivä",
     "publication_year": "julkaisuvuosi",
     "publication_place": "julkaisupaikka",
     "publication_name": "julkaisun nimi",
     "publication_info": "julkaisutiedot",
+    "publication_time": "julkaisuaika",
 
     "author_birthyear": "tekijän syntymävuosi",
     "author_deathyear": "tekijän kuolinvuosi",
