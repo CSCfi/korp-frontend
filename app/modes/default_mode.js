@@ -13408,6 +13408,8 @@ settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
 		if (loc_val != undefined) {
 		    val = loc_val;
 		}
+	    } else if (val == "") {
+		val = util.getLocaleString("unknown");
 	    }
 	    text_attrs[key] = name + "," + val;
 	}
