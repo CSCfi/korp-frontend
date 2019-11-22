@@ -13637,6 +13637,9 @@ settings.corpora.eduskunta_test = {
 	utterance_duration: {
 	    label: "utterance_duration_ms"
 	},
+	// The valid_video_times attribute needs to be retrieved, as
+	// it is used to determine if the video page link is shown.
+	utterance_valid_video_times: sattrs.hidden,
 	utterance_videopage_link: {
 	    label: "show_video",
 	    type: "url",
@@ -13644,20 +13647,28 @@ settings.corpora.eduskunta_test = {
 	    synthetic: true,
 	    order: 50,
 	    stringify_synthetic: function (token_data) {
-		return settings.fn.make_videopage_url(
-		    // NOTE: Change the following when publishing the
-		    // corpus with the id "eduskunta"
-		    "eduskunta_test",
-		    token_data,
-		    token_data.struct_attrs.text_original_video
-		    // Temporary fix for ä's missing from URL attribute values
-			.replace(/Kevt/, "Kevät")
-			.replace(/keskuu/, "kesäkuu")
-			.replace(/heinkuu/, "heinäkuu"),
-		    [],
-		    ["utterance_videopage_link",
-		     "utterance_annex_link",
-		     "utterance_annex_link_synth",]);
+		if (token_data.struct_attrs.utterance_valid_video_times
+		    == "no") {
+		    return undefined;
+		} else {
+		    return settings.fn.make_videopage_url(
+			// NOTE: Change the following when publishing
+			// the corpus with the id "eduskunta"
+			"eduskunta_test",
+			token_data,
+			token_data.struct_attrs.text_original_video
+			// Temporary fix for ä's missing from URL
+			// attribute values; this is probably not
+			// needed any more, but it does not hurt,
+			// either.
+			    .replace(/Kevt/, "Kevät")
+			    .replace(/keskuu/, "kesäkuu")
+			    .replace(/heinkuu/, "heinäkuu"),
+			[],
+			["utterance_videopage_link",
+			 "utterance_annex_link",
+			 "utterance_annex_link_synth",]);
+		}
 	    },
 	},
 	// Kludge to get the LAT/Annex link after the other video
