@@ -171,6 +171,25 @@ settings.corporafolders.sks = {
 };
 */
 
+settings.corporafolders.ylenews_fi_selko = {
+    title: "Ylen suomenkielisen uutisarkiston selkouutiset",
+    description: "Ylen suomenkielisen uutisarkiston selkouutiset 2011-2018 (beta)<br/><br/> -description-",
+    contents: [
+	       "ylenews_fi_2011_2018_selko_a",
+	       "ylenews_fi_2011_2018_selko_s",
+	       ],
+    info: {
+	homepage: {
+	    name: "Yle Uutiset selkosuomeksi",
+	    url: "https://yle.fi/uutiset/osasto/selkouutiset/",
+	    no_label: true,
+	},
+	labels: ["test"],
+    },
+};
+
+
+
 settings.corporafolders.literature = {
     title: "Kirjallisuutta",
     contents: ["gutenberg", "sks_kivi_fi", "skvr",
@@ -14606,6 +14625,113 @@ settings.corpora.iclfi = {
     }
 };
 
+
+/* YLE Finnish Easy-to-read*/
+
+var transform_datetime = function (val) {
+    // Add a zero-width space before "T" to allow more logical
+    // line-breaking. of an ISO datetime value.
+    return val.replace(/T/g, "\u200bT");
+};
+
+
+sattrlist.ylenews_fi_selko_common = {
+
+    text_id: {
+	label: "text_id",
+    },
+    text_publisher: sattrs.text_publisher,
+    text_url: sattrs.link_original,
+    text_datetime_published: {
+	label: "datetime_published",
+	transform: transform_datetime,
+    },
+    text_datetime_content_modified: {
+	label: "datetime_content_modified",
+	transform: transform_datetime,
+    },
+    text_datetime_json_modified: {
+	label: "datetime_json_modified",
+	transform: transform_datetime,
+    },
+    // paragraph_id: {
+    // },
+    // sentence_id: {
+    // },
+    sentence_type: {
+	label: "sentence_type",
+	displayType: "select",
+	opts: settings.liteOptions,
+	translationKey: "textpart_",
+	dataset: {
+	    "alt": "image_alt",
+	    "by": "byline",
+	    "caption": "caption",
+	    "heading": "heading",
+	    "heading-alt": "heading_alt",
+	    "heading-caption": "heading_caption",
+	    "text": "text",
+	},
+    },
+};
+
+
+sattrs.ylenews_fi_selko_paragraph_type = {
+    label: "paragraph_type",
+    displayType: "select",
+    opts: settings.liteOptions,
+    translationKey: "textpart_",
+    dataset: {
+	"by": "byline",
+	"heading": "heading",
+	"headline": "headline",
+	"image": "image",
+	"lead": "lead",
+	"quote": "quote",
+	"shortSummary": "short_summary",
+	"summary": "summary",
+	"text": "text",
+    },
+};
+
+settings.corpora.ylenews_fi_2011_2018_selko_a = {
+    title: "Ylen suomenkielisen uutisarkiston selkouutiset 2011-2018 (rajallinen käyttö)",
+    description: "Ylen suomenkielisen uutisarkiston selkouutiset 2011-2018, rajallinen käyttö",
+    id: "ylenews_fi_2011_2018_selko_a",
+    // urn: "[to be added]",
+    metadata_urn: "[to be added]",
+    licence: settings.licenceinfo.Ylenews_fi_selko_en,
+    cite_id: "ylenews-fi-2011-2018-selko-korp",
+    context: settings.spContext,
+    within: settings.spWithin,
+    limited_access: true,
+    licence_type: "ACA",
+    attributes: attrlist.parsed_fi_selko_lemmaset,
+    struct_attributes: $.extend(
+        {}, sattrlist.ylenews_fi_selko_common,
+        {
+	    paragraph_type: sattrs.ylenews_fi_selko_paragraph_type,
+        }),
+};
+
+
+settings.corpora.ylenews_fi_2011_2018_selko_s = {
+    title: "Ylen suomenkielisen uutisarkiston selkouutiset 2011-2018 (rajaton käyttö)",
+    description: "Ylen suomenkielisen uutisarkiston selkouutiset 2011-2018 (rajaton käyttö): sekoitettut virkkeet",
+    id: "ylenews_fi_2011_2018_selko_s",
+    // urn: "[to be added]",
+    metadata_urn: "[to be added]",
+    licence: settings.licenceinfo.CC_BY,
+    cite_id: "ylenews-fi-2011-2018-selko-korp",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.parsed_fi_selko_lemmaset,
+    struct_attributes: $.extend(
+        {}, sattrlist.ylenews_fi_selko_common,
+        {
+	    sentence_paragraph_type: sattrs.ylenews_fi_selko_paragraph_type,
+	}),
+};
 
 
 // Add the extra properties to corpora
