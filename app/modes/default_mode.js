@@ -14700,13 +14700,11 @@ settings.corpora.ylenews_fi_2011_2018_selko_a = {
     id: "ylenews_fi_2011_2018_selko_a",
     // urn: "[to be added]",
     metadata_urn: "[to be added]",
-    licence: settings.licenceinfo.Ylenews_fi_selko_en,
+    // licence: settings.licenceinfo.Ylenews_fi_selko_en,
     cite_id: "ylenews-fi-2011-2018-selko-korp",
-    context: settings.spContext,
-    within: settings.spWithin,
     limited_access: true,
     licence_type: "ACA",
-    attributes: attrlist.parsed_fi_selko_lemmaset,
+    features: ["paragraphs", "parsed_tdt"],
     struct_attributes: $.extend(
         {}, sattrlist.ylenews_fi_selko_common,
         {
@@ -14725,7 +14723,7 @@ settings.corpora.ylenews_fi_2011_2018_selko_s = {
     cite_id: "ylenews-fi-2011-2018-selko-korp",
     context: settings.defaultContext,
     within: settings.defaultWithin,
-    attributes: attrlist.parsed_fi_selko_lemmaset,
+    features: ["parsed_tdt"],
     struct_attributes: $.extend(
         {}, sattrlist.ylenews_fi_selko_common,
         {
