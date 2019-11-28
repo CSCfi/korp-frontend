@@ -13503,10 +13503,10 @@ settings.fn.make_hms_custom_attr = function (label, base_attr) {
 };
 
 
-settings.corpora.eduskunta_test = {
+settings.corpora.eduskunta = {
     title: "Eduskunnan täysistunnot",
     description: "Eduskunnan täysistuntojen videotallenteista tehdyt transkriptiot. Istunnot ovat ajalta 10.9.2008–1.7.2016. Osa aineistosta on tarjolla myös LAT-palvelussa. Hakutuloksissa on tällöin linkki istunnon LAT-versioon. Transkriptiot perustuvat suomen kielimalliin, joten ruotsinkieliset puheenvuorot ovat tunnistuneet enimmäkseen vierassanoiksi.",
-    id: "eduskunta_test",
+    id: "eduskunta",
     urn: "urn:nbn:fi:lb-2019112221",
     metadata_urn: "urn:nbn:fi:lb-2019101621",
     licence: {
@@ -13663,9 +13663,7 @@ settings.corpora.eduskunta_test = {
 		    return undefined;
 		} else {
 		    return settings.fn.make_videopage_url(
-			// NOTE: Change the following when publishing
-			// the corpus with the id "eduskunta"
-			"eduskunta_test",
+			"eduskunta",
 			token_data,
 			token_data.struct_attrs.text_original_video
 			// Temporary fix for ä's missing from URL
@@ -13706,9 +13704,8 @@ settings.corpora.eduskunta_test = {
     },
 };
 
-// TODO: Reverse the following alias when the current eduskunta_test
-// is put into production as eduskunta.
-settings.corpus_aliases["eduskunta"] = "eduskunta_test";
+// Support "eduskunta_test" as an alias
+settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 
 
 settings.corpus_aliases["topling-fi"] = "topling_fi";
