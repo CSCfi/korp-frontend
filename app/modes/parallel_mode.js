@@ -720,7 +720,7 @@ settings.corpora.ceal_s_fi = {
 settings.corpora.ceal_s_en = {
     title: "CEAL-s",
     description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi, sekoitetut kappaleet<br/>CEAL-s: Classics of English and American Literature in Finnish, scrambled paragraphs<br/><br/>" + ceal_work_list,
-    id: "ceal_s_fi",
+    id: "ceal_s_en",
     urn: "urn:nbn:fi:lb-2018011202",
     metadata_urn: "urn:nbn:fi:lb-2017011303",
     licence: {
