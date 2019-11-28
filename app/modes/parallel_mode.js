@@ -648,6 +648,96 @@ var wordlink = {
 }
 
 
+/* CEAL */
+
+settings.corporafolders.ceal = {
+    title: "CEAL",
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi ja englanniksi<br/>Classics of English and American Literature in Finnish and English<br/><br/><strong>Huomaa</strong>, että korpukset CEAL-o ja CEAL-s sisältävät samat tekstit, mutta CEAL-s:ssä kappaleet on sekoitettu kunkin teoksen sisällä, kun taas CEAL-o:ssa kappaleet ovat alkuperäisessä järjestyksessä. Hakuja varten kannattaa valita vain toinen korpus. CEAL-o vaatii aina henkilökohtaisen käyttöluvan.",
+    info: {
+	metadata_urn: "urn:nbn:fi:lb-2016110901",
+	iprholder: {
+	    name: "Kersti Juva",
+	},
+    },
+    contents: ["ceal_s_fi"]
+};
+
+sattrlist.ceal_common = {
+    text_title: {
+	label: "work_title",
+	displayType: "select",
+	localize: false,
+	opts: settings.liteOptions,
+	dataset: [
+	    "Ylpeys ja ennakkoluulo",
+	    "Kolea talo",
+	    "Washingtonin aukio",
+	],
+    },
+    text_year: sattrs.year,
+    text_author: {
+	label: "author",
+	displayType: "select",
+	localize: false,
+	opts: settings.liteOptions,
+	dataset: [
+	    "Jane Austen",
+	    "Charles Dickens",
+	    "Henry James",
+	],
+    },
+    text_translator: {
+	label: "text_translator",
+	// All the works in CEAL have been translated by Kersti Juva,
+	// so having the translator as a search criterion would make
+	// little sense. How about statistics and comparison?
+	hideExtended: true,
+	// hideStatistics: true,
+	// hideCompare: true,
+    },
+};
+
+var ceal_work_list = "Korpus sisältää seuraavat Kersti Juvan kääntämät teokset:<ul><li>Jane Austen: Ylpeys ja ennakkoluulo (Teos 2013) (Pride and Prejudice)</li><li>Charles Dickens: Kolea talo (Otava 2003) (Bleak House)</li><li>Henry James: Washingtonin aukio (Tammi 2006) (Washington Square)</li>";
+
+settings.corpora.ceal_s_fi = {
+    title: "CEAL-s",
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi, sekoitetut kappaleet<br/>CEAL-s: Classics of English and American Literature in Finnish, scrambled paragraphs<br/><br/>" + ceal_work_list,
+    id: "ceal_s_fi",
+    urn: "urn:nbn:fi:lb-2018011202",
+    metadata_urn: "urn:nbn:fi:lb-2017011303",
+    licence: {
+	name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
+	urn: "urn:nbn:fi:lb-2017011308",
+    },
+    cite_id: "ceal-s",
+    limited_access: true,
+    licence_type: "RES", // -> ACA
+    attributes: attrlist.ud2_fi,
+    struct_attributes: sattrlist.ceal_common,
+    linked_to: ["ceal_s_en"]
+};
+
+settings.corpora.ceal_s_en = {
+    title: "CEAL-s",
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi, sekoitetut kappaleet<br/>CEAL-s: Classics of English and American Literature in Finnish, scrambled paragraphs<br/><br/>" + ceal_work_list,
+    id: "ceal_s_fi",
+    urn: "urn:nbn:fi:lb-2018011202",
+    metadata_urn: "urn:nbn:fi:lb-2017011303",
+    licence: {
+	name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
+	urn: "urn:nbn:fi:lb-2017011308",
+    },
+    cite_id: "ceal-s",
+    limited_access: true,
+    licence_type: "RES", // -> ACA
+    attributes: attrlist.ud2_en,
+    struct_attributes: sattrlist.ceal_common,
+    linked_to: ["ceal_s_fi"]
+};
+
+delete ceal_work_list;
+
+
 /* SEMFINLEX */
 
 settings.corpora.semfinlex_asd_par_2018_fi = {

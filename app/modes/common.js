@@ -1753,6 +1753,8 @@ attrlist.ud2_fi = {
     misc: { label: "", displayType: "hidden" },
 };
 
+attrlist.ud2_en = attrlist.ud2_fi;
+
 settings.corpus_features.finer = {
     attributes: attrlist.finer,
 };
