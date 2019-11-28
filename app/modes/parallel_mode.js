@@ -732,7 +732,8 @@ settings.corpora.ceal_s_en = {
     licence_type: "RES", // -> ACA
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ceal_common,
-    linked_to: ["ceal_s_fi"]
+    linked_to: ["ceal_s_fi"],
+    hide: true
 };
 
 delete ceal_work_list;
