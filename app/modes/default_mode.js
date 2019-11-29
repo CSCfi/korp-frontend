@@ -13441,6 +13441,20 @@ settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
 	    text_attrs[key] = name + "," + val;
 	}
     };
+    var make_licence_info = function (corpus_conf) {
+	// A single quote does not seem to be encoded correctly, so
+	// change single quotes to double ones. FIXME: This assumes
+	// that single quotes are used only to delimit attribute
+	// values.
+	var licence_text = util.formatCorpusExtraInfo(
+	    corpus_conf, { info_items: ["licence"],
+			   static_localization: true })
+	    .replace(/'/g, "\"");
+	// A kludge to put the video licence first: assumes that its
+	// localized label contains the string "video"
+	return licence_text.replace(
+	    /^(.*?)(<br\s*\/?>)(Li.*?video.*)$/, "$3$2$1");
+    };
     var prefix = "markup/video_page.html#";
     var words = [];
     var tokens = token_data.tokens;
@@ -13483,9 +13497,7 @@ settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
 	src: video_url,
 	corpusname: corpus_conf.title,
 	metadata_urn: corpus_conf.metadata_urn,
-	licence: corpus_conf.licence.name,
-	licence_url: util.makeUrnUrl(
-	    corpus_conf.licence.urn || corpus_conf.licence.url),
+	licence_info: make_licence_info(corpus_conf),
 	korp_url: window.location.href,
 	utterance: "<span class=\"utterance\">" + words.join(" ") + "<span>",
 	text_attributes: JSON.stringify(text_attrs),

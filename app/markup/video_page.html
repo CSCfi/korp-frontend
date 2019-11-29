@@ -100,8 +100,7 @@
 	    <span id="metadata_urn"></span><br/>
 	  </p>
 	  <p>
-	    <b><span id="licence"></span>:</b>
-	    <a id="licence_url" href="" target="_blank"><span id="licence_name"></span></a><br/>
+	    <span id="licence_info"></span><br/>
 	  </p>
 	  <p>
 	    <a id="korp_url" href="" target="_blank"><span id="link_to_search_in_korp"></span></a><br/>
@@ -254,8 +253,9 @@
       var metadata_urn = decodeURIComponent(params["metadata_urn"]);
       var korp_url = decodeURIComponent(params["korp_url"]);
       var utterance = decodeURIComponent(params["utterance"]);
-      var licence = decodeURIComponent(params["licence"]);
-      var licence_url = decodeURIComponent(params["licence_url"]);
+      // Bold the licence label
+      var licence_info = decodeURIComponent(params["licence_info"])
+	  .replace(/(^|<br\s*\/?>)(.*?:)/g, "$1<b>$2</b>");
 
       var text_attributes = decodeURIComponent(params["text_attributes"]);
       var attr = JSON.parse(text_attributes);
@@ -338,8 +338,8 @@
       document.getElementById("metadata_urn").innerHTML = (
 	  "<a href='http://urn.fi/" + metadata_urn + "' target='_blank'>"
 	      + metadata_urn + "</a>");
-      document.getElementById("licence_name").innerHTML = licence;
-      document.getElementById("licence_url").setAttribute("href", licence_url);
+      // licence_info contains licence information formatted as HTML
+      document.getElementById("licence_info").innerHTML = licence_info;
       document.getElementById("korp_url").setAttribute("href", korp_url);
 
       // Text/session attributes (from Korp)
