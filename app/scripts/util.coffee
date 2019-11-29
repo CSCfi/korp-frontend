@@ -1401,8 +1401,11 @@ util.formatCorpusExtraInfo = (corpusObj, opts = {}) ->
             # that the texts are re-localized immediately when switching
             # languages.
             # TODO: Convert to use the new localization method
-            '<span rel=\'localize[corpus_' + info_item + ']\'>' +
-                'Corpus ' + info_item + '</span>'
+            if opts.static_localization
+                util.getLocaleString('corpus_' + info_item)
+            else
+                '<span rel=\'localize[corpus_' + info_item + ']\'>' +
+                    'Corpus ' + info_item + '</span>'
 
         makeLinkInfoBase = (info_obj, label) ->
             link_info = url: getUrnOrUrl(info_obj)

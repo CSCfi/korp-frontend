@@ -1473,7 +1473,11 @@
     makeLinkInfos = function(info_item) {
       var base_label, corpus_info_item, info_item_sub, k, label, len1, linkInfoIsNotEmpty, link_info, link_info_base, link_infos, makeLabel, makeLinkInfoBase;
       makeLabel = function(info_item) {
-        return '<span rel=\'localize[corpus_' + info_item + ']\'>' + 'Corpus ' + info_item + '</span>';
+        if (opts.static_localization) {
+          return util.getLocaleString('corpus_' + info_item);
+        } else {
+          return '<span rel=\'localize[corpus_' + info_item + ']\'>' + 'Corpus ' + info_item + '</span>';
+        }
       };
       makeLinkInfoBase = function(info_obj, label) {
         var link_info;
