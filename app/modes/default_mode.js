@@ -174,7 +174,7 @@ settings.corporafolders.sks = {
 settings.corporafolders.literature = {
     title: "Kirjallisuutta",
     contents: ["gutenberg", "sks_kivi_fi", "skvr",
-		"parfin_2016_fi", "parrus_2016_fi"]
+	       "parfin_2016_fi", "parrus_2016_fi", "iijoki"]
 };
 
 settings.corporafolders.literature.skk = {
@@ -11435,11 +11435,12 @@ sattrs.vks_sentence_code = {
 };
 sattrs.vks_sentence_type = {
     label: "vks_sentence_type",
+    displayType: "select",
     translationKey: "vks_sentence_type_",
-    dataset: {
-	"sentence": "Sentence",
-	"heading": "Heading"
-    }
+    dataset: [
+	"sentence",
+	"heading",
+    ],
 };
 sattrs.vks_text_year = {
     label: "vks_text_year"
@@ -11621,7 +11622,7 @@ settings.corpora.vks_saarnat = {
 
 settings.corpora.vks_agricola = {
     title: "Mikael Agricolan teoksia",
-    description: "Mikael Agricola: Suomalaisen Kirjallisuuden Seuran näköispainossarja Mikael Agricolan teoksista",
+    description: "Mikael Agricolan teokset: Mikael Agricolan teosten 1–3 uudistettu näköispainos (WSOY: Porvoo 1987)",
     id: "vks_agricola",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -11633,6 +11634,9 @@ settings.corpora.vks_agricola = {
     struct_attributes: {
 	text_year: sattrs.vks_text_year,
 	text_title: sattrs.vks_text_title,
+	text_title_facsimile: {
+	    label: "facsimile_title",
+	},
 	sentence_type: sattrs.vks_sentence_type,
 	sentence_code: sattrs.vks_sentence_code,
 	sentence_id: sattrs.sentence_id_hidden,
@@ -13380,6 +13384,29 @@ settings.corpora.arkisyn = {
     }
 };
 
+settings.corpora.iijoki = {
+    id: "iijoki",
+    cite_id: "iijoki-korp",
+    urn: "urn:nbn:fi:lb-2019102102",
+    metadata_urn: "urn:nbn:fi:lb-2019102101",
+    lang: "fin",
+    title: "Kalle Päätalon Iijoki-sarja",
+    description: "Iijoki, Oulun yliopiston Päätalo-kokoelma, Kielipankki Korp -versio<br/><br/>Kalle Päätalon Iijoki-sarja sisältää yhteensä 26 kirjaa.<br/>Aineisto on jäsennetty Turku Neural Parser Pipeline (TNPP) -jäsentimellä.<br/><strong>Huomaa</strong>, että aineisto sisältää murresanoja, joiden perusmuotoistamiseen jäsennysmenetelmillä ei ole luotettavia keinoja.",
+    limited_access: true,
+    licence_type: "ACA",
+    licence: {
+	name: "CLARIN ACA +NC +DEP 1.0",
+	urn: "urn:nbn:fi:lb-2019102106"
+    },
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.ud2_fi,
+    struct_attributes: {
+        text_title: { label: "work_title", order: 3 },
+	text_year: { label: "text_year", order: 2 },
+	text_filename: { label: "file_name", order: 1 },
+    }
+};
 
 settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
 					   msec2sec_attrs, omit_attrs) {

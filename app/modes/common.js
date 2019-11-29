@@ -1018,6 +1018,51 @@ attrs.pos_uta_ru = {
     },
 };
 
+attrs.pos_ud2_universal = {
+    label: "pos",
+    displayType: "select",
+    translationKey: "pos_",
+    dataset: {
+	"ADJ": "A",
+	"ADP": "Adp",
+	"ADV": "Adv",
+	"AUX": "Aux",
+	"CCONJ": "CC",
+	"DET": "DT",
+	"INTJ": "Interj",
+	"NOUN": "N",
+	"NUM": "Num",
+	"PART": "PL",
+	"PRON": "Pron",
+	"PROPN": "Prop",
+	"PUNCT": "Punct",
+	"SCONJ": "CS",
+	"SYM": "Symb",
+	"VERB": "V",
+	"X": "Other",
+    },
+};
+
+attrs.pos_ud2_fi = {
+    label: "pos",
+    displayType: "select",
+    translationKey: "pos_",
+    dataset: {
+	"A": "A",
+	"Adp": "Adp",
+	"Adv": "Adv",
+	"C": "C",
+	"Foreign": "Foreign",
+	"Interj": "Interj",
+	"N": "N",
+	"Num": "Num",
+	"Pron": "Pron",
+	"Punct": "Punct",
+	"Symb": "Symb",
+	"V": "V",
+    },
+};
+
 attrs.pos_ud_fi = {
     label: "pos",
     displayType: "select",
@@ -1164,10 +1209,12 @@ attrs.msd = {
     // used sidebar; another value would link to the given URL; and an
     // undefined value would link to the default markup/msd.html.
     taginfo_url: "",
-    // Add a zero-width space character after each vertical bar to
-    // allow breaking the line there in the sidebar.
-    transform: function(val) {
-	return val.replace(/\|/g, "|\u200b");
+    // Add a <wbr> tag after each vertical bar to allow breaking the
+    // line there in the sidebar, while retaining the ability to copy
+    // and paste to a further search expression (unlike if we added a
+    // zero-width space U+200B).
+    stringify: function(val) {
+	return val.replace(/\|/g, "|<wbr>");
     }
 };
 attrs.baseform = {
@@ -1290,6 +1337,59 @@ attrs.deprel_tdt = {
 	"xcomp": "xcomp",
 	"xsubj": "xsubj",
 	"xsubj-cop": "xsubj-cop"
+    }
+};
+attrs.deprel_ud2 = {
+    label: "deprel",
+    displayType: "select",
+    translationKey: "deprel_ud2_",
+    opts: settings.liteOptions,
+    dataset: {
+	"acl": "acl",
+	"acl:relcl": "acl:relcl",
+	"advcl": "advcl",
+	"advmod": "advmod",
+	"amod": "amod",
+	"appos": "appos",
+	"aux": "aux",
+	"aux:pass": "aux:pass",
+	"case": "case",
+	"cc": "cc",
+	"ccomp": "ccomp",
+	"cc:preconj": "cc:preconj",
+	"compound": "compound",
+	"compound:nn": "compound:nn",
+	"compound:prt": "compound:prt",
+	"conj": "conj",
+	"cop": "cop",
+	"cop:own": "cop:own",
+	"csubj": "csubj",
+	"csubj:cop": "csubj:cop",
+	"dep": "dep",
+	"det": "det",
+	"discourse": "discourse",
+	"fixed": "fixed",
+	"flat": "flat",
+	"flat:foreign": "flat:foreign",
+	"flat:name": "flat:name",
+	"goeswith": "goeswith",
+	"mark": "mark",
+	"nmod": "nmod",
+	"nmod:gobj": "nmod:gobj",
+	"nmod:gsubj": "nmod:gsubj",
+	"nmod:poss": "nmod:poss",
+	"nsubj": "nsubj",
+	"nsubj:cop": "nsubj:cop",
+	"nummod": "nummod",
+	"obj": "obj",
+	"obl": "obl",
+	"orphan": "orphan",
+	"parataxis": "parataxis",
+	"punct": "punct",
+	"root": "root",
+	"vocative": "vocative",
+	"xcomp": "xcomp",
+	"xcomp:ds": "xcomp:ds",
     }
 };
 attrs.deprel_ud_fi = {
@@ -1638,6 +1738,19 @@ attrlist.finer = {
     ne_placename_source: attrs.ne_placename_source,
     nertag: attrs.ner_rawtag,
     nerbio: attrs.ner_bio,
+};
+
+attrlist.ud2_fi = {
+    ref: attrs.ref,
+    lemma: attrs.baseform,
+    lemmacomp: attrs.baseform_compound,
+    pos: attrs.pos_ud2_universal,
+    xpos: { label: "", displayType: "hidden" },
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel_ud2,
+    deps: { label: "", displayType: "hidden" },
+    misc: { label: "", displayType: "hidden" },
 };
 
 settings.corpus_features.finer = {
