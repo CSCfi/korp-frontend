@@ -1437,7 +1437,7 @@
   };
 
   util.formatCorpusExtraInfo = function(corpusObj, opts) {
-    var getUrnOrUrl, info_item, info_items, item_paragraphs, k, len1, link_info, makeLinkInfo, makeLinkItem, result;
+    var getUrnOrUrl, info_item, info_items, item_paragraphs, k, l, len1, len2, link_info, makeLinkInfos, makeLinkItem, ref, result;
     if (opts == null) {
       opts = {};
     }
@@ -1470,8 +1470,8 @@
       }
       return result;
     };
-    makeLinkInfo = function(info_item) {
-      var label, link_info, makeLabel, makeLinkInfoBase;
+    makeLinkInfos = function(info_item) {
+      var base_label, corpus_info_item, info_item_sub, k, label, len1, linkInfoIsNotEmpty, link_info, link_info_base, link_infos, makeLabel, makeLinkInfoBase;
       makeLabel = function(info_item) {
         return '<span rel=\'localize[corpus_' + info_item + ']\'>' + 'Corpus ' + info_item + '</span>';
       };
@@ -1493,14 +1493,36 @@
         }
         return link_info;
       };
+      linkInfoIsNotEmpty = function(link_info) {
+        return link_info && (link_info.url || link_info.text);
+      };
       link_info = null;
       label = makeLabel(info_item);
       if (settings.makeCorpusExtraInfoItem && info_item in settings.makeCorpusExtraInfoItem) {
         link_info = settings.makeCorpusExtraInfoItem[info_item](corpusObj, label);
       }
       if (!link_info) {
-        if (corpusObj[info_item]) {
-          link_info = makeLinkInfoBase(corpusObj[info_item], label);
+        corpus_info_item = corpusObj[info_item];
+        if (corpus_info_item) {
+          if (Array.isArray(corpus_info_item)) {
+            link_infos = [];
+            base_label = label;
+            for (k = 0, len1 = corpus_info_item.length; k < len1; k++) {
+              info_item_sub = corpus_info_item[k];
+              if ("subtype" in info_item_sub) {
+                label = makeLabel(info_item + '_' + info_item_sub.subtype);
+              } else {
+                label = base_label;
+              }
+              link_info_base = makeLinkInfoBase(info_item_sub, label);
+              if (linkInfoIsNotEmpty(link_info_base)) {
+                link_infos.push(link_info_base);
+              }
+            }
+            return link_infos;
+          } else {
+            link_info = makeLinkInfoBase(corpus_info_item, label);
+          }
         } else if (corpusObj[info_item + '_urn'] || corpusObj[info_item + '_url']) {
           link_info = {
             url: getUrnOrUrl(corpusObj, info_item + '_'),
@@ -1508,13 +1530,18 @@
           };
         }
       }
-      return link_info;
+      if (linkInfoIsNotEmpty(link_info)) {
+        return [link_info];
+      } else {
+        return [];
+      }
     };
     result = [];
     for (k = 0, len1 = info_items.length; k < len1; k++) {
       info_item = info_items[k];
-      link_info = makeLinkInfo(info_item);
-      if (link_info && (link_info.url || link_info.text)) {
+      ref = makeLinkInfos(info_item);
+      for (l = 0, len2 = ref.length; l < len2; l++) {
+        link_info = ref[l];
         result.push(makeLinkItem(link_info));
       }
     }

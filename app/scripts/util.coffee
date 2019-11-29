@@ -1335,6 +1335,12 @@ util.findoutType = (variable) ->
 # + item name. The optional description is a represented as a tooltip
 # (HTML title attribute).
 #
+# Alternatively, an information item may be an array of such composite
+# object, in which case they are formatted in the order in which they
+# are in the array. If a composite object in an array contains the
+# property "subtype", the label is the localized string for the key
+# "corpus_" + item name + "_" + the value of the subtype property.
+#
 # If an item needs no separate name, the simple properties X_urn and
 # X_url can be used instead of X: { urn: ... } (similarly for url).
 # The item "urn" is treated specially: it shows the value of the
@@ -1388,7 +1394,7 @@ util.formatCorpusExtraInfo = (corpusObj, opts = {}) ->
                 result += link_info.text
         result
 
-    makeLinkInfo = (info_item) ->
+    makeLinkInfos = (info_item) ->
 
         makeLabel = (info_item) ->
             # Use rel='localize[...]' instead of util.getLocaleString, so
@@ -1410,6 +1416,9 @@ util.formatCorpusExtraInfo = (corpusObj, opts = {}) ->
                 link_info.tooltip = info_obj.description
             return link_info
 
+        linkInfoIsNotEmpty = (link_info) ->
+            link_info and (link_info.url or link_info.text)
+
         link_info = null
         label = makeLabel(info_item)
         if (settings.makeCorpusExtraInfoItem and
@@ -1417,20 +1426,37 @@ util.formatCorpusExtraInfo = (corpusObj, opts = {}) ->
             link_info = settings.makeCorpusExtraInfoItem[info_item](
                 corpusObj, label)
         if not link_info
-            if corpusObj[info_item]
-                link_info = makeLinkInfoBase(corpusObj[info_item], label)
+            corpus_info_item = corpusObj[info_item]
+            if corpus_info_item
+                if Array.isArray(corpus_info_item)
+                    link_infos = []
+                    base_label = label
+                    for info_item_sub in corpus_info_item
+                        if "subtype" of info_item_sub
+                            label = makeLabel(
+                                info_item + '_' + info_item_sub.subtype)
+                        else
+                            label = base_label
+                        link_info_base = makeLinkInfoBase(info_item_sub, label)
+                        if linkInfoIsNotEmpty(link_info_base)
+                            link_infos.push(link_info_base)
+                    return link_infos
+                else
+                    link_info = makeLinkInfoBase(corpus_info_item, label)
             else if (corpusObj[info_item + '_urn'] or
                      corpusObj[info_item + '_url'])
                 # Simple *_urn or *_url properties
                 link_info =
                     url: getUrnOrUrl(corpusObj, info_item + '_')
                     text: label
-        return link_info
+        if linkInfoIsNotEmpty(link_info)
+            return [link_info]
+        else
+            return []
 
     result = []
     for info_item in info_items
-        link_info = makeLinkInfo(info_item)
-        if link_info and (link_info.url or link_info.text)
+        for link_info in makeLinkInfos(info_item)
             result.push(makeLinkItem(link_info))
     if item_paragraphs
         return '<p>' + result.join('</p><p>') + '</p>'
