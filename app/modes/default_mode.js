@@ -13548,11 +13548,20 @@ settings.corpora.eduskunta = {
     id: "eduskunta",
     urn: "urn:nbn:fi:lb-2019112221",
     metadata_urn: "urn:nbn:fi:lb-2019101621",
-    licence: {
-	name: "CLARIN PUB +BY +PRIV +OTHER 1.0",
-	description: "CLARIN PUB end-user license +BY +PRIV +OTHER 1.0",
-	urn: "urn:nbn:fi:lb-2019112621",
-    },
+    licence: [
+	{
+	    subtype: "text",
+	    name: "CLARIN PUB +BY +PRIV 1.0",
+	    description: "CLARIN PUB loppukäyttäjän lisenssisopimus +BY +PRIV 1.0",
+	    urn: "urn:nbn:fi:lb-2019112821",
+	},
+	{
+	    subtype: "audiovideo",
+	    name: "CLARIN PUB +BY +PRIV +ND +OTHER 1.0",
+	    description: "CLARIN PUB loppukäyttäjän lisenssisopimus +BY +PRIV +ND +OTHER 1.0",
+	    urn: "urn:nbn:fi:lb-2019112621",
+	},
+    ],
     cite_id: "eduskunta-korp",
     homepage: {
 	url: "https://www.eduskunta.fi/FI/lakiensaataminen/taysistunnon_verkkolahetykset/tallenteet/Sivut/default.aspx",
