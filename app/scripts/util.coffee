@@ -1388,46 +1388,54 @@ util.formatCorpusExtraInfo = (corpusObj, opts = {}) ->
                 result += link_info.text
         result
 
-    result = ''
-    for info_item in info_items
+    makeLinkInfo = (info_item) ->
+
+        makeLabel = (info_item) ->
+            # Use rel='localize[...]' instead of util.getLocaleString, so
+            # that the texts are re-localized immediately when switching
+            # languages.
+            # TODO: Convert to use the new localization method
+            '<span rel=\'localize[corpus_' + info_item + ']\'>' +
+                'Corpus ' + info_item + '</span>'
+
+        makeLinkInfoBase = (info_obj, label) ->
+            link_info = url: getUrnOrUrl(info_obj)
+            if info_obj.name
+                link_info.text = info_obj.name
+                if ! info_obj.no_label
+                    link_info.label = label
+            else
+                link_info.text = label
+            if info_obj.description
+                link_info.tooltip = info_obj.description
+            return link_info
+
         link_info = null
-        label = ''
-        # Use rel='localize[...]' instead of util.getLocaleString, so
-        # that the texts are re-localized immediately when switching
-        # languages.
-        # TODO: Convert to use the new localization method
-        label = '<span rel=\'localize[corpus_' + info_item + ']\'>' +
-            'Corpus ' + info_item + '</span>'
+        label = makeLabel(info_item)
         if (settings.makeCorpusExtraInfoItem and
                 info_item of settings.makeCorpusExtraInfoItem)
             link_info = settings.makeCorpusExtraInfoItem[info_item](
                 corpusObj, label)
         if not link_info
             if corpusObj[info_item]
-                info_obj = corpusObj[info_item]
-                link_info = url: getUrnOrUrl(info_obj)
-                if info_obj.name
-                    link_info.text = info_obj.name
-                    if ! info_obj.no_label
-                        link_info.label = label
-                else
-                    link_info.text = label
-                if info_obj.description
-                    link_info.tooltip = info_obj.description
+                link_info = makeLinkInfoBase(corpusObj[info_item], label)
             else if (corpusObj[info_item + '_urn'] or
                      corpusObj[info_item + '_url'])
                 # Simple *_urn or *_url properties
                 link_info =
                     url: getUrnOrUrl(corpusObj, info_item + '_')
                     text: label
+        return link_info
+
+    result = []
+    for info_item in info_items
+        link_info = makeLinkInfo(info_item)
         if link_info and (link_info.url or link_info.text)
-            if item_paragraphs
-                result += '<p>' + makeLinkItem(link_info) + '</p>'
-            else
-                if result
-                    result += '<br/>'
-                result += makeLinkItem(link_info)
-    return result
+            result.push(makeLinkItem(link_info))
+    if item_paragraphs
+        return '<p>' + result.join('</p><p>') + '</p>'
+    else
+        return result.join('<br/>')
 
 # Return the URN resolver URL for an URN: prefix settings.urnResolver
 # unless the URN string begins with "http".

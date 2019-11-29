@@ -1437,7 +1437,7 @@
   };
 
   util.formatCorpusExtraInfo = function(corpusObj, opts) {
-    var getUrnOrUrl, info_item, info_items, info_obj, item_paragraphs, k, label, len1, link_info, makeLinkItem, result;
+    var getUrnOrUrl, info_item, info_items, item_paragraphs, k, len1, link_info, makeLinkInfo, makeLinkItem, result;
     if (opts == null) {
       opts = {};
     }
@@ -1470,32 +1470,37 @@
       }
       return result;
     };
-    result = '';
-    for (k = 0, len1 = info_items.length; k < len1; k++) {
-      info_item = info_items[k];
+    makeLinkInfo = function(info_item) {
+      var label, link_info, makeLabel, makeLinkInfoBase;
+      makeLabel = function(info_item) {
+        return '<span rel=\'localize[corpus_' + info_item + ']\'>' + 'Corpus ' + info_item + '</span>';
+      };
+      makeLinkInfoBase = function(info_obj, label) {
+        var link_info;
+        link_info = {
+          url: getUrnOrUrl(info_obj)
+        };
+        if (info_obj.name) {
+          link_info.text = info_obj.name;
+          if (!info_obj.no_label) {
+            link_info.label = label;
+          }
+        } else {
+          link_info.text = label;
+        }
+        if (info_obj.description) {
+          link_info.tooltip = info_obj.description;
+        }
+        return link_info;
+      };
       link_info = null;
-      label = '';
-      label = '<span rel=\'localize[corpus_' + info_item + ']\'>' + 'Corpus ' + info_item + '</span>';
+      label = makeLabel(info_item);
       if (settings.makeCorpusExtraInfoItem && info_item in settings.makeCorpusExtraInfoItem) {
         link_info = settings.makeCorpusExtraInfoItem[info_item](corpusObj, label);
       }
       if (!link_info) {
         if (corpusObj[info_item]) {
-          info_obj = corpusObj[info_item];
-          link_info = {
-            url: getUrnOrUrl(info_obj)
-          };
-          if (info_obj.name) {
-            link_info.text = info_obj.name;
-            if (!info_obj.no_label) {
-              link_info.label = label;
-            }
-          } else {
-            link_info.text = label;
-          }
-          if (info_obj.description) {
-            link_info.tooltip = info_obj.description;
-          }
+          link_info = makeLinkInfoBase(corpusObj[info_item], label);
         } else if (corpusObj[info_item + '_urn'] || corpusObj[info_item + '_url']) {
           link_info = {
             url: getUrnOrUrl(corpusObj, info_item + '_'),
@@ -1503,18 +1508,21 @@
           };
         }
       }
+      return link_info;
+    };
+    result = [];
+    for (k = 0, len1 = info_items.length; k < len1; k++) {
+      info_item = info_items[k];
+      link_info = makeLinkInfo(info_item);
       if (link_info && (link_info.url || link_info.text)) {
-        if (item_paragraphs) {
-          result += '<p>' + makeLinkItem(link_info) + '</p>';
-        } else {
-          if (result) {
-            result += '<br/>';
-          }
-          result += makeLinkItem(link_info);
-        }
+        result.push(makeLinkItem(link_info));
       }
     }
-    return result;
+    if (item_paragraphs) {
+      return '<p>' + result.join('</p><p>') + '</p>';
+    } else {
+      return result.join('<br/>');
+    }
   };
 
   util.makeUrnUrl = function(urn) {
