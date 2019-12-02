@@ -1,4 +1,24 @@
 
+<!-- Eduskunnan täysistunnot -aineistossa linkit kaikkiin videoihin 2019-12-02 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2019101621" target="_blank"
+title="META-SHARE-artikkeli">Eduskunnan täysistunnot</a> -aineistosta
+on nyt käytettävissä versio 1.5, jossa (lähes) kaikista hakutuloksista
+on linkki vastaavaan puheenvuoroon täysistuntojen alkuperäisissä
+videotallenteissa. Videolinkki on konkordanssituloksen reunapalkin
+alaosassa. Videot suoratoistetaan eduskunnan verkkopalvelusta.
+Puheenvuorojen alku- ja loppuajat perustuvat automaattisella
+puheentunnistimella tehtyyn tekstin ja äänitteen kohdistukseen.
+
+**Huomaa**, että Korpissa näkyvässä tekstissä on puheentunnistuksesta
+johtuvia virheellisiä kohtia. Hakutuloksista on kuitenkin linkit myös
+eduskunnan verkkopalvelun alkuperäisiin pöytäkirjoihin.
+
+<a
+href="https://www.kielipankki.fi/uutiset/eduskunnan-taysistunnot-v1-5-korpissa"
+target="_blank">Lisätietoja Kielipankki-portaalin uutisessa.</a>
+
+
 <!-- Uusi aineisto: Kalle Päätalon Iijoki-sarja 2019-11-08 -->
 
 Korpissa on nyt tutkijoiden käytettävissä aineisto <a

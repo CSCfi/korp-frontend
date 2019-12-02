@@ -1,4 +1,25 @@
 
+<!-- Links to all videos in the Plenary Sessions of the Parliament of Finland corpus 2019-12-02 -->
+
+The <a href="http://urn.fi/urn:nbn:fi:lb-2019101621" target="_blank"
+title="META-SHARE article"> Plenary Sessions of the Parliament of
+Finland (Eduskunnan täysistunnot)</a> corpus has been updated to
+version 1.5 with links to the original video recordings from (almost)
+all KWIC search results (link at the bottom of the sidebar). The
+recordings are streamed from the video service of the Parliament of
+Finland. The beginning and end times of utterances are based on an
+alignment made by an automatic speech recognizer.
+
+**Please note** that the text shown in Korp has errors due to the
+automatic speech recognition. However, the results also have links to
+the original transcriptions of the Parliament of Finland.
+
+<a
+href="https://www.kielipankki.fi/uutiset/eduskunnan-taysistunnot-v1-5-korpissa"
+target="_blank">More information in Finnish on the Portal of the
+Language Bank of Finland.</a>
+
+
 <!-- New corpus: Kalle Päätalo’s Iijoki series 2019-11-08 -->
 
 The corpus <a href="http://urn.fi/urn:nbn:fi:lb-2019102101"
