@@ -13451,7 +13451,7 @@ settings.corpora.eduskunta = {
 	    urn: "urn:nbn:fi:lb-2019112621",
 	},
     ],
-    cite_id: "eduskunta-korp",
+    cite_id: "eduskunta-v1.5-korp",
     homepage: {
 	urn: "http://urn.fi/urn:nbn:fi:lb-2019111922",
 	name: "Eduskunnan täysistuntojen verkkolähetysten tallenteet",
