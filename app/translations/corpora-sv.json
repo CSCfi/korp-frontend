@@ -187,6 +187,9 @@
     "utterance_end_time_ms": "yttrandets sluttid (ms)",
     "utterance_duration_ms": "yttrandets längd (ms)",
 
+    "session_duration": "sessionens längd",
+    "session_duration_ms": "sessionens längd (ms)",
+
     "entryword": "uppslagsord",
     "entryno": "uppslagsord (nummer)",
     "sense1": "huvudbetydelse",

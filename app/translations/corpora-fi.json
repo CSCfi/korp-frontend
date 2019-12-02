@@ -143,6 +143,9 @@
     "utterance_duration_ms": "puhunnoksen kesto (ms)",
     "speaker": "puhuja",
 
+    "session_duration": "istunnon kesto",
+    "session_duration_ms": "istunnon kesto (ms)",
+
     "speech_begin_time": "puheenvuoron alkuaika",
     "speech_end_time": "puheenvuoron loppuaika",
     "speech_duration": "puheenvuoron kesto",

@@ -196,6 +196,9 @@
     "utterance_end_time_ms": "utterance end time (ms)",
     "utterance_duration_ms": "utterance duration (ms)",
 
+    "session_duration": "session duration",
+    "session_duration_ms": "session duration (ms)",
+
     "subcorpus_name": "subcorpus name",
     "sentence_id": "sentence identifier",
 

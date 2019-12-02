@@ -13469,6 +13469,9 @@ settings.corpora.eduskunta = {
         text_time: {
 	    label: "publication_time",
 	},
+	text_session_duration: {
+	    label: "session_duration_ms",
+	},
         text_original_video : {
 	    label : "original_video",
 	    type : "url",
@@ -13633,6 +13636,8 @@ settings.corpora.eduskunta = {
 	    }),
     },
     custom_attributes: {
+	text_session_duration: settings.fn.make_hms_custom_attr(
+	    "session_duration", "text_session_duration"),
 	utterance_begin_time_hms: settings.fn.make_hms_custom_attr(
 	    "utterance_begin_time", "utterance_begin_time"),
 	utterance_end_time_hms: settings.fn.make_hms_custom_attr(
