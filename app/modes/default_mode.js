@@ -13453,8 +13453,9 @@ settings.corpora.eduskunta = {
     ],
     cite_id: "eduskunta-korp",
     homepage: {
-	url: "https://www.eduskunta.fi/FI/lakiensaataminen/taysistunnon_verkkolahetykset/tallenteet/Sivut/default.aspx",
+	urn: "http://urn.fi/urn:nbn:fi:lb-2019111922",
 	name: "Eduskunnan täysistuntojen verkkolähetysten tallenteet",
+	description: "META-SHARE-kuvailutietosivu, josta linkki eduskunnan täysistuntojen verkkolähetysten tallenteisiin",
 	no_label: true,
     },
     features: ["paragraphs", "parsed_tdt", "finer"],
