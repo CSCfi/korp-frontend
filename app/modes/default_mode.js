@@ -13408,9 +13408,22 @@ settings.corpora.iijoki = {
     }
 };
 
+
+// Make the URL to the video page with information encoded in
+// parameters. This function is tailored to generate the value for a
+// synthetic attribute.
+// Arguments:
+// - corpus_id: the id of the corpus linking to the video page
+// - token_data: the token data passed to the stringify_synthetic
+//   function
+// - video_url: the URL of the original video shown on the video page
+// - msec2sec_attrs: ids of structural attributes whose values should
+//   be converted from milliseconds to seconds
+// - omit_attrs: the structural attributes not to be passed to the
+//   video page
 settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
 					   msec2sec_attrs, omit_attrs) {
-    console.log("settings.fn.make_videopage_url", token_data);
+    // console.log("settings.fn.make_videopage_url", token_data);
     var msec_to_sec = function (sec) {
 	return (parseInt(sec) / 1000).toString();
     };
@@ -13455,6 +13468,8 @@ settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
 	return licence_text.replace(
 	    /^(.*?)(<br\s*\/?>)(Li.*?video.*)$/, "$3$2$1");
     };
+    // Would it be better to declare the base URL (prefix) somewhere
+    // else?
     var prefix = "markup/video_page.html#";
     var words = [];
     var tokens = token_data.tokens;
@@ -13483,7 +13498,7 @@ settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
 	for (var key in corpus_conf[attr_type]) {
 	    if (! omit_attrs.includes(key)) {
 		var attrdef = corpus_conf[attr_type][key];
-		console.log(key, attrdef);
+		// console.log(key, attrdef);
 		append_attr(
 		    key,
 		    (attr_type == "struct_attributes"
@@ -13502,7 +13517,7 @@ settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
 	utterance: "<span class=\"utterance\">" + words.join(" ") + "<span>",
 	text_attributes: JSON.stringify(text_attrs),
     };
-    console.log(params);
+    // console.log(params);
     var paramstr = "";
     for (var key in params) {
 	if (paramstr != "") {
@@ -13513,6 +13528,7 @@ settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
     return prefix + paramstr;
 };
 
+// Return the milliseconds value ms0 formatted as hh:mm:ss.xxx
 settings.fn.ms_to_hms = function (ms0) {
     // Adapted from https://stackoverflow.com/a/2998822
     var pad = function (num, len) {
@@ -13528,6 +13544,13 @@ settings.fn.ms_to_hms = function (ms0) {
 	    + util.getLocaleString("util_decimalseparator") + ms);
 };
 
+// Generate a declaration for a custom structural attribute showing in
+// hh:mm:ss.xxx format the milliseconds value of an actual structural
+// attribute.
+// Arguments:
+// - label: the localization label for the custom attribute
+// - base_attr: the id of the structural attribute with a milliseconds
+//   value
 settings.fn.make_hms_custom_attr = function (label, base_attr) {
     return {
         customType: "struct",
@@ -13535,7 +13558,8 @@ settings.fn.make_hms_custom_attr = function (label, base_attr) {
         order: 6,
         renderItem: function (key, value, attrs, wordData, sentenceData,
                               tokens) {
-            console.log(base_attr + "_hms", key, value, attrs, wordData, sentenceData, tokens);
+            // console.log(base_attr + "_hms", key, value, attrs, wordData,
+	    // 		sentenceData, tokens);
             return settings.fn.ms_to_hms(sentenceData[base_attr]);
         }
     };
