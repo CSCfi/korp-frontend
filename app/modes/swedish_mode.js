@@ -879,22 +879,6 @@ sattrs.ylenews_sv_paragraph_type = {
 };
 
 
-// settings.corpora.yle_sv_sample = {
-//     title: "Svenska Yles webbartiklar (test)",
-//     description: "Svenska Yles webbartiklar (test)",
-//     id: "yle_sv_sample",
-//     urn: "[to be added]",
-//     metadata_urn: "urn:nbn:fi:lb-2016111401",
-//     licence: settings.licenceinfo.ACA_NC,
-//     cite_id: "yle-sv",
-//     context: settings.spContext,
-//     within: settings.spWithin,
-//     limited_access: true,
-//     licence_type: "ACA",
-//     attributes: {},
-//     struct_attributes: sattrlist.yle_sv_common,
-// };
-
 settings.corpora.ylenews_sv_2012_2018_a = {
     title: "Svenska Yles webbartiklar 2012– (2018H2) (för forskare)",
     description: "Svenska Yles webbartiklar 2012– (version 2018H2), variant tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning",
