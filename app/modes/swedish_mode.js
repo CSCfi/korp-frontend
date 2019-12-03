@@ -839,10 +839,8 @@ sattrlist.ylenews_sv_common = {
 	label: "datetime_json_modified",
 	transform: transform_datetime,
     },
-    // paragraph_id: {
-    // },
-    // sentence_id: {
-    // },
+    paragraph_id: sattrs.hidden,
+    sentence_id: sattrs.hidden,
     sentence_type: {
 	label: "sentence_type",
 	displayType: "select",
