@@ -2075,9 +2075,9 @@ util.url_add_corpora = (href, corpora) ->
         corpora_str = corpora.join(",")
         "#{href}&corpus=#{corpora_str}"
     else
-        href_corpora = /&corpus=([^&]*)/.exec(href)[1].split(",")
+        href_corpora = /[&?]corpus=([^&]*)/.exec(href)[1].split(",")
         corpora_str = _.union(href_corpora, corpora).join(",")
-        href.replace(/(&corpus=)[^&]+/, "$1#{corpora_str}")
+        href.replace(/([&?]corpus=)[^&]+/, "$1#{corpora_str}")
 
 
 # Return href with the corpora in the array corpora removed from its

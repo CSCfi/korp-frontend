@@ -2091,9 +2091,9 @@
       corpora_str = corpora.join(",");
       return href + "&corpus=" + corpora_str;
     } else {
-      href_corpora = /&corpus=([^&]*)/.exec(href)[1].split(",");
+      href_corpora = /[&?]corpus=([^&]*)/.exec(href)[1].split(",");
       corpora_str = _.union(href_corpora, corpora).join(",");
-      return href.replace(/(&corpus=)[^&]+/, "$1" + corpora_str);
+      return href.replace(/([&?]corpus=)[^&]+/, "$1" + corpora_str);
     }
   };
 
