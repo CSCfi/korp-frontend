@@ -15286,8 +15286,7 @@ settings.templ.ylenews_fi_a = {
     id: "ylenews_fi_{}_a",
     limited_access: true,
     licence_type: "ACA",
-    features: ["paragraphs"],
-    attributes: attrlist.parsed_fi_lemmaset,
+    features: ["paragraphs", "parsed_tdt"],
     struct_attributes: $.extend(
         {}, sattrlist.ylenews_fi_common,
         {
@@ -15311,7 +15310,7 @@ settings.templ.ylenews_fi_s = {
     id: "ylenews_fi_2011_2018_s",
     context: settings.defaultContext,
     within: settings.defaultWithin,
-    attributes: attrlist.parsed_fi_lemmaset,
+    features: ["parsed_tdt"],
     struct_attributes: $.extend(
         {}, sattrlist.ylenews_fi_common,
         {
