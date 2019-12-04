@@ -172,8 +172,8 @@ settings.corporafolders.sks = {
 */
 
 settings.corporafolders.ylenews_fi = {
-    title: "Ylen suomenkielinen uutisarkisto 2011-2018",
-    description: "Ylen suomenkielinen uutisarkisto 2011-2018 (beta)<br/><br/> -description-",
+    title: "Ylen suomenkielinen uutisarkisto",
+    description: "Ylen suomenkielinen uutisarkisto 2011– (versio 2018H2)<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
     info: {
 	homepage: {
 	    name: "Yle Uutiset",
@@ -184,31 +184,29 @@ settings.corporafolders.ylenews_fi = {
     },
 };
 
-settings.corporafolders.ylenews_fi.ylenews_fi_2011_2018_a = {
-    title: "Ylen suomenkielinen uutisarkisto 2011-2018 (rajallinen käyttö)",
-    description: "Ylen suomenkielinen uutisarkisto 2011-2018 (beta)<br/><br/> rajallinen käyttö -description-",
-    // contents: ["ylenews_fi_2011_a", "ylenews_fi_2012_a", "ylenews_fi_2013_a", "ylenews_fi_2014_a", "ylenews_fi_2015_a", "ylenews_fi_2016_a", "ylenews_fi_2017_a", "ylenews_fi_2018_a"],
-    contents: ["ylenews_fi_2011_a"],
+settings.corporafolders.ylenews_fi.a = {
+    title: "Ylen suomenkielinen uutisarkisto (versio 2018H2) (tutkijoille)",
+    description: "Ylen suomenkielinen uutisarkisto 2011– (versio 2018H2), tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
+    // Contents are added later with settings.fn.add_corpus_settings
+    contents: [],
     info: {
 	// urn: "[to be added]",
 	// metadata_urn: "[to be added]",
 	// licence: settings.licenceinfo.Ylenews_fi_selko_en,
-	cite_id: "ylenews-fi-2011-2018-a-korp",
-	limited_access: true,
-	licence_type: "ACA",
+	cite_id: "ylenews-fi-2011-2018-korp",
     }
 };
 
-settings.corporafolders.ylenews_fi.ylenews_fi_2011_2018_s = {
-    title: "Ylen suomenkielinen uutisarkisto 2011-2018 (rajaton käyttö)",
-    description: "Ylen suomenkielinen uutisarkisto 2011-2018 (beta)<br/><br/> rajaton käyttö -description-",
-    // contents: ["ylenews_fi_2011_s", "ylenews_fi_2012_s", "ylenews_fi_2013_s", "ylenews_fi_2014_s", "ylenews_fi_2015_s", "ylenews_fi_2016_s", "ylenews_fi_2017_s", "ylenews_fi_2018_s"],
-    contents: ["ylenews_fi_2011_s"],
+settings.corporafolders.ylenews_fi.s = {
+    title: "Ylen suomenkielinen uutisarkisto (versio 2018H2) (kaikille)",
+    description: "Ylen suomenkielinen uutisarkisto 2011– (versio 2018H2), kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
+    // Contents are added later with settings.fn.add_corpus_settings
+    contents: [],
     info: {
 	// urn: "[to be added]",
 	// metadata_urn: "[to be added]",
-	// licence: settings.licenceinfo.Ylenews_fi_selko_en,
-	cite_id: "ylenews-fi-2011-2018-s-korp",
+	licence: settings.licenceinfo.CC_BY,
+	cite_id: "ylenews-fi-2011-2018-korp",
     }
 };
 
@@ -14840,8 +14838,8 @@ sattrlist.ylenews_fi_common = {
 		  "Yle TV1",
 		  "Yle TV2",
 		  "YleX",
-        ]
-    }
+		  ],
+    },
     text_departments: {
 	label: "sections",
 	type: "set",
@@ -15225,8 +15223,8 @@ sattrlist.ylenews_fi_common = {
 		  "YleX",
 		  "Y:n blogi",
 		  "Ystäväni hevonen",
-        ]
-    }    
+		  ],
+    },    
     text_id: {
 	label: "text_id",
     },
@@ -15244,10 +15242,8 @@ sattrlist.ylenews_fi_common = {
 	label: "datetime_json_modified",
 	transform: transform_datetime,
     },
-    // paragraph_id: {
-    // },
-    // sentence_id: {
-    // },
+    paragraph_id: sattrs.hidden,
+    sentence_id: sattrs.hidden,
     sentence_type: {
 	label: "sentence_type",
 	displayType: "select",
@@ -15284,32 +15280,53 @@ sattrs.ylenews_fi_paragraph_type = {
 };
 
 
-settings.corpora.ylenews_fi_2011_a = {
-    title: "Ylen suomenkielinen uutisarkisto 2011 (rajallinen käyttö)",
-    description: "Ylen suomenkielinen uutisarkisto 2011 (beta)<br/><br/> rajallinen käyttö -description-",
-    id: "ylenews_fi_2011_a",
-    features: ["paragraphs", "parsed_tdt"],
+settings.templ.ylenews_fi_a = {
+    title: "Ylen suomenkielinen uutisarkisto {} (tutkijoille)",
+    description: "Ylen suomenkielinen uutisarkisto {} (versio 2018H2), tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.",
+    id: "ylenews_fi_{}_a",
+    limited_access: true,
+    licence_type: "ACA",
+    features: ["paragraphs"],
+    attributes: attrlist.parsed_fi_lemmaset,
     struct_attributes: $.extend(
         {}, sattrlist.ylenews_fi_common,
         {
 	    paragraph_type: sattrs.ylenews_fi_paragraph_type,
 	}),
-}
+};
+
+settings.fn.add_corpus_settings(
+    settings.templ.ylenews_fi_a,
+    [2011, 2018],
+    settings.corporafolders.ylenews_fi.a,
+    "ylenews_fi_{}_a");
+
+settings.corpus_aliases["ylenews_fi_2018h2_a"] = "ylenews_fi_201[1-8]_a";
+
 
     
-settings.corpora.ylenews_fi_2011_s = {
-    title: "Ylen suomenkielinen uutisarkisto 2011 (rajaton käyttö)",
-    description: "Ylen suomenkielinen uutisarkisto 2011 (beta)<br/><br/> rajaton käyttö -description-",
-    id: "ylenews_fi_2011_s",
+settings.templ.ylenews_fi_s = {
+    title: "Ylen suomenkielinen uutisarkisto {} (kaikille)",
+    description: "Ylen suomenkielinen uutisarkisto {} (versio 2018H2), kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea",
+    id: "ylenews_fi_2011_2018_s",
     context: settings.defaultContext,
     within: settings.defaultWithin,
-    features: ["parsed_tdt"],
+    attributes: attrlist.parsed_fi_lemmaset,
     struct_attributes: $.extend(
         {}, sattrlist.ylenews_fi_common,
         {
-	    paragraph_type: sattrs.ylenews_fi_paragraph_type,
+	    sentence_paragraph_type: sattrs.ylenews_fi_paragraph_type,
 	}),
-}
+};
+
+
+settings.fn.add_corpus_settings(
+    settings.templ.ylenews_fi_s,
+    [2011, 2018],
+    settings.corporafolders.ylenews_fi.s,
+    "ylenews_fi_{}_s");
+
+settings.corpus_aliases["ylenews_fi_2018h2_s"] = "ylenews_fi_201[1-8]_s";
 
 	
 
