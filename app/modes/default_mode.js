@@ -173,7 +173,7 @@ settings.corporafolders.sks = {
 
 settings.corporafolders.ylenews_fi = {
     title: "Ylen suomenkielinen uutisarkisto",
-    description: "Ylen suomenkielinen uutisarkisto 2011– (versio 2018H2)<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
+    description: "Ylen suomenkielinen uutisarkisto<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
     info: {
 	homepage: {
 	    name: "Yle Uutiset",
@@ -185,8 +185,8 @@ settings.corporafolders.ylenews_fi = {
 };
 
 settings.corporafolders.ylenews_fi.a = {
-    title: "Ylen suomenkielinen uutisarkisto (versio 2018H2) (tutkijoille)",
-    description: "Ylen suomenkielinen uutisarkisto 2011– (versio 2018H2), tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
+    title: "Ylen suomenkielinen uutisarkisto 2011–2018 (tutkijoille)",
+    description: "Ylen suomenkielinen uutisarkisto 2011–2018, Korp<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
     // Contents are added later with settings.fn.add_corpus_settings
     contents: [],
     info: {
@@ -198,8 +198,8 @@ settings.corporafolders.ylenews_fi.a = {
 };
 
 settings.corporafolders.ylenews_fi.s = {
-    title: "Ylen suomenkielinen uutisarkisto (versio 2018H2) (kaikille)",
-    description: "Ylen suomenkielinen uutisarkisto 2011– (versio 2018H2), kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
+    title: "Ylen suomenkielinen uutisarkisto 2011–2018 (kaikille)",
+    description: "Ylen suomenkielinen uutisarkisto 2011–2018, sekoitettu, Korp<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
     // Contents are added later with settings.fn.add_corpus_settings
     contents: [],
     info: {
@@ -15398,7 +15398,7 @@ sattrs.ylenews_fi_paragraph_type = {
 
 settings.templ.ylenews_fi_a = {
     title: "Ylen suomenkielinen uutisarkisto {} (tutkijoille)",
-    description: "Ylen suomenkielinen uutisarkisto {} (versio 2018H2), tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.",
+    description: "Ylen suomenkielinen uutisarkisto 2011–2018, Korp: vuosi {}<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.",
     id: "ylenews_fi_{}_a",
     limited_access: true,
     licence_type: "ACA",
@@ -15422,7 +15422,7 @@ settings.corpus_aliases["ylenews_fi_2018h2_a"] = "ylenews_fi_201[1-8]_a";
     
 settings.templ.ylenews_fi_s = {
     title: "Ylen suomenkielinen uutisarkisto {} (kaikille)",
-    description: "Ylen suomenkielinen uutisarkisto {} (versio 2018H2), kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea",
+    description: "Ylen suomenkielinen uutisarkisto 2011–2018, Korp: vuosi {}<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea",
     id: "ylenews_fi_2011_2018_s",
     context: settings.defaultContext,
     within: settings.defaultWithin,
