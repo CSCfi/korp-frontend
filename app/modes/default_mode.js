@@ -13448,28 +13448,86 @@ settings.corpora.iijoki = {
     }
 };
 
+
+// Generate a declaration for a custom structural attribute showing in
+// hh:mm:ss.xxx format the milliseconds value of an actual structural
+// attribute.
+// Arguments:
+// - label: the localization label for the custom attribute
+// - base_attr: the id of the structural attribute with a milliseconds
+//   value
+settings.fn.make_hms_custom_attr = function (label, base_attr) {
+    return {
+        customType: "struct",
+        label: label,
+        order: 6,
+        renderItem: function (key, value, attrs, wordData, sentenceData,
+                              tokens) {
+            // console.log(base_attr + "_hms", key, value, attrs, wordData,
+	    // 		sentenceData, tokens);
+            return settings.fn.ms_to_hms(sentenceData[base_attr]);
+        }
+    };
+};
+
+
 settings.corpora.eduskunta = {
     title: "Eduskunnan täysistunnot",
-    description: "Eduskunnan täysistuntojen videotallenteista tehdyt transkriptiot. Istunnot ovat ajalta 10.9.2008–1.7.2016. Osa aineistosta on tarjolla myös LAT-palvelussa. Hakutuloksissa on tällöin linkki istunnon LAT-versioon. Transkriptiot perustuvat suomen kielimalliin, joten ruotsinkieliset puheenvuorot ovat tunnistuneet enimmäkseen vierassanoiksi.",
+    description: "Eduskunnan täysistunnot, Kielipankin Korp-versio 1.5<br/><br/>Aineisto sisältää 10.9.2008–1.7.2016 pidettyjen eduskunnan täysistuntojen videotallenteista tehdyt transkriptiot.<br/>Hakutuloksissa kustakin puhunnoksesta on linkki vastaavaan kohtaan alkuperäisessä videossa (muutamia poikkeuksia lukuun ottamatta). Osa aineistosta on tarjolla myös <a href=\"https://lat.csc.fi\" target=\"_blank\">Kielipankin LAT-palvelussa</a>, jolloin hakutuloksissa on linkki myös istunnon LAT-versioon.<br/><br/>Huomaa, että kohdistetussa pöytäkirjaversiossa esiintyy virheitä ja siihen on lisätty ylimääräisiä merkkauksia automaattisen tunnistusprosessin yhteydessä. Ne äänitteen kohdat, joille ei ole automaattisessa kohdistuksessa löytynyt hyvää vastinetta pöytäkirjan tekstistä, on tunnistettu kokonaan automaattisesti, joten tällaisissa kohdissa saattaa olla kummallista tai virheellistä sisältöä.<br/>Teksti on jäsennetty suomen kielen jäsentimellä, joten alkuperäisten pöytäkirjojen ruotsinkieliset kohdat on yleensä merkitty sanaluokaltaan vierassanoiksi.",
     id: "eduskunta",
-    urn: "urn:nbn:fi:lb-2017020201",
-    metadata_urn: "urn:nbn:fi:lb-2017020202",
-    licence: settings.licenceinfo.CC_BY_NC_ND,
-    cite_id: "eduskunta-korp",
+    urn: "urn:nbn:fi:lb-2019112221",
+    metadata_urn: "urn:nbn:fi:lb-2019101621",
+    licence: [
+	{
+	    subtype: "text",
+	    name: "CLARIN PUB +BY +PRIV 1.0",
+	    description: "CLARIN PUB loppukäyttäjän lisenssisopimus +BY +PRIV 1.0",
+	    urn: "urn:nbn:fi:lb-2019112821",
+	},
+	{
+	    subtype: "audiovideo",
+	    name: "CLARIN PUB +BY +PRIV +ND +OTHER 1.0",
+	    description: "CLARIN PUB loppukäyttäjän lisenssisopimus +BY +PRIV +ND +OTHER 1.0",
+	    urn: "urn:nbn:fi:lb-2019112621",
+	},
+    ],
+    cite_id: "eduskunta-v1.5-korp",
     homepage: {
-	url: "https://www.eduskunta.fi/FI/lakiensaataminen/taysistunnon_verkkolahetykset/tallenteet/Sivut/default.aspx",
+	urn: "http://urn.fi/urn:nbn:fi:lb-2019111922",
 	name: "Eduskunnan täysistuntojen verkkolähetysten tallenteet",
+	description: "META-SHARE-kuvailutietosivu, josta linkki eduskunnan täysistuntojen verkkolähetysten tallenteisiin",
 	no_label: true,
     },
-    within: settings.defaultWithin,
-    context: settings.defaultContext,
-    attributes: attrlist.standard,
+    features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
         text_filename: {
             label: "file_name",
         },
-        text_date: sattrs.date,
-        text_time: sattrs.text_time,
+        text_date: {
+	    label: "publication_date_2",
+	},
+        text_time: {
+	    label: "publication_time",
+	},
+	text_session_duration: {
+	    label: "session_duration_ms",
+	},
+        text_original_video : {
+	    label : "original_video",
+	    type : "url",
+	    url_opts: {
+		hide_url: true,
+		new_window: true,
+	    },
+	},
+	text_original_transcript : {
+	    label : "original_transcript",
+	    type : "url",
+	    url_opts: {
+		hide_url: true,
+		new_window: true,
+	    },
+	},
         paragraph_speaker: {
             label: "speaker_name"
         },
@@ -13563,17 +13621,75 @@ settings.corpora.eduskunta = {
 	    label: "utterance_num",
 	},
 	utterance_begin_time: {
-	    label: "utterance_begin_time"
+	    label: "utterance_begin_time_ms",
 	},
 	utterance_end_time: {
-	    label: "utterance_end_time"
+	    label: "utterance_end_time_ms",
 	},
 	utterance_duration: {
-	    label: "utterance_duration"
+	    label: "utterance_duration_ms"
 	},
-	utterance_annex_link: sattrs.link_show_video_annex,
-    }
+	// The valid_video_times attribute needs to be retrieved, as
+	// it is used to determine if the video page link is shown.
+	utterance_valid_video_times: sattrs.hidden,
+	utterance_videopage_link: {
+	    label: "show_video",
+	    type: "url",
+	    url_opts: sattrs.link_url_opts,
+	    synthetic: true,
+	    order: 50,
+	    stringify_synthetic: function (token_data) {
+		if (token_data.struct_attrs.utterance_valid_video_times
+		    == "no") {
+		    return undefined;
+		} else {
+		    return settings.fn.make_videopage_url(
+			"eduskunta",
+			token_data,
+			token_data.struct_attrs.text_original_video
+			// Temporary fix for ä's missing from URL
+			// attribute values; this is probably not
+			// needed any more, but it does not hurt,
+			// either.
+			    .replace(/Kevt/, "Kevät")
+			    .replace(/keskuu/, "kesäkuu")
+			    .replace(/heinkuu/, "heinäkuu"),
+			[],
+			["utterance_videopage_link",
+			 "utterance_annex_link",
+			 "utterance_annex_link_synth",]);
+		}
+	    },
+	},
+	// Kludge to get the LAT/Annex link after the other video
+	// link, as synthetic attributes are currently shown after
+	// non-synthetic ones.
+	utterance_annex_link: sattrs.hidden,
+	utterance_annex_link_synth: $.extend(
+	    {}, sattrs.link_show_video_annex,
+	    {
+		synthetic: true,
+		order: 40,
+		stringify_synthetic: function (token_data) {
+		    return token_data.struct_attrs.utterance_annex_link;
+		},
+	    }),
+    },
+    custom_attributes: {
+	text_session_duration: settings.fn.make_hms_custom_attr(
+	    "session_duration", "text_session_duration"),
+	utterance_begin_time_hms: settings.fn.make_hms_custom_attr(
+	    "utterance_begin_time", "utterance_begin_time"),
+	utterance_end_time_hms: settings.fn.make_hms_custom_attr(
+	    "utterance_end_time", "utterance_end_time"),
+	utterance_duration_hms: settings.fn.make_hms_custom_attr(
+	    "utterance_duration", "utterance_duration"),
+    },
 };
+
+// Support "eduskunta_test" as an alias
+settings.corpus_aliases["eduskunta_test"] = "eduskunta";
+
 
 settings.corpus_aliases["topling-fi"] = "topling_fi";
 

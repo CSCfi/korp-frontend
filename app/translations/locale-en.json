@@ -460,6 +460,8 @@
     "corpus_pid": "Persistent Identifier (metadata)",
     "corpus_urn": "Link to corpus in Korp",
     "corpus_licence": "Licence",
+    "corpus_licence_text": "Licence (text)",
+    "corpus_licence_audiovideo": "Licence (audio and video)",
     "corpus_metadata": "Metadata",
     "corpus_homepage": "Home page",
     "corpus_infopage": "Information page",

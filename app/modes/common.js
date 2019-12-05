@@ -103,7 +103,11 @@ settings.licenceinfo = {
 	name: "CLARIN ACA +NC",
 	description: "CLARIN ACA (Academic) End-User License 1.0, Non-commercial",
 	url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
-    }
+    },
+    Ylenews_sv_en: {
+	name: "CLARIN ACA +NC 1.0",
+	urn: "urn:nbn:fi:lb-2019120401",
+    },
 };
 
 
@@ -1873,7 +1877,8 @@ sattrs.link_prefixed = function (label, url_prefix) {
 sattrs.link_show_video_prefixed = function (url_prefix) {
     return sattrs.link_prefixed("show_video", url_prefix);
 };
-sattrs.link_show_video_annex = sattrs.link_show_video_prefixed(
+sattrs.link_show_video_annex = sattrs.link_prefixed(
+    "show_video_in_lat",
     "https://lat.csc.fi/ds/annex/runLoader?viewType=timeline&");
 
 sattrs.link_gutenberg = {
@@ -2415,6 +2420,15 @@ sattrlist.studentsvenska = {
 
 attrlist.parsed_sv = {
     lemma: attrs.baseform,
+    pos: attrs.pos,
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel,
+    ref: attrs.ref
+};
+
+attrlist.parsed_sv_lemmaset = {
+    lemma: attrs.baseform_sv,
     pos: attrs.pos,
     msd: attrs.msd,
     dephead: attrs.dephead,
@@ -4548,6 +4562,149 @@ settings.fn.make_folder_hierarchy = function (parent_folder, subfolder_tree,
     }
 };
 
+
+// Functions for the video page
+
+// Return the milliseconds value ms0 formatted as hh:mm:ss.xxx
+settings.fn.ms_to_hms = function (ms0) {
+    // Adapted from https://stackoverflow.com/a/2998822
+    var pad = function (num, len) {
+	var s = "000" + Math.floor(num).toString();
+	return s.substr(s.length - len);
+    }
+    ms0 = parseInt(ms0);
+    var ms = pad(ms0 % 1000, 3);
+    var s = pad(ms0 / 1000 % 60, 2);
+    var m = pad(ms0 / 60000 % 60, 2);
+    var h = pad(ms0 / 3600000, 1);
+    return (h + ":" + m + ":" + s
+	    + util.getLocaleString("util_decimalseparator") + ms);
+};
+
+
+// Make the URL to the video page with information encoded in
+// parameters.
+//
+// This function is tailored to generate the value for a synthetic
+// attribute. This function was developed for the Eduskunta corpus,
+// but it aims to be more general-purpose. However, it might need to
+// be modified (generalized further) when used for other corpora.
+//
+// Arguments:
+// - corpus_id: the id of the corpus linking to the video page
+// - token_data: the token data passed to the stringify_synthetic
+//   function
+// - video_url: the URL of the original video shown on the video page
+// - msec2sec_attrs: ids of structural attributes whose values should
+//   be converted from milliseconds to seconds
+// - omit_attrs: the structural attributes not to be passed to the
+//   video page
+settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
+					   msec2sec_attrs, omit_attrs) {
+    // console.log("settings.fn.make_videopage_url", token_data);
+    var msec_to_sec = function (sec) {
+	return (parseInt(sec) / 1000).toString();
+    };
+    var append_attr = function (key, val, attrdef, text_attrs) {
+	var name = (util.getLocaleStringUndefined(attrdef.label)
+		    || attrdef.label);
+	if (name) {
+	    if (msec2sec_attrs.includes(key)) {
+		val = msec_to_sec(val);
+	    } else if (attrdef.renderItem) {
+	    	val = attrdef.renderItem(
+	    	    key, val, attrdef, token_data.pos_attrs,
+	    	    token_data.struct_attrs, token_data.tokens);
+	    } else if (attrdef.translationKey != undefined) {
+		if (attrdef.dataset && ! _.isArray(attrdef.dataset)) {
+		    val = (attrdef.dataset != undefined
+			   ? attrdef.dataset[val]
+			   : val);
+		}
+		var loc_val = util.getLocaleStringUndefined(
+		    attrdef.translationKey + val);
+		if (loc_val != undefined) {
+		    val = loc_val;
+		}
+	    } else if (val == "") {
+		val = util.getLocaleString("unknown");
+	    }
+	    text_attrs[key] = name + "," + val;
+	}
+    };
+    var make_licence_info = function (corpus_conf) {
+	// A single quote does not seem to be encoded correctly, so
+	// change single quotes to double ones. FIXME: This assumes
+	// that single quotes are used only to delimit attribute
+	// values.
+	var licence_text = util.formatCorpusExtraInfo(
+	    corpus_conf, { info_items: ["licence"],
+			   static_localization: true })
+	    .replace(/'/g, "\"");
+	// A kludge to put the video licence first: assumes that its
+	// localized label contains the string "video"
+	return licence_text.replace(
+	    /^(.*?)(<br\s*\/?>)(Li.*?video.*)$/, "$3$2$1");
+    };
+    // Would it be better to declare the base URL (prefix) somewhere
+    // else?
+    var prefix = "markup/video_page.html#";
+    var words = [];
+    var tokens = token_data.tokens;
+    var match_types = ["_matchSentence", "_match"];
+    for (var i = 0; i < tokens.length; i++) {
+	var word = tokens[i].word;
+	for (var j = 0; j < match_types.length; j++) {
+	    var match_type = match_types[j];
+	    if (tokens[i][match_type]) {
+		if (i == 0 || ! tokens[i - 1][match_type]) {
+		    word = ("<span class=\"" + match_type.substr(1) + "\">"
+			    + word);
+		}
+		if (i == tokens.length - 1 || ! tokens[i + 1][match_type]) {
+		    word += "</span>";
+		}
+	    }
+	}
+	words.push(word);
+    }
+    var text_attrs = {};
+    var corpus_conf = settings.corpora[corpus_id];
+    var attr_types = ["struct", "custom"];
+    for (var i = 0; i < attr_types.length; i++) {
+	var attr_type = attr_types[i] + "_attributes";
+	for (var key in corpus_conf[attr_type]) {
+	    if (! omit_attrs.includes(key)) {
+		var attrdef = corpus_conf[attr_type][key];
+		// console.log(key, attrdef);
+		append_attr(
+		    key,
+		    (attr_type == "struct_attributes"
+		     ? token_data.struct_attrs[key] : null),
+		    attrdef, text_attrs);
+	    }
+	}
+    }
+    var params = {
+	lang: window.lang || settings.defaultLanguage,
+	src: video_url,
+	corpusname: corpus_conf.title,
+	metadata_urn: corpus_conf.metadata_urn,
+	licence_info: make_licence_info(corpus_conf),
+	korp_url: window.location.href,
+	utterance: "<span class=\"utterance\">" + words.join(" ") + "<span>",
+	text_attributes: JSON.stringify(text_attrs),
+    };
+    // console.log(params);
+    var paramstr = "";
+    for (var key in params) {
+	if (paramstr != "") {
+	    paramstr += "&";
+	}
+	paramstr += key + "=" + encodeURIComponent(params[key]);
+    }
+    return prefix + paramstr;
+};
 
 
 
