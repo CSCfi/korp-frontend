@@ -2114,6 +2114,20 @@
     "paratype_sentence": "sentence",
     "paratype_empty": "empty",
 
+    "textpart_image_alt": "alternative text for image",
+    "textpart_byline": "byline",
+    "textpart_caption": "caption",
+    "textpart_heading": "heading",
+    "textpart_heading_alt": "alternative text for heading image",
+    "textpart_heading_caption": "caption for heading image",
+    "textpart_headline": "headline",
+    "textpart_image": "image",
+    "textpart_lead": "lead paragraph",
+    "textpart_quote": "quotation",
+    "textpart_short_summary": "short summary",
+    "textpart_summary": "summary",
+    "textpart_text": "text",
+
     "country": "country",
 
     "country_AU": "Australia",
@@ -2263,6 +2277,12 @@
     "oracc_lang_SumerianEmesal": "Sumerian Emesal",
     "oracc_lang_Ugaritic": "Ugaritic",
     "oracc_lang_Urartian": "Urartian",
+
+    "main_section": "main section",
+    "sections": "sections",
+    "datetime_published": "publication date and time",
+    "datetime_content_modified": "content modification date and time",
+    "datetime_json_modified": "JSON modification date and time",
 
 "klk_img_url": "View document in Revizor",
 "hc_xmlid": "XML id",

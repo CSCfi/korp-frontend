@@ -103,7 +103,11 @@ settings.licenceinfo = {
 	name: "CLARIN ACA +NC",
 	description: "CLARIN ACA (Academic) End-User License 1.0, Non-commercial",
 	url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
-    }
+    },
+    Ylenews_sv_en: {
+	name: "CLARIN ACA +NC 1.0",
+	urn: "urn:nbn:fi:lb-2019120401",
+    },
 };
 
 
@@ -2423,6 +2427,15 @@ attrlist.parsed_sv = {
     ref: attrs.ref
 };
 
+attrlist.parsed_sv_lemmaset = {
+    lemma: attrs.baseform_sv,
+    pos: attrs.pos,
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel,
+    ref: attrs.ref
+};
+
 // Common positional attributes for corpora parsed with the Turku
 // Dependency Treebank parser (with lemgrams and lemmas without
 // compound boundaries added)
@@ -4314,20 +4327,66 @@ settings.attr_extra_properties = [
  */
 
 
-// Add corpus settings using a template, modified with items in
-// infolist, added to folder, with the id prefixed with id_prefix.
+// Add corpus settings for multiple corpora using a template, modified
+// with items in infolist, added to folder, with the id constructed
+// using id_templ.
+//
+// Arguments:
+// - template: the common definitions for all the corpora
+// - infolist: one of the following:
+//   1. an array of objects with properties with which to extend the
+//      template (should contain the property "id", which is treated
+//      as the variable part of the corpus id),
+//   2. an array of strings treated as (the variable parts of) corpus
+//      ids, or
+//   3. an array of two integers (typically years), which denote the
+//      start and end values (inclusive) for the variable parts of the
+//      ids (converted to strings).
+// - folder: the corpus folder to whose "contents" property the
+//   corpora are added
+// - id_templ: a template for the corpus id: "{}" is replaced with the
+//   variable part of the id value taken from the infolist item; if no
+//   "{}", treated as a prefix to the id
+//
+// Occurrences of "{}" in the title, description and id_templ are
+// replaced with the variable part of the id specified in the infolist
+// item.
+
 settings.fn.add_corpus_settings = function (template, infolist, folder,
-					    id_prefix) {
+					    id_templ) {
     var ids = [];
-    for (var i = 0; i < infolist.length; i++) {
-	var info = infolist[i];
-	var id = id_prefix + info.id;
+    // Replace {} with the id in infolist in these properties:
+    var id_subst_props = ["title", "description"];
+
+    var add_info = function (info) {
+	var info_is_string = (typeof info == "string");
+	var id_varpart = (info_is_string ? info : info.id);
+	var id = (id_templ.indexOf("{}") > -1
+		  ? id_templ.replace(/{}/g, id_varpart)
+		  : id_templ + id_varpart);
 	// Make a deep copy so that the resulting objects can be
 	// safely modified independently of each other if necessary.
 	settings.corpora[id] = $.extend(true, {}, template);
-	$.extend(settings.corpora[id], info);
-	settings.corpora[id].id = id;
+	var config = settings.corpora[id];
+	if (! info_is_string) {
+	    $.extend(config, info);
+	}
+	config.id = id;
+	for (var j = 0; j < id_subst_props.length; j++) {
+	    var propname = id_subst_props[j];
+	    config[propname] = config[propname].replace(/{}/g, id_varpart);
+	}
 	ids.push(id);
+    };
+
+    if (infolist.length == 2 && Number.isInteger(infolist[0])) {
+	for (var id = infolist[0]; id <= infolist[1]; id++) {
+	    add_info(id.toString());
+	}
+    } else {
+	for (var i = 0; i < infolist.length; i++) {
+	    add_info(infolist[i]);
+	}
     }
     if (folder != null) {
 	if (! ("contents" in folder)) {
@@ -4336,6 +4395,7 @@ settings.fn.add_corpus_settings = function (template, infolist, folder,
 	folder.contents = folder.contents.concat(ids);
     }
 };
+
 
 // Add properties to the settings of the listed corpora.
 settings.fn.extend_corpus_settings = function (props, corpus_ids) {
