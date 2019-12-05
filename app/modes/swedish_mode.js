@@ -131,41 +131,43 @@ settings.corporafolders.fstc = {
 };
 
 settings.corporafolders.ylenews_sv = {
-    title: "Svenska Yles webbartiklar",
-    description: "Svenska Yles webbartiklar<br/><br/>Mappen innehåller två korpusar med samma meningar men med olika tillgänglighet och egenskaper: den ena korpusen är öppen för alla och har meningarna i en blandad ordning inom varje text och utan utökad kontextvisning, medan den andra korpusen är tillgänglig för forskare och har meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning.",
+    title: "Yle svenska webbartiklar",
+    description: "Yle svenska webbartiklar<br/><br/>Mappen innehåller två korpusar med samma meningar men med olika tillgänglighet och egenskaper: den ena korpusen är öppen för alla och har meningarna i en blandad ordning inom varje text och utan utökad kontextvisning, medan den andra korpusen är tillgänglig för forskare och har meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning.",
     info: {
 	homepage: {
 	    name: "Svenska Yle",
 	    url: "https://svenska.yle.fi",
 	    no_label: true,
 	},
-	labels: ["test"],
+	labels: ["beta"],
     },
 };
 
 settings.corporafolders.ylenews_sv.a = {
-    title: "Svenska Yles webbartiklar 2012– (2018H2) (för forskare)",
-    description: "Svenska Yles webbartiklar 2012– (version 2018H2), variant tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning",
+    title: "Yle svenska webbartiklar 2012–2018 (för forskare)",
+    description: "Yle svenska webbartiklar 2012–2018, Korp<br/>Variant tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning<br/><br/>Korpusen är indelad i delkorpusar enligt år, och artiklarna är ordnade enligt redigeringsdatumet.",
     // Contents are added later with settings.fn.add_corpus_settings
     contents: [],
     info: {
-	// urn: "[to be added]",
-	metadata_urn: "urn:nbn:fi:lb-2016111402",
+	// TODO: Uncomment location URN by the end of the beta stage
+	// urn: "urn:nbn:fi:lb-2019120405",
+	metadata_urn: "urn:nbn:fi:lb-2019120403",
 	licence: settings.licenceinfo.Ylenews_sv_en,
 	cite_id: "ylenews-sv-2012-2018-korp",
     },
 };
 
 settings.corporafolders.ylenews_sv.s = {
-    title: "Svenska Yles webbartiklar 2012– (2018H2) (för alla)",
-    description: "Svenska Yles webbartiklar 2012– (version 2018H2), variant öppen för alla: meningarna i en blandad ordning inom varje text och ingen utökad kontextvisning",
+    title: "Yle svenska webbartiklar 2012–2018 (för alla)",
+    description: "Yle svenska webbartiklar 2012–2018, blandad, Korp<br/>Variant öppen för alla: meningarna i en blandad ordning inom varje text och ingen utökad kontextvisning<br/><br/>Korpusen är indelad i delkorpusar enligt år, och artiklarna är ordnade enligt redigeringsdatumet.",
     // Contents are added later with settings.fn.add_corpus_settings
     contents: [],
     info: {
-	// urn: "[to be added]",
-	metadata_urn: "urn:nbn:fi:lb-2016111402",
+	// TODO: Uncomment location URN by the end of the beta stage
+	// urn: "urn:nbn:fi:lb-2019120406",
+	metadata_urn: "urn:nbn:fi:lb-2019120404",
 	licence: settings.licenceinfo.CC_BY,
-	cite_id: "ylenews-sv-2012-2018-korp",
+	cite_id: "ylenews-sv-2012-2018-s-korp",
     },
 };
 
@@ -898,8 +900,8 @@ sattrs.ylenews_sv_paragraph_type = {
 };
 
 settings.templ.ylenews_sv_a = {
-    title: "Svenska Yles webbartiklar {} (2018H2) (för forskare)",
-    description: "Svenska Yles webbartiklar {} (version 2018H2), variant tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning",
+    title: "Yle svenska webbartiklar {} (för forskare)",
+    description: "Yle svenska webbartiklar 2012–2018, Korp: år {}<br/>Variant tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning",
     id: "ylenews_sv_{}_a",
     limited_access: true,
     licence_type: "ACA",
@@ -918,11 +920,14 @@ settings.fn.add_corpus_settings(
     settings.corporafolders.ylenews_sv.a,
     "ylenews_sv_{}_a");
 
-settings.corpus_aliases["ylenews_sv_2018h2_a"] = "ylenews_sv_201[2-8]_a";
+settings.corpus_aliases["ylenews_sv_2012_2018_a"]
+    = settings.corpus_aliases["ylenews-sv-2012-2018-korp"]
+    = settings.corpus_aliases["ylenews-sv-2012-2018"]
+    = "ylenews_sv_201[2-8]_a";
 
 settings.templ.ylenews_sv_s = {
-    title: "Svenska Yles webbartiklar {} (2018H2) (för alla)",
-    description: "Svenska Yles webbartiklar {} (version 2018H2), variant öppen för alla: meningarna i en blandad ordning inom varje text och ingen utökad kontextvisning",
+    title: "Yle svenska webbartiklar {} (för alla)",
+    description: "Yle svenska webbartiklar 2012–2018, blandad, Korp: år {}<br/>Variant öppen för alla: meningarna i en blandad ordning inom varje text och ingen utökad kontextvisning",
     id: "ylenews_sv_{}_s",
     context: settings.defaultContext,
     within: settings.defaultWithin,
@@ -940,7 +945,10 @@ settings.fn.add_corpus_settings(
     settings.corporafolders.ylenews_sv.s,
     "ylenews_sv_{}_s");
 
-settings.corpus_aliases["ylenews_sv_2018h2_s"] = "ylenews_sv_201[2-8]_s";
+settings.corpus_aliases["ylenews_sv_2012_2018_s"]
+    = settings.corpus_aliases["ylenews-sv-2012-2018-s-korp"]
+    = settings.corpus_aliases["ylenews-sv-2012-2018-s"]
+    = "ylenews_sv_201[2-8]_s";
 
 
 settings.fn.add_attr_extra_properties(settings.corpora);

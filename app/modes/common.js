@@ -105,8 +105,8 @@ settings.licenceinfo = {
 	url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
     },
     Ylenews_sv_en: {
-	name: "CLARIN ACA +NC +OTHER 1.0",
-	urn: "urn:nbn:fi:lb-2019032201",
+	name: "CLARIN ACA +NC 1.0",
+	urn: "urn:nbn:fi:lb-2019120401",
     },
 };
 
