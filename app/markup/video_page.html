@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Aineistonäyte - Corpus sample (Kielipankki - The Language Bank of Finland)</title>
+    <!-- For some reason, the video player did not seem to work
+	 together with the following, at least on Firefox 69.0.1 on
+	 Linux. Inserting the content behind the link in a style
+	 element seemed to work, though. Using http made the browser
+	 block it as mixed content. -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato" /> -->
+    <style>
+      body {
+	  font-family: 'Lato', Helvetica, Arial, Verdana, sans-serif;
+      }
+      a {
+	  text-decoration: none;
+      }
+      .utterance {
+	  color: grey;
+      }
+      .matchSentence {
+	  color: black;
+      }
+      .match {
+	  font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table border="0">
+      <tr>
+	<!-- In the left column, display video and some buttons   -->
+	<td width="70%">
+	  <div>
+	    <video id="myvideo" width="97%" controls preload="true">
+	      <source id="myvideo_source" src="" type="video/mp4"/>
+	      Your browser does not support HTML5 video.</video>
+	  </div>
+	  <table width="100%">
+	    <tr>
+	      <td style="vertical-align:top" width="50%">
+		<p>
+		  <button id="playme"><span id="play_pause_video">Play/Pause</span></button>
+		  <button id="jump30back"><span id="jump_30back">-30 s</span></button>
+		  <button id="jump5back"><span id="jump_5back">-5 s</span></button>
+		  <button id="jump5fwd"><span id="jump_5fwd">+5 s</span></button>
+		  <button id="jump30fwd"><span id="jump_30fwd">+30 s</span></button>
+		</p>
+	      </td>
+	      <td style="vertical-align:top" width="100px">
+		<p>
+		  <button id="jump"><span id="play_utterance">Play selection</span></button>
+		</p>
+	      </td>
+	      <td style="vertical-align:middle">
+		<span id="stop_video_at_selection_end">Stop video at selection end</span>: <input type="checkbox" id="checkbox_stop_video_at_selection_end">
+	      </td>
+	    </tr>
+	  </table>
+	  <p>
+	    <!-- Utterance transcript -->
+	    <b><span id="utterance"></span>:</b>
+	    <span id="utterance_value"></span>
+	  </p>
+	  <table width="97%" style="border-spacing: 0;" >
+	    <tr>
+	      <!-- Speaker information -->
+	      <td style="vertical-align:top" width="50%">
+		<p id="speech_info"></p>
+	      </td>
+	      <!-- Time information about the utterance -->
+	      <td style="vertical-align:top">
+		<p id="time_info"></p>
+	      </td>
+	    </tr>
+	  </table>
+	</td>
+	<!-- Begin right column of page: information on the original media, the corpus and text/session  -->
+	<td style="vertical-align:top">
+	  <div style="border:1px solid black; padding: 0em 1em;">
+	    <!-- Information on the original media -->
+	    <p>
+	      <b><span id="external_media_stream"></span>:</b><br/>
+	      <span id="src_url"></span>
+	    </p>
+	  </div>
+	  <br/>
+	  <!-- Kielipankki logo -->
+	  <a href='https://www.kielipankki.fi' target='_blank'>
+	    <img src="../img/Kielipankki-logo-cropped.png" width="200px" align="right">
+	  </a>
+	  <!-- Corpus properties -->
+	  <h3 id="corpus_in_kielipankki"></h3>
+	  <p id="corpusname"></p>
+	  <p>
+	    <b><span id="persistent_id_metadata"></span>:</b><br/>
+	    <span id="metadata_urn"></span><br/>
+	  </p>
+	  <p>
+	    <span id="licence_info"></span><br/>
+	  </p>
+	  <p>
+	    <a id="korp_url" href="" target="_blank"><span id="link_to_search_in_korp"></span></a><br/>
+	  </p>
+	  <!-- Text/session attributes (from Korp)  -->
+	  <h3 id="text_session_attributes"></h3>
+	  <p id="session_info"></p>
+	  <!-- Disclaimer (is this necessary)???  -->
+	  <br/><hr/>
+	  <p style="font-size:80%">
+	    <i><span id="disclaimer_browser"></span></i>
+	  </p>
+	  <p style="font-size:80%">
+	    <i><span id="disclaimer_data"></span></i>
+	  </p>
+	</td>
+      </tr>
+    </table>
+    <hr size="3" color="#800080"/>
+
+    <script>
+
+      // Localization: The top-level keys of transls refer (mostly) to
+      // element ids in the HTML whose content should be translated, and
+      // the values are dictionaries (objects) with language codes as keys
+      // and localized values as values.
+      var transls = {
+	  play_pause_video: {
+	      en: "Play/Pause",
+	      fi: "Soita/Pysäytä",
+	      sv: "Spela/Pausa",
+	  },
+	  play_utterance: {
+	      en: "Play selection",
+	      fi: "Soita alue",
+	      sv: "Spela region",
+          },
+          stop_video_at_selection_end: {
+              en: "&nbsp;&nbsp;Stop video at selection end",
+              fi: "&nbsp;&nbsp;Pysäytä video alueen loppuun",
+              sv: "&nbsp;&nbsp;Pausa video i slutet av region",
+          },
+	  stop_playing_at_utterance_end: {
+	      en: "Stop playing at selection end",
+	      fi: "Lopeta alueen loppuun",
+	      sv: "Stop playing at selection end (sv)",
+	  },
+	  continue_playing_after_utterance_end: {
+	      en: "Continue playing after selection end",
+	      fi: "Jatka alueen jälkeen",
+	      sv: "Continue playing after selection end (sv)",
+	  },
+	  jump_30back: {
+	      en: "-30 s",
+	      fi: "-30 s",
+	      sv: "-30 s",
+	  },
+	  jump_5back: {
+	      en: "-5 s",
+	      fi: "-5 s",
+	      sv: "-5 s",
+	  },
+	  jump_5fwd: {
+	      en: "+5 s",
+	      fi: "+5 s",
+	      sv: "+5 s",
+	  },
+	  jump_30fwd: {
+	      en: "+30 s",
+	      fi: "+30 s",
+	      sv: "+30 s",
+	  },
+	  utterance: {
+	      en: "Utterance",
+	      fi: "Puhunnos",
+	      sv: "Yttrande",
+	  },
+	  seconds: {
+	      en: "seconds",
+	      fi: "sekuntia",
+	      sv: "sekunder",
+	  },
+	  external_media_stream: {
+	      en: "Media source",
+	      fi: "Medialähde",
+	      sv: "Mediakälla",
+	  },
+	  corpus_in_kielipankki: {
+	      en: "Corpus",
+	      fi: "Korpus",
+	      sv: "Korpus",
+	  },
+	  persistent_id_metadata: {
+	      en: "Persistent Identifier (metadata)",
+	      fi: "Aineiston pysyvä tunniste (kuvailutiedot)",
+	      sv: "Persistent identifierare (metadata)",
+	  },
+	  link_to_search_in_korp: {
+	      en: "Link to search in Korp",
+	      fi: "Linkki Korp-hakuun",
+	      sv: "Länk till sök i Korp",
+	  },
+	  text_session_attributes: {
+	      en: "Text attributes",
+	      fi: "Tekstin piirteet",
+	      sv: "Textattribut",
+	  },
+	  licence: {
+	      en: "Licence",
+	      fi: "Lisenssi",
+	      sv: "Lisens",
+	  },
+	  disclaimer_browser: {
+	      en: "Please note that the video feature on this page is not supported by all browsers. The page is most likely to work in a Firefox browser.",
+	      fi: "Huom. Kaikki selaimet eivät tue tälle sivulle upotettua videota. Varmimmin sivu toimii Firefox-selaimella.",
+	      sv: "Obs. Alla webbläsare stöder inte videon på denna sida. Sidan fungerar säkrast med Firefox-webbläsare.",
+	  },
+	  disclaimer_data: {
+	      en: "The original transcript has been aligned with the media file and annotated by using automatic methods. The alignment or the annotations may thus contain errors.",
+	      fi: "Alkuperäinen litteraatti on kohdistettu mediatiedostoon ja annotoitu automaattisin menetelmin. Tästä syystä kohdistuksessa ja annotaatioissa saattaa esiintyä virheitä.",
+	      sv: "Den originala transkriptionen har länkats med mediafilen och annoterats med automatiska metoder. Därför förekommer det fel i länkning och annotering.",
+	  },
+      };
+
+      // Set up the buttons below the video
+
+      var myvideo = document.getElementById('myvideo');
+      var playbutton = document.getElementById('playme');
+      var jumpbutton = document.getElementById('jump');
+      var jump30backbutton = document.getElementById('jump30back');
+      var jump5backbutton = document.getElementById('jump5back');
+      var jump5fwdbutton = document.getElementById('jump5fwd');
+      var jump30fwdbutton = document.getElementById('jump30fwd');
+
+      var hashstring = document.location.hash.split("#")[1];
+      var hashparams = hashstring.split("&");
+      var params = {};
+      for (index = 0; index < hashparams.length; index++) {
+			      var param = hashparams[index].split("=");
+			      var k = param[0];
+			      var v = param[1];
+			      params[k] = v;
+      }
+
+      var lang = decodeURIComponent(params["lang"]);
+      var src_url = decodeURIComponent(params["src"]);
+      // allow line break after slash in src url
+      var src_url_str = src_url.replace(/\//g,"/<wbr>");
+      var corpusname = decodeURIComponent(params["corpusname"]);
+      var metadata_urn = decodeURIComponent(params["metadata_urn"]);
+      var korp_url = decodeURIComponent(params["korp_url"]);
+      var utterance = decodeURIComponent(params["utterance"]);
+      // Bold the licence label
+      var licence_info = decodeURIComponent(params["licence_info"])
+	  .replace(/(^|<br\s*\/?>)(.*?:)/g, "$1<b>$2</b>");
+
+      var text_attributes = decodeURIComponent(params["text_attributes"]);
+      var attr = JSON.parse(text_attributes);
+
+      var loc_vals = {};
+      for (var key in attr) {
+	  var loc_val = attr[key].split(",");
+	  // Needed if the attribute value contains commas; the key is
+	  // assumed not to contain them.
+	  loc_vals[key] = [loc_val[0], loc_val.slice(1).join(",")];
+      }
+
+      for (key in transls) {
+	  var elem = document.getElementById(key);
+	  if (elem) {
+	      elem.innerHTML = transls[key][lang];
+	  }
+      }
+
+      // Settings for the video
+
+      var source_elem = document.getElementById('myvideo_source');
+      source_elem.setAttribute("src", src_url);
+      var begin_time = parseInt(loc_vals["utterance_begin_time"][1]) / 1000;
+      var end_time = parseInt(loc_vals["utterance_end_time"][1]) / 1000;
+      myvideo.currentTime = begin_time;
+
+      function display_info (elem_id, info_items, bold, suffix) {
+	  var html = "";
+	  if (suffix == undefined) {
+	      suffix = "";
+	  }
+	  for (var i = 0; i < info_items.length; i++) {
+	      var info_item = loc_vals[info_items[i]];
+	      if (info_item != undefined) {
+		  var label = info_item[0];
+		  if (bold) {
+		      label = "<b>" + label + "</b>";
+		  }
+		  html += label + ": " + info_item[1] + suffix;
+		  if (i < info_items.length - 1) {
+		      html += "<br/>"
+		  }
+	      }
+	  }
+	  document.getElementById(elem_id).innerHTML = html;
+      }
+
+      // Localize and display the utterance transcript and speaker information below the video
+
+      document.getElementById("utterance_value").innerHTML = utterance;
+
+      display_info("speech_info",
+		   ["paragraph_speaker",
+		    "paragraph_speaker_parl_group",
+		    "paragraph_speaker_role",
+		    "paragraph_speech_type"],
+		   true);
+
+      // Localize and display time information about the utterance
+
+      display_info("time_info",
+		   ["utterance_begin_time_hms",
+		    "utterance_end_time_hms",
+		    "utterance_duration_hms",
+		    "utterance_begin_time",
+		    "utterance_end_time",
+		    "utterance_duration"],
+		   false);
+
+
+      // Begin right column of page: information on the original media, the corpus and text/session
+
+      document.getElementById("src_url").innerHTML = (
+	  "<a href='" + src_url + "' target='_blank'>" + src_url_str + "</a>");
+
+      // Display corpus properties
+
+      document.getElementById("corpusname").innerHTML = corpusname;
+      document.getElementById("metadata_urn").innerHTML = (
+	  "<a href='http://urn.fi/" + metadata_urn + "' target='_blank'>"
+	      + metadata_urn + "</a>");
+      // licence_info contains licence information formatted as HTML
+      document.getElementById("licence_info").innerHTML = licence_info;
+      document.getElementById("korp_url").setAttribute("href", korp_url);
+
+      // Text/session attributes (from Korp)
+
+      display_info("session_info",
+		   ["text_date",
+		    "text_time"],
+		   true);
+      // todo: session duration
+
+      var pausing_function = function() {
+	  var checkBox = document.getElementById("checkbox_stop_video_at_selection_end");
+	  if (this.currentTime >= Number(end_time) && checkBox.checked == true) {
+	      myvideo.pause();
+	  }
+      }
+
+      myvideo.addEventListener("timeupdate", pausing_function);
+
+      jumpbutton.addEventListener("click", function (event) {
+	  event.preventDefault();
+	  myvideo.play();
+	  myvideo.pause();
+	  myvideo.currentTime = begin_time;
+	  myvideo.play();
+      }, false);
+
+      jump30backbutton.addEventListener("click", function (event) {
+	  event.preventDefault();
+	  myvideo.currentTime = myvideo.currentTime - 30;
+      }, false);
+
+      jump5backbutton.addEventListener("click", function (event) {
+	  event.preventDefault();
+	  myvideo.currentTime = myvideo.currentTime - 5;
+      }, false);
+
+      jump5fwdbutton.addEventListener("click", function (event) {
+	  event.preventDefault();
+	  myvideo.currentTime = myvideo.currentTime + 5;
+      }, false);
+
+      jump30fwdbutton.addEventListener("click", function (event) {
+	  event.preventDefault();
+	  myvideo.currentTime = myvideo.currentTime + 30;
+      }, false);
+
+      playbutton.addEventListener("click", function () {
+	  if (myvideo.paused) {
+	      myvideo.play();
+	  } else {
+	      myvideo.pause();
+	  }
+      }, false);
+
+    </script>
+
+  </body>
+</html>

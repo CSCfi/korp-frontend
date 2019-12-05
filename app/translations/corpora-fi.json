@@ -138,7 +138,13 @@
     "utterance_begin_time": "puhunnoksen alkuaika",
     "utterance_end_time": "puhunnoksen loppuaika",
     "utterance_duration": "puhunnoksen kesto",
+    "utterance_begin_time_ms": "puhunnoksen alkuaika (ms)",
+    "utterance_end_time_ms": "puhunnoksen loppuaika (ms)",
+    "utterance_duration_ms": "puhunnoksen kesto (ms)",
     "speaker": "puhuja",
+
+    "session_duration": "istunnon kesto",
+    "session_duration_ms": "istunnon kesto (ms)",
 
     "speech_begin_time": "puheenvuoron alkuaika",
     "speech_end_time": "puheenvuoron loppuaika",
@@ -937,6 +943,9 @@
     "parlgroup_vr": "Vasenryhmän eduskuntaryhmä",
     "parlgroup_": "ei tiedossa",
 
+    "original_video": "alkuperäinen video",
+    "original_transcript": "alkuperäinen pöytäkirja",
+
     "speakerrole_puhemies": "Puhemies",
     "speakerrole_ensimmainen_varapuhemies": "Ensimmäinen varapuhemies",
     "speakerrole_toinen_varapuhemies": "Toinen varapuhemies",
@@ -1527,10 +1536,12 @@
     "text_period": "tekstin ajankohta",
 
     "publication_date": "julkaisuajankohta",
+    "publication_date_2": "julkaisupäivä",
     "publication_year": "julkaisuvuosi",
     "publication_place": "julkaisupaikka",
     "publication_name": "julkaisun nimi",
     "publication_info": "julkaisutiedot",
+    "publication_time": "julkaisuaika",
 
     "author_birthyear": "tekijän syntymävuosi",
     "author_deathyear": "tekijän kuolinvuosi",
@@ -1542,6 +1553,7 @@
     "show_fulltext": "Näytä kokoteksti",
     "show_fulltext_context": "Näytä konteksti kokotekstissä",
     "show_video": "Näytä video",
+    "show_video_in_lat": "Näytä video LAT-palvelussa",
     "show_orig_thread": "Näytä alkuperäinen keskusteluketju",
     "show_orig_message": "Näytä alkuperäinen viesti",
     "listen_sentence": "Kuuntele virke",

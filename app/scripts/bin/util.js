@@ -1437,7 +1437,7 @@
   };
 
   util.formatCorpusExtraInfo = function(corpusObj, opts) {
-    var getUrnOrUrl, info_item, info_items, info_obj, item_paragraphs, k, label, len1, link_info, makeLinkItem, result;
+    var getUrnOrUrl, info_item, info_items, item_paragraphs, k, l, len1, len2, link_info, makeLinkInfos, makeLinkItem, ref, result;
     if (opts == null) {
       opts = {};
     }
@@ -1470,31 +1470,62 @@
       }
       return result;
     };
-    result = '';
-    for (k = 0, len1 = info_items.length; k < len1; k++) {
-      info_item = info_items[k];
+    makeLinkInfos = function(info_item) {
+      var base_label, corpus_info_item, info_item_sub, k, label, len1, linkInfoIsNotEmpty, link_info, link_info_base, link_infos, makeLabel, makeLinkInfoBase;
+      makeLabel = function(info_item) {
+        if (opts.static_localization) {
+          return util.getLocaleString('corpus_' + info_item);
+        } else {
+          return '<span rel=\'localize[corpus_' + info_item + ']\'>' + 'Corpus ' + info_item + '</span>';
+        }
+      };
+      makeLinkInfoBase = function(info_obj, label) {
+        var link_info;
+        link_info = {
+          url: getUrnOrUrl(info_obj)
+        };
+        if (info_obj.name) {
+          link_info.text = info_obj.name;
+          if (!info_obj.no_label) {
+            link_info.label = label;
+          }
+        } else {
+          link_info.text = label;
+        }
+        if (info_obj.description) {
+          link_info.tooltip = info_obj.description;
+        }
+        return link_info;
+      };
+      linkInfoIsNotEmpty = function(link_info) {
+        return link_info && (link_info.url || link_info.text);
+      };
       link_info = null;
-      label = '';
-      label = '<span rel=\'localize[corpus_' + info_item + ']\'>' + 'Corpus ' + info_item + '</span>';
+      label = makeLabel(info_item);
       if (settings.makeCorpusExtraInfoItem && info_item in settings.makeCorpusExtraInfoItem) {
         link_info = settings.makeCorpusExtraInfoItem[info_item](corpusObj, label);
       }
       if (!link_info) {
-        if (corpusObj[info_item]) {
-          info_obj = corpusObj[info_item];
-          link_info = {
-            url: getUrnOrUrl(info_obj)
-          };
-          if (info_obj.name) {
-            link_info.text = info_obj.name;
-            if (!info_obj.no_label) {
-              link_info.label = label;
+        corpus_info_item = corpusObj[info_item];
+        if (corpus_info_item) {
+          if (Array.isArray(corpus_info_item)) {
+            link_infos = [];
+            base_label = label;
+            for (k = 0, len1 = corpus_info_item.length; k < len1; k++) {
+              info_item_sub = corpus_info_item[k];
+              if ("subtype" in info_item_sub) {
+                label = makeLabel(info_item + '_' + info_item_sub.subtype);
+              } else {
+                label = base_label;
+              }
+              link_info_base = makeLinkInfoBase(info_item_sub, label);
+              if (linkInfoIsNotEmpty(link_info_base)) {
+                link_infos.push(link_info_base);
+              }
             }
+            return link_infos;
           } else {
-            link_info.text = label;
-          }
-          if (info_obj.description) {
-            link_info.tooltip = info_obj.description;
+            link_info = makeLinkInfoBase(corpus_info_item, label);
           }
         } else if (corpusObj[info_item + '_urn'] || corpusObj[info_item + '_url']) {
           link_info = {
@@ -1503,18 +1534,26 @@
           };
         }
       }
-      if (link_info && (link_info.url || link_info.text)) {
-        if (item_paragraphs) {
-          result += '<p>' + makeLinkItem(link_info) + '</p>';
-        } else {
-          if (result) {
-            result += '<br/>';
-          }
-          result += makeLinkItem(link_info);
-        }
+      if (linkInfoIsNotEmpty(link_info)) {
+        return [link_info];
+      } else {
+        return [];
+      }
+    };
+    result = [];
+    for (k = 0, len1 = info_items.length; k < len1; k++) {
+      info_item = info_items[k];
+      ref = makeLinkInfos(info_item);
+      for (l = 0, len2 = ref.length; l < len2; l++) {
+        link_info = ref[l];
+        result.push(makeLinkItem(link_info));
       }
     }
-    return result;
+    if (item_paragraphs) {
+      return '<p>' + result.join('</p><p>') + '</p>';
+    } else {
+      return result.join('<br/>');
+    }
   };
 
   util.makeUrnUrl = function(urn) {
@@ -2052,9 +2091,9 @@
       corpora_str = corpora.join(",");
       return href + "&corpus=" + corpora_str;
     } else {
-      href_corpora = /&corpus=([^&]*)/.exec(href)[1].split(",");
+      href_corpora = /[&?]corpus=([^&]*)/.exec(href)[1].split(",");
       corpora_str = _.union(href_corpora, corpora).join(",");
-      return href.replace(/(&corpus=)[^&]+/, "$1" + corpora_str);
+      return href.replace(/([&?]corpus=)[^&]+/, "$1" + corpora_str);
     }
   };
 
