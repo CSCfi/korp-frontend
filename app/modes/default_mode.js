@@ -172,8 +172,8 @@ settings.corporafolders.sks = {
 */
 
 settings.corporafolders.ylenews_fi_selko = {
-    title: "Ylen suomenkielisen uutisarkiston selkouutiset",
-    description: "Ylen suomenkielisen uutisarkiston selkouutiset 2011-2018 (beta)<br/><br/> -description-",
+    title: "Ylen suomenkielisen uutisarkiston selkouutiset (versio 2018H2)",
+    description: "Ylen suomenkielisen uutisarkiston selkouutiset 2011– (2018H2)<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
     contents: [
 	       "ylenews_fi_2011_2018_selko_a",
 	       "ylenews_fi_2011_2018_selko_s",
@@ -14811,8 +14811,8 @@ sattrs.ylenews_fi_selko_paragraph_type = {
 };
 
 settings.corpora.ylenews_fi_2011_2018_selko_a = {
-    title: "Ylen suomenkielisen uutisarkiston selkouutiset 2011-2018 (rajallinen käyttö)",
-    description: "Ylen suomenkielisen uutisarkiston selkouutiset 2011-2018, rajallinen käyttö",
+    title: "Ylen suomenkielisen uutisarkiston selkouutiset (versio 2018H2) (tutkijoille)",
+    description: "Ylen suomenkielisen uutisarkiston selkouutiset 2011– (versio 2018H2), tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
     id: "ylenews_fi_2011_2018_selko_a",
     // urn: "[to be added]",
     metadata_urn: "[to be added]",
@@ -14830,8 +14830,8 @@ settings.corpora.ylenews_fi_2011_2018_selko_a = {
 
 
 settings.corpora.ylenews_fi_2011_2018_selko_s = {
-    title: "Ylen suomenkielisen uutisarkiston selkouutiset 2011-2018 (rajaton käyttö)",
-    description: "Ylen suomenkielisen uutisarkiston selkouutiset 2011-2018 (rajaton käyttö): sekoitettut virkkeet",
+    title: "Ylen suomenkielisen uutisarkiston selkouutiset (versio 2018H2) (kaikille)",
+    description: "Ylen suomenkielisen uutisarkiston selkouutiset 2011– (versio 2018H2), kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
     id: "ylenews_fi_2011_2018_selko_s",
     // urn: "[to be added]",
     metadata_urn: "[to be added]",
