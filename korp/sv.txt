@@ -1,4 +1,24 @@
 
+<!-- Ny korpus (beta): Yle svenska webbartiklar 2012–2018 2019-12-09 -->
+
+Korpusen *Yle svenska webbartiklar 2012–2018, Korp* är nu tillgänglig
+i Korp som en betaversion i två varianter med samma meningar men med
+olika tillgänglighet och egenskaper:
+
+* *varianten tillgänglig för forskare inloggad i Korp* (<a
+  href="http://urn.fi/urn:nbn:fi:lb-2019120403" target="_blank"
+  title="META-SHARE-artikel">metadata</a>, <a
+  href="?mode=swedish#?corpus=ylenews-sv-2012-2018-korp&lang=sv"
+  target="_blank">korpusen i Korp</a>) har meningarna i den
+  ursprungliga ordningen och stöd för utökad kontextvisning, medan
+* *varianten öppen för alla* (<a
+  href="http://urn.fi/urn:nbn:fi:lb-2019120404" target="_blank"
+  title="META-SHARE-artikel">metadata</a>, <a
+  href="?mode=swedish#?corpus=ylenews-sv-2012-2018-s-korp&lang=sv"
+  target="_blank">korpusen i Korp</a>) har meningarna i en blandad
+  ordning inom varje text och ingen utökad kontextvisning.
+
+
 <!-- Ny korpus (beta): Semfinlex 2019-05-15 -->
 
 Semfinlex är nu tillgänglig i Korp som en betaversion. I korpusen

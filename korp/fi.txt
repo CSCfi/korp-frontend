@@ -1,4 +1,25 @@
 
+<!-- Uusi aineisto (beta): Ylen ruotsinkielinen uutisarkisto 2012–2018 2019-12-09 -->
+
+Korpissa on nyt käytettävissä beetatestiversiona *Ylen ruotsinkielinen
+uutisarkisto (Yle svenska webbartiklar) 2012–2018, Korp* -aineisto
+kahtena versiona, jotka sisältävät samat virkkeet mutta joilla on
+erilainen saatavuus ja erilaiset ominaisuudet:
+
+* *Korpiin kirjautuneiden tutkijoiden käytettävissä olevassa
+  versiossa* (<a href="http://urn.fi/urn:nbn:fi:lb-2019120403"
+  target="_blank" title="META-SHARE-artikkeli">kuvailutiedot</a>, <a
+  href="?mode=swedish#?corpus=ylenews-sv-2012-2018-korp"
+  target="_blank">aineisto Korpissa</a>) virkkeet ovat alkuperäisessä
+  järjestyksessä ja aineisto tukee kappalekontekstia, kun taas
+* *kaikille avoimessa versiossa* (<a
+  href="http://urn.fi/urn:nbn:fi:lb-2019120404" target="_blank"
+  title="META-SHARE-artikkeli">kuvailutiedot</a>, <a
+  href="?mode=swedish#?corpus=ylenews-sv-2012-2018-s-korp"
+  target="_blank">aineisto Korpissa</a>) virkkeet on sekoitettu kunkin
+  tekstin (artikkelin) sisällä eikä aineisto tue kappalekontekstia.
+
+
 <!-- Eduskunnan täysistunnot -aineistossa linkit kaikkiin videoihin 2019-12-02 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2019101621" target="_blank"

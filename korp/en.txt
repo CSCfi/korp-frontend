@@ -1,4 +1,25 @@
 
+<!-- New corpus (beta): Yle Swedish News Archive 2012–2018 2019-12-09 -->
+
+The corpus *Yle Swedish News Archive (Yle svenska webbartiklar)
+2012–2018, Korp* is now available in Korp for beta testing as two
+variants with the same sentences but with different availability and
+features:
+
+* *the variant available for academic users logged in to Korp* (<a
+  href="http://urn.fi/urn:nbn:fi:lb-2019120403" target="_blank"
+  title="META-SHARE article">metadata</a>, <a
+  href="?mode=swedish#?corpus=ylenews-sv-2012-2018-korp&lang=en"
+  target="_blank">corpus in Korp</a>) has sentences in the original
+  order and supports paragraph context, whereas
+* *the variant open for everyone* (<a
+  href="http://urn.fi/urn:nbn:fi:lb-2019120404" target="_blank"
+  title="META-SHARE article">metadata</a>, <a
+  href="?mode=swedish#?corpus=ylenews-sv-2012-2018-s-korp&lang=en"
+  target="_blank">corpus in Korp</a>) has sentences scrambled within
+  each text and does not support paragraph context.
+
+
 <!-- Links to all videos in the Plenary Sessions of the Parliament of Finland corpus 2019-12-02 -->
 
 The <a href="http://urn.fi/urn:nbn:fi:lb-2019101621" target="_blank"
