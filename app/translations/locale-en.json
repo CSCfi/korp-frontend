@@ -455,6 +455,8 @@
     "namegroup_other": "Other",
 
     "privacy": "Privacy policy",
+    "terms_of_use": "Terms of use",
+    "terms_of_use_urn": "urn:nbn:fi:lb-20150304100",
 
     "corpus_subcorpus_of": "Subcorpus of",
     "corpus_pid": "Persistent Identifier (metadata)",
