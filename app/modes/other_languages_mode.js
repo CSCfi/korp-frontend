@@ -259,7 +259,7 @@ settings.corporafolders.wanca_2016 = {
 	       "wanca_2016_mns_multili",
 	       "wanca_2016_mrj_multili",
 	       "wanca_2016_myv_multili",
-	       "wanca_2016_nio",
+	       "wanca_2016_nio_test",
 	       "wanca_2016_olo_multili",
 	       "wanca_2016_sjd",
 	       "wanca_2016_sjk",
@@ -935,8 +935,8 @@ settings.corpora.wanca_2016_myv_multili = {
     struct_attributes: sattrlist.wanca_common
 };
 
-settings.corpora.wanca_2016_nio = {
-    id: "wanca_2016_nio",
+settings.corpora.wanca_2016_nio_test = {
+    id: "wanca_2016_nio_test",
     title: "Wanca 2016: Nganasan (ня”)",
     description: "A collection of web corpora in small Uralic languages: Nganasan (ня”)",
     lang: "nio",
