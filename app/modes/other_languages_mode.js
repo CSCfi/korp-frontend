@@ -273,7 +273,7 @@ settings.corporafolders.wanca_2016 = {
 	       "wanca_2016_vep_multili",
 	       "wanca_2016_vot",
 	       "wanca_2016_vro_multili",
-	       "wanca_2016_yrk" ]
+	       "wanca_2016_yrk_test" ]
 };
 
 settings.corporafolders.english.scotscorr = {
@@ -1089,8 +1089,8 @@ settings.corpora.wanca_2016_vro_multili = {
     struct_attributes: sattrlist.wanca_common
 };
 
-settings.corpora.wanca_2016_yrk = {
-    id: "wanca_2016_yrk",
+settings.corpora.wanca_2016_yrk_test = {
+    id: "wanca_2016_yrk_test",
     title: "Wanca 2016: Nenets (ненэцяʼ вада)",
     description: "A collection of web corpora in small Uralic languages: Nenets (ненэцяʼ вада)",
     lang: "yrk",
