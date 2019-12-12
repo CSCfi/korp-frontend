@@ -455,6 +455,8 @@
     "namegroup_other": "Other",
 
     "privacy": "Privacy policy",
+    "terms_of_use": "Terms of use",
+    "terms_of_use_urn": "urn:nbn:fi:lb-20150304100",
 
     "corpus_subcorpus_of": "Subcorpus of",
     "corpus_pid": "Persistent Identifier (metadata)",
@@ -493,8 +495,8 @@
     "relogin_login": "Please log in to Korp",
     "relogin_login_postamble": "to be able to make the search that you tried",
 
-    "corpuslabel_descr_beta": "<strong>Please note</strong> that the corpus is in beta testing stage, so it may change without notice.",
-    "corpuslabel_descr_test": "<strong>Please note</strong> that the corpus is in testing stage, so it may change significantly without notice.",
+    "corpuslabel_descr_beta": "<strong>Please note</strong> that the corpus is in beta testing, so it may change without notice.",
+    "corpuslabel_descr_test": "<strong>Please note</strong> that the corpus is still in the test stage, so it may change significantly without notice.",
 
     "wordlist": "Word list",
     "selected_words": "Selected words",
