@@ -191,7 +191,7 @@ settings.corporafolders.ylenews_fi.a = {
     contents: [],
     info: {
 	// urn: "[to be added]",
-	// metadata_urn: "[to be added]",
+	 metadata_urn: "urn:nbn:fi:lb-2019121003",
 	// licence: settings.licenceinfo.Ylenews_fi_selko_en,
 	cite_id: "ylenews-fi-2011-2018-korp",
     }
@@ -204,7 +204,7 @@ settings.corporafolders.ylenews_fi.s = {
     contents: [],
     info: {
 	// urn: "[to be added]",
-	// metadata_urn: "[to be added]",
+	metadata_urn: "urn:nbn:fi:lb-2019121004",
 	licence: settings.licenceinfo.CC_BY,
 	cite_id: "ylenews-fi-2011-2018-korp",
     }
