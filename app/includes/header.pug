@@ -39,7 +39,10 @@
     li
       a.follow_link(href='privacy-policy.html', target='_blank', rel='localize[privacy]') Privacy policy
     li
-      a.follow_link(href='https://lat.csc.fi/corpora/Info/CLARIN-Terms_of_Service.html', target='_blank') CLARIN Terms of Service
+      a.follow_link(
+	      ng-href="http://urn.fi/{{'terms_of_use_urn' | loc:lang}}"
+	      target='_blank'
+	      rel='localize[terms_of_use]')
     li#login
       a(href='javascript:', rel='localize[log_in]')
   #news_area
