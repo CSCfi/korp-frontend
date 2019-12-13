@@ -190,9 +190,12 @@ settings.corporafolders.ylenews_fi.a = {
     // Contents are added later with settings.fn.add_corpus_settings
     contents: [],
     info: {
-	// urn: "[to be added]",
+	// urn: "urn:nbn:fi:lb-2019121005",
 	 metadata_urn: "urn:nbn:fi:lb-2019121003",
-	// licence: settings.licenceinfo.Ylenews_fi_selko_en,
+	 licence: {
+	    name: "CLARIN ACA +NC 1.0",
+	    urn: "urn:nbn:fi:lb-2019121002",
+	}
 	cite_id: "ylenews-fi-2011-2018-korp",
     }
 };
@@ -203,10 +206,10 @@ settings.corporafolders.ylenews_fi.s = {
     // Contents are added later with settings.fn.add_corpus_settings
     contents: [],
     info: {
-	// urn: "[to be added]",
+	// urn: "urn:nbn:fi:lb-2019121006",
 	metadata_urn: "urn:nbn:fi:lb-2019121004",
 	licence: settings.licenceinfo.CC_BY,
-	cite_id: "ylenews-fi-2011-2018-korp",
+	cite_id: "ylenews-fi-2011-2018-s-korp",
     }
 };
 
@@ -15416,8 +15419,11 @@ settings.fn.add_corpus_settings(
     settings.corporafolders.ylenews_fi.a,
     "ylenews_fi_{}_a");
 
-settings.corpus_aliases["ylenews_fi_2018h2_a"] = "ylenews_fi_201[1-8]_a";
-
+// settings.corpus_aliases["ylenews_fi_2018h2_a"] = "ylenews_fi_201[1-8]_a";
+settings.corpus_aliases["ylenews_fi_2011_2018_a"]
+    = settings.corpus_aliases["ylenews-fi-2011-2018-korp"]
+    = settings.corpus_aliases["ylenews-fi-2011-2018"]
+    = "ylenews_fi_201[1-8]_a";
 
     
 settings.templ.ylenews_fi_s = {
@@ -15441,8 +15447,11 @@ settings.fn.add_corpus_settings(
     settings.corporafolders.ylenews_fi.s,
     "ylenews_fi_{}_s");
 
-settings.corpus_aliases["ylenews_fi_2018h2_s"] = "ylenews_fi_201[1-8]_s";
-
+// settings.corpus_aliases["ylenews_fi_2018h2_s"] = "ylenews_fi_201[1-8]_s";
+settings.corpus_aliases["ylenews_fi_2011_2018_s"]
+    = settings.corpus_aliases["ylenews-fi-2011-2018-s-korp"]
+    = settings.corpus_aliases["ylenews-fi-2011-2018-s"]
+    = "ylenews_fi_201[1-8]_s";
 	
 
 
