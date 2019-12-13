@@ -171,23 +171,6 @@ settings.corporafolders.sks = {
 };
 */
 
-settings.corporafolders.ylenews_fi_selko = {
-    title: "Ylen suomenkielisen uutisarkiston selkouutiset",
-    description: "Ylen suomenkielisen uutisarkiston selkouutiset<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
-    contents: [
-	       "ylenews_fi_2011_2018_selko_a",
-	       "ylenews_fi_2011_2018_selko_s",
-	       ],
-    info: {
-	homepage: {
-	    name: "Yle Uutiset selkosuomeksi",
-	    url: "https://yle.fi/uutiset/osasto/selkouutiset/",
-	    no_label: true,
-	},
-	labels: ["test"],
-    },
-};
-
 
 
 settings.corporafolders.literature = {
@@ -915,6 +898,32 @@ settings.corporafolders.spoken.la_murre = {
 	cite_id: "LA-murre-korp",
     }
  };
+
+
+settings.corporafolders.selkokieli = {
+    title: "Selkokieli",
+    contents: ["ylenews_fi_selko"]
+};
+
+
+
+settings.corporafolders.ylenews_fi_selko = {
+    title: "Ylen suomenkielisen uutisarkiston selkouutiset",
+    description: "Ylen suomenkielisen uutisarkiston selkouutiset<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
+    contents: [
+	       "ylenews_fi_2011_2018_selko_a",
+	       "ylenews_fi_2011_2018_selko_s",
+	       ],
+    info: {
+	homepage: {
+	    name: "Yle Uutiset selkosuomeksi",
+	    url: "https://yle.fi/uutiset/osasto/selkouutiset/",
+	    no_label: true,
+	},
+	labels: ["test"],
+    },
+};
+
 
 settings.corporafolders.learner = {
     title: "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
@@ -14814,12 +14823,15 @@ settings.corpora.ylenews_fi_2011_2018_selko_a = {
     title: "Ylen suomenkielisen uutisarkiston selkouutiset 2011–2018 (tutkijoille)",
     description: "Ylen suomenkielisen uutisarkiston selkouutiset 2011–2018, Korp<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
     id: "ylenews_fi_2011_2018_selko_a",
-    // urn: "[to be added]",
+    // urn: "urn:nbn:fi:lb-2019121205",
     metadata_urn: "urn:nbn:fi:lb-2019121203",
-    // licence: settings.licenceinfo.Ylenews_fi_selko_en,
     cite_id: "ylenews-fi-2011-2018-selko-korp",
     limited_access: true,
-    licence_type: "ACA",
+    // licence_type: "ACA",
+    licence: {
+	name: "CLARIN ACA +NC 1.0",
+	urn: "urn:nbn:fi:lb-2019121202",
+    }
     features: ["paragraphs", "parsed_tdt"],
     struct_attributes: $.extend(
         {}, sattrlist.ylenews_fi_selko_common,
@@ -14829,14 +14841,18 @@ settings.corpora.ylenews_fi_2011_2018_selko_a = {
 };
 
 
+settings.corpus_aliases["ylenews_fi_2011_2018_selko_a"]
+    = settings.corpus_aliases["ylenews-fi-2011-2018-selko-korp"]
+
+
 settings.corpora.ylenews_fi_2011_2018_selko_s = {
     title: "Ylen suomenkielisen uutisarkiston selkouutiset 2011–2018 (kaikille)",
     description: "Ylen suomenkielisen uutisarkiston selkouutiset 2011–2018, sekoitettu, Korp<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
     id: "ylenews_fi_2011_2018_selko_s",
-    // urn: "[to be added]",
+    // urn: "urn:nbn:fi:lb-2019121206",
     metadata_urn: "urn:nbn:fi:lb-2019121204",
     licence: settings.licenceinfo.CC_BY,
-    cite_id: "ylenews-fi-2011-2018-selko-korp",
+    cite_id: "ylenews-fi-2011-2018-selko-s-korp",
     context: settings.defaultContext,
     within: settings.defaultWithin,
     features: ["parsed_tdt"],
@@ -14846,6 +14862,11 @@ settings.corpora.ylenews_fi_2011_2018_selko_s = {
 	    sentence_paragraph_type: sattrs.ylenews_fi_selko_paragraph_type,
 	}),
 };
+
+
+settings.corpus_aliases["ylenews_fi_2011_2018_selko_s"]
+    = settings.corpus_aliases["ylenews-fi-2011-2018-selko-s-korp"]
+
 
 
 // Add the extra properties to corpora
