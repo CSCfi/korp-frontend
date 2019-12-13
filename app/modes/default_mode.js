@@ -195,8 +195,8 @@ settings.corporafolders.ylenews_fi.a = {
 	 licence: {
 	    name: "CLARIN ACA +NC 1.0",
 	    urn: "urn:nbn:fi:lb-2019121002",
-	}
-	cite_id: "ylenews-fi-2011-2018-korp",
+	},
+	 cite_id: "ylenews-fi-2011-2018-korp",
     }
 };
 
