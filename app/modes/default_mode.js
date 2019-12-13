@@ -907,7 +907,7 @@ settings.corporafolders.selkokieli = {
 
 
 
-settings.corporafolders.ylenews_fi_selko = {
+settings.corporafolders.selkokieli.ylenews_fi_selko = {
     title: "Ylen suomenkielisen uutisarkiston selkouutiset",
     description: "Ylen suomenkielisen uutisarkiston selkouutiset<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
     contents: [
@@ -14831,7 +14831,7 @@ settings.corpora.ylenews_fi_2011_2018_selko_a = {
     licence: {
 	name: "CLARIN ACA +NC 1.0",
 	urn: "urn:nbn:fi:lb-2019121202",
-    }
+    },
     features: ["paragraphs", "parsed_tdt"],
     struct_attributes: $.extend(
         {}, sattrlist.ylenews_fi_selko_common,
@@ -14841,8 +14841,7 @@ settings.corpora.ylenews_fi_2011_2018_selko_a = {
 };
 
 
-settings.corpus_aliases["ylenews_fi_2011_2018_selko_a"]
-    = settings.corpus_aliases["ylenews-fi-2011-2018-selko-korp"]
+settings.corpus_aliases["ylenews-fi-2011-2018-selko-korp"] = "ylenews_fi_2011_2018_selko_a";
 
 
 settings.corpora.ylenews_fi_2011_2018_selko_s = {
@@ -14864,9 +14863,7 @@ settings.corpora.ylenews_fi_2011_2018_selko_s = {
 };
 
 
-settings.corpus_aliases["ylenews_fi_2011_2018_selko_s"]
-    = settings.corpus_aliases["ylenews-fi-2011-2018-selko-s-korp"]
-
+settings.corpus_aliases["ylenews-fi-2011-2018-selko-s-korp"] = "ylenews_fi_2011_2018_selko_s";
 
 
 // Add the extra properties to corpora
