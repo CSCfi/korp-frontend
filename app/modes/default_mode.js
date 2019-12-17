@@ -171,47 +171,6 @@ settings.corporafolders.sks = {
 };
 */
 
-settings.corporafolders.ylenews_fi = {
-    title: "Ylen suomenkielinen uutisarkisto",
-    description: "Ylen suomenkielinen uutisarkisto<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
-    info: {
-	homepage: {
-	    name: "Yle Uutiset",
-	    url: "https://yle.fi",
-	    no_label: true,
-	},
-	labels: ["test"],
-    },
-};
-
-settings.corporafolders.ylenews_fi.a = {
-    title: "Ylen suomenkielinen uutisarkisto 2011–2018 (tutkijoille)",
-    description: "Ylen suomenkielinen uutisarkisto 2011–2018, Korp<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
-    // Contents are added later with settings.fn.add_corpus_settings
-    contents: [],
-    info: {
-	// urn: "urn:nbn:fi:lb-2019121005",
-	 metadata_urn: "urn:nbn:fi:lb-2019121003",
-	 licence: {
-	    name: "CLARIN ACA +NC 1.0",
-	    urn: "urn:nbn:fi:lb-2019121002",
-	},
-	 cite_id: "ylenews-fi-2011-2018-korp",
-    }
-};
-
-settings.corporafolders.ylenews_fi.s = {
-    title: "Ylen suomenkielinen uutisarkisto 2011–2018 (kaikille)",
-    description: "Ylen suomenkielinen uutisarkisto 2011–2018, sekoitettu, Korp<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
-    // Contents are added later with settings.fn.add_corpus_settings
-    contents: [],
-    info: {
-	// urn: "urn:nbn:fi:lb-2019121006",
-	metadata_urn: "urn:nbn:fi:lb-2019121004",
-	licence: settings.licenceinfo.CC_BY,
-	cite_id: "ylenews-fi-2011-2018-s-korp",
-    }
-};
 
 
 settings.corporafolders.literature = {
@@ -857,6 +816,53 @@ settings.corporafolders.lehdet.muut_lehdet.y = {
 	"lehdet_yritysetiikka",
     ]
 };
+
+
+
+settings.corporafolders.ylenews_fi = {
+    title: "Ylen suomenkielinen uutisarkisto",
+    description: "Ylen suomenkielinen uutisarkisto<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
+    info: {
+	homepage: {
+	    name: "Yle Uutiset",
+	    url: "https://yle.fi",
+	    no_label: true,
+	},
+	labels: ["test"],
+    },
+};
+
+settings.corporafolders.ylenews_fi.a = {
+    title: "Ylen suomenkielinen uutisarkisto 2011–2018 (tutkijoille)",
+    description: "Ylen suomenkielinen uutisarkisto 2011–2018, Korp<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
+    // Contents are added later with settings.fn.add_corpus_settings
+    contents: [],
+    info: {
+	// urn: "urn:nbn:fi:lb-2019121005",
+	 metadata_urn: "urn:nbn:fi:lb-2019121003",
+	 licence: {
+	    name: "CLARIN ACA +NC 1.0",
+	    urn: "urn:nbn:fi:lb-2019121002",
+	},
+	 cite_id: "ylenews-fi-2011-2018-korp",
+    }
+};
+
+settings.corporafolders.ylenews_fi.s = {
+    title: "Ylen suomenkielinen uutisarkisto 2011–2018 (kaikille)",
+    description: "Ylen suomenkielinen uutisarkisto 2011–2018, sekoitettu, Korp<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
+    // Contents are added later with settings.fn.add_corpus_settings
+    contents: [],
+    info: {
+	// urn: "urn:nbn:fi:lb-2019121006",
+	metadata_urn: "urn:nbn:fi:lb-2019121004",
+	licence: settings.licenceinfo.CC_BY,
+	cite_id: "ylenews-fi-2011-2018-s-korp",
+    }
+};
+
+
+
 
 settings.corporafolders.ftc = {
     title: "Suomen kielen tekstikokoelma (SKTP/FTC)",
