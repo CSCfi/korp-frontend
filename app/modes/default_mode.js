@@ -171,6 +171,8 @@ settings.corporafolders.sks = {
 };
 */
 
+
+
 settings.corporafolders.literature = {
     title: "Kirjallisuutta",
     contents: ["gutenberg", "sks_kivi_fi", "skvr",
@@ -896,6 +898,32 @@ settings.corporafolders.spoken.la_murre = {
 	cite_id: "LA-murre-korp",
     }
  };
+
+
+settings.corporafolders.selkokieli = {
+    title: "Selkokieli",
+    contents: ["ylenews_fi_selko"]
+};
+
+
+
+settings.corporafolders.selkokieli.ylenews_fi_selko = {
+    title: "Ylen suomenkielisen uutisarkiston selkouutiset",
+    description: "Ylen suomenkielisen uutisarkiston selkouutiset<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
+    contents: [
+	       "ylenews_fi_2011_2018_selko_a",
+	       "ylenews_fi_2011_2018_selko_s",
+	       ],
+    info: {
+	homepage: {
+	    name: "Yle Uutiset selkosuomeksi",
+	    url: "https://yle.fi/uutiset/osasto/selkouutiset/",
+	    no_label: true,
+	},
+	labels: ["beta"],
+    },
+};
+
 
 settings.corporafolders.learner = {
     title: "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
@@ -14722,6 +14750,124 @@ settings.corpora.iclfi = {
     }
 };
 
+
+/* YLE Finnish Easy-to-read*/
+
+var transform_datetime = function (val) {
+    // Add a zero-width space before "T" to allow more logical
+    // line-breaking. of an ISO datetime value.
+    return val.replace(/T/g, "\u200bT");
+};
+
+
+sattrlist.ylenews_fi_selko_common = {
+
+    text_id: {
+	label: "text_id",
+    },
+    text_publisher: sattrs.text_publisher,
+    text_url: sattrs.link_original,
+    text_datetime_published: {
+	label: "datetime_published",
+	transform: transform_datetime,
+    },
+    text_datetime_content_modified: {
+	label: "datetime_content_modified",
+	transform: transform_datetime,
+    },
+    text_datetime_json_modified: {
+	label: "datetime_json_modified",
+	transform: transform_datetime,
+    },
+    // paragraph_id: {
+    // },
+    // sentence_id: {
+    // },
+    sentence_type: {
+	label: "sentence_type",
+	displayType: "select",
+	opts: settings.liteOptions,
+	translationKey: "textpart_",
+	dataset: {
+	    "alt": "image_alt",
+	    "by": "byline",
+	    "caption": "caption",
+	    "heading": "heading",
+	    "heading-alt": "heading_alt",
+	    "heading-caption": "heading_caption",
+	    "text": "text",
+	},
+    },
+};
+
+
+sattrs.ylenews_fi_selko_paragraph_type = {
+    label: "paragraph_type",
+    displayType: "select",
+    opts: settings.liteOptions,
+    translationKey: "textpart_",
+    dataset: {
+	"by": "byline",
+	"heading": "heading",
+	"headline": "headline",
+	"image": "image",
+	"lead": "lead",
+	"quote": "quote",
+	"shortSummary": "short_summary",
+	"summary": "summary",
+	"text": "text",
+    },
+};
+
+settings.corpora.ylenews_fi_2011_2018_selko_a = {
+    title: "Ylen suomenkielisen uutisarkiston selkouutiset 2011–2018 (tutkijoille)",
+    description: "Ylen suomenkielisen uutisarkiston selkouutiset 2011–2018, Korp<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
+    id: "ylenews_fi_2011_2018_selko_a",
+    // urn: "urn:nbn:fi:lb-2019121205",
+    metadata_urn: "urn:nbn:fi:lb-2019121203",
+    cite_id: "ylenews-fi-2011-2018-selko-korp",
+    limited_access: true,
+    licence_type: "ACA",
+    licence: {
+	name: "CLARIN ACA +NC 1.0",
+	urn: "urn:nbn:fi:lb-2019121202",
+    },
+    features: ["paragraphs", "parsed_tdt"],
+    struct_attributes: $.extend(
+        {}, sattrlist.ylenews_fi_selko_common,
+        {
+	    paragraph_type: sattrs.ylenews_fi_selko_paragraph_type,
+        }),
+};
+
+
+settings.corpus_aliases["ylenews-fi-2011-2018-selko-korp"]
+    = settings.corpus_aliases["ylenews-fi-2011-2018-selko"]
+    = "ylenews_fi_2011_2018_selko_a";
+
+
+settings.corpora.ylenews_fi_2011_2018_selko_s = {
+    title: "Ylen suomenkielisen uutisarkiston selkouutiset 2011–2018 (kaikille)",
+    description: "Ylen suomenkielisen uutisarkiston selkouutiset 2011–2018, sekoitettu, Korp<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
+    id: "ylenews_fi_2011_2018_selko_s",
+    // urn: "urn:nbn:fi:lb-2019121206",
+    metadata_urn: "urn:nbn:fi:lb-2019121204",
+    licence: settings.licenceinfo.CC_BY,
+    cite_id: "ylenews-fi-2011-2018-selko-s-korp",
+    context: settings.defaultContext,
+    within: settings.defaultWithin,
+    features: ["parsed_tdt"],
+    struct_attributes: $.extend(
+        {}, sattrlist.ylenews_fi_selko_common,
+        {
+	    sentence_paragraph_type: sattrs.ylenews_fi_selko_paragraph_type,
+	}),
+};
+
+
+settings.corpus_aliases["ylenews-fi-2011-2018-selko-s-korp"]
+    = settings.corpus_aliases["ylenews-fi-2011-2018-selko-s"]
+    = "ylenews_fi_2011_2018_selko_s";
 
 
 // Add the extra properties to corpora
