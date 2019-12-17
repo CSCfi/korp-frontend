@@ -920,7 +920,7 @@ settings.corporafolders.selkokieli.ylenews_fi_selko = {
 	    url: "https://yle.fi/uutiset/osasto/selkouutiset/",
 	    no_label: true,
 	},
-	labels: ["test"],
+	labels: ["beta"],
     },
 };
 
