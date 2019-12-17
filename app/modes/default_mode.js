@@ -14827,7 +14827,7 @@ settings.corpora.ylenews_fi_2011_2018_selko_a = {
     metadata_urn: "urn:nbn:fi:lb-2019121203",
     cite_id: "ylenews-fi-2011-2018-selko-korp",
     limited_access: true,
-    // licence_type: "ACA",
+    licence_type: "ACA",
     licence: {
 	name: "CLARIN ACA +NC 1.0",
 	urn: "urn:nbn:fi:lb-2019121202",
@@ -14841,7 +14841,9 @@ settings.corpora.ylenews_fi_2011_2018_selko_a = {
 };
 
 
-settings.corpus_aliases["ylenews-fi-2011-2018-selko-korp"] = "ylenews_fi_2011_2018_selko_a";
+settings.corpus_aliases["ylenews-fi-2011-2018-selko-korp"]
+    = settings.corpus_aliases["ylenews-fi-2011-2018-selko"]
+    = "ylenews_fi_2011_2018_selko_a";
 
 
 settings.corpora.ylenews_fi_2011_2018_selko_s = {
@@ -14863,7 +14865,9 @@ settings.corpora.ylenews_fi_2011_2018_selko_s = {
 };
 
 
-settings.corpus_aliases["ylenews-fi-2011-2018-selko-s-korp"] = "ylenews_fi_2011_2018_selko_s";
+settings.corpus_aliases["ylenews-fi-2011-2018-selko-s-korp"]
+    = settings.corpus_aliases["ylenews-fi-2011-2018-selko-s"]
+    = "ylenews_fi_2011_2018_selko_s";
 
 
 // Add the extra properties to corpora
