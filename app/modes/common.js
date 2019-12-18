@@ -4451,6 +4451,13 @@ settings.fn.make_explained_value = function (value, value_map) {
 };
 
 
+// Add a zero-width space before "T" to allow more logical
+// line-breaking of an ISO datetime value.
+settings.fn.stringify_iso_datetime = function (val) {
+    return val.replace(/T/g, "<wbr>T");
+};
+
+
 // Recursively create a corpus folder hierarchy under parent_folder
 // and the configurations for its corpora. The hierarchy is specified
 // in subfolder_tree, and options control how the data is mapped to

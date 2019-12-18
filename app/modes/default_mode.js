@@ -14800,12 +14800,6 @@ settings.corpora.iclfi = {
 
 /* YLE News Finnish */
 
-var transform_datetime = function (val) {
-    // Add a zero-width space before "T" to allow more logical
-    // line-breaking. of an ISO datetime value.
-    return val.replace(/T/g, "\u200bT");
-};
-
 
 sattrlist.ylenews_fi_common = {
     text_main_department: {
@@ -15383,15 +15377,15 @@ sattrlist.ylenews_fi_common = {
     text_url: sattrs.link_original,
     text_datetime_published: {
 	label: "datetime_published",
-	transform: transform_datetime,
+	stringify: settings.fn.stringify_iso_datetime,
     },
     text_datetime_content_modified: {
 	label: "datetime_content_modified",
-	transform: transform_datetime,
+	stringify: settings.fn.stringify_iso_datetime,
     },
     text_datetime_json_modified: {
 	label: "datetime_json_modified",
-	transform: transform_datetime,
+	stringify: settings.fn.stringify_iso_datetime,
     },
     paragraph_id: sattrs.hidden,
     sentence_id: sattrs.hidden,
@@ -15488,12 +15482,6 @@ settings.corpus_aliases["ylenews_fi_2011_2018_s"]
 
 /* YLE Finnish Easy-to-read*/
 
-var transform_datetime = function (val) {
-    // Add a zero-width space before "T" to allow more logical
-    // line-breaking. of an ISO datetime value.
-    return val.replace(/T/g, "\u200bT");
-};
-
 
 sattrlist.ylenews_fi_selko_common = {
 
@@ -15504,15 +15492,15 @@ sattrlist.ylenews_fi_selko_common = {
     text_url: sattrs.link_original,
     text_datetime_published: {
 	label: "datetime_published",
-	transform: transform_datetime,
+	stringify: settings.fn.stringify_iso_datetime,
     },
     text_datetime_content_modified: {
 	label: "datetime_content_modified",
-	transform: transform_datetime,
+	stringify: settings.fn.stringify_iso_datetime,
     },
     text_datetime_json_modified: {
 	label: "datetime_json_modified",
-	transform: transform_datetime,
+	stringify: settings.fn.stringify_iso_datetime,
     },
     // paragraph_id: {
     // },

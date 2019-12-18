@@ -560,12 +560,6 @@ settings.corpora.parole_sv = $.extend(true, {}, settings.templ.fstc, {
 
 /* Svenska YLE */
 
-var transform_datetime = function (val) {
-    // Add a zero-width space before "T" to allow more logical
-    // line-breaking. of an ISO datetime value.
-    return val.replace(/T/g, "\u200bT");
-};
-
 sattrlist.ylenews_sv_common = {
     text_main_department: {
 	label: "main_section",
@@ -852,15 +846,15 @@ sattrlist.ylenews_sv_common = {
     text_url: sattrs.link_original,
     text_datetime_published: {
 	label: "datetime_published",
-	transform: transform_datetime,
+	stringify: settings.fn.stringify_iso_datetime,
     },
     text_datetime_content_modified: {
 	label: "datetime_content_modified",
-	transform: transform_datetime,
+	stringify: settings.fn.stringify_iso_datetime,
     },
     text_datetime_json_modified: {
 	label: "datetime_json_modified",
-	transform: transform_datetime,
+	stringify: settings.fn.stringify_iso_datetime,
     },
     paragraph_id: sattrs.hidden,
     sentence_id: sattrs.hidden,
