@@ -10814,7 +10814,7 @@ sattrlist.agricola = {
 };
 
 settings.corpora.agricola_abckiria = {
-    id: "agricola_abckiria",
+    id: "agricola_test_abckiria",
     title: "Agricola: Abckiria",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Abckiria",
     context: settings.defaultContext,
@@ -10824,7 +10824,7 @@ settings.corpora.agricola_abckiria = {
 };
 
 settings.corpora.agricola_kasikiria = {
-    id: "agricola_kasikiria",
+    id: "agricola_test_kasikiria",
     title: "Agricola: Käsikiria",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Käsikiria Castesta ia muista Christikunnan Menoista",
     context: settings.defaultContext,
@@ -10834,7 +10834,7 @@ settings.corpora.agricola_kasikiria = {
 };
 
 settings.corpora.agricola_messu = {
-    id: "agricola_messu",
+    id: "agricola_test_messu",
     title: "Agricola: Messu",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Messu eli Herran echtolinen",
     context: settings.defaultContext,
@@ -10844,7 +10844,7 @@ settings.corpora.agricola_messu = {
 };
 
 settings.corpora.agricola_piina = {
-    id: "agricola_piina",
+    id: "agricola_test_piina",
     title: "Agricola: Piina",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Se meiden Herran Jesusen Christusen Pina, ylesnousemus ia taiuaisen astumus, niste Neliest Euangelisterist coghottu",
     context: settings.defaultContext,
@@ -10854,7 +10854,7 @@ settings.corpora.agricola_piina = {
 };
 
 settings.corpora.agricola_profeetat = {
-    id: "agricola_profeetat",
+    id: "agricola_test_profeetat",
     title: "Agricola: Ne Prophetat",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Ne Prophetat. Haggai. SacharJa. Maleachi.",
     context: settings.defaultContext,
@@ -10864,7 +10864,7 @@ settings.corpora.agricola_profeetat = {
 };
 
 settings.corpora.agricola_psaltari = {
-    id: "agricola_psaltari",
+    id: "agricola_test_psaltari",
     title: "Agricola: Dauidin Psaltari",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Dauidin Psaltari",
     context: settings.defaultContext,
@@ -10874,7 +10874,7 @@ settings.corpora.agricola_psaltari = {
 };
 
 settings.corpora.agricola_rucouskiria = {
-    id: "agricola_rucouskiria",
+    id: "agricola_test_rucouskiria",
     title: "Agricola: Rucouskiria",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Rucouskiria Bibliasta",
     context: settings.defaultContext,
@@ -10884,7 +10884,7 @@ settings.corpora.agricola_rucouskiria = {
 };
 
 settings.corpora.agricola_sewsitestamenti = {
-    id: "agricola_sewsitestamenti",
+    id: "agricola_test_sewsitestamenti",
     title: "Agricola: Se Wsi Testamenti",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Se Wsi Testamenti",
     context: settings.defaultContext,
@@ -10894,7 +10894,7 @@ settings.corpora.agricola_sewsitestamenti = {
 };
 
 settings.corpora.agricola_veisut = {
-    id: "agricola_veisut",
+    id: "agricola_test_veisut",
     title: "Agricola: Weisut",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Weisut ia Ennustoxet Mosesen Laista ia Prophetista Wloshaetut",
     context: settings.defaultContext,
