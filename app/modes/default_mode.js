@@ -828,7 +828,7 @@ settings.corporafolders.ylenews_fi = {
 	    url: "https://yle.fi",
 	    no_label: true,
 	},
-	labels: ["test"],
+	labels: ["beta"],
     },
 };
 
