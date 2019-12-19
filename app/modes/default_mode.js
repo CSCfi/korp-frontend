@@ -83,12 +83,17 @@ settings.corporafolders.sv = {
 settings.corporafolders.agricola = {
     title: "Agricola",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta",
-    contents: ["agricola_abckiria","agricola_kasikiria","agricola_messu","agricola_piina","agricola_profeetat",
-	       "agricola_psaltari","agricola_rucouskiria","agricola_sewsitestamenti","agricola_veisut"],
+    /* contents: ["agricola_abckiria","agricola_kasikiria","agricola_messu","agricola_piina","agricola_profeetat",
+       "agricola_psaltari","agricola_rucouskiria","agricola_sewsitestamenti","agricola_veisut"],
+*/
+    contents: ["agricola_test_abckiria","agricola_test_kasikiria","agricola_test_messu","agricola_test_piina","agricola_test_profeetat",
+	       "agricola_test_psaltari","agricola_test_rucouskiria","agricola_test_sewsitestamenti","agricola_test_veisut"],
     info: {
-        metadata_urn: "urn:nbn:fi:lb-20140730170",
+        //metadata_urn: "urn:nbn:fi:lb-20140730170",
+	metadata_urn: "urn:nbn:fi:lb-2019121804",
         homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/palvelut-yhteistyo/arkistot/Sivut/home.aspx",
-	urn: "urn:nbn:fi:lb-201803273",
+	//urn: "urn:nbn:fi:lb-201803273",
+	urn: "urn:nbn:fi:lb-2019121803",
 	cite_id: "agricola-korp",
 	licence: settings.licenceinfo.CC_BY_ND_40,
 	iprholder: {
@@ -10860,7 +10865,7 @@ sattrlist.agricola = {
     }
 };
 
-settings.corpora.agricola_abckiria = {
+settings.corpora.agricola_test_abckiria = {
     id: "agricola_test_abckiria",
     title: "Agricola: Abckiria",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Abckiria",
@@ -10870,7 +10875,7 @@ settings.corpora.agricola_abckiria = {
     struct_attributes: sattrlist.agricola
 };
 
-settings.corpora.agricola_kasikiria = {
+settings.corpora.agricola_test_kasikiria = {
     id: "agricola_test_kasikiria",
     title: "Agricola: Käsikiria",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Käsikiria Castesta ia muista Christikunnan Menoista",
@@ -10880,7 +10885,7 @@ settings.corpora.agricola_kasikiria = {
     struct_attributes: sattrlist.agricola
 };
 
-settings.corpora.agricola_messu = {
+settings.corpora.agricola_test_messu = {
     id: "agricola_test_messu",
     title: "Agricola: Messu",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Messu eli Herran echtolinen",
@@ -10890,7 +10895,7 @@ settings.corpora.agricola_messu = {
     struct_attributes: sattrlist.agricola
 };
 
-settings.corpora.agricola_piina = {
+settings.corpora.agricola_test_piina = {
     id: "agricola_test_piina",
     title: "Agricola: Piina",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Se meiden Herran Jesusen Christusen Pina, ylesnousemus ia taiuaisen astumus, niste Neliest Euangelisterist coghottu",
@@ -10900,7 +10905,7 @@ settings.corpora.agricola_piina = {
     struct_attributes: sattrlist.agricola
 };
 
-settings.corpora.agricola_profeetat = {
+settings.corpora.agricola_test_profeetat = {
     id: "agricola_test_profeetat",
     title: "Agricola: Ne Prophetat",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Ne Prophetat. Haggai. SacharJa. Maleachi.",
@@ -10910,7 +10915,7 @@ settings.corpora.agricola_profeetat = {
     struct_attributes: sattrlist.agricola
 };
 
-settings.corpora.agricola_psaltari = {
+settings.corpora.agricola_test_psaltari = {
     id: "agricola_test_psaltari",
     title: "Agricola: Dauidin Psaltari",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Dauidin Psaltari",
@@ -10920,7 +10925,7 @@ settings.corpora.agricola_psaltari = {
     struct_attributes: sattrlist.agricola
 };
 
-settings.corpora.agricola_rucouskiria = {
+settings.corpora.agricola_test_rucouskiria = {
     id: "agricola_test_rucouskiria",
     title: "Agricola: Rucouskiria",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Rucouskiria Bibliasta",
@@ -10930,7 +10935,7 @@ settings.corpora.agricola_rucouskiria = {
     struct_attributes: sattrlist.agricola
 };
 
-settings.corpora.agricola_sewsitestamenti = {
+settings.corpora.agricola_test_sewsitestamenti = {
     id: "agricola_test_sewsitestamenti",
     title: "Agricola: Se Wsi Testamenti",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Se Wsi Testamenti",
@@ -10940,7 +10945,7 @@ settings.corpora.agricola_sewsitestamenti = {
     struct_attributes: sattrlist.agricola
 };
 
-settings.corpora.agricola_veisut = {
+settings.corpora.agricola_test_veisut = {
     id: "agricola_test_veisut",
     title: "Agricola: Weisut",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Weisut ia Ennustoxet Mosesen Laista ia Prophetista Wloshaetut",
@@ -10950,8 +10955,10 @@ settings.corpora.agricola_veisut = {
     struct_attributes: sattrlist.agricola
 };
 
-settings.corpus_aliases.agricola = "agricola_.*";
-settings.corpus_aliases["agricola-korp"] = "agricola_.*";
+//settings.corpus_aliases.agricola = "agricola_.*";
+settings.corpus_aliases.agricola = "agricola_test_.*";
+//settings.corpus_aliases["agricola-korp"] = "agricola_.*";
+settings.corpus_aliases["agricola-korp"] = "agricola_test_.*";
 
 
 // SKS-KIVI
