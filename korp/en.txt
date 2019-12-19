@@ -1,5 +1,13 @@
 
-<!-- New corpora (beta): Yle Finnish News Archive 2011–2018 and Yle News Archive Easy-to-read Finnish 2011–2018 2019-12-19 -->
+<!-- Discrepancies in dependency parses corrected: Suomi24 2017H2, Semfinlex 2019-12-19b -->
+
+The discrepancies noticed in September 2019 in the dependency parses
+and relations of the Finnish Suomi24 2017H2 and Semfinlex corpora have
+finally been corrected (in Semfinlex already earlier in the autumn).
+We apologize for the errors.
+
+
+<!-- New corpora (beta): Yle Finnish News Archive 2011–2018 and Yle News Archive Easy-to-read Finnish 2011–2018 2019-12-19a -->
 
 The following two corpora are now available in Korp for beta testing:
 

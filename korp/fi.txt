@@ -1,5 +1,13 @@
 
-<!-- Uusia aineistoja (beta): Ylen suomenkielinen uutisarkisto 2012–2018 ja Ylen suomenkielisen uutisarkiston selkouutiset 2019-12-19 -->
+<!-- Dependenssijäsennysten poikkeavuudet korjattu (Suomi24 2017H2, Semfinlex) 2019-12-19b -->
+
+Syyskuussa 2019 huomatut Suomi24 2017H2 -aineiston ja suomenkielisen
+Semfinlex-aineiston dependenssijäsennysten ja -relaatioiden
+poikkeavuudet on viimein korjattu (Semfinlex-aineiston osalta jo
+aiemmin syksyllä). Pahoittelemme virheitä.
+
+
+<!-- Uusia aineistoja (beta): Ylen suomenkielinen uutisarkisto 2012–2018 ja Ylen suomenkielisen uutisarkiston selkouutiset 2019-12-19a -->
 
 Korpissa on nyt käytettävissä beetatestiversioina aineistot
 
