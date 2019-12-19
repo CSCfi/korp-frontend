@@ -1,4 +1,53 @@
 
+<!-- Uusia aineistoja (beta): Ylen suomenkielinen uutisarkisto 2012–2018 ja Ylen suomenkielisen uutisarkiston selkouutiset 2019-12-19 -->
+
+Korpissa on nyt käytettävissä beetatestiversioina aineistot
+
+* *Ylen suomenkielinen uutisarkisto 2011–2018, Korp* (Korpin
+  korpusvalikon kansiossa *Verkkouutisia*) ja
+* *Ylen suomenkielisen uutisarkiston selkouutiset 2011–2018, Korp*
+  (kansiossa *Selkokieli*).
+
+Kummastakin aineistosta on kaksi versiota, jotka sisältävät samat
+virkkeet mutta joilla on erilainen saatavuus ja erilaiset
+ominaisuudet:
+
+* *Korpiin kirjautuneiden tutkijoiden käytettävissä olevissa
+  versioissa* virkkeet ovat alkuperäisessä järjestyksessä ja aineistot
+  tukevat kappalekontekstia, kun taas
+* *kaikille avoimissa versioissa* virkkeet on sekoitettu kunkin
+  tekstin (artikkelin) sisällä eivätkä aineistot tue
+  kappalekontekstia.
+
+*Huomaa*, että *Ylen suomenkielinen uutisarkisto* -aineisto sisältää
+myös selkouutiset, joten luultavasti ei ole mielekästä valita molempia
+aineistoja samanaikaisesti.
+
+Linkit aineistoihin:
+
+* *Ylen suomenkielinen uutisarkisto 2011–2018, Korp* (tutkijoille): <a
+  href="http://urn.fi/urn:nbn:fi:lb-2019121003" target="_blank"
+  title="META-SHARE-artikkeli">kuvailutiedot</a>, <a
+  href="?mode=default#?corpus=ylenews-fi-2011-2018-korp"
+  target="_blank">aineisto Korpissa</a>
+* *Ylen suomenkielinen uutisarkisto 2011–2018, sekoitettu, Korp*
+  (kaikille): <a href="http://urn.fi/urn:nbn:fi:lb-2019121004"
+  target="_blank" title="META-SHARE-artikkeli">kuvailutiedot</a>, <a
+  href="?mode=default#?corpus=ylenews-fi-2011-2018-s-korp"
+  target="_blank">aineisto Korpissa</a>
+* *Ylen suomenkielisen uutisarkiston selkouutiset 2011–2018, Korp*
+  (tutkijoille): <a href="http://urn.fi/urn:nbn:fi:lb-2019121203"
+  target="_blank" title="META-SHARE-artikkeli">kuvailutiedot</a>, <a
+  href="?mode=default#?corpus=ylenews-fi-2011-2018-selko-korp"
+  target="_blank">aineisto Korpissa</a>
+* *Ylen suomenkielisen uutisarkiston selkouutiset 2011–2018,
+  sekoitettu, Korp* (kaikille): <a
+  href="http://urn.fi/urn:nbn:fi:lb-2019121204" target="_blank"
+  title="META-SHARE-artikkeli">kuvailutiedot</a>, <a
+  href="?mode=default#?corpus=ylenews-fi-2011-2018-selko-s-korp"
+  target="_blank">aineisto Korpissa</a>
+
+
 <!-- Uusi aineisto (beta): Ylen ruotsinkielinen uutisarkisto 2012–2018 2019-12-09 -->
 
 Korpissa on nyt käytettävissä beetatestiversiona *Ylen ruotsinkielinen

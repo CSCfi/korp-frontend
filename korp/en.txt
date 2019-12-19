@@ -1,4 +1,50 @@
 
+<!-- New corpora (beta): Yle Finnish News Archive 2011–2018 and Yle News Archive Easy-to-read Finnish 2011–2018 2019-12-19 -->
+
+The following two corpora are now available in Korp for beta testing:
+
+* *Yle Finnish News Archive 2011–2018, Korp* (in the Korp corpus
+  folder *Verkkouutisia* (‘Web news’)) and
+* *Yle News Archive Easy-to-read Finnish 2011–2018, Korp* (in the
+  folder *Selkokieli* (‘easy-to read language’)).
+
+Both corpora are available as two variants with the same sentences but
+with different availability and features:
+
+* *the variant available for academic users logged in to Korp* has
+  sentences in the original order and supports paragraph context,
+  whereas
+* *the variant open for everyone* has sentences scrambled within each
+  text and does not support paragraph context.
+
+*Please* note that *Yle Finnish News Archive* also includes the
+easy-to-read news, so it probably does not make sense to select both
+corpora at the same time.
+
+Links to the corpora:
+
+* *Yle Finnish News Archive 2011–2018, Korp* (for researchers): <a
+  href="http://urn.fi/urn:nbn:fi:lb-2019121003" target="_blank"
+  title="META-SHARE article">metadata</a>, <a
+  href="?mode=default#?corpus=ylenews-fi-2011-2018-korp&lang=en"
+  target="_blank">corpus in Korp</a>
+* *Yle Finnish News Archive 2011–2018, scrambled, Korp* (for
+  everyone): <a href="http://urn.fi/urn:nbn:fi:lb-2019121004"
+  target="_blank" title="META-SHARE article">metadata</a>, <a
+  href="?mode=default#?corpus=ylenews-fi-2011-2018-s-korp&lang=en"
+  target="_blank">corpus in Korp</a>
+* *Yle News Archive Easy-to-read Finnish 2011–2018, Korp* (for
+  researchers): <a href="http://urn.fi/urn:nbn:fi:lb-2019121203"
+  target="_blank" title="META-SHARE article">metadata</a>, <a
+  href="?mode=default#?corpus=ylenews-fi-2011-2018-selko-korp&lang=en"
+  target="_blank">corpus in Korp</a>
+* *Yle News Archive Easy-to-read Finnish 2011–2018, scrambled, Korp*
+  (for everyone): <a href="http://urn.fi/urn:nbn:fi:lb-2019121204"
+  target="_blank" title="META-SHARE article">metadata</a>, <a
+  href="?mode=default#?corpus=ylenews-fi-2011-2018-selko-s-korp&lang=en"
+  target="_blank">corpus in Korp</a>
+
+
 <!-- New corpus (beta): Yle Swedish News Archive 2012–2018 2019-12-09 -->
 
 The corpus *Yle Swedish News Archive (Yle svenska webbartiklar)
