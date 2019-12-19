@@ -818,8 +818,12 @@ settings.corporafolders.lehdet.muut_lehdet.y = {
 };
 
 
+settings.corporafolders.webnews = {
+    title: "Verkkouutisia",
+};
 
-settings.corporafolders.ylenews_fi = {
+
+settings.corporafolders.webnews.ylenews_fi = {
     title: "Ylen suomenkielinen uutisarkisto",
     description: "Ylen suomenkielinen uutisarkisto<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
     info: {
@@ -832,7 +836,7 @@ settings.corporafolders.ylenews_fi = {
     },
 };
 
-settings.corporafolders.ylenews_fi.a = {
+settings.corporafolders.webnews.ylenews_fi.a = {
     title: "Ylen suomenkielinen uutisarkisto 2011–2018 (tutkijoille)",
     description: "Ylen suomenkielinen uutisarkisto 2011–2018, Korp<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
     // Contents are added later with settings.fn.add_corpus_settings
@@ -848,7 +852,7 @@ settings.corporafolders.ylenews_fi.a = {
     }
 };
 
-settings.corporafolders.ylenews_fi.s = {
+settings.corporafolders.webnews.ylenews_fi.s = {
     title: "Ylen suomenkielinen uutisarkisto 2011–2018 (kaikille)",
     description: "Ylen suomenkielinen uutisarkisto 2011–2018, sekoitettu, Korp<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
     // Contents are added later with settings.fn.add_corpus_settings
@@ -15442,7 +15446,7 @@ settings.templ.ylenews_fi_a = {
 settings.fn.add_corpus_settings(
     settings.templ.ylenews_fi_a,
     [2011, 2018],
-    settings.corporafolders.ylenews_fi.a,
+    settings.corporafolders.webnews.ylenews_fi.a,
     "ylenews_fi_{}_a");
 
 // settings.corpus_aliases["ylenews_fi_2018h2_a"] = "ylenews_fi_201[1-8]_a";
@@ -15470,7 +15474,7 @@ settings.templ.ylenews_fi_s = {
 settings.fn.add_corpus_settings(
     settings.templ.ylenews_fi_s,
     [2011, 2018],
-    settings.corporafolders.ylenews_fi.s,
+    settings.corporafolders.webnews.ylenews_fi.s,
     "ylenews_fi_{}_s");
 
 // settings.corpus_aliases["ylenews_fi_2018h2_s"] = "ylenews_fi_201[1-8]_s";
