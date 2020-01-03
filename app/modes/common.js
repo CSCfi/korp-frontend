@@ -235,6 +235,10 @@ attrs.dephead = {
     label: "dephead",
     displayType: "hidden"
 };
+attrs.dephead_ud1 = {
+    label: "dephead_ud1",
+    displayType: "hidden"
+};
 attrs.deprel = {
     label: "deprel",
     displayType: "select",
@@ -1091,6 +1095,9 @@ attrs.pos_ud_fi = {
     },
 };
 
+attrs.pos_ud_fi_ud1 = attrs.pos_ud_fi;
+attrs.pos_ud_fi_ud1.label = "pos_ud1";
+
 attrs.pos_klk = {
     label: "pos",
     displayType: "select",
@@ -1221,6 +1228,8 @@ attrs.msd = {
 	return val.replace(/\|/g, "|<wbr>");
     }
 };
+attrs.msd_ud1 = attrs.msd;
+attrs.msd_ud1.label = "msd_ud1";
 attrs.baseform = {
     label: "baseform",
     // type: "set",
@@ -1230,6 +1239,8 @@ attrs.baseform = {
     },
     opts: settings.defaultOptions,
 };
+attrs.baseform_ud1 = attrs.baseform;
+attrs.baseform_ud1.label = "baseform_ud1";
 attrs.baseform_ftb2 = {
     label: "baseform",
     // type: "set",
@@ -1449,6 +1460,8 @@ attrs.deprel_ud_fi = {
 	"xcomp:ds": "xcomp:ds",
     }
 };
+attrs.deprel_ud_fi_ud1 = attrs.deprel_ud_fi;
+attrs.deprel_ud_fi_ud1.label = "deprel_ud1";
 attrs.deprel_uta_ru = {
     label: "deprel",
     displayType: "select",
@@ -2447,6 +2460,22 @@ attrlist.parsed_tdt = {
     dephead: attrs.dephead,
     deprel: attrs.deprel_tdt,
     ref: attrs.ref,
+    lex: attrs.lemgram_hidden,
+};
+
+attrlist.parsed_tdt_ud1 = {
+    ref: attrs.ref,
+    lemma: attrs.baseform,
+    lemmacomp: attrs.baseform_compound,
+    pos: attrs.pos_klk,
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel_tdt,
+    lemma_ud1: attrs.baseform_ud1,
+    pos_ud1: attrs.pos_ud_fi_ud1,
+    msd_ud1: attrs.msd_ud1,
+    dephead_ud1: attrs.dephead_ud1,
+    deprel_ud1: attrs.deprel_ud_fi_ud1,
     lex: attrs.lemgram_hidden,
 };
 

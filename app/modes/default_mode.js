@@ -11083,6 +11083,20 @@ settings.corpora.sks_kivi_fi = {
     }
 };
 
+settings.corpora.opensub_fi_17 = {
+    title: "OpenSubtitles2011",
+    description: "OpenSubtitles 2011",
+    id: "opensub_fi_17",
+    urn: "urn_placeholder",
+    metadata_urn: "urn:nbn:fi:lb-2015102201",
+    lang: "fin",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.parsed_tdt_ud1,
+    struct_attributes: {
+    }
+};
+
 settings.corpora.skvr = {
     title: "SKVR",
     description: "SKS:n Suomen Kansan Vanhat Runot -korpus",
