@@ -1095,7 +1095,7 @@ attrs.pos_ud_fi = {
     },
 };
 
-attrs.pos_ud_fi_ud1 = attrs.pos_ud_fi;
+attrs.pos_ud_fi_ud1 = JSON.parse(JSON.stringify(attrs.pos_ud_fi));
 attrs.pos_ud_fi_ud1.label = "pos_ud1";
 
 attrs.pos_klk = {
@@ -1228,7 +1228,7 @@ attrs.msd = {
 	return val.replace(/\|/g, "|<wbr>");
     }
 };
-attrs.msd_ud1 = attrs.msd;
+attrs.msd_ud1 = JSON.parse(JSON.stringify(attrs.msd));
 attrs.msd_ud1.label = "msd_ud1";
 attrs.baseform = {
     label: "baseform",
@@ -1239,7 +1239,7 @@ attrs.baseform = {
     },
     opts: settings.defaultOptions,
 };
-attrs.baseform_ud1 = attrs.baseform;
+attrs.baseform_ud1 = JSON.parse(JSON.stringify(attrs.baseform));
 attrs.baseform_ud1.label = "baseform_ud1";
 attrs.baseform_ftb2 = {
     label: "baseform",
@@ -1460,7 +1460,7 @@ attrs.deprel_ud_fi = {
 	"xcomp:ds": "xcomp:ds",
     }
 };
-attrs.deprel_ud_fi_ud1 = attrs.deprel_ud_fi;
+attrs.deprel_ud_fi_ud1 = JSON.parse(JSON.stringify(attrs.deprel_ud_fi));
 attrs.deprel_ud_fi_ud1.label = "deprel_ud1";
 attrs.deprel_uta_ru = {
     label: "deprel",
