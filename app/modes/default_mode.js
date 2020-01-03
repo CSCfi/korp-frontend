@@ -11084,11 +11084,11 @@ settings.corpora.sks_kivi_fi = {
 };
 
 settings.corpora.opensub_fi_17 = {
-    title: "OpenSubtitles2011",
-    description: "OpenSubtitles 2011",
+    title: "OpenSubtitles 2017",
+    description: "Opensubtitles.org-sivuston jakamat elokuvien ja tv-ohjelmien suomenkieliset tekstitykset",
     id: "opensub_fi_17",
     urn: "urn_placeholder",
-    metadata_urn: "urn:nbn:fi:lb-2015102201",
+    metadata_urn: "urn:nbn:fi:lb-2018060403",
     lang: "fin",
     within: settings.spWithin,
     context: settings.spContext,
