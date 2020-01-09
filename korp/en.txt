@@ -1,4 +1,23 @@
 
+<!-- Error in trend diagram fixed (Ekonomi, Toisin sanoen) 2020-01-09 -->
+
+The *Show trend diagram* button of the statistics result tab works
+again also when all Finnish corpora are selected.
+
+Probably from August 2019, the trend diagram caused the error “Korp
+backend error message: ValueError: time data '0000-00-00 00:00:00'
+does not match format '%Y-%m-%d %H:%M:%S'"” if the selected corpora
+included the periodicals *Ekonomi* and *Toisin sanoen* of the corpus
+*1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä*.
+
+We apologize for the error, thank the anonymous user who reported the
+error and **encourage you to report new and old errors, dysfunctions
+and discrepancies in Korp and Korp search results** either via the <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback"
+target="_blank">feedback form</a> or by email to `fin-clarin (at)
+helsinki.fi`.
+
+
 <!-- Discrepancies in dependency parses corrected: Suomi24 2017H2, Semfinlex 2019-12-19b -->
 
 The discrepancies noticed in September 2019 in the dependency parses

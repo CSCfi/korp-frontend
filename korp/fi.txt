@@ -1,4 +1,25 @@
 
+<!-- Trendikuvaajan virhe korjattu (Ekonomi, Toisin sanoen) 2020-01-09 -->
+
+Tilastotulosvälilehden *Näytä trendikuvaaja* -painike toimii jälleen
+myös silloin, kun kaikki suomenkieliset aineistot ovat valittuina.
+
+Trendikuvaaja tuotti todennäköisesti elokuusta 2019 alkaen
+virheilmoituksen ”Korp-palvelinpuolen virheilmoitus: ValueError: time
+data '0000-00-00 00:00:00' does not match format '%Y-%m-%d
+%H:%M:%S'"”, jos valitut korpukset sisälsivät *1990- ja 2000-luvun
+suomalaisia aikakaus- ja sanomalehtiä* -aineiston lehdet *Ekonomi* ja
+*Toisin sanoen*.
+
+Pahoittelemme virhettä, kiitämme virheestä ilmoittanutta tuntematonta
+käyttäjää ja **toivomme edelleen ilmoituksia Korpin ja
+Korp-hakutulosten uusista ja vanhoistakin virheistä,
+toimimattomuuksista ja poikkeavuuksista** joko <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html"
+target="_blank">palautelomakkeen</a> kautta tai sähköpostitse
+osoitteella `fin-clarin (ät) helsinki.fi`.
+
+
 <!-- Dependenssijäsennysten poikkeavuudet korjattu (Suomi24 2017H2, Semfinlex) 2019-12-19b -->
 
 Syyskuussa 2019 huomatut Suomi24 2017H2 -aineiston ja suomenkielisen
