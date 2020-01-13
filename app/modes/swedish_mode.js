@@ -149,7 +149,6 @@ settings.corporafolders.ylenews_sv = {
 	    url: "https://svenska.yle.fi",
 	    no_label: true,
 	},
-	labels: ["beta"],
     },
 };
 
@@ -159,8 +158,7 @@ settings.corporafolders.ylenews_sv.a = {
     // Contents are added later with settings.fn.add_corpus_settings
     contents: [],
     info: {
-	// TODO: Uncomment location URN by the end of the beta stage
-	// urn: "urn:nbn:fi:lb-2019120405",
+	urn: "urn:nbn:fi:lb-2019120405",
 	metadata_urn: "urn:nbn:fi:lb-2019120403",
 	licence: settings.licenceinfo.Ylenews_sv_en,
 	cite_id: "ylenews-sv-2012-2018-korp",
@@ -173,8 +171,7 @@ settings.corporafolders.ylenews_sv.s = {
     // Contents are added later with settings.fn.add_corpus_settings
     contents: [],
     info: {
-	// TODO: Uncomment location URN by the end of the beta stage
-	// urn: "urn:nbn:fi:lb-2019120406",
+	urn: "urn:nbn:fi:lb-2019120406",
 	metadata_urn: "urn:nbn:fi:lb-2019120404",
 	licence: settings.licenceinfo.CC_BY,
 	cite_id: "ylenews-sv-2012-2018-s-korp",

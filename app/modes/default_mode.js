@@ -832,7 +832,6 @@ settings.corporafolders.webnews.ylenews_fi = {
 	    url: "https://yle.fi",
 	    no_label: true,
 	},
-	labels: ["beta"],
     },
 };
 
@@ -842,13 +841,13 @@ settings.corporafolders.webnews.ylenews_fi.a = {
     // Contents are added later with settings.fn.add_corpus_settings
     contents: [],
     info: {
-	// urn: "urn:nbn:fi:lb-2019121005",
-	 metadata_urn: "urn:nbn:fi:lb-2019121003",
-	 licence: {
+	urn: "urn:nbn:fi:lb-2019121005",
+	metadata_urn: "urn:nbn:fi:lb-2019121003",
+	licence: {
 	    name: "CLARIN ACA +NC 1.0",
 	    urn: "urn:nbn:fi:lb-2019121002",
 	},
-	 cite_id: "ylenews-fi-2011-2018-korp",
+	cite_id: "ylenews-fi-2011-2018-korp",
     }
 };
 
@@ -858,7 +857,7 @@ settings.corporafolders.webnews.ylenews_fi.s = {
     // Contents are added later with settings.fn.add_corpus_settings
     contents: [],
     info: {
-	// urn: "urn:nbn:fi:lb-2019121006",
+	urn: "urn:nbn:fi:lb-2019121006",
 	metadata_urn: "urn:nbn:fi:lb-2019121004",
 	licence: settings.licenceinfo.CC_BY,
 	cite_id: "ylenews-fi-2011-2018-s-korp",
@@ -971,7 +970,6 @@ settings.corporafolders.selkokieli.ylenews_fi_selko = {
 	    url: "https://yle.fi/uutiset/osasto/selkouutiset/",
 	    no_label: true,
 	},
-	labels: ["beta"],
     },
 };
 
@@ -15550,7 +15548,7 @@ settings.corpora.ylenews_fi_2011_2018_selko_a = {
     title: "Ylen suomenkielisen uutisarkiston selkouutiset 2011–2018 (tutkijoille)",
     description: "Ylen suomenkielisen uutisarkiston selkouutiset 2011–2018, Korp<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
     id: "ylenews_fi_2011_2018_selko_a",
-    // urn: "urn:nbn:fi:lb-2019121205",
+    urn: "urn:nbn:fi:lb-2019121205",
     metadata_urn: "urn:nbn:fi:lb-2019121203",
     cite_id: "ylenews-fi-2011-2018-selko-korp",
     limited_access: true,
@@ -15577,7 +15575,7 @@ settings.corpora.ylenews_fi_2011_2018_selko_s = {
     title: "Ylen suomenkielisen uutisarkiston selkouutiset 2011–2018 (kaikille)",
     description: "Ylen suomenkielisen uutisarkiston selkouutiset 2011–2018, sekoitettu, Korp<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
     id: "ylenews_fi_2011_2018_selko_s",
-    // urn: "urn:nbn:fi:lb-2019121206",
+    urn: "urn:nbn:fi:lb-2019121206",
     metadata_urn: "urn:nbn:fi:lb-2019121204",
     licence: settings.licenceinfo.CC_BY,
     cite_id: "ylenews-fi-2011-2018-selko-s-korp",
