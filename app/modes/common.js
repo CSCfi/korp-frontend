@@ -1231,22 +1231,8 @@ attrs.msd = {
 	return val.replace(/\|/g, "|<wbr>");
     }
 };
-attrs.msd_ordered = {
-    label: "msd",
-    opts: settings.defaultOptions,
-    // Empty taginfo_url disables the info link to MSD tags in the
-    // used sidebar; another value would link to the given URL; and an
-    // undefined value would link to the default markup/msd.html.
-    taginfo_url: "",
-    // Add a <wbr> tag after each vertical bar to allow breaking the
-    // line there in the sidebar, while retaining the ability to copy
-    // and paste to a further search expression (unlike if we added a
-    // zero-width space U+200B).
-    stringify: function(val) {
-	return val.replace(/\|/g, "|<wbr>");
-    },
-    order: 17
-};
+attrs.msd_ordered = JSON.parse(JSON.stringify(attrs.msd));
+attrs.msd_ordered.order = 17;
 attrs.msd_ud1 = JSON.parse(JSON.stringify(attrs.msd));
 attrs.msd_ud1.label = "msd_ud1";
 attrs.msd_ud1.order = 13;
@@ -1259,16 +1245,8 @@ attrs.baseform = {
     },
     opts: settings.defaultOptions,
 };
-attrs.baseform_ordered = {
-    label: "baseform",
-    // type: "set",
-    // displayType: "autocomplete",
-    stringify: function(baseform) {
-        return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
-    },
-    opts: settings.defaultOptions,
-    order: 20
-};
+attrs.baseform_ordered = JSON.parse(JSON.stringify(attrs.baseform));
+attrs.baseform_ordered.order = 20;
 attrs.baseform_ud1 = JSON.parse(JSON.stringify(attrs.baseform));
 attrs.baseform_ud1.label = "baseform_ud1";
 attrs.baseform_ud1.order = 15;
@@ -1290,17 +1268,8 @@ attrs.baseform_compound = {
     },
     opts: settings.defaultOptions
 };
-attrs.baseform_compound_ordered = {
-    label: "baseform_compound",
-    // type: "set",
-    // displayType: "autocomplete",
-    stringify: function(baseform) {
-        return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
-    },
-    opts: settings.defaultOptions,
-    order: 19
-};
-
+attrs.baseform_compound_ordered = JSON.parse(JSON.stringify(attrs.baseform_compound));
+attrs.baseform_compound_ordered.order = 20;
 attrs.lemgram_hidden = {
     label: "lemgram",
     type: "set",    // Seems to work only if this is "set" even if "hidden"
