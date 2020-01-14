@@ -893,6 +893,7 @@ settings.corporafolders.other_texts = {
     title: "Muita tekstejä",
     contents: [
 	"kfspc_fi",
+	"opensub_fi_17",
 	"finstud",
 	"yoaineet",
     ]
