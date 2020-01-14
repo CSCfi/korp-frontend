@@ -1269,7 +1269,7 @@ attrs.baseform_compound = {
     opts: settings.defaultOptions
 };
 attrs.baseform_compound_ordered = JSON.parse(JSON.stringify(attrs.baseform_compound));
-attrs.baseform_compound_ordered.order = 20;
+attrs.baseform_compound_ordered.order = 19;
 attrs.lemgram_hidden = {
     label: "lemgram",
     type: "set",    // Seems to work only if this is "set" even if "hidden"
