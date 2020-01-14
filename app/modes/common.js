@@ -1097,6 +1097,7 @@ attrs.pos_ud_fi = {
 
 attrs.pos_ud_fi_ud1 = JSON.parse(JSON.stringify(attrs.pos_ud_fi));
 attrs.pos_ud_fi_ud1.label = "pos_ud1";
+attrs.pos_ud_fi_ud1.order = 14;
 
 attrs.pos_klk = {
     label: "pos",
@@ -1119,6 +1120,8 @@ attrs.pos_klk = {
     },
     opts: settings.liteOptions
 };
+attrs.pos_klk_ordered = JSON.parse(JSON.stringify(attrs.pos_klk));
+attrs.pos_klk_ordered.order = 18;
 
 // TextMorfo parts of speech, used in FTC
 attrs.pos_textmorfo = {
@@ -1228,8 +1231,25 @@ attrs.msd = {
 	return val.replace(/\|/g, "|<wbr>");
     }
 };
+attrs.msd_ordered = {
+    label: "msd",
+    opts: settings.defaultOptions,
+    // Empty taginfo_url disables the info link to MSD tags in the
+    // used sidebar; another value would link to the given URL; and an
+    // undefined value would link to the default markup/msd.html.
+    taginfo_url: "",
+    // Add a <wbr> tag after each vertical bar to allow breaking the
+    // line there in the sidebar, while retaining the ability to copy
+    // and paste to a further search expression (unlike if we added a
+    // zero-width space U+200B).
+    stringify: function(val) {
+	return val.replace(/\|/g, "|<wbr>");
+    },
+    order: 17
+};
 attrs.msd_ud1 = JSON.parse(JSON.stringify(attrs.msd));
 attrs.msd_ud1.label = "msd_ud1";
+attrs.msd_ud1.order = 13;
 attrs.baseform = {
     label: "baseform",
     // type: "set",
@@ -1239,8 +1259,19 @@ attrs.baseform = {
     },
     opts: settings.defaultOptions,
 };
+attrs.baseform_ordered = {
+    label: "baseform",
+    // type: "set",
+    // displayType: "autocomplete",
+    stringify: function(baseform) {
+        return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
+    },
+    opts: settings.defaultOptions,
+    order: 20
+};
 attrs.baseform_ud1 = JSON.parse(JSON.stringify(attrs.baseform));
 attrs.baseform_ud1.label = "baseform_ud1";
+attrs.baseform_ud1.order = 15;
 attrs.baseform_ftb2 = {
     label: "baseform",
     // type: "set",
@@ -1258,6 +1289,16 @@ attrs.baseform_compound = {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
     opts: settings.defaultOptions
+};
+attrs.baseform_compound_ordered = {
+    label: "baseform_compound",
+    // type: "set",
+    // displayType: "autocomplete",
+    stringify: function(baseform) {
+        return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
+    },
+    opts: settings.defaultOptions,
+    order: 19
 };
 
 attrs.lemgram_hidden = {
@@ -1354,6 +1395,8 @@ attrs.deprel_tdt = {
 	"xsubj-cop": "xsubj-cop"
     }
 };
+attrs.deprel_tdt_ordered = JSON.parse(JSON.stringify(attrs.deprel_tdt));
+attrs.deprel_tdt_ordered.order = 16;
 attrs.deprel_ud2 = {
     label: "deprel",
     displayType: "select",
@@ -1462,6 +1505,7 @@ attrs.deprel_ud_fi = {
 };
 attrs.deprel_ud_fi_ud1 = JSON.parse(JSON.stringify(attrs.deprel_ud_fi));
 attrs.deprel_ud_fi_ud1.label = "deprel_ud1";
+attrs.deprel_ud_fi_ud1.order = 12;
 attrs.deprel_uta_ru = {
     label: "deprel",
     displayType: "select",
@@ -2465,17 +2509,17 @@ attrlist.parsed_tdt = {
 
 attrlist.parsed_tdt_ud1 = {
     ref: attrs.ref,
-    lemma: attrs.baseform,
-    lemmacomp: attrs.baseform_compound,
-    pos: attrs.pos_klk,
-    msd: attrs.msd,
+    lemma: attrs.baseform_ordered, // order: 20
+    lemmacomp: attrs.baseform_compound_ordered, // order: 19
+    pos: attrs.pos_klk_ordered, // order: 18
+    msd: attrs.msd_ordered, // order: 17
     dephead: attrs.dephead,
-    deprel: attrs.deprel_tdt,
-    lemma_ud1: attrs.baseform_ud1,
-    pos_ud1: attrs.pos_ud_fi_ud1,
-    msd_ud1: attrs.msd_ud1,
+    deprel: attrs.deprel_tdt_ordered, // order: 16
+    lemma_ud1: attrs.baseform_ud1, // order: 15
+    pos_ud1: attrs.pos_ud_fi_ud1, // order: 14
+    msd_ud1: attrs.msd_ud1, // order: 13
     dephead_ud1: attrs.dephead_ud1,
-    deprel_ud1: attrs.deprel_ud_fi_ud1,
+    deprel_ud1: attrs.deprel_ud_fi_ud1, // order: 12
     lex: attrs.lemgram_hidden,
 };
 
