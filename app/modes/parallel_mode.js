@@ -932,7 +932,7 @@ settings.corpora.opus_eubookshop_fitr_fi = {
 
 settings.corpora.opus_kde4_fitr_tr = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_fitr_tr",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -952,7 +952,7 @@ settings.corpora.opus_kde4_fitr_tr = {
 
 settings.corpora.opus_kde4_fitr_fi = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_fitr_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -1166,7 +1166,7 @@ settings.corpora.opus_opensubtitles_fifr_fi = {
 
 settings.corpora.opus_kde4_fifr_fr = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_fifr_fr",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -1186,7 +1186,7 @@ settings.corpora.opus_kde4_fifr_fr = {
 
 settings.corpora.opus_kde4_fifr_fi = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_fifr_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -1478,7 +1478,7 @@ settings.corpora.opus_opensubtitles_esfi_es = {
 
 settings.corpora.opus_kde4_esfi_fi = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_esfi_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -1497,7 +1497,7 @@ settings.corpora.opus_kde4_esfi_fi = {
 
 settings.corpora.opus_kde4_esfi_es = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_esfi_es",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -2180,7 +2180,7 @@ settings.corpora.opus_opensubtitles_elfi_el = {
 
 settings.corpora.opus_dgt_elfi_fi = {
     title: "DGT",
-    description: "DGT - A collection of EU Translation Memories provided by the JRC",
+    description: "DGT – A collection of EU Translation Memories provided by the JRC",
     id: "opus_dgt_elfi_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -2199,7 +2199,7 @@ settings.corpora.opus_dgt_elfi_fi = {
 
 settings.corpora.opus_dgt_elfi_el = {
     title: "DGT",
-    description: "DGT - A collection of EU Translation Memories provided by the JRC",
+    description: "DGT – A collection of EU Translation Memories provided by the JRC",
     id: "opus_dgt_elfi_el",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -2258,7 +2258,7 @@ settings.corpora.opus_eubookshop_elfi_el = {
 
 settings.corpora.opus_emea_elfi_fi = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_elfi_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -2277,7 +2277,7 @@ settings.corpora.opus_emea_elfi_fi = {
 
 settings.corpora.opus_emea_elfi_el = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_elfi_el",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -2297,7 +2297,7 @@ settings.corpora.opus_emea_elfi_el = {
 
 settings.corpora.opus_ecb_elfi_fi = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_elfi_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -2316,7 +2316,7 @@ settings.corpora.opus_ecb_elfi_fi = {
 
 settings.corpora.opus_ecb_elfi_el = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_elfi_el",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -2336,7 +2336,7 @@ settings.corpora.opus_ecb_elfi_el = {
 
 settings.corpora.opus_kde4_elfi_fi = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_elfi_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -2355,7 +2355,7 @@ settings.corpora.opus_kde4_elfi_fi = {
 
 settings.corpora.opus_kde4_elfi_el = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_elfi_el",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -2843,7 +2843,7 @@ settings.corpora.opus_opensubtitles2013_csfi_cs = {
 
 settings.corpora.opus_dgt_csfi_fi = {
     title: "DGT",
-    description: "DGT - A collection of EU Translation Memories provided by the JRC",
+    description: "DGT – A collection of EU Translation Memories provided by the JRC",
     id: "opus_dgt_csfi_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -2862,7 +2862,7 @@ settings.corpora.opus_dgt_csfi_fi = {
 
 settings.corpora.opus_dgt_csfi_cs = {
     title: "DGT",
-    description: "DGT - A collection of EU Translation Memories provided by the JRC",
+    description: "DGT – A collection of EU Translation Memories provided by the JRC",
     id: "opus_dgt_csfi_cs",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -2921,7 +2921,7 @@ settings.corpora.opus_eubookshop_csfi_cs = {
 
 settings.corpora.opus_emea_csfi_fi = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_csfi_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -2940,7 +2940,7 @@ settings.corpora.opus_emea_csfi_fi = {
 
 settings.corpora.opus_emea_csfi_cs = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_csfi_cs",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -2960,7 +2960,7 @@ settings.corpora.opus_emea_csfi_cs = {
 
 settings.corpora.opus_ecb_csfi_fi = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_csfi_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -2979,7 +2979,7 @@ settings.corpora.opus_ecb_csfi_fi = {
 
 settings.corpora.opus_ecb_csfi_cs = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_csfi_cs",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -2999,7 +2999,7 @@ settings.corpora.opus_ecb_csfi_cs = {
 
 settings.corpora.opus_kde4_csfi_fi = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_csfi_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -3018,7 +3018,7 @@ settings.corpora.opus_kde4_csfi_fi = {
 
 settings.corpora.opus_kde4_csfi_cs = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_csfi_cs",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -3311,7 +3311,7 @@ settings.corpora.opus_opensubtitles2013_finl_fi = {
 
 settings.corpora.opus_dgt_finl_nl = {
     title: "DGT",
-    description: "DGT - A collection of EU Translation Memories provided by the JRC",
+    description: "DGT – A collection of EU Translation Memories provided by the JRC",
     id: "opus_dgt_finl_nl",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -3331,7 +3331,7 @@ settings.corpora.opus_dgt_finl_nl = {
 
 settings.corpora.opus_dgt_finl_fi = {
     title: "DGT",
-    description: "DGT - A collection of EU Translation Memories provided by the JRC",
+    description: "DGT – A collection of EU Translation Memories provided by the JRC",
     id: "opus_dgt_finl_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -3389,7 +3389,7 @@ settings.corpora.opus_eubookshop_finl_fi = {
 
 settings.corpora.opus_emea_finl_nl = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_finl_nl",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -3409,7 +3409,7 @@ settings.corpora.opus_emea_finl_nl = {
 
 settings.corpora.opus_emea_finl_fi = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_finl_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -3428,7 +3428,7 @@ settings.corpora.opus_emea_finl_fi = {
 
 settings.corpora.opus_ecb_finl_nl = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_finl_nl",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -3448,7 +3448,7 @@ settings.corpora.opus_ecb_finl_nl = {
 
 settings.corpora.opus_ecb_finl_fi = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_finl_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -3467,7 +3467,7 @@ settings.corpora.opus_ecb_finl_fi = {
 
 settings.corpora.opus_kde4_finl_nl = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_finl_nl",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -3487,7 +3487,7 @@ settings.corpora.opus_kde4_finl_nl = {
 
 settings.corpora.opus_kde4_finl_fi = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_finl_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -3740,7 +3740,7 @@ settings.corpora.opus_opensubtitles2011_firu_fi = {
 
 settings.corpora.opus_kde4_firu_ru = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_firu_ru",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -3760,7 +3760,7 @@ settings.corpora.opus_kde4_firu_ru = {
 
 settings.corpora.opus_kde4_firu_fi = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_firu_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4364,7 +4364,7 @@ settings.corpora.opus_opensubtitles2011_fihu_fi = {
 
 settings.corpora.opus_dgt_fihu_hu = {
     title: "DGT",
-    description: "DGT - A collection of EU Translation Memories provided by the JRC",
+    description: "DGT – A collection of EU Translation Memories provided by the JRC",
     id: "opus_dgt_fihu_hu",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4384,7 +4384,7 @@ settings.corpora.opus_dgt_fihu_hu = {
 
 settings.corpora.opus_dgt_fihu_fi = {
     title: "DGT",
-    description: "DGT - A collection of EU Translation Memories provided by the JRC",
+    description: "DGT – A collection of EU Translation Memories provided by the JRC",
     id: "opus_dgt_fihu_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4403,7 +4403,7 @@ settings.corpora.opus_dgt_fihu_fi = {
 
 settings.corpora.opus_ecb_fihu_hu = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_fihu_hu",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4423,7 +4423,7 @@ settings.corpora.opus_ecb_fihu_hu = {
 
 settings.corpora.opus_ecb_fihu_fi = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_fihu_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4442,7 +4442,7 @@ settings.corpora.opus_ecb_fihu_fi = {
 
 settings.corpora.opus_emea_fihu_hu = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_fihu_hu",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4462,7 +4462,7 @@ settings.corpora.opus_emea_fihu_hu = {
 
 settings.corpora.opus_emea_fihu_fi = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_fihu_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4520,7 +4520,7 @@ settings.corpora.opus_eubookshop_fihu_fi = {
 
 settings.corpora.opus_kde4_fihu_hu = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_fihu_hu",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4540,7 +4540,7 @@ settings.corpora.opus_kde4_fihu_hu = {
 
 settings.corpora.opus_kde4_fihu_fi = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_fihu_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4559,7 +4559,7 @@ settings.corpora.opus_kde4_fihu_fi = {
 
 settings.corpora.opus_emea_fiit_it = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_fiit_it",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4579,7 +4579,7 @@ settings.corpora.opus_emea_fiit_it = {
 
 settings.corpora.opus_emea_fiit_fi = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_fiit_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4598,7 +4598,7 @@ settings.corpora.opus_emea_fiit_fi = {
 
 settings.corpora.opus_ecb_fiit_it = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_fiit_it",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4618,7 +4618,7 @@ settings.corpora.opus_ecb_fiit_it = {
 
 settings.corpora.opus_ecb_fiit_fi = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_fiit_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4793,7 +4793,7 @@ settings.corpora.opus_eubookshop_fiit_fi = {
 
 settings.corpora.opus_dgt_fiit_it = {
     title: "DGT",
-    description: "DGT - A collection of EU Translation Memories provided by the JRC",
+    description: "DGT – A collection of EU Translation Memories provided by the JRC",
     id: "opus_dgt_fiit_it",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4813,7 +4813,7 @@ settings.corpora.opus_dgt_fiit_it = {
 
 settings.corpora.opus_dgt_fiit_fi = {
     title: "DGT",
-    description: "DGT - A collection of EU Translation Memories provided by the JRC",
+    description: "DGT – A collection of EU Translation Memories provided by the JRC",
     id: "opus_dgt_fiit_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4832,7 +4832,7 @@ settings.corpora.opus_dgt_fiit_fi = {
 
 settings.corpora.opus_ecb_fipt_pt = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_fipt_pt",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4852,7 +4852,7 @@ settings.corpora.opus_ecb_fipt_pt = {
 
 settings.corpora.opus_ecb_fipt_fi = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_fipt_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4871,7 +4871,7 @@ settings.corpora.opus_ecb_fipt_fi = {
 
 settings.corpora.opus_emea_fipt_pt = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_fipt_pt",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -4891,7 +4891,7 @@ settings.corpora.opus_emea_fipt_pt = {
 
 settings.corpora.opus_emea_fipt_fi = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_fipt_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5068,7 +5068,7 @@ settings.corpora.opus_opensubtitles_fipt_fi = {
 
 settings.corpora.opus_dgt_fipt_pt = {
     title: "DGT",
-    description: "DGT - A collection of EU Translation Memories provided by the JRC",
+    description: "DGT – A collection of EU Translation Memories provided by the JRC",
     id: "opus_dgt_fipt_pt",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5088,7 +5088,7 @@ settings.corpora.opus_dgt_fipt_pt = {
 
 settings.corpora.opus_dgt_fipt_fi = {
     title: "DGT",
-    description: "DGT - A collection of EU Translation Memories provided by the JRC",
+    description: "DGT – A collection of EU Translation Memories provided by the JRC",
     id: "opus_dgt_fipt_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5146,7 +5146,7 @@ settings.corpora.opus_opensubtitles2011_etfi_et = {
 
 settings.corpora.opus_emea_etfi_fi = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_etfi_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5164,7 +5164,7 @@ settings.corpora.opus_emea_etfi_fi = {
 };
 settings.corpora.opus_kde4_etfi_fi = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_etfi_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5183,7 +5183,7 @@ settings.corpora.opus_kde4_etfi_fi = {
 
 settings.corpora.opus_kde4_etfi_et = {
     title: "KDE4",
-    description: "KDE4 - KDE4 localization files (v.2)",
+    description: "KDE4 – KDE4 localization files (v.2)",
     id: "opus_kde4_etfi_et",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5203,7 +5203,7 @@ settings.corpora.opus_kde4_etfi_et = {
 
 settings.corpora.opus_emea_etfi_et = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_etfi_et",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5223,7 +5223,7 @@ settings.corpora.opus_emea_etfi_et = {
 
 settings.corpora.opus_dgt_etfi_fi = {
     title: "DGT",
-    description: "DGT - A collection of EU Translation Memories provided by the JRC",
+    description: "DGT – A collection of EU Translation Memories provided by the JRC",
     id: "opus_dgt_etfi_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5242,7 +5242,7 @@ settings.corpora.opus_dgt_etfi_fi = {
 
 settings.corpora.opus_dgt_etfi_et = {
     title: "DGT",
-    description: "DGT - A collection of EU Translation Memories provided by the JRC",
+    description: "DGT – A collection of EU Translation Memories provided by the JRC",
     id: "opus_dgt_etfi_et",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5339,7 +5339,7 @@ settings.corpora.opus_opensubtitles2013_etfi_et = {
 
 settings.corpora.opus_emea_fipl_pl = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_fipl_pl",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5359,7 +5359,7 @@ settings.corpora.opus_emea_fipl_pl = {
 
 settings.corpora.opus_emea_fipl_fi = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_fipl_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5378,7 +5378,7 @@ settings.corpora.opus_emea_fipl_fi = {
 
 settings.corpora.opus_ecb_fipl_pl = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_fipl_pl",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5398,7 +5398,7 @@ settings.corpora.opus_ecb_fipl_pl = {
 
 settings.corpora.opus_ecb_fipl_fi = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_fipl_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5417,7 +5417,7 @@ settings.corpora.opus_ecb_fipl_fi = {
 
 settings.corpora.opus_dgt_fipl_pl = {
     title: "DGT",
-    description: "DGT - A collection of EU Translation Memories provided by the JRC",
+    description: "DGT – A collection of EU Translation Memories provided by the JRC",
     id: "opus_dgt_fipl_pl",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5437,7 +5437,7 @@ settings.corpora.opus_dgt_fipl_pl = {
 
 settings.corpora.opus_dgt_fipl_fi = {
     title: "DGT",
-    description: "DGT - A collection of EU Translation Memories provided by the JRC",
+    description: "DGT – A collection of EU Translation Memories provided by the JRC",
     id: "opus_dgt_fipl_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5572,7 +5572,7 @@ settings.corpora.opus_opensubtitles2011_fipl_fi = {
 };
 
 settings.corpora.opus_dgt_dafi_fi = {
-    title: "DGT - A collection of EU Translation Memories provided by the JRC",
+    title: "DGT – A collection of EU Translation Memories provided by the JRC",
     description: "DGT",
     id: "opus_dgt_dafi_fi",
     urn: "urn_placeholder",
@@ -5591,7 +5591,7 @@ settings.corpora.opus_dgt_dafi_fi = {
 };
 
 settings.corpora.opus_dgt_dafi_da = {
-    title: "DGT - A collection of EU Translation Memories provided by the JRC",
+    title: "DGT – A collection of EU Translation Memories provided by the JRC",
     description: "DGT",
     id: "opus_dgt_dafi_da",
     urn: "urn_placeholder",
@@ -5728,7 +5728,7 @@ settings.corpora.opus_opensubtitles2013_dafi_da = {
 };
 
 settings.corpora.opus_kde4_dafi_fi = {
-    title: "KDE4 - KDE4 localization files (v.2)",
+    title: "KDE4 – KDE4 localization files (v.2)",
     description: "KDE4",
     id: "opus_kde4_dafi_fi",
     urn: "urn_placeholder",
@@ -5747,7 +5747,7 @@ settings.corpora.opus_kde4_dafi_fi = {
 };
 
 settings.corpora.opus_kde4_dafi_da = {
-    title: "KDE4 - KDE4 localization files (v.2)",
+    title: "KDE4 – KDE4 localization files (v.2)",
     description: "KDE4",
     id: "opus_kde4_dafi_da",
     urn: "urn_placeholder",
@@ -5768,7 +5768,7 @@ settings.corpora.opus_kde4_dafi_da = {
 
 settings.corpora.opus_ecb_dafi_fi = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_dafi_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5787,7 +5787,7 @@ settings.corpora.opus_ecb_dafi_fi = {
 
 settings.corpora.opus_ecb_dafi_da = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_dafi_da",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5807,7 +5807,7 @@ settings.corpora.opus_ecb_dafi_da = {
 
 
 settings.corpora.opus_dgt_esfi_fi = {
-    title: "DGT - A collection of EU Translation Memories provided by the JRC",
+    title: "DGT – A collection of EU Translation Memories provided by the JRC",
     description: "DGT",
     id: "opus_dgt_esfi_fi",
     urn: "urn_placeholder",
@@ -5826,7 +5826,7 @@ settings.corpora.opus_dgt_esfi_fi = {
 };
 
 settings.corpora.opus_dgt_esfi_es = {
-    title: "DGT - A collection of EU Translation Memories provided by the JRC",
+    title: "DGT – A collection of EU Translation Memories provided by the JRC",
     description: "DGT",
     id: "opus_dgt_esfi_es",
     urn: "urn_placeholder",
@@ -5964,7 +5964,7 @@ settings.corpora.opus_eubookshop_esfi_es = {
 
 settings.corpora.opus_ecb_fifr_fr = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_fifr_fr",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -5984,7 +5984,7 @@ settings.corpora.opus_ecb_fifr_fr = {
 
 settings.corpora.opus_ecb_fifr_fi = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_fifr_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -6003,7 +6003,7 @@ settings.corpora.opus_ecb_fifr_fi = {
 
 settings.corpora.opus_emea_fifr_fr = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_fifr_fr",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -6023,7 +6023,7 @@ settings.corpora.opus_emea_fifr_fr = {
 
 settings.corpora.opus_emea_fifr_fi = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_fifr_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -6158,7 +6158,7 @@ settings.corpora.opus_eubookshop_fifr_fi = {
 };
 
 settings.corpora.opus_dgt_fifr_fr = {
-    title: "DGT - A collection of EU Translation Memories provided by the JRC",
+    title: "DGT – A collection of EU Translation Memories provided by the JRC",
     description: "DGT",
     id: "opus_dgt_fifr_fr",
     urn: "urn_placeholder",
@@ -6178,7 +6178,7 @@ settings.corpora.opus_dgt_fifr_fr = {
 };
 
 settings.corpora.opus_dgt_fifr_fi = {
-    title: "DGT - A collection of EU Translation Memories provided by the JRC",
+    title: "DGT – A collection of EU Translation Memories provided by the JRC",
     description: "DGT",
     id: "opus_dgt_fifr_fi",
     urn: "urn_placeholder",
@@ -6257,7 +6257,7 @@ settings.corpora.opus_emea_defi_fi = {
 
 settings.corpora.opus_emea_defi_de = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_defi_de",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -6296,7 +6296,7 @@ settings.corpora.opus_ecb_defi_fi = {
 
 settings.corpora.opus_ecb_defi_de = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_defi_de",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -6755,7 +6755,7 @@ settings.corpora.opus_dgt_enfi_en = {
 
 settings.corpora.opus_emea_enfi_fi = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_enfi_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -6774,7 +6774,7 @@ settings.corpora.opus_emea_enfi_fi = {
 
 settings.corpora.opus_emea_enfi_en = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_enfi_en",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -6794,7 +6794,7 @@ settings.corpora.opus_emea_enfi_en = {
 
 settings.corpora.opus_emea_fisv_sv = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_fisv_sv",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -6814,7 +6814,7 @@ settings.corpora.opus_emea_fisv_sv = {
 
 settings.corpora.opus_emea_fisv_fi = {
     title: "EMEA",
-    description: "EMEA - European Medicines Agency documents",
+    description: "EMEA – European Medicines Agency documents",
     id: "opus_emea_fisv_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -6987,7 +6987,7 @@ settings.corpora.opus_opensub2012enfi_en = {
 
 settings.corpora.opus_ecb_enfi_fi = {
     title: "ECB",
-    description: "ECB - European Central Bank corpus",
+    description: "ECB – European Central Bank corpus",
     id: "opus_ecb_enfi_fi",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
@@ -8044,7 +8044,7 @@ settings.fn.extend_corpus_settings(
     {
 	// Properties common to parfin_2016_fi and parfin_2016_ru
 	title: "ParFin 2016",
-	description: "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1910–2008 ja niiden käännöksiä venäjäksi virketasolla kohdistettuina<br/>ParFin 2016: финско-русский корпус художественных текстов. Финская проза 1910-2008 гг. и ее переводы на русский язык, тексты выровнены на уровне предложений.<br/><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Suomen annotaatioiden kuvaus</a><br/><a href=\"http://nl.ijs.si/ME/V4/msd/html/msd-ru.html\" target=\"_blank\">Venäjän morfologisen ja sanaluokka-annotaation kuvaus (englanniksi)</a></br><a href=\"http://www.ruscorpora.ru/instruction-syntax.html\" target=\"_blank\">Venäjän syntaktisen annotaation kuvaus (venäjäksi)</a>",
+	description: "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1910–2008 ja niiden käännöksiä venäjäksi virketasolla kohdistettuina<br/>ParFin 2016: финско-русский корпус художественных текстов. Финская проза 1910–2008 гг. и ее переводы на русский язык, тексты выровнены на уровне предложений.<br/><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Suomen annotaatioiden kuvaus</a><br/><a href=\"http://nl.ijs.si/ME/V4/msd/html/msd-ru.html\" target=\"_blank\">Venäjän morfologisen ja sanaluokka-annotaation kuvaus (englanniksi)</a></br><a href=\"http://www.ruscorpora.ru/instruction-syntax.html\" target=\"_blank\">Venäjän syntaktisen annotaation kuvaus (venäjäksi)</a>",
 	urn: "urn:nbn:fi:lb-2016121601",
 	metadata_urn: "urn:nbn:fi:lb-2016121610",
 	licence: settings.licenceinfo.ParFinRus_2016_fi,

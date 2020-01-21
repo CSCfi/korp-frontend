@@ -74,7 +74,7 @@ settings.corporafolders = {};
 /*
 settings.corporafolders.koff = {
     title: "Paul Sinebrychoffs brevsamling",
-    description: "Paul Sinebrychoffs brevsampling (1895-1908)",
+    description: "Paul Sinebrychoffs brevsampling (1895–1908)",
     info: {
         metadata_urn: "urn:nbn:fi:lb-201407303",
         licence: settings.licenceinfo.CC_BY_30,
@@ -85,7 +85,7 @@ settings.corporafolders.koff = {
 /*
 settings.corporafolders.koff = {
     title: "Paul Sinebrychoffs brevsamling",
-    description: "Paul Sinebrychoffs brevsamling (1895-1908)",
+    description: "Paul Sinebrychoffs brevsamling (1895–1908)",
     contents: ["sinebrychoff_orig", "sinebrychoff_fi"]
     };
 */
@@ -292,7 +292,7 @@ settings.corpora.semfinlex_kho_sv_2018 = {
 /*ETHESIS*/
 settings.corpora.ethesis_sv_ma = {
     title: "Masteruppsatser",
-    description: "Masteruppsatser (1997-2016)",
+    description: "Masteruppsatser (1997–2016)",
     id: "ethesis_sv_ma",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -303,7 +303,7 @@ settings.corpora.ethesis_sv_ma = {
 
 settings.corpora.ethesis_sv_maabs = {
     title: "Masteruppsatser (abstrakt)",
-    description: "Masteruppsatser (abstrakt) (1999-2016)",
+    description: "Masteruppsatser (abstrakt) (1999–2016)",
     id: "ethesis_sv_maabs",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -314,7 +314,7 @@ settings.corpora.ethesis_sv_maabs = {
 
 settings.corpora.ethesis_sv_dissabs = {
     title: "Doktorsavhandlingar (abstrakt)",
-    description: "Doktorsavhandlingar (abstrakt) (2006-2016)",
+    description: "Doktorsavhandlingar (abstrakt) (2006–2016)",
     id: "ethesis_sv_dissabs",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -325,7 +325,7 @@ settings.corpora.ethesis_sv_dissabs = {
 
 settings.corpora.ethesis_sv_phd = {
     title: "Doktorsavhandlingar",
-    description: "Doktorsavhandlingar (2000-2016)",
+    description: "Doktorsavhandlingar (2000–2016)",
     id: "ethesis_sv_phd",
     within: settings.defaultWithin,
     context: settings.defaultContext,
