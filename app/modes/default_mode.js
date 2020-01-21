@@ -3065,7 +3065,7 @@ settings.corpus_aliases.muut_lehdet = "lehdet_.*";
 
 settings.corpora.lehdet_selkosanomat = {
     title: "Selkosanomat/Selkouutiset",
-    description: "Selkouutiset (25/2006-2011), Selkosanomat (2012-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Selkokeskus / Kehitysvammaliitto<br/>Kotisivu: <a href='http://selkosanomat.fi/'>http://selkosanomat.fi/</a>",
+    description: "Selkouutiset (18/2010-2011), Selkosanomat (2012-2013)<br/>Sisältää lehden kotisivulla 2016 keväällä ladattavissa olevat artikkelit.<br/>Julkaisija: Selkokeskus / Kehitysvammaliitto<br/>Kotisivu: <a href='http://selkosanomat.fi/'>http://selkosanomat.fi/</a>",
     id: "lehdet_selkosanomat",
     features: ["paragraphs", "parsed_tdt", "finer"],
     struct_attributes: {
