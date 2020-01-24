@@ -1,4 +1,19 @@
 
+<!-- Suomi24 2017H2:n tekstin piirteitä korjattu 2020-01-24 -->
+
+Suomi24 2017H2 -aineiston tekstin piirteet on korjattu ennalleen.
+
+Dependenssijäsennysten korjaamisen yhteydessä joulukuussa 2019
+muutamat tekstin piirteet olivat jääneet pois (*kirjoittajan
+nimimerkki*, *kirjautunut käyttäjä*, *keskusteluketjun alkuiakaleima*,
+*tiedoston nimi*, *kommentin vanhemman aikaleima* ja *viesti on täysin
+tyhjä*) tai saaneet aiemmasta poikkeavia arvoja (kyllä/ei-arvoiset
+piirteet sekä *kappaleen tyyppi*). Tämä vaikutti myös Korp-APIn
+käyttäjiin.
+
+Pahoittelemme virhettä ja kiitämme siitä ilmoittanutta käyttäjää.
+
+
 <!-- Trendikuvaajan virhe korjattu (Ekonomi, Toisin sanoen) 2020-01-09 -->
 
 Tilastotulosvälilehden *Näytä trendikuvaaja* -painike toimii jälleen

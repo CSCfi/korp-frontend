@@ -1,4 +1,18 @@
 
+<!-- Text attributes in Suomi24 2017H2 corrected 2020-01-24 -->
+
+The text attributes of the Suomi24 2017H2 corpus have been restored.
+
+Some text attributes had been left out (*writer nickname*, *registered
+nickname*, *discussion thread start timestamp*, *file name*, *parent
+timestamp* and *message is completely empty*) or had got values
+differing from previous ones (yes/no-valued attributes and *paragraph
+type*) when correcting the dependency parses in December 2019. This
+also affected the users of the Korp API.
+
+We apologize for the error and thank the user who reported it.
+
+
 <!-- Error in trend diagram fixed (Ekonomi, Toisin sanoen) 2020-01-09 -->
 
 The *Show trend diagram* button of the statistics result tab works
