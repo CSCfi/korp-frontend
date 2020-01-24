@@ -1,5 +1,14 @@
 
-<!-- Suomi24 2017H2:n tekstin piirteitä korjattu 2020-01-24 -->
+<!-- Semfinlexin dependenssijäsennykset yhä poikkeavat 2020-01-24b -->
+
+Semfinlex-aineiston suomenkielisen osan dependenssijäsennykset
+poikkeavat edelleen muiden aineistojen dependenssijäsennyksistä,
+toisin kuin 2019-12-19 virheellisesti uutisoimme. Pahoittelemme asiaa
+ja pyrimme saamaan korjatut dependenssijäsennykset käyttöön
+mahdollisimman pian.
+
+
+<!-- Suomi24 2017H2:n tekstin piirteitä korjattu 2020-01-24a -->
 
 Suomi24 2017H2 -aineiston tekstin piirteet on korjattu ennalleen.
 
@@ -35,12 +44,12 @@ target="_blank">palautelomakkeen</a> kautta tai sähköpostitse
 osoitteella `fin-clarin (ät) helsinki.fi`.
 
 
-<!-- Dependenssijäsennysten poikkeavuudet korjattu (Suomi24 2017H2, Semfinlex) 2019-12-19b -->
+<!-- Dependenssijäsennysten poikkeavuudet korjattu (Suomi24 2017H2) 2019-12-19b -->
 
-Syyskuussa 2019 huomatut Suomi24 2017H2 -aineiston ja suomenkielisen
-Semfinlex-aineiston dependenssijäsennysten ja -relaatioiden
-poikkeavuudet on viimein korjattu (Semfinlex-aineiston osalta jo
-aiemmin syksyllä). Pahoittelemme virheitä.
+Syyskuussa 2019 huomatut Suomi24 2017H2 -aineiston <del>ja suomenkielisen
+Semfinlex-aineiston</del> dependenssijäsennysten ja -relaatioiden
+poikkeavuudet on viimein korjattu <del>(Semfinlex-aineiston osalta jo
+aiemmin syksyllä)</del>. Pahoittelemme virheitä.
 
 
 <!-- Uusia aineistoja (beta): Ylen suomenkielinen uutisarkisto 2012–2018 ja Ylen suomenkielisen uutisarkiston selkouutiset 2019-12-19a -->

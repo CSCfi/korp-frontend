@@ -1,5 +1,14 @@
 
-<!-- Text attributes in Suomi24 2017H2 corrected 2020-01-24 -->
+<!-- Semfinlex dependency parses still deviant 2020-01-24b -->
+
+The dependency parses of the Finnish part of the Semfinlex corpus
+still deviate from those of other corpora, contrary to what we
+incorrectly stated in a piece of news on 2019-12-19. We apologize for
+the situation and try to make the corrected dependency parses
+available as soon as possible.
+
+
+<!-- Text attributes in Suomi24 2017H2 corrected 2020-01-24a -->
 
 The text attributes of the Suomi24 2017H2 corpus have been restored.
 
@@ -32,11 +41,11 @@ target="_blank">feedback form</a> or by email to `fin-clarin (at)
 helsinki.fi`.
 
 
-<!-- Discrepancies in dependency parses corrected: Suomi24 2017H2, Semfinlex 2019-12-19b -->
+<!-- Discrepancies in dependency parses corrected: Suomi24 2017H2 2019-12-19b -->
 
 The discrepancies noticed in September 2019 in the dependency parses
-and relations of the Finnish Suomi24 2017H2 and Semfinlex corpora have
-finally been corrected (in Semfinlex already earlier in the autumn).
+and relations of the Finnish Suomi24 2017H2 <del>and Semfinlex</del> corpora have
+finally been corrected <del>(in Semfinlex already earlier in the autumn)</del>.
 We apologize for the errors.
 
 
