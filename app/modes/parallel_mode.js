@@ -700,8 +700,8 @@ sattrlist.ceal_common = {
 var ceal_work_list = "Korpus sisältää seuraavat Kersti Juvan kääntämät teokset:<ul><li>Jane Austen: Ylpeys ja ennakkoluulo (Teos 2013) (Pride and Prejudice)</li><li>Charles Dickens: Kolea talo (Otava 2003) (Bleak House)</li><li>Henry James: Washingtonin aukio (Tammi 2006) (Washington Square)</li>";
 
 settings.corpora.ceal_s_fi = {
-    title: "CEAL-s",
-    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi, sekoitetut kappaleet<br/>CEAL-s: Classics of English and American Literature in Finnish, scrambled paragraphs<br/><br/>" + ceal_work_list,
+    title: "CEAL-par-s",
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi, sekoitetut kappaleet<br/>CEAL-par-s: Classics of English and American Literature in Finnish, scrambled paragraphs<br/><br/>" + ceal_work_list,
     context: context.linkAligned,
     within: settings.linkWithin,
     id: "ceal_s_fi",
@@ -712,7 +712,7 @@ settings.corpora.ceal_s_fi = {
 	name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
 	urn: "urn:nbn:fi:lb-2017011308",
     },
-    cite_id: "ceal-s",
+    cite_id: "ceal-par-s",
     limited_access: true,
     licence_type: "RES", // -> ACA
     attributes: attrlist.ud2_fi,
@@ -721,8 +721,8 @@ settings.corpora.ceal_s_fi = {
 };
 
 settings.corpora.ceal_s_en = {
-    title: "CEAL-s",
-    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi, sekoitetut kappaleet<br/>CEAL-s: Classics of English and American Literature in Finnish, scrambled paragraphs<br/><br/>" + ceal_work_list,
+    title: "CEAL-par-s",
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi, sekoitetut kappaleet<br/>CEAL-par-s: Classics of English and American Literature in Finnish, scrambled paragraphs<br/><br/>" + ceal_work_list,
     context: context.linkAligned,
     within: settings.linkWithin,
     id: "ceal_s_en",
@@ -733,7 +733,7 @@ settings.corpora.ceal_s_en = {
 	name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
 	urn: "urn:nbn:fi:lb-2017011308",
     },
-    cite_id: "ceal-s",
+    cite_id: "ceal-par-s",
     limited_access: true,
     licence_type: "RES", // -> ACA
     attributes: attrlist.ud2_en,
