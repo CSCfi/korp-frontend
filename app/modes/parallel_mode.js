@@ -663,17 +663,6 @@ settings.corporafolders.ceal = {
 };
 
 sattrlist.ceal_common = {
-    text_title: {
-	label: "work_title",
-	displayType: "select",
-	localize: false,
-	opts: settings.liteOptions,
-	dataset: [
-	    "Ylpeys ja ennakkoluulo",
-	    "Kolea talo",
-	    "Washingtonin aukio",
-	],
-    },
     text_year: sattrs.year,
     text_author: {
 	label: "author",
@@ -697,6 +686,32 @@ sattrlist.ceal_common = {
     },
 };
 
+sattrlist.ceal_fi = JSON.parse(JSON.stringify(sattrlist.ceal_common));
+sattrlist.ceal_fi.text_title = {
+    label: "work_title",
+    displayType: "select",
+    localize: false,
+    opts: settings.liteOptions,
+    dataset: [
+	"Ylpeys ja ennakkoluulo",
+	"Kolea talo",
+	"Washingtonin aukio",
+    ],
+};
+
+sattrlist.ceal_en = JSON.parse(JSON.stringify(sattrlist.ceal_common));
+sattrlist.ceal_en.text_title =  {
+    label: "work_title",
+    displayType: "select",
+    localize: false,
+    opts: settings.liteOptions,
+    dataset: [
+	"Pride and Prejudice",
+	"Bleak House",
+	"Washington Square",
+    ],
+};
+
 var ceal_work_list = "Korpus sisältää seuraavat Kersti Juvan kääntämät teokset:<ul><li>Jane Austen: Ylpeys ja ennakkoluulo (Teos 2013) (Pride and Prejudice)</li><li>Charles Dickens: Kolea talo (Otava 2003) (Bleak House)</li><li>Henry James: Washingtonin aukio (Tammi 2006) (Washington Square)</li>";
 
 settings.corpora.ceal_s_fi = {
@@ -716,7 +731,7 @@ settings.corpora.ceal_s_fi = {
     limited_access: true,
     licence_type: "RES", // -> ACA
     attributes: attrlist.ud2_fi,
-    struct_attributes: sattrlist.ceal_common,
+    struct_attributes: sattrlist.ceal_fi,
     linked_to: ["ceal_s_en"]
 };
 
@@ -737,7 +752,7 @@ settings.corpora.ceal_s_en = {
     limited_access: true,
     licence_type: "RES", // -> ACA
     attributes: attrlist.ud2_en,
-    struct_attributes: sattrlist.ceal_common,
+    struct_attributes: sattrlist.ceal_en,
     linked_to: ["ceal_s_fi"],
     hide: true
 };
