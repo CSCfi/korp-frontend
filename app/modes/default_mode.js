@@ -11095,6 +11095,10 @@ settings.corpora.opensub_fi_17 = {
     context: settings.spContext,
     attributes: attrlist.parsed_tdt_ud1,
     struct_attributes: {
+	text_country: { label: "alkuperämaa" },
+	text_lang_orig: { label: "alkuperäiskieli" },
+	text_genre: { label: "lajityyppi" },
+	text_year: { label: "vuosi" },
     }
 };
 
