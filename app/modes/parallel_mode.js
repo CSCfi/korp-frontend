@@ -654,7 +654,7 @@ settings.corporafolders.ceal = {
     title: "CEAL",
     description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi ja englanniksi<br/>Classics of English and American Literature in Finnish and English<br/><br/><strong>Huomaa</strong>, että korpukset CEAL-o ja CEAL-s sisältävät samat tekstit, mutta CEAL-s:ssä kappaleet on sekoitettu kunkin teoksen sisällä, kun taas CEAL-o:ssa kappaleet ovat alkuperäisessä järjestyksessä. Hakuja varten kannattaa valita vain toinen korpus. CEAL-o vaatii aina henkilökohtaisen käyttöluvan.",
     info: {
-	metadata_urn: "urn:nbn:fi:lb-2016110901",
+	metadata_urn: "urn:nbn:fi:lb-2020012801",
 	iprholder: {
 	    name: "Kersti Juva",
 	},
@@ -689,20 +689,20 @@ sattrlist.ceal_common = {
     },
 };
 
-var ceal_work_list = "Korpus sisältää seuraavat Kersti Juvan kääntämät teokset:<ul><li>Jane Austen: Ylpeys ja ennakkoluulo (Teos 2013) (Pride and Prejudice)</li><li>Charles Dickens: Kolea talo (Otava 2003) (Bleak House)</li><li>Henry James: Washingtonin aukio (Tammi 2006) (Washington Square)</li>";
+var ceal_work_list = "Korpus sisältää seuraavat teokset Kersti Juvan käännöksinä sekä alkuperäisinä:<br/>The corpus contains the following works as translated by Kersti Juva and as original:<ul><li>Jane Austen: Ylpeys ja ennakkoluulo (Teos 2013) (Pride and Prejudice)</li><li>Charles Dickens: Kolea talo (Otava 2003) (Bleak House)</li><li>Henry James: Washingtonin aukio (Tammi 2006) (Washington Square)</li>";
 
 settings.corpora.ceal_s_fi = {
     title: "CEAL-par-s",
-    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi, sekoitetut kappaleet<br/>CEAL-par-s: Classics of English and American Literature in Finnish, scrambled paragraphs<br/><br/>" + ceal_work_list,
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi ja englanniksi, sekoitetut kappaleet<br/>CEAL-par-s: Classics of English and American Literature in Finnish and English, scrambled paragraphs<br/><br/>" + ceal_work_list,
     context: context.linkAligned,
     within: settings.linkWithin,
     id: "ceal_s_fi",
     lang: "fin",
-    urn: "urn:nbn:fi:lb-2018011202",
-    metadata_urn: "urn:nbn:fi:lb-2017011303",
+    urn: "urn:nbn:fi:lb-2020012802",
+    metadata_urn: "urn:nbn:fi:lb-2020012801",
     licence: {
 	name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
-	urn: "urn:nbn:fi:lb-2017011308",
+	urn: "urn:nbn:fi:lb-2020012804",
     },
     cite_id: "ceal-par-s",
     limited_access: true,
@@ -714,16 +714,16 @@ settings.corpora.ceal_s_fi = {
 
 settings.corpora.ceal_s_en = {
     title: "CEAL-par-s",
-    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi, sekoitetut kappaleet<br/>CEAL-par-s: Classics of English and American Literature in Finnish, scrambled paragraphs<br/><br/>" + ceal_work_list,
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi ja englanniksi, sekoitetut kappaleet<br/>CEAL-par-s: Classics of English and American Literature in Finnish and English, scrambled paragraphs<br/><br/>" + ceal_work_list,
     context: context.linkAligned,
     within: settings.linkWithin,
     id: "ceal_s_en",
     lang: "eng",
-    urn: "urn:nbn:fi:lb-2018011202",
-    metadata_urn: "urn:nbn:fi:lb-2017011303",
+    urn: "urn:nbn:fi:lb-2020012802",
+    metadata_urn: "urn:nbn:fi:lb-2020012801",
     licence: {
 	name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
-	urn: "urn:nbn:fi:lb-2017011308",
+	urn: "urn:nbn:fi:lb-2020012803",
     },
     cite_id: "ceal-par-s",
     limited_access: true,
