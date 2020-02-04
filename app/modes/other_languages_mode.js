@@ -125,7 +125,7 @@ settings.corporafolders.russian = {
 };
 
 settings.corporafolders.english.ethesis = {
-    title: "E-thesis",
+    title: "E-thesis (test version)",
     description: "Corpus of University of Helsinki theses and dissertations<br/><a href='https://ethesis.helsinki.fi/'>https://ethesis.helsinki.fi/</a>",
     contents: ["ethesis_en_dissabs", "ethesis_en_maabs"],
     info: {
@@ -141,8 +141,8 @@ settings.corporafolders.english.ethesis.phdtheses = {
 };
 
 settings.corporafolders.english.ethesis.matheses = {
-    title: "Master's theses",
-    contents: ["ethesis_en_ma_mm", "ethesis_en_ma_ai", "ethesis_en_ma_hum", "ethesis_en_ma_bio", "ethesis_en_ma_beh",
+    title: "Master's theses (test version)",
+    contents: ["ethesis_en_ma_mm", "ethesis_en_ma_ai_test", "ethesis_en_ma_hum", "ethesis_en_ma_bio", "ethesis_en_ma_beh",
                 "ethesis_en_ma_far", "ethesis_en_ma_ot", "ethesis_en_ma_med", "ethesis_en_ma_sci",
                 "ethesis_en_ma_valt", "ethesis_en_ma_teo", "ethesis_en_ma_el"]
 };
@@ -1401,10 +1401,10 @@ settings.corpora.ethesis_en_ma_valt = {
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_ma_ai = {
-    title: "Aleksanteri Institute",
+settings.corpora.ethesis_en_ma_ai_test = {
+    title: "Aleksanteri Institute (test version)",
     description: "Aleksanteri Institute (2009–2015)",
-    id: "ethesis_en_ma_ai",
+    id: "ethesis_en_ma_ai_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: {
