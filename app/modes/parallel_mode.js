@@ -652,7 +652,8 @@ var wordlink = {
 
 settings.corporafolders.ceal = {
     title: "CEAL",
-    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi ja englanniksi<br/>Classics of English and American Literature in Finnish and English<br/><br/><strong>Huomaa</strong>, että korpukset CEAL-o ja CEAL-s sisältävät samat tekstit, mutta CEAL-s:ssä kappaleet on sekoitettu kunkin teoksen sisällä, kun taas CEAL-o:ssa kappaleet ovat alkuperäisessä järjestyksessä. Hakuja varten kannattaa valita vain toinen korpus. CEAL-o vaatii aina henkilökohtaisen käyttöluvan.",
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi ja englanniksi<br/>Classics of English and American Literature in Finnish and English",
+	// <br/><br/><strong>Huomaa</strong>, että korpukset CEAL-o ja CEAL-s sisältävät samat tekstit, mutta CEAL-s:ssä kappaleet on sekoitettu kunkin teoksen sisällä, kun taas CEAL-o:ssa kappaleet ovat alkuperäisessä järjestyksessä. Hakuja varten kannattaa valita vain toinen korpus. CEAL-o vaatii aina henkilökohtaisen käyttöluvan."
     info: {
 	metadata_urn: "urn:nbn:fi:lb-2020012801",
 	iprholder: {
@@ -693,7 +694,7 @@ var ceal_work_list = "Korpus sisältää seuraavat teokset Kersti Juvan käänn�
 
 settings.corpora.ceal_s_fi = {
     title: "CEAL-par-s",
-    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi ja englanniksi, sekoitetut kappaleet<br/>CEAL-par-s: Classics of English and American Literature in Finnish and English, scrambled paragraphs<br/><br/>" + ceal_work_list,
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus, sekoitetut kappaleet<br/>CEAL-par-s: Classics of English and American Literature as translated by Kersti Juva, English–Finnish parallel corpus, scrambled paragraphs<br/><br/>" + ceal_work_list,
     context: context.linkAligned,
     within: settings.linkWithin,
     id: "ceal_s_fi",
@@ -714,7 +715,7 @@ settings.corpora.ceal_s_fi = {
 
 settings.corpora.ceal_s_en = {
     title: "CEAL-par-s",
-    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi ja englanniksi, sekoitetut kappaleet<br/>CEAL-par-s: Classics of English and American Literature in Finnish and English, scrambled paragraphs<br/><br/>" + ceal_work_list,
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus, sekoitetut kappaleet<br/>CEAL-par-s: Classics of English and American Literature as translated by Kersti Juva, English–Finnish parallel corpus, scrambled paragraphs<br/><br/>" + ceal_work_list,
     context: context.linkAligned,
     within: settings.linkWithin,
     id: "ceal_s_en",
