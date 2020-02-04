@@ -1407,8 +1407,7 @@ settings.corpora.ethesis_en_ma_ai_test = {
     id: "ethesis_en_ma_ai_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
-    attributes: {
-    },
+    attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
