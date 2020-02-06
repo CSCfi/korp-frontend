@@ -514,7 +514,7 @@ settings.corpora.oracc_saao = {
 
 settings.corpora.ethesis_ru = {
     title: "E-thesis",
-    description: "E-thesis. Corpus of theses and dissertations (2005-2016)",
+    description: "E-thesis. Corpus of theses and dissertations (2005–2016)",
     id: "ethesis_ru",
     cite_id: "e-thesis-ru",
     within: settings.defaultWithin,
@@ -526,7 +526,7 @@ settings.corpora.ethesis_ru = {
 
 settings.corpora.ethesis_es = {
     title: "E-thesis",
-    description: "E-thesis. Corpus of theses and dissertations (2003-2015)",
+    description: "E-thesis. Corpus of theses and dissertations (2003–2015)",
     id: "ethesis_es",
     cite_id: "e-thesis-es",
     within: settings.defaultWithin,
@@ -538,7 +538,7 @@ settings.corpora.ethesis_es = {
 
 settings.corpora.ethesis_fr = {
     title: "E-thesis",
-    description: "E-thesis. Corpus of theses and dissertations (2000-2016)",
+    description: "E-thesis. Corpus of theses and dissertations (2000–2016)",
     id: "ethesis_fr",
     cite_id: "e-thesis-fr",
     within: settings.defaultWithin,
@@ -550,7 +550,7 @@ settings.corpora.ethesis_fr = {
 
 settings.corpora.ethesis_de = {
     title: "E-thesis",
-    description: "E-thesis. Corpus of theses and dissertations (1997-2016)",
+    description: "E-thesis. Corpus of theses and dissertations (1997–2016)",
     id: "ethesis_de",
     cite_id: "e-thesis-de",
     within: settings.defaultWithin,
@@ -1280,7 +1280,7 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.firulex,
 
 settings.corpora.ethesis_en_ma_ot = {
     title: "Law",
-    description: "Faculty of Law (2010-2015)",
+    description: "Faculty of Law (2010–2015)",
     id: "ethesis_en_ma_ot",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1291,7 +1291,7 @@ settings.corpora.ethesis_en_ma_ot = {
 
 settings.corpora.ethesis_en_ma_med = {
     title: "Medicine",
-    description: "Faculty of Medicine (2009-2015)",
+    description: "Faculty of Medicine (2009–2015)",
     id: "ethesis_en_ma_med",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1302,7 +1302,7 @@ settings.corpora.ethesis_en_ma_med = {
 
 settings.corpora.ethesis_en_ma_el = {
     title: "Veterinary Medicine",
-    description: "Faculty of Veterinary Medicine (2003-2016)",
+    description: "Faculty of Veterinary Medicine (2003–2016)",
     id: "ethesis_en_ma_el",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1314,7 +1314,7 @@ settings.corpora.ethesis_en_ma_el = {
 
 settings.corpora.ethesis_en_ma_hum = {
     title: "Arts",
-    description: "Faculty of Arts (1997-2016)",
+    description: "Faculty of Arts (1997–2016)",
     id: "ethesis_en_ma_hum",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1326,7 +1326,7 @@ settings.corpora.ethesis_en_ma_hum = {
 
 settings.corpora.ethesis_en_ma_beh = {
     title: "Behavioural Sciences",
-    description: "Faculty of Behavioural Sciences (2000-2016)",
+    description: "Faculty of Behavioural Sciences (2000–2016)",
     id: "ethesis_en_ma_beh",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1337,7 +1337,7 @@ settings.corpora.ethesis_en_ma_beh = {
 
 settings.corpora.ethesis_en_ma_bio = {
     title: "Biological and Environmental Sciences",
-    description: "Faculty of Biological and Environmental Sciences (2006-2015)",
+    description: "Faculty of Biological and Environmental Sciences (2006–2015)",
     id: "ethesis_en_ma_bio",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1348,7 +1348,7 @@ settings.corpora.ethesis_en_ma_bio = {
 
 settings.corpora.ethesis_en_ma_far = {
     title: "Pharmacy",
-    description: "Faculty of Pharmacy (2003, 2010-2016)",
+    description: "Faculty of Pharmacy (2003, 2010–2016)",
     id: "ethesis_en_ma_far",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1359,7 +1359,7 @@ settings.corpora.ethesis_en_ma_far = {
 
 settings.corpora.ethesis_en_ma_mm = {
     title: "Agriculture and Forestry",
-    description: "Agriculture and Forestry (2002-2016)",
+    description: "Agriculture and Forestry (2002–2016)",
     id: "ethesis_en_ma_mm",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1370,7 +1370,7 @@ settings.corpora.ethesis_en_ma_mm = {
 
 settings.corpora.ethesis_en_ma_sci = {
     title: "Science",
-    description: "Faculty of Science (1999-2016)",
+    description: "Faculty of Science (1999–2016)",
     id: "ethesis_en_ma_sci",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1381,7 +1381,7 @@ settings.corpora.ethesis_en_ma_sci = {
 
 settings.corpora.ethesis_en_ma_teo = {
     title: "Theology",
-    description: "Faculty of Theology (2006-2016)",
+    description: "Faculty of Theology (2006–2016)",
     id: "ethesis_en_ma_teo",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1392,7 +1392,7 @@ settings.corpora.ethesis_en_ma_teo = {
 
 settings.corpora.ethesis_en_ma_valt = {
     title: "Social Sciences",
-    description: "Faculty of Social Sciences (1999-2016)",
+    description: "Faculty of Social Sciences (1999–2016)",
     id: "ethesis_en_ma_valt",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1403,7 +1403,7 @@ settings.corpora.ethesis_en_ma_valt = {
 
 settings.corpora.ethesis_en_ma_ai = {
     title: "Aleksanteri Institute",
-    description: "Aleksanteri Institute (2009-2015)",
+    description: "Aleksanteri Institute (2009–2015)",
     id: "ethesis_en_ma_ai",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1414,7 +1414,7 @@ settings.corpora.ethesis_en_ma_ai = {
 
 settings.corpora.ethesis_en_maabs = {
     title: "Master's thesis abstracts",
-    description: "Master's thesis abstracts (1999-2016)",
+    description: "Master's thesis abstracts (1999–2016)",
     id: "ethesis_en_maabs",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1425,7 +1425,7 @@ settings.corpora.ethesis_en_maabs = {
 
 settings.corpora.ethesis_en_dissabs = {
     title: "Doctoral dissertation abstracts",
-    description: "Doctoral disseration abstracts (2006-2016)",
+    description: "Doctoral disseration abstracts (2006–2016)",
     id: "ethesis_en_dissabs",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1436,7 +1436,7 @@ settings.corpora.ethesis_en_dissabs = {
 
 settings.corpora.ethesis_en_phd_beh = {
     title: "Behavioural Sciences",
-    description: "Faculty of Behavioural Sciences (1999-2016)",
+    description: "Faculty of Behavioural Sciences (1999–2016)",
     id: "ethesis_en_phd_beh",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1447,7 +1447,7 @@ settings.corpora.ethesis_en_phd_beh = {
 
 settings.corpora.ethesis_en_phd_bio = {
     title: "Biological and Environmental Sciences",
-    description: "Faculty of Biological and Environmental Sciences (1997-2016)",
+    description: "Faculty of Biological and Environmental Sciences (1997–2016)",
     id: "ethesis_en_phd_bio",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1458,7 +1458,7 @@ settings.corpora.ethesis_en_phd_bio = {
 
 settings.corpora.ethesis_en_phd_el = {
     title: "Veterinary Medicine",
-    description: "Faculty of Veterinary Medicine (1999-2016)",
+    description: "Faculty of Veterinary Medicine (1999–2016)",
     id: "ethesis_en_phd_el",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1469,7 +1469,7 @@ settings.corpora.ethesis_en_phd_el = {
 
 settings.corpora.ethesis_en_phd_far = {
     title: "Pharmacy",
-    description: "Faculty of Pharmacy (1999-2016)",
+    description: "Faculty of Pharmacy (1999–2016)",
     id: "ethesis_en_phd_far",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1480,7 +1480,7 @@ settings.corpora.ethesis_en_phd_far = {
 
 settings.corpora.ethesis_en_phd_mm = {
     title: "Agriculture and Forestry",
-    description: "Agriculture and Forestry (1999-2016)",
+    description: "Agriculture and Forestry (1999–2016)",
     id: "ethesis_en_phd_mm",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1491,7 +1491,7 @@ settings.corpora.ethesis_en_phd_mm = {
 
 settings.corpora.ethesis_en_phd_hum = {
     title: "Arts",
-    description: "Faculty of Arts (1989, 1998-2016)",
+    description: "Faculty of Arts (1989, 1998–2016)",
     id: "ethesis_en_phd_hum",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1502,7 +1502,7 @@ settings.corpora.ethesis_en_phd_hum = {
 
 settings.corpora.ethesis_en_phd_math = {
     title: "Science",
-    description: "Faculty of Science (1992, 1995-2016)",
+    description: "Faculty of Science (1992, 1995–2016)",
     id: "ethesis_en_phd_math",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1513,7 +1513,7 @@ settings.corpora.ethesis_en_phd_math = {
 
 settings.corpora.ethesis_en_phd_ot = {
     title: "Law",
-    description: "Faculty of Law (2002, 2004-2016)",
+    description: "Faculty of Law (2002, 2004–2016)",
     id: "ethesis_en_phd_ot",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1524,7 +1524,7 @@ settings.corpora.ethesis_en_phd_ot = {
 
 settings.corpora.ethesis_en_phd_teo = {
     title: "Theology",
-    description: "Faculty of Theology (2002-2016)",
+    description: "Faculty of Theology (2002–2016)",
     id: "ethesis_en_phd_teo",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1535,7 +1535,7 @@ settings.corpora.ethesis_en_phd_teo = {
 
 settings.corpora.ethesis_en_phd_med = {
     title: "Medicine",
-    description: "Faculty of Medicine (1998-2016)",
+    description: "Faculty of Medicine (1998–2016)",
     id: "ethesis_en_phd_med",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1546,7 +1546,7 @@ settings.corpora.ethesis_en_phd_med = {
 
 settings.corpora.ethesis_en_phd_valt = {
     title: "Social Sciences",
-    description: "Faculty Social Sciences (1999-2016)",
+    description: "Faculty Social Sciences (1999–2016)",
     id: "ethesis_en_phd_valt",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1618,7 +1618,7 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parrus_2016,
 settings.corpora.parfin_2016_ru = {
     id: "parfin_2016_ru",
     title: "ParFin 2016 (русский)",
-    description: "ParFin 2016: финско-русский корпус художественных текстов. Переводы финской прозы 1910-2008 гг. на русский язык.<br/><br/><a href=\"http://nl.ijs.si/ME/V4/msd/html/msd-ru.html\" target=\"_blank\">Venäjän morfologisen ja sanaluokka-annotaation kuvaus (englanniksi)</a></br><a href=\"http://www.ruscorpora.ru/instruction-syntax.html\" target=\"_blank\">Venäjän syntaktisen annotaation kuvaus (venäjäksi)</a>",
+    description: "ParFin 2016: финско-русский корпус художественных текстов. Переводы финской прозы 1910–2008 гг. на русский язык.<br/><br/><a href=\"http://nl.ijs.si/ME/V4/msd/html/msd-ru.html\" target=\"_blank\">Venäjän morfologisen ja sanaluokka-annotaation kuvaus (englanniksi)</a></br><a href=\"http://www.ruscorpora.ru/instruction-syntax.html\" target=\"_blank\">Venäjän syntaktisen annotaation kuvaus (venäjäksi)</a>",
     urn: "urn:nbn:fi:lb-2016121603",
     metadata_urn: "urn:nbn:fi:lb-2016121612",
     licence: settings.licenceinfo.ParFinRus_2016_en,

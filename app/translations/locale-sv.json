@@ -385,11 +385,15 @@
     "namegroup_other": "Andra",
 
     "privacy": "Dataskyddsbeskrivning",
+    "terms_of_use": "Servicevillkor",
+    "terms_of_use_urn": "urn:nbn:fi:lb-20150304100",
 
     "corpus_subcorpus_of": "Delkorpus av",
     "corpus_pid": "Persistent identifierare (metadata)",
     "corpus_urn": "Länk till korpusen i Korp",
     "corpus_licence": "Lisens",
+    "corpus_licence_text": "Lisens (text)",
+    "corpus_licence_audiovideo": "Lisens (ljud och video)",
     "corpus_metadata": "Metadata",
     "corpus_homepage": "Hemsida",
     "corpus_infopage": "Informationssida",
@@ -420,6 +424,9 @@
     "relogin_preamble": "Du försöker använda korpusar som kräver inloggning till Korp, men din inloggning verkar ha gått ut.",
     "relogin_login": "Logga in till Korp",
     "relogin_login_postamble": "för att kunna göra den sökning som du försökte",
+
+    "corpuslabel_descr_beta": "<strong>Observera</strong> att korpusen betatestas, så den kan ändras utan förvarning.",
+    "corpuslabel_descr_test": "<strong>Observera</strong> att korpusen ännu testas, så den kan ändras betydligt utan förvarning.",
 
     "wordlist": "Ordlista",
     "selected_words": "Valda ord",
