@@ -716,7 +716,7 @@ settings.corpora.ceal_s_fi = {
 };
 
 settings.corpora.ceal_s_en = {
-    title: "CEAL (scrambled)",
+    title: "CEAL (sekoitettu)",
     description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus, sekoitetut kappaleet<br/>ceal-par-s: Classics of English and American Literature as translated by Kersti Juva, English–Finnish parallel corpus, scrambled paragraphs<br/><br/>" + ceal_work_list,
     context: context.linkAligned,
     within: settings.linkWithin,
