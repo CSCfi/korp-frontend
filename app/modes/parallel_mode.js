@@ -694,11 +694,12 @@ sattrlist.ceal_common = {
 var ceal_work_list = "Korpus sisältää seuraavat teokset Kersti Juvan käännöksinä sekä alkuperäisinä:<br/>The corpus contains the following works as translated by Kersti Juva and as original:<ul><li>Jane Austen: Ylpeys ja ennakkoluulo (Teos 2013) (Pride and Prejudice)</li><li>Charles Dickens: Kolea talo (Otava 2003) (Bleak House)</li><li>Henry James: Washingtonin aukio (Tammi 2006) (Washington Square)</li>";
 
 settings.corpora.ceal_s_fi = {
-    title: "ceal-par-s",
+    title: "CEAL (sekoitettu)",
     description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus, sekoitetut kappaleet<br/>ceal-par-s: Classics of English and American Literature as translated by Kersti Juva, English–Finnish parallel corpus, scrambled paragraphs<br/><br/>" + ceal_work_list,
     context: context.linkAligned,
     within: settings.linkWithin,
     id: "ceal_s_fi",
+    shortname: "ceal-par-s-korp",
     lang: "fin",
     urn: "urn:nbn:fi:lb-2020012802",
     metadata_urn: "urn:nbn:fi:lb-2020012801",
@@ -715,11 +716,12 @@ settings.corpora.ceal_s_fi = {
 };
 
 settings.corpora.ceal_s_en = {
-    title: "ceal-par-s",
+    title: "CEAL (scrambled)",
     description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus, sekoitetut kappaleet<br/>ceal-par-s: Classics of English and American Literature as translated by Kersti Juva, English–Finnish parallel corpus, scrambled paragraphs<br/><br/>" + ceal_work_list,
     context: context.linkAligned,
     within: settings.linkWithin,
     id: "ceal_s_en",
+    shortname: "ceal-par-s-korp",
     lang: "eng",
     urn: "urn:nbn:fi:lb-2020012802",
     metadata_urn: "urn:nbn:fi:lb-2020012801",
