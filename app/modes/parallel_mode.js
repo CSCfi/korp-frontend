@@ -648,6 +648,99 @@ var wordlink = {
 }
 
 
+/* CEAL */
+
+settings.corporafolders.ceal = {
+    title: "CEAL",
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus<br/>Classics of English and American Literature as translated by Kersti Juva, English–Finnish parallel corpus",
+	// <br/><br/><strong>Huomaa</strong>, että korpukset CEAL-o ja CEAL-s sisältävät samat tekstit, mutta CEAL-s:ssä kappaleet on sekoitettu kunkin teoksen sisällä, kun taas CEAL-o:ssa kappaleet ovat alkuperäisessä järjestyksessä. Hakuja varten kannattaa valita vain toinen korpus. CEAL-o vaatii aina henkilökohtaisen käyttöluvan."
+    info: {
+	metadata_urn: "urn:nbn:fi:lb-2020012801",
+	iprholder: {
+	    name: "Kersti Juva",
+	},
+	labels: ["beta"],
+    },
+    contents: ["ceal_s_fi"]
+};
+
+sattrlist.ceal_common = {
+    text_year: sattrs.year,
+    text_author: {
+	label: "author",
+	displayType: "select",
+	localize: false,
+	opts: settings.liteOptions,
+	dataset: [
+	    "Jane Austen",
+	    "Charles Dickens",
+	    "Henry James",
+	],
+    },
+    text_title: {
+	label: "work_title",
+    },
+    text_translator: {
+	label: "text_translator",
+	// All the works in CEAL have been translated by Kersti Juva,
+	// so having the translator as a search criterion would make
+	// little sense. How about statistics and comparison?
+	hideExtended: true,
+	// hideStatistics: true,
+	// hideCompare: true,
+    },
+};
+
+var ceal_work_list = "Korpus sisältää seuraavat teokset Kersti Juvan käännöksinä sekä alkuperäisinä:<br/>The corpus contains the following works as translated by Kersti Juva and as original:<ul><li>Jane Austen: Ylpeys ja ennakkoluulo (Teos 2013) (Pride and Prejudice)</li><li>Charles Dickens: Kolea talo (Otava 2003) (Bleak House)</li><li>Henry James: Washingtonin aukio (Tammi 2006) (Washington Square)</li>";
+
+settings.corpora.ceal_s_fi = {
+    title: "CEAL (sekoitettu)",
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus, sekoitetut kappaleet<br/>ceal-par-s: Classics of English and American Literature as translated by Kersti Juva, English–Finnish parallel corpus, scrambled paragraphs<br/><br/>" + ceal_work_list,
+    context: context.linkAligned,
+    within: settings.linkWithin,
+    id: "ceal_s_fi",
+    shortname: "ceal-par-s-korp",
+    lang: "fin",
+    urn: "urn:nbn:fi:lb-2020012802",
+    metadata_urn: "urn:nbn:fi:lb-2020012801",
+    licence: {
+	name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
+	urn: "urn:nbn:fi:lb-2020012804",
+    },
+    cite_id: "ceal-par-s-korp",
+    limited_access: true,
+    licence_type: "ACA",
+    attributes: attrlist.ud2_fi,
+    struct_attributes: sattrlist.ceal_common,
+    linked_to: ["ceal_s_en"]
+};
+
+settings.corpora.ceal_s_en = {
+    title: "CEAL (sekoitettu)",
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus, sekoitetut kappaleet<br/>ceal-par-s: Classics of English and American Literature as translated by Kersti Juva, English–Finnish parallel corpus, scrambled paragraphs<br/><br/>" + ceal_work_list,
+    context: context.linkAligned,
+    within: settings.linkWithin,
+    id: "ceal_s_en",
+    shortname: "ceal-par-s-korp",
+    lang: "eng",
+    urn: "urn:nbn:fi:lb-2020012802",
+    metadata_urn: "urn:nbn:fi:lb-2020012801",
+    licence: {
+	name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
+	urn: "urn:nbn:fi:lb-2020012803",
+    },
+    cite_id: "ceal-par-s-korp",
+    limited_access: true,
+    licence_type: "ACA",
+    attributes: attrlist.ud2_en,
+    struct_attributes: sattrlist.ceal_common,
+    linked_to: ["ceal_s_fi"],
+    hide: true
+};
+
+delete ceal_work_list;
+
+
 /* SEMFINLEX */
 
 settings.corpora.semfinlex_asd_par_2018_fi = {
