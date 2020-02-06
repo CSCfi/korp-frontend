@@ -659,6 +659,7 @@ settings.corporafolders.ceal = {
 	iprholder: {
 	    name: "Kersti Juva",
 	},
+	labels: ["beta"],
     },
     contents: ["ceal_s_fi"]
 };
@@ -707,7 +708,7 @@ settings.corpora.ceal_s_fi = {
     },
     cite_id: "ceal-par-s-korp",
     limited_access: true,
-    licence_type: "RES", // -> ACA
+    licence_type: "ACA",
     attributes: attrlist.ud2_fi,
     struct_attributes: sattrlist.ceal_common,
     linked_to: ["ceal_s_en"]
@@ -728,7 +729,7 @@ settings.corpora.ceal_s_en = {
     },
     cite_id: "ceal-par-s-korp",
     limited_access: true,
-    licence_type: "RES", // -> ACA
+    licence_type: "ACA",
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ceal_common,
     linked_to: ["ceal_s_fi"],
