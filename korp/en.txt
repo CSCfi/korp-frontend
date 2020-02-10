@@ -1,3 +1,21 @@
+<!-- New corpus (beta): Classics of English and American Literature as translated by Kersti Juva, English–Finnish parallel corpus 2020-02-10 -->
+
+The <a href="http://urn.fi/urn:nbn:fi:lb-2020012801"
+target="_blank">Classics of English and American Literature as
+translated by Kersti Juva, English-Finnish parallel corpus,
+Scrambled Paragraphs, Korp</a> is now available in Korp as a beta
+test version.
+
+The corpus is offered for academic users logged in to Korp.
+The paragraphs of each text have been scrambled.
+
+The corpus contains the following texts as translated by Kersti Juva
+and as original:
+
+* Jane Austen: Ylpeys ja ennakkoluulo (Teos 2013) (Pride and Prejudice)
+* Charles Dickens: Kolea talo (Otava 2003) (Bleak House)
+* Henry James: Washingtonin aukio (Tammi 2006) (Washington Square)
+
 
 <!-- Semfinlex dependency parses still deviant 2020-01-24b -->
 

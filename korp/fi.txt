@@ -1,3 +1,19 @@
+<!-- Uusi aineisto (beta): Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus 2020-02-10 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2020012801"
+target="_blank">Englantilaisen ja amerikkalaisen kirjallisuuden
+klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus,
+sekoitetut kappaleet, Korp</a> on nyt käytettävissä beetatestiversiona Korpissa.
+
+Korpus on tarjolla Korpiin kirjautuneille tutkijoille.
+Kappaleet on sekoitettu kunkin tekstin sisällä.
+
+Korpus sisältää seuraavat teokset Kersti Juvan käännöksinä sekä alkuperäisinä:
+
+* Jane Austen: Ylpeys ja ennakkoluulo (Teos 2013) (Pride and Prejudice)
+* Charles Dickens: Kolea talo (Otava 2003) (Bleak House)
+* Henry James: Washingtonin aukio (Tammi 2006) (Washington Square)
+
 
 <!-- Semfinlexin dependenssijäsennykset yhä poikkeavat 2020-01-24b -->
 
