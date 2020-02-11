@@ -2100,6 +2100,7 @@
     "lex" : "lexeme",
     "text_keywords" : "keywords",
     "text_faculty" : "faculty",
+    "text_facultydirectory" : "faculty (corpus directory)",
     "text_subject" : "subject",
     "text_dissertationtype" : "thesis type",
     "text_lang" : "language",

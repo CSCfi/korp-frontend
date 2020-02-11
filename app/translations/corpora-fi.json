@@ -1976,6 +1976,7 @@
     "lex": "lekseemi",
     "text_keywords": "avainsanat",
     "text_faculty": "tiedekunta",
+    "text_facultydirectory" : "tiedekunta (korpushakemisto)",
     "text_subject": "oppiaine",
     "text_dissertationtype": "tutkielman tyyppi",
     "text_lang": "kieli",
