@@ -142,7 +142,7 @@ settings.corporafolders.english.ethesis.phdtheses = {
 
 settings.corporafolders.english.ethesis.matheses = {
     title: "Master's theses (test version)",
-    contents: ["ethesis_en_ma_mm", "ethesis_en_ma_ai_test", "ethesis_en_ma_hum", "ethesis_en_ma_bio", "ethesis_en_ma_beh",
+    contents: ["ethesis_en_ma_mm_test", "ethesis_en_ma_ai_test", "ethesis_en_ma_hum_test", "ethesis_en_ma_bio", "ethesis_en_ma_beh",
                 "ethesis_en_ma_far", "ethesis_en_ma_ot", "ethesis_en_ma_med", "ethesis_en_ma_sci",
                 "ethesis_en_ma_valt", "ethesis_en_ma_teo", "ethesis_en_ma_el"]
 };
@@ -1312,10 +1312,10 @@ settings.corpora.ethesis_en_ma_el = {
 };
 
 
-settings.corpora.ethesis_en_ma_hum = {
-    title: "Arts",
+settings.corpora.ethesis_en_ma_hum_test = {
+    title: "Arts (test version)",
     description: "Faculty of Arts (1997–2016)",
-    id: "ethesis_en_ma_hum",
+    id: "ethesis_en_ma_hum_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: {
@@ -1357,10 +1357,10 @@ settings.corpora.ethesis_en_ma_far = {
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_ma_mm = {
-    title: "Agriculture and Forestry",
+settings.corpora.ethesis_en_ma_mm_test = {
+    title: "Agriculture and Forestry (test version)",
     description: "Agriculture and Forestry (2002–2016)",
-    id: "ethesis_en_ma_mm",
+    id: "ethesis_en_ma_mm_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: {
