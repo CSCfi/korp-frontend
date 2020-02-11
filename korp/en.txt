@@ -1,4 +1,4 @@
-<!-- New corpus (beta): Classics of English and American Literature as translated by Kersti Juva, English–Finnish parallel corpus 2020-02-10 -->
+<!-- New corpus (beta): Classics of English and American Literature as translated by Kersti Juva, English–Finnish parallel corpus 2020-02-11 -->
 
 The <a href="http://urn.fi/urn:nbn:fi:lb-2020012801"
 target="_blank">Classics of English and American Literature as

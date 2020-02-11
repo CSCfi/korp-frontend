@@ -1,4 +1,4 @@
-<!-- Uusi aineisto (beta): Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus 2020-02-10 -->
+<!-- Uusi aineisto (beta): Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus 2020-02-11 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2020012801"
 target="_blank">Englantilaisen ja amerikkalaisen kirjallisuuden
