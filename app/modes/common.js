@@ -2279,8 +2279,11 @@ sattrlist.ethesis = {
     text_title: {
         label: "text_title"
     },
-    text_date: {
-        label: "text_date"
+    text_date_orig: {
+        label: "original_date"
+    },
+    text_year: {
+	label: "text_year"
     },
     text_keywords: {
         label: "text_keywords"
