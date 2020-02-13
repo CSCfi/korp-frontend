@@ -127,6 +127,10 @@ settings.corporafolders.russian = {
 settings.corporafolders.english.ethesis = {
     title: "E-thesis (test version)",
     description: "Corpus of University of Helsinki theses and dissertations<br/><a href='https://ethesis.helsinki.fi/'>https://ethesis.helsinki.fi/</a> (test version)",
+    urn: "urn:nbn:fi:lb-2016102101",
+    metadata_urn: "urn:nbn:fi:lb-2016102401",
+    licence: settings.licenceinfo.CC_BY,
+    homepage_url: "https://ethesis.helsinki.fi/",
     contents: ["ethesis_en_dissabs", "ethesis_en_maabs"],
     info: {
 	cite_id: "e-thesis-en",
