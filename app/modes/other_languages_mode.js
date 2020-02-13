@@ -1313,8 +1313,8 @@ settings.corpora.ethesis_en_ma_el = {
 
 
 settings.corpora.ethesis_en_ma_hum_test = {
-    title: "Arts (test version)",
-    description: "Faculty of Arts (1997–2016)",
+    title: "E-thesis: Master’s theses: Arts (test version)",
+    description: "E-thesis: Master’s theses: Faculty of Arts (1997–2016)",
     id: "ethesis_en_ma_hum_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1357,8 +1357,8 @@ settings.corpora.ethesis_en_ma_far = {
 };
 
 settings.corpora.ethesis_en_ma_mm_test = {
-    title: "Agriculture and Forestry (test version)",
-    description: "Agriculture and Forestry (2002–2016)",
+    title: "E-thesis: Master’s theses: Agriculture and Forestry, Master's theses (test version)",
+    description: "E-thesis: Master’s theses: Agriculture and Forestry (2002–2016)",
     id: "ethesis_en_ma_mm_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1400,8 +1400,8 @@ settings.corpora.ethesis_en_ma_valt = {
 };
 
 settings.corpora.ethesis_en_ma_ai_test = {
-    title: "Aleksanteri Institute (test version)",
-    description: "Aleksanteri Institute (2009–2015)",
+    title: "E-thesis: Master’s theses: Aleksanteri Institute (test version)",
+    description: "E-thesis: Master’s theses: Aleksanteri Institute (2009–2015)",
     id: "ethesis_en_ma_ai_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,

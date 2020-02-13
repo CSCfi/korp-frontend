@@ -2291,9 +2291,6 @@ sattrlist.ethesis = {
     text_faculty: {
         label: "text_faculty"
     },
-    text_faculty_directory: {
-	label: "text_facultydirectory"
-    },
     text_subject: {
         label: "text_subject"
     },
