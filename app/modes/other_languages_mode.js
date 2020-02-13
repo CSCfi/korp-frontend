@@ -1284,8 +1284,7 @@ settings.corpora.ethesis_en_ma_ot_test = {
     id: "ethesis_en_ma_ot_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
-    attributes: {
-    },
+    attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
@@ -1295,8 +1294,7 @@ settings.corpora.ethesis_en_ma_med_test = {
     id: "ethesis_en_ma_med_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
-    attributes: {
-    },
+    attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
@@ -1306,8 +1304,7 @@ settings.corpora.ethesis_en_ma_el_test = {
     id: "ethesis_en_ma_el_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
-    attributes: {
-    },
+    attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
@@ -1329,8 +1326,7 @@ settings.corpora.ethesis_en_ma_beh_test = {
     id: "ethesis_en_ma_beh_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
-    attributes: {
-    },
+    attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
@@ -1340,8 +1336,7 @@ settings.corpora.ethesis_en_ma_bio_test = {
     id: "ethesis_en_ma_bio_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
-    attributes: {
-    },
+    attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
@@ -1351,8 +1346,7 @@ settings.corpora.ethesis_en_ma_far_test = {
     id: "ethesis_en_ma_far_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
-    attributes: {
-    },
+    attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
@@ -1372,8 +1366,7 @@ settings.corpora.ethesis_en_ma_sci_test = {
     id: "ethesis_en_ma_sci_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
-    attributes: {
-    },
+    attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
@@ -1383,8 +1376,7 @@ settings.corpora.ethesis_en_ma_teo_test = {
     id: "ethesis_en_ma_teo_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
-    attributes: {
-    },
+    attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
@@ -1394,8 +1386,7 @@ settings.corpora.ethesis_en_ma_valt_test = {
     id: "ethesis_en_ma_valt_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
-    attributes: {
-    },
+    attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
