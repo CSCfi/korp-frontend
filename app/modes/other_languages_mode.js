@@ -276,6 +276,36 @@ settings.corporafolders.wanca_2016 = {
 	       "wanca_2016_yrk" ]
 };
 
+settings.corporafolders.spoken_komi_corpora = {
+    title: "Spoken Komi corpora",
+    description: "Texts in spoken Komi",
+};
+
+settings.corporafolders.spoken_komi_corpora.ikdp = {
+    title: "IKDP",
+    description: "IKDP",
+    contents: ["komi_ikdp_test"],
+}
+
+settings.corpora.komi_ikdp_test = {
+    id: "komi_ikdp_test",
+    title: "IKDP Spoken Komi Corpus",
+    description: "This is a corpus of spoken Zyrian Komi, built within Kone Foundation funded research project IKDP. This version of the corpus contains primarily contemporary recordings done within the project, accompanied with morphological analysis from Giellatekno tools.<br/><br/>Puhutun komisyrjäänin korpus, joka on luotu Koneen säätiön rahoittamassa IKDP-tutkimusprojektissa. Tämä versio sisältää pääasiassa projektin aikana nauhoitettuja materiaaleja, ja Giellateknon työkaluin tuotetun morfologisen analyysin.",
+    metadata_urn: "urn:nbn:fi:lb-2019121603",
+    urn: "urn:nbn:fi:lb-2019121605",
+    licence: {
+	name: "komi-ikdp-korp licence",
+	urn: "urn:nbn:fi:lb-2019121601"
+    },
+    limited_access: true,
+    licence_type: "RES", // -> ACA
+    lang: "kpv",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: "",
+    struct_attributes: ""
+};
+
 settings.corporafolders.english.scotscorr = {
     title: "ScotsCorr",
     // Description copied from META-SHARE
