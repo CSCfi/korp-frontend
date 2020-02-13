@@ -1357,7 +1357,7 @@ settings.corpora.ethesis_en_ma_far = {
 };
 
 settings.corpora.ethesis_en_ma_mm_test = {
-    title: "E-thesis: Master’s theses: Agriculture and Forestry, Master's theses (test version)",
+    title: "E-thesis: Master’s theses: Agriculture and Forestry (test version)",
     description: "E-thesis: Master’s theses: Agriculture and Forestry (2002–2016)",
     id: "ethesis_en_ma_mm_test",
     within: settings.defaultWithin,
