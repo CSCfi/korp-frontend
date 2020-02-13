@@ -302,8 +302,24 @@ settings.corpora.komi_ikdp_test = {
     lang: "kpv",
     within: settings.spWithin,
     context: settings.spContext,
-    attributes: "",
-    struct_attributes: ""
+    attributes: {
+	ref: attrs.ref,
+	lemma: attrs.baseform,
+	/*pos: attrs.pos_kpv?*/
+	msd: attrs.msd,
+    },
+    struct_attributes: {
+	/*text_id_session: { label: "session ID" },
+	text_region: { label: "region" },*/
+	sentence_birth_decade: { label: "birth decade" },
+	sentence_end: { label: "end time (ms)" },
+	sentence_gender: { label: "gender" },
+	sentence_id_session: { label: "session ID" }, // -> text_id_session
+	sentence_id_utterance: { label: "utterance ID" },
+	sentence_participant: { label: "participant" },
+	sentence_region: { label: "region" }, // -> text_region
+	sentence_start: { label: "start time (ms)" },
+    }
 };
 
 settings.corporafolders.english.scotscorr = {
