@@ -136,7 +136,7 @@ settings.corporafolders.english.ethesis = {
 settings.corporafolders.english.ethesis.phdtheses = {
     title: "Doctoral dissertations (test version)",
     contents: ["ethesis_en_phd_mm_test", "ethesis_en_phd_hum_test", "ethesis_en_phd_bio_test", "ethesis_en_phd_beh_test",
-                "ethesis_en_phd_ot_test", /*"ethesis_en_phd_med_test",*/ "ethesis_en_phd_far_test", "ethesis_en_phd_sci_test",
+                "ethesis_en_phd_ot_test", "ethesis_en_phd_med_test", "ethesis_en_phd_far_test", "ethesis_en_phd_sci_test",
                 "ethesis_en_phd_valt_test", "ethesis_en_phd_teo_test", "ethesis_en_phd_el_test"]
 };
 
@@ -1512,7 +1512,7 @@ settings.corpora.ethesis_en_phd_teo_test = {
     struct_attributes: sattrlist.ethesis
 };
 
-/*settings.corpora.ethesis_en_phd_med_test = {
+settings.corpora.ethesis_en_phd_med_test = {
     title: "E-thesis: Doctoral dissertations: Medicine (test version)",
     description: "E-thesis: Doctoral dissertations: Faculty of Medicine (1998–2016) (test version)",
     id: "ethesis_en_phd_med_test",
@@ -1520,7 +1520,7 @@ settings.corpora.ethesis_en_phd_teo_test = {
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
-};*/
+};
 
 settings.corpora.ethesis_en_phd_valt_test = {
     title: "E-thesis: Doctoral dissertations: Social Sciences (test version)",
