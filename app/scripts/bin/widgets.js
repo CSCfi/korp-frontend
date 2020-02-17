@@ -5,7 +5,7 @@
     _init: function() {},
     updateContent: function(sentenceData, wordData, corpus, tokens) {
       var corpusObj, formattedCorpusInfo, posData, ref, ref1, sentence, token_data, word;
-      this.element.html('<div id="selected_sentence" /><div id="selected_word" /><div id="selected_links" />');
+      this.element.html("<div id=\"selected_sentence\" />\n<div id=\"selected_word\" />\n<div id=\"deptree_link\" />\n<div id=\"selected_links\" />");
       corpusObj = settings.corpora[corpus];
       formattedCorpusInfo = (typeof settings !== "undefined" && settings !== null ? settings.corpusExtraInfo : void 0) ? util.formatCorpusExtraInfo(corpusObj, {
         info_items: (ref = settings.corpusExtraInfo) != null ? ref.sidebar : void 0,
@@ -63,7 +63,7 @@
           height: 300,
           width: outerW
         }).parent().find(".ui-dialog-title").localeKey("dep_tree");
-      }).appendTo(this.element);
+      }).appendTo("#deptree_link");
     },
     renderCorpusContent: function(type, wordData, sentenceData, corpus_attrs, tokens, synthetic_attr_names, token_data) {
       var base, item, items, j, k, key, len, len1, pairs, ref, ref1, synthetic, val, value;
