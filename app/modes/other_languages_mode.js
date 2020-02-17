@@ -130,6 +130,10 @@ settings.corporafolders.english.ethesis = {
     contents: ["ethesis_en_dissabs", "ethesis_en_maabs"],
     info: {
 	cite_id: "e-thesis-en",
+	urn: "urn:nbn:fi:lb-2016102101",
+	metadata_urn: "urn:nbn:fi:lb-2016102401",
+	licence: settings.licenceinfo.CC_BY,
+	homepage_url: "https://ethesis.helsinki.fi/",
     }
 };
 
