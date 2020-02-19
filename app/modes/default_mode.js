@@ -11097,8 +11097,7 @@ settings.corpora.opensub_fi_17 = {
     attributes: attrlist.parsed_tdt_ud1,
     struct_attributes: {
 	text_country: {
-	    label: "text_country",
-	    translationKey: "opensub_",
+	    label: "opensub_text_country",
 	    type: "set",
 	    opts: settings.setOptions,
 	    displayType: "select",
@@ -11220,8 +11219,7 @@ settings.corpora.opensub_fi_17 = {
 	      ],
 	},
 	text_lang_orig: {
-	    label: "text_lang_orig",
-	    translationKey: "opensub_",
+	    label: "opensub_text_lang_orig",
 	    type: "set",
 	    opts: settings.setOptions,
 	    displayType: "select",
@@ -11395,8 +11393,7 @@ settings.corpora.opensub_fi_17 = {
 	    ],
 	},
 	text_genre: {
-	    label: "text_genre",
-	    translationKey: "opensub_",
+	    label: "opensub_text_genre",
 	    type: "set",
 	    opts: settings.setOptions,
 	    displayType: "select",
