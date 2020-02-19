@@ -11087,6 +11087,7 @@ settings.corpora.sks_kivi_fi = {
 settings.corpora.opensub_fi_17 = {
     title: "OpenSubtitles 2017",
     description: "Opensubtitles.org-sivuston jakamat elokuvien ja tv-ohjelmien suomenkieliset tekstitykset",
+    licence: settings.licenceinfo.CC_BY_40,
     id: "opensub_fi_17",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2018060403",
@@ -11096,7 +11097,8 @@ settings.corpora.opensub_fi_17 = {
     attributes: attrlist.parsed_tdt_ud1,
     struct_attributes: {
 	text_country: {
-	    label: "alkuperämaa",
+	    label: "text_country",
+	    translationKey: "opensub_",
 	    type: "set",
 	    opts: settings.setOptions,
 	    displayType: "select",
@@ -11218,7 +11220,8 @@ settings.corpora.opensub_fi_17 = {
 	      ],
 	},
 	text_lang_orig: {
-	    label: "alkuperäiskieli",
+	    label: "text_lang_orig",
+	    translationKey: "opensub_",
 	    type: "set",
 	    opts: settings.setOptions,
 	    displayType: "select",
@@ -11392,7 +11395,8 @@ settings.corpora.opensub_fi_17 = {
 	    ],
 	},
 	text_genre: {
-	    label: "lajityyppi",
+	    label: "text_genre",
+	    translationKey: "opensub_",
 	    type: "set",
 	    opts: settings.setOptions,
 	    displayType: "select",

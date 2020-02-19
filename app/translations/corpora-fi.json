@@ -2164,5 +2164,9 @@
     "hc_audience" : "kohdeyleisö",
     "hc_partrel" : "osallisen suhde kirjoittajaan",
     "hc_interaction" : "interaktiivisuus",
-    "hc_setting" : "muodollisuus"
+    "hc_setting" : "muodollisuus",
+
+    "opensub_text_country" : "alkuperämaa",
+    "opensub_text_lang_orig" : "alkuperäiskieli",
+    "opensub_text_genre" : "lajityyppi"
 }
