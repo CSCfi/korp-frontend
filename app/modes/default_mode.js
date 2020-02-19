@@ -11429,7 +11429,7 @@ settings.corpora.opensub_fi_17 = {
 		"_"
 	      ],
 	},
-	text_year: { label: "vuosi" },
+	text_year: { label: "year" },
     }
 };
 
