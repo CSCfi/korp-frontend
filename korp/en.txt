@@ -1,3 +1,38 @@
+
+<!-- Suomi24 2001–2017: Corrected writer nickname information 2020-02-20 -->
+
+The Suomi24 2001–2017 corpus has been updated to <a
+href="http://urn.fi/urn:nbn:fi:lb-2020021803" target="_blank"
+title="META-SHARE article">Korp version 1.1</a>, in which writer
+nickname information has been corrected. The following modifications
+have been made to the corpus:
+
+* All messages have the writer nickname information also in the years
+  2009–2012 and 2014, in which a large number of messages were
+  previously completely missing a writer nickname.
+* Writer nicknames now contain the characters *'*, *"* and *&*
+  literally instead of *&amp;apos;*, *&amp;quot;* and *&amp;amp;*.
+  (Search results may have shown these characters correctly, but they
+  could not be searched for.)
+* In the name of the corpus, *2017H2* has been replaced with the year
+  range *2001–2017*, which indicates the extent of the corpus more
+  clearly. The full name of the corrected version of the corpus is
+  *The Suomi24 Sentences Corpus 2001–2017, Korp version 1.1*, and it
+  has a new persistent identifier: <a
+  href="http://urn.fi/urn:nbn:fi:lb-2020021803" target="_blank"
+  title="META-SHARE article">urn:nbn:fi:lb-2020021803</a>.
+
+The deficient writer nickname information of the previous corpus
+version is available in the Korp advanced search and Korp API as the
+attribute `text_author_v1`, but it is not shown in the sidebar and you
+cannot calculate statistics based on it. If you need to reproduce
+searches or results based on the writer nickname of the previous
+corpus version, please ask by email: `fin-clarin (at) helsinki.fi`.
+
+We apologize for the deficiencies and thank the user who reported
+them.
+
+
 <!-- New corpus (beta): Classics of English and American Literature as translated by Kersti Juva, English–Finnish parallel corpus 2020-02-11 -->
 
 The <a href="http://urn.fi/urn:nbn:fi:lb-2020012801"

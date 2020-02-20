@@ -1,3 +1,37 @@
+
+<!-- Suomi24 2001–2017: Korjattu kirjoittajan nimimerkkitietoja 2020-02-20 -->
+
+Suomi24 2001–2017 -aineistosta on nyt käytössä <a
+href="http://urn.fi/urn:nbn:fi:lb-2020021803" target="_blank"
+title="META-SHARE-artikkeli">Korp-versio 1.1</a>, jossa on korjattu
+kirjoittajan nimimerkkitietoja. Aineistoon on tehty seuraavat
+muutokset:
+
+* Kaikissa viesteissä on kirjoittajan nimimerkki myös vuosina
+  2009–2012 ja 2014, joilta puuttui aiemmin suuri osa kirjoittajien
+  nimimerkeistä.
+* Kirjoittajien nimimerkeissä merkit *'*, *"* ja *&* ovat nyt
+  sellaisinaan eivätkä muodossa *&amp;apos;*, *&amp;quot;* ja
+  *&amp;amp;*. (Hakutuloksissa nämä merkit saattoivat näkyä oikein,
+  mutta niitä ei pystynyt hakemaan.)
+* Aineiston nimessä on korvattu *2017H2* aineiston kattavuutta
+  paremmin kuvaavalla vuosivälillä *2001–2017*. Aineiston korjatun
+  version koko nimi on *Suomi24 virkkeet -korpus 2001–2017,
+  Korp-versio 1.1*, ja sillä on uusi pysyvä tunniste: <a
+  href="http://urn.fi/urn:nbn:fi:lb-2020021803" target="_blank"
+  title="META-SHARE-artikkeli">urn:nbn:fi:lb-2020021803</a>.
+
+Edellisen aineistoversion puutteelliset kirjoittajan nimimerkkitiedot
+ovat käytettävissä Korpin edistyneessä haussa ja Korp-APIssa piirteenä
+`text_author_v1`, mutta se ei näy reunapalkissa eikä sen perusteella
+voi laskea tilastoja. Jos sinulla on tarvetta toistaa hakuja tai
+tuloksia, jotka perustuivat edellisen aineistoversion kirjoittajan
+nimimerkkitietoon, ota yhteyttä sähköpostitse osoitteella `fin-clarin
+(ät) helsinki.fi`.
+
+Pahoittelemme virheitä ja kiitämme niistä ilmoittanutta käyttäjää.
+
+
 <!-- Uusi aineisto (beta): Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus 2020-02-11 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2020012801"
