@@ -236,7 +236,7 @@ settings.corporafolders.sust = {
     contents: ["sust_myv", "sust_kpv", "sust_mdf"]
 };
 
-setttings.corporafolders.pabivus = {
+settings.corporafolders.pabivus = {
     title: "PABIVUS",
     description: "Parallel Bible verses for Uralic languages: koi, kpv, krl, mdf, myv, olo and udm.",
     info: {
