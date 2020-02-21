@@ -4286,6 +4286,65 @@ sattrlist.topling = {
 	}
 };
 
+attrs.pos_pabivus = {
+    label: "pos",
+    displayType: "select",
+    translationKey: "pos_pabivus_",
+    dataset: {
+	"_" : "NOT_DEFINED",
+	"N" : "N",
+	"CLB" : "CLB",
+	"V" : "V",
+	"Pron" : "Pron",
+	"Adv" : "Adv",
+	"PUNCT" : "PUNCT",
+	"CC" : "CC",
+	"A" : "A",
+	"Adp" : "Adp",
+	"Pcle" : "Pcle",
+	"Po" : "Po",
+	"Num" : "Num",
+	"CS" : "CS",
+	"Det" : "Det",
+	"Interj" : "Interj",
+	"Ad" : "Ad",
+	"Hom" : "Hom",
+	"C" : "C",
+	"Hom1" : "Hom1",
+	"Card" : "Card",
+	"Pl" : "Pl",
+	"Adn" : "Adn",
+	"Hom2" : "Hom2",
+	"Sg" : "Sg",
+	"Temp" : "Temp",
+	"Qnt" : "Qnt",
+	"Coll" : "Coll",
+	"Ord" : "Ord",
+	"SP" : "SP",
+	"Descr" : "Descr",
+	"Prc" : "Prc",
+	"IV" : "IV",
+	"Der" : "NOT_DEFINED",
+	"Err/Dial" : "Err_Dial"
+    },
+};
+
+attrlist.pabivus = {
+    ref: attrs.ref,
+    lemma: attrs.baseform,
+    lemmacomp: attrs.baseform_compound,
+    pos: attrs.pos_pabivus,
+    msd: attrs.msd
+};
+
+sattrlist.pabivus = {
+    //text_lang : { label: "" },
+    text_id : { label: "text_id" },
+    text_iso_lang : { label: "iso_code" },
+    chapter_id : { label: "pabivus_chapter" },
+    sentence_id : { label: "pabivus_verse" },
+    sentence_text : { label: "text" }
+};
 
 
 /* --------- */

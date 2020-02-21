@@ -753,71 +753,13 @@ settings.corpora.sust_kpv = {
     struct_attributes: sattrlist.sust_common
 };
 
-attrs.pos_pabivus = {
-    label: "pos",
-    displayType: "select",
-    translationKey: "pos_pabivus_",
-    dataset: {
-	"_" : "NOT_DEFINED",
-	"N" : "N",
-	"CLB" : "CLB",
-	"V" : "V",
-	"Pron" : "Pron",
-	"Adv" : "Adv",
-	"PUNCT" : "PUNCT",
-	"CC" : "CC",
-	"A" : "A",
-	"Adp" : "Adp",
-	"Pcle" : "Pcle",
-	"Po" : "Po",
-	"Num" : "Num",
-	"CS" : "CS",
-	"Det" : "Det",
-	"Interj" : "Interj",
-	"Ad" : "Ad",
-	"Hom" : "Hom",
-	"C" : "C",
-	"Hom1" : "Hom1",
-	"Card" : "Card",
-	"Pl" : "Pl",
-	"Adn" : "Adn",
-	"Hom2" : "Hom2",
-	"Sg" : "Sg",
-	"Temp" : "Temp",
-	"Qnt" : "Qnt",
-	"Coll" : "Coll",
-	"Ord" : "Ord",
-	"SP" : "SP",
-	"Descr" : "Descr",
-	"Prc" : "Prc",
-	"IV" : "IV",
-	"Der" : "NOT_DEFINED",
-	"Err/Dial" : "Err_Dial"
-    },
-};
-
-attrlist.pabivus = {
-    ref: attrs.ref,
-    lemma: attrs.baseform,
-    lemmacomp: attrs.baseform_compound,
-    pos: attrs.pos_pabivus,
-    msd: attrs.msd
-};
-
-sattrlist.pabivus = {
-    //text_lang : { label: "" },
-    text_id : { label: "text_id" },
-    text_iso_lang : { label: "iso_code" },
-    chapter_id : { label: "pabivus_chapter" },
-    sentence_id : { label: "pabivus_verse" },
-    sentence_text : { label: "text" }
-};
-
 settings.corpora.pabivus_udm = {
     id: "pabivus_udm",
     title: "Pabivus: Udmurt",
     description: "Parallel Bible verses for Uralic languages: Udmurt",
     lang: "udm", // year 1997 translation
+    limited_access: true,
+    licence_type: "RES",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
@@ -829,6 +771,8 @@ settings.corpora.pabivus_olo = {
     title: "Pabivus: Livvi",
     description: "Parallel Bible verses for Uralic languages: Livvi",
     lang: "olo", // year 2003 translation
+    limited_access: true,
+    licence_type: "RES",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
@@ -840,6 +784,8 @@ settings.corpora.pabivus_myv = {
     title: "Pabivus: Erzya",
     description: "Parallel Bible verses for Uralic languages: Erzya",
     lang: "myv", // year 2006 translation (some books available from 1996, 1998, 1995, 1910 and 1821)
+    limited_access: true,
+    licence_type: "RES",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
@@ -851,6 +797,8 @@ settings.corpora.pabivus_mdf = {
     title: "Pabivus: Moksha",
     description: "Parallel Bible verses for Uralic languages: Moksha",
     lang: "mdf", // year 2016 translation (some books available from 1995)
+    limited_access: true,
+    licence_type: "RES",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
@@ -862,6 +810,8 @@ settings.corpora.pabivus_krl = {
     title: "Pabivus: Karelian",
     description: "Parallel Bible verses for Uralic languages: Karelian",
     lang: "krl", // year 2011 translation
+    limited_access: true,
+    licence_type: "RES",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
@@ -873,6 +823,8 @@ settings.corpora.pabivus_kpv = {
     title: "Pabivus: Komi-Zyrian",
     description: "Parallel Bible verses for Uralic languages: Komi-Zyrian",
     lang: "kpv", // year 2008 translation (some books avaiable from 1995 and 1997)
+    limited_access: true,
+    licence_type: "RES",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
@@ -884,6 +836,8 @@ settings.corpora.pabivus_koi = {
     title: "Pabivus: Komi-Permyak",
     description: "Parallel Bible verses for Uralic languages: Komi-Permyak",
     lang: "koi", // year 2019 translation (some books available from 1996)
+    limited_access: true,
+    licence_type: "RES",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
