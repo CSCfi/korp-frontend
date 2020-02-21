@@ -236,6 +236,23 @@ settings.corporafolders.sust = {
     contents: ["sust_myv", "sust_kpv", "sust_mdf"]
 };
 
+setttings.corporafolders.pabivus = {
+    title: "PABIVUS",
+    description: "Parallel Bible verses for Uralic languages: koi, kpv, krl, mdf, myv, olo and udm.",
+    info: {
+	metadata_urn: "urn_placeholder",
+	licence: "licence_placeholder",
+	cite_id: "cite_id_placeholder"
+    },
+    contents: ["pabivus_koi_2019",
+	       "pabivus_kpv_2008",
+	       "pabivus_krl_2011",
+	       "pabivus_mdf_2016",
+	       "pabivus_myv_2006",
+	       "pabivus_olo_2003",
+	       "pabivus_udm_1997"]
+};
+
 settings.corporafolders.wanca_2016 = {
     title: "Wanca 2016",
     description: "A collection of web corpora in small Uralic languages",
