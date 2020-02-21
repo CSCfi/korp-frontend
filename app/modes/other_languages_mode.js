@@ -239,11 +239,11 @@ settings.corporafolders.sust = {
 settings.corporafolders.pabivus = {
     title: "PABIVUS",
     description: "Parallel Bible verses for Uralic languages: koi, kpv, krl, mdf, myv, olo and udm.",
-    info: {
+    /*info: {
 	metadata_urn: "urn_placeholder",
 	licence: "licence_placeholder",
 	cite_id: "cite_id_placeholder"
-    },
+    },*/
     contents: ["pabivus_koi_2019",
 	       "pabivus_kpv_2008",
 	       "pabivus_krl_2011",
