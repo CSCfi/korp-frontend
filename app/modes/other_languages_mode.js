@@ -765,6 +765,7 @@ settings.corpora.sust_kpv = {
     struct_attributes: sattrlist.sust_common
 };
 
+/*
 settings.corpora.pabivus_udm_1997 = {
     id: "pabivus_udm_1997",
     title: "Pabivus: Udmurt",
@@ -854,7 +855,7 @@ settings.corpora.pabivus_koi_2019 = {
     context: settings.spContext,
     attributes: attrlist.pabivus,
     struct_attributes: sattrlist.pabivus
-};
+};*/
 
 // TODO: check how attribute spaces should be shown
 attrlist.wanca_common = {
