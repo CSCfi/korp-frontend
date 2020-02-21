@@ -8271,7 +8271,7 @@ settings.fn.extend_corpus_settings(
      "parrus_2016_fi3",
      "parrus_2016_fi4"]);
 
-settings.corpora.pabivus_udm = {
+/*settings.corpora.pabivus_udm = {
     id: "pabivus_udm",
     title: "Pabivus: Udmurt",
     description: "Parallel Bible verses for Uralic languages: Udmurt",
@@ -8373,7 +8373,7 @@ settings.corpora.pabivus_koi = {
     attributes: attrlist.pabivus,
     struct_attributes: sattrlist.pabivus,
     hide : true
-};
+};*/
 
 /*
 settings.parallel_corpora.testpar = {
