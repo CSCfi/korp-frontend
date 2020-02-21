@@ -770,8 +770,8 @@ settings.corpora.sust_kpv = {
     struct_attributes: sattrlist.sust_common
 };
 
-settings.corpora.pabivus_udm = {
-    id: "pabivus_udm",
+settings.corpora.pabivus_udm_1997 = {
+    id: "pabivus_udm_1997",
     title: "Pabivus: Udmurt",
     description: "Parallel Bible verses for Uralic languages: Udmurt",
     lang: "udm", // year 1997 translation
@@ -783,8 +783,8 @@ settings.corpora.pabivus_udm = {
     struct_attributes: sattrlist.pabivus
 };
 
-settings.corpora.pabivus_olo = {
-    id: "pabivus_olo",
+settings.corpora.pabivus_olo_2003 = {
+    id: "pabivus_olo_2003",
     title: "Pabivus: Livvi",
     description: "Parallel Bible verses for Uralic languages: Livvi",
     lang: "olo", // year 2003 translation
@@ -796,8 +796,8 @@ settings.corpora.pabivus_olo = {
     struct_attributes: sattrlist.pabivus
 };
 
-settings.corpora.pabivus_myv = {
-    id: "pabivus_myv",
+settings.corpora.pabivus_myv_2006 = {
+    id: "pabivus_myv_2006",
     title: "Pabivus: Erzya",
     description: "Parallel Bible verses for Uralic languages: Erzya",
     lang: "myv", // year 2006 translation (some books available from 1996, 1998, 1995, 1910 and 1821)
@@ -809,8 +809,8 @@ settings.corpora.pabivus_myv = {
     struct_attributes: sattrlist.pabivus
 };
 
-settings.corpora.pabivus_mdf = {
-    id: "pabivus_mdf",
+settings.corpora.pabivus_mdf_2016 = {
+    id: "pabivus_mdf_2016",
     title: "Pabivus: Moksha",
     description: "Parallel Bible verses for Uralic languages: Moksha",
     lang: "mdf", // year 2016 translation (some books available from 1995)
@@ -822,8 +822,8 @@ settings.corpora.pabivus_mdf = {
     struct_attributes: sattrlist.pabivus
 };
 
-settings.corpora.pabivus_krl = {
-    id: "pabivus_krl",
+settings.corpora.pabivus_krl_2011 = {
+    id: "pabivus_krl_2011",
     title: "Pabivus: Karelian",
     description: "Parallel Bible verses for Uralic languages: Karelian",
     lang: "krl", // year 2011 translation
@@ -835,8 +835,8 @@ settings.corpora.pabivus_krl = {
     struct_attributes: sattrlist.pabivus
 };
 
-settings.corpora.pabivus_kpv = {
-    id: "pabivus_kpv",
+settings.corpora.pabivus_kpv_2008 = {
+    id: "pabivus_kpv_2008",
     title: "Pabivus: Komi-Zyrian",
     description: "Parallel Bible verses for Uralic languages: Komi-Zyrian",
     lang: "kpv", // year 2008 translation (some books avaiable from 1995 and 1997)
@@ -848,8 +848,8 @@ settings.corpora.pabivus_kpv = {
     struct_attributes: sattrlist.pabivus
 };
 
-settings.corpora.pabivus_koi = {
-    id: "pabivus_koi",
+settings.corpora.pabivus_koi_2019 = {
+    id: "pabivus_koi_2019",
     title: "Pabivus: Komi-Permyak",
     description: "Parallel Bible verses for Uralic languages: Komi-Permyak",
     lang: "koi", // year 2019 translation (some books available from 1996)
