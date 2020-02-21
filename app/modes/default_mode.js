@@ -893,7 +893,7 @@ settings.corporafolders.other_texts = {
     title: "Muita tekstejä",
     contents: [
 	"kfspc_fi",
-	"opensub_fi_17",
+	"opensub_fi_2017",
 	"finstud",
 	"yoaineet",
     ]
@@ -11084,11 +11084,11 @@ settings.corpora.sks_kivi_fi = {
     }
 };
 
-settings.corpora.opensub_fi_17 = {
+settings.corpora.opensub_fi_2017 = {
     title: "OpenSubtitles 2017",
     description: "Opensubtitles.org-sivuston jakamat elokuvien ja tv-ohjelmien suomenkieliset tekstitykset",
     licence: settings.licenceinfo.CC_BY_40,
-    id: "opensub_fi_17",
+    id: "opensub_fi_2017",
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2018060403",
     lang: "fin",
