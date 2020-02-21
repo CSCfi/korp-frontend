@@ -500,7 +500,7 @@
     "pos_VERB": "verb",
     "pos_X": "other",
 
-    "pos_pabivus_NOT_DEFINED" : "undefined",
+    /*"pos_pabivus_NOT_DEFINED" : "undefined",
     "pos_pabivus_N" : "noun",
     "pos_pabivus_CLB" : "punctuation (CLB)",
     "pos_pabivus_V" : "verb",
@@ -537,7 +537,7 @@
     "pos_pabivus_Err_Dial" : "Err/Dial",
 
     "pabivus_chapter" : "chapter",
-    "pabivus_verse" : "verse",
+    "pabivus_verse" : "verse",*/
 
     "deprelftb2_advl": "adverbial",
     "deprelftb2_attr": "attribute",
