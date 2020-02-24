@@ -8357,8 +8357,8 @@ settings.corpora.pabivus_kpv_2008 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus
-    //hide : true
+    struct_attributes: sattrlist.pabivus,
+    hide : true
 };
 
 settings.corpora.pabivus_koi_2019 = {
@@ -8373,7 +8373,7 @@ settings.corpora.pabivus_koi_2019 = {
     context: settings.spContext,
     attributes: attrlist.pabivus,
     struct_attributes: sattrlist.pabivus,
-    hide : true
+    //hide : true
 };
 
 /*
