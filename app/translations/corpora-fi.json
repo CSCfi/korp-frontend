@@ -2161,7 +2161,6 @@
     "hc_interaction" : "interaktiivisuus",
     "hc_setting" : "muodollisuus",
 
-    /*
     "pabivus_41_MAT" : "Matteuksen evankeliumi",
     "pabivus_42_MRK" : "Markuksen evankeliumi",
     "pabivus_43_LUK" : "Luukkaan evankeliumi",
@@ -2189,6 +2188,5 @@
     "pabivus_65_3JN" : "Kolmas Johanneksen kirje",
     "pabivus_66_JUD" : "Juudan kirje",
     "pabivus_67_REV" : "Ilmestyskirja"
-    */
 
 }
