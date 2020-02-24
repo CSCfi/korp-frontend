@@ -4286,7 +4286,7 @@ sattrlist.topling = {
 	}
 };
 
-/*attrs.pos_pabivus = {
+attrs.pos_pabivus = {
     label: "pos",
     displayType: "select",
     translationKey: "pos_pabivus_",
@@ -4344,7 +4344,7 @@ sattrlist.pabivus = {
     chapter_id : { label: "pabivus_chapter" },
     sentence_id : { label: "pabivus_verse" },
     sentence_text : { label: "text" }
-};*/
+};
 
 
 /* --------- */

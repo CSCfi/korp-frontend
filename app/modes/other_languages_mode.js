@@ -765,7 +765,7 @@ settings.corpora.sust_kpv = {
     struct_attributes: sattrlist.sust_common
 };
 
-/*
+
 settings.corpora.pabivus_udm_1997 = {
     id: "pabivus_udm_1997",
     title: "Pabivus: Udmurt",
@@ -779,7 +779,7 @@ settings.corpora.pabivus_udm_1997 = {
     struct_attributes: sattrlist.pabivus
 };
 
-settings.corpora.pabivus_olo_2003 = {
+/*settings.corpora.pabivus_olo_2003 = {
     id: "pabivus_olo_2003",
     title: "Pabivus: Livvi",
     description: "Parallel Bible verses for Uralic languages: Livvi",
