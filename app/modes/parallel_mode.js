@@ -8346,7 +8346,7 @@ settings.corpora.pabivus_krl = {
 };
 */
 
-settings.corpora.pabivus_kpv = {
+settings.corpora.pabivus_kpv_2008 = {
     id: "pabivus_kpv_2008",
     title: "Pabivus: Komi-Zyrian",
     description: "Parallel Bible verses for Uralic languages: Komi-Zyrian",
@@ -8361,7 +8361,7 @@ settings.corpora.pabivus_kpv = {
     //hide : true
 };
 
-settings.corpora.pabivus_koi = {
+settings.corpora.pabivus_koi_2019 = {
     id: "pabivus_koi_2019",
     title: "Pabivus: Komi-Permyak",
     description: "Parallel Bible verses for Uralic languages: Komi-Permyak",
