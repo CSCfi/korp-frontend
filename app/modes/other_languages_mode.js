@@ -236,7 +236,7 @@ settings.corporafolders.sust = {
     contents: ["sust_myv", "sust_kpv", "sust_mdf"]
 };
 
-/*settings.corporafolders.pabivus = {
+settings.corporafolders.pabivus = {
     title: "PABIVUS",
     description: "Parallel Bible verses for Uralic languages: koi, kpv, krl, mdf, myv, olo and udm.",
     contents: ["pabivus_koi_2019",
@@ -246,7 +246,7 @@ settings.corporafolders.sust = {
 	       "pabivus_myv_2006",
 	       "pabivus_olo_2003",
 	       "pabivus_udm_1997"]
-};*/
+};
 
 settings.corporafolders.wanca_2016 = {
     title: "Wanca 2016",
@@ -779,7 +779,7 @@ settings.corpora.pabivus_udm_1997 = {
     struct_attributes: sattrlist.pabivus
 };
 
-/*settings.corpora.pabivus_olo_2003 = {
+settings.corpora.pabivus_olo_2003 = {
     id: "pabivus_olo_2003",
     title: "Pabivus: Livvi",
     description: "Parallel Bible verses for Uralic languages: Livvi",
@@ -855,7 +855,7 @@ settings.corpora.pabivus_koi_2019 = {
     context: settings.spContext,
     attributes: attrlist.pabivus,
     struct_attributes: sattrlist.pabivus
-};*/
+};
 
 // TODO: check how attribute spaces should be shown
 attrlist.wanca_common = {
