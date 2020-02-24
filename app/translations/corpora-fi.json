@@ -2161,6 +2161,12 @@
     "hc_interaction" : "interaktiivisuus",
     "hc_setting" : "muodollisuus",
 
+    "iso_code" : "ISO-koodi",
+    "iso_639_code" : "ISO 639 -koodi",
+
+    "pabivus_chapter" : "luku",
+    "pabivus_verse" : "jae",
+
     "pabivus_41_MAT" : "Matteuksen evankeliumi",
     "pabivus_42_MRK" : "Markuksen evankeliumi",
     "pabivus_43_LUK" : "Luukkaan evankeliumi",

@@ -157,6 +157,7 @@
     "language": "language",
     "languagefamily": "language family",
     "iso_code": "ISO code",
+    "iso_639_code": "ISO 639 code",
 
     "lsi_classification": "LSI classification",
     "ethnologue_classification": "Ethnologue classification",
