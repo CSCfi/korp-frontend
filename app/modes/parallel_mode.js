@@ -8282,13 +8282,15 @@ settings.corpora.pabivus_udm_1997 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus
+    struct_attributes: sattrlist.pabivus,
+    hide : true
 };
 
+// Olo is the language version that is shown to users.
 settings.corpora.pabivus_olo_2003 = {
     id: "pabivus_olo_2003",
-    title: "Pabivus: Livvi",
-    description: "Parallel Bible verses for Uralic languages: Livvi",
+    title: "Pabivus (koi–kpv–krl–mdf–myv–olo–udm)",
+    description: "Parallel Bible verses for Uralic languages<br/>Languages include Komi-Permyak (koi), Komi-Zyrian (kpv), krl Karelian (krl), mdf Moksha (mdf), myv Erzya (myv), olo Livvi (olo) and udm Udmurt (udm)",
     lang: "olo", // year 2003 translation
     linked_to : ["pabivus_udm_1997", /*"pabivus_olo_2003",*/ "pabivus_myv_2006", "pabivus_mdf_2016", "pabivus_krl_2011", "pabivus_kpv_2008", "pabivus_koi_2019", "pabivus_fin_test"],
     limited_access: true,
@@ -8297,7 +8299,7 @@ settings.corpora.pabivus_olo_2003 = {
     context: settings.spContext,
     attributes: attrlist.pabivus,
     struct_attributes: sattrlist.pabivus,
-    hide : true
+    //hide : true
 };
 
 settings.corpora.pabivus_myv_2006 = {
@@ -8387,7 +8389,7 @@ settings.corpora.pabivus_fin_test = {
     context: settings.spContext,
     attributes: attrlist.pabivus,
     struct_attributes: sattrlist.pabivus,
-    //hide : true
+    hide : true
 };
 
 /*
