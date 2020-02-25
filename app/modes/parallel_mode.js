@@ -8299,7 +8299,7 @@ settings.corpora.pabivus_olo_2003 = {
     context: settings.spContext,
     attributes: attrlist.pabivus,
     struct_attributes: sattrlist.pabivus,
-    //hide : true
+    hide : true
 };
 
 settings.corpora.pabivus_myv_2006 = {
@@ -8524,7 +8524,7 @@ settings.corpora.pabivus_fin_test = {
     context: settings.spContext,
     attributes: attrlist.pabivus,
     struct_attributes: sattrlist.pabivus,
-    hide : true
+    //hide : true
 };
 
 /*
