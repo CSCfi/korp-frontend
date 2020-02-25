@@ -8346,12 +8346,27 @@ settings.corpora.pabivus_krl = {
 };
 */
 
+settings.corpora.pabivus_fin_test = {
+    id: "pabivus_fin_test",
+    title: "Pabivus: Finnish (test)",
+    description: "Parallel Bible verses for Uralic languages: Finnish (test)",
+    lang: "fin",
+    linked_to : [/*"pabivus_udm", "pabivus_olo", "pabivus_myv", "pabivus_mdf", "pabivus_krl",*/ "pabivus_kpv_2008", "pabivus_koi_2019"],
+    limited_access: true,
+    licence_type: "RES",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.pabivus,
+    struct_attributes: sattrlist.pabivus,
+    hide : true
+};
+
 settings.corpora.pabivus_kpv_2008 = {
     id: "pabivus_kpv_2008",
     title: "Pabivus: Komi-Zyrian",
     description: "Parallel Bible verses for Uralic languages: Komi-Zyrian",
     lang: "kpv", // year 2008 translation (some books avaiable from 1995 and 1997)
-    linked_to : [/*"pabivus_udm", "pabivus_olo", "pabivus_myv", "pabivus_mdf", "pabivus_krl",*/ "pabivus_koi_2019"],
+    linked_to : [/*"pabivus_udm", "pabivus_olo", "pabivus_myv", "pabivus_mdf", "pabivus_krl",*/ "pabivus_koi_2019", "pabivus_fin_test"],
     limited_access: true,
     licence_type: "RES",
     within: settings.spWithin,
@@ -8366,7 +8381,7 @@ settings.corpora.pabivus_koi_2019 = {
     title: "Pabivus: Komi-Permyak",
     description: "Parallel Bible verses for Uralic languages: Komi-Permyak",
     lang: "koi", // year 2019 translation (some books available from 1996)
-    linked_to : [/*"pabivus_udm", "pabivus_olo", "pabivus_myv", "pabivus_mdf", "pabivus_krl",*/ "pabivus_kpv_2008"],
+    linked_to : [/*"pabivus_udm", "pabivus_olo", "pabivus_myv", "pabivus_mdf", "pabivus_krl",*/ "pabivus_kpv_2008", "pabivus_fin_test"],
     limited_access: true,
     licence_type: "RES",
     within: settings.spWithin,
