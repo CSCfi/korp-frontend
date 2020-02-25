@@ -8286,11 +8286,10 @@ settings.corpora.pabivus_udm_1997 = {
     hide : true
 };
 
-// Olo is the language version that is shown to users.
 settings.corpora.pabivus_olo_2003 = {
     id: "pabivus_olo_2003",
-    title: "Pabivus (koi–kpv–krl–mdf–myv–olo–udm)",
-    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains verses from the New Testament in seven languages: Komi-Permyak (koi), Komi-Zyrian (kpv), Karelian (krl), Moksha (mdf), Erzya (myv), Livvi (olo) and Udmurt (udm).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus.",
+    title: "Pabivus: Karelian (2003)",
+    description: "Parallel Bible verses for Uralic languages: Karelian",
     lang: "olo-2003", // year 2003 translation
     linked_to : ["pabivus_udm_1997", /*"pabivus_olo_2003",*/ "pabivus_myv_2006", "pabivus_mdf_2016", "pabivus_krl_2011", "pabivus_kpv_2008", "pabivus_koi_2019", "pabivus_fin_test"],
     limited_access: true,
@@ -8514,8 +8513,8 @@ settings.corpora.pabivus_koi_1996 = {
 
 settings.corpora.pabivus_fin_test = {
     id: "pabivus_fin_test",
-    title: "Pabivus: Finnish (test)",
-    description: "Parallel Bible verses for Uralic languages: Finnish (test)",
+    title: "Pabivus (koi–kpv–krl–mdf–myv–olo–udm)",
+    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains verses from the New Testament in seven languages: Komi-Permyak (koi), Komi-Zyrian (kpv), Karelian (krl), Moksha (mdf), Erzya (myv), Livvi (olo) and Udmurt (udm).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus.",
     lang: "fin",
     linked_to : ["pabivus_udm_1997", "pabivus_olo_2003", "pabivus_myv_2006", "pabivus_mdf_2016", "pabivus_krl_2011", "pabivus_kpv_2008", "pabivus_koi_2019" /*, "pabivus_fin_test"*/, "pabivus_koi_1996", "pabivus_kpv_1995", "pabivus_kpv_1997", "pabivus_mdf_1995", "pabivus_myv_1996", "pabivus_myv_1995", "pabivus_myv_1998", "pabivus_myv_1910", "pabivus_myv_1821"],
     limited_access: true,
