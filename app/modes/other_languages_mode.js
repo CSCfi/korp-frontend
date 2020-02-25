@@ -251,7 +251,7 @@ settings.corporafolders.wanca_2016 = {
 	       "wanca_2016_kca_multili",
 	       "wanca_2016_koi_multili",
 	       "wanca_2016_kpv_multili",
-	       "wanca_2016_krl_multili",
+	       "wanca_2016_krl_multili_test",
 	       "wanca_2016_liv",
 	       "wanca_2016_lud",
 	       "wanca_2016_mdf_multili",
@@ -260,7 +260,7 @@ settings.corporafolders.wanca_2016 = {
 	       "wanca_2016_mrj_multili",
 	       "wanca_2016_myv_multili",
 	       "wanca_2016_nio",
-	       "wanca_2016_olo_multili",
+	       "wanca_2016_olo_multili_test",
 	       "wanca_2016_sjd",
 	       "wanca_2016_sjk",
 	       "wanca_2016_sju",
@@ -270,7 +270,7 @@ settings.corporafolders.wanca_2016 = {
 	       "wanca_2016_smn_multili",
 	       "wanca_2016_sms_multili",
 	       "wanca_2016_udm_multili",
-	       "wanca_2016_vep_multili",
+	       "wanca_2016_vep_multili_test",
 	       "wanca_2016_vot",
 	       "wanca_2016_vro_multili",
 	       "wanca_2016_yrk" ]
@@ -846,8 +846,8 @@ settings.corpora.wanca_2016_kpv_multili = {
     struct_attributes: sattrlist.wanca_common
 };
 
-settings.corpora.wanca_2016_krl_multili = {
-    id: "wanca_2016_krl_multili",
+settings.corpora.wanca_2016_krl_multili_test = {
+    id: "wanca_2016_krl_multili_test",
     title: "Wanca 2016: Karelian (karjal)",
     description: "A collection of web corpora in small Uralic languages: Karelian (karjal)",
     lang: "krl",
@@ -945,8 +945,8 @@ settings.corpora.wanca_2016_nio = {
     struct_attributes: sattrlist.wanca_common
 };
 
-settings.corpora.wanca_2016_olo_multili = {
-    id: "wanca_2016_olo_multili",
+settings.corpora.wanca_2016_olo_multili_test = {
+    id: "wanca_2016_olo_multili_test",
     title: "Wanca 2016: Livvi (Olonets / livvin karjal)",
     description: "A collection of web corpora in small Uralic languages: Livvi (Olonets / livvin karjal)",
     lang: "olo",
@@ -1055,8 +1055,8 @@ settings.corpora.wanca_2016_udm_multili = {
     struct_attributes: sattrlist.wanca_common
 };
 
-settings.corpora.wanca_2016_vep_multili = {
-    id: "wanca_2016_vep_multili",
+settings.corpora.wanca_2016_vep_multili_test = {
+    id: "wanca_2016_vep_multili_test",
     title: "Wanca 2016: Veps (vepsän kel')",
     description: "A collection of web corpora in small Uralic languages: Veps (vepsän kel')",
     lang: "vep",
