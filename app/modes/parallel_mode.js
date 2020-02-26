@@ -8276,7 +8276,7 @@ settings.corpora.pabivus_udm_1997 = {
     title: "Pabivus: Udmurt (1997)",
     description: "Parallel Bible verses for Uralic languages: Udmurt",
     lang: "udm-1997", // year 1997 translation
-    linked_to : [/*"pabivus_udm_1997",*/ "pabivus_olo_2003", "pabivus_myv_2006", "pabivus_mdf_2016", "pabivus_krl_2011", "pabivus_kpv_2008", "pabivus_koi_2019", "pabivus_fin_test", "pabivus_koi_1996", "pabivus_kpv_1995", "pabivus_ypv_1997", "pabivus_mdf_1995", "pabivus_myv_1996", "pabivus_myv_1995", "pabivus_myv_1998", "pabivus_myv_1910", "pabivus_myv_1821"];
+    linked_to : [/*"pabivus_udm_1997",*/ "pabivus_olo_2003", "pabivus_myv_2006", "pabivus_mdf_2016", "pabivus_krl_2011", "pabivus_kpv_2008", "pabivus_koi_2019", "pabivus_fin_test", "pabivus_koi_1996", "pabivus_kpv_1995", "pabivus_kpv_1997", "pabivus_mdf_1995", "pabivus_myv_1996", "pabivus_myv_1995", "pabivus_myv_1998", "pabivus_myv_1910", "pabivus_myv_1821"];
     limited_access: true,
     licence_type: "RES",
     within: settings.spWithin,
@@ -8291,7 +8291,7 @@ settings.corpora.pabivus_olo_2003 = {
     title: "Pabivus: Karelian (2003)",
     description: "Parallel Bible verses for Uralic languages: Karelian",
     lang: "olo-2003", // year 2003 translation
-    linked_to : ["pabivus_udm_1997", /*"pabivus_olo_2003",*/ "pabivus_myv_2006", "pabivus_mdf_2016", "pabivus_krl_2011", "pabivus_kpv_2008", "pabivus_koi_2019", "pabivus_fin_test", "pabivus_koi_1996", "pabivus_kpv_1995", "pabivus_ypv_1997", "pabivus_mdf_1995", "pabivus_myv_1996", "pabivus_myv_1995", "pabivus_myv_1998", "pabivus_myv_1910", "pabivus_myv_1821"];
+    linked_to : ["pabivus_udm_1997", /*"pabivus_olo_2003",*/ "pabivus_myv_2006", "pabivus_mdf_2016", "pabivus_krl_2011", "pabivus_kpv_2008", "pabivus_koi_2019", "pabivus_fin_test", "pabivus_koi_1996", "pabivus_kpv_1995", "pabivus_kpv_1997", "pabivus_mdf_1995", "pabivus_myv_1996", "pabivus_myv_1995", "pabivus_myv_1998", "pabivus_myv_1910", "pabivus_myv_1821"];
     limited_access: true,
     licence_type: "RES",
     within: settings.spWithin,
@@ -8306,7 +8306,7 @@ settings.corpora.pabivus_myv_2006 = {
     title: "Pabivus: Erzya (2006)",
     description: "Parallel Bible verses for Uralic languages: Erzya",
     lang: "myv-2006", // year 2006 translation (some books available from 1996, 1998, 1995, 1910 and 1821)
-    linked_to : ["pabivus_udm_1997", "pabivus_olo_2003", /*"pabivus_myv_2006",*/ "pabivus_mdf_2016", "pabivus_krl_2011", "pabivus_kpv_2008", "pabivus_koi_2019", "pabivus_fin_test", "pabivus_koi_1996", "pabivus_kpv_1995", "pabivus_ypv_1997", "pabivus_mdf_1995", "pabivus_myv_1996", "pabivus_myv_1995", "pabivus_myv_1998", "pabivus_myv_1910", "pabivus_myv_1821"];
+    linked_to : ["pabivus_udm_1997", "pabivus_olo_2003", /*"pabivus_myv_2006",*/ "pabivus_mdf_2016", "pabivus_krl_2011", "pabivus_kpv_2008", "pabivus_koi_2019", "pabivus_fin_test", "pabivus_koi_1996", "pabivus_kpv_1995", "pabivus_kpv_1997", "pabivus_mdf_1995", "pabivus_myv_1996", "pabivus_myv_1995", "pabivus_myv_1998", "pabivus_myv_1910", "pabivus_myv_1821"];
     limited_access: true,
     licence_type: "RES",
     within: settings.spWithin,
@@ -8396,7 +8396,7 @@ settings.corpora.pabivus_mdf_2016 = {
     title: "Pabivus: Moksha (2016)",
     description: "Parallel Bible verses for Uralic languages: Moksha",
     lang: "mdf-2016", // year 2016 translation (some books available from 1995)
-    linked_to : ["pabivus_udm_1997", "pabivus_olo_2003", "pabivus_myv_2006", /*"pabivus_mdf_2016",*/ "pabivus_krl_2011", "pabivus_kpv_2008", "pabivus_koi_2019", "pabivus_fin_test", "pabivus_koi_1996", "pabivus_kpv_1995", "pabivus_ypv_1997", "pabivus_mdf_1995", "pabivus_myv_1996", "pabivus_myv_1995", "pabivus_myv_1998", "pabivus_myv_1910", "pabivus_myv_1821"];
+    linked_to : ["pabivus_udm_1997", "pabivus_olo_2003", "pabivus_myv_2006", /*"pabivus_mdf_2016",*/ "pabivus_krl_2011", "pabivus_kpv_2008", "pabivus_koi_2019", "pabivus_fin_test", "pabivus_koi_1996", "pabivus_kpv_1995", "pabivus_kpv_1997", "pabivus_mdf_1995", "pabivus_myv_1996", "pabivus_myv_1995", "pabivus_myv_1998", "pabivus_myv_1910", "pabivus_myv_1821"];
     limited_access: true,
     licence_type: "RES",
     within: settings.spWithin,
@@ -8426,7 +8426,7 @@ settings.corpora.pabivus_krl_2011 = {
     title: "Pabivus: Karelian (2011)",
     description: "Parallel Bible verses for Uralic languages: Karelian",
     lang: "krl-2011", // year 2011 translation
-    linked_to : ["pabivus_udm_1997", "pabivus_olo_2003", "pabivus_myv_2006", "pabivus_mdf_2016", /*"pabivus_krl_2011",*/ "pabivus_kpv_2008", "pabivus_koi_2019", "pabivus_fin_test", "pabivus_koi_1996", "pabivus_kpv_1995", "pabivus_ypv_1997", "pabivus_mdf_1995", "pabivus_myv_1996", "pabivus_myv_1995", "pabivus_myv_1998", "pabivus_myv_1910", "pabivus_myv_1821"];
+    linked_to : ["pabivus_udm_1997", "pabivus_olo_2003", "pabivus_myv_2006", "pabivus_mdf_2016", /*"pabivus_krl_2011",*/ "pabivus_kpv_2008", "pabivus_koi_2019", "pabivus_fin_test", "pabivus_koi_1996", "pabivus_kpv_1995", "pabivus_kpv_1997", "pabivus_mdf_1995", "pabivus_myv_1996", "pabivus_myv_1995", "pabivus_myv_1998", "pabivus_myv_1910", "pabivus_myv_1821"];
     limited_access: true,
     licence_type: "RES",
     within: settings.spWithin,
@@ -8441,7 +8441,7 @@ settings.corpora.pabivus_kpv_2008 = {
     title: "Pabivus: Komi-Zyrian (2008)",
     description: "Parallel Bible verses for Uralic languages: Komi-Zyrian",
     lang: "kpv-2008", // year 2008 translation (some books avaiable from 1995 and 1997)
-    linked_to : ["pabivus_udm_1997", "pabivus_olo_2003", "pabivus_myv_2006", "pabivus_mdf_2016", "pabivus_krl_2011", /*"pabivus_kpv_2008",*/ "pabivus_koi_2019", "pabivus_fin_test", "pabivus_koi_1996", "pabivus_kpv_1995", "pabivus_ypv_1997", "pabivus_mdf_1995", "pabivus_myv_1996", "pabivus_myv_1995", "pabivus_myv_1998", "pabivus_myv_1910", "pabivus_myv_1821"];
+    linked_to : ["pabivus_udm_1997", "pabivus_olo_2003", "pabivus_myv_2006", "pabivus_mdf_2016", "pabivus_krl_2011", /*"pabivus_kpv_2008",*/ "pabivus_koi_2019", "pabivus_fin_test", "pabivus_koi_1996", "pabivus_kpv_1995", "pabivus_kpv_1997", "pabivus_mdf_1995", "pabivus_myv_1996", "pabivus_myv_1995", "pabivus_myv_1998", "pabivus_myv_1910", "pabivus_myv_1821"];
     limited_access: true,
     licence_type: "RES",
     within: settings.spWithin,
@@ -8486,7 +8486,7 @@ settings.corpora.pabivus_koi_2019 = {
     title: "Pabivus: Komi-Permyak (2019)",
     description: "Parallel Bible verses for Uralic languages: Komi-Permyak",
     lang: "koi-2019", // year 2019 translation (some books available from 1996)
-    linked_to : ["pabivus_udm_1997", "pabivus_olo_2003", "pabivus_myv_2006", "pabivus_mdf_2016", "pabivus_krl_2011", "pabivus_kpv_2008", /*"pabivus_koi_2019",*/ "pabivus_fin_test", "pabivus_koi_1996", "pabivus_kpv_1995", "pabivus_ypv_1997", "pabivus_mdf_1995", "pabivus_myv_1996", "pabivus_myv_1995", "pabivus_myv_1998", "pabivus_myv_1910", "pabivus_myv_1821"];
+    linked_to : ["pabivus_udm_1997", "pabivus_olo_2003", "pabivus_myv_2006", "pabivus_mdf_2016", "pabivus_krl_2011", "pabivus_kpv_2008", /*"pabivus_koi_2019",*/ "pabivus_fin_test", "pabivus_koi_1996", "pabivus_kpv_1995", "pabivus_kpv_1997", "pabivus_mdf_1995", "pabivus_myv_1996", "pabivus_myv_1995", "pabivus_myv_1998", "pabivus_myv_1910", "pabivus_myv_1821"];
     limited_access: true,
     licence_type: "RES",
     within: settings.spWithin,
