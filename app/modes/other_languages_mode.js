@@ -781,8 +781,8 @@ settings.corpora.pabivus_udm_1997 = {
 
 settings.corpora.pabivus_olo_2003 = {
     id: "pabivus_olo_2003",
-    title: "Pabivus: Livvi",
-    description: "Parallel Bible verses for Uralic languages: Livvi",
+    title: "Pabivus: Livvi-Karelian",
+    description: "Parallel Bible verses for Uralic languages: Livvi-Karelian",
     lang: "olo", // year 2003 translation
     limited_access: true,
     licence_type: "RES",
@@ -820,8 +820,8 @@ settings.corpora.pabivus_mdf_2016 = {
 
 settings.corpora.pabivus_krl_2011 = {
     id: "pabivus_krl_2011",
-    title: "Pabivus: Karelian",
-    description: "Parallel Bible verses for Uralic languages: Karelian",
+    title: "Pabivus: North Karelian",
+    description: "Parallel Bible verses for Uralic languages: North Karelian",
     lang: "krl", // year 2011 translation
     limited_access: true,
     licence_type: "RES",

@@ -8314,8 +8314,8 @@ settings.corpora.pabivus_udm_1997 = {
 
 settings.corpora.pabivus_olo_2003 = {
     id: "pabivus_olo_2003",
-    title: "Pabivus: Karelian (2003)",
-    description: "Parallel Bible verses for Uralic languages: Karelian",
+    title: "Pabivus: Livvi-Karelian (2003)",
+    description: "Parallel Bible verses for Uralic languages: Livvi-Karelian",
     lang: "olo-2003", // year 2003 translation
     linked_to : pabivus_linked_corpora("pabivus_olo_2003"),
     limited_access: true,
@@ -8449,8 +8449,8 @@ settings.corpora.pabivus_mdf_1995 = {
 
 settings.corpora.pabivus_krl_2011 = {
     id: "pabivus_krl_2011",
-    title: "Pabivus: Karelian (2011)",
-    description: "Parallel Bible verses for Uralic languages: Karelian",
+    title: "Pabivus: North Karelian (2011)",
+    description: "Parallel Bible verses for Uralic languages: North Karelian",
     lang: "krl-2011", // year 2011 translation
     linked_to : pabivus_linked_corpora("pabivus_krl_2011"),
     limited_access: true,
@@ -8540,7 +8540,7 @@ settings.corpora.pabivus_koi_1996 = {
 settings.corpora.pabivus_fin_test = {
     id: "pabivus_fin_test",
     title: "Pabivus (koi–kpv–krl–mdf–myv–olo–udm)",
-    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains verses from the New Testament in seven languages: Komi-Permyak (koi), Komi-Zyrian (kpv), Karelian (krl), Moksha (mdf), Erzya (myv), Livvi (olo) and Udmurt (udm).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus.",
+    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains verses from the New Testament in seven languages: Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo) and Udmurt (udm).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus.",
     lang: "fin",
     linked_to : pabivus_linked_corpora("pabivus_fin_test"),
     limited_access: true,
