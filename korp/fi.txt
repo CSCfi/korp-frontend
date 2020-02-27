@@ -1,4 +1,13 @@
 
+<!-- Konkordanssin lataaminen Eduskunnan täysistunnot -aineistosta korjattu 2020-02-27 -->
+
+Konkordanssihakutuloksen lataaminen <a
+href="http://urn.fi/urn:nbn:fi:lb-2019101621" target="_blank"
+title="META-SHARE-artikkeli">Eduskunnan täysistunnot</a> -aineistosta
+toimii jälleen lähes kolmen kuukauden toimimattomuuden jälkeen.
+Pahoittelemme virhettä ja kiitämme siitä ilmoittanutta käyttäjää.
+
+
 <!-- Suomi24 2001–2017: Korjattu kirjoittajan nimimerkkitietoja 2020-02-20 -->
 
 Suomi24 2001–2017 -aineistosta on nyt käytössä <a
