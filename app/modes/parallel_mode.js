@@ -8272,7 +8272,7 @@ settings.fn.extend_corpus_settings(
      "parrus_2016_fi4"]);
 
 var pabivus_corpora =
-    ["pabivus_fin_test",
+    ["pabivus_fin_1938",
      "pabivus_koi_1996",
      "pabivus_koi_2019",
      "pabivus_kpv_1995",
@@ -8537,12 +8537,12 @@ settings.corpora.pabivus_koi_1996 = {
     hide : true
 };
 
-settings.corpora.pabivus_fin_test = {
+settings.corpora.pabivus_fin_1938 = {
     id: "pabivus_fin_test",
-    title: "Pabivus (koi–kpv–krl–mdf–myv–olo–udm)",
-    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains verses from the New Testament in seven languages: Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo) and Udmurt (udm).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus.",
+    title: "Pabivus (fin–koi–kpv–krl–mdf–myv–olo–udm)",
+    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains verses from the New Testament in eight languages: Finnish (fin), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo) and Udmurt (udm).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus.",
     lang: "fin",
-    linked_to : pabivus_linked_corpora("pabivus_fin_test"),
+    linked_to : pabivus_linked_corpora("pabivus_fin_1938"),
     limited_access: true,
     licence_type: "RES",
     within: settings.spWithin,
