@@ -8540,7 +8540,7 @@ settings.corpora.pabivus_koi_1996 = {
 settings.corpora.pabivus_fin_1938 = {
     id: "pabivus_fin_1938",
     title: "Pabivus (fin–koi–kpv–krl–mdf–myv–olo–udm)",
-    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains verses from the New Testament in eight languages: Finnish (fin), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo) and Udmurt (udm).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus.",
+    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains verses from the New Testament in eight languages: Finnish (fin), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo) and Udmurt (udm).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1938.",
     lang: "fin",
     linked_to : pabivus_linked_corpora("pabivus_fin_1938"),
     limited_access: true,
