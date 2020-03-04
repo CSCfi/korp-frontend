@@ -868,8 +868,8 @@ settings.corpora.wanca_2016_liv = {
     struct_attributes: sattrlist.wanca_common
 };
 
-settings.corpora.wanca_2016_lud = {
-    id: "wanca_2016_lud",
+settings.corpora.wanca_2016_lud_test = {
+    id: "wanca_2016_lud_test",
     title: "Wanca 2016: Ludian (lüüdin kiel')",
     description: "A collection of web corpora in small Uralic languages: Ludian (lüüdin kiel')",
     lang: "lud",
@@ -934,8 +934,8 @@ settings.corpora.wanca_2016_myv_multili = {
     struct_attributes: sattrlist.wanca_common
 };
 
-settings.corpora.wanca_2016_nio = {
-    id: "wanca_2016_nio",
+settings.corpora.wanca_2016_nio_test = {
+    id: "wanca_2016_nio_test",
     title: "Wanca 2016: Nganasan (ня”)",
     description: "A collection of web corpora in small Uralic languages: Nganasan (ня”)",
     lang: "nio",
@@ -1077,8 +1077,8 @@ settings.corpora.wanca_2016_vot = {
     struct_attributes: sattrlist.wanca_common
 };
 
-settings.corpora.wanca_2016_vro_multili = {
-    id: "wanca_2016_vro_multili",
+settings.corpora.wanca_2016_vro_multili_test = {
+    id: "wanca_2016_vro_multili_test",
     title: "Wanca 2016: Võro (võro kiil)",
     description: "A collection of web corpora in small Uralic languages: Võro (võro kiil)",
     lang: "vro",
@@ -1088,8 +1088,8 @@ settings.corpora.wanca_2016_vro_multili = {
     struct_attributes: sattrlist.wanca_common
 };
 
-settings.corpora.wanca_2016_yrk = {
-    id: "wanca_2016_yrk",
+settings.corpora.wanca_2016_yrk_test = {
+    id: "wanca_2016_yrk_test",
     title: "Wanca 2016: Nenets (ненэцяʼ вада)",
     description: "A collection of web corpora in small Uralic languages: Nenets (ненэцяʼ вада)",
     lang: "yrk",
