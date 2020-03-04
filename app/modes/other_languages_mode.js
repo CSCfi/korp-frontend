@@ -253,13 +253,13 @@ settings.corporafolders.wanca_2016 = {
 	       "wanca_2016_kpv_multili",
 	       "wanca_2016_krl_multili_test",
 	       "wanca_2016_liv",
-	       "wanca_2016_lud",
+	       "wanca_2016_lud_test",
 	       "wanca_2016_mdf_multili",
 	       "wanca_2016_mhr_multili",
 	       "wanca_2016_mns_multili",
 	       "wanca_2016_mrj_multili",
 	       "wanca_2016_myv_multili",
-	       "wanca_2016_nio",
+	       "wanca_2016_nio_test",
 	       "wanca_2016_olo_multili_test",
 	       "wanca_2016_sjd",
 	       "wanca_2016_sjk",
@@ -272,8 +272,8 @@ settings.corporafolders.wanca_2016 = {
 	       "wanca_2016_udm_multili",
 	       "wanca_2016_vep_multili_test",
 	       "wanca_2016_vot",
-	       "wanca_2016_vro_multili",
-	       "wanca_2016_yrk" ]
+	       "wanca_2016_vro_multili_test",
+	       "wanca_2016_yrk_test" ]
 };
 
 settings.corporafolders.english.scotscorr = {
