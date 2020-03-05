@@ -8327,8 +8327,8 @@ settings.corpora.pabivus_bundled_olo_2003 = {
     hide : true
 };
 
-settings.corpora.pabivus_myv_2006 = {
-    id: "pabivus_myv_2006",
+settings.corpora.pabivus_bundled_myv_2006 = {
+    id: "pabivus_bundled_myv_2006",
     title: "Pabivus: Erzya (2006)",
     description: "Parallel Bible verses for Uralic languages: Erzya",
     lang: "myv-2006", // year 2006 translation (some books available from 1996, 1998, 1995, 1910 and 1821)
@@ -8357,8 +8357,8 @@ settings.corpora.pabivus_bundled_myv_1995 = {
     hide : true
 };
 
-settings.corpora.pabivus_myv_1996 = {
-    id: "pabivus_myv_1996",
+settings.corpora.pabivus_bundled_myv_1996 = {
+    id: "pabivus_bundled_myv_1996",
     title: "Pabivus: Erzya (1996)",
     description: "Parallel Bible verses for Uralic languages: Erzya",
     lang: "myv-1996", // year 1996 translation
@@ -8387,8 +8387,8 @@ settings.corpora.pabivus_bundled_myv_1998 = {
     hide : true
 };
 
-settings.corpora.pabivus_myv_1910 = {
-    id: "pabivus_myv_1910",
+settings.corpora.pabivus_bundled_myv_1910 = {
+    id: "pabivus_bundled_myv_1910",
     title: "Pabivus: Erzya (1910)",
     description: "Parallel Bible verses for Uralic languages: Erzya",
     lang: "myv-1910", // year 1996 translation
