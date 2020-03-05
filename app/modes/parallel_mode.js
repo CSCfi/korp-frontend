@@ -8332,7 +8332,7 @@ settings.corpora.pabivus_myv_2006 = {
     title: "Pabivus: Erzya (2006)",
     description: "Parallel Bible verses for Uralic languages: Erzya",
     lang: "myv-2006", // year 2006 translation (some books available from 1996, 1998, 1995, 1910 and 1821)
-    linked_to : pabivus_bundled_linked_corpora("pabivus_myv_2006"),
+    linked_to : pabivus_linked_corpora("pabivus_myv_2006"),
     limited_access: true,
     licence_type: "RES",
     within: settings.spWithin,
@@ -8362,7 +8362,7 @@ settings.corpora.pabivus_myv_1996 = {
     title: "Pabivus: Erzya (1996)",
     description: "Parallel Bible verses for Uralic languages: Erzya",
     lang: "myv-1996", // year 1996 translation
-    linked_to : pabivus_bundled_linked_corpora("pabivus_myv_1996"),
+    linked_to : pabivus_linked_corpora("pabivus_myv_1996"),
     limited_access: true,
     licence_type: "RES",
     within: settings.spWithin,
@@ -8392,7 +8392,7 @@ settings.corpora.pabivus_myv_1910 = {
     title: "Pabivus: Erzya (1910)",
     description: "Parallel Bible verses for Uralic languages: Erzya",
     lang: "myv-1910", // year 1996 translation
-    linked_to : pabivus_bundled_linked_corpora("pabivus_bundled_myv_1910"),
+    linked_to : pabivus_linked_corpora("pabivus_bundled_myv_1910"),
     limited_access: true,
     licence_type: "RES",
     within: settings.spWithin,
