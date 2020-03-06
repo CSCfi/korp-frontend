@@ -659,7 +659,6 @@ settings.corporafolders.ceal = {
 	iprholder: {
 	    name: "Kersti Juva",
 	},
-	labels: ["beta"],
     },
     contents: ["ceal_s_fi"]
 };
