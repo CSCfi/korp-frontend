@@ -243,7 +243,6 @@ settings.corporafolders.wanca_2016 = {
 	metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2019052401",
 	licence: settings.licenceinfo.CC_BY,
 	cite_id: "wanca2016-korp",
-	labels: ["beta"],
     },
     contents: ["wanca_2016_fit_multili",
 	       "wanca_2016_fkv_multili",
