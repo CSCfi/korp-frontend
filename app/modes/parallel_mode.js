@@ -8288,6 +8288,7 @@ var pabivus_corpora =
      "pabivus_bundled_myv_1998",
      "pabivus_bundled_myv_2006",
      "pabivus_bundled_olo_2003",
+     "pabivus_bundled_rus_1876",
      "pabivus_bundled_udm_1997"];
 
 function pabivus_linked_corpora(corpus) {
@@ -8537,10 +8538,25 @@ settings.corpora.pabivus_bundled_koi_1996 = {
     hide : true
 };
 
+settings.corpora.pabivus_bundled_rus_1876 = {
+    id: "pabivus_bundled_rus_1876",
+    title: "Pabivus: Russian (1876)",
+    description: "Parallel Bible verses for Uralic languages: Russian",
+    lang: "rus-1876", // year 1996 translation
+    linked_to : pabivus_linked_corpora("pabivus_bundled_rus_1876"),
+    limited_access: true,
+    licence_type: "RES",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.pabivus,
+    struct_attributes: sattrlist.pabivus,
+    hide : true
+};
+
 settings.corpora.pabivus_bundled_fin_1938 = {
     id: "pabivus_bundled_fin_1938",
-    title: "Pabivus (fin–koi–kpv–krl–mdf–myv–olo–udm)",
-    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains verses from the New Testament in eight languages: Finnish (fin), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo) and Udmurt (udm).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1938.",
+    title: "Pabivus (fin–koi–kpv–krl–mdf–myv–olo–udm–rus)",
+    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains verses from the New Testament in nine languages: Finnish (fin), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo) and Udmurt (udm) as well as Russian (rus).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1938.",
     lang: "fin",
     linked_to : pabivus_linked_corpora("pabivus_bundled_fin_1938"),
     limited_access: true,
