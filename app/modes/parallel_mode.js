@@ -8325,6 +8325,12 @@ function pabivus_scrambled_linked_corpora(corpus) {
 	    retval.push(pabivus_scrambled_corpora[i]); } }
     return retval; }
 
+settings.corporafolders.pabivus = {
+    title: "PABIVUS",
+    description: "Parallel Bible verses for Uralic languages (fin–koi–kpv–krl–mdf–myv–olo–udm–rus)",
+    contents: [ "pabivus_bundled_fin_1938", "pabivus_scrambled_fin_1938" ]
+};
+
 settings.corpora.pabivus_bundled_udm_1997 = {
     id: "pabivus_bundled_udm_1997",
     title: "Pabivus: Udmurt (1997)",
