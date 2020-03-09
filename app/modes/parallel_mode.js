@@ -8314,14 +8314,8 @@ function pabivus_s_linked_corpora(corpus) {
 	    retval.push(pabivus_s_corpora[i]); } }
     return retval; }
 
-settings.corporafolders.pabivus = {
-    title: "PABIVUS",
-    description: "Parallel Bible verses for Uralic languages (fin–koi–kpv–krl–mdf–myv–olo–udm–rus)",
-    contents: [ "pabivus_fin_1938", "pabivus_s_fin_1938" ]
-};
-
-
 var pabivus_common_corpus_info = {
+    cite_id: "pabivus-korp",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
@@ -8344,8 +8338,15 @@ function pabivus_s_add_common_info(corpus) {
     }
     // add licence
     corpus.licence = settings.licenceinfo.CC_BY_NC;
-    // override default for unscrambled version
+    // override defaults for unscrambled version
+    corpus.cite_id = "pabivus-s-korp";
     corpus.struct_attributes = sattrlist.pabivus_s;
+};
+
+settings.corporafolders.pabivus = {
+    title: "PABIVUS",
+    description: "Parallel Bible verses for Uralic languages (fin–koi–kpv–krl–mdf–myv–olo–udm–rus)",
+    contents: [ "pabivus_fin_1938", "pabivus_s_fin_1938" ]
 };
 
 settings.corpora.pabivus_udm_1997 = {
