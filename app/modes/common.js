@@ -4337,12 +4337,21 @@ attrlist.pabivus = {
     msd: attrs.msd
 };
 
-sattrlist.pabivus = {
+sattrlist.pabivus_o = {
     //text_lang : { label: "" },
     text_id : { label: "text_id" },
     text_iso_lang : { label: "iso_639_code" },
     chapter_id : { label: "pabivus_chapter" },
     sentence_id : { label: "pabivus_verse" }
+    //sentence_text : { label: "text" }
+};
+
+sattrlist.pabivus_s = {
+    //text_lang : { label: "" },
+    text_id : { label: "text_id" },
+    text_iso_lang : { label: "iso_639_code" },
+    chapter_id : { label: "pabivus_chapter" },
+    //sentence_id : { label: "pabivus_verse" }
     //sentence_text : { label: "text" }
 };
 

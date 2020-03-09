@@ -8336,7 +8336,7 @@ settings.corpora.pabivus_bundled_udm_1997 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     hide : true
 };
 
@@ -8351,7 +8351,7 @@ settings.corpora.pabivus_bundled_olo_2003 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     hide : true
 };
 
@@ -8366,7 +8366,7 @@ settings.corpora.pabivus_bundled_myv_2006 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     hide : true
 };
 
@@ -8381,7 +8381,7 @@ settings.corpora.pabivus_bundled_myv_1995 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     hide : true
 };
 
@@ -8396,7 +8396,7 @@ settings.corpora.pabivus_bundled_myv_1996 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     hide : true
 };
 
@@ -8411,7 +8411,7 @@ settings.corpora.pabivus_bundled_myv_1998 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     hide : true
 };
 
@@ -8426,7 +8426,7 @@ settings.corpora.pabivus_bundled_myv_1910 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     hide : true
 };
 
@@ -8441,7 +8441,7 @@ settings.corpora.pabivus_bundled_myv_1821 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     hide : true
 };
 
@@ -8456,7 +8456,7 @@ settings.corpora.pabivus_bundled_mdf_2016 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     hide : true
 };
 
@@ -8471,7 +8471,7 @@ settings.corpora.pabivus_bundled_mdf_1995 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     hide : true
 };
 
@@ -8486,7 +8486,7 @@ settings.corpora.pabivus_bundled_krl_2011 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     hide : true
 };
 
@@ -8501,7 +8501,7 @@ settings.corpora.pabivus_bundled_kpv_2008 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     hide : true
 };
 
@@ -8516,7 +8516,7 @@ settings.corpora.pabivus_bundled_kpv_1995 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     hide : true
 };
 
@@ -8531,7 +8531,7 @@ settings.corpora.pabivus_bundled_kpv_1997 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     hide : true
 };
 
@@ -8546,7 +8546,7 @@ settings.corpora.pabivus_bundled_koi_2019 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     hide : true
 };
 
@@ -8561,7 +8561,7 @@ settings.corpora.pabivus_bundled_koi_1996 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     hide : true
 };
 
@@ -8576,7 +8576,7 @@ settings.corpora.pabivus_bundled_rus_1876 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     hide : true
 };
 
@@ -8591,7 +8591,7 @@ settings.corpora.pabivus_bundled_fin_1938 = {
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_o,
     //hide : true
 };
 
@@ -8605,10 +8605,11 @@ settings.corpora.pabivus_scrambled_udm_1997 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_scrambled_udm_1997"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     hide : true
 };
 
@@ -8620,10 +8621,11 @@ settings.corpora.pabivus_scrambled_olo_2003 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_scrambled_olo_2003"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     hide : true
 };
 
@@ -8635,10 +8637,11 @@ settings.corpora.pabivus_scrambled_myv_2006 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_myv_2006"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     hide : true
 };
 
@@ -8650,10 +8653,11 @@ settings.corpora.pabivus_scrambled_myv_1995 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_scrambled_myv_1995"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     hide : true
 };
 
@@ -8665,10 +8669,11 @@ settings.corpora.pabivus_scrambled_myv_1996 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_myv_1996"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     hide : true
 };
 
@@ -8680,10 +8685,11 @@ settings.corpora.pabivus_scrambled_myv_1998 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_scrambled_myv_1998"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     hide : true
 };
 
@@ -8695,10 +8701,11 @@ settings.corpora.pabivus_scrambled_myv_1910 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_scrambled_myv_1910"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     hide : true
 };
 
@@ -8710,10 +8717,11 @@ settings.corpora.pabivus_scrambled_myv_1821 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_scrambled_myv_1821"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     hide : true
 };
 
@@ -8725,10 +8733,11 @@ settings.corpora.pabivus_scrambled_mdf_2016 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_scrambled_mdf_2016"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     hide : true
 };
 
@@ -8740,10 +8749,11 @@ settings.corpora.pabivus_scrambled_mdf_1995 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_scrambled_mdf_1995"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     hide : true
 };
 
@@ -8755,10 +8765,11 @@ settings.corpora.pabivus_scrambled_krl_2011 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_scrambled_krl_2011"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     hide : true
 };
 
@@ -8770,10 +8781,11 @@ settings.corpora.pabivus_scrambled_kpv_2008 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_scrambled_kpv_2008"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     hide : true
 };
 
@@ -8785,10 +8797,11 @@ settings.corpora.pabivus_scrambled_kpv_1995 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_scrambled_kpv_1995"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     hide : true
 };
 
@@ -8800,10 +8813,11 @@ settings.corpora.pabivus_scrambled_kpv_1997 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_scrambled_kpv_1997"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     hide : true
 };
 
@@ -8815,10 +8829,11 @@ settings.corpora.pabivus_scrambled_koi_2019 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_scrambled_koi_2019"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     hide : true
 };
 
@@ -8830,10 +8845,11 @@ settings.corpora.pabivus_scrambled_koi_1996 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_scrambled_koi_1996"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     hide : true
 };
 
@@ -8845,10 +8861,11 @@ settings.corpora.pabivus_scrambled_rus_1876 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_scrambled_rus_1876"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     hide : true
 };
 
@@ -8860,10 +8877,11 @@ settings.corpora.pabivus_scrambled_fin_1938 = {
     linked_to : pabivus_scrambled_linked_corpora("pabivus_scrambled_fin_1938"),
     limited_access: true,
     licence_type: "RES",
+    licence: settings.licenceinfo.CC_BY_NC,
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
     //hide : true
 };
 
