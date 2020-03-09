@@ -8321,12 +8321,7 @@ settings.corporafolders.pabivus = {
 };
 
 
-settings.corpora.pabivus_udm_1997 = {
-    id: "pabivus_udm_1997",
-    title: "Pabivus: Udmurt (1997)",
-    description: "Parallel Bible verses for Uralic languages: Udmurt",
-    lang: "udm-1997", // year 1997 translation
-    linked_to : pabivus_linked_corpora("pabivus_udm_1997"),
+var pabivus_corpus_info = {
     limited_access: true,
     licence_type: "RES",
     within: settings.spWithin,
@@ -8335,6 +8330,28 @@ settings.corpora.pabivus_udm_1997 = {
     struct_attributes: sattrlist.pabivus,
     hide : true
 };
+
+function pabivus_add_info(corpus) {
+    for (var key in pabivus_corpus_info) {
+	corpus[key] = dict[key] );
+    }
+};
+
+settings.corpora.pabivus_udm_1997 = {
+    id: "pabivus_udm_1997",
+    title: "Pabivus: Udmurt (1997)",
+    description: "Parallel Bible verses for Uralic languages: Udmurt",
+    lang: "udm-1997", // year 1997 translation
+    linked_to : pabivus_linked_corpora("pabivus_udm_1997"),
+    /*limited_access: true,
+    licence_type: "RES",
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.pabivus,
+    struct_attributes: sattrlist.pabivus,
+    hide : true*/
+};
+pabivus_add_info(settings.corpora.pabivus_udm_1997);
 
 settings.corpora.pabivus_olo_2003 = {
     id: "pabivus_olo_2003",
