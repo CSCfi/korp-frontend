@@ -236,18 +236,6 @@ settings.corporafolders.sust = {
     contents: ["sust_myv", "sust_kpv", "sust_mdf"]
 };
 
-settings.corporafolders.pabivus = {
-    title: "PABIVUS",
-    description: "Parallel Bible verses for Uralic languages: koi, kpv, krl, mdf, myv, olo and udm.",
-    contents: ["pabivus_koi_2019",
-	       "pabivus_kpv_2008",
-	       "pabivus_krl_2011",
-	       "pabivus_mdf_2016",
-	       "pabivus_myv_2006",
-	       "pabivus_olo_2003",
-	       "pabivus_udm_1997"]
-};
-
 settings.corporafolders.wanca_2016 = {
     title: "Wanca 2016",
     description: "A collection of web corpora in small Uralic languages",
@@ -765,97 +753,6 @@ settings.corpora.sust_kpv = {
     struct_attributes: sattrlist.sust_common
 };
 
-
-settings.corpora.pabivus_udm_1997 = {
-    id: "pabivus_udm_1997",
-    title: "Pabivus: Udmurt",
-    description: "Parallel Bible verses for Uralic languages: Udmurt",
-    lang: "udm", // year 1997 translation
-    limited_access: true,
-    licence_type: "RES",
-    within: settings.spWithin,
-    context: settings.spContext,
-    attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus
-};
-
-settings.corpora.pabivus_olo_2003 = {
-    id: "pabivus_olo_2003",
-    title: "Pabivus: Livvi-Karelian",
-    description: "Parallel Bible verses for Uralic languages: Livvi-Karelian",
-    lang: "olo", // year 2003 translation
-    limited_access: true,
-    licence_type: "RES",
-    within: settings.spWithin,
-    context: settings.spContext,
-    attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus
-};
-
-settings.corpora.pabivus_myv_2006 = {
-    id: "pabivus_myv_2006",
-    title: "Pabivus: Erzya",
-    description: "Parallel Bible verses for Uralic languages: Erzya",
-    lang: "myv", // year 2006 translation (some books available from 1996, 1998, 1995, 1910 and 1821)
-    limited_access: true,
-    licence_type: "RES",
-    within: settings.spWithin,
-    context: settings.spContext,
-    attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus
-};
-
-settings.corpora.pabivus_mdf_2016 = {
-    id: "pabivus_mdf_2016",
-    title: "Pabivus: Moksha",
-    description: "Parallel Bible verses for Uralic languages: Moksha",
-    lang: "mdf", // year 2016 translation (some books available from 1995)
-    limited_access: true,
-    licence_type: "RES",
-    within: settings.spWithin,
-    context: settings.spContext,
-    attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus
-};
-
-settings.corpora.pabivus_krl_2011 = {
-    id: "pabivus_krl_2011",
-    title: "Pabivus: North Karelian",
-    description: "Parallel Bible verses for Uralic languages: North Karelian",
-    lang: "krl", // year 2011 translation
-    limited_access: true,
-    licence_type: "RES",
-    within: settings.spWithin,
-    context: settings.spContext,
-    attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus
-};
-
-settings.corpora.pabivus_kpv_2008 = {
-    id: "pabivus_kpv_2008",
-    title: "Pabivus: Komi-Zyrian",
-    description: "Parallel Bible verses for Uralic languages: Komi-Zyrian",
-    lang: "kpv", // year 2008 translation (some books avaiable from 1995 and 1997)
-    limited_access: true,
-    licence_type: "RES",
-    within: settings.spWithin,
-    context: settings.spContext,
-    attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus
-};
-
-settings.corpora.pabivus_koi_2019 = {
-    id: "pabivus_koi_2019",
-    title: "Pabivus: Komi-Permyak",
-    description: "Parallel Bible verses for Uralic languages: Komi-Permyak",
-    lang: "koi", // year 2019 translation (some books available from 1996)
-    limited_access: true,
-    licence_type: "RES",
-    within: settings.spWithin,
-    context: settings.spContext,
-    attributes: attrlist.pabivus,
-    struct_attributes: sattrlist.pabivus
-};
 
 // TODO: check how attribute spaces should be shown
 attrlist.wanca_common = {
