@@ -8582,8 +8582,8 @@ settings.corpora.pabivus_bundled_rus_1876 = {
 
 settings.corpora.pabivus_bundled_fin_1938 = {
     id: "pabivus_bundled_fin_1938",
-    title: "Pabivus (fin–koi–kpv–krl–mdf–myv–olo–udm–rus)",
-    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains verses from the New Testament in nine languages: Finnish (fin), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo) and Udmurt (udm) as well as Russian (rus).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1938.",
+    title: "Pabivus (fin–koi–kpv–krl–mdf–myv–olo–udm–rus), original verses",
+    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains verses from the New Testament in nine languages: Finnish (fin), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo) and Udmurt (udm) as well as Russian (rus).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1938.<br/>The verses are in orignal order (not scrambled).",
     lang: "fin",
     linked_to : pabivus_linked_corpora("pabivus_bundled_fin_1938"),
     limited_access: true,
@@ -8871,8 +8871,8 @@ settings.corpora.pabivus_scrambled_rus_1876 = {
 
 settings.corpora.pabivus_scrambled_fin_1938 = {
     id: "pabivus_scrambled_fin_1938",
-    title: "Pabivus (fin–koi–kpv–krl–mdf–myv–olo–udm–rus), scrambled version",
-    description: "Parallel Bible verses for Uralic languages, scrambled version<br/>The corpus contains verses from the New Testament in nine languages: Finnish (fin), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo) and Udmurt (udm) as well as Russian (rus).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1938. The verses have been scrambled within chapters.",
+    title: "Pabivus (fin–koi–kpv–krl–mdf–myv–olo–udm–rus), scrambled verses",
+    description: "Parallel Bible verses for Uralic languages, scrambled version<br/>The corpus contains verses from the New Testament in nine languages: Finnish (fin), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo) and Udmurt (udm) as well as Russian (rus).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1938.<br/>The verses have been scrambled within chapters.",
     lang: "fin",
     linked_to : pabivus_scrambled_linked_corpora("pabivus_scrambled_fin_1938"),
     limited_access: true,
