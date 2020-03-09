@@ -8293,26 +8293,13 @@ var pabivus_corpora =
      "pabivus_udm_1997"];
 
 // scrambled version
-var pabivus_s_corpora =
-    ["pabivus_s_fin_1938",
-     "pabivus_s_koi_1996",
-     "pabivus_s_koi_2019",
-     "pabivus_s_kpv_1995",
-     "pabivus_s_kpv_1997",
-     "pabivus_s_kpv_2008",
-     "pabivus_s_krl_2011",
-     "pabivus_s_mdf_1995",
-     "pabivus_s_mdf_2016",
-     "pabivus_s_myv_1821",
-     "pabivus_s_myv_1910",
-     "pabivus_s_myv_1995",
-     "pabivus_s_myv_1996",
-     "pabivus_s_myv_1998",
-     "pabivus_s_myv_2006",
-     "pabivus_s_olo_2003",
-     "pabivus_s_rus_1876",
-     "pabivus_s_udm_1997"];
+var pabivus_s_corpora = [];
+// e.g. "pabivus_fin_1938" -> "pabivus_s_fin_1938"
+for (index = 0; index < pabivus_corpora.length; index++) {
+    pabivus_s_corpora.push(pabivus_corpora[index].replace("pabivus_","pabivus_s_"));
+};
 
+// return all corpora except the one defined as argument
 function pabivus_linked_corpora(corpus) {
     var retval = [];
     for (var i = 0; i < pabivus_corpora.length; i++) {
@@ -8332,6 +8319,7 @@ settings.corporafolders.pabivus = {
     description: "Parallel Bible verses for Uralic languages (fin–koi–kpv–krl–mdf–myv–olo–udm–rus)",
     contents: [ "pabivus_fin_1938", "pabivus_s_fin_1938" ]
 };
+
 
 settings.corpora.pabivus_udm_1997 = {
     id: "pabivus_udm_1997",
