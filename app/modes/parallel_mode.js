@@ -8342,9 +8342,9 @@ function pabivus_s_add_common_info(corpus) {
 	corpus[key] = pabivus_common_corpus_info[key];
     }
     // add licence
-    corpus.licence: settings.licenceinfo.CC_BY_NC;
+    corpus.licence = settings.licenceinfo.CC_BY_NC;
     // override default for unscrambled version
-    corpus.struct_attributes: sattrlist.pabivus_s;
+    corpus.struct_attributes = sattrlist.pabivus_s;
 };
 
 settings.corpora.pabivus_udm_1997 = {
