@@ -8322,8 +8322,6 @@ settings.corporafolders.pabivus = {
 
 
 var pabivus_common_corpus_info = {
-    limited_access: true,
-    licence_type: "RES",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
@@ -8335,6 +8333,9 @@ function pabivus_add_common_info(corpus) {
     for (var key in pabivus_common_corpus_info) {
 	corpus[key] = pabivus_common_corpus_info[key];
     }
+    // add RES status
+    corpus.limited_access = true;
+    corpus.licence_type = "RES";
 };
 
 function pabivus_s_add_common_info(corpus) {
