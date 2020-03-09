@@ -4337,7 +4337,7 @@ attrlist.pabivus = {
     msd: attrs.msd
 };
 
-sattrlist.pabivus_o = {
+sattrlist.pabivus = {
     //text_lang : { label: "" },
     text_id : { label: "text_id" },
     text_iso_lang : { label: "iso_639_code" },
