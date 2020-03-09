@@ -8333,7 +8333,7 @@ var pabivus_corpus_info = {
 
 function pabivus_add_info(corpus) {
     for (var key in pabivus_corpus_info) {
-	corpus[key] = dict[key];
+	corpus[key] = pabivus_corpus_info[key];
     }
 };
 
