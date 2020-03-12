@@ -8315,7 +8315,7 @@ function pabivus_s_linked_corpora(corpus) {
     return retval; }
 
 var pabivus_common_corpus_info = {
-    //cite_id: "pabivus-korp",
+    cite_id: "pabivus-korp",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.pabivus,
@@ -8340,7 +8340,7 @@ function pabivus_s_add_common_info(corpus) {
     // add licence
     corpus.licence = settings.licenceinfo.CC_BY_NC;
     // override defaults for unscrambled version
-    //corpus.cite_id = "pabivus-s-korp";
+    corpus.cite_id = "pabivus-s-korp";
     corpus.struct_attributes = sattrlist.pabivus_s;
     corpus.metadata_urn = "urn:nbn:fi:lb-2020021119";
 };
