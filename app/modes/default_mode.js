@@ -13464,6 +13464,17 @@ settings.corpora.arkisyn = {
     }
 };
 
+settings.corpora.pabivus_fin_1938_test = {
+    id: "pabivus_fin_1938",
+    title: "Pabivus fin - test version",
+    description: "Pabivus Finnish - test version",
+    lang: "fin",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.pabivus,
+    struct_attributes: sattrlist.pabivus
+};
+
 settings.corpora.iijoki = {
     id: "iijoki",
     cite_id: "iijoki-korp",
