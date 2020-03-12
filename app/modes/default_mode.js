@@ -13465,7 +13465,7 @@ settings.corpora.arkisyn = {
 };
 
 settings.corpora.pabivus_fin_1938_test = {
-    id: "pabivus_fin_1938",
+    id: "pabivus_fin_1938_test",
     title: "Pabivus fin - test version",
     description: "Pabivus Finnish - test version",
     lang: "fin",
