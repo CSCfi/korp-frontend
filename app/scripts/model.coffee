@@ -426,7 +426,7 @@ class model.StatsProxy extends BaseProxy
                 minWidth : minWidth
 
         groups = _.groupBy _.keys(data.total.absolute), (item) ->
-            item.replace(/(:.+?)(\/|$| )/g, "$2")
+            statisticsFormatting.makeGroupingValue(item)
 
         wordArray = _.keys groups
 

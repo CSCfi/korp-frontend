@@ -1051,8 +1051,17 @@
       korp_url: window.location.href,
       korp_server_url: settings.cgi_script,
       corpus_config: JSON.stringify(result_corpora_settings, function(key, value) {
+        var item, len3, m;
         if (key === "logical_corpus") {
           return value.title;
+        } else if (_.isArray(value)) {
+          for (m = 0, len3 = value.length; m < len3; m++) {
+            item = value[m];
+            if (item.subtype === "text") {
+              return item;
+            }
+          }
+          return value[0];
         } else {
           return value;
         }
@@ -1106,7 +1115,9 @@
       outHTML = "<ul>";
     } else {
       folder_descr = util.callPluginFunctionsValued("CorpusInfoDescrProcessor", folder.description || "", folder);
-      extra_info = folder.info && settings.corpusExtraInfo ? util.formatCorpusExtraInfo(folder.info, settings.corpusExtraInfo.corpus_infobox) : "";
+      extra_info = folder.info && settings.corpusExtraInfo ? util.formatCorpusExtraInfo(folder.info, {
+        info_items: settings.corpusExtraInfo.corpus_infobox
+      }) : "";
       folder_descr += (folder_descr && extra_info ? "<br/><br/>" : "") + extra_info;
       outHTML = "<ul title=\"" + folder.title + "\" description=\"" + escape(folder_descr) + "\">";
     }
@@ -1183,7 +1194,9 @@
           maybeInfo = "<br/><br/>" + corpusObj.description;
         }
         maybeInfo = util.callPluginFunctionsValued("CorpusInfoDescrProcessor", maybeInfo || "", corpusObj);
-        corpusExtraInfo = settings.corpusExtraInfo ? util.formatCorpusExtraInfo(corpusObj, settings.corpusExtraInfo.corpus_infobox) : void 0;
+        corpusExtraInfo = settings.corpusExtraInfo ? util.formatCorpusExtraInfo(corpusObj, {
+          info_items: settings.corpusExtraInfo.corpus_infobox
+        }) : void 0;
         if (corpusExtraInfo) {
           maybeInfo += (maybeInfo ? "<br/><br/>" : "") + corpusExtraInfo;
         }
@@ -1432,21 +1445,18 @@
     }
   };
 
-  util.formatCorpusExtraInfo = function(corpusObj) {
-    var getUrnOrUrl, i, info_item, info_items, info_obj, label, link_info, makeLinkItem, makeUrnUrl, result;
-    info_items = arguments.length > 1 && arguments[1] ? arguments[1] : (settings.corpusExtraInfoItems != null) || [];
-    makeUrnUrl = function(urn) {
-      if (urn.indexOf('http') !== 0) {
-        return settings.urnResolver + urn;
-      } else {
-        return urn;
-      }
-    };
+  util.formatCorpusExtraInfo = function(corpusObj, opts) {
+    var getUrnOrUrl, info_item, info_items, item_paragraphs, k, l, len1, len2, link_info, makeLinkInfos, makeLinkItem, ref, result;
+    if (opts == null) {
+      opts = {};
+    }
+    info_items = opts.info_items ? opts.info_items : (settings.corpusExtraInfoItems != null) || [];
+    item_paragraphs = opts.item_paragraphs || false;
     getUrnOrUrl = function(obj) {
       var prefix;
       prefix = arguments.length > 1 ? arguments[1] : '';
       if (prefix + 'urn' in obj) {
-        return makeUrnUrl(obj[prefix + 'urn']);
+        return util.makeUrnUrl(obj[prefix + 'urn']);
       } else {
         return obj[prefix + 'url'];
       }
@@ -1469,31 +1479,17 @@
       }
       return result;
     };
-    result = '';
-    i = 0;
-    while (i < info_items.length) {
-      info_item = info_items[i];
-      link_info = {};
-      label = '';
-      label = '<span rel=\'localize[corpus_' + info_item + ']\'>' + 'Corpus ' + info_item + '</span>';
-      if (info_item === 'urn' && corpusObj.urn) {
-        link_info = {
-          url: makeUrnUrl(corpusObj.urn),
-          text: corpusObj.urn,
-          label: label
-        };
-      } else if (info_item === 'homepage' && !('homepage' in corpusObj) && corpusObj.url) {
-        link_info = {
-          url: corpusObj.url,
-          text: label
-        };
-      } else if (info_item === 'cite' && corpusObj.cite_id && (settings.corpus_cite_base_url != null)) {
-        link_info = {
-          url: settings.corpus_cite_base_url + escape(corpusObj.cite_id) + '&lang=' + window.lang,
-          text: label
-        };
-      } else if (corpusObj[info_item]) {
-        info_obj = corpusObj[info_item];
+    makeLinkInfos = function(info_item) {
+      var base_label, corpus_info_item, info_item_sub, k, label, len1, linkInfoIsNotEmpty, link_info, link_info_base, link_infos, makeLabel, makeLinkInfoBase;
+      makeLabel = function(info_item) {
+        if (opts.static_localization) {
+          return util.getLocaleString('corpus_' + info_item);
+        } else {
+          return '<span rel=\'localize[corpus_' + info_item + ']\'>' + 'Corpus ' + info_item + '</span>';
+        }
+      };
+      makeLinkInfoBase = function(info_obj, label) {
+        var link_info;
         link_info = {
           url: getUrnOrUrl(info_obj)
         };
@@ -1508,21 +1504,73 @@
         if (info_obj.description) {
           link_info.tooltip = info_obj.description;
         }
-      } else if (corpusObj[info_item + '_urn'] || corpusObj[info_item + '_url']) {
-        link_info = {
-          url: getUrnOrUrl(corpusObj, info_item + '_'),
-          text: label
-        };
+        return link_info;
+      };
+      linkInfoIsNotEmpty = function(link_info) {
+        return link_info && (link_info.url || link_info.text);
+      };
+      link_info = null;
+      label = makeLabel(info_item);
+      if (settings.makeCorpusExtraInfoItem && info_item in settings.makeCorpusExtraInfoItem) {
+        link_info = settings.makeCorpusExtraInfoItem[info_item](corpusObj, label);
       }
-      if (link_info.url || link_info.text) {
-        if (result) {
-          result += '<br/>';
+      if (!link_info) {
+        corpus_info_item = corpusObj[info_item];
+        if (corpus_info_item) {
+          if (Array.isArray(corpus_info_item)) {
+            link_infos = [];
+            base_label = label;
+            for (k = 0, len1 = corpus_info_item.length; k < len1; k++) {
+              info_item_sub = corpus_info_item[k];
+              if ("subtype" in info_item_sub) {
+                label = makeLabel(info_item + '_' + info_item_sub.subtype);
+              } else {
+                label = base_label;
+              }
+              link_info_base = makeLinkInfoBase(info_item_sub, label);
+              if (linkInfoIsNotEmpty(link_info_base)) {
+                link_infos.push(link_info_base);
+              }
+            }
+            return link_infos;
+          } else {
+            link_info = makeLinkInfoBase(corpus_info_item, label);
+          }
+        } else if (corpusObj[info_item + '_urn'] || corpusObj[info_item + '_url']) {
+          link_info = {
+            url: getUrnOrUrl(corpusObj, info_item + '_'),
+            text: label
+          };
         }
-        result += makeLinkItem(link_info);
       }
-      i++;
+      if (linkInfoIsNotEmpty(link_info)) {
+        return [link_info];
+      } else {
+        return [];
+      }
+    };
+    result = [];
+    for (k = 0, len1 = info_items.length; k < len1; k++) {
+      info_item = info_items[k];
+      ref = makeLinkInfos(info_item);
+      for (l = 0, len2 = ref.length; l < len2; l++) {
+        link_info = ref[l];
+        result.push(makeLinkItem(link_info));
+      }
     }
-    return result;
+    if (item_paragraphs) {
+      return '<p>' + result.join('</p><p>') + '</p>';
+    } else {
+      return result.join('<br/>');
+    }
+  };
+
+  util.makeUrnUrl = function(urn) {
+    if (urn.indexOf('http') !== 0) {
+      return settings.urnResolver + urn;
+    } else {
+      return urn;
+    }
   };
 
   util.copyCorpusInfoToConfig = function(corpusObj) {
@@ -2052,9 +2100,9 @@
       corpora_str = corpora.join(",");
       return href + "&corpus=" + corpora_str;
     } else {
-      href_corpora = /&corpus=([^&]*)/.exec(href)[1].split(",");
+      href_corpora = /[&?]corpus=([^&]*)/.exec(href)[1].split(",");
       corpora_str = _.union(href_corpora, corpora).join(",");
-      return href.replace(/(&corpus=)[^&]+/, "$1" + corpora_str);
+      return href.replace(/([&?]corpus=)[^&]+/, "$1" + corpora_str);
     }
   };
 
