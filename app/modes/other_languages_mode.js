@@ -3587,8 +3587,10 @@ settings.corporafolders.ha = {
     description : "Ha language stories and sentences collected during years 1997, 2000 and 2003 in Kibondo (Kigoma Region, Tanzania) and nearby areas.",
     contents : ["ha_stories", "ha_sentences"],
     info : {
+	urn : "urn:nbn:fi:lb-2020031701",
 	licence : settings.licenceinfo.CC_BY,
-	metadata_urn : "http://urn.fi/urn:nbn:fi:lb-2017022101",
+	metadata_urn : "urn:nbn:fi:lb-2017022101",
+	cite_id : "ha-korp"
     },
 };
 
@@ -3646,6 +3648,7 @@ settings.corpora.ha_sentences = {
     title : "Ha sentences",
     description : "Ha language sentences",
     id : "ha_sentences",
+    lang: "haq",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     attributes : attrlist.ha,
@@ -3656,6 +3659,7 @@ settings.corpora.ha_stories = {
     title : "Ha stories",
     description : "Ha language stories",
     id : "ha_stories",
+    lang: "haq",
     context : settings.defaultContext,
     within : settings.defaultWithin,
     attributes : attrlist.ha,
