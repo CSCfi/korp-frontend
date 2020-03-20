@@ -3584,7 +3584,7 @@ settings.corpus_aliases["coha-2017h1"] = "coha_.*";
 
 settings.corporafolders.ha = {
     title : "Ha",
-    description : "Ha language stories and sentences collected during years 1997, 2000 and 2003 in Kibondo (Kigoma Region, Tanzania) and nearby areas.",
+    description: "Ha language (ISO 639-3: haq; Great Lakes Bantu language JD66; alternative names Igiha, Giha, Kiha) is spoken in Western Tanzania in the Kigoma region. It is closely related to, for example, Rundi of Burundi and Kinyarwanda of Rwanda. Ha is one of biggest languages in Tanzania with approximately 1,2 million speakers.</br>The corpus consists of natural language data (stories, discussions) and elicited materials collected during years 1997, 2000 and 2003 in the towns of Kibondo, Kasulu and Kigoma and nearby regions. The analysis of the corpus data follows the description in Harjula, Lotta 2004. The Ha Language of Tanzania: Grammar, Texts, and Vocabulary. (<a href=\"https://web.archive.org/web/20071227070519/http://www.koeppe.de/katalog/katalog_reihe.php?lan=en&Sigle=SD690\" target=\"_blank\">East African Languages and Dialects 13</a>) Cologne: Köppe. (ISBN 978-3-89645-027-2).",
     contents : ["ha_stories", "ha_sentences"],
     info : {
 	urn : "urn:nbn:fi:lb-2020031701",
