@@ -246,7 +246,7 @@ settings.corporafolders.internet.suomi24_2017h2 = {
 	metadata_urn: "urn:nbn:fi:lb-2020021803",
 	licence: settings.licenceinfo.CC_BY_NC,
 	homepage_url: "http://keskustelu.suomi24.fi",
-	cite_id: "Suomi24-Korp-2017H2",
+	cite_id: "suomi24-2001-2017-korp-v1-1",
 	shortname: "suomi24-2001-2017-korp-v1-1",
     }
 };
