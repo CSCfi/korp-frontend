@@ -83,13 +83,23 @@ settings.corporafolders.sv = {
 settings.corporafolders.agricola = {
     title: "Agricola",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta",
-    contents: ["agricola_abckiria","agricola_kasikiria","agricola_messu","agricola_piina","agricola_profeetat",
-	       "agricola_psaltari","agricola_rucouskiria","agricola_sewsitestamenti","agricola_veisut"],
+    contents: [
+	"agricola_abckiria",
+	"agricola_kasikiria",
+	"agricola_messu",
+	"agricola_piina",
+	"agricola_profeetat",
+	"agricola_psaltari",
+	"agricola_rucouskiria",
+	"agricola_sewsitestamenti",
+	"agricola_veisut",
+    ],
     info: {
-        metadata_urn: "urn:nbn:fi:lb-20140730170",
+	metadata_urn: "urn:nbn:fi:lb-2019121804",
         homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/palvelut-yhteistyo/arkistot/Sivut/home.aspx",
-	urn: "urn:nbn:fi:lb-201803273",
-	cite_id: "agricola-korp",
+	urn: "urn:nbn:fi:lb-2019121803",
+	cite_id: "agricola-v1-1-korp",
+	shortname: "agricola-v1-1-korp",
 	licence: settings.licenceinfo.CC_BY_ND_40,
 	iprholder: {
 	    name: "Turun yliopisto; Kotimaisten kielten keskus",
