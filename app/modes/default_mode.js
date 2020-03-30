@@ -98,7 +98,8 @@ settings.corporafolders.agricola = {
 	metadata_urn: "urn:nbn:fi:lb-2019121804",
         homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/palvelut-yhteistyo/arkistot/Sivut/home.aspx",
 	urn: "urn:nbn:fi:lb-2019121803",
-	cite_id: "agricola-korp",
+	cite_id: "agricola-v1-1-korp",
+	shortname: "agricola-v1-1-korp",
 	licence: settings.licenceinfo.CC_BY_ND_40,
 	iprholder: {
 	    name: "Turun yliopisto; Kotimaisten kielten keskus",
