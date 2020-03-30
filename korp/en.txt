@@ -1,4 +1,20 @@
 
+<!-- Agricola corpus updated 2020-03-30 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2019121804" target="_blank"
+title="META-SHARE article">The Morpho-Syntactic Database of Mikael
+Agricola’s works</a> has been updated to version 1.1, which contains
+minor corrections to the previous version:
+
+* The subcorpus *Piina* contains 164 tokens more than previously.
+* The base form of the word *sela* is now *ssla*.
+* The character *>* in the beginning of some foreign words has been
+  removed.
+* In the simple search, the autocompletion of the base form and part
+  of speech shows the actual part of speech instead of “other”.
+* A couple of other individual corrections.
+
+
 <!-- KWIC download works again for the Plenary Sessions of the Parliament of Finland 2020-02-27 -->
 
 Downloading the KWIC result from the <a

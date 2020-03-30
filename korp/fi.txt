@@ -1,4 +1,20 @@
 
+<!-- Agricola-aineistoa päivitetty 2020-03-30 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2019121804" target="_blank"
+title="META-SHARE-artikkeli">Mikael Agricolan teosten morfosyntaktinen
+tietokanta</a> on päivitetty versioon 1.1, jossa on pieniä korjauksia
+aiempaan versioon verrattuna:
+
+* Osakorpus *Piina* sisältää 164 sanetta aiempaa enemmän.
+* Sanan *sela* perusmuodoksi on korjattu *sela*.
+* Muutamien vieraskielisten sanojen alussa ollut *>*-merkki on
+  poistettu.
+* Yksinkertaisen haun perusmuodon ja sanaluokan täydennyksessä näkyy
+  todellinen sanaluokka eikä ”muu”.
+* Muutama muu yksittäinen korjaus.
+
+
 <!-- Konkordanssin lataaminen Eduskunnan täysistunnot -aineistosta korjattu 2020-02-27 -->
 
 Konkordanssihakutuloksen lataaminen <a
