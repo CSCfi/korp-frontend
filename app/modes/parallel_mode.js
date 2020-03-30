@@ -8679,6 +8679,30 @@ settings.corpora.pabivus_s_fin_1938 = {
 pabivus_s_add_common_info(settings.corpora.pabivus_s_fin_1938);
 settings.corpora.pabivus_s_fin_1938.hide = false;
 
+settings.corpora.pabivus_test_olo_2003 = {
+    id: "pabivus_test_olo_2003",
+    title: "Test version of scrambled pabivus fin-olo",
+    description: "Test version of scrambled pabivus fin-olo",
+    lang: "olo-2003",
+    linked_to: ["pabivus_test_fin_1938"],
+    hide: true,
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
+};
+settings.corpora.pabivus_test_fin_1938 = {
+    id: "pabivus_test_fin_1938",
+    title: "Test version of scrambled pabivus fin-olo",
+    description: "Test version of scrambled pabivus fin-olo",
+    lang: "fin",
+    linked_to: ["pabivus_test_olo_2003"],
+    within: settings.spWithin,
+    context: settings.spContext,
+    attributes: attrlist.pabivus,
+    struct_attributes: sattrlist.pabivus_s,
+};
+
 /*
 settings.parallel_corpora.testpar = {
     "default": "testpar_fi",
