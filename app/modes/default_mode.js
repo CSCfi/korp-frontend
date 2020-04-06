@@ -10225,7 +10225,7 @@ for (var i = 0; i < la_murre_grouping.length; i++) {
 // It would actually suffice to have the /korp-prefixed name now that
 // /var/www/html/korp is a link to /var/www/html on the public server.
 var la_murre_fulltext_url_prefix =
-    ((! isPublicServer) ? "/korp" : "") + "/fulltext/la_murre/";
+    ((! settings.isPublicServer) ? "/korp" : "") + "/fulltext/la_murre/";
 
 // Make LA-murre fulltext URLs with the sentence id as a fragment
 // identifier and the number of the first and last token of the match

@@ -1706,7 +1706,7 @@ for (var i = 0; i < mulcold_pos_langs.length; i++) {
     attrs["ambiguous_pos_mulcold_" + lang] = $.extend(
 	true, {}, attrs["pos_mulcold_" + lang], attrs.ambiguous_pos);
 }
-delete mulcold_pos_langs;
+// delete mulcold_pos_langs;
 
 attrs.wordtype = {
     label: "type",
@@ -4439,14 +4439,14 @@ settings.fn.kaino_homepage = function(urlbase) {
 // the extra properties to be added).
 settings.attr_extra_properties = [
     {
-	// If displayType == "select", add properties
-	// extended_template and controller.
+	// If displayType == "select", add property extendedComponent.
 	test: function (attr) {
 	    return "displayType" in attr && attr.displayType == "select";
 	},
 	props: {
-	    extended_template: selectType.extended_template,
-	    controller: selectType.controller
+	    extendedComponent: "datasetSelect",
+	    // extended_template: selectType.extended_template,
+	    // controller: selectType.controller
 	}
     }
 ];
@@ -5079,18 +5079,20 @@ settings.templ.lemmie_common = {
 
 
 module.exports = {
-  spWithin,
-  spContext,
-  modernAttrs,
-  modernAttrs2,
-  defaultContext,
-  attrs,
-  sattrs,
-  modernAttrsOld,
-  setOptions,
-  liteOptions,
-  lexClassesText,
-  readability,
-  fsv_aldrelagar,
-  fsv_yngrelagar
+    spWithin,
+    spContext,
+    modernAttrs,
+    modernAttrs2,
+    defaultContext,
+    attrs,
+    sattrs,
+    attrlist,
+    sattrlist,
+    modernAttrsOld,
+    setOptions,
+    liteOptions,
+    lexClassesText,
+    readability,
+    fsv_aldrelagar,
+    fsv_yngrelagar
 }

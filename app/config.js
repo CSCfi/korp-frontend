@@ -12,7 +12,7 @@ var isProductionServerBeta =
 			    || window.location.pathname.indexOf("-jn5") != -1));
 var isProductionServerOld =
     (isProductionServer && window.location.pathname.indexOf("old/") != -1);
-var isPublicServer = (window.location.hostname != "localhost");
+settings.isPublicServer = (window.location.hostname != "localhost");
 
 c.log("Production server:", isProductionServer);
 
@@ -191,18 +191,21 @@ settings.downloadFormatParamsPhysical = {
     },
 };
 
-delete physical_formats;
+// delete physical_formats;
 
 // Use an absolute URL for the CGI scripts to drop the port number
 // when testing with Grunt serve, which uses localhost:9000.
-settings.cgi_prefix =
-    window.location.protocol + "//" + window.location.hostname +
-    (isProductionServerBeta
-     ? "/cgi-bin/korp-beta/"
-     : (isProductionServerOld ?
-	"/cgi-bin/korp-old/"
-	: (isProductionServer ? "/cgi-bin/" : "/cgi-bin/korp/")));
-settings.korpBackendURL = settings.cgi_prefix + "korp.cgi";
+// settings.cgi_prefix =
+//     window.location.protocol + "//" + window.location.hostname +
+//     (isProductionServerBeta
+//      ? "/cgi-bin/korp-beta/"
+//      : (isProductionServerOld ?
+// 	"/cgi-bin/korp-old/"
+// 	: (isProductionServer ? "/cgi-bin/" : "/cgi-bin/korp/")));
+// settings.korpBackendURL = settings.cgi_prefix + "korp.cgi";
+// For local testing
+settings.korpBackendURL =
+    window.location.protocol + "//" + window.location.hostname + ":1234";
 settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
 settings.downloadCgiScript = settings.cgi_prefix + "korp_download.cgi";
 

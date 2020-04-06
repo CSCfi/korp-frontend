@@ -2695,7 +2695,7 @@ settings.fn.extend_corpus_settings(
 	    "1 paragraph": "1 paragraph"
 	},
 	within: settings.defaultWithin,
-	limited_access: isPublicServer,
+	limited_access: settings.isPublicServer,
 	licence_type: "ACA",
 	attributes: {
 	    // This currently adds "word" also as a word attribute in
