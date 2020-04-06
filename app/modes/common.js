@@ -1097,7 +1097,7 @@ attrs.pos_ud_fi = {
 
 attrs.pos_ud_fi_ud1 = JSON.parse(JSON.stringify(attrs.pos_ud_fi));
 attrs.pos_ud_fi_ud1.label = "pos_ud1";
-attrs.pos_ud_fi_ud1.order = 14;
+attrs.pos_ud_fi_ud1.order = 13;
 
 attrs.pos_klk = {
     label: "pos",
@@ -1235,7 +1235,7 @@ attrs.msd_ordered = JSON.parse(JSON.stringify(attrs.msd));
 attrs.msd_ordered.order = 17;
 attrs.msd_ud1 = JSON.parse(JSON.stringify(attrs.msd));
 attrs.msd_ud1.label = "msd_ud1";
-attrs.msd_ud1.order = 13;
+attrs.msd_ud1.order = 12;
 attrs.baseform = {
     label: "baseform",
     // type: "set",
@@ -1270,6 +1270,16 @@ attrs.baseform_compound = {
 };
 attrs.baseform_compound_ordered = JSON.parse(JSON.stringify(attrs.baseform_compound));
 attrs.baseform_compound_ordered.order = 19;
+attrs.baseform_compound_ud1_ordered = {
+    label: "baseform_compound_ud1",
+    order: 14,
+    // type: "set",
+    // displayType: "autocomplete",
+    stringify: function(baseform) {
+        return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
+    },
+    opts: settings.defaultOptions
+};
 attrs.lemgram_hidden = {
     label: "lemgram",
     type: "set",    // Seems to work only if this is "set" even if "hidden"
@@ -1474,7 +1484,7 @@ attrs.deprel_ud_fi = {
 };
 attrs.deprel_ud_fi_ud1 = JSON.parse(JSON.stringify(attrs.deprel_ud_fi));
 attrs.deprel_ud_fi_ud1.label = "deprel_ud1";
-attrs.deprel_ud_fi_ud1.order = 12;
+attrs.deprel_ud_fi_ud1.order = 11;
 attrs.deprel_uta_ru = {
     label: "deprel",
     displayType: "select",
@@ -2485,10 +2495,11 @@ attrlist.parsed_tdt_ud1 = {
     dephead: attrs.dephead,
     deprel: attrs.deprel_tdt_ordered, // order: 16
     lemma_ud1: attrs.baseform_ud1, // order: 15
-    pos_ud1: attrs.pos_ud_fi_ud1, // order: 14
-    msd_ud1: attrs.msd_ud1, // order: 13
+    lemmacomp_ud1: attrs.baseform_compound_ud1_ordered, // order: 14
+    pos_ud1: attrs.pos_ud_fi_ud1, // order: 13
+    msd_ud1: attrs.msd_ud1, // order: 12
     dephead_ud1: attrs.dephead_ud1,
-    deprel_ud1: attrs.deprel_ud_fi_ud1, // order: 12
+    deprel_ud1: attrs.deprel_ud_fi_ud1, // order: 11
     lex: attrs.lemgram_hidden,
 };
 

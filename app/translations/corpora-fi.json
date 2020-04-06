@@ -41,6 +41,7 @@
 
     "lemma": "perusmuoto",
     "baseform_compound": "perusmuoto (yhdyssanarajat)",
+    "baseform_compound_ud1": "perusmuoto (yhdyssanarajat) (UD1)",
     "lemmacomp": "perusmuoto (yhdyssanarajat)",
     "pos_orig": "sanaluokka (siivoamaton)",
     "func": "lauseenjäsen",

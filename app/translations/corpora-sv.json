@@ -57,6 +57,7 @@
     
     "lemma": "grundform",
     "baseform_compound": "grundform (sammansättningsgränser)",
+    "baseform_compound_ud1": "grundform (sammansättningsgränser) (UD1)",
     "lemmacomp": "grundform (sammansättningsgränser)",
     "func": "satsdel",
 

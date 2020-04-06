@@ -60,6 +60,7 @@
 
     "lemma": "lemma",
     "baseform_compound": "baseform (compound boundaries)",
+    "baseform_compound_ud1": "baseform (compound boundaries) (UD1)",
     "lemmacomp": "baseform (compound boundaries)",
     "pos_orig": "part of speech (original)",
     "func": "function",
