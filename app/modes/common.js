@@ -1,34 +1,33 @@
-settings.senseAutoComplete = "<autoc model='model' placeholder='placeholder' type='sense'/>";
+settings.senseAutoComplete = "<autoc model='model' placeholder='placeholder' type='sense' text-in-field='textInField'/>";
 
-var karpLemgramLink = "https://spraakbanken.gu.se/karp/#?search=extended||and|lemgram|equals|<%= val.replace(/:\\d+/, '') %>";
+var karpLemgramLink = "https://spraakbanken.gu.se/karp/#?mode=DEFAULT&search=extended||and|lemgram|equals|<%= val.replace(/:\\d+/, '') %>";
 
-var selectType = {
-    extended_template: "<select ng-model='model' "
-     + "ng-options='tuple[0] as localize(tuple[1]) for tuple in dataset' ></select>",
-    controller: function($scope) {
-        $scope.localize = function(str) {
-            if($scope.localize === false) {
-                return str;
-            } else {
-                return util.getLocaleString( ($scope.translationKey || "") + str);
-            }
-        }
+var liteOptions = {
+    "is": "=",
+    "is_not": "!="
+}
+var setOptions = {
+    "is": "contains",
+    "is_not": "not contains"
+};
+var probabilitySetOptions = {
+    "is": "highest_rank",
+    "is_not": "not_highest_rank",
+    "contains": "rank_contains",
+    "contains_not": "not_rank_contains",
+};
 
-        $scope.translationKey = $scope.translationKey || "";
-        var dataset;
-        if(_.isArray($scope.dataset)) {
-            // convert array datasets into objects
-            dataset = _.object(_.map($scope.dataset, function(item) {
-                return [item, item];
-            }));
-        }
-        $scope.dataset = dataset || $scope.dataset;
+var defaultContext = {
+    "1 sentence": "1 sentence"
+};
 
-        $scope.dataset = _.sortBy(_.pairs($scope.dataset), function(tuple) {
-            return $scope.localize(tuple[1]);
-        });
-        $scope.model = $scope.model || $scope.dataset[0][0]
-    }
+var spContext = {
+    "1 sentence": "1 sentence",
+    "1 paragraph": "1 paragraph"
+};
+var spWithin = {
+    "sentence": "sentence",
+    "paragraph": "paragraph"
 };
 
 
@@ -116,7 +115,6 @@ var sattrs = {}; // structural attributes
 
 attrs.pos = {
     label: "pos",
-    displayType: "select",
     translationKey: "pos_",
     dataset: {
         "AB": "AB",
@@ -143,28 +141,29 @@ attrs.pos = {
         "UO": "UO",
         "VB": "VB"
     },
-    opts: settings.liteOptions,
-    extended_template: selectType.extended_template,
-    controller: selectType.controller,
-    order: 50
+    opts: liteOptions,
+    extendedComponent: "datasetSelect",
+    escape: false,
+    order: 0
 };
 
 attrs.msd_sv = {
     label: "msd",
     opts: settings.defaultOptions,
-    extended_template: '<input ng-model="input" ng-change="inputChange()" class="arg_value" escaper ng-model-options=\'{debounce : {default : 300, blur : 0}, updateOn: "default blur"}\'>' +
+    extendedTemplate: '<input ng-model="input" class="arg_value" escaper ng-model-options=\'{debounce : {default : 300, blur : 0}, updateOn: "default blur"}\'>' +
     '<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
-    controller: function($scope, $uibModal) {
+    extendedController: function($scope, $uibModal) {
         var modal = null;
 
         $scope.onIconClick = function() {
+            var msdHTML = settings.markup.msd;
             modal = $uibModal.open({
                 template: '<div>' +
                                 '<div class="modal-header">' +
                                     '<h3 class="modal-title">{{\'msd_long\' | loc:lang}}</h3>' +
                                     '<span ng-click="clickX()" class="close-x">×</span>' +
                                 '</div>' +
-                                '<div class="modal-body msd-modal" ng-click="msdClick($event)" ng-include="\'markup/msd.html\'"></div>' +
+                                '<div class="modal-body msd-modal" ng-click="msdClick($event)" ng-include="' + msdHTML + '"></div>' +
                             '</div>',
                 scope: $scope
             })
@@ -176,7 +175,6 @@ attrs.msd_sv = {
             val = $(event.target).parent().data("value")
             if(!val) return;
             $scope.input = val;
-            $scope.inputChange();
             modal.close();
         }
     }
@@ -184,52 +182,55 @@ attrs.msd_sv = {
 attrs.baseform_sv = {
     label: "baseform",
     type: "set",
-    opts: settings.setOptions,
-    extended_template: "<input ng-model='model' >",
-    order: 49
+    opts: settings.defaultOptions,
+    extendedTemplate: "<input ng-model='model' >",
+    order: 1
 };
 attrs.lemgram = {
     label: "lemgram",
     type: "set",
-    displayType: "autocomplete",
-    opts: settings.setOptions,
+    opts: setOptions,
     stringify: function(lemgram) {
-        // if(_.contains(lemgram, " "))
         // TODO: what if we're getting more than one consequtive lemgram back?
-        return util.lemgramToString(_.str.trim(lemgram), true);
+        return util.lemgramToString(_.trim(lemgram), true);
     },
     externalSearch: karpLemgramLink,
     internalSearch: true,
-    extended_template: "<autoc model='model' placeholder='placeholder' type='lemgram'/>",
-    order: 48
+    extendedTemplate: "<autoc model='model' placeholder='placeholder' type='lemgram' typeahead-close-callback='checkForError(valueSelected)' text-in-field='textInField'/>"
+                        + "<span ng-if='valueError' style='color: red; position: relative; top: 3px; margin-left: 6px'>{{'choose_lemgram' | loc:lang}}</span>",
+    extendedController: function($scope) {
+        $scope.valueError = false;
+
+        $scope.checkForError = function(valueSelected) {
+            $scope.valueError = !valueSelected;
+        }
+    },
+    order: 2
 };
 attrs.dalinlemgram = {
     label: "dalin-lemgram",
     type: "set",
-    displayType: "autocomplete",
-    opts: settings.setOptions,
+    opts: setOptions,
     stringify: function(lemgram) {
-        // if(_.contains(lemgram, " "))
         // TODO: what if we're getting more than one consequtive lemgram back?
-        return util.lemgramToString(_.str.trim(lemgram), true);
+        return util.lemgramToString(_.trim(lemgram), true);
     },
     externalSearch: karpLemgramLink,
     internalSearch: true,
-    extended_template: "<autoc model='model' placeholder='placeholder' type='lemgram' variant='dalin'/>",
-    order: 48
+    extendedTemplate: "<autoc model='model' placeholder='placeholder' type='lemgram' variant='dalin' text-in-field='textInField'/>",
+    order: 2
 };
 attrs.saldo = {
     label: "saldo",
     type: "set",
-    displayType: "autocomplete",
-    opts: settings.setOptions,
+    opts: setOptions,
     stringify: function(saldo) {
         return util.saldoToString(saldo, true);
     },
-    externalSearch: "https://spraakbanken.gu.se/karp/#?search=extended||and|sense|equals|<%= val %>",
+    externalSearch: "https://spraakbanken.gu.se/karp/#?mode=DEFAULT&search=extended||and|sense|equals|<%= val %>",
     internalSearch: true,
-    extended_template: settings.senseAutoComplete,
-    order: 47
+    extendedTemplate: settings.senseAutoComplete,
+    order: 3
 };
 attrs.dephead = {
     label: "dephead",
@@ -237,10 +238,8 @@ attrs.dephead = {
 };
 attrs.deprel = {
     label: "deprel",
-    displayType: "select",
     translationKey: "deprel_",
-    extended_template: selectType.extended_template,
-    controller: selectType.controller,
+    extendedComponent: "datasetSelect",
     dataset: {
         "++": "++",
         "+A": "+A",
@@ -309,31 +308,29 @@ attrs.deprel = {
         "VG": "VG",
         "ROOT": "ROOT"
     },
-    opts: settings.liteOptions
+    opts: liteOptions
 };
 attrs.prefix = {
     label: "prefix",
     type: "set",
-    displayType: "autocomplete",
-    opts: settings.setOptions,
+    opts: setOptions,
     stringify: function(lemgram) {
         return util.lemgramToString(lemgram, true);
     },
     externalSearch: karpLemgramLink,
     internalSearch: true,
-    extended_template: "<autoc model='model' placeholder='placeholder' type='lemgram' variant='affix'/>"
+    extendedTemplate: "<autoc model='model' placeholder='placeholder' type='lemgram' variant='affix' text-in-field='textInField'/>"
 };
 attrs.suffix = {
     label: "suffix",
     type: "set",
-    displayType: "autocomplete",
-    opts: settings.setOptions,
+    opts: setOptions,
     stringify: function(lemgram) {
         return util.lemgramToString(lemgram, true);
     },
     externalSearch: karpLemgramLink,
     internalSearch: true,
-    extended_template: "<autoc model='model' placeholder='placeholder' type='lemgram' variant='affix'/>"
+    extendedTemplate: "<autoc model='model' placeholder='placeholder' type='lemgram' variant='affix' text-in-field='textInField'/>"
 };
 attrs.ref = {
     label: "ref",
@@ -345,8 +342,7 @@ attrs.link = {
 attrs.ne_ex = {
     label: "ne_expr",
     translationKey: "ne_expr_",
-    extended_template: selectType.extended_template,
-    controller: selectType.controller,
+    extendedComponent: "datasetSelect",
     isStructAttr: true,
     dataset: [
        "ENAMEX",
@@ -357,8 +353,7 @@ attrs.ne_ex = {
 attrs.ne_type = {
     label: "ne_type",
     translationKey: "ne_type_",
-    extended_template: selectType.extended_template,
-    controller: selectType.controller,
+    extendedComponent: "datasetSelect",
     isStructAttr: true,
     dataset: [
        "LOC",
@@ -374,8 +369,7 @@ attrs.ne_type = {
 attrs.ne_subtype = {
     label: "ne_subtype",
     translationKey: "ne_subtype_",
-    extended_template: selectType.extended_template,
-    controller: selectType.controller,
+    extendedComponent: "datasetSelect",
     isStructAttr: true,
     dataset: [
         "AST",
@@ -455,7 +449,7 @@ sattrs.datetime = {
     label: "timestamp",
 };
 
-var modernAttrs = {
+var modernAttrsOld = {
     pos: attrs.pos,
     msd: attrs.msd,
     lemma: attrs.baseform,
@@ -468,14 +462,157 @@ var modernAttrs = {
     suffix: attrs.suffix
 };
 
+
+var modernAttrs = {
+    pos: attrs.pos,
+    msd: attrs.msd,
+    lemma: attrs.baseform,
+    lex: attrs.lemgram,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel,
+    ref: attrs.ref,
+    prefix: attrs.prefix,
+    suffix: attrs.suffix,
+    ne_ex: attrs.ne_ex,
+    ne_type: attrs.ne_type,
+    ne_subtype: attrs.ne_subtype,
+    ne_name: attrs.ne_name,
+    complemgram: {
+        label: "complemgram",
+        internalSearch: true,
+        ranked: true,
+        display: {
+            expandList: {
+                splitValue: function(value) { return value.split("+"); },
+                searchKey: "lex",
+                joinValues: " + ",
+                stringify: function(lemgram) { return util.lemgramToString(lemgram, true); },
+                linkAllValues: true
+            }
+        },
+        type: "set",
+        hideStatistics: true,
+        hideExtended: true,
+        hideCompare: true
+    },
+    compwf: {
+        label: "compwf",
+        display: {
+            "expandList": {}
+        },
+        type: "set",
+        hideStatistics: true,
+        hideExtended: true,
+        hideCompare: true
+    },
+    sense: {
+        label: "sense",
+        type: "set",
+        ranked: true,
+        display: {
+            expandList: {
+                internalSearch: function(key, value) { return "[" + key + " highest_rank '" + regescape(value) + "']"}
+            }
+        },
+        stringify: function(sense) { return util.saldoToString(sense, true); },
+        opts: probabilitySetOptions,
+        externalSearch: "https://spraakbanken.gu.se/karp/#?mode=DEFAULT&search=extended||and|sense|equals|<%= val %>",
+        internalSearch: true,
+        extendedTemplate: settings.senseAutoComplete
+    }
+};
+
+var modernAttrs2 = {
+    pos: attrs.pos,
+    msd: attrs.msd,
+    lemma: attrs.baseform,
+    lex: attrs.lemgram,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel,
+    ref: attrs.ref,
+    prefix: attrs.prefix,
+    suffix: attrs.suffix,
+    ne_ex: attrs.ne_ex,
+    ne_type: attrs.ne_type,
+    ne_subtype: attrs.ne_subtype,
+    ne_name: attrs.ne_name,
+    complemgram: modernAttrs.complemgram,
+    compwf: modernAttrs.compwf,
+    sense: modernAttrs.sense,
+    sentiment: {
+        label: "sentiment"
+    },
+    blingbring: {
+        label: "blingbring",
+        type: "set",
+        internalSearch: true
+    },
+    swefn: {
+        label: "swefn",
+        type: "set",
+        externalSearch: "https://spraakbanken.gu.se/karp/#?mode=swefn&search=sense%7C%7Cswefn--<%= val %>",
+        internalSearch: true
+    }
+};
+
+var lexClassesText = {
+    text_blingbring: {
+        label: "blingbring",
+        type: "set",
+        isStructAttr: true,
+        ranked: true,
+        order: 500,
+        display: {
+            expandList: {
+                internalSearch: function(key, value) { return "[_.text_blingbring highest_rank '" + regescape(value) + "']"},
+                linkAllValues: true,
+                showAll: true
+            }
+        },
+        internalSearch: true
+    },
+    text_swefn: {
+        label: "swefn",
+        type: "set",
+        isStructAttr: true,
+        ranked: true,
+        order: 501,
+        display: {
+            expandList: {
+                internalSearch: function(key, value) { return "[_.text_swefn highest_rank '" + regescape(value) + "']"},
+                linkAllValues: true,
+                showAll: true
+            }
+        },
+        externalSearch: "https://spraakbanken.gu.se/karp/#?mode=swefn&search=sense%7C%7Cswefn--<%= val %>",
+        internalSearch: true
+    }
+};
+
+var readability = {
+    lix: {
+        label: "lix",
+        isStructAttr: true,
+        order: 600
+    },
+    ovix: {
+        label: "ovix",
+        isStructAttr: true,
+        order: 601
+    },
+    nk: {
+        label: "nk",
+        isStructAttr: true,
+        order: 602
+    }
+};
+
 settings.posset = {
    type: "set",
    label: "posset",
-   displayType: "select",
-   opts: settings.setOptions,
+   opts: setOptions,
    translationKey: "pos_",
-   extended_template: selectType.extended_template,
-   controller: selectType.controller,
+   extendedComponent: "datasetSelect",
    dataset:  {
         "AB": "AB",
         "MID|MAD|PAD": "DL",
@@ -501,21 +638,20 @@ settings.posset = {
         "UO": "UO",
         "VB": "VB"
     },
-    order: 50
+    order: 0
 };
 
 settings.fsvlemma = {
     type: "set",
     label: "baseform",
-    opts: settings.setOptions,
-    extended_template: "<input ng-model='model' >"
+    opts: setOptions,
+    extendedTemplate: "<input ng-model='model' >"
 };
 settings.fsvlex = {
     type: "set",
     label: "lemgram",
-    displayType: "autocomplete",
-    opts: settings.setOptions,
-    extended_template: "<autoc model='model' placeholder='placeholder' type='lemgram'/>",
+    opts: setOptions,
+    extendedTemplate: "<autoc model='model' placeholder='placeholder' type='lemgram' text-in-field='textInField'/>",
     stringify: function(str) {
         return util.lemgramToString(str, true);
     },
@@ -528,36 +664,32 @@ settings.fsvvariants = {
     stringify: function(str) {
         return util.lemgramToString(str, true);
     },
-    displayType: "autocomplete",
-    extended_template: "<autoc model='model' placeholder='placeholder' type='lemgram'/>",
-    opts: settings.setOptions,
+    extendedTemplate: "<autoc model='model' placeholder='placeholder' type='lemgram' text-in-field='textInField'/>",
+    opts: setOptions,
     externalSearch: karpLemgramLink,
     internalSearch: true,
-    order: 46
+    order: 4
 };
 
 settings.fsvdescription ='<a target="_blank" href="http://project2.sol.lu.se/fornsvenska/">Fornsvenska textbanken</a> är ett projekt som digitaliserar fornsvenska texter och gör dem tillgängliga över webben. Projektet leds av Lars-Olof Delsing vid Lunds universitet.';
 
 var fsv_yngrelagar = {
-    morf: 'fsvm',
+    morphology: 'fsvm',
     id: "fsv-yngrelagar",
     title: "Yngre lagar – Fornsvenska textbankens material",
     description: settings.fsvdescription,
     within: settings.defaultWithin,
-    context: settings.spContext,
+    context: spContext,
     attributes: {
         posset: settings.posset,
         lemma: settings.fsvlemma,
         lex: settings.fsvlex,
         variants: settings.fsvvariants
         },
-    struct_attributes: {
+    structAttributes: {
         text_title: {
             label: "title",
-            displayType: "select",
-            localize: false,
-            extended_template: selectType.extended_template,
-            controller: selectType.controller,
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Kristoffers Landslag, nyskrivna flockar i förhållande till MEL",
                 "Kristoffers Landslag, innehållsligt ändrade flockar i förhållande til MEL",
@@ -570,25 +702,22 @@ var fsv_yngrelagar = {
 };
 
 var fsv_aldrelagar = {
-    morf: 'fsvm',
+    morphology: 'fsvm',
     id: "fsv-aldrelagar",
     title: "Äldre lagar – Fornsvenska textbankens material",
     description: settings.fsvdescription,
     within: settings.defaultWithin,
-    context: settings.spContext,
+    context: spContext,
     attributes: {
         posset: settings.posset,
         lemma: settings.fsvlemma,
         lex: settings.fsvlex,
         variants: settings.fsvvariants
                 },
-    struct_attributes: {
+    structAttributes: {
         text_title: {
             label: "title",
-            displayType: "select",
-            localize: false,
-            extended_template: selectType.extended_template,
-            controller: selectType.controller,
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Yngre Västgötalagens äldsta fragment, Lydekini excerpter och anteckningar",
                 "Tillägg till Upplandslagen, hskr A (Ups B 12)",
@@ -624,10 +753,12 @@ var fsv_aldrelagar = {
     }
 };
 
-settings.common_struct_types = {
+settings.commonStructTypes = {
     date_interval: {
         label: "date_interval",
-        displayType: "date_interval",
+        hideSidebar: "true",
+        hideCompare: "true",
+        hideStatistics: "true",
         opts: false,
         // FIXME: The localized values of "date_from" and "date_to"
         // are not changed immediately when changing the interface
@@ -635,8 +766,8 @@ settings.common_struct_types = {
         // attribute. How could that be made work? But neither are the
         // month and day-of-week names in the date picker itself
         // localized immediately. (Jyrki Niemi 2017-11-02)
-        extended_template: '<div class="date_interval_arg_type"> <div class="section"> <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top"> <i class="fa fa-calendar"></i> {{"date_from" | loc:lang}} </button> {{combined.format("YYYY-MM-DD HH:mm")}} <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" date-model="from_date" time-model="from_time" model="combined" min-date="minDate" max-date="maxDate"> </time-interval> </div> <div class="section"> <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top"> <i class="fa fa-calendar"></i> {{"date_to" | loc:lang}} </button> {{combined2.format("YYYY-MM-DD HH:mm")}} <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" date-model="to_date" time-model="to_time" model="combined2" my="left top" at="right top" min-date="minDate" max-date="maxDate"> </time-interval> </div> </div>',
-        controller: [
+        extendedTemplate: '<div class="date_interval_arg_type"> <div class="section"> <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top"> <i class="fa fa-calendar"></i> {{"date_from" | loc:lang}} </button> {{combined.format("YYYY-MM-DD HH:mm")}} <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" date-model="from_date" time-model="from_time" model="combined" min-date="minDate" max-date="maxDate"> </time-interval> </div> <div class="section"> <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top"> <i class="fa fa-calendar"></i> {{"date_to" | loc:lang}} </button> {{combined2.format("YYYY-MM-DD HH:mm")}} <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" date-model="to_date" time-model="to_time" model="combined2" my="left top" at="right top" min-date="minDate" max-date="maxDate"> </time-interval> </div> </div>',
+        extendedController: [
             "$scope", "searches", "$timeout", function($scope, searches, $timeout) {
                 var cl, getTime, getYear, ref, ref1, ref2, s, updateIntervals;
                 s = $scope;
@@ -646,7 +777,7 @@ settings.common_struct_types = {
                     var from, moments, ref, ref1, to;
                     moments = cl.getMomentInterval();
                     if (moments.length) {
-                        return ref = _.invoke(moments, "toDate"), s.minDate = ref[0], s.maxDate = ref[1], ref;
+                        return ref = _.invokeMap(moments, "toDate"), s.minDate = ref[0], s.maxDate = ref[1], ref;
                     } else {
                         ref1 = cl.getTimeInterval(), from = ref1[0], to = ref1[1];
                         s.minDate = moment(from.toString(), "YYYY").toDate();
@@ -676,7 +807,7 @@ settings.common_struct_types = {
                 if (!s.model) {
                     s.from_date = s.minDate;
                     s.to_date = s.maxDate;
-                    ref = _.invoke(cl.getMomentInterval(), "toDate"), s.from_time = ref[0], s.to_time = ref[1];
+                    ref = _.invokeMap(cl.getMomentInterval(), "toDate"), s.from_time = ref[0], s.to_time = ref[1];
                 } else if (s.model.length === 4) {
                     ref1 = _.map(s.model.slice(0, 3), getYear), s.from_date = ref1[0], s.to_date = ref1[1];
                     ref2 = _.map(s.model.slice(2), getTime), s.from_time = ref2[0], s.to_time = ref2[1];
@@ -4945,3 +5076,21 @@ settings.templ.lemmie_common = {
 	},
     }
 };
+
+
+module.exports = {
+  spWithin,
+  spContext,
+  modernAttrs,
+  modernAttrs2,
+  defaultContext,
+  attrs,
+  sattrs,
+  modernAttrsOld,
+  setOptions,
+  liteOptions,
+  lexClassesText,
+  readability,
+  fsv_aldrelagar,
+  fsv_yngrelagar
+}

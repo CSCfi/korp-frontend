@@ -1,8 +1,3 @@
-/* lemma => grundform, base form
- * lexem => lemgram, lemgram
- *
- */
-var settings = {};
 
 var isLab = window.isLab || false;
 
@@ -28,11 +23,13 @@ settings.autocomplete = true;
 // Currently always enable the old map at Kielipankki, since we do not
 // yet have data for the new map.
 settings.enableMap = true;
+settings.mapPosTag = ["PM", "NNP", "NNPS"]
 settings.newMapEnabled = false;
 // settings.enableMap = !isLab;
 // settings.newMapEnabled = isLab;
 // settings.wordpicture = false;
-settings.hits_per_page_default = 25
+settings.hitsPerPageDefault = 25
+settings.hitsPerPageValues = [25,50,75,100,500,1000]
 // If settings.show_related_words is not defined, it is considered
 // true.
 settings.show_related_words = false;
@@ -91,6 +88,9 @@ settings.compressBackendParamsOpts = {
     // (default: false)
     compressed_command: false,
 };
+
+settings.enableBackendKwicDownload = false
+settings.enableFrontendKwicDownload = true
 
 // Enable passing additional information (UI language, search mode) to
 // the backend for writing the backend log. If not defined, considered
@@ -202,9 +202,9 @@ settings.cgi_prefix =
      : (isProductionServerOld ?
 	"/cgi-bin/korp-old/"
 	: (isProductionServer ? "/cgi-bin/" : "/cgi-bin/korp/")));
-settings.cgi_script = settings.cgi_prefix + "korp.cgi";
+settings.korpBackendURL = settings.cgi_prefix + "korp.cgi";
 settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
-settings.download_cgi_script = settings.cgi_prefix + "korp_download.cgi";
+settings.downloadCgiScript = settings.cgi_prefix + "korp_download.cgi";
 
 // The main Korp and Korp Labs URL for the links in the cog menu
 settings.korp_url = {
@@ -239,15 +239,17 @@ settings.locales = {
 };
 
 // for extended search dropdown, can be 'union' or 'intersection'
-settings.word_attribute_selector = "union"
-settings.struct_attribute_selector = "union"
+settings.wordAttributeSelector = "union";
+settings.structAttributeSelector = "union";
 
 // for 'compile statistics by' selector, can be 'union' or 'intersection'
-settings.reduce_word_attribute_selector = "intersection"
-settings.reduce_struct_attribute_selector = "intersection"
+settings.reduceWordAttributeSelector = "intersection";
+settings.reduceStructAttributeSelector = "intersection";
 
-// settings.news_desk_url = "https://svn.spraakdata.gu.se/sb-arkiv/pub/component_news/json/korpnews.json";
-settings.news_desk_url =
+settings.filterSelection = "intersection"
+
+// settings.newsDeskUrl = "https://svn.spraakdata.gu.se/sb-arkiv/pub/component_news/json/korpnews.json";
+settings.newsDeskUrl =
     window.location.protocol + "//" + window.location.hostname + "/"
     + window.location.pathname + "news/json/korp"
     + ((isProductionServerBeta || isLab) ? "beta" : "") + "news.json";
@@ -421,8 +423,8 @@ settings.wordpictureTagset = {
     adverbial: "adv",
     // preposition_rel: "pa",
     pre_modifier: "at",
-    post_modifier: "et"
-
+    post_modifier: "et",
+    adverbial2: "aa"
 }
 
 
@@ -442,8 +444,14 @@ settings.wordPictureConf = {
         ["_", {rel: "subject", css_class: "color_blue", field_reverse: true, alt_label: "vb"}],
         [{rel: "object", css_class: "color_purple", field_reverse: true, alt_label: "vb"}, "_"]
     ],
-    adjective: [["_", {rel: "pre_modifier", css_class: "color_yellow", field_reverse: true}]],
-    adverb: [["_", {rel: "adverbial", css_class: "color_yellow", field_reverse: true}]],
+    adjective: [
+        ["_", {rel: "pre_modifier", css_class: "color_yellow", field_reverse: true}],
+        [{rel: "adverbial2", css_class: "color_purple"}, "_"]
+    ],
+    adverb: [
+        ["_", {rel: "adverbial", css_class: "color_yellow", field_reverse: true}],
+        ["_", {rel: "adverbial2", css_class: "color_purple", field_reverse: true}]
+    ],
     // preposition: [["_", {rel: "preposition_rel", css_class: "color_green"}]]
 
 }
@@ -458,14 +466,6 @@ settings.placenameAttr = "lemma";
 // corpora, so it should be overridden in the configuration of
 // individual modes as appropriate.
 settings.placenameConstraint = "pos='PM' | pos='NNP' | pos='NNPS'";;
-
-// Initial map centre: latitude, longitude and zoom level
-settings.mapCenter = {
-    // A geographical centre of Finland
-    lat: 64.180708,
-    lng: 25.803222,
-    zoom: 4
-};
 
 
 // Configure the grouping of name categories in name
@@ -507,7 +507,6 @@ settings.modeConfig = [
         localekey: "parallel_texts",
         mode: "parallel"
     }
-
 ];
 
 // Namespace for functions used in configuring corpora
@@ -524,21 +523,14 @@ var karpLemgramLink = "https://spraakbanken.gu.se/karp/#?search=extended||and|le
 // causes problems somewhere. (Jyrki Niemi 2017-12-01)
 settings.primaryColor = "#CAD2E6";
 settings.primaryLight = "#CAD2E6";
-settings.secondaryColor = "";
 
 settings.defaultOverviewContext = "1 sentence"
 settings.defaultReadingContext = "1 paragraph"
 
-settings.defaultContext = {
-    "1 sentence": "1 sentence"
-};
-settings.spContext = {
-    "1 sentence": "1 sentence",
-    "1 paragraph": "1 paragraph"
-};
 settings.defaultWithin = {
     "sentence": "sentence"
 };
+// TODO: Move these to modes/common.js
 settings.spWithin = {
     "sentence": "sentence",
     "paragraph": "paragraph"
@@ -615,13 +607,14 @@ settings.default_sidebar_display_order = {
 // (an array) contains "FEAT". (Jyrki Niemi 2016-10-18)
 settings.corpus_features = {};
 
+// TODO: Move to modes/common.js
 settings.corpus_features.paragraphs = {
     within: settings.spWithin,
     context: settings.spContext,
 };
 
 // for optimization purposes
-settings.cqp_prio = ['deprel', 'pos', 'msd', 'suffix', 'prefix', 'grundform', 'lemgram', 'saldo', 'word'];
+settings.cqpPrio = ['deprel', 'pos', 'msd', 'suffix', 'prefix', 'grundform', 'lemgram', 'saldo', 'word'];
 
 settings.defaultOptions = {
     "is": "=",
@@ -632,20 +625,19 @@ settings.defaultOptions = {
     "matches": "*=",
     "matches_not": "!*=",
 }
-settings.liteOptions = {
-    "is": "=",
-    "is_not": "!="
-}
-settings.setOptions = {
-    "is": "contains",
-    "is_not": "not contains"
+
+// settings.korpBackendURL = "https://ws.spraakbanken.gu.se/ws/korp/v8";
+// settings.downloadCgiScript = "https://ws.spraakbanken.gu.se/ws/korp/download";
+
+// Initial map centre: latitude, longitude and zoom level
+settings.mapCenter = {
+    // A geographical centre of Finland
+    lat: 64.180708,
+    lng: 25.803222,
+    zoom: 4
 };
-settings.probabilitySetOptions = {
-    "is": "highest_rank",
-    "is_not": "not_highest_rank",
-    "contains": "rank_contains",
-    "contains_not": "not_rank_contains",
-};
+
+settings.readingModeField = "sentence_id"
 
 
 /*
@@ -839,23 +831,3 @@ settings.fn.add_corpus_aliases = function (corpus_id_patt, aliases) {
 	}
     }
 };
-
-
-/*
- * TODO add all other copora settings here
- */
-
-
-
-/*
- * MISC
-*/
-
-
-// label values here represent translation keys.
-settings.arg_groups = {
-    "word": {
-        word: {label: "word"}
-    }
-};
-

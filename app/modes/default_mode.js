@@ -1,54 +1,3 @@
-var modernAttrs2 = _.extend({}, modernAttrs, {
-    ne_ex: attrs.ne_ex,
-    ne_type: attrs.ne_type,
-    ne_subtype: attrs.ne_subtype,
-    ne_name: attrs.ne_name,
-    complemgram: {
-        label: "complemgram",
-        internalSearch: true,
-        ranked: true,
-        display: {
-            expandList: {
-                splitValue: function(value) { return value.split("+"); },
-                searchKey: "lex",
-                joinValues: " + ",
-                stringify: function(lemgram) { return util.lemgramToString(lemgram, true); },
-                linkAllValues: true
-            }
-        },
-        type: "set",
-        hideStatistics: true,
-        hideExtended: true,
-        hideCompare: true
-    },
-    compwf: {
-        label: "compwf",
-        display: {
-            "expandList": {}
-        },
-        type: "set",
-        hideStatistics: true,
-        hideExtended: true,
-        hideCompare: true
-    },
-    sense: {
-        label: "sense",
-        type: "set",
-        ranked: true,
-        display: {
-            expandList: {
-                internalSearch: function(key, value) { return "[" + key + " = '\\|" + regescape(value) + ":.*']"},
-            }
-        },
-        stringify: function(sense) { return util.saldoToString(sense, true); },
-        opts: settings.probabilitySetOptions,
-        externalSearch: "https://spraakbanken.gu.se/karp/#?search=extended||and|sense|equals|<%= val %>",
-        internalSearch: true,
-        extended_template: settings.senseAutoComplete
-    }
-});
-delete modernAttrs2.saldo;
-
 
 // Proper nouns for TDT, FTB and LA annotations.
 settings.placenameConstraint =
@@ -61,7 +10,6 @@ settings.corpus_label_texts = {
     beta: "beta",
     test: "testi",
 };
-
 
 settings.corpora = {};
 settings.corporafolders = {};
@@ -1059,9 +1007,7 @@ settings.corporafolders.test = {
  * PRESELECTED CORPORA
  * Folders will be expanded to all corpora. Optionally prefix folders with __ , which will be ignored.
  */
-// TODO: this should be moved when modern texts are moved to their own mode
-if(window.currentMode == "default")
-    settings.preselected_corpora = ["reittidemo", "__ftb"];
+settings.preselected_corpora = ["reittidemo", "__ftb"];
 
 /*
  * CORPORA
