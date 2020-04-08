@@ -11092,8 +11092,8 @@ settings.corpora.opensub_fi_2017_test = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2018060403",
     lang: "fin",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
     attributes: attrlist.parsed_tdt_ud1,
     struct_attributes: {
 	text_country: {
