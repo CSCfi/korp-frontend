@@ -1188,7 +1188,7 @@ settings.corpora.ftb2 = {
     licence: settings.licenceinfo.CC_BY_30,
     cite_id: "FinnTreeBank2-korp",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
 	lemma: attrs.baseform_ftb2,
         pos: attrs.pos_ftb2,
@@ -1209,7 +1209,7 @@ settings.corpora.ftb2 = {
 		"visk-sent": "visk-sent",
 		"wikipedia-samples": "wikipedia-samples"
 	    },
-            opts: settings.liteOptions
+            opts: liteOptions
 	},
 	sentence_id: sattrs.sentence_id_hidden
     }
@@ -1260,8 +1260,8 @@ settings.corpora.ftb3_europarl = {
     title: "FinnTreeBank 3: EuroParl",
     description: "Suomen puupankki, versio 3: EuroParl (Euroopan parlamentin istuntoja)",
     id: "ftb3_europarl",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: {
 	lemma: attrs.baseform_ftb2,
 	lemmacomp: attrs.baseform_compound,
@@ -1325,7 +1325,7 @@ settings.corpora.ftb3_europarl = {
 		"sv": "sv",
 		"und": "und",
 	    },
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},
 	sentence_id: sattrs.sentence_id_hidden,
 	sentence_line: {
@@ -1338,8 +1338,8 @@ settings.corpora.ftb3_jrcacquis = {
     title: "FinnTreeBank 3: JRC Acquis",
     description: "Suomen puupankki, versio 3: JRC Acquis (EU-säädöksiä)",
     id: "ftb3_jrcacquis",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: {
 	lemma: attrs.baseform_ftb2,
 	lemmacomp: attrs.baseform_compound,
@@ -8833,6 +8833,8 @@ settings.corpora.reittidemo = {
     title: "Reitti A-siipeen",
     description: "Kahdenkeskisen videoidun keskustelun ”Reitti A-siipeen” yleiskielistetty litteraatti. Keskustelussa selvitetään reittiä tiettyyn Helsingin yliopiston Metsätalossa sijaitsevaan huoneeseen. Vapaasti käytettäväksi tarkoitettu näyteaineisto.",
     id: "reittidemo",
+    context: spContext,
+    within: spWithin,
     urn: "urn:nbn:fi:lb-100110012817",
     metadata_urn: "urn:nbn:fi:lb-2014101401",
     cite_id: "Reittidemo-korp",
@@ -8857,7 +8859,7 @@ settings.corpora.reittidemo = {
 		"ML",
 		"TA"
 	    ],
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},
 	utterance_begin_time: {
 	    label: "utterance_begin_time"
@@ -10271,8 +10273,8 @@ settings.templ.la_murre = {
     // title: "Lauseopin arkiston murrekorpus",
     // description: "Lauseopin arkiston murrekorpus",
     // id: "la_murre",
-    within: settings.spcWithin,
-    context: settings.spContext,
+    within: spcWithin,
+    context: spContext,
     attributes: {
 	cleanword: {
 	    label: "cleanword",
@@ -10292,7 +10294,7 @@ settings.templ.la_murre = {
 		"cw2": "cw2",
 		"": "noncw",
 	    },
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},
 	note: {
 	    label: "note",
@@ -10312,21 +10314,21 @@ settings.templ.la_murre = {
 	    displayType: "select",
 	    translationKey: "dialect_region_",
 	    dataset: la_murre_regions,
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},
 	text_dialect_group: {
 	    label: "dialect_group",
 	    displayType: "select",
 	    translationKey: "dialect_group_",
 	    dataset: la_murre_groups,
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},
 	text_parish: {
 	    label: "parish",
 	    displayType: "select",
 	    localize: false,
 	    dataset: la_murre_parishes,
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},
 	text_parish_title: {
 	    label: "text_title",
@@ -10354,7 +10356,7 @@ settings.templ.la_murre = {
 		"interviewer": "interviewer",
 		"noninterviewee": "noninterviewee",
 	    },
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},
 	paragraph_id: {
 	    label: "paragraph_id",
@@ -10378,7 +10380,7 @@ settings.templ.la_murre = {
 		"female": "female",
 		"": "unknown"
 	    },
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	},
 	paragraph_speaker_birthdate: {
 	    label: "speaker_birthdate",
@@ -10444,7 +10446,7 @@ settings.templ.la_murre = {
 		"sub5",
 		"muu",
 	    ],
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},
 	clause_type: {
 	    label: "clause_type",
@@ -10459,7 +10461,7 @@ settings.templ.la_murre = {
 		"negopt",
 		"muu",
 	    ],
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},
 	clause_hallnum: {
 	    label: "clause_hallnum",
@@ -10472,7 +10474,7 @@ settings.templ.la_murre = {
 		"dir": "dir",
 		"": "other",
 	    },
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},
 	clause_depth: {
 	    label: "clause_depth"
@@ -11280,7 +11282,7 @@ settings.corpora.mulcold_fi = {
     title: "MULCOLD suomi",
     description: "Multilingual Corpus of Legal Documents, suomenkielinen osa",
     cite_id: "MULCOLD",
-    context: settings.defaultContext,
+    context: defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.mulcold_fi,
     structAttributes: sattrlist.mulcold
@@ -13725,7 +13727,7 @@ settings.corpora.dma = {
     },
     cite_id: "dma",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
 	searchword: {
 	    label: "search_word",
@@ -13751,7 +13753,7 @@ settings.corpora.dma = {
 		"7": "7 Savolaismurteet",
 		"8": "8 Kaakkoismurteet",
 	    },
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	},
 	text_dialect_group: {
             label: "dialect_group",
@@ -13818,7 +13820,7 @@ settings.corpora.dma = {
 		"8d": "\x08    8d Lemin murre",
 		"8e": "\x08    8e Sortavalan seudun murteet",
 	    },
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	},
 	text_parish_name: {
             label: "parish",
@@ -14134,7 +14136,7 @@ settings.corpora.dma = {
 	    // 	"Sortavala": "8e Sortavala",
 	    // 	"Uukuniemi": "8e Uukuniemi",
 	    // },
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	},
 	text_village: {
 	    label: "village",
@@ -14162,7 +14164,7 @@ settings.corpora.dma = {
 		"n": "female",
 		"": "unknown"
 	    },
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	},
 	sentence_informant_birthyear: {
             label: "informant_birthyear",
