@@ -23,7 +23,13 @@ const korpConfigDir = getKorpConfigDir()
 module.exports = {
     resolve: {
         alias: {
-            jquery: "jquery/src/jquery",
+	    // At some point, jquery appeared to require the
+            // path.resolve approach, even though in Språkbankens code
+            // it was the literal string, but later the literal string
+            // worked, too. Which is correct? Is this modification
+            // needed? (Jyrki Niemi 2020-04-28)
+            // jquery: "jquery/src/jquery",
+            jquery: path.resolve(__dirname, "node_modules/jquery/src/jquery"),
             jreject: path.resolve(__dirname, "app/lib/jquery.reject"),
             jquerylocalize: path.resolve(__dirname, "app/lib/jquery.localize"),
             jqueryhoverintent: path.resolve(__dirname, "app/lib/jquery.hoverIntent"),
