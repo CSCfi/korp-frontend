@@ -30,6 +30,12 @@ var spWithin = {
     "paragraph": "paragraph"
 };
 
+var spcWithin = {
+    "clause": "clause",
+    "sentence": "sentence",
+    "paragraph": "paragraph"
+};
+
 
 // Recurring corpus licence information (name + URL)
 settings.licenceinfo = {
