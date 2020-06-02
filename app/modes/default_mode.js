@@ -13493,7 +13493,7 @@ sattrlist.kaannossuomi = {
     },
     text_genre: {
 	label: "text_genre",
-	/*displayType: "select",
+	displayType: "select",
 	translationKey: "kaannossuomi_",
 	dataset: [
 	    "academic": "academic",
@@ -13504,7 +13504,7 @@ sattrlist.kaannossuomi = {
 	    "popular_science": "popular_science",
 	    "childrens_literature": "childrens_literature",
 	    "kauno": "kauno",
-	]*/
+	]
     },
     text_filename: { label: "file_name" },
 };
