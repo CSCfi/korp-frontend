@@ -13468,16 +13468,15 @@ attrlist.kaannossuomi = {
     deprel: attrs.deprel_tdt,
     spaces: { label: "", displayType: "hidden" },
     initid: { label: "", displayType: "hidden" },
-    // lex: attrs.lemgram_hidden,
 };
 
-/*sattrlist.kaannossuomi = {
+sattrlist.kaannossuomi = {
     text_author: { label: "text_author" },
     text_title: { label: "text_title" },
     text_year: { label: "year" },
     text_orig_lang: {
 	label: "origlang",
-	displayType: "select",
+	/*displayType: "select",
 	dataset: [
 	    "fin": "fin",
 	    "eng": "eng",
@@ -13490,11 +13489,11 @@ attrlist.kaannossuomi = {
 	    "nor": "nor",
 	    "hun": "lang_HU",
 	    "dut": "nld",
-	]
+	]*/
     },
     text_genre: {
 	label: "text_genre",
-	displayType: "select",
+	/*displayType: "select",
 	translationKey: "kaannossuomi_",
 	dataset: [
 	    "academic": "academic",
@@ -13504,11 +13503,11 @@ attrlist.kaannossuomi = {
 	    "popular_fiction": "popular_fiction",
 	    "popular_science": "popular_science",
 	    "childrens_literature": "childrens_literature",
-	    "kauno": "kauno", // fiction?
-	]
+	    "kauno": "kauno",
+	]*/
     },
     text_filename: { label: "file_name" },
-};*/
+};
 
 settings.corpora.alkusuomi = {
     title: "Käännössuomen korpus - alkusuomi (testiversio)",
@@ -13527,7 +13526,7 @@ settings.corpora.alkusuomi = {
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.kaannossuomi,
-    //struct_attributes: sattrlist.kaannossuomi,
+    struct_attributes: sattrlist.kaannossuomi,
 };
 
 settings.corpora.kaannossuomi = {
@@ -13547,7 +13546,7 @@ settings.corpora.kaannossuomi = {
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.kaannossuomi,
-    //struct_attributes: sattrlist.kaannossuomi,
+    struct_attributes: sattrlist.kaannossuomi,
 };
 
 settings.corpora.arkisyn = {
