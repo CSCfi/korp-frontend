@@ -189,6 +189,15 @@ settings.corporafolders.literature = {
 	       "parfin_2016_fi", "parrus_2016_fi", "iijoki"]
 };
 
+settings.corporafolders.kaannossuomi = {
+    title: "Käännössuomen korpus (testiversio)",
+    description: "Käännössuomen korpus on koostettu vuonna 1999 nykyisessä Itä-Suomen yliopistossa (silloisessa Joensuun yliopistossa sen kansainvälisen viestinnän laitoksella) Suomen Akatemian professori Anna Maurasen johtamassa tutkimushankkeessa Käännössuomi ja kääntämisen universaalit.<br/><br/>Korpus sisältää kaksi osaa: aluperin suomeksi kirjoitettua kieltä (supisuomi) ja eri kielistä käännettyä kieltä (käännössuomi). Seuraavat tekstilajit ovat edustettuina aineistoissa: akateemiset tekstit, kaunokirjallisuus, lastenkirjallisuus, biografia, populaarikirjallisuus, viihdekirjallisuus ja dekkarikirjallisuus. Supisuomen aineiston laajuus on yhteensä 3 773 025 sanaa ja käännössuomen aineisto 5 826 951 sanaa.",
+    contents: ["alkusuomi", "kaannossuomi"],
+    info: {
+	metadata_urn: "urn:nbn:fi:lb-2019100801",
+    }
+};
+
 settings.corporafolders.literature.skk = {
     title: "Suomalaisen kirjallisuuden klassikoita",
     contents: ["skk_aho","skk_canth","skk_finne","skk_jarnefelt","skk_kailas","skk_lassila","skk_linnankoski","skk_kramsu","skk_lehtonen","skk_leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"],
@@ -13449,6 +13458,97 @@ settings.corpora.ceal_s = {
 
 delete ceal_work_list;
 
+attrlist.kaannossuomi = {
+    ref: attrs.ref,
+    lemma: attrs.baseform,
+    lemmacomp: attrs.baseform_compound,
+    pos: attrs.pos_ud2_fi,
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel_tdt,
+    spaces: { label: "", displayType: "hidden" },
+    initid: { label: "", displayType: "hidden" },
+    // lex: attrs.lemgram_hidden,
+};
+
+sattrlist.kaannossuomi = {
+    text_author: { label: "text_author" },
+    text_title: { label: "text_title" },
+    text_year: { label: "year" },
+    text_orig_lang: {
+	label: "origlang",
+	displayType: "select",
+	dataset: [
+	    "fin": "fin",
+	    "eng": "eng",
+	    "rus": "rus",
+	    "ger": "deu",
+	    "fre": "fra",
+	    "est": "est",
+	    "swe": "swe",
+	    "spa": "spa",
+	    "nor": "nor",
+	    "hun": "lang_HU",
+	    "dut": "nld",
+	]
+    },
+    text_genre: {
+	label: "text_genre",
+	displayType: "select",
+	translationKey: "kaannossuomi_",
+	dataset: [
+	    "academic": "academic",
+	    "biography": "biography",
+	    "crime_fiction": "crime_fiction",
+	    "fiction": "fiction",
+	    "popular_fiction": "popular_fiction",
+	    "popular_science": "popular_science",
+	    "childrens_literature": "childrens_literature",
+	    "kauno": "kauno", // fiction?
+	]
+    },
+    text_filename: { label: "file_name" },
+};
+
+settings.corpora.alkusuomi = {
+    title: "Käännössuomen korpus - alkusuomi (testiversio)",
+    description: "Eri kielistä käännettyä kieltä",
+    lang: "fin",
+    id: "alkusuomi",
+    urn: "",
+    metadata_urn: "urn:nbn:fi:lb-2019100801",
+    licence: {
+	name: "",
+	urn: "",
+    },
+    cite_id: "",
+    limited_access: true,
+    licence_type: "RES",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.kaannossuomi,
+    struct_attributes: sattrlist.kaannossuomi,
+};
+
+settings.corpora.kaannossuomi = {
+    title: "Käännössuomen korpus - käännössuomi (testiversio)",
+    description: "Aluperin suomeksi kirjoitettua kieltä",
+    lang: "fin",
+    id: "kaannossuomi",
+    urn: "",
+    metadata_urn: "urn:nbn:fi:lb-2019100801",
+    licence: {
+	name: "",
+	urn: "",
+    },
+    cite_id: "",
+    limited_access: true,
+    licence_type: "RES",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.kaannossuomi,
+    struct_attributes: sattrlist.kaannossuomi,
+};
 
 settings.corpora.arkisyn = {
     title: "Arkisyn",
