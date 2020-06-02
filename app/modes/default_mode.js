@@ -13471,7 +13471,7 @@ attrlist.kaannossuomi = {
     // lex: attrs.lemgram_hidden,
 };
 
-sattrlist.kaannossuomi = {
+/*sattrlist.kaannossuomi = {
     text_author: { label: "text_author" },
     text_title: { label: "text_title" },
     text_year: { label: "year" },
@@ -13508,7 +13508,7 @@ sattrlist.kaannossuomi = {
 	]
     },
     text_filename: { label: "file_name" },
-};
+};*/
 
 settings.corpora.alkusuomi = {
     title: "Käännössuomen korpus - alkusuomi (testiversio)",
@@ -13527,7 +13527,7 @@ settings.corpora.alkusuomi = {
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.kaannossuomi,
-    struct_attributes: sattrlist.kaannossuomi,
+    //struct_attributes: sattrlist.kaannossuomi,
 };
 
 settings.corpora.kaannossuomi = {
@@ -13547,7 +13547,7 @@ settings.corpora.kaannossuomi = {
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.kaannossuomi,
-    struct_attributes: sattrlist.kaannossuomi,
+    //struct_attributes: sattrlist.kaannossuomi,
 };
 
 settings.corpora.arkisyn = {
