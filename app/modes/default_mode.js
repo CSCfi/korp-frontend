@@ -13515,13 +13515,13 @@ settings.corpora.alkusuomi = {
     description: "Eri kielistä käännettyä kieltä",
     lang: "fin",
     id: "alkusuomi",
-    urn: "",
+    //urn: "",
     metadata_urn: "urn:nbn:fi:lb-2019100801",
-    licence: {
+    /*licence: {
 	name: "",
 	urn: "",
     },
-    cite_id: "",
+    cite_id: "",*/
     limited_access: true,
     licence_type: "RES",
     within: settings.defaultWithin,
@@ -13535,13 +13535,13 @@ settings.corpora.kaannossuomi = {
     description: "Aluperin suomeksi kirjoitettua kieltä",
     lang: "fin",
     id: "kaannossuomi",
-    urn: "",
+    //urn: "",
     metadata_urn: "urn:nbn:fi:lb-2019100801",
-    licence: {
+    /*licence: {
 	name: "",
 	urn: "",
     },
-    cite_id: "",
+    cite_id: "",*/
     limited_access: true,
     licence_type: "RES",
     within: settings.defaultWithin,
