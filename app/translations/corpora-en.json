@@ -2106,6 +2106,11 @@
     "text_lang" : "language",
     "text_abslink" : "Download from E-thesis",
 
+    "ethesis_doctoral_dissertation_monograph": "Doctoral dissertation (monograph)",
+    "ethesis_doctoral_dissertation_article_based": "Doctoral dissertation (article-based)",
+    "ethesis_doctoral_dissertation": "Doctoral dissertation",
+    "ethesis_masters_thesis": "Master's thesis",
+
     "web_domain_name": "Web domain name",
     "lib_congress_classif": "Library of Congress Classification",
 

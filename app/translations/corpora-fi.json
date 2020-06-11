@@ -1988,6 +1988,11 @@
     "text_category": "aihealue",
     "text_correction_year": "editointivuosi",
 
+    "ethesis_doctoral_dissertation_monograph": "Väitöskirja (monografia)",
+    "ethesis_doctoral_dissertation_article_based": "Väitöskirja (artikkelimuotoinen)",
+    "ethesis_doctoral_dissertation": "Väitöskirja",
+    "ethesis_masters_thesis": "Pro gradu",
+
     "web_domain_name": "verkkotunnus",
     "lib_congress_classif": "Yhdysvaltain Kongressin kirjaston luokitus",
 
