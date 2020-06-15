@@ -103,6 +103,18 @@ settings.corporafolders.sv = {
 //     }
 // };
 
+settings.corporafolders.klk2_fi = {
+    title: "Kansalliskirjaston lehtikokoelma, versio 2 (KLK2), suomenkieliset lehdet",
+    description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio 2, suomenkieliset lehdet",
+    info: {
+	// urn: "urn:nbn:fi:lb-201405275",
+	// metadata_urn: "urn:nbn:fi:lb-201405276",
+	licence: settings.licenceinfo.CC_BY,
+	cite_id: "KLK2-fi",
+	labels: ["test"],
+    }
+};
+
 // /*
 // settings.corporafolders.kotus = {
 //     title: "Kotuksen korpuksia (näytteitä)",
@@ -11470,6 +11482,69 @@ attrlist.klk_fi_parsed_pagelinks = attrlist.klk_fi_parsed;
 
 // delete klk_fi_parsed_years;
 // // delete klk_fi_ner_years;
+
+
+// KLK version 2
+
+sattrlist.klk2_fi_parsed = $.extend(
+    {},
+    sattrlist.klk2,
+);
+
+sattrlist.klk2_fi_parsed_pagelinks = $.extend(
+    {},
+    sattrlist.klk2_fi_parsed,
+    sattrlist.klk_pagelinks);
+
+attrlist.klk2_fi = {
+    hyph: {
+	label: "divided_in_lines",
+	opts: settings.defaultOptions,
+    },
+    ocr: {
+	label: "ocr_word_confidence",
+	opts: settings.defaultOptions,
+    },
+    cc: {
+	label: "ocr_char_confidence",
+	opts: settings.defaultOptions,
+    },
+    vpos: {
+	label: "vertical_position",
+	opts: settings.defaultOptions,
+    },
+};
+
+attrlist.klk2_fi_parsed =
+    $.extend(
+	{},
+	attrlist.parsed_tdt,
+	attrlist.klk2_fi);
+
+settings.fn.set_attr_order(
+    attrlist.klk2_fi_parsed,
+    "lemma lemmacomp pos msd dephead deprel hyph ocr cc vpos");
+
+attrlist.klk2_fi_parsed_pagelinks = attrlist.klk2_fi_parsed;
+
+settings.fn.make_corpus_settings_by_year_decade(
+    settings.corporafolders.klk2_fi, "fi_{decade}", "klk2test_fi_{year}",
+    function(decade) {
+	return {
+	    title: decade.toString() + "-luku",
+	};
+    },
+    function(year) {
+	return settings.fn.make_klk_corpus_settings(
+	    "KLK2 suomi {year}",
+	    "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä vuodelta {year} (versio 2)",
+	    "klk2",
+	    "fi",
+	    year,
+	    true);
+    },
+    [2009, 2008, 2007, 2006, 2005, 2003, 2002, 1941, 1940, 1874, 1776, 1775]
+);
 
 
 // /*

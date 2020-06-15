@@ -1659,6 +1659,18 @@
     "klk_width": "width",
     "klk_url": "OCRUI",
     "klk_page": "sivunumero",
+
+    "ocr_word_confidence": "sanan tunnistamisen luotettavuus",
+    "ocr_char_confidence": "merkkien tunnistamisen luotettavuus",
+    "divided_in_lines": "sana jaettu riveille",
+    "vertical_position": "kohta pystysuunnassa",
+
+    "date_iso": "päiväys (ISO)",
+    "issue_date": "lehden numeron päiväys",
+    "filename_orig": "alkuperäinen tiedostonnimi",
+    "filename_metadata": "kuvailutietojen tiedostonnimi",
+    "added_in_version": "lisätty versiossa",
+
     "suomi24fi_user": "nimimerkki",
     "suomi24fi_sub": "aihealueen tarkennus",
     "suomi24fi_sect": "pääaihealue",

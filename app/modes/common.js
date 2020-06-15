@@ -448,6 +448,9 @@ attrs.ne_name = {
 sattrs.date = {
     label: "date"
 };
+sattrs.date_iso = {
+    label: "date_iso"
+};
 sattrs.time = {
     label: "time"
 };
@@ -2727,6 +2730,34 @@ sattrlist.klk = {
     sentence_id: sattrs.sentence_id_hidden
 };
 
+sattrlist.klk2 = $.extend(
+    {},
+    sattrlist.klk,
+    {
+	text_date: sattrs.date_iso,
+	text_filename_orig: {
+	    label: "filename_orig",
+	    opts: settings.defaultOptions,
+	},
+	text_filename_metadata: {
+	    label: "filename_metadata",
+	    opts: settings.defaultOptions,
+	},
+	text_add_version: {
+	    label: "added_in_version",
+	    displayType: "select",
+	    opts: settings.liteOptions,
+	    dataset: [
+		"1",
+		"2",
+	    ],
+	},
+    }
+);
+// Change the label of text_issue_date, as text_date is in ISO format
+sattrlist.klk2.text_issue_date.label = "issue_date";
+
+
 // KLK page image links used for both Finnish and Swedish
 sattrlist.klk_pagelinks = {
     text_binding_id: {
@@ -4942,11 +4973,11 @@ settings.fn.make_corpus_settings_by_year_decade = function(
 
 // Construct settings contents for a single KLK corpus
 settings.fn.make_klk_corpus_settings = function(
-    title_format, descr_format, lang, year, parsed)
+    title_format, descr_format, key_prefix, lang, year, parsed)
 {
     var year_str = year.toString();
     var ctx_type = (year <= 1911 ? "sp" : "default");
-    var attrs_key = ("klk_" + lang + (parsed ? "_parsed" : "")
+    var attrs_key = (key_prefix + "_" + lang + (parsed ? "_parsed" : "")
 		     + (year <= 1910 ? "_pagelinks" : ""));
     return {
 	title: title_format.replace("{year}", year_str),
