@@ -1,4 +1,18 @@
 
+<!-- Selkokieliset lehdet myös Selkokieli-korpuskansiossa 2020-06-18 -->
+
+Selkokieliset lehdet *Leija* ja *Selkosanomat/<wbr/>Selkouutiset*
+näkyvät nyt korpusvalikossa myös korpuskansiossa *Selkokieli*, mikä
+helpottaa kaikkien selkokieliaineistojen valitsemista.
+
+**Huomaa**, että *Leija* ja *Selkosanomat/<wbr/>Selkouutiset* ovat
+edelleen osa aineistoa *1990- ja 2000-luvun suomalaisia aikakaus- ja
+sanomalehtiä*. Jos ne valitsee sekä osana selkokieliaineistoja että
+osana muita lehtiä, korpusvalikon otsikkopalkin näyttämä korpusten
+määrä sisältää ne kahteen kertaan, mutta niistä tulevat hakutulokset
+näkyvät vain yhteen kertaan.
+
+
 <!-- Agricola-aineistoa päivitetty 2020-03-30 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2019121804" target="_blank"

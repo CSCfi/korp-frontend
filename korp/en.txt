@@ -1,4 +1,20 @@
 
+<!-- Easy-to-read Finnish magazines also in the corpus folder “Selkokieli” 2020-06-18 -->
+
+The easy-to-read Finnish magazines *Leija* and
+*Selkosanomat/<wbr/>Selkouutiset* are now also shown in the corpus
+folder *Selkokieli* (Easy-to-read Finnish), which makes it easier to
+choose all easy-to-read Finnish corpora.
+
+**Note** that *Leija* and *Selkosanomat/<wbr/>Selkouutiset* are still
+parts of the *Corpus of Finnish Magazines and Newspapers from the
+1990s and 2000s* (*1990- ja 2000-luvun suomalaisia aikakaus- ja
+sanomalehtiä*). If you choose the magazines as a part of both
+easy-to-read Finnish texts and other magazines, the number of corpora
+shown in the corpus chooser title bar counts them twice, but search
+results from them are shown only once.
+
+
 <!-- Agricola corpus updated 2020-03-30 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2019121804" target="_blank"
