@@ -965,9 +965,23 @@ settings.corporafolders.spoken.la_murre = {
 
 settings.corporafolders.selkokieli = {
     title: "Selkokieli",
-    contents: ["ylenews_fi_selko"]
+    description: "Selkokieliaineistoja<br/><br/><strong>Huomaa</strong>, että selkokieliset lehdet ovat edelleen osa aineistoa <i>1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä</i>. Niistä tulevat hakutulokset näkyvät kuitenkin vain yhteen kertaan, vaikka ne olisi valittu sekä osana selkokieliaineistoja että osana muita lehtiä.",
 };
 
+
+settings.corporafolders.selkokieli.lehdet = {
+    title: "Selkokielisiä lehtiä",
+    // Note the magazines are referred to both here and in
+    // lehdet.muut_lehdet. As a side-effect, if a Korp URL refers to
+    // these corpus ids, they are duplicated and shown in both places
+    // in the corpus chooser, and the number of corpora in the corpus
+    // chooser title bar counts them twice. However, search results
+    // come only once from each corpus, as is desirable.
+    contents: [
+	"lehdet_leija",
+	"lehdet_selkosanomat",
+    ],
+};
 
 
 settings.corporafolders.selkokieli.ylenews_fi_selko = {
