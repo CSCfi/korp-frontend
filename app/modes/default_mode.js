@@ -76,21 +76,21 @@ settings.corporafolders.sv = {
 // 		"ethesis_phd_med", "ethesis_phd_mm", "ethesis_phd_ot", "ethesis_phd_teo", "ethesis_phd_valt"]
 // };
 
-settings.corporafolders.ftb = {
-    title: "FinnTreeBank: suomen puupankki",
-    contents: ["ftb2"]
-};
+// settings.corporafolders.ftb = {
+//     title: "FinnTreeBank: suomen puupankki",
+//     contents: ["ftb2"]
+// };
 
-settings.corporafolders.ftb.ftb3 = {
-    title: "FinnTreeBank 3",
-    // info: {
-    // 	urn: "urn:nbn:fi:lb-201406021",
-    // 	metadata_urn: "urn:nbn:fi:lb-201406022",
-    // 	licence: settings.licenceinfo.CC_BY_30,
-    // 	cite_id: "FinnTreeBank3-korp",
-    // },
-    contents: ["ftb3_europarl", "ftb3_jrcacquis"]
-};
+// settings.corporafolders.ftb.ftb3 = {
+//     title: "FinnTreeBank 3",
+//     // info: {
+//     // 	urn: "urn:nbn:fi:lb-201406021",
+//     // 	metadata_urn: "urn:nbn:fi:lb-201406022",
+//     // 	licence: settings.licenceinfo.CC_BY_30,
+//     // 	cite_id: "FinnTreeBank3-korp",
+//     // },
+//     contents: ["ftb3_europarl", "ftb3_jrcacquis"]
+// };
 
 // settings.corporafolders.klk_fi = {
 //     title: "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet",
@@ -165,15 +165,15 @@ settings.corporafolders.ftb.ftb3 = {
 //     contents: ["ceal_o", "ceal_s"]
 // };
 
-settings.corporafolders.legal = {
-    title: "Juridisia tekstejä",
-    contents: [
-	// "kotus_lakidir",
-	// "legal_fi",
-	"mulcold_fi",
-	// "semfinlex",
-    ]
-};
+// settings.corporafolders.legal = {
+//     title: "Juridisia tekstejä",
+//     contents: [
+// 	// "kotus_lakidir",
+// 	// "legal_fi",
+// 	"mulcold_fi",
+// 	// "semfinlex",
+//     ]
+// };
 
 // settings.corporafolders.internet = {
 //     title: "Internet-keskusteluaineistoja",
@@ -896,29 +896,29 @@ settings.corporafolders.legal = {
 //     }
 // }
 
-settings.corporafolders.spoken = {
-    title: "Puhuttua kieltä (tekstiksi litteroituna)",
-    contents: [
-	// "kotus_sp",
-	// "skn",
-	"dma",
-	// "arkisyn",
-    ],
-    // unselected: true
-};
+// settings.corporafolders.spoken = {
+//     title: "Puhuttua kieltä (tekstiksi litteroituna)",
+//     contents: [
+// 	// "kotus_sp",
+// 	// "skn",
+// 	"dma",
+// 	// "arkisyn",
+//     ],
+//     // unselected: true
+// };
 
-settings.corporafolders.spoken.la_murre = {
-    title: "Lauseopin arkiston murrekorpus",
-    description: "Lauseopin arkiston murrekorpus edustaa kaikkia nykyisen Suomen alueella puhuttuja suomen kielen murteita sekä lisäksi niitä murteita, joita puhuttiin Neuvostoliitolle viime sotien yhteydessä luovutetuilla alueilla ennen alueiden luovuttamista. Puhujat ovat syntyneet vuosina 1860–1910 (suurin osa 1880-luvulla) ja haastattelut on tehty 1950–1970-luvuilla, jolloin puhujat ovat olleet keskimäärin 80-vuotiaita.<br/>Yhdestä pitäjänmurteesta on yleensä valittu käsiteltäväksi yksi noin tunnin laajuinen äänite. Murreaineisto on litteroitu sekä koodattu morfologisesti ja syntaktisesti. Tässä on saatavilla korpuksen versio, jossa litteraatit on karkeasti kohdistettu alkuperäisiin äänitteisiin.",
-    // unselected: true,
-    // info: {
-    // 	urn: "urn:nbn:fi:lb-2014052715",
-    // 	metadata_urn: "urn:nbn:fi:lb-2014052716",
-    // 	licence: settings.licenceinfo.CC_BY_ND_40,
-    // 	infopage_url: "https://www.kielipankki.fi/aineistot/la-murre/",
-    // 	cite_id: "LA-murre-korp",
-    // }
- };
+// settings.corporafolders.spoken.la_murre = {
+//     title: "Lauseopin arkiston murrekorpus",
+//     description: "Lauseopin arkiston murrekorpus edustaa kaikkia nykyisen Suomen alueella puhuttuja suomen kielen murteita sekä lisäksi niitä murteita, joita puhuttiin Neuvostoliitolle viime sotien yhteydessä luovutetuilla alueilla ennen alueiden luovuttamista. Puhujat ovat syntyneet vuosina 1860–1910 (suurin osa 1880-luvulla) ja haastattelut on tehty 1950–1970-luvuilla, jolloin puhujat ovat olleet keskimäärin 80-vuotiaita.<br/>Yhdestä pitäjänmurteesta on yleensä valittu käsiteltäväksi yksi noin tunnin laajuinen äänite. Murreaineisto on litteroitu sekä koodattu morfologisesti ja syntaktisesti. Tässä on saatavilla korpuksen versio, jossa litteraatit on karkeasti kohdistettu alkuperäisiin äänitteisiin.",
+//     // unselected: true,
+//     // info: {
+//     // 	urn: "urn:nbn:fi:lb-2014052715",
+//     // 	metadata_urn: "urn:nbn:fi:lb-2014052716",
+//     // 	licence: settings.licenceinfo.CC_BY_ND_40,
+//     // 	infopage_url: "https://www.kielipankki.fi/aineistot/la-murre/",
+//     // 	cite_id: "LA-murre-korp",
+//     // }
+//  };
 
 
 // settings.corporafolders.selkokieli = {
@@ -1017,7 +1017,7 @@ settings.corporafolders.test = {
  * PRESELECTED CORPORA
  * Folders will be expanded to all corpora. Optionally prefix folders with __ , which will be ignored.
  */
-settings.preselected_corpora = ["reittidemo", "__ftb"];
+settings.preselected_corpora = ["reittidemo"];
 
 /*
  * CORPORA
@@ -1179,43 +1179,43 @@ settings.corpora.testcorp_deptree = {
 // };
 
 
-settings.corpora.ftb2 = {
-    title: "FinnTreeBank 2",
-    description: "Finnish tree bank, version 2",
-    id: "ftb2",
-    urn: "urn:nbn:fi:lb-201407164",
-    metadata_urn: "urn:nbn:fi:lb-201407163",
-    licence: settings.licenceinfo.CC_BY_30,
-    cite_id: "FinnTreeBank2-korp",
-    within: settings.defaultWithin,
-    context: defaultContext,
-    attributes: {
-	lemma: attrs.baseform_ftb2,
-        pos: attrs.pos_ftb2,
-	msd: attrs.msd,
-	dephead: attrs.dephead,
-	deprel: attrs.deprel_ftb2,
-	ref: attrs.ref,
-	lex: attrs.lemgram_hidden
-    },
-    structAttributes: {
-	subcorpus_name: {
-	    label: "subcorpus_name",
-	    displayType: "select",
-	    translationKey: "subcorp_",
-	    dataset: {
-		// "news-samples": "news-samples",
-		// "sofie12": "sofie12",
-		"visk-sent": "visk-sent",
-		"wikipedia-samples": "wikipedia-samples"
-	    },
-            opts: liteOptions
-	},
-	sentence_id: sattrs.sentence_id_hidden
-    }
-//    },
-//    limited_access: true
-};
+// settings.corpora.ftb2 = {
+//     title: "FinnTreeBank 2",
+//     description: "Finnish tree bank, version 2",
+//     id: "ftb2",
+//     urn: "urn:nbn:fi:lb-201407164",
+//     metadata_urn: "urn:nbn:fi:lb-201407163",
+//     licence: settings.licenceinfo.CC_BY_30,
+//     cite_id: "FinnTreeBank2-korp",
+//     within: settings.defaultWithin,
+//     context: defaultContext,
+//     attributes: {
+// 	lemma: attrs.baseform_ftb2,
+//         pos: attrs.pos_ftb2,
+// 	msd: attrs.msd,
+// 	dephead: attrs.dephead,
+// 	deprel: attrs.deprel_ftb2,
+// 	ref: attrs.ref,
+// 	lex: attrs.lemgram_hidden
+//     },
+//     structAttributes: {
+// 	subcorpus_name: {
+// 	    label: "subcorpus_name",
+// 	    displayType: "select",
+// 	    translationKey: "subcorp_",
+// 	    dataset: {
+// 		// "news-samples": "news-samples",
+// 		// "sofie12": "sofie12",
+// 		"visk-sent": "visk-sent",
+// 		"wikipedia-samples": "wikipedia-samples"
+// 	    },
+//             opts: liteOptions
+// 	},
+// 	sentence_id: sattrs.sentence_id_hidden
+//     }
+// //    },
+// //    limited_access: true
+// };
 
 /*
 settings.corpora.ftb3 = {
@@ -1256,124 +1256,124 @@ settings.corpora.ftb3 = {
 };
 */
 
-settings.corpora.ftb3_europarl = {
-    title: "FinnTreeBank 3: EuroParl",
-    description: "Suomen puupankki, versio 3: EuroParl (Euroopan parlamentin istuntoja)",
-    id: "ftb3_europarl",
-    within: spWithin,
-    context: spContext,
-    attributes: {
-	lemma: attrs.baseform_ftb2,
-	lemmacomp: attrs.baseform_compound,
-	pos: attrs.pos_ftb31,
-	msd: attrs.msd,
-	dephead: attrs.dephead,
-	deprel: attrs.deprel_ftb2,
-	ref: attrs.ref,
-	lex: attrs.lemgram_hidden
-    },
-    structAttributes: {
-	text_filename: {
-	    label: "file_name",
-	},
-	chapter_id: {
-	    label: "chapter_id",
-	    displayType: "hidden",
-	},
-	chapter_title: {
-	    label: "chapter_title",
-	},
-	paragraph_id: {
-	    label: "paragraph_id",
-	    displayType: "hidden",
-	},
-	speech_speakerid: {
-	    label: "speech_speakerid",
-	    displayType: "hidden",
-	},
-	speech_speakername: {
-	    label: "speech_speakername",
-	},
-	speech_language: {
-	    label: "speech_language",
-	    displayType: "select",
-	    translationKey: "ftb3_europarl_language_",
-	    dataset: {
-		"bg": "bg",
-		"cs": "cs",
-		"da": "da",
-		"de": "de",
-		"el": "el",
-		"en": "en",
-		"es": "es",
-		"et": "et",
-		"eu": "eu",
-		"fi": "fi",
-		"fr": "fr",
-		"ga": "ga",
-		"hu": "hu",
-		"it": "it",
-		"lt": "lt",
-		"lv": "lv",
-		"mt": "mt",
-		"nl": "nl",
-		"pl": "pl",
-		"pt": "pt",
-		"ro": "ro",
-		"sk": "sk",
-		"sl": "sl",
-		"sv": "sv",
-		"und": "und",
-	    },
-	    opts: liteOptions
-	},
-	sentence_id: sattrs.sentence_id_hidden,
-	sentence_line: {
-	    label: "sentence_line",
-	},
-    }
-};
+// settings.corpora.ftb3_europarl = {
+//     title: "FinnTreeBank 3: EuroParl",
+//     description: "Suomen puupankki, versio 3: EuroParl (Euroopan parlamentin istuntoja)",
+//     id: "ftb3_europarl",
+//     within: spWithin,
+//     context: spContext,
+//     attributes: {
+// 	lemma: attrs.baseform_ftb2,
+// 	lemmacomp: attrs.baseform_compound,
+// 	pos: attrs.pos_ftb31,
+// 	msd: attrs.msd,
+// 	dephead: attrs.dephead,
+// 	deprel: attrs.deprel_ftb2,
+// 	ref: attrs.ref,
+// 	lex: attrs.lemgram_hidden
+//     },
+//     structAttributes: {
+// 	text_filename: {
+// 	    label: "file_name",
+// 	},
+// 	chapter_id: {
+// 	    label: "chapter_id",
+// 	    displayType: "hidden",
+// 	},
+// 	chapter_title: {
+// 	    label: "chapter_title",
+// 	},
+// 	paragraph_id: {
+// 	    label: "paragraph_id",
+// 	    displayType: "hidden",
+// 	},
+// 	speech_speakerid: {
+// 	    label: "speech_speakerid",
+// 	    displayType: "hidden",
+// 	},
+// 	speech_speakername: {
+// 	    label: "speech_speakername",
+// 	},
+// 	speech_language: {
+// 	    label: "speech_language",
+// 	    displayType: "select",
+// 	    translationKey: "ftb3_europarl_language_",
+// 	    dataset: {
+// 		"bg": "bg",
+// 		"cs": "cs",
+// 		"da": "da",
+// 		"de": "de",
+// 		"el": "el",
+// 		"en": "en",
+// 		"es": "es",
+// 		"et": "et",
+// 		"eu": "eu",
+// 		"fi": "fi",
+// 		"fr": "fr",
+// 		"ga": "ga",
+// 		"hu": "hu",
+// 		"it": "it",
+// 		"lt": "lt",
+// 		"lv": "lv",
+// 		"mt": "mt",
+// 		"nl": "nl",
+// 		"pl": "pl",
+// 		"pt": "pt",
+// 		"ro": "ro",
+// 		"sk": "sk",
+// 		"sl": "sl",
+// 		"sv": "sv",
+// 		"und": "und",
+// 	    },
+// 	    opts: liteOptions
+// 	},
+// 	sentence_id: sattrs.sentence_id_hidden,
+// 	sentence_line: {
+// 	    label: "sentence_line",
+// 	},
+//     }
+// };
 
-settings.corpora.ftb3_jrcacquis = {
-    title: "FinnTreeBank 3: JRC Acquis",
-    description: "Suomen puupankki, versio 3: JRC Acquis (EU-säädöksiä)",
-    id: "ftb3_jrcacquis",
-    within: spWithin,
-    context: spContext,
-    attributes: {
-	lemma: attrs.baseform_ftb2,
-	lemmacomp: attrs.baseform_compound,
-	pos: attrs.pos_ftb31,
-	msd: attrs.msd,
-	dephead: attrs.dephead,
-	deprel: attrs.deprel_ftb2,
-	ref: attrs.ref,
-	lex: attrs.lemgram_hidden
-    },
-    structAttributes: {
-	text_filename: {
-	    label: "file_name",
-	},
-	text_title: {
-	    label: "file_title",
-	},
-	text_codetitle: {
-	    label: "file_codetitle",
-	},
-	text_url: {
-	    label: "file_url",
-	    type: "url",
-	},
-	paragraph_id: {
-	    label: "paragraph_id",
-	    displayType: "hidden",
-	},
-	sentence_id: sattrs.sentence_id_hidden,
-	sentence_line: {
-	    label: "sentence_line",
-	}
-    }
-};
+// settings.corpora.ftb3_jrcacquis = {
+//     title: "FinnTreeBank 3: JRC Acquis",
+//     description: "Suomen puupankki, versio 3: JRC Acquis (EU-säädöksiä)",
+//     id: "ftb3_jrcacquis",
+//     within: spWithin,
+//     context: spContext,
+//     attributes: {
+// 	lemma: attrs.baseform_ftb2,
+// 	lemmacomp: attrs.baseform_compound,
+// 	pos: attrs.pos_ftb31,
+// 	msd: attrs.msd,
+// 	dephead: attrs.dephead,
+// 	deprel: attrs.deprel_ftb2,
+// 	ref: attrs.ref,
+// 	lex: attrs.lemgram_hidden
+//     },
+//     structAttributes: {
+// 	text_filename: {
+// 	    label: "file_name",
+// 	},
+// 	text_title: {
+// 	    label: "file_title",
+// 	},
+// 	text_codetitle: {
+// 	    label: "file_codetitle",
+// 	},
+// 	text_url: {
+// 	    label: "file_url",
+// 	    type: "url",
+// 	},
+// 	paragraph_id: {
+// 	    label: "paragraph_id",
+// 	    displayType: "hidden",
+// 	},
+// 	sentence_id: sattrs.sentence_id_hidden,
+// 	sentence_line: {
+// 	    label: "sentence_line",
+// 	}
+//     }
+// };
 
 // /* ==== TIEDELEHTIÄ ==== */
 
@@ -9873,640 +9873,640 @@ settings.corpora.reittidemo = {
 // };
 
 
-attrs.pos_la = {
-    label: "pos",
-    displayType: "select",
-    translationKey: "posla_",
-    dataset: {
-	"a": "a",
-	"a:pron": "a:pron",
-	"a:pron:dem": "a:pron:dem",
-	"a:pron:int": "a:pron:int",
-	"a:pron:rel": "a:pron:rel",
-	// "a:q": "a:q",
-	"adv": "adv",
-	"adv:pron": "adv:pron",
-	"adv:pron:dem": "adv:pron:dem",
-	"adv:pron:int": "adv:pron:int",
-	"adv:pron:rel": "adv:pron:rel",
-	"adv:q": "adv:q",
-	// "cnj": "cnj",
-	"cnj:coord": "cnj:coord",
-	"cnj:rel": "cnj:rel",
-	"cnj:sub": "cnj:sub",
-	"intj": "intj",
-	"muu": "muu",
-	"n": "n",
-	"neg": "neg",
-	"n:prop": "n:prop",
-	"n:prop:pname": "n:prop:pname",
-	"num:card": "num:card",
-	"num:murto": "num:murto",
-	"num:ord": "num:ord",
-	"num:ord_pron": "num:ord_pron",
-	"p:post": "p:post",
-	"p:pre": "p:pre",
-	"pron": "pron",
-	"pron:dem": "pron:dem",
-	"pron:int": "pron:int",
-	"pron:pers": "pron:pers",
-	"pron:pers12": "pron:pers12",
-	"pron:ref": "pron:ref",
-	"pron:rel": "pron:rel",
-	"punct": "punct",
-	"q": "q",
-	// "stem": "stem",
-	"v": "v",
-    },
-    opts: settings.liteOptions
-};
-// pos_las2 is for LAS2, which has codes similar to pos_la for
-// LA-murre, but fewer (and a generic "cnj").
-attrs.pos_las2 = {
-    label: "pos",
-    displayType: "select",
-    translationKey: "posla_",
-    dataset: {
-	"a": "a",
-	"adv": "adv",
-	"cnj": "cnj",
-	"intj": "intj",
-	"n": "n",
-	// pos_la uses "n:prop" for only non-person proper names, so
-	// we map "n:prop" here to correspond to any proper name.
-	"n:prop": "n:prop:any",
-	"neg": "neg",
-	"num": "num",
-	"p:post": "p:post",
-	"p:pre": "p:pre",
-	// pos_la uses bare "pron" with a more specific meaning, so we
-	// map "pron" here to correspond to any pronoun.
-	"pron": "pron:any",
-	"UNK": "UNK",
-	"v": "v",
-    },
-    opts: settings.liteOptions
-};
-attrs.func_la = {
-    label: "func",
-    displayType: "select",
-    translationKey: "funcla_",
-    dataset: {
-	"advl": "advl",
-	"advl:p": "advl:p",
-	"advl:v": "advl:v",
-	"advmod": "advmod",
-	"amod": "amod",
-	"analysoimaton": "analysoimaton",
-	"compl:o": "compl:o",
-	"compl:q": "compl:q",
-	"compl:s": "compl:s",
-	"compl:x": "compl:x",
-	"infobj": "infobj",
-	"infsubj": "infsubj",
-	"irrall": "irrall",
-	"jälkiosa": "jälkiosa",
-	"lauseyhd": "lauseyhd",
-	"lkeyhd": "lkeyhd",
-	"sanayhd_lkeyhd": "sanayhd_lkeyhd",
-	"muu": "muu",
-	"neg:prt": "neg:prt",
-	"nmod": "nmod",
-	"npobj": "npobj",
-	"npsubj": "npsubj",
-	"nummod": "nummod",
-	"osma": "osma",
-	"pmod": "pmod",
-	"pred": "pred",
-	"pred2": "pred2",
-	"pred3": "pred3",
-	"pred:ref": "pred:ref",
-	"pred:toisto": "pred:toisto",
-	"subj:nonfin": "subj:nonfin",
-	"subj:stat": "subj:stat",
-    },
-    opts: settings.liteOptions
-};
+// attrs.pos_la = {
+//     label: "pos",
+//     displayType: "select",
+//     translationKey: "posla_",
+//     dataset: {
+// 	"a": "a",
+// 	"a:pron": "a:pron",
+// 	"a:pron:dem": "a:pron:dem",
+// 	"a:pron:int": "a:pron:int",
+// 	"a:pron:rel": "a:pron:rel",
+// 	// "a:q": "a:q",
+// 	"adv": "adv",
+// 	"adv:pron": "adv:pron",
+// 	"adv:pron:dem": "adv:pron:dem",
+// 	"adv:pron:int": "adv:pron:int",
+// 	"adv:pron:rel": "adv:pron:rel",
+// 	"adv:q": "adv:q",
+// 	// "cnj": "cnj",
+// 	"cnj:coord": "cnj:coord",
+// 	"cnj:rel": "cnj:rel",
+// 	"cnj:sub": "cnj:sub",
+// 	"intj": "intj",
+// 	"muu": "muu",
+// 	"n": "n",
+// 	"neg": "neg",
+// 	"n:prop": "n:prop",
+// 	"n:prop:pname": "n:prop:pname",
+// 	"num:card": "num:card",
+// 	"num:murto": "num:murto",
+// 	"num:ord": "num:ord",
+// 	"num:ord_pron": "num:ord_pron",
+// 	"p:post": "p:post",
+// 	"p:pre": "p:pre",
+// 	"pron": "pron",
+// 	"pron:dem": "pron:dem",
+// 	"pron:int": "pron:int",
+// 	"pron:pers": "pron:pers",
+// 	"pron:pers12": "pron:pers12",
+// 	"pron:ref": "pron:ref",
+// 	"pron:rel": "pron:rel",
+// 	"punct": "punct",
+// 	"q": "q",
+// 	// "stem": "stem",
+// 	"v": "v",
+//     },
+//     opts: settings.liteOptions
+// };
+// // pos_las2 is for LAS2, which has codes similar to pos_la for
+// // LA-murre, but fewer (and a generic "cnj").
+// attrs.pos_las2 = {
+//     label: "pos",
+//     displayType: "select",
+//     translationKey: "posla_",
+//     dataset: {
+// 	"a": "a",
+// 	"adv": "adv",
+// 	"cnj": "cnj",
+// 	"intj": "intj",
+// 	"n": "n",
+// 	// pos_la uses "n:prop" for only non-person proper names, so
+// 	// we map "n:prop" here to correspond to any proper name.
+// 	"n:prop": "n:prop:any",
+// 	"neg": "neg",
+// 	"num": "num",
+// 	"p:post": "p:post",
+// 	"p:pre": "p:pre",
+// 	// pos_la uses bare "pron" with a more specific meaning, so we
+// 	// map "pron" here to correspond to any pronoun.
+// 	"pron": "pron:any",
+// 	"UNK": "UNK",
+// 	"v": "v",
+//     },
+//     opts: settings.liteOptions
+// };
+// attrs.func_la = {
+//     label: "func",
+//     displayType: "select",
+//     translationKey: "funcla_",
+//     dataset: {
+// 	"advl": "advl",
+// 	"advl:p": "advl:p",
+// 	"advl:v": "advl:v",
+// 	"advmod": "advmod",
+// 	"amod": "amod",
+// 	"analysoimaton": "analysoimaton",
+// 	"compl:o": "compl:o",
+// 	"compl:q": "compl:q",
+// 	"compl:s": "compl:s",
+// 	"compl:x": "compl:x",
+// 	"infobj": "infobj",
+// 	"infsubj": "infsubj",
+// 	"irrall": "irrall",
+// 	"jälkiosa": "jälkiosa",
+// 	"lauseyhd": "lauseyhd",
+// 	"lkeyhd": "lkeyhd",
+// 	"sanayhd_lkeyhd": "sanayhd_lkeyhd",
+// 	"muu": "muu",
+// 	"neg:prt": "neg:prt",
+// 	"nmod": "nmod",
+// 	"npobj": "npobj",
+// 	"npsubj": "npsubj",
+// 	"nummod": "nummod",
+// 	"osma": "osma",
+// 	"pmod": "pmod",
+// 	"pred": "pred",
+// 	"pred2": "pred2",
+// 	"pred3": "pred3",
+// 	"pred:ref": "pred:ref",
+// 	"pred:toisto": "pred:toisto",
+// 	"subj:nonfin": "subj:nonfin",
+// 	"subj:stat": "subj:stat",
+//     },
+//     opts: settings.liteOptions
+// };
 
 
-// LA-murre: The Finnish Dialect Syntax Archive (Lauseopin arkiston
-// murrekorpus)
-// The logical corpus is divided into physical (Korp) corpora by
-// parish (dialect).
+// // LA-murre: The Finnish Dialect Syntax Archive (Lauseopin arkiston
+// // murrekorpus)
+// // The logical corpus is divided into physical (Korp) corpora by
+// // parish (dialect).
 
-// Dialect regions, their dialect groups and their parishes. A tree
-// structure represented as an array of arrays: the first element is
-// the internal code or id of the item, the second its human-readable
-// name, and the third an array of its child elements (except in leaf
-// nodes, in which the third element is a longer alias for the parish
-// name and an optional fourth element is an object whose properties
-// are used to override the property values in the tmeplate).
-var la_murre_grouping = [
-    ["LOU", "Lounaismurteet", [
-	["VarE", "Eteläinen Varsinais-Suomi", [
-	    ["karuna", "Karuna", "karuna"],
-	    ["kisk", "Kisko", "kisko"],
-	    ["muurl", "Muurla", "muurla"],
-	    ["muuhal", "Muurla/Halikko", "muurla_halikko"],
-	    ["paim", "Paimio", "paimio"],
-	    ["pern", "Perniö", "pernio"],
-	    ["uske", "Uskela", "uskela"],
-	] ],
-	["VarP", "Pohjoinen Varsinais-Suomi", [
-	    ["eura", "Eura", "eura"],
-	    ["eurj", "Eurajoki", "eurajoki"],
-	    ["kalan", "Kalanti", "kalanti"],
-	    ["kartl", "Karjala Tl", "karjala_tl"],
-	    ["kust", "Kustavi", "kustavi"],
-	    ["laptl", "Lappi Tl", "lappi_tl"],
-	    ["luvi", "Luvia", "luvia"],
-	    ["mask", "Masku", "masku"],
-	    ["pyhm", "Pyhämaa", "pyhamaa"],
-	    ["raum", "Rauma", "rauma"],
-	    ["ryma", "Rymättylä", "rymattyla"],
-	    ["tais", "Taivassalo", "taivassalo"],
-	    ["velk", "Velkua", "velkua"],
-	] ],
-    ] ],
-    ["LVÄ", "Lounaiset välimurteet", [
-	["SatE", "Etelä-Satakunta", [
-	    ["koke", "Kokemäki", "kokemaki"],
-	    ["loim", "Loimaa", "loimaa"],
-	    ["vamp", "Vampula", "vampula"],
-	] ],
-	["SatL", "Länsi-Satakunta", [
-	    // Ahlainen has the whole text as a single paragraph,
-	    // which causes problems in the Korp context view, so
-	    // allow only the sentence context and sentence + clause
-	    // within.
-	    ["ahla", "Ahlainen", "ahlainen", {
-		context: settings.defaultContext,
-		within: settings.scWithin
-	    }],
-	    ["merk", "Merikarvia", "merikarvia"],
-	    ["noor", "Noormarkku", "noormarkku"],
-	    ["pori", "Pori", "pori"],
-	] ],
-	["VarY", "Varsinais-Suomen ylämaa", [
-	    ["kostl", "Koski Tl", "koski_tl"],
-	    ["poyt", "Pöytyä", "poytya"],
-	    ["somero", "Somero", "somero"],
-	    ["saky", "Säkylä", "sakyla"],
-	    ["tarv", "Tarvasjoki", "tarvasjoki"],
-	] ],
-	["VarU", "Länsi-Uusimaa", [
-	    ["samm", "Sammatti", "sammatti"],
-	    ["viht", "Vihti", "vihti"],
-	] ],
-    ] ],
-    ["HÄM", "Hämäläismurteet", [
-	["HämE", "Etelä-Häme", [
-	    ["hatt", "Hattula", "hattula"],
-	    ["haus", "Hausjärvi", "hausjarvi"],
-	    ["nurj", "Nurmijärvi", "nurmijarvi"],
-	    ["renk", "Renko", "renko"],
-	    ["saak", "Sääksmäki", "saaksmaki"],
-	    ["tamm", "Tammela", "tammela"],
-	] ],
-	["HämK", "Kaakkois-Häme", [
-	    ["asko", "Askola", "askola"],
-	    ["asik", "Asikkala", "asikkala"],
-	    ["lamm", "Lammi", "lammi"],
-	] ],
-	["HämP", "Pohjois-Häme", [
-	    ["juup", "Juupajoki", "juupajoki"],
-	    ["kuru", "Kuru", "kuru"],
-	    ["luop", "Luopioinen", "luopioinen"],
-	    ["pirk", "Pirkkala", "pirkkala"],
-	    ["pohjasl", "Pohjaslahti", "pohjaslahti"],
-	    ["vesl", "Vesilahti", "vesilahti"],
-	] ],
-	["SatP", "Pohjois-Satakunta", [
-	    ["ikaa", "Ikaalinen", "ikaalinen"],
-	    ["kanp", "Kankaanpää", "kankaanpaa"],
-	    ["kark", "Karkku", "karkku"],
-	    ["kihn", "Kihniö", "kihnio"],
-	    ["punl", "Punkalaidun", "punkalaidun"],
-	    ["suod", "Suodenniemi", "suodenniemi"],
-	] ],
-	["Kym", "Kymenlaakso", [
-	    ["iitt", "Iitti", "iitti"],
-	    ["lapinj", "Lapinjärvi", "lapinjarvi"],
-	    ["suur", "Suursaari", "suursaari"],
-	    ["vehk", "Vehkalahti", "vehkalahti"],
-	] ],
-    ] ],
-    ["POH", "Pohjalaismurteet", [
-	["PohE", "Etelä-Pohjanmaa", [
-	    ["isoj", "Isojoki", "isojoki"],
-	    ["kauhava", "Kauhava", "kauhava"],
-	    ["kuri", "Kurikka", "kurikka"],
-	    ["laih", "Laihia", "laihia"],
-	    ["nrmo", "Nurmo", "nurmo"],
-	    ["pers", "Peräseinäjoki", "peraseinajoki"],
-	    ["yhar", "Ylihärmä", "yliharma"],
-	] ],
-	["PohK", "Keski-Pohjanmaa", [
-	    ["haaj", "Haapajärvi", "haapajarvi"],
-	    ["haav", "Haapavesi", "haapavesi"],
-	    ["hima", "Himanka", "himanka"],
-	    ["kest", "Kestilä", "kestila"],
-	    ["lest", "Lestijärvi", "lestijarvi"],
-	    ["pyhj", "Pyhäjoki", "pyhajoki"],
-	    ["toho", "Toholampi", "toholampi"],
-	    ["vete", "Veteli", "veteli"],
-	    ["yvie", "Ylivieska", "ylivieska"],
-	] ],
-	["PohP", "Pohjois-Pohjanmaa", [
-	    ["hail", "Hailuoto", "hailuoto"],
-	    ["paav", "Paavola", "paavola"],
-	    ["temm", "Temmes", "temmes"],
-	    ["ylii", "Yli-Ii", "yli_ii"],
-	    ["ykii", "Ylikiiminki", "ylikiiminki"],
-	] ],
-	["LänP", "Länsipohja", [
-	    ["ator", "Alatornio", "alatornio"],
-	    ["muon", "Muonio", "muonio"],
-	] ],
-	["PerP", "Peräpohjola", [
-	    ["kemi", "Kemi", "kemi"],
-	    ["rova", "Rovaniemi", "rovaniemi"],
-	    ["sall", "Salla", "salla"],
-	    ["soda", "Sodankylä", "sodankyla"],
-	] ],
-    ] ],
-    ["SAV", "Savolaismurteet", [
-	["KesE", "Eteläinen Keski-Suomi", [
-	    ["joutsa", "Joutsa", "joutsa"],
-	    ["jams", "Jämsä", "jamsa"],
-	    ["sysm", "Sysmä", "sysma"],
-	] ],
-	["KesL", "Läntinen Keski-Suomi", [
-	    ["lappa", "Lappajärvi", "lappajarvi"],
-	    ["pihl", "Pihlajavesi", "pihlajavesi"],
-	    ["soin", "Soini", "soini"],
-	] ],
-	["KesP", "Pohjoinen Keski-Suomi", [
-	    ["kong", "Konginkangas", "konginkangas"],
-	    ["lauk", "Laukaa", "laukaa"],
-	    ["mult", "Multia", "multia"],
-	    ["piht", "Pihtipudas", "pihtipudas"],
-	] ],
-	["SavE", "Etelä-Savo", [
-	    ["enok", "Enonkoski", "enonkoski"],
-	    ["mikk", "Mikkeli", "mikkeli"],
-	    ["manh", "Mäntyharju", "mantyharju"],
-	    ["punh", "Punkaharju", "punkaharju"],
-	] ],
-	["SavP", "Pohjois-Savo", [
-	    ["hauv", "Haukivuori", "haukivuori"],
-	    ["lapl", "Lapinlahti", "lapinlahti"],
-	    ["lepp", "Leppävirta", "leppavirta"],
-	    ["nils", "Nilsiä", "nilsia"],
-	    ["rans", "Rantasalmi", "rantasalmi"],
-	    ["raul", "Rautalampi", "rautalampi"],
-	    ["riis", "Riistavesi", "riistavesi"],
-	    ["tervo", "Tervo", "tervo"],
-	    ["vier", "Vieremä", "vierema"],
-	] ],
-	["KarP", "Pohjois-Karjala", [
-	    ["ilom", "Ilomantsi", "ilomantsi"],
-	    ["juuk", "Juuka", "juuka"],
-	    ["kiih", "Kiihtelysvaara", "kiihtelysvaara"],
-	    ["kite", "Kitee", "kitee"],
-	    ["kont", "Kontiolahti", "kontiolahti"],
-	    ["lipe", "Liperi", "liperi"],
-	] ],
-	["Kai", "Kainuu", [
-	    ["posi", "Posio", "posio"],
-	    ["sotk", "Sotkamo", "sotkamo"],
-	    ["suos", "Suomussalmi", "suomussalmi"],
-	] ],
-    ] ],
-    ["KAA", "Kaakkoismurteet", [
-	["KarE", "Etelä-Karjala", [
-	    ["antr", "Antrea", "antrea"],
-	    ["koiv", "Koivisto", "koivisto"],
-	    ["lappe", "Lappee", "lappee"],
-	    ["luum", "Luumäki", "luumaki"],
-	    ["muol", "Muolaa", "muolaa"],
-	    ["nuij", "Nuijamaa", "nuijamaa"],
-	    ["ruok", "Ruokolahti", "ruokolahti"],
-	    ["savt", "Savitaipale", "savitaipale"],
-	    ["seis", "Seiskari", "seiskari"],
-	    ["taip", "Taipalsaari", "taipalsaari"],
-	] ],
-	["KarK", "Keski-Karjala", [
-	    ["lumv", "Lumivaara", "lumivaara"],
-	    ["pari", "Parikkala", "parikkala"],
-	    ["rautu", "Rautu", "rautu"],
-	    ["raisa", "Räisälä", "raisala"],
-	    ["sort", "Sortavala", "sortavala"],
-	] ],
-    ] ]
-];
+// // Dialect regions, their dialect groups and their parishes. A tree
+// // structure represented as an array of arrays: the first element is
+// // the internal code or id of the item, the second its human-readable
+// // name, and the third an array of its child elements (except in leaf
+// // nodes, in which the third element is a longer alias for the parish
+// // name and an optional fourth element is an object whose properties
+// // are used to override the property values in the tmeplate).
+// var la_murre_grouping = [
+//     ["LOU", "Lounaismurteet", [
+// 	["VarE", "Eteläinen Varsinais-Suomi", [
+// 	    ["karuna", "Karuna", "karuna"],
+// 	    ["kisk", "Kisko", "kisko"],
+// 	    ["muurl", "Muurla", "muurla"],
+// 	    ["muuhal", "Muurla/Halikko", "muurla_halikko"],
+// 	    ["paim", "Paimio", "paimio"],
+// 	    ["pern", "Perniö", "pernio"],
+// 	    ["uske", "Uskela", "uskela"],
+// 	] ],
+// 	["VarP", "Pohjoinen Varsinais-Suomi", [
+// 	    ["eura", "Eura", "eura"],
+// 	    ["eurj", "Eurajoki", "eurajoki"],
+// 	    ["kalan", "Kalanti", "kalanti"],
+// 	    ["kartl", "Karjala Tl", "karjala_tl"],
+// 	    ["kust", "Kustavi", "kustavi"],
+// 	    ["laptl", "Lappi Tl", "lappi_tl"],
+// 	    ["luvi", "Luvia", "luvia"],
+// 	    ["mask", "Masku", "masku"],
+// 	    ["pyhm", "Pyhämaa", "pyhamaa"],
+// 	    ["raum", "Rauma", "rauma"],
+// 	    ["ryma", "Rymättylä", "rymattyla"],
+// 	    ["tais", "Taivassalo", "taivassalo"],
+// 	    ["velk", "Velkua", "velkua"],
+// 	] ],
+//     ] ],
+//     ["LVÄ", "Lounaiset välimurteet", [
+// 	["SatE", "Etelä-Satakunta", [
+// 	    ["koke", "Kokemäki", "kokemaki"],
+// 	    ["loim", "Loimaa", "loimaa"],
+// 	    ["vamp", "Vampula", "vampula"],
+// 	] ],
+// 	["SatL", "Länsi-Satakunta", [
+// 	    // Ahlainen has the whole text as a single paragraph,
+// 	    // which causes problems in the Korp context view, so
+// 	    // allow only the sentence context and sentence + clause
+// 	    // within.
+// 	    ["ahla", "Ahlainen", "ahlainen", {
+// 		context: settings.defaultContext,
+// 		within: settings.scWithin
+// 	    }],
+// 	    ["merk", "Merikarvia", "merikarvia"],
+// 	    ["noor", "Noormarkku", "noormarkku"],
+// 	    ["pori", "Pori", "pori"],
+// 	] ],
+// 	["VarY", "Varsinais-Suomen ylämaa", [
+// 	    ["kostl", "Koski Tl", "koski_tl"],
+// 	    ["poyt", "Pöytyä", "poytya"],
+// 	    ["somero", "Somero", "somero"],
+// 	    ["saky", "Säkylä", "sakyla"],
+// 	    ["tarv", "Tarvasjoki", "tarvasjoki"],
+// 	] ],
+// 	["VarU", "Länsi-Uusimaa", [
+// 	    ["samm", "Sammatti", "sammatti"],
+// 	    ["viht", "Vihti", "vihti"],
+// 	] ],
+//     ] ],
+//     ["HÄM", "Hämäläismurteet", [
+// 	["HämE", "Etelä-Häme", [
+// 	    ["hatt", "Hattula", "hattula"],
+// 	    ["haus", "Hausjärvi", "hausjarvi"],
+// 	    ["nurj", "Nurmijärvi", "nurmijarvi"],
+// 	    ["renk", "Renko", "renko"],
+// 	    ["saak", "Sääksmäki", "saaksmaki"],
+// 	    ["tamm", "Tammela", "tammela"],
+// 	] ],
+// 	["HämK", "Kaakkois-Häme", [
+// 	    ["asko", "Askola", "askola"],
+// 	    ["asik", "Asikkala", "asikkala"],
+// 	    ["lamm", "Lammi", "lammi"],
+// 	] ],
+// 	["HämP", "Pohjois-Häme", [
+// 	    ["juup", "Juupajoki", "juupajoki"],
+// 	    ["kuru", "Kuru", "kuru"],
+// 	    ["luop", "Luopioinen", "luopioinen"],
+// 	    ["pirk", "Pirkkala", "pirkkala"],
+// 	    ["pohjasl", "Pohjaslahti", "pohjaslahti"],
+// 	    ["vesl", "Vesilahti", "vesilahti"],
+// 	] ],
+// 	["SatP", "Pohjois-Satakunta", [
+// 	    ["ikaa", "Ikaalinen", "ikaalinen"],
+// 	    ["kanp", "Kankaanpää", "kankaanpaa"],
+// 	    ["kark", "Karkku", "karkku"],
+// 	    ["kihn", "Kihniö", "kihnio"],
+// 	    ["punl", "Punkalaidun", "punkalaidun"],
+// 	    ["suod", "Suodenniemi", "suodenniemi"],
+// 	] ],
+// 	["Kym", "Kymenlaakso", [
+// 	    ["iitt", "Iitti", "iitti"],
+// 	    ["lapinj", "Lapinjärvi", "lapinjarvi"],
+// 	    ["suur", "Suursaari", "suursaari"],
+// 	    ["vehk", "Vehkalahti", "vehkalahti"],
+// 	] ],
+//     ] ],
+//     ["POH", "Pohjalaismurteet", [
+// 	["PohE", "Etelä-Pohjanmaa", [
+// 	    ["isoj", "Isojoki", "isojoki"],
+// 	    ["kauhava", "Kauhava", "kauhava"],
+// 	    ["kuri", "Kurikka", "kurikka"],
+// 	    ["laih", "Laihia", "laihia"],
+// 	    ["nrmo", "Nurmo", "nurmo"],
+// 	    ["pers", "Peräseinäjoki", "peraseinajoki"],
+// 	    ["yhar", "Ylihärmä", "yliharma"],
+// 	] ],
+// 	["PohK", "Keski-Pohjanmaa", [
+// 	    ["haaj", "Haapajärvi", "haapajarvi"],
+// 	    ["haav", "Haapavesi", "haapavesi"],
+// 	    ["hima", "Himanka", "himanka"],
+// 	    ["kest", "Kestilä", "kestila"],
+// 	    ["lest", "Lestijärvi", "lestijarvi"],
+// 	    ["pyhj", "Pyhäjoki", "pyhajoki"],
+// 	    ["toho", "Toholampi", "toholampi"],
+// 	    ["vete", "Veteli", "veteli"],
+// 	    ["yvie", "Ylivieska", "ylivieska"],
+// 	] ],
+// 	["PohP", "Pohjois-Pohjanmaa", [
+// 	    ["hail", "Hailuoto", "hailuoto"],
+// 	    ["paav", "Paavola", "paavola"],
+// 	    ["temm", "Temmes", "temmes"],
+// 	    ["ylii", "Yli-Ii", "yli_ii"],
+// 	    ["ykii", "Ylikiiminki", "ylikiiminki"],
+// 	] ],
+// 	["LänP", "Länsipohja", [
+// 	    ["ator", "Alatornio", "alatornio"],
+// 	    ["muon", "Muonio", "muonio"],
+// 	] ],
+// 	["PerP", "Peräpohjola", [
+// 	    ["kemi", "Kemi", "kemi"],
+// 	    ["rova", "Rovaniemi", "rovaniemi"],
+// 	    ["sall", "Salla", "salla"],
+// 	    ["soda", "Sodankylä", "sodankyla"],
+// 	] ],
+//     ] ],
+//     ["SAV", "Savolaismurteet", [
+// 	["KesE", "Eteläinen Keski-Suomi", [
+// 	    ["joutsa", "Joutsa", "joutsa"],
+// 	    ["jams", "Jämsä", "jamsa"],
+// 	    ["sysm", "Sysmä", "sysma"],
+// 	] ],
+// 	["KesL", "Läntinen Keski-Suomi", [
+// 	    ["lappa", "Lappajärvi", "lappajarvi"],
+// 	    ["pihl", "Pihlajavesi", "pihlajavesi"],
+// 	    ["soin", "Soini", "soini"],
+// 	] ],
+// 	["KesP", "Pohjoinen Keski-Suomi", [
+// 	    ["kong", "Konginkangas", "konginkangas"],
+// 	    ["lauk", "Laukaa", "laukaa"],
+// 	    ["mult", "Multia", "multia"],
+// 	    ["piht", "Pihtipudas", "pihtipudas"],
+// 	] ],
+// 	["SavE", "Etelä-Savo", [
+// 	    ["enok", "Enonkoski", "enonkoski"],
+// 	    ["mikk", "Mikkeli", "mikkeli"],
+// 	    ["manh", "Mäntyharju", "mantyharju"],
+// 	    ["punh", "Punkaharju", "punkaharju"],
+// 	] ],
+// 	["SavP", "Pohjois-Savo", [
+// 	    ["hauv", "Haukivuori", "haukivuori"],
+// 	    ["lapl", "Lapinlahti", "lapinlahti"],
+// 	    ["lepp", "Leppävirta", "leppavirta"],
+// 	    ["nils", "Nilsiä", "nilsia"],
+// 	    ["rans", "Rantasalmi", "rantasalmi"],
+// 	    ["raul", "Rautalampi", "rautalampi"],
+// 	    ["riis", "Riistavesi", "riistavesi"],
+// 	    ["tervo", "Tervo", "tervo"],
+// 	    ["vier", "Vieremä", "vierema"],
+// 	] ],
+// 	["KarP", "Pohjois-Karjala", [
+// 	    ["ilom", "Ilomantsi", "ilomantsi"],
+// 	    ["juuk", "Juuka", "juuka"],
+// 	    ["kiih", "Kiihtelysvaara", "kiihtelysvaara"],
+// 	    ["kite", "Kitee", "kitee"],
+// 	    ["kont", "Kontiolahti", "kontiolahti"],
+// 	    ["lipe", "Liperi", "liperi"],
+// 	] ],
+// 	["Kai", "Kainuu", [
+// 	    ["posi", "Posio", "posio"],
+// 	    ["sotk", "Sotkamo", "sotkamo"],
+// 	    ["suos", "Suomussalmi", "suomussalmi"],
+// 	] ],
+//     ] ],
+//     ["KAA", "Kaakkoismurteet", [
+// 	["KarE", "Etelä-Karjala", [
+// 	    ["antr", "Antrea", "antrea"],
+// 	    ["koiv", "Koivisto", "koivisto"],
+// 	    ["lappe", "Lappee", "lappee"],
+// 	    ["luum", "Luumäki", "luumaki"],
+// 	    ["muol", "Muolaa", "muolaa"],
+// 	    ["nuij", "Nuijamaa", "nuijamaa"],
+// 	    ["ruok", "Ruokolahti", "ruokolahti"],
+// 	    ["savt", "Savitaipale", "savitaipale"],
+// 	    ["seis", "Seiskari", "seiskari"],
+// 	    ["taip", "Taipalsaari", "taipalsaari"],
+// 	] ],
+// 	["KarK", "Keski-Karjala", [
+// 	    ["lumv", "Lumivaara", "lumivaara"],
+// 	    ["pari", "Parikkala", "parikkala"],
+// 	    ["rautu", "Rautu", "rautu"],
+// 	    ["raisa", "Räisälä", "raisala"],
+// 	    ["sort", "Sortavala", "sortavala"],
+// 	] ],
+//     ] ]
+// ];
 
-// LA-murre corpus name prefix, prefixed to a parish name
-var la_murre_corpus_prefix = "lam_";
-// Corpus name alias prefix, for redirecting the old, longer names to
-// the new, shorter ones
-var la_murre_alias_prefix = "la_murre_";
+// // LA-murre corpus name prefix, prefixed to a parish name
+// var la_murre_corpus_prefix = "lam_";
+// // Corpus name alias prefix, for redirecting the old, longer names to
+// // the new, shorter ones
+// var la_murre_alias_prefix = "la_murre_";
 
-// Extract dialect regions, groups, parishes and corpus names from
-// la_murre_grouping
-var la_murre_regions = [];
-var la_murre_groups = [];
-var la_murre_parishes = [];
-var la_murre_corpora = [];
-for (var i = 0; i < la_murre_grouping.length; i++) {
-    la_murre_regions.push(la_murre_grouping[i][0]);
-    var groups = la_murre_grouping[i][2];
-    for (var j = 0; j < groups.length; j++) {
-	la_murre_groups.push(groups[j][0]);
-	var parishes = groups[j][2];
-	for (var k = 0; k < parishes.length; k++) {
-	    la_murre_parishes.push(parishes[k][1]);
-	    var corpname = la_murre_corpus_prefix + parishes[k][0]
-	    la_murre_corpora.push(corpname);
-	    settings.corpus_aliases[la_murre_alias_prefix + parishes[k][2]] =
-		corpname;
-	}
-    }
-}
+// // Extract dialect regions, groups, parishes and corpus names from
+// // la_murre_grouping
+// var la_murre_regions = [];
+// var la_murre_groups = [];
+// var la_murre_parishes = [];
+// var la_murre_corpora = [];
+// for (var i = 0; i < la_murre_grouping.length; i++) {
+//     la_murre_regions.push(la_murre_grouping[i][0]);
+//     var groups = la_murre_grouping[i][2];
+//     for (var j = 0; j < groups.length; j++) {
+// 	la_murre_groups.push(groups[j][0]);
+// 	var parishes = groups[j][2];
+// 	for (var k = 0; k < parishes.length; k++) {
+// 	    la_murre_parishes.push(parishes[k][1]);
+// 	    var corpname = la_murre_corpus_prefix + parishes[k][0]
+// 	    la_murre_corpora.push(corpname);
+// 	    settings.corpus_aliases[la_murre_alias_prefix + parishes[k][2]] =
+// 		corpname;
+// 	}
+//     }
+// }
 
-// It would actually suffice to have the /korp-prefixed name now that
-// /var/www/html/korp is a link to /var/www/html on the public server.
-var la_murre_fulltext_url_prefix =
-    ((! settings.isPublicServer) ? "/korp" : "") + "/fulltext/la_murre/";
+// // It would actually suffice to have the /korp-prefixed name now that
+// // /var/www/html/korp is a link to /var/www/html on the public server.
+// var la_murre_fulltext_url_prefix =
+//     ((! settings.isPublicServer) ? "/korp" : "") + "/fulltext/la_murre/";
 
-// Make LA-murre fulltext URLs with the sentence id as a fragment
-// identifier and the number of the first and last token of the match
-// as the query string. This function is used as a stringify_synthetic
-// function for the fulltext URLs.
-settings.fn.make_la_murre_fulltext_url = function (token_data) {
-    var tokencnt = token_data.tokens.length;
-    var match_start = 0;
-    var match_end = 0;
-    var in_match = false;
-    for (var tokennum = 0; tokennum < tokencnt; tokennum++) {
-	if (token_data.tokens[tokennum]._match) {
-	    if (! in_match) {
-		match_start = tokennum + 1;
-		in_match = true;
-	    }
-	} else if (in_match) {
-	    match_end = tokennum;
-	    in_match = false;
-	}
-    }
-    if (in_match) {
-	match_end = tokencnt;
-    }
-    return (la_murre_fulltext_url_prefix
-	    + token_data.struct_attrs.text_filename + ".html"
-	    + "?" + match_start.toString() + "-" + match_end.toString()
-	    + "#s" + token_data.struct_attrs.sentence_num);
-};
+// // Make LA-murre fulltext URLs with the sentence id as a fragment
+// // identifier and the number of the first and last token of the match
+// // as the query string. This function is used as a stringify_synthetic
+// // function for the fulltext URLs.
+// settings.fn.make_la_murre_fulltext_url = function (token_data) {
+//     var tokencnt = token_data.tokens.length;
+//     var match_start = 0;
+//     var match_end = 0;
+//     var in_match = false;
+//     for (var tokennum = 0; tokennum < tokencnt; tokennum++) {
+// 	if (token_data.tokens[tokennum]._match) {
+// 	    if (! in_match) {
+// 		match_start = tokennum + 1;
+// 		in_match = true;
+// 	    }
+// 	} else if (in_match) {
+// 	    match_end = tokennum;
+// 	    in_match = false;
+// 	}
+//     }
+//     if (in_match) {
+// 	match_end = tokencnt;
+//     }
+//     return (la_murre_fulltext_url_prefix
+// 	    + token_data.struct_attrs.text_filename + ".html"
+// 	    + "?" + match_start.toString() + "-" + match_end.toString()
+// 	    + "#s" + token_data.struct_attrs.sentence_num);
+// };
 
-// The corpus settings template for the LA-murre corpora
-settings.templ.la_murre = {
-    // title: "Lauseopin arkiston murrekorpus",
-    // description: "Lauseopin arkiston murrekorpus",
-    // id: "la_murre",
-    within: spcWithin,
-    context: spContext,
-    attributes: {
-	cleanword: {
-	    label: "cleanword",
-	    opts: settings.defaultOptions
-	},
-	lemma: attrs.baseform,
-        pos: attrs.pos_la,
-	msd: attrs.msd,
-	func: attrs.func_la,
-	cow: {
-	    label: "cowla",
-	    displayType: "select",
-	    translationKey: "cowla_",
-	    dataset: {
-		"cw": "cw",
-		"cw1": "cw1",
-		"cw2": "cw2",
-		"": "noncw",
-	    },
-	    opts: liteOptions
-	},
-	note: {
-	    label: "note",
-	    opts: settings.defaultOptions
-	},
-	lex: attrs.lemgram_hidden
-    },
-    structAttributes: {
-	text_header: {
-	    label: "text_header"
-	},
-	text_info: {
-	    label: "text_info"
-	},
-	text_dialect_region: {
-	    label: "dialect_region",
-	    displayType: "select",
-	    translationKey: "dialect_region_",
-	    dataset: la_murre_regions,
-	    opts: liteOptions
-	},
-	text_dialect_group: {
-	    label: "dialect_group",
-	    displayType: "select",
-	    translationKey: "dialect_group_",
-	    dataset: la_murre_groups,
-	    opts: liteOptions
-	},
-	text_parish: {
-	    label: "parish",
-	    displayType: "select",
-	    localize: false,
-	    dataset: la_murre_parishes,
-	    opts: liteOptions
-	},
-	text_parish_title: {
-	    label: "text_title",
-	},
-	text_filename: {
-	    label: "file_name",
-	    displayType: "hidden"
-	},
-	text_date: sattrs.date,
-	text_session_descr: {
-	    label: "interview_descr",
-	},
-	text_content_descr: {
-	    label: "subject",
-	},
-	text_source_id: {
-	    label: "original_source",
-	},
-	paragraph_type: {
-	    label: "paragraph_type",
-	    displayType: "select",
-	    translationKey: "paragraphtype_",
-	    dataset: {
-		"interviewee": "interviewee",
-		"interviewer": "interviewer",
-		"noninterviewee": "noninterviewee",
-	    },
-	    opts: liteOptions
-	},
-	paragraph_id: {
-	    label: "paragraph_id",
-	},
-	paragraph_speaker: {
-	    label: "speaker",
-	},
-	paragraph_speaker_name: {
-	    label: "speaker_name",
-	    displayType: "hidden",
-	},
-	paragraph_speaker_age: {
-	    label: "speaker_age",
-	},
-	paragraph_speaker_sex: {
-	    label: "speaker_sex",
-	    displayType: "select",
-	    translationKey: "",
-	    dataset: {
-		"male": "male",
-		"female": "female",
-		"": "unknown"
-	    },
-	    opts: liteOptions,
-	},
-	paragraph_speaker_birthdate: {
-	    label: "speaker_birthdate",
-	},
-	paragraph_speaker_descr: {
-	    label: "speaker_descr",
-	},
-	paragraph_begin_time: {
-	    label: "speech_begin_time"
-	},
-	paragraph_duration: {
-	    label: "speech_duration"
-	},
-	paragraph_annex_link: sattrs.link_prefixed(
-	    "listen_speech",
-	    "https://lat.csc.fi/ds/annex/runLoader?"),
-	// sentence_source: {
-	//     label: "sentence_source"
-	// },
-	sentence_clnum: {
-	    label: "sentence_clnum",
-	},
-	sentence_num: {
-	    label: "sentence_num",
-	},
-	sentence_wnum: {
-	    label: "sentence_wnum",
-	},
-	sentence_id: sattrs.sentence_id_hidden,
-	sentence_begin_time: {
-	    label: "sentence_begin_time"
-	},
-	sentence_duration: {
-	    label: "sentence_duration"
-	},
-	sentence_annex_link: sattrs.link_prefixed(
-	    "listen_sentence",
-	    "https://lat.csc.fi/ds/annex/runLoader?"),
-	sentence_fulltext_link:  {
-	    label: "show_fulltext",
-	    type: "url",
-	    url_opts: sattrs.link_url_opts,
-	    synthetic: true,
-	    stringify_synthetic: settings.fn.make_la_murre_fulltext_url,
-	},
-	clause_clnum: {
-	    label: "clause_clnum",
-	},
-	clause_num: {
-	    label: "clause_num",
-	},
-	clause_hier: {
-	    label: "clause_hier",
-	    displayType: "select",
-	    translationKey: "clausehier_",
-	    dataset: [
-		"irrall",
-		"main",
-		"sub1",
-		"sub2",
-		"sub3",
-		"sub4",
-		"sub5",
-		"muu",
-	    ],
-	    opts: liteOptions
-	},
-	clause_type: {
-	    label: "clause_type",
-	    displayType: "select",
-	    translationKey: "clausetype_",
-	    dataset: [
-		"affdecl",
-		"negdecl",
-		"affint",
-		"negint",
-		"affopt",
-		"negopt",
-		"muu",
-	    ],
-	    opts: liteOptions
-	},
-	clause_hallnum: {
-	    label: "clause_hallnum",
-	},
-	clause_ora: {
-	    label: "clause_ora",
-	    displayType: "select",
-	    translationKey: "clauseora_",
-	    dataset: {
-		"dir": "dir",
-		"": "other",
-	    },
-	    opts: liteOptions
-	},
-	clause_depth: {
-	    label: "clause_depth"
-	},
-	clause_partnum: {
-	    label: "clause_partnum",
-	}
-    },
-    sidebar_display_order: {
-	attributes: [
-	    "cleanword",
-	    "lemma",
-	    "pos",
-	    "msd",
-	    "func",
-	    "cow",
-	    "note",
-	],
-	struct_attributes: [
-	    "text_dialect_region",
-	    "text_dialect_group",
-	    "text_parish",
-	    /^text_/,
-	    /^paragraph_/,
-	    /^sentence_/,
-	    /^clause_/,
-	],
-    },
-    // Ignore any number of punctuation tokens between tokens in the
-    // extended search
-    ignore_between_tokens_cqp: '[pos="punct"]*',
-};
+// // The corpus settings template for the LA-murre corpora
+// settings.templ.la_murre = {
+//     // title: "Lauseopin arkiston murrekorpus",
+//     // description: "Lauseopin arkiston murrekorpus",
+//     // id: "la_murre",
+//     within: spcWithin,
+//     context: spContext,
+//     attributes: {
+// 	cleanword: {
+// 	    label: "cleanword",
+// 	    opts: settings.defaultOptions
+// 	},
+// 	lemma: attrs.baseform,
+//         pos: attrs.pos_la,
+// 	msd: attrs.msd,
+// 	func: attrs.func_la,
+// 	cow: {
+// 	    label: "cowla",
+// 	    displayType: "select",
+// 	    translationKey: "cowla_",
+// 	    dataset: {
+// 		"cw": "cw",
+// 		"cw1": "cw1",
+// 		"cw2": "cw2",
+// 		"": "noncw",
+// 	    },
+// 	    opts: liteOptions
+// 	},
+// 	note: {
+// 	    label: "note",
+// 	    opts: settings.defaultOptions
+// 	},
+// 	lex: attrs.lemgram_hidden
+//     },
+//     structAttributes: {
+// 	text_header: {
+// 	    label: "text_header"
+// 	},
+// 	text_info: {
+// 	    label: "text_info"
+// 	},
+// 	text_dialect_region: {
+// 	    label: "dialect_region",
+// 	    displayType: "select",
+// 	    translationKey: "dialect_region_",
+// 	    dataset: la_murre_regions,
+// 	    opts: liteOptions
+// 	},
+// 	text_dialect_group: {
+// 	    label: "dialect_group",
+// 	    displayType: "select",
+// 	    translationKey: "dialect_group_",
+// 	    dataset: la_murre_groups,
+// 	    opts: liteOptions
+// 	},
+// 	text_parish: {
+// 	    label: "parish",
+// 	    displayType: "select",
+// 	    localize: false,
+// 	    dataset: la_murre_parishes,
+// 	    opts: liteOptions
+// 	},
+// 	text_parish_title: {
+// 	    label: "text_title",
+// 	},
+// 	text_filename: {
+// 	    label: "file_name",
+// 	    displayType: "hidden"
+// 	},
+// 	text_date: sattrs.date,
+// 	text_session_descr: {
+// 	    label: "interview_descr",
+// 	},
+// 	text_content_descr: {
+// 	    label: "subject",
+// 	},
+// 	text_source_id: {
+// 	    label: "original_source",
+// 	},
+// 	paragraph_type: {
+// 	    label: "paragraph_type",
+// 	    displayType: "select",
+// 	    translationKey: "paragraphtype_",
+// 	    dataset: {
+// 		"interviewee": "interviewee",
+// 		"interviewer": "interviewer",
+// 		"noninterviewee": "noninterviewee",
+// 	    },
+// 	    opts: liteOptions
+// 	},
+// 	paragraph_id: {
+// 	    label: "paragraph_id",
+// 	},
+// 	paragraph_speaker: {
+// 	    label: "speaker",
+// 	},
+// 	paragraph_speaker_name: {
+// 	    label: "speaker_name",
+// 	    displayType: "hidden",
+// 	},
+// 	paragraph_speaker_age: {
+// 	    label: "speaker_age",
+// 	},
+// 	paragraph_speaker_sex: {
+// 	    label: "speaker_sex",
+// 	    displayType: "select",
+// 	    translationKey: "",
+// 	    dataset: {
+// 		"male": "male",
+// 		"female": "female",
+// 		"": "unknown"
+// 	    },
+// 	    opts: liteOptions,
+// 	},
+// 	paragraph_speaker_birthdate: {
+// 	    label: "speaker_birthdate",
+// 	},
+// 	paragraph_speaker_descr: {
+// 	    label: "speaker_descr",
+// 	},
+// 	paragraph_begin_time: {
+// 	    label: "speech_begin_time"
+// 	},
+// 	paragraph_duration: {
+// 	    label: "speech_duration"
+// 	},
+// 	paragraph_annex_link: sattrs.link_prefixed(
+// 	    "listen_speech",
+// 	    "https://lat.csc.fi/ds/annex/runLoader?"),
+// 	// sentence_source: {
+// 	//     label: "sentence_source"
+// 	// },
+// 	sentence_clnum: {
+// 	    label: "sentence_clnum",
+// 	},
+// 	sentence_num: {
+// 	    label: "sentence_num",
+// 	},
+// 	sentence_wnum: {
+// 	    label: "sentence_wnum",
+// 	},
+// 	sentence_id: sattrs.sentence_id_hidden,
+// 	sentence_begin_time: {
+// 	    label: "sentence_begin_time"
+// 	},
+// 	sentence_duration: {
+// 	    label: "sentence_duration"
+// 	},
+// 	sentence_annex_link: sattrs.link_prefixed(
+// 	    "listen_sentence",
+// 	    "https://lat.csc.fi/ds/annex/runLoader?"),
+// 	sentence_fulltext_link:  {
+// 	    label: "show_fulltext",
+// 	    type: "url",
+// 	    url_opts: sattrs.link_url_opts,
+// 	    synthetic: true,
+// 	    stringify_synthetic: settings.fn.make_la_murre_fulltext_url,
+// 	},
+// 	clause_clnum: {
+// 	    label: "clause_clnum",
+// 	},
+// 	clause_num: {
+// 	    label: "clause_num",
+// 	},
+// 	clause_hier: {
+// 	    label: "clause_hier",
+// 	    displayType: "select",
+// 	    translationKey: "clausehier_",
+// 	    dataset: [
+// 		"irrall",
+// 		"main",
+// 		"sub1",
+// 		"sub2",
+// 		"sub3",
+// 		"sub4",
+// 		"sub5",
+// 		"muu",
+// 	    ],
+// 	    opts: liteOptions
+// 	},
+// 	clause_type: {
+// 	    label: "clause_type",
+// 	    displayType: "select",
+// 	    translationKey: "clausetype_",
+// 	    dataset: [
+// 		"affdecl",
+// 		"negdecl",
+// 		"affint",
+// 		"negint",
+// 		"affopt",
+// 		"negopt",
+// 		"muu",
+// 	    ],
+// 	    opts: liteOptions
+// 	},
+// 	clause_hallnum: {
+// 	    label: "clause_hallnum",
+// 	},
+// 	clause_ora: {
+// 	    label: "clause_ora",
+// 	    displayType: "select",
+// 	    translationKey: "clauseora_",
+// 	    dataset: {
+// 		"dir": "dir",
+// 		"": "other",
+// 	    },
+// 	    opts: liteOptions
+// 	},
+// 	clause_depth: {
+// 	    label: "clause_depth"
+// 	},
+// 	clause_partnum: {
+// 	    label: "clause_partnum",
+// 	}
+//     },
+//     sidebar_display_order: {
+// 	attributes: [
+// 	    "cleanword",
+// 	    "lemma",
+// 	    "pos",
+// 	    "msd",
+// 	    "func",
+// 	    "cow",
+// 	    "note",
+// 	],
+// 	struct_attributes: [
+// 	    "text_dialect_region",
+// 	    "text_dialect_group",
+// 	    "text_parish",
+// 	    /^text_/,
+// 	    /^paragraph_/,
+// 	    /^sentence_/,
+// 	    /^clause_/,
+// 	],
+//     },
+//     // Ignore any number of punctuation tokens between tokens in the
+//     // extended search
+//     ignore_between_tokens_cqp: '[pos="punct"]*',
+// };
 
 // The following is now superseded with the more general
 // settings.fn.make_folder_hierarchy.
@@ -10552,41 +10552,41 @@ settings.templ.la_murre = {
 // settings.fn.make_folders_la_murre(
 //     settings.corporafolders.spoken.la_murre, la_murre_grouping, 1, 3);
 
-settings.fn.make_folder_hierarchy(
-    settings.corporafolders.spoken.la_murre, la_murre_grouping,
-    {
-	id_prefix: la_murre_corpus_prefix,
-	folder_description_prefix: "Lauseopin arkiston murrekorpus: ",
-	corpus_title_suffix: " (LA-murre)",
-	make_corpus_description: function (data) {
-	    return "Lauseopin arkiston murrekorpus: " + data[1];
-	},
-	corpus_template: settings.templ.la_murre,
-    });
+// settings.fn.make_folder_hierarchy(
+//     settings.corporafolders.spoken.la_murre, la_murre_grouping,
+//     {
+// 	id_prefix: la_murre_corpus_prefix,
+// 	folder_description_prefix: "Lauseopin arkiston murrekorpus: ",
+// 	corpus_title_suffix: " (LA-murre)",
+// 	make_corpus_description: function (data) {
+// 	    return "Lauseopin arkiston murrekorpus: " + data[1];
+// 	},
+// 	corpus_template: settings.templ.la_murre,
+//     });
 
 
-// Construct a shorthand alias
-settings.corpus_aliases.la_murre = la_murre_corpora.join(",");
-settings.corpus_aliases["la-murre"] = settings.corpus_aliases.la_murre;
+// // Construct a shorthand alias
+// settings.corpus_aliases.la_murre = la_murre_corpora.join(",");
+// settings.corpus_aliases["la-murre"] = settings.corpus_aliases.la_murre;
 
-// Configure a short URL: preselect only the LA-murre corpus folder
-// (all its subcorpora)
-settings.short_url_config.la_murre =
-    function () {
-        settings.preselected_corpora = ["__spoken.la_murre"];
-        // // Other modes and corpora could be excluded
-        // settings.modeConfig = settings.modeConfig.slice(0, 1);
-        // settings.fn.remove_matching_corpora(["lam_.*"], true);
-    }
-settings.short_url_config["la-murre"] = settings.short_url_config.la_murre;
+// // Configure a short URL: preselect only the LA-murre corpus folder
+// // (all its subcorpora)
+// settings.short_url_config.la_murre =
+//     function () {
+//         settings.preselected_corpora = ["__spoken.la_murre"];
+//         // // Other modes and corpora could be excluded
+//         // settings.modeConfig = settings.modeConfig.slice(0, 1);
+//         // settings.fn.remove_matching_corpora(["lam_.*"], true);
+//     }
+// settings.short_url_config["la-murre"] = settings.short_url_config.la_murre;
 
-// Delete the variables used for constructing the settings
-delete la_murre_grouping;
-delete la_murre_regions;
-delete la_murre_groups;
-delete la_murre_parishes;
-delete la_murre_corpora;
-delete la_murre_corpus_prefix;
+// // Delete the variables used for constructing the settings
+// delete la_murre_grouping;
+// delete la_murre_regions;
+// delete la_murre_groups;
+// delete la_murre_parishes;
+// delete la_murre_corpora;
+// delete la_murre_corpus_prefix;
 
 
 // // LAS2
@@ -11277,19 +11277,19 @@ delete la_murre_corpus_prefix;
 
 // MULCOLD
 
-settings.corpora.mulcold_fi = {
-    id: "mulcold_fi",
-    title: "MULCOLD suomi",
-    description: "Multilingual Corpus of Legal Documents, suomenkielinen osa",
-    cite_id: "MULCOLD",
-    context: defaultContext,
-    within: settings.defaultWithin,
-    attributes: attrlist.mulcold_fi,
-    structAttributes: sattrlist.mulcold
-};
+// settings.corpora.mulcold_fi = {
+//     id: "mulcold_fi",
+//     title: "MULCOLD suomi",
+//     description: "Multilingual Corpus of Legal Documents, suomenkielinen osa",
+//     cite_id: "MULCOLD",
+//     context: defaultContext,
+//     within: settings.defaultWithin,
+//     attributes: attrlist.mulcold_fi,
+//     structAttributes: sattrlist.mulcold
+// };
 
-settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
-				   ["mulcold_fi"]);
+// settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
+// 				   ["mulcold_fi"]);
 
 
 // /* ParFin Finnish */
@@ -13702,569 +13702,569 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
 // settings.corpus_aliases["topling-fi"] = "topling_fi";
 
 
-/* DMA – Digitaalinen muoto-opin arkisto (Digital Morphology Archives) */
+// /* DMA – Digitaalinen muoto-opin arkisto (Digital Morphology Archives) */
 
-// Return a stringify function for a dataset attribute attrname in the
-// DMA corpus. The stringify function returns the value as mapped
-// through the dataset, without localization.
-settings.fn.dma_stringify_dataset_value = function (attrname) {
-    return function (value) {
-	return settings.corpora.dma.struct_attributes[attrname].dataset[value];
-    };
-};
+// // Return a stringify function for a dataset attribute attrname in the
+// // DMA corpus. The stringify function returns the value as mapped
+// // through the dataset, without localization.
+// settings.fn.dma_stringify_dataset_value = function (attrname) {
+//     return function (value) {
+// 	return settings.corpora.dma.struct_attributes[attrname].dataset[value];
+//     };
+// };
 
-settings.corpora.dma = {
-    title: "DMA – Digitaalinen muoto-opin arkisto",
-    description: "DMA – Digitaalinen muoto-opin arkisto<br/><a href='https://www.kielipankki.fi/tuki/korp-dma/' target='_blank'>Ohjeita DMA:n käyttämiseen Korpissa</a>, erityisesti verrattuna vanhaan CSC:n Tutkijan käyttöliittymän DMA:han<br/><strong>Huomaa</strong>, että vaikka aineiston tekstiosa on kaikkien käytettävisssä, PDF-muotoisten sanalippujen katseleminen edellyttää Kielipankin oikeudet -sovelluksen kautta haettua <a href='https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource=urn:nbn:fi:lb-201403261&target=application' target='_blank'>DMA:n käyttölupaa</a>.",
-    id: "dma",
-    urn: "urn:nbn:fi:lb-2016032102",
-    metadata_urn: "urn:nbn:fi:lb-201403261",
-    homepage_url: "http://www.helsinki.fi/fus/research/ma.html",
-    // TODO (util.coffee): Allow an array of values for licence.
-    licence: {
-	name: "CC BY 4.0 (teksti) / CLARIN RES +PRIV +ND (PDF-sanaliput)",
-	urn: "urn:nbn:fi:lb-2016042202",
-    },
-    cite_id: "dma",
-    within: settings.defaultWithin,
-    context: defaultContext,
-    attributes: {
-	searchword: {
-	    label: "search_word",
-	    opts: settings.defaultOptions,
-	}
-    },
-    structAttributes: {
-	text_dialect_region: {
-	    label: "dialect_region",
-	    displayType: "select",
-	    localize: false,
-	    // The values of the dataset are shown for the keys
-	    // without localization.
-	    stringify: settings.fn.dma_stringify_dataset_value(
-		"text_dialect_region"),
-	    dataset: {
-		"1": "1 Lounaismurteet",
-		"2": "2 Lounaiset välimurteet",
-		"3": "3 Hämäläismurteet",
-		"4": "4 Etelä-Pohjanmaan murteet",
-		"5": "5 Keski- ja Pohjois-Pohjanmaan murteet",
-		"6": "6 Peräpohjolan murteet",
-		"7": "7 Savolaismurteet",
-		"8": "8 Kaakkoismurteet",
-	    },
-	    opts: liteOptions,
-	},
-	text_dialect_group: {
-            label: "dialect_group",
-	    displayType: "select",
-	    localize: false,
-	    stringify: function (value) {
-		return (settings.corpora.dma.struct_attributes
-			.text_dialect_group.dataset[value]
-			.replace(/[\x00-\x1F ]+/g, ""));
-	    },
-	    dataset: {
-		// The control characters \x01–\x08 are used to get
-		// the desired sorting order. They are invisible in
-		// the output, but could they cause problems in some
-		// cases?
-		// FIXME: Yes: the control characters seem to be shown
-		// as symbols in the extended search selection list in
-		// Chromium on Linux, even though they are invisible
-		// in Firefox on Linux.
-		"[1-6].?": "\x011–6 Länsimurteet",
-		"1.": "\x01  1 Lounaismurteet",
-		"1a": "\x01    1a pohjoisryhmä",
-		"1b": "\x01    1b itäryhmä",
-		"2.": "\x02  2 Lounaiset välimurteet",
-		"2a": "\x02    2a Porin seudun murteet",
-		"2b": "\x02    2b Ala-Satakunnan murteet",
-		"2c": "\x02    2c Turun ylämaan murteet",
-		"2d": "\x02    2d Someron murre",
-		"2e": "\x02    2e Länsi-Uudenmaan murteet",
-		"3.": "\x03  3 Hämäläismurteet",
-		"3a": "\x03    3a Ylä-Satakunnan murteet",
-		"3b": "\x03    3b perihämäläiset murteet",
-		"3c": "\x03    3c etelähämäläiset murteet",
-		"3[d-f]": "\x03    3d–f kaakkoishämäläiset murteet",
-		"3d": "\x03      3d Hollolan ryhmä",
-		"3e": "\x03      3e Porvoon ryhmä",
-		"3f": "\x03      3f Kymenlaakson ryhmä",
-		"4": "\x04  4 Etelä-Pohjanmaan murteet",
-		"5.": "\x05  5 Keski- ja Pohjois-Pohjanmaan murteet",
-		"5a": "\x05    5a Keski-Pohjanmaan murteet",
-		"5b": "\x05    5b Pohjois-Pohjanmaan murteet",
-		"6.": "\x06  6 Peräpohjolan murteet",
-		"6a": "\x06    6a Tornion murre",
-		"6b": "\x06    6b Jällivaaran murre",
-		"6c": "\x06    6c Kemin murre",
-		"6d": "\x06    6d Kemijärven murre",
-		"6e": "\x06    6e Ruijan murre",
-		"[7-8].": "\x077–8 Itämurteet",
-		"7.": "\x07  7 Savolaismurteet",
-		"7a": "\x07    7a Päijät-Hämeen murteet",
-		"7b": "\x07    7b Etelä-Savon murteet",
-		"7c": "\x07    7c Säämingin–Kerimäen ryhmä",
-		"7d": "\x07    7d itäiset savolaismurteet",
-		"7e": "\x07    7e Pohjois-Savon murteet",
-		"7f": "\x07    7f Keski-Suomen murteet",
-		"7g": "\x07    7g savolaiskiilan murteet",
-		"7h": "\x07    7h Kainuun murteet",
-		"7i": "\x07    7i Vermlannin murteet",
-		"8.": "\x08  8 Kaakkoismurteet",
-		"8[a–b]": "\x08    \x018a–b varsinaiset kaakkoismurteet",
-		"8a": "\x08    \x01  8a Länsi-Kannaksen murteet",
-		"8b": "\x08    \x01  8b Itä-Kannaksen murteet",
-		"8c": "\x08    8c Inkerin suomalaismurteet",
-		"8d": "\x08    8d Lemin murre",
-		"8e": "\x08    8e Sortavalan seudun murteet",
-	    },
-	    opts: liteOptions,
-	},
-	text_parish_name: {
-            label: "parish",
-	    displayType: "select",
-	    localize: false,
-	    // translationKey: "",
-	    dataset: [
-		"Artjärvi",
-		"Asikkala",
-		"Askola",
-		"Eurajoki",
-		"Haapavesi",
-		"Halikko",
-		"Halsua",
-		"Hausjärvi",
-		"Heinjoki",
-		"Heinävesi",
-		"Himanka",
-		"Hinnerjoki",
-		"Hirvensalmi",
-		"Honkajoki",
-		"Honkilahti",
-		"Ilmajoki",
-		"Ilomantsi",
-		"Isojoki",
-		"Itä-Ruija",
-		"Jalasjärvi",
-		"Joutsa",
-		"Joutseno",
-		"Juupajoki",
-		"Jällivaara",
-		"Järvisaari",
-		"Kaarina",
-		"Kajaani",
-		"Kalajoki",
-		"Kalvola",
-		"Kangasala",
-		"Kankaanpää",
-		"Kannonkoski",
-		"Karstula",
-		"Karttula",
-		"Kauhava",
-		"Kaustinen",
-		"Kemijärvi",
-		"Keminmlk",
-		"Kerimäki",
-		"Kesälahti",
-		"Keuruu",
-		"Kiikka",
-		"Kitee",
-		"Kittilä",
-		"Kiuruvesi",
-		"Kivennapa",
-		"Koivisto",
-		"Kolari",
-		"Kontiolahti",
-		"Korpilahti",
-		"Kuhmoinen",
-		"Kuivaniemi",
-		"Kurikka",
-		"Kuru",
-		"Kymi",
-		"Käkisalmi",
-		"Kälviä",
-		"Kärsämäki",
-		"Laihia",
-		"Laitila",
-		"Lapinlahti",
-		"Lappajärvi",
-		"Lappee",
-		"Laukaa",
-		"Lavansaari",
-		"Lemi",
-		"Leppävirta",
-		"Liperi",
-		"Loimaa",
-		"Luhanka",
-		"Lumivaara",
-		"Luumäki",
-		"Markkova",
-		"Masku",
-		"Merikarvia",
-		"Merimasku",
-		"Miehikkälä",
-		"Mietoinen",
-		"Mikkelinmlk",
-		"Myrskylä",
-		"Mäntyharju",
-		"Nivala",
-		"Nousiainen",
-		"Nummi",
-		"Nurmes",
-		"Orimattila",
-		"Oulujoki",
-		"Paavola",
-		"Parkano",
-		"Pattijoki",
-		"Perho",
-		"Pieksämäki",
-		"Pielisjärvi",
-		"Pihtipudas",
-		"Polvijärvi",
-		"Pori",
-		"Pornainen",
-		"Pudasjärvi",
-		"Pyhäjoki",
-		"Pyhäjärvi Ol.",
-		"Pöytyä",
-		"Raisi",
-		"Rauma",
-		"Rautio",
-		"Reisjärvi",
-		"Ristiina",
-		"Ruokolahti",
-		"Ruovesi",
-		"Rymättylä",
-		"Saarijärvi",
-		"Salla",
-		"Sauvo",
-		"Savitaipale",
-		"Siilinjärvi",
-		"Simo",
-		"Sodankylä",
-		"Somero",
-		"Sonkajärvi",
-		"Sortavala",
-		"Sumiainen",
-		"Suomusjärvi",
-		"Suomussalmi",
-		"Sysmä",
-		"Sääksmäki",
-		"Sääminki",
-		"Taivassalo",
-		"Tammela",
-		"Teisko",
-		"Tuulos",
-		"Tuusniemi",
-		"Tuutari",
-		"Töysä",
-		"Uukuniemi",
-		"Uurainen",
-		"Uusikirkko Vpl.",
-		"Valkeala",
-		"Vehkalahti",
-		"Vehmersalmi",
-		"Vermlanti",
-		"Vesanto",
-		"Veteli",
-		"Vihti",
-		"Viipurin mlk.",
-		"Virolahti",
-		"Virrat",
-		"Vähäkyrö",
-		"Yli-Ii",
-		"Ylihärmä",
-		"Ylitornio",
-		"Ypäjä",
-		"Ähtäri",
-	    ],
-	    // // An alternative with dialect group code preprended
-	    // stringify: settings.fn.dma_stringify_dataset_value(
-	    // 	"text_parish_name"),
-	    // dataset: {
-	    // 	"Eurajoki": "1a Eurajoki",
-	    // 	"Hinnerjoki": "1a Hinnerjoki",
-	    // 	"Honkilahti": "1a Honkilahti",
-	    // 	"Laitila": "1a Laitila",
-	    // 	"Masku": "1a Masku",
-	    // 	"Merimasku": "1a Merimasku",
-	    // 	"Mietoinen": "1a Mietoinen",
-	    // 	"Nousiainen": "1a Nousiainen",
-	    // 	"Rauma": "1a Rauma",
-	    // 	"Rymättylä": "1a Rymättylä",
-	    // 	"Taivassalo": "1a Taivassalo",
-	    // 	"Halikko": "1b Halikko",
-	    // 	"Kaarina": "1b Kaarina",
-	    // 	"Sauvo": "1b Sauvo",
-	    // 	"Suomusjärvi": "1b Suomusjärvi",
-	    // 	"Merikarvia": "2a Merikarvia",
-	    // 	"Pori": "2a Pori",
-	    // 	"Loimaa": "2b Loimaa",
-	    // 	"Pöytyä": "2c Pöytyä",
-	    // 	"Somero": "2d Somero",
-	    // 	"Nummi": "2e Nummi",
-	    // 	"Vihti": "2e Vihti",
-	    // 	"Honkajoki": "3a Honkajoki",
-	    // 	"Kankaanpää": "3a Kankaanpää",
-	    // 	"Kiikka": "3a Kiikka",
-	    // 	"Parkano": "3a Parkano",
-	    // 	"Virrat": "3a Virrat",
-	    // 	"Juupajoki": "3b Juupajoki",
-	    // 	"Kalvola": "3b Kalvola",
-	    // 	"Kangasala": "3b Kangasala",
-	    // 	"Kuru": "3b Kuru",
-	    // 	"Ruovesi": "3b Ruovesi",
-	    // 	"Sääksmäki": "3b Sääksmäki",
-	    // 	"Teisko": "3b Teisko",
-	    // 	"Tuulos": "3b Tuulos",
-	    // 	"Hausjärvi": "3c Hausjärvi",
-	    // 	"Tammela": "3c Tammela",
-	    // 	"Ypäjä": "3c Ypäjä",
-	    // 	"Asikkala": "3d Asikkala",
-	    // 	"Orimattila": "3d Orimattila",
-	    // 	"Askola": "3e Askola",
-	    // 	"Myrskylä": "3e Myrskylä",
-	    // 	"Pornainen": "3e Pornainen",
-	    // 	"Artjärvi": "3f Artjärvi",
-	    // 	"Kymi": "3f Kymi",
-	    // 	"Valkeala": "3f Valkeala",
-	    // 	"Vehkalahti": "3f Vehkalahti",
-	    // 	"Ilmajoki": "4 Ilmajoki",
-	    // 	"Isojoki": "4 Isojoki",
-	    // 	"Jalasjärvi": "4 Jalasjärvi",
-	    // 	"Kauhava": "4 Kauhava",
-	    // 	"Kurikka": "4 Kurikka",
-	    // 	"Laihia": "4 Laihia",
-	    // 	"Töysä": "4 Töysä",
-	    // 	"Vähäkyrö": "4 Vähäkyrö",
-	    // 	"Ylihärmä": "4 Ylihärmä",
-	    // 	"Haapavesi": "5a Haapavesi",
-	    // 	"Halsua": "5a Halsua",
-	    // 	"Himanka": "5a Himanka",
-	    // 	"Kalajoki": "5a Kalajoki",
-	    // 	"Kälviä": "5a Kälviä",
-	    // 	"Kärsämäki": "5a Kärsämäki",
-	    // 	"Kaustinen": "5a Kaustinen",
-	    // 	"Nivala": "5a Nivala",
-	    // 	"Perho": "5a Perho",
-	    // 	"Pyhäjoki": "5a Pyhäjoki",
-	    // 	"Rautio": "5a Rautio",
-	    // 	"Reisjärvi": "5a Reisjärvi",
-	    // 	"Veteli": "5a Veteli",
-	    // 	"Kuivaniemi": "5b Kuivaniemi",
-	    // 	"Oulujoki": "5b Oulujoki",
-	    // 	"Paavola": "5b Paavola",
-	    // 	"Pattijoki": "5b Pattijoki",
-	    // 	"Yli-Ii": "5b Yli-Ii",
-	    // 	"Kolari": "6a Kolari",
-	    // 	"Ylitornio": "6a Ylitornio",
-	    // 	"Jällivaara": "6b Jällivaara",
-	    // 	"Keminmlk": "6c Keminmlk",
-	    // 	"Kittilä": "6c Kittilä",
-	    // 	"Simo": "6c Simo",
-	    // 	"Sodankylä": "6c Sodankylä",
-	    // 	"Kemijärvi": "6d Kemijärvi",
-	    // 	"Salla": "6d Salla",
-	    // 	"Itä-Ruija": "6e Itä-Ruija",
-	    // 	"Raisi": "6e Raisi",
-	    // 	"Joutsa": "7a Joutsa",
-	    // 	"Korpilahti": "7a Korpilahti",
-	    // 	"Kuhmoinen": "7a Kuhmoinen",
-	    // 	"Luhanka": "7a Luhanka",
-	    // 	"Sysmä": "7a Sysmä",
-	    // 	"Hirvensalmi": "7b Hirvensalmi",
-	    // 	"Mäntyharju": "7b Mäntyharju",
-	    // 	"Mikkelinmlk": "7b Mikkelinmlk",
-	    // 	"Ristiina": "7b Ristiina",
-	    // 	"Kerimäki": "7c Kerimäki",
-	    // 	"Sääminki": "7c Sääminki",
-	    // 	"Ilomantsi": "7d Ilomantsi",
-	    // 	"Kesälahti": "7d Kesälahti",
-	    // 	"Kitee": "7d Kitee",
-	    // 	"Kontiolahti": "7d Kontiolahti",
-	    // 	"Liperi": "7d Liperi",
-	    // 	"Nurmes": "7d Nurmes",
-	    // 	"Pielisjärvi": "7d Pielisjärvi",
-	    // 	"Polvijärvi": "7d Polvijärvi",
-	    // 	"Heinävesi": "7e Heinävesi",
-	    // 	"Karttula": "7e Karttula",
-	    // 	"Kiuruvesi": "7e Kiuruvesi",
-	    // 	"Lapinlahti": "7e Lapinlahti",
-	    // 	"Leppävirta": "7e Leppävirta",
-	    // 	"Pieksämäki": "7e Pieksämäki",
-	    // 	"Pyhäjärvi Ol.": "7e Pyhäjärvi Ol.",
-	    // 	"Siilinjärvi": "7e Siilinjärvi",
-	    // 	"Sonkajärvi": "7e Sonkajärvi",
-	    // 	"Tuusniemi": "7e Tuusniemi",
-	    // 	"Vehmersalmi": "7e Vehmersalmi",
-	    // 	"Vesanto": "7e Vesanto",
-	    // 	"Kannonkoski": "7f Kannonkoski",
-	    // 	"Karstula": "7f Karstula",
-	    // 	"Laukaa": "7f Laukaa",
-	    // 	"Pihtipudas": "7f Pihtipudas",
-	    // 	"Saarijärvi": "7f Saarijärvi",
-	    // 	"Sumiainen": "7f Sumiainen",
-	    // 	"Uurainen": "7f Uurainen",
-	    // 	"Ähtäri": "7g Ähtäri",
-	    // 	"Keuruu": "7g Keuruu",
-	    // 	"Lappajärvi": "7g Lappajärvi",
-	    // 	"Kajaani": "7h Kajaani",
-	    // 	"Pudasjärvi": "7h Pudasjärvi",
-	    // 	"Suomussalmi": "7h Suomussalmi",
-	    // 	"Vermlanti": "7i Vermlanti",
-	    // 	"Heinjoki": "8a Heinjoki",
-	    // 	"Kivennapa": "8a Kivennapa",
-	    // 	"Koivisto": "8a Koivisto",
-	    // 	"Lappee": "8a Lappee",
-	    // 	"Lavansaari": "8a Lavansaari",
-	    // 	"Luumäki": "8a Luumäki",
-	    // 	"Miehikkälä": "8a Miehikkälä",
-	    // 	"Uusikirkko Vpl.": "8a Uusikirkko Vpl.",
-	    // 	"Viipurin mlk.": "8a Viipurin mlk.",
-	    // 	"Virolahti": "8a Virolahti",
-	    // 	"Joutseno": "8b Joutseno",
-	    // 	"Käkisalmi": "8b Käkisalmi",
-	    // 	"Lumivaara": "8b Lumivaara",
-	    // 	"Ruokolahti": "8b Ruokolahti",
-	    // 	"Järvisaari": "8c Järvisaari",
-	    // 	"Markkova": "8c Markkova",
-	    // 	"Tuutari": "8c Tuutari",
-	    // 	"Lemi": "8d Lemi",
-	    // 	"Savitaipale": "8d Savitaipale",
-	    // 	"Sortavala": "8e Sortavala",
-	    // 	"Uukuniemi": "8e Uukuniemi",
-	    // },
-	    opts: liteOptions,
-	},
-	text_village: {
-	    label: "village",
-	},
-	text_parish: {
-	    // Should we have this separately? The attribute parish
-	    // contains the parish name with the dialect group code
-	    // prepended. Or should "parish_name" actually be simply
-	    // "parish"?
-	    label: "parish",
-	    displayType: "hidden",
-	},
-	sentence_comment: {
-            label: "comment",
-	},
-	sentence_informant: {
-	    label: "informant",
-	},
-	sentence_informant_sex: {
-	    label: "informant_sex",
-	    displayType: "select",
-	    translationKey: "",
-	    dataset: {
-		"m": "male",
-		"n": "female",
-		"": "unknown"
-	    },
-	    opts: liteOptions,
-	},
-	sentence_informant_birthyear: {
-            label: "informant_birthyear",
-	},
-	sentence_signum: {
-	    label: "signum",
-	    type: "set",
-	    opts: settings.setOptions,
-	    // This URL is in the sidebar (i) link
-	    taginfo_url: "markup/dma_signumlist.html",
-	    // The input field also has an (i) link opening a list of
-	    // signums as links from which one can select. This has
-	    // been copied and modified from the code for the the
-	    // Swedish msd attribute.
-	    extended_template: '<input class="arg_value" ng-model="model">' +
-		'<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
-	    controller: function($scope, $uibModal) {
-		var modal = null;
-		$scope.onIconClick = function() {
-		    modal = $uibModal.open({
-			template: '<div>' +
-			    '<div class="modal-header">' +
-			    '<h3 class="modal-title">{{\'signum_long\' | loc:lang}}</h3>' +
-			    '<span ng-click="clickX()" class="close-x">×</span>' +
-			    '</div>' +
-			    '<div class="modal-body" ng-click="handleClick($event)" ng-include="\'markup/dma_signumlist_links.html\'" style="font-size: 80%;"></div>' +
-			    '</div>',
-			scope: $scope
-		    })
-		}
-		$scope.clickX = function(event) {
-		    modal.close()
-		}
-		$scope.handleClick = function(event) {
-		    val = $(event.target).parents("td").data("value");
-		    // c.log ("signum selected:", val);
-		    if(!val) return;
-		    $scope.model = val;
-		    // c.log ("signum updated $scope:", $scope);
-		    modal.close();
-		}
-	    },
-	},
-	sentence_signumlist: {
-	    label: "signum_list",
-	    opts: settings.defaultOptions,
-	},
-	sentence_updated: {
-	    displayType: "hidden",
-	},
-	sentence_location: {
-	    label: "original_location",
-	    opts: settings.defaultOptions,
-	},
-	sentence_text_words: {
-	    label: "clause_any_wordform",
-	    type: "set",
-	    // This would benefit from having also other options than
-	    // "is" and "is not" for a set-valued attribute, but that
-	    // is not (yet) possible.
-	    opts: settings.setOptions,
-	    displayOnly: "search",
-	},
-	sentence_search_words: {
-	    label: "clause_any_search_word",
-	    type: "set",
-	    // The same applies here as in sentence_text_words.
-	    opts: settings.setOptions,
-	    displayOnly: "search",
-	},
-	sentence_pdf: {
-            label: "show_wordnote",
-            opts: settings.defaultOptions,
-            type: "url",
-            url_opts: $.extend({}, sattrs.link_url_opts, {
-                stringify_link: function (key, filename, attrs, html_attrs) {
-		    if (! filename) {
-			return "";
-		    }
-                    var fnames = filename.split(" ");
-                    var output = ("<span rel='localize[" + attrs.label + "]'>"
-				  + key + "</span> [RES]:");
-                    for (var i = 0; i < fnames.length; i++) {
-                        var fname = (fnames[i]
-				     .replace(/ä/g, 'a')
-				     .replace(/Ä/g, 'A')
-				     .replace(/ö/g, 'o'));
-                        var url = ("/dma/pdf/"
-                                   + fname.slice(0, fname.lastIndexOf("_"))
-                                   + "/" + fname);
-                        output += ("<br/><a href='" + url + "' " + html_attrs
-				   + ">" + fname + "</a>");
-                    }
-                    return output;
-                }
-            }),
-	},
-	sentence_id: sattrs.sentence_id,
-    }
-};
+// settings.corpora.dma = {
+//     title: "DMA – Digitaalinen muoto-opin arkisto",
+//     description: "DMA – Digitaalinen muoto-opin arkisto<br/><a href='https://www.kielipankki.fi/tuki/korp-dma/' target='_blank'>Ohjeita DMA:n käyttämiseen Korpissa</a>, erityisesti verrattuna vanhaan CSC:n Tutkijan käyttöliittymän DMA:han<br/><strong>Huomaa</strong>, että vaikka aineiston tekstiosa on kaikkien käytettävisssä, PDF-muotoisten sanalippujen katseleminen edellyttää Kielipankin oikeudet -sovelluksen kautta haettua <a href='https://lbr.csc.fi/web/guest/catalogue?domain=LBR&resource=urn:nbn:fi:lb-201403261&target=application' target='_blank'>DMA:n käyttölupaa</a>.",
+//     id: "dma",
+//     urn: "urn:nbn:fi:lb-2016032102",
+//     metadata_urn: "urn:nbn:fi:lb-201403261",
+//     homepage_url: "http://www.helsinki.fi/fus/research/ma.html",
+//     // TODO (util.coffee): Allow an array of values for licence.
+//     licence: {
+// 	name: "CC BY 4.0 (teksti) / CLARIN RES +PRIV +ND (PDF-sanaliput)",
+// 	urn: "urn:nbn:fi:lb-2016042202",
+//     },
+//     cite_id: "dma",
+//     within: settings.defaultWithin,
+//     context: defaultContext,
+//     attributes: {
+// 	searchword: {
+// 	    label: "search_word",
+// 	    opts: settings.defaultOptions,
+// 	}
+//     },
+//     structAttributes: {
+// 	text_dialect_region: {
+// 	    label: "dialect_region",
+// 	    displayType: "select",
+// 	    localize: false,
+// 	    // The values of the dataset are shown for the keys
+// 	    // without localization.
+// 	    stringify: settings.fn.dma_stringify_dataset_value(
+// 		"text_dialect_region"),
+// 	    dataset: {
+// 		"1": "1 Lounaismurteet",
+// 		"2": "2 Lounaiset välimurteet",
+// 		"3": "3 Hämäläismurteet",
+// 		"4": "4 Etelä-Pohjanmaan murteet",
+// 		"5": "5 Keski- ja Pohjois-Pohjanmaan murteet",
+// 		"6": "6 Peräpohjolan murteet",
+// 		"7": "7 Savolaismurteet",
+// 		"8": "8 Kaakkoismurteet",
+// 	    },
+// 	    opts: liteOptions,
+// 	},
+// 	text_dialect_group: {
+//             label: "dialect_group",
+// 	    displayType: "select",
+// 	    localize: false,
+// 	    stringify: function (value) {
+// 		return (settings.corpora.dma.struct_attributes
+// 			.text_dialect_group.dataset[value]
+// 			.replace(/[\x00-\x1F ]+/g, ""));
+// 	    },
+// 	    dataset: {
+// 		// The control characters \x01–\x08 are used to get
+// 		// the desired sorting order. They are invisible in
+// 		// the output, but could they cause problems in some
+// 		// cases?
+// 		// FIXME: Yes: the control characters seem to be shown
+// 		// as symbols in the extended search selection list in
+// 		// Chromium on Linux, even though they are invisible
+// 		// in Firefox on Linux.
+// 		"[1-6].?": "\x011–6 Länsimurteet",
+// 		"1.": "\x01  1 Lounaismurteet",
+// 		"1a": "\x01    1a pohjoisryhmä",
+// 		"1b": "\x01    1b itäryhmä",
+// 		"2.": "\x02  2 Lounaiset välimurteet",
+// 		"2a": "\x02    2a Porin seudun murteet",
+// 		"2b": "\x02    2b Ala-Satakunnan murteet",
+// 		"2c": "\x02    2c Turun ylämaan murteet",
+// 		"2d": "\x02    2d Someron murre",
+// 		"2e": "\x02    2e Länsi-Uudenmaan murteet",
+// 		"3.": "\x03  3 Hämäläismurteet",
+// 		"3a": "\x03    3a Ylä-Satakunnan murteet",
+// 		"3b": "\x03    3b perihämäläiset murteet",
+// 		"3c": "\x03    3c etelähämäläiset murteet",
+// 		"3[d-f]": "\x03    3d–f kaakkoishämäläiset murteet",
+// 		"3d": "\x03      3d Hollolan ryhmä",
+// 		"3e": "\x03      3e Porvoon ryhmä",
+// 		"3f": "\x03      3f Kymenlaakson ryhmä",
+// 		"4": "\x04  4 Etelä-Pohjanmaan murteet",
+// 		"5.": "\x05  5 Keski- ja Pohjois-Pohjanmaan murteet",
+// 		"5a": "\x05    5a Keski-Pohjanmaan murteet",
+// 		"5b": "\x05    5b Pohjois-Pohjanmaan murteet",
+// 		"6.": "\x06  6 Peräpohjolan murteet",
+// 		"6a": "\x06    6a Tornion murre",
+// 		"6b": "\x06    6b Jällivaaran murre",
+// 		"6c": "\x06    6c Kemin murre",
+// 		"6d": "\x06    6d Kemijärven murre",
+// 		"6e": "\x06    6e Ruijan murre",
+// 		"[7-8].": "\x077–8 Itämurteet",
+// 		"7.": "\x07  7 Savolaismurteet",
+// 		"7a": "\x07    7a Päijät-Hämeen murteet",
+// 		"7b": "\x07    7b Etelä-Savon murteet",
+// 		"7c": "\x07    7c Säämingin–Kerimäen ryhmä",
+// 		"7d": "\x07    7d itäiset savolaismurteet",
+// 		"7e": "\x07    7e Pohjois-Savon murteet",
+// 		"7f": "\x07    7f Keski-Suomen murteet",
+// 		"7g": "\x07    7g savolaiskiilan murteet",
+// 		"7h": "\x07    7h Kainuun murteet",
+// 		"7i": "\x07    7i Vermlannin murteet",
+// 		"8.": "\x08  8 Kaakkoismurteet",
+// 		"8[a–b]": "\x08    \x018a–b varsinaiset kaakkoismurteet",
+// 		"8a": "\x08    \x01  8a Länsi-Kannaksen murteet",
+// 		"8b": "\x08    \x01  8b Itä-Kannaksen murteet",
+// 		"8c": "\x08    8c Inkerin suomalaismurteet",
+// 		"8d": "\x08    8d Lemin murre",
+// 		"8e": "\x08    8e Sortavalan seudun murteet",
+// 	    },
+// 	    opts: liteOptions,
+// 	},
+// 	text_parish_name: {
+//             label: "parish",
+// 	    displayType: "select",
+// 	    localize: false,
+// 	    // translationKey: "",
+// 	    dataset: [
+// 		"Artjärvi",
+// 		"Asikkala",
+// 		"Askola",
+// 		"Eurajoki",
+// 		"Haapavesi",
+// 		"Halikko",
+// 		"Halsua",
+// 		"Hausjärvi",
+// 		"Heinjoki",
+// 		"Heinävesi",
+// 		"Himanka",
+// 		"Hinnerjoki",
+// 		"Hirvensalmi",
+// 		"Honkajoki",
+// 		"Honkilahti",
+// 		"Ilmajoki",
+// 		"Ilomantsi",
+// 		"Isojoki",
+// 		"Itä-Ruija",
+// 		"Jalasjärvi",
+// 		"Joutsa",
+// 		"Joutseno",
+// 		"Juupajoki",
+// 		"Jällivaara",
+// 		"Järvisaari",
+// 		"Kaarina",
+// 		"Kajaani",
+// 		"Kalajoki",
+// 		"Kalvola",
+// 		"Kangasala",
+// 		"Kankaanpää",
+// 		"Kannonkoski",
+// 		"Karstula",
+// 		"Karttula",
+// 		"Kauhava",
+// 		"Kaustinen",
+// 		"Kemijärvi",
+// 		"Keminmlk",
+// 		"Kerimäki",
+// 		"Kesälahti",
+// 		"Keuruu",
+// 		"Kiikka",
+// 		"Kitee",
+// 		"Kittilä",
+// 		"Kiuruvesi",
+// 		"Kivennapa",
+// 		"Koivisto",
+// 		"Kolari",
+// 		"Kontiolahti",
+// 		"Korpilahti",
+// 		"Kuhmoinen",
+// 		"Kuivaniemi",
+// 		"Kurikka",
+// 		"Kuru",
+// 		"Kymi",
+// 		"Käkisalmi",
+// 		"Kälviä",
+// 		"Kärsämäki",
+// 		"Laihia",
+// 		"Laitila",
+// 		"Lapinlahti",
+// 		"Lappajärvi",
+// 		"Lappee",
+// 		"Laukaa",
+// 		"Lavansaari",
+// 		"Lemi",
+// 		"Leppävirta",
+// 		"Liperi",
+// 		"Loimaa",
+// 		"Luhanka",
+// 		"Lumivaara",
+// 		"Luumäki",
+// 		"Markkova",
+// 		"Masku",
+// 		"Merikarvia",
+// 		"Merimasku",
+// 		"Miehikkälä",
+// 		"Mietoinen",
+// 		"Mikkelinmlk",
+// 		"Myrskylä",
+// 		"Mäntyharju",
+// 		"Nivala",
+// 		"Nousiainen",
+// 		"Nummi",
+// 		"Nurmes",
+// 		"Orimattila",
+// 		"Oulujoki",
+// 		"Paavola",
+// 		"Parkano",
+// 		"Pattijoki",
+// 		"Perho",
+// 		"Pieksämäki",
+// 		"Pielisjärvi",
+// 		"Pihtipudas",
+// 		"Polvijärvi",
+// 		"Pori",
+// 		"Pornainen",
+// 		"Pudasjärvi",
+// 		"Pyhäjoki",
+// 		"Pyhäjärvi Ol.",
+// 		"Pöytyä",
+// 		"Raisi",
+// 		"Rauma",
+// 		"Rautio",
+// 		"Reisjärvi",
+// 		"Ristiina",
+// 		"Ruokolahti",
+// 		"Ruovesi",
+// 		"Rymättylä",
+// 		"Saarijärvi",
+// 		"Salla",
+// 		"Sauvo",
+// 		"Savitaipale",
+// 		"Siilinjärvi",
+// 		"Simo",
+// 		"Sodankylä",
+// 		"Somero",
+// 		"Sonkajärvi",
+// 		"Sortavala",
+// 		"Sumiainen",
+// 		"Suomusjärvi",
+// 		"Suomussalmi",
+// 		"Sysmä",
+// 		"Sääksmäki",
+// 		"Sääminki",
+// 		"Taivassalo",
+// 		"Tammela",
+// 		"Teisko",
+// 		"Tuulos",
+// 		"Tuusniemi",
+// 		"Tuutari",
+// 		"Töysä",
+// 		"Uukuniemi",
+// 		"Uurainen",
+// 		"Uusikirkko Vpl.",
+// 		"Valkeala",
+// 		"Vehkalahti",
+// 		"Vehmersalmi",
+// 		"Vermlanti",
+// 		"Vesanto",
+// 		"Veteli",
+// 		"Vihti",
+// 		"Viipurin mlk.",
+// 		"Virolahti",
+// 		"Virrat",
+// 		"Vähäkyrö",
+// 		"Yli-Ii",
+// 		"Ylihärmä",
+// 		"Ylitornio",
+// 		"Ypäjä",
+// 		"Ähtäri",
+// 	    ],
+// 	    // // An alternative with dialect group code preprended
+// 	    // stringify: settings.fn.dma_stringify_dataset_value(
+// 	    // 	"text_parish_name"),
+// 	    // dataset: {
+// 	    // 	"Eurajoki": "1a Eurajoki",
+// 	    // 	"Hinnerjoki": "1a Hinnerjoki",
+// 	    // 	"Honkilahti": "1a Honkilahti",
+// 	    // 	"Laitila": "1a Laitila",
+// 	    // 	"Masku": "1a Masku",
+// 	    // 	"Merimasku": "1a Merimasku",
+// 	    // 	"Mietoinen": "1a Mietoinen",
+// 	    // 	"Nousiainen": "1a Nousiainen",
+// 	    // 	"Rauma": "1a Rauma",
+// 	    // 	"Rymättylä": "1a Rymättylä",
+// 	    // 	"Taivassalo": "1a Taivassalo",
+// 	    // 	"Halikko": "1b Halikko",
+// 	    // 	"Kaarina": "1b Kaarina",
+// 	    // 	"Sauvo": "1b Sauvo",
+// 	    // 	"Suomusjärvi": "1b Suomusjärvi",
+// 	    // 	"Merikarvia": "2a Merikarvia",
+// 	    // 	"Pori": "2a Pori",
+// 	    // 	"Loimaa": "2b Loimaa",
+// 	    // 	"Pöytyä": "2c Pöytyä",
+// 	    // 	"Somero": "2d Somero",
+// 	    // 	"Nummi": "2e Nummi",
+// 	    // 	"Vihti": "2e Vihti",
+// 	    // 	"Honkajoki": "3a Honkajoki",
+// 	    // 	"Kankaanpää": "3a Kankaanpää",
+// 	    // 	"Kiikka": "3a Kiikka",
+// 	    // 	"Parkano": "3a Parkano",
+// 	    // 	"Virrat": "3a Virrat",
+// 	    // 	"Juupajoki": "3b Juupajoki",
+// 	    // 	"Kalvola": "3b Kalvola",
+// 	    // 	"Kangasala": "3b Kangasala",
+// 	    // 	"Kuru": "3b Kuru",
+// 	    // 	"Ruovesi": "3b Ruovesi",
+// 	    // 	"Sääksmäki": "3b Sääksmäki",
+// 	    // 	"Teisko": "3b Teisko",
+// 	    // 	"Tuulos": "3b Tuulos",
+// 	    // 	"Hausjärvi": "3c Hausjärvi",
+// 	    // 	"Tammela": "3c Tammela",
+// 	    // 	"Ypäjä": "3c Ypäjä",
+// 	    // 	"Asikkala": "3d Asikkala",
+// 	    // 	"Orimattila": "3d Orimattila",
+// 	    // 	"Askola": "3e Askola",
+// 	    // 	"Myrskylä": "3e Myrskylä",
+// 	    // 	"Pornainen": "3e Pornainen",
+// 	    // 	"Artjärvi": "3f Artjärvi",
+// 	    // 	"Kymi": "3f Kymi",
+// 	    // 	"Valkeala": "3f Valkeala",
+// 	    // 	"Vehkalahti": "3f Vehkalahti",
+// 	    // 	"Ilmajoki": "4 Ilmajoki",
+// 	    // 	"Isojoki": "4 Isojoki",
+// 	    // 	"Jalasjärvi": "4 Jalasjärvi",
+// 	    // 	"Kauhava": "4 Kauhava",
+// 	    // 	"Kurikka": "4 Kurikka",
+// 	    // 	"Laihia": "4 Laihia",
+// 	    // 	"Töysä": "4 Töysä",
+// 	    // 	"Vähäkyrö": "4 Vähäkyrö",
+// 	    // 	"Ylihärmä": "4 Ylihärmä",
+// 	    // 	"Haapavesi": "5a Haapavesi",
+// 	    // 	"Halsua": "5a Halsua",
+// 	    // 	"Himanka": "5a Himanka",
+// 	    // 	"Kalajoki": "5a Kalajoki",
+// 	    // 	"Kälviä": "5a Kälviä",
+// 	    // 	"Kärsämäki": "5a Kärsämäki",
+// 	    // 	"Kaustinen": "5a Kaustinen",
+// 	    // 	"Nivala": "5a Nivala",
+// 	    // 	"Perho": "5a Perho",
+// 	    // 	"Pyhäjoki": "5a Pyhäjoki",
+// 	    // 	"Rautio": "5a Rautio",
+// 	    // 	"Reisjärvi": "5a Reisjärvi",
+// 	    // 	"Veteli": "5a Veteli",
+// 	    // 	"Kuivaniemi": "5b Kuivaniemi",
+// 	    // 	"Oulujoki": "5b Oulujoki",
+// 	    // 	"Paavola": "5b Paavola",
+// 	    // 	"Pattijoki": "5b Pattijoki",
+// 	    // 	"Yli-Ii": "5b Yli-Ii",
+// 	    // 	"Kolari": "6a Kolari",
+// 	    // 	"Ylitornio": "6a Ylitornio",
+// 	    // 	"Jällivaara": "6b Jällivaara",
+// 	    // 	"Keminmlk": "6c Keminmlk",
+// 	    // 	"Kittilä": "6c Kittilä",
+// 	    // 	"Simo": "6c Simo",
+// 	    // 	"Sodankylä": "6c Sodankylä",
+// 	    // 	"Kemijärvi": "6d Kemijärvi",
+// 	    // 	"Salla": "6d Salla",
+// 	    // 	"Itä-Ruija": "6e Itä-Ruija",
+// 	    // 	"Raisi": "6e Raisi",
+// 	    // 	"Joutsa": "7a Joutsa",
+// 	    // 	"Korpilahti": "7a Korpilahti",
+// 	    // 	"Kuhmoinen": "7a Kuhmoinen",
+// 	    // 	"Luhanka": "7a Luhanka",
+// 	    // 	"Sysmä": "7a Sysmä",
+// 	    // 	"Hirvensalmi": "7b Hirvensalmi",
+// 	    // 	"Mäntyharju": "7b Mäntyharju",
+// 	    // 	"Mikkelinmlk": "7b Mikkelinmlk",
+// 	    // 	"Ristiina": "7b Ristiina",
+// 	    // 	"Kerimäki": "7c Kerimäki",
+// 	    // 	"Sääminki": "7c Sääminki",
+// 	    // 	"Ilomantsi": "7d Ilomantsi",
+// 	    // 	"Kesälahti": "7d Kesälahti",
+// 	    // 	"Kitee": "7d Kitee",
+// 	    // 	"Kontiolahti": "7d Kontiolahti",
+// 	    // 	"Liperi": "7d Liperi",
+// 	    // 	"Nurmes": "7d Nurmes",
+// 	    // 	"Pielisjärvi": "7d Pielisjärvi",
+// 	    // 	"Polvijärvi": "7d Polvijärvi",
+// 	    // 	"Heinävesi": "7e Heinävesi",
+// 	    // 	"Karttula": "7e Karttula",
+// 	    // 	"Kiuruvesi": "7e Kiuruvesi",
+// 	    // 	"Lapinlahti": "7e Lapinlahti",
+// 	    // 	"Leppävirta": "7e Leppävirta",
+// 	    // 	"Pieksämäki": "7e Pieksämäki",
+// 	    // 	"Pyhäjärvi Ol.": "7e Pyhäjärvi Ol.",
+// 	    // 	"Siilinjärvi": "7e Siilinjärvi",
+// 	    // 	"Sonkajärvi": "7e Sonkajärvi",
+// 	    // 	"Tuusniemi": "7e Tuusniemi",
+// 	    // 	"Vehmersalmi": "7e Vehmersalmi",
+// 	    // 	"Vesanto": "7e Vesanto",
+// 	    // 	"Kannonkoski": "7f Kannonkoski",
+// 	    // 	"Karstula": "7f Karstula",
+// 	    // 	"Laukaa": "7f Laukaa",
+// 	    // 	"Pihtipudas": "7f Pihtipudas",
+// 	    // 	"Saarijärvi": "7f Saarijärvi",
+// 	    // 	"Sumiainen": "7f Sumiainen",
+// 	    // 	"Uurainen": "7f Uurainen",
+// 	    // 	"Ähtäri": "7g Ähtäri",
+// 	    // 	"Keuruu": "7g Keuruu",
+// 	    // 	"Lappajärvi": "7g Lappajärvi",
+// 	    // 	"Kajaani": "7h Kajaani",
+// 	    // 	"Pudasjärvi": "7h Pudasjärvi",
+// 	    // 	"Suomussalmi": "7h Suomussalmi",
+// 	    // 	"Vermlanti": "7i Vermlanti",
+// 	    // 	"Heinjoki": "8a Heinjoki",
+// 	    // 	"Kivennapa": "8a Kivennapa",
+// 	    // 	"Koivisto": "8a Koivisto",
+// 	    // 	"Lappee": "8a Lappee",
+// 	    // 	"Lavansaari": "8a Lavansaari",
+// 	    // 	"Luumäki": "8a Luumäki",
+// 	    // 	"Miehikkälä": "8a Miehikkälä",
+// 	    // 	"Uusikirkko Vpl.": "8a Uusikirkko Vpl.",
+// 	    // 	"Viipurin mlk.": "8a Viipurin mlk.",
+// 	    // 	"Virolahti": "8a Virolahti",
+// 	    // 	"Joutseno": "8b Joutseno",
+// 	    // 	"Käkisalmi": "8b Käkisalmi",
+// 	    // 	"Lumivaara": "8b Lumivaara",
+// 	    // 	"Ruokolahti": "8b Ruokolahti",
+// 	    // 	"Järvisaari": "8c Järvisaari",
+// 	    // 	"Markkova": "8c Markkova",
+// 	    // 	"Tuutari": "8c Tuutari",
+// 	    // 	"Lemi": "8d Lemi",
+// 	    // 	"Savitaipale": "8d Savitaipale",
+// 	    // 	"Sortavala": "8e Sortavala",
+// 	    // 	"Uukuniemi": "8e Uukuniemi",
+// 	    // },
+// 	    opts: liteOptions,
+// 	},
+// 	text_village: {
+// 	    label: "village",
+// 	},
+// 	text_parish: {
+// 	    // Should we have this separately? The attribute parish
+// 	    // contains the parish name with the dialect group code
+// 	    // prepended. Or should "parish_name" actually be simply
+// 	    // "parish"?
+// 	    label: "parish",
+// 	    displayType: "hidden",
+// 	},
+// 	sentence_comment: {
+//             label: "comment",
+// 	},
+// 	sentence_informant: {
+// 	    label: "informant",
+// 	},
+// 	sentence_informant_sex: {
+// 	    label: "informant_sex",
+// 	    displayType: "select",
+// 	    translationKey: "",
+// 	    dataset: {
+// 		"m": "male",
+// 		"n": "female",
+// 		"": "unknown"
+// 	    },
+// 	    opts: liteOptions,
+// 	},
+// 	sentence_informant_birthyear: {
+//             label: "informant_birthyear",
+// 	},
+// 	sentence_signum: {
+// 	    label: "signum",
+// 	    type: "set",
+// 	    opts: settings.setOptions,
+// 	    // This URL is in the sidebar (i) link
+// 	    taginfo_url: "markup/dma_signumlist.html",
+// 	    // The input field also has an (i) link opening a list of
+// 	    // signums as links from which one can select. This has
+// 	    // been copied and modified from the code for the the
+// 	    // Swedish msd attribute.
+// 	    extended_template: '<input class="arg_value" ng-model="model">' +
+// 		'<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
+// 	    controller: function($scope, $uibModal) {
+// 		var modal = null;
+// 		$scope.onIconClick = function() {
+// 		    modal = $uibModal.open({
+// 			template: '<div>' +
+// 			    '<div class="modal-header">' +
+// 			    '<h3 class="modal-title">{{\'signum_long\' | loc:lang}}</h3>' +
+// 			    '<span ng-click="clickX()" class="close-x">×</span>' +
+// 			    '</div>' +
+// 			    '<div class="modal-body" ng-click="handleClick($event)" ng-include="\'markup/dma_signumlist_links.html\'" style="font-size: 80%;"></div>' +
+// 			    '</div>',
+// 			scope: $scope
+// 		    })
+// 		}
+// 		$scope.clickX = function(event) {
+// 		    modal.close()
+// 		}
+// 		$scope.handleClick = function(event) {
+// 		    val = $(event.target).parents("td").data("value");
+// 		    // c.log ("signum selected:", val);
+// 		    if(!val) return;
+// 		    $scope.model = val;
+// 		    // c.log ("signum updated $scope:", $scope);
+// 		    modal.close();
+// 		}
+// 	    },
+// 	},
+// 	sentence_signumlist: {
+// 	    label: "signum_list",
+// 	    opts: settings.defaultOptions,
+// 	},
+// 	sentence_updated: {
+// 	    displayType: "hidden",
+// 	},
+// 	sentence_location: {
+// 	    label: "original_location",
+// 	    opts: settings.defaultOptions,
+// 	},
+// 	sentence_text_words: {
+// 	    label: "clause_any_wordform",
+// 	    type: "set",
+// 	    // This would benefit from having also other options than
+// 	    // "is" and "is not" for a set-valued attribute, but that
+// 	    // is not (yet) possible.
+// 	    opts: settings.setOptions,
+// 	    displayOnly: "search",
+// 	},
+// 	sentence_search_words: {
+// 	    label: "clause_any_search_word",
+// 	    type: "set",
+// 	    // The same applies here as in sentence_text_words.
+// 	    opts: settings.setOptions,
+// 	    displayOnly: "search",
+// 	},
+// 	sentence_pdf: {
+//             label: "show_wordnote",
+//             opts: settings.defaultOptions,
+//             type: "url",
+//             url_opts: $.extend({}, sattrs.link_url_opts, {
+//                 stringify_link: function (key, filename, attrs, html_attrs) {
+// 		    if (! filename) {
+// 			return "";
+// 		    }
+//                     var fnames = filename.split(" ");
+//                     var output = ("<span rel='localize[" + attrs.label + "]'>"
+// 				  + key + "</span> [RES]:");
+//                     for (var i = 0; i < fnames.length; i++) {
+//                         var fname = (fnames[i]
+// 				     .replace(/ä/g, 'a')
+// 				     .replace(/Ä/g, 'A')
+// 				     .replace(/ö/g, 'o'));
+//                         var url = ("/dma/pdf/"
+//                                    + fname.slice(0, fname.lastIndexOf("_"))
+//                                    + "/" + fname);
+//                         output += ("<br/><a href='" + url + "' " + html_attrs
+// 				   + ">" + fname + "</a>");
+//                     }
+//                     return output;
+//                 }
+//             }),
+// 	},
+// 	sentence_id: sattrs.sentence_id,
+//     }
+// };
 
 
 // settings.corpora.ylilauta = {
