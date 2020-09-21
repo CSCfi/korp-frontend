@@ -8875,7 +8875,9 @@ settings.corpora.reittidemo = {
 		"ML",
 		"TA"
 	    ],
-	    opts: liteOptions
+	    opts: liteOptions,
+	    extendedComponent: "datasetSelect",
+	    escape: false,
 	},
 	utterance_begin_time: {
 	    label: "utterance_begin_time"
