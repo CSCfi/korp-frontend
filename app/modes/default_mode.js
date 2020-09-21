@@ -11381,56 +11381,56 @@ settings.corpora.reittidemo = {
 
 
 
-// /*
-//  * Previously in Finnish National Library mode
-//  */
+/*
+ * Previously in Finnish National Library mode
+ */
 
-// sattrlist.klk_fi = $.extend({}, sattrlist.klk);
-// sattrlist.klk_fi_parsed = $.extend(
-//     {}, sattrlist.klk_fi,
-//     {
-// 	sentence_parse_state: {
-// 	    label: "parse_state",
-// 	    displayType: "select",
-// 	    translationKey: "parse_state_",
-// 	    opts: settings.liteOptions,
-// 	    dataset: {
-// 		"parsed": "parsed",
-// 		"tagged": "tagged"
-// 	    }
-// 	},
-// 	sentence_local_id: {
-// 	    label: "local_id",
-// 	    displayType: "hidden"
-// 	}
-//     });
+sattrlist.klk_fi = $.extend({}, sattrlist.klk);
+sattrlist.klk_fi_parsed = $.extend(
+    {}, sattrlist.klk_fi,
+    {
+	sentence_parse_state: {
+	    label: "parse_state",
+	    displayType: "select",
+	    translationKey: "parse_state_",
+	    opts: settings.liteOptions,
+	    dataset: {
+		"parsed": "parsed",
+		"tagged": "tagged"
+	    }
+	},
+	sentence_local_id: {
+	    label: "local_id",
+	    displayType: "hidden"
+	}
+    });
 
-// sattrlist.klk_fi_parsed_pagelinks = $.extend(
-//     {}, sattrlist.klk_fi_parsed, sattrlist.klk_pagelinks);
+sattrlist.klk_fi_parsed_pagelinks = $.extend(
+    {}, sattrlist.klk_fi_parsed, sattrlist.klk_pagelinks);
 
-// attrlist.klk_fi = {
-//     ocr: {
-// 	label: "OCR",
-// 	opts: settings.defaultOptions
-//     }
-// };
+attrlist.klk_fi = {
+    ocr: {
+	label: "OCR",
+	opts: settings.defaultOptions
+    }
+};
 
-// attrlist.klk_fi_parsed =
-//     $.extend(
-// 	{
-// 	    lemma: attrs.baseform,
-// 	    lemmacomp: attrs.baseform_compound,
-// 	    pos: attrs.pos_klk,
-// 	    msd: attrs.msd,
-// 	    dephead: attrs.dephead,
-// 	    deprel: attrs.deprel_tdt,
-// 	    ref: attrs.ref,
-// 	    lex: attrs.lemgram_hidden
-// 	},
-// 	attrlist.klk_fi,
-// 	attrlist.finer);
+attrlist.klk_fi_parsed =
+    $.extend(
+	{
+	    lemma: attrs.baseform,
+	    lemmacomp: attrs.baseform_compound,
+	    pos: attrs.pos_klk,
+	    msd: attrs.msd,
+	    dephead: attrs.dephead,
+	    deprel: attrs.deprel_tdt,
+	    ref: attrs.ref,
+	    lex: attrs.lemgram_hidden
+	},
+	attrlist.klk_fi,
+	attrlist.finer);
 
-// attrlist.klk_fi_parsed_pagelinks = attrlist.klk_fi_parsed;
+attrlist.klk_fi_parsed_pagelinks = attrlist.klk_fi_parsed;
 
 
 // var klk_fi_parsed_years = settings.fn.make_yearlist(1820, 2000);
