@@ -136,8 +136,8 @@ settings.corporafolders.ftb = {
 settings.corporafolders.ftb.ftb3 = {
     title: "FinnTreeBank 3",
     info: {
-	urn: "urn:nbn:fi:lb-201406021",
-	metadata_urn: "urn:nbn:fi:lb-201406022",
+	urn: "urn:nbn:fi:lb-2016051001",
+	metadata_urn: "urn:nbn:fi:lb-2016042602",
 	licence: settings.licenceinfo.CC_BY_30,
 	cite_id: "FinnTreeBank3-korp",
     },
@@ -1242,7 +1242,7 @@ settings.corpora.ftb2 = {
     description: "Finnish tree bank, version 2",
     id: "ftb2",
     urn: "urn:nbn:fi:lb-201407164",
-    metadata_urn: "urn:nbn:fi:lb-201407163",
+    metadata_urn: "urn:nbn:fi:lb-2016042406",
     licence: settings.licenceinfo.CC_BY_30,
     cite_id: "FinnTreeBank2-korp",
     within: settings.defaultWithin,
