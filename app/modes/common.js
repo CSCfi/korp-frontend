@@ -4719,8 +4719,9 @@ settings.fn.set_attr_order = function (attrstruct, attrnamelist) {
     }
     var attrnamecount = attrnamelist.length;
     for (var i = 0; i < attrnamelist.length; i++) {
-	// The attribute with the largest order value is shown first
-	attrstruct[attrnamelist[i]].order = attrnamecount - i;
+	// The attribute with the smallest order value is shown first;
+	// this has been changed at some point.
+	attrstruct[attrnamelist[i]].order = i;
     }
 };
 
