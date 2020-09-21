@@ -4978,7 +4978,10 @@ settings.fn.make_klk_corpus_settings = function(
     return {
 	title: title_format.replace("{year}", year_str),
 	description: descr_format.replace("{year}", year_str),
-	within: window[ctx_type + "Within"],
+	// Korp 9 has window.spWithin but settings.defaultWithin
+	within: (ctx_type == "sp"
+		 ? window[ctx_type + "Within"]
+		 : settings[ctx_type + "Within"]),
 	context: window[ctx_type + "Context"],
 	attributes: attrlist[attrs_key],
 	structAttributes: sattrlist[attrs_key]
