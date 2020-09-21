@@ -8840,9 +8840,13 @@ settings.corpora.reittidemo = {
     cite_id: "Reittidemo-korp",
     licence: settings.licenceinfo.CC0,
     features: ["paragraphs", "parsed_tdt"],
-    attributes: {
-	spoken: attrs.spoken,
-    },
+    attributes: $.extend(
+	true, {},
+	attrlist.parsed_tdt,
+	{
+	    spoken: attrs.spoken,
+	}
+    ),
     structAttributes: {
 	text_author: sattrs.author,
 	text_title: sattrs.title,
