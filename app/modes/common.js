@@ -1250,7 +1250,9 @@ attrs.pos_klk = {
 	"Symb": "Symb",
 	"V": "V"
     },
-    opts: settings.liteOptions
+    extendedComponent: "datasetSelect",
+    escape: false,
+    opts: liteOptions
 };
 
 // TextMorfo parts of speech, used in FTC
@@ -2631,54 +2633,47 @@ sattrlist.klk = {
 	// The label has the prefix klk_ because it might not have the
 	// same meaning as "label" in some other contexts.
         label: "klk_label",
-        opts: settings.defaultOptions,
     },
     text_publ_title: {
         label: "publication",
-        opts: settings.defaultOptions,
     },
     /*
     text_publ_part: {
         label: "part",
-        opts: settings.defaultOptions,
     },
     */
     text_publ_id: {
         label: "issn",
-        opts: settings.defaultOptions,
     },
     text_issue_date: {
         label: "date",
-        opts: settings.defaultOptions,
     },
     text_issue_no: {
         label: "issue_num",
-        opts: settings.defaultOptions,
     },
     text_issue_title: {
         label: "issue_title",
-        opts: settings.defaultOptions,
     },
     /*
     text_part_name: {
         label: "part_name",
-        opts: settings.defaultOptions,
     },
     */
     text_elec_date: {
         label: "digitization_date",
-        opts: settings.defaultOptions,
     },
     text_language: {
         label: "lang",
         displayType: "select",
         translationKey: "",
-        opts: settings.liteOptions,
+        opts: liteOptions,
         dataset: {
             "fi": "fin",
             "sv": "swe",
             "et": "est",
-        }
+        },
+	extendedComponent: "datasetSelect",
+	escape: false,
     },
     /*
     text_page_id: {
@@ -2688,7 +2683,6 @@ sattrlist.klk = {
     */
     text_page_no: {
         label: "page_num",
-        opts: settings.defaultOptions,
     },
     text_sentcount: {
         label: "sentence_count",
@@ -2717,11 +2711,13 @@ sattrlist.klk = {
 	label: "publication_type",
 	displayType: "select",
 	translationKey: "publtype_",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	dataset: {
 	    "aikakausi": "journal",
 	    "sanomalehti": "newspaper"
-	}
+	},
+	extendedComponent: "datasetSelect",
+	escape: false,
     },
     paragraph_id: {
         label: "paragraph_id",
@@ -2737,20 +2733,20 @@ sattrlist.klk2 = $.extend(
 	text_date: sattrs.date_iso,
 	text_filename_orig: {
 	    label: "filename_orig",
-	    opts: settings.defaultOptions,
 	},
 	text_filename_metadata: {
 	    label: "filename_metadata",
-	    opts: settings.defaultOptions,
 	},
 	text_add_version: {
 	    label: "added_in_version",
 	    displayType: "select",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: [
 		"1",
 		"2",
 	    ],
+	    extendedComponent: "datasetSelect",
+	    escape: false,
 	},
     }
 );
@@ -4982,10 +4978,10 @@ settings.fn.make_klk_corpus_settings = function(
     return {
 	title: title_format.replace("{year}", year_str),
 	description: descr_format.replace("{year}", year_str),
-	within: settings[ctx_type + "Within"],
-	context: settings[ctx_type + "Context"],
+	within: window[ctx_type + "Within"],
+	context: window[ctx_type + "Context"],
 	attributes: attrlist[attrs_key],
-	struct_attributes: sattrlist[attrs_key]
+	structAttributes: sattrlist[attrs_key]
     };
 }
 

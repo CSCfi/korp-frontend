@@ -106,13 +106,13 @@ settings.corporafolders.sv = {
 settings.corporafolders.klk2_fi = {
     title: "Kansalliskirjaston lehtikokoelma, versio 2 (KLK2), suomenkieliset lehdet",
     description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio 2, suomenkieliset lehdet",
-    info: {
-	// urn: "urn:nbn:fi:lb-201405275",
-	// metadata_urn: "urn:nbn:fi:lb-201405276",
-	licence: settings.licenceinfo.CC_BY,
-	cite_id: "KLK2-fi",
-	labels: ["test"],
-    }
+    // info: {
+    // 	// urn: "urn:nbn:fi:lb-201405275",
+    // 	// metadata_urn: "urn:nbn:fi:lb-201405276",
+    // 	licence: settings.licenceinfo.CC_BY,
+    // 	cite_id: "KLK2-fi",
+    // 	labels: ["test"],
+    // }
 };
 
 // /*
@@ -11464,6 +11464,7 @@ attrlist.klk_fi_parsed_pagelinks = attrlist.klk_fi_parsed;
 // 	return settings.fn.make_klk_corpus_settings(
 // 	    "KLK suomi {year}",
 // 	    "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä vuodelta {year}",
+// 	    "klk",
 // 	    "fi",
 // 	    year,
 // 	    klk_fi_parsed_years.indexOf(year) != -1);
@@ -11499,19 +11500,15 @@ sattrlist.klk2_fi_parsed_pagelinks = $.extend(
 attrlist.klk2_fi = {
     hyph: {
 	label: "divided_in_lines",
-	opts: settings.defaultOptions,
     },
     ocr: {
 	label: "ocr_word_confidence",
-	opts: settings.defaultOptions,
     },
     cc: {
 	label: "ocr_char_confidence",
-	opts: settings.defaultOptions,
     },
     vpos: {
 	label: "vertical_position",
-	opts: settings.defaultOptions,
     },
 };
 
