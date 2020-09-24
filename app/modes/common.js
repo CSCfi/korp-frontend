@@ -1793,6 +1793,8 @@ attrlist.ud2_fi = {
     misc: { label: "", displayType: "hidden" },
 };
 
+attrlist.ud2_en = attrlist.ud2_fi;
+
 settings.corpus_features.finer = {
     attributes: attrlist.finer,
 };
@@ -4619,6 +4621,22 @@ settings.fn.make_folder_hierarchy = function (parent_folder, subfolder_tree,
 		= parent_folder.contents.concat([corpus_info.id]);
 	    settings.corpora[corpus_info.id] = corpus_info.data;
 	}
+    }
+};
+
+
+// Add "order" properties to the attribute definitions in attrstruct
+// for setting the order of attributes. attrnamelist lists the names
+// of the attribute in the desired order: it can be either an array of
+// strings or a single string of names separated by spaces (or tabs).
+settings.fn.set_attr_order = function (attrstruct, attrnamelist) {
+    if (typeof attrnamelist == "string") {
+	attrnamelist = attrnamelist.split(/[ \t]+/);
+    }
+    var attrnamecount = attrnamelist.length;
+    for (var i = 0; i < attrnamelist.length; i++) {
+	// The attribute with the largest order value is shown first
+	attrstruct[attrnamelist[i]].order = attrnamecount - i;
     }
 };
 

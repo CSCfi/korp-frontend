@@ -779,6 +779,68 @@ settings.fn.add_attr_extra_properties = function (corpora) {
 }
 
 
+// Add corpus aliases that are expanded to the corpus ids matching the
+// regular expression string corpus_id_patt (actually, a
+// comma-separated list of regular expressions matching corpus ids).
+//
+// In addition to the explicitly specified corpus aliases, the
+// function also adds variants with and without a "-korp" suffix and
+// with underscores converted to dashes and dashes to underscores. If
+// the specified corpus aliases contain an alias with "-korp-" or
+// "_korp_" infix, also aliases without it are added.
+//
+// The optional third argument is an object containing options. The
+// following options are supported:
+//   override: if true, override an existing alias (default: no)
+//   add_variants: if false, do not add the alias variants (default:
+//     true)
+settings.fn.add_corpus_aliases = function (corpus_id_patt, aliases) {
+    var opts = arguments[2] || {};
+    var override = opts.override || false;
+    var add_variants = (opts.add_variants !== false);
+
+    var add_dash_underscore_variants = function (aliases, alias) {
+	if (alias.indexOf("_") > -1) {
+	    aliases.push(alias.replace(/_/g, "-"));
+	}
+	if (alias.indexOf("-") > -1) {
+	    aliases.push(alias.replace(/-/g, "_"));
+	}
+    }
+
+    if (! _.isArray(aliases)) {
+	aliases = [aliases];
+    }
+    for (var i = 0; i < aliases.length; i++) {
+	var alias = aliases[i]
+	var aliases2 = [alias];
+	var alias2;
+	if (add_variants) {
+	    // Add alias variants:
+	    // x -> x, x-korp, x_korp
+	    // x-y | x_y | x-y-korp | x_y_korp -> x-y, x_y, x-y-korp, x_y_korp
+	    add_dash_underscore_variants(aliases2, alias);
+	    // This may add some aliases twice to alias2, but that
+	    // does not matter in the end.
+	    if (alias.match(/[_-]korp($|[_-])/)) {
+		alias2 = alias.replace(/[_-]korp($|[_-])/, "$1");
+		aliases2.push(alias2)
+		add_dash_underscore_variants(aliases2, alias2);
+	    } else {
+		aliases2.push(alias + "-korp");
+		add_dash_underscore_variants(aliases2, alias + "-korp");
+	    }
+	}
+	for (var j = 0; j < aliases2.length; j++) {
+	    alias2 = aliases2[j];
+	    if (override || ! (alias2 in settings.corpus_aliases)) {
+		settings.corpus_aliases[alias2] = corpus_id_patt;
+	    }
+	}
+    }
+};
+
+
 /*
  * TODO add all other copora settings here
  */

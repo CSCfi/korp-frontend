@@ -2,7 +2,10 @@ Sidebar =
     _init: () ->
 
     updateContent: (sentenceData, wordData, corpus, tokens) ->
-        @element.html ('<div id="selected_sentence" /><div id="selected_word" /><div id="selected_links" />')
+        @element.html ("""<div id="selected_sentence" />
+                          <div id="selected_word" />
+                          <div id="deptree_link" />
+                          <div id="selected_links" />""")
         corpusObj = settings.corpora[corpus]
 
         formattedCorpusInfo =
@@ -75,7 +78,7 @@ Sidebar =
 
             ).parent().find(".ui-dialog-title").localeKey("dep_tree")
 
-        ).appendTo(@element)
+        ).appendTo("#deptree_link")
 
     renderCorpusContent: (type, wordData, sentenceData, corpus_attrs, tokens,
                           synthetic_attr_names, token_data) ->
