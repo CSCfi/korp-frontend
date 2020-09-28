@@ -1150,7 +1150,7 @@ settings.corpora.semfinlex_asd_fi_2018 = {
     title: "Alkuperäisiä säädöksiä",
     description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1917–2018.",
     urn: "urn:nbn:fi:lb-2019042602",
-    metadata_urn: "urn:nbn:fi:lb-2019042601",
+    metadata_urn: "urn:nbn:fi:lb-2020052701",
     licence : settings.licenceinfo.CC_BY,
     features: ["paragraphs", "parsed_tdt"],
     struct_attributes : {
