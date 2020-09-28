@@ -1,3 +1,17 @@
+<!-- New corpus (beta): Finnish OpenSubtitles 2017 2020-09-28a -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2018060403"
+target="_blank">Finnish OpenSubtitles 2017, Kielipankki Korp Version</a>
+is now available in Korp as a beta test version.
+
+
+<!-- Discrepancies in dependency parses corrected: semfinlex-asd-fi-2018  2020-09-28b -->
+
+The discrepancies noticed in September 2019 in the dependency parses
+and relations of the Finnish Semfinlex corpora have
+been corrected in <a href="http://urn.fi/urn:nbn:fi:lb-2020052701" target="_blank">
+Finnish original statutes corpus</a>.
+
 
 <!-- Easy-to-read Finnish magazines also in the corpus folder “Selkokieli” 2020-06-18 -->
 

@@ -1,3 +1,17 @@
+<!-- Uusi aineisto (beta): Suomenkielinen OpenSubtitles 2017 2020-09-28a -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2018060403"
+target="_blank">Suomenkielinen OpenSubtitles 2017, Kielipankin Korp-versio</a>
+on nyt käytettävissä beetatestiversiona Korpissa.
+
+
+<!-- Dependenssijäsennysten poikkeavuuksia korjattu: semfinlex-asd-fi-2018 2020-09-28b -->
+
+Syyskuussa 2019 huomatut suomenkielisen Semfinlex-aineiston
+dependenssijäsennysten ja -relaatioiden poikkeavuudet on korjattu
+<a href="http://urn.fi/urn:nbn:fi:lb-2020052701" target="_blank">
+suomenkielisten alkuperäissäädösten</a> osalta.
+
 
 <!-- Selkokieliset lehdet myös Selkokieli-korpuskansiossa 2020-06-18 -->
 
