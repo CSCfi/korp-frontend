@@ -9,6 +9,12 @@ settings.enableBackendKwicDownload = false
 settings.enableFrontendKwicDownload = true
 
 settings.languages = ["sv", "en"];
+// Names of UI languages in the languages themselves, as shown in the
+// language menu, so they need not be localized
+settings.languageNames = {
+    "sv": "Svenska",
+    "en": "English",
+}
 settings.defaultLanguage = "sv";
 
 settings.downloadFormats = [
