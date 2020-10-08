@@ -224,6 +224,13 @@ settings.corpus_cite_base_url = "http://www.kielipankki.fi/viittaus/?key=";
 settings.advanced_search_within = true;
 
 settings.languages = ["fi", "sv", "en"];
+// Names of UI languages in the languages themselves, as shown in the
+// language menu, so they need not be localized
+settings.languageNames = {
+    "fi": "Suomi",
+    "sv": "Svenska",
+    "en": "English",
+}
 settings.defaultLanguage = "fi";
 
 // If a localization key does not have a translation in some language,
