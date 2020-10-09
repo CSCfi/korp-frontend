@@ -119,21 +119,18 @@ present in all different languages.
 
 To add a new language in the frontend, for example Lithuanian, add a `corpora-lt.json` and `locale-lt.json`. `locale-lt.json` may be copied from an existing locale-file and then translated. Then add the language in `config.js`:
 
-    `settings.languages = ["sv", "en", "lt"];`
+    settings.languages = ["sv", "en", "lt"];
+    settings.languageNames = {
+        "sv": "Svenska",
+        "en": "English",
+        "lt": "Lietuvių",
+    }
+
+(`settings.languageNames` maps the language code to the name of the language in the language itself.)
 
 To make Lithuanian the default language, use:
 
-    `settings.defaultLanguage = "lt"`
-
-To add a button in the interface for Lithuanian, open
-`includes/header.pug` and look for:
-
-```
-a(data-mode='en', ng-click="lang = 'en'") {{'english' | loc:lang}}
-```
-
-and copy this line, substituting `en` for `lt`
-where applicable.
+    settings.defaultLanguage = "lt"
 
 ##### Angular.js locale
 
