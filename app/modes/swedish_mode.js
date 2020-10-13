@@ -19,7 +19,10 @@ statisticsFormatting.makeGroupingValue = function (value) {
 }
 
 
-settings.preselected_corpora = ["mulcold_sv", "kfspc_sv"];
+settings.preselectedCorpora = [
+    "mulcold_sv",
+    "kfspc_sv",
+];
 
 
 $("#lemgram_list_item").remove();

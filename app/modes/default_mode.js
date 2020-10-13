@@ -1029,7 +1029,9 @@ settings.corporafolders.test = {
  * PRESELECTED CORPORA
  * Folders will be expanded to all corpora. Optionally prefix folders with __ , which will be ignored.
  */
-settings.preselected_corpora = ["reittidemo"];
+settings.preselectedCorpora = [
+    "reittidemo",
+];
 
 /*
  * CORPORA

@@ -287,7 +287,10 @@ var context = {
     }
 };
 
-settings.preselected_corpora = ["europarl_v7_enfi_fi", "mulcold_fi"];
+settings.preselectedCorpora = [
+    "europarl_v7_enfi_fi",
+    "mulcold_fi",
+];
 
 settings.defaultOverviewContext = "1 link";
 settings.defaultReadingContext = "1 link";

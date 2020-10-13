@@ -14,7 +14,9 @@ $("#results-lemgram").remove();
 settings.placenameConstraint = "pos contains 'np1?' | pos='PROPNAME'";
 
 
-settings.preselected_corpora = ["mulcold_en"];
+settings.preselectedCorpora = [
+    "mulcold_en",
+];
 
 
 settings.corpora = {};
