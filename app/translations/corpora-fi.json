@@ -1573,6 +1573,13 @@
     "listen_sentence": "Kuuntele virke",
     "listen_speech": "Kuuntele puheenvuoro",
 
+    "video": "video",
+    "video_restart": "Aloita alusta",
+    "video_continue": "Jatka",
+    "video_start_time": "Alkuaika",
+    "video_end_time": "Loppuaika",
+    "video_utterance": "Puhunnos",
+
     "vks_text_year": "vuosi",
     "vks_sentence_cRef": "ristiviittaus",
     "vks_span_page": "sivu",
