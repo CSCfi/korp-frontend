@@ -5131,6 +5131,60 @@ settings.templ.lemmie_common = {
 };
 
 
+// Slightly modified from ivipVideo in Språkbankens default_mode.js
+var reittidemoVideo = function (baseURL, path, file, ext) {
+    return {
+        label: "video",
+        renderItem: function (key, value, attrs, wordData, sentenceData,
+                              tokens) {
+
+            var startTime = sentenceData["utterance_begin_time"];
+            var endTime = sentenceData["utterance_end_time"];
+            // var path = sentenceData["text_mediafilepath"];
+            // var file = sentenceData["text_mediafile"];
+            // var ext = sentenceData["text_mediafileext"];
+
+            var videoLink
+                = $('<span class="link" rel="localize[show_video]"></span>');
+            videoLink.click(function () {
+                var url = baseURL + path + file + "." + ext;
+
+                var scope = angular.element("#video-modal").scope();
+                scope.videos = [{"url": url, "type": "video/mp4"}];
+                scope.fileName = file + "." + ext;
+                scope.startTime = startTime / 1000;
+                scope.endTime = endTime / 1000;
+
+                // find start of sentence
+                var startIdx = 0
+                for (var i = wordData.position; i >= 0; i--) {
+                    if (_.includes(tokens[i]._open, "sentence")) {
+                        startIdx = i;
+                        break;
+                    }
+                }
+
+                // find end of sentence
+                var endIdx = tokens.length - 1
+                for (var i = wordData.position; i < tokens.length; i++) {
+                    if (_.includes(tokens[i]._close, "sentence")) {
+                        endIdx = i;
+                        break;
+                    }
+                }
+
+                scope.sentence =
+                    _.map(tokens.slice(startIdx, endIdx + 1), "word").join(" ")
+                scope.open();
+                scope.$apply();
+            });
+            return videoLink;
+        },
+        customType: "struct"
+    }
+};
+
+
 module.exports = {
     spWithin,
     spContext,
@@ -5147,5 +5201,6 @@ module.exports = {
     lexClassesText,
     readability,
     fsv_aldrelagar,
-    fsv_yngrelagar
+    fsv_yngrelagar,
+    reittidemoVideo,
 }
