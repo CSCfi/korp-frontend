@@ -125,7 +125,7 @@ settings.corporafolders.ethesis.matheses = {
 settings.corporafolders.ethesis.phdtheses = {
     title: "Väitöskirjat",
     contents: ["ethesis_phd_bio", "ethesis_phd_el", "ethesis_phd_far", "ethesis_phd_hum", "ethesis_phd_beh",
-		"ethesis_phd_med", "ethesis_phd_mm", "ethesis_phd_ot", "ethesis_phd_teo", "ethesis_phd_valt"]
+		"ethesis_phd_med", "ethesis_phd_mm", "ethesis_phd_ot", "ethesis_phd_teo", "ethesis_phd_valt_test"]
 };
 
 settings.corporafolders.ftb = {
@@ -9201,12 +9201,13 @@ settings.corpora.ethesis_phd_beh = {
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_phd_valt = {
-    title: "Valtiotieteellinen",
-    description: "Väitöskirjat: Valtiotieteellinen tiedekunta (1999–2016)",
-    id: "ethesis_phd_valt",
+settings.corpora.ethesis_phd_valt_test = {
+    title: "Valtiotieteellinen (testiversio)",
+    description: "Väitöskirjat: Valtiotieteellinen tiedekunta (1999–2016) (testiversio)",
+    id: "ethesis_phd_valt_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
