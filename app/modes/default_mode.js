@@ -8893,8 +8893,9 @@ settings.corpora.reittidemo = {
 	utterance_annex_link: sattrs.link_show_video_annex,
     },
     customAttributes: {
-        video: reittidemoVideo(
-            "/corpusdata/", "reittidemo/", "reitti_a-siipeen", "mp4"),
+        video: makeVideoAttr(
+            "http://localhost/corpusdata/", "reittidemo/", "reitti_a-siipeen", "mp4",
+            "@utterance_begin_time", "@utterance_end_time"),
     },
 };
 
