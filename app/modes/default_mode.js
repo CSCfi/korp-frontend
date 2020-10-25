@@ -13542,246 +13542,258 @@ settings.fn.make_corpus_settings_by_year_decade(
 // };
 
 
-// // Generate a declaration for a custom structural attribute showing in
-// // hh:mm:ss.xxx format the milliseconds value of an actual structural
-// // attribute.
-// // Arguments:
-// // - label: the localization label for the custom attribute
-// // - base_attr: the id of the structural attribute with a milliseconds
-// //   value
-// settings.fn.make_hms_custom_attr = function (label, base_attr) {
-//     return {
-//         customType: "struct",
-//         label: label,
-//         order: 6,
-//         renderItem: function (key, value, attrs, wordData, sentenceData,
-//                               tokens) {
-//             // console.log(base_attr + "_hms", key, value, attrs, wordData,
-// 	    // 		sentenceData, tokens);
-//             return settings.fn.ms_to_hms(sentenceData[base_attr]);
-//         }
-//     };
-// };
+// Generate a declaration for a custom structural attribute showing in
+// hh:mm:ss.xxx format the milliseconds value of an actual structural
+// attribute.
+// Arguments:
+// - label: the localization label for the custom attribute
+// - base_attr: the id of the structural attribute with a milliseconds
+//   value
+settings.fn.make_hms_custom_attr = function (label, base_attr) {
+    return {
+        customType: "struct",
+        label: label,
+        // order: 6,
+        renderItem: function (key, value, attrs, wordData, sentenceData,
+                              tokens) {
+            // console.log(base_attr + "_hms", key, value, attrs, wordData,
+	    // 		sentenceData, tokens);
+            return settings.fn.ms_to_hms(sentenceData[base_attr]);
+        }
+    };
+};
 
 
-// settings.corpora.eduskunta = {
-//     title: "Eduskunnan täysistunnot",
-//     description: "Eduskunnan täysistunnot, Kielipankin Korp-versio 1.5<br/><br/>Aineisto sisältää 10.9.2008–1.7.2016 pidettyjen eduskunnan täysistuntojen videotallenteista tehdyt transkriptiot.<br/>Hakutuloksissa kustakin puhunnoksesta on linkki vastaavaan kohtaan alkuperäisessä videossa (muutamia poikkeuksia lukuun ottamatta). Osa aineistosta on tarjolla myös <a href=\"https://lat.csc.fi\" target=\"_blank\">Kielipankin LAT-palvelussa</a>, jolloin hakutuloksissa on linkki myös istunnon LAT-versioon.<br/><br/>Huomaa, että kohdistetussa pöytäkirjaversiossa esiintyy virheitä ja siihen on lisätty ylimääräisiä merkkauksia automaattisen tunnistusprosessin yhteydessä. Ne äänitteen kohdat, joille ei ole automaattisessa kohdistuksessa löytynyt hyvää vastinetta pöytäkirjan tekstistä, on tunnistettu kokonaan automaattisesti, joten tällaisissa kohdissa saattaa olla kummallista tai virheellistä sisältöä.<br/>Teksti on jäsennetty suomen kielen jäsentimellä, joten alkuperäisten pöytäkirjojen ruotsinkieliset kohdat on yleensä merkitty sanaluokaltaan vierassanoiksi.",
-//     id: "eduskunta",
-//     urn: "urn:nbn:fi:lb-2019112221",
-//     metadata_urn: "urn:nbn:fi:lb-2019101621",
-//     licence: [
-// 	{
-// 	    subtype: "text",
-// 	    name: "CLARIN PUB +BY +PRIV 1.0",
-// 	    description: "CLARIN PUB loppukäyttäjän lisenssisopimus +BY +PRIV 1.0",
-// 	    urn: "urn:nbn:fi:lb-2019112821",
-// 	},
-// 	{
-// 	    subtype: "audiovideo",
-// 	    name: "CLARIN PUB +BY +PRIV +ND +OTHER 1.0",
-// 	    description: "CLARIN PUB loppukäyttäjän lisenssisopimus +BY +PRIV +ND +OTHER 1.0",
-// 	    urn: "urn:nbn:fi:lb-2019112621",
-// 	},
-//     ],
-//     cite_id: "eduskunta-v1.5-korp",
-//     homepage: {
-// 	urn: "http://urn.fi/urn:nbn:fi:lb-2019111922",
-// 	name: "Eduskunnan täysistuntojen verkkolähetysten tallenteet",
-// 	description: "META-SHARE-kuvailutietosivu, josta linkki eduskunnan täysistuntojen verkkolähetysten tallenteisiin",
-// 	no_label: true,
-//     },
-//     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
-//         text_filename: {
-//             label: "file_name",
-//         },
-//         text_date: {
-// 	    label: "publication_date_2",
-// 	},
-//         text_time: {
-// 	    label: "publication_time",
-// 	},
-// 	text_session_duration: {
-// 	    label: "session_duration_ms",
-// 	},
-//         text_original_video : {
-// 	    label : "original_video",
-// 	    type : "url",
-// 	    url_opts: {
-// 		hide_url: true,
-// 		new_window: true,
-// 	    },
-// 	},
-// 	text_original_transcript : {
-// 	    label : "original_transcript",
-// 	    type : "url",
-// 	    url_opts: {
-// 		hide_url: true,
-// 		new_window: true,
-// 	    },
-// 	},
-//         paragraph_speaker: {
-//             label: "speaker_name"
-//         },
-// 	paragraph_speaker_parl_group: {
-//             label: "speaker_parl_group",
-// 	    displayType: "select",
-// 	    opts: settings.liteOptions,
-// 	    translationKey: "parlgroup_",
-// 	    dataset: [
-// 		"kd",
-// 		"kesk",
-// 		"kok",
-// 		"m11",
-// 		"ps",
-// 		"r",
-// 		"sd",
-// 		"vas",
-// 		"vihr",
-// 		"vr",
-// 		""
-// 	    ]
-//         },
-// 	paragraph_speaker_role: {
-// 	    label: "speakerrole",
-// 	    displayType: "select",
-// 	    opts: settings.liteOptions,
-// 	    translationKey: "speakerrole_",
-// 	    dataset: [
-// 		"puhemies",
-// 		"ensimmainen_varapuhemies",
-// 		"toinen_varapuhemies",
-// 		"paaministeri",
-// 		"valtiovarainministeri",
-// 		"elinkeinoministeri",
-// 		"peruspalveluministeri",
-// 		"sosiaali_ja_terveysministeri",
-// 		"oikeusministeri",
-// 		"tyoministeri",
-// 		"ulkoasiainministeri",
-// 		"maa_ja_metsatalousministeri",
-// 		"opetusministeri",
-// 		"puolustusministeri",
-// 		"hallinto_ja_kuntaministeri",
-// 		"ymparistoministeri",
-// 		"liikenneministeri",
-// 		"sisaasiainministeri",
-// 		"sisaministeri",
-// 		"oikeus_ja_tyoministeri",
-// 		"kehitysministeri",
-// 		"puhuja",
-// 		"asunto_ja_viestintaministeri",
-// 		"perhe_ja_peruspalveluministeri",
-// 		"kulttuuri_ja_urheiluministeri",
-// 		"opetus_ja_kulttuuriministeri",
-// 		"viestintaministeri",
-// 		"opetus_ja_viestintaministeri",
-// 		"maatalous_ja_ymparistoministeri",
-// 		"maahanmuutto_ja_eurooppaministeri",
-// 		"ulkomaankauppa_ja_kehitysministeri",
-// 		"asuntoministeri",
-// 		"liikenne_ja_viestintaministeri",
-// 		"liikenne_ja_kuntaministeri",
-// 		"eurooppa_ja_ulkomaankauppaministeri",
-// 		"kulttuuri_ja_asuntoministeri",
-// 		"kunta_ja_uudistusministeri",
-// 		"eduskunnan_oikeusasiamies",
-// 		"ikapuhemies",
-// 		"valtioneuvoston_oikeuskansleri",
-// 		"varajasen",
-// 		"valtioneuvoston_apulaisoikeuskansleri",
-// 		""
-// 	    ]
-// 	},
-// 	paragraph_speech_type: {
-//             label: "speech_type",
-// 	    displayType: "select",
-// 	    opts: settings.liteOptions,
-// 	    translationKey: "speechtype_",
-// 	    dataset: [
-// 		"ryhmapuheenvuoro",
-// 		"esittelypuheenvuoro",
-// 		"vastauspuheenvuoro",
-// 		"koputtaa",
-// 		""
-// 	    ]
-//         },
-// 	paragraph_participant: {
-// 	    label: "speaker"
-// 	},
-// 	utterance_id: {
-// 	    label: "utterance_num",
-// 	},
-// 	utterance_begin_time: {
-// 	    label: "utterance_begin_time_ms",
-// 	},
-// 	utterance_end_time: {
-// 	    label: "utterance_end_time_ms",
-// 	},
-// 	utterance_duration: {
-// 	    label: "utterance_duration_ms"
-// 	},
-// 	// The valid_video_times attribute needs to be retrieved, as
-// 	// it is used to determine if the video page link is shown.
-// 	utterance_valid_video_times: sattrs.hidden,
-// 	utterance_videopage_link: {
-// 	    label: "show_video",
-// 	    type: "url",
-// 	    url_opts: sattrs.link_url_opts,
-// 	    synthetic: true,
-// 	    order: 50,
-// 	    stringify_synthetic: function (token_data) {
-// 		if (token_data.struct_attrs.utterance_valid_video_times
-// 		    == "no") {
-// 		    return undefined;
-// 		} else {
-// 		    return settings.fn.make_videopage_url(
-// 			"eduskunta",
-// 			token_data,
-// 			token_data.struct_attrs.text_original_video
-// 			// Temporary fix for ä's missing from URL
-// 			// attribute values; this is probably not
-// 			// needed any more, but it does not hurt,
-// 			// either.
-// 			    .replace(/Kevt/, "Kevät")
-// 			    .replace(/keskuu/, "kesäkuu")
-// 			    .replace(/heinkuu/, "heinäkuu"),
-// 			[],
-// 			["utterance_videopage_link",
-// 			 "utterance_annex_link",
-// 			 "utterance_annex_link_synth",]);
-// 		}
-// 	    },
-// 	},
-// 	// Kludge to get the LAT/Annex link after the other video
-// 	// link, as synthetic attributes are currently shown after
-// 	// non-synthetic ones.
-// 	utterance_annex_link: sattrs.hidden,
-// 	utterance_annex_link_synth: $.extend(
-// 	    {}, sattrs.link_show_video_annex,
-// 	    {
-// 		synthetic: true,
-// 		order: 40,
-// 		stringify_synthetic: function (token_data) {
-// 		    return token_data.struct_attrs.utterance_annex_link;
-// 		},
-// 	    }),
-//     },
-//     custom_attributes: {
-// 	text_session_duration: settings.fn.make_hms_custom_attr(
-// 	    "session_duration", "text_session_duration"),
-// 	utterance_begin_time_hms: settings.fn.make_hms_custom_attr(
-// 	    "utterance_begin_time", "utterance_begin_time"),
-// 	utterance_end_time_hms: settings.fn.make_hms_custom_attr(
-// 	    "utterance_end_time", "utterance_end_time"),
-// 	utterance_duration_hms: settings.fn.make_hms_custom_attr(
-// 	    "utterance_duration", "utterance_duration"),
-//     },
-// };
+settings.corpora.eduskunta = {
+    title: "Eduskunnan täysistunnot",
+    description: "Eduskunnan täysistunnot, Kielipankin Korp-versio 1.5<br/><br/>Aineisto sisältää 10.9.2008–1.7.2016 pidettyjen eduskunnan täysistuntojen videotallenteista tehdyt transkriptiot.<br/>Hakutuloksissa kustakin puhunnoksesta on linkki vastaavaan kohtaan alkuperäisessä videossa (muutamia poikkeuksia lukuun ottamatta). Osa aineistosta on tarjolla myös <a href=\"https://lat.csc.fi\" target=\"_blank\">Kielipankin LAT-palvelussa</a>, jolloin hakutuloksissa on linkki myös istunnon LAT-versioon.<br/><br/>Huomaa, että kohdistetussa pöytäkirjaversiossa esiintyy virheitä ja siihen on lisätty ylimääräisiä merkkauksia automaattisen tunnistusprosessin yhteydessä. Ne äänitteen kohdat, joille ei ole automaattisessa kohdistuksessa löytynyt hyvää vastinetta pöytäkirjan tekstistä, on tunnistettu kokonaan automaattisesti, joten tällaisissa kohdissa saattaa olla kummallista tai virheellistä sisältöä.<br/>Teksti on jäsennetty suomen kielen jäsentimellä, joten alkuperäisten pöytäkirjojen ruotsinkieliset kohdat on yleensä merkitty sanaluokaltaan vierassanoiksi.",
+    id: "eduskunta",
+    context: spContext,
+    within: spWithin,
+    attributes: attrlist.parsed_tdt,
+    urn: "urn:nbn:fi:lb-2019112221",
+    metadata_urn: "urn:nbn:fi:lb-2019101621",
+    licence: [
+        {
+            subtype: "text",
+            name: "CLARIN PUB +BY +PRIV 1.0",
+            description: "CLARIN PUB loppukäyttäjän lisenssisopimus +BY +PRIV 1.0",
+            urn: "urn:nbn:fi:lb-2019112821",
+        },
+        {
+            subtype: "audiovideo",
+            name: "CLARIN PUB +BY +PRIV +ND +OTHER 1.0",
+            description: "CLARIN PUB loppukäyttäjän lisenssisopimus +BY +PRIV +ND +OTHER 1.0",
+            urn: "urn:nbn:fi:lb-2019112621",
+        },
+    ],
+    cite_id: "eduskunta-v1.5-korp",
+    homepage: {
+        urn: "http://urn.fi/urn:nbn:fi:lb-2019111922",
+        name: "Eduskunnan täysistuntojen verkkolähetysten tallenteet",
+        description: "META-SHARE-kuvailutietosivu, josta linkki eduskunnan täysistuntojen verkkolähetysten tallenteisiin",
+        no_label: true,
+    },
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    structAttributes: {
+        text_filename: {
+            label: "file_name",
+        },
+        text_date: {
+            label: "publication_date_2",
+        },
+        text_time: {
+            label: "publication_time",
+        },
+        text_session_duration: {
+            label: "session_duration_ms",
+        },
+        text_original_video : {
+            label : "original_video",
+            type : "url",
+            url_opts: {
+                hide_url: true,
+                new_window: true,
+            },
+        },
+        text_original_transcript : {
+            label : "original_transcript",
+            type : "url",
+            url_opts: {
+                hide_url: true,
+                new_window: true,
+            },
+        },
+        paragraph_speaker: {
+            label: "speaker_name"
+        },
+        paragraph_speaker_parl_group: {
+            label: "speaker_parl_group",
+            displayType: "select",
+            opts: liteOptions,
+            translationKey: "parlgroup_",
+	    extendedComponent: "datasetSelect",
+	    escape: false,
+            dataset: [
+                "kd",
+                "kesk",
+                "kok",
+                "m11",
+                "ps",
+                "r",
+                "sd",
+                "vas",
+                "vihr",
+                "vr",
+                ""
+            ],
+        },
+        paragraph_speaker_role: {
+            label: "speakerrole",
+            displayType: "select",
+            opts: liteOptions,
+            translationKey: "speakerrole_",
+	    extendedComponent: "datasetSelect",
+	    escape: false,
+            dataset: [
+                "puhemies",
+                "ensimmainen_varapuhemies",
+                "toinen_varapuhemies",
+                "paaministeri",
+                "valtiovarainministeri",
+                "elinkeinoministeri",
+                "peruspalveluministeri",
+                "sosiaali_ja_terveysministeri",
+                "oikeusministeri",
+                "tyoministeri",
+                "ulkoasiainministeri",
+                "maa_ja_metsatalousministeri",
+                "opetusministeri",
+                "puolustusministeri",
+                "hallinto_ja_kuntaministeri",
+                "ymparistoministeri",
+                "liikenneministeri",
+                "sisaasiainministeri",
+                "sisaministeri",
+                "oikeus_ja_tyoministeri",
+                "kehitysministeri",
+                "puhuja",
+                "asunto_ja_viestintaministeri",
+                "perhe_ja_peruspalveluministeri",
+                "kulttuuri_ja_urheiluministeri",
+                "opetus_ja_kulttuuriministeri",
+                "viestintaministeri",
+                "opetus_ja_viestintaministeri",
+                "maatalous_ja_ymparistoministeri",
+                "maahanmuutto_ja_eurooppaministeri",
+                "ulkomaankauppa_ja_kehitysministeri",
+                "asuntoministeri",
+                "liikenne_ja_viestintaministeri",
+                "liikenne_ja_kuntaministeri",
+                "eurooppa_ja_ulkomaankauppaministeri",
+                "kulttuuri_ja_asuntoministeri",
+                "kunta_ja_uudistusministeri",
+                "eduskunnan_oikeusasiamies",
+                "ikapuhemies",
+                "valtioneuvoston_oikeuskansleri",
+                "varajasen",
+                "valtioneuvoston_apulaisoikeuskansleri",
+                ""
+            ]
+        },
+        paragraph_speech_type: {
+            label: "speech_type",
+            displayType: "select",
+            opts: liteOptions,
+            translationKey: "speechtype_",
+	    extendedComponent: "datasetSelect",
+	    escape: false,
+            dataset: [
+                "ryhmapuheenvuoro",
+                "esittelypuheenvuoro",
+                "vastauspuheenvuoro",
+                "koputtaa",
+                ""
+            ]
+        },
+        paragraph_participant: {
+            label: "speaker"
+        },
+        utterance_id: {
+            label: "utterance_num",
+        },
+        utterance_begin_time: {
+            label: "utterance_begin_time_ms",
+        },
+        utterance_end_time: {
+            label: "utterance_end_time_ms",
+        },
+        utterance_duration: {
+            label: "utterance_duration_ms"
+        },
+        // The valid_video_times attribute needs to be retrieved, as
+        // it is used to determine if the video page link is shown.
+        utterance_valid_video_times: sattrs.hidden,
+        utterance_videopage_link: {
+            label: "show_video",
+            type: "url",
+            url_opts: sattrs.link_url_opts,
+            synthetic: true,
+            order: 50,
+            stringify_synthetic: function (token_data) {
+                if (token_data.struct_attrs.utterance_valid_video_times
+                    == "no") {
+                    return undefined;
+                } else {
+                    return settings.fn.make_videopage_url(
+                        "eduskunta",
+                        token_data,
+                        token_data.struct_attrs.text_original_video
+                        // Temporary fix for ä's missing from URL
+                        // attribute values; this is probably not
+                        // needed any more, but it does not hurt,
+                        // either.
+                            .replace(/Kevt/, "Kevät")
+                            .replace(/keskuu/, "kesäkuu")
+                            .replace(/heinkuu/, "heinäkuu"),
+                        [],
+                        ["utterance_videopage_link",
+                         "utterance_annex_link",
+                         "utterance_annex_link_synth",]);
+                }
+            },
+        },
+        // Kludge to get the LAT/Annex link after the other video
+        // link, as synthetic attributes are currently shown after
+        // non-synthetic ones.
+        utterance_annex_link: sattrs.hidden,
+        utterance_annex_link_synth: $.extend(
+            {}, sattrs.link_show_video_annex,
+            {
+                synthetic: true,
+                order: 60,
+                stringify_synthetic: function (token_data) {
+                    return token_data.struct_attrs.utterance_annex_link;
+                },
+            }),
+    },
+    customAttributes: {
+        // text_session_duration: settings.fn.make_hms_custom_attr(
+        //     "session_duration", "text_session_duration"),
+        // utterance_begin_time_hms: settings.fn.make_hms_custom_attr(
+        //     "utterance_begin_time", "utterance_begin_time"),
+        // utterance_end_time_hms: settings.fn.make_hms_custom_attr(
+        //     "utterance_end_time", "utterance_end_time"),
+        // utterance_duration_hms: settings.fn.make_hms_custom_attr(
+        //     "utterance_duration", "utterance_duration"),
+        video: makeVideoAttr(
+            "@text_original_video", "", "", "",
+            "@utterance_begin_time", "@utterance_end_time"),
+    },
+};
 
-// // Support "eduskunta_test" as an alias
-// settings.corpus_aliases["eduskunta_test"] = "eduskunta";
+// Support "eduskunta_test" as an alias
+settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 
 
 // settings.corpus_aliases["topling-fi"] = "topling_fi";
