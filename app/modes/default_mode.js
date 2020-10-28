@@ -125,7 +125,7 @@ settings.corporafolders.ethesis.matheses = {
 settings.corporafolders.ethesis.phdtheses = {
     title: "Väitöskirjat",
     contents: ["ethesis_phd_bio", "ethesis_phd_el", "ethesis_phd_far", "ethesis_phd_hum", "ethesis_phd_beh",
-		"ethesis_phd_med", "ethesis_phd_mm", "ethesis_phd_ot", "ethesis_phd_teo", "ethesis_phd_valt_test"]
+		"ethesis_phd_med", "ethesis_phd_mm", "ethesis_phd_ot", "ethesis_phd_teo", "ethesis_phd_valt"]
 };
 
 settings.corporafolders.ftb = {
@@ -9155,6 +9155,7 @@ settings.corpora.ethesis_maabs = {
     id: "ethesis_maabs",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9165,6 +9166,7 @@ settings.corpora.ethesis_dissabs = {
     id: "ethesis_dissabs",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9177,6 +9179,7 @@ settings.corpora.ethesis_phd_far = {
     id: "ethesis_phd_far",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9187,6 +9190,7 @@ settings.corpora.ethesis_phd_teo = {
     id: "ethesis_phd_teo",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9197,14 +9201,15 @@ settings.corpora.ethesis_phd_beh = {
     id: "ethesis_phd_beh",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    //features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_phd_valt_test = {
-    title: "Valtiotieteellinen (testiversio)",
-    description: "Väitöskirjat: Valtiotieteellinen tiedekunta (1999–2016) (testiversio)",
-    id: "ethesis_phd_valt_test",
+settings.corpora.ethesis_phd_valt = {
+    title: "Valtiotieteellinen",
+    description: "Väitöskirjat: Valtiotieteellinen tiedekunta (1999–2016)",
+    id: "ethesis_phd_valt",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     features: ["parsed_tdt", "finer"],
@@ -9218,6 +9223,7 @@ settings.corpora.ethesis_phd_ot = {
     id: "ethesis_phd_ot",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9228,6 +9234,7 @@ settings.corpora.ethesis_phd_hum = {
     id: "ethesis_phd_hum",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9238,6 +9245,7 @@ settings.corpora.ethesis_phd_bio = {
     id: "ethesis_phd_bio",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9248,6 +9256,7 @@ settings.corpora.ethesis_phd_el = {
     id: "ethesis_phd_el",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9258,6 +9267,7 @@ settings.corpora.ethesis_phd_mm = {
     id: "ethesis_phd_mm",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9268,6 +9278,7 @@ settings.corpora.ethesis_phd_med = {
     id: "ethesis_phd_med",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9278,6 +9289,7 @@ settings.corpora.ethesis_ma_far = {
     id: "ethesis_ma_far",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9288,6 +9300,7 @@ settings.corpora.ethesis_ma_teo = {
     id: "ethesis_ma_teo",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9298,6 +9311,7 @@ settings.corpora.ethesis_ma_beh = {
     id: "ethesis_ma_beh",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    //features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9308,6 +9322,7 @@ settings.corpora.ethesis_ma_valt = {
     id: "ethesis_ma_valt",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9318,6 +9333,7 @@ settings.corpora.ethesis_ma_ot = {
     id: "ethesis_ma_ot",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9328,6 +9344,7 @@ settings.corpora.ethesis_ma_hum = {
     id: "ethesis_ma_hum",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9338,6 +9355,7 @@ settings.corpora.ethesis_ma_sci = {
     id: "ethesis_ma_sci",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9348,6 +9366,7 @@ settings.corpora.ethesis_ma_ai = {
     id: "ethesis_ma_ai",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    //features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9358,6 +9377,7 @@ settings.corpora.ethesis_ma_bio = {
     id: "ethesis_ma_bio",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9369,6 +9389,7 @@ settings.corpora.ethesis_ma_el = {
     id: "ethesis_ma_el",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    //features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9379,6 +9400,7 @@ settings.corpora.ethesis_ma_mm = {
     id: "ethesis_ma_mm",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
@@ -9389,6 +9411,7 @@ settings.corpora.ethesis_ma_med = {
     id: "ethesis_ma_med",
     within: settings.defaultWithin,
     context: settings.defaultContext,
+    features: ["parsed_tdt", "finer"],
     attributes: attrlist.standard,
     struct_attributes: sattrlist.ethesis
 };
