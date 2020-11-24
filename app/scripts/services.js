@@ -439,29 +439,38 @@ korpApp.factory("lexicons", function ($q, $http) {
     return {
         getLemgrams(wf, resources, corporaIDs) {
             const deferred = $q.defer()
-
+            // Alternative completion defined in configuration
+            const altComplete = settings.lemgramComplete
             const args = {
                 q: wf,
                 resource: $.isArray(resources) ? resources.join(",") : resources,
                 mode: "external",
             }
-
-            $http({
+            let httpArgs = {
                 method: "GET",
                 url: `${karpURL}/autocomplete`,
                 params: args,
-            })
+            }
+            if (altComplete && altComplete.makeHTTPArgs) {
+                httpArgs = altComplete.makeHTTPArgs(
+                    wf, resources, corporaIDs, httpArgs)
+            }
+            $http(httpArgs)
                 .then(function (response) {
                     let { data } = response
                     if (data === null) {
                         return deferred.resolve([])
                     } else {
                         // Pick the lemgrams. Would be nice if this was done by the backend instead.
-                        const karpLemgrams = _.map(
-                            data.hits.hits,
-                            (entry) => entry._source.FormRepresentations[0].lemgram
+                        const karpLemgrams = (
+                            altComplete && altComplete.makeLemgramList
+                                ? altComplete.makeLemgramList(data)
+                                : _.map(
+                                    data.hits.hits,
+                                    (entry) => (entry._source
+                                                .FormRepresentations[0].lemgram)
+                                )
                         )
-
                         if (karpLemgrams.length === 0) {
                             deferred.resolve([])
                             return
