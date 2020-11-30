@@ -1,3 +1,31 @@
+
+<!-- Service break and temporary degradation of service early in December 2020 2020-11-30 -->
+
+For technical reasons, the Korp service will be moved to another
+server **early in December 2020**. The Korp service will have a
+**service break of probably at most one day** at short notice. We will
+try to keep the break as short as possible, and we will inform you
+about it when its exact date is known.
+
+On the new server, Korp’s word picture feature will work only for some
+corpora for several weeks. At first, the new server will probably be
+slower than the current server. It is also possible that corpora
+requiring personal access rights will not be in use immediately, but
+if that happens, we will try to make them available as soon as
+possible.
+
+The address of the Korp service will stay <a
+href="https://korp.csc.fi#?lang=en"
+target="_blank">https://korp.csc.fi</a> for the present.
+
+Moving Korp to a new server is an intermediate step in upgrading Korp
+to a more recent version. We will inform you about that in more detail
+later.
+
+We apologize for informing you so late about the service break and the
+temporary degradation of the Korp service.
+
+
 <!-- New corpus (beta): Finnish OpenSubtitles 2017 2020-09-28a -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2018060403"

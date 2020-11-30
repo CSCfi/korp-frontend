@@ -1,3 +1,30 @@
+
+<!-- Käyttökatko ja tilapäinen palvelun heikkeneminen joulukuun 2020 alussa 2020-11-30 -->
+
+Korp-palvelu siirretään **joulukuun 2020 alussa** toiselle
+palvelimelle teknisistä syistä. Tällöin Korpissa on luultavasti
+enintään **päivän käyttökatko** lyhyellä varoitusajalla. Pyrimme
+pitämään katkon mahdollisimman lyhyenä ja tiedotamme siitä tarkemmin,
+kun sen ajankohta on tiedossa.
+
+Uudella palvelimella Korpin sanakuvaominaisuus toimii luultavasti
+usean viikon ajan vain osassa aineistoja. Uusi palvelin on
+todennäköisesti aluksi nykyistä hitaampi. On myös mahdollista, että
+henkilökohtaista käyttöoikeutta edellyttävät aineistot eivät ole heti
+käytettävissä, mutta jos niin käy, pyrimme saamaan ne käyttöön
+mahdollisimman pian.
+
+Korp-palvelun osoitteena säilyy toistaiseksi <a
+href="https://korp.csc.fi" target="_blank">https://korp.csc.fi</a>.
+
+Korpin siirtäminen uudelle palvelimelle on välivaihe Korpin
+päivittämisessä uudempaan versioon, mistä tiedotamme tarkemmin
+myöhemmin.
+
+Pahoittelemme myöhäistä tiedottamista käyttökatkosta ja Korp-palvelun
+tilapäisestä heikkenemisestä.
+
+
 <!-- Uusi aineisto (beta): Suomenkielinen OpenSubtitles 2017 2020-09-28a -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2018060403"
