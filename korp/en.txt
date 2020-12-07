@@ -1,5 +1,30 @@
 
-<!-- Service break and temporary degradation of service early in December 2020 2020-11-30 -->
+<!-- Korp to be moved to another server on 10 December 2020 2020-12-07 -->
+
+The Korp service will be moved to another server on 10 December 2020.
+The address of the Korp service will stay <a
+href="https://korp.csc.fi#?lang=en"
+target="_blank">https://korp.csc.fi</a> for the present.
+
+The change of server does not cause a service break, and in general,
+the Korp service should work on the new server in the same way as
+previously. However, the word picture feature will work only for some
+corpora for several weeks. The new server will also be slower than the
+current one at least at first.
+
+**Please report other dysfunctions and errors** either via the <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback"
+target="_blank">feedback form</a> or by email to `fin-clarin (at)
+helsinki.fi`.
+
+Moving Korp to a new server is an intermediate step in upgrading Korp
+to a more recent version. We will inform you about that in more detail
+later.
+
+We apologize for the temporary degradation of the Korp service.
+
+
+<!-- Service break and temporary degradation of service early in December 2020 2020-11-30 2020-12-06 -->
 
 For technical reasons, the Korp service will be moved to another
 server **early in December 2020**. The Korp service will have a
