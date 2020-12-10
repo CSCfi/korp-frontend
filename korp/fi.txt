@@ -1,5 +1,32 @@
 
-<!-- Korp-palvelin vaihtuu 10.12.2020 2020-12-07 -->
+<!-- Korp siirrettiin toiselle palvelimelle 10.12.2020 2020-12-10 -->
+
+Korp-palvelu siirrettiin 10.12.2020 toiselle palvelimelle teknisistä
+syistä. Korp-palvelun osoitteena säilyy toistaiseksi <a
+href="https://korp.csc.fi" target="_blank">https://korp.csc.fi</a>.
+
+Korpin on tarkoitus toimia uudella palvelimella samoin kuin vanhalla.
+Seuraavat puutteet ovat tiedossa:
+
+* Sanakuvaominaisuus toimii usean viikon ajan vain osassa niitä
+  aineistoja, joissa se on aiemmin ollut käytettävissä.
+* Uloskirjautumisen jälkeen selain ei ehkä palaa automaattisesti
+  Korp-sivulle.
+* Uusi palvelin on ainakin aluksi vanhaa hitaampi.
+
+**Ilmoita huomaamistasi muista ongelmista tai virheistä** joko <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html"
+target="_blank">palautelomakkeen</a> kautta tai sähköpostitse
+osoitteella `fin-clarin (ät) helsinki.fi`.
+
+Korpin siirtäminen uudelle palvelimelle on välivaihe Korpin
+päivittämisessä uudempaan versioon alkuvuodesta 2021, mistä tiedotamme
+tarkemmin myöhemmin.
+
+Pahoittelemme Korp-palvelun tilapäistä heikkenemistä.
+
+
+<!-- Korp-palvelin vaihtuu 10.12.2020 2020-12-07 2020-12-09 -->
 
 Korp-palvelu siirretään 10.12.2020 toiselle palvelimelle teknisistä
 syistä. Korp-palvelun osoitteena säilyy toistaiseksi <a
