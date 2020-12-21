@@ -1,4 +1,21 @@
 
+<!-- LAT-palvelu suljettiin, joten LAT-linkit eivät toimi 2020-12-21 -->
+
+Ääni- ja videoaineistoja sisältänyt LAT-palvelu jouduttiin sulkemaan
+joulukuussa 2020 järjestelmän teknisen vanhentumisen takia. Tämän
+vuoksi Korp-aineistoista *Lauseopin arkiston murrekorpus*, *SKN –
+Suomen kielen näytteitä* ja *Reitti A-siipeen* LAT-palveluun vieneet
+kuuntelu- ja latauslinkit eivät tällä hetkellä toimi.
+
+Korjaamme latauslinkit toimimaan tammikuun 2021 aikana ja pyrimme
+palauttamaan hakuosumien kuuntelumahdollisuuden, kun Korp päivitetään
+uudempaan versioon alkuvuodesta 2021. Jos sinulla on kiireellinen
+tarve yllä mainittujen aineistojen äänidatalle, ota yhteyttä
+sähköpostitse osoitteella `fin-clarin (ät) helsinki.fi`.
+
+Pahoittelemme LAT-palvelun sulkemisesta aiheutuvaa haittaa.
+
+
 <!-- Korp siirrettiin toiselle palvelimelle 10.12.2020 2020-12-10 -->
 
 Korp-palvelu siirrettiin 10.12.2020 toiselle palvelimelle teknisistä

@@ -1,4 +1,22 @@
 
+<!-- LAT service shut down, so links to LAT do not work 2020-12-21 -->
+
+The LAT service for audio and video corpora had to be shut down in
+December 2020 because the system became technically out-of-date. For
+this reason, the download and listening links that led to LAT from the
+Korp corpora *Lauseopin arkiston murrekorpus*, *SKN – Suomen kielen
+näytteitä* and *Reitti A-siipeen* do not currently work.
+
+We will fix the download links in January 2021, and we aim at
+restoring the possibility to listen to search hits when Korp is
+upgraded to a more recent version in spring 2021. If you have a more
+urgent need for the audio data of the above-mentioned corpora, please
+contact `fin-clarin (at) helsinki.fi`.
+
+We apologize for the inconvenience caused by shutting down the LAT
+service.
+
+
 <!-- Korp was moved to another server on 10 December 2020 2020-12-10 -->
 
 For technical reasons, the Korp service was moved to another server on
