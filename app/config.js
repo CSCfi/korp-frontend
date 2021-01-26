@@ -681,6 +681,10 @@ settings.lemgramComplete = {
     },
 }
 
+// Corpus folder property names not to be treated as corpus ids, in
+// addition to "title", "contents" and "description"
+settings.corpusfolderNonCorpusProperties = ["info"]
+
 
 /*
  * Modify the list of corpora
