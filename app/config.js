@@ -154,3 +154,7 @@ settings.mapCenter = {
 };
 
 settings.readingModeField = "sentence_id"
+
+// Corpus folder property names not to be treated as corpus ids, in
+// addition to "title", "contents" and "description"
+settings.corpusfolderNonCorpusProperties = []
