@@ -131,7 +131,7 @@ settings.corporafolders.english.ethesis = {
     info: {
 	cite_id: "e-thesis-en",
 	urn: "urn:nbn:fi:lb-2016102101",
-	metadata_urn: "urn:nbn:fi:lb-2016102401",
+	metadata_urn: "urn:nbn:fi:lb-2020031301",
 	licence: settings.licenceinfo.CC_BY,
 	homepage_url: "https://ethesis.helsinki.fi/",
     }
