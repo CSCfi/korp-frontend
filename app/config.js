@@ -6,7 +6,9 @@ var settings = {};
 
 var isLab = window.isLab || false;
 
-var isProductionServer = (window.location.hostname.indexOf(".csc.fi") != -1);
+var isProductionServer = (
+    window.location.hostname.indexOf(".csc.fi") != -1
+        || window.location.hostname == "195.148.22.239");
 var isProductionServerTest =
     (isProductionServer
      && (window.location.pathname.indexOf("test/") != -1
@@ -201,7 +203,7 @@ settings.cgi_prefix =
      ? "/cgi-bin/korp-beta/"
      : (isProductionServerOld ?
 	"/cgi-bin/korp-old/"
-	: (isProductionServer ? "/cgi-bin/" : "/cgi-bin/korp/")));
+	: "/cgi-bin/korp/"));
 settings.cgi_script = settings.cgi_prefix + "korp.cgi";
 settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
 settings.download_cgi_script = settings.cgi_prefix + "korp_download.cgi";

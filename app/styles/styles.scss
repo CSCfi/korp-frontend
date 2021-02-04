@@ -272,6 +272,18 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, input:pla
   width: 100%;
 }
 
+#head-banner {
+    font-weight: bold;
+    font-size: 1.25em;
+    background-color: red;
+    color: white;
+    text-align: center;
+    p {
+        margin: 0;
+        padding: 0.25em;
+    }
+}
+
 #header {
   width: 100%;
   margin: 0;
