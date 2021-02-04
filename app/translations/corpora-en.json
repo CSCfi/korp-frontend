@@ -832,14 +832,14 @@
     "INFINIT": "Participle",
     "FINIT": "Finite verb",
 
-    "kaannossuomi_academic": "academic",
+    "kaannossuomi_academic": "academic texts",
     "kaannossuomi_biography": "biography",
-    "kaannossuomi_crime_fiction": "crime fiction",
-    "kaannossuomi_fiction": "fiction",
+    "kaannossuomi_crime_fiction": "detective fiction",
+    "kaannossuomi_fiction": "popular literature",
     "kaannossuomi_popular_fiction": "popular fiction",
     "kaannossuomi_popular_science": "popular science",
     "kaannossuomi_childrens_literature": "childern's literature",
-    "kaannossuomi_kauno": "belles-lettres",
+    "kaannossuomi_kauno": "literature",
 
     "kaannossuomi_fin": "Finnish",
     "kaannossuomi_eng": "English",

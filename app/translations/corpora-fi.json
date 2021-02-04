@@ -798,12 +798,12 @@
     "INF": "Infinitiivi",
     "FINIT": "Finiittiverbi",
 
-    "kaannossuomi_academic": "akateeminen",
-    "kaannossuomi_biography": "elämäkerta",
-    "kaannossuomi_crime_fiction": "rikoskirjallisuus",
-    "kaannossuomi_fiction": "fiktio",
-    "kaannossuomi_popular_fiction": "genrekirjallisuus",
-    "kaannossuomi_popular_science": "yleistajuinen tietokirjallisuus",
+    "kaannossuomi_academic": "akateemiset tekstit",
+    "kaannossuomi_biography": "biografia",
+    "kaannossuomi_crime_fiction": "dekkarikirjallisuus",
+    "kaannossuomi_fiction": "viihdekirjallisuus",
+    "kaannossuomi_popular_fiction": "populaarikirjallisuus",
+    "kaannossuomi_popular_science": "tietokirjallisuus",
     "kaannossuomi_childrens_literature": "lastenkirjallisuus",
     "kaannossuomi_kauno": "kaunokirjallisuus",
 
