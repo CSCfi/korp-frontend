@@ -29,13 +29,18 @@
     "saldo": "sense",
     "sense": "sense",
     "pos": "part of speech",
+    "pos_ud1": "part of speech (UD1)",
     "posset": "homograph set",
     "msd": "msd",
+    "msd_ud1": "msd (UD1)",
     "baseform": "base form",
+    "baseform_ud1": "base form (UD1)",
     "lemgram": "lemgram",
     "dalin-lemgram": "dalin-lemgram",
     "dephead": "dephead",
+    "dephead_ud1": "dephead (UD1)",
     "deprel": "dependency relation",
+    "deprel_ud1": "dependency relation (UD1)",
     "sentence": "sentence",
     "paragraph": "paragraph",
     "prefix": "initial part",
@@ -55,6 +60,7 @@
 
     "lemma": "lemma",
     "baseform_compound": "baseform (compound boundaries)",
+    "baseform_compound_ud1": "baseform (compound boundaries) (UD1)",
     "lemmacomp": "baseform (compound boundaries)",
     "pos_orig": "part of speech (original)",
     "func": "function",
@@ -2328,5 +2334,9 @@
     "hc_audience" : "audience",
     "hc_partrel" : "participant's relation to the author",
     "hc_interaction" : "interaction",
-    "hc_setting" : "setting"
+    "hc_setting" : "setting",
+
+    "opensub_text_country" : "country",
+    "opensub_text_lang_orig" : "original language",
+    "opensub_text_genre" : "genre"
 }
