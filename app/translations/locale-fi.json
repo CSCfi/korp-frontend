@@ -52,7 +52,7 @@
     "about_dev": "Kehittäjät",
     "about_dev_additional": "Annotoijat",
     "about_logo": "Logo",
-    "about_contributers": "Avustajat",
+    "about_contributors": "Avustajat",
     "about_adapt": "Korpin sovittaminen Kielipankkiin",
     "warning_header": "Huomaa",
     "warning_body": "Näytettävät dependenssirelaatiot ovat automaattisen jäsentimen tuottamia.",
@@ -138,6 +138,7 @@
     "matches_not": "ei säännöllinen lauseke",
 
     "repeat": "toista",
+    "from": "",
     "to": "–",
     "times": "kertaa",
 
@@ -228,6 +229,7 @@
     "no_stats_results": "Haku ei tuottanut tuloksia.",
     "no_related_words": "Ei tuloksia",
 
+    "total_rows": "Rivejä:",
     "graph": "Kuvaaja",
     "line": "Viiva",
     "bar": "Pylväs",
@@ -341,6 +343,11 @@
 
     "newsdesk-header": "Uutisia",
 
+    "download_kwic_csv": "Virke per rivi (CSV)",
+    "download_annotations_csv": "Sane annotaatioineen per rivi (CSV)",
+    "download_kwic_tsv": "Virke per rivi (TSV)",
+    "download_annotations_tsv": "Sane annotaatioineen per rivi (TSV)",
+
     "download_kwic": "Lataa konkordanssi",
     "download_kwic_format_prefix": "muodossa",
     "kwic_download_formatname_json": "JSON",
@@ -401,6 +408,7 @@
 
     "repeat_error": "Virhe: Kaikkia saneita ei voi toistaa nollasta alkaen.",
 
+    "choose_value": "Valitse arvo",
     "choose_lemgram": "Valitse lemgrammi",
     "login_needed_for_corpora": "Login needed for access to",
 
@@ -413,6 +421,7 @@
 
     "in_order_chk": "järjestyksessä",
     "prefix_chk": "alkuosa",
+    "compound_middle": "keskiosa",
     "suffix_chk": "loppuosa",
     "text_tab_header": "Lukutila",
 
