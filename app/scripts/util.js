@@ -1199,57 +1199,65 @@ window.__.remove = function (arr, elem) {
 }
 
 
-// Functions for a simple plugin facility
+// Class for a simple plugin facility
 
-// Plugin functions object: each property corresponds to a hook point
-// (a type of plugin function) and its value is an array of functions
-// to be called at the hook point.
-util.pluginFunctions = {}
+util.Plugins = class Plugins {
 
-// Register a plugin which is an object whose function properties
-// (whose names do not begin or end with an underscodre) correspond to
-// plugin functions and are added to util.pluginFunctions, each to the
-// array of the property with the name of the function, indicating the
-// hook point.
+    constructor () {
+        // Plugin callback function object: each property corresponds to a
+        // hook point (a type of plugin function) and its value is an
+        // array of functions to be called at the hook point.
+        this.callbacks = {}
+    }
 
-util.registerPlugin = function (obj) {
-    c.log("registerPlugin", obj)
-    for (let propname of Object.getOwnPropertyNames(obj) || []) {
-        // c.log(propname, obj[propname], _.isFunction(obj[propname]))
-        if (! propname.startsWith("_") && ! propname.endsWith("_")
-                && _.isFunction(obj[propname])) {
-            if (! (propname in util.pluginFunctions)) {
-                util.pluginFunctions[propname] = []
+    // Register a plugin which is an object whose function properties
+    // (whose names do not begin or end with an underscodre)
+    // correspond to plugin callback functions and are added to
+    // this.callbacks, each to the array of the property with the name
+    // of the function, indicating the hook point.
+    register (obj) {
+        c.log("Plugins.register", obj)
+        for (let propname of Object.getOwnPropertyNames(obj) || []) {
+            // c.log(propname, obj[propname], _.isFunction(obj[propname]))
+            if (! propname.startsWith("_") && ! propname.endsWith("_")
+                    && _.isFunction(obj[propname])) {
+                if (! (propname in this.callbacks)) {
+                    this.callbacks[propname] = []
+                }
+                this.callbacks[propname].push(obj[propname].bind(obj))
             }
-            util.pluginFunctions[propname].push(obj[propname])
+        }
+        // c.log("pluginFunctions", this.callbacks)
+    }
+
+    // Call plugin callback functions (actions) registered for
+    // hookPoint in the order they are in listed this.callbacks, with
+    // the (optional) arguments args... The possible return value of
+    // the functions is ignored.
+    callActions (hookPoint, ...args) {
+        for (let func of this.callbacks[hookPoint] || []) {
+            // Would this be needed?
+            // func(...Array.from(args || []))
+            func(...args)
         }
     }
-    // c.log("pluginFunctions", util.pluginFunctions)
-}
 
-// Call plugin functions (actions) registered for hookPoint in the
-// order they are in listed util.pluginFunctions, with the (optional)
-// arguments args...
-
-util.callPluginActions = function (hookPoint, ...args) {
-    for (let func of util.pluginFunctions[hookPoint] || []) {
-        // Would this be needed?
-        // func(...Array.from(args || []))
-        func(...args)
+    // Call plugin callback functions (filters) registered for
+    // hookPoint in the order they are in listed this.callbacks, with
+    // the argument arg1 and optional rest... Each callback function
+    // gets as its arg1 the return value of the previous function, and
+    // this function returns the value returned by the last callback
+    // function.
+    callFilters (hookPoint, arg1, ...rest) {
+        // c.log("callFilters", hookPoint, arg1, ...rest)
+        for (let func of this.callbacks[hookPoint] || []) {
+            // arg1 = func(arg1, ...Array.from(rest));
+            arg1 = func(arg1, ...rest)
+        }
+        return arg1
     }
+
 }
 
-// Call plugin functions (filters) registered for hookPoint in the
-// order they are in listed util.pluginFunctions, with the argument
-// arg1 and optional rest... Each plugin function gets as its arg1 the
-// return value of the previous function, and this function returns
-// the value returned by the last plugin function.
-
-util.callPluginFilters = function(hookPoint, arg1, ...rest) {
-    // c.log "callPluginFunctions", hookPoint, arg1, rest...
-    for (let func of util.pluginFunctions[hookPoint] || []) {
-        // arg1 = func(arg1, ...Array.from(rest));
-        arg1 = func(arg1, ...rest)
-    }
-    return arg1
-}
+// Create a Plugins instance
+util.plugins = new util.Plugins()
