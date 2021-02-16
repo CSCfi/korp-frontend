@@ -1197,3 +1197,59 @@ window.__.remove = function (arr, elem) {
         return arr.splice(arr.indexOf(elem), 1)
     }
 }
+
+
+// Functions for a simple plugin facility
+
+// Plugin functions object: each property corresponds to a hook point
+// (a type of plugin function) and its value is an array of functions
+// to be called at the hook point.
+util.pluginFunctions = {}
+
+// Register a plugin which is an object whose function properties
+// (whose names do not begin or end with an underscodre) correspond to
+// plugin functions and are added to util.pluginFunctions, each to the
+// array of the property with the name of the function, indicating the
+// hook point.
+
+util.registerPlugin = function (obj) {
+    c.log("registerPlugin", obj)
+    for (let propname of Object.getOwnPropertyNames(obj) || []) {
+        // c.log(propname, obj[propname], _.isFunction(obj[propname]))
+        if (! propname.startsWith("_") && ! propname.endsWith("_")
+                && _.isFunction(obj[propname])) {
+            if (! (propname in util.pluginFunctions)) {
+                util.pluginFunctions[propname] = []
+            }
+            util.pluginFunctions[propname].push(obj[propname])
+        }
+    }
+    // c.log("pluginFunctions", util.pluginFunctions)
+}
+
+// Call plugin functions (actions) registered for hookPoint in the
+// order they are in listed util.pluginFunctions, with the (optional)
+// arguments args...
+
+util.callPluginActions = function (hookPoint, ...args) {
+    for (let func of util.pluginFunctions[hookPoint] || []) {
+        // Would this be needed?
+        // func(...Array.from(args || []))
+        func(...args)
+    }
+}
+
+// Call plugin functions (filters) registered for hookPoint in the
+// order they are in listed util.pluginFunctions, with the argument
+// arg1 and optional rest... Each plugin function gets as its arg1 the
+// return value of the previous function, and this function returns
+// the value returned by the last plugin function.
+
+util.callPluginFilters = function(hookPoint, arg1, ...rest) {
+    // c.log "callPluginFunctions", hookPoint, arg1, rest...
+    for (let func of util.pluginFunctions[hookPoint] || []) {
+        // arg1 = func(arg1, ...Array.from(rest));
+        arg1 = func(arg1, ...rest)
+    }
+    return arg1
+}
