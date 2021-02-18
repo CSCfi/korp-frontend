@@ -371,15 +371,23 @@
     "kwic_download_formatdescr_html_table": "HTML-taulukko",
 
     "privacy": "Tietosuojaseloste",
+    "privacy_url": "https://www.kielipankki.fi/tietosuojaseloste/korp-palvelun-kayttaja/",
+    "terms_of_use": "Yleiset käyttöehdot",
+    "terms_of_use_urn": "urn:nbn:fi:lb-20150304200",
 
-    "corpus_urn": "Linkki korpukseen Korpissa",
+    "corpus_subcorpus_of": "Osa aineistoa",
+    "corpus_pid": "Aineiston pysyvä tunniste (kuvailutiedot)",
+    "corpus_urn": "Linkki aineistoon Korpissa",
     "corpus_licence": "Lisenssi",
+    "corpus_licence_text": "Lisenssi (teksti)",
+    "corpus_licence_audiovideo": "Lisenssi (ääni ja video)",
     "corpus_metadata": "Kuvailutiedot",
     "corpus_homepage": "Kotisivu",
+    "corpus_infopage": "Tietosivu",
     "corpus_iprholder": "Oikeudenhaltija",
     "corpus_compiler": "Koostaja",
     "corpus_download": "Lataa aineisto",
-    "corpus_cite": "Viittaa korpukseen",
+    "corpus_cite": "Viittaa aineistoon",
 
     "no_geo_info": "Paikkatietoja ei saatavilla",
     "map_cluster": "Ryhmittele",
@@ -425,6 +433,9 @@
     "relogin_preamble": "Yrität käyttää korpuksia, joiden käyttäminen vaatii kirjautumisen Korpiin, mutta kirjautumisesi näyttää vanhentuneen.",
     "relogin_login": "Kirjaudu Korpiin",
     "relogin_login_postamble": "voidaksesi tehdä yrittämäsi haun",
+
+    "corpuslabel_descr_beta": "<strong>Huomaa</strong>, että korpus on beetatestivaiheessa, joten siihen voi tulla muutoksia ilman ilmoitusta.",
+    "corpuslabel_descr_test": "<strong>Huomaa</strong>, että korpus on vielä testivaiheessa, joten siihen voi tulla merkittäviäkin muutoksia ilman ilmoitusta.",
 
     "wordlist": "Sanalista",
     "selected_words": "Valitut sanat",
