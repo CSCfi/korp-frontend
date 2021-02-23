@@ -919,12 +919,29 @@ util.downloadKwic = (format_params, query_url, result_data) ->
         format: format
         korp_url: window.location.href
         korp_server_url: settings.cgi_script
+        # TODO: Does it make sense to pass the whole corpus
+        # configuration to the download script, or would the keys
+        # listed in corpus_config_info_keys suffice, possibly with the
+        # addition of corpus name? Attribute names might be also be
+        # useful, but they would require mapping via translations.
         corpus_config: JSON.stringify(result_corpora_settings,
             (key, value) ->
                 # logical_corpus may refer to the corpus object
                 # itself, and since JSON does not support circular
                 # objects, replace the value with corpus title
-                if key == "logical_corpus" then value.title else value)
+                if key == "logical_corpus"
+                    return value.title
+                # The licence may be list-valued but korp_download.cgi
+                # expects a dictionary (object); choose the value with
+                # subtype == "text" if it exists, otherwise choose the
+                # first value.
+                else if _.isArray value
+                    for item in value
+                        if item.subtype == "text"
+                            return item
+                    return value[0]
+                else
+                    return value)
         # corpus_config_info_keys previously excluded "urn", but now
         # it is included if listed in settings.corpusExtraInfoItems.
         # Does it matter?
@@ -973,14 +990,17 @@ util.loadCorporaFolderRecursive = (first_level, folder) ->
     if first_level
         outHTML = "<ul>"
     else
-        folder_descr = (folder.description or "") +
+        folder_descr = util.callPluginFunctionsValued(
+            "CorpusInfoDescrProcessor", (folder.description or ""), folder)
+        extra_info =
             if folder.info and settings.corpusExtraInfo
-                (if folder.description then "<br/><br/>" else "") +
-                    util.formatCorpusExtraInfo(
-                        folder.info,
-                        settings.corpusExtraInfo.corpus_infobox)
+                util.formatCorpusExtraInfo(
+                    folder.info,
+                    info_items: settings.corpusExtraInfo.corpus_infobox)
             else
                 ""
+        folder_descr += ((if folder_descr and extra_info then "<br/><br/>" else "") +
+            extra_info)
         outHTML = "<ul title=\"" + folder.title + "\" description=\"" + escape(folder_descr) + "\">"
     if folder #This check makes the code work even if there isn't a ___settings.corporafolders = {};___ in config.js
         # Folders
@@ -1041,6 +1061,16 @@ util.suffixedNumbers = (num) ->
 # Goes through the settings.corporafolders and recursively adds the settings.corpora hierarchically to the corpus chooser widget
 util.loadCorpora = ->
     added_corpora_ids = []
+
+    # Run "plugin functions" for corpus folders and corpus settings.
+    # The functions may use corpus information obtained in
+    # Searches.getInfoData, so they cannot be run (reliably) in
+    # main.coffee. (Jyrki Niemi 2018-07-05)
+    util.forAllFolders(
+        (folder) -> util.callPluginFunctions "CorpusFolderProcessor", folder)
+    util.forAllCorpora(
+        (config) -> util.callPluginFunctions "CorpusSettingsProcessor", config)
+
     outStr = util.loadCorporaFolderRecursive(true, settings.corporafolders)
     window.corpusChooserInstance = $("#corpusbox").corpusChooser(
         template: outStr
@@ -1048,10 +1078,13 @@ util.loadCorpora = ->
             corpusObj = settings.corpora[corpusID]
             maybeInfo = ""
             maybeInfo = "<br/><br/>" + corpusObj.description if corpusObj.description
+            maybeInfo = util.callPluginFunctionsValued(
+                "CorpusInfoDescrProcessor", (maybeInfo or ""), corpusObj)
             corpusExtraInfo =
                 if settings.corpusExtraInfo
                     util.formatCorpusExtraInfo(
-                        corpusObj, settings.corpusExtraInfo.corpus_infobox)
+                        corpusObj,
+                        info_items: settings.corpusExtraInfo.corpus_infobox)
                 else
                     undefined
             if corpusExtraInfo
@@ -1302,18 +1335,28 @@ util.findoutType = (variable) ->
 
 # Format extra information associated with a corpus object, typically
 # a URN, licence information and various links. An optional second
-# argument specifies a list of items (properties in the corpus
-# configuration) to be formatted.
+# argument specifies an object containing options as properties. The
+# supported options are:
+# - info_items: an array of items (properties in the corpus
+#   configuration) to be formatted.
+# - item_paragraphs: if true, enclose each item in <p>...</p>;
+#   otherwise separate them with <br/>
 #
-# The properties are usually composite objects which may contain the
-# properties "name", "description", and "url" or "urn". If the
-# information contains "name", it is presented as follows: a label
+# The information items are usually composite objects which may
+# contain the properties "name", "description", and "url" or "urn". If
+# the information contains "name", it is presented as follows: a label
 # and a colon (unless the property "no_label" is true or the item is
-# "homepage"), followed by the name as a link to the URN or URL (or
-# if neither URN nor URL, no link). Otherwise, the label is a link to
-# the URN or URL. The label is the localized string for the key
-# "corpus_" + item name. The optional description is a represented as
-# a tooltip (HTML title attribute).
+# "homepage"), followed by the name as a link to the URN or URL (or if
+# neither URN nor URL, no link). Otherwise, the label is a link to the
+# URN or URL. The label is the localized string for the key "corpus_"
+# + item name. The optional description is a represented as a tooltip
+# (HTML title attribute).
+#
+# Alternatively, an information item may be an array of such composite
+# object, in which case they are formatted in the order in which they
+# are in the array. If a composite object in an array contains the
+# property "subtype", the label is the localized string for the key
+# "corpus_" + item name + "_" + the value of the subtype property.
 #
 # If an item needs no separate name, the simple properties X_urn and
 # X_url can be used instead of X: { urn: ... } (similarly for url).
@@ -1324,20 +1367,13 @@ util.findoutType = (variable) ->
 # following the link text. It could be used in the corpus info box
 # instead of the tooltip.
 
-util.formatCorpusExtraInfo = (corpusObj) ->
+util.formatCorpusExtraInfo = (corpusObj, opts = {}) ->
     info_items =
-        if arguments.length > 1 and arguments[1]
-            arguments[1]
+        if opts.info_items
+            opts.info_items
         else
             settings.corpusExtraInfoItems? or []
-
-    # Return the URN resolver URL for an URN: prefix
-    # settings.urnResolver unless the URN string begins with "http".
-    makeUrnUrl = (urn) ->
-        if urn.indexOf('http') != 0
-            settings.urnResolver + urn
-        else
-            urn
+    item_paragraphs = opts.item_paragraphs or false
 
     # Get the value of a URN (preferred, prefixed with resolver URL)
     # or URL property in obj. The optional second argument specifies
@@ -1345,11 +1381,11 @@ util.formatCorpusExtraInfo = (corpusObj) ->
     getUrnOrUrl = (obj) ->
         prefix = if arguments.length > 1 then arguments[1] else ''
         if prefix + 'urn' of obj
-            makeUrnUrl(obj[prefix + 'urn'])
+            util.makeUrnUrl(obj[prefix + 'urn'])
         else
             obj[prefix + 'url']
 
-    # Return a HTML link (or text), given link_info, which may
+    # Return an HTML link (or text), given link_info, which may
     # contain the properties "label", "url", "text" and "tooltip".
     makeLinkItem = (link_info) ->
         result = ''
@@ -1375,51 +1411,20 @@ util.formatCorpusExtraInfo = (corpusObj) ->
                 result += link_info.text
         result
 
-    result = ''
-    i = 0
-    while i < info_items.length
-        info_item = info_items[i]
-        link_info = {}
-        label = ''
-        # Use rel='localize[...]' instead of util.getLocaleString, so
-        # that the texts are re-localized immediately when switching
-        # languages.
-        # TODO: Convert to use the new localization method
-        label = '<span rel=\'localize[corpus_' + info_item + ']\'>' +
-            'Corpus ' + info_item + '</span>'
-        if info_item == 'urn' and corpusObj.urn
-            link_info =
-                url: makeUrnUrl(corpusObj.urn)
-                text: corpusObj.urn
-                label: label
-        else if info_item == 'homepage' and ! ('homepage' of corpusObj) and
-                corpusObj.url
-            # Assume that the top-level property "url" refers to the
-            # home page of the corpus (unless the there is a property
-            # "homepage").
-            link_info =
-                url: corpusObj.url
-                text: label
-        else if info_item == 'cite' and corpusObj.cite_id and
-                settings.corpus_cite_base_url?
-            link_info =
-                # Using ng-href would require using Angular $compile,
-                # but how could we use it here or where should it be
-                # called?
-                # http://stackoverflow.com/questions/11771513/angularjs-jquery-how-to-get-dynamic-content-working-in-angularjs
-                # url: settings.corpus_cite_base_url + corpusObj.cite_id +
-                #      '&lang={{lang}}'
-                # This does not change the lang parameter in the
-                # corpus info box, although it works in the sidebar.
-                #
-                # escape call is needed for a cite_id containing a &,
-                # but the escaped % then seems to be escaped again
-                # somewhere else. Where?
-                url: settings.corpus_cite_base_url +
-                     escape(corpusObj.cite_id) + '&lang=' + window.lang
-                text: label
-        else if corpusObj[info_item]
-            info_obj = corpusObj[info_item]
+    makeLinkInfos = (info_item) ->
+
+        makeLabel = (info_item) ->
+            # Use rel='localize[...]' instead of util.getLocaleString, so
+            # that the texts are re-localized immediately when switching
+            # languages.
+            # TODO: Convert to use the new localization method
+            if opts.static_localization
+                util.getLocaleString('corpus_' + info_item)
+            else
+                '<span rel=\'localize[corpus_' + info_item + ']\'>' +
+                    'Corpus ' + info_item + '</span>'
+
+        makeLinkInfoBase = (info_obj, label) ->
             link_info = url: getUrnOrUrl(info_obj)
             if info_obj.name
                 link_info.text = info_obj.name
@@ -1429,17 +1434,62 @@ util.formatCorpusExtraInfo = (corpusObj) ->
                 link_info.text = label
             if info_obj.description
                 link_info.tooltip = info_obj.description
-        else if corpusObj[info_item + '_urn'] or corpusObj[info_item + '_url']
-            # Simple *_urn or *_url properties
-            link_info =
-                url: getUrnOrUrl(corpusObj, info_item + '_')
-                text: label
-        if link_info.url or link_info.text
-            if result
-                result += '<br/>'
-            result += makeLinkItem(link_info)
-        i++
-    result
+            return link_info
+
+        linkInfoIsNotEmpty = (link_info) ->
+            link_info and (link_info.url or link_info.text)
+
+        link_info = null
+        label = makeLabel(info_item)
+        if (settings.makeCorpusExtraInfoItem and
+                info_item of settings.makeCorpusExtraInfoItem)
+            link_info = settings.makeCorpusExtraInfoItem[info_item](
+                corpusObj, label)
+        if not link_info
+            corpus_info_item = corpusObj[info_item]
+            if corpus_info_item
+                if Array.isArray(corpus_info_item)
+                    link_infos = []
+                    base_label = label
+                    for info_item_sub in corpus_info_item
+                        if "subtype" of info_item_sub
+                            label = makeLabel(
+                                info_item + '_' + info_item_sub.subtype)
+                        else
+                            label = base_label
+                        link_info_base = makeLinkInfoBase(info_item_sub, label)
+                        if linkInfoIsNotEmpty(link_info_base)
+                            link_infos.push(link_info_base)
+                    return link_infos
+                else
+                    link_info = makeLinkInfoBase(corpus_info_item, label)
+            else if (corpusObj[info_item + '_urn'] or
+                     corpusObj[info_item + '_url'])
+                # Simple *_urn or *_url properties
+                link_info =
+                    url: getUrnOrUrl(corpusObj, info_item + '_')
+                    text: label
+        if linkInfoIsNotEmpty(link_info)
+            return [link_info]
+        else
+            return []
+
+    result = []
+    for info_item in info_items
+        for link_info in makeLinkInfos(info_item)
+            result.push(makeLinkItem(link_info))
+    if item_paragraphs
+        return '<p>' + result.join('</p><p>') + '</p>'
+    else
+        return result.join('<br/>')
+
+# Return the URN resolver URL for an URN: prefix settings.urnResolver
+# unless the URN string begins with "http".
+util.makeUrnUrl = (urn) ->
+    if urn.indexOf('http') != 0
+        settings.urnResolver + urn
+    else
+        urn
 
 # Copy information from the "info" property of corpusObj to the top
 # level of corpusObj. This information may come from the backend .info
@@ -1526,12 +1576,27 @@ util.propagateCorpusFolderInfo = (corpusFolder, info) ->
 
 
 # Call function func for all corpora in settings.corpora with the
-# corpus settings object as an argument. (Jyrki Niemi 2016-10-18)
+# corpus settings object as the first argument and optional args... as
+# the rest. (Jyrki Niemi 2016-10-18, 2018-07-06)
 
-util.forAllCorpora = (func) ->
+util.forAllCorpora = (func, args...) ->
     for corpus of settings.corpora
-        func settings.corpora[corpus]
+        func settings.corpora[corpus], corpus, args...
     return
+
+# Call function func for all corpus folders in settings.corporafolders
+# and their subfolders, with the folder object and possible args as
+# arguments. (Jyrki Niemi 2018-07-05)
+
+util.forAllFolders = (func, args...) ->
+
+    for_all_subfolders = (folder, func, args...) ->
+        for own prop_name of folder
+            if prop_name not in ["title", "description", "contents", "info"]
+                func folder[prop_name], args...
+                for_all_subfolders folder[prop_name], func, args...
+
+    for_all_subfolders settings.corporafolders, func, args...
 
 
 # Initialize the link_attributes properties in all the corpora in
@@ -2027,9 +2092,9 @@ util.url_add_corpora = (href, corpora) ->
         corpora_str = corpora.join(",")
         "#{href}&corpus=#{corpora_str}"
     else
-        href_corpora = /&corpus=([^&]*)/.exec(href)[1].split(",")
+        href_corpora = /[&?]corpus=([^&]*)/.exec(href)[1].split(",")
         corpora_str = _.union(href_corpora, corpora).join(",")
-        href.replace(/(&corpus=)[^&]+/, "$1#{corpora_str}")
+        href.replace(/([&?]corpus=)[^&]+/, "$1#{corpora_str}")
 
 
 # Return href with the corpora in the array corpora removed from its
@@ -2736,3 +2801,95 @@ util.makeLogInfoItems = () ->
     items.push("lang=" + (search().lang or settings.defaultLanguage))
     items.push("search=" + search_tab_names[search().search_tab or "0"])
     return items
+
+
+# The code below could perhaps be a basis for a simple plugin facility
+# for processing (modifying) corpus settings and the information in
+# the corpus (and corpus folder) info box. (Jyrki Niemi 2018-07-05/06)
+
+
+# Generic functions for plugin functions
+
+# Plugin functions object: each property corresponds to a type of
+# plugin function and its value is an array of functions of the type.
+util.pluginFunctions = {}
+
+# Add (register) plugin functions funcs of type; funcs may be either a
+# single function or an array of functions.
+# TODO: Should we perhaps also register plugin function types, to
+# avoid registering plugins with incorrectly written types?
+
+util.addPluginFunction = (type, funcs) ->
+    if not (type of util.pluginFunctions)
+        util.pluginFunctions[type] = []
+    if not _.isArray(funcs)
+        funcs = [funcs]
+    util.pluginFunctions[type] = util.pluginFunctions[type].concat(funcs)
+
+# Add plugin functions of possibly multiple types: types_funcs is an
+# object whose properties are plugin function types and property
+# values are functions or arrays of functions to be added to the
+# corresponding function type.
+
+util.addPluginFunctions = (types_funcs) ->
+    for own type, funcs of types_funcs
+        util.addPluginFunction type, funcs
+
+# Call plugin functions of type in the order they are in
+# util.pluginFunctions, with the (optional) arguments args...
+
+util.callPluginFunctions = (type, args...) ->
+    # c.log "callPluginFunctions", type, args...
+    if type of util.pluginFunctions
+        for func in util.pluginFunctions[type]
+            func args...
+    return
+
+# Call plugin functions of type in the order they are in
+# util.pluginFunctions, with the argument arg1 and optional rest...
+# Each plugin function gets as its arg1 the return value of the
+# previous function, and this function returns the value returned by
+# the last plugin function.
+
+util.callPluginFunctionsValued = (type, arg1, rest...) ->
+    # c.log "callPluginFunctions", type, arg1, rest...
+    if type of util.pluginFunctions
+        for func in util.pluginFunctions[type]
+            arg1 = func arg1, rest...
+    return arg1
+
+
+# "Plugin" functions for adding labels, such as "beta", to corpora,
+# based on the "labels" property of the corpus (folder) configuration.
+# (Jyrki Niemi 2018-07-05)
+
+# Modify the corpus (folder) configuration config by appending each
+# label specified in the "labels" property (an array of strings) to
+# the corpus title in parentheses. If
+# settings.corpus_label_texts[label] is defined, use it instead of the
+# bare label.
+
+util.addCorpusTitleLabel = (config) ->
+    for label in (config.labels or config.info?.labels or [])
+        label_text = settings.corpus_label_texts?[label] or label
+        config.title += " (#{label_text})"
+    return
+
+# If the corpus (or folder) configuration config contains a "labels"
+# property, append to the description text descr the localized text in
+# corpuslabel_descr_<label> for each label. This is intended to work
+# for the description in the corpus (folder) info box, because of
+# using localization.
+
+util.addCorpusInfoDescrLabel = (descr, config) ->
+    for label in (config.labels or config.info?.labels or [])
+        # Angular.js localization does not seem to work here. Why?
+        descr += ((if descr then "<br/><br/>" else "") +
+            "<span rel=\"localize[corpuslabel_descr_#{label}]\">#{label}</span>")
+    return descr
+
+# Add the function to the appropriate plugin function lists.
+util.addPluginFunctions
+    CorpusSettingsProcessor: util.addCorpusTitleLabel
+    CorpusFolderProcessor: util.addCorpusTitleLabel
+    CorpusInfoDescrProcessor: util.addCorpusInfoDescrLabel

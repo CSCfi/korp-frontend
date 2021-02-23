@@ -6,7 +6,9 @@ var settings = {};
 
 var isLab = window.isLab || false;
 
-var isProductionServer = (window.location.hostname.indexOf(".csc.fi") != -1);
+var isProductionServer = (
+    window.location.hostname.indexOf(".csc.fi") != -1
+        || window.location.hostname == "195.148.22.239");
 var isProductionServerTest =
     (isProductionServer
      && (window.location.pathname.indexOf("test/") != -1
@@ -201,7 +203,7 @@ settings.cgi_prefix =
      ? "/cgi-bin/korp-beta/"
      : (isProductionServerOld ?
 	"/cgi-bin/korp-old/"
-	: (isProductionServer ? "/cgi-bin/" : "/cgi-bin/korp/")));
+	: "/cgi-bin/korp/"));
 settings.cgi_script = settings.cgi_prefix + "korp.cgi";
 settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
 settings.download_cgi_script = settings.cgi_prefix + "korp_download.cgi";
@@ -293,9 +295,14 @@ settings.make_direct_LBR_URL = function (lbr_id) {
 // a new item X, also remember to add corresponding translations for
 // the link text to locale-??.json with the key "corpus_X".
 settings.corpusExtraInfoItems = [
-    "metadata",
-    "licence",
+    "subcorpus_of",
+    "pid",
+    // PID is represented as a metadata link so a separate metadata
+    // link is not needed.
+    // // "metadata",
     "cite",
+    "licence",
+    "infopage",
     "urn",
     "homepage",
     "iprholder",
@@ -308,13 +315,96 @@ settings.corpusExtraInfoItems = [
 settings.corpusExtraInfo = {
     corpus_infobox: settings.corpusExtraInfoItems,
     sidebar: [
-	"metadata",
-	"licence",
+	"subcorpus_of",
+	"pid",
+	// "metadata",
 	"cite",
+	"licence",
+	"infopage",
 	"urn",
 	"download",
     ]
 };
+
+// Special handling for specified corpus extra info items: property
+// names refer to info item names (keys) and their values are
+// functions called by util.formatCorpusExtraInfo, with two arguments:
+// - corpusObj: corpus configuration
+// - label: the HTML generated for the label of the info item
+// The functions should return an object for creating a link, with at
+// least the property "url" or "text" (or both) and possibly "label"
+// and "tooltip", or undefined if the default handling should be
+// tried.
+settings.makeCorpusExtraInfoItem = {
+    subcorpus_of: function (corpusObj, label) {
+	if (corpusObj.logical_corpus
+	    && corpusObj.logical_corpus.title != corpusObj.title) {
+	    return {
+		text: corpusObj.logical_corpus.title,
+		label: label,
+	    };
+	}
+    },
+    pid: function (corpusObj, label) {
+        // If the PID of a corpus is not specified explicitly, use
+        // the metadata URN.
+        var pid = ((corpusObj.pid ? corpusObj.pid.urn : null)
+		   || corpusObj.pid_urn
+		   || (corpusObj.metadata ? corpusObj.metadata.urn : null)
+		   || corpusObj.metadata_urn);
+	if (pid) {
+	    return {
+		url: util.makeUrnUrl(pid),
+		// Prevent breaking the URN at the hyphen by using
+		// white-space: nowrap.
+		text: ('<span style="white-space: nowrap;">' + pid +
+		       '</span>'),
+		label: label,
+	    };
+	}
+    },
+    cite: function (corpusObj, label) {
+	if (corpusObj.cite_id && settings.corpus_cite_base_url) {
+	    return {
+                // Using ng-href would require using Angular $compile,
+                // but how could we use it here or where should it be
+                // called?
+                // http://stackoverflow.com/questions/11771513/angularjs-jquery-how-to-get-dynamic-content-working-in-angularjs
+                // url: settings.corpus_cite_base_url + corpusObj.cite_id +
+                //      '&lang={{lang}}'
+                // This does not change the lang parameter in the
+                // corpus info box, although it works in the sidebar.
+                //
+                // escape call is needed for a cite_id containing a &,
+                // but the escaped % then seems to be escaped again
+                // somewhere else. Where?
+                url: (settings.corpus_cite_base_url
+                      + escape(corpusObj.cite_id) + '&lang=' + window.lang),
+                text: label,
+	    };
+	}
+    },
+    urn: function (corpusObj, label) {
+	if (corpusObj.urn) {
+	    return {
+		url: util.makeUrnUrl(corpusObj.urn),
+		text: label,
+	    };
+	}
+    },
+    homepage: function (corpusObj, label) {
+        if (! ("homepage" in corpusObj) && corpusObj.url) {
+            // Assume that the top-level property "url" refers to the
+            // home page of the corpus (unless the there is a property
+            // "homepage").
+            return {
+                url: corpusObj.url,
+                text: label,
+	    };
+	}
+    },
+};
+
 
 settings.wordPictureMaxWords = 30;
 
@@ -691,6 +781,68 @@ settings.fn.add_attr_extra_properties = function (corpora) {
 }
 
 
+// Add corpus aliases that are expanded to the corpus ids matching the
+// regular expression string corpus_id_patt (actually, a
+// comma-separated list of regular expressions matching corpus ids).
+//
+// In addition to the explicitly specified corpus aliases, the
+// function also adds variants with and without a "-korp" suffix and
+// with underscores converted to dashes and dashes to underscores. If
+// the specified corpus aliases contain an alias with "-korp-" or
+// "_korp_" infix, also aliases without it are added.
+//
+// The optional third argument is an object containing options. The
+// following options are supported:
+//   override: if true, override an existing alias (default: no)
+//   add_variants: if false, do not add the alias variants (default:
+//     true)
+settings.fn.add_corpus_aliases = function (corpus_id_patt, aliases) {
+    var opts = arguments[2] || {};
+    var override = opts.override || false;
+    var add_variants = (opts.add_variants !== false);
+
+    var add_dash_underscore_variants = function (aliases, alias) {
+	if (alias.indexOf("_") > -1) {
+	    aliases.push(alias.replace(/_/g, "-"));
+	}
+	if (alias.indexOf("-") > -1) {
+	    aliases.push(alias.replace(/-/g, "_"));
+	}
+    }
+
+    if (! _.isArray(aliases)) {
+	aliases = [aliases];
+    }
+    for (var i = 0; i < aliases.length; i++) {
+	var alias = aliases[i]
+	var aliases2 = [alias];
+	var alias2;
+	if (add_variants) {
+	    // Add alias variants:
+	    // x -> x, x-korp, x_korp
+	    // x-y | x_y | x-y-korp | x_y_korp -> x-y, x_y, x-y-korp, x_y_korp
+	    add_dash_underscore_variants(aliases2, alias);
+	    // This may add some aliases twice to alias2, but that
+	    // does not matter in the end.
+	    if (alias.match(/[_-]korp($|[_-])/)) {
+		alias2 = alias.replace(/[_-]korp($|[_-])/, "$1");
+		aliases2.push(alias2)
+		add_dash_underscore_variants(aliases2, alias2);
+	    } else {
+		aliases2.push(alias + "-korp");
+		add_dash_underscore_variants(aliases2, alias + "-korp");
+	    }
+	}
+	for (var j = 0; j < aliases2.length; j++) {
+	    alias2 = aliases2[j];
+	    if (override || ! (alias2 in settings.corpus_aliases)) {
+		settings.corpus_aliases[alias2] = corpus_id_patt;
+	    }
+	}
+    }
+};
+
+
 /*
  * TODO add all other copora settings here
  */
@@ -699,7 +851,7 @@ settings.fn.add_attr_extra_properties = function (corpora) {
 
 /*
  * MISC
- */
+*/
 
 
 // label values here represent translation keys.

@@ -60,6 +60,18 @@ html
     include includes/access_res_corpora
     include includes/relogin_modal
     #main(style='opacity: 0;')
+      //- A banner for very important news and such. The content is
+      //- read from includes/head_banner_LG.pug.
+      //- TODO: Make this dynamic (read the file in JavaScript) so
+      //- that index.html would not need to be compiled when the texts
+      //- change or are removed.
+      #head-banner
+        #head-banner-fi(ng-show='lang == "fi"')
+          include includes/head_banner_fi
+        #head-banner-sv(ng-show='lang == "sv"')
+          include includes/head_banner_sv
+        #head-banner-en(ng-show='lang == "en"')
+          include includes/head_banner_en
       #header
         include includes/header
       #content
@@ -67,8 +79,8 @@ html
 
         #dsa-logo(ng-show='! (searches.activeSearch || compareTabs.length || graphTabs.length)'
                   ng-controller='resultContainerCtrl')
-          a(href='https://assessment.datasealofapproval.org/assessment_155/seal/html/', target='_blank')
-            img(src='img/DSA_2014_2017.png', align='right', width='100')
+          a(href='https://www.coretrustseal.org/wp-content/uploads/2018/04/The-Language-Bank-of-Finland.pdf', target='_blank')
+            img(src='img/CTS_logo.png', align='right', width='100')
 
         #results-wrapper(ng-show='searches.activeSearch || compareTabs.length || graphTabs.length || mapTabs.length', ng-controller='resultContainerCtrl')
           #columns

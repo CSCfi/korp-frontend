@@ -69,6 +69,21 @@ settings.licenceinfo = {
 	description: "Creative Commons Attribution-NoDerivatives 4.0",
 	url: "https://creativecommons.org/licenses/by-nd/4.0/",
     },
+    CC_BY_NC_ND: {
+	name: "CC BY-NC-ND (CLARIN PUB)",
+	description: "Creative Commons Attribution-NonCommercial-NoDerivatives",
+	url: "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    },
+    CC_BY_NC_ND_40: {
+	name: "CC BY-NC-ND 4.0 (CLARIN PUB)",
+	description: "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0",
+	url: "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    },
+    CC_BY_SA_30: {
+	name: "CC BY-SA 3.0 (CLARIN PUB)",
+	description: "Creative Commons Attribution-ShareAlike",
+	url: "https://creativecommons.org/licenses/by-sa/3.0/",
+    },
     EUPL_11: {
 	name: "EUPL v1.1 (CLARIN PUB)",
 	description: "European Union Public Licence, version 1.1",
@@ -88,7 +103,11 @@ settings.licenceinfo = {
 	name: "CLARIN ACA +NC",
 	description: "CLARIN ACA (Academic) End-User License 1.0, Non-commercial",
 	url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
-    }
+    },
+    Ylenews_sv_en: {
+	name: "CLARIN ACA +NC 1.0",
+	urn: "urn:nbn:fi:lb-2019120401",
+    },
 };
 
 
@@ -214,6 +233,10 @@ attrs.saldo = {
 };
 attrs.dephead = {
     label: "dephead",
+    displayType: "hidden"
+};
+attrs.dephead_ud1 = {
+    label: "dephead_ud1",
     displayType: "hidden"
 };
 attrs.deprel = {
@@ -428,6 +451,12 @@ attrs.ne_name = {
 };
 sattrs.date = {
     label: "date"
+};
+sattrs.time = {
+    label: "time"
+};
+sattrs.datetime = {
+    label: "timestamp",
 };
 
 var modernAttrs = {
@@ -786,6 +815,24 @@ attrs.ner_tags = {
     }
 };
 
+attrs.namecat_omorfi = {
+    label: "name_category_omorfi",
+    type: "set",
+    displayType: "select",
+    translationKey: "namecat_omorfi_",
+    dataset: [
+	"ARTWORK",
+	"CULTGRP",
+	"FIRST",
+	"GEO",
+	"LAST",
+	"MISC",
+	"ORG",
+	"PRODUCT",
+	"_",
+    ],
+    opts: settings.setOptions,
+};
 
 attrs.pos_ftb31 = {
     label: "pos",
@@ -979,6 +1026,51 @@ attrs.pos_uta_ru = {
     },
 };
 
+attrs.pos_ud2_universal = {
+    label: "pos",
+    displayType: "select",
+    translationKey: "pos_",
+    dataset: {
+	"ADJ": "A",
+	"ADP": "Adp",
+	"ADV": "Adv",
+	"AUX": "Aux",
+	"CCONJ": "CC",
+	"DET": "DT",
+	"INTJ": "Interj",
+	"NOUN": "N",
+	"NUM": "Num",
+	"PART": "PL",
+	"PRON": "Pron",
+	"PROPN": "Prop",
+	"PUNCT": "Punct",
+	"SCONJ": "CS",
+	"SYM": "Symb",
+	"VERB": "V",
+	"X": "Other",
+    },
+};
+
+attrs.pos_ud2_fi = {
+    label: "pos",
+    displayType: "select",
+    translationKey: "pos_",
+    dataset: {
+	"A": "A",
+	"Adp": "Adp",
+	"Adv": "Adv",
+	"C": "C",
+	"Foreign": "Foreign",
+	"Interj": "Interj",
+	"N": "N",
+	"Num": "Num",
+	"Pron": "Pron",
+	"Punct": "Punct",
+	"Symb": "Symb",
+	"V": "V",
+    },
+};
+
 attrs.pos_ud_fi = {
     label: "pos",
     displayType: "select",
@@ -1003,6 +1095,10 @@ attrs.pos_ud_fi = {
     },
 };
 
+attrs.pos_ud_fi_ud1 = JSON.parse(JSON.stringify(attrs.pos_ud_fi));
+attrs.pos_ud_fi_ud1.label = "pos_ud1";
+attrs.pos_ud_fi_ud1.order = 13;
+
 attrs.pos_klk = {
     label: "pos",
     displayType: "select",
@@ -1024,6 +1120,8 @@ attrs.pos_klk = {
     },
     opts: settings.liteOptions
 };
+attrs.pos_klk_ordered = JSON.parse(JSON.stringify(attrs.pos_klk));
+attrs.pos_klk_ordered.order = 18;
 
 // TextMorfo parts of speech, used in FTC
 attrs.pos_textmorfo = {
@@ -1125,12 +1223,19 @@ attrs.msd = {
     // used sidebar; another value would link to the given URL; and an
     // undefined value would link to the default markup/msd.html.
     taginfo_url: "",
-    // Add a zero-width space character after each vertical bar to
-    // allow breaking the line there in the sidebar.
-    transform: function(val) {
-	return val.replace(/\|/g, "|\u200b");
+    // Add a <wbr> tag after each vertical bar to allow breaking the
+    // line there in the sidebar, while retaining the ability to copy
+    // and paste to a further search expression (unlike if we added a
+    // zero-width space U+200B).
+    stringify: function(val) {
+	return val.replace(/\|/g, "|<wbr>");
     }
 };
+attrs.msd_ordered = JSON.parse(JSON.stringify(attrs.msd));
+attrs.msd_ordered.order = 17;
+attrs.msd_ud1 = JSON.parse(JSON.stringify(attrs.msd));
+attrs.msd_ud1.label = "msd_ud1";
+attrs.msd_ud1.order = 12;
 attrs.baseform = {
     label: "baseform",
     // type: "set",
@@ -1140,6 +1245,11 @@ attrs.baseform = {
     },
     opts: settings.defaultOptions,
 };
+attrs.baseform_ordered = JSON.parse(JSON.stringify(attrs.baseform));
+attrs.baseform_ordered.order = 20;
+attrs.baseform_ud1 = JSON.parse(JSON.stringify(attrs.baseform));
+attrs.baseform_ud1.label = "baseform_ud1";
+attrs.baseform_ud1.order = 15;
 attrs.baseform_ftb2 = {
     label: "baseform",
     // type: "set",
@@ -1158,7 +1268,18 @@ attrs.baseform_compound = {
     },
     opts: settings.defaultOptions
 };
-
+attrs.baseform_compound_ordered = JSON.parse(JSON.stringify(attrs.baseform_compound));
+attrs.baseform_compound_ordered.order = 19;
+attrs.baseform_compound_ud1_ordered = {
+    label: "baseform_compound_ud1",
+    order: 14,
+    // type: "set",
+    // displayType: "autocomplete",
+    stringify: function(baseform) {
+        return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
+    },
+    opts: settings.defaultOptions
+};
 attrs.lemgram_hidden = {
     label: "lemgram",
     type: "set",    // Seems to work only if this is "set" even if "hidden"
@@ -1253,6 +1374,61 @@ attrs.deprel_tdt = {
 	"xsubj-cop": "xsubj-cop"
     }
 };
+attrs.deprel_tdt_ordered = JSON.parse(JSON.stringify(attrs.deprel_tdt));
+attrs.deprel_tdt_ordered.order = 16;
+attrs.deprel_ud2 = {
+    label: "deprel",
+    displayType: "select",
+    translationKey: "deprel_ud2_",
+    opts: settings.liteOptions,
+    dataset: {
+	"acl": "acl",
+	"acl:relcl": "acl:relcl",
+	"advcl": "advcl",
+	"advmod": "advmod",
+	"amod": "amod",
+	"appos": "appos",
+	"aux": "aux",
+	"aux:pass": "aux:pass",
+	"case": "case",
+	"cc": "cc",
+	"ccomp": "ccomp",
+	"cc:preconj": "cc:preconj",
+	"compound": "compound",
+	"compound:nn": "compound:nn",
+	"compound:prt": "compound:prt",
+	"conj": "conj",
+	"cop": "cop",
+	"cop:own": "cop:own",
+	"csubj": "csubj",
+	"csubj:cop": "csubj:cop",
+	"dep": "dep",
+	"det": "det",
+	"discourse": "discourse",
+	"fixed": "fixed",
+	"flat": "flat",
+	"flat:foreign": "flat:foreign",
+	"flat:name": "flat:name",
+	"goeswith": "goeswith",
+	"mark": "mark",
+	"nmod": "nmod",
+	"nmod:gobj": "nmod:gobj",
+	"nmod:gsubj": "nmod:gsubj",
+	"nmod:poss": "nmod:poss",
+	"nsubj": "nsubj",
+	"nsubj:cop": "nsubj:cop",
+	"nummod": "nummod",
+	"obj": "obj",
+	"obl": "obl",
+	"orphan": "orphan",
+	"parataxis": "parataxis",
+	"punct": "punct",
+	"root": "root",
+	"vocative": "vocative",
+	"xcomp": "xcomp",
+	"xcomp:ds": "xcomp:ds",
+    }
+};
 attrs.deprel_ud_fi = {
     label: "deprel",
     displayType: "select",
@@ -1306,6 +1482,9 @@ attrs.deprel_ud_fi = {
 	"xcomp:ds": "xcomp:ds",
     }
 };
+attrs.deprel_ud_fi_ud1 = JSON.parse(JSON.stringify(attrs.deprel_ud_fi));
+attrs.deprel_ud_fi_ud1.label = "deprel_ud1";
+attrs.deprel_ud_fi_ud1.order = 11;
 attrs.deprel_uta_ru = {
     label: "deprel",
     displayType: "select",
@@ -1466,9 +1645,10 @@ attrs.ne_type_fi = {
 	"LOC",
 	"PRS",
 	"ORG",
-	// "EVN",
+	"EVT",
 	// "WRK",
 	// "OBJ",
+	"PRO",
 	"MSR",
 	"TME"
    ]
@@ -1480,14 +1660,20 @@ attrs.ne_subtype_fi = {
     translationKey: "ne_subtype_",
     isStructAttr: true,
     dataset: [
+	"ANM",
+	"AST",
 	"ATH",
 	"CLT",
 	"CRP",
 	"CUR",
 	"DAT",
 	"EDU",
+	"FIN",
+	"FNC",
 	"GPL",
+	"HRM",
 	"HUM",
+	"MYT",
 	"PLT",
 	"PPL",
 	"STR",
@@ -1503,21 +1689,29 @@ attrs.ne_fulltype_fi = {
     translationKey: "namecat_",
     isStructAttr: true,
     dataset: [
+	"EnamexEvtXxx",
+	"EnamexProXxx",
+	"EnamexPrsAnm",
 	"EnamexPrsHum",
+	"EnamexPrsMyt",
 	"EnamexPrsTit",
 	"EnamexLocXxx",
 	"EnamexLocGpl",
 	"EnamexLocPpl",
 	"EnamexLocStr",
+	"EnamexLocFnc",
+	"EnamexLocAst",
 	"EnamexOrgAth",
 	"EnamexOrgClt",
 	"EnamexOrgCrp",
 	"EnamexOrgEdu",
+	"EnamexOrgFin",
 	"EnamexOrgPlt",
 	"EnamexOrgTvr",
 	"NumexMsrCur",
 	"NumexMsrXxx",
 	"TimexTmeDat",
+	"TimexTmeHrm",
     ],
 };
 // The name (tokens) within the ne structure
@@ -1586,6 +1780,21 @@ attrlist.finer = {
     nerbio: attrs.ner_bio,
 };
 
+attrlist.ud2_fi = {
+    ref: attrs.ref,
+    lemma: attrs.baseform,
+    lemmacomp: attrs.baseform_compound,
+    pos: attrs.pos_ud2_universal,
+    xpos: { label: "", displayType: "hidden" },
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel_ud2,
+    deps: { label: "", displayType: "hidden" },
+    misc: { label: "", displayType: "hidden" },
+};
+
+attrlist.ud2_en = attrlist.ud2_fi;
+
 settings.corpus_features.finer = {
     attributes: attrlist.finer,
 };
@@ -1625,6 +1834,31 @@ sattrs.author_birthyear = {
 sattrs.author_deathyear = {
     label: "author_deathyear"
 };
+
+
+sattrs.sex = {
+    label: "sex",
+    displayType: "select",
+    translationKey: "sex_",
+    dataset: {
+	"f": "female",
+	"m": "male",
+	"x": "other",
+	"u": "unknown",
+    },
+    opts: settings.liteOptions,
+};
+
+sattrs.author_name_type = {
+    label: "author_name_type",
+    displayType: "select",
+    translationKey: "author_name_type_",
+    dataset: {
+	"candidate id": "candidate_id",
+    },
+    opts: settings.liteOptions,
+}; 
+
 
 sattrs.publ_year = {
     label: "year_published"
@@ -1681,7 +1915,8 @@ sattrs.link_prefixed = function (label, url_prefix) {
 sattrs.link_show_video_prefixed = function (url_prefix) {
     return sattrs.link_prefixed("show_video", url_prefix);
 };
-sattrs.link_show_video_annex = sattrs.link_show_video_prefixed(
+sattrs.link_show_video_annex = sattrs.link_prefixed(
+    "show_video_in_lat",
     "https://lat.csc.fi/ds/annex/runLoader?viewType=timeline&");
 
 sattrs.link_gutenberg = {
@@ -1819,80 +2054,260 @@ sattrs.link_lehdet = {
     url_opts: sattrs.link_url_opts
 };
 
-/* ORACC */
+/* HC */
+
+sattrlist.hc = {
+    sentence_id : sattrs.sentence_id_hidden,
+    text_date : {label: "date"},
+    text_title : {label: "title"},
+    text_xmlid : {label: "hc_xmlid"},
+    text_id : {label: "hc_textid"},
+    text_source : {label: "source"},
+    text_lang : {label: "lang"},
+    text_langid : {label: "hc_lang_id"},
+    text_contemporaneity : {label: "hc_contemporaneity"},
+    //text_dialect : {label: "hc_dialect"},
+    text_form : {label: "hc_form"},
+    text_texttype : {label: "hc_texttype"},
+    text_foreignorig : {label: "hc_foreignorig"},
+    text_foreignlang : {label: "hc_foreignlang"},
+    text_spoken : {label: "hc_spoken"},
+    text_authorsex : {label: "hc_authorsex"},
+    text_author : {label: "hc_author"},
+    text_authorage : {label: "hc_authorage"},
+    text_socialrank : {label: "hc_socialrank"},
+    text_audience : {label: "hc_audience"},
+    text_partrel : {label: "hc_partrel"},
+    text_interaction : {label: "hc_interaction"},
+    text_setting : {label: "hc_setting"},
+    text_proto : {label: "hc_proto"}
+};
+
+attrlist.hc = {
+    page : {label: "page_num",
+            opts : settings.defaultOptions},
+
+    note : {label: "note",
+            opts : settings.defaultOptions},
+
+    unit : {label: "unit",
+            opts : settings.defaultOptions},
+
+    type : {label: "type",
+            opts : settings.defaultOptions},
+
+    supplement : {label: "supplement",
+		  opts : settings.defaultOptions}
+
+};
+
+
+/* Oracc */
 
 sattrlist.oracc = {
-    text_provenance: {
-        label: "oracc_provenance",
+    text_cdlinumber : {
+        label : "oracc_cdlinumber",
     },
-    text_period: {
-        label: "oracc_period",
+    text_provenance : {
+        label : "oracc_provenance",
     },
-    text_genre: {
-        label: "oracc_genre"
+    
+    text_language : {
+        label : "oracc_textlang",
+        displayType : "select",
+        translationKey : "oracc_textlang_",
+        dataset : [
+		   "Akkadian",
+		   "AkkadianAramaic",
+		   "AkkadianAramaicLuwian",
+		   "AkkadianEgyptian",
+		   "AkkadianOldPersian",
+		   "AkkadianOldPersianElamite",
+		   "AkkadianOldPersianElamiteEgyptian",
+		   "AkkadianUrartian",
+		   "Aramaic",
+		   "Eblaite",
+		   "Elamite",
+		   "Hittite",
+		   "Neo-Assyrian",
+		   "Neo-Babylonian",
+		   "OldPersian",
+		   "OldPersianElamite",
+		   "Sumerian",
+		   "SumerianAkkadian",
+		   "Uncertainorunspecified",
+		   "Urartian"
+        ]
     },
-    text_url: {
-        url_opts: sattrs.link_url_opts,
-        label: "oracc_url",
-        type: "url"
+    text_genre : {
+        label : "oracc_genre",
+        displayType : "select",
+        translationKey : "oracc_genre_",
+        dataset : [
+		   "administrativerecord",
+		   "astrologicalastronomical",
+		   "grantdecreegift",
+		   "legaltransaction",
+		   "letter",
+		   "lexical",
+		   "literary",
+		   "miscellaneous",
+		   "omendivination",
+		   "prayerritualincantation",
+		   "royalinscription",
+		   "scholarly",
+		   "school",
+		   "uncertainorunspecified"
+        ]
     },
-    sentence_line: {
-        label: "oracc_line",
+    text_period : {
+        label : "oracc_period",
+        displayType : "select",
+        translationKey : "oracc_period_",
+        dataset : [
+	    "Achaemenid",
+	    "Archaic",
+	    "EarlyDynastic",
+	    "Ebla",
+	    "FirstMillennium",
+	    "Hellenistic",
+	    "LagašII",
+	    "LateBabylonian",
+	    "MiddleAssyrian",
+	    "MiddleBabylonian",
+	    "MiddleHittite",
+	    "NeoAssyrian",
+	    "Neo-Assyrian",
+	    "NeoBabylonian",
+	    "Neo-Babylonian",
+	    "OldAkkadian",
+	    "OldAssyrian",
+	    "OldBabylonian",
+	    "Parthian",
+	    "StandardBabylonian",
+	    "Uncertainorunspecified",
+	    "Urartian",
+	    "UrIII",
+	    "UrukIII",
+	    "UrukIV"
+        ]
     },
-    sentence_translation: {
-        label: "oracc_sent_translation"
+    text_subgenre : {
+        label : "oracc_subgenre"
+    },
+    sentence_line : {
+        label : "oracc_line",
+    },
+    sentence_translation : {
+        label : "oracc_sent_translation"
+    },
+    paragraph_id : {
+        label : "paragraph_id",
+        displayType : "hidden",
     }
 };
 
-/* ORACC */
+
+/* Oracc add links */
+
 attrlist.oracc = {
-    lemma: attrs.baseform,
-    ltrans:  {
-	label: "oracc_lemmatrans"
+
+    lemma : attrs.baseform,
+    ltrans :  {
+        // Lemma translation
+        label : "oracc_lemmatrans"
     },
-    transcription: {
-	label: "oracc_transcription"
+    transcription : {
+        label : "oracc_transcription"
     },
-    pos: {
-	label: "pos",
-	displayType: "select",
-	translationKey: "oracc_pos_",
-	dataset: {},
-	opts: settings.liteOptions
+    sense : {
+        // Contextual sense
+        label : "oracc_sense"
     },
-    sense: {
-	label: "oracc_sense"
-	},
-    sensepos: {
-        label: "oracc_sensepos",
-        displayType: "select",
-        translationKey: "oracc_pos_",
-        dataset: {},
-        opts: settings.liteOptions
+
+    pos : {
+        label : "pos",
+        displayType : "select",
+        translationKey : "oracc_pos_",
+        dataset : [
+	    "adjective",
+	    "adverb",
+	    "commonnoun",
+	    "conjunction",
+	    "interjection",
+	    "miscellaneousundetermined",
+	    "number",
+	    "particle",
+	    "prepositionpostposition",
+	    "pronoun",
+	    "propernoun",
+	    "verb"
+        ]
     },
-    cuneiform: {
-        label: "oracc_cuneiform"
+    possub : {
+        // Sub POS
+        label : "oracc_pos_subcategory"
     },
-    ref: {
-        label: "oracc_ref"
+    standard : {
+        label : "oracc_standardized"
     },
-    lang: {
-        label: "oracc_lang",
-        displayType: "select",
-        translationKey: "oracc_lang_",
-        dataset: {},
-        opts: settings.liteOptions
+
+    lang : {
+        label : "oracc_lang",
+        displayType : "select",
+        translationKey : "oracc_lang_",
+        dataset : [
+		   "Akkadian",
+		   "Aramaic",
+		   "Cuneiform",
+		   "EarlyAkkadian",
+		   "Eblaite",
+		   "Elamite",
+		   "Greek",
+		   "Hittite",
+		   "Hurrian",
+		   "LateBabylonian",
+		   "MiddleAssyrian",
+		   "MiddleBabylonian",
+		   "MiddleBabylonianperipheral",
+		   "Neo-Assyrian",
+		   "Neo-Babylonian",
+		   "OldAkkadian",
+		   "OldAssyrian",
+		   "OldBabylonian",
+		   "OldPersian",
+		   "Proto-cuneiform",
+		   "StandardBabylonian",
+		   "Sumerian",
+		   "SumerianEmesal",
+		   "Ugaritic",
+		   "Urartian"
+        ]
     },
-    asciitranslitt: {
-        label: "oracc_asciixlit"
-    },
-    asciitranscript: {
-        label: "oracc_asciixcrip"
-    },
-    asciilemma: {
-        label: "oracc_asciilemma"
+
+    // links won't work 
+    url : {
+	label: "oracc_url",
+	type: "url",
+	url_opts: {
+	    //in_link_section : true,
+	    //hide_url : true,
+	    new_window : true,
+	}
     }
+/*
+    url : {
+        in_link_section : true,
+        hide_url : true,
+        new_window : true,
+        label : "oracc_url",
+        type : "url"
+	}*/
+
 };
+
+
+
 
 /* E-thesis */
 
@@ -1979,6 +2394,7 @@ attrlist.finstud = {
 };
 
 
+
 /* BESERCORP */
 attrlist.besercorp = {
     msd: attrs.msd,
@@ -2040,7 +2456,23 @@ sattrlist.studentsvenska = {
     }
 };
 
+attrlist.parsed_sv = {
+    lemma: attrs.baseform,
+    pos: attrs.pos,
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel,
+    ref: attrs.ref
+};
 
+attrlist.parsed_sv_lemmaset = {
+    lemma: attrs.baseform_sv,
+    pos: attrs.pos,
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel,
+    ref: attrs.ref
+};
 
 // Common positional attributes for corpora parsed with the Turku
 // Dependency Treebank parser (with lemgrams and lemmas without
@@ -2056,8 +2488,38 @@ attrlist.parsed_tdt = {
     lex: attrs.lemgram_hidden,
 };
 
+attrlist.parsed_tdt_ud1 = {
+    ref: attrs.ref,
+    lemma: attrs.baseform_ordered, // order: 20
+    lemmacomp: attrs.baseform_compound_ordered, // order: 19
+    pos: attrs.pos_klk_ordered, // order: 18
+    msd: attrs.msd_ordered, // order: 17
+    dephead: attrs.dephead,
+    deprel: attrs.deprel_tdt_ordered, // order: 16
+    lemma_ud1: attrs.baseform_ud1, // order: 15
+    lemmacomp_ud1: attrs.baseform_compound_ud1_ordered, // order: 14
+    pos_ud1: attrs.pos_ud_fi_ud1, // order: 13
+    msd_ud1: attrs.msd_ud1, // order: 12
+    dephead_ud1: attrs.dephead_ud1,
+    deprel_ud1: attrs.deprel_ud_fi_ud1, // order: 11
+    lex: attrs.lemgram_hidden,
+};
+
 settings.corpus_features.parsed_tdt = {
     attributes: attrlist.parsed_tdt,
+};
+
+// The same but without dependency attributes
+attrlist.parsed_tdt_nodep = {
+    lemma: attrs.baseform,
+    lemmacomp: attrs.baseform_compound,
+    pos: attrs.pos_klk,
+    msd: attrs.msd,
+    lex: attrs.lemgram_hidden,
+};
+
+settings.corpus_features.parsed_tdt_nodep = {
+    attributes: attrlist.parsed_tdt_nodep,
 };
 
 // Corpora parsed with TDT and run through FiNER
@@ -2065,6 +2527,15 @@ attrlist.parsed_tdt_ner =
     $.extend({}, attrlist.parsed_tdt, {
 	nertag: attrs.ner_tags
     });
+
+
+settings.corpus_features.spaces = {
+    attributes: {
+	spaces: {
+	    label: "whitespace_related_to_token",
+	},
+    },
+};
 
 
 // KLK structural attributes, for both Finnish and Swedish
@@ -3911,20 +4382,66 @@ settings.attr_extra_properties = [
  */
 
 
-// Add corpus settings using a template, modified with items in
-// infolist, added to folder, with the id prefixed with id_prefix.
+// Add corpus settings for multiple corpora using a template, modified
+// with items in infolist, added to folder, with the id constructed
+// using id_templ.
+//
+// Arguments:
+// - template: the common definitions for all the corpora
+// - infolist: one of the following:
+//   1. an array of objects with properties with which to extend the
+//      template (should contain the property "id", which is treated
+//      as the variable part of the corpus id),
+//   2. an array of strings treated as (the variable parts of) corpus
+//      ids, or
+//   3. an array of two integers (typically years), which denote the
+//      start and end values (inclusive) for the variable parts of the
+//      ids (converted to strings).
+// - folder: the corpus folder to whose "contents" property the
+//   corpora are added
+// - id_templ: a template for the corpus id: "{}" is replaced with the
+//   variable part of the id value taken from the infolist item; if no
+//   "{}", treated as a prefix to the id
+//
+// Occurrences of "{}" in the title, description and id_templ are
+// replaced with the variable part of the id specified in the infolist
+// item.
+
 settings.fn.add_corpus_settings = function (template, infolist, folder,
-					    id_prefix) {
+					    id_templ) {
     var ids = [];
-    for (var i = 0; i < infolist.length; i++) {
-	var info = infolist[i];
-	var id = id_prefix + info.id;
+    // Replace {} with the id in infolist in these properties:
+    var id_subst_props = ["title", "description"];
+
+    var add_info = function (info) {
+	var info_is_string = (typeof info == "string");
+	var id_varpart = (info_is_string ? info : info.id);
+	var id = (id_templ.indexOf("{}") > -1
+		  ? id_templ.replace(/{}/g, id_varpart)
+		  : id_templ + id_varpart);
 	// Make a deep copy so that the resulting objects can be
 	// safely modified independently of each other if necessary.
 	settings.corpora[id] = $.extend(true, {}, template);
-	$.extend(settings.corpora[id], info);
-	settings.corpora[id].id = id;
+	var config = settings.corpora[id];
+	if (! info_is_string) {
+	    $.extend(config, info);
+	}
+	config.id = id;
+	for (var j = 0; j < id_subst_props.length; j++) {
+	    var propname = id_subst_props[j];
+	    config[propname] = config[propname].replace(/{}/g, id_varpart);
+	}
 	ids.push(id);
+    };
+
+    if (infolist.length == 2 && Number.isInteger(infolist[0])) {
+	for (var id = infolist[0]; id <= infolist[1]; id++) {
+	    add_info(id.toString());
+	}
+    } else {
+	for (var i = 0; i < infolist.length; i++) {
+	    add_info(infolist[i]);
+	}
     }
     if (folder != null) {
 	if (! ("contents" in folder)) {
@@ -3934,12 +4451,67 @@ settings.fn.add_corpus_settings = function (template, infolist, folder,
     }
 };
 
+
 // Add properties to the settings of the listed corpora.
 settings.fn.extend_corpus_settings = function (props, corpus_ids) {
     for (var i = 0; i < corpus_ids.length; i++) {
 	$.extend(true, settings.corpora[corpus_ids[i]], props);
     }
 };
+
+
+// Generate a declaration for an attribute with Boolean values.
+// Arguments:
+// - label: attribute translation label
+// - yes_no: an array of two items: the corpus values for "yes" and
+//   "no"; if omitted, use "y" and "n".
+settings.fn.make_bool_attr = function (label, yes_no) {
+    var dataset = {};
+    if (arguments.length < 2) {
+	dataset = {
+	    "y": "yes",
+	    "n": "no",
+	};
+    } else {
+	dataset[yes_no[0]] = "yes";
+	dataset[yes_no[1]] = "no";
+    }
+    return {
+	label: label,
+	displayType: "select",
+	translationKey: "",
+	dataset: dataset,
+	opts: settings.liteOptions,
+    };
+};
+
+
+// Add an explanation to specific values of an attribute in the
+// sidebar. The explanation text is localized, in grey italics,
+// enclosed in square brackets. This function is inteded to be used in
+// the value of the "pattern" property of an attribute declaration.
+// Arguments:
+// - value: the value of the attribute
+// - value_map: an object whose keys are attribute values to be
+//   explained and their values are the explanations of the attribute
+//   values corresponding to the keys
+// Example:
+//   pattern: "<%=settings.fn.make_explained_value(val, {'0': 'no_quote'})%>",
+settings.fn.make_explained_value = function (value, value_map) {
+    if (value in value_map) {
+	value += (" <i style=\"color: grey;\">[<span rel=\"localize["
+		  + value_map[value] + "]\"></span>]</i>");
+    }
+    return value;
+};
+
+
+// Add a zero-width space before "T" to allow more logical
+// line-breaking of an ISO datetime value.
+settings.fn.stringify_iso_datetime = function (val) {
+    return val.replace(/T/g, "<wbr>T");
+};
+
 
 // Recursively create a corpus folder hierarchy under parent_folder
 // and the configurations for its corpora. The hierarchy is specified
@@ -4052,6 +4624,165 @@ settings.fn.make_folder_hierarchy = function (parent_folder, subfolder_tree,
     }
 };
 
+
+// Add "order" properties to the attribute definitions in attrstruct
+// for setting the order of attributes. attrnamelist lists the names
+// of the attribute in the desired order: it can be either an array of
+// strings or a single string of names separated by spaces (or tabs).
+settings.fn.set_attr_order = function (attrstruct, attrnamelist) {
+    if (typeof attrnamelist == "string") {
+	attrnamelist = attrnamelist.split(/[ \t]+/);
+    }
+    var attrnamecount = attrnamelist.length;
+    for (var i = 0; i < attrnamelist.length; i++) {
+	// The attribute with the largest order value is shown first
+	attrstruct[attrnamelist[i]].order = attrnamecount - i;
+    }
+};
+
+
+// Functions for the video page
+
+// Return the milliseconds value ms0 formatted as hh:mm:ss.xxx
+settings.fn.ms_to_hms = function (ms0) {
+    // Adapted from https://stackoverflow.com/a/2998822
+    var pad = function (num, len) {
+	var s = "000" + Math.floor(num).toString();
+	return s.substr(s.length - len);
+    }
+    ms0 = parseInt(ms0);
+    var ms = pad(ms0 % 1000, 3);
+    var s = pad(ms0 / 1000 % 60, 2);
+    var m = pad(ms0 / 60000 % 60, 2);
+    var h = pad(ms0 / 3600000, 1);
+    return (h + ":" + m + ":" + s
+	    + util.getLocaleString("util_decimalseparator") + ms);
+};
+
+
+// Make the URL to the video page with information encoded in
+// parameters.
+//
+// This function is tailored to generate the value for a synthetic
+// attribute. This function was developed for the Eduskunta corpus,
+// but it aims to be more general-purpose. However, it might need to
+// be modified (generalized further) when used for other corpora.
+//
+// Arguments:
+// - corpus_id: the id of the corpus linking to the video page
+// - token_data: the token data passed to the stringify_synthetic
+//   function
+// - video_url: the URL of the original video shown on the video page
+// - msec2sec_attrs: ids of structural attributes whose values should
+//   be converted from milliseconds to seconds
+// - omit_attrs: the structural attributes not to be passed to the
+//   video page
+settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
+					   msec2sec_attrs, omit_attrs) {
+    // console.log("settings.fn.make_videopage_url", token_data);
+    var msec_to_sec = function (sec) {
+	return (parseInt(sec) / 1000).toString();
+    };
+    var append_attr = function (key, val, attrdef, text_attrs) {
+	var name = (util.getLocaleStringUndefined(attrdef.label)
+		    || attrdef.label);
+	if (name) {
+	    if (msec2sec_attrs.includes(key)) {
+		val = msec_to_sec(val);
+	    } else if (attrdef.renderItem) {
+	    	val = attrdef.renderItem(
+	    	    key, val, attrdef, token_data.pos_attrs,
+	    	    token_data.struct_attrs, token_data.tokens);
+	    } else if (attrdef.translationKey != undefined) {
+		if (attrdef.dataset && ! _.isArray(attrdef.dataset)) {
+		    val = (attrdef.dataset != undefined
+			   ? attrdef.dataset[val]
+			   : val);
+		}
+		var loc_val = util.getLocaleStringUndefined(
+		    attrdef.translationKey + val);
+		if (loc_val != undefined) {
+		    val = loc_val;
+		}
+	    } else if (val == "") {
+		val = util.getLocaleString("unknown");
+	    }
+	    text_attrs[key] = name + "," + val;
+	}
+    };
+    var make_licence_info = function (corpus_conf) {
+	// A single quote does not seem to be encoded correctly, so
+	// change single quotes to double ones. FIXME: This assumes
+	// that single quotes are used only to delimit attribute
+	// values.
+	var licence_text = util.formatCorpusExtraInfo(
+	    corpus_conf, { info_items: ["licence"],
+			   static_localization: true })
+	    .replace(/'/g, "\"");
+	// A kludge to put the video licence first: assumes that its
+	// localized label contains the string "video"
+	return licence_text.replace(
+	    /^(.*?)(<br\s*\/?>)(Li.*?video.*)$/, "$3$2$1");
+    };
+    // Would it be better to declare the base URL (prefix) somewhere
+    // else?
+    var prefix = "markup/video_page.html#";
+    var words = [];
+    var tokens = token_data.tokens;
+    var match_types = ["_matchSentence", "_match"];
+    for (var i = 0; i < tokens.length; i++) {
+	var word = tokens[i].word;
+	for (var j = 0; j < match_types.length; j++) {
+	    var match_type = match_types[j];
+	    if (tokens[i][match_type]) {
+		if (i == 0 || ! tokens[i - 1][match_type]) {
+		    word = ("<span class=\"" + match_type.substr(1) + "\">"
+			    + word);
+		}
+		if (i == tokens.length - 1 || ! tokens[i + 1][match_type]) {
+		    word += "</span>";
+		}
+	    }
+	}
+	words.push(word);
+    }
+    var text_attrs = {};
+    var corpus_conf = settings.corpora[corpus_id];
+    var attr_types = ["struct", "custom"];
+    for (var i = 0; i < attr_types.length; i++) {
+	var attr_type = attr_types[i] + "_attributes";
+	for (var key in corpus_conf[attr_type]) {
+	    if (! omit_attrs.includes(key)) {
+		var attrdef = corpus_conf[attr_type][key];
+		// console.log(key, attrdef);
+		append_attr(
+		    key,
+		    (attr_type == "struct_attributes"
+		     ? token_data.struct_attrs[key] : null),
+		    attrdef, text_attrs);
+	    }
+	}
+    }
+    var params = {
+	lang: window.lang || settings.defaultLanguage,
+	src: video_url,
+	corpusname: corpus_conf.title,
+	metadata_urn: corpus_conf.metadata_urn,
+	licence_info: make_licence_info(corpus_conf),
+	korp_url: window.location.href,
+	utterance: "<span class=\"utterance\">" + words.join(" ") + "<span>",
+	text_attributes: JSON.stringify(text_attrs),
+    };
+    // console.log(params);
+    var paramstr = "";
+    for (var key in params) {
+	if (paramstr != "") {
+	    paramstr += "&";
+	}
+	paramstr += key + "=" + encodeURIComponent(params[key]);
+    }
+    return prefix + paramstr;
+};
 
 
 

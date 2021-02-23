@@ -455,11 +455,19 @@
     "namegroup_other": "Other",
 
     "privacy": "Privacy policy",
+    "privacy_url": "privacy-policy.html",
+    "terms_of_use": "Terms of use",
+    "terms_of_use_urn": "urn:nbn:fi:lb-20150304100",
 
+    "corpus_subcorpus_of": "Subcorpus of",
+    "corpus_pid": "Persistent Identifier (metadata)",
     "corpus_urn": "Link to corpus in Korp",
     "corpus_licence": "Licence",
+    "corpus_licence_text": "Licence (text)",
+    "corpus_licence_audiovideo": "Licence (audio and video)",
     "corpus_metadata": "Metadata",
     "corpus_homepage": "Home page",
+    "corpus_infopage": "Information page",
     "corpus_iprholder": "IPR holder",
     "corpus_compiler": "Compiler",
     "corpus_download": "Download corpus",
@@ -487,6 +495,9 @@
     "relogin_preamble": "You are trying to use corpora which require logging in to Korp, but your login appears to have expired.",
     "relogin_login": "Please log in to Korp",
     "relogin_login_postamble": "to be able to make the search that you tried",
+
+    "corpuslabel_descr_beta": "<strong>Please note</strong> that the corpus is in beta testing, so it may change without notice.",
+    "corpuslabel_descr_test": "<strong>Please note</strong> that the corpus is still in the test stage, so it may change significantly without notice.",
 
     "wordlist": "Word list",
     "selected_words": "Selected words",
