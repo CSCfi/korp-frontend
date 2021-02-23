@@ -1216,10 +1216,26 @@ util.Plugins = class Plugins {
     // this.callbacks, each to the array of the property with the name
     // of the function, indicating the hook point.
     register (obj) {
+
+        // Return the names of methods in obj and its direct
+        // prototype. Modified from
+        // https://flaviocopes.com/how-to-list-object-methods-javascript/
+        // to ignore methods further up the prototype chain.
+        const getMethods = (obj) => {
+            let properties = new Set()
+            for (let obj2 of [obj, Object.getPrototypeOf(obj)]) {
+                Object.getOwnPropertyNames(obj2)
+                    .map(item => properties.add(item));
+            }
+            return [...properties.keys()].filter(
+                item => typeof obj[item] === 'function')
+        }
+
         c.log("Plugins.register", obj)
-        for (let propname of Object.getOwnPropertyNames(obj) || []) {
-            // c.log(propname, obj[propname], _.isFunction(obj[propname]))
-            if (! propname.startsWith("_") && ! propname.endsWith("_")
+        for (let propname of getMethods(obj)) {
+            c.log(propname, obj[propname], _.isFunction(obj[propname]))
+            if (propname != "constructor" && ! propname.startsWith("_")
+                    && ! propname.endsWith("_")
                     && _.isFunction(obj[propname])) {
                 if (! (propname in this.callbacks)) {
                     this.callbacks[propname] = []
