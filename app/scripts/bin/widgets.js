@@ -5,13 +5,16 @@
     _init: function() {},
     updateContent: function(sentenceData, wordData, corpus, tokens) {
       var corpusObj, formattedCorpusInfo, posData, ref, ref1, sentence, token_data, word;
-      this.element.html('<div id="selected_sentence" /><div id="selected_word" /><div id="selected_links" />');
+      this.element.html("<div id=\"selected_sentence\" />\n<div id=\"selected_word\" />\n<div id=\"deptree_link\" />\n<div id=\"selected_links\" />");
       corpusObj = settings.corpora[corpus];
-      formattedCorpusInfo = (typeof settings !== "undefined" && settings !== null ? settings.corpusExtraInfo : void 0) ? util.formatCorpusExtraInfo(corpusObj, (ref = settings.corpusExtraInfo) != null ? ref.sidebar : void 0) : "";
+      formattedCorpusInfo = (typeof settings !== "undefined" && settings !== null ? settings.corpusExtraInfo : void 0) ? util.formatCorpusExtraInfo(corpusObj, {
+        info_items: (ref = settings.corpusExtraInfo) != null ? ref.sidebar : void 0,
+        item_paragraphs: true
+      }) : "";
       if (formattedCorpusInfo) {
         formattedCorpusInfo = "<br/>" + formattedCorpusInfo;
       }
-      $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>" + corpusObj.title + "</p><p id='sidebar-corpus-info'>" + formattedCorpusInfo + "</p>").prependTo("#selected_sentence");
+      $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>" + corpusObj.title + "</p><div id='sidebar-corpus-info'>" + formattedCorpusInfo + "</div>").prependTo("#selected_sentence");
       token_data = {
         pos_attrs: wordData,
         struct_attrs: sentenceData,
@@ -60,7 +63,7 @@
           height: 300,
           width: outerW
         }).parent().find(".ui-dialog-title").localeKey("dep_tree");
-      }).appendTo(this.element);
+      }).appendTo("#deptree_link");
     },
     renderCorpusContent: function(type, wordData, sentenceData, corpus_attrs, tokens, synthetic_attr_names, token_data) {
       var base, item, items, j, k, key, len, len1, pairs, ref, ref1, synthetic, val, value;
@@ -137,7 +140,7 @@
       return [$(pos_items), $(struct_items)];
     },
     renderItem: function(key, value, attrs, wordData, sentenceData, tokens, token_data) {
-      var address, attrSettings, class_attr, encodeHtmlEntities, getStringVal, idx, inner, itr, j, k, karpLink, l, len, len1, len2, li, link_text, lis, mapViaDataset, outerIdx, output, pattern, prefix, prob, ref, ref1, ref2, ref3, ref4, showAll, showOne, str_value, subValue, subValues, taginfo_url, target, ul, url, url_opts, val, valueArray, x;
+      var address, attrSettings, class_attr, encodeHtmlEntities, getStringVal, idx, inner, itr, j, k, karpLink, l, len, len1, len2, li, link_text, lis, mapViaDataset, outerIdx, output, pattern, prefix, prob, ref, ref1, ref2, ref3, ref4, ref5, showAll, showOne, str_value, subValue, subValues, taginfo_url, target, ul, url, url_opts, val, valueArray, x;
       encodeHtmlEntities = function(s) {
         return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
       };
@@ -336,6 +339,9 @@
       }
       str_value = attrs.stringify_synthetic ? attrs.stringify_synthetic(token_data) : (attrs.stringify || encodeHtmlEntities)(value);
       if (attrs.type === "url") {
+        if (!str_value && (attrs != null ? (ref5 = attrs.url_opts) != null ? ref5.hide_url : void 0 : void 0)) {
+          return "";
+        }
         url_opts = attrs.url_opts || {};
         target = url_opts.new_window ? " target='_blank'" : "";
         class_attr = "class='exturl sidebar_" + (url_opts.hide_url ? "link" : "url") + "'";

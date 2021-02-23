@@ -375,7 +375,9 @@
       };
       infoGetter = (function(_this) {
         return function(prop) {
-          return _(_this.selected).pluck("info").pluck(prop).compact().map(function(item) {
+          return _(_this.selected).pluck("info").pluck(prop).compact().filter(function(val) {
+            return val.slice(0, 10) !== "0000-00-00";
+          }).map(function(item) {
             return moment(item);
           }).value();
         };
@@ -1049,8 +1051,17 @@
       korp_url: window.location.href,
       korp_server_url: settings.cgi_script,
       corpus_config: JSON.stringify(result_corpora_settings, function(key, value) {
+        var item, len3, m;
         if (key === "logical_corpus") {
           return value.title;
+        } else if (_.isArray(value)) {
+          for (m = 0, len3 = value.length; m < len3; m++) {
+            item = value[m];
+            if (item.subtype === "text") {
+              return item;
+            }
+          }
+          return value[0];
         } else {
           return value;
         }
@@ -1089,7 +1100,7 @@
   added_corpora_ids = [];
 
   util.loadCorporaFolderRecursive = function(first_level, folder) {
-    var folder_descr, format_licence_type, k, len1, non_added_corpora_ids, outHTML, val;
+    var extra_info, folder_descr, format_licence_type, k, len1, non_added_corpora_ids, outHTML, val;
     format_licence_type = function(corpus_id) {
       var licence_type;
       licence_type = settings.corpora[corpus_id]["licence_type"];
@@ -1103,7 +1114,11 @@
     if (first_level) {
       outHTML = "<ul>";
     } else {
-      folder_descr = (folder.description || "") + (folder.info && settings.corpusExtraInfo ? (folder.description ? "<br/><br/>" : "") + util.formatCorpusExtraInfo(folder.info, settings.corpusExtraInfo.corpus_infobox) : "");
+      folder_descr = util.callPluginFunctionsValued("CorpusInfoDescrProcessor", folder.description || "", folder);
+      extra_info = folder.info && settings.corpusExtraInfo ? util.formatCorpusExtraInfo(folder.info, {
+        info_items: settings.corpusExtraInfo.corpus_infobox
+      }) : "";
+      folder_descr += (folder_descr && extra_info ? "<br/><br/>" : "") + extra_info;
       outHTML = "<ul title=\"" + folder.title + "\" description=\"" + escape(folder_descr) + "\">";
     }
     if (folder) {
@@ -1162,6 +1177,12 @@
   util.loadCorpora = function() {
     var outStr, selected;
     added_corpora_ids = [];
+    util.forAllFolders(function(folder) {
+      return util.callPluginFunctions("CorpusFolderProcessor", folder);
+    });
+    util.forAllCorpora(function(config) {
+      return util.callPluginFunctions("CorpusSettingsProcessor", config);
+    });
     outStr = util.loadCorporaFolderRecursive(true, settings.corporafolders);
     window.corpusChooserInstance = $("#corpusbox").corpusChooser({
       template: outStr,
@@ -1172,7 +1193,10 @@
         if (corpusObj.description) {
           maybeInfo = "<br/><br/>" + corpusObj.description;
         }
-        corpusExtraInfo = settings.corpusExtraInfo ? util.formatCorpusExtraInfo(corpusObj, settings.corpusExtraInfo.corpus_infobox) : void 0;
+        maybeInfo = util.callPluginFunctionsValued("CorpusInfoDescrProcessor", maybeInfo || "", corpusObj);
+        corpusExtraInfo = settings.corpusExtraInfo ? util.formatCorpusExtraInfo(corpusObj, {
+          info_items: settings.corpusExtraInfo.corpus_infobox
+        }) : void 0;
         if (corpusExtraInfo) {
           maybeInfo += (maybeInfo ? "<br/><br/>" : "") + corpusExtraInfo;
         }
@@ -1421,21 +1445,18 @@
     }
   };
 
-  util.formatCorpusExtraInfo = function(corpusObj) {
-    var getUrnOrUrl, i, info_item, info_items, info_obj, label, link_info, makeLinkItem, makeUrnUrl, result;
-    info_items = arguments.length > 1 && arguments[1] ? arguments[1] : (settings.corpusExtraInfoItems != null) || [];
-    makeUrnUrl = function(urn) {
-      if (urn.indexOf('http') !== 0) {
-        return settings.urnResolver + urn;
-      } else {
-        return urn;
-      }
-    };
+  util.formatCorpusExtraInfo = function(corpusObj, opts) {
+    var getUrnOrUrl, info_item, info_items, item_paragraphs, k, l, len1, len2, link_info, makeLinkInfos, makeLinkItem, ref, result;
+    if (opts == null) {
+      opts = {};
+    }
+    info_items = opts.info_items ? opts.info_items : (settings.corpusExtraInfoItems != null) || [];
+    item_paragraphs = opts.item_paragraphs || false;
     getUrnOrUrl = function(obj) {
       var prefix;
       prefix = arguments.length > 1 ? arguments[1] : '';
       if (prefix + 'urn' in obj) {
-        return makeUrnUrl(obj[prefix + 'urn']);
+        return util.makeUrnUrl(obj[prefix + 'urn']);
       } else {
         return obj[prefix + 'url'];
       }
@@ -1458,31 +1479,17 @@
       }
       return result;
     };
-    result = '';
-    i = 0;
-    while (i < info_items.length) {
-      info_item = info_items[i];
-      link_info = {};
-      label = '';
-      label = '<span rel=\'localize[corpus_' + info_item + ']\'>' + 'Corpus ' + info_item + '</span>';
-      if (info_item === 'urn' && corpusObj.urn) {
-        link_info = {
-          url: makeUrnUrl(corpusObj.urn),
-          text: corpusObj.urn,
-          label: label
-        };
-      } else if (info_item === 'homepage' && !('homepage' in corpusObj) && corpusObj.url) {
-        link_info = {
-          url: corpusObj.url,
-          text: label
-        };
-      } else if (info_item === 'cite' && corpusObj.cite_id && (settings.corpus_cite_base_url != null)) {
-        link_info = {
-          url: settings.corpus_cite_base_url + escape(corpusObj.cite_id) + '&lang=' + window.lang,
-          text: label
-        };
-      } else if (corpusObj[info_item]) {
-        info_obj = corpusObj[info_item];
+    makeLinkInfos = function(info_item) {
+      var base_label, corpus_info_item, info_item_sub, k, label, len1, linkInfoIsNotEmpty, link_info, link_info_base, link_infos, makeLabel, makeLinkInfoBase;
+      makeLabel = function(info_item) {
+        if (opts.static_localization) {
+          return util.getLocaleString('corpus_' + info_item);
+        } else {
+          return '<span rel=\'localize[corpus_' + info_item + ']\'>' + 'Corpus ' + info_item + '</span>';
+        }
+      };
+      makeLinkInfoBase = function(info_obj, label) {
+        var link_info;
         link_info = {
           url: getUrnOrUrl(info_obj)
         };
@@ -1497,21 +1504,73 @@
         if (info_obj.description) {
           link_info.tooltip = info_obj.description;
         }
-      } else if (corpusObj[info_item + '_urn'] || corpusObj[info_item + '_url']) {
-        link_info = {
-          url: getUrnOrUrl(corpusObj, info_item + '_'),
-          text: label
-        };
+        return link_info;
+      };
+      linkInfoIsNotEmpty = function(link_info) {
+        return link_info && (link_info.url || link_info.text);
+      };
+      link_info = null;
+      label = makeLabel(info_item);
+      if (settings.makeCorpusExtraInfoItem && info_item in settings.makeCorpusExtraInfoItem) {
+        link_info = settings.makeCorpusExtraInfoItem[info_item](corpusObj, label);
       }
-      if (link_info.url || link_info.text) {
-        if (result) {
-          result += '<br/>';
+      if (!link_info) {
+        corpus_info_item = corpusObj[info_item];
+        if (corpus_info_item) {
+          if (Array.isArray(corpus_info_item)) {
+            link_infos = [];
+            base_label = label;
+            for (k = 0, len1 = corpus_info_item.length; k < len1; k++) {
+              info_item_sub = corpus_info_item[k];
+              if ("subtype" in info_item_sub) {
+                label = makeLabel(info_item + '_' + info_item_sub.subtype);
+              } else {
+                label = base_label;
+              }
+              link_info_base = makeLinkInfoBase(info_item_sub, label);
+              if (linkInfoIsNotEmpty(link_info_base)) {
+                link_infos.push(link_info_base);
+              }
+            }
+            return link_infos;
+          } else {
+            link_info = makeLinkInfoBase(corpus_info_item, label);
+          }
+        } else if (corpusObj[info_item + '_urn'] || corpusObj[info_item + '_url']) {
+          link_info = {
+            url: getUrnOrUrl(corpusObj, info_item + '_'),
+            text: label
+          };
         }
-        result += makeLinkItem(link_info);
       }
-      i++;
+      if (linkInfoIsNotEmpty(link_info)) {
+        return [link_info];
+      } else {
+        return [];
+      }
+    };
+    result = [];
+    for (k = 0, len1 = info_items.length; k < len1; k++) {
+      info_item = info_items[k];
+      ref = makeLinkInfos(info_item);
+      for (l = 0, len2 = ref.length; l < len2; l++) {
+        link_info = ref[l];
+        result.push(makeLinkItem(link_info));
+      }
     }
-    return result;
+    if (item_paragraphs) {
+      return '<p>' + result.join('</p><p>') + '</p>';
+    } else {
+      return result.join('<br/>');
+    }
+  };
+
+  util.makeUrnUrl = function(urn) {
+    if (urn.indexOf('http') !== 0) {
+      return settings.urnResolver + urn;
+    } else {
+      return urn;
+    }
   };
 
   util.copyCorpusInfoToConfig = function(corpusObj) {
@@ -1590,11 +1649,33 @@
     }
   };
 
-  util.forAllCorpora = function(func) {
-    var corpus;
+  util.forAllCorpora = function() {
+    var args, corpus, func;
+    func = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
     for (corpus in settings.corpora) {
-      func(settings.corpora[corpus]);
+      func.apply(null, [settings.corpora[corpus], corpus].concat(slice.call(args)));
     }
+  };
+
+  util.forAllFolders = function() {
+    var args, for_all_subfolders, func;
+    func = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
+    for_all_subfolders = function() {
+      var args, folder, func, prop_name, results;
+      folder = arguments[0], func = arguments[1], args = 3 <= arguments.length ? slice.call(arguments, 2) : [];
+      results = [];
+      for (prop_name in folder) {
+        if (!hasProp.call(folder, prop_name)) continue;
+        if (prop_name !== "title" && prop_name !== "description" && prop_name !== "contents" && prop_name !== "info") {
+          func.apply(null, [folder[prop_name]].concat(slice.call(args)));
+          results.push(for_all_subfolders.apply(null, [folder[prop_name], func].concat(slice.call(args))));
+        } else {
+          results.push(void 0);
+        }
+      }
+      return results;
+    };
+    return for_all_subfolders.apply(null, [settings.corporafolders, func].concat(slice.call(args)));
   };
 
   util.initCorpusSettingsLinkAttrs = function() {
@@ -2019,9 +2100,9 @@
       corpora_str = corpora.join(",");
       return href + "&corpus=" + corpora_str;
     } else {
-      href_corpora = /&corpus=([^&]*)/.exec(href)[1].split(",");
+      href_corpora = /[&?]corpus=([^&]*)/.exec(href)[1].split(",");
       corpora_str = _.union(href_corpora, corpora).join(",");
-      return href.replace(/(&corpus=)[^&]+/, "$1" + corpora_str);
+      return href.replace(/([&?]corpus=)[^&]+/, "$1" + corpora_str);
     }
   };
 
@@ -2628,6 +2709,80 @@
     items.push("search=" + search_tab_names[search().search_tab || "0"]);
     return items;
   };
+
+  util.pluginFunctions = {};
+
+  util.addPluginFunction = function(type, funcs) {
+    if (!(type in util.pluginFunctions)) {
+      util.pluginFunctions[type] = [];
+    }
+    if (!_.isArray(funcs)) {
+      funcs = [funcs];
+    }
+    return util.pluginFunctions[type] = util.pluginFunctions[type].concat(funcs);
+  };
+
+  util.addPluginFunctions = function(types_funcs) {
+    var funcs, results, type;
+    results = [];
+    for (type in types_funcs) {
+      if (!hasProp.call(types_funcs, type)) continue;
+      funcs = types_funcs[type];
+      results.push(util.addPluginFunction(type, funcs));
+    }
+    return results;
+  };
+
+  util.callPluginFunctions = function() {
+    var args, func, k, len1, ref, type;
+    type = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
+    if (type in util.pluginFunctions) {
+      ref = util.pluginFunctions[type];
+      for (k = 0, len1 = ref.length; k < len1; k++) {
+        func = ref[k];
+        func.apply(null, args);
+      }
+    }
+  };
+
+  util.callPluginFunctionsValued = function() {
+    var arg1, func, k, len1, ref, rest, type;
+    type = arguments[0], arg1 = arguments[1], rest = 3 <= arguments.length ? slice.call(arguments, 2) : [];
+    if (type in util.pluginFunctions) {
+      ref = util.pluginFunctions[type];
+      for (k = 0, len1 = ref.length; k < len1; k++) {
+        func = ref[k];
+        arg1 = func.apply(null, [arg1].concat(slice.call(rest)));
+      }
+    }
+    return arg1;
+  };
+
+  util.addCorpusTitleLabel = function(config) {
+    var k, label, label_text, len1, ref, ref1, ref2;
+    ref1 = config.labels || ((ref = config.info) != null ? ref.labels : void 0) || [];
+    for (k = 0, len1 = ref1.length; k < len1; k++) {
+      label = ref1[k];
+      label_text = ((ref2 = settings.corpus_label_texts) != null ? ref2[label] : void 0) || label;
+      config.title += " (" + label_text + ")";
+    }
+  };
+
+  util.addCorpusInfoDescrLabel = function(descr, config) {
+    var k, label, len1, ref, ref1;
+    ref1 = config.labels || ((ref = config.info) != null ? ref.labels : void 0) || [];
+    for (k = 0, len1 = ref1.length; k < len1; k++) {
+      label = ref1[k];
+      descr += (descr ? "<br/><br/>" : "") + ("<span rel=\"localize[corpuslabel_descr_" + label + "]\">" + label + "</span>");
+    }
+    return descr;
+  };
+
+  util.addPluginFunctions({
+    CorpusSettingsProcessor: util.addCorpusTitleLabel,
+    CorpusFolderProcessor: util.addCorpusTitleLabel,
+    CorpusInfoDescrProcessor: util.addCorpusInfoDescrLabel
+  });
 
 }).call(this);
 
