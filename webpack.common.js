@@ -28,6 +28,7 @@ module.exports = {
             // it was the literal string, but later the literal string
             // worked, too. Which is correct? Is this modification
             // needed? (Jyrki Niemi 2020-04-28)
+            // As of 2021-02-25, path.resolve would seem to be needed.
             // jquery: "jquery/src/jquery",
             jquery: path.resolve(__dirname, "node_modules/jquery/src/jquery"),
             jreject: path.resolve(__dirname, "app/lib/jquery.reject"),
