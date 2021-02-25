@@ -38,6 +38,7 @@ module.exports = {
             commonjs: path.resolve(korpConfigDir, "modes/common.js"),
             defaultmode: path.resolve(korpConfigDir, "modes/default_mode.js"),
             customcss: path.resolve(korpConfigDir, "styles/"),
+            customplugins: path.resolve(korpConfigDir, "plugins/"),
             customscripts: path.resolve(korpConfigDir, "scripts/"),
             customviews: path.resolve(korpConfigDir, "views/"),
         },

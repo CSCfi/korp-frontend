@@ -124,7 +124,9 @@ require("./scripts/filter_directives.js")
 require("./scripts/newsdesk.js")
 
 function requireAll(r) { r.keys().forEach(r) } 
+requireAll(require.context('./plugins', true, /\.js$/))
 requireAll(require.context('customcss', true, /\.css$/))
 requireAll(require.context('customscripts', true, /\.js$/))
+requireAll(require.context('customplugins', true, /\.js$/))
 
 require("./index.pug")
