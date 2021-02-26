@@ -891,7 +891,11 @@ util.loadCorporaFolderRecursive = function (first_level, folder) {
     if (first_level) {
         outHTML = "<ul>"
     } else {
-        outHTML = `<ul title="${folder.title}" description="${escape(folder.description)}">`
+        const folderTitle = util.plugins.callFilters(
+            "formatPopupFolderTitle", folder.title || "", folder)
+        const folderDescr = util.plugins.callFilters(
+            "formatPopupFolderInfo", folder.description || "", folder)
+        outHTML = `<ul title="${folderTitle}" description="${escape(folderDescr)}">`
     }
     if (folder) {
         // This check makes the code work even if there isn't a ___settings.corporafolders = {};___ in config.js
@@ -985,8 +989,11 @@ util.loadCorpora = function () {
                 let baseLangSentenceHTML, baseLangTokenHTML, lang
                 const corpusObj = settings.corpora[corpusID]
                 let maybeInfo = ""
-                if (corpusObj.description) {
-                    maybeInfo = `<br/><br/>${corpusObj.description}`
+                const corpusDescr = util.plugins.callFilters(
+                    "formatPopupCorpusInfo",
+                    corpusObj.description || "", corpusObj)
+                if (corpusDescr) {
+                    maybeInfo = `<br/><br/>${corpusDescr}`
                 }
                 const numTokens = corpusObj.info.Size
                 const baseLang = settings.corpora[corpusID] && settings.corpora[corpusID].linkedTo
@@ -1018,10 +1025,12 @@ util.loadCorpora = function () {
                     sentenceString = util.prettyNumbers(numSentences.toString())
                 }
 
+                let corpusTitle = util.plugins.callFilters(
+                    "formatPopupCorpusTitle", corpusObj.title || "", corpusObj)
                 let output = `\
                     <b>
                         <img class="popup_icon" src="${korpIconImg}" />
-                        ${corpusObj.title}
+                        ${corpusTitle}
                     </b>
                     ${maybeInfo}
                     <br/><br/>${baseLangTokenHTML}
