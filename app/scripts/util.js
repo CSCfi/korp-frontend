@@ -1209,6 +1209,30 @@ window.__.remove = function (arr, elem) {
 
 
 // Class for a simple plugin facility
+//
+// Plugins are objects containing function properties which correspond
+// to plugin callback functions for named hook points. A plugin can be
+// either a simple object or an object created from a prototype. Each
+// plugin must be registered with util.Plugins.register(plugin).
+//
+// Callback functions in a plugin object obj may be mapped to hook
+// points in two ways:
+// 1. If obj contains property "callbacks", its keys are regarded
+//    hook point names and their values are the callback functions
+//    in obj to be registered for the hook point. The values may
+//    be either single functions (function references), lists of
+//    them or strings (the name of the function property in obj).
+// 2. If obj does not contain property "callbacks", all function
+//    properties whose names do not begin or end with an
+//    underscore in obj and its direct prototype are added as
+//    callbacks, taking the function name as the name of the hook
+//    point.
+//
+// Callback functions for a hook point are called via
+// util.Plugins.callActions (for functions not returning a value or
+// whose return value is discarded) or util.Plugins.callFilters
+// (functions returning a value); see the descriptions of these
+// functions below for more information.
 
 util.Plugins = class Plugins {
 
@@ -1219,11 +1243,19 @@ util.Plugins = class Plugins {
         this.callbacks = {}
     }
 
-    // Register a plugin which is an object whose function properties
-    // (whose names do not begin or end with an underscodre)
-    // correspond to plugin callback functions and are added to
+    // Add (append) callback function func in object obj to hook point
+    // hookPoint.
+    addCallback (hookPoint, func, obj) {
+        if (! (hookPoint in this.callbacks)) {
+            this.callbacks[hookPoint] = []
+        }
+        this.callbacks[hookPoint].push(func.bind(obj))
+    }
+
+    // Register a plugin object obj containing function properties
+    // which correspond to plugin callback functions and are added to
     // this.callbacks, each to the array of the property with the name
-    // of the function, indicating the hook point.
+    // of the hook point.
     register (obj) {
 
         // Return the names of methods in obj and its direct
@@ -1241,15 +1273,27 @@ util.Plugins = class Plugins {
         }
 
         c.log("Plugins.register", obj)
-        for (let propname of getMethods(obj)) {
-            c.log(propname, obj[propname], _.isFunction(obj[propname]))
-            if (propname != "constructor" && ! propname.startsWith("_")
-                    && ! propname.endsWith("_")
-                    && _.isFunction(obj[propname])) {
-                if (! (propname in this.callbacks)) {
-                    this.callbacks[propname] = []
+        if (obj.callbacks) {
+            for (let propname of Object.getOwnPropertyNames(obj.callbacks)) {
+                let callbacks = obj.callbacks[propname]
+                if (! _.isArray(callbacks)) {
+                    callbacks = [callbacks]
                 }
-                this.callbacks[propname].push(obj[propname].bind(obj))
+                for (let callback of callbacks) {
+                    if (_.isString(callback)) {
+                        callback = obj[callback]
+                    }
+                    this.addCallback(propname, callback, obj)
+                }
+            }
+        } else {
+            for (let propname of getMethods(obj)) {
+                c.log(propname, obj[propname], _.isFunction(obj[propname]))
+                if (propname != "constructor" && ! propname.startsWith("_")
+                        && ! propname.endsWith("_")
+                        && _.isFunction(obj[propname])) {
+                    this.addCallback(propname, obj[propname], obj)
+                }
             }
         }
         // c.log("pluginFunctions", this.callbacks)
