@@ -190,10 +190,16 @@ settings.corporafolders.literature = {
 };
 
 settings.corporafolders.literature.kaannossuomi = {
-    title: "Käännössuomen korpus (testiversio)",
+    title: "Käännössuomen korpus",
     description: "Käännössuomen korpus on koostettu vuonna 1999 nykyisessä Itä-Suomen yliopistossa (silloisessa Joensuun yliopistossa sen kansainvälisen viestinnän laitoksella) Suomen Akatemian professori Anna Maurasen johtamassa tutkimushankkeessa Käännössuomi ja kääntämisen universaalit.<br/><br/>Korpus sisältää kaksi osaa: aluperin suomeksi kirjoitettua kieltä (supisuomi) ja eri kielistä käännettyä kieltä (käännössuomi). Seuraavat tekstilajit ovat edustettuina aineistoissa: akateemiset tekstit, kaunokirjallisuus, lastenkirjallisuus, biografia, populaarikirjallisuus, viihdekirjallisuus, dekkarikirjallisuus ja tietokirjallisuus. Supisuomen aineiston laajuus on yhteensä 3 773 025 sanaa ja käännössuomen aineisto 5 826 951 sanaa.",
     info: {
+	urn: "urn:nbn:fi:lb-2019100803",
 	metadata_urn: "urn:nbn:fi:lb-2019100801",
+	licence: {
+	    name: "CLARIN RES +NC +DEP 1.0",
+	    urn: "urn:nbn:fi:lb-2019100805",
+	},
+	cite_id: "kaannossuomi-korp",
     },
     contents: ["alkusuomi", "kaannossuomi"]
 };
@@ -13878,7 +13884,7 @@ sattrlist.kaannossuomi = {
 };
 
 settings.corpora.alkusuomi = {
-    title: "Käännössuomen korpus - alkusuomi (testiversio)",
+    title: "Käännössuomen korpus - alkusuomi",
     description: "Eri kielistä käännettyä kieltä",
     lang: "fin",
     id: "alkusuomi",
@@ -13898,7 +13904,7 @@ settings.corpora.alkusuomi = {
 };
 
 settings.corpora.kaannossuomi = {
-    title: "Käännössuomen korpus - käännössuomi (testiversio)",
+    title: "Käännössuomen korpus - käännössuomi",
     description: "Aluperin suomeksi kirjoitettua kieltä",
     lang: "fin",
     id: "kaannossuomi",
