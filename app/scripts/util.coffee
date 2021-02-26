@@ -919,12 +919,29 @@ util.downloadKwic = (format_params, query_url, result_data) ->
         format: format
         korp_url: window.location.href
         korp_server_url: settings.cgi_script
+        # TODO: Does it make sense to pass the whole corpus
+        # configuration to the download script, or would the keys
+        # listed in corpus_config_info_keys suffice, possibly with the
+        # addition of corpus name? Attribute names might be also be
+        # useful, but they would require mapping via translations.
         corpus_config: JSON.stringify(result_corpora_settings,
             (key, value) ->
                 # logical_corpus may refer to the corpus object
                 # itself, and since JSON does not support circular
                 # objects, replace the value with corpus title
-                if key == "logical_corpus" then value.title else value)
+                if key == "logical_corpus"
+                    return value.title
+                # The licence may be list-valued but korp_download.cgi
+                # expects a dictionary (object); choose the value with
+                # subtype == "text" if it exists, otherwise choose the
+                # first value.
+                else if _.isArray value
+                    for item in value
+                        if item.subtype == "text"
+                            return item
+                    return value[0]
+                else
+                    return value)
         # corpus_config_info_keys previously excluded "urn", but now
         # it is included if listed in settings.corpusExtraInfoItems.
         # Does it matter?

@@ -1051,8 +1051,17 @@
       korp_url: window.location.href,
       korp_server_url: settings.cgi_script,
       corpus_config: JSON.stringify(result_corpora_settings, function(key, value) {
+        var item, len3, m;
         if (key === "logical_corpus") {
           return value.title;
+        } else if (_.isArray(value)) {
+          for (m = 0, len3 = value.length; m < len3; m++) {
+            item = value[m];
+            if (item.subtype === "text") {
+              return item;
+            }
+          }
+          return value[0];
         } else {
           return value;
         }

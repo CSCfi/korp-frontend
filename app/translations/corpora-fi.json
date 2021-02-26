@@ -9,11 +9,16 @@
 
     "saldo": "merkitys",
     "pos": "sanaluokka",
+    "pos_ud1": "sanaluokka (UD1)",
     "msd": "morfologinen analyysi",
+    "msd_ud1": "morfologinen analyysi (UD1)",
     "baseform": "perusmuoto",
+    "baseform_ud1": "perusmuoto (UD1)",
     "lemgram": "lemgrammi",
     "dephead": "pääsanan numero",
+    "dephead_ud1": "pääsanan numero (UD1)",
     "deprel": "dependenssisuhde",
+    "deprel_ud1": "dependenssisuhde (UD1)",
     "sentence": "virke",
     "paragraph": "kappale",
     "prefix": "alkuosa",
@@ -36,6 +41,7 @@
 
     "lemma": "perusmuoto",
     "baseform_compound": "perusmuoto (yhdyssanarajat)",
+    "baseform_compound_ud1": "perusmuoto (yhdyssanarajat) (UD1)",
     "lemmacomp": "perusmuoto (yhdyssanarajat)",
     "pos_orig": "sanaluokka (siivoamaton)",
     "func": "lauseenjäsen",
@@ -2165,5 +2171,9 @@
     "hc_audience" : "kohdeyleisö",
     "hc_partrel" : "osallisen suhde kirjoittajaan",
     "hc_interaction" : "interaktiivisuus",
-    "hc_setting" : "muodollisuus"
+    "hc_setting" : "muodollisuus",
+
+    "opensub_text_country" : "alkuperämaa",
+    "opensub_text_lang_orig" : "alkuperäiskieli",
+    "opensub_text_genre" : "lajityyppi"
 }
