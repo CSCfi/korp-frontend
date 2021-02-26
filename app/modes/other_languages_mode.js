@@ -125,27 +125,28 @@ settings.corporafolders.russian = {
 };
 
 settings.corporafolders.english.ethesis = {
-    title: "E-thesis (test version)",
-    description: "Corpus of University of Helsinki theses and dissertations<br/><a href='https://ethesis.helsinki.fi/'>https://ethesis.helsinki.fi/</a> (test version)",
+    title: "E-thesis",
+    description: "Corpus of University of Helsinki theses and dissertations<br/><a href='https://ethesis.helsinki.fi/'>https://ethesis.helsinki.fi/</a>",
     contents: ["ethesis_en_dissabs", "ethesis_en_maabs"],
     info: {
 	cite_id: "e-thesis-en",
-	urn: "urn:nbn:fi:lb-2016102101",
+	urn: "urn:nbn:fi:lb-2020031302",
 	metadata_urn: "urn:nbn:fi:lb-2020031301",
 	licence: settings.licenceinfo.CC_BY,
 	homepage_url: "https://ethesis.helsinki.fi/",
-    }
+    },
+    labels: ["beta"]
 };
 
 settings.corporafolders.english.ethesis.phdtheses = {
-    title: "Doctoral dissertations (test version)",
+    title: "Doctoral dissertations",
     contents: ["ethesis_en_phd_mm_test", "ethesis_en_phd_hum_test", "ethesis_en_phd_bio_test", "ethesis_en_phd_beh_test",
                 "ethesis_en_phd_ot_test", "ethesis_en_phd_med_test", "ethesis_en_phd_far_test", "ethesis_en_phd_sci_test",
                 "ethesis_en_phd_valt_test", "ethesis_en_phd_teo_test", "ethesis_en_phd_el_test"]
 };
 
 settings.corporafolders.english.ethesis.matheses = {
-    title: "Master's theses (test version)",
+    title: "Master's theses",
     contents: ["ethesis_en_ma_mm_test", "ethesis_en_ma_ai_test", "ethesis_en_ma_hum_test", "ethesis_en_ma_bio_test", "ethesis_en_ma_beh_test",
                 "ethesis_en_ma_far_test", "ethesis_en_ma_ot_test", "ethesis_en_ma_med_test", "ethesis_en_ma_sci_test",
                 "ethesis_en_ma_valt_test", "ethesis_en_ma_teo_test", "ethesis_en_ma_el_test"]
@@ -1282,8 +1283,8 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.firulex,
 /* E-thesis en */
 
 settings.corpora.ethesis_en_ma_ot_test = {
-    title: "E-thesis: Master’s theses: Law (test version)",
-    description: "E-thesis: Master’s theses: Faculty of Law (2010–2015) (test version)",
+    title: "E-thesis: Master’s theses: Law",
+    description: "E-thesis: Master’s theses: Faculty of Law (2010–2015)",
     id: "ethesis_en_ma_ot_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1292,8 +1293,8 @@ settings.corpora.ethesis_en_ma_ot_test = {
 };
 
 settings.corpora.ethesis_en_ma_med_test = {
-    title: "E-thesis: Master’s theses: Medicine (test version)",
-    description: "E-thesis: Master’s theses: Faculty of Medicine (2009–2015) (test version)",
+    title: "E-thesis: Master’s theses: Medicine",
+    description: "E-thesis: Master’s theses: Faculty of Medicine (2009–2015)",
     id: "ethesis_en_ma_med_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1302,8 +1303,8 @@ settings.corpora.ethesis_en_ma_med_test = {
 };
 
 settings.corpora.ethesis_en_ma_el_test = {
-    title: "E-thesis: Master’s theses: Veterinary Medicine (test version)",
-    description: "E-thesis: Master’s theses: Faculty of Veterinary Medicine (2003–2016) (test version)",
+    title: "E-thesis: Master’s theses: Veterinary Medicine",
+    description: "E-thesis: Master’s theses: Faculty of Veterinary Medicine (2003–2016)",
     id: "ethesis_en_ma_el_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1313,8 +1314,8 @@ settings.corpora.ethesis_en_ma_el_test = {
 
 
 settings.corpora.ethesis_en_ma_hum_test = {
-    title: "E-thesis: Master’s theses: Arts (test version) (test version)",
-    description: "E-thesis: Master’s theses: Faculty of Arts (1997–2016) (test version)",
+    title: "E-thesis: Master’s theses: Arts",
+    description: "E-thesis: Master’s theses: Faculty of Arts (1997–2016)",
     id: "ethesis_en_ma_hum_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1324,8 +1325,8 @@ settings.corpora.ethesis_en_ma_hum_test = {
 
 
 settings.corpora.ethesis_en_ma_beh_test = {
-    title: "E-thesis: Master’s theses: Behavioural Sciences (test version)",
-    description: "E-thesis: Master’s theses: Faculty of Behavioural Sciences (2000–2016) (test version)",
+    title: "E-thesis: Master’s theses: Behavioural Sciences",
+    description: "E-thesis: Master’s theses: Faculty of Behavioural Sciences (2000–2016)",
     id: "ethesis_en_ma_beh_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1334,8 +1335,8 @@ settings.corpora.ethesis_en_ma_beh_test = {
 };
 
 settings.corpora.ethesis_en_ma_bio_test = {
-    title: "E-thesis: Master’s theses: Biological and Environmental Sciences (test version)",
-    description: "E-thesis: Master’s theses: Faculty of Biological and Environmental Sciences (2006–2015) (test version)",
+    title: "E-thesis: Master’s theses: Biological and Environmental Sciences",
+    description: "E-thesis: Master’s theses: Faculty of Biological and Environmental Sciences (2006–2015)",
     id: "ethesis_en_ma_bio_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1344,8 +1345,8 @@ settings.corpora.ethesis_en_ma_bio_test = {
 };
 
 settings.corpora.ethesis_en_ma_far_test = {
-    title: "E-thesis: Master’s theses: Pharmacy (test version)",
-    description: "E-thesis: Master’s theses: Faculty of Pharmacy (2003, 2010–2016) (test version)",
+    title: "E-thesis: Master’s theses: Pharmacy",
+    description: "E-thesis: Master’s theses: Faculty of Pharmacy (2003, 2010–2016)",
     id: "ethesis_en_ma_far_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1354,8 +1355,8 @@ settings.corpora.ethesis_en_ma_far_test = {
 };
 
 settings.corpora.ethesis_en_ma_mm_test = {
-    title: "E-thesis: Master’s theses: Agriculture and Forestry (test version)",
-    description: "E-thesis: Master’s theses: Agriculture and Forestry (2002–2016) (test version)",
+    title: "E-thesis: Master’s theses: Agriculture and Forestry",
+    description: "E-thesis: Master’s theses: Agriculture and Forestry (2002–2016)",
     id: "ethesis_en_ma_mm_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1364,8 +1365,8 @@ settings.corpora.ethesis_en_ma_mm_test = {
 };
 
 settings.corpora.ethesis_en_ma_sci_test = {
-    title: "E-thesis: Master’s theses: Science (test version)",
-    description: "E-thesis: Master’s theses: Faculty of Science (1999–2016) (test version)",
+    title: "E-thesis: Master’s theses: Science",
+    description: "E-thesis: Master’s theses: Faculty of Science (1999–2016)",
     id: "ethesis_en_ma_sci_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1374,8 +1375,8 @@ settings.corpora.ethesis_en_ma_sci_test = {
 };
 
 settings.corpora.ethesis_en_ma_teo_test = {
-    title: "E-thesis: Master’s theses: Theology (test version)",
-    description: "E-thesis: Master’s theses: Faculty of Theology (2006–2016) (test version)",
+    title: "E-thesis: Master’s theses: Theology",
+    description: "E-thesis: Master’s theses: Faculty of Theology (2006–2016)",
     id: "ethesis_en_ma_teo_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1384,8 +1385,8 @@ settings.corpora.ethesis_en_ma_teo_test = {
 };
 
 settings.corpora.ethesis_en_ma_valt_test = {
-    title: "E-thesis: Master’s theses: Social Sciences (test version)",
-    description: "E-thesis: Master’s theses: Faculty of Social Sciences (1999–2016) (test version)",
+    title: "E-thesis: Master’s theses: Social Sciences",
+    description: "E-thesis: Master’s theses: Faculty of Social Sciences (1999–2016)",
     id: "ethesis_en_ma_valt_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1394,8 +1395,8 @@ settings.corpora.ethesis_en_ma_valt_test = {
 };
 
 settings.corpora.ethesis_en_ma_ai_test = {
-    title: "E-thesis: Master’s theses: Aleksanteri Institute (test version)",
-    description: "E-thesis: Master’s theses: Aleksanteri Institute (2009–2015) (test version)",
+    title: "E-thesis: Master’s theses: Aleksanteri Institute",
+    description: "E-thesis: Master’s theses: Aleksanteri Institute (2009–2015)",
     id: "ethesis_en_ma_ai_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1426,8 +1427,8 @@ settings.corpora.ethesis_en_dissabs = {
 };
 
 settings.corpora.ethesis_en_phd_beh_test = {
-    title: "E-thesis: Doctoral dissertations: Behavioural Sciences (test version)",
-    description: "E-thesis: Doctoral dissertations: Faculty of Behavioural Sciences (1999–2016) (test version)",
+    title: "E-thesis: Doctoral dissertations: Behavioural Sciences",
+    description: "E-thesis: Doctoral dissertations: Faculty of Behavioural Sciences (1999–2016)",
     id: "ethesis_en_phd_beh_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1436,8 +1437,8 @@ settings.corpora.ethesis_en_phd_beh_test = {
 };
 
 settings.corpora.ethesis_en_phd_bio_test = {
-    title: "E-thesis: Doctoral dissertations: Biological and Environmental Sciences (test version)",
-    description: "E-thesis: Doctoral dissertations: Faculty of Biological and Environmental Sciences (1997–2016) (test version)",
+    title: "E-thesis: Doctoral dissertations: Biological and Environmental Sciences",
+    description: "E-thesis: Doctoral dissertations: Faculty of Biological and Environmental Sciences (1997–2016)",
     id: "ethesis_en_phd_bio_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1446,8 +1447,8 @@ settings.corpora.ethesis_en_phd_bio_test = {
 };
 
 settings.corpora.ethesis_en_phd_el_test = {
-    title: "E-thesis: Doctoral dissertations: Veterinary Medicine (test version)",
-    description: "E-thesis: Doctoral dissertations: Faculty of Veterinary Medicine (1999–2016) (test version)",
+    title: "E-thesis: Doctoral dissertations: Veterinary Medicine",
+    description: "E-thesis: Doctoral dissertations: Faculty of Veterinary Medicine (1999–2016)",
     id: "ethesis_en_phd_el_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1456,8 +1457,8 @@ settings.corpora.ethesis_en_phd_el_test = {
 };
 
 settings.corpora.ethesis_en_phd_far_test = {
-    title: "E-thesis: Doctoral dissertations: Pharmacy (test version)",
-    description: "E-thesis: Doctoral dissertations: Faculty of Pharmacy (1999–2016) (test version)",
+    title: "E-thesis: Doctoral dissertations: Pharmacy",
+    description: "E-thesis: Doctoral dissertations: Faculty of Pharmacy (1999–2016)",
     id: "ethesis_en_phd_far_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1466,8 +1467,8 @@ settings.corpora.ethesis_en_phd_far_test = {
 };
 
 settings.corpora.ethesis_en_phd_mm_test = {
-    title: "E-thesis: Doctoral dissertations: Agriculture and Forestry (test version)",
-    description: "E-thesis: Doctoral dissertations: Agriculture and Forestry (1999–2016) (test version)",
+    title: "E-thesis: Doctoral dissertations: Agriculture and Forestry",
+    description: "E-thesis: Doctoral dissertations: Agriculture and Forestry (1999–2016)",
     id: "ethesis_en_phd_mm_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1476,8 +1477,8 @@ settings.corpora.ethesis_en_phd_mm_test = {
 };
 
 settings.corpora.ethesis_en_phd_hum_test = {
-    title: "E-thesis: Doctoral dissertations: Arts (test version)",
-    description: "E-thesis: Doctoral dissertations: Faculty of Arts (1989, 1998–2016) (test version)",
+    title: "E-thesis: Doctoral dissertations: Arts",
+    description: "E-thesis: Doctoral dissertations: Faculty of Arts (1989, 1998–2016)",
     id: "ethesis_en_phd_hum_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1486,8 +1487,8 @@ settings.corpora.ethesis_en_phd_hum_test = {
 };
 
 settings.corpora.ethesis_en_phd_sci_test = {
-    title: "E-thesis: Doctoral dissertations: Science (test version)",
-    description: "E-thesis: Doctoral dissertations: Faculty of Science (1992, 1995–2016) (test version)",
+    title: "E-thesis: Doctoral dissertations: Science",
+    description: "E-thesis: Doctoral dissertations: Faculty of Science (1992, 1995–2016)",
     id: "ethesis_en_phd_sci_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1496,8 +1497,8 @@ settings.corpora.ethesis_en_phd_sci_test = {
 };
 
 settings.corpora.ethesis_en_phd_ot_test = {
-    title: "E-thesis: Doctoral dissertations: Law (test version)",
-    description: "E-thesis: Doctoral dissertations: Faculty of Law (2002, 2004–2016) (test version)",
+    title: "E-thesis: Doctoral dissertations: Law",
+    description: "E-thesis: Doctoral dissertations: Faculty of Law (2002, 2004–2016)",
     id: "ethesis_en_phd_ot_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1506,8 +1507,8 @@ settings.corpora.ethesis_en_phd_ot_test = {
 };
 
 settings.corpora.ethesis_en_phd_teo_test = {
-    title: "E-thesis: Doctoral dissertations: Theology (test version)",
-    description: "E-thesis: Doctoral dissertations: Faculty of Theology (2002–2016) (test version)",
+    title: "E-thesis: Doctoral dissertations: Theology",
+    description: "E-thesis: Doctoral dissertations: Faculty of Theology (2002–2016)",
     id: "ethesis_en_phd_teo_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1516,8 +1517,8 @@ settings.corpora.ethesis_en_phd_teo_test = {
 };
 
 settings.corpora.ethesis_en_phd_med_test = {
-    title: "E-thesis: Doctoral dissertations: Medicine (test version)",
-    description: "E-thesis: Doctoral dissertations: Faculty of Medicine (1998–2016) (test version)",
+    title: "E-thesis: Doctoral dissertations: Medicine",
+    description: "E-thesis: Doctoral dissertations: Faculty of Medicine (1998–2016)",
     id: "ethesis_en_phd_med_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
@@ -1526,8 +1527,8 @@ settings.corpora.ethesis_en_phd_med_test = {
 };
 
 settings.corpora.ethesis_en_phd_valt_test = {
-    title: "E-thesis: Doctoral dissertations: Social Sciences (test version)",
-    description: "E-thesis: Doctoral dissertations: Faculty Social Sciences (1999–2016) (test version)",
+    title: "E-thesis: Doctoral dissertations: Social Sciences",
+    description: "E-thesis: Doctoral dissertations: Faculty Social Sciences (1999–2016)",
     id: "ethesis_en_phd_valt_test",
     within: settings.defaultWithin,
     context: settings.defaultContext,
