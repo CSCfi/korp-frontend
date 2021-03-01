@@ -1197,6 +1197,7 @@ settings.corpora.kal_perus_ha = {
     description: "Historiallinen Aikakauskirja; numerot 1917, 1920, 1925, 1935, 1945 (OCR tarkistamaton)",
     id: "kal_perus_ha",
     features: ["paragraphs", "parsed_tdt", "finer"],
+    labels: ["beta"],
     struct_attributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
@@ -1225,6 +1226,7 @@ settings.corpora.kal_perus_la = {
     description: "Lakimies; numerot 1917, 1920, 1925, 1935, 1945, 1955, 1965, 1972 (OCR tarkistamaton)",
     id: "kal_perus_la",
     features: ["paragraphs", "parsed_tdt", "finer"],
+    labels: ["beta"],
     struct_attributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
@@ -1253,6 +1255,7 @@ settings.corpora.kal_perus_sk = {
     description: "Suomen Kuvalehti; numerot 1916, 1917, 1925, 1935, 1945, 1955, 1965, 1972 (OCR tarkistamaton)",
     id: "kal_perus_sk",
     features: ["paragraphs", "parsed_tdt", "finer"],
+    labels: ["beta"],
     struct_attributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
@@ -1280,6 +1283,7 @@ settings.corpora.kal_perus_su = {
     description: "Suomi; numerot 1917, 1920, 1923, 1935, 1938 (OCR tarkistamaton)",
     id: "kal_perus_su",
     features: ["paragraphs", "parsed_tdt", "finer"],
+    labels: ["beta"],
     struct_attributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
@@ -1307,6 +1311,7 @@ settings.corpora.kal_ydin_ha = {
     description: "Historiallinen Aikakauskirja; numero 1/1935 (OCR tarkistettu)",
     id: "kal_ydin_ha",
     features: ["paragraphs", "parsed_tdt", "finer"],
+    labels: ["beta"],
     struct_attributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
@@ -1337,6 +1342,7 @@ settings.corpora.kal_ydin_la = {
     description: "Lakimies; numero 1935 (OCR tarkistettu)",
     id: "kal_ydin_la",
     features: ["paragraphs", "parsed_tdt", "finer"],
+    labels: ["beta"],
     struct_attributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
@@ -1367,6 +1373,7 @@ settings.corpora.kal_ydin_sk = {
     description: "Suomen Kuvalehti; neljä numeroa (4, 17, 30 ja 43) per vuosi 1917, 1925, 1935, 1945, 1955, 1965 ja 1972 (OCR tarkistettu)",
     id: "kal_ydin_sk",
     features: ["paragraphs", "parsed_tdt", "finer"],
+    labels: ["beta"],
     struct_attributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
@@ -1397,6 +1404,7 @@ settings.corpora.kal_ydin_su = {
     description: "Suomi; numero 1935 (OCR tarkistettu)",
     id: "kal_ydin_su",
     features: ["paragraphs", "parsed_tdt", "finer"],
+    labels: ["beta"],
     struct_attributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
