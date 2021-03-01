@@ -201,6 +201,7 @@ settings.corporafolders.literature.kaannossuomi = {
 	},
 	cite_id: "kaannossuomi-korp",
     },
+    labels: ["beta"],
     contents: ["alkusuomi", "kaannossuomi"]
 };
 
