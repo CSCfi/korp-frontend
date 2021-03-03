@@ -129,11 +129,12 @@ settings.corporafolders.english.ethesis = {
     description: "Corpus of University of Helsinki theses and dissertations<br/><a href='https://ethesis.helsinki.fi/'>https://ethesis.helsinki.fi/</a>",
     contents: ["ethesis_en_dissabs", "ethesis_en_maabs"],
     info: {
-	cite_id: "e-thesis-en",
+	cite_id: "e-thesis-en-korp-v1-1",
 	urn: "urn:nbn:fi:lb-2020031302",
 	metadata_urn: "urn:nbn:fi:lb-2020031301",
 	licence: settings.licenceinfo.CC_BY,
 	homepage_url: "https://ethesis.helsinki.fi/",
+	labels: ["beta"]
     }
 };
 
