@@ -186,9 +186,7 @@ settings.corporafolders.kal = {
     description: "Kotimaisten kielten keskuksen aikakauslehtikorpus",
     info: {
 	lbr_id: "urn:nbn:fi:lb-201407301",
-	licence: settings.licenceinfo.ACA_NC,
-	limited_access: true,
-	licence_type: "ACA",
+	metadata_urn: "urn:nbn:fi:lb-201407301"
     }
 };
 
@@ -204,7 +202,9 @@ settings.corporafolders.kal.kal_perus = {
 	    name: "CLARIN ACA +NC +DEP 1.0",
 	    urn: "urn:nbn:fi:lb-2021030302",
 	}
-    }
+    },
+    limited_access: true,
+    licence_type: "ACA"
 };
 
 settings.corporafolders.kal.kal_ydin = {
@@ -219,7 +219,9 @@ settings.corporafolders.kal.kal_ydin = {
 	    name: "CLARIN ACA +NC +DEP 1.0",
 	    urn: "urn:nbn:fi:lb-2021030304",
 	}
-    }
+    },
+    limited_access: true,
+    licence_type: "ACA"
 };
 
 
