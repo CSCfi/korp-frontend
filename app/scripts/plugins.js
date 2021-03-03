@@ -63,7 +63,7 @@ const Plugins = class Plugins {
                 item => typeof obj[item] === 'function')
         }
 
-        c.log("Plugins.register", obj)
+        c.log("Plugins.register", obj.constructor.name, obj)
         if (obj.callbacks) {
             for (let propname of Object.getOwnPropertyNames(obj.callbacks)) {
                 let callbacks = obj.callbacks[propname]
