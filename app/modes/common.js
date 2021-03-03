@@ -2355,45 +2355,6 @@ sattrlist.ethesis = {
     }
 };
 
-sattrlist.ethesis_v2 = {
-    //text_author: {
-    //label: "author"
-    //},
-    text_date: {
-	label: "original_date"
-    },
-    text_title: {
-	label: "text_title"
-    },
-    text_url: {
-        label: "text_abslink",
-        type: "url",
-        url_opts: sattrs.link_url_opts
-    },
-    //text_pdfurl
-    text_type: {
-	label: "text_dissertationtype",
-        displayType: "select",
-        translationKey: "ethesis_",
-        opts: settings.liteOptions,
-        dataset: [
-            "doctoral_dissertation_monograph",
-            "doctoral_dissertation_article_based",
-            "doctoral_dissertation",
-	    "masters_thesis"
-        ]
-    },
-    text_subject: {
-	label: "text_subject"
-    },
-    text_faculty: {
-	label: "text_faculty" // contributor?
-    },
-    text_keywords: {
-	label: "text_keywords"
-    }
-    //text_lang
-};
 
 
 
