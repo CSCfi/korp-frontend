@@ -115,7 +115,7 @@ export const sidebarComponent = {
 
                     // TODO: Update corpusInfo only when moving to a
                     // match from a different corpus.
-                    const corpusInfo = util.plugins.callFilters(
+                    const corpusInfo = plugins.callFilters(
                         "formatSidebarCorpusInfo", "", corpusObj)
                     $("#selected_corpus").html(corpusInfo)
 
