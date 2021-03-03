@@ -4,21 +4,25 @@ const path = require("path")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 
-function getKorpConfigDir() {
+function getKorpConfigDirs() {
     fs = require("fs")
     let config = "app"
+    let plugins = "app/plugins"
     try {
         json = fs.readFileSync("run_config.json", { encoding: "utf-8" })
-        config = JSON.parse(json).configDir || "app"
+        json_parsed = JSON.parse(json)
+        config = json_parsed.configDir || "app"
         console.log('Using "' + config + '" as config directory.')
+        plugins = json_parsed.pluginDir || config + "/plugins"
+        console.log('Using "' + plugins + '" as plugin directory.')
     } catch (err) {
         console.error(err)
-        console.log('No run_config.json given, using "app" as config directory (default).')
+        console.log('No run_config.json given, using "app" as config and plugin directory (default).')
     }
-    return config
+    return [config, plugins]
 }
 
-const korpConfigDir = getKorpConfigDir()
+const [korpConfigDir, korpPluginDir] = getKorpConfigDirs()
 
 module.exports = {
     resolve: {
@@ -38,9 +42,9 @@ module.exports = {
             commonjs: path.resolve(korpConfigDir, "modes/common.js"),
             defaultmode: path.resolve(korpConfigDir, "modes/default_mode.js"),
             customcss: path.resolve(korpConfigDir, "styles/"),
-            customplugins: path.resolve(korpConfigDir, "plugins/"),
             customscripts: path.resolve(korpConfigDir, "scripts/"),
             customviews: path.resolve(korpConfigDir, "views/"),
+            customplugins: path.resolve(korpPluginDir),
         },
     },
     module: {
