@@ -139,16 +139,16 @@ settings.corporafolders.english.ethesis = {
 
 settings.corporafolders.english.ethesis.phdtheses = {
     title: "Doctoral dissertations",
-    contents: ["ethesis_en_phd_mm_test", "ethesis_en_phd_hum_test", "ethesis_en_phd_bio_test", "ethesis_en_phd_beh_test",
-                "ethesis_en_phd_ot_test", "ethesis_en_phd_med_test", "ethesis_en_phd_far_test", "ethesis_en_phd_sci_test",
-                "ethesis_en_phd_valt_test", "ethesis_en_phd_teo_test", "ethesis_en_phd_el_test"]
+    contents: ["ethesis_en_phd_mm", "ethesis_en_phd_hum", "ethesis_en_phd_bio", "ethesis_en_phd_beh",
+                "ethesis_en_phd_ot", "ethesis_en_phd_med", "ethesis_en_phd_far", "ethesis_en_phd_sci",
+                "ethesis_en_phd_valt", "ethesis_en_phd_teo", "ethesis_en_phd_el"]
 };
 
 settings.corporafolders.english.ethesis.matheses = {
     title: "Master's theses",
-    contents: ["ethesis_en_ma_mm_test", "ethesis_en_ma_ai_test", "ethesis_en_ma_hum_test", "ethesis_en_ma_bio_test", "ethesis_en_ma_beh_test",
-                "ethesis_en_ma_far_test", "ethesis_en_ma_ot_test", "ethesis_en_ma_med_test", "ethesis_en_ma_sci_test",
-                "ethesis_en_ma_valt_test", "ethesis_en_ma_teo_test", "ethesis_en_ma_el_test"]
+    contents: ["ethesis_en_ma_mm", "ethesis_en_ma_ai", "ethesis_en_ma_hum", "ethesis_en_ma_bio", "ethesis_en_ma_beh",
+                "ethesis_en_ma_far", "ethesis_en_ma_ot", "ethesis_en_ma_med", "ethesis_en_ma_sci",
+                "ethesis_en_ma_valt", "ethesis_en_ma_teo", "ethesis_en_ma_el"]
 };
 
 
@@ -1281,30 +1281,30 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.firulex,
 
 /* E-thesis en */
 
-settings.corpora.ethesis_en_ma_ot_test = {
+settings.corpora.ethesis_en_ma_ot = {
     title: "E-thesis: Master’s theses: Law",
     description: "E-thesis: Master’s theses: Faculty of Law (2010–2015)",
-    id: "ethesis_en_ma_ot_test",
+    id: "ethesis_en_ma_ot",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_ma_med_test = {
+settings.corpora.ethesis_en_ma_med = {
     title: "E-thesis: Master’s theses: Medicine",
     description: "E-thesis: Master’s theses: Faculty of Medicine (2009–2015)",
-    id: "ethesis_en_ma_med_test",
+    id: "ethesis_en_ma_med",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_ma_el_test = {
+settings.corpora.ethesis_en_ma_el = {
     title: "E-thesis: Master’s theses: Veterinary Medicine",
     description: "E-thesis: Master’s theses: Faculty of Veterinary Medicine (2003–2016)",
-    id: "ethesis_en_ma_el_test",
+    id: "ethesis_en_ma_el",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
@@ -1312,10 +1312,10 @@ settings.corpora.ethesis_en_ma_el_test = {
 };
 
 
-settings.corpora.ethesis_en_ma_hum_test = {
+settings.corpora.ethesis_en_ma_hum = {
     title: "E-thesis: Master’s theses: Arts",
     description: "E-thesis: Master’s theses: Faculty of Arts (1997–2016)",
-    id: "ethesis_en_ma_hum_test",
+    id: "ethesis_en_ma_hum",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
@@ -1323,80 +1323,80 @@ settings.corpora.ethesis_en_ma_hum_test = {
 };
 
 
-settings.corpora.ethesis_en_ma_beh_test = {
+settings.corpora.ethesis_en_ma_beh = {
     title: "E-thesis: Master’s theses: Behavioural Sciences",
     description: "E-thesis: Master’s theses: Faculty of Behavioural Sciences (2000–2016)",
-    id: "ethesis_en_ma_beh_test",
+    id: "ethesis_en_ma_beh",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_ma_bio_test = {
+settings.corpora.ethesis_en_ma_bio = {
     title: "E-thesis: Master’s theses: Biological and Environmental Sciences",
     description: "E-thesis: Master’s theses: Faculty of Biological and Environmental Sciences (2006–2015)",
-    id: "ethesis_en_ma_bio_test",
+    id: "ethesis_en_ma_bio",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_ma_far_test = {
+settings.corpora.ethesis_en_ma_far = {
     title: "E-thesis: Master’s theses: Pharmacy",
     description: "E-thesis: Master’s theses: Faculty of Pharmacy (2003, 2010–2016)",
-    id: "ethesis_en_ma_far_test",
+    id: "ethesis_en_ma_far",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_ma_mm_test = {
+settings.corpora.ethesis_en_ma_mm = {
     title: "E-thesis: Master’s theses: Agriculture and Forestry",
     description: "E-thesis: Master’s theses: Agriculture and Forestry (2002–2016)",
-    id: "ethesis_en_ma_mm_test",
+    id: "ethesis_en_ma_mm",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_ma_sci_test = {
+settings.corpora.ethesis_en_ma_sci = {
     title: "E-thesis: Master’s theses: Science",
     description: "E-thesis: Master’s theses: Faculty of Science (1999–2016)",
-    id: "ethesis_en_ma_sci_test",
+    id: "ethesis_en_ma_sci",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_ma_teo_test = {
+settings.corpora.ethesis_en_ma_teo = {
     title: "E-thesis: Master’s theses: Theology",
     description: "E-thesis: Master’s theses: Faculty of Theology (2006–2016)",
-    id: "ethesis_en_ma_teo_test",
+    id: "ethesis_en_ma_teo",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_ma_valt_test = {
+settings.corpora.ethesis_en_ma_valt = {
     title: "E-thesis: Master’s theses: Social Sciences",
     description: "E-thesis: Master’s theses: Faculty of Social Sciences (1999–2016)",
-    id: "ethesis_en_ma_valt_test",
+    id: "ethesis_en_ma_valt",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_ma_ai_test = {
+settings.corpora.ethesis_en_ma_ai = {
     title: "E-thesis: Master’s theses: Aleksanteri Institute",
     description: "E-thesis: Master’s theses: Aleksanteri Institute (2009–2015)",
-    id: "ethesis_en_ma_ai_test",
+    id: "ethesis_en_ma_ai",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
@@ -1425,110 +1425,110 @@ settings.corpora.ethesis_en_dissabs = {
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_phd_beh_test = {
+settings.corpora.ethesis_en_phd_beh = {
     title: "E-thesis: Doctoral dissertations: Behavioural Sciences",
     description: "E-thesis: Doctoral dissertations: Faculty of Behavioural Sciences (1999–2016)",
-    id: "ethesis_en_phd_beh_test",
+    id: "ethesis_en_phd_beh",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_phd_bio_test = {
+settings.corpora.ethesis_en_phd_bio = {
     title: "E-thesis: Doctoral dissertations: Biological and Environmental Sciences",
     description: "E-thesis: Doctoral dissertations: Faculty of Biological and Environmental Sciences (1997–2016)",
-    id: "ethesis_en_phd_bio_test",
+    id: "ethesis_en_phd_bio",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_phd_el_test = {
+settings.corpora.ethesis_en_phd_el = {
     title: "E-thesis: Doctoral dissertations: Veterinary Medicine",
     description: "E-thesis: Doctoral dissertations: Faculty of Veterinary Medicine (1999–2016)",
-    id: "ethesis_en_phd_el_test",
+    id: "ethesis_en_phd_el",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_phd_far_test = {
+settings.corpora.ethesis_en_phd_far = {
     title: "E-thesis: Doctoral dissertations: Pharmacy",
     description: "E-thesis: Doctoral dissertations: Faculty of Pharmacy (1999–2016)",
-    id: "ethesis_en_phd_far_test",
+    id: "ethesis_en_phd_far",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_phd_mm_test = {
+settings.corpora.ethesis_en_phd_mm = {
     title: "E-thesis: Doctoral dissertations: Agriculture and Forestry",
     description: "E-thesis: Doctoral dissertations: Agriculture and Forestry (1999–2016)",
-    id: "ethesis_en_phd_mm_test",
+    id: "ethesis_en_phd_mm",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_phd_hum_test = {
+settings.corpora.ethesis_en_phd_hum = {
     title: "E-thesis: Doctoral dissertations: Arts",
     description: "E-thesis: Doctoral dissertations: Faculty of Arts (1989, 1998–2016)",
-    id: "ethesis_en_phd_hum_test",
+    id: "ethesis_en_phd_hum",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_phd_sci_test = {
+settings.corpora.ethesis_en_phd_sci = {
     title: "E-thesis: Doctoral dissertations: Science",
     description: "E-thesis: Doctoral dissertations: Faculty of Science (1992, 1995–2016)",
-    id: "ethesis_en_phd_sci_test",
+    id: "ethesis_en_phd_sci",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_phd_ot_test = {
+settings.corpora.ethesis_en_phd_ot = {
     title: "E-thesis: Doctoral dissertations: Law",
     description: "E-thesis: Doctoral dissertations: Faculty of Law (2002, 2004–2016)",
-    id: "ethesis_en_phd_ot_test",
+    id: "ethesis_en_phd_ot",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_phd_teo_test = {
+settings.corpora.ethesis_en_phd_teo = {
     title: "E-thesis: Doctoral dissertations: Theology",
     description: "E-thesis: Doctoral dissertations: Faculty of Theology (2002–2016)",
-    id: "ethesis_en_phd_teo_test",
+    id: "ethesis_en_phd_teo",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_phd_med_test = {
+settings.corpora.ethesis_en_phd_med = {
     title: "E-thesis: Doctoral dissertations: Medicine",
     description: "E-thesis: Doctoral dissertations: Faculty of Medicine (1998–2016)",
-    id: "ethesis_en_phd_med_test",
+    id: "ethesis_en_phd_med",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
     struct_attributes: sattrlist.ethesis
 };
 
-settings.corpora.ethesis_en_phd_valt_test = {
+settings.corpora.ethesis_en_phd_valt = {
     title: "E-thesis: Doctoral dissertations: Social Sciences",
     description: "E-thesis: Doctoral dissertations: Faculty Social Sciences (1999–2016)",
-    id: "ethesis_en_phd_valt_test",
+    id: "ethesis_en_phd_valt",
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.ud2_en,
