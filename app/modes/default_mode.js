@@ -200,9 +200,12 @@ settings.corporafolders.kal.kal_perus = {
 	urn: "urn:nbn:fi:lb-2018060706",
 	metadata_urn: "urn:nbn:fi:lb-2018060702",
 	cite_id: "kotus-al-unrev-korp",
+	licence: {
+	    name: "CLARIN ACA +NC +DEP 1.0",
+	    urn: "urn:nbn:fi:lb-2021030302",
+	}
     }
 };
-
 
 settings.corporafolders.kal.kal_ydin = {
     title: "Kotuksen aikakauslehtikorpus, tarkistettu",
@@ -212,6 +215,10 @@ settings.corporafolders.kal.kal_ydin = {
 	urn: "urn:nbn:fi:lb-2018060705",
 	metadata_urn: "urn:nbn:fi:lb-2018060701",
 	cite_id: "kotus-al-rev-korp",
+	licence: {
+	    name: "CLARIN ACA +NC +DEP 1.0",
+	    urn: "urn:nbn:fi:lb-2021030304",
+	}
     }
 };
 
