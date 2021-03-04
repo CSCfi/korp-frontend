@@ -86,6 +86,10 @@
     "text_volume": "nide",
     "subject": "aihe",
 
+    "digitized": "digitoitu",
+    "modified": "muunnettu",
+    "wordcount": "sanamäärä",
+
     "sentence_link": "sentence link",
     "text_issue": "numero",
 
@@ -108,7 +112,7 @@
     "tags": "tags",
     "post_url": "post address",
 
-    "page": "page",
+    "page": "sivu",
     "author_type": "author type",
     "gender": "gender",
     "journalist": "journalist",
@@ -798,7 +802,28 @@
     "INF": "Infinitiivi",
     "FINIT": "Finiittiverbi",
 
-    "origlang": "original language",
+    "kaannossuomi_academic": "akateemiset tekstit",
+    "kaannossuomi_biography": "biografia",
+    "kaannossuomi_crime_fiction": "dekkarikirjallisuus",
+    "kaannossuomi_fiction": "viihdekirjallisuus",
+    "kaannossuomi_popular_fiction": "populaarikirjallisuus",
+    "kaannossuomi_popular_science": "tietokirjallisuus",
+    "kaannossuomi_childrens_literature": "lastenkirjallisuus",
+    "kaannossuomi_kauno": "kaunokirjallisuus",
+
+    "kaannossuomi_fin": "suomi",
+    "kaannossuomi_eng": "englanti",
+    "kaannossuomi_rus": "venäjä",
+    "kaannossuomi_ger": "saksa",
+    "kaannossuomi_fre": "ranska",
+    "kaannossuomi_est": "viro",
+    "kaannossuomi_swe": "ruotsi",
+    "kaannossuomi_spa": "espanja",
+    "kaannossuomi_nor": "norja",
+    "kaannossuomi_hun": "unkari",
+    "kaannossuomi_dut": "hollanti",
+
+    "origlang": "alkuperäinen kieli",
     "page_n": "page number",
     "paragraph_marginal": "margin notes",
     "date_interval": "aikaväli",

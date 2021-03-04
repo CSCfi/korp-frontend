@@ -181,12 +181,67 @@ settings.corporafolders.sks = {
 };
 */
 
+settings.corporafolders.kal = {
+    title: "Kotuksen aikakauslehtikorpus",
+    description: "Kotimaisten kielten keskuksen aikakauslehtikorpus",
+    info: {
+	metadata_urn: "urn:nbn:fi:lb-201407301",
+	limited_access: true,
+	licence_type: "ACA",
+	labels: ["beta"],
+    }
+};
+
+settings.corporafolders.kal.kal_perus = {
+    title: "Kotuksen aikakauslehtikorpus, tarkistamaton",
+    description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistamaton",
+    contents: ["kal_perus_ha", "kal_perus_la", "kal_perus_sk", "kal_perus_su"],
+    info: {
+	urn: "urn:nbn:fi:lb-2018060706",
+	metadata_urn: "urn:nbn:fi:lb-2018060702",
+	cite_id: "kotus-al-unrev-korp",
+	licence: {
+	    name: "CLARIN ACA +NC +DEP 1.0",
+	    urn: "urn:nbn:fi:lb-2021030302",
+	}
+    }
+};
+
+settings.corporafolders.kal.kal_ydin = {
+    title: "Kotuksen aikakauslehtikorpus, tarkistettu",
+    description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistettu",
+    contents: ["kal_ydin_ha", "kal_ydin_la", "kal_ydin_sk", "kal_ydin_su"],
+    info: {
+	urn: "urn:nbn:fi:lb-2018060705",
+	metadata_urn: "urn:nbn:fi:lb-2018060701",
+	cite_id: "kotus-al-rev-korp",
+	licence: {
+	    name: "CLARIN ACA +NC +DEP 1.0",
+	    urn: "urn:nbn:fi:lb-2021030304",
+	}
+    }
+};
 
 
 settings.corporafolders.literature = {
     title: "Kirjallisuutta",
     contents: ["gutenberg", "sks_kivi_fi", "skvr",
 	       "parfin_2016_fi", "parrus_2016_fi", "iijoki"]
+};
+
+settings.corporafolders.literature.kaannossuomi = {
+    title: "Käännössuomen korpus",
+    description: "Käännössuomen korpus on koostettu vuonna 1999 nykyisessä Itä-Suomen yliopistossa (silloisessa Joensuun yliopistossa sen kansainvälisen viestinnän laitoksella) Suomen Akatemian professori Anna Maurasen johtamassa tutkimushankkeessa Käännössuomi ja kääntämisen universaalit.<br/><br/>Korpus sisältää kaksi osaa: aluperin suomeksi kirjoitettua kieltä (alkusuomi) ja eri kielistä käännettyä kieltä (käännössuomi). Seuraavat tekstilajit ovat edustettuina aineistoissa: akateemiset tekstit, kaunokirjallisuus, lastenkirjallisuus, biografia, populaarikirjallisuus, viihdekirjallisuus, dekkarikirjallisuus ja tietokirjallisuus. Alkusuomen aineiston laajuus on yhteensä 5 465 293 sanaa ja käännössuomen aineiston 7 135 969 sanaa.",
+    info: {
+	urn: "urn:nbn:fi:lb-2019100803",
+	metadata_urn: "urn:nbn:fi:lb-2019100801",
+	licence: {
+	    name: "CLARIN RES +NC +DEP 1.0",
+	    urn: "urn:nbn:fi:lb-2019100805",
+	},
+	cite_id: "kaannossuomi-korp",
+    },
+    contents: ["alkusuomi", "kaannossuomi"]
 };
 
 settings.corporafolders.literature.skk = {
@@ -1143,6 +1198,236 @@ settings.corpora.testcorp_deptree = {
     }
 };
 */
+
+settings.corpora.kal_perus_ha = {
+    title: "Historiallinen Aikakauskirja (tarkistamaton)",
+    description: "Historiallinen Aikakauskirja; numerot 1917, 1920, 1925, 1935, 1945 (OCR tarkistamaton)",
+    id: "kal_perus_ha",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+
+settings.corpora.kal_perus_la = {
+    title: "Lakimies (tarkistamaton)",
+    description: "Lakimies; numerot 1917, 1920, 1925, 1935, 1945, 1955, 1965, 1972 (OCR tarkistamaton)",
+    id: "kal_perus_la",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+
+settings.corpora.kal_perus_sk = {
+    title: "Suomen Kuvalehti (tarkistamaton)",
+    description: "Suomen Kuvalehti; numerot 1916, 1917, 1925, 1935, 1945, 1955, 1965, 1972 (OCR tarkistamaton)",
+    id: "kal_perus_sk",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+settings.corpora.kal_perus_su = {
+    title: "Suomi (tarkistamaton)",
+    description: "Suomi; numerot 1917, 1920, 1923, 1935, 1938 (OCR tarkistamaton)",
+    id: "kal_perus_su",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+settings.corpora.kal_ydin_ha = {
+    title: "Historiallinen Aikakauskirja (tarkistettu)",
+    description: "Historiallinen Aikakauskirja; numero 1/1935 (OCR tarkistettu)",
+    id: "kal_ydin_ha",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_page: {
+            label: "page"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+settings.corpora.kal_ydin_la = {
+    title: "Lakimies (tarkistettu)",
+    description: "Lakimies; numero 1935 (OCR tarkistettu)",
+    id: "kal_ydin_la",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_page: {
+            label: "page"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+settings.corpora.kal_ydin_sk = {
+    title: "Suomen Kuvalehti (tarkistettu)",
+    description: "Suomen Kuvalehti; neljä numeroa (4, 17, 30 ja 43) per vuosi 1917, 1925, 1935, 1945, 1955, 1965 ja 1972 (OCR tarkistettu)",
+    id: "kal_ydin_sk",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_page: {
+            label: "page"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+settings.corpora.kal_ydin_su = {
+    title: "Suomi (tarkistettu)",
+    description: "Suomi; numero 1935 (OCR tarkistettu)",
+    id: "kal_ydin_su",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_page: {
+            label: "page"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
 
 settings.corpora.semfinlex_asd_fi_2018 = {
     id: "semfinlex_asd_fi_2018",
@@ -13814,6 +14099,101 @@ settings.corpora.ceal_s = {
 
 delete ceal_work_list;
 
+attrlist.kaannossuomi = {
+    ref: attrs.ref,
+    lemma: attrs.baseform,
+    lemmacomp: attrs.baseform_compound,
+    pos: attrs.pos_ud2_fi,
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel_tdt,
+    spaces: { label: "", displayType: "hidden" },
+    initid: { label: "", displayType: "hidden" },
+};
+
+sattrlist.kaannossuomi = {
+    text_author: { label: "text_author" },
+    text_title: { label: "text_title" },
+    text_year: { label: "year" },
+    text_orig_lang: {
+	label: "origlang",
+	displayType: "select",
+	opts: settings.liteOptions,
+	translationKey: "kaannossuomi_",
+	dataset: [
+	    "fin",
+	    "eng",
+	    "rus",
+	    "ger",
+	    "fre",
+	    "est",
+	    "swe",
+	    "spa",
+	    "nor",
+	    "hun",
+	    "dut",
+	]
+    },
+    text_genre: {
+	label: "text_genre",
+	displayType: "select",
+	opts: settings.liteOptions,
+	translationKey: "kaannossuomi_",
+	dataset: [
+	    "academic",
+	    "biography",
+	    "crime_fiction",
+	    "fiction",
+	    "popular_fiction",
+	    "popular_science",
+	    "childrens_literature",
+	    "kauno",
+	]
+    },
+    text_filename: { label: "file_name" },
+};
+
+settings.corpora.alkusuomi = {
+    title: "Käännössuomen korpus - alkusuomi",
+    description: "Eri kielistä käännettyä kieltä",
+    lang: "fin",
+    labels: ["beta"],
+    id: "alkusuomi",
+    //urn: "",
+    metadata_urn: "urn:nbn:fi:lb-2019100801",
+    /*licence: {
+	name: "",
+	urn: "",
+    },
+    cite_id: "",*/
+    limited_access: true,
+    licence_type: "RES",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.kaannossuomi,
+    struct_attributes: sattrlist.kaannossuomi,
+};
+
+settings.corpora.kaannossuomi = {
+    title: "Käännössuomen korpus - käännössuomi",
+    description: "Aluperin suomeksi kirjoitettua kieltä",
+    lang: "fin",
+    labels: ["beta"],
+    id: "kaannossuomi",
+    //urn: "",
+    metadata_urn: "urn:nbn:fi:lb-2019100801",
+    /*licence: {
+	name: "",
+	urn: "",
+    },
+    cite_id: "",*/
+    limited_access: true,
+    licence_type: "RES",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.kaannossuomi,
+    struct_attributes: sattrlist.kaannossuomi,
+};
 
 settings.corpora.arkisyn = {
     title: "Arkisyn",
