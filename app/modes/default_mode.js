@@ -1193,43 +1193,41 @@ settings.corpora.testcorp_deptree = {
 // };
 
 
-// settings.corpora.ftb2 = {
-//     title: "FinnTreeBank 2",
-//     description: "Finnish tree bank, version 2",
-//     id: "ftb2",
-//     urn: "urn:nbn:fi:lb-201407164",
-//     metadata_urn: "urn:nbn:fi:lb-201407163",
-//     licence: settings.licenceinfo.CC_BY_30,
-//     cite_id: "FinnTreeBank2-korp",
-//     within: settings.defaultWithin,
-//     context: defaultContext,
-//     attributes: {
-// 	lemma: attrs.baseform_ftb2,
-//         pos: attrs.pos_ftb2,
-// 	msd: attrs.msd,
-// 	dephead: attrs.dephead,
-// 	deprel: attrs.deprel_ftb2,
-// 	ref: attrs.ref,
-// 	lex: attrs.lemgram_hidden
-//     },
-//     structAttributes: {
-// 	subcorpus_name: {
-// 	    label: "subcorpus_name",
-// 	    displayType: "select",
-// 	    translationKey: "subcorp_",
-// 	    dataset: {
-// 		// "news-samples": "news-samples",
-// 		// "sofie12": "sofie12",
-// 		"visk-sent": "visk-sent",
-// 		"wikipedia-samples": "wikipedia-samples"
-// 	    },
-//             opts: liteOptions
-// 	},
-// 	sentence_id: sattrs.sentence_id_hidden
-//     }
-// //    },
-// //    limited_access: true
-// };
+settings.corpora.ftb2 = {
+    title: "FinnTreeBank 2",
+    description: "Finnish tree bank, version 2",
+    id: "ftb2",
+    urn: "urn:nbn:fi:lb-201407164",
+    metadata_urn: "urn:nbn:fi:lb-201407163",
+    licence: settings.licenceinfo.CC_BY_30,
+    cite_id: "FinnTreeBank2-korp",
+    within: settings.defaultWithin,
+    context: defaultContext,
+    attributes: {
+	lemma: attrs.baseform_ftb2,
+        pos: attrs.pos_ftb2,
+	msd: attrs.msd,
+	dephead: attrs.dephead,
+	deprel: attrs.deprel_ftb2,
+	ref: attrs.ref,
+	lex: attrs.lemgram_hidden
+    },
+    structAttributes: {
+	subcorpus_name: {
+	    label: "subcorpus_name",
+	    displayType: "select",
+	    translationKey: "subcorp_",
+	    dataset: {
+		// "news-samples": "news-samples",
+		// "sofie12": "sofie12",
+		"visk-sent": "visk-sent",
+		"wikipedia-samples": "wikipedia-samples"
+	    },
+            opts: liteOptions
+	},
+	sentence_id: sattrs.sentence_id_hidden
+    }
+};
 
 /*
 settings.corpora.ftb3 = {
@@ -1270,124 +1268,124 @@ settings.corpora.ftb3 = {
 };
 */
 
-// settings.corpora.ftb3_europarl = {
-//     title: "FinnTreeBank 3: EuroParl",
-//     description: "Suomen puupankki, versio 3: EuroParl (Euroopan parlamentin istuntoja)",
-//     id: "ftb3_europarl",
-//     within: spWithin,
-//     context: spContext,
-//     attributes: {
-// 	lemma: attrs.baseform_ftb2,
-// 	lemmacomp: attrs.baseform_compound,
-// 	pos: attrs.pos_ftb31,
-// 	msd: attrs.msd,
-// 	dephead: attrs.dephead,
-// 	deprel: attrs.deprel_ftb2,
-// 	ref: attrs.ref,
-// 	lex: attrs.lemgram_hidden
-//     },
-//     structAttributes: {
-// 	text_filename: {
-// 	    label: "file_name",
-// 	},
-// 	chapter_id: {
-// 	    label: "chapter_id",
-// 	    displayType: "hidden",
-// 	},
-// 	chapter_title: {
-// 	    label: "chapter_title",
-// 	},
-// 	paragraph_id: {
-// 	    label: "paragraph_id",
-// 	    displayType: "hidden",
-// 	},
-// 	speech_speakerid: {
-// 	    label: "speech_speakerid",
-// 	    displayType: "hidden",
-// 	},
-// 	speech_speakername: {
-// 	    label: "speech_speakername",
-// 	},
-// 	speech_language: {
-// 	    label: "speech_language",
-// 	    displayType: "select",
-// 	    translationKey: "ftb3_europarl_language_",
-// 	    dataset: {
-// 		"bg": "bg",
-// 		"cs": "cs",
-// 		"da": "da",
-// 		"de": "de",
-// 		"el": "el",
-// 		"en": "en",
-// 		"es": "es",
-// 		"et": "et",
-// 		"eu": "eu",
-// 		"fi": "fi",
-// 		"fr": "fr",
-// 		"ga": "ga",
-// 		"hu": "hu",
-// 		"it": "it",
-// 		"lt": "lt",
-// 		"lv": "lv",
-// 		"mt": "mt",
-// 		"nl": "nl",
-// 		"pl": "pl",
-// 		"pt": "pt",
-// 		"ro": "ro",
-// 		"sk": "sk",
-// 		"sl": "sl",
-// 		"sv": "sv",
-// 		"und": "und",
-// 	    },
-// 	    opts: liteOptions
-// 	},
-// 	sentence_id: sattrs.sentence_id_hidden,
-// 	sentence_line: {
-// 	    label: "sentence_line",
-// 	},
-//     }
-// };
+settings.corpora.ftb3_europarl = {
+    title: "FinnTreeBank 3: EuroParl",
+    description: "Suomen puupankki, versio 3: EuroParl (Euroopan parlamentin istuntoja)",
+    id: "ftb3_europarl",
+    within: spWithin,
+    context: spContext,
+    attributes: {
+	lemma: attrs.baseform_ftb2,
+	lemmacomp: attrs.baseform_compound,
+	pos: attrs.pos_ftb31,
+	msd: attrs.msd,
+	dephead: attrs.dephead,
+	deprel: attrs.deprel_ftb2,
+	ref: attrs.ref,
+	lex: attrs.lemgram_hidden
+    },
+    structAttributes: {
+	text_filename: {
+	    label: "file_name",
+	},
+	chapter_id: {
+	    label: "chapter_id",
+	    displayType: "hidden",
+	},
+	chapter_title: {
+	    label: "chapter_title",
+	},
+	paragraph_id: {
+	    label: "paragraph_id",
+	    displayType: "hidden",
+	},
+	speech_speakerid: {
+	    label: "speech_speakerid",
+	    displayType: "hidden",
+	},
+	speech_speakername: {
+	    label: "speech_speakername",
+	},
+	speech_language: {
+	    label: "speech_language",
+	    displayType: "select",
+	    translationKey: "ftb3_europarl_language_",
+	    dataset: {
+		"bg": "bg",
+		"cs": "cs",
+		"da": "da",
+		"de": "de",
+		"el": "el",
+		"en": "en",
+		"es": "es",
+		"et": "et",
+		"eu": "eu",
+		"fi": "fi",
+		"fr": "fr",
+		"ga": "ga",
+		"hu": "hu",
+		"it": "it",
+		"lt": "lt",
+		"lv": "lv",
+		"mt": "mt",
+		"nl": "nl",
+		"pl": "pl",
+		"pt": "pt",
+		"ro": "ro",
+		"sk": "sk",
+		"sl": "sl",
+		"sv": "sv",
+		"und": "und",
+	    },
+	    opts: liteOptions
+	},
+	sentence_id: sattrs.sentence_id_hidden,
+	sentence_line: {
+	    label: "sentence_line",
+	},
+    }
+};
 
-// settings.corpora.ftb3_jrcacquis = {
-//     title: "FinnTreeBank 3: JRC Acquis",
-//     description: "Suomen puupankki, versio 3: JRC Acquis (EU-säädöksiä)",
-//     id: "ftb3_jrcacquis",
-//     within: spWithin,
-//     context: spContext,
-//     attributes: {
-// 	lemma: attrs.baseform_ftb2,
-// 	lemmacomp: attrs.baseform_compound,
-// 	pos: attrs.pos_ftb31,
-// 	msd: attrs.msd,
-// 	dephead: attrs.dephead,
-// 	deprel: attrs.deprel_ftb2,
-// 	ref: attrs.ref,
-// 	lex: attrs.lemgram_hidden
-//     },
-//     structAttributes: {
-// 	text_filename: {
-// 	    label: "file_name",
-// 	},
-// 	text_title: {
-// 	    label: "file_title",
-// 	},
-// 	text_codetitle: {
-// 	    label: "file_codetitle",
-// 	},
-// 	text_url: {
-// 	    label: "file_url",
-// 	    type: "url",
-// 	},
-// 	paragraph_id: {
-// 	    label: "paragraph_id",
-// 	    displayType: "hidden",
-// 	},
-// 	sentence_id: sattrs.sentence_id_hidden,
-// 	sentence_line: {
-// 	    label: "sentence_line",
-// 	}
-//     }
-// };
+settings.corpora.ftb3_jrcacquis = {
+    title: "FinnTreeBank 3: JRC Acquis",
+    description: "Suomen puupankki, versio 3: JRC Acquis (EU-säädöksiä)",
+    id: "ftb3_jrcacquis",
+    within: spWithin,
+    context: spContext,
+    attributes: {
+	lemma: attrs.baseform_ftb2,
+	lemmacomp: attrs.baseform_compound,
+	pos: attrs.pos_ftb31,
+	msd: attrs.msd,
+	dephead: attrs.dephead,
+	deprel: attrs.deprel_ftb2,
+	ref: attrs.ref,
+	lex: attrs.lemgram_hidden
+    },
+    structAttributes: {
+	text_filename: {
+	    label: "file_name",
+	},
+	text_title: {
+	    label: "file_title",
+	},
+	text_codetitle: {
+	    label: "file_codetitle",
+	},
+	text_url: {
+	    label: "file_url",
+	    type: "url",
+	},
+	paragraph_id: {
+	    label: "paragraph_id",
+	    displayType: "hidden",
+	},
+	sentence_id: sattrs.sentence_id_hidden,
+	sentence_line: {
+	    label: "sentence_line",
+	}
+    }
+};
 
 // /* ==== TIEDELEHTIÄ ==== */
 
