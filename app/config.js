@@ -321,10 +321,10 @@ settings.corpusExtraInfoItems = [
     "download",
 ];
 
-// The extra info (usually links) to be shown in the corpus info box
+// The extra info (usually links) to be shown in the corpus info popup
 // of the corpus chooser and the KWIC results sidebar.
 settings.corpusExtraInfo = {
-    corpus_infobox: settings.corpusExtraInfoItems,
+    infoPopup: settings.corpusExtraInfoItems,
     sidebar: [
 	"subcorpus_of",
 	"pid",
@@ -384,7 +384,7 @@ settings.makeCorpusExtraInfoItem = {
                 // url: settings.corpus_cite_base_url + corpusObj.cite_id +
                 //      '&lang={{lang}}'
                 // This does not change the lang parameter in the
-                // corpus info box, although it works in the sidebar.
+                // corpus info popup, although it works in the sidebar.
                 //
                 // escape call is needed for a cite_id containing a &,
                 // but the escaped % then seems to be escaped again
