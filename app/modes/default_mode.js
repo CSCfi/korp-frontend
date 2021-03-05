@@ -28,91 +28,91 @@ settings.corporafolders.sv = {
 };
 */
 
-// settings.corporafolders.agricola = {
-//     title: "Agricola",
-//     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta",
-//     contents: [
-// 	"agricola_abckiria",
-// 	"agricola_kasikiria",
-// 	"agricola_messu",
-// 	"agricola_piina",
-// 	"agricola_profeetat",
-// 	"agricola_psaltari",
-// 	"agricola_rucouskiria",
-// 	"agricola_sewsitestamenti",
-// 	"agricola_veisut",
-//     ],
-//     info: {
-// 	metadata_urn: "urn:nbn:fi:lb-2019121804",
-//         homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/palvelut-yhteistyo/arkistot/Sivut/home.aspx",
-// 	urn: "urn:nbn:fi:lb-2019121803",
-// 	cite_id: "agricola-v1-1-korp",
-// 	shortname: "agricola-v1-1-korp",
-// 	licence: settings.licenceinfo.CC_BY_ND_40,
-// 	iprholder: {
-// 	    name: "Turun yliopisto; Kotimaisten kielten keskus",
-// 	},
-//     }    
-// };
+settings.corporafolders.agricola = {
+    title: "Agricola",
+    description: "Mikael Agricolan teosten morfosyntaktinen tietokanta",
+    contents: [
+	"agricola_abckiria",
+	"agricola_kasikiria",
+	"agricola_messu",
+	"agricola_piina",
+	"agricola_profeetat",
+	"agricola_psaltari",
+	"agricola_rucouskiria",
+	"agricola_sewsitestamenti",
+	"agricola_veisut",
+    ],
+    info: {
+	metadata_urn: "urn:nbn:fi:lb-2019121804",
+        homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/palvelut-yhteistyo/arkistot/Sivut/home.aspx",
+	urn: "urn:nbn:fi:lb-2019121803",
+	cite_id: "agricola-v1-1-korp",
+	shortname: "agricola-v1-1-korp",
+	licence: settings.licenceinfo.CC_BY_ND_40,
+	iprholder: {
+	    name: "Turun yliopisto; Kotimaisten kielten keskus",
+	},
+    }    
+};
 
 
-// settings.corporafolders.ethesis = {
-//     title: "E-thesis",
-//     contents: ["ethesis_maabs", "ethesis_dissabs"],
-//     info: {
-// 	cite_id: "e-thesis-fi",
-//     }
-// };
+settings.corporafolders.ethesis = {
+    title: "E-thesis",
+    contents: ["ethesis_maabs", "ethesis_dissabs"],
+    info: {
+	cite_id: "e-thesis-fi",
+    }
+};
 
-// settings.corporafolders.ethesis.matheses = {
-//     title: "Pro gradu -tutkielmat",
-//     contents: ["ethesis_ma_ai", "ethesis_ma_bio", "ethesis_ma_el", "ethesis_ma_far", "ethesis_ma_hum", "ethesis_ma_beh",
-// 		"ethesis_ma_med", "ethesis_ma_mm", "ethesis_ma_sci", "ethesis_ma_ot", "ethesis_ma_teo", "ethesis_ma_valt"]
-// };
+settings.corporafolders.ethesis.matheses = {
+    title: "Pro gradu -tutkielmat",
+    contents: ["ethesis_ma_ai", "ethesis_ma_bio", "ethesis_ma_el", "ethesis_ma_far", "ethesis_ma_hum", "ethesis_ma_beh",
+		"ethesis_ma_med", "ethesis_ma_mm", "ethesis_ma_sci", "ethesis_ma_ot", "ethesis_ma_teo", "ethesis_ma_valt"]
+};
 
-// settings.corporafolders.ethesis.phdtheses = {
-//     title: "Väitöskirjat",
-//     contents: ["ethesis_phd_bio", "ethesis_phd_el", "ethesis_phd_far", "ethesis_phd_hum", "ethesis_phd_beh",
-// 		"ethesis_phd_med", "ethesis_phd_mm", "ethesis_phd_ot", "ethesis_phd_teo", "ethesis_phd_valt"]
-// };
+settings.corporafolders.ethesis.phdtheses = {
+    title: "Väitöskirjat",
+    contents: ["ethesis_phd_bio", "ethesis_phd_el", "ethesis_phd_far", "ethesis_phd_hum", "ethesis_phd_beh",
+		"ethesis_phd_med", "ethesis_phd_mm", "ethesis_phd_ot", "ethesis_phd_teo", "ethesis_phd_valt"]
+};
 
-// settings.corporafolders.ftb = {
-//     title: "FinnTreeBank: suomen puupankki",
-//     contents: ["ftb2"]
-// };
+settings.corporafolders.ftb = {
+    title: "FinnTreeBank: suomen puupankki",
+    contents: ["ftb2"]
+};
 
-// settings.corporafolders.ftb.ftb3 = {
-//     title: "FinnTreeBank 3",
-//     // info: {
-//     // 	urn: "urn:nbn:fi:lb-201406021",
-//     // 	metadata_urn: "urn:nbn:fi:lb-201406022",
-//     // 	licence: settings.licenceinfo.CC_BY_30,
-//     // 	cite_id: "FinnTreeBank3-korp",
-//     // },
-//     contents: ["ftb3_europarl", "ftb3_jrcacquis"]
-// };
+settings.corporafolders.ftb.ftb3 = {
+    title: "FinnTreeBank 3",
+    info: {
+	urn: "urn:nbn:fi:lb-201406021",
+	metadata_urn: "urn:nbn:fi:lb-201406022",
+	licence: settings.licenceinfo.CC_BY_30,
+	cite_id: "FinnTreeBank3-korp",
+    },
+    contents: ["ftb3_europarl", "ftb3_jrcacquis"]
+};
 
-// settings.corporafolders.klk_fi = {
-//     title: "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet",
-//     description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio, suomenkieliset lehdet",
-//     info: {
-// 	urn: "urn:nbn:fi:lb-201405275",
-// 	metadata_urn: "urn:nbn:fi:lb-201405276",
-// 	licence: settings.licenceinfo.CC_BY,
-// 	cite_id: "KLK-fi",
-//     }
-// };
+settings.corporafolders.klk_fi = {
+    title: "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet",
+    description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio, suomenkieliset lehdet",
+    info: {
+	urn: "urn:nbn:fi:lb-201405275",
+	metadata_urn: "urn:nbn:fi:lb-201405276",
+	licence: settings.licenceinfo.CC_BY,
+	cite_id: "KLK-fi",
+    }
+};
 
 settings.corporafolders.klk2_fi = {
     title: "Kansalliskirjaston lehtikokoelma, versio 2 (KLK2), suomenkieliset lehdet",
     description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio 2, suomenkieliset lehdet",
-    // info: {
-    // 	// urn: "urn:nbn:fi:lb-201405275",
-    // 	// metadata_urn: "urn:nbn:fi:lb-201405276",
-    // 	licence: settings.licenceinfo.CC_BY,
-    // 	cite_id: "KLK2-fi",
-    // 	labels: ["test"],
-    // }
+    info: {
+	// urn: "urn:nbn:fi:lb-201405275",
+	// metadata_urn: "urn:nbn:fi:lb-201405276",
+	licence: settings.licenceinfo.CC_BY,
+	cite_id: "KLK2-fi",
+	labels: ["test"],
+    }
 };
 
 // /*
@@ -143,880 +143,880 @@ settings.corporafolders.klk2_fi = {
 
 
 
-// settings.corporafolders.literature = {
-//     title: "Kirjallisuutta",
-//     contents: ["gutenberg", "sks_kivi_fi", "skvr",
-// 	       "parfin_2016_fi", "parrus_2016_fi", "iijoki"]
-// };
+settings.corporafolders.literature = {
+    title: "Kirjallisuutta",
+    contents: ["gutenberg", "sks_kivi_fi", "skvr",
+	       "parfin_2016_fi", "parrus_2016_fi", "iijoki"]
+};
 
-// settings.corporafolders.literature.skk = {
-//     title: "Suomalaisen kirjallisuuden klassikoita",
-//     contents: ["skk_aho","skk_canth","skk_finne","skk_jarnefelt","skk_kailas","skk_lassila","skk_linnankoski","skk_kramsu","skk_lehtonen","skk_leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"],
-//     info: {
-// 	urn: "urn:nbn:fi:lb-2015022401",
-// 	metadata_urn: "urn:nbn:fi:lb-20140730186",
-// 	licence: settings.licenceinfo.EUPL_11,
-// 	homepage: settings.fn.kaino_homepage("klassikot/meta/klassikot"),
-// 	cite_id: "SKK",
-//     }
-// };
+settings.corporafolders.literature.skk = {
+    title: "Suomalaisen kirjallisuuden klassikoita",
+    contents: ["skk_aho","skk_canth","skk_finne","skk_jarnefelt","skk_kailas","skk_lassila","skk_linnankoski","skk_kramsu","skk_lehtonen","skk_leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"],
+    info: {
+	urn: "urn:nbn:fi:lb-2015022401",
+	metadata_urn: "urn:nbn:fi:lb-20140730186",
+	licence: settings.licenceinfo.EUPL_11,
+	homepage: settings.fn.kaino_homepage("klassikot/meta/klassikot"),
+	cite_id: "SKK",
+    }
+};
 
 // /*,"skk_canth","skk_finne","skk_jarnefelt","skk_kailas","skk_lassila","skk_linnankoski","skk_kramsu","skk_lehtonen","skk_\
 // leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"]
 // */
 
-// settings.corporafolders.literature.ceal = {
-//     title: "CEAL",
-//     description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi<br/>Classics of English and American Literature in Finnish<br/><br/><strong>Huomaa</strong>, että korpukset CEAL-o ja CEAL-s sisältävät samat tekstit, mutta CEAL-s:ssä kappaleet on sekoitettu kunkin teoksen sisällä, kun taas CEAL-o:ssa kappaleet ovat alkuperäisessä järjestyksessä. Hakuja varten kannattaa valita vain toinen korpus. CEAL-o vaatii aina henkilökohtaisen käyttöluvan.",
-//     info: {
-// 	metadata_urn: "urn:nbn:fi:lb-2016110901",
-// 	iprholder: {
-// 	    name: "Kersti Juva",
-// 	},
-//     },
-//     contents: ["ceal_o", "ceal_s"]
-// };
+settings.corporafolders.literature.ceal = {
+    title: "CEAL",
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi<br/>Classics of English and American Literature in Finnish<br/><br/><strong>Huomaa</strong>, että korpukset CEAL-o ja CEAL-s sisältävät samat tekstit, mutta CEAL-s:ssä kappaleet on sekoitettu kunkin teoksen sisällä, kun taas CEAL-o:ssa kappaleet ovat alkuperäisessä järjestyksessä. Hakuja varten kannattaa valita vain toinen korpus. CEAL-o vaatii aina henkilökohtaisen käyttöluvan.",
+    info: {
+	metadata_urn: "urn:nbn:fi:lb-2016110901",
+	iprholder: {
+	    name: "Kersti Juva",
+	},
+    },
+    contents: ["ceal_o", "ceal_s"]
+};
 
-// settings.corporafolders.legal = {
-//     title: "Juridisia tekstejä",
-//     contents: [
-// 	// "kotus_lakidir",
-// 	// "legal_fi",
-// 	"mulcold_fi",
-// 	// "semfinlex",
-//     ]
-// };
+settings.corporafolders.legal = {
+    title: "Juridisia tekstejä",
+    contents: [
+	"kotus_lakidir",
+	"legal_fi",
+	"mulcold_fi",
+	"semfinlex",
+    ]
+};
 
-// settings.corporafolders.internet = {
-//     title: "Internet-keskusteluaineistoja",
-//     contents: ["s24", "ylilauta", "hsfi"]
-// };
+settings.corporafolders.internet = {
+    title: "Internet-keskusteluaineistoja",
+    contents: ["s24", "ylilauta", "hsfi"]
+};
 
-// settings.corporafolders.internet.suomi24_2017h2 = {
-//     title: "Suomi24 2001–2017",
-//     // TODO: Change VRT download and metadata URN to point to the new
-//     // version when it is available
-//     description: "Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.1<br/><a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut vuosilta 2001–2017 (1.1.2001–31.12.2017).<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu osakorpuksiin vuosittain.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-2019010801' target='_blank' title='Kuvailutiedot'>koko Suomi24 2001–2017 -aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2019010802' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).<br/><br/>(Tämä aineisto näkyi beetatestausvaiheessa Korpissa nimellä <i>Suomi24 virkkeet -korpus (2017H2)</i> ja aineiston ensimmäinen versio nimellä <i>Suomi24 2017H2</i>.)<br/><br/>2020-02-20: Aineistosta on nyt käytössä korjattu versio 1.1. Se sisältää aiemmasta versiosta vuosilta 2009–2012 ja 2014 puuttuneet kirjoittajan nimimerkkitiedot, ja kaikissa nimimerkeissä merkit <i>'</i>, <i>\"</i> ja <i>&amp;</i> näkyvät sellaisinaan, eivät <i>&amp;apos;</i>, <i>&amp;quot;</i> ja <i>&amp;amp;</i>. Lisäksi aineiston nimessä on korvattu <i>2017H2</i> vuosivälillä <i>2001–2017</i>.<br/><br/>2020-01-21: Aineiston dependenssijäsennykset ja -relaatiot on korjattu 2019-12-19. Myös sanakuva toimii periaatteessa, mutta aineiston koon vuoksi valitettavasti ei aina käytännössä. Selvitämme asiaa. Nimientunnistustiedot ovat toistaiseksi vain vanhemmassa Suomi24 2016H2 -aineistossa.</strong>",
-//     contents: [
-// 	"s24_2001",
-// 	"s24_2002",
-// 	"s24_2003",
-// 	"s24_2004",
-// 	"s24_2005",
-// 	"s24_2006",
-// 	"s24_2007",
-// 	"s24_2008",
-// 	"s24_2009",
-// 	"s24_2010",
-// 	"s24_2011",
-// 	"s24_2012",
-// 	"s24_2013",
-// 	"s24_2014",
-// 	"s24_2015",
-// 	"s24_2016",
-// 	"s24_2017",
-//     ],
-//     info: {
-// 	urn: "urn:nbn:fi:lb-2020021804",
-// 	metadata_urn: "urn:nbn:fi:lb-2020021803",
-// 	licence: settings.licenceinfo.CC_BY_NC,
-// 	homepage_url: "http://keskustelu.suomi24.fi",
-// 	cite_id: "suomi24-2001-2017-korp-v1-1",
-// 	shortname: "suomi24-2001-2017-korp-v1-1",
-//     }
-// };
+settings.corporafolders.internet.suomi24_2017h2 = {
+    title: "Suomi24 2001–2017",
+    // TODO: Change VRT download and metadata URN to point to the new
+    // version when it is available
+    description: "Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.1<br/><a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut vuosilta 2001–2017 (1.1.2001–31.12.2017).<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu osakorpuksiin vuosittain.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-2019010801' target='_blank' title='Kuvailutiedot'>koko Suomi24 2001–2017 -aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2019010802' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).<br/><br/>(Tämä aineisto näkyi beetatestausvaiheessa Korpissa nimellä <i>Suomi24 virkkeet -korpus (2017H2)</i> ja aineiston ensimmäinen versio nimellä <i>Suomi24 2017H2</i>.)<br/><br/>2020-02-20: Aineistosta on nyt käytössä korjattu versio 1.1. Se sisältää aiemmasta versiosta vuosilta 2009–2012 ja 2014 puuttuneet kirjoittajan nimimerkkitiedot, ja kaikissa nimimerkeissä merkit <i>'</i>, <i>\"</i> ja <i>&amp;</i> näkyvät sellaisinaan, eivät <i>&amp;apos;</i>, <i>&amp;quot;</i> ja <i>&amp;amp;</i>. Lisäksi aineiston nimessä on korvattu <i>2017H2</i> vuosivälillä <i>2001–2017</i>.<br/><br/>2020-01-21: Aineiston dependenssijäsennykset ja -relaatiot on korjattu 2019-12-19. Myös sanakuva toimii periaatteessa, mutta aineiston koon vuoksi valitettavasti ei aina käytännössä. Selvitämme asiaa. Nimientunnistustiedot ovat toistaiseksi vain vanhemmassa Suomi24 2016H2 -aineistossa.</strong>",
+    contents: [
+	"s24_2001",
+	"s24_2002",
+	"s24_2003",
+	"s24_2004",
+	"s24_2005",
+	"s24_2006",
+	"s24_2007",
+	"s24_2008",
+	"s24_2009",
+	"s24_2010",
+	"s24_2011",
+	"s24_2012",
+	"s24_2013",
+	"s24_2014",
+	"s24_2015",
+	"s24_2016",
+	"s24_2017",
+    ],
+    info: {
+	urn: "urn:nbn:fi:lb-2020021804",
+	metadata_urn: "urn:nbn:fi:lb-2020021803",
+	licence: settings.licenceinfo.CC_BY_NC,
+	homepage_url: "http://keskustelu.suomi24.fi",
+	cite_id: "suomi24-2001-2017-korp-v1-1",
+	shortname: "suomi24-2001-2017-korp-v1-1",
+    }
+};
 
-// settings.corporafolders.internet.suomi24 = {
-//     title: "Suomi24 2016H2",
-//     description: "<a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut 1.1.2001–24.9.2016.<br/><br/><strong>Huomaa</strong>, että aineisto ei ole kattava mainitulta aikaväliltä. <strong>Käytä ensisijaisesti uudempaa ja selvästi kattavampaa <a href='http://urn.fi/urn:nbn:fi:lb-2019021101' target='_blank'>Suomi24 2017H2 -aineistoa</a></strong>, jollet tarvitse vertailukelpoisuutta tähän aineistoon perustuvan tutkimuksen kanssa.<br/><br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu useaan osakorpukseen suuren kokonsa vuoksi.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-201412171' target='_blank' title='Kuvailutiedot'>koko Suomi24-aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2015040801' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).<br/><br/>(Tämä aineisto näkyi ennen Suomi24 2017H2 -version julkaisemista Korpissa nimellä <i>Suomi24</i>.)",
-//     contents: [
-// 	"s24_001",
-// 	"s24_002",
-// 	"s24_003",
-// 	"s24_004",
-// 	"s24_005",
-// 	"s24_006",
-// 	"s24_007",
-// 	"s24_008",
-// 	"s24_009",
-// 	"s24_010"
-//     ],
-//     info: {
-// 	urn: "urn:nbn:fi:lb-2015120401",
-// 	metadata_urn: "urn:nbn:fi:lb-2017021505",
-// 	licence: settings.licenceinfo.CC_BY_NC,
-// 	homepage_url: "http://keskustelu.suomi24.fi",
-// 	cite_id: "Suomi24-korp-2016H2",
-//     }
-// };
+settings.corporafolders.internet.suomi24 = {
+    title: "Suomi24 2016H2",
+    description: "<a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut 1.1.2001–24.9.2016.<br/><br/><strong>Huomaa</strong>, että aineisto ei ole kattava mainitulta aikaväliltä. <strong>Käytä ensisijaisesti uudempaa ja selvästi kattavampaa <a href='http://urn.fi/urn:nbn:fi:lb-2019021101' target='_blank'>Suomi24 2017H2 -aineistoa</a></strong>, jollet tarvitse vertailukelpoisuutta tähän aineistoon perustuvan tutkimuksen kanssa.<br/><br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu useaan osakorpukseen suuren kokonsa vuoksi.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-201412171' target='_blank' title='Kuvailutiedot'>koko Suomi24-aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2015040801' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).<br/><br/>(Tämä aineisto näkyi ennen Suomi24 2017H2 -version julkaisemista Korpissa nimellä <i>Suomi24</i>.)",
+    contents: [
+	"s24_001",
+	"s24_002",
+	"s24_003",
+	"s24_004",
+	"s24_005",
+	"s24_006",
+	"s24_007",
+	"s24_008",
+	"s24_009",
+	"s24_010"
+    ],
+    info: {
+	urn: "urn:nbn:fi:lb-2015120401",
+	metadata_urn: "urn:nbn:fi:lb-2017021505",
+	licence: settings.licenceinfo.CC_BY_NC,
+	homepage_url: "http://keskustelu.suomi24.fi",
+	cite_id: "Suomi24-korp-2016H2",
+    }
+};
 
-// settings.corporafolders.lehdet = {
-//     title: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
-//     info: {
-// 	urn: "urn:nbn:fi:lb-201711241",
-// 	metadata_urn: "urn:nbn:fi:lb-2017091901",
-// 	licence: settings.licenceinfo.CC_BY_40,
-// 	cite_id: "lehdet90ff-v2",
-//     }
-// };
+settings.corporafolders.lehdet = {
+    title: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
+    info: {
+	urn: "urn:nbn:fi:lb-201711241",
+	metadata_urn: "urn:nbn:fi:lb-2017091901",
+	licence: settings.licenceinfo.CC_BY_40,
+	cite_id: "lehdet90ff-v2",
+    }
+};
 
-// settings.corporafolders.lehdet.tiedelehdet = {
-//     title: "Tiedelehtiä",
-//     description: "1990- ja 2000-luvun suomalaisia tiedelehtiä",
-// }
+settings.corporafolders.lehdet.tiedelehdet = {
+    title: "Tiedelehtiä",
+    description: "1990- ja 2000-luvun suomalaisia tiedelehtiä",
+}
 
-// settings.corporafolders.lehdet.tiedelehdet.ag = {
-//     title: "A–G",
-//     description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (A–G-alkuiset)",
-//     contents: [
-// 	"tiedelehdet_30paivaa",
-// 	"tiedelehdet_aakusti",
-// 	"tiedelehdet_agricola",
-// 	"tiedelehdet_aidinkieli",
-// 	"tiedelehdet_aikuiskasvatus",
-// 	"tiedelehdet_aluejaymparisto",
-// 	"tiedelehdet_ammattikasvatuksen_aikakauskirja",
-// 	"tiedelehdet_apollon",
-// 	"tiedelehdet_areiopagi",
-// 	"tiedelehdet_ats",
-// 	"tiedelehdet_auraica",
-// 	"tiedelehdet_automaatiovayla",
-// 	"tiedelehdet_avain",
-// 	"tiedelehdet_baptria",
-// 	"tiedelehdet_bryobrotherella",
-// 	"tiedelehdet_diakonia",
-// 	"tiedelehdet_elo",
-// 	"tiedelehdet_ennenjanyt",
-// 	"tiedelehdet_geofoorumi",
-// 	"tiedelehdet_geologi",
-// 	"tiedelehdet_glossae",
-// 	]
-// };
+settings.corporafolders.lehdet.tiedelehdet.ag = {
+    title: "A–G",
+    description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (A–G-alkuiset)",
+    contents: [
+	"tiedelehdet_30paivaa",
+	"tiedelehdet_aakusti",
+	"tiedelehdet_agricola",
+	"tiedelehdet_aidinkieli",
+	"tiedelehdet_aikuiskasvatus",
+	"tiedelehdet_aluejaymparisto",
+	"tiedelehdet_ammattikasvatuksen_aikakauskirja",
+	"tiedelehdet_apollon",
+	"tiedelehdet_areiopagi",
+	"tiedelehdet_ats",
+	"tiedelehdet_auraica",
+	"tiedelehdet_automaatiovayla",
+	"tiedelehdet_avain",
+	"tiedelehdet_baptria",
+	"tiedelehdet_bryobrotherella",
+	"tiedelehdet_diakonia",
+	"tiedelehdet_elo",
+	"tiedelehdet_ennenjanyt",
+	"tiedelehdet_geofoorumi",
+	"tiedelehdet_geologi",
+	"tiedelehdet_glossae",
+	]
+};
 
-// settings.corporafolders.lehdet.tiedelehdet.hk = {
-//     title: "H–K",
-//     description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (H–K-alkuiset)",
-//     contents: [
-// 	"tiedelehdet_harukaze",
-// 	"tiedelehdet_havina",
-// 	"tiedelehdet_hiidenkivi",
-// 	"tiedelehdet_historiallinen",
-// 	"tiedelehdet_historianystava",
-// 	"tiedelehdet_idantutkimus",
-// 	"tiedelehdet_ilmansuojelu",
-// 	"tiedelehdet_informaatio",
-// 	"tiedelehdet_janus",
-// 	"tiedelehdet_hykirjasto",
-// 	"tiedelehdet_kasvu",
-// 	"tiedelehdet_kieliskooppi",
-// 	"tiedelehdet_kliinlab",
-// 	"tiedelehdet_kognitiivinen",
-// 	"tiedelehdet_kompositio",
-// 	"tiedelehdet_kosmopolis",
-// 	"tiedelehdet_kulttuurintutkimus",
-// 	"tiedelehdet_kulutustutkimus",
-// 	"tiedelehdet_kunnallistiede",
-// 	"tiedelehdet_kuntoutus",
-// 	]
-// };
+settings.corporafolders.lehdet.tiedelehdet.hk = {
+    title: "H–K",
+    description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (H–K-alkuiset)",
+    contents: [
+	"tiedelehdet_harukaze",
+	"tiedelehdet_havina",
+	"tiedelehdet_hiidenkivi",
+	"tiedelehdet_historiallinen",
+	"tiedelehdet_historianystava",
+	"tiedelehdet_idantutkimus",
+	"tiedelehdet_ilmansuojelu",
+	"tiedelehdet_informaatio",
+	"tiedelehdet_janus",
+	"tiedelehdet_hykirjasto",
+	"tiedelehdet_kasvu",
+	"tiedelehdet_kieliskooppi",
+	"tiedelehdet_kliinlab",
+	"tiedelehdet_kognitiivinen",
+	"tiedelehdet_kompositio",
+	"tiedelehdet_kosmopolis",
+	"tiedelehdet_kulttuurintutkimus",
+	"tiedelehdet_kulutustutkimus",
+	"tiedelehdet_kunnallistiede",
+	"tiedelehdet_kuntoutus",
+	]
+};
 
-// settings.corporafolders.lehdet.tiedelehdet.lp = {
-//     title: "L–P",
-//     description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (L–P-alkuiset)",
-//     contents: [
-// 	"tiedelehdet_liikenteensuunta_v2",
-// 	"tiedelehdet_liiketalous",
-// 	"tiedelehdet_liikuntajatiede",
-// 	"tiedelehdet_lounaishame",
-// 	"tiedelehdet_maaseudunuusiaika",
-// 	"tiedelehdet_matkailututkimus",
-// 	"tiedelehdet_mediajaviestinta",
-// 	"tiedelehdet_metsatiede",
-// 	"tiedelehdet_muinaistutkija",
-// 	"tiedelehdet_musiikinsuunta",
-// 	"tiedelehdet_musiikkikasv",
-// 	"tiedelehdet_niinnain_v2",
-// 	"tiedelehdet_nimi",
-// 	"tiedelehdet_nayttamo_tutkimus",
-// 	"tiedelehdet_poliittinentalous",
-// 	"tiedelehdet_prologi",
-// 	"tiedelehdet_psykologia",
-// 	]
-// };
-
-
-// settings.corporafolders.lehdet.tiedelehdet.rs = {
-//     title: "R–S",
-//     description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (R–S-alkuiset)",
-//     contents: [
-// 	"tiedelehdet_rakmek",
-// 	"tiedelehdet_ravitsemus",
-// 	"tiedelehdet_ruralia",
-// 	"tiedelehdet_sananjalka",
-// 	"tiedelehdet_siirtolaisuus",
-// 	"tiedelehdet_skas",
-// 	"tiedelehdet_skeptikko",
-// 	"tiedelehdet_skholion",
-// 	"tiedelehdet_solubiologi",
-// 	"tiedelehdet_sosiaalilaaketiede",
-// 	"tiedelehdet_sosiologia",
-// 	"tiedelehdet_suo",
-// 	"tiedelehdet_susa",
-// 	"tiedelehdet_kirkkohistoria",
-// 	"tiedelehdet_sydanaani",
-// 	"tiedelehdet_synnyt",
-// 	]
-// };
-
-// settings.corporafolders.lehdet.tiedelehdet.ty = {
-//     title: "T–Y",
-//     description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (T–Y-alkuiset)",
-//     contents: [
-// 	"tiedelehdet_tahiti",
-// 	"tiedelehdet_taimiuutiset",
-// 	"tiedelehdet_teologinen",
-// 	"tiedelehdet_terminfo",
-// 	"tiedelehdet_terra",
-// 	"tiedelehdet_thanatos",
-// 	"tiedelehdet_tiedejaase",
-// 	"tiedelehdet_tieteessatapahtuu",
-// 	"tiedelehdet_tktlehti",
-// 	"tiedelehdet_tietolinja",
-// 	"tiedelehdet_toksikologi",
-// 	"tiedelehdet_transmitteri",
-// 	"tiedelehdet_trio",
-// 	"tiedelehdet_tutkimustiedote",
-// 	"tiedelehdet_tutkivasos",
-// 	"tiedelehdet_tyoelama",
-// 	"tiedelehdet_ura",
-// 	"tiedelehdet_uskonnontutkija",
-// 	"tiedelehdet_vartija",
-// 	"tiedelehdet_versus",
-// 	"tiedelehdet_virittaja",
-// 	"tiedelehdet_walbum",
-// 	"tiedelehdet_yhdyskuntasuunnittelu",
-// 	"tiedelehdet_yhteiskuntapolitiikka",
-// 	"tiedelehdet_ymparistohistoria",
-//     ]
-// };
-
-// settings.corporafolders.lehdet.muut_lehdet = {
-//     title: "Muita lehtiä",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
-// }
-
-// settings.corporafolders.lehdet.muut_lehdet.a = {
-//     title: "A",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (A-alkuiset)",
-//     contents: [
-// 	"lehdet_aalto_university_magazine",
-// 	"lehdet_aarre",
-// 	"lehdet_aino",
-// 	"lehdet_ajolinja",
-// 	"lehdet_akavalainen",
-// 	"lehdet_allergia",
-// 	"lehdet_ammattisotilas",
-// 	"lehdet_amnesty",
-// 	"lehdet_ananda",
-// 	"lehdet_animalia",
-// 	"lehdet_anti",
-// 	"lehdet_antimilitaristi_sivari",
-// 	"lehdet_apaja",
-// 	"lehdet_aplodi",
-// 	"lehdet_arkkitehtiuutiset",
-// 	"lehdet_aromi",
-// 	"lehdet_aselehti",
-// 	"lehdet_askel",
-// 	"lehdet_asukas",
-// 	"lehdet_asukki",
-// 	"lehdet_asuminen_yhteiskunta",
-// 	"lehdet_asuntoinfo",
-// 	"lehdet_aurora",
-// 	"lehdet_avainlehti",
-// 	"lehdet_avec",
-// 	"lehdet_avec_perhelehti",
-// 	"lehdet_avh",
-// 	"lehdet_avvisio",
-//   ]
-// };
-
-// settings.corporafolders.lehdet.muut_lehdet.bcd = {
-//     title: "B, C, D",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (B-, C- ja D-alkuiset)",
-//     contents: [
-// 	"lehdet_bof_online",
-// 	"lehdet_canews",
-// 	"lehdet_cplehti",
-// 	"lehdet_curly",
-// 	"lehdet_debatti",
-// 	"lehdet_diabetes_ja_laakari",
-// 	"lehdet_diakonia",
-//     ]
-// }
-
-// settings.corporafolders.lehdet.muut_lehdet.e = {
-//     title: "E",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (E-alkuiset)",
-//     contents: [
-// 	"lehdet_edimensio",
-// 	"lehdet_effortti",
-// 	"lehdet_ekonomi",
-// 	"lehdet_elinehto",
-// 	"lehdet_elamantahdet_terve",
-// 	"lehdet_elamassa_kelansanomat",
-// 	"lehdet_elore",
-// 	"lehdet_emma",
-// 	"lehdet_entisesta_enemman",
-// 	"lehdet_ernie",
-// 	"lehdet_espanjan_sanomat",
-// 	"lehdet_espoo",
-// 	"lehdet_esri",
-// 	"lehdet_ethnos",
-// 	"lehdet_eurooppalainen",
-// 	"lehdet_euro_talous",
-// 	"lehdet_evento",
-//      ]
-// }
-
-// settings.corporafolders.lehdet.muut_lehdet.f = {
-//     title: "F",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (F-alkuiset)",
-//     contents: [
-// 	"lehdet_focus",
-// 	"lehdet_folium_classicum",
-//   ]
-// }
-
-// settings.corporafolders.lehdet.muut_lehdet.h = {
-//     title: "H",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (H-alkuiset)",
-//     contents: [
-// 	"lehdet_hkaksi",
-// 	"lehdet_haagalainen",
-// 	"lehdet_haavi",
-// 	"lehdet_hallaus",
-// 	"lehdet_helen",
-// 	"lehdet_helmeri",
-// 	"lehdet_helmi",
-// 	"lehdet_helsinginhenki",
-// 	"lehdet_helsinki_info",
-// 	"lehdet_hengitys",
-// 	"lehdet_heppu",
-// 	"lehdet_hervannan_sanomat",
-// 	"lehdet_hima",
-// 	"lehdet_hopealeijona",
-// 	"lehdet_huili",
-// 	"lehdet_humanistilehti",
-// 	"lehdet_husari",
-// 	"lehdet_hyva_asukas",
-//   ]
-// }
-
-// settings.corporafolders.lehdet.muut_lehdet.ij = {
-//     title: "I, J",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (I- ja J-alkuiset)",
-//     contents: [
-// 	"lehdet_impakti",
-// 	"lehdet_infors",
-// 	"lehdet_infront",
-// 	"lehdet_jane_paulo",
-// 	"lehdet_jargonia",
-// 	"lehdet_joensuun_uutiset",
-// 	"lehdet_julkaisija",
-//   ]
-// }
-
-// settings.corporafolders.lehdet.muut_lehdet.k = {
-//     title: "K",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (K-alkuiset)",
-//     contents: [
-// 	"lehdet_kalastuslehti",
-// 	"lehdet_kalpa",
-// 	"lehdet_kansanopisto",
-// 	"lehdet_karhunkierros",
-// 	"lehdet_karhunpalvelus",
-// 	"lehdet_kauppapolitiikka",
-// 	"lehdet_kaupunkilainen",
-// 	"lehdet_kehittaja",
-// 	"lehdet_kemia_kemi",
-// 	"lehdet_kemilainen",
-// 	"lehdet_kerberos",
-// 	"lehdet_keski_espoon_sanomat",
-// 	"lehdet_keva",
-// 	"lehdet_kide",
-// 	"lehdet_kide_taidelehti",
-// 	"lehdet_kielipolku_dysfasia",
-// 	"lehdet_kirjo",
-// 	"lehdet_kita",
-// 	"lehdet_koiviston_viesti",
-// 	"lehdet_kontakt",
-// 	"lehdet_koor",
-// 	"lehdet_koti",
-// 	"lehdet_kotipuutarha",
-// 	"lehdet_kotosalla",
-// 	"lehdet_kuljetusyrittaja",
-// 	"lehdet_kulttuurivihkot",
-// 	"lehdet_kumina",
-// 	"lehdet_kumposti",
-// 	"lehdet_kunnallissuomi",
-// 	"lehdet_kuuloset",
-// 	"lehdet_kuuloviesti",
-// 	"lehdet_kynnys",
-// 	"lehdet_kyvyt_kayttoon_vates",
-// 	"lehdet_kaytannon_maamies",
-//   ]
-// }
-
-// settings.corporafolders.lehdet.muut_lehdet.l = {
-//     title: "L",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (L-alkuiset)",
-//     contents: [
-// 	"lehdet_lapsenmaailma",
-// 	"lehdet_legenda",
-// 	"lehdet_leija",
-// 	"lehdet_luokanopettaja",
-// 	"lehdet_luuppisanomat",
-// 	"lehdet_lahde_liikkeelle",
-//   ]
-// }
-
-// settings.corporafolders.lehdet.muut_lehdet.m = {
-//     title: "M",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (M-alkuiset)",
-//     contents: [
-// 	"lehdet_maailma_kiitotie",
-// 	"lehdet_materia",
-// 	"lehdet_matkailusilma",
-// 	"lehdet_me",
-// 	"lehdet_mercurius",
-// 	"lehdet_meripelastus",
-// 	"lehdet_merkonomi",
-// 	"lehdet_minna",
-// 	"lehdet_mirator",
-// 	"lehdet_modin",
-// 	"lehdet_motiva_mplus_xpress",
-// 	"lehdet_musetti",
-// 	"lehdet_muusikko",
-//   ]
-// }
-
-// settings.corporafolders.lehdet.muut_lehdet.no = {
-//     title: "N, O",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (N- ja O-alkuiset)",
-//     contents: [
-// 	"lehdet_nonsordino",
-// 	"lehdet_nakyva_nainen",
-// 	"lehdet_ollaviiskytviisplus",
-// 	"lehdet_omakotisanomat",
-// 	"lehdet_ostrobotnia",
-// 	"lehdet_ota_opiksi",
-// 	"lehdet_oulunkylainen",
-//   ]
-// }
-
-// settings.corporafolders.lehdet.muut_lehdet.p = {
-//     title: "P",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (P-alkuiset)",
-//     contents: [
-// 	"lehdet_pakolainen",
-// 	"lehdet_palveluesimies",
-// 	"lehdet_paraisten_kuulutukset",
-// 	"lehdet_pardianyt",
-// 	"lehdet_pariperhe",
-// 	"lehdet_partio_jalki",
-// 	"lehdet_patria",
-// 	"lehdet_pelastusalan_ammattilainen",
-// 	"lehdet_pelastustieto",
-// 	"lehdet_perussuomalainen",
-// 	"lehdet_pihlajamaki_info",
-// 	"lehdet_pihlajisto_viikinmaki",
-// 	"lehdet_pippuri",
-// 	"lehdet_pirkkalainen",
-// 	"lehdet_pirta",
-// 	"lehdet_pispalalainen",
-// 	"lehdet_plari",
-// 	"lehdet_pointti",
-// 	"lehdet_poleemi",
-// 	"lehdet_polemiikki",
-// 	"lehdet_policy",
-// 	"lehdet_poromies",
-// 	"lehdet_print_media",
-// 	"lehdet_pro_etelapohjanmaa",
-// 	"lehdet_prointerior",
-// 	"lehdet_promaint_kunnossapito",
-// 	"lehdet_proresto",
-// 	"lehdet_puulehti",
-// 	"lehdet_puutarha_sanomat",
-//   ]
-// }
-
-// settings.corporafolders.lehdet.muut_lehdet.r = {
-//     title: "R",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (R-alkuiset)",
-//     contents: [
-// 	"lehdet_rautalampilehti",
-// 	"lehdet_rautatievirkamies",
-// 	"lehdet_ruotuvaki",
-// 	"lehdet_ronsy",
-//   ]
-// }
-
-// settings.corporafolders.lehdet.muut_lehdet.s = {
-//     title: "S",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (S-alkuiset)",
-//     contents: [
-// 	"lehdet_saarijarvelainen",
-// 	"lehdet_saariselka",
-// 	"lehdet_saima",
-// 	"lehdet_secretarius",
-// 	"lehdet_selkosanomat",
-// 	"lehdet_signum",
-// 	"lehdet_skrolli",
-// 	"lehdet_sofia",
-// 	"lehdet_solidaarisuus",
-// 	"lehdet_sosiaalivakuutus",
-// 	"lehdet_stiiknafuulia",
-// 	"lehdet_sukuviesti",
-// 	"lehdet_suomen_historiallinen",
-// 	"lehdet_suomenmaa",
-// 	"lehdet_seniorilehti",
-// 	"lehdet_suomi_puola",
-// 	"lehdet_super",
-// 	"lehdet_susikko",
-// 	"lehdet_sydan_hameen_lehti",
-// 	"lehdet_syopa",
-// 	"lehdet_syopasaation_focus",
-// 	"lehdet_sosso",
-//   ]
-// }
-
-// settings.corporafolders.lehdet.muut_lehdet.t = {
-//     title: "T",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (T-alkuiset)",
-//     contents: [
-// 	"lehdet_taku",
-// 	"lehdet_talentia",
-// 	"lehdet_taloustaito",
-// 	"lehdet_tamk_nyt",
-// 	"lehdet_tampere",
-// 	"lehdet_kauppakamarilehti",
-// 	"lehdet_tampereen_liikuntasanomat",
-// 	"lehdet_tampu",
-// 	"lehdet_tanhuviesti",
-// 	"lehdet_tanssiurheilija",
-// 	"lehdet_tapaturmavakuutus",
-// 	"lehdet_tapiolan_asiakaslehti",
-// 	"lehdet_tatsi",
-// 	"lehdet_tek_verkkolehti",
-// 	"lehdet_teollisuussuomi",
-// 	"lehdet_terve_elama",
-// 	"lehdet_terve_pirkanmaa",
-// 	"lehdet_tervetuloa_jyvaskylaan",
-// 	"lehdet_terveydeksi",
-// 	"lehdet_tiedetoimittaja",
-// 	"lehdet_tiedosta",
-// 	"lehdet_tietoa_maasta",
-// 	"lehdet_tietoarkisto",
-// 	"lehdet_tiimi",
-// 	"lehdet_toimi",
-// 	"lehdet_toisinsanoen",
-// 	"lehdet_toolilainen",
-// 	"lehdet_tukijalka",
-// 	"lehdet_tukilinja",
-// 	"lehdet_tukiviesti",
-// 	"lehdet_tuntosarvi",
-// 	"lehdet_turkuposti",
-// 	"lehdet_tutkain",
-// 	"lehdet_tuulivoima_tuulienergia_tuulensilma",
-// 	"lehdet_tyoelake",
-// 	"lehdet_taydellinenympyra",
-//   ]
-// }
-
-// settings.corporafolders.lehdet.muut_lehdet.u = {
-//     title: "U",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (U-alkuiset)",
-//     contents: [
-// 	"lehdet_ubik",
-// 	"lehdet_uiotus",
-// 	"lehdet_uljas",
-// 	"lehdet_uniikki",
-// 	"lehdet_unioni",
-// 	"lehdet_universitas",
-// 	"lehdet_universitaschydenius",
-// 	"lehdet_utain",
-// 	"lehdet_uusiouutiset",
-// 	"lehdet_uusipaiva",
-// 	"lehdet_uusi_safiiri",
-// 	"lehdet_uutis_jousi",
-//   ]
-// }
-
-// settings.corporafolders.lehdet.muut_lehdet.vw = {
-//     title: "V, W",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (V- ja W-alkuiset)",
-//     contents: [
-// 	"lehdet_vaasan_ylioppilaslehti",
-// 	"lehdet_valkoinen_kaapio",
-// 	"lehdet_valkonauha",
-// 	"lehdet_vammaisurheilu",
-// 	"lehdet_vanhustyo",
-// 	"lehdet_vankilavirkailija",
-// 	"lehdet_vantaan_akseli",
-// 	"lehdet_vantaan_asukaslehti",
-// 	"lehdet_vapaa_ajattelija",
-// 	"lehdet_vasama",
-// 	"lehdet_koskinen",
-// 	"lehdet_veturimies",
-// 	"lehdet_via",
-// 	"lehdet_via_helsinki",
-// 	"lehdet_vilkku",
-// 	"lehdet_virallinenlehti",
-// 	"lehdet_virilactis",
-// 	"lehdet_virta",
-// 	"lehdet_valitysuutiset",
-// 	"lehdet_walpo",
-// 	"lehdet_wieteri",
-//   ]
-// }
-
-// settings.corporafolders.lehdet.muut_lehdet.y = {
-//     title: "Y",
-//     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (Y-alkuiset)",
-//     contents: [
-// 	"lehdet_yhteenveto",
-// 	"lehdet_yhteishyva",
-// 	"lehdet_yhteishyva_ruoka",
-// 	"lehdet_yhys_tiedotuslehti",
-// 	"lehdet_yliopistolainen",
-// 	"lehdet_yrittajasanomat",
-// 	"lehdet_yritysetiikka",
-//     ]
-// };
+settings.corporafolders.lehdet.tiedelehdet.lp = {
+    title: "L–P",
+    description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (L–P-alkuiset)",
+    contents: [
+	"tiedelehdet_liikenteensuunta_v2",
+	"tiedelehdet_liiketalous",
+	"tiedelehdet_liikuntajatiede",
+	"tiedelehdet_lounaishame",
+	"tiedelehdet_maaseudunuusiaika",
+	"tiedelehdet_matkailututkimus",
+	"tiedelehdet_mediajaviestinta",
+	"tiedelehdet_metsatiede",
+	"tiedelehdet_muinaistutkija",
+	"tiedelehdet_musiikinsuunta",
+	"tiedelehdet_musiikkikasv",
+	"tiedelehdet_niinnain_v2",
+	"tiedelehdet_nimi",
+	"tiedelehdet_nayttamo_tutkimus",
+	"tiedelehdet_poliittinentalous",
+	"tiedelehdet_prologi",
+	"tiedelehdet_psykologia",
+	]
+};
 
 
-// settings.corporafolders.webnews = {
-//     title: "Verkkouutisia",
-// };
+settings.corporafolders.lehdet.tiedelehdet.rs = {
+    title: "R–S",
+    description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (R–S-alkuiset)",
+    contents: [
+	"tiedelehdet_rakmek",
+	"tiedelehdet_ravitsemus",
+	"tiedelehdet_ruralia",
+	"tiedelehdet_sananjalka",
+	"tiedelehdet_siirtolaisuus",
+	"tiedelehdet_skas",
+	"tiedelehdet_skeptikko",
+	"tiedelehdet_skholion",
+	"tiedelehdet_solubiologi",
+	"tiedelehdet_sosiaalilaaketiede",
+	"tiedelehdet_sosiologia",
+	"tiedelehdet_suo",
+	"tiedelehdet_susa",
+	"tiedelehdet_kirkkohistoria",
+	"tiedelehdet_sydanaani",
+	"tiedelehdet_synnyt",
+	]
+};
+
+settings.corporafolders.lehdet.tiedelehdet.ty = {
+    title: "T–Y",
+    description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (T–Y-alkuiset)",
+    contents: [
+	"tiedelehdet_tahiti",
+	"tiedelehdet_taimiuutiset",
+	"tiedelehdet_teologinen",
+	"tiedelehdet_terminfo",
+	"tiedelehdet_terra",
+	"tiedelehdet_thanatos",
+	"tiedelehdet_tiedejaase",
+	"tiedelehdet_tieteessatapahtuu",
+	"tiedelehdet_tktlehti",
+	"tiedelehdet_tietolinja",
+	"tiedelehdet_toksikologi",
+	"tiedelehdet_transmitteri",
+	"tiedelehdet_trio",
+	"tiedelehdet_tutkimustiedote",
+	"tiedelehdet_tutkivasos",
+	"tiedelehdet_tyoelama",
+	"tiedelehdet_ura",
+	"tiedelehdet_uskonnontutkija",
+	"tiedelehdet_vartija",
+	"tiedelehdet_versus",
+	"tiedelehdet_virittaja",
+	"tiedelehdet_walbum",
+	"tiedelehdet_yhdyskuntasuunnittelu",
+	"tiedelehdet_yhteiskuntapolitiikka",
+	"tiedelehdet_ymparistohistoria",
+    ]
+};
+
+settings.corporafolders.lehdet.muut_lehdet = {
+    title: "Muita lehtiä",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
+}
+
+settings.corporafolders.lehdet.muut_lehdet.a = {
+    title: "A",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (A-alkuiset)",
+    contents: [
+	"lehdet_aalto_university_magazine",
+	"lehdet_aarre",
+	"lehdet_aino",
+	"lehdet_ajolinja",
+	"lehdet_akavalainen",
+	"lehdet_allergia",
+	"lehdet_ammattisotilas",
+	"lehdet_amnesty",
+	"lehdet_ananda",
+	"lehdet_animalia",
+	"lehdet_anti",
+	"lehdet_antimilitaristi_sivari",
+	"lehdet_apaja",
+	"lehdet_aplodi",
+	"lehdet_arkkitehtiuutiset",
+	"lehdet_aromi",
+	"lehdet_aselehti",
+	"lehdet_askel",
+	"lehdet_asukas",
+	"lehdet_asukki",
+	"lehdet_asuminen_yhteiskunta",
+	"lehdet_asuntoinfo",
+	"lehdet_aurora",
+	"lehdet_avainlehti",
+	"lehdet_avec",
+	"lehdet_avec_perhelehti",
+	"lehdet_avh",
+	"lehdet_avvisio",
+  ]
+};
+
+settings.corporafolders.lehdet.muut_lehdet.bcd = {
+    title: "B, C, D",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (B-, C- ja D-alkuiset)",
+    contents: [
+	"lehdet_bof_online",
+	"lehdet_canews",
+	"lehdet_cplehti",
+	"lehdet_curly",
+	"lehdet_debatti",
+	"lehdet_diabetes_ja_laakari",
+	"lehdet_diakonia",
+    ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.e = {
+    title: "E",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (E-alkuiset)",
+    contents: [
+	"lehdet_edimensio",
+	"lehdet_effortti",
+	"lehdet_ekonomi",
+	"lehdet_elinehto",
+	"lehdet_elamantahdet_terve",
+	"lehdet_elamassa_kelansanomat",
+	"lehdet_elore",
+	"lehdet_emma",
+	"lehdet_entisesta_enemman",
+	"lehdet_ernie",
+	"lehdet_espanjan_sanomat",
+	"lehdet_espoo",
+	"lehdet_esri",
+	"lehdet_ethnos",
+	"lehdet_eurooppalainen",
+	"lehdet_euro_talous",
+	"lehdet_evento",
+     ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.f = {
+    title: "F",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (F-alkuiset)",
+    contents: [
+	"lehdet_focus",
+	"lehdet_folium_classicum",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.h = {
+    title: "H",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (H-alkuiset)",
+    contents: [
+	"lehdet_hkaksi",
+	"lehdet_haagalainen",
+	"lehdet_haavi",
+	"lehdet_hallaus",
+	"lehdet_helen",
+	"lehdet_helmeri",
+	"lehdet_helmi",
+	"lehdet_helsinginhenki",
+	"lehdet_helsinki_info",
+	"lehdet_hengitys",
+	"lehdet_heppu",
+	"lehdet_hervannan_sanomat",
+	"lehdet_hima",
+	"lehdet_hopealeijona",
+	"lehdet_huili",
+	"lehdet_humanistilehti",
+	"lehdet_husari",
+	"lehdet_hyva_asukas",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.ij = {
+    title: "I, J",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (I- ja J-alkuiset)",
+    contents: [
+	"lehdet_impakti",
+	"lehdet_infors",
+	"lehdet_infront",
+	"lehdet_jane_paulo",
+	"lehdet_jargonia",
+	"lehdet_joensuun_uutiset",
+	"lehdet_julkaisija",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.k = {
+    title: "K",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (K-alkuiset)",
+    contents: [
+	"lehdet_kalastuslehti",
+	"lehdet_kalpa",
+	"lehdet_kansanopisto",
+	"lehdet_karhunkierros",
+	"lehdet_karhunpalvelus",
+	"lehdet_kauppapolitiikka",
+	"lehdet_kaupunkilainen",
+	"lehdet_kehittaja",
+	"lehdet_kemia_kemi",
+	"lehdet_kemilainen",
+	"lehdet_kerberos",
+	"lehdet_keski_espoon_sanomat",
+	"lehdet_keva",
+	"lehdet_kide",
+	"lehdet_kide_taidelehti",
+	"lehdet_kielipolku_dysfasia",
+	"lehdet_kirjo",
+	"lehdet_kita",
+	"lehdet_koiviston_viesti",
+	"lehdet_kontakt",
+	"lehdet_koor",
+	"lehdet_koti",
+	"lehdet_kotipuutarha",
+	"lehdet_kotosalla",
+	"lehdet_kuljetusyrittaja",
+	"lehdet_kulttuurivihkot",
+	"lehdet_kumina",
+	"lehdet_kumposti",
+	"lehdet_kunnallissuomi",
+	"lehdet_kuuloset",
+	"lehdet_kuuloviesti",
+	"lehdet_kynnys",
+	"lehdet_kyvyt_kayttoon_vates",
+	"lehdet_kaytannon_maamies",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.l = {
+    title: "L",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (L-alkuiset)",
+    contents: [
+	"lehdet_lapsenmaailma",
+	"lehdet_legenda",
+	"lehdet_leija",
+	"lehdet_luokanopettaja",
+	"lehdet_luuppisanomat",
+	"lehdet_lahde_liikkeelle",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.m = {
+    title: "M",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (M-alkuiset)",
+    contents: [
+	"lehdet_maailma_kiitotie",
+	"lehdet_materia",
+	"lehdet_matkailusilma",
+	"lehdet_me",
+	"lehdet_mercurius",
+	"lehdet_meripelastus",
+	"lehdet_merkonomi",
+	"lehdet_minna",
+	"lehdet_mirator",
+	"lehdet_modin",
+	"lehdet_motiva_mplus_xpress",
+	"lehdet_musetti",
+	"lehdet_muusikko",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.no = {
+    title: "N, O",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (N- ja O-alkuiset)",
+    contents: [
+	"lehdet_nonsordino",
+	"lehdet_nakyva_nainen",
+	"lehdet_ollaviiskytviisplus",
+	"lehdet_omakotisanomat",
+	"lehdet_ostrobotnia",
+	"lehdet_ota_opiksi",
+	"lehdet_oulunkylainen",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.p = {
+    title: "P",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (P-alkuiset)",
+    contents: [
+	"lehdet_pakolainen",
+	"lehdet_palveluesimies",
+	"lehdet_paraisten_kuulutukset",
+	"lehdet_pardianyt",
+	"lehdet_pariperhe",
+	"lehdet_partio_jalki",
+	"lehdet_patria",
+	"lehdet_pelastusalan_ammattilainen",
+	"lehdet_pelastustieto",
+	"lehdet_perussuomalainen",
+	"lehdet_pihlajamaki_info",
+	"lehdet_pihlajisto_viikinmaki",
+	"lehdet_pippuri",
+	"lehdet_pirkkalainen",
+	"lehdet_pirta",
+	"lehdet_pispalalainen",
+	"lehdet_plari",
+	"lehdet_pointti",
+	"lehdet_poleemi",
+	"lehdet_polemiikki",
+	"lehdet_policy",
+	"lehdet_poromies",
+	"lehdet_print_media",
+	"lehdet_pro_etelapohjanmaa",
+	"lehdet_prointerior",
+	"lehdet_promaint_kunnossapito",
+	"lehdet_proresto",
+	"lehdet_puulehti",
+	"lehdet_puutarha_sanomat",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.r = {
+    title: "R",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (R-alkuiset)",
+    contents: [
+	"lehdet_rautalampilehti",
+	"lehdet_rautatievirkamies",
+	"lehdet_ruotuvaki",
+	"lehdet_ronsy",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.s = {
+    title: "S",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (S-alkuiset)",
+    contents: [
+	"lehdet_saarijarvelainen",
+	"lehdet_saariselka",
+	"lehdet_saima",
+	"lehdet_secretarius",
+	"lehdet_selkosanomat",
+	"lehdet_signum",
+	"lehdet_skrolli",
+	"lehdet_sofia",
+	"lehdet_solidaarisuus",
+	"lehdet_sosiaalivakuutus",
+	"lehdet_stiiknafuulia",
+	"lehdet_sukuviesti",
+	"lehdet_suomen_historiallinen",
+	"lehdet_suomenmaa",
+	"lehdet_seniorilehti",
+	"lehdet_suomi_puola",
+	"lehdet_super",
+	"lehdet_susikko",
+	"lehdet_sydan_hameen_lehti",
+	"lehdet_syopa",
+	"lehdet_syopasaation_focus",
+	"lehdet_sosso",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.t = {
+    title: "T",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (T-alkuiset)",
+    contents: [
+	"lehdet_taku",
+	"lehdet_talentia",
+	"lehdet_taloustaito",
+	"lehdet_tamk_nyt",
+	"lehdet_tampere",
+	"lehdet_kauppakamarilehti",
+	"lehdet_tampereen_liikuntasanomat",
+	"lehdet_tampu",
+	"lehdet_tanhuviesti",
+	"lehdet_tanssiurheilija",
+	"lehdet_tapaturmavakuutus",
+	"lehdet_tapiolan_asiakaslehti",
+	"lehdet_tatsi",
+	"lehdet_tek_verkkolehti",
+	"lehdet_teollisuussuomi",
+	"lehdet_terve_elama",
+	"lehdet_terve_pirkanmaa",
+	"lehdet_tervetuloa_jyvaskylaan",
+	"lehdet_terveydeksi",
+	"lehdet_tiedetoimittaja",
+	"lehdet_tiedosta",
+	"lehdet_tietoa_maasta",
+	"lehdet_tietoarkisto",
+	"lehdet_tiimi",
+	"lehdet_toimi",
+	"lehdet_toisinsanoen",
+	"lehdet_toolilainen",
+	"lehdet_tukijalka",
+	"lehdet_tukilinja",
+	"lehdet_tukiviesti",
+	"lehdet_tuntosarvi",
+	"lehdet_turkuposti",
+	"lehdet_tutkain",
+	"lehdet_tuulivoima_tuulienergia_tuulensilma",
+	"lehdet_tyoelake",
+	"lehdet_taydellinenympyra",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.u = {
+    title: "U",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (U-alkuiset)",
+    contents: [
+	"lehdet_ubik",
+	"lehdet_uiotus",
+	"lehdet_uljas",
+	"lehdet_uniikki",
+	"lehdet_unioni",
+	"lehdet_universitas",
+	"lehdet_universitaschydenius",
+	"lehdet_utain",
+	"lehdet_uusiouutiset",
+	"lehdet_uusipaiva",
+	"lehdet_uusi_safiiri",
+	"lehdet_uutis_jousi",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.vw = {
+    title: "V, W",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (V- ja W-alkuiset)",
+    contents: [
+	"lehdet_vaasan_ylioppilaslehti",
+	"lehdet_valkoinen_kaapio",
+	"lehdet_valkonauha",
+	"lehdet_vammaisurheilu",
+	"lehdet_vanhustyo",
+	"lehdet_vankilavirkailija",
+	"lehdet_vantaan_akseli",
+	"lehdet_vantaan_asukaslehti",
+	"lehdet_vapaa_ajattelija",
+	"lehdet_vasama",
+	"lehdet_koskinen",
+	"lehdet_veturimies",
+	"lehdet_via",
+	"lehdet_via_helsinki",
+	"lehdet_vilkku",
+	"lehdet_virallinenlehti",
+	"lehdet_virilactis",
+	"lehdet_virta",
+	"lehdet_valitysuutiset",
+	"lehdet_walpo",
+	"lehdet_wieteri",
+  ]
+}
+
+settings.corporafolders.lehdet.muut_lehdet.y = {
+    title: "Y",
+    description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (Y-alkuiset)",
+    contents: [
+	"lehdet_yhteenveto",
+	"lehdet_yhteishyva",
+	"lehdet_yhteishyva_ruoka",
+	"lehdet_yhys_tiedotuslehti",
+	"lehdet_yliopistolainen",
+	"lehdet_yrittajasanomat",
+	"lehdet_yritysetiikka",
+    ]
+};
 
 
-// settings.corporafolders.webnews.ylenews_fi = {
-//     title: "Ylen suomenkielinen uutisarkisto",
-//     description: "Ylen suomenkielinen uutisarkisto<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
-//     info: {
-// 	homepage: {
-// 	    name: "Yle Uutiset",
-// 	    url: "https://yle.fi",
-// 	    no_label: true,
-// 	},
-//     },
-// };
-
-// settings.corporafolders.webnews.ylenews_fi.a = {
-//     title: "Ylen suomenkielinen uutisarkisto 2011–2018 (tutkijoille)",
-//     description: "Ylen suomenkielinen uutisarkisto 2011–2018, Korp<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
-//     // Contents are added later with settings.fn.add_corpus_settings
-//     contents: [],
-//     info: {
-// 	urn: "urn:nbn:fi:lb-2019121005",
-// 	metadata_urn: "urn:nbn:fi:lb-2019121003",
-// 	licence: {
-// 	    name: "CLARIN ACA +NC 1.0",
-// 	    urn: "urn:nbn:fi:lb-2019121002",
-// 	},
-// 	cite_id: "ylenews-fi-2011-2018-korp",
-//     }
-// };
-
-// settings.corporafolders.webnews.ylenews_fi.s = {
-//     title: "Ylen suomenkielinen uutisarkisto 2011–2018 (kaikille)",
-//     description: "Ylen suomenkielinen uutisarkisto 2011–2018, sekoitettu, Korp<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
-//     // Contents are added later with settings.fn.add_corpus_settings
-//     contents: [],
-//     info: {
-// 	urn: "urn:nbn:fi:lb-2019121006",
-// 	metadata_urn: "urn:nbn:fi:lb-2019121004",
-// 	licence: settings.licenceinfo.CC_BY,
-// 	cite_id: "ylenews-fi-2011-2018-s-korp",
-//     }
-// };
+settings.corporafolders.webnews = {
+    title: "Verkkouutisia",
+};
 
 
+settings.corporafolders.webnews.ylenews_fi = {
+    title: "Ylen suomenkielinen uutisarkisto",
+    description: "Ylen suomenkielinen uutisarkisto<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
+    info: {
+	homepage: {
+	    name: "Yle Uutiset",
+	    url: "https://yle.fi",
+	    no_label: true,
+	},
+    },
+};
 
+settings.corporafolders.webnews.ylenews_fi.a = {
+    title: "Ylen suomenkielinen uutisarkisto 2011–2018 (tutkijoille)",
+    description: "Ylen suomenkielinen uutisarkisto 2011–2018, Korp<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
+    // Contents are added later with settings.fn.add_corpus_settings
+    contents: [],
+    info: {
+	urn: "urn:nbn:fi:lb-2019121005",
+	metadata_urn: "urn:nbn:fi:lb-2019121003",
+	licence: {
+	    name: "CLARIN ACA +NC 1.0",
+	    urn: "urn:nbn:fi:lb-2019121002",
+	},
+	cite_id: "ylenews-fi-2011-2018-korp",
+    }
+};
 
-// settings.corporafolders.ftc = {
-//     title: "Suomen kielen tekstikokoelma (SKTP/FTC)",
-//     description: "Suomen kielen tekstikokoelma: Lemmie-palvelussa olleet osakorpukset",
-//     info: {
-// 	urn: "urn:nbn:fi:lb-2014052719",
-// 	metadata_urn: "urn:nbn:fi:lb-2016050207",
-// 	lbr_id: "urn:nbn:fi:lb-201403268",
-// 	licence: {
-// 	    name: "CLARIN RES +PLAN +NC +ND",
-// 	    urn: "urn:nbn:fi:lb-20150304137",
-// 	},
-// 	// KitWiki is no longer available and there is no replacement page yet
-// 	// homepage: {
-// 	//     name: "Aineiston kuvaus",
-// 	//     url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFtc",
-// 	//     no_label: true,
-// 	// },
-// 	cite_id: "ftc-korp",
-//     },
-// };
-
-// settings.corporafolders.other_texts = {
-//     title: "Muita tekstejä",
-//     contents: [
-// 	"kfspc_fi",
-// 	"finstud",
-// 	"yoaineet",
-//     ]
-// };
-
-// settings.corporafolders.other_texts.kotus_ns_presidentti = {
-//     title: "Tasavallan presidenttien uudenvuodenpuheet",
-//     description: "Tasavallan presidenttien uudenvuodenpuheiden kokoelmassa on kaikki tasavallan presidenttien pitämät uudenvuodenpuheet vuosilta 1935–2007. Muutaman kerran puheen on pitänyt joku muu kuin presidentti. Nämäkin puheet sisältyvät aineistoon.<br/>Kokoelma on järjestetty presidenteittäin ja vuosittain. Kokoelma koostuu lehtileikkeistä, konekirjoitusliuskoista, kirjojen sivuista, lehdistötiedotteista ja verkkoteksteistä. Aineistoa on hankittu arkistoista, kirjoista ja Internetistä.",
-//     // Contents will be filled in when constructing the corpus
-//     // settings
-//     contents: [],
-//     info: {
-// 	// URN information also in the corpus .info files; if you need
-// 	// to update the URNs, you should also check them.
-// 	urn: "urn:nbn:fi:lb-20151001",
-//     	metadata_urn: "urn:nbn:fi:lb-20140730150",
-// 	licence: settings.licenceinfo.EUPL_11,
-// 	homepage: settings.fn.kaino_homepage(
-// 	    "teko/meta/presidentti/presidentti"),
-//     	compiler: {
-//     	    name: "Kotimaisten kielten keskus",
-//     	    url: "http://www.kotus.fi/",
-//     	    no_label: true
-// 	},
-// 	cite_id: "uudenvuodenpuheet",
-//     }
-// }
-
-// settings.corporafolders.legal.semfinlex = {
-//     title: "Semfinlex",
-//     description: "Valikoima Eduskunnan alkuperäisiä säädöksiä (1917–2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980–2018) ja KHO:n päätöksiä (1987–2018).<br/><br/>2019-09-02: Huomaa, että aineiston <strong>dependenssijäsennykset ja -relaatiot poikkeavat merkittävästi</strong> aiemmin samalla jäsentimellä jäsennettyjen aineistojen jäsennyksistä. Selvitämme asiaa. <strong>Jos tarvitset dependenssijäsennystietoja, käytä toistaiseksi muita aineistoja.</strong>",
-//     contents: ["semfinlex_asd_fi_2018", "semfinlex_kko_fi_2018", "semfinlex_kho_fi_2018"],
-//     info: {
-// 	licence: settings.licenceinfo.CC_BY,
-// 	cite_id: "semfinlex",
-//     }
-// }
-
-// settings.corporafolders.spoken = {
-//     title: "Puhuttua kieltä (tekstiksi litteroituna)",
-//     contents: [
-// 	// "kotus_sp",
-// 	// "skn",
-// 	"dma",
-// 	// "arkisyn",
-//     ],
-//     // unselected: true
-// };
-
-// settings.corporafolders.spoken.la_murre = {
-//     title: "Lauseopin arkiston murrekorpus",
-//     description: "Lauseopin arkiston murrekorpus edustaa kaikkia nykyisen Suomen alueella puhuttuja suomen kielen murteita sekä lisäksi niitä murteita, joita puhuttiin Neuvostoliitolle viime sotien yhteydessä luovutetuilla alueilla ennen alueiden luovuttamista. Puhujat ovat syntyneet vuosina 1860–1910 (suurin osa 1880-luvulla) ja haastattelut on tehty 1950–1970-luvuilla, jolloin puhujat ovat olleet keskimäärin 80-vuotiaita.<br/>Yhdestä pitäjänmurteesta on yleensä valittu käsiteltäväksi yksi noin tunnin laajuinen äänite. Murreaineisto on litteroitu sekä koodattu morfologisesti ja syntaktisesti. Tässä on saatavilla korpuksen versio, jossa litteraatit on karkeasti kohdistettu alkuperäisiin äänitteisiin.",
-//     // unselected: true,
-//     // info: {
-//     // 	urn: "urn:nbn:fi:lb-2014052715",
-//     // 	metadata_urn: "urn:nbn:fi:lb-2014052716",
-//     // 	licence: settings.licenceinfo.CC_BY_ND_40,
-//     // 	infopage_url: "https://www.kielipankki.fi/aineistot/la-murre/",
-//     // 	cite_id: "LA-murre-korp",
-//     // }
-//  };
-
-
-// settings.corporafolders.selkokieli = {
-//     title: "Selkokieli",
-//     contents: ["ylenews_fi_selko"]
-// };
+settings.corporafolders.webnews.ylenews_fi.s = {
+    title: "Ylen suomenkielinen uutisarkisto 2011–2018 (kaikille)",
+    description: "Ylen suomenkielinen uutisarkisto 2011–2018, sekoitettu, Korp<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
+    // Contents are added later with settings.fn.add_corpus_settings
+    contents: [],
+    info: {
+	urn: "urn:nbn:fi:lb-2019121006",
+	metadata_urn: "urn:nbn:fi:lb-2019121004",
+	licence: settings.licenceinfo.CC_BY,
+	cite_id: "ylenews-fi-2011-2018-s-korp",
+    }
+};
 
 
 
-// settings.corporafolders.selkokieli.ylenews_fi_selko = {
-//     title: "Ylen suomenkielisen uutisarkiston selkouutiset",
-//     description: "Ylen suomenkielisen uutisarkiston selkouutiset<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
-//     contents: [
-// 	       "ylenews_fi_2011_2018_selko_a",
-// 	       "ylenews_fi_2011_2018_selko_s",
-// 	       ],
-//     info: {
-// 	homepage: {
-// 	    name: "Yle Uutiset selkosuomeksi",
-// 	    url: "https://yle.fi/uutiset/osasto/selkouutiset/",
-// 	    no_label: true,
-// 	},
-//     },
-// };
+
+settings.corporafolders.ftc = {
+    title: "Suomen kielen tekstikokoelma (SKTP/FTC)",
+    description: "Suomen kielen tekstikokoelma: Lemmie-palvelussa olleet osakorpukset",
+    info: {
+	urn: "urn:nbn:fi:lb-2014052719",
+	metadata_urn: "urn:nbn:fi:lb-2016050207",
+	lbr_id: "urn:nbn:fi:lb-201403268",
+	licence: {
+	    name: "CLARIN RES +PLAN +NC +ND",
+	    urn: "urn:nbn:fi:lb-20150304137",
+	},
+	// KitWiki is no longer available and there is no replacement page yet
+	// homepage: {
+	//     name: "Aineiston kuvaus",
+	//     url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFtc",
+	//     no_label: true,
+	// },
+	cite_id: "ftc-korp",
+    },
+};
+
+settings.corporafolders.other_texts = {
+    title: "Muita tekstejä",
+    contents: [
+	"kfspc_fi",
+	"finstud",
+	"yoaineet",
+    ]
+};
+
+settings.corporafolders.other_texts.kotus_ns_presidentti = {
+    title: "Tasavallan presidenttien uudenvuodenpuheet",
+    description: "Tasavallan presidenttien uudenvuodenpuheiden kokoelmassa on kaikki tasavallan presidenttien pitämät uudenvuodenpuheet vuosilta 1935–2007. Muutaman kerran puheen on pitänyt joku muu kuin presidentti. Nämäkin puheet sisältyvät aineistoon.<br/>Kokoelma on järjestetty presidenteittäin ja vuosittain. Kokoelma koostuu lehtileikkeistä, konekirjoitusliuskoista, kirjojen sivuista, lehdistötiedotteista ja verkkoteksteistä. Aineistoa on hankittu arkistoista, kirjoista ja Internetistä.",
+    // Contents will be filled in when constructing the corpus
+    // settings
+    contents: [],
+    info: {
+	// URN information also in the corpus .info files; if you need
+	// to update the URNs, you should also check them.
+	urn: "urn:nbn:fi:lb-20151001",
+    	metadata_urn: "urn:nbn:fi:lb-20140730150",
+	licence: settings.licenceinfo.EUPL_11,
+	homepage: settings.fn.kaino_homepage(
+	    "teko/meta/presidentti/presidentti"),
+    	compiler: {
+    	    name: "Kotimaisten kielten keskus",
+    	    url: "http://www.kotus.fi/",
+    	    no_label: true
+	},
+	cite_id: "uudenvuodenpuheet",
+    }
+}
+
+settings.corporafolders.legal.semfinlex = {
+    title: "Semfinlex",
+    description: "Valikoima Eduskunnan alkuperäisiä säädöksiä (1917–2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980–2018) ja KHO:n päätöksiä (1987–2018).<br/><br/>2019-09-02: Huomaa, että aineiston <strong>dependenssijäsennykset ja -relaatiot poikkeavat merkittävästi</strong> aiemmin samalla jäsentimellä jäsennettyjen aineistojen jäsennyksistä. Selvitämme asiaa. <strong>Jos tarvitset dependenssijäsennystietoja, käytä toistaiseksi muita aineistoja.</strong>",
+    contents: ["semfinlex_asd_fi_2018", "semfinlex_kko_fi_2018", "semfinlex_kho_fi_2018"],
+    info: {
+	licence: settings.licenceinfo.CC_BY,
+	cite_id: "semfinlex",
+    }
+}
+
+settings.corporafolders.spoken = {
+    title: "Puhuttua kieltä (tekstiksi litteroituna)",
+    contents: [
+	"kotus_sp",
+	"skn",
+	"dma",
+	"arkisyn",
+    ],
+    // unselected: true
+};
+
+settings.corporafolders.spoken.la_murre = {
+    title: "Lauseopin arkiston murrekorpus",
+    description: "Lauseopin arkiston murrekorpus edustaa kaikkia nykyisen Suomen alueella puhuttuja suomen kielen murteita sekä lisäksi niitä murteita, joita puhuttiin Neuvostoliitolle viime sotien yhteydessä luovutetuilla alueilla ennen alueiden luovuttamista. Puhujat ovat syntyneet vuosina 1860–1910 (suurin osa 1880-luvulla) ja haastattelut on tehty 1950–1970-luvuilla, jolloin puhujat ovat olleet keskimäärin 80-vuotiaita.<br/>Yhdestä pitäjänmurteesta on yleensä valittu käsiteltäväksi yksi noin tunnin laajuinen äänite. Murreaineisto on litteroitu sekä koodattu morfologisesti ja syntaktisesti. Tässä on saatavilla korpuksen versio, jossa litteraatit on karkeasti kohdistettu alkuperäisiin äänitteisiin.",
+    // unselected: true,
+    info: {
+	urn: "urn:nbn:fi:lb-2014052715",
+	metadata_urn: "urn:nbn:fi:lb-2014052716",
+	licence: settings.licenceinfo.CC_BY_ND_40,
+	infopage_url: "https://www.kielipankki.fi/aineistot/la-murre/",
+	cite_id: "LA-murre-korp",
+    }
+ };
 
 
-// settings.corporafolders.learner = {
-//     title: "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
-//     contents: ["iclfi", "topling_fi"],
-//     // unselected: true
-// };
+settings.corporafolders.selkokieli = {
+    title: "Selkokieli",
+    contents: ["ylenews_fi_selko"]
+};
 
-// settings.corporafolders.learner.las2 = {
-//     title: "LAS2 – Edistyneiden suomenoppijoiden korpus",
-//     info: {
-//         urn: "urn:nbn:fi:lb-2016041201",
-//         metadata_urn: "urn:nbn:fi:lb-201407167",
-//         homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
-//         licence: {
-//             name: "CLARIN RES +PLAN +NC +INF +LOC +ND",
-//             urn: "urn:nbn:fi:lb-2015041305",
-//         },
-// 	cite_id: "LAS2",
-//     },
-//     contents: ["las2_tentit", "las2_esseet"]
-// };
 
-// settings.corporafolders.vks = {
-//     title: "Vanhan kirjasuomen korpus",
-//     contents: [
-// 	"vks_agricola",
-// 	"vks_biblia",
-// 	"vks_lait",
-// 	"vks_saarnat",
-// 	"vks_almanakat",
-// 	"vks_bjorkqvist",
-// 	"vks_frosterus",
-// 	"vks_ganander",
-// 	"vks_lizelius",
-// 	"vks_lpetri",
-// 	"vks_varia",
-// 	"vks_virret"
-//     ],
-//     info: {
-// 	urn: "urn:nbn:fi:lb-201407166",
-// 	metadata_urn: "urn:nbn:fi:lb-201407165",
-// 	licence: settings.licenceinfo.EUPL_11,
-// 	homepage: settings.fn.kaino_homepage("vks/meta/vks"),
-// 	cite_id: "VKS",
-//     },
-//     // unselected: true
-// };
 
-// settings.corporafolders.vns = {
-//     title: "Varhaisnykysuomen korpus",
-//     /*contents: ["vns_asetus", "vns_renqvist", "vns_renvall"],*/
-//     contents: ["vnsk_aejmelaeus","vnsk_ahlholm","vnsk_ahlman_kirjat","vnsk_ahlman_sanastot","vnsk_ahlqvist","vnsk_akiander","vnsk_aminoff","vnsk_almanakka","vnsk_anonyymi","vnsk_asetus","vnsk_aulen","vnsk_backvall","vnsk_bocker","vnsk_bonsdorff","vnsk_borenius","vnsk_borg","vnsk_cajan","vnsk_cannelin","vnsk_cantell","vnsk_canth","vnsk_corander","vnsk_costiander","vnsk_dahlberg","vnsk_edlund","vnsk_eklof","vnsk_euren","vnsk_europaeus","vnsk_europaeus_sanastot","vnsk_fabritius","vnsk_forsman","vnsk_forstrom","vnsk_friman","vnsk_frosterus","vnsk_gottlund","vnsk_granlund","vnsk_hannikainen","vnsk_hjelt","vnsk_hordh","vnsk_hornborg","vnsk_ignatius","vnsk_ingman","vnsk_innain","vnsk_juteini","vnsk_keckman","vnsk_kemell","vnsk_kilpinen","vnsk_kivi","vnsk_koskinen","vnsk_krohn","vnsk_lagervall","vnsk_lankela","vnsk_lavonius","vnsk_lilius_anton","vnsk_lilius_aukusti","vnsk_lonnrot","vnsk_malmberg","vnsk_mehilainen","vnsk_mela","vnsk_meurman","vnsk_mmy","vnsk_murman","vnsk_muut","vnsk_nyman","vnsk_ovs","vnsk_polen","vnsk_poppius","vnsk_puhuttelija","vnsk_rein","vns_renvall","vnsk_roos","vnsk_salmelainen","vnsk_salonius","vnsk_sanaluettelot","vnsk_sandberg","vnsk_schroter","vnsk_sirelius","vnsk_skogman","vnsk_smtr","vnsk_sohlberg","vnsk_soldan","vnsk_ssv","vnsk_stahlberg","vnsk_tarvanen","vnsk_ticklen","vnsk_tikkanen","vnsk_topelius","vnsk_toppelius","vnsk_tvs","vnsk_varelius","vnsk_virsikirja","vnsk_wallin","vnsk_wikman","vnsk_wiwolin","vnsk_yksitt"],
-//     info: {
-// 	urn: "urn:nbn:fi:lb-2016081203",
-// 	metadata_urn: "urn:nbn:fi:lb-20140730147",
-// 	licence: settings.licenceinfo.EUPL_11,
-// 	homepage: settings.fn.kaino_homepage("1800/meta/1800"),
-// 	cite_id: "VNSK",
-//     },
-//     // unselected: true
-// };
+settings.corporafolders.selkokieli.ylenews_fi_selko = {
+    title: "Ylen suomenkielisen uutisarkiston selkouutiset",
+    description: "Ylen suomenkielisen uutisarkiston selkouutiset<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
+    contents: [
+	       "ylenews_fi_2011_2018_selko_a",
+	       "ylenews_fi_2011_2018_selko_s",
+	       ],
+    info: {
+	homepage: {
+	    name: "Yle Uutiset selkosuomeksi",
+	    url: "https://yle.fi/uutiset/osasto/selkouutiset/",
+	    no_label: true,
+	},
+    },
+};
+
+
+settings.corporafolders.learner = {
+    title: "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
+    contents: ["iclfi", "topling_fi"],
+    // unselected: true
+};
+
+settings.corporafolders.learner.las2 = {
+    title: "LAS2 – Edistyneiden suomenoppijoiden korpus",
+    info: {
+        urn: "urn:nbn:fi:lb-2016041201",
+        metadata_urn: "urn:nbn:fi:lb-201407167",
+        homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
+        licence: {
+            name: "CLARIN RES +PLAN +NC +INF +LOC +ND",
+            urn: "urn:nbn:fi:lb-2015041305",
+        },
+	cite_id: "LAS2",
+    },
+    contents: ["las2_tentit", "las2_esseet"]
+};
+
+settings.corporafolders.vks = {
+    title: "Vanhan kirjasuomen korpus",
+    contents: [
+	"vks_agricola",
+	"vks_biblia",
+	"vks_lait",
+	"vks_saarnat",
+	"vks_almanakat",
+	"vks_bjorkqvist",
+	"vks_frosterus",
+	"vks_ganander",
+	"vks_lizelius",
+	"vks_lpetri",
+	"vks_varia",
+	"vks_virret"
+    ],
+    info: {
+	urn: "urn:nbn:fi:lb-201407166",
+	metadata_urn: "urn:nbn:fi:lb-201407165",
+	licence: settings.licenceinfo.EUPL_11,
+	homepage: settings.fn.kaino_homepage("vks/meta/vks"),
+	cite_id: "VKS",
+    },
+    // unselected: true
+};
+
+settings.corporafolders.vns = {
+    title: "Varhaisnykysuomen korpus",
+    /*contents: ["vns_asetus", "vns_renqvist", "vns_renvall"],*/
+    contents: ["vnsk_aejmelaeus","vnsk_ahlholm","vnsk_ahlman_kirjat","vnsk_ahlman_sanastot","vnsk_ahlqvist","vnsk_akiander","vnsk_aminoff","vnsk_almanakka","vnsk_anonyymi","vnsk_asetus","vnsk_aulen","vnsk_backvall","vnsk_bocker","vnsk_bonsdorff","vnsk_borenius","vnsk_borg","vnsk_cajan","vnsk_cannelin","vnsk_cantell","vnsk_canth","vnsk_corander","vnsk_costiander","vnsk_dahlberg","vnsk_edlund","vnsk_eklof","vnsk_euren","vnsk_europaeus","vnsk_europaeus_sanastot","vnsk_fabritius","vnsk_forsman","vnsk_forstrom","vnsk_friman","vnsk_frosterus","vnsk_gottlund","vnsk_granlund","vnsk_hannikainen","vnsk_hjelt","vnsk_hordh","vnsk_hornborg","vnsk_ignatius","vnsk_ingman","vnsk_innain","vnsk_juteini","vnsk_keckman","vnsk_kemell","vnsk_kilpinen","vnsk_kivi","vnsk_koskinen","vnsk_krohn","vnsk_lagervall","vnsk_lankela","vnsk_lavonius","vnsk_lilius_anton","vnsk_lilius_aukusti","vnsk_lonnrot","vnsk_malmberg","vnsk_mehilainen","vnsk_mela","vnsk_meurman","vnsk_mmy","vnsk_murman","vnsk_muut","vnsk_nyman","vnsk_ovs","vnsk_polen","vnsk_poppius","vnsk_puhuttelija","vnsk_rein","vns_renvall","vnsk_roos","vnsk_salmelainen","vnsk_salonius","vnsk_sanaluettelot","vnsk_sandberg","vnsk_schroter","vnsk_sirelius","vnsk_skogman","vnsk_smtr","vnsk_sohlberg","vnsk_soldan","vnsk_ssv","vnsk_stahlberg","vnsk_tarvanen","vnsk_ticklen","vnsk_tikkanen","vnsk_topelius","vnsk_toppelius","vnsk_tvs","vnsk_varelius","vnsk_virsikirja","vnsk_wallin","vnsk_wikman","vnsk_wiwolin","vnsk_yksitt"],
+    info: {
+	urn: "urn:nbn:fi:lb-2016081203",
+	metadata_urn: "urn:nbn:fi:lb-20140730147",
+	licence: settings.licenceinfo.EUPL_11,
+	homepage: settings.fn.kaino_homepage("1800/meta/1800"),
+	cite_id: "VNSK",
+    },
+    // unselected: true
+};
 
 settings.corporafolders.test = {
     title: "Demo- ja testiaineistoja",
