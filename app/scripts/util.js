@@ -905,7 +905,7 @@ util.loadCorporaFolderRecursive = function (first_level, folder) {
         // This check makes the code work even if there isn't a ___settings.corporafolders = {};___ in config.js
         // Folders
         $.each(folder, function (fol, folVal) {
-            if (fol !== "contents" && fol !== "title" && fol !== "description") {
+            if (! window.folderNonCorpusProps.includes(fol)) {
                 outHTML += `<li>${util.loadCorporaFolderRecursive(false, folVal)}</li>`
             }
         })

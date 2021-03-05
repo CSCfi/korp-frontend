@@ -192,3 +192,7 @@ settings.handleUnavailableCorpora = "fatal"
 //   Extract lemgrams from data returned by the lemgram completion call.
 //   Return value: list (array) of lemgrams as strings
 settings.lemgramComplete = null
+
+// Corpus folder property names not to be treated as corpus ids, in
+// addition to "title", "contents" and "description"
+settings.corpusfolderNonCorpusProperties = []
