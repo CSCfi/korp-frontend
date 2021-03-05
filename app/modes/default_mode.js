@@ -1043,11 +1043,11 @@ settings.corpora.testcorpus = {
     description: "A test corpus for testing Korp.",
     id: "testcorpus",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
         pos: attrs.pos
     },
-    struct_attributes: {
+    structAttributes: {
     }
 };
 */
@@ -1058,13 +1058,13 @@ settings.corpora.testcorp = {
     description: "Testikorpus Korpin ominaisuuksien testaamiseksi",
     id: "testcorp",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     // limited_access: true,
     attributes: {
 	lemma: attrs.baseform,
         pos: attrs.pos
     },
-    struct_attributes: {
+    structAttributes: {
 	sentence_id: {
 	    label: "sentence_id"
 	},
@@ -1082,7 +1082,7 @@ settings.corpora.testcorp_deptree = {
     description: "Testikorpus Korpin dependenssipuun piirtämisen testaamiseksi",
     id: "testcorp_deptree",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
 	lemma: attrs.baseform_ftb2,
         pos: attrs.pos_ftb2,
@@ -1093,7 +1093,7 @@ settings.corpora.testcorp_deptree = {
 	spoken: attrs.spoken,
 	lex: attrs.lemgram_hidden
     },
-    struct_attributes: {
+    structAttributes: {
 	sentence_id: sattrs.sentence_id_hidden
     }
 };
@@ -1108,7 +1108,7 @@ settings.corpora.testcorp_deptree = {
 //     metadata_urn: "urn:nbn:fi:lb-2019042601",
 //     licence : settings.licenceinfo.CC_BY,
 //     features: ["paragraphs", "parsed_tdt"],
-//     struct_attributes : {
+//     structAttributes : {
 // 	text_url : {
 // 	    label : "URL",
 // 	    type : "url",
@@ -1144,7 +1144,7 @@ settings.corpora.testcorp_deptree = {
 //     metadata_urn: "urn:nbn:fi:lb-2019042607",
 //     licence : settings.licenceinfo.CC_BY,
 //     features: ["paragraphs", "parsed_tdt"],
-//     struct_attributes : {
+//     structAttributes : {
 // 	text_url : {
 // 	    label : "URL",
 // 	    type : "url",
@@ -1163,7 +1163,7 @@ settings.corpora.testcorp_deptree = {
 //     metadata_urn: "urn:nbn:fi:lb-2019042607",
 //     licence : settings.licenceinfo.CC_BY,
 //     features: ["paragraphs", "parsed_tdt"],
-//     struct_attributes : {
+//     structAttributes : {
 // 	text_url : {
 // 	    label : "URL",
 // 	    type : "url",
@@ -1186,10 +1186,10 @@ settings.corpora.testcorp_deptree = {
 //     cite_id: "FinStud86",
 //     limited_access: true,
 //     licence_type: "RES",
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     within: settings.defaultWithin,
 //     attributes: attrlist.finstud,
-//     struct_attributes: sattrlist.finstud
+//     structAttributes: sattrlist.finstud
 // };
 
 
@@ -1235,7 +1235,7 @@ settings.corpora.ftb3 = {
     description: "Finnish tree bank, version 3: EuroParl, JRC Acquis",
     id: "ftb3",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
 	lemma: attrs.baseform_ftb2,
 	lemmacomp: attrs.baseform_compound,
@@ -1246,7 +1246,7 @@ settings.corpora.ftb3 = {
 	deprel: attrs.deprel_ftb2,
 	lex: attrs.lemgram_hidden
     },
-    struct_attributes: {
+    structAttributes: {
 	subcorpus_name: {
 	    label: "subcorpus_name",
 	    displayType: "select",
@@ -1396,7 +1396,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Hiidenkivi (2009–2012)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisijat: Kotimaisten kielten keskus, Suomalaisen Kirjallisuuden Seura, Suomen Kotiseutuliitto<br/>Kotisivu: <a href='http://www.hiidenkivi-lehti.fi/'>http://www.hiidenkivi-lehti.fi/</a>",
 //     id: "tiedelehdet_hiidenkivi",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_title: {
 //             label: "text_title"
@@ -1416,7 +1416,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Versus (2/2011–1/2015)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Alue- ja ympäristöntutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/versus/'>http://www.ays.fi/versus/</a>",
 //     id: "tiedelehdet_versus",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_title: {
 //             label: "text_title"
@@ -1436,7 +1436,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kasvu (2012–1/2016)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Talentia ry<br/>Kotisivu: <a href='http://talentia.e-julkaisu.com/julkaisut/'>http://talentia.e-julkaisu.com/julkaisut/</a>",
 //     id: "tiedelehdet_kasvu",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_title: {
 //             label: "text_title"
@@ -1456,7 +1456,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Liikunta ja tiede (2008–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet tutkimusartikkelit<br/>Julkaisija: Liikuntatieteellinen Seura ry<br/>Kotisivu: <a href='http://www.lts.fi/liikunta-tiede-lehti'>http://www.lts.fi/liikunta-tiede-lehti</a>",
 //     id: "tiedelehdet_liikuntajatiede",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -1473,7 +1473,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Liikenteen suunta (2010–2/2014)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Liikennevirasto<br/>Kotisivu: <a href='http://www.liikenteensuunta.fi/fi/'>http://www.liikenteensuunta.fi/fi/</a>",
 //     id: "tiedelehdet_liikenteensuunta_v2",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -1490,7 +1490,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Informaatiotutkimus (2000–2015)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Informaatiotutkimuksen yhdistys<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/inf'>http://ojs.tsv.fi/index.php/inf</a>",
 //     id: "tiedelehdet_informaatio",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_citationabstracthtmlurl: sattrs.link_lehdet,
 //         text_citationauthors: {
 //             label: "text_author"
@@ -1516,7 +1516,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Helsingin yliopiston kirjaston tiedotuslehti (2000–2002) / Kansalliskirjasto-lehti (2003–2013)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='https://www.kansalliskirjasto.fi/fi/search?keys=yleistieto%20tiedotus%20kansalliskirjastolehti'>https://www.kansalliskirjasto.fi/</a>",
 //     id: "tiedelehdet_hykirjasto",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_citationabstracthtmlurl: sattrs.link_lehdet,
 //         text_citationauthors: {
 //             label: "text_author"
@@ -1541,7 +1541,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Geologi (2000, 2006–2013)<br/>Sisältää lehden kotisivulla ja <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen Geologinen Seura<br/>Kotisivu: <a href='http://www.geologinenseura.fi/geologi-lehti/'>http://www.geologinenseura.fi/geologi-lehti/</a>",
 //     id: "tiedelehdet_geologi",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_citationabstracthtmlurl: sattrs.link_lehdet,
 //         text_citationtitle: {
 //             label: "text_title"
@@ -1557,7 +1557,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Musiikin suunta (2003–2013)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen etnomusikologinen seura<br/>Kotisivu: <a href='http://www.etnomusikologia.fi/julkaisut/Mus.suunta.htm'>http://www.etnomusikologia.fi/julkaisut/</a>",
 //     id: "tiedelehdet_musiikinsuunta",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_citationabstracthtmlurl: sattrs.link_lehdet,
 //         text_citationauthors: {
 //             label: "text_author"
@@ -1583,7 +1583,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Suomalais-Ugrilaisen Seuran Aikakauskirja (2006, 2011, 2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomalais-Ugrilainen seura<br/>Kotisivu: <a href='http://www.sgr.fi/susa/susa_fi.html'>http://www.sgr.fi/susa/</a>",
 //     id: "tiedelehdet_susa",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_title: sattrs.text_title,
 //         text_year: {
@@ -1597,7 +1597,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Sosiaalilääketieteellinen Aikakauslehti (2006–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Sosiaalilääketieteellinen yhdistys ry<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/SA/index'>http://ojs.tsv.fi/index.php/SA/index</a>",
 //     id: "tiedelehdet_sosiaalilaaketiede",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_citationabstracthtmlurl: sattrs.link_lehdet,
 //         text_citationauthors: {
 //             label: "text_author"
@@ -1622,7 +1622,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "niin & näin (2000–4/2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Eurooppalaisen filosofian seura ry<br/>Kotisivu: <a href='http://netn.fi/lehti'>http://netn.fi/</a>",
 //     id: "tiedelehdet_niinnain_v2",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_title: sattrs.text_title,
 //         text_year: {
@@ -1636,7 +1636,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Skeptikko (2000–2015)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Skepsis ry<br/>Kotisivu: <a href='http://www.skepsis.fi/Julkaisuja/Skeptikkolehti.aspx'>http://www.skepsis.fi/</a>",
 //     id: "tiedelehdet_skeptikko",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -1653,7 +1653,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Suo (2005–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suoseura<br/>Kotisivu: <a href='http://www.suoseura.fi/suo/'>http://www.suoseura.fi/suo/</a>",
 //     id: "tiedelehdet_suo",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -1670,7 +1670,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Teologinen Aikakauskirja (2004–2013)<br/>Julkaisija: Teologinen Julkaisuseura ry<br/>Kotisivu: <a href='http://www.tatt.fi/'>http://www.tatt.fi/</a>",
 //     id: "tiedelehdet_teologinen",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -1687,7 +1687,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tieteessä tapahtuu (2000–2015)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Tieteellisten seurain valtuuskunta<br/><a href='http://www.tieteessatapahtuu.fi/'>http://www.tieteessatapahtuu.fi/</a>",
 //     id: "tiedelehdet_tieteessatapahtuu",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_citationabstracthtmlurl: sattrs.link_lehdet,
 //         text_citationauthors: {
 //             label: "text_author"
@@ -1712,7 +1712,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Terminfo (2010–2015)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Sanastokeskus TSK<br/>Kotisivu: <a href='http://www.terminfo.fi/'>http://www.terminfo.fi/</a>",
 //     id: "tiedelehdet_terminfo",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -1729,7 +1729,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tietojenkäsittelytiede (2003–2015)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Tieojenkäsittelytieteen seura<br/>Kotisivu: <a href='http://www.cse.tkk.fi/fi/tkt-lehti/'>http://www.cse.tkk.fi/fi/tkt-lehti/</a>",
 //     id: "tiedelehdet_tktlehti",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -1747,7 +1747,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Synnyt (2004–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Synnyt/Origins<br/>Kotisivu: <a href='https://wiki.aalto.fi/display/Synnyt/Home'>https://wiki.aalto.fi/display/Synnyt/Home</a>",
 //     id: "tiedelehdet_synnyt",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -1764,7 +1764,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Muinaistutkija (2000–2012)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen arkeologinen seura<br/>Kotisivu: <a href='http://www.sarks.fi/mt/etusivu.html'>http://www.sarks.fi/mt/etusivu.html</a>",
 //     id: "tiedelehdet_muinaistutkija",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_date: {
 //             label: "year"
 //         },
@@ -1782,7 +1782,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tutkiva Sosiaalityö (2010–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Sosiaalityön tutkimuksen seura<br/>Kotisivu: <a href='http://www.sosiaalityontutkimuksenseura.fi/Tutkiva_sosiaality%C3%B6'>http://www.sosiaalityontutkimuksenseura.fi/Tutkiva_sosiaality%C3%B6</a>",
 //     id: "tiedelehdet_tutkivasos",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year"
 //         }
@@ -1794,7 +1794,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tiede ja Ase (2000–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen sotatieteellinen seura<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/ta'>http://ojs.tsv.fi/index.php/ta</a>",
 //     id: "tiedelehdet_tiedejaase",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_citationabstracthtmlurl: sattrs.link_lehdet,
 //         text_citationauthors: {
 //             label: "text_author"
@@ -1820,7 +1820,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kirjallisuudentutkimuksen aikakauslehti Avain (2004–2015)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Kirjallisuudentutkijain Seura<br/>Kotisivu: <a href='http://pro.tsv.fi/skts/avain.html'>http://pro.tsv.fi/skts/avain.html</a>",
 //     id: "tiedelehdet_avain",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue"
 //         }
@@ -1832,7 +1832,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ennen ja nyt (2001–1/2016)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisijat: Agricola -Suomen historiaverkko, Historiallinen Yhdistys ry, Suomen Historiallinen Seura ry ja Turun Historiallinen Yhdistys ry.<br/>Kotisivu: <a href='http://www.ennenjanyt.net/'>http://www.ennenjanyt.net/</a>",
 //     id: "tiedelehdet_ennenjanyt",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet
 //     }
@@ -1843,7 +1843,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Historian ystävä (2010–1/2016)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Historian Ystäväin Liitto<br/>Kotisivu: <a href='http://www.historianyst.fi/historianystava/'>http://www.historianyst.fi/historianystava/</a>",
 //     id: "tiedelehdet_historianystava",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet
 //     }
 // };
@@ -1853,7 +1853,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ilmansuojelu-lehti (2007–2015)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Ilmansuojeluyhdistys ry<br/>Kotisivu: <a href='https://isy.fi/julkaisut/ilmansuojelulehti/'>https://isy.fi/julkaisut/ilmansuojelulehti/</a>",
 //     id: "tiedelehdet_ilmansuojelu",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet
 //     }
 // };
@@ -1863,7 +1863,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kieliskooppi (2012–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Jyväskylän yliopiston kielikampus<br/>Kotisivu:<a href='http://research.jyu.fi/kieliskooppi/journals/'>http://research.jyu.fi/kieliskooppi/journals/</a>",
 //     id: "tiedelehdet_kieliskooppi",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_title: sattrs.text_title
 //     }
@@ -1874,7 +1874,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kosmopolis (2000–2013)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen rauhantutkimusyhdistys<br/>Kotisivu: <a href='http://rauhantutkimus.fi/content/kosmopolis/'>http://rauhantutkimus.fi/content/kosmopolis/</a>",
 //     id: "tiedelehdet_kosmopolis",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //     text_citationabstracthtmlurl: sattrs.link_lehdet,
 //         text_citationauthors: {
 // 	label: "text_author"
@@ -1899,7 +1899,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Poliittinen talous (1/2013–1/2014)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Poliittisen talouden tutkimuksen seura<br/>Kotisivu: <a href='http://poliittinentalous.fi/ojs/'>http://poliittinentalous.fi/ojs/</a>",
 //     id: "tiedelehdet_poliittinentalous",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet
 //     }
 // };
@@ -1910,7 +1910,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "SKAS (2007–2013)<br/>Julkaisija: Suomen keskiajan arkeologian seura<br/>Kotisivu: <a href='http://www.skas.fi/skas-lehti/'>http://www.skas.fi/skas-lehti/</a>",
 //     id: "tiedelehdet_skas",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
 //             label: "issue"
@@ -1923,7 +1923,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "TAHITI – Taidehistoria tieteenä (1/2011–4/2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Taidehistorian seura<br/>Kotisivu: <a href='http://tahiti.fi/'>http://tahiti.fi/</a>",
 //     id: "tiedelehdet_tahiti",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
 //             label: "issue"
@@ -1936,7 +1936,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Vartija-lehti (2006–2/2015)<br/>Julkaisija: Vartija-lehden kannatusyhdistys<br/>Kotisivu: <a href='http://www.vartija-lehti.fi/'>http://www.vartija-lehti.fi/</a>",
 //     id: "tiedelehdet_vartija",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue"
 //         }
@@ -1948,7 +1948,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Yhteiskuntapolitiikka (1998–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Terveyden ja hyvinvoinnin laitos<br/>Kotisivu: <a href='https://www.thl.fi/fi/web/yhteiskuntapolitiikka/'>https://www.thl.fi/fi/web/yhteiskuntapolitiikka/</a> ",
 //     id: "tiedelehdet_yhteiskuntapolitiikka",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_citationabstracthtmlurl: sattrs.link_lehdet,
 //         text_citationauthors: {
 //             label: "text_author"
@@ -1973,7 +1973,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tietolinja (1/2000–2/2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Kansalliskirjasto<br/>Kotisivu: <a href='http://tietolinja.kansalliskirjasto.fi/'>http://tietolinja.kansalliskirjasto.fi/</a>",
 //     id: "tiedelehdet_tietolinja",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
 //             label: "issue"
@@ -1986,7 +1986,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tiedotustutkimus (2005–2009) / Media & Viestintä (2010–2014)<br/>Julkaisija: Media- ja viestintätieteellinen seura<br/>Kotisivu: <a href='http://mediaviestinta.fi/blogi/'>http://mediaviestinta.fi/blogi/</a>",
 //     id: "tiedelehdet_mediajaviestinta",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_issue: {
 // 	    label: "issue"
 //         }
@@ -1999,7 +1999,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Terra (2000–2013)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen maantieteellinen seura<br/>Kotisivu: <a href='http://www.helsinki.fi/maantiede/geofi/terra/'>http://www.helsinki.fi/maantiede/geofi/terra/</a>",
 //     id: "tiedelehdet_terra",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_citationabstracthtmlurl: sattrs.link_lehdet,
 //         text_citationauthors: {
 //             label: "text_author"
@@ -2025,7 +2025,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Rakenteiden mekaniikka (2000–2014)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Rakenteiden mekaniikan seura<br/>Kotisivu: <a href='http://rmseura.tkk.fi/rmlehti/'>http://rmseura.tkk.fi/rmlehti/</a>",
 //     id: "tiedelehdet_rakmek",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -2040,7 +2040,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "NMI-Bulletin (2002–2003, 2007–2012)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Niilo Mäki instituutti<br/>Kotisivu: <a href='http://bulletin.nmi.fi/arkisto/'>http://bulletin.nmi.fi/arkisto/</a>",
 //     id: "tiedelehdet_nimi",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet
 //     }
@@ -2051,7 +2051,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Prologi (2009–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Prologos ry<br/>Kotisivu: <a href='http://prologos.fi/prologi/'>http://prologos.fi/prologi/</a>",
 //     id: "tiedelehdet_prologi",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet
 //     }
@@ -2062,7 +2062,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Metsätieteen aikakauskirja (2000–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Luonnonvarakeskus & Suomen Metsätieteellinen Seura<br/>Kotisivu: <a href='http://www.metla.fi/aikakauskirja/'>http://www.metla.fi/aikakauskirja/</a>",
 //     id: "tiedelehdet_metsatiede",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet
 //     }
@@ -2073,7 +2073,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ravitsemuskatsaus (2007–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Maito ja Terveys ry<br/>Kotisivu: <a href='http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php'>http://www.maitojaterveys.fi/www/fi/ravitsemuskatsaus/lehdet/index.php</a>",
 //     id: "tiedelehdet_ravitsemus",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue"
@@ -2087,7 +2087,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kulutustutkimus.Nyt (2007–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Kulutustutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulutustutkimus.net/nyt/'>http://www.kulutustutkimus.net/nyt/</a>",
 //     id: "tiedelehdet_kulutustutkimus",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue"
@@ -2101,7 +2101,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Sananjalka (2006–2013)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen kielen seura<br/>Kotisivu: <a href='http://www.suomenkielenseura.fi/sananjalka/'>http://www.suomenkielenseura.fi/sananjalka/</a>",
 //     id: "tiedelehdet_sananjalka",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_citationabstracthtmlurl: sattrs.link_lehdet,
 //         text_citationauthors: {
 //             label: "text_author"
@@ -2127,7 +2127,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Suomen kirkkohistoriallisen seuran vuosikirja (2000–2014)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen kirkkohistoriallinen seura<br/>Kotisivu: <a href='http://www.skhs.fi/julkaisut/vuosikirja/'>http://www.skhs.fi/julkaisut/vuosikirja/</a>",
 //     id: "tiedelehdet_kirkkohistoria",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_citationabstracthtmlurl: sattrs.link_lehdet,
 //         text_citationauthors: {
 //             label: "text_author"
@@ -2153,7 +2153,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Skholion (2009–1/2012)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen Bysantin tutkimuksen seura ry<br/>Kotisivu: <a href='http://www.protsv.fi/bts/BTSskholion.html'>http://www.protsv.fi/bts/BTSskholion.html</a>",
 //     id: "tiedelehdet_skholion",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
 //             label: "issue"
@@ -2168,7 +2168,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Siirtolaisuus-Migration (2000–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Siirtolaisuusinstituutti<br/>Kotisivu: <a href='http://www.migrationinstitute.fi/fi/julkaisut/siirtolaisuus-migration'>http://www.migrationinstitute.fi/fi/julkaisut/siirtolaisuus-migration</a>",
 //     id: "tiedelehdet_siirtolaisuus",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
 //             label: "issue"
@@ -2184,7 +2184,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Taimiuutiset (2000–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Luonnonvarakeskus Suonenjoki<br/>Kotisivu: <a href='http://www.metla.fi/taimiuutiset/'>http://www.metla.fi/taimiuutiset/</a>",
 //     id: "tiedelehdet_taimiuutiset",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue"
@@ -2198,7 +2198,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kulttuurintutkimus (2004–2013)<br/>Sisältää lehden kotisivulla ja <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Kulttuurintutkimuksen seura ry<br/>Kotisivu: <a href='http://www.kulttuurintutkimus.fi/lehti/'>http://www.kulttuurintutkimus.fi/lehti/</a>",
 //     id: "tiedelehdet_kulttuurintutkimus",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_citationabstracthtmlurl: sattrs.link_lehdet,
 //         text_citationauthors: {
 //             label: "text_author"
@@ -2223,7 +2223,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Matkailututkimus (2005–2013)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen matkailututkimuksen seura ry<br/>Kotisivu: <a href='http://matkailututkimus.org/'>http://matkailututkimus.org/</a>",
 //     id: "tiedelehdet_matkailututkimus",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_citationabstracthtmlurl: sattrs.link_lehdet,
 //         text_citationauthors: {
 //             label: "text_author"
@@ -2248,7 +2248,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kunnallistieteellinen aikakauskirja (2002–2012)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Kunnallistieteen yhdistys<br/>Kotisivu: <a href='http://www.kunnallistiede.fi/aikakauskirja/'>http://www.kunnallistiede.fi/aikakauskirja/</a>",
 //     id: "tiedelehdet_kunnallistiede",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_citationabstracthtmlurl: sattrs.link_lehdet,
 //         text_citationauthors: {
 //             label: "text_author"
@@ -2273,7 +2273,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Maaseudun uusi aika (2000–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Maaseudun uusi aika -yhdistys<br/>Kotisivu: <a href='http://www.mua.fi/lehti/'>http://www.mua.fi/lehti/</a>",
 //     id: "tiedelehdet_maaseudunuusiaika",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         /*text_title: sattrs.text_title,*/
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -2288,7 +2288,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Elinikäisen ohjauksen verkkolehti (2011–2014)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: JAMK ammatillinen opettajakorkeakoulu<br/>Kotisivu: <a href='http://verkkolehdet.jamk.fi/elo/'>http://verkkolehdet.jamk.fi/elo/</a>",
 //     id: "tiedelehdet_elo",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -2302,7 +2302,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Bryobrotherella (2008–2012)<br/>Julkaisija: Suomen Sammalseura<br/>Kotisivu: <a href='http://www.suomensammalseura.fi/'>http://www.suomensammalseura.fi</a>",
 //     id: "tiedelehdet_bryobrotherella",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue"
 //         }
@@ -2314,7 +2314,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Lounais-Hämeen Luonto (2000–2010)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Lounais-Hämeen Luonnonsuojeluyhdistys ry<br/>Kotisivu: <a href='http://www.lounaisluonto.net/'>http://www.lounaisluonto.net/</a>",
 //     id: "tiedelehdet_lounaishame",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -2328,7 +2328,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kompositio (2007–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen Säveltäjät ry<br/>Kotisivu: <a href='http://www.composers.fi/tietoa-yhdistyksesta/kompositio/'>http://www.composers.fi/tietoa-yhdistyksesta/kompositio/</a>",
 //     id: "tiedelehdet_kompositio",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -2342,7 +2342,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Liiketaloudellinen Aikakauskirja (2000–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Liiketaloustieteellinen Yhdistys ry<br/>Kotisivu: <a href='http://lta.hse.fi/'>http://lta.hse.fi/</a>",
 //     id: "tiedelehdet_liiketalous",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -2357,7 +2357,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "GeoFoorumi (2006–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Geologian tutkimuskeskus (GTK)<br/><a href='http://www.gtk.fi/ajankohtaista/painotuotteet/geofoorumi/'>http://www.gtk.fi/ajankohtaista/painotuotteet/geofoorumi/</a>",
 //     id: "tiedelehdet_geofoorumi",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -2371,7 +2371,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Agricolan Tietosanomat (2000)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: <br/>Kotisivu: <a href='http://agricola.utu.fi/julkaisut/tietosanomat/'>http://agricola.utu.fi/julkaisut/tietosanomat/</a>",
 //     id: "tiedelehdet_agricola",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_atitle: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_author: sattrs.article_author,
@@ -2386,7 +2386,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Diakonian tutkimus -aikakauskirja (2004–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Diakonian Tutkimuksen Seura<br/>Kotisivu: <a href='http://dts.fi/aikakauskirja/'>http://dts.fi/aikakauskirja/</a>",
 //     id: "tiedelehdet_diakonia",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         /*text_url: sattrs.link_lehdet,*/
 //         text_issue: {
 //             label: "issue"
@@ -2399,7 +2399,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Psykologia-lehti (2009–2010)<br/>Julkaisija: Suomen psykologinen seura<br/>Kotisivu: <a href='http://www.psykologia.fi/'>http://www.psykologia.fi/</a>",
 //     id: "tiedelehdet_psykologia",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         /*text_url: sattrs.link_lehdet,*/
 //         text_issue: {
 //             label: "issue"
@@ -2412,7 +2412,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ruralia-lehti (2006–2014)<br/>Julkaisija: Ruralia-instituutti<br/>Kotisivu: <a href='http://www.helsinki.fi/ruralia/'>http://www.helsinki.fi/ruralia/</a>",
 //     id: "tiedelehdet_ruralia",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
 //             label: "issue"
@@ -2425,7 +2425,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Historiallinen Aikakauskirja (2001–2013)<br/>Sisältää lehden <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen Historiallinen Seura & Historian Ystäväin Liitto<br/>Kotisivu: <a href='http://www.historiallinenaikakauskirja.fi/'>http://www.historiallinenaikakauskirja.fi/</a>",
 //     id: "tiedelehdet_historiallinen",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_citationabstracthtmlurl: sattrs.link_lehdet,
 //         text_citationauthors: {
 //             label: "text_author"
@@ -2450,7 +2450,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Havina (2009–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Oulun yliopisto, Historiatieteet</br>Kotisivu: <a href='http://www.havina.net/'>http://www.havina.net/</a>",
 //     id: "tiedelehdet_havina",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_atitle: sattrs.text_title,
 //         text_date: sattrs.date,
 //         text_url: sattrs.link_lehdet,
@@ -2466,7 +2466,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Harukaze (2000–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Japani-opinnot, Oulun yliopisto, Oulu<br/>Kotisivu: <a href='http://www.oulu.fi/Harukaze/'>http://www.oulu.fi/Harukaze/</a>",
 //     id: "tiedelehdet_harukaze",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_atitle: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_author: sattrs.article_author,
@@ -2482,7 +2482,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Glossae (2000–2012)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Keskiajan opinto- ja tutkimusyhdistys<br/>Kotisivu: <a href='http://www.glossa.fi/glossae/arkisto.php'>http://www.glossa.fi/glossae/arkisto.php</a>",
 //     id: "tiedelehdet_glossae",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
 //             label: "issue"
@@ -2496,7 +2496,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Musiikkikasvatuslehti (2014)<br/>Julkaisijat: Sibelius-Akatemia & Suomen Taidekasvatuksen tutkimusseura<br/>Kotisivu: <a href='http://www2.siba.fi/musiikkikasvatuslehti/'>http://www2.siba.fi/musiikkikasvatuslehti/</a>",
 //     id: "tiedelehdet_musiikkikasv",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
 //             label: "issue"
@@ -2509,7 +2509,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Areiopagi (2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Areiopagi ry<br/>Kotisivu: <a href='http://www.areiopagi.fi/'>http://www.areiopagi.fi/</a>",
 //     id: "tiedelehdet_areiopagi",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_atitle: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_author: sattrs.article_author,
@@ -2525,7 +2525,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "ATS-Ydintekniikka (2000–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen Atomiteknillinen Seura<br/>Kotisivu: <a href='http://www.ats-fns.fi/fi/ats-ydintekniikka/lehdet'>http://www.ats-fns.fi/fi/ats-ydintekniikka/lehdet</a>",
 //     id: "tiedelehdet_ats",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         /*text_url: sattrs.link_lehdet,*/
 //         text_issue: {
 //             label: "issue"
@@ -2539,7 +2539,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Auraica (2008–2012)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Porthan-Seura ry<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/Aur/issue/archive'>http://ojs.tsv.fi/index.php/Aur/issue/archive</a>",
 //     id: "tiedelehdet_auraica",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -2553,7 +2553,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Aikuiskasvatus (2011–2014)<br/><a href='https://www.kielipankki.fi/wp-content/uploads/Aikuiskasvatus_artikkeliluettelo.pdf'>Artikkeliluettelo</a><br/>Julkaisijat: Aikuiskasvatuksen Tutkimusseura ry ja Kansanvalistusseura<br/>Kotisivu: <a href='http://www.doria.fi/handle/10024/7300'>http://www.doria.fi/handle/10024/7300</a>",
 //     id: "tiedelehdet_aikuiskasvatus",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_atitle: sattrs.text_title,
 //         /*text_date: sattrs.date,*/
 //         text_author: sattrs.article_author,
@@ -2569,7 +2569,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Toksikologi-lehti (2000–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen toksikologiyhdistys<br/>Kotisivu: <a href='http://www.toksikologit.fi/lehti.html'>http://www.toksikologit.fi/lehti.html</a>",
 //     id: "tiedelehdet_toksikologi",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet
 //     }
@@ -2580,7 +2580,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "W-album (2004–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Turun Eläin- ja Kasvitieteellisen seuran Hyönteiskerho<br/>Kotisivu: <a href='http://org.utu.fi/harrastus/TEKS/w-album/'>http://org.utu.fi/harrastus/TEKS/w-album/</a>",
 //     id: "tiedelehdet_walbum",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet
 //     }
@@ -2591,7 +2591,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Työelämän tutkimus (2003–2012)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Työelämän tutkimusyhdistys<br/>Kotisivu: <a href='http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/'>http://www.tyoelamantutkimus.fi/tyoelaman-tutkimus-arbetslivsforskning-lehtitidskrift/lehdet/</a>",
 //     id: "tiedelehdet_tyoelama",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet
 //     }
@@ -2602,7 +2602,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Valtiotieteilijä (2009–2011), Ura (2012–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Yhteiskunta-alan korkeakoulutetut ry<br/>Kotisivu: <a href='http://uralehti.fi/arkisto/'>http://uralehti.fi/arkisto/</a>",
 //     id: "tiedelehdet_ura",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -2616,7 +2616,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Virittäjä (3/2006–4/2013)<br/>Sisältää lehden kotisivulla ja <a href='http://elektra.helsinki.fi/lehdet.html'>Elektra-tietokannassa</a> keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Kotikielen seura<br/>Kotisivu: <a href='http://www.kotikielenseura.fi/virittaja/verkkolehti/'>http://www.kotikielenseura.fi/virittaja/verkkolehti/</a>",
 //     id: "tiedelehdet_virittaja",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_citationabstracthtmlurl: sattrs.link_lehdet,
 //         text_citationauthors: {
 //             label: "text_author"
@@ -2641,7 +2641,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ympäristöhistoria (2011–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: <br/>Kotisivu: <a href='http://www.uta.fi/yky/tutkimus/historia/projektit/iehg/Ymparistohistoria/12011.html'>http://www.uta.fi/yky/tutkimus/historia/projektit/iehg/Ymparistohistoria/12011.html</a>",
 //     id: "tiedelehdet_ymparistohistoria",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -2656,7 +2656,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Trio (2012–2014)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Sibelius Akatemia (DocMus)<br/>Kotisivu: <a href='http://www5.siba.fi/services-for-all/publications/printed-publications/periodicals'>http://www5.siba.fi/services-for-all/publications/printed-publications/periodicals</a>",
 //     id: "tiedelehdet_trio",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue"
@@ -2670,7 +2670,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Transmitteri (2000–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen farmakologiyhdistys<br/>Kotisivu: <a href='http://www.sfy.fi/transmitteri.html'>http://www.sfy.fi/transmitteri.html</a>",
 //     id: "tiedelehdet_transmitteri",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet
 //     }
@@ -2682,7 +2682,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Thanatos (2012–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomalaisen Kuolemantutkimuksen Seura ry<br/>Kotisivu: <a href='http://thanatos-journal.com/'>http://thanatos-journal.com/</a>",
 //     id: "tiedelehdet_thanatos",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet
 //     }
@@ -2695,7 +2695,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Alue ja ympäristö (2005–2014)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Alue- ja ympäristötutkimuksen seura<br/>Kotisivu: <a href='http://www.ays.fi/aluejaymparisto'>http://www.ays.fi/aluejaymparisto</a>",
 //     id: "tiedelehdet_aluejaymparisto",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         /*text_date: sattrs.date,*/
 //         text_url: sattrs.link_lehdet,
@@ -2710,7 +2710,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Aakusti (2008–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Savon kielen seura ry<br/>Kotisivu: <a href='http://savonkielenseura.fi/arkistosivu/'>http://savonkielenseura.fi/arkistosivu/</a>",
 //     id: "tiedelehdet_aakusti",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         /*text_date: sattrs.date,*/
 //         text_url: sattrs.link_lehdet,
@@ -2725,7 +2725,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "30 Päivää (2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Sosiaalialan korkeakoulutettujen ammattijärjestö Talentia ry<br/>Kotisivu: <a href='http://www.talentia.isinteksas.com/julkaisut/'>http://www.talentia.isinteksas.com/julkaisut/</a>",
 //     id: "tiedelehdet_30paivaa",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         /*text_date: sattrs.date,*/
 //         text_url: sattrs.link_lehdet,
@@ -2740,7 +2740,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Aikakauskirja Äidinkielen opetustiede (2008–2012)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Äidinkielen Opetustieteen Seura ry<br/>Kotisivu: <a href='http://www.aidinkielenopetustieteenseurary.com/'>http://www.aidinkielenopetustieteenseurary.com/</a>",
 //     id: "tiedelehdet_aidinkieli",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         /*text_date: sattrs.date,*/
 //         text_url: sattrs.link_lehdet,
@@ -2755,7 +2755,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kognitiivinen psykoterapia (2004–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Kognitiivisen psykoterapian yhdistys<br/>Kotisivu: <a href='http://www.kognitiivinenpsykoterapia.fi/'>http://www.kognitiivinenpsykoterapia.fi/</a>",
 //     id: "tiedelehdet_kognitiivinen",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet
 //     }
 // };
@@ -2767,7 +2767,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Automaatioväylä (5/2012–4/2016)<br/>Julkaisija: Automaatioväylä Oy<br/>Kotisivu: <a href='http://www.automaatiovayla.fi/category/lehtiarkisto/'>http://www.automaatiovayla.fi/category/lehtiarkisto/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -2793,7 +2793,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Baptria (2010–2/2011)<br/>Julkaisija: Suomen Perhostutkijain Seura ry<br/>Kotisivu: <a href='http://www.perhostutkijainseura.fi/fi/J%C3%A4senlehti+Baptria.html'>http://www.perhostutkijainseura.fi/fi/J%C3%A4senlehti+Baptria.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -2819,7 +2819,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Idäntutkimus (2/2003–2/2016)<br/>Julkaisija: Idäntutkimus, Venäjän ja Itä-Euroopan tutkimuksen seura ry<br/>Kotisivu: <a href='http://www.helsinki.fi/idantutkimus/arkisto.htm'>http://www.helsinki.fi/idantutkimus/arkisto.htm</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -2845,7 +2845,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kliinlab (2000–2016)<br/>Julkaisija: Suomen kliinisen kemian yhdistys<br/>Kotisivu: <a href='http://www.skky.fi/kliinlab-lehti'>http://www.skky.fi/kliinlab-lehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -2871,7 +2871,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Yhdyskuntasuunnittelu (3–4/1990, 4/1993–3/1995, 1/1998, 2/2000–2012)<br/>Julkaisija: Yhdyskuntasuunnittelun seura<br/>Kotisivu: <a href='http://www.yss.fi/yhdyskuntasuunnittelu-lehti/kirjoituksia-vuosien-varrelta'>http://www.yss.fi/yhdyskuntasuunnittelu-lehti/kirjoituksia-vuosien-varrelta</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -2897,7 +2897,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Näyttämö & tutkimus (2005, 2006, 2009, 2011, 2014)<br/>Julkaisija: Teatterintutkimuksen seura ry<br/>Kotisivu: <a href='http://teats.fi/category/nayttamo_et_tutkimus/'>http://teats.fi/category/nayttamo_et_tutkimus/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -2918,7 +2918,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Sosiologia (2000–2013)<br/>Julkaisija: The Westermarck Society ry<br/>Kotisivu: <a href='http://www.sosiologia.fi/'>http://www.sosiologia.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -2938,7 +2938,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Sydänääni (2013)<br/>Julkaisija: Suomen Kardiologinen Seura ry<br/>Kotisivu: <a href='https://www.fincardio.fi/julkaisut/sydanaani/'>https://www.fincardio.fi/julkaisut/sydanaani/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -2958,7 +2958,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ammattikasvatuksen aikakauskirja (2006–2016)<br/>Sisältää lehden kotisivulla kesällä 2017 ladattavissa olleet artikkelit.<br/>Julkaisija: Ammatillisen koulutuksen tutkimusseura OTTU ry<br/>Kotisivu: <a href='https://akakk.fi/arkisto/'>https://akakk.fi/arkisto/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -2980,7 +2980,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Apollon (2012–2013)<br/>Sisältää lehden kotisivulla kesällä 2017 ladattavissa olleet artikkelit.<br/>Julkaisija: Iltakoulu ry<br/>Kotisivu: <a href='http://iltakoulu.org/julkaisut/apollon/'>http://iltakoulu.org/julkaisut/apollon/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -3001,7 +3001,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Solubiologi (2007–2014)<br/>Julkaisija: Suomen Solubiologit ry<br/>Kotisivu: <a href='http://www.suomensolubiologit.fi/solubiologi-lehti/'>http://www.suomensolubiologit.fi/solubiologi-lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -3022,7 +3022,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tutkimustiedote (2000–2014)<br/>Julkaisija: Suomen Pankki<br/>Kotisivu: <a href='https://www.suomenpankki.fi/fi/media-ja-julkaisut/julkaisut/selvitykset-ja-raportit/tutkimustiedote'>https://www.suomenpankki.fi/fi/media-ja-julkaisut/julkaisut/selvitykset-ja-raportit/tutkimustiedote</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_filename: sattrs.hidden,
@@ -3049,7 +3049,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Selkouutiset (18/2010–2011), Selkosanomat (2012–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Selkokeskus / Kehitysvammaliitto<br/>Kotisivu: <a href='http://selkosanomat.fi/'>http://selkosanomat.fi/</a>",
 //     id: "lehdet_selkosanomat",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue"
@@ -3062,7 +3062,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Leija (2009–3/2016)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Kehitysvammaisen tukiliitto ry<br/>Kotisivu: <a href='http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/'>http://www.kvtl.fi/fi/me-itse/ajankohtaista/leija-lehti/</a>",
 //     id: "lehdet_leija",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: {
 //             label: "text_title"
 //         },
@@ -3080,7 +3080,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ekonomi (2013–2014)<br/>Julkaisija: Suomen Ekonomiliitto<br/>Kotisivu: <a href='http://www.ekonomilehti.fi/'>http://www.ekonomilehti.fi/</a>",
 //     id: "lehdet_ekonomi",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_date: sattrs.date,
 //         text_url: sattrs.link_lehdet,
@@ -3095,7 +3095,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Toisin sanoen (2005–2014)<br/>Kotisivu: <a href='http://www.toisinsanoen.fi/'>http://www.toisinsanoen.fi/</a>",
 //     id: "lehdet_toisinsanoen",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_date: sattrs.date,
 //         text_category: {
@@ -3112,7 +3112,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Verkkolehti Koskinen – Kymenlaakson ammattikorkeakoulun verkkolehti (1996–2013)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Kymenlaakson ammattikorkeakoulu<br/>Kotisivu: <a href='http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/'>http://www.kyamk.fi/Ajankohtaista/Verkkolehti%20Koskinen/</a>",
 //     id: "lehdet_koskinen",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_date: sattrs.date,
 //         text_url: sattrs.link_lehdet
@@ -3126,7 +3126,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Aarre – Lehti Metsästä (2013–3/2015)<br/>Kotisivu: <a href='http://www.aarrelehti.fi/'>http://www.aarrelehti.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -3147,7 +3147,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ylioppilaslehti Aino (2010–2015)<br/>Julkaisija: Aalto-yliopiston ylioppilaskunta<br/>Kotisivu: <a href='http://ainolehti.fi/aino/'>http://ainolehti.fi/aino/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -3167,7 +3167,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Akavalainen (2006–2013)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Akava, Korkeakoulutettujen työmarkkinakeskusjärjestö<br/>Kotisivu: <a href='http://www.akava.fi/akavalainen'>http://www.akava.fi/akavalainen</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -3186,7 +3186,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Allergia & Astma (2012–2014)<br/>Julkaisija: Allergia- ja Astmaliitto ry<br/>Kotisivu: <a href='http://www.allergia.fi/julkaisut/allergia-astma/'>http://www.allergia.fi/julkaisut/allergia-astma/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -3205,7 +3205,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ammattisotilas (5/2015–1/2016)<br/>Julkaisija: Aliupseeriliitto ry<br/>Kotisivu: <a href='http://www.aliupseeriliitto.fi/ammattisotilas'>http://www.aliupseeriliitto.fi/ammattisotilas</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -3224,7 +3224,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Amnesty (3/2009–2013)<br/>Julkaisija: Amnesty International Suomen osasto ry<br/>Kotisivu: <a href='https://www.amnesty.fi/tietoa-meista/amnesty-lehti/'>https://www.amnesty.fi/tietoa-meista/amnesty-lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -3243,7 +3243,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ananda (2005–1/2016)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Ananda-lehti/Trax Oy<br/>Kotisivu: <a href='http://www.anandalehti.fi/'>http://www.anandalehti.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 // 	text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -3263,7 +3263,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Animalia-lehti (2/2010–1/2016)<br/>Julkaisija: Animalia ry<br/>Kotisivu: <a href='http://animalia.fi/tietoa-animaliasta/animalia-lehti/'>http://animalia.fi/tietoa-animaliasta/animalia-lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -3283,7 +3283,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Sivari & totaali (1990–1991, 1998–2003, 2007–2013), Antimilitaristi (2014–2015)<br/>Julkaisija: Aseistakieltäytyjäliitto ry<br/>Kotisivu: <a href='http://akl-web.fi/sivari_et_totaali/lehti_numeroittain'>http://akl-web.fi/sivari_et_totaali/lehti_numeroittain</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -3311,7 +3311,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Apaja (2006–1/2011)<br/>Sisältää lehden kotisivulla syksyllä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Riista- ja kalatalouden tutkimuslaitos<br/>Kotisivu: <a href='http://www.rktl.fi/julkaisut/p/apaja/'>http://www.rktl.fi/julkaisut/p/apaja/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -3330,7 +3330,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ase-lehti (2010–2014)<br/>Julkaisija: Ase-Lehti Oy<br/>Kotisivu: <a href='http://www.aselehti.fi/'>http://www.aselehti.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -3349,7 +3349,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Aromi – Ruoan ja Juoman Ammattilehti (2006–2013)<br/>Julkaisija: Mediatalo Keskisuomalainen Oyj Aikakauslehtiryhmä<br/>Kotisivu: <a href='http://aromilehti.fi/'>http://aromilehti.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -3368,7 +3368,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Asukas – Asiakaslehti VVO:n Asukkaille (2006–2014)<br/>Sisältää lehden kotisivulla syksyllä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: VVO-yhtymä Oyj<br/>Kotisivu: <a href='https://asukas.vvo.fi/kodikaslehti/'>https://asukas.vvo.fi/kodikaslehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -3387,7 +3387,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Asuminen ja Yhteiskunta (2011–1/2016)<br/>Sisältää lehden kotisivulla syksyllä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Asukasliitto ry<br/>Kotisivu: <a href='http://www.asukasliitto.fi/ajankohtaista/asuminen_ja_yhteiskunta_lehti/'>http://www.asukasliitto.fi/ajankohtaista/asuminen_ja_yhteiskunta_lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 // 	text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -3407,7 +3407,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Asuntoinfo (3–5/2013)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> kesällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: BM Media Oy<br/>Kotisivu: <a href='http://www.lehtiluukku.fi/pub?id=51682'>http://www.lehtiluukku.fi/pub?id=51682</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -3426,7 +3426,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Aurora – Turun yliopiston sidosryhmälehti (2010–1/2013)<br/>Julkaisija: Turun yliopiston viestintä<br/>Kotisivu: <a href='http://www.utu.fi/fi/Palvelut/medialle/aurora/lue-verkossa/Sivut/home.aspx'>http://www.utu.fi/fi/Palvelut/medialle/aurora/lue-verkossa/Sivut/home.aspx</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -3445,7 +3445,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Avain-lehti (2013–2014)<br/>(sisältää vain tutkimus- ja oikeus-palstat)<br/>Julkaisija: Neuroliitto ry<br/>Kotisivu: <a href='http://www.ms-liitto.fi/avain'>http://www.ms-liitto.fi/avain</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -3464,7 +3464,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Avec (2006–2013)<br/>Julkaisija: Mediatalo Keskisuomalainen Oyj Aikakauslehtiryhmä<br/>Kotisivu: <a href='http://aromilehti.fi'>http://aromilehti.fi</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -3483,7 +3483,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Avec – Paremman avioliiton perhelehti (2005–2016)<br/>Julkaisija: Parempi avioliitto ry<br/>Kotisivu: <a href='www.parempiavioliitto.fi/'>www.parempiavioliitto.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -3502,7 +3502,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Asukki (4/2006 – 2–3/2015)<br/>Sisältää lehden kotisivulla syksyllä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Vailla vakinaista asuntoa ry<br/>Kotisivu: <a href='http://vvary.fi/haluatko-auttaa/tilaa-asukki/'>http://vvary.fi/haluatko-auttaa/tilaa-asukki/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -3521,7 +3521,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Askel (1999–5/2002 ja 2003–2014)<br/>Julkaisija: Kotimaa Oy<br/>Kotisivu: <a href='http://www.askellehti.fi/'>http://www.askellehti.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue",
@@ -3540,7 +3540,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Debatti (2011–2/2014)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> kesällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Sosialidemokraattiset Opiskelijat SONK RY<br/>Kotisivu: <a href='https://sosialidemokraattisetopiskelijat.fi/debatti/'>https://sosialidemokraattisetopiskelijat.fi/debatti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -3559,7 +3559,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ajolinja (2009–2014)<br/>Julkaisija: B Yhtiöt Oy<br/>Kotisivu: <a href='http://www.boy.fi/ajo/'>http://www.boy.fi/ajo/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -3578,7 +3578,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Diakonia (2010–2015)<br/>Julkaisijat: Diakonia ry, Kirkon diakonia ja sielunhoito, Diakoniatyöntekijöiden Liitto, Suomen Kirkon Seurakuntaopiston Säätiö, Kirkkopalvelut, Suomen Merimieskirkko, Espoon Diakoniasäätiö, Oulun Diakonissalaitoksen Säätiö, Martinus-säätiö<br/>Kotisivu: <a href='http://sakasti.evl.fi/sakasti.nsf/sp2?open&cid=Content414A42-2-2'>http://sakasti.evl.fi/sakasti.nsf/sp2?open&cid=Content414A42-2-2</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -3599,7 +3599,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Elinehto (2010–1/2016)<br/>Julkaisija: Munuais- ja maksaliitto ry<br/>Kotisivu: <a href='http://www.muma.fi/munuais-_ja_maksaliitto/julkaisut/elinehto'>http://www.muma.fi/munuais-_ja_maksaliitto/julkaisut/elinehto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -3618,7 +3618,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "EMMA (2007–1/2016)<br/>Julkaisija: EMMA – Espoon modernin taiteen museo<br/>Kotisivu: <a href='http://www.emma.museum/emmalehti'>http://www.emma.museum/emmalehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -3637,7 +3637,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Entisestä enemmän (2006–2007)<br/>Julkaisija: Lounais-Suomen Jätehuolto Oy<br/>Kotisivu: <a href='https://www.lsjh.fi/fi/'>https://www.lsjh.fi/fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -3656,7 +3656,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ernie – EY:n sidosryhmälehti (2004–2014)<br/>Julkaisija: Ernst & Young Oy<br/>Kotisivu: <a href='http://www.ey.com/fi/fi/newsroom/pr-activities/articles/ernie_asiakaslehti'>http://www.ey.com/fi/fi/newsroom/pr-activities/articles/ernie_asiakaslehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -3675,7 +3675,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Espanjan Sanomat (2010–7-8/2013)<br/>Kotisivu: <a href='http://espanjansanomat.es/espanjansanomat/index.php/arkisto'>http://espanjansanomat.es/espanjansanomat/index.php/arkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -3694,7 +3694,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Espoo Esbo -lehti (2012–3/2016)<br/>Sisältää lehden kotisivulla syksyllä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Espoon kaupunki<br/>Kotisivu: <a href='http://www.espoo.fi/fi-FI/Espoon_kaupunki/Ajankohtaista/Espoo_Esbo_lehti%285630%29'>http://www.espoo.fi/fi-FI/Espoon_kaupunki/Ajankohtaista/Espoo_Esbo_lehti%285630%29</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -3713,7 +3713,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Esri (2004–2014)<br/>Julkaisija: Esri Finland Oy<br/>Kotisivu: <a href='http://www.esri.fi/yritysinfo/asiakaslehti/'>http://www.esri.fi/yritysinfo/asiakaslehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -3732,7 +3732,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ethnos-tiedote ja Jäsenkirje (2/2001–2/2015)<br/>Julkaisija: Ethnos ry<br/>Kotisivu: <a href='http://www.ethnosry.org/jasenasiat/ethnos-tiedote/'>http://www.ethnosry.org/jasenasiat/ethnos-tiedote/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -3752,7 +3752,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Eurooppalainen-lehti (2007–2015)<br/>Julkaisija: Eurooppalainen Suomi ry<br/>Kotisivu: <a href='http://www.eurooppalainensuomi.fi/fi/publications/3/'>http://www.eurooppalainensuomi.fi/fi/publications/3/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 // 	text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -3772,7 +3772,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Curly (4/2000–2/2016)<br/>Julkaisija: Curly ry<br/>Kotisivu: <a href='http://www.curly.fi/arkisto/'>http://www.curly.fi/arkisto/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 // 	text_url: sattrs.link_lehdet,
 //         text_year: {
@@ -3792,7 +3792,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Focus (2008–1/2014)<br/>Julkaisija: Metropolia Ammattikorkeakoulu<br/>Kotisivu: <a href='http://www.metropolia.fi/tietoa-metropoliasta/asiakaslehti-focus/'>http://www.metropolia.fi/tietoa-metropoliasta/asiakaslehti-focus/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -3811,7 +3811,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Folium Classicum (2004–2012)<br/>Julkaisija: Klassillis-filologinen yhdistys r.y.<br/>Kotisivu: <a href='http://www.helsinki.fi/hum/kla/kfy/folium.html'>http://www.helsinki.fi/hum/kla/kfy/folium.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -3830,7 +3830,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "H2 (2007–3/2013)<br/>Julkaisija: Haaga-Helian opiskelijakunta Helga<br/>Kotisivu: <a href='https://issuu.com/h2-lehti'>https://issuu.com/h2-lehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue",
@@ -3849,7 +3849,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Haavi (2008–2013)<br/>Julkaisija: Havis Amandan Nuorkauppakamari – Helsinki ry<br/>Kotisivu: <a href='http://www.havisamanda.com/Suomeksi/Amandat/Media'>http://www.havisamanda.com/Suomeksi/Amandat/Media</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -3868,7 +3868,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Hallaus (2009–2014)<br/>Julkaisija: Huutomerkki ry<br/>Kotisivu: <a href='http://huutomerkki.fi/yhdistys/toiminta/hallaus/'>http://huutomerkki.fi/yhdistys/toiminta/hallaus/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -3887,7 +3887,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Helen-lehti (2010–1/2015)<br/>Sisältää lehden kotisivulla kesällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Helen Oy<br/>Kotisivu: <a href='https://www.helen.fi/helen-oy/ajankohtaista/helen-lehti/'>https://www.helen.fi/helen-oy/ajankohtaista/helen-lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -3906,7 +3906,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Diabetes ja lääkäri (2005–1/2016)<br/>Julkaisija: Suomen Diabetesliitto ry<br/>Kotisivu: <a href='http://www.diabetes.fi/diabetesliitto/lehdet/diabetes_ja_laakari_-lehti/lehdet_pdf-muodossa'>http://www.diabetes.fi/diabetesliitto/lehdet/diabetes_ja_laakari_-lehti/lehdet_pdf-muodossa</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -3926,7 +3926,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Evento (2012–2016)<br/>Julkaisija: Mediatalo Keskisuomalainen Oyj Aikakauslehtiryhmä<br/>Kotisivu: <a href='http://eventolehti.fi/'>http://eventolehti.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -3946,7 +3946,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Helmeri (2006–1/2016)<br/>Julkaisija: Helsingin Merkonomit ry<br/>Kotisivu: <a href='http://www.helmeri.fi/helmerilehdet'>http://www.helmeri.fi/helmerilehdet</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -3965,7 +3965,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Helsingin Henki (2009–1/2014)<br/>Julkaisija: Helsingin kaupunginkanslia<br/>Kotisivu: <a href='http://www.hel.fi/www/kanslia/fi/julkaisut-ja-kuulutukset/julkaisut/helsingin-henki'>http://www.hel.fi/www/kanslia/fi/julkaisut-ja-kuulutukset/julkaisut/helsingin-henki</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -3984,7 +3984,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Hengitys (2/2012 – 2–3/2016)<br/>Sisältää lehden kotisivulla syksyllä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Hengitysliitto<br/>Kotisivu: <a href='http://www.hengitysliitto.fi/Julkaisut/Hengitys-lehti/#'>http://www.hengitysliitto.fi/Julkaisut/Hengitys-lehti/#</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4003,7 +4003,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Heppu (2011–3/2016)<br/>Julkaisija: Pääkaupunkiseudun Partiolaiset ry<br/>Kotisivu: <a href='http://www.paakaupunkiseudunpartiolaiset.fi/tietoa-meista/julkaisut/'>http://www.paakaupunkiseudunpartiolaiset.fi/tietoa-meista/julkaisut/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4023,7 +4023,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Hima (3/2013–1/2016)<br/>Julkaisija: Helsingin kaupungin asunnot Oy<br/>Kotisivu: <a href='http://www.hekaoy.fi/asukaslehti-hima'>http://www.hekaoy.fi/asukaslehti-hima</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4043,7 +4043,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Huili-lehti (2–3/2013)<br/>Kotisivu: <a href='http://www.huililehti.net/'>http://www.huililehti.net/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4062,7 +4062,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Humanistilehti (2002–2010)<br/>Julkaisija: Helsingin Yliopiston Humanistinen tiedekunta<br/>Kotisivu: <a href='http://www.helsinki.fi/humanistilehti/pdf/index.htm'>http://www.helsinki.fi/humanistilehti/pdf/index.htm</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue",
@@ -4081,7 +4081,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Jane&Paulo (2012–2015)<br/>Julkaisija: Sosiaalialan korkeakoulutettujen ammattijärjestö Talentia ry<br/>Kotisivu: <a href='http://talentia.e-julkaisu.com/julkaisut/'>http://talentia.e-julkaisu.com/julkaisut/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -4100,7 +4100,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Joensuun Uutiset (2012–2013)<br/>Julkaisija: Joensuun kaupunki<br/>Kotisivu: <a href='http://www.joensuu.fi/joensuunuutisetvanha'>http://www.joensuu.fi/joensuunuutisetvanha</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4119,7 +4119,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Julkaisija (2011–2014)<br/>Julkaisija: RPS Markkinointi Oy / RPS-yhtiöt<br/>Kotisivu: <a href='http://www.julkaisija.fi/lehti/'>http://www.julkaisija.fi/lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4138,7 +4138,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kalastuslehti (2013–3/2015)<br/>Julkaisija: Krook Media Oy<br/>Kotisivu: <a href='http://www.kalamies.com/kalastus-media-video-netzine-tv-audio/kalastuslehti'>http://www.kalamies.com/kalastus-media-video-netzine-tv-audio/kalastuslehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4157,7 +4157,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Karhunpalvelus (2002–2015)<br/>Julkaisija: Porin kaupunki<br/>Kotisivu: <a href='http://www.pori.fi/henkilostopalvelut/karhunpalvelus.html'>http://www.pori.fi/henkilostopalvelut/karhunpalvelus.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4177,7 +4177,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kauppapolitiikka (2013–1/2015)<br/>Julkaisija: Ulkoasiainministeriö<br/>Kotisivu: <a href='http://kauppapolitiikka.fi/tietoa-lehdesta/'>http://kauppapolitiikka.fi/tietoa-lehdesta/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4196,7 +4196,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kaupunkilainen (2/2012–1/2015)<br/>Julkaisija: Lahden kaupunki<br/>Kotisivu: <a href='https://www.lahti.fi/tietoa-lahdesta/Lahti-info/kaupunkilainen-lehti'>https://www.lahti.fi/tietoa-lahdesta/Lahti-info/kaupunkilainen-lehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue",
@@ -4215,7 +4215,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Käytännön maamies (2000–2013)<br/>Julkaisija: Agraari Oy<br/>Kotisivu: <a href='http://kaytannonmaamies.fi/'>http://kaytannonmaamies.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4234,7 +4234,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kemia-Kemi (2002–4/2016)<br/>Julkaisijat: Suomalaisten Kemistien Seura, Kemiallisteknillisen yhdistys ja Finska Kemistsamfundet<br/>Kotisivu: <a href='http://www.kemia-lehti.fi/nakoislehdet/'>http://www.kemia-lehti.fi/nakoislehdet/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4253,7 +4253,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kemiläinen (2012–1/2016)<br/>Julkaisija: Kemin kaupunki<br/>Kotisivu: <a href='http://www.kemi.fi/palvelut/viestinta/kemin-kaupungin-tiedotuslehti/'>http://www.kemi.fi/palvelut/viestinta/kemin-kaupungin-tiedotuslehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4273,7 +4273,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kontakt (2010–2013)<br/>Julkaisija: Suomi-Venäjä-Seura<br/>Kotisivu: <a href='http://www.venajaseura.com/etusivu/yhteystiedot/kontakt-jasenlehti'>http://www.venajaseura.com/etusivu/yhteystiedot/kontakt-jasenlehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4292,7 +4292,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Koti (2012–2014)<br/>Julkaisija: Maa- ja kotitalousnaisten Keskus<br/>Kotisivu: <a href='https://www.maajakotitalousnaiset.fi/kotijamaaseutu'>https://www.maajakotitalousnaiset.fi/kotijamaaseutu</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4311,7 +4311,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kotipuutarha (2009–2014)<br/>Julkaisija: Kotipuutarha Puutarhaliitto<br/>Kotisivu: <a href='http://www.kotipuutarha.fi/lehti.html'>http://www.kotipuutarha.fi/lehti.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4330,7 +4330,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kumposti (2005–1/2016)<br/>Julkaisija: Kumpula-seura ry<br/>Kotisivu: <a href='http://kumpula.info/kumposti'>http://kumpula.info/kumposti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4350,7 +4350,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "KunnallisSuomi (2010–2013)<br/>Julkaisija: Suomiviesti Oy<br/>Kotisivu: <a href='http://www.suomiviesti.fi/home/KunnllisSuomi/'>http://www.suomiviesti.fi/home/KunnllisSuomi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4370,7 +4370,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kuuloset (4/2004–2013)<br/>Julkaisija: Helsingin Kuuloyhdistys ry<br/>Kotisivu: <a href='http://www.helky.fi/kuuloset/arkisto/'>http://www.helky.fi/kuuloset/arkisto/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -4389,7 +4389,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kynnys (2010–2013)<br/>Julkaisija: Kynnys ry<br/>Kotisivu: <a href='http://kynnys.fi/viestinta/kynnys-lehdet/'>http://kynnys.fi/viestinta/kynnys-lehdet/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue",
@@ -4408,7 +4408,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Lapsen Maailma (3/2014)<br/>Julkaisija: Lastensuojelun Keskusliitto<br/>Kotisivu: <a href='http://lapsenmaailma.fi/arkisto/'>http://lapsenmaailma.fi/arkisto/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4427,7 +4427,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Legenda (2002–2015)<br/>Julkaisija: Teema ry<br/>Kotisivu: <a href='http://teemary.org/?page_id=750'>http://teemary.org/?page_id=750</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4446,7 +4446,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Luokanopettaja (3/2006–2/2015)<br/>Julkaisija: Suomen Luokanopettajat ry<br/>Kotisivu: <a href='http://www.luokanopettajaliitto.fi/index.php/luokanopettaja-lehti/lehdet'>http://www.luokanopettajaliitto.fi/index.php/luokanopettaja-lehti/lehdet</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4465,7 +4465,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Luuppisanomat (1997–2013)<br/>Julkaisija: Luuppi ry<br/>Kotisivu: <a href='https://www.luuppi.fi/julkaisut'>https://www.luuppi.fi/julkaisut</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4485,7 +4485,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Me (2014, 4/2015 – 6–7/2016)<br/>Julkaisija: Suomen Lähikauppa Oy<br/>Kotisivu: <a href='http://epaper.hansaprint.fi/melehti/Me-lehti.html'>http://epaper.hansaprint.fi/melehti/Me-lehti.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4504,7 +4504,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Mercurius (2004–3/2012)<br/>Julkaisija: Turun yliopiston kauppakorkeakoulu<br/>Kotisivu: <a href='http://www.utu.fi/fi/yksikot/tse/ajankohtaista/mercurius/Sivut/home.aspx'>http://www.utu.fi/fi/yksikot/tse/ajankohtaista/mercurius/Sivut/home.aspx</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -4524,7 +4524,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "MODIN (2012–3/2015)<br/>Julkaisija: Muotikaupan Liitto<br/>Kotisivu: <a href='http://www.muotikaupanliitto.fi/modin/'>http://www.muotikaupanliitto.fi/modin/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4543,7 +4543,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Musetti (2/2013–2/2015)<br/>Julkaisijat: Suomen Etnomusikologisen Seura ja Suomen Musiikkitieteellisen Seura<br/>Kotisivu: <a href='http://www.etnomusikologia.fi/p/musetti.html'>http://www.etnomusikologia.fi/p/musetti.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4562,7 +4562,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "NonSordino (2006–1/2015)<br/>Julkaisija: Markkinointiviestinnän, -tutkimuksen ja digimedia-alan ammattilaiset MaMa ry<br/>Kotisivu: <a href='http://digimama.fi/digimama-jasenlehti/'>http://digimama.fi/digimama-jasenlehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue",
@@ -4581,7 +4581,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "OLLA55+ (1/2014)<br/>Julkaisija: BM media Oy<br/>Kotisivu: <a href=''></a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4600,7 +4600,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Omakotisanomat (2011–2015)<br/>Julkaisija: Rakennustutkimus RTS Oy<br/>Kotisivu: <a href='http://www.suomirakentaa.fi/valintaoppaat/omakotisanomat'>http://www.suomirakentaa.fi/valintaoppaat/omakotisanomat</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -4619,7 +4619,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ota opiksi (2012–2015)<br/>Julkaisija: Suomen Kansanopistoyhdistys ry<br/>Kotisivu: <a href='http://kansanopistot.fi/yhdistys/?linkki=19'>http://kansanopistot.fi/yhdistys/?linkki=19</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue",
@@ -4638,7 +4638,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Pakolainen (2010–2014)<br/>Julkaisija: Suomen Pakolaisapu ry<br/>Kotisivu: <a href='http://pakolaisapu.fi/tag/pakolainen-lehti/'>http://pakolaisapu.fi/tag/pakolainen-lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4657,7 +4657,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Paraisten Kuulutukset (4.1.–30.5.2013)<br/>Julkaisija: Förlags Ab Sydvästkusten<br/>Kotisivu: <a href='http://www.lehtiluukku.fi/lehti/paraisten-kuulutukset'>http://www.lehtiluukku.fi/lehti/paraisten-kuulutukset</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4676,7 +4676,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Pelastusalan ammattilainen (2007–2014)<br/>Julkaisija: Suomen Palomiesliitto SPAL ry<br/>Kotisivu: <a href='http://www.palomiesliitto.fi/'>http://www.palomiesliitto.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_url: sattrs.link_lehdet,
 //         text_year: {
 //             label: "year",
@@ -4696,7 +4696,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Pelastustieto (2007–2014)<br/>Julkaisija: Palo- ja pelastustieto ry<br/>Kotisivu: <a href='http://pelastustieto.fi/digilehti/'>http://pelastustieto.fi/digilehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4715,7 +4715,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Pihlajiston ja Viikinmäen asukaslehti (2009–2015)<br/>Julkaisija: Pihlajisto-Viikinmäki Asukasyhdistys PNV ry<br/>Kotisivu: <a href='http://kaupunginosat.net/pihlajisto/asukaslehti-mainmenu-891'>http://kaupunginosat.net/pihlajisto/asukaslehti-mainmenu-891</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4735,7 +4735,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Pippuri (2012–2014)<br/>Julkaisija: Vasemmistonaiset<br/>Kotisivu: <a href='http://www.vasemmistonaiset.fi/pippuri-lehti/'>http://www.vasemmistonaiset.fi/pippuri-lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4754,7 +4754,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Pirkkalainen (2006–16/2016)<br/>Julkaisija: Pirkkala-Seura ry<br/>Kotisivu: <a href='http://www.pirkkalainen.com/'>http://www.pirkkalainen.com/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -4773,7 +4773,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Pointti (2011–1/2015)<br/>Julkaisija: Porin ylioppilasyhdistys Pointer ry<br/>Kotisivu: <a href='https://porinylioppilaslehti.com/info/'>https://porinylioppilaslehti.com/info/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -4792,7 +4792,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Poleemi (2009–2013)<br/>Julkaisija: Poliittisen historian opiskelijat Polho ry<br/>Kotisivu: <a href='https://poleemi.wordpress.com/arkisto/'>https://poleemi.wordpress.com/arkisto/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4811,7 +4811,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Polemiikki (2/2013, 2014–2/2016)<br/>Julkaisija: Pole-Kuntatieto Oy<br/>Kotisivu: <a href='http://kaks.fi/polemiikki-lehti/'>http://kaks.fi/polemiikki-lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4830,7 +4830,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Policy (2008, 2011–1/2013, 3–4/2015)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> kesällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Valtio-opin opiskelijat ry<br/>Kotisivu: <a href='http://blogs.helsinki.fi/voo-ry/policy/'>http://blogs.helsinki.fi/voo-ry/policy/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4849,7 +4849,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Poromies (2009–2014)<br/>(aineisto sisältää vain asiatekstit)<br/>Julkaisija: Paliskuntain yhdistys<br/>Kotisivu: <a href='http://paliskunnat.fi/py/organisaatio/poromies-lehti/'>http://paliskunnat.fi/py/organisaatio/poromies-lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4868,7 +4868,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Print&Media (2011–2014)<br/>Julkaisija: Print&Media Publishing Oy<br/>Kotisivu: <a href='http://pmlehti.fi/lehti/#lehtiarkisto'>http://pmlehti.fi/lehti/#lehtiarkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4887,7 +4887,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Pro Etelä-Pohjanmaa (2012–2015)<br/>Julkaisija: Etelä-Pohjanmaan liitto<br/>Kotisivu: <a href='http://www.epliitto.fi/pro-etela-pohjanmaa--lehti'>http://www.epliitto.fi/pro-etela-pohjanmaa--lehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4906,7 +4906,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kunnossapito (2004–2007), Promaint (2008 – 1–2/2015)<br/>Julkaisija: Kunnossapitoyhdistys Promaint Ry<br/>Kotisivu: <a href='http://www.promaintlehti.fi/Lehtiarkisto'>http://www.promaintlehti.fi/Lehtiarkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -4925,7 +4925,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Puutarha-Sanomat (2011–5/2015)<br/>Julkaisija: Puutarha-Sanomat<br/>Kotisivu: <a href='http://puutarha-sanomat.fi/arkistot/category/lehtinosto'>http://puutarha-sanomat.fi/arkistot/category/lehtinosto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue",
@@ -4944,7 +4944,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Sofia (2000–1/2016)<br/>Julkaisija: Helsingin kaupunginmuseo<br/>Kotisivu: <a href='http://www.helsinginkaupunginmuseo.fi/sofia-lehti/'>http://www.helsinginkaupunginmuseo.fi/sofia-lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -4964,7 +4964,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Solidaarisuus (2007–2014)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> kesällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Solidaarisuus<br/>Kotisivu: <a href='http://www.solidaarisuus.fi'>http://www.solidaarisuus.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -4983,7 +4983,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Suomenmaa (2013)<br/>Julkaisija: Suomenmaa<br/>Kotisivu: <a href='http://www.suomenmaa.fi/'>http://www.suomenmaa.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5002,7 +5002,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Sydän-Hämeen Lehti (2013)<br/>Julkaisija: Sydän-Hämeen Kustannus Oy<br/>Kotisivu: <a href='http://shl.fi/nakoislehdet/'>http://shl.fi/nakoislehdet/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5021,7 +5021,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "TAKU (3/2009–1/2016)<br/>Julkaisija: Taide- ja kulttuurialan ammattijärjestö TAKU ry<br/>Kotisivu: <a href='http://www.taku.fi/ajankohtaista/taku-lehti'>http://www.taku.fi/ajankohtaista/taku-lehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue",
@@ -5040,7 +5040,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Taloustaito (2009–2013)<br/>Julkaisija: Verotieto Oy<br/>Kotisivu: <a href='https://www.taloustaito.fi/teemat/lehti/'>https://www.taloustaito.fi/teemat/lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -5059,7 +5059,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "inFront (3/2009–1/2014)<br/>Julkaisija: EXPORT Finland<br/>Kotisivu: <a href='http://www.exportfinland.fi/infront'>http://www.exportfinland.fi/infront</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5078,7 +5078,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "TEK verkkolehti (7/2012–6/2013, 1/2015, 5/2015)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> kesällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Tekniikan Akateemiset TEK<br/>Kotisivu: <a href='https://lehti.tek.fi/'>https://lehti.tek.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -5097,7 +5097,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Terveydeksi! (2/2014, 4/2014)<br/>Julkaisija: Apteekkariliiton viestintäyhtiö PharmaPress Oy<br/>Kotisivu: <a href='http://www.apteekki.fi/terveydeksi.html'>http://www.apteekki.fi/terveydeksi.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5116,7 +5116,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Toimi (2009–2014)<br/>Julkaisija: Erityisalojen Toimihenkilöliitto ERTO ry<br/>Kotisivu: <a href='https://www.erto.fi/palvelut/toimi-lehti'>https://www.erto.fi/palvelut/toimi-lehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue",
@@ -5135,7 +5135,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tukilinja (2010–2014)<br/>Julkaisija: Vammaisten koulutuksen ja työllistymisen tuki ry<br/>Kotisivu: <a href='http://www.tukilinja.fi/tukilinja-lehti/'>http://www.tukilinja.fi/tukilinja-lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -5154,7 +5154,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tukiviesti (6/2010–1/2014)<br/>Julkaisija: Kehitysvammaisten Tukiliitto ry<br/>Kotisivu: <a href='http://www.kvtl.fi/fi/tukiviesti-ja-leija/tukiviesti/'>http://www.kvtl.fi/fi/tukiviesti-ja-leija/tukiviesti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -5173,7 +5173,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Turkuposti & Turkupostin liitteet (2011–1/2016)<br/>Julkaisija: Turun kaupunki<br/>Kotisivu: <a href='https://www.turku.fi/turku-tieto/julkaisut-ja-raportit/turkupostin-arkisto'>https://www.turku.fi/turku-tieto/julkaisut-ja-raportit/turkupostin-arkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5192,7 +5192,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tutkain (2010–2/2014)<br/>Julkaisija: Tiedekunnan opiskelijajärjestö Kannunvalajat ry<br/>Kotisivu: <a href='http://www.kannunvalajat.fi/tutkain/'>http://www.kannunvalajat.fi/tutkain/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue",
@@ -5213,7 +5213,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ubik (2012–3/2013)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> kesällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen Ammattiin Opiskelevien Liitto – SAKKI ry<br/>Kotisivu: <a href='http://ubik.fi/nakoislehdet/'>http://ubik.fi/nakoislehdet/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5232,7 +5232,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Uljas (2014–4/2016)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> kesällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Itä-Suomen yliopiston ylioppilaskunta<br/>Kotisivu: <a href='http://www.uljas.net/lehdet/'>http://www.uljas.net/lehdet/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5251,7 +5251,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "UNIIKKI (2014–3/2015)<br/>Julkaisija: Yliopiston Apteekki<br/>Kotisivu: <a href='http://uniikki.fi/'>http://uniikki.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5270,7 +5270,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Universitas (2012–2/2016)<br/>Julkaisija: Yliopistojen ja tutkimusalan henkilöstöliitto YHL<br/>Kotisivu: <a href='http://www.pardia.fi/yhl-etusivu/viestinta/universitas/'>http://www.pardia.fi/yhl-etusivu/viestinta/universitas/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -5289,7 +5289,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Utain (2002–2013)<br/>Julkaisija: Viestinnän, median ja teatterin yksikkö, Tampereen yliopisto<br/>Kotisivu: <a href='http://utain.uta.fi/'>http://utain.uta.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue",
@@ -5308,7 +5308,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Uusiouutiset – Suomen kiertotalouden erikoislehti (2005–2015)<br/>Kotisivu: <a href='http://www.uusiouutiset.fi/'>http://www.uusiouutiset.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_issue: {
 //             label: "issue",
@@ -5327,7 +5327,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Uusi Päivä (2011–2015)<br/>Julkaisija: Turun Vasemmistoliitto ry<br/>Kotisivu: <a href='http://www.turunvasemmisto.fi/19'>http://www.turunvasemmisto.fi/19</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5346,7 +5346,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Uutis-Jousi (2013)<br/>Julkaisija: Keskisuomalainen Oyj<br/>Kotisivu: <a href='http://www.uutis-jousi.fi/nakoislehti/'>http://www.uutis-jousi.fi/nakoislehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -5365,7 +5365,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Vaasan Ylioppilaslehti (5/2012–5/2013)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> kesällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Vaasan yliopiston ylioppilaskunta<br/>Kotisivu: <a href='http://www.vaasanylioppilaslehti.fi/'>http://www.vaasanylioppilaslehti.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -5384,7 +5384,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "VälitysUutiset (2012–2013)<br/>Julkaisija: Kirjavälitys Oy<br/>Kotisivu: <a href='http://www.kirjavalitys.fi/'>http://www.kirjavalitys.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5403,7 +5403,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Vammaisurheilu & -liikunta (2010–1/2016)<br/>Julkaisija: Suomen Vammaisurheilu ja -liikunta VAU ry<br/>Kotisivu: <a href='http://www.vammaisurheilu.fi/mika-on-vau/lehti/lehtiarkisto'>http://www.vammaisurheilu.fi/mika-on-vau/lehti/lehtiarkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -5422,7 +5422,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Vanhustyö (2009–2015)<br/>Julkaisija: Vanhustyön keskusliitto<br/>Kotisivu: <a href='http://www.vtkl.fi/fin/vaikutamme/vanhustyo_lehti/tutustu_lehteen/'>http://www.vtkl.fi/fin/vaikutamme/vanhustyo_lehti/tutustu_lehteen/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -5441,7 +5441,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Vankilavirkailija (2009–3/2011)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> kesällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Vankilavirkailijain Liitto VVL r.y.<br/>Kotisivu: <a href='http://www.vankilavirkailija.fi/lehdet'>http://www.vankilavirkailija.fi/lehdet</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -5460,7 +5460,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Vantaan Akseli (2009–1/2013)<br/>Sisältää <a href='https://issuu.com'>Issuussa</a> kesällä 2016 ladattavissa olleet artikkelit.<br/>Julkaisija: Vantaan Akselin kehitysryhmä<br/>Kotisivu: <a href='www.vantaanakseli.fi'>www.vantaanakseli.fi</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5479,7 +5479,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Via (3/2013–3/2014)<br/>Julkaisija: Destia Oy<br/>Kotisivu: <a href='http://www.destia.fi/uutishuone/julkaisut/vian-arkisto.html'>http://www.destia.fi/uutishuone/julkaisut/vian-arkisto.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5498,7 +5498,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tatsi (2011–1/2016)<br/>Julkaisija: Työttömien ay-jäsenten tukiyhdistys ry<br/>Kotisivu: <a href='http://tatsi.org/tatsi-lehti/arkisto/'>http://tatsi.org/tatsi-lehti/arkisto/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5518,7 +5518,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tiedetoimittaja (2008–2013)<br/>Julkaisija: Suomen tiedetoimittajain liitto ry<br/>Kotisivu: <a href='http://www.tiedetoimittajat.fi/tiedetoimittajalehti/tiedetoimittajat-arkisto/'>http://www.tiedetoimittajat.fi/tiedetoimittajalehti/tiedetoimittajat-arkisto/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -5538,7 +5538,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kelan sanomat (2008), Elämässä (2009–2014)<br/>Julkaisija: Kansaneläkelaitos (Kela)<br/>Kotisivu: <a href='http://www.kela.fi/elamassa'>http://www.kela.fi/elamassa</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -5560,7 +5560,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Sosiaalivakuutus (2006–2010, 2015–2016)<br/>Julkaisija: Kansaneläkelaitos (Kela)<br/>Kotisivu: <a href='http://www.kela.fi/sosiaalivakuutus'>http://www.kela.fi/sosiaalivakuutus</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -5580,7 +5580,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "CP-lehti (2010–1/2014)<br/>Julkaisija: Suomen CP-liitto ry<br/>Kotisivu: <a href='http://www.cp-liitto.fi/suomen_cp-liitto_ry/cp-lehti/arkisto'>http://www.cp-liitto.fi/suomen_cp-liitto_ry/cp-lehti/arkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5600,7 +5600,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "eDimensio (2008–2013)<br/>Julkaisija: Matemaattisten aineiden opettajien liitto MAOL ry<br/>Kotisivu: <a href='http://www.maol.fi/julkaisut/edimensio/arkisto/?L=gdesjgsatmavb'>http://www.maol.fi/julkaisut/edimensio/arkisto/?L=gdesjgsatmavb</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5620,7 +5620,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Effortti (2010–2016)<br/>Julkaisija: Suomen Tanssiterapiayhdistys ry<br/>Kotisivu: <a href='http://www.tanssiterapia.net/index.php?page=31'>http://www.tanssiterapia.net/index.php?page=31</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -5640,7 +5640,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Helsinki-info (4/2004–3/2016)<br/>Julkaisija: Helsingin kaupunki<br/>Kotisivu: <a href='http://www.hel.fi/www/kanslia/helsinkiinfo-fi/arkisto/'>http://www.hel.fi/www/kanslia/helsinkiinfo-fi/arkisto/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_year: {
@@ -5660,7 +5660,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Hervannan Sanomat (47/2012–9/2016)<br/>Julkaisija: Hervannan Sanomat<br/>Kotisivu: <a href='http://hervannansanomat.fi/nakoislehti/'>http://hervannansanomat.fi/nakoislehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_year: {
@@ -5680,7 +5680,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Hopealeijona (2/2003–2007)<br/>Julkaisija: Suomen Heraldinen Seura<br/>Kotisivu: <a href='http://www.heraldica.fi/Julkaisut/Hopea_leijona/hopealeijona.htm'>http://www.heraldica.fi/Julkaisut/Hopea_leijona/hopealeijona.htm</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5700,7 +5700,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Hyvä Asukas (2012–3/2016)<br/>Julkaisija: Nokian kaupunki<br/>Kotisivu: <a href='http://www.nokiankaupunki.fi/kuntainfo/hallinto/viestinta/tiedotuslehti/'>http://www.nokiankaupunki.fi/kuntainfo/hallinto/viestinta/tiedotuslehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -5720,7 +5720,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Impakti (1995–1/2016)<br/>Julkaisija: Yva ry<br/>Kotisivu: <a href='http://www.yvary.fi/arkisto/impakti/'>http://www.yvary.fi/arkisto/impakti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_year: {
@@ -5740,7 +5740,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "INFORS (1998–2016)<br/>Julkaisija: Suomen Operaatiotutkimusseura ry<br/>Kotisivu: <a href='http://www.operaatiotutkimus.fi/infors.html'>http://www.operaatiotutkimus.fi/infors.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_year: {
@@ -5760,7 +5760,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "J@rgonia (2003–2016)<br/>Julkaisija: Historian ja etnologian laitoksen tutkijat ry<br/>Kotisivu: <a href='http://research.jyu.fi/jargonia/arkisto.shtml'>http://research.jyu.fi/jargonia/arkisto.shtml</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_year: {
@@ -5780,7 +5780,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kalpa (2006–1/2016)<br/>Julkaisija: Kadettioppilaskunta ry (KOK)<br/>Kotisivu: <a href='https://kadettitoverikunta.fi/index.htm?nav=kalpa&lang=fi'>https://kadettitoverikunta.fi/index.htm?nav=kalpa&lang=fi</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -5800,7 +5800,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kansanopisto (2004–2011)<br/>Julkaisija: Suomen Kansanopistoyhdistys<br/>Kotisivu: <a href='http://www.kansanopistot.fi/lehti/'>http://www.kansanopistot.fi/lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5820,7 +5820,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Karhunkierros (1990–2/2016)<br/>Julkaisija: Satakuntalainen Osakunta<br/>Kotisivu: <a href='https://www.satakuntalainenosakunta.fi/fi/osakunta/karhunkierros/'>https://www.satakuntalainenosakunta.fi/fi/osakunta/karhunkierros/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5840,7 +5840,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kehittäjä (2/2005–2015)<br/>Julkaisija: Laurea-ammattikorkeakoulu Oy<br/>Kotisivu: <a href='https://www.laurea.fi/tutkimus-kehitys-ja-innovaatiot/tutustu-kehittaja-lehteen'>https://www.laurea.fi/tutkimus-kehitys-ja-innovaatiot/tutustu-kehittaja-lehteen</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5860,7 +5860,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kerberos (2000–2/2010)<br/>Julkaisija: Kerberos<br/>Kotisivu: <a href='http://www.kolhoosi.fi/kerberos/vanhat.html'>http://www.kolhoosi.fi/kerberos/vanhat.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -5880,7 +5880,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Keski-Espoon Sanomat (1/1990, 2001–2015)<br/>Julkaisija: Keski-Espoo-seura ry<br/>Kotisivu: <a href='http://www.keskiespooseura.fi/arkisto'>http://www.keskiespooseura.fi/arkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -5900,7 +5900,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Keva (2010–2016)<br/>Julkaisija: Keva<br/>Kotisivu: <a href='https://www.keva.fi/tama-on-keva/keva-lehti/'>https://www.keva.fi/tama-on-keva/keva-lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -5920,7 +5920,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "KIDE (4/2008–2009, 2012–3/2016)<br/>Julkaisija: Pääkaupunkiseudun Diabetesyhdistys ry<br/>Kotisivu: <a href='http://www.psdiabetes.fi/kide-jasenlehti/'>http://www.psdiabetes.fi/kide-jasenlehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -5942,7 +5942,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Aromi – Ruoan ja Juoman Ammattilehti (2006–2013)<br/>Julkaisija: Mediatalo Keskisuomalainen Oyj Aikakauslehtiryhmä<br/>Kotisivu: <a href='http://aromilehti.fi/'>http://aromilehti.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -5961,7 +5961,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Avec (2006–2013)<br/>Julkaisija: Mediatalo Keskisuomalainen Oyj Aikakauslehtiryhmä<br/>Kotisivu: <a href='http://aromilehti.fi'>http://aromilehti.fi</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -5980,7 +5980,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Avec – Paremman avioliiton perhelehti (2005–2016)<br/>Julkaisija: Parempi avioliitto ry<br/>Kotisivu: <a href='www.parempiavioliitto.fi/'>www.parempiavioliitto.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: {
 //             label: "year",
 //         },
@@ -6003,7 +6003,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Poromies (2009–2014)<br/>(aineisto sisältää vain asiatekstit)<br/>Julkaisija: Paliskuntain yhdistys<br/>Kotisivu: <a href='http://paliskunnat.fi/py/organisaatio/poromies-lehti/'>http://paliskunnat.fi/py/organisaatio/poromies-lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_issue: {
 //             label: "issue",
 //         },
@@ -6022,7 +6022,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kunnossapito (2004–2007), Promaint (2008 – 1–2/2015)<br/>Julkaisija: Kunnossapitoyhdistys Promaint Ry<br/>Kotisivu: <a href='http://www.promaintlehti.fi/Lehtiarkisto'>http://www.promaintlehti.fi/Lehtiarkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: {
 //             label: "year",
@@ -6041,7 +6041,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kirjo (3/2002–2/2007, 3/2010–2/2011)<br/>Julkaisija: Kirjallisuus- ja kulttuuriseura Kirjo<br/>Kotisivu: <a href='http://www.palladiumkirjat.fi/kirjo.htm'>http://www.palladiumkirjat.fi/kirjo.htm</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -6063,7 +6063,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "KITA Kiinteistö & Talotekniikka (2010–2016)<br/>Julkaisija: PubliCo Oy<br/>Kotisivu: <a href='http://www.kita.fi/lehti.html'>http://www.kita.fi/lehti.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 // 	text_filename: sattrs.hidden,
 //         text_issue: {
@@ -6085,7 +6085,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Koiviston Viesti (2007–9/2015)<br/>Julkaisija: Suomen Koivisto-Seura r.y.<br/>Kotisivu: <a href='http://www.koivistolaiset.net/Sivut/Koiviston%207_lehdet.html'>http://www.koivistolaiset.net/Sivut/Koiviston%207_lehdet.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
@@ -6107,7 +6107,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Koor (2/2006–1/2015)<br/>Julkaisija: Suomi-Somalia Seura ry<br/>Kotisivu: <a href='https://suomisomaliaseura.wordpress.com/arkisto/'>https://suomisomaliaseura.wordpress.com/arkisto/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 // 	text_filename: sattrs.hidden,
 //         text_year: {
@@ -6129,7 +6129,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kotosalla (2007–2/2016)<br/>Julkaisija: Sallan kunta<br/>Kotisivu: <a href='http://www.salla.fi/Kotosallalehti'>http://www.salla.fi/Kotosallalehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -6151,7 +6151,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kuljetusyrittäjä (2007–8/2016)<br/>Julkaisija: SKAL Kustannus Oy<br/>Kotisivu: <a href='https://www.skal.fi/julkaisut/kuljetusyrittaja-lehti/lehtiarkisto'>https://www.skal.fi/julkaisut/kuljetusyrittaja-lehti/lehtiarkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 // 	text_filename: sattrs.hidden,
@@ -6173,7 +6173,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kumina (2006–2013)<br/>Julkaisija: Kuntien asiantuntijat KUMULA ry<br/>Kotisivu: <a href='http://kumula.fi/kumula/kumina/arkisto/'>http://kumula.fi/kumula/kumina/arkisto/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -6195,7 +6195,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Vates-info (2005–2/2008), Kyvyt käyttöön (3/2008–2016)<br/>Julkaisija: Vates-säätiö<br/>Kotisivu: <a href='http://www.vates.fi/vates/aineistot/kyvyt-kayttoon-lehdet.html#kk2011asti'>http://www.vates.fi/vates/aineistot/kyvyt-kayttoon-lehdet.html#kk2011asti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -6217,7 +6217,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Lähde liikkeelle (2003–1/2014)<br/>Julkaisija: Ammattitutkintoaineiston laadunvarmistus ALVAR<br/>Kotisivu: <a href='http://www.lahdeliikkeelle.info/'>http://www.lahdeliikkeelle.info/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -6239,7 +6239,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kiitotie (2003–1/2006), Maa&Ilma (2/2006–2012)<br/>Julkaisija: Finavia<br/>Kotisivu: <a href='https://www.finavia.fi/fi/tiedottaminen/arkisto/asiakaslehdet/'>https://www.finavia.fi/fi/tiedottaminen/arkisto/asiakaslehdet/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 // 	text_filename: sattrs.hidden,
@@ -6261,7 +6261,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Materia (2010–4/2016)<br/>Julkaisija: Vuorimiesyhdistys – Bergmannaföreningen r.y.<br/>Kotisivu: <a href='http://www.vuorimiesyhdistys.fi/julkaisut/materia'>http://www.vuorimiesyhdistys.fi/julkaisut/materia</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 //         text_year: {
@@ -6283,7 +6283,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Matkailusilmä (2009–2/2016)<br/>Julkaisija: Visit Finland (Finpro ry)<br/>Kotisivu: <a href='http://www.matkailusilma.fi/digilehdet.html?_ga=1.76810901.1085719173.1461145697'>http://www.matkailusilma.fi/digilehdet.html?_ga=1.76810901.1085719173.1461145697</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -6305,7 +6305,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Meripelastus (2011–3/2016)<br/>Julkaisija: Helsingin Meripelastusyhdistys – Helsingfors Sjöräddningsförening ry<br/>Kotisivu: <a href='http://helsinki.meripelastus.fi/lehti-ja-esitteet'>http://helsinki.meripelastus.fi/lehti-ja-esitteet</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -6331,7 +6331,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Merkonomi (2007–2016)<br/>Julkaisija: Suomen Merkonomiyhdistysten Liitto – SMYL ry<br/>Kotisivu: <a href='http://www.smyl.fi/wp/merkonominews/'>http://www.smyl.fi/wp/merkonominews/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -6353,7 +6353,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Minna (2/2005–1/2016)<br/>Julkaisija: Suomalainen Naisliitto ry<br/>Kotisivu: <a href='http://suomalainennaisliitto.fi/index.php?k=226027'>http://suomalainennaisliitto.fi/index.php?k=226027</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -6375,7 +6375,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Motiva Xpress (2004–2012), Motiva m+ (2013–2016)<br/>Julkaisija: Motiva<br/>Kotisivu: <a href='http://www.motiva.fi/ajankohtaista/m_-lehti'>http://www.motiva.fi/ajankohtaista/m_-lehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -6397,7 +6397,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Muusikko (2005–2012)<br/>Julkaisija: Suomen Muusikkojen Liitto ry<br/>Kotisivu: <a href='http://www.muusikkojenliitto.fi/muusikko/arkisto.html'>http://www.muusikkojenliitto.fi/muusikko/arkisto.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -6419,7 +6419,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Näkyvä Nainen (2008–3/2014)<br/>Julkaisija: Suomen NNKY-liitto<br/>Kotisivu: <a href='http://www.ywca.fi/jasenlehti/'>http://www.ywca.fi/jasenlehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -6441,7 +6441,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ostrobotnia (3/2003–1/2011, 2015)<br/>Julkaisija: Pohjalainen Valtuuskunta<br/>Kotisivu: <a href='http://pv.osakunta.fi/ostro/'>http://pv.osakunta.fi/ostro/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 // 	text_filename: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
@@ -6463,7 +6463,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Oulunkyläinen – Pohjoiset Esikaupungit -lehti (2002–2016)<br/>Julkaisija: Oulunkylä-seura<br/>Kotisivu: <a href='http://www.kaupunginosat.net/oulunkyla/oulunkylainen/oulunkylainen_lehti.htm'>http://www.kaupunginosat.net/oulunkyla/oulunkylainen/oulunkylainen_lehti.htm</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -6485,7 +6485,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Patria (2008–1/2016)<br/>Julkaisija: Patria Oyj<br/>Kotisivu: <a href='http://patria.fi/fi/media/esitteet-ja-julkaisut/patria-lehden-arkisto'>http://patria.fi/fi/media/esitteet-ja-julkaisut/patria-lehden-arkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -6507,7 +6507,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Perussuomalainen (2004–10/2016)<br/>Julkaisija: Perussuomalaiset rp<br/>Kotisivu: <a href='https://www.suomenuutiset.fi/lehtiarkisto/'>https://www.suomenuutiset.fi/lehtiarkisto/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -6529,7 +6529,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Pihlajamäen lähiölehti (2007–2015), Pihlajamäki.info (2016)<br/>Julkaisija: Pihlajamäki-seura ry<br/>Kotisivu: <a href='http://pihlajamaki.info/pihlajamen-lhilehti-mainmenu-937'>http://pihlajamaki.info/pihlajamen-lhilehti-mainmenu-937</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -6551,7 +6551,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Pirta (2012–2016)<br/>Julkaisija: Kalevalaisten Naisten Liitto<br/>Kotisivu: <a href='http://www.kalevalaistennaistenliitto.fi/pirta.html'>http://www.kalevalaistennaistenliitto.fi/pirta.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -6573,7 +6573,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Plari (3/2008–2016)<br/>Julkaisija: Helsingin Eteläpohjalaiset ry<br/>Kotisivu: <a href='http://www.helsinginetelapohjalaiset.fi/?cat=13'>http://www.helsinginetelapohjalaiset.fi/?cat=13</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -6595,7 +6595,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Prointerior (2004–2016)<br/>Julkaisija: PubliCo Oy<br/>Kotisivu: <a href='http://www.prointerior.fi/lehti/lehtiarkisto.html'>http://www.prointerior.fi/lehti/lehtiarkisto.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -6617,7 +6617,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Proresto (2011–2016)<br/>Julkaisija: PubliCo Oy<br/>Kotisivu: <a href='http://www.proresto.fi/lehtiarkisto.html'>http://www.proresto.fi/lehtiarkisto.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -6639,7 +6639,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Ruotuväki (22/2014–21/2016)<br/>Julkaisija: Puolustusvoimat<br/>Kotisivu: <a href='http://ruotuvaki.fi/lehdet-2016'>http://ruotuvaki.fi/lehdet-2016</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_year: {
@@ -6659,7 +6659,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Saariselkä Nyt! (2012–2013)<br/>Julkaisija: Pasi Ruotsalainen<br/>Kotisivu: <a href='http://www.saariselka.net/arkisto.html'>http://www.saariselka.net/arkisto.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -6679,7 +6679,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Saima (2009–2/2013, 3/2015–1/2016)<br/>Julkaisija: Itä-Suomen Yliopisto<br/>Kotisivu: <a href='http://www.uef.fi/fi/saima/arkisto'>http://www.uef.fi/fi/saima/arkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 // 	text_filename: sattrs.hidden,
@@ -6701,7 +6701,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Secretarius (4/2012–2013)<br/>Julkaisija: Sihteeriyhdistys ry<br/>Kotisivu: <a href='http://www.sihteeriyhdistys.fi/fi/secretarius-lehti/secretarius-arkisto/?PHPSESSID=70b0d09d2c2dbb7a4826fcd126ce6ecc'>http://www.sihteeriyhdistys.fi/fi/secretarius-lehti/secretarius-arkisto/?PHPSESSID=70b0d09d2c2dbb7a4826fcd126ce6ecc</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_year: {
@@ -6721,7 +6721,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Skrolli (2012–1/2016)<br/>Julkaisija: Skrolli ry<br/>Kotisivu: <a href='http://skrolli.fi/numerot'>http://skrolli.fi/numerot</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -6743,7 +6743,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Sössö (2003, 2005–2/2016)<br/>Julkaisija: TKK:n Sähköinsinöörikilta ry<br/>Kotisivu: <a href='http://sik.ayy.fi/fi/sosso/'>http://sik.ayy.fi/fi/sosso/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -6763,7 +6763,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Sukuviesti (2005–2015)<br/>Julkaisija: Siposten Sukuseura ry<br/>Kotisivu: <a href='http://www.sipostensukuseura.com/sukuviesti'>http://www.sipostensukuseura.com/sukuviesti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -6785,7 +6785,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Suomen historiallisen seuran jäsenlehti (3/1997–1/2016)<br/>Julkaisija: Suomen Historiallinen Seura<br/>Kotisivu: <a href='http://www.histseura.fi/jasenlehtiarkisto.html'>http://www.histseura.fi/jasenlehtiarkisto.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -6807,7 +6807,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Suomi–Puola Finlandia–Polska (2009–2015)<br/>Julkaisija: Suomi-Puola Yhdistysten Liitto ry<br/>Kotisivu: <a href='http://www.suomi-puola.net/lehti'>http://www.suomi-puola.net/lehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 //         text_title: sattrs.text_title,
@@ -6829,7 +6829,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Susikko (2010–2/2016)<br/>Sisältää lehden kotisivulla keväällä 2016 ladattavissa olleet artikkelit<br/>Julkaisija: Metsähistorian Seura ry<br/>Kotisivu: <a href='http://www.metsahistoria.fi/fi/julkaisut/susikko'>http://www.metsahistoria.fi/fi/julkaisut/susikko</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -6851,7 +6851,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "TAMK.nyt (2/2011–1/2016)<br/>Julkaisija: Tampereen ammattikorkeakoulu<br/>Kotisivu: <a href='http://www.tamk.fi/web/tamk/lehdet-ja-uutiskirjeet'>http://www.tamk.fi/web/tamk/lehdet-ja-uutiskirjeet</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 // 	text_filename: sattrs.hidden,
 //         text_title: sattrs.text_title,
@@ -6873,7 +6873,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tampere (2002–3/2016)<br/>Julkaisija: Tampereen kaupungin viestintäyksikkö<br/>Kotisivu: <a href='http://www.tampere.fi/tampereen-kaupunki/yhteystiedot-ja-asiointi/viestinta/lehdet/tampere-lehti.html'>http://www.tampere.fi/tampereen-kaupunki/yhteystiedot-ja-asiointi/viestinta/lehdet/tampere-lehti.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -6895,7 +6895,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tampereen liikuntasanomat (2/2005–3/2016)<br/>Julkaisija: Tampereen kaupungin liikuntapalvelut<br/>Kotisivu: <a href='http://www.tampere.fi/kulttuuri-ja-vapaa-aika/liikunta/liikuntasanomat.html'>http://www.tampere.fi/kulttuuri-ja-vapaa-aika/liikunta/liikuntasanomat.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -6917,7 +6917,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tampu (2009–1/2015)<br/>Julkaisija: Tampereen puhallinorkesteriyhdistys ry<br/>Kotisivu: <a href='http://www.tampu.fi/index.php?page=jasenlehti'>http://www.tampu.fi/index.php?page=jasenlehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -6937,7 +6937,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tanhuviesti (2009–2016)<br/>Julkaisijat: Suomalaisen Kansantanssin Ystävät ry, Kansantanssinuorten Liitto ry, Pelimannikilta ry<br/>Kotisivu: <a href='https://www.kansantanssinyst.fi/tanhuviesti/'>https://www.kansantanssinyst.fi/tanhuviesti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_year: {
@@ -6959,7 +6959,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tanssiurheilija (2/2008–3/2016)<br/>Julkaisija: Suomen Tanssiurheiluliitto ry<br/>Kotisivu: <a href='https://www.zerrenlabs.com/client/tanssiurheilija/'>https://www.zerrenlabs.com/client/tanssiurheilija/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 // 	text_filename: sattrs.hidden,
@@ -6981,7 +6981,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Terve (2005–1/2011), Elämän tähdet (2011–2/2016)<br/>Sisältää lehden kotisivulla syksyllä 2016 ladattavissa olleet artikkelit<br/>Julkaisija: Pirkanmaan sairaanhoitopiiri<br/>Kotisivu: <a href='http://www.tays.fi/fi-FI/Sairaanhoitopiiri/Sairaanhoitopiirin_julkaisut/Elaman_tahdet'>http://www.tays.fi/fi-FI/Sairaanhoitopiiri/Sairaanhoitopiirin_julkaisut/Elaman_tahdet</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -7001,7 +7001,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Terve Pirkanmaa (2008–2016)<br/>Julkaisija: Pirkanmaan sairaanhoitopiiri<br/>Kotisivu: <a href='http://www.tays.fi/fi-FI/Sairaanhoitopiiri/Sairaanhoitopiirin_julkaisut/Terve_Pirkanmaa'>http://www.tays.fi/fi-FI/Sairaanhoitopiiri/Sairaanhoitopiirin_julkaisut/Terve_Pirkanmaa</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -7021,7 +7021,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tervetuloa Jyväskylään (2006–2013)<br/>Julkaisija: Jyväskylän kaupunki<br/>Kotisivu: <a href='http://www.jyvaskyla.fi/asuminen/uusiasukas'>http://www.jyvaskyla.fi/asuminen/uusiasukas</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -7043,7 +7043,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tietoa maasta (2004–3/2016)<br/>Julkaisija: Maanmittauslaitos<br/>Kotisivu: <a href='http://www.maanmittauslaitos.fi/tietoa-maasta'>http://www.maanmittauslaitos.fi/tietoa-maasta</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 // 	text_filename: sattrs.hidden,
 //         text_title: sattrs.text_title,
@@ -7065,7 +7065,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tietoarkisto (2000–2004, 2006–2015)<br/>Julkaisija: Yhteiskuntatieteellinen tietoarkisto<br/>Kotisivu: <a href='http://www.fsd.uta.fi/lehti/fi/'>http://www.fsd.uta.fi/lehti/fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 //         text_issue: {
@@ -7086,7 +7086,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tiimi (2003–2016)<br/>Julkaisija: A-klinikkasäätiö<br/>Kotisivu: <a href='http://www.a-klinikka.fi/tiimi/arkisto'>http://www.a-klinikka.fi/tiimi/arkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
@@ -7108,7 +7108,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Rautatievirkamies (2011–3/2016)<br/>Julkaisija: Rautatievirkamiesliitto r.y.<br/>Kotisivu: <a href='http://www.rautatievirkamiesliitto.fi/fi/ajankohtaista/lehti'>http://www.rautatievirkamiesliitto.fi/fi/ajankohtaista/lehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 // 	text_filename: sattrs.hidden,
 //         text_title: sattrs.text_title,
@@ -7130,7 +7130,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Toolilainen (2009–3/2016)<br/>Julkaisija: Tool ry<br/>Kotisivu: <a href='http://www.tool.fi/toolilainen-lehti/'>http://www.tool.fi/toolilainen-lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7153,7 +7153,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tuntosarvi (2011–11/2016)<br/>Julkaisija: Suomen Kuurosokeat ry<br/>Kotisivu: <a href='http://www.kuurosokeat.fi/tuntosarvi/tuntosarvi_2011.php'>http://www.kuurosokeat.fi/tuntosarvi/tuntosarvi_2011.php</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7176,7 +7176,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tuulensilmä (2003–2/2008), Tuulienergia (3/2008–2013), Tuulivoima (2014–2016)<br/>Julkaisija: Suomen Tuulivoimayhdistys ry<br/>Kotisivu: <a href='http://www.tuulivoimayhdistys.fi/lehti/'>http://www.tuulivoimayhdistys.fi/lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7199,7 +7199,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Uiotus (2008–1/2016)<br/>Julkaisija: Uudenmaan Insinööriopiskelijat UIO ry<br/>Kotisivu: <a href='http://uio.fi/palvelutjatoiminta/uiotus/index.dsp'>http://uio.fi/palvelutjatoiminta/uiotus/index.dsp</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7222,7 +7222,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Unioni (4/2005–2013)<br/>Julkaisija: Ilmailualan Unioni IAU ry<br/>Kotisivu: <a href='http://www.iau.fi/index.php?mid=219'>http://www.iau.fi/index.php?mid=219</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7245,7 +7245,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Valkoinen kääpiö (1990–2016)<br/>Julkaisija: Jyväskylän Sirius ry<br/>Kotisivu: <a href='http://www.ursa.fi/yhd/sirius/sivut/sivu.php?sid=24'>http://www.ursa.fi/yhd/sirius/sivut/sivu.php?sid=24</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7268,7 +7268,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Vantaan kaupungin asukaslehti (2014–2016)<br/>Julkaisija: Vantaan Kaupunki<br/>Kotisivu: <a href='http://www.vantaa.fi/asukaslehti'>http://www.vantaa.fi/asukaslehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7291,7 +7291,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Vapaa Ajattelija (2002–2/2007)<br/>Julkaisija: Vapaa-ajattelijain liitto ry<br/>Kotisivu: <a href='http://www.vapaa-ajattelijat.fi/lehti/'>http://www.vapaa-ajattelijat.fi/lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7314,7 +7314,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Vasama (2009–9/2016)<br/>Julkaisija: Sähköalojen ammattiliitto ry<br/>Kotisivu: <a href='http://www.sahkoliitto.fi/sahkoliitto/viestinta/vasama'>http://www.sahkoliitto.fi/sahkoliitto/viestinta/vasama</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7337,7 +7337,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Veturimies (2006–2015)<br/>Julkaisija: Veturimiesten liitto ry<br/>Kotisivu: <a href='http://www.vml.fi/veturimies-lehti/arkisto/'>http://www.vml.fi/veturimies-lehti/arkisto/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7360,7 +7360,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Via Helsinki (2/2012, 1/2013)<br/>Julkaisija: Finavia<br/>Kotisivu: <a href='https://www.finavia.fi/fi/tiedottaminen/arkisto/asiakaslehdet/'>https://www.finavia.fi/fi/tiedottaminen/arkisto/asiakaslehdet/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7383,7 +7383,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Vilkku (2006–2016)<br/>Julkaisija: Tampereen kaupungin viestintäyksikkö<br/>Kotisivu: <a href='http://www.tampere.fi/tampereen-kaupunki/yhteystiedot-ja-asiointi/viestinta/lehdet/vilkku.html'>http://www.tampere.fi/tampereen-kaupunki/yhteystiedot-ja-asiointi/viestinta/lehdet/vilkku.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7406,7 +7406,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Virta kulttuurilehti (2004–2013)<br/>Julkaisija: Virta on vapaa kulttuurilehti. Jokainen kirjoittaja vastaa omista sanoistaan.<br/>Kotisivu: <a href='https://virtalehtiblog.wordpress.com/numerot/'>https://virtalehtiblog.wordpress.com/numerot/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7429,7 +7429,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Walpo (2003–2015)<br/>Julkaisija: Turun yliopiston Politiikan tutkimuksen klubi ry (P-klubi)<br/>Kotisivu: <a href='http://www.p-klubi.fi/?id=arkisto'>http://www.p-klubi.fi/?id=arkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7452,7 +7452,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Yhteenveto (2015–3/2016)<br/>Julkaisija: Akavan Erityisalat AE ry<br/>Kotisivu: <a href='https://www.akavanerityisalat.fi/ajankohtaista/yhteenveto-jasenlehti/pdf-arkisto'>https://www.akavanerityisalat.fi/ajankohtaista/yhteenveto-jasenlehti/pdf-arkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7478,7 +7478,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "YHYS-tiedotuslehti (2/2005–2013)<br/>Julkaisija: Yhteiskuntatieteellisen ympäristötutkimuksen seura ry<br/>Kotisivu: <a href='http://www.yhys.net/vuosien-2005–2013-tiedotuslehdet-pdf-muodossa/'>http://www.yhys.net/vuosien-2005–2013-tiedotuslehdet-pdf-muodossa/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7504,7 +7504,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Yliopistolainen (2013)<br/>Julkaisija: Helsingin yliopisto<br/>Kotisivu: <a href='http://www.helsinki.fi/yliopistolainen/arkistoidut.html'>http://www.helsinki.fi/yliopistolainen/arkistoidut.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7530,7 +7530,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Yrittäjäsanomat (7/2010, 2012–8/2016)<br/>Julkaisija: Suomen Yrittäjien Sypoint Oy<br/>Kotisivu: <a href='http://www.yrittajat.fi/suomenyrittajat/tiedotustoiminta/yrittajasanomat'>http://www.yrittajat.fi/suomenyrittajat/tiedotustoiminta/yrittajasanomat</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7556,7 +7556,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Yritysetiikka (2009–1/2016)<br/>Julkaisija: EBEN Suomi ry<br/>Kotisivu: <a href='http://www.eben-net.fi/yritysetiikka-lehti'>http://www.eben-net.fi/yritysetiikka-lehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7582,7 +7582,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Uusi Safiiri (2005–2013)<br/>Julkaisija: Via ry<br/>Kotisivu: <a href='http://www.via.fi/index.php?sivusto=uusi_safiiri&sivu=arkisto'>http://www.via.fi/index.php?sivusto=uusi_safiiri&sivu=arkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7607,7 +7607,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Syöpäsäätiön Focus-lehti (2009–2016)<br/>Julkaisija: Syöpäsäätiö<br/>Kotisivu: <a href='https://www.syopajarjestot.fi/julkaisut/focus-lehti/'>https://www.syopajarjestot.fi/julkaisut/focus-lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: {
 //             displayType: "hidden",
 //         },
@@ -7631,7 +7631,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Aalto University Magazine (1–16)<br/>Julkaisija: Aalto-yliopisto, viestintäpalvelut<br/>Kotisivu: <a href='http://www.aalto.fi/fi/current/magazine/'>http://www.aalto.fi/fi/current/magazine/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 //         text_filename: sattrs.hidden,
@@ -7653,7 +7653,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Aplodi (2/2012–1/2013)<br/>Julkaisija: Aplodi – Kulttuurimyymälä ja matkailuneuvonta<br/>Kotisivu: <a href='http://www.aplodi.fi/'>http://www.aplodi.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 //         text_year: {
@@ -7675,7 +7675,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "CANews (2009-kesä/2013)<br/>Julkaisija: Förlags Ab Lindan Kustannus Oy<br/>Kotisivu: <a href='http://canews.fi/fi/node/347'>http://canews.fi/fi/node/347</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -7696,7 +7696,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Elore (2005–2016)<br/>Julkaisija: Suomen Kansantietouden Tutkijain Seura ry<br/>Kotisivu: <a href='http://www.elore.fi/lehtiarkisto/'>http://www.elore.fi/lehtiarkisto/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_year: {
@@ -7718,7 +7718,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Helmi (2009–2014)<br/>Julkaisija: Helmi Ry<br/>Kotisivu: <a href='https://issuu.com/helmiry'>https://issuu.com/helmiry</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -7740,7 +7740,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Dysfasia (4/2009–2010), Kielipolku (2011–2013)<br/>Julkaisija: Aivoliitto ry<br/>Kotisivu: <a href='https://www.aivoliitto.fi/aivoliitto_ry/lehdet/kielipolku/lehtiarkisto'>https://www.aivoliitto.fi/aivoliitto_ry/lehdet/kielipolku/lehtiarkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 //         text_year: {
@@ -7762,7 +7762,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kulttuurivihkot (2–3/2003–2012)<br/>Julkaisija: Domirola Oy<br/>Kotisivu: <a href='http://kulttuurivihkot.fi/lehti/pdf'>http://kulttuurivihkot.fi/lehti/pdf</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -7784,7 +7784,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Partio ja Jälki-liite (4/2011–3/2013)<br/>Julkaisija: Suomen Partiolaiset – Finlands Scouter ry<br/>Kotisivu: <a href='https://www.partio.fi/partiolaisille/partio-lehti'>https://www.partio.fi/partiolaisille/partio-lehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -7806,7 +7806,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Pispalalainen (2/2015, 1/2016)<br/>Julkaisija: Pispalan kumppanuus ry<br/>Kotisivu: <a href='http://www.pispala.fi/pispalalainen/'>http://www.pispala.fi/pispalalainen/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 //         text_title: sattrs.text_title,
@@ -7828,7 +7828,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Rautalampilehti (3/2007–4/2017)<br/>Julkaisija: Viestirauta Oy<br/>Kotisivu: <a href='http://www.rautalampilehti.fi/lehtiarkisto'>http://www.rautalampilehti.fi/lehtiarkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_filename: sattrs.hidden,
 //         text_title: sattrs.text_title,
@@ -7849,7 +7849,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Talentia (2010–3/2017)<br/>Julkaisija: Sosiaalialan korkeakoulutettujen ammattijärjestö Talentia ry<br/>Kotisivu: <a href='http://talentia.e-julkaisu.com/lehti/'>http://talentia.e-julkaisu.com/lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_filename: sattrs.hidden,
 //         text_year: {
@@ -7871,7 +7871,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "TeollisuusSuomi (syyskuu 2015, syyskuu 2016)<br/>Julkaisija: Suomiviesti Oy<br/>Kotisivu: <a href='http://www.suomiviesti.fi/home/teollisuussuomi/'>http://www.suomiviesti.fi/home/teollisuussuomi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -7892,7 +7892,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Työeläke (2006–2/2017)<br/>Julkaisija: Eläketurvakeskus<br/>Kotisivu: <a href='http://www.etk.fi/blogit/pdf_cat/tyoelake-lehti/'>http://www.etk.fi/blogit/pdf_cat/tyoelake-lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 //         text_year: {
@@ -7914,7 +7914,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Universitas Chydenius (2006–1/2015)<br/>Julkaisija: Kokkolan yliopistokeskus Chydenius<br/>Kotisivu: <a href='https://www.chydenius.fi/tutkimus/julkaisut/universitas-chydenius'>https://www.chydenius.fi/tutkimus/julkaisut/universitas-chydenius</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -7936,7 +7936,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Uskonnontutkija (2006, 2/2007, 2012–2016)<br/>Julkaisija: Suomen Uskontotieteellinen Seura<br/>Kotisivu: <a href='http://uskonnontutkija.fi/arkisto/'>http://uskonnontutkija.fi/arkisto/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_year: {
@@ -7957,7 +7957,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Virallinen lehti (1999–48/2017)<br/>Julkaisija: Valtioneuvoston kanslia<br/>Kotisivu: <a href='https://www.credita.fi/vl/lehti'>https://www.credita.fi/vl/lehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_filename: sattrs.hidden,
 //         text_title: sattrs.text_title,
@@ -7978,7 +7978,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Yhteishyvä (2/2014–2/2017)<br/>Julkaisija: Suomen Osuuskauppojen Keskuskunta<br/>Kotisivu: <a href='http://view.24mags.com/library/yhteishyv%C3%A4'>http://view.24mags.com/library/yhteishyv%C3%A4</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -7999,7 +7999,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Yhteishyvä ruoka (2/2014–2/2017)<br/>Julkaisija: Suomen Osuuskauppojen Keskuskunta<br/>Kotisivu: <a href='http://view.24mags.com/library/yhteishyv%C3%A4?cat=209'>http://view.24mags.com/library/yhteishyv%C3%A4?cat=209</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_filename: sattrs.hidden,
 //         text_year: {
@@ -8020,7 +8020,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Husari (1/2009, 2014–3/2016)<br/>Julkaisija: Uudenmaan sairaanhoitopiirin kuntayhtymä<br/>Kotisivu: <a href='http://www.hus.fi/hus-tietoa/uutishuone/husari/lehtiarkisto/Sivut/default.aspx'>http://www.hus.fi/hus-tietoa/uutishuone/husari/lehtiarkisto/Sivut/default.aspx</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -8041,7 +8041,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Janus (2004–1/2017)<br/>Sisältää lehden kotisivulla kesällä 2017 ladattavissa olleet artikkelit.<br/>Julkaisija: Sosiaalipoliittinen yhdistys ja Sosiaalityön tutkimuksen seura<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/janus/issue/archive?issuesPage=1#issues'>http://ojs.tsv.fi/index.php/janus/issue/archive?issuesPage=1#issues</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_filename: sattrs.hidden,
@@ -8062,7 +8062,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kuuloviesti (2011–2/2016)<br/>Julkaisija: Kuuloliitto ry<br/>Kotisivu: <a href='https://www.kuuloliitto.fi/'>https://www.kuuloliitto.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -8083,7 +8083,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Mirator (2000–1/2016)<br/>Sisältää lehden kotisivulla kesällä 2017 ladattavissa olleet artikkelit.<br/>Julkaisija: Mirator c/o Glossa ry<br/>Kotisivu: <a href='http://www.glossa.fi/mirator/index_fi.html'>http://www.glossa.fi/mirator/index_fi.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_filename: sattrs.hidden,
@@ -8104,7 +8104,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Palveluesimies (2011–1/2017)<br/>Julkaisija: Kaupanalan esimiesliitto KEY ry<br/>Kotisivu: <a href='http://www.esimiesliitto.com/jasenedut-ja-palvelut/palveluesimieslehti/'>http://www.esimiesliitto.com/jasenedut-ja-palvelut/palveluesimieslehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_year: {
@@ -8126,7 +8126,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "PardiaNyt (2014–2016)<br/>Julkaisija: Palkansaajajärjestö Pardia ry<br/>Kotisivu: <a href='http://www.pardia.fi/viestinta/pardianyt-jasenlehti2/'>http://www.pardia.fi/viestinta/pardianyt-jasenlehti2/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -8148,7 +8148,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Pari & Perhe (2007–2014)<br/>Julkaisija: Väestöliitto ry<br/>Kotisivu: <a href='http://www.vaestoliitto.fi/media/pari_perhe-lehti/arkisto'>http://www.vaestoliitto.fi/media/pari_perhe-lehti/arkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_filename: sattrs.hidden,
 //         text_issue: {
@@ -8171,7 +8171,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "AVH (4/2009–2/2014)<br/>Julkaisija: Aivoliitto ry<br/>Kotisivu: <a href='https://issuu.com/strokery'>https://issuu.com/strokery</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_filename: sattrs.hidden,
 //         text_issue: {
@@ -8192,7 +8192,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kuntoutus (2011–2012)<br/>Julkaisija: Kuntoutussäätiö<br/>Kotisivu: <a href='https://issuu.com/search?q=kuntoutus-lehti'>https://issuu.com/search?q=kuntoutus-lehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -8213,7 +8213,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Haagalainen (2005–4/2009)<br/>Julkaisija: Haagalaisen Tuki – Stöd ry<br/>Kotisivu: <a href='http://www.haagalainen.com/arkistovanhat.htm'>http://www.haagalainen.com/arkistovanhat.htm</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_filename: sattrs.hidden,
 //         text_issue: {
@@ -8235,7 +8235,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Rönsy (2004–2015)<br/>Julkaisija: Vihreiden nuorten ja opiskelijoiden liitto ry<br/>Kotisivu: <a href='http://www.vino.fi/ronsy/ronsyn-numerot'>http://www.vino.fi/ronsy/ronsyn-numerot</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -8257,7 +8257,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Signum (2005–1/2017)<br/>Sisältää lehden kotisivulla kesällä 2017 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen Tieteellisen Kirjastoseura<br/>Kotisivu: <a href='http://ojs.tsv.fi/index.php/signum/issue/archive'>http://ojs.tsv.fi/index.php/signum/issue/archive</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_filename: sattrs.hidden,
 //         text_issue: {
@@ -8278,7 +8278,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Stiiknafuulia (2/2011–9/2013)<br/>Julkaisija: Oulun kirjailijaseura ry<br/>Kotisivu: <a href='http://www.oulunkirjailijaseura.fi/stiiknafuulia/stiiknafuulia'>http://www.oulunkirjailijaseura.fi/stiiknafuulia/stiiknafuulia</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -8300,7 +8300,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tiedosta (2015–2016)<br/>Julkaisija: TIEKE Tietoyhteiskunnan kehittämiskeskus ry<br/>Kotisivu: <a href='http://www.tieke.fi/display/julkaisut/Tiedosta+-+lehti'>http://www.tieke.fi/display/julkaisut/Tiedosta+-+lehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -8321,7 +8321,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Täydellinen ympyrä (2011–1/2017)<br/>Julkaisija: Tampereen Taiteilijaseura ry<br/>Kotisivu: <a href='http://tampereen-taiteilijaseura.fi/tampereen-taiteilijaseura-ry/taydellinen-ympyra-lehti/'>http://tampereen-taiteilijaseura.fi/tampereen-taiteilijaseura-ry/taydellinen-ympyra-lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -8343,7 +8343,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Valkonauha (4/2012–2/2017)<br/>Julkaisija: Suomen Valkonauhaliitto ry<br/>Kotisivu: <a href='http://www.suomenvalkonauhaliitto.fi/julkaisut/valkonauha-lehti'>http://www.suomenvalkonauhaliitto.fi/julkaisut/valkonauha-lehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -8365,7 +8365,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Viri Lactis (1997, 2005–2011, 2013)<br/>Julkaisija: Maitotalousylioppilaiden yhdistys, Viri Lactis ry<br/>Kotisivu: <a href='http://www.protsv.fi/mts/virilactis.htm'>http://www.protsv.fi/mts/virilactis.htm</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -8387,7 +8387,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Arkkitehtiuutiset (2010–4/2017)<br/>Sisältää lehden kotisivulla kesällä 2017 ladattavissa olleet artikkelit.<br/>Julkaisija: Suomen Arkkitehtiliitto ry SAFA<br/>Kotisivu: <a href='http://www.safa.fi/fin/julkaisut/arkkitehtiuutiset_au/nbspnbsparkisto'>http://www.safa.fi/fin/julkaisut/arkkitehtiuutiset_au/nbspnbsparkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -8408,7 +8408,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "AV-Visio (2012–2015)<br/>Julkaisija: AVITA ry<br/>Kotisivu: <a href='http://www.av-visio.fi/'>http://www.av-visio.fi/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -8429,7 +8429,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Kide – Lapin yliopiston tiede- ja taidelehti (2010–1/2017)<br/>Julkaisija: Lapin yliopisto/Viestintä<br/>Kotisivu: <a href='https://www.ulapland.fi/FI/Yliopisto/Kide-%E2%80%93-Lapin-yliopiston-tiede--ja-taidelehti/Aiemmat-numerot'>https://www.ulapland.fi/FI/Yliopisto/Kide-%E2%80%93-Lapin-yliopiston-tiede--ja-taidelehti/Aiemmat-numerot</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_filename: sattrs.hidden,
 //         text_year: {
@@ -8450,7 +8450,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Puu-lehti (3/1999–1/2017)<br/>Julkaisija: Puuinfo Oy<br/>Kotisivu: <a href='http://www.puuinfo.fi/puulehti'>http://www.puuinfo.fi/puulehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 //         text_title: sattrs.text_title,
@@ -8472,7 +8472,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Saarijärveläinen (14/2012–11/2017)<br/>Julkaisija: Maakunnan Sanomat<br/>Kotisivu: <a href='http://www.saarijarvelainen.fi/nakoislehti/'>http://www.saarijarvelainen.fi/nakoislehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_filename: sattrs.hidden,
 //         text_year: {
@@ -8493,7 +8493,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Suomen Seniorilehti (2014–1/2017)<br/>Julkaisija: Suomen Senioriliike ry<br/>Kotisivu: <a href='https://www.senioriliike.fi/jasenlehti/suomen-seniorilehti/'>https://www.senioriliike.fi/jasenlehti/suomen-seniorilehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -8515,7 +8515,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Super (2008–10/2015)<br/>Julkaisija: Suomen lähi- ja perushoitajaliitto SuPer ry<br/>Kotisivu: <a href='http://www.superliitto.fi/viestinta/super-lehti/super-lehden-arkisto'>http://www.superliitto.fi/viestinta/super-lehti/super-lehden-arkisto</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_url: sattrs.link_lehdet,
@@ -8537,7 +8537,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Syöpä (2014–2/2017)<br/>Julkaisija: Syöpäjärjestöt<br/>Kotisivu: <a href='https://www.syopajarjestot.fi/julkaisut/syopa-lehti/'>https://www.syopajarjestot.fi/julkaisut/syopa-lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -8558,7 +8558,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tampereen Kauppakamarilehti (2015–3/2017)<br/>Julkaisija: Tampereen kauppakamari<br/>Kotisivu: <a href='http://www.tampereenkauppakamarilehti.fi/nakoislehti'>http://www.tampereenkauppakamarilehti.fi/nakoislehti</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_issue: {
@@ -8579,7 +8579,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tapaturmavakuutus (2008–2009, 2013–1/2017)<br/>Julkaisija: Tapaturmavakuutuskeskus<br/>Kotisivu: <a href='http://www.tvk.fi/tietopalvelu-ja-julkaisut/lehti/'>http://www.tvk.fi/tietopalvelu-ja-julkaisut/lehti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -8600,7 +8600,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tapiolan lähiseudun asiakaslehti (2005–5/2017)<br/>Sisältää lehden kotisivulla kesällä 2017 ladattavissa olleet artikkelit.<br/>Julkaisija: Oy Quality International QI Ltd Ab<br/>Kotisivu: <a href='http://www.tapiolan.com/lehti.html'>http://www.tapiolan.com/lehti.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -8622,7 +8622,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Terve elämä (2006–2009)<br/>Sisältää lehden kotisivulla kesällä 2017 ladattavissa olleet artikkelit.<br/>Julkaisija: Juho Vainion Säätiö<br/>Kotisivu: <a href='http://www.juhovainionsaatio.fi/pages/suomeksi/terve-elaemae/artikkelit.php?p=10'>http://www.juhovainionsaatio.fi/pages/suomeksi/terve-elaemae/artikkelit.php?p=10</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_year: {
 //             label: "year",
@@ -8644,7 +8644,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Tukijalka (1/2014)<br/>Julkaisija: Vammaisurheilun Tuki ry<br/>Kotisivu: <a href='http://vammaisurheiluntuki.com/tukijalka.html'>http://vammaisurheiluntuki.com/tukijalka.html</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_filename: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
@@ -8666,7 +8666,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Anti (2/2004–1/2008, 1/2016–1/2017)<br/>Julkaisija: Iltakoulu ry<br/>Kotisivu: <a href='http://iltakoulu.org/julkaisut/anti/'>http://iltakoulu.org/julkaisut/anti/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_title: sattrs.text_title,
 //         text_year: {
@@ -8687,7 +8687,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Wieteri (2010–2013)<br/>Julkaisija: Espoon kaupunki<br/>Kotisivu: <a href='http://www.espoo.fi/fi-FI/Espoon_kaupunki/Tietoa_Espoosta/Julkaisut/Henkilostolehti_Wieteri(30745)'>http://www.espoo.fi/fi-FI/Espoon_kaupunki/Tietoa_Espoosta/Julkaisut/Henkilostolehti_Wieteri(30745)</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -8708,7 +8708,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "BoF Online (2007–4/2015)<br/>Julkaisija: Suomen Pankki<br/>Kotisivu: <a href='https://www.suomenpankki.fi/fi/media-ja-julkaisut/julkaisut/selvitykset-ja-raportit/bof_online/'>https://www.suomenpankki.fi/fi/media-ja-julkaisut/julkaisut/selvitykset-ja-raportit/bof_online/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_issue: {
 //             label: "issue",
@@ -8730,7 +8730,7 @@ settings.corpora.ftb3_jrcacquis = {
 //     description: "Euro & talous (1999–2016)<br/>Julkaisija: Suomen Pankki<br/>Kotisivu: <a href='https://www.suomenpankki.fi/fi/media-ja-julkaisut/julkaisut/euro--talous/'>https://www.suomenpankki.fi/fi/media-ja-julkaisut/julkaisut/euro--talous/</a>",
 //     licence: settings.licenceinfo.CC_BY_40,
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         text_id: sattrs.hidden,
 //         text_url: sattrs.link_lehdet,
 //         text_year: {
@@ -8773,8 +8773,8 @@ settings.corpora.ftb3_jrcacquis = {
 //     cite_id: "HS.fi",
 //     limited_access: true,
 //     licence_type: "ACA",
-//     within: settings.spWithin,
-//     context: settings.spContext,
+//     within: spWithin,
+//     context: spContext,
 //     attributes: {
 //         lemma: attrs.baseform,
 //         lemmacomp: attrs.baseform_compound,
@@ -8785,7 +8785,7 @@ settings.corpora.ftb3_jrcacquis = {
 //         ref: attrs.ref,
 //         lex: attrs.lemgram_hidden
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         sentence_id: sattrs.sentence_id_hidden,
 // 	text_id: {
 // 	    label: "text_id"
@@ -8822,10 +8822,10 @@ settings.corpora.ftb3_jrcacquis = {
 //     cite_id: "Karjalansuomi",
 //     limited_access: true,
 //     licence_type: "ACA",
-//     within: settings.spWithin,
-//     context: settings.spContext,
+//     within: spWithin,
+//     context: spContext,
 //     attributes: {},
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_year: sattrs.date,
 //         text_type: {
@@ -8904,7 +8904,7 @@ settings.corpora.reittidemo = {
 //     description: "Juhani Ahon teoksia vuosilta 1891–1921.",
 //     id: "skk_aho",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	sentence_type: sattrs.sentence_type,
 //         text_title: sattrs.text_title,
 //         text_distributor: sattrs.text_distributor,
@@ -8917,9 +8917,9 @@ settings.corpora.reittidemo = {
 //     description: "Suomalaisen kirjallisuuden klassikoita. Minna Canthin teoksia vuosilta 1884–1896.",
 //     id: "skk_canth",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     features: ["parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         sentence_type: sattrs.sentence_type,
 //         text_title: sattrs.text_title,
 //         text_distributor: sattrs.text_distributor,
@@ -8932,9 +8932,9 @@ settings.corpora.reittidemo = {
 //     description: "Jalmari Finnen teoksia vuosilta 1914–1925.",
 //     id: "skk_finne",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     features: ["parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         sentence_type: sattrs.sentence_type,
 //         text_title: sattrs.text_title,
 //         text_distributor: sattrs.text_distributor,
@@ -8947,9 +8947,9 @@ settings.corpora.reittidemo = {
 //     description: "Arvid Järnefeltin teoksia vuosilta 1893–1930.",
 //     id: "skk_jarnefelt",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     features: ["parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         sentence_type: sattrs.sentence_type,
 //         text_title: sattrs.text_title,
 //         text_distributor: sattrs.text_distributor,
@@ -8962,9 +8962,9 @@ settings.corpora.reittidemo = {
 //     description: "Uuno Kailaksen teoksia vuosilta 1921–1932.",
 //     id: "skk_kailas",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     features: ["parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         sentence_type: sattrs.sentence_type,
 //         text_title: sattrs.text_title,
 //         text_distributor: sattrs.text_distributor,
@@ -8977,9 +8977,9 @@ settings.corpora.reittidemo = {
 //     description: "Kolme Maiju Lassilana parhaiten tunnetun Algoth Untolan (vuoteen 1901 Tietäväisen) teosta. Kukin on julkaistu eri taitelijanimellä: Pojat asialla on merkitty Maiju Lassilan kirjoittamaksi, Avuttomat J. I. Vatasen ja Kuoleman rajoilla Irmari Rantamalan. Vuosilta 1911–1915.",
 //     id: "skk_lassila",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     features: ["parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         sentence_type: sattrs.sentence_type,
 //         text_title: sattrs.text_title,
 //         text_distributor: sattrs.text_distributor,
@@ -8992,9 +8992,9 @@ settings.corpora.reittidemo = {
 //     description: "Väinö Linnankoski: Laulu tulipunaisesta kukasta (1905).",
 //     id: "skk_linnankoski",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     features: ["parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         sentence_type: sattrs.sentence_type,
 //         text_title: sattrs.text_title,
 //         text_distributor: sattrs.text_distributor,
@@ -9007,9 +9007,9 @@ settings.corpora.reittidemo = {
 //     description: "Kaarlo Kramsun runoelmia vuosilta 1878–1887.",
 //     id: "skk_kramsu",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     features: ["parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         sentence_type: sattrs.sentence_type,
 //         text_author: sattrs.text_author,
 //         text_title: sattrs.text_title,
@@ -9023,10 +9023,10 @@ settings.corpora.reittidemo = {
 //     description: "Joel Lehtosen teoksia vuosilta 1911–1934.",
 //     id: "skk_lehtonen",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         sentence_type: sattrs.sentence_type,
 //         text_author: sattrs.text_author,
 //         text_title: sattrs.text_title,
@@ -9040,9 +9040,9 @@ settings.corpora.reittidemo = {
 //     description: "Eino Leinon kaikki alkuperäiskokoelmissa julkaistut runot ja runoelmat sekä runoja kokoelmien ulkopuolelta. Kirjailijan runonäytelmät eivät ole mukana.",
 //     id: "skk_leino",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     features: ["parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         sentence_type: sattrs.sentence_type,
 //         text_author: sattrs.text_author,
 //         text_title: sattrs.text_title,
@@ -9056,9 +9056,9 @@ settings.corpora.reittidemo = {
 //     description: "Teuvo Pakkalan teoksia vuosilta 1894–1913",
 //     id: "skk_pakkala",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     features: ["parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         sentence_type: sattrs.sentence_type,
 //         text_author: sattrs.text_author,
 //         text_title: sattrs.text_title,
@@ -9072,9 +9072,9 @@ settings.corpora.reittidemo = {
 //     description: "Juhani Siljon teoksia vuosilta 1910–1919",
 //     id: "skk_siljo",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     features: ["parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         sentence_type: sattrs.sentence_type,
 //         text_author: sattrs.text_author,
 //         text_title: sattrs.text_title,
@@ -9088,9 +9088,9 @@ settings.corpora.reittidemo = {
 //     description: "Kyösti Wilkuna, 1911 ",
 //     id: "skk_wilkuna",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     features: ["parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         sentence_type: sattrs.sentence_type,
 //         text_author: sattrs.text_author,
 //         text_title: sattrs.text_title,
@@ -9104,9 +9104,9 @@ settings.corpora.reittidemo = {
 //     description: "Uuno Kailaksen suomennoksia Edith Södergranin teoksista vuosilta 1916–1925 (suom. 1929)",
 //     id: "skk_sodergran",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     features: ["parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 //         sentence_type: sattrs.sentence_type,
 //         text_author: sattrs.text_author,
 //         text_title: sattrs.text_title,
@@ -9120,9 +9120,9 @@ settings.corpora.reittidemo = {
 //     description: "Pro gradu -tutkielmien suomenkielisiä abstrakteja 1999–2016",
 //     id: "ethesis_maabs",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_dissabs = {
@@ -9130,9 +9130,9 @@ settings.corpora.reittidemo = {
 //     description: "Väitöskirjojen suomenkielisiä abstrakteja 2006–2016",
 //     id: "ethesis_dissabs",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 
@@ -9142,9 +9142,9 @@ settings.corpora.reittidemo = {
 //     description: "Väitöskirjat: Farmasian tiedekunta (2005, 2013)",
 //     id: "ethesis_phd_far",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_phd_teo = {
@@ -9152,9 +9152,9 @@ settings.corpora.reittidemo = {
 //     description: "Väitöskirjat: Teologinen tiedekunta (2000–2016)",
 //     id: "ethesis_phd_teo",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_phd_beh = {
@@ -9162,9 +9162,9 @@ settings.corpora.reittidemo = {
 //     description: "Väitöskirjat: Käyttäytymistieteellinen tiedekunta (1996, 2000–2016)",
 //     id: "ethesis_phd_beh",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_phd_valt = {
@@ -9172,9 +9172,9 @@ settings.corpora.reittidemo = {
 //     description: "Väitöskirjat: Valtiotieteellinen tiedekunta (1999–2016)",
 //     id: "ethesis_phd_valt",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_phd_ot = {
@@ -9182,9 +9182,9 @@ settings.corpora.reittidemo = {
 //     description: "Väitöskirjat: Oikeustieteellinen tiedekunta (2001, 2004–2010, 2012, 2014–2016)",
 //     id: "ethesis_phd_ot",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_phd_hum = {
@@ -9192,9 +9192,9 @@ settings.corpora.reittidemo = {
 //     description: "Väitöskirjat: Humanistinen tiedekunta (2000–2016)",
 //     id: "ethesis_phd_hum",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_phd_bio = {
@@ -9202,9 +9202,9 @@ settings.corpora.reittidemo = {
 //     description: "Väitöskirjat: Bio- ja ympäristötieteellinen tiedekunta (2005)",
 //     id: "ethesis_phd_bio",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_phd_el = {
@@ -9212,9 +9212,9 @@ settings.corpora.reittidemo = {
 //     description: "Väitöskirjat: Eläinlääketieteellinen tiedekunta (2008)",
 //     id: "ethesis_phd_el",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_phd_mm = {
@@ -9222,9 +9222,9 @@ settings.corpora.reittidemo = {
 //     description: "Väitöskirjat: Maa- ja metsätieteellinen tiedekunta (2000, 2006, 2008–2010, 2012–2014, 2016)",
 //     id: "ethesis_phd_mm",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_phd_med = {
@@ -9232,9 +9232,9 @@ settings.corpora.reittidemo = {
 //     description: "Väitöskirjat: Lääketieteellinen tiedekunta (2000, 2003–2004, 2006–2010, 2012, 2014)",
 //     id: "ethesis_phd_med",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_ma_far = {
@@ -9242,9 +9242,9 @@ settings.corpora.reittidemo = {
 //     description: "Gradut: Farmasian tiedekunta 2010–2016",
 //     id: "ethesis_ma_far",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_ma_teo = {
@@ -9252,9 +9252,9 @@ settings.corpora.reittidemo = {
 //     description: "Gradut: Teologinen tiedekunta 2000–2016",
 //     id: "ethesis_ma_teo",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_ma_beh = {
@@ -9262,9 +9262,9 @@ settings.corpora.reittidemo = {
 //     description: "Gradut: Käyttäytymistieteellinen tiedekunta 1998–2016",
 //     id: "ethesis_ma_beh",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_ma_valt = {
@@ -9272,9 +9272,9 @@ settings.corpora.reittidemo = {
 //     description: "Gradut: Valtiotieteellinen tiedekunta 1996–2016",
 //     id: "ethesis_ma_valt",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_ma_ot = {
@@ -9282,9 +9282,9 @@ settings.corpora.reittidemo = {
 //     description: "Gradut: Oikeustieteellinen tiedekunta 2001–2016",
 //     id: "ethesis_ma_ot",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_ma_hum = {
@@ -9292,9 +9292,9 @@ settings.corpora.reittidemo = {
 //     description: "Gradut: Humanistinen tiedekunta 1998–2016",
 //     id: "ethesis_ma_hum",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_ma_sci = {
@@ -9302,9 +9302,9 @@ settings.corpora.reittidemo = {
 //     description: "Gradut: Matemaattis-luonnontieteellinen tiedekunta 1996–2016",
 //     id: "ethesis_ma_sci",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_ma_ai = {
@@ -9312,9 +9312,9 @@ settings.corpora.reittidemo = {
 //     description: "Gradut: Aleksanteri-instituutti 2001–2016",
 //     id: "ethesis_ma_ai",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_ma_bio = {
@@ -9322,9 +9322,9 @@ settings.corpora.reittidemo = {
 //     description: "Gradut: Bio- ja ympäristötieteellinen tiedekunta 2003–2016",
 //     id: "ethesis_ma_bio",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 
@@ -9333,9 +9333,9 @@ settings.corpora.reittidemo = {
 //     description: "Lisensiaatintyöt: Eläinlääketieteellinen tiedekunta (2003–2016)",
 //     id: "ethesis_ma_el",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_ma_mm = {
@@ -9343,9 +9343,9 @@ settings.corpora.reittidemo = {
 //     description: "Gradut: Maa- ja metsätieteellinen tiedekunta (2003–2016)",
 //     id: "ethesis_ma_mm",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 // settings.corpora.ethesis_ma_med = {
@@ -9353,9 +9353,9 @@ settings.corpora.reittidemo = {
 //     description: "Lisensiaatintyöt: Lääketieteellinen tiedekunta (2010–2016)",
 //     id: "ethesis_ma_med",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: attrlist.standard,
-//     struct_attributes: sattrlist.ethesis
+//     structAttributes: sattrlist.ethesis
 // };
 
 
@@ -9370,10 +9370,10 @@ settings.corpora.reittidemo = {
 //     licence: settings.licenceinfo.EUPL_11,
 //     homepage: settings.fn.kaino_homepage("klassikot/meta/klassikot"),
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_title: sattrs.text_title,
 // 	text_distributor: sattrs.text_distributor,
 // 	text_source: sattrs.text_source,
@@ -9487,7 +9487,7 @@ settings.corpora.reittidemo = {
 // 	id: attrs.id_hidden,
 // 	lex: attrs.lemgram_hidden,
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_source: {
 // 	    dataset: [
 // 		"Aamulehti",
@@ -9552,8 +9552,8 @@ settings.corpora.reittidemo = {
 //     title: "Tasavallan presidenttien uudenvuodenpuheita (näyte)",
 //     description: "Tasavallan presidenttien uudenvuodenpuheita (1935–2006) (Kotimaisten kielten keskuksen aineisto)",
 //     id: "ns_presidentti",
-//     within: settings.spWithin,
-//     context: settings.spContext,
+//     within: spWithin,
+//     context: spContext,
 //     attributes: {
 // 	lemma: attrs.baseform,
 // 	lemmacomp: attrs.baseform_compound,
@@ -9562,7 +9562,7 @@ settings.corpora.reittidemo = {
 // 	id: attrs.id_hidden,
 // 	lex: attrs.lemgram_hidden
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_title: sattrs.text_title,
 // 	text_distributor: sattrs.text_distributor,
 // 	text_source: sattrs.text_source,
@@ -9591,8 +9591,8 @@ settings.corpora.reittidemo = {
 //     title: "",
 //     description: "",
 //     id: "",
-//     within: settings.spWithin,
-//     context: settings.spContext,
+//     within: spWithin,
+//     context: spContext,
 //     attributes: {
 // 	lemma: attrs.baseform,
 // 	lemmacomp: attrs.baseform_compound,
@@ -9601,7 +9601,7 @@ settings.corpora.reittidemo = {
 // 	id: attrs.id_hidden,
 // 	lex: attrs.lemgram_hidden
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_title: sattrs.text_title,
 // 	text_distributor: sattrs.text_distributor,
 // 	// text_source: sattrs.text_source,
@@ -9722,8 +9722,8 @@ settings.corpora.reittidemo = {
 //     cite_id: "Lakeja&direktiiveja",
 //     licence: settings.licenceinfo.EUPL_11,
 //     homepage: settings.fn.kaino_homepage("teko/meta/saadokset/saadokset"),
-//     within: settings.spWithin,
-//     context: settings.spContext,
+//     within: spWithin,
+//     context: spContext,
 //     attributes: {
 //         lemma: attrs.baseform,
 //         lemmacomp: attrs.baseform_compound,
@@ -9732,7 +9732,7 @@ settings.corpora.reittidemo = {
 //         id: attrs.id_hidden,
 //         lex: attrs.lemgram_hidden
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_distributor: sattrs.text_distributor,
 //         text_source: sattrs.text_source,
@@ -9789,8 +9789,8 @@ settings.corpora.reittidemo = {
 //     metadata_urn: "urn:nbn:fi:lb-20140730126",
 //     licence: settings.licenceinfo.EUPL_11,
 //     homepage: settings.fn.kaino_homepage("teko/meta/saadokset/saadokset"),
-//     within: settings.spWithin,
-//     context: settings.spContext,
+//     within: spWithin,
+//     context: spContext,
 //     attributes: {
 // 	lemma: attrs.baseform,
 // 	lemmacomp: attrs.baseform_compound,
@@ -9799,7 +9799,7 @@ settings.corpora.reittidemo = {
 // 	id: attrs.id_hidden,
 // 	lex: attrs.lemgram_hidden
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_title: sattrs.text_title,
 // 	text_distributor: sattrs.text_distributor,
 // 	text_source: sattrs.text_source,
@@ -9857,9 +9857,9 @@ settings.corpora.reittidemo = {
 //     homepage: settings.fn.kaino_homepage("sp/meta/sp"),
 //     cite_id: "Sananparsikokoelma",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     features: ["parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_title: sattrs.text_title,
 // 	text_distributor: sattrs.text_distributor,
 // 	text_source: sattrs.text_source,
@@ -10063,7 +10063,7 @@ settings.corpora.reittidemo = {
 // 	    // allow only the sentence context and sentence + clause
 // 	    // within.
 // 	    ["ahla", "Ahlainen", "ahlainen", {
-// 		context: settings.defaultContext,
+// 		context: defaultContext,
 // 		within: settings.scWithin
 // 	    }],
 // 	    ["merk", "Merikarvia", "merikarvia"],
@@ -10516,7 +10516,7 @@ settings.corpora.reittidemo = {
 // 	    "cow",
 // 	    "note",
 // 	],
-// 	struct_attributes: [
+// 	structAttributes: [
 // 	    "text_dialect_region",
 // 	    "text_dialect_group",
 // 	    "text_parish",
@@ -10719,10 +10719,10 @@ settings.corpora.reittidemo = {
 //     cite_id: "LAS2",
 //     limited_access: true,
 //     licence_type: "RES",
-//     within: settings.spWithin,
-//     context: settings.spContext,
+//     within: spWithin,
+//     context: spContext,
 //     attributes: attrlist.las2,
-//     struct_attributes: sattrlist.las2,
+//     structAttributes: sattrlist.las2,
 // };
 
 // settings.corpora.las2_tentit = {
@@ -10860,90 +10860,90 @@ settings.corpora.reittidemo = {
 //     id: "agricola_abckiria",
 //     title: "Agricola: Abckiria",
 //     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Abckiria",
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     within: settings.defaultWithin,
 //     attributes: attrlist.agricola,
-//     struct_attributes: sattrlist.agricola
+//     structAttributes: sattrlist.agricola
 // };
 
 // settings.corpora.agricola_kasikiria = {
 //     id: "agricola_kasikiria",
 //     title: "Agricola: Käsikiria",
 //     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Käsikiria Castesta ia muista Christikunnan Menoista",
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     within: settings.defaultWithin,
 //     attributes: attrlist.agricola,
-//     struct_attributes: sattrlist.agricola
+//     structAttributes: sattrlist.agricola
 // };
 
 // settings.corpora.agricola_messu = {
 //     id: "agricola_messu",
 //     title: "Agricola: Messu",
 //     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Messu eli Herran echtolinen",
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     within: settings.defaultWithin,
 //     attributes: attrlist.agricola,
-//     struct_attributes: sattrlist.agricola
+//     structAttributes: sattrlist.agricola
 // };
 
 // settings.corpora.agricola_piina = {
 //     id: "agricola_piina",
 //     title: "Agricola: Piina",
 //     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Se meiden Herran Jesusen Christusen Pina, ylesnousemus ia taiuaisen astumus, niste Neliest Euangelisterist coghottu",
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     within: settings.defaultWithin,
 //     attributes: attrlist.agricola,
-//     struct_attributes: sattrlist.agricola
+//     structAttributes: sattrlist.agricola
 // };
 
 // settings.corpora.agricola_profeetat = {
 //     id: "agricola_profeetat",
 //     title: "Agricola: Ne Prophetat",
 //     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Ne Prophetat. Haggai. SacharJa. Maleachi.",
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     within: settings.defaultWithin,
 //     attributes: attrlist.agricola,
-//     struct_attributes: sattrlist.agricola
+//     structAttributes: sattrlist.agricola
 // };
 
 // settings.corpora.agricola_psaltari = {
 //     id: "agricola_psaltari",
 //     title: "Agricola: Dauidin Psaltari",
 //     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Dauidin Psaltari",
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     within: settings.defaultWithin,
 //     attributes: attrlist.agricola,
-//     struct_attributes: sattrlist.agricola
+//     structAttributes: sattrlist.agricola
 // };
 
 // settings.corpora.agricola_rucouskiria = {
 //     id: "agricola_rucouskiria",
 //     title: "Agricola: Rucouskiria",
 //     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Rucouskiria Bibliasta",
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     within: settings.defaultWithin,
 //     attributes: attrlist.agricola,
-//     struct_attributes: sattrlist.agricola
+//     structAttributes: sattrlist.agricola
 // };
 
 // settings.corpora.agricola_sewsitestamenti = {
 //     id: "agricola_sewsitestamenti",
 //     title: "Agricola: Se Wsi Testamenti",
 //     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Se Wsi Testamenti",
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     within: settings.defaultWithin,
 //     attributes: attrlist.agricola,
-//     struct_attributes: sattrlist.agricola
+//     structAttributes: sattrlist.agricola
 // };
 
 // settings.corpora.agricola_veisut = {
 //     id: "agricola_veisut",
 //     title: "Agricola: Weisut",
 //     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta: Weisut ia Ennustoxet Mosesen Laista ia Prophetista Wloshaetut",
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     within: settings.defaultWithin,
 //     attributes: attrlist.agricola,
-//     struct_attributes: sattrlist.agricola
+//     structAttributes: sattrlist.agricola
 // };
 
 // settings.corpus_aliases.agricola = "agricola_.*";
@@ -10985,7 +10985,7 @@ settings.corpora.reittidemo = {
 // 	    opts: settings.defaultOptions,
 // 	}
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_idno: {
 // 	    label: "kivi_text_idno",
 // 	    opts: settings.defaultOptions,
@@ -11085,8 +11085,8 @@ settings.corpora.reittidemo = {
 //     licence: settings.licenceinfo.CC_BY_NC,
 //     homepage_url: "http://dbgw.finlit.fi/skvr/",
 //     cite_id: "SKVR",
-//     within: settings.spWithin,
-//     context: settings.spContext,
+//     within: spWithin,
+//     context: spContext,
 //     attributes: {
 //         cleanword: {
 //             label: "cleanword",
@@ -11097,7 +11097,7 @@ settings.corpora.reittidemo = {
 //             opts: settings.defaultOptions,
 //         }
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: {
 //             label: "skvr_item_id",
 //             displayType: "hidden",
@@ -11229,10 +11229,10 @@ settings.corpora.reittidemo = {
 //     id: "kfspc_fi",
 //     cite_id: "kfspc-korp-fi",
 //     lang: "fin",
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     within: settings.defaultWithin,
 //     features: ["parsed_tdt", "finer"],
-//     struct_attributes: sattrlist.kfspc
+//     structAttributes: sattrlist.kfspc
 // };
 
 // settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_fi"]);
@@ -11256,7 +11256,7 @@ settings.corpora.reittidemo = {
 //     attributes: {
 // 	namecat_omorfi: attrs.namecat_omorfi,
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_id: sattrs.hidden,
 // 	text_year: sattrs.year,
 // 	text_author: sattrs.text_author,
@@ -11288,10 +11288,10 @@ settings.corpora.reittidemo = {
 //     title: "FiRuLex suomi",
 //     description: "Juridisia tekstejä (suomi)",
 //     cite_id: "FiRuLex-fi",
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     within: settings.defaultWithin,
 //     attributes: attrlist.mulcold_fi,
-//     struct_attributes: sattrlist.legal
+//     structAttributes: sattrlist.legal
 // };
 
 // settings.fn.extend_corpus_settings(settings.corpusinfo.firulex,
@@ -11324,10 +11324,10 @@ settings.corpora.reittidemo = {
 //     title: "ParFin (suomi) [poistuva]",
 //     description: "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset alkuperäistekstit)<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1990–2010<br/><br/><strong>Huomaa, että ParFin 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
 //     // TODO: Add paragraphs corresponding to link elements
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     within: settings.defaultWithin,
 //     attributes: attrlist.parfin_fi,
-//     struct_attributes: sattrlist.parfin_fi,
+//     structAttributes: sattrlist.parfin_fi,
 //     limited_access: true,
 //     licence_type: "RES",
 // };
@@ -11344,12 +11344,12 @@ settings.corpora.reittidemo = {
 //     id: "parrus_fi",
 //     title: "ParRus (suomi) [poistuva]",
 //     description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset käännökset)<br/>Venäjänkielisten kaunokirjallisten tekstien (klassista ja 1900-luvun kirjallisuutta) käännöksiä suomeksi<br/><br/><strong>Huomaa, että ParRus 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     within: settings.defaultWithin,
 //     limited_access: true,
 //     licence_type: "RES",
 //     attributes: attrlist.parrus_fi,
-//     struct_attributes: sattrlist.parrus_fi,
+//     structAttributes: sattrlist.parrus_fi,
 // };
 // settings.fn.extend_corpus_settings(settings.corpusinfo.parrus, ["parrus_fi"]);
 // */
@@ -11368,7 +11368,7 @@ settings.corpora.reittidemo = {
 //     context: settings.sentLinkContext,
 //     within: settings.sentLinkWithin,
 //     attributes: attrlist.parfin_2016_fi,
-//     struct_attributes: sattrlist.parfin_2016_fi,
+//     structAttributes: sattrlist.parfin_2016_fi,
 //     limited_access: true,
 //     licence_type: "RES",
 // };
@@ -11392,7 +11392,7 @@ settings.corpora.reittidemo = {
 //     limited_access: true,
 //     licence_type: "RES",
 //     attributes: attrlist.parrus_2016_fi,
-//     struct_attributes: sattrlist.parrus_2016_fi,
+//     structAttributes: sattrlist.parrus_2016_fi,
 // };
 // settings.fn.extend_corpus_settings(settings.corpusinfo.parrus_2016,
 // 				   ["parrus_2016_fi"]);
@@ -11666,9 +11666,9 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Vuoden 1642 raamatunsuomennos",
 //     id: "vks_biblia",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {},
-//     struct_attributes: {
+//     structAttributes: {
 // 	sourcecode_bibleref: {
 // 	    label: "vksbib_sourcecode_bibleref"
 // 	},
@@ -11711,12 +11711,12 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Laki- ja asetustekstejä",
 //     id: "vks_lait",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 // 	word_orig: attrs.origword,
 // 	word_completed: attrs.complword
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 // 	sourcecode_work: sattrs.vkslait_sourcecode_work,
 // 	sourcecode_code: sattrs.vks_sourcecode_code,
 // 	sourcecode_page: sattrs.vks_sourcecode_page,
@@ -11734,12 +11734,12 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Ruumissaarnoja, puheita ja muistorunoja",
 //     id: "vks_saarnat",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 // 	word_orig: attrs.origword,
 // 	word_completed: attrs.complword
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 // 	sourcecode_work: sattrs.vkssaarnat_sourcecode_work,
 // 	sourcecode_code: sattrs.vks_sourcecode_code,
 // 	sourcecode_page: sattrs.vks_sourcecode_page,
@@ -11756,13 +11756,13 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Mikael Agricolan teokset: Mikael Agricolan teosten 1–3 uudistettu näköispainos (WSOY: Porvoo 1987)",
 //     id: "vks_agricola",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 // 	word_orig: attrs.origword,
 // 	word_completed: attrs.complword,
 // 	word_tilde: attrs.tildeword
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_year: sattrs.vks_text_year,
 // 	text_title: sattrs.vks_text_title,
 // 	text_title_facsimile: {
@@ -11781,13 +11781,13 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Almanakkoja vuosilta 1705–1809",
 //     id: "vks_almanakat",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //         word_orig: attrs.origword,
 //         word_completed: attrs.complword,
 //         word_tilde: attrs.tildeword
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: sattrs.vks_text_year,
 //         text_title: sattrs.vks_text_title,
 //         sentence_type: sattrs.vks_sentence_type,
@@ -11803,13 +11803,13 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Vuoden 1642 raamatunsuomennos",
 //     id: "vks_biblia",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //         word_orig: attrs.origword,
 //         word_completed: attrs.complword,
 //         word_tilde: attrs.tildeword
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: sattrs.vks_text_year,
 //         text_title: sattrs.vks_text_title,
 //         sentence_type: sattrs.vks_sentence_type,
@@ -11826,13 +11826,13 @@ settings.fn.make_corpus_settings_by_year_decade(
 // Juhla- ja Sunnundai-Päiwäisten Evangeliumein Tutkinnoissa. Osat I–II 1801",
 //     id: "vks_bjorkqvist",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //         word_orig: attrs.origword,
 //         word_completed: attrs.complword,
 //         word_tilde: attrs.tildeword
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: sattrs.vks_text_year,
 //         text_title: sattrs.vks_text_title,
 //         sentence_type: sattrs.vks_sentence_type,
@@ -11848,13 +11848,13 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Hyödyllinen Huwitus Luomisen Töistä, Yxinkertaisille awuxi Jumalan Hywyden Tundoon ja Palweluxeen",
 //     id: "vks_frosterus",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //         word_orig: attrs.origword,
 //         word_completed: attrs.complword,
 //         word_tilde: attrs.tildeword
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: sattrs.vks_text_year,
 //         text_title: sattrs.vks_text_title,
 //         sentence_type: sattrs.vks_sentence_type,
@@ -11870,13 +11870,13 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Gananderin teoksia",
 //     id: "vks_ganander",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //         word_orig: attrs.origword,
 //         word_completed: attrs.complword,
 //         word_tilde: attrs.tildeword
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: sattrs.vks_text_year,
 //         text_title: sattrs.vks_text_title,
 //         sentence_type: sattrs.vks_sentence_type,
@@ -11892,13 +11892,13 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Lakeja ja asetuksia 1500-, 1600-, 1700- ja 1800-luvuilta",
 //     id: "vks_lait",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //         word_orig: attrs.origword,
 //         word_completed: attrs.complword,
 //         word_tilde: attrs.tildeword
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: sattrs.vks_text_year,
 //         text_title: sattrs.vks_text_title,
 //         sentence_type: sattrs.vks_sentence_type,
@@ -11914,13 +11914,13 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Lizeliuksen teoksia vuosilta 1756–1780",
 //     id: "vks_lizelius",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //         word_orig: attrs.origword,
 //         word_completed: attrs.complword,
 //         word_tilde: attrs.tildeword
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: sattrs.vks_text_year,
 //         text_title: sattrs.vks_text_title,
 //         sentence_type: sattrs.vks_sentence_type,
@@ -11936,13 +11936,13 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Laurentius Petrin saarnoja 1644–1670",
 //     id: "vks_lpetri",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //         word_orig: attrs.origword,
 //         word_completed: attrs.complword,
 //         word_tilde: attrs.tildeword
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: sattrs.vks_text_year,
 //         text_title: sattrs.vks_text_title,
 //         sentence_type: sattrs.vks_sentence_type,
@@ -11958,13 +11958,13 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Ruumissaarnoja, puheita ja muistorunoja 1600- ja 1700-luvuilta",
 //     id: "vks_saarnat",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //         word_orig: attrs.origword,
 //         word_completed: attrs.complword,
 //         word_tilde: attrs.tildeword
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: sattrs.vks_text_year,
 //         text_title: sattrs.vks_text_title,
 //         sentence_type: sattrs.vks_sentence_type,
@@ -11980,13 +11980,13 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Kokoelma tekstejä 1500-, 1600-, 1700- ja 1800-luvuilta",
 //     id: "vks_varia",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //         word_orig: attrs.origword,
 //         word_completed: attrs.complword,
 //         word_tilde: attrs.tildeword
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: sattrs.vks_text_year,
 //         text_title: sattrs.vks_text_title,
 //         sentence_type: sattrs.vks_sentence_type,
@@ -12002,13 +12002,13 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Virsiä",
 //     id: "vks_virret",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //         word_orig: attrs.origword,
 //         word_completed: attrs.complword,
 //         word_tilde: attrs.tildeword
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_year: sattrs.vks_text_year,
 //         text_title: sattrs.vks_text_title,
 //         sentence_type: sattrs.vks_sentence_type,
@@ -12024,11 +12024,11 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     title: "Asetuksia (näyte)",
 //     description: "Asetuksia",
 //     id: "vns_asetus",
-//     within: settings.spWithin,
-//     context: settings.spContext,
+//     within: spWithin,
+//     context: spContext,
 //     attributes: {
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_title: sattrs.text_title,
 // 	text_distributor: sattrs.text_distributor,
 // 	text_source: sattrs.text_source,
@@ -12067,10 +12067,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Renqvist",
 //     id: "vns_renqvist",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_title: sattrs.text_title,
 // 	text_distributor: sattrs.text_distributor,
 // 	text_source: sattrs.text_source,
@@ -12086,11 +12086,11 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     title: "Asetuksia",
 //     description: "Asetuksia",
 //     id: "vnsk_asetus",
-//     within: settings.spWithin,
-//     context: settings.spContext,
+//     within: spWithin,
+//     context: spContext,
 //     attributes: {
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_distributor: sattrs.text_distributor,
 //         text_source: sattrs.text_source,
@@ -12130,10 +12130,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Kivi",
 //     id: "vnsk_kivi",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_keckman = {
@@ -12141,10 +12141,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Keckman",
 //     id: "vnsk_keckman",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_cajan = {
@@ -12152,10 +12152,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Cajan",
 //     id: "vnsk_cajan",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_cajan = {
@@ -12163,10 +12163,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Cajan",
 //     id: "vnsk_cajan",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 
@@ -12175,10 +12175,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Cannelin",
 //     id: "vnsk_cannelin",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_aminoff = {
@@ -12186,10 +12186,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Aminoff",
 //     id: "vnsk_aminoff",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_ahlholm = {
@@ -12197,10 +12197,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Ahlholm",
 //     id: "vnsk_ahlholm",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 
@@ -12209,10 +12209,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Yksittäisiä",
 //     id: "vnsk_yksitt",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_aejmelaeus = {
@@ -12220,10 +12220,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Aejmelaeus",
 //     id: "vnsk_aejmelaeus",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_ahlman_kirjat = {
@@ -12231,10 +12231,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Ahlman kirjat",
 //     id: "vnsk_ahlman_kirjat",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_ahlman_sanastot = {
@@ -12242,10 +12242,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Ahlman sanastot",
 //     id: "vnsk_ahlman_sanastot",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_ahlqvist = {
@@ -12253,10 +12253,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Ahlqvist",
 //     id: "vnsk_ahlqvist",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_akiander = {
@@ -12264,10 +12264,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Akiander",
 //     id: "vnsk_akiander",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_almanakka = {
@@ -12275,10 +12275,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Almanakka",
 //     id: "vnsk_almanakka",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_anonyymi = {
@@ -12286,10 +12286,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Anonyymi",
 //     id: "vnsk_anonyymi",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_aulen = {
@@ -12297,10 +12297,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Aulen",
 //     id: "vnsk_aulen",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_backvall = {
@@ -12308,10 +12308,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Backvall",
 //     id: "vnsk_backvall",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_bocker = {
@@ -12319,10 +12319,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Bocker",
 //     id: "vnsk_bocker",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_bonsdorff = {
@@ -12330,10 +12330,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Bonsdorff",
 //     id: "vnsk_bonsdorff",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_borenius = {
@@ -12341,10 +12341,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Borenius",
 //     id: "vnsk_borenius",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_borg = {
@@ -12352,10 +12352,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Borg",
 //     id: "vnsk_borg",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_cantell = {
@@ -12363,10 +12363,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Cantell",
 //     id: "vnsk_cantell",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_corander = {
@@ -12374,10 +12374,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Corander",
 //     id: "vnsk_corander",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_costiander = {
@@ -12385,10 +12385,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Costiander",
 //     id: "vnsk_costiander",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_dahlberg = {
@@ -12396,10 +12396,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Dahlberg",
 //     id: "vnsk_dahlberg",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_edlund = {
@@ -12407,10 +12407,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Edlund",
 //     id: "vnsk_edlund",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_eklof = {
@@ -12418,10 +12418,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Eklof",
 //     id: "vnsk_eklof",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_euren = {
@@ -12429,10 +12429,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Euren",
 //     id: "vnsk_euren",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_europaeus = {
@@ -12440,10 +12440,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Europaeus",
 //     id: "vnsk_europaeus",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_europaeus_sanastot = {
@@ -12451,10 +12451,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Europaeus sanastot",
 //     id: "vnsk_europaeus_sanastot",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_fabritius = {
@@ -12462,10 +12462,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Fabritius",
 //     id: "vnsk_fabritius",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_forsman = {
@@ -12473,10 +12473,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Forsman",
 //     id: "vnsk_forsman",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_forstrom = {
@@ -12484,10 +12484,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Forström",
 //     id: "vnsk_forstrom",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_friman = {
@@ -12495,10 +12495,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Friman",
 //     id: "vnsk_friman",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_frosterus = {
@@ -12506,10 +12506,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Frosterus",
 //     id: "vnsk_frosterus",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_gottlund = {
@@ -12517,10 +12517,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Gottlund",
 //     id: "vnsk_gottlund",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_granlund = {
@@ -12528,10 +12528,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Granlund",
 //     id: "vnsk_granlund",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_hannikainen = {
@@ -12539,10 +12539,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Hannikainen",
 //     id: "vnsk_hannikainen",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_hjelt = {
@@ -12550,10 +12550,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Hjelt",
 //     id: "vnsk_hjelt",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_hordh = {
@@ -12561,10 +12561,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Hordh",
 //     id: "vnsk_hordh",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_hornborg = {
@@ -12572,10 +12572,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Hornborg",
 //     id: "vnsk_hornborg",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_ignatius = {
@@ -12583,10 +12583,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Ignatius",
 //     id: "vnsk_ignatius",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_ingman = {
@@ -12594,10 +12594,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Ingman",
 //     id: "vnsk_ingman",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_innain = {
@@ -12605,10 +12605,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Innain",
 //     id: "vnsk_innain",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_juteini = {
@@ -12616,10 +12616,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Juteini",
 //     id: "vnsk_juteini",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_kemell = {
@@ -12627,10 +12627,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Kemell",
 //     id: "vnsk_kemell",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_kilpinen = {
@@ -12638,10 +12638,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Kilpinen",
 //     id: "vnsk_kilpinen",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_koskinen = {
@@ -12649,10 +12649,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Koskinen",
 //     id: "vnsk_koskinen",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_krohn = {
@@ -12660,10 +12660,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Krohn",
 //     id: "vnsk_krohn",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_lagervall = {
@@ -12671,10 +12671,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Lagervall",
 //     id: "vnsk_lagervall",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_lankela = {
@@ -12682,10 +12682,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Lankela",
 //     id: "vnsk_lankela",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_lavonius = {
@@ -12693,10 +12693,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Lavonius",
 //     id: "vnsk_lavonius",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_lilius_anton = {
@@ -12704,10 +12704,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Lilius Anton",
 //     id: "vnsk_lilius_anton",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_lilius_aukusti = {
@@ -12715,10 +12715,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Lilius Aukusti",
 //     id: "vnsk_lilius_aukusti",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_lonnrot = {
@@ -12726,10 +12726,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Lönnrot",
 //     id: "vnsk_lonnrot",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_malmberg = {
@@ -12737,10 +12737,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Malmberg",
 //     id: "vnsk_malmberg",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_mehilainen = {
@@ -12748,10 +12748,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Mehilainen",
 //     id: "vnsk_mehilainen",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_mela = {
@@ -12759,10 +12759,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Mela",
 //     id: "vnsk_mela",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_meurman = {
@@ -12770,10 +12770,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Meurman",
 //     id: "vnsk_meurman",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_mmy = {
@@ -12781,10 +12781,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Maamiehen Ystävä (1844–1845)",
 //     id: "vnsk_mmy",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_murman = {
@@ -12792,10 +12792,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Murman",
 //     id: "vnsk_murman",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_muut = {
@@ -12803,10 +12803,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Muut",
 //     id: "vnsk_muut",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_nyman = {
@@ -12814,10 +12814,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Nyman",
 //     id: "vnsk_nyman",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_ovs = {
@@ -12825,10 +12825,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Oulun Viikko-Sanomat (1829–1833, 1837, 1841)",
 //     id: "vnsk_ovs",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_polen = {
@@ -12836,10 +12836,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Polen",
 //     id: "vnsk_polen",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_poppius = {
@@ -12847,10 +12847,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Poppius",
 //     id: "vnsk_poppius",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_puhuttelija = {
@@ -12858,10 +12858,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Puhuttelija",
 //     id: "vnsk_puhuttelija",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_rein = {
@@ -12869,10 +12869,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Rein",
 //     id: "vnsk_rein",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_roos = {
@@ -12880,10 +12880,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Roos",
 //     id: "vnsk_roos",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_salmelainen = {
@@ -12891,10 +12891,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Salmelainen",
 //     id: "vnsk_salmelainen",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_salonius = {
@@ -12902,10 +12902,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Salonius",
 //     id: "vnsk_salonius",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_sanaluettelot = {
@@ -12913,10 +12913,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Sanaluettelot",
 //     id: "vnsk_sanaluettelot",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_sandberg = {
@@ -12924,10 +12924,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Sandberg",
 //     id: "vnsk_sandberg",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_schroter = {
@@ -12935,10 +12935,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Schröter",
 //     id: "vnsk_schroter",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_sirelius = {
@@ -12946,10 +12946,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Sirelius",
 //     id: "vnsk_sirelius",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_skogman = {
@@ -12957,10 +12957,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Skogman",
 //     id: "vnsk_skogman",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_smtr = {
@@ -12968,10 +12968,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Suomettaren vuosikerrat (1847–1848)",
 //     id: "vnsk_smtr",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_sohlberg = {
@@ -12979,10 +12979,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Sohlberg",
 //     id: "vnsk_sohlberg",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_soldan = {
@@ -12990,10 +12990,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Soldan",
 //     id: "vnsk_soldan",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_ssv = {
@@ -13001,10 +13001,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Sanan Saattaja Viipurista",
 //     id: "vnsk_ssv",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_stahlberg = {
@@ -13012,10 +13012,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Ståhlberg",
 //     id: "vnsk_stahlberg",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_tarvanen = {
@@ -13023,10 +13023,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Tarvanen",
 //     id: "vnsk_tarvanen",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_ticklen = {
@@ -13034,10 +13034,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Ticklen",
 //     id: "vnsk_ticklen",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_tikkanen = {
@@ -13045,10 +13045,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Tikkanen",
 //     id: "vnsk_tikkanen",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_topelius = {
@@ -13056,10 +13056,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Topelius",
 //     id: "vnsk_topelius",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_toppelius = {
@@ -13067,10 +13067,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Toppelius",
 //     id: "vnsk_toppelius",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_tvs = {
@@ -13078,10 +13078,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Turun Viikko-Sanomat",
 //     id: "vnsk_tvs",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_varelius = {
@@ -13089,10 +13089,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Varelius",
 //     id: "vnsk_varelius",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_virsikirja = {
@@ -13100,10 +13100,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Virsikirja",
 //     id: "vnsk_virsikirja",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_wallin = {
@@ -13111,10 +13111,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Wallin",
 //     id: "vnsk_wallin",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_wikman = {
@@ -13122,10 +13122,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Wikman",
 //     id: "vnsk_wikman",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vnsk_wiwolin = {
@@ -13133,10 +13133,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Wiwolin",
 //     id: "vnsk_wiwolin",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: sattrlist.vnsk
+//     structAttributes: sattrlist.vnsk
 // };
 
 // settings.corpora.vns_renvall = {
@@ -13144,10 +13144,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     description: "Gustaf Renvall: Suomalainen sana-kirja (1826)",
 //     id: "vns_renvall",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_title: sattrs.text_title,
 // 	text_distributor: sattrs.text_distributor,
 // 	text_source: sattrs.text_source,
@@ -13223,7 +13223,7 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     licence: settings.licenceinfo.CC_BY,
 //     cite_id: "Gutenberg",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: {
+//     structAttributes: {
 // 	text_title: sattrs.text_title,
 // 	sentence_id: sattrs.sentence_id_hidden,
 // 	text_author: sattrs.text_author,
@@ -13252,15 +13252,15 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     id: "suomi24fi",
 //     urn: "urn:nbn:fi:lb-201412171",
 //     metadata_urn: "urn:nbn:fi:lb-201412171",
-//     within: settings.spWithin,
-//     context: settings.spContext,
+//     within: spWithin,
+//     context: spContext,
 //     attributes: {
 // 	lemma: attrs.baseform,
 // 	pos: attrs.pos_klk,
 // 	msd: attrs.msd,
 // 	dephead: attrs.dephead
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_date: sattrs.date,
 //         text_time: sattrs.text_time,
@@ -13312,7 +13312,7 @@ settings.fn.make_corpus_settings_by_year_decade(
 // 	    opts: settings.defaultOptions
 // 	},
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_date: sattrs.date,
 //         text_editor: {
@@ -13373,7 +13373,7 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     cite_id: "sinebrychoff-fi",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
 //     // attributes: attrlist.sinebrychoff,
-//     struct_attributes: sattrlist.sinebrychoff
+//     structAttributes: sattrlist.sinebrychoff
 // };
 
 
@@ -13383,10 +13383,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     id: "topling_fi_test",
 //     title: "TOPLING (suomi, debug)",
 //     description: "TOPLING (suomi, debug)",
-//     context: settings.spContext,
-//     within: settings.spWithin,
+//     context: spContext,
+//     within: spWithin,
 //     attributes: attrlist.topling,
-//     struct_attributes: sattrlist.topling
+//     structAttributes: sattrlist.topling
 //     };*/
 
 // settings.corpora.topling_fi = {
@@ -13406,7 +13406,7 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     licence_type: "RES",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
 //     attributes: attrlist.topling,
-//     struct_attributes: sattrlist.topling
+//     structAttributes: sattrlist.topling
 // };
 
 
@@ -13463,7 +13463,7 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     limited_access: true,
 //     licence_type: "RES",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: $.extend(
+//     structAttributes: $.extend(
 // 	{}, sattrlist.ceal_common,
 // 	{
 // 	    part_num: sattrs.part_num,
@@ -13485,7 +13485,7 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     limited_access: true,
 //     licence_type: "ACA",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: sattrlist.ceal_common,
+//     structAttributes: sattrlist.ceal_common,
 // };
 
 // delete ceal_work_list;
@@ -13500,7 +13500,7 @@ settings.fn.make_corpus_settings_by_year_decade(
 //     licence: settings.licenceinfo.CC_BY_ND,
 //     cite_id: "ArkiSyn-korp",
 //     within: settings.defaultWithin,
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     attributes: {
 //         lemma: attrs.baseform,
 //         pos: attrs.pos_las2,
@@ -13508,7 +13508,7 @@ settings.fn.make_corpus_settings_by_year_decade(
 //         mrp: attrs.msd,
 //         origword: attrs.origword
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_filename: {
 //             label: "file_name",
 //         },
@@ -13529,10 +13529,10 @@ settings.fn.make_corpus_settings_by_year_decade(
 // 	name: "CLARIN ACA +NC +DEP 1.0",
 // 	urn: "urn:nbn:fi:lb-2019102106"
 //     },
-//     within: settings.spWithin,
-//     context: settings.spContext,
+//     within: spWithin,
+//     context: spContext,
 //     attributes: attrlist.ud2_fi,
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: { label: "work_title", order: 3 },
 // 	text_year: { label: "text_year", order: 2 },
 // 	text_filename: { label: "file_name", order: 1 },
@@ -13804,7 +13804,7 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 // // through the dataset, without localization.
 // settings.fn.dma_stringify_dataset_value = function (attrname) {
 //     return function (value) {
-// 	return settings.corpora.dma.struct_attributes[attrname].dataset[value];
+// 	return settings.corpora.dma.structAttributes[attrname].dataset[value];
 //     };
 // };
 
@@ -13855,7 +13855,7 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 // 	    displayType: "select",
 // 	    localize: false,
 // 	    stringify: function (value) {
-// 		return (settings.corpora.dma.struct_attributes
+// 		return (settings.corpora.dma.structAttributes
 // 			.text_dialect_group.dataset[value]
 // 			.replace(/[\x00-\x1F ]+/g, ""));
 // 	    },
@@ -14371,8 +14371,8 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //     licence: settings.licenceinfo.CC_BY_NC,
 //     homepage_url: "https://ylilauta.org",
 //     cite_id: "Ylilauta",
-//     within: settings.spWithin,
-//     context: settings.spContext,
+//     within: spWithin,
+//     context: spContext,
 //     attributes: {
 // 	/*
 // 	lemma: attrs.baseform,
@@ -14389,7 +14389,7 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //         lex: attrs.lemgram_hidden,
 //         nertag: attrs.ner_tags
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_date: sattrs.date,
 //         text_clock: sattrs.text_time,
@@ -14411,7 +14411,7 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //     description: "Suomi24-keskustelut, versio 2016H2, osa 1/10",
 //     id: "s24_001",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: sattrlist.s24_update
+//     structAttributes: sattrlist.s24_update
 // };
 
 // settings.corpora.s24_002 = {
@@ -14419,7 +14419,7 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //     description: "Suomi24-keskustelut, versio 2016H2, osa 2/10",
 //     id: "s24_002",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: sattrlist.s24_update
+//     structAttributes: sattrlist.s24_update
 // };
 
 // settings.corpora.s24_003 = {
@@ -14427,7 +14427,7 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //     description: "Suomi24-keskustelut, versio 2016H2, osa 3/10",
 //     id: "s24_003",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: sattrlist.s24_update
+//     structAttributes: sattrlist.s24_update
 // };
 
 // settings.corpora.s24_004 = {
@@ -14435,7 +14435,7 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //     description: "Suomi24-keskustelut, versio 2016H2, osa 4/10",
 //     id: "s24_004",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: sattrlist.s24_update
+//     structAttributes: sattrlist.s24_update
 // };
 
 // settings.corpora.s24_005 = {
@@ -14443,7 +14443,7 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //     description: "Suomi24-keskustelut, versio 2016H2, osa 5/10",
 //     id: "s24_005",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: sattrlist.s24_update
+//     structAttributes: sattrlist.s24_update
 // };
 
 // settings.corpora.s24_006 = {
@@ -14451,7 +14451,7 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //     description: "Suomi24-keskustelut, versio 2016H2, osa 6/10",
 //     id: "s24_006",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: sattrlist.s24_update
+//     structAttributes: sattrlist.s24_update
 // };
 
 // settings.corpora.s24_007 = {
@@ -14459,7 +14459,7 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //     description: "Suomi24-keskustelut, versio 2016H2, osa 7/10",
 //     id: "s24_007",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: sattrlist.s24_update
+//     structAttributes: sattrlist.s24_update
 // };
 
 // settings.corpora.s24_008 = {
@@ -14467,17 +14467,17 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //     description: "Suomi24-keskustelut, versio 2016H2, osa 8/10",
 //     id: "s24_008",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: sattrlist.s24_update
+//     structAttributes: sattrlist.s24_update
 // };
 // /*
 // settings.corpora.s24_009test = {
 //     title: "Suomi24 (test)",
 //     description: "Suomi24-keskustelut (test)",
 //     id: "s24_009test",
-//     within: settings.spWithin,
-//     context: settings.spContext,
+//     within: spWithin,
+//     context: spContext,
 //     attributes: attrlist.parsed_tdt,
-//     struct_attributes: sattrlist.s24_update
+//     structAttributes: sattrlist.s24_update
 // };
 // */
 
@@ -14486,7 +14486,7 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //     description: "Suomi24-keskustelut, versio 2016H2, osa 9/10",
 //     id: "s24_009",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: sattrlist.s24_update
+//     structAttributes: sattrlist.s24_update
 // };
 
 // settings.corpora.s24_010 = {
@@ -14494,7 +14494,7 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //     description: "Suomi24-keskustelut, versio 2016H2, osa 10/10",
 //     id: "s24_010",
 //     features: ["paragraphs", "parsed_tdt", "finer"],
-//     struct_attributes: sattrlist.s24_update
+//     structAttributes: sattrlist.s24_update
 // };
 
 // settings.corpus_aliases.suomi24 = "s24_0(0[1-9]|10)";
@@ -14522,8 +14522,8 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //     licence: settings.licenceinfo.CC_BY_NC,
 //     homepage_url: "http://keskustelu.suomi24.fi",
 //     cite_id: "Suomi24-2001-2014-korp",
-//     within: settings.spWithin,
-//     context: settings.spContext,
+//     within: spWithin,
+//     context: spContext,
 //     attributes: {
 // 	/*
 //         lemma: attrs.baseform,
@@ -14549,7 +14549,7 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //         lex: attrs.lemgram_hidden,
 //         nertag: attrs.ner_tags
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_title: sattrs.text_title,
 //         text_date: sattrs.date,
 //         text_time: sattrs.text_time,
@@ -14723,7 +14723,7 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //     description: "",
 //     id: "",
 //     features: ["paragraphs", "parsed_tdt", "spaces"],
-//     struct_attributes: sattrlist.s24_2018,
+//     structAttributes: sattrlist.s24_2018,
 // };
 
 // settings.fn.add_corpus_settings(
@@ -14766,8 +14766,8 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //     cite_id: "ICLFI",
 //     limited_access: true,
 //     licence_type: "RES",
-//     within: settings.spWithin,
-//     context: settings.spContext,
+//     within: spWithin,
+//     context: spContext,
 //     attributes: {
 //         lemma: attrs.baseform,
 //         msd: attrs.msd
@@ -14775,7 +14775,7 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //         deprel: attrs.deprel_tdt,
 //         ref: attrs.ref*/
 //     },
-//     struct_attributes: {
+//     structAttributes: {
 //         text_place: {
 //             label: "iclfi_place"
 // 	},
@@ -15504,7 +15504,7 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //     limited_access: true,
 //     licence_type: "ACA",
 //     features: ["paragraphs", "parsed_tdt"],
-//     struct_attributes: $.extend(
+//     structAttributes: $.extend(
 //         {}, sattrlist.ylenews_fi_common,
 //         {
 // 	    paragraph_type: sattrs.ylenews_fi_paragraph_type,
@@ -15528,10 +15528,10 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //     title: "Ylen suomenkielinen uutisarkisto {} (kaikille)",
 //     description: "Ylen suomenkielinen uutisarkisto 2011–2018, Korp: vuosi {}<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea",
 //     id: "ylenews_fi_2011_2018_s",
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     within: settings.defaultWithin,
 //     features: ["parsed_tdt"],
-//     struct_attributes: $.extend(
+//     structAttributes: $.extend(
 //         {}, sattrlist.ylenews_fi_common,
 //         {
 // 	    sentence_paragraph_type: sattrs.ylenews_fi_paragraph_type,
@@ -15628,7 +15628,7 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 // 	urn: "urn:nbn:fi:lb-2019121202",
 //     },
 //     features: ["paragraphs", "parsed_tdt"],
-//     struct_attributes: $.extend(
+//     structAttributes: $.extend(
 //         {}, sattrlist.ylenews_fi_selko_common,
 //         {
 // 	    paragraph_type: sattrs.ylenews_fi_selko_paragraph_type,
@@ -15649,10 +15649,10 @@ settings.corpus_aliases["eduskunta_test"] = "eduskunta";
 //     metadata_urn: "urn:nbn:fi:lb-2019121204",
 //     licence: settings.licenceinfo.CC_BY,
 //     cite_id: "ylenews-fi-2011-2018-selko-s-korp",
-//     context: settings.defaultContext,
+//     context: defaultContext,
 //     within: settings.defaultWithin,
 //     features: ["parsed_tdt"],
-//     struct_attributes: $.extend(
+//     structAttributes: $.extend(
 //         {}, sattrlist.ylenews_fi_selko_common,
 //         {
 // 	    sentence_paragraph_type: sattrs.ylenews_fi_selko_paragraph_type,
