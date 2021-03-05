@@ -290,6 +290,9 @@ korpApp.factory("searches", [
 
             getInfoData() {
                 const def = $q.defer()
+                const handle_unavailable_corpora =
+                      ! (["none", "fatal", undefined].includes(
+                          settings.handleUnavailableCorpora))
                 $http({
                     method: "GET",
                     url: settings.korpBackendURL + "/corpus_info",
@@ -297,9 +300,15 @@ korpApp.factory("searches", [
                         corpus: _.map(settings.corpusListing.corpora, "id")
                             .map((a) => a.toUpperCase())
                             .join(","),
+                        report_undefined_corpora: (handle_unavailable_corpora
+                                                   ? "true" : "false"),
                     },
                 }).then(function (response) {
                     const { data } = response
+                    if (handle_unavailable_corpora) {
+                        util.removeUnavailableCorpora(
+                            settings.corpusListing.corpora, data)
+                    }
                     for (let corpus of settings.corpusListing.corpora) {
                         corpus["info"] = data["corpora"][corpus.id.toUpperCase()]["info"]
                         const privateStructAttrs = []

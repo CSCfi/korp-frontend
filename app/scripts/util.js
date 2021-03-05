@@ -11,6 +11,14 @@ window.util = {}
 
 window.CorpusListing = class CorpusListing {
     constructor(corpora) {
+        // // This would require calling util.initAvailableCorpora in
+        // // advance, but it is currently done when processing the
+        // // data returned by /corpus_info. Does it always work
+        // // correctly that way?
+        // if (corpora === settings.corpora) {
+        //     util.removeUnavailableCorpora(corpora)
+        //     util.adjustPreselectedCorpora()
+        // }
         this.struct = corpora
         this.corpora = _.values(corpora)
         this.selected = _.filter(this.corpora, (corp) => !corp.limitedAccess)
@@ -1196,4 +1204,188 @@ window.__.remove = function (arr, elem) {
     if (index !== -1) {
         return arr.splice(arr.indexOf(elem), 1)
     }
+}
+
+
+// Functions for modifying settings.corpora, settings.corporafolders
+// and related data based on actually available corpora.
+
+
+// util.initAvailableCorpora was used in Korp 5.0.10. Would it still
+// be needed to initialize the list of available corpora before
+// loading the mode files, which initialize settings.corpusListing, or
+// is it enough to initialize them when calling /corpus_info?
+
+// // Initialize window.availableCorpora; return a $.Deferred object.
+
+// util.initAvailableCorpora = function () {
+//     const handle_type = settings.handleUnavailableCorpora || "none"
+//     if (handle_type === "none" || handle_type === "fatal") {
+//         window.availableCorpora = null
+//         return null
+//     }
+//     // Modelled after window.initLocales; is that appropriate?
+//     const defs = []
+//     window.availableCorpora = []
+//     const def = $.Deferred()
+//     defs.push($.ajax({
+//         url: settings.cgi_script + '/info',
+//         success(data) {
+//             window.availableCorpora =
+//                 data["corpora"].map((corp) => corp.toLowerCase())
+//         }}))
+//     $.when.apply($, defs).then(() => def.resolve(window.availableCorpora))
+//     return def
+// }
+
+// Remove from the object corpora properties that do not correspond to
+// any existing corpus listed in available_corpora, unless
+// settings.handleUnavailableCorpora is "none" or "fatal". The object
+// corpora is of the kind of settings.corpora and available_corpora
+// may be either an array of lower-case corpus ids of an array of
+// corpus info items as returned by /corpus_info. If some properties
+// were removed, report the removal on the console based on the value
+// of settings.handleUnavailableCorpora ("error", "warn" or "log").
+
+util.removeUnavailableCorpora = function (corpora, available_corpora) {
+    let remove_listed
+    const handle_type = settings.handleUnavailableCorpora || "none"
+    if (handle_type === "none" || handle_type === "fatal" ||
+            available_corpora == null) {
+        return
+    }
+    if ("corpora" in available_corpora) {
+        // Convert the list of corpora as returned by /corpus_info
+        available_corpora = _.map(
+            _.keys(available_corpora.corpora),
+            function (s) {
+                return s.toLowerCase()
+            }
+        )
+    }
+    c.log('available_corpora', available_corpora)
+    // Remove the non-listed corpora from settings.corpora
+    const removed_corpora = util.filterListedCorpora(
+        available_corpora, (remove_listed = false))
+    if (removed_corpora.length > 0) {
+        // Remove them from corpora (= settings.corpusListing.corpora)
+        let corpnum = 0
+        while (corpnum < corpora.length) {
+            if (removed_corpora.includes(corpora[corpnum].id)) {
+                corpora.splice(corpnum, 1)
+            } else {
+                corpnum++
+            }
+        }
+        const message = "Unavailable corpora removed from configuration: "
+        const msg_funcs = {
+            error: c.error,
+            warn: c.warn,
+            log: c.log,
+        }
+        const msg_func = msg_funcs[handle_type] || c.log
+        msg_func(message, removed_corpora)
+        util.adjustPreselectedCorpora()
+    }
+}
+
+// Recursively remove the corpora folders in folder that contain no
+// corpora (or folders) that are in corpora_settings (default:
+// settings.corpora). Returns true if folder is empty.
+
+util.removeEmptyCorporafolders = function (
+        folder, corpora_settings = settings.corpora) {
+    let empty = true
+    if ("contents" in folder) {
+        const new_contents = []
+        for (let corpname of folder.contents) {
+            if (corpname in corpora_settings) {
+                new_contents.push(corpname)
+            }
+        }
+        if (new_contents.length === 0) {
+            delete folder.contents
+        } else {
+            folder.contents = new_contents
+            empty = false
+        }
+    }
+    for (let prop of Object.keys(folder || {})) {
+        if (! (prop in settings.corporafolder_properties)) {
+            if (util.removeEmptyCorporafolders(folder[prop])) {
+                delete folder[prop]
+            } else {
+                empty = false
+            }
+        }
+    }
+    return empty
+}
+
+// Filter corpora_settings (default: settings.corpora) by corpus ids in
+// filter_list. By default, remove properties (corpora) whose names are
+// not in filter_list, but if remove_listed is true, remove corpora
+// whose names *are* in filter_list. After that, remove corpora folders
+// in folder_settings (default: settings.corporafolders) that would be
+// empty after removing the corpora.
+
+util.filterListedCorpora = function (
+        filter_list,
+        remove_listed = false,
+        corpora_settings = settings.corpora,
+        folder_settings = settings.corporafolders) {
+    const corpora_to_remove = util.filterListed(
+        _.keys(corpora_settings), filter_list, remove_listed)
+    for (let corpus of corpora_to_remove) {
+        delete corpora_settings[corpus]
+    }
+    util.removeEmptyCorporafolders(folder_settings, corpora_settings)
+    return corpora_to_remove
+}
+
+// Return values in base_list that are also in filter_list, except if
+// keep_listed is false, in which case return values in base_list that
+// are not in filter_list.
+
+util.filterListed = function (base_list, filter_list, keep_listed = true) {
+    const operation = keep_listed ? _.intersection : _.difference
+    return operation(base_list, filter_list)
+}
+
+// Remove from settings.preselectedCorpora corpora not in
+// settings.corpora and corpus folders not in settings.corporafolders.
+
+util.adjustPreselectedCorpora = function () {
+    if (! settings.preselectedCorpora) {
+        return
+    }
+
+    const folderExists = function (folder, subfolders) {
+        return (folder &&
+                (subfolders.length === 0 ||
+                 folderExists(folder[subfolders[0]], subfolders.slice(1))))
+    }
+
+    const adjusted = []
+
+    const check_item = function (item, type, exists_func) {
+        if (exists_func(item)) {
+            adjusted.push(item)
+        } else {
+            c.log(`Removed unavailable ${type} ${item} from`
+                  + ` settings.preselectedCorpora`)
+        }
+    }
+
+    for (let item of settings.preselectedCorpora) {
+        if (/^__/.test(item)) {
+            check_item(item, "corpus folder",
+                       (folder_path) => folderExists(
+                           settings.corporafolders,
+                           folder_path.substring(2).split(".")))
+        } else {
+            check_item(item, "corpus", (item) => item in settings.corpora)
+        }
+    }
+    settings.preselectedCorpora = adjusted
 }

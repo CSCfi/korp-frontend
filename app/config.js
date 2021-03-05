@@ -160,3 +160,16 @@ settings.mapCenter = {
 };
 
 settings.readingModeField = "sentence_id"
+
+// Specify how to handle corpora defined in the configuration but not
+// found by the backend. Supported values are:
+// - "none" or "fatal": no handling: an undefined corpus causes an
+//   error that stops loading Korp; the default if no value specified;
+// - "error": error on the console;
+// - "warn": warning on the console; and
+// - "log": normal log message on the console.
+// Handling unavailable corpora results in a somewhat slower startup
+// of Korp, so it could be enabled only for development environments,
+// so that the production environment would have a slightly faster
+// startup.
+settings.handleUnavailableCorpora = "fatal"
