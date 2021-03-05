@@ -3,6 +3,7 @@ const webpack = require("webpack")
 const path = require("path")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
+const MergeJsonWebpackPlugin = require("merge-jsons-webpack-plugin")
 
 function getKorpConfigDirs() {
     fs = require("fs")
@@ -23,6 +24,52 @@ function getKorpConfigDirs() {
 }
 
 const [korpConfigDir, korpPluginDir] = getKorpConfigDirs()
+
+// Return an array of all the locale (language) codes LG from
+// localization files filename-LG.json in the directories listed in
+// array translDirs.
+function getLocales(translDirs) {
+    fg = require("fast-glob")
+    let locales = new Set()
+    for (let translDir of translDirs) {
+        let fnames = fg.sync(translDir + "/*.json")
+        // console.log("getLocales", translDir, fnames)
+        for (let fname of fnames) {
+            let basename = path.basename(fname, ".json")
+            if (basename.indexOf("-") != -1) {
+                locales.add(basename.split("-").slice(-1)[0])
+            }
+        }
+    }
+    // Return an array
+    return [...locales]
+}
+
+// Return a value for the groupBy output specification of
+// MergeJsonWebpackPlugin: merge into <filenamePrefix>-LG.json all
+// JSON files <filenamePrefix>*-LG.json with the same language code LG
+// found under "translations" subdirectories of the directories listed
+// in array translBasedirs.
+function makeMergeJsonGroupBy(filenamePrefix, translBasedirs) {
+    const translDirs = translBasedirs.map(dir => dir + "/translations")
+    const multipleDirs = translDirs.length > 1
+    const pattBegin = multipleDirs ? "{" : ""
+    const pattEnd = multipleDirs ? "}" : ""
+    // console.log(translDirs)
+    const groupBy = getLocales(translDirs).map(locale => (
+        {
+            pattern:
+                pattBegin +
+                translDirs.map(
+                    dir => `${dir}/${filenamePrefix}*-${locale}.json`)
+                .join(",") +
+                pattEnd,
+            fileName: `translations/${filenamePrefix}-${locale}.json`,
+        }))
+    // console.log(groupBy)
+    return groupBy
+}
+
 
 module.exports = {
     resolve: {
@@ -229,13 +276,19 @@ module.exports = {
                     from: "app/markup/msdtags.html",
                     to: "markup",
                 },
+                // This is now handled using MergeJsonWebpackPlugin below
+                // {
+                //     from: "app/translations/locale-*.json",
+                //     to: "translations",
+                //     flatten: true,
+                // },
                 {
-                    from: "app/translations/locale-*.json",
+                    from: korpConfigDir + "/translations/corpora-*.json",
                     to: "translations",
                     flatten: true,
                 },
                 {
-                    from: korpConfigDir + "/translations/*",
+                    from: korpConfigDir + "/translations/angular-locale_*.js",
                     to: "translations",
                     flatten: true,
                 },
@@ -253,6 +306,29 @@ module.exports = {
                     }
                     */
             ],
+        }),
+        // Merge the locale-LG.json files in app/translations,
+        // app/plugins/**/translations, <korpConfigDir>/translations
+        // and <korpConfigDir>/plugins/**/translations into
+        // translations/locale-LG.json, so that the configuration may
+        // contain additional translations for plugins (and may
+        // override default translations).
+        new MergeJsonWebpackPlugin({
+            // "debug": true,
+            "output": {
+                "groupBy": makeMergeJsonGroupBy(
+                    "locale",
+                    [
+                        "app",
+                        "app/plugins/**",
+                        korpConfigDir,
+                        `${korpConfigDir}/plugins/**`,
+                    ]),
+            },
+            "space": 1,
+            "globOptions": {
+                "nosort": true
+            }
         }),
     ],
     entry: {
