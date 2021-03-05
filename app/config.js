@@ -173,3 +173,22 @@ settings.readingModeField = "sentence_id"
 // so that the production environment would have a slightly faster
 // startup.
 settings.handleUnavailableCorpora = "fatal"
+
+// settings.lemgramComplete is used to override the default Karp-based
+// lemgram completion. If specified, it should be an object containing
+// two functions:
+// - makeHTTPArgs (wf, resources, corporaIDs, httpArgs) ->
+//     { method: ..., url: ..., params: ... }
+//   Create HTTP arguments for the lemgram completion call based on the
+//   given arguments.
+//   Arguments:
+//   - wf: the word form (prefix) to complete
+//   - resources: completion resources to use (need not be used)
+//   - corporaIDs: ids of selected corpora
+//   - httpArgs: default HTTP arguments object containing method, url
+//     and params
+//   Return value: HTTP arguments object containing method, url and params
+// - makeLemgramList (data) -> [lemgram]
+//   Extract lemgrams from data returned by the lemgram completion call.
+//   Return value: list (array) of lemgrams as strings
+settings.lemgramComplete = null
