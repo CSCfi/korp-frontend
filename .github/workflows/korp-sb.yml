@@ -4,9 +4,9 @@
 name: Korp with SB config
 
 on:
-  push:
-    branches: 
-      - "**"
+  # push:
+  #   branches:
+  #     - "**"
   pull_request:
     branches: [ dev, master ]
 
