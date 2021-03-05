@@ -310,6 +310,9 @@ korpApp.controller("headerCtrl", function ($scope, $uibModal, utils) {
         return [location.pathname, modeParam, langParam]
     }
 
+    s.languages = settings.languages
+    s.languageNames = settings.languageNames
+
     s.show_modal = false
 
     let modal = null

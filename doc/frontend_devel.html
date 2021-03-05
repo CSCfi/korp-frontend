@@ -51,12 +51,15 @@ module.exports = {
 <p>The translations folder also contains Python script - <code>check_locale_files.py</code> - that makes sure that each set of translation files has each translation key present in all different languages.</p>
 <h4 id="adding-languages">Adding Languages</h4>
 <p>To add a new language in the frontend, for example Lithuanian, add a <code>corpora-lt.json</code> and <code>locale-lt.json</code>. <code>locale-lt.json</code> may be copied from an existing locale-file and then translated. Then add the language in <code>config.js</code>:</p>
-<pre><code>`settings.languages = [&quot;sv&quot;, &quot;en&quot;, &quot;lt&quot;];`</code></pre>
+<pre><code>settings.languages = [&quot;sv&quot;, &quot;en&quot;, &quot;lt&quot;];
+settings.languageNames = {
+    &quot;sv&quot;: &quot;Svenska&quot;,
+    &quot;en&quot;: &quot;English&quot;,
+    &quot;lt&quot;: &quot;Lietuvių&quot;,
+}</code></pre>
+<p>(<code>settings.languageNames</code> maps the language code to the name of the language in the language itself.)</p>
 <p>To make Lithuanian the default language, use:</p>
-<pre><code>`settings.defaultLanguage = &quot;lt&quot;`</code></pre>
-<p>To add a button in the interface for Lithuanian, open <code>includes/header.pug</code> and look for:</p>
-<pre><code>a(data-mode=&#39;en&#39;, ng-click=&quot;lang = &#39;en&#39;&quot;) {{&#39;english&#39; | loc:lang}}</code></pre>
-<p>and copy this line, substituting <code>en</code> for <code>lt</code> where applicable.</p>
+<pre><code>settings.defaultLanguage = &quot;lt&quot;</code></pre>
 <h5 id="angular.js-locale">Angular.js locale</h5>
 <p>To enable full localization (dates in a datepicker for example), an extra file is necessary. Download <code>angular-locale_lt.js</code> from here:</p>
 <p><a href="https://github.com/angular/bower-angular-i18n">Angular i18n</a></p>
