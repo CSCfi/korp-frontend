@@ -202,7 +202,7 @@ settings.corporafolders.kal.kal_perus = {
 	cite_id: "kotus-al-unrev-korp",
 	licence: {
 	    name: "CLARIN ACA +NC +DEP 1.0",
-	    urn: "urn:nbn:fi:lb-2021030302",
+	    urn: "urn:nbn:fi:lb-2021030304",
 	}
     }
 };
@@ -217,7 +217,7 @@ settings.corporafolders.kal.kal_ydin = {
 	cite_id: "kotus-al-rev-korp",
 	licence: {
 	    name: "CLARIN ACA +NC +DEP 1.0",
-	    urn: "urn:nbn:fi:lb-2021030304",
+	    urn: "urn:nbn:fi:lb-2021030302",
 	}
     }
 };
