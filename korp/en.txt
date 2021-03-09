@@ -6,7 +6,7 @@ target="_blank">Corpus of Translated Finnish, Korp</a>
 is now available in Korp as a beta test version.
 
 
-<!-- New corpus (beta): Kotimaisten kielten keskuksen aikakauslehtikorpus 2021-03-09b -->
+<!-- New corpus (beta): The Magazine Corpus of the Institute for the Languages of Finland 2021-03-09b -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2018060701"
 target="_blank">The Magazine Corpus of the Institute for the Languages of Finland, revised</a>
