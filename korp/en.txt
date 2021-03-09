@@ -1,4 +1,38 @@
 
+<!-- New corpus (beta): Corpus of Translated Finnish 2020-03-09a -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2019100801"
+target="_blank">Corpus of Translated Finnish, Korp</a>
+is now available in Korp as a beta test version.
+
+
+<!-- New corpus (beta): Kotimaisten kielten keskuksen aikakauslehtikorpus 2020-03-09b -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2018060701"
+target="_blank">The Magazine Corpus of the Institute for the Languages of Finland, revised</a>
+and
+<a href="http://urn.fi/urn:nbn:fi:lb-2018060702"
+target="_blank">The Magazine Corpus of the Institute for the Languages of Finland, unrevised</a>
+are now available in Korp as a beta test versions.
+
+
+<!-- E-thesis corpus updated 2020-03-09c -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2020031301"
+target="_blank">The University of Helsinki's English E-thesis 1999-2016</a>
+has been updated to version 1.1. The following modifications
+have been made to the subcorpora containing master's theses and doctoral theses:
+
+* The subcorpora have been parsed with <a href="http://turkunlp.org/Turku-neural-parser-pipeline/"
+  target="_blank">Turku Neural Parser Pipeline (TNPP) parser</a>.
+* Texts with less than 1000 words have been left out.
+* Texts that contain more than 1000 words are included if they contain enough
+  English words.
+* The subcorpus ethesis_en_phd_math has been renamed to ethesis_en_phd_sci.
+
+The subcorpora containing the abstracts (ethesis_en_dissabs and ethesis_en_maabs) have not been changed.
+
+
 <!-- LAT service shut down, so links to LAT do not work 2020-12-21 -->
 
 The LAT service for audio and video corpora had to be shut down in

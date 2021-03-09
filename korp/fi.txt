@@ -1,4 +1,37 @@
 
+<!-- Uusi aineisto (beta): Käännössuomen korpus 2020-03-09a -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2019100801"
+target="_blank">Käännössuomen korpus, Korp</a>
+on nyt käytettävissä beetatestiversiona Korpissa.
+
+
+<!-- Uusi aineisto (beta): Kotimaisten kielten keskuksen aikakauslehtikorpus 2020-03-09b -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2018060701"
+target="_blank">Kotimaisten kielten keskuksen aikakauslehtikorpus, tarkistettu</a>
+ja
+<a href="http://urn.fi/urn:nbn:fi:lb-2018060702"
+target="_blank">Kotimaisten kielten keskuksen aikakauslehtikorpus, tarkistamaton</a>
+ovat nyt käytettävissä beetatestiversioina Korpissa.
+
+
+<!-- E-thesis-aineistoa päivitetty 2020-03-09c -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2020031301"
+target="_blank">Helsingin yliopiston englanninkielinen E-thesis 1999-2016</a>
+on päivitetty versioon 1.1. Gradu- ja väitöskirjakorpuksiin on tehty seuraavia muutoksia:
+
+* Aineisto on jäsennetty <a href="http://turkunlp.org/Turku-neural-parser-pipeline/"
+  target="_blank">Turku Neural Parser Pipeline (TNPP) -jäsentimellä</a>.
+* Tekstit, joissa on vähemmän kuin 1000 sanaa on jätetty pois.
+* Tekstit, joissa on enemmän kuin 1000 sanaa on otettu mukaan vain jos niistä löytyy
+  tarpeeksi englanninkielisiä sanoja.
+* Korpus ethesis_en_phd_math on uudelleennimetty ethesis_en_phd_sci:ksi.
+
+Tiivistelmäkorpuksiin (ethesis_en_dissabs ja ethesis_en_maabs) ei ole tehty muutoksia.
+
+
 <!-- LAT-palvelu suljettiin, joten LAT-linkit eivät toimi 2020-12-21 -->
 
 Ääni- ja videoaineistoja sisältänyt LAT-palvelu jouduttiin sulkemaan
