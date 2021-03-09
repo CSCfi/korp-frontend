@@ -87,7 +87,7 @@ const Plugins = class Plugins {
                 }
             }
         }
-        // c.log("pluginFunctions", this.callbacks)
+        // c.log("callbacks", this.callbacks)
     }
 
     // Call plugin callback functions (actions) registered for
@@ -95,6 +95,7 @@ const Plugins = class Plugins {
     // the (optional) arguments args... The possible return value of
     // the functions is ignored.
     callActions (hookPoint, ...args) {
+        // c.log("callActions", hookPoint, args, this.callbacks[hookPoint])
         for (let func of this.callbacks[hookPoint] || []) {
             // Would this be needed?
             // func(...Array.from(args || []))
