@@ -3,7 +3,7 @@
 //
 // Callback method to initialize properties in settings.corpora.*
 // based on their property "features" and the properties in
-// settings.corpus_features.
+// settings.corpusFeatures.
 
 
 console.log("plugin config_corpus_features")
@@ -31,15 +31,15 @@ class ConfigCorpusFeatures {
     // "features" property of a corpus configuration.
     //
     // The "features" property is an array, whose values should be
-    // keys (property names) of settings.corpus_features. The corpus
+    // keys (property names) of settings.corpusFeatures. The corpus
     // configuration is extended by the corresponding property value
-    // in settings.corpus_features. Extension is recursive, so that if
+    // in settings.corpusFeatures. Extension is recursive, so that if
     // you specify, e.g. { attributes: ... }, the specified attributes
     // are added to (instead of replacing) the explicit attributes in
     // the corpus configuration.
     //
     // Would there be a case for recursive setting of features, so
-    // that if a value in settings.corpus_features contains a
+    // that if a value in settings.corpusFeatures contains a
     // "features" property, the properties corresponding to it are
     // also added? If so, should the properties specified by the
     // nested "features" added before or after adding the explicit
@@ -47,12 +47,12 @@ class ConfigCorpusFeatures {
 
     _setCorpusFeatures (corpusObj) {
         for (let featname of (corpusObj.features || [])) {
-            const features = (settings.corpus_features != null
-                              ? settings.corpus_features[featname]
+            const features = (settings.corpusFeatures != null
+                              ? settings.corpusFeatures[featname]
                               : undefined);
             // c.log("_setCorpusFeatures", featname, features, corpusObj)
             if (! features) {
-                c.warn("Warning: settings.corpus_features[\"" + featname +
+                c.warn("Warning: settings.corpusFeatures[\"" + featname +
                        "\"] not defined: referred to in settings.corpora." +
                        corpusObj.id);
             } else {
@@ -64,10 +64,10 @@ class ConfigCorpusFeatures {
 };
 
 
-// Initialize settings.corpus_features to an empty object if it is not
+// Initialize settings.corpusFeatures to an empty object if it is not
 // yet initialized
-if (settings.corpus_features === undefined) {
-    settings.corpus_features = {}
+if (settings.corpusFeatures === undefined) {
+    settings.corpusFeatures = {}
 }
 
 
