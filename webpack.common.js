@@ -5,21 +5,25 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 const MergeJsonWebpackPlugin = require("merge-jsons-webpack-plugin")
 
-function getKorpConfigDir() {
+function getKorpConfigDirs() {
     fs = require("fs")
     let config = "app"
+    let plugins = "app/plugins"
     try {
         json = fs.readFileSync("run_config.json", { encoding: "utf-8" })
-        config = JSON.parse(json).configDir || "app"
+        json_parsed = JSON.parse(json)
+        config = json_parsed.configDir || "app"
         console.log('Using "' + config + '" as config directory.')
+        plugins = json_parsed.pluginDir || config + "/plugins"
+        console.log('Using "' + plugins + '" as plugin directory.')
     } catch (err) {
         console.error(err)
-        console.log('No run_config.json given, using "app" as config directory (default).')
+        console.log('No run_config.json given, using "app" as config and plugin directory (default).')
     }
-    return config
+    return [config, plugins]
 }
 
-const korpConfigDir = getKorpConfigDir()
+const [korpConfigDir, korpPluginDir] = getKorpConfigDirs()
 
 // Return an array of all the locale (language) codes LG from
 // localization files filename-LG.json in the directories listed in
@@ -87,6 +91,7 @@ module.exports = {
             customcss: path.resolve(korpConfigDir, "styles/"),
             customscripts: path.resolve(korpConfigDir, "scripts/"),
             customviews: path.resolve(korpConfigDir, "views/"),
+            customplugins: path.resolve(korpPluginDir),
         },
     },
     module: {
@@ -302,12 +307,14 @@ module.exports = {
                     */
             ],
         }),
-        // Merge the locale-LG.json files in app/translations,
-        // app/plugins/**/translations, <korpConfigDir>/translations
-        // and <korpConfigDir>/plugins/**/translations into
-        // translations/locale-LG.json, so that the configuration may
-        // contain additional translations for plugins (and may
-        // override default translations).
+        // Merge the locale*-LG.json files in app/translations,
+        // app/plugins/**/translations,
+        // <korpPluginDir>/**/translations,
+        // <korpConfigDir>/translations and
+        // <korpConfigDir>/plugins/**/translations into
+        // translations/locale-LG.json, so that plugins may contain
+        // translations and the configuration may override default
+        // translations.
         new MergeJsonWebpackPlugin({
             // "debug": true,
             "output": {
@@ -316,7 +323,12 @@ module.exports = {
                     [
                         "app",
                         "app/plugins/**",
+                        `${korpPluginDir}/**`,
                         korpConfigDir,
+                        // Plugin translations could also be
+                        // overridden in korpConfigDir/translations,
+                        // but this may make it easier to separate
+                        // plugin translations in the configuration.)
                         `${korpConfigDir}/plugins/**`,
                     ]),
             },

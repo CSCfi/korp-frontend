@@ -10,6 +10,7 @@ export const sidebarComponent = {
             <div>
                 <h4>{{'corpus' | loc:$root.lang}}</h4>
                 <div>{{$ctrl.corpusObj.title}}</div>
+                <div id="selected_corpus" />
             </div>
             <div
                 class="openReadingMode"
@@ -111,6 +112,12 @@ export const sidebarComponent = {
                     $("#selected_sentence").append($("<h4>").localeKey("sentence_attr"))
                     $("#selected_word").append(posData)
                     $("#selected_sentence").append(structData)
+
+                    // TODO: Update corpusInfo only when moving to a
+                    // match from a different corpus.
+                    const corpusInfo = plugins.callFilters(
+                        "formatSidebarCorpusInfo", "", corpusObj)
+                    $("#selected_corpus").html(corpusInfo)
 
                     $element.localize()
                     this.applyEllipse()

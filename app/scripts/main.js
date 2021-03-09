@@ -127,6 +127,8 @@ $.when(loc_dfd, deferred_domReady).then(
             selected: settings.defaultLanguage,
         })
 
+        plugins.callActions("modifyCorpusConfigs", settings.corpora)
+
         setTimeout(() => window.onHashChange(null, true), 0)
         $("body").animate({ opacity: 1 }, function () {
             $(this).css("opacity", "")
