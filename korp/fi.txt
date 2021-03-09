@@ -1,12 +1,12 @@
 
-<!-- Uusi aineisto (beta): Käännössuomen korpus 2020-03-09a -->
+<!-- Uusi aineisto (beta): Käännössuomen korpus 2021-03-09a -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2019100801"
 target="_blank">Käännössuomen korpus, Korp</a>
 on nyt käytettävissä beetatestiversiona Korpissa.
 
 
-<!-- Uusi aineisto (beta): Kotimaisten kielten keskuksen aikakauslehtikorpus 2020-03-09b -->
+<!-- Uusi aineisto (beta): Kotimaisten kielten keskuksen aikakauslehtikorpus 2021-03-09b -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2018060701"
 target="_blank">Kotimaisten kielten keskuksen aikakauslehtikorpus, tarkistettu</a>
@@ -16,7 +16,7 @@ target="_blank">Kotimaisten kielten keskuksen aikakauslehtikorpus, tarkistamaton
 ovat nyt käytettävissä beetatestiversioina Korpissa.
 
 
-<!-- E-thesis-aineistoa päivitetty 2020-03-09c -->
+<!-- E-thesis-aineistoa päivitetty 2021-03-09c -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2020031301"
 target="_blank">Helsingin yliopiston englanninkielinen E-thesis 1999-2016</a>

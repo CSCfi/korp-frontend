@@ -1,12 +1,12 @@
 
-<!-- New corpus (beta): Corpus of Translated Finnish 2020-03-09a -->
+<!-- New corpus (beta): Corpus of Translated Finnish 2021-03-09a -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2019100801"
 target="_blank">Corpus of Translated Finnish, Korp</a>
 is now available in Korp as a beta test version.
 
 
-<!-- New corpus (beta): Kotimaisten kielten keskuksen aikakauslehtikorpus 2020-03-09b -->
+<!-- New corpus (beta): Kotimaisten kielten keskuksen aikakauslehtikorpus 2021-03-09b -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2018060701"
 target="_blank">The Magazine Corpus of the Institute for the Languages of Finland, revised</a>
@@ -16,7 +16,7 @@ target="_blank">The Magazine Corpus of the Institute for the Languages of Finlan
 are now available in Korp as a beta test versions.
 
 
-<!-- E-thesis corpus updated 2020-03-09c -->
+<!-- E-thesis corpus updated 2021-03-09c -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2020031301"
 target="_blank">The University of Helsinki's English E-thesis 1999-2016</a>
