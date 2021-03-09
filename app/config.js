@@ -618,12 +618,6 @@ settings.default_sidebar_display_order = {
 // (an array) contains "FEAT". (Jyrki Niemi 2016-10-18)
 settings.corpus_features = {};
 
-// TODO: Move to modes/common.js
-settings.corpus_features.paragraphs = {
-    within: settings.spWithin,
-    context: settings.spContext,
-};
-
 // for optimization purposes
 settings.cqpPrio = ['deprel', 'pos', 'msd', 'suffix', 'prefix', 'grundform', 'lemgram', 'saldo', 'word'];
 

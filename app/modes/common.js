@@ -37,6 +37,12 @@ var spcWithin = {
 };
 
 
+settings.corpus_features.paragraphs = {
+    within: spWithin,
+    context: spContext,
+};
+
+
 // Recurring corpus licence information (name + URL)
 settings.licenceinfo = {
     CC0: {
