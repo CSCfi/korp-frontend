@@ -37,7 +37,7 @@ var spcWithin = {
 };
 
 
-settings.corpus_features.paragraphs = {
+settings.corpusFeatures.paragraphs = {
     within: spWithin,
     context: spContext,
 };
@@ -1907,7 +1907,7 @@ attrlist.ud2_fi = {
 
 attrlist.ud2_en = attrlist.ud2_fi;
 
-settings.corpus_features.finer = {
+settings.corpusFeatures.finer = {
     attributes: attrlist.finer,
 };
 
@@ -2600,7 +2600,7 @@ attrlist.parsed_tdt = {
     lex: attrs.lemgram_hidden,
 };
 
-settings.corpus_features.parsed_tdt = {
+settings.corpusFeatures.parsed_tdt = {
     attributes: attrlist.parsed_tdt,
 };
 
@@ -2613,7 +2613,7 @@ attrlist.parsed_tdt_nodep = {
     lex: attrs.lemgram_hidden,
 };
 
-settings.corpus_features.parsed_tdt_nodep = {
+settings.corpusFeatures.parsed_tdt_nodep = {
     attributes: attrlist.parsed_tdt_nodep,
 };
 
@@ -2624,7 +2624,7 @@ attrlist.parsed_tdt_ner =
     });
 
 
-settings.corpus_features.spaces = {
+settings.corpusFeatures.spaces = {
     attributes: {
 	spaces: {
 	    label: "whitespace_related_to_token",

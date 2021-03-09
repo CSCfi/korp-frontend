@@ -613,10 +613,10 @@ settings.default_sidebar_display_order = {
     ]
 };
 
-// The properties in settings.corpus_features.FEAT are added to corpus
+// The properties in settings.corpusFeatures.FEAT are added to corpus
 // configurations (with recursive $.extend) whose property "features"
 // (an array) contains "FEAT". (Jyrki Niemi 2016-10-18)
-settings.corpus_features = {};
+settings.corpusFeatures = {};
 
 // for optimization purposes
 settings.cqpPrio = ['deprel', 'pos', 'msd', 'suffix', 'prefix', 'grundform', 'lemgram', 'saldo', 'word'];
