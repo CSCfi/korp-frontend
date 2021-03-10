@@ -200,6 +200,7 @@ settings.fn.make_corpus_settings_by_year_decade(
         return settings.fn.make_klk_corpus_settings(
             "Nationalbiblioteket svenska {year}",
             "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter från {year}",
+            "klk",
             "sv",
             year,
             klk_sv_parsed_years.indexOf(year) != -1);
