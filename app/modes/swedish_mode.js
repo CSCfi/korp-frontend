@@ -8,15 +8,18 @@ settings.wordpicture = true;
 settings.show_related_words = true;
 
 
-// Override the default statisticsFormatting.makeGroupingValue (in
-// statistics_config.js) to group lemmas, saldo values and lemgrams in
-// the same way as Språkbanken's Korp (ignoring the possible trailing
-// digits preceded by a colon). (Jyrki Niemi 2018-10-04)
-statisticsFormatting.makeGroupingValue = function (value) {
-    // This is slightly more precise than the original, as this
-    // requires that the colon is followed by digits.
-    return value.replace(/(:[0-9]+?)(\/|$| )/g, "$2");
-}
+// TODO: Modify the commented-out code below appropriately when
+// porting the modifications in statistics_config.js to Korp 9.
+
+// // Override the default statisticsFormatting.makeGroupingValue (in
+// // statistics_config.js) to group lemmas, saldo values and lemgrams in
+// // the same way as Språkbanken's Korp (ignoring the possible trailing
+// // digits preceded by a colon). (Jyrki Niemi 2018-10-04)
+// statisticsFormatting.makeGroupingValue = function (value) {
+//     // This is slightly more precise than the original, as this
+//     // requires that the colon is followed by digits.
+//     return value.replace(/(:[0-9]+?)(\/|$| )/g, "$2");
+// }
 
 
 settings.preselectedCorpora = [
@@ -218,11 +221,11 @@ settings.corpora.semfinlex_asd_sv_2018 = {
     description: "Ett urval av ursprungliga författningar av Riksdagen från 1920̣–2018.",
     urn: "urn:nbn:fi:lb-2019042604",
     metadata_urn: "urn:nbn:fi:lb-2019042603",
-    context : settings.defaultContext,
+    context : defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
     attributes : attrlist.parsed_sv,
-    struct_attributes : {
+    structAttributes : {
 	text_url : {
 	    label : "URL",
 	    type : "url",
@@ -256,11 +259,11 @@ settings.corpora.semfinlex_kko_sv_2018 = {
     description: "Ett urval av avgöranden av Högsta domstolen (KKO) från 1980̣–2018.",
     urn: "urn:nbn:fi:lb-2019042610",
     metadata_urn: "urn:nbn:fi:lb-2019042609",
-    context : settings.defaultContext,
+    context : defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
     attributes : attrlist.parsed_sv,
-    struct_attributes : {
+    structAttributes : {
 	text_url : {
 	    label : "URL",
 	    type : "url",
@@ -277,11 +280,11 @@ settings.corpora.semfinlex_kho_sv_2018 = {
     description: "Ett urval av avgöranden av Högsta förvaltningsdomstolen (KHO) från 2001–2018.",
     urn: "urn:nbn:fi:lb-2019042610",
     metadata_urn: "urn:nbn:fi:lb-2019042609",
-    context : settings.defaultContext,
+    context : defaultContext,
     within : settings.defaultWithin,
     licence : settings.licenceinfo.CC_BY,
     attributes : attrlist.parsed_sv,
-    struct_attributes : {
+    structAttributes : {
 	text_url : {
 	    label : "URL",
 	    type : "url",
@@ -298,10 +301,10 @@ settings.corpora.ethesis_sv_ma = {
     description: "Masteruppsatser (1997–2016)",
     id: "ethesis_sv_ma",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_sv_maabs = {
@@ -309,10 +312,10 @@ settings.corpora.ethesis_sv_maabs = {
     description: "Masteruppsatser (abstrakt) (1999–2016)",
     id: "ethesis_sv_maabs",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_sv_dissabs = {
@@ -320,10 +323,10 @@ settings.corpora.ethesis_sv_dissabs = {
     description: "Doktorsavhandlingar (abstrakt) (2006–2016)",
     id: "ethesis_sv_dissabs",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_sv_phd = {
@@ -331,10 +334,10 @@ settings.corpora.ethesis_sv_phd = {
     description: "Doktorsavhandlingar (2000–2016)",
     id: "ethesis_sv_phd",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.studentsvenska = {
@@ -349,12 +352,12 @@ settings.corpora.studentsvenska = {
 	urn: "urn:nbn:fi:lb-2016040410",
     },
     cite_id: "Studentsvenska",
-    context: settings.defaultContext,
+    context: defaultContext,
     within: settings.defaultWithin,
     limited_access: true,
     licence_type: "RES",
     attributes: attrlist.studentsvenska,
-    struct_attributes: sattrlist.studentsvenska
+    structAttributes: sattrlist.studentsvenska
 };
 
 
@@ -363,10 +366,10 @@ settings.corpora.mulcold_sv = {
     title: "MULCOLD svenska",
     description: "Multilingual Corpus of Legal Documents, svenskspråkiga delen",
     cite_id: "MULCOLD",
-    context: settings.defaultContext,
+    context: defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.mulcold_sv,
-    struct_attributes: sattrlist.mulcold,
+    structAttributes: sattrlist.mulcold,
 };
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
@@ -386,13 +389,13 @@ settings.corpora.topling_sv = {
     },
     homepage_url: "https://www.jyu.fi/topling",
     cite_id: "topling-sv",
-    context: settings.spContext,
-    within: settings.spWithin,
+    context: spContext,
+    within: spWithin,
     limited_access: true,
     licence_type: "RES",
     // unselected: true,
     attributes: attrlist.topling,
-    struct_attributes: sattrlist.topling
+    structAttributes: sattrlist.topling
 };
 
 settings.corpus_aliases["topling-sv"] = "topling_sv";
@@ -403,11 +406,11 @@ settings.corpora.kfspc_sv = {
     id: "kfspc_sv",
     cite_id: "kfspc-korp-sv",
     lang: "swe",
-    context: settings.defaultContext,
+    context: defaultContext,
     within: settings.defaultWithin,
     attributes: {
     },
-    struct_attributes: sattrlist.kfspc,
+    structAttributes: sattrlist.kfspc,
 };
 
 settings.corpora.sinebrychoff_orig = {
@@ -417,10 +420,10 @@ settings.corpora.sinebrychoff_orig = {
     metadata_urn: "urn:nbn:fi:lb-201407303",
     licence: settings.licenceinfo.CC_BY_30,
     cite_id: "sinebrychoff-sv",
-    context: settings.spContext,
-    within: settings.spWithin,
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.sinebrychoff,
-    struct_attributes: sattrlist.sinebrychoff
+    structAttributes: sattrlist.sinebrychoff
 };
 
 
@@ -466,7 +469,7 @@ settings.templ.fstc = $.extend(true, {}, settings.templ.lemmie_common, {
 	id: attrs.id_hidden,
 	lex: attrs.lemgram_hidden,
     },
-    struct_attributes: {
+    structAttributes: {
 	text_source: {
 	    dataset: [
 		"FISC Litteratur",
@@ -901,7 +904,7 @@ settings.templ.ylenews_sv_a = {
     licence_type: "ACA",
     features: ["paragraphs"],
     attributes: attrlist.parsed_sv_lemmaset,
-    struct_attributes: $.extend(
+    structAttributes: $.extend(
 	{}, sattrlist.ylenews_sv_common,
 	{
 	    paragraph_type: sattrs.ylenews_sv_paragraph_type,
@@ -923,10 +926,10 @@ settings.templ.ylenews_sv_s = {
     title: "Yle svenska webbartiklar {} (för alla)",
     description: "Yle svenska webbartiklar 2012–2018, blandad, Korp: år {}<br/>Variant öppen för alla: meningarna i en blandad ordning inom varje text och ingen utökad kontextvisning",
     id: "ylenews_sv_{}_s",
-    context: settings.defaultContext,
+    context: defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.parsed_sv_lemmaset,
-    struct_attributes: $.extend(
+    structAttributes: $.extend(
 	{}, sattrlist.ylenews_sv_common,
 	{
 	    sentence_paragraph_type: sattrs.ylenews_sv_paragraph_type,
