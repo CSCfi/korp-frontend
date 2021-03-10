@@ -22,16 +22,6 @@ settings.preselectedCorpora = [
 settings.corpora = {};
 settings.corporafolders = {};
 
-settings.spWithin = {
-    "sentence": "sentence",
-    "paragraph": "paragraph"
-};
-
-settings.spContext = {
-    "1 sentence": "1 sentence",
-    "1 paragraph": "1 paragraph"
-};
-
 
 settings.corporafolders.oracc = {
     title: "Oracc",
@@ -319,10 +309,10 @@ settings.corpora.fennougrica = {
     description: "Fenno-Ugrica",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.fennougrica,
-    struct_attributes: sattrlist.fennougrica,
+    structAttributes: sattrlist.fennougrica,
     unselected: true
 };
 */
@@ -343,173 +333,173 @@ settings.corpora.hc = {
 	urn: "urn:nbn:fi:lb-2019061301",
     },
     cite_id: "HC-TEI-XML",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes : attrlist.hc,
-    struct_attributes : sattrlist.hc
+    structAttributes : sattrlist.hc
 };
 
 settings.corpora.oracc_adsd = {
     id : "oracc_adsd",
     title : "Astronomical Diaries Digital",
     description : "ADsD: Astronomical Diaries Digital",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 settings.corpora.oracc_ario = {
     id : "oracc_ario",
     title : "Achaemenid Royal Inscriptions online",
     description : "ARIo: Achaemenid Royal Inscriptions online",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 settings.corpora.oracc_blms = {
     id : "oracc_blms",
     title : "Bilinguals in Late Mesopotamian Scholarship",
     description : "blms: Bilinguals in Late Mesopotamian Scholarship",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 settings.corpora.oracc_cams = {
     id : "oracc_cams",
     title : "Corpus of Ancient Mesopotamian Scholarship",
     description : "CAMS: Corpus of Ancient Mesopotamian Scholarship",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 settings.corpora.oracc_caspo = {
     id : "oracc_caspo",
     title : "Corpus of Akkadian Shuila-Prayers online",
     description : "CASPo: Corpus of Akkadian Shuila-Prayers online",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 settings.corpora.oracc_ctij = {
     id : "oracc_ctij",
     title : "Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups",
     description : "CTIJ: Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 settings.corpora.oracc_dcclt = {
     id : "oracc_dcclt",
     title : "Digital Corpus of Cuneiform Lexical Texts",
     description : "DCCLT: Digital Corpus of Cuneiform Lexical Texts",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 settings.corpora.oracc_dccmt = {
     id : "oracc_dccmt",
     title : "Digital Corpus of Cuneiform Mathematical Texts",
     description : "DCCMT: Digital Corpus of Cuneiform Mathematical Texts",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 settings.corpora.oracc_ecut = {
     id : "oracc_ecut",
     title : "Electronic Corpus of Urartian Texts",
     description : "eCUT: Electronic Corpus of Urartian Texts",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 settings.corpora.oracc_etcsri = {
     id : "oracc_etcsri",
     title : "Electronic Text Corpus of Sumerian Royal Inscriptions",
     description : "ETCSRI: Electronic Text Corpus of Sumerian Royal Inscriptions",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 settings.corpora.oracc_hbtin = {
     id : "oracc_hbtin",
     title : "Hellenistic Babylonia",
     description : "HBTIN: Hellenistic Babylonia: Texts, Iconography, Names",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 settings.corpora.oracc_obmc = {
     id : "oracc_obmc",
     title : "Old Babylonian Model Contracts",
     description : "OBMC: Old Babylonian Model Contracts",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 settings.corpora.oracc_others = {
     id : "oracc_others",
     title : "Other projects",
     description : "Other projects",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 settings.corpora.oracc_riao = {
     id : "oracc_riao",
     title : "Royal Inscriptions of Assyria online",
     description : "RIAo: Royal Inscriptions of Assyria online",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 settings.corpora.oracc_ribo = {
     id : "oracc_ribo",
     title : "Royal Inscriptions of Babylonia online",
     description : "RIBo: Royal Inscriptions of Babylonia online",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 settings.corpora.oracc_rimanum = {
     id : "oracc_rimanum",
     title : "The House of Prisoners",
     description : "Rīm-Anum: The House of Prisoners",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 settings.corpora.oracc_rinap = {
     id : "oracc_rinap",
     title : "Royal Inscriptions of the Neo-Assyrian Period",
     description : "RINAP: Royal Inscriptions of the Neo-Assyrian Period",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 settings.corpora.oracc_saao = {
     id : "oracc_saao",
     title : "State Archives of Assyria Online",
     description : "SAAo: State Archives of Assyria Online",
-    context : settings.spContext,
-    within : settings.spWithin,
+    context : spContext,
+    within : spWithin,
     attributes: attrlist.oracc,
-    struct_attributes : sattrlist.oracc
+    structAttributes : sattrlist.oracc
 };
 
 
@@ -519,10 +509,10 @@ settings.corpora.ethesis_ru = {
     id: "ethesis_ru",
     cite_id: "e-thesis-ru",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_es = {
@@ -531,10 +521,10 @@ settings.corpora.ethesis_es = {
     id: "ethesis_es",
     cite_id: "e-thesis-es",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_fr = {
@@ -543,10 +533,10 @@ settings.corpora.ethesis_fr = {
     id: "ethesis_fr",
     cite_id: "e-thesis-fr",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_de = {
@@ -555,10 +545,10 @@ settings.corpora.ethesis_de = {
     id: "ethesis_de",
     cite_id: "e-thesis-de",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 
@@ -728,30 +718,30 @@ settings.corpora.sust_mdf = {
     id: "sust_mdf",
     title: "SUS-kenttätyö: mokša (näyte)",
     description: "Suomalais-Ugrilaisen Seuran kenttätyökorpus: mokša (näyte)",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.sust_tagged,
-    struct_attributes: sattrlist.sust_common
+    structAttributes: sattrlist.sust_common
 };
 
 settings.corpora.sust_myv = {
     id: "sust_myv",
     title: "SUS-kenttätyö: ersä (näyte)",
     description: "Suomalais-Ugrilaisen Seuran kenttätyökorpus: ersä (näyte)",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.sust_tagged,
-    struct_attributes: sattrlist.sust_common
+    structAttributes: sattrlist.sust_common
 };
 
 settings.corpora.sust_kpv = {
     id: "sust_kpv",
     title: "SUS-kenttätyö: komisyrjääni (näyte)",
     description: "Suomalais-Ugrilaisen Seuran kenttätyökorpus: komisyrjääni (näyte)",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.sust_tagged,
-    struct_attributes: sattrlist.sust_common
+    structAttributes: sattrlist.sust_common
 };
 
 // TODO: check how attribute spaces should be shown
@@ -786,10 +776,10 @@ settings.corpora.wanca_2016_fit_multili = {
     title: "Wanca 2016: Tornedalen Finnish (meänkieli)",
     description: "A collection of web corpora in small Uralic languages: Tornedalen Finnish (meänkieli)",
     lang: "fit",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_fkv_multili = {
@@ -797,10 +787,10 @@ settings.corpora.wanca_2016_fkv_multili = {
     title: "Wanca 2016: Kven (kvääni)",
     description: "A collection of web corpora in small Uralic languages: Kven (kvääni)",
     lang: "fkv",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_izh = {
@@ -808,10 +798,10 @@ settings.corpora.wanca_2016_izh = {
     title: "Wanca 2016: Ingrian (ižoran keel)",
     description: "A collection of web corpora in small Uralic languages: Ingrian (ižoran keel)",
     lang: "izh",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_kca_multili = {
@@ -819,10 +809,10 @@ settings.corpora.wanca_2016_kca_multili = {
     title: "Wanca 2016: Khanty (ханты ясанг)",
     description: "A collection of web corpora in small Uralic languages: Khanty (ханты ясанг)",
     lang: "kca",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_koi_multili = {
@@ -830,10 +820,10 @@ settings.corpora.wanca_2016_koi_multili = {
     title: "Wanca 2016: Komi-Permyak (перем коми кыв)",
     description: "A collection of web corpora in small Uralic languages: Komi-Permyak (перем коми кыв)",
     lang: "koi",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_kpv_multili = {
@@ -841,10 +831,10 @@ settings.corpora.wanca_2016_kpv_multili = {
     title: "Wanca 2016: Komi-Zyrian (Коми кыв)",
     description: "A collection of web corpora in small Uralic languages: Komi-Zyrian (Коми кыв)",
     lang: "kpv",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_krl_multili = {
@@ -852,10 +842,10 @@ settings.corpora.wanca_2016_krl_multili = {
     title: "Wanca 2016: Karelian (karjal)",
     description: "A collection of web corpora in small Uralic languages: Karelian (karjal)",
     lang: "krl",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_liv = {
@@ -863,10 +853,10 @@ settings.corpora.wanca_2016_liv = {
     title: "Wanca 2016: Liv (līvõ kēļ)",
     description: "A collection of web corpora in small Uralic languages: Liv (līvõ kēļ)",
     lang: "liv",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_lud = {
@@ -874,10 +864,10 @@ settings.corpora.wanca_2016_lud = {
     title: "Wanca 2016: Ludian (lüüdin kiel')",
     description: "A collection of web corpora in small Uralic languages: Ludian (lüüdin kiel')",
     lang: "lud",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_mdf_multili = {
@@ -885,10 +875,10 @@ settings.corpora.wanca_2016_mdf_multili = {
     title: "Wanca 2016: Moksha (мокшень)",
     description: "A collection of web corpora in small Uralic languages: Moksha (мокшень)",
     lang: "mdf",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_mhr_multili = {
@@ -896,10 +886,10 @@ settings.corpora.wanca_2016_mhr_multili = {
     title: "Wanca 2016: Eastern and Meadow Mari (марий йылме)",
     description: "A collection of web corpora in small Uralic languages: Eastern and Meadow Mari (марий йылме)",
     lang: "mhr",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_mns_multili = {
@@ -907,10 +897,10 @@ settings.corpora.wanca_2016_mns_multili = {
     title: "Wanca 2016: Mansi (мāньси лāтыӈ)",
     description: "A collection of web corpora in small Uralic languages: Mansi (мāньси лāтыӈ)",
     lang: "mns",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_mrj_multili = {
@@ -918,10 +908,10 @@ settings.corpora.wanca_2016_mrj_multili = {
     title: "Wanca 2016: Western or Hill Mari (Кырык мары)",
     description: "A collection of web corpora in small Uralic languages: Western or Hill Mari (Кырык мары)",
     lang: "mrj",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_myv_multili = {
@@ -929,10 +919,10 @@ settings.corpora.wanca_2016_myv_multili = {
     title: "Wanca 2016: Erzya (эрзянь)",
     description: "A collection of web corpora in small Uralic languages: Erzya (эрзянь)",
     lang: "myv",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_nio = {
@@ -940,10 +930,10 @@ settings.corpora.wanca_2016_nio = {
     title: "Wanca 2016: Nganasan (ня”)",
     description: "A collection of web corpora in small Uralic languages: Nganasan (ня”)",
     lang: "nio",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_olo_multili = {
@@ -951,10 +941,10 @@ settings.corpora.wanca_2016_olo_multili = {
     title: "Wanca 2016: Livvi (Olonets / livvin karjal)",
     description: "A collection of web corpora in small Uralic languages: Livvi (Olonets / livvin karjal)",
     lang: "olo",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_sjd = {
@@ -962,10 +952,10 @@ settings.corpora.wanca_2016_sjd = {
     title: "Wanca 2016: Kildin Sami (Кӣллт са̄мь кӣлл)",
     description: "A collection of web corpora in small Uralic languages: Kildin Sami (Кӣллт са̄мь кӣлл)",
     lang: "sjd",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_sjk = {
@@ -973,10 +963,10 @@ settings.corpora.wanca_2016_sjk = {
     title: "Wanca 2016: Kemi Sami (samääškiela)",
     description: "A collection of web corpora in small Uralic languages: Kemi Sami (samääškiela)",
     lang: "sjk",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_sju = {
@@ -984,10 +974,10 @@ settings.corpora.wanca_2016_sju = {
     title: "Wanca 2016: Ume Sami (uumajanlappi)",
     description: "A collection of web corpora in small Uralic languages: Ume Sami (uumajanlappi)",
     lang: "sju",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_sma_multili = {
@@ -995,10 +985,10 @@ settings.corpora.wanca_2016_sma_multili = {
     title: "Wanca 2016: Southern Sami (åarjel-saemien)",
     description: "A collection of web corpora in small Uralic languages: Southern Sami (åarjel-saemien)",
     lang: "sma",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_sme_multili = {
@@ -1006,10 +996,10 @@ settings.corpora.wanca_2016_sme_multili = {
     title: "Wanca 2016: Northern Sami (davvisámi, davvisámegiella)",
     description: "A collection of web corpora in small Uralic languages: Northern Sami (davvisámi, davvisámegiella)",
     lang: "sme",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_smj_multili = {
@@ -1017,10 +1007,10 @@ settings.corpora.wanca_2016_smj_multili = {
     title: "Wanca 2016: Lule Sami (julevsábme)",
     description: "A collection of web corpora in small Uralic languages: Lule Sami (julevsábme)",
     lang: "smj",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_smn_multili = {
@@ -1028,10 +1018,10 @@ settings.corpora.wanca_2016_smn_multili = {
     title: "Wanca 2016: Inari Sami (anarâškielâ)",
     description: "A collection of web corpora in small Uralic languages: Inari Sami (anarâškielâ)",
     lang: "smn",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_sms_multili = {
@@ -1039,10 +1029,10 @@ settings.corpora.wanca_2016_sms_multili = {
     title: "Wanca 2016: Skolt Sami (sää´mǩiõll)",
     description: "A collection of web corpora in small Uralic languages: Skolt Sami (sää´mǩiõll)",
     lang: "sms",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_udm_multili = {
@@ -1050,10 +1040,10 @@ settings.corpora.wanca_2016_udm_multili = {
     title: "Wanca 2016: Udmurt (удмурт кыл)",
     description: "A collection of web corpora in small Uralic languages: Udmurt (удмурт кыл)",
     lang: "udm",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_vep_multili = {
@@ -1061,10 +1051,10 @@ settings.corpora.wanca_2016_vep_multili = {
     title: "Wanca 2016: Veps (vepsän kel')",
     description: "A collection of web corpora in small Uralic languages: Veps (vepsän kel')",
     lang: "vep",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_vot = {
@@ -1072,10 +1062,10 @@ settings.corpora.wanca_2016_vot = {
     title: "Wanca 2016: Votic (vad̕d̕a ceeli)",
     description: "A collection of web corpora in small Uralic languages: Votic (vad̕d̕a ceeli)",
     lang: "vot",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_vro_multili = {
@@ -1083,10 +1073,10 @@ settings.corpora.wanca_2016_vro_multili = {
     title: "Wanca 2016: Võro (võro kiil)",
     description: "A collection of web corpora in small Uralic languages: Võro (võro kiil)",
     lang: "vro",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.wanca_2016_yrk = {
@@ -1094,10 +1084,10 @@ settings.corpora.wanca_2016_yrk = {
     title: "Wanca 2016: Nenets (ненэцяʼ вада)",
     description: "A collection of web corpora in small Uralic languages: Nenets (ненэцяʼ вада)",
     lang: "yrk",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.wanca_common,
-    struct_attributes: sattrlist.wanca_common
+    structAttributes: sattrlist.wanca_common
 };
 
 settings.corpora.fennougrica_izh = {
@@ -1106,10 +1096,10 @@ settings.corpora.fennougrica_izh = {
     description: "Fenno-Ugrica, inkeroinen",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.fennougrica,
-    struct_attributes: sattrlist.fennougrica,
+    structAttributes: sattrlist.fennougrica,
     unselected: true
 };
 
@@ -1119,10 +1109,10 @@ settings.corpora.fennougrica_mhr = {
     description: "Fenno-Ugrica, itämari",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.fennougrica,
-    struct_attributes: sattrlist.fennougrica,
+    structAttributes: sattrlist.fennougrica,
     unselected: true
 };
 
@@ -1132,10 +1122,10 @@ settings.corpora.fennougrica_kca = {
     description: "Fenno-Ugrica, hanti",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.fennougrica,
-    struct_attributes: sattrlist.fennougrica,
+    structAttributes: sattrlist.fennougrica,
     unselected: true
 };
 
@@ -1145,10 +1135,10 @@ settings.corpora.fennougrica_mdf = {
     description: "Fenno-Ugrica, mokša",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.fennougrica,
-    struct_attributes: sattrlist.fennougrica,
+    structAttributes: sattrlist.fennougrica,
     unselected: true
 };
 
@@ -1158,10 +1148,10 @@ settings.corpora.fennougrica_mns = {
     description: "Fenno-Ugrica, mansi",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.fennougrica,
-    struct_attributes: sattrlist.fennougrica,
+    structAttributes: sattrlist.fennougrica,
     unselected: true
 };
 
@@ -1171,10 +1161,10 @@ settings.corpora.fennougrica_mrj = {
     description: "Fenno-Ugrica, länsimari",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.fennougrica,
-    struct_attributes: sattrlist.fennougrica,
+    structAttributes: sattrlist.fennougrica,
     unselected: true
 };
 
@@ -1184,10 +1174,10 @@ settings.corpora.fennougrica_myv = {
     description: "Fenno-Ugrica, ersä",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.fennougrica,
-    struct_attributes: sattrlist.fennougrica,
+    structAttributes: sattrlist.fennougrica,
     unselected: true
 };
 
@@ -1197,10 +1187,10 @@ settings.corpora.fennougrica_sel = {
     description: "Fenno-Ugrica, selkuppi",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.fennougrica,
-    struct_attributes: sattrlist.fennougrica,
+    structAttributes: sattrlist.fennougrica,
     unselected: true
 };
 
@@ -1210,10 +1200,10 @@ settings.corpora.fennougrica_vep = {
     description: "Fenno-Ugrica, vepsä",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.fennougrica,
-    struct_attributes: sattrlist.fennougrica,
+    structAttributes: sattrlist.fennougrica,
     unselected: true
 };
 
@@ -1223,10 +1213,10 @@ settings.corpora.fennougrica_yrk = {
     description: "Fenno-Ugrica, tundranenetsi",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.fennougrica,
-    struct_attributes: sattrlist.fennougrica,
+    structAttributes: sattrlist.fennougrica,
     unselected: true
 };
 
@@ -1234,30 +1224,30 @@ settings.corpora.mulcold_en = {
     id: "mulcold_en",
     title: "MULCOLD englanti",
     description: "Multilingual Corpus of Legal Documents, englanninkielinen osa",
-    context: settings.defaultContext,
+    context: defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.mulcold_en,
-    struct_attributes: sattrlist.mulcold,
+    structAttributes: sattrlist.mulcold,
 };
 
 settings.corpora.mulcold_de = {
     id: "mulcold_de",
     title: "MULCOLD saksa",
     description: "Multilingual Corpus of Legal Documents, saksankielinen osa",
-    context: settings.defaultContext,
+    context: defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.mulcold_de,
-    struct_attributes: sattrlist.mulcold,
+    structAttributes: sattrlist.mulcold,
 };
 
 settings.corpora.mulcold_ru = {
     id: "mulcold_ru",
     title: "MULCOLD venäjä",
     description: "Multilingual Corpus of Legal Documents, venäjänkielinen osa",
-    context: settings.defaultContext,
+    context: defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.mulcold_ru,
-    struct_attributes: sattrlist.mulcold,
+    structAttributes: sattrlist.mulcold,
 };
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
@@ -1267,10 +1257,10 @@ settings.corpora.legal_ru = {
     id: "legal_ru",
     title: "FiRuLex venäjä",
     description: "Jurdisia tekstejä (venäjä)",
-    context: settings.defaultContext,
+    context: defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.mulcold_ru,
-    struct_attributes: sattrlist.legal
+    structAttributes: sattrlist.legal
 };
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.firulex,
@@ -1284,10 +1274,10 @@ settings.corpora.ethesis_en_ma_ot = {
     description: "Faculty of Law (2010–2015)",
     id: "ethesis_en_ma_ot",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_ma_med = {
@@ -1295,10 +1285,10 @@ settings.corpora.ethesis_en_ma_med = {
     description: "Faculty of Medicine (2009–2015)",
     id: "ethesis_en_ma_med",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_ma_el = {
@@ -1306,10 +1296,10 @@ settings.corpora.ethesis_en_ma_el = {
     description: "Faculty of Veterinary Medicine (2003–2016)",
     id: "ethesis_en_ma_el",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 
@@ -1318,10 +1308,10 @@ settings.corpora.ethesis_en_ma_hum = {
     description: "Faculty of Arts (1997–2016)",
     id: "ethesis_en_ma_hum",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 
@@ -1330,10 +1320,10 @@ settings.corpora.ethesis_en_ma_beh = {
     description: "Faculty of Behavioural Sciences (2000–2016)",
     id: "ethesis_en_ma_beh",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_ma_bio = {
@@ -1341,10 +1331,10 @@ settings.corpora.ethesis_en_ma_bio = {
     description: "Faculty of Biological and Environmental Sciences (2006–2015)",
     id: "ethesis_en_ma_bio",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_ma_far = {
@@ -1352,10 +1342,10 @@ settings.corpora.ethesis_en_ma_far = {
     description: "Faculty of Pharmacy (2003, 2010–2016)",
     id: "ethesis_en_ma_far",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_ma_mm = {
@@ -1363,10 +1353,10 @@ settings.corpora.ethesis_en_ma_mm = {
     description: "Agriculture and Forestry (2002–2016)",
     id: "ethesis_en_ma_mm",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_ma_sci = {
@@ -1374,10 +1364,10 @@ settings.corpora.ethesis_en_ma_sci = {
     description: "Faculty of Science (1999–2016)",
     id: "ethesis_en_ma_sci",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_ma_teo = {
@@ -1385,10 +1375,10 @@ settings.corpora.ethesis_en_ma_teo = {
     description: "Faculty of Theology (2006–2016)",
     id: "ethesis_en_ma_teo",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_ma_valt = {
@@ -1396,10 +1386,10 @@ settings.corpora.ethesis_en_ma_valt = {
     description: "Faculty of Social Sciences (1999–2016)",
     id: "ethesis_en_ma_valt",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_ma_ai = {
@@ -1407,10 +1397,10 @@ settings.corpora.ethesis_en_ma_ai = {
     description: "Aleksanteri Institute (2009–2015)",
     id: "ethesis_en_ma_ai",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_maabs = {
@@ -1418,10 +1408,10 @@ settings.corpora.ethesis_en_maabs = {
     description: "Master's thesis abstracts (1999–2016)",
     id: "ethesis_en_maabs",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_dissabs = {
@@ -1429,10 +1419,10 @@ settings.corpora.ethesis_en_dissabs = {
     description: "Doctoral disseration abstracts (2006–2016)",
     id: "ethesis_en_dissabs",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_phd_beh = {
@@ -1440,10 +1430,10 @@ settings.corpora.ethesis_en_phd_beh = {
     description: "Faculty of Behavioural Sciences (1999–2016)",
     id: "ethesis_en_phd_beh",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_phd_bio = {
@@ -1451,10 +1441,10 @@ settings.corpora.ethesis_en_phd_bio = {
     description: "Faculty of Biological and Environmental Sciences (1997–2016)",
     id: "ethesis_en_phd_bio",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_phd_el = {
@@ -1462,10 +1452,10 @@ settings.corpora.ethesis_en_phd_el = {
     description: "Faculty of Veterinary Medicine (1999–2016)",
     id: "ethesis_en_phd_el",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_phd_far = {
@@ -1473,10 +1463,10 @@ settings.corpora.ethesis_en_phd_far = {
     description: "Faculty of Pharmacy (1999–2016)",
     id: "ethesis_en_phd_far",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_phd_mm = {
@@ -1484,10 +1474,10 @@ settings.corpora.ethesis_en_phd_mm = {
     description: "Agriculture and Forestry (1999–2016)",
     id: "ethesis_en_phd_mm",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_phd_hum = {
@@ -1495,10 +1485,10 @@ settings.corpora.ethesis_en_phd_hum = {
     description: "Faculty of Arts (1989, 1998–2016)",
     id: "ethesis_en_phd_hum",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_phd_math = {
@@ -1506,10 +1496,10 @@ settings.corpora.ethesis_en_phd_math = {
     description: "Faculty of Science (1992, 1995–2016)",
     id: "ethesis_en_phd_math",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_phd_ot = {
@@ -1517,10 +1507,10 @@ settings.corpora.ethesis_en_phd_ot = {
     description: "Faculty of Law (2002, 2004–2016)",
     id: "ethesis_en_phd_ot",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_phd_teo = {
@@ -1528,10 +1518,10 @@ settings.corpora.ethesis_en_phd_teo = {
     description: "Faculty of Theology (2002–2016)",
     id: "ethesis_en_phd_teo",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_phd_med = {
@@ -1539,10 +1529,10 @@ settings.corpora.ethesis_en_phd_med = {
     description: "Faculty of Medicine (1998–2016)",
     id: "ethesis_en_phd_med",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 settings.corpora.ethesis_en_phd_valt = {
@@ -1550,10 +1540,10 @@ settings.corpora.ethesis_en_phd_valt = {
     description: "Faculty Social Sciences (1999–2016)",
     id: "ethesis_en_phd_valt",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: {
     },
-    struct_attributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis
 };
 
 /* ParRus ru */
@@ -1565,12 +1555,12 @@ settings.corpora.parrus_ru = {
     title: "ParRus (venäjä) [deprecated]",
     description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (venäjänkieliset alkuperäistekstit)<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta)<br/><br/><strong>Please note that ParRus 2016 replaces this corpus, and this corpus will be taken out of use at the beginning of 2017.</strong>",
     // TODO: Add paragraphs corresponding to link elements
-    context: settings.defaultContext,
+    context: defaultContext,
     within: settings.defaultWithin,
     limited_access: true,
     licence_type: "RES",
     attributes: attrlist.parrus_ru,
-    struct_attributes: sattrlist.parrus_ru,
+    structAttributes: sattrlist.parrus_ru,
 };
 settings.fn.extend_corpus_settings(settings.corpusinfo.parrus, ["parrus_ru"]);
 */
@@ -1583,12 +1573,12 @@ settings.corpora.parfin_ru = {
     id: "parfin_ru",
     title: "ParFin (venäjä) [deprecated]",
     description: "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (venäjänkieliset käännökset)<br/>Suomenkielisten kaunokirjallisten tekstien (vuosilta 1990–2010) käännöksiä venäjäksi<strong>Please note that ParRus 2016 replaces this corpus, and this corpus will be taken out of use at the beginning of 2017.</strong>",
-    context: settings.defaultContext,
+    context: defaultContext,
     within: settings.defaultWithin,
     limited_access: true,
     licence_type: "RES",
     attributes: attrlist.parfin_ru,
-    struct_attributes: sattrlist.parfin_ru,
+    structAttributes: sattrlist.parfin_ru,
 };
 settings.fn.extend_corpus_settings(settings.corpusinfo.parfin, ["parfin_ru"]);
 */
@@ -1608,7 +1598,7 @@ settings.corpora.parrus_2016_ru = {
     limited_access: true,
     licence_type: "RES",
     attributes: attrlist.parrus_2016_ru,
-    struct_attributes: sattrlist.parrus_2016_ru,
+    structAttributes: sattrlist.parrus_2016_ru,
 };
 settings.fn.extend_corpus_settings(settings.corpusinfo.parrus_2016,
 				   ["parrus_2016_ru"]);
@@ -1629,7 +1619,7 @@ settings.corpora.parfin_2016_ru = {
     limited_access: true,
     licence_type: "RES",
     attributes: attrlist.parfin_2016_ru,
-    struct_attributes: sattrlist.parfin_2016_ru,
+    structAttributes: sattrlist.parfin_2016_ru,
 };
 settings.fn.extend_corpus_settings(settings.corpusinfo.parfin_2016,
 				   ["parfin_2016_ru"]);
@@ -1650,11 +1640,11 @@ settings.corpora.topling_en = {
     cite_id: "topling-en",
     limited_access: true,
     licence_type: "RES",
-    context: settings.spContext,
-    within: settings.spWithin,
+    context: spContext,
+    within: spWithin,
     // unselected: true,
     attributes: attrlist.topling,
-    struct_attributes: sattrlist.topling
+    structAttributes: sattrlist.topling
 };
 
 settings.corpus_aliases["topling-en"] = "topling_en";
@@ -1671,8 +1661,8 @@ settings.corpora.elfa = {
 	name: "Professor Anna Mauranen, University of Helsinki",
     },
     cite_id: "ELFA-korp",
-    context: settings.spContext,
-    within: settings.spWithin,
+    context: spContext,
+    within: spWithin,
     ignore_between_tokens_cqp: '[type != "word"]*',
     attributes: {
 	type: {
@@ -1777,7 +1767,7 @@ settings.corpora.elfa = {
 	    isStructAttr: true,
 	},
     },
-    struct_attributes: {
+    structAttributes: {
 	text_id: {
 	    label: "text_id",
 	},
@@ -2110,10 +2100,10 @@ settings.corpora.fennougrica_veps = {
     description: "Fenno-Ugrica: Vepsä (näyte)",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.fennougrica_veps,
-    struct_attributes: sattrlist.fennougrica_veps,
+    structAttributes: sattrlist.fennougrica_veps,
     // unselected: true
 };
 */
@@ -2708,7 +2698,7 @@ settings.fn.extend_corpus_settings(
 		label: "word_related_comment",
 	    },
 	},
-	struct_attributes: sattrlist.scotscorr,
+	structAttributes: sattrlist.scotscorr,
 	ignore_between_tokens_cqp: '[word="[^a-zA-Z0-9]+|\\{.*"]*',
     },
     [
@@ -2731,10 +2721,10 @@ settings.corpora.erzya = {
     id: "erzya",
     title: "Ersä (testikorpus)",
     description: "Ersä (testikorpus)",
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.testerzya,
-    struct_attributes: sattrlist.testerzya
+    structAttributes: sattrlist.testerzya
     };*/
 
 settings.corpora.erme_myv = {
@@ -2742,10 +2732,10 @@ settings.corpora.erme_myv = {
     title: "Ersä/Erzya",
     description: "ERME: Ersä/Erzya",
     licence: settings.licenceinfo.CC_BY,
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.testerzya,
-    struct_attributes: sattrlist.erme,
+    structAttributes: sattrlist.erme,
     unselected: true
 };
 
@@ -2754,10 +2744,10 @@ settings.corpora.erme_mdf = {
     title: "Mokša/Moksha",
     description: "ERME: Mokša/Moksha",
     licence: settings.licenceinfo.CC_BY,
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.testerzya,
-    struct_attributes: sattrlist.erme,
+    structAttributes: sattrlist.erme,
     unselected: true
 };
 
@@ -2768,10 +2758,10 @@ settings.corpora.kildin_sample = {
     description: "A test sample of the Corpus of Written Kildin Saami (2015)",
     metadata_urn: "urn:nbn:fi:lb-2015102001",
     licence: settings.licenceinfo.CC_BY,
-    context: settings.defaultContext,
+    context: defaultContext,
     within: settings.defaultWithin,
     attributes: {},
-    struct_attributes: {
+    structAttributes: {
 	text_style: {
 	    label: "style",
 	    displayType: "select",
@@ -2905,7 +2895,7 @@ settings.corpora.swahili_sample = {
     // licence: settings.licenceinfo.CC_BY,
     limited_access: true,
     licence_type: "ACA",
-    context: settings.defaultContext,
+    context: defaultContext,
     within: settings.defaultWithin,
     attributes: {
 	lemma: attrs.baseform,
@@ -2956,7 +2946,7 @@ settings.corpora.swahili_sample = {
 	    label: "verb_features",
 	},
     },
-    struct_attributes: {
+    structAttributes: {
 	sentence_id: sattrs.sentence_id_hidden,
     },
 };
@@ -2969,7 +2959,7 @@ settings.templ.hcs2_common = {
     description: "",
     limited_access: true,
     licence_type: "ACA",
-    context: settings.defaultContext,
+    context: defaultContext,
     within: settings.defaultWithin,
     attributes: {
 	lemma: attrs.baseform,
@@ -3075,7 +3065,7 @@ settings.templ.hcs2_common = {
 	},
 	lex: attrs.lemgram_hidden,
     },
-    struct_attributes: {
+    structAttributes: {
 	text_title: sattrs.text_title,
 	text_filename: sattrs.filename,
 	text_year: sattrs.year,
@@ -3084,7 +3074,7 @@ settings.templ.hcs2_common = {
 };
 
 hcs2_news_extra_props = {
-    struct_attributes: {
+    structAttributes: {
 	text_month: sattrs.month,
     }
 };
@@ -3092,7 +3082,7 @@ hcs2_news_extra_props = {
 hcs2_hierarchy = [
     ["old", "Old material", "Material up to 2003, mostly from HCS 1.0", [
 	["old_books", "Books", {
-	    struct_attributes: {
+	    structAttributes: {
 		text_author: sattrs.author,
 		text_publisher: sattrs.text_publisher,
 		text_place: sattrs.text_publ_place,
@@ -3102,7 +3092,7 @@ hcs2_hierarchy = [
     ] ],
     ["new", "New material", "Material after 2003, new to HCS 2.0", [
 	["new_bunge", "Bunge", "Hansards of Tanzanian Parliament 2004–2006", {
-	    struct_attributes: {
+	    structAttributes: {
 		text_month: sattrs.month,
 		text_day: sattrs.day_of_month,
 	    }
@@ -3134,9 +3124,9 @@ settings.corpora.besercorp = {
     metadata_urn: "urn:nbn:fi:lb-2015081401",
     cite_id: "BeserCorp",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: attrlist.besercorp,
-    struct_attributes: {}
+    structAttributes: {}
 };
 
 
@@ -3438,10 +3428,10 @@ sattrlist.coca = $.extend(
     });
 
 settings.templ.coca_common = {
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.byu,
-    struct_attributes: sattrlist.coca,
+    structAttributes: sattrlist.coca,
 };
 
 var coca_hierarchy = [
@@ -3526,10 +3516,10 @@ sattrlist.coha =  $.extend(
     });
 
 settings.templ.coha_common = {
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.byu,
-    struct_attributes: sattrlist.coha,
+    structAttributes: sattrlist.coha,
 };
 
 // Make a corpus/folder hierarchy for COHA (to be used as an argument
@@ -3647,10 +3637,10 @@ sattrlist.glowbe = $.extend(
     });
 
 settings.templ.glowbe_common = {
-    within: settings.spWithin,
-    context: settings.spContext,
+    within: spWithin,
+    context: spContext,
     attributes: attrlist.byu,
-    struct_attributes: sattrlist.glowbe,
+    structAttributes: sattrlist.glowbe,
 };
 
 // Make a corpus/folder hierarchy for GloWbE (to be used as an
