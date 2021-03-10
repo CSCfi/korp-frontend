@@ -5213,6 +5213,7 @@ var makeVideoAttr = function (baseURL0, path0, file0, ext0, startTime0, endTime0
 module.exports = {
     spWithin,
     spContext,
+    spcWithin,
     modernAttrs,
     modernAttrs2,
     defaultContext,
