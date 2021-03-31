@@ -134,7 +134,6 @@ settings.corporafolders.english.ethesis = {
 	metadata_urn: "urn:nbn:fi:lb-2020031301",
 	licence: settings.licenceinfo.CC_BY,
 	homepage_url: "https://ethesis.helsinki.fi/",
-	labels: ["beta"]
     }
 };
 

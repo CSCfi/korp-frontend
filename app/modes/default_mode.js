@@ -188,7 +188,6 @@ settings.corporafolders.kal = {
 	metadata_urn: "urn:nbn:fi:lb-201407301",
 	limited_access: true,
 	licence_type: "ACA",
-	labels: ["beta"],
     }
 };
 
@@ -11402,7 +11401,6 @@ settings.corpora.opensub_fi_2017 = {
     urn: "urn:nbn:fi:lb-2018060404",
     metadata_urn: "urn:nbn:fi:lb-2018060403",
     lang: "fin",
-    labels: ["beta"],
     within: settings.defaultWithin,
     context: settings.defaultContext,
     attributes: attrlist.parsed_tdt_ud1,
@@ -14157,7 +14155,6 @@ settings.corpora.alkusuomi = {
     title: "Käännössuomen korpus - alkusuomi",
     description: "Eri kielistä käännettyä kieltä",
     lang: "fin",
-    labels: ["beta"],
     id: "alkusuomi",
     //urn: "",
     metadata_urn: "urn:nbn:fi:lb-2019100801",
@@ -14178,7 +14175,6 @@ settings.corpora.kaannossuomi = {
     title: "Käännössuomen korpus - käännössuomi",
     description: "Aluperin suomeksi kirjoitettua kieltä",
     lang: "fin",
-    labels: ["beta"],
     id: "kaannossuomi",
     //urn: "",
     metadata_urn: "urn:nbn:fi:lb-2019100801",
