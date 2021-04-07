@@ -15404,6 +15404,17 @@ sattrlist.s24_2018 = {
 	opts: settings.liteOptions,
     },
     sentence_id: sattrs.sentence_id_hidden,
+    sentence_polarity: {
+        label: "sentence_polarity",
+        displayType: "select",
+        translationKey: "polarity_",
+        dataset: [
+            "pos",
+            "neut",
+            "neg",
+        ],
+        opts: settings.liteOptions,
+    },
 };
 
 settings.templ.s24_2018 = {

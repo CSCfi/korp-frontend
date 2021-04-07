@@ -1703,6 +1703,11 @@
 
     "title_lemmas": "otsikon sanojen perusmuodot",
 
+    "sentence_polarity": "virkkeen polaarisuus",
+    "polarity_pos": "myönteinen",
+    "polarity_neut": "neutraali",
+    "polarity_neg": "kielteinen",
+
     "publication_type": "julkaisutyyppi",
     "publtype_journal": "aikakauslehti",
     "publtype_newspaper": "sanomalehti",
