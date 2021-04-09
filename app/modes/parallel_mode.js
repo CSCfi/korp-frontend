@@ -706,7 +706,7 @@ settings.corpora.ceal_s_fi = {
     limited_access: true,
     licence_type: "ACA",
     attributes: attrlist.ud2_fi,
-    struct_attributes: sattrlist.ceal_common,
+    structAttributes: sattrlist.ceal_common,
     linked_to: ["ceal_s_en"]
 };
 
@@ -728,7 +728,7 @@ settings.corpora.ceal_s_en = {
     limited_access: true,
     licence_type: "ACA",
     attributes: attrlist.ud2_en,
-    struct_attributes: sattrlist.ceal_common,
+    structAttributes: sattrlist.ceal_common,
     linked_to: ["ceal_s_fi"],
     hide: true
 };
@@ -747,7 +747,7 @@ settings.corpora.semfinlex_asd_par_2018_fi = {
     within: settings.linkWithin,
     licence : settings.licenceinfo.CC_BY,
     features: ["parsed_tdt"],
-    struct_attributes : {
+    structAttributes : {
 	text_url : {
 	    label : "URL",
 	    type : "url",
@@ -787,7 +787,7 @@ settings.corpora.semfinlex_asd_par_2018_sv = {
     within: settings.linkWithin,
     licence : settings.licenceinfo.CC_BY,
     attributes : attrlist.parsed_sv,
-    struct_attributes : {
+    structAttributes : {
 	text_url : {
 	    label : "URL",
 	    type : "url",
@@ -839,7 +839,7 @@ settings.corpora.opus_opensubtitles2011_fitr_tr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -859,7 +859,7 @@ settings.corpora.opus_opensubtitles2011_fitr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2012_fitr_tr = {
@@ -878,7 +878,7 @@ settings.corpora.opus_opensubtitles2012_fitr_tr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -898,7 +898,7 @@ settings.corpora.opus_opensubtitles2012_fitr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2013_fitr_tr = {
@@ -917,7 +917,7 @@ settings.corpora.opus_opensubtitles2013_fitr_tr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -937,7 +937,7 @@ settings.corpora.opus_opensubtitles2013_fitr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles_fitr_tr = {
@@ -956,7 +956,7 @@ settings.corpora.opus_opensubtitles_fitr_tr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -976,7 +976,7 @@ settings.corpora.opus_opensubtitles_fitr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_eubookshop_fitr_tr = {
@@ -995,7 +995,7 @@ settings.corpora.opus_eubookshop_fitr_tr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1015,7 +1015,7 @@ settings.corpora.opus_eubookshop_fitr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_kde4_fitr_tr = {
@@ -1034,7 +1034,7 @@ settings.corpora.opus_kde4_fitr_tr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1054,7 +1054,7 @@ settings.corpora.opus_kde4_fitr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_gnome_fitr_tr = {
@@ -1073,7 +1073,7 @@ settings.corpora.opus_gnome_fitr_tr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1093,7 +1093,7 @@ settings.corpora.opus_gnome_fitr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_php_fitr_tr = {
@@ -1112,7 +1112,7 @@ settings.corpora.opus_php_fitr_tr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1132,7 +1132,7 @@ settings.corpora.opus_php_fitr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_books_fifr_fr = {
@@ -1151,7 +1151,7 @@ settings.corpora.opus_books_fifr_fr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1171,7 +1171,7 @@ settings.corpora.opus_books_fifr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2012_fifr_fr = {
@@ -1190,7 +1190,7 @@ settings.corpora.opus_opensubtitles2012_fifr_fr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1210,7 +1210,7 @@ settings.corpora.opus_opensubtitles2012_fifr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles_fifr_fr = {
@@ -1229,7 +1229,7 @@ settings.corpora.opus_opensubtitles_fifr_fr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1249,7 +1249,7 @@ settings.corpora.opus_opensubtitles_fifr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_kde4_fifr_fr = {
@@ -1268,7 +1268,7 @@ settings.corpora.opus_kde4_fifr_fr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1288,7 +1288,7 @@ settings.corpora.opus_kde4_fifr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_gnome_fifr_fr = {
@@ -1307,7 +1307,7 @@ settings.corpora.opus_gnome_fifr_fr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1327,7 +1327,7 @@ settings.corpora.opus_gnome_fifr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_euconst_fifr_fr = {
@@ -1346,7 +1346,7 @@ settings.corpora.opus_euconst_fifr_fr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1366,7 +1366,7 @@ settings.corpora.opus_euconst_fifr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_php_fifr_fr = {
@@ -1385,7 +1385,7 @@ settings.corpora.opus_php_fifr_fr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1405,7 +1405,7 @@ settings.corpora.opus_php_fifr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ubuntu_fifr_fr = {
@@ -1424,7 +1424,7 @@ settings.corpora.opus_ubuntu_fifr_fr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1444,7 +1444,7 @@ settings.corpora.opus_ubuntu_fifr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_tatoeba_fifr_fr = {
@@ -1463,7 +1463,7 @@ settings.corpora.opus_tatoeba_fifr_fr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1483,7 +1483,7 @@ settings.corpora.opus_tatoeba_fifr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2011_esfi_fi = {
@@ -1502,7 +1502,7 @@ settings.corpora.opus_opensubtitles2011_esfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2011_esfi_es = {
@@ -1521,7 +1521,7 @@ settings.corpora.opus_opensubtitles2011_esfi_es = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1541,7 +1541,7 @@ settings.corpora.opus_opensubtitles_esfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles_esfi_es = {
@@ -1560,7 +1560,7 @@ settings.corpora.opus_opensubtitles_esfi_es = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1580,7 +1580,7 @@ settings.corpora.opus_kde4_esfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_kde4_esfi_es = {
@@ -1599,7 +1599,7 @@ settings.corpora.opus_kde4_esfi_es = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1619,7 +1619,7 @@ settings.corpora.opus_gnome_esfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_gnome_esfi_es = {
@@ -1638,7 +1638,7 @@ settings.corpora.opus_gnome_esfi_es = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1658,7 +1658,7 @@ settings.corpora.opus_euconst_esfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_euconst_esfi_es = {
@@ -1677,7 +1677,7 @@ settings.corpora.opus_euconst_esfi_es = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1697,7 +1697,7 @@ settings.corpora.opus_php_esfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_php_esfi_es = {
@@ -1716,7 +1716,7 @@ settings.corpora.opus_php_esfi_es = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1736,7 +1736,7 @@ settings.corpora.opus_ubuntu_esfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ubuntu_esfi_es = {
@@ -1755,7 +1755,7 @@ settings.corpora.opus_ubuntu_esfi_es = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1775,7 +1775,7 @@ settings.corpora.opus_tatoeba_esfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_tatoeba_esfi_es = {
@@ -1794,7 +1794,7 @@ settings.corpora.opus_tatoeba_esfi_es = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1814,7 +1814,7 @@ settings.corpora.opus_books_esfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_books_esfi_es = {
@@ -1833,7 +1833,7 @@ settings.corpora.opus_books_esfi_es = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1853,7 +1853,7 @@ settings.corpora.opus_europarl_csfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_europarl_csfi_cs = {
@@ -1872,7 +1872,7 @@ settings.corpora.opus_europarl_csfi_cs = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1892,7 +1892,7 @@ settings.corpora.opus_gnome_fisv_sv = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1912,7 +1912,7 @@ settings.corpora.opus_gnome_fisv_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_euconst_fisv_sv = {
@@ -1931,7 +1931,7 @@ settings.corpora.opus_euconst_fisv_sv = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1951,7 +1951,7 @@ settings.corpora.opus_euconst_fisv_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_php_fisv_sv = {
@@ -1970,7 +1970,7 @@ settings.corpora.opus_php_fisv_sv = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -1990,7 +1990,7 @@ settings.corpora.opus_php_fisv_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ubuntu_fisv_sv = {
@@ -2009,7 +2009,7 @@ settings.corpora.opus_ubuntu_fisv_sv = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2029,7 +2029,7 @@ settings.corpora.opus_ubuntu_fisv_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_tatoeba_fisv_sv = {
@@ -2048,7 +2048,7 @@ settings.corpora.opus_tatoeba_fisv_sv = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2068,7 +2068,7 @@ settings.corpora.opus_tatoeba_fisv_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles_fisv_sv = {
@@ -2087,7 +2087,7 @@ settings.corpora.opus_opensubtitles_fisv_sv = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2107,7 +2107,7 @@ settings.corpora.opus_opensubtitles_fisv_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2011_elfi_fi = {
@@ -2126,7 +2126,7 @@ settings.corpora.opus_opensubtitles2011_elfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2011_elfi_el = {
@@ -2145,7 +2145,7 @@ settings.corpora.opus_opensubtitles2011_elfi_el = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2165,7 +2165,7 @@ settings.corpora.opus_opensubtitles2012_elfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2012_elfi_el = {
@@ -2184,7 +2184,7 @@ settings.corpora.opus_opensubtitles2012_elfi_el = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2204,7 +2204,7 @@ settings.corpora.opus_opensubtitles2013_elfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2013_elfi_el = {
@@ -2223,7 +2223,7 @@ settings.corpora.opus_opensubtitles2013_elfi_el = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2243,7 +2243,7 @@ settings.corpora.opus_opensubtitles_elfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles_elfi_el = {
@@ -2262,7 +2262,7 @@ settings.corpora.opus_opensubtitles_elfi_el = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2282,7 +2282,7 @@ settings.corpora.opus_dgt_elfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_dgt_elfi_el = {
@@ -2301,7 +2301,7 @@ settings.corpora.opus_dgt_elfi_el = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2321,7 +2321,7 @@ settings.corpora.opus_eubookshop_elfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_eubookshop_elfi_el = {
@@ -2340,7 +2340,7 @@ settings.corpora.opus_eubookshop_elfi_el = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2360,7 +2360,7 @@ settings.corpora.opus_emea_elfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_emea_elfi_el = {
@@ -2379,7 +2379,7 @@ settings.corpora.opus_emea_elfi_el = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2399,7 +2399,7 @@ settings.corpora.opus_ecb_elfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ecb_elfi_el = {
@@ -2418,7 +2418,7 @@ settings.corpora.opus_ecb_elfi_el = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2438,7 +2438,7 @@ settings.corpora.opus_kde4_elfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_kde4_elfi_el = {
@@ -2457,7 +2457,7 @@ settings.corpora.opus_kde4_elfi_el = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2477,7 +2477,7 @@ settings.corpora.opus_gnome_elfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_gnome_elfi_el = {
@@ -2496,7 +2496,7 @@ settings.corpora.opus_gnome_elfi_el = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2516,7 +2516,7 @@ settings.corpora.opus_euconst_elfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_euconst_elfi_el = {
@@ -2535,7 +2535,7 @@ settings.corpora.opus_euconst_elfi_el = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2555,7 +2555,7 @@ settings.corpora.opus_ubuntu_elfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ubuntu_elfi_el = {
@@ -2574,7 +2574,7 @@ settings.corpora.opus_ubuntu_elfi_el = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2594,7 +2594,7 @@ settings.corpora.opus_opensubtitles_defi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles_defi_de = {
@@ -2613,7 +2613,7 @@ settings.corpora.opus_opensubtitles_defi_de = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2633,7 +2633,7 @@ settings.corpora.opus_gnome_defi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_gnome_defi_de = {
@@ -2652,7 +2652,7 @@ settings.corpora.opus_gnome_defi_de = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2672,7 +2672,7 @@ settings.corpora.opus_euconst_defi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_euconst_defi_de = {
@@ -2691,7 +2691,7 @@ settings.corpora.opus_euconst_defi_de = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2711,7 +2711,7 @@ settings.corpora.opus_php_defi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_php_defi_de = {
@@ -2730,7 +2730,7 @@ settings.corpora.opus_php_defi_de = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2750,7 +2750,7 @@ settings.corpora.opus_ubuntu_defi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ubuntu_defi_de = {
@@ -2769,7 +2769,7 @@ settings.corpora.opus_ubuntu_defi_de = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2789,7 +2789,7 @@ settings.corpora.opus_tatoeba_defi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_tatoeba_defi_de = {
@@ -2808,7 +2808,7 @@ settings.corpora.opus_tatoeba_defi_de = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2828,7 +2828,7 @@ settings.corpora.opus_opensubtitles2011_csfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2011_csfi_cs = {
@@ -2847,7 +2847,7 @@ settings.corpora.opus_opensubtitles2011_csfi_cs = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2867,7 +2867,7 @@ settings.corpora.opus_opensubtitles2012_csfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2012_csfi_cs = {
@@ -2886,7 +2886,7 @@ settings.corpora.opus_opensubtitles2012_csfi_cs = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2906,7 +2906,7 @@ settings.corpora.opus_opensubtitles2013_csfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2013_csfi_cs = {
@@ -2925,7 +2925,7 @@ settings.corpora.opus_opensubtitles2013_csfi_cs = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2945,7 +2945,7 @@ settings.corpora.opus_dgt_csfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_dgt_csfi_cs = {
@@ -2964,7 +2964,7 @@ settings.corpora.opus_dgt_csfi_cs = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -2984,7 +2984,7 @@ settings.corpora.opus_eubookshop_csfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_eubookshop_csfi_cs = {
@@ -3003,7 +3003,7 @@ settings.corpora.opus_eubookshop_csfi_cs = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3023,7 +3023,7 @@ settings.corpora.opus_emea_csfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_emea_csfi_cs = {
@@ -3042,7 +3042,7 @@ settings.corpora.opus_emea_csfi_cs = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3062,7 +3062,7 @@ settings.corpora.opus_ecb_csfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ecb_csfi_cs = {
@@ -3081,7 +3081,7 @@ settings.corpora.opus_ecb_csfi_cs = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3101,7 +3101,7 @@ settings.corpora.opus_kde4_csfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_kde4_csfi_cs = {
@@ -3120,7 +3120,7 @@ settings.corpora.opus_kde4_csfi_cs = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3140,7 +3140,7 @@ settings.corpora.opus_gnome_csfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_gnome_csfi_cs = {
@@ -3159,7 +3159,7 @@ settings.corpora.opus_gnome_csfi_cs = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3179,7 +3179,7 @@ settings.corpora.opus_euconst_csfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_euconst_csfi_cs = {
@@ -3198,7 +3198,7 @@ settings.corpora.opus_euconst_csfi_cs = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3218,7 +3218,7 @@ settings.corpora.opus_php_csfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_php_csfi_cs = {
@@ -3237,7 +3237,7 @@ settings.corpora.opus_php_csfi_cs = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3257,7 +3257,7 @@ settings.corpora.opus_ubuntu_csfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ubuntu_csfi_cs = {
@@ -3276,7 +3276,7 @@ settings.corpora.opus_ubuntu_csfi_cs = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3296,7 +3296,7 @@ settings.corpora.opus_opensubtitles2011_finl_nl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3316,7 +3316,7 @@ settings.corpora.opus_opensubtitles2011_finl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2012_finl_nl = {
@@ -3335,7 +3335,7 @@ settings.corpora.opus_opensubtitles2012_finl_nl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3355,7 +3355,7 @@ settings.corpora.opus_opensubtitles2012_finl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2013_finl_nl = {
@@ -3374,7 +3374,7 @@ settings.corpora.opus_opensubtitles2013_finl_nl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3394,7 +3394,7 @@ settings.corpora.opus_opensubtitles2013_finl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_dgt_finl_nl = {
@@ -3413,7 +3413,7 @@ settings.corpora.opus_dgt_finl_nl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3433,7 +3433,7 @@ settings.corpora.opus_dgt_finl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_eubookshop_finl_nl = {
@@ -3452,7 +3452,7 @@ settings.corpora.opus_eubookshop_finl_nl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3472,7 +3472,7 @@ settings.corpora.opus_eubookshop_finl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_emea_finl_nl = {
@@ -3491,7 +3491,7 @@ settings.corpora.opus_emea_finl_nl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3511,7 +3511,7 @@ settings.corpora.opus_emea_finl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ecb_finl_nl = {
@@ -3530,7 +3530,7 @@ settings.corpora.opus_ecb_finl_nl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3550,7 +3550,7 @@ settings.corpora.opus_ecb_finl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_kde4_finl_nl = {
@@ -3569,7 +3569,7 @@ settings.corpora.opus_kde4_finl_nl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3589,7 +3589,7 @@ settings.corpora.opus_kde4_finl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_gnome_finl_nl = {
@@ -3608,7 +3608,7 @@ settings.corpora.opus_gnome_finl_nl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3628,7 +3628,7 @@ settings.corpora.opus_gnome_finl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_euconst_finl_nl = {
@@ -3647,7 +3647,7 @@ settings.corpora.opus_euconst_finl_nl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3667,7 +3667,7 @@ settings.corpora.opus_euconst_finl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_php_finl_nl = {
@@ -3686,7 +3686,7 @@ settings.corpora.opus_php_finl_nl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3706,7 +3706,7 @@ settings.corpora.opus_php_finl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ubuntu_finl_nl = {
@@ -3725,7 +3725,7 @@ settings.corpora.opus_ubuntu_finl_nl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3745,7 +3745,7 @@ settings.corpora.opus_ubuntu_finl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_tatoeba_finl_nl = {
@@ -3764,7 +3764,7 @@ settings.corpora.opus_tatoeba_finl_nl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3784,7 +3784,7 @@ settings.corpora.opus_tatoeba_finl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2011_firu_ru = {
@@ -3803,7 +3803,7 @@ settings.corpora.opus_opensubtitles2011_firu_ru = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3823,7 +3823,7 @@ settings.corpora.opus_opensubtitles2011_firu_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_kde4_firu_ru = {
@@ -3842,7 +3842,7 @@ settings.corpora.opus_kde4_firu_ru = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3862,7 +3862,7 @@ settings.corpora.opus_kde4_firu_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_eubookshop_firu_ru = {
@@ -3881,7 +3881,7 @@ settings.corpora.opus_eubookshop_firu_ru = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3901,7 +3901,7 @@ settings.corpora.opus_opensubtitles2012_firu_ru = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3921,7 +3921,7 @@ settings.corpora.opus_opensubtitles2012_firu_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_eubookshop_firu_fi = {
@@ -3940,7 +3940,7 @@ settings.corpora.opus_eubookshop_firu_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_php_firu_ru = {
@@ -3959,7 +3959,7 @@ settings.corpora.opus_php_firu_ru = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -3979,7 +3979,7 @@ settings.corpora.opus_php_firu_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles_firu_ru = {
@@ -3998,7 +3998,7 @@ settings.corpora.opus_opensubtitles_firu_ru = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4018,7 +4018,7 @@ settings.corpora.opus_opensubtitles_firu_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_tatoeba_firu_ru = {
@@ -4037,7 +4037,7 @@ settings.corpora.opus_tatoeba_firu_ru = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4057,7 +4057,7 @@ settings.corpora.opus_tatoeba_firu_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ubuntu_firu_ru = {
@@ -4076,7 +4076,7 @@ settings.corpora.opus_ubuntu_firu_ru = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4096,7 +4096,7 @@ settings.corpora.opus_ubuntu_firu_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_gnome_firu_ru = {
@@ -4115,7 +4115,7 @@ settings.corpora.opus_gnome_firu_ru = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4135,7 +4135,7 @@ settings.corpora.opus_gnome_firu_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_gnome_enfi_fi = {
@@ -4154,7 +4154,7 @@ settings.corpora.opus_gnome_enfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_gnome_enfi_en = {
@@ -4173,7 +4173,7 @@ settings.corpora.opus_gnome_enfi_en = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4193,7 +4193,7 @@ settings.corpora.opus_euconst_enfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_euconst_enfi_en = {
@@ -4212,7 +4212,7 @@ settings.corpora.opus_euconst_enfi_en = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4232,7 +4232,7 @@ settings.corpora.opus_books_enfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_books_enfi_en = {
@@ -4251,7 +4251,7 @@ settings.corpora.opus_books_enfi_en = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4271,7 +4271,7 @@ settings.corpora.opus_php_enfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_php_enfi_en = {
@@ -4290,7 +4290,7 @@ settings.corpora.opus_php_enfi_en = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4310,7 +4310,7 @@ settings.corpora.opus_ubuntu_enfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ubuntu_enfi_en = {
@@ -4329,7 +4329,7 @@ settings.corpora.opus_ubuntu_enfi_en = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4349,7 +4349,7 @@ settings.corpora.opus_opensubtitles2012_fihu_hu = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4369,7 +4369,7 @@ settings.corpora.opus_opensubtitles2012_fihu_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2013_fihu_hu = {
@@ -4388,7 +4388,7 @@ settings.corpora.opus_opensubtitles2013_fihu_hu = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4408,7 +4408,7 @@ settings.corpora.opus_opensubtitles2013_fihu_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2011_fihu_hu = {
@@ -4427,7 +4427,7 @@ settings.corpora.opus_opensubtitles2011_fihu_hu = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4447,7 +4447,7 @@ settings.corpora.opus_opensubtitles2011_fihu_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_dgt_fihu_hu = {
@@ -4466,7 +4466,7 @@ settings.corpora.opus_dgt_fihu_hu = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4486,7 +4486,7 @@ settings.corpora.opus_dgt_fihu_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ecb_fihu_hu = {
@@ -4505,7 +4505,7 @@ settings.corpora.opus_ecb_fihu_hu = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4525,7 +4525,7 @@ settings.corpora.opus_ecb_fihu_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_emea_fihu_hu = {
@@ -4544,7 +4544,7 @@ settings.corpora.opus_emea_fihu_hu = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4564,7 +4564,7 @@ settings.corpora.opus_emea_fihu_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_eubookshop_fihu_hu = {
@@ -4583,7 +4583,7 @@ settings.corpora.opus_eubookshop_fihu_hu = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4603,7 +4603,7 @@ settings.corpora.opus_eubookshop_fihu_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_kde4_fihu_hu = {
@@ -4622,7 +4622,7 @@ settings.corpora.opus_kde4_fihu_hu = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4642,7 +4642,7 @@ settings.corpora.opus_kde4_fihu_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_emea_fiit_it = {
@@ -4661,7 +4661,7 @@ settings.corpora.opus_emea_fiit_it = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4681,7 +4681,7 @@ settings.corpora.opus_emea_fiit_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ecb_fiit_it = {
@@ -4700,7 +4700,7 @@ settings.corpora.opus_ecb_fiit_it = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4720,7 +4720,7 @@ settings.corpora.opus_ecb_fiit_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2011_fiit_it = {
@@ -4739,7 +4739,7 @@ settings.corpora.opus_opensubtitles2011_fiit_it = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4759,7 +4759,7 @@ settings.corpora.opus_opensubtitles2011_fiit_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2013_fiit_it = {
@@ -4778,7 +4778,7 @@ settings.corpora.opus_opensubtitles2013_fiit_it = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4798,7 +4798,7 @@ settings.corpora.opus_opensubtitles2013_fiit_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2012_fiit_it = {
@@ -4817,7 +4817,7 @@ settings.corpora.opus_opensubtitles2012_fiit_it = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4837,7 +4837,7 @@ settings.corpora.opus_opensubtitles2012_fiit_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_eubookshop_fiit_it = {
@@ -4856,7 +4856,7 @@ settings.corpora.opus_eubookshop_fiit_it = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4876,7 +4876,7 @@ settings.corpora.opus_eubookshop_fiit_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_dgt_fiit_it = {
@@ -4895,7 +4895,7 @@ settings.corpora.opus_dgt_fiit_it = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4915,7 +4915,7 @@ settings.corpora.opus_dgt_fiit_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ecb_fipt_pt = {
@@ -4934,7 +4934,7 @@ settings.corpora.opus_ecb_fipt_pt = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4954,7 +4954,7 @@ settings.corpora.opus_ecb_fipt_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_emea_fipt_pt = {
@@ -4973,7 +4973,7 @@ settings.corpora.opus_emea_fipt_pt = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -4993,7 +4993,7 @@ settings.corpora.opus_emea_fipt_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2011_fipt_pt = {
@@ -5012,7 +5012,7 @@ settings.corpora.opus_opensubtitles2011_fipt_pt = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5032,7 +5032,7 @@ settings.corpora.opus_opensubtitles2011_fipt_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2013_fipt_pt = {
@@ -5051,7 +5051,7 @@ settings.corpora.opus_opensubtitles2013_fipt_pt = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5071,7 +5071,7 @@ settings.corpora.opus_opensubtitles2013_fipt_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 
@@ -5092,7 +5092,7 @@ settings.corpora.opus_eubookshop_fipt_pt = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5112,7 +5112,7 @@ settings.corpora.opus_eubookshop_fipt_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles_fipt_pt = {
@@ -5131,7 +5131,7 @@ settings.corpora.opus_opensubtitles_fipt_pt = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5151,7 +5151,7 @@ settings.corpora.opus_opensubtitles_fipt_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_dgt_fipt_pt = {
@@ -5170,7 +5170,7 @@ settings.corpora.opus_dgt_fipt_pt = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5190,7 +5190,7 @@ settings.corpora.opus_dgt_fipt_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2011_etfi_fi = {
@@ -5209,7 +5209,7 @@ settings.corpora.opus_opensubtitles2011_etfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2011_etfi_et = {
@@ -5228,7 +5228,7 @@ settings.corpora.opus_opensubtitles2011_etfi_et = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5248,7 +5248,7 @@ settings.corpora.opus_emea_etfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 settings.corpora.opus_kde4_etfi_fi = {
     title: "KDE4",
@@ -5266,7 +5266,7 @@ settings.corpora.opus_kde4_etfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_kde4_etfi_et = {
@@ -5285,7 +5285,7 @@ settings.corpora.opus_kde4_etfi_et = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5305,7 +5305,7 @@ settings.corpora.opus_emea_etfi_et = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5325,7 +5325,7 @@ settings.corpora.opus_dgt_etfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_dgt_etfi_et = {
@@ -5344,7 +5344,7 @@ settings.corpora.opus_dgt_etfi_et = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5364,7 +5364,7 @@ settings.corpora.opus_opensubtitles2012_etfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2012_etfi_et = {
@@ -5383,7 +5383,7 @@ settings.corpora.opus_opensubtitles2012_etfi_et = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 settings.corpora.opus_opensubtitles2013_etfi_fi = {
@@ -5402,7 +5402,7 @@ settings.corpora.opus_opensubtitles2013_etfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2013_etfi_et = {
@@ -5421,7 +5421,7 @@ settings.corpora.opus_opensubtitles2013_etfi_et = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5441,7 +5441,7 @@ settings.corpora.opus_emea_fipl_pl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5461,7 +5461,7 @@ settings.corpora.opus_emea_fipl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ecb_fipl_pl = {
@@ -5480,7 +5480,7 @@ settings.corpora.opus_ecb_fipl_pl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5500,7 +5500,7 @@ settings.corpora.opus_ecb_fipl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_dgt_fipl_pl = {
@@ -5519,7 +5519,7 @@ settings.corpora.opus_dgt_fipl_pl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5539,7 +5539,7 @@ settings.corpora.opus_dgt_fipl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2012_fipl_pl = {
@@ -5558,7 +5558,7 @@ settings.corpora.opus_opensubtitles2012_fipl_pl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5578,7 +5578,7 @@ settings.corpora.opus_opensubtitles2012_fipl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2013_fipl_pl = {
@@ -5597,7 +5597,7 @@ settings.corpora.opus_opensubtitles2013_fipl_pl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5617,7 +5617,7 @@ settings.corpora.opus_opensubtitles2013_fipl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2011_fipl_pl = {
@@ -5636,7 +5636,7 @@ settings.corpora.opus_opensubtitles2011_fipl_pl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5656,7 +5656,7 @@ settings.corpora.opus_opensubtitles2011_fipl_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_dgt_dafi_fi = {
@@ -5675,7 +5675,7 @@ settings.corpora.opus_dgt_dafi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_dgt_dafi_da = {
@@ -5694,7 +5694,7 @@ settings.corpora.opus_dgt_dafi_da = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5714,7 +5714,7 @@ settings.corpora.opus_eubookshop_dafi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_eubookshop_dafi_da = {
@@ -5733,7 +5733,7 @@ settings.corpora.opus_eubookshop_dafi_da = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5753,7 +5753,7 @@ settings.corpora.opus_opensubtitles2012_dafi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2012_dafi_da = {
@@ -5772,7 +5772,7 @@ settings.corpora.opus_opensubtitles2012_dafi_da = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5792,7 +5792,7 @@ settings.corpora.opus_opensubtitles2013_dafi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2013_dafi_da = {
@@ -5811,7 +5811,7 @@ settings.corpora.opus_opensubtitles2013_dafi_da = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5831,7 +5831,7 @@ settings.corpora.opus_kde4_dafi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_kde4_dafi_da = {
@@ -5850,7 +5850,7 @@ settings.corpora.opus_kde4_dafi_da = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5870,7 +5870,7 @@ settings.corpora.opus_ecb_dafi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ecb_dafi_da = {
@@ -5889,7 +5889,7 @@ settings.corpora.opus_ecb_dafi_da = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5910,7 +5910,7 @@ settings.corpora.opus_dgt_esfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_dgt_esfi_es = {
@@ -5929,7 +5929,7 @@ settings.corpora.opus_dgt_esfi_es = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5949,7 +5949,7 @@ settings.corpora.opus_opensubtitles2012_esfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2012_esfi_es = {
@@ -5968,7 +5968,7 @@ settings.corpora.opus_opensubtitles2012_esfi_es = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -5988,7 +5988,7 @@ settings.corpora.opus_opensubtitles2013_esfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2013_esfi_es = {
@@ -6007,7 +6007,7 @@ settings.corpora.opus_opensubtitles2013_esfi_es = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6027,7 +6027,7 @@ settings.corpora.opus_eubookshop_esfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_eubookshop_esfi_es = {
@@ -6046,7 +6046,7 @@ settings.corpora.opus_eubookshop_esfi_es = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6066,7 +6066,7 @@ settings.corpora.opus_ecb_fifr_fr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6086,7 +6086,7 @@ settings.corpora.opus_ecb_fifr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_emea_fifr_fr = {
@@ -6105,7 +6105,7 @@ settings.corpora.opus_emea_fifr_fr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6125,7 +6125,7 @@ settings.corpora.opus_emea_fifr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2013_fifr_fr = {
@@ -6144,7 +6144,7 @@ settings.corpora.opus_opensubtitles2013_fifr_fr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6164,7 +6164,7 @@ settings.corpora.opus_opensubtitles2013_fifr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2011_fifr_fr = {
@@ -6183,7 +6183,7 @@ settings.corpora.opus_opensubtitles2011_fifr_fr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6203,7 +6203,7 @@ settings.corpora.opus_opensubtitles2011_fifr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_eubookshop_fifr_fr = {
@@ -6222,7 +6222,7 @@ settings.corpora.opus_eubookshop_fifr_fr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6242,7 +6242,7 @@ settings.corpora.opus_eubookshop_fifr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_dgt_fifr_fr = {
@@ -6261,7 +6261,7 @@ settings.corpora.opus_dgt_fifr_fr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6281,7 +6281,7 @@ settings.corpora.opus_dgt_fifr_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_kde4_defi_fi = {
@@ -6300,7 +6300,7 @@ settings.corpora.opus_kde4_defi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_kde4_defi_de = {
@@ -6319,7 +6319,7 @@ settings.corpora.opus_kde4_defi_de = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6340,7 +6340,7 @@ settings.corpora.opus_emea_defi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_emea_defi_de = {
@@ -6359,7 +6359,7 @@ settings.corpora.opus_emea_defi_de = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6379,7 +6379,7 @@ settings.corpora.opus_ecb_defi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ecb_defi_de = {
@@ -6398,7 +6398,7 @@ settings.corpora.opus_ecb_defi_de = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6418,7 +6418,7 @@ settings.corpora.opus_dgt_defi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_dgt_defi_de = {
@@ -6437,7 +6437,7 @@ settings.corpora.opus_dgt_defi_de = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6457,7 +6457,7 @@ settings.corpora.opus_opensubtitles2013_defi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2013_defi_de = {
@@ -6476,7 +6476,7 @@ settings.corpora.opus_opensubtitles2013_defi_de = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6496,7 +6496,7 @@ settings.corpora.opus_opensubtitles2011_defi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2011_defi_de = {
@@ -6515,7 +6515,7 @@ settings.corpora.opus_opensubtitles2011_defi_de = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6535,7 +6535,7 @@ settings.corpora.opus_opensubtitles2012_defi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2012_defi_de = {
@@ -6554,7 +6554,7 @@ settings.corpora.opus_opensubtitles2012_defi_de = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6574,7 +6574,7 @@ settings.corpora.opus_eubookshop_defi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_eubookshop_defi_de = {
@@ -6593,7 +6593,7 @@ settings.corpora.opus_eubookshop_defi_de = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6613,7 +6613,7 @@ settings.corpora.opus_dgt_fisv_sv = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6633,7 +6633,7 @@ settings.corpora.opus_dgt_fisv_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_eubookshop_fisv_sv = {
@@ -6652,7 +6652,7 @@ settings.corpora.opus_eubookshop_fisv_sv = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6672,7 +6672,7 @@ settings.corpora.opus_eubookshop_fisv_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2012_fisv_fi = {
@@ -6686,7 +6686,7 @@ settings.corpora.opus_opensubtitles2012_fisv_fi = {
     attributes: {},
     within: settings.spWithin,
     context: settings.spContext,
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2012_fisv_sv = {
@@ -6700,7 +6700,7 @@ settings.corpora.opus_opensubtitles2012_fisv_sv = {
     attributes: {},
     within: settings.spWithin,
     context: settings.spContext,
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6715,7 +6715,7 @@ settings.corpora.opus_opensubtitles2013_fisv_fi = {
     attributes: {},
     within: settings.spWithin,
     context: settings.spContext,
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2013_fisv_sv = {
@@ -6729,7 +6729,7 @@ settings.corpora.opus_opensubtitles2013_fisv_sv = {
     attributes: {},
     within: settings.spWithin,
     context: settings.spContext,
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6744,7 +6744,7 @@ settings.corpora.opus_opensubtitles2011_fisv_fi = {
     attributes: {},
     within: settings.spWithin,
     context: settings.spContext,
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensubtitles2011_fisv_sv = {
@@ -6758,7 +6758,7 @@ settings.corpora.opus_opensubtitles2011_fisv_sv = {
     attributes: {},
     within: settings.spWithin,
     context: settings.spContext,
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6778,7 +6778,7 @@ settings.corpora.opus_kde4_fisv_sv = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6798,7 +6798,7 @@ settings.corpora.opus_kde4_fisv_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 
@@ -6818,7 +6818,7 @@ settings.corpora.opus_dgt_enfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_dgt_enfi_en = {
@@ -6837,7 +6837,7 @@ settings.corpora.opus_dgt_enfi_en = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6857,7 +6857,7 @@ settings.corpora.opus_emea_enfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_emea_enfi_en = {
@@ -6876,7 +6876,7 @@ settings.corpora.opus_emea_enfi_en = {
     },
     within: settings.spWithin,
     context: settings.spContext,
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6896,7 +6896,7 @@ settings.corpora.opus_emea_fisv_sv = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6916,7 +6916,7 @@ settings.corpora.opus_emea_fisv_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensub2013enfi_fi = {
@@ -6935,7 +6935,7 @@ settings.corpora.opus_opensub2013enfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensub2013enfi_en = {
@@ -6952,7 +6952,7 @@ settings.corpora.opus_opensub2013enfi_en = {
     },
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -6972,7 +6972,7 @@ settings.corpora.opus_opensub2015enfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensub2015enfi_en = {
@@ -6991,7 +6991,7 @@ settings.corpora.opus_opensub2015enfi_en = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -7011,7 +7011,7 @@ settings.corpora.opus_opensub2011enfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensub2011enfi_en = {
@@ -7030,7 +7030,7 @@ settings.corpora.opus_opensub2011enfi_en = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -7050,7 +7050,7 @@ settings.corpora.opus_opensub2012enfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_opensub2012enfi_en = {
@@ -7069,7 +7069,7 @@ settings.corpora.opus_opensub2012enfi_en = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -7089,7 +7089,7 @@ settings.corpora.opus_ecb_enfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_ecb_enfi_en = {
@@ -7108,7 +7108,7 @@ settings.corpora.opus_ecb_enfi_en = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -7128,7 +7128,7 @@ settings.corpora.opus_eubookshop_enfi_en = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -7148,7 +7148,7 @@ settings.corpora.opus_eubookshop_enfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_tatoeba_enfi_fi = {
@@ -7167,7 +7167,7 @@ settings.corpora.opus_tatoeba_enfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.opus
+    structAttributes: sattrlist.opus
 };
 
 settings.corpora.opus_tatoeba_enfi_en = {
@@ -7186,7 +7186,7 @@ settings.corpora.opus_tatoeba_enfi_en = {
     },
     within: settings.spWithin,
     context: settings.spContext,
-    struct_attributes: sattrlist.opus,
+    structAttributes: sattrlist.opus,
     hide: true
 };
 
@@ -7208,7 +7208,7 @@ settings.corpora.europarl_v7_enfi_en = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.europarl_v7,
+    structAttributes: sattrlist.europarl_v7,
     hide: true
 };
 
@@ -7229,7 +7229,7 @@ settings.corpora.europarl_v7_etfi_et = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.europarl_v7,
+    structAttributes: sattrlist.europarl_v7,
     hide: true
 };
 
@@ -7249,7 +7249,7 @@ settings.corpora.europarl_v7_esfi_es = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.europarl_v7,
+    structAttributes: sattrlist.europarl_v7,
     hide: true
 };
 
@@ -7269,7 +7269,7 @@ settings.corpora.europarl_v7_frfi_fr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.europarl_v7,
+    structAttributes: sattrlist.europarl_v7,
     hide: true
 };
 
@@ -7289,7 +7289,7 @@ settings.corpora.europarl_v7_defi_de = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.europarl_v7,
+    structAttributes: sattrlist.europarl_v7,
     hide: true
 };
 
@@ -7309,7 +7309,7 @@ settings.corpora.europarl_v7_svfi_sv = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.europarl_v7,
+    structAttributes: sattrlist.europarl_v7,
     hide: true
 };
 
@@ -7329,7 +7329,7 @@ settings.corpora.europarl_v7_etfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.europarl_v7
+    structAttributes: sattrlist.europarl_v7
 };
 
 settings.corpora.europarl_v7_esfi_fi = {
@@ -7348,7 +7348,7 @@ settings.corpora.europarl_v7_esfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.europarl_v7
+    structAttributes: sattrlist.europarl_v7
 };
 
 settings.corpora.europarl_v7_frfi_fi = {
@@ -7367,7 +7367,7 @@ settings.corpora.europarl_v7_frfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.europarl_v7
+    structAttributes: sattrlist.europarl_v7
 };
 
 settings.corpora.europarl_v7_defi_fi = {
@@ -7386,7 +7386,7 @@ settings.corpora.europarl_v7_defi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.europarl_v7
+    structAttributes: sattrlist.europarl_v7
 };
 
 settings.corpora.europarl_v7_enfi_fi = {
@@ -7405,7 +7405,7 @@ settings.corpora.europarl_v7_enfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.europarl_v7
+    structAttributes: sattrlist.europarl_v7
 };
 
 settings.corpora.europarl_v7_svfi_fi = {
@@ -7424,7 +7424,7 @@ settings.corpora.europarl_v7_svfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.europarl_v7
+    structAttributes: sattrlist.europarl_v7
 };
 
 
@@ -7446,7 +7446,7 @@ settings.corpora.jrc_acquis_enfi_en = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis,
+    structAttributes: sattrlist.jrc_acquis,
     hide: true
 };
 
@@ -7466,7 +7466,7 @@ settings.corpora.jrc_acquis_enfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis
+    structAttributes: sattrlist.jrc_acquis
 };
 
 
@@ -7486,7 +7486,7 @@ settings.corpora.jrc_acquis_hufi_hu = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis,
+    structAttributes: sattrlist.jrc_acquis,
     hide: true
 };
 
@@ -7506,7 +7506,7 @@ settings.corpora.jrc_acquis_hufi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis
+    structAttributes: sattrlist.jrc_acquis
 };
 
 settings.corpora.jrc_acquis_frfi_fr = {
@@ -7525,7 +7525,7 @@ settings.corpora.jrc_acquis_frfi_fr = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis,
+    structAttributes: sattrlist.jrc_acquis,
     hide: true
 };
 
@@ -7545,7 +7545,7 @@ settings.corpora.jrc_acquis_frfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis
+    structAttributes: sattrlist.jrc_acquis
 };
 
 settings.corpora.jrc_acquis_plfi_pl = {
@@ -7564,7 +7564,7 @@ settings.corpora.jrc_acquis_plfi_pl = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis,
+    structAttributes: sattrlist.jrc_acquis,
     hide: true
 };
 
@@ -7584,7 +7584,7 @@ settings.corpora.jrc_acquis_plfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis
+    structAttributes: sattrlist.jrc_acquis
 };
 
 settings.corpora.jrc_acquis_itfi_it = {
@@ -7603,7 +7603,7 @@ settings.corpora.jrc_acquis_itfi_it = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis,
+    structAttributes: sattrlist.jrc_acquis,
     hide: true
 };
 
@@ -7623,7 +7623,7 @@ settings.corpora.jrc_acquis_itfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis
+    structAttributes: sattrlist.jrc_acquis
 };
 
 settings.corpora.jrc_acquis_esfi_es = {
@@ -7642,7 +7642,7 @@ settings.corpora.jrc_acquis_esfi_es = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis,
+    structAttributes: sattrlist.jrc_acquis,
     hide: true
 };
 
@@ -7662,7 +7662,7 @@ settings.corpora.jrc_acquis_esfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis
+    structAttributes: sattrlist.jrc_acquis
 };
 
 settings.corpora.jrc_acquis_etfi_et = {
@@ -7681,7 +7681,7 @@ settings.corpora.jrc_acquis_etfi_et = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis,
+    structAttributes: sattrlist.jrc_acquis,
     hide: true
 };
 
@@ -7701,7 +7701,7 @@ settings.corpora.jrc_acquis_etfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis
+    structAttributes: sattrlist.jrc_acquis
 };
 
 settings.corpora.jrc_acquis_defi_de = {
@@ -7720,7 +7720,7 @@ settings.corpora.jrc_acquis_defi_de = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis,
+    structAttributes: sattrlist.jrc_acquis,
     hide: true
 };
 
@@ -7740,7 +7740,7 @@ settings.corpora.jrc_acquis_defi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis
+    structAttributes: sattrlist.jrc_acquis
 };
 
 settings.corpora.jrc_acquis_svfi_sv = {
@@ -7759,7 +7759,7 @@ settings.corpora.jrc_acquis_svfi_sv = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis,
+    structAttributes: sattrlist.jrc_acquis,
     hide: true
 };
 
@@ -7779,7 +7779,7 @@ settings.corpora.jrc_acquis_svfi_fi = {
     context: settings.spContext,
     attributes: {
     },
-    struct_attributes: sattrlist.jrc_acquis
+    structAttributes: sattrlist.jrc_acquis
 };
 
 
@@ -7797,7 +7797,7 @@ settings.corpora.kfspc_fi = {
         "sentence": "sentence"
         },
     features: ["parsed_tdt", "finer"],
-    struct_attributes: sattrlist.kfspc
+    structAttributes: sattrlist.kfspc
 };
 
 settings.corpora.kfspc_sv = {
@@ -7813,7 +7813,7 @@ settings.corpora.kfspc_sv = {
         },
     attributes: {
     },
-    struct_attributes: sattrlist.kfspc,
+    structAttributes: sattrlist.kfspc,
     hide: true
 };
 
@@ -7832,7 +7832,7 @@ settings.corpora.europarl_fi = {
 	"sentence": "sentence"
     },
     attributes: {},
-    struct_attributes: {}
+    structAttributes: {}
 };
 
 settings.corpora.europarl_en = {
@@ -7845,7 +7845,7 @@ settings.corpora.europarl_en = {
 	"sentence": "sentence"
     },
     attributes: {},
-    struct_attributes: {},
+    structAttributes: {},
     hide: true
 };
 */
@@ -7874,7 +7874,7 @@ settings.corpora.mulcold_fi = {
 	"sentence": "sentence"
     },
     attributes: attrlist.mulcold_fi,
-    struct_attributes: sattrlist.mulcold
+    structAttributes: sattrlist.mulcold
 };
 
 settings.corpora.mulcold_en = {
@@ -7888,7 +7888,7 @@ settings.corpora.mulcold_en = {
 	"sentence": "sentence"
     },
     attributes: attrlist.mulcold_en,
-    struct_attributes: sattrlist.mulcold,
+    structAttributes: sattrlist.mulcold,
     hide: true
 };
 
@@ -7903,7 +7903,7 @@ settings.corpora.mulcold_sv = {
 	"sentence": "sentence"
     },
     attributes: attrlist.mulcold_sv,
-    struct_attributes: sattrlist.mulcold,
+    structAttributes: sattrlist.mulcold,
     hide: true
 };
 
@@ -7918,7 +7918,7 @@ settings.corpora.mulcold_ru = {
 	"sentence": "sentence"
     },
     attributes: attrlist.mulcold_ru,
-    struct_attributes: sattrlist.mulcold,
+    structAttributes: sattrlist.mulcold,
     hide: true
 };
 
@@ -7933,7 +7933,7 @@ settings.corpora.mulcold_de = {
 	"sentence": "sentence"
     },
     attributes: attrlist.mulcold_de,
-    struct_attributes: sattrlist.mulcold,
+    structAttributes: sattrlist.mulcold,
     hide: true
 };
 
@@ -7954,7 +7954,7 @@ settings.corpora.parfin_fi = {
 	"sentence": "sentence"
     },
     attributes: attrlist.mulcold_fi,
-    struct_attributes: sattrlist.parfin,
+    structAttributes: sattrlist.parfin,
     limited_access: true,
     licence_type: "RES"
 };
@@ -7970,7 +7970,7 @@ settings.corpora.parfin_ru = {
 	"sentence": "sentence"
     },
     attributes: attrlist.mulcold_ru,
-    struct_attributes: sattrlist.parfin,
+    structAttributes: sattrlist.parfin,
     limited_access: true,
     licence_type: "RES",
     hide: true
@@ -7991,7 +7991,7 @@ settings.corpora.parfin_fi = {
     lang: "fin",
     linked_to: ["parfin_ru"],
     attributes: attrlist.parfin_fi,
-    struct_attributes: sattrlist.parfin_fi,
+    structAttributes: sattrlist.parfin_fi,
 };
 
 settings.corpora.parfin_ru = {
@@ -7999,7 +7999,7 @@ settings.corpora.parfin_ru = {
     lang: "rus",
     linked_to: ["parfin_fi"],
     attributes: attrlist.parfin_ru,
-    struct_attributes: sattrlist.parfin_ru,
+    structAttributes: sattrlist.parfin_ru,
     hide: true,
 };
 
@@ -8047,7 +8047,7 @@ settings.corpora.parrus_fi = {
     title: "ParRus (suomi) [poistuva]",
     description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/><br/><strong>Huomaa:</strong> Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti suomenkielisistä käännöksistä. Jos samasta teoksesta on useita käännöksiä, tämä hakee niistä kaikista.<br/><br/><strong>Huomaa, että ParRus 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
     attributes: attrlist.parrus_fi,
-    struct_attributes: sattrlist.parrus_fi,
+    structAttributes: sattrlist.parrus_fi,
 };
 
 settings.corpora.parrus_ru = {
@@ -8059,7 +8059,7 @@ settings.corpora.parrus_ru = {
     title: "ParRus (venäjä) [poistuva]",
     description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/><br/><strong>Huomaa:</strong> Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti venäjänkielisistä alkuperäisteksteistä. Jos samasta teoksesta on useita käännöksiä, niistä kukin näkyy tuloksessa erikseen.<br/><br/><strong>Huomaa, että ParRus 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
     attributes: attrlist.parrus_ru,
-    struct_attributes: sattrlist.parrus_ru,
+    structAttributes: sattrlist.parrus_ru,
     // hide: true,
 };
 
@@ -8088,7 +8088,7 @@ settings.fn.extend_corpus_settings(
 	lang: "fin",
 	description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus",
 	attributes: attrlist.parrus_fi,
-	struct_attributes: sattrlist.parrus_fi,
+	structAttributes: sattrlist.parrus_fi,
 	hide: true,
     },
     ["parrus_fi1", "parrus_fi2", "parrus_fi3"]);
@@ -8116,7 +8116,7 @@ settings.corpora.parfin_2016_fi = {
     lang: "fin",
     linked_to: ["parfin_2016_ru"],
     attributes: attrlist.parfin_2016_fi,
-    struct_attributes: sattrlist.parfin_2016_fi,
+    structAttributes: sattrlist.parfin_2016_fi,
 };
 
 settings.corpora.parfin_2016_ru = {
@@ -8124,7 +8124,7 @@ settings.corpora.parfin_2016_ru = {
     lang: "rus",
     linked_to: ["parfin_2016_fi"],
     attributes: attrlist.parfin_2016_ru,
-    struct_attributes: sattrlist.parfin_2016_ru,
+    structAttributes: sattrlist.parfin_2016_ru,
     hide: true,
 };
 
@@ -8184,7 +8184,7 @@ settings.corpora.parrus_2016_ru = {
     // been changed. Why is that? (Jyrki Niemi 2017-02-03)
     // linked_to_inverse: ["parrus_2016_fi"],
     attributes: attrlist.parrus_2016_ru,
-    struct_attributes: sattrlist.parrus_2016_ru,
+    structAttributes: sattrlist.parrus_2016_ru,
 };
 
 settings.corpora.parrus_2016_fi = {
@@ -8257,7 +8257,7 @@ settings.fn.extend_corpus_settings(
 	lang: "fin",
 	// description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus",
 	attributes: attrlist.parrus_2016_fi,
-	struct_attributes: sattrlist.parrus_2016_fi,
+	structAttributes: sattrlist.parrus_2016_fi,
 	hide: true,
     },
     ["parrus_2016_fi",
@@ -8280,7 +8280,7 @@ settings.parallel_corpora.testpar = {
             "sentence": "sentence"
         },
         attributes: {},
-        struct_attributes: {}
+        structAttributes: {}
     },
     testpar_en: {
 	id: "testpar_en",
@@ -8292,7 +8292,7 @@ settings.parallel_corpora.testpar = {
             "sentence": "sentence"
         },
         attributes: {},
-        struct_attributes: {},
+        structAttributes: {},
         hide: true
     }
 };
@@ -8310,7 +8310,7 @@ settings.parallel_corpora.testpar4 = {
             "sentence": "sentence"
         },
         attributes: {},
-        struct_attributes: {}
+        structAttributes: {}
     },
     testpar4_en: {
 	id: "testpar4_en",
@@ -8322,7 +8322,7 @@ settings.parallel_corpora.testpar4 = {
             "sentence": "sentence"
         },
         attributes: {},
-        struct_attributes: {},
+        structAttributes: {},
         hide: true
     },
     testpar4_sv: {
@@ -8335,7 +8335,7 @@ settings.parallel_corpora.testpar4 = {
             "sentence": "sentence"
         },
         attributes: {},
-        struct_attributes: {},
+        structAttributes: {},
         hide: true
     },
     testpar4_de: {
@@ -8348,7 +8348,7 @@ settings.parallel_corpora.testpar4 = {
             "sentence": "sentence"
         },
         attributes: {},
-        struct_attributes: {},
+        structAttributes: {},
         hide: true
     }
 };
