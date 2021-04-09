@@ -703,7 +703,7 @@ settings.corpora.ceal_s_fi = {
 	urn: "urn:nbn:fi:lb-2020012804",
     },
     cite_id: "ceal-par-s-korp",
-    limited_access: true,
+    limitedAccess: true,
     licence_type: "ACA",
     attributes: attrlist.ud2_fi,
     structAttributes: sattrlist.ceal_common,
@@ -725,7 +725,7 @@ settings.corpora.ceal_s_en = {
 	urn: "urn:nbn:fi:lb-2020012803",
     },
     cite_id: "ceal-par-s-korp",
-    limited_access: true,
+    limitedAccess: true,
     licence_type: "ACA",
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ceal_common,
@@ -7955,7 +7955,7 @@ settings.corpora.parfin_fi = {
     },
     attributes: attrlist.mulcold_fi,
     structAttributes: sattrlist.parfin,
-    limited_access: true,
+    limitedAccess: true,
     licence_type: "RES"
 };
 
@@ -7971,7 +7971,7 @@ settings.corpora.parfin_ru = {
     },
     attributes: attrlist.mulcold_ru,
     structAttributes: sattrlist.parfin,
-    limited_access: true,
+    limitedAccess: true,
     licence_type: "RES",
     hide: true
 };
@@ -8010,7 +8010,7 @@ settings.fn.extend_corpus_settings(
 	description: "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1990–2010 ja niiden käännöksiä venäjäksi virketasolla kohdistettuina<br/><br/><strong>Huomaa, että ParFin 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
 	context: context.linkAligned,
 	within: settings.linkWithin,
-	limited_access: true,
+	limitedAccess: true,
 	licence_type: "RES",
     },
     ["parfin_fi", "parfin_ru"]
@@ -8098,7 +8098,7 @@ settings.fn.extend_corpus_settings(
 	// Properties common to all ParRus language versions
 	context: context.linkAligned,
 	within: settings.linkWithin,
-	limited_access: true,
+	limitedAccess: true,
 	licence_type: "RES"
     },
     ["parrus_fi", "parrus_fi1", "parrus_fi2", "parrus_fi3", "parrus_ru"]);
@@ -8140,7 +8140,7 @@ settings.fn.extend_corpus_settings(
 	context: context.linkAligned,
 	// TODO: Make sure that sentLinkWithin works in all cases.
 	within: settings.sentLinkWithin,
-	limited_access: true,
+	limitedAccess: true,
 	licence_type: "RES",
     },
     ["parfin_2016_fi", "parfin_2016_ru"]
@@ -8232,7 +8232,7 @@ settings.fn.extend_corpus_settings(
 	context: context.linkAligned,
 	// TODO: Make sure that sentLinkWithin works in all cases.
 	within: settings.sentLinkWithin,
-	limited_access: true,
+	limitedAccess: true,
 	licence_type: "RES"
     },
     ["parrus_2016_fi",
