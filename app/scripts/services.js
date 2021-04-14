@@ -102,8 +102,8 @@ korpApp.factory("backend", ($http, $q, utils, lexicons) => ({
 
         const conf = {
             url: settings.korpBackendURL + "/loglike",
-            params,
-            method: "GET",
+            data: params,
+            method: "POST",
             headers: {},
         }
 
@@ -192,8 +192,8 @@ korpApp.factory("backend", ($http, $q, utils, lexicons) => ({
 
         const conf = {
             url: settings.korpBackendURL + "/count",
-            params,
-            method: "GET",
+            data: params,
+            method: "POST",
             headers: {},
         }
 
@@ -232,8 +232,8 @@ korpApp.factory("backend", ($http, $q, utils, lexicons) => ({
 
         const conf = {
             url: settings.korpBackendURL + "/query",
-            params,
-            method: "GET",
+            data: params,
+            method: "POST",
             headers: {},
         }
 
@@ -291,9 +291,9 @@ korpApp.factory("searches", [
             getInfoData() {
                 const def = $q.defer()
                 $http({
-                    method: "GET",
+                    method: "POST",
                     url: settings.korpBackendURL + "/corpus_info",
-                    params: {
+                    data: {
                         corpus: _.map(settings.corpusListing.corpora, "id")
                             .map((a) => a.toUpperCase())
                             .join(","),

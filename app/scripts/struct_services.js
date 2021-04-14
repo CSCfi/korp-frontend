@@ -348,8 +348,8 @@ korpApp.factory("structService", ($http, $q) => ({
 
         const conf = {
             url: settings.korpBackendURL + "/struct_values",
-            params,
-            method: "GET",
+            data: params,
+            method: "POST",
             headers: {},
         }
 
