@@ -13,8 +13,9 @@ branches are then merged into `plugins/dev-v9` and eventually into
 `plugins/master`.
 
 The files for plugin *plugin_name* should be in the directory
-`app/plugins/`*plugin_name*`/`, organized into subdirectories
-similarly to the Korp frontend itself:
+`app/plugins/`*plugin_name*`/`, preferably containing a `README.md`
+file and organized into subdirectories similarly to the Korp frontend
+itself:
 
 - `scripts/`: JavaScript source code for the plugin, typically with
   `main.js` as the main source file.
