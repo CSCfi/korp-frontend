@@ -246,6 +246,9 @@ korpApp.controller("headerCtrl", function ($scope, $uibModal, utils) {
     }
 
     s.showLogin = () => {
+        // Let plugins act before actually showing the login modal,
+        // e.g., to handle SSO login
+        plugins.callActions("beforeShowLogin")
         s.show_modal = "login"
     }
 
@@ -275,6 +278,8 @@ korpApp.controller("headerCtrl", function ($scope, $uibModal, utils) {
         settings.corpusListing.select(newCorpora)
         s.loggedIn = false
         $("#corpusbox").corpusChooser("selectItems", newCorpora)
+        // Let plugins act on logout
+        plugins.callActions("finishLogout")
     }
 
     const N_VISIBLE = settings.visibleModes
@@ -366,7 +371,7 @@ korpApp.controller("headerCtrl", function ($scope, $uibModal, utils) {
         s.login_err = false
         authenticationProxy
             .makeRequest(usr, pass, saveLogin)
-            .done(function () {
+            .done(function (data) {
                 util.setLogin()
                 safeApply(s, function () {
                     s.show_modal = null
@@ -374,6 +379,9 @@ korpApp.controller("headerCtrl", function ($scope, $uibModal, utils) {
                     s.loggedIn = true
                     s.username = usr
                 })
+                // Let plugins act based on the data returned by
+                // authentication proxy and giving access to the scope
+                plugins.callActions("onAuthRequestDone", data, s)
             })
             .fail(function () {
                 c.log("login fail")
@@ -382,6 +390,10 @@ korpApp.controller("headerCtrl", function ($scope, $uibModal, utils) {
                 })
             })
     }
+
+    // Let plugins modify the header controller, giving access to the
+    // scope
+    plugins.callActions("modifyHeaderController", s)
 })
 
 korpApp.filter("trust", ($sce) => (input) => $sce.trustAsHtml(input))
