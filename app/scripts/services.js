@@ -310,8 +310,10 @@ korpApp.factory("searches", [
                         }
                         corpus["private_struct_attributes"] = privateStructAttrs
                     }
+                    // Let plugins modify settings.corpusListing.corpora
                     plugins.callActions("modifyCorpusConfigsList",
                                         settings.corpusListing.corpora)
+                    // Let plugins modify settings.corpusfolders
                     plugins.callActions("modifyCorpusFolderConfigs",
                                         settings.corporafolders)
                     util.loadCorpora()

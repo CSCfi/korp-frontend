@@ -122,6 +122,7 @@ $.when(loc_dfd, deferred_domReady).then(
             selected: settings.defaultLanguage,
         })
 
+        // Let plugins modify settings.corpora
         plugins.callActions("modifyCorpusConfigs", settings.corpora)
 
         setTimeout(() => window.onHashChange(null, true), 0)
