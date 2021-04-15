@@ -1,0 +1,17 @@
+{
+    "corpus_subcorpus_of": "Subcorpus of",
+    "corpus_pid": "Persistent Identifier (metadata)",
+    "corpus_urn": "Link to corpus in Korp",
+    "corpus_licence": "Licence",
+    "corpus_licence_text": "Licence (text)",
+    "corpus_licence_audiovideo": "Licence (audio and video)",
+    "corpus_metadata": "Metadata",
+    "corpus_homepage": "Home page",
+    "corpus_infopage": "Information page",
+    "corpus_iprholder": "IPR holder",
+    "corpus_compiler": "Compiler",
+    "corpus_download": "Download corpus",
+    "corpus_cite": "Cite corpus",
+
+    "*SENTINEL*": "Add lines only above this line, to avoid trailing-comma errors."
+}

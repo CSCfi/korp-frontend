@@ -1,0 +1,17 @@
+{
+    "corpus_subcorpus_of": "Osa aineistoa",
+    "corpus_pid": "Aineiston pysyvä tunniste (kuvailutiedot)",
+    "corpus_urn": "Linkki aineistoon Korpissa",
+    "corpus_licence": "Lisenssi",
+    "corpus_licence_text": "Lisenssi (teksti)",
+    "corpus_licence_audiovideo": "Lisenssi (ääni ja video)",
+    "corpus_metadata": "Kuvailutiedot",
+    "corpus_homepage": "Kotisivu",
+    "corpus_infopage": "Tietosivu",
+    "corpus_iprholder": "Oikeudenhaltija",
+    "corpus_compiler": "Koostaja",
+    "corpus_download": "Lataa aineisto",
+    "corpus_cite": "Viittaa aineistoon",
+
+    "*SENTINEL*": "Add lines only above this line, to avoid trailing-comma errors."
+}

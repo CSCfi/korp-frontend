@@ -1,0 +1,17 @@
+{
+    "corpus_subcorpus_of": "Delkorpus av",
+    "corpus_pid": "Persistent identifierare (metadata)",
+    "corpus_urn": "Länk till korpusen i Korp",
+    "corpus_licence": "Lisens",
+    "corpus_licence_text": "Lisens (text)",
+    "corpus_licence_audiovideo": "Lisens (ljud och video)",
+    "corpus_metadata": "Metadata",
+    "corpus_homepage": "Hemsida",
+    "corpus_infopage": "Informationssida",
+    "corpus_iprholder": "Rättsinnehavare",
+    "corpus_compiler": "Sammanställare",
+    "corpus_download": "Ladda ner korpusen",
+    "corpus_cite": "Referera till korpusen",
+
+    "*SENTINEL*": "Add lines only above this line, to avoid trailing-comma errors."
+}
