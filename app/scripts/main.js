@@ -129,8 +129,9 @@ $.when(loc_dfd, deferred_domReady).then(
             selected: settings.defaultLanguage,
         })
 
-        // Let plugins modify settings.corpora
-        plugins.callActions("modifyCorpusConfigs", settings.corpora)
+        // Let plugins modify settings.corpora and settings.corporafolders
+        plugins.callActions("modifyCorpusConfigs",
+                            settings.corpora, settings.corporafolders)
         // Let plugins act when the DOM is ready
         plugins.callActions("onDomReady")
 
