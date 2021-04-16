@@ -400,7 +400,7 @@
     "no_geo_info": "Paikkatietoja ei saatavilla",
     "map_cluster": "Ryhmittele",
 
-    "no_row_selected_map": "Choose at least one row to show the map",
+    "no_row_selected_map": "Valitse ainakin yksi rivi kartalla näytettäväksi",
 
     "global_filter": "Suodatin",
     "add_filter": "Lisää suodatin",
@@ -410,7 +410,7 @@
 
     "choose_value": "Valitse arvo",
     "choose_lemgram": "Valitse lemgrammi",
-    "login_needed_for_corpora": "Login needed for access to",
+    "login_needed_for_corpora": "Seuraavien aineistojen käyttö edellyttää kirjautumista:",
 
     "stats_warn": "Tilastot ovat poissa käytöstä",
     "stats_not_in_order_warn": "Tilastoja ei voi nykyisellään käyttää, kun \"järjestyksessä\" ei ole käytössä.",
