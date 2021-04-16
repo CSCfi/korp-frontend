@@ -339,9 +339,12 @@ korpApp.controller("headerCtrl", function ($scope, $uibModal, utils) {
     }
 
     var showModal = function (key) {
-        const tmpl = { about: require("../markup/about.html"), login: "login_modal" }[key]
+        const tmpl = {
+            about: require("../markup/about.html"),
+            login: require("../markup/login.html"),
+        }[key]
         const params = {
-            templateUrl: tmpl,
+            template: tmpl,
             scope: s,
             windowClass: key,
         }
