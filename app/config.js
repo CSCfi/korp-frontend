@@ -193,19 +193,10 @@ settings.downloadFormatParamsPhysical = {
 
 // delete physical_formats;
 
-// Use an absolute URL for the CGI scripts to drop the port number
-// when testing with Grunt serve, which uses localhost:9000.
-// settings.cgi_prefix =
-//     window.location.protocol + "//" + window.location.hostname +
-//     (isProductionServerBeta
-//      ? "/cgi-bin/korp-beta/"
-//      : (isProductionServerOld ?
-// 	"/cgi-bin/korp-old/"
-// 	: (isProductionServer ? "/cgi-bin/" : "/cgi-bin/korp/")));
-// settings.korpBackendURL = settings.cgi_prefix + "korp.cgi";
-// For local testing
+// Korp backend URL
 settings.korpBackendURL =
-    window.location.protocol + "//" + window.location.hostname + ":1234";
+    window.location.protocol + "//" + window.location.hostname + "/korp/api8";
+// console.log("korpBackendURL: '" + settings.korpBackendURL + "'")
 settings.downloadCgiScript = settings.cgi_prefix + "korp_download.cgi";
 
 // The main Korp and Korp Labs URL for the links in the cog menu
