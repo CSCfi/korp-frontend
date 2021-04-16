@@ -20,6 +20,7 @@
     "lang_SK": "slovakki",
     "lang_ET": "viro",
 
+    "menu": "Valikko",
     "docs": "Käyttöohjeita",
     "docs_url": "https://www.kielipankki.fi/tuki/korp/",
     "swedish": "Svenska",
@@ -43,6 +44,7 @@
     "not_containing": "Ei sisällä",
     "negate_explanation": "Käänteistää hakulausekkeen: antaa vain virkkeet, jotka eivät täsmää.",
     "about": "Tietoa Korpista",
+    "about_short": "Tietoa Korpista",
     "about_body": "Korp on Kielipankin konkordanssihakuohjelma, joka on kehitetty Språkbankenissa (Ruotsin kielipankki). Jos haluat saada lisätietoja tai lähettää kommentteja, ehdotuksia, virheraportteja tai muuta palautetta, täytä <a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html' target='_blank'>palautelomake</a>.",
     "about_body_begin": "Korp on Kielipankin konkordanssihakuohjelma, joka on kehitetty Språkbankenissa (Ruotsin kielipankki). Jos haluat saada lisätietoja tai lähettää kommentteja, ehdotuksia, virheraportteja tai muuta palautetta, täytä",
     "about_feedback_linktext": "palautelomake",
