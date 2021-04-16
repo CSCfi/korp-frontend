@@ -1,45 +1,82 @@
 
-// Initialize the property logical_corpus in settings.corpora.*. The
-// logical corpus of a corpus may be either the physical corpus itself
-// or a corpus folder containing the corpus (possibly indirectly).
+// Plugin config_logical_corpora
+//
+// Callback methods to add logicalCorpus property to corpus
+// configurations.
 
-util.initCorpusSettingsLogicalCorpora = function() {
-    // Corpora in folders
-    util.setFolderLogicalCorpora(settings.corporafolders);
-    // Top-level corpora
-    for (let corpus_id in settings.corpora) {
-        const corpus = settings.corpora[corpus_id];
-        if (!("logical_corpus" in corpus)) {
-            corpus.logical_corpus = corpus;
+
+console.log("plugin config_logical_corpora")
+
+
+// Plugin class
+
+class ConfigLogicalCorpora {
+
+    // Callback method
+
+    // Initialize property logicalCorpus in all corpora.
+    modifyCorpusConfigs (corpora, corporafolders) {
+        this._initCorpusSettingsLogicalCorpora(corpora, corporafolders)
+    }
+
+    // Internal methods
+
+    // Initialize the property logicalCorpus in settings.corpora.*.
+    // The logical corpus of a corpus may be either the physical
+    // corpus itself or a corpus folder containing the corpus
+    // (possibly indirectly).
+    _initCorpusSettingsLogicalCorpora (corpora, corporafolders) {
+        // Corpora in folders
+        this._setFolderLogicalCorpora(corporafolders, corpora);
+        // Top-level corpora
+        for (let corpusId in corpora) {
+            const corpus = corpora[corpusId];
+            if (! ("logicalCorpus" in corpus)) {
+                corpus.logicalCorpus = corpus;
+            }
         }
     }
-};
 
-// Recursively initialize the property logical_corpus of the corpora in
-// the given folder. If the parameter logical_corpus not null, use it;
-// otherwise, if the folder has property info.is_logical_corpus or
-// info.urn, the folder represents the logical corpus; otherwise, the
-// logical corpus is found deeper in the folder hierarchy or it is the
-// same as the physical corpus.
+    // Recursively initialize the property logicalCorpus of the
+    // corpora in the given folder. If the parameter logicalCorpus not
+    // null, use it; otherwise, if the folder has property
+    // info.isLogicalCorpus or info.urn, the folder represents the
+    // logical corpus; otherwise, the logical corpus is found deeper
+    // in the folder hierarchy or it is the same as the physical
+    // corpus.
+    _setFolderLogicalCorpora (folder, corpora, logicalCorpus = null) {
+        c.log("setFolderLogicalCorpora", folder,
+              logicalCorpus != null ? logicalCorpus.title : undefined);
+        for (let corpusId of folder.contents || []) {
+            if (! (corpusId in corpora)) {
+                continue;
+            }
+            const corpus = corpora[corpusId];
+            corpus.logicalCorpus = logicalCorpus || corpora[corpusId];
+        }
+        // c.log("logical corpus of", corpusId, "is",
+        //       corpus.logicalCorpus.title)
+        for (let subfolderName of Object.keys(folder || {})) {
+            const subfolder = folder[subfolderName];
+            if (! window.folderNonCorpusProps.includes(subfolderName)) {
+                const subfolderLogicalCorpus = (
+                    logicalCorpus ||
+                        ((subfolder.info != null
+                          ? subfolder.info.isLogicalCorpus
+                          : undefined) ||
+                         (subfolder.info != null
+                          ? subfolder.info.urn
+                          : undefined)
+                         ? subfolder
+                         : undefined));
+                this._setFolderLogicalCorpora(
+                    subfolder, corpora, subfolderLogicalCorpus);
+            }
+        }
+    }
 
-util.setFolderLogicalCorpora = function(folder, logical_corpus = null) {
-    c.log("setFolderLogicalCorpora", folder, logical_corpus != null ? logical_corpus.title : undefined);
-    for (let corpus_id of folder.contents || []) {
-        if (!(corpus_id in settings.corpora)) {
-            continue;
-        }
-        const corpus = settings.corpora[corpus_id];
-        corpus.logical_corpus = logical_corpus || settings.corpora[corpus_id];
-    }
-        // c.log "logical corpus of", corpus_id, "is", corpus.logical_corpus?.title
-    for (let subfolder_name of Object.keys(folder || {})) {
-        const subfolder = folder[subfolder_name];
-        if (!["title", "contents", "description", "info"].includes(subfolder_name)) {
-            const subfolder_logical_corpus =
-                logical_corpus || ((subfolder.info != null ? subfolder.info.is_logical_corpus : undefined) ||
-                                           (subfolder.info != null ? subfolder.info.urn : undefined) ?
-                                       subfolder : undefined);
-            util.setFolderLogicalCorpora(subfolder, subfolder_logical_corpus);
-        }
-    }
-};
+}
+
+
+// Register the plugin
+plugins.register(new ConfigLogicalCorpora())
