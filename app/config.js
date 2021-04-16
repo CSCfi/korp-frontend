@@ -258,6 +258,23 @@ settings.newsDeskUrl =
 
 // authenticationType: "basic", "shibboleth" or "none"
 settings.authenticationType = (isProductionServer ? "shibboleth" : "basic");
+
+// Shibboleth login URL
+settings.getShibbolethLoginURL = function (encodedURL) {
+    return ((isProductionServer
+             ? "/shibboleth-ds/index.html?"
+             : "http://localhost/redirect.html?") +
+            encodedURL)
+}
+
+// Shibboleth logout URL
+settings.getShibbolethLogoutURL = function (encodedURL) {
+    return (isProductionServer
+            ? "/Shibboleth.sso/Logout?return=" + encodedURL
+            : decodeURIComponent(encodedURL))
+}
+
+
 // Login and logout URLs to use with Shibboleth authentication if
 // authenticationType == "shibboleth". Compress the hash parameters of
 // the return URL to make exceeding the Apache URL length limit less
