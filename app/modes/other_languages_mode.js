@@ -326,7 +326,7 @@ settings.corpora.hc = {
     // urn: "urn:nbn:fi:lb-2019061401",
     homepage_url: "http://www.helsinki.fi/varieng/CoRD/corpora/HelsinkiCorpus/HC_XML.html",
     limitedAccess: true,
-    licence_type: "ACA",
+    licenceType: "ACA",
     licence: {
 	name: "CLARIN ACA +NC +DEP 1.0",
 	description: "CLARIN ACA (Academic) End-User License 1.0, Non-commercial, No redistribution, Redeposit",
@@ -1558,7 +1558,7 @@ settings.corpora.parrus_ru = {
     context: defaultContext,
     within: settings.defaultWithin,
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
     attributes: attrlist.parrus_ru,
     structAttributes: sattrlist.parrus_ru,
 };
@@ -1576,7 +1576,7 @@ settings.corpora.parfin_ru = {
     context: defaultContext,
     within: settings.defaultWithin,
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
     attributes: attrlist.parfin_ru,
     structAttributes: sattrlist.parfin_ru,
 };
@@ -1596,7 +1596,7 @@ settings.corpora.parrus_2016_ru = {
     context: settings.sentLinkContext,
     within: settings.sentLinkWithin,
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
     attributes: attrlist.parrus_2016_ru,
     structAttributes: sattrlist.parrus_2016_ru,
 };
@@ -1617,7 +1617,7 @@ settings.corpora.parfin_2016_ru = {
     context: settings.sentLinkContext,
     within: settings.sentLinkWithin,
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
     attributes: attrlist.parfin_2016_ru,
     structAttributes: sattrlist.parfin_2016_ru,
 };
@@ -1639,7 +1639,7 @@ settings.corpora.topling_en = {
     homepage_url: "https://www.jyu.fi/topling",
     cite_id: "topling-en",
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
     context: spContext,
     within: spWithin,
     // unselected: true,
@@ -2688,7 +2688,7 @@ settings.fn.extend_corpus_settings(
 	},
 	within: settings.defaultWithin,
 	limitedAccess: settings.isPublicServer,
-	licence_type: "ACA",
+	licenceType: "ACA",
 	attributes: {
 	    // This currently adds "word" also as a word attribute in
 	    // attribute selection list, but it works in the same way
@@ -2894,7 +2894,7 @@ settings.corpora.swahili_sample = {
     // metadata_urn: "urn:nbn:fi:lb-",
     // licence: settings.licenceinfo.CC_BY,
     limitedAccess: true,
-    licence_type: "ACA",
+    licenceType: "ACA",
     context: defaultContext,
     within: settings.defaultWithin,
     attributes: {
@@ -2958,7 +2958,7 @@ settings.templ.hcs2_common = {
     title: "",
     description: "",
     limitedAccess: true,
-    licence_type: "ACA",
+    licenceType: "ACA",
     context: defaultContext,
     within: settings.defaultWithin,
     attributes: {

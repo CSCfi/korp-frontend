@@ -1185,7 +1185,7 @@ settings.corpora.finstud = {
     },
     cite_id: "FinStud86",
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
     context: defaultContext,
     within: settings.defaultWithin,
     attributes: attrlist.finstud,
@@ -8772,7 +8772,7 @@ settings.corpora.hsfi = {
     },
     cite_id: "HS.fi",
     limitedAccess: true,
-    licence_type: "ACA",
+    licenceType: "ACA",
     within: spWithin,
     context: spContext,
     attributes: {
@@ -8821,7 +8821,7 @@ settings.corpora.karjalansuomi = {
     },
     cite_id: "Karjalansuomi",
     limitedAccess: true,
-    licence_type: "ACA",
+    licenceType: "ACA",
     within: spWithin,
     context: spContext,
     attributes: {},
@@ -10718,7 +10718,7 @@ las2_common_props = {
     },
     cite_id: "LAS2",
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
     within: spWithin,
     context: spContext,
     attributes: attrlist.las2,
@@ -11251,7 +11251,7 @@ settings.corpora.yoaineet = {
     },
     cite_id: "ylioppilasaineet",
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
     features: ["paragraphs", "parsed_tdt", "finer"],
     attributes: {
 	namecat_omorfi: attrs.namecat_omorfi,
@@ -11329,7 +11329,7 @@ settings.corpora.parfin_fi = {
     attributes: attrlist.parfin_fi,
     structAttributes: sattrlist.parfin_fi,
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
 };
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.parfin, ["parfin_fi"]);
@@ -11347,7 +11347,7 @@ settings.corpora.parrus_fi = {
     context: defaultContext,
     within: settings.defaultWithin,
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
     attributes: attrlist.parrus_fi,
     structAttributes: sattrlist.parrus_fi,
 };
@@ -11370,7 +11370,7 @@ settings.corpora.parfin_2016_fi = {
     attributes: attrlist.parfin_2016_fi,
     structAttributes: sattrlist.parfin_2016_fi,
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
 };
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.parfin_2016,
@@ -11390,7 +11390,7 @@ settings.corpora.parrus_2016_fi = {
     context: settings.sentLinkContext,
     within: settings.sentLinkWithin,
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
     attributes: attrlist.parrus_2016_fi,
     structAttributes: sattrlist.parrus_2016_fi,
 };
@@ -13403,7 +13403,7 @@ settings.corpora.topling_fi = {
     homepage_url: "https://www.jyu.fi/topling",
     cite_id: "topling-fi",
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
     features: ["paragraphs", "parsed_tdt", "finer"],
     attributes: attrlist.topling,
     structAttributes: sattrlist.topling
@@ -13461,7 +13461,7 @@ settings.corpora.ceal_o = {
     },
     cite_id: "ceal-o",
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: $.extend(
 	{}, sattrlist.ceal_common,
@@ -13483,7 +13483,7 @@ settings.corpora.ceal_s = {
     },
     cite_id: "ceal-s",
     limitedAccess: true,
-    licence_type: "ACA",
+    licenceType: "ACA",
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: sattrlist.ceal_common,
 };
@@ -13524,7 +13524,7 @@ settings.corpora.iijoki = {
     title: "Kalle Päätalon Iijoki-sarja",
     description: "Iijoki, Oulun yliopiston Päätalo-kokoelma, Kielipankki Korp -versio<br/><br/>Kalle Päätalon Iijoki-sarja sisältää yhteensä 26 kirjaa.<br/>Aineisto on jäsennetty Turku Neural Parser Pipeline (TNPP) -jäsentimellä.<br/><strong>Huomaa</strong>, että aineisto sisältää murresanoja, joiden perusmuotoistamiseen jäsennysmenetelmillä ei ole luotettavia keinoja.",
     limitedAccess: true,
-    licence_type: "ACA",
+    licenceType: "ACA",
     licence: {
 	name: "CLARIN ACA +NC +DEP 1.0",
 	urn: "urn:nbn:fi:lb-2019102106"
@@ -14766,7 +14766,7 @@ settings.corpora.iclfi = {
     homepage_url: "http://www.oulu.fi/suomitoisenakielena/node/16078",
     cite_id: "ICLFI",
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
     within: spWithin,
     context: spContext,
     attributes: {
@@ -15503,7 +15503,7 @@ settings.templ.ylenews_fi_a = {
     description: "Ylen suomenkielinen uutisarkisto 2011–2018, Korp: vuosi {}<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.",
     id: "ylenews_fi_{}_a",
     limitedAccess: true,
-    licence_type: "ACA",
+    licenceType: "ACA",
     features: ["paragraphs", "parsed_tdt"],
     structAttributes: $.extend(
         {}, sattrlist.ylenews_fi_common,
@@ -15623,7 +15623,7 @@ settings.corpora.ylenews_fi_2011_2018_selko_a = {
     metadata_urn: "urn:nbn:fi:lb-2019121203",
     cite_id: "ylenews-fi-2011-2018-selko-korp",
     limitedAccess: true,
-    licence_type: "ACA",
+    licenceType: "ACA",
     licence: {
 	name: "CLARIN ACA +NC 1.0",
 	urn: "urn:nbn:fi:lb-2019121202",

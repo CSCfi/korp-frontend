@@ -356,7 +356,7 @@ settings.corpora.studentsvenska = {
     context: defaultContext,
     within: settings.defaultWithin,
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
     attributes: attrlist.studentsvenska,
     structAttributes: sattrlist.studentsvenska
 };
@@ -393,7 +393,7 @@ settings.corpora.topling_sv = {
     context: spContext,
     within: spWithin,
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
     // unselected: true,
     attributes: attrlist.topling,
     structAttributes: sattrlist.topling
@@ -902,7 +902,7 @@ settings.templ.ylenews_sv_a = {
     description: "Yle svenska webbartiklar 2012–2018, Korp: år {}<br/>Variant tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning",
     id: "ylenews_sv_{}_a",
     limitedAccess: true,
-    licence_type: "ACA",
+    licenceType: "ACA",
     features: ["paragraphs"],
     attributes: attrlist.parsed_sv_lemmaset,
     structAttributes: $.extend(

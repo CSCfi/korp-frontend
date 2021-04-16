@@ -704,7 +704,7 @@ settings.corpora.ceal_s_fi = {
     },
     cite_id: "ceal-par-s-korp",
     limitedAccess: true,
-    licence_type: "ACA",
+    licenceType: "ACA",
     attributes: attrlist.ud2_fi,
     structAttributes: sattrlist.ceal_common,
     linked_to: ["ceal_s_en"]
@@ -726,7 +726,7 @@ settings.corpora.ceal_s_en = {
     },
     cite_id: "ceal-par-s-korp",
     limitedAccess: true,
-    licence_type: "ACA",
+    licenceType: "ACA",
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ceal_common,
     linked_to: ["ceal_s_fi"],
@@ -7956,7 +7956,7 @@ settings.corpora.parfin_fi = {
     attributes: attrlist.mulcold_fi,
     structAttributes: sattrlist.parfin,
     limitedAccess: true,
-    licence_type: "RES"
+    licenceType: "RES"
 };
 
 settings.corpora.parfin_ru = {
@@ -7972,7 +7972,7 @@ settings.corpora.parfin_ru = {
     attributes: attrlist.mulcold_ru,
     structAttributes: sattrlist.parfin,
     limitedAccess: true,
-    licence_type: "RES",
+    licenceType: "RES",
     hide: true
 };
 
@@ -8011,7 +8011,7 @@ settings.fn.extend_corpus_settings(
 	context: context.linkAligned,
 	within: settings.linkWithin,
 	limitedAccess: true,
-	licence_type: "RES",
+	licenceType: "RES",
     },
     ["parfin_fi", "parfin_ru"]
 );
@@ -8099,7 +8099,7 @@ settings.fn.extend_corpus_settings(
 	context: context.linkAligned,
 	within: settings.linkWithin,
 	limitedAccess: true,
-	licence_type: "RES"
+	licenceType: "RES"
     },
     ["parrus_fi", "parrus_fi1", "parrus_fi2", "parrus_fi3", "parrus_ru"]);
 
@@ -8141,7 +8141,7 @@ settings.fn.extend_corpus_settings(
 	// TODO: Make sure that sentLinkWithin works in all cases.
 	within: settings.sentLinkWithin,
 	limitedAccess: true,
-	licence_type: "RES",
+	licenceType: "RES",
     },
     ["parfin_2016_fi", "parfin_2016_ru"]
 );
@@ -8233,7 +8233,7 @@ settings.fn.extend_corpus_settings(
 	// TODO: Make sure that sentLinkWithin works in all cases.
 	within: settings.sentLinkWithin,
 	limitedAccess: true,
-	licence_type: "RES"
+	licenceType: "RES"
     },
     ["parrus_2016_fi",
      "parrus_2016_fi1",
