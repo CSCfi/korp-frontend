@@ -296,10 +296,6 @@ export const sidebarComponent = {
                         })
                         $controller(controller, locals)
                         return output.append($compile(template)(scope))
-                    } else if (attrs.renderItem) {
-                        return output.append(
-                            attrs.renderItem(key, value, attrs, wordData, sentenceData, tokens)
-                        )
                     }
 
                     output.data("attrs", attrs)
@@ -541,8 +537,6 @@ export const sidebarComponent = {
                 },
 
                 applyEllipse() {
-                    // oldDisplay = @element.css("display")
-                    // @element.css "display", "block"
                     const totalWidth = $element.width()
 
                     // ellipse for too long links of type=url
