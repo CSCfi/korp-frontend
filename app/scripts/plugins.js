@@ -46,6 +46,10 @@ const Plugins = class Plugins {
         // hook point (a type of plugin function) and its value is an
         // array of functions to be called at the hook point.
         this.callbacks = {}
+        // Array of registered plugin objects in the order in which
+        // they have been registered and in which their callbacks are
+        // called
+        this.registeredPlugins = []
         // The features provided by the plugins registered this far
         // (array of strings)
         this.providedFeatures = []
@@ -190,6 +194,7 @@ const Plugins = class Plugins {
         }
         // c.log("callbacks", this.callbacks)
         checkProvidedFeatures(plugin)
+        this.registeredPlugins.push(plugin)
     }
 
     // Call plugin callback functions (actions) registered for
