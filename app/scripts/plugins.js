@@ -24,6 +24,20 @@
 // return value is discarded) or Plugins.callFilters (functions
 // returning a value); see the descriptions of these functions below
 // for more information.
+//
+// Plugin callbacks are called in the order in which the plugins have
+// been registered. A rudimentary way of controlling the registration
+// order is to specify arrays providesFeatures and requiresFeatures in
+// the plugin objects: if a plugin has a value (string) in
+// requiresFeatures that has not yet appeared in the providesFeatures
+// of a registered plugin, registering it is deferred until a plugin
+// providing the feature has been registered.
+//
+// TODO: Allow specifying the order in which individual callbacks are
+// called, as callback A of plugin X might need to be called before
+// that of plugin Y, but callback B of plugin Y before that of plugin
+// X.
+
 
 const Plugins = class Plugins {
 
@@ -32,6 +46,16 @@ const Plugins = class Plugins {
         // hook point (a type of plugin function) and its value is an
         // array of functions to be called at the hook point.
         this.callbacks = {}
+        // The features provided by the plugins registered this far
+        // (array of strings)
+        this.providedFeatures = []
+        // Plugins whose registering has been deferred as their
+        // required features have not yet been provided by other
+        // plugins: an object whose property names are feature names
+        // and their values are arrays of plugin objects requiring the
+        // named feature. A plugin object occurs in the value of
+        // multiple properties if it is waiting for multiple features.
+        this.pluginsWaitingForFeatures = {}
     }
 
     // Add (append) callback function func in object plugin to hook point
@@ -63,7 +87,83 @@ const Plugins = class Plugins {
                 item => typeof obj[item] === 'function')
         }
 
+        // If plugin has specified the requiresFeatures property (an
+        // array of strings), check if all the features have already
+        // been provided by a previously registered plugin in its
+        // providesFeatures property. If yes, return true; if not, add
+        // the plugin to this.pluginsWaitingForFeatures and show a
+        // message informing that registering the plugin is being
+        // deferred.
+        const checkRequiredFeatures = (plugin) => {
+            if (plugin.requiresFeatures) {
+                const unmet = _.difference(plugin.requiresFeatures,
+                                           this.providedFeatures)
+                if (unmet.length) {
+                    plugin.waitingForFeatures = unmet
+                    for (let feat of unmet) {
+                        if (! (feat in this.pluginsWaitingForFeatures)) {
+                            this.pluginsWaitingForFeatures[feat] = []
+                        }
+                        this.pluginsWaitingForFeatures[feat].push(plugin)
+                    }
+                    c.info("Deferring registering plugin",
+                           plugin.constructor.name,
+                           "as features required by it have not yet been",
+                           "provided:", unmet.join(", "))
+                    return false
+                }
+            }
+            return true
+        }
+
+        // If plugin provides some features (has property
+        // providesFeatures), add them to this.providedFeatures. If
+        // other plugins have been waiting for the features and if all
+        // their requirements have been provided, register them.
+        const checkProvidedFeatures = (plugin) => {
+            if (! plugin.providesFeatures || ! plugin.providesFeatures.length) {
+                return
+            }
+            this.providedFeatures = _.union(this.providedFeatures,
+                                            plugin.providesFeatures)
+            const newlyRegisteredPlugins = []
+            for (let feat of plugin.providesFeatures) {
+                if (feat in this.pluginsWaitingForFeatures) {
+                    for (let waitingPlugin of
+                         this.pluginsWaitingForFeatures[feat]) {
+                        // Remove this feature from the waitingForFeatures
+                        // array of the waiting plugin
+                        let featIdx =
+                            waitingPlugin.waitingForFeatures.indexOf(feat)
+                        waitingPlugin.waitingForFeatures.splice(featIdx, 1)
+                        if (waitingPlugin.waitingForFeatures.length == 0) {
+                            c.info("All features required by plugin",
+                                   waitingPlugin.constructor.name,
+                                   "provided; registering the plugin")
+                            this.register(waitingPlugin)
+                            newlyRegisteredPlugins.push(waitingPlugin)
+                        }
+                    }
+                }
+            }
+            // Remove the newly registered plugins from
+            // pluginsWaitingForFeatures
+            for (let regPlugin of newlyRegisteredPlugins) {
+                // Remove from all features listed in the
+                // requiresFeatures property of the plugin
+                for (let featNum in regPlugin.requiresFeatures) {
+                    let feat = regPlugin.requiresFeatures[featNum]
+                    let pluginIdx =
+                        this.pluginsWaitingForFeatures[feat].indexOf(regPlugin)
+                    this.pluginsWaitingForFeatures[feat].splice(pluginIdx, 1)
+                }
+            }
+        }
+
         c.log("Plugins.register", plugin.constructor.name, plugin)
+        if (! checkRequiredFeatures(plugin)) {
+            return
+        }
         if (plugin.callbacks) {
             for (let propname of Object.getOwnPropertyNames(plugin.callbacks)) {
                 let callbacks = plugin.callbacks[propname]
@@ -89,6 +189,7 @@ const Plugins = class Plugins {
             }
         }
         // c.log("callbacks", this.callbacks)
+        checkProvidedFeatures(plugin)
     }
 
     // Call plugin callback functions (actions) registered for
