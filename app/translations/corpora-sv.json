@@ -773,6 +773,11 @@
 
     "facsimile_title": "faksimilupplaga",
 
+    "sentence_polarity": "meningens polaritet",
+    "polarity_pos": "positiv",
+    "polarity_neut": "neutral",
+    "polarity_neg": "negativ",
+
     "ne_expr": "uttryck",
     "ne_type": "namntyp",
     "ne_subtype": "namnundertyp",

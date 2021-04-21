@@ -1193,6 +1193,11 @@
 
     "title_lemmas": "title word lemmas",
 
+    "sentence_polarity": "sentence polarity",
+    "polarity_pos": "positive",
+    "polarity_neut": "neutral",
+    "polarity_neg": "negative",
+
     "locality": "locality",
     "locality_orig": "locality in original language",
     "locality_russian": "locality in Russian",
