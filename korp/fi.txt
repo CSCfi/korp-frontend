@@ -1,4 +1,15 @@
 
+<!-- Suomi24 2001–2017 -aineistoon lisätty virkkeiden polaarisuus 2021-04-21 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2020021803">Suomi24 2001–2017
+-aineistosta</a> on nyt käytössä päivitetty Korp-versio 1.2, jonka
+kuhunkin virkkeeseen on lisätty virkkeen tunnetilaa (sentiment)
+ilmaiseva polaarisuustieto (myönteinen, neutraali, kielteinen).
+Polaarisuustieto on tuotettu luokittimella, joka on opetettu <a
+href='https://arxiv.org/pdf/2012.02613.pdf'
+target='_blank'>FinnSentiment-aineistolla</a>.
+
+
 <!-- Uusi aineisto (beta): Käännössuomen korpus 2021-03-09a -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2019100801"

@@ -1,4 +1,14 @@
 
+<!-- Sentence polarity added to Suomi24 2001–2017 2021-04-21 -->
+
+The <a href="http://urn.fi/urn:nbn:fi:lb-2020021803">Suomi24 2001–2017
+corpus</a> has been updated to version 1.2, whose each sentence
+contains an attribute for sentiment polarity (positive, neutral,
+negative). The polarity information has been produced by a classifier
+trained on the <a href='https://arxiv.org/pdf/2012.02613.pdf'
+target='_blank'>FinnSentiment corpus</a>.
+
+
 <!-- New corpus (beta): Corpus of Translated Finnish 2021-03-09a -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2019100801"
