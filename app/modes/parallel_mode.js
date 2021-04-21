@@ -1,5 +1,4 @@
 settings.wordpicture = false;
-settings.enableMap = false;
 var start_lang = "fin";
 
 settings.hitsPerPageDefault = 10
@@ -16,7 +15,7 @@ korpApp.controller("SearchCtrl", function($rootScope, $scope, $controller, $loca
     $scope.corpusChangeListener() // remove prev listener
     $scope.$on("reduceattrupdate", function() {
         $scope.statCurrentAttrs = settings.corpusListing.getStatsAttributeGroups(settings.corpusListing.getReduceLang())
-        $scope.statSelectedAttrs = $location.search().stats_reduce.split(',')
+        $scope.statSelectedAttrs = ($location.search().stats_reduce || "word").split(',')
         insensitiveAttrs = $location.search().stats_reduce_insensitive
         if(insensitiveAttrs)
             $scope.statInsensitiveAttrs = insensitiveAttrs.split(',')
@@ -32,7 +31,7 @@ korpApp.controller("SearchCtrl", function($rootScope, $scope, $controller, $loca
 
 function parseLocationLangs() {
     try {
-        var langs = _(location.hash.split("?")[1].split("&")).invoke("split", "=").object().value()["parallel_corpora"].split(",")
+        var langs = _.filter(location.hash.split("?")[1].split("&"), (elem) => elem.slice(0, 16) === "parallel_corpora")[0].split('=')[1].split(',')
     } catch(e) {
         return [start_lang]
     }
@@ -173,6 +172,7 @@ korpApp.controller("ParallelSearch", function($scope, $location, $rootScope, $ti
 view.KWICResults = class ParallelKwicResults extends view.KWICResults {
 
     selectWord(word, scope, sentence) {
+        // c.log ("word, scope, sentence", word, scope, sentence)
         super.selectWord(word, scope, sentence)
         this.clearLinks()
         var self = this
@@ -180,7 +180,9 @@ view.KWICResults = class ParallelKwicResults extends view.KWICResults {
 
         if(!obj.linkref) return
 
-        var corpus = settings.corpusListing.get(sentence.corpus)
+        console.log("sentence.corpus", sentence.corpus, settings.corpora, settings.corpusListing.struct)
+        // var corpus = settings.corpusListing.get(sentence.corpus)
+        var corpus = settings.corpora[sentence.corpus]
 
         function findRef(ref, sentence) {
             var out = null
@@ -238,7 +240,7 @@ view.KWICResults = class ParallelKwicResults extends view.KWICResults {
             })
 
         }
-        safeApply($("body").scope(), $.noop)
+        safeApply(scope, $.noop)
 
     }
 
@@ -252,14 +254,17 @@ view.KWICResults = class ParallelKwicResults extends view.KWICResults {
 
 model.StatsProxy = class ParallelStatsProxy extends model.StatsProxy {
     makeParameters(reduceVals, cqp, ignoreCase) {
-        params = super.makeParameters(reduceVals, cqp, ignoreCase)
+        let params = super.makeParameters(reduceVals, cqp, ignoreCase)
 
 
         params.within = settings.corpusListing.getAttributeQuery("within").replace(/\|.*?:/g, ":")
 
         return params
     }
+
 }
+
+// model.StatsProxy.prototype.makeRequest = function(){};
 
 // settings.primaryColor = "#7A90C3";
 settings.primaryColor = "#CAD2E6";
@@ -8359,6 +8364,7 @@ settings.parallel_corpora.testpar4 = {
 settings.fn.add_attr_extra_properties(settings.corpora);
 
 
+console.log("parallelcorpuslisting")
 window.cl = settings.corpusListing = new ParallelCorpusListing(settings.corpora, parseLocationLangs());
 delete ParallelCorpusListing;
 delete context;
