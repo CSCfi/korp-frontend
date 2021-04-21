@@ -13819,6 +13819,9 @@ settings.corpora.dma = {
     // TODO (util.coffee): Allow an array of values for licence.
     licence: {
 	name: "CC BY 4.0 (teksti) / CLARIN RES +PRIV +ND (PDF-sanaliput)",
+        // Explicit PUB licence category for the Korp data; otherwise
+        // "CLARIN RES" in the name would make it RES
+        category: "PUB",
 	urn: "urn:nbn:fi:lb-2016042202",
     },
     cite_id: "dma",
