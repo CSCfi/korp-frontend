@@ -712,7 +712,7 @@ settings.corpora.ceal_s_fi = {
     licenceType: "ACA",
     attributes: attrlist.ud2_fi,
     structAttributes: sattrlist.ceal_common,
-    linked_to: ["ceal_s_en"]
+    linkedTo: ["ceal_s_en"]
 };
 
 settings.corpora.ceal_s_en = {
@@ -734,7 +734,7 @@ settings.corpora.ceal_s_en = {
     licenceType: "ACA",
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ceal_common,
-    linked_to: ["ceal_s_fi"],
+    linkedTo: ["ceal_s_fi"],
     hide: true
 };
 
@@ -780,7 +780,7 @@ settings.corpora.semfinlex_asd_par_2018_fi = {
     cite_id: "semfinlex-asd-par-2018-korp",
     urn: "urn:nbn:fi:lb-2019042606",
     metadata_urn: "urn:nbn:fi:lb-2019042605",
-    linked_to: ["semfinlex_asd_par_2018_sv"]
+    linkedTo: ["semfinlex_asd_par_2018_sv"]
 }
 
 settings.corpora.semfinlex_asd_par_2018_sv = {
@@ -820,7 +820,7 @@ settings.corpora.semfinlex_asd_par_2018_sv = {
     cite_id: "semfinlex-asd-par-2018-korp",
     urn: "urn:nbn:fi:lb-2019042606",
     metadata_urn: "urn:nbn:fi:lb-2019042605",
-    linked_to: ["semfinlex_asd_par_2018_fi"],
+    linkedTo: ["semfinlex_asd_par_2018_fi"],
     hide: true
 }
 
@@ -835,7 +835,7 @@ settings.corpora.opus_opensubtitles2011_fitr_tr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "tur",
-    linked_to: ["opus_opensubtitles2011_fitr_fi"],
+    linkedTo: ["opus_opensubtitles2011_fitr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -855,7 +855,7 @@ settings.corpora.opus_opensubtitles2011_fitr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2011_fitr_tr"],
+    linkedTo: ["opus_opensubtitles2011_fitr_tr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -874,7 +874,7 @@ settings.corpora.opus_opensubtitles2012_fitr_tr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "tur",
-    linked_to: ["opus_opensubtitles2012_fitr_fi"],
+    linkedTo: ["opus_opensubtitles2012_fitr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -894,7 +894,7 @@ settings.corpora.opus_opensubtitles2012_fitr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2012_fitr_tr"],
+    linkedTo: ["opus_opensubtitles2012_fitr_tr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -913,7 +913,7 @@ settings.corpora.opus_opensubtitles2013_fitr_tr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "tur",
-    linked_to: ["opus_opensubtitles2013_fitr_fi"],
+    linkedTo: ["opus_opensubtitles2013_fitr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -933,7 +933,7 @@ settings.corpora.opus_opensubtitles2013_fitr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2013_fitr_tr"],
+    linkedTo: ["opus_opensubtitles2013_fitr_tr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -952,7 +952,7 @@ settings.corpora.opus_opensubtitles_fitr_tr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "tur",
-    linked_to: ["opus_opensubtitles_fitr_fi"],
+    linkedTo: ["opus_opensubtitles_fitr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -972,7 +972,7 @@ settings.corpora.opus_opensubtitles_fitr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles_fitr_tr"],
+    linkedTo: ["opus_opensubtitles_fitr_tr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -991,7 +991,7 @@ settings.corpora.opus_eubookshop_fitr_tr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "tur",
-    linked_to: ["opus_eubookshop_fitr_fi"],
+    linkedTo: ["opus_eubookshop_fitr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1011,7 +1011,7 @@ settings.corpora.opus_eubookshop_fitr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_eubookshop_fitr_tr"],
+    linkedTo: ["opus_eubookshop_fitr_tr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1030,7 +1030,7 @@ settings.corpora.opus_kde4_fitr_tr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "tur",
-    linked_to: ["opus_kde4_fitr_fi"],
+    linkedTo: ["opus_kde4_fitr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1050,7 +1050,7 @@ settings.corpora.opus_kde4_fitr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_kde4_fitr_tr"],
+    linkedTo: ["opus_kde4_fitr_tr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1069,7 +1069,7 @@ settings.corpora.opus_gnome_fitr_tr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "tur",
-    linked_to: ["opus_gnome_fitr_fi"],
+    linkedTo: ["opus_gnome_fitr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1089,7 +1089,7 @@ settings.corpora.opus_gnome_fitr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_gnome_fitr_tr"],
+    linkedTo: ["opus_gnome_fitr_tr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1108,7 +1108,7 @@ settings.corpora.opus_php_fitr_tr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "tur",
-    linked_to: ["opus_php_fitr_fi"],
+    linkedTo: ["opus_php_fitr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1128,7 +1128,7 @@ settings.corpora.opus_php_fitr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_php_fitr_tr"],
+    linkedTo: ["opus_php_fitr_tr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1147,7 +1147,7 @@ settings.corpora.opus_books_fifr_fr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fra",
-    linked_to: ["opus_books_fifr_fi"],
+    linkedTo: ["opus_books_fifr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1167,7 +1167,7 @@ settings.corpora.opus_books_fifr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_books_fifr_fr"],
+    linkedTo: ["opus_books_fifr_fr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1186,7 +1186,7 @@ settings.corpora.opus_opensubtitles2012_fifr_fr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fra",
-    linked_to: ["opus_opensubtitles2012_fifr_fi"],
+    linkedTo: ["opus_opensubtitles2012_fifr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1206,7 +1206,7 @@ settings.corpora.opus_opensubtitles2012_fifr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2012_fifr_fr"],
+    linkedTo: ["opus_opensubtitles2012_fifr_fr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1225,7 +1225,7 @@ settings.corpora.opus_opensubtitles_fifr_fr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fra",
-    linked_to: ["opus_opensubtitles_fifr_fi"],
+    linkedTo: ["opus_opensubtitles_fifr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1245,7 +1245,7 @@ settings.corpora.opus_opensubtitles_fifr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles_fifr_fr"],
+    linkedTo: ["opus_opensubtitles_fifr_fr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1264,7 +1264,7 @@ settings.corpora.opus_kde4_fifr_fr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fra",
-    linked_to: ["opus_kde4_fifr_fi"],
+    linkedTo: ["opus_kde4_fifr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1284,7 +1284,7 @@ settings.corpora.opus_kde4_fifr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_kde4_fifr_fr"],
+    linkedTo: ["opus_kde4_fifr_fr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1303,7 +1303,7 @@ settings.corpora.opus_gnome_fifr_fr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fra",
-    linked_to: ["opus_gnome_fifr_fi"],
+    linkedTo: ["opus_gnome_fifr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1323,7 +1323,7 @@ settings.corpora.opus_gnome_fifr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_gnome_fifr_fr"],
+    linkedTo: ["opus_gnome_fifr_fr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1342,7 +1342,7 @@ settings.corpora.opus_euconst_fifr_fr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fra",
-    linked_to: ["opus_euconst_fifr_fi"],
+    linkedTo: ["opus_euconst_fifr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1362,7 +1362,7 @@ settings.corpora.opus_euconst_fifr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_euconst_fifr_fr"],
+    linkedTo: ["opus_euconst_fifr_fr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1381,7 +1381,7 @@ settings.corpora.opus_php_fifr_fr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fra",
-    linked_to: ["opus_php_fifr_fi"],
+    linkedTo: ["opus_php_fifr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1401,7 +1401,7 @@ settings.corpora.opus_php_fifr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_php_fifr_fr"],
+    linkedTo: ["opus_php_fifr_fr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1420,7 +1420,7 @@ settings.corpora.opus_ubuntu_fifr_fr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fra",
-    linked_to: ["opus_ubuntu_fifr_fi"],
+    linkedTo: ["opus_ubuntu_fifr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1440,7 +1440,7 @@ settings.corpora.opus_ubuntu_fifr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ubuntu_fifr_fr"],
+    linkedTo: ["opus_ubuntu_fifr_fr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1459,7 +1459,7 @@ settings.corpora.opus_tatoeba_fifr_fr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fra",
-    linked_to: ["opus_tatoeba_fifr_fi"],
+    linkedTo: ["opus_tatoeba_fifr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1479,7 +1479,7 @@ settings.corpora.opus_tatoeba_fifr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_tatoeba_fifr_fr"],
+    linkedTo: ["opus_tatoeba_fifr_fr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1498,7 +1498,7 @@ settings.corpora.opus_opensubtitles2011_esfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2011_esfi_es"],
+    linkedTo: ["opus_opensubtitles2011_esfi_es"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1517,7 +1517,7 @@ settings.corpora.opus_opensubtitles2011_esfi_es = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "spa",
-    linked_to: ["opus_opensubtitles2011_esfi_fi"],
+    linkedTo: ["opus_opensubtitles2011_esfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1537,7 +1537,7 @@ settings.corpora.opus_opensubtitles_esfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles_esfi_es"],
+    linkedTo: ["opus_opensubtitles_esfi_es"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1556,7 +1556,7 @@ settings.corpora.opus_opensubtitles_esfi_es = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "spa",
-    linked_to: ["opus_opensubtitles_esfi_fi"],
+    linkedTo: ["opus_opensubtitles_esfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1576,7 +1576,7 @@ settings.corpora.opus_kde4_esfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_kde4_esfi_es"],
+    linkedTo: ["opus_kde4_esfi_es"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1595,7 +1595,7 @@ settings.corpora.opus_kde4_esfi_es = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "spa",
-    linked_to: ["opus_kde4_esfi_fi"],
+    linkedTo: ["opus_kde4_esfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1615,7 +1615,7 @@ settings.corpora.opus_gnome_esfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_gnome_esfi_es"],
+    linkedTo: ["opus_gnome_esfi_es"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1634,7 +1634,7 @@ settings.corpora.opus_gnome_esfi_es = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "spa",
-    linked_to: ["opus_gnome_esfi_fi"],
+    linkedTo: ["opus_gnome_esfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1654,7 +1654,7 @@ settings.corpora.opus_euconst_esfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_euconst_esfi_es"],
+    linkedTo: ["opus_euconst_esfi_es"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1673,7 +1673,7 @@ settings.corpora.opus_euconst_esfi_es = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "spa",
-    linked_to: ["opus_euconst_esfi_fi"],
+    linkedTo: ["opus_euconst_esfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1693,7 +1693,7 @@ settings.corpora.opus_php_esfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_php_esfi_es"],
+    linkedTo: ["opus_php_esfi_es"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1712,7 +1712,7 @@ settings.corpora.opus_php_esfi_es = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "spa",
-    linked_to: ["opus_php_esfi_fi"],
+    linkedTo: ["opus_php_esfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1732,7 +1732,7 @@ settings.corpora.opus_ubuntu_esfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ubuntu_esfi_es"],
+    linkedTo: ["opus_ubuntu_esfi_es"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1751,7 +1751,7 @@ settings.corpora.opus_ubuntu_esfi_es = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "spa",
-    linked_to: ["opus_ubuntu_esfi_fi"],
+    linkedTo: ["opus_ubuntu_esfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1771,7 +1771,7 @@ settings.corpora.opus_tatoeba_esfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_tatoeba_esfi_es"],
+    linkedTo: ["opus_tatoeba_esfi_es"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1790,7 +1790,7 @@ settings.corpora.opus_tatoeba_esfi_es = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "spa",
-    linked_to: ["opus_tatoeba_esfi_fi"],
+    linkedTo: ["opus_tatoeba_esfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1810,7 +1810,7 @@ settings.corpora.opus_books_esfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_books_esfi_es"],
+    linkedTo: ["opus_books_esfi_es"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1829,7 +1829,7 @@ settings.corpora.opus_books_esfi_es = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "spa",
-    linked_to: ["opus_books_esfi_fi"],
+    linkedTo: ["opus_books_esfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1849,7 +1849,7 @@ settings.corpora.opus_europarl_csfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_europarl_csfi_cs"],
+    linkedTo: ["opus_europarl_csfi_cs"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1868,7 +1868,7 @@ settings.corpora.opus_europarl_csfi_cs = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "cze",
-    linked_to: ["opus_europarl_csfi_fi"],
+    linkedTo: ["opus_europarl_csfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1888,7 +1888,7 @@ settings.corpora.opus_gnome_fisv_sv = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "swe",
-    linked_to: ["opus_gnome_fisv_fi"],
+    linkedTo: ["opus_gnome_fisv_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1908,7 +1908,7 @@ settings.corpora.opus_gnome_fisv_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_gnome_fisv_sv"],
+    linkedTo: ["opus_gnome_fisv_sv"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1927,7 +1927,7 @@ settings.corpora.opus_euconst_fisv_sv = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "swe",
-    linked_to: ["opus_euconst_fisv_fi"],
+    linkedTo: ["opus_euconst_fisv_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1947,7 +1947,7 @@ settings.corpora.opus_euconst_fisv_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_euconst_fisv_sv"],
+    linkedTo: ["opus_euconst_fisv_sv"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1966,7 +1966,7 @@ settings.corpora.opus_php_fisv_sv = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "swe",
-    linked_to: ["opus_php_fisv_fi"],
+    linkedTo: ["opus_php_fisv_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -1986,7 +1986,7 @@ settings.corpora.opus_php_fisv_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_php_fisv_sv"],
+    linkedTo: ["opus_php_fisv_sv"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2005,7 +2005,7 @@ settings.corpora.opus_ubuntu_fisv_sv = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "swe",
-    linked_to: ["opus_ubuntu_fisv_fi"],
+    linkedTo: ["opus_ubuntu_fisv_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2025,7 +2025,7 @@ settings.corpora.opus_ubuntu_fisv_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ubuntu_fisv_sv"],
+    linkedTo: ["opus_ubuntu_fisv_sv"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2044,7 +2044,7 @@ settings.corpora.opus_tatoeba_fisv_sv = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "swe",
-    linked_to: ["opus_tatoeba_fisv_fi"],
+    linkedTo: ["opus_tatoeba_fisv_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2064,7 +2064,7 @@ settings.corpora.opus_tatoeba_fisv_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_tatoeba_fisv_sv"],
+    linkedTo: ["opus_tatoeba_fisv_sv"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2083,7 +2083,7 @@ settings.corpora.opus_opensubtitles_fisv_sv = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "swe",
-    linked_to: ["opus_opensubtitles_fisv_fi"],
+    linkedTo: ["opus_opensubtitles_fisv_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2103,7 +2103,7 @@ settings.corpora.opus_opensubtitles_fisv_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles_fisv_sv"],
+    linkedTo: ["opus_opensubtitles_fisv_sv"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2122,7 +2122,7 @@ settings.corpora.opus_opensubtitles2011_elfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2011_elfi_el"],
+    linkedTo: ["opus_opensubtitles2011_elfi_el"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2141,7 +2141,7 @@ settings.corpora.opus_opensubtitles2011_elfi_el = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "gre",
-    linked_to: ["opus_opensubtitles2011_elfi_fi"],
+    linkedTo: ["opus_opensubtitles2011_elfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2161,7 +2161,7 @@ settings.corpora.opus_opensubtitles2012_elfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2012_elfi_el"],
+    linkedTo: ["opus_opensubtitles2012_elfi_el"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2180,7 +2180,7 @@ settings.corpora.opus_opensubtitles2012_elfi_el = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "gre",
-    linked_to: ["opus_opensubtitles2012_elfi_fi"],
+    linkedTo: ["opus_opensubtitles2012_elfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2200,7 +2200,7 @@ settings.corpora.opus_opensubtitles2013_elfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2013_elfi_el"],
+    linkedTo: ["opus_opensubtitles2013_elfi_el"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2219,7 +2219,7 @@ settings.corpora.opus_opensubtitles2013_elfi_el = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "gre",
-    linked_to: ["opus_opensubtitles2013_elfi_fi"],
+    linkedTo: ["opus_opensubtitles2013_elfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2239,7 +2239,7 @@ settings.corpora.opus_opensubtitles_elfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles_elfi_el"],
+    linkedTo: ["opus_opensubtitles_elfi_el"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2258,7 +2258,7 @@ settings.corpora.opus_opensubtitles_elfi_el = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "gre",
-    linked_to: ["opus_opensubtitles_elfi_fi"],
+    linkedTo: ["opus_opensubtitles_elfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2278,7 +2278,7 @@ settings.corpora.opus_dgt_elfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_dgt_elfi_el"],
+    linkedTo: ["opus_dgt_elfi_el"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2297,7 +2297,7 @@ settings.corpora.opus_dgt_elfi_el = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "gre",
-    linked_to: ["opus_dgt_elfi_fi"],
+    linkedTo: ["opus_dgt_elfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2317,7 +2317,7 @@ settings.corpora.opus_eubookshop_elfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_eubookshop_elfi_el"],
+    linkedTo: ["opus_eubookshop_elfi_el"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2336,7 +2336,7 @@ settings.corpora.opus_eubookshop_elfi_el = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "gre",
-    linked_to: ["opus_eubookshop_elfi_fi"],
+    linkedTo: ["opus_eubookshop_elfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2356,7 +2356,7 @@ settings.corpora.opus_emea_elfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_emea_elfi_el"],
+    linkedTo: ["opus_emea_elfi_el"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2375,7 +2375,7 @@ settings.corpora.opus_emea_elfi_el = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "gre",
-    linked_to: ["opus_emea_elfi_fi"],
+    linkedTo: ["opus_emea_elfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2395,7 +2395,7 @@ settings.corpora.opus_ecb_elfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ecb_elfi_el"],
+    linkedTo: ["opus_ecb_elfi_el"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2414,7 +2414,7 @@ settings.corpora.opus_ecb_elfi_el = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "gre",
-    linked_to: ["opus_ecb_elfi_fi"],
+    linkedTo: ["opus_ecb_elfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2434,7 +2434,7 @@ settings.corpora.opus_kde4_elfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_kde4_elfi_el"],
+    linkedTo: ["opus_kde4_elfi_el"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2453,7 +2453,7 @@ settings.corpora.opus_kde4_elfi_el = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "gre",
-    linked_to: ["opus_kde4_elfi_fi"],
+    linkedTo: ["opus_kde4_elfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2473,7 +2473,7 @@ settings.corpora.opus_gnome_elfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_gnome_elfi_el"],
+    linkedTo: ["opus_gnome_elfi_el"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2492,7 +2492,7 @@ settings.corpora.opus_gnome_elfi_el = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "gre",
-    linked_to: ["opus_gnome_elfi_fi"],
+    linkedTo: ["opus_gnome_elfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2512,7 +2512,7 @@ settings.corpora.opus_euconst_elfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_euconst_elfi_el"],
+    linkedTo: ["opus_euconst_elfi_el"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2531,7 +2531,7 @@ settings.corpora.opus_euconst_elfi_el = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "gre",
-    linked_to: ["opus_euconst_elfi_fi"],
+    linkedTo: ["opus_euconst_elfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2551,7 +2551,7 @@ settings.corpora.opus_ubuntu_elfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ubuntu_elfi_el"],
+    linkedTo: ["opus_ubuntu_elfi_el"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2570,7 +2570,7 @@ settings.corpora.opus_ubuntu_elfi_el = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "gre",
-    linked_to: ["opus_ubuntu_elfi_fi"],
+    linkedTo: ["opus_ubuntu_elfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2590,7 +2590,7 @@ settings.corpora.opus_opensubtitles_defi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles_defi_de"],
+    linkedTo: ["opus_opensubtitles_defi_de"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2609,7 +2609,7 @@ settings.corpora.opus_opensubtitles_defi_de = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "deu",
-    linked_to: ["opus_opensubtitles_defi_fi"],
+    linkedTo: ["opus_opensubtitles_defi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2629,7 +2629,7 @@ settings.corpora.opus_gnome_defi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_gnome_defi_de"],
+    linkedTo: ["opus_gnome_defi_de"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2648,7 +2648,7 @@ settings.corpora.opus_gnome_defi_de = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "deu",
-    linked_to: ["opus_gnome_defi_fi"],
+    linkedTo: ["opus_gnome_defi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2668,7 +2668,7 @@ settings.corpora.opus_euconst_defi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_euconst_defi_de"],
+    linkedTo: ["opus_euconst_defi_de"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2687,7 +2687,7 @@ settings.corpora.opus_euconst_defi_de = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "deu",
-    linked_to: ["opus_euconst_defi_fi"],
+    linkedTo: ["opus_euconst_defi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2707,7 +2707,7 @@ settings.corpora.opus_php_defi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_php_defi_de"],
+    linkedTo: ["opus_php_defi_de"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2726,7 +2726,7 @@ settings.corpora.opus_php_defi_de = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "deu",
-    linked_to: ["opus_php_defi_fi"],
+    linkedTo: ["opus_php_defi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2746,7 +2746,7 @@ settings.corpora.opus_ubuntu_defi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ubuntu_defi_de"],
+    linkedTo: ["opus_ubuntu_defi_de"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2765,7 +2765,7 @@ settings.corpora.opus_ubuntu_defi_de = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "deu",
-    linked_to: ["opus_ubuntu_defi_fi"],
+    linkedTo: ["opus_ubuntu_defi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2785,7 +2785,7 @@ settings.corpora.opus_tatoeba_defi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_tatoeba_defi_de"],
+    linkedTo: ["opus_tatoeba_defi_de"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2804,7 +2804,7 @@ settings.corpora.opus_tatoeba_defi_de = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "deu",
-    linked_to: ["opus_tatoeba_defi_fi"],
+    linkedTo: ["opus_tatoeba_defi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2824,7 +2824,7 @@ settings.corpora.opus_opensubtitles2011_csfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2011_csfi_cs"],
+    linkedTo: ["opus_opensubtitles2011_csfi_cs"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2843,7 +2843,7 @@ settings.corpora.opus_opensubtitles2011_csfi_cs = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "cze",
-    linked_to: ["opus_opensubtitles2011_csfi_fi"],
+    linkedTo: ["opus_opensubtitles2011_csfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2863,7 +2863,7 @@ settings.corpora.opus_opensubtitles2012_csfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2012_csfi_cs"],
+    linkedTo: ["opus_opensubtitles2012_csfi_cs"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2882,7 +2882,7 @@ settings.corpora.opus_opensubtitles2012_csfi_cs = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "cze",
-    linked_to: ["opus_opensubtitles2012_csfi_fi"],
+    linkedTo: ["opus_opensubtitles2012_csfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2902,7 +2902,7 @@ settings.corpora.opus_opensubtitles2013_csfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2013_csfi_cs"],
+    linkedTo: ["opus_opensubtitles2013_csfi_cs"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2921,7 +2921,7 @@ settings.corpora.opus_opensubtitles2013_csfi_cs = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "cze",
-    linked_to: ["opus_opensubtitles2013_csfi_fi"],
+    linkedTo: ["opus_opensubtitles2013_csfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2941,7 +2941,7 @@ settings.corpora.opus_dgt_csfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_dgt_csfi_cs"],
+    linkedTo: ["opus_dgt_csfi_cs"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2960,7 +2960,7 @@ settings.corpora.opus_dgt_csfi_cs = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "cze",
-    linked_to: ["opus_dgt_csfi_fi"],
+    linkedTo: ["opus_dgt_csfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2980,7 +2980,7 @@ settings.corpora.opus_eubookshop_csfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_eubookshop_csfi_cs"],
+    linkedTo: ["opus_eubookshop_csfi_cs"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -2999,7 +2999,7 @@ settings.corpora.opus_eubookshop_csfi_cs = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "cze",
-    linked_to: ["opus_eubookshop_csfi_fi"],
+    linkedTo: ["opus_eubookshop_csfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3019,7 +3019,7 @@ settings.corpora.opus_emea_csfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_emea_csfi_cs"],
+    linkedTo: ["opus_emea_csfi_cs"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3038,7 +3038,7 @@ settings.corpora.opus_emea_csfi_cs = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "cze",
-    linked_to: ["opus_emea_csfi_fi"],
+    linkedTo: ["opus_emea_csfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3058,7 +3058,7 @@ settings.corpora.opus_ecb_csfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ecb_csfi_cs"],
+    linkedTo: ["opus_ecb_csfi_cs"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3077,7 +3077,7 @@ settings.corpora.opus_ecb_csfi_cs = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "cze",
-    linked_to: ["opus_ecb_csfi_fi"],
+    linkedTo: ["opus_ecb_csfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3097,7 +3097,7 @@ settings.corpora.opus_kde4_csfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_kde4_csfi_cs"],
+    linkedTo: ["opus_kde4_csfi_cs"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3116,7 +3116,7 @@ settings.corpora.opus_kde4_csfi_cs = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "cze",
-    linked_to: ["opus_kde4_csfi_fi"],
+    linkedTo: ["opus_kde4_csfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3136,7 +3136,7 @@ settings.corpora.opus_gnome_csfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_gnome_csfi_cs"],
+    linkedTo: ["opus_gnome_csfi_cs"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3155,7 +3155,7 @@ settings.corpora.opus_gnome_csfi_cs = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "cze",
-    linked_to: ["opus_gnome_csfi_fi"],
+    linkedTo: ["opus_gnome_csfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3175,7 +3175,7 @@ settings.corpora.opus_euconst_csfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_euconst_csfi_cs"],
+    linkedTo: ["opus_euconst_csfi_cs"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3194,7 +3194,7 @@ settings.corpora.opus_euconst_csfi_cs = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "cze",
-    linked_to: ["opus_euconst_csfi_fi"],
+    linkedTo: ["opus_euconst_csfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3214,7 +3214,7 @@ settings.corpora.opus_php_csfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_php_csfi_cs"],
+    linkedTo: ["opus_php_csfi_cs"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3233,7 +3233,7 @@ settings.corpora.opus_php_csfi_cs = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "cze",
-    linked_to: ["opus_php_csfi_fi"],
+    linkedTo: ["opus_php_csfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3253,7 +3253,7 @@ settings.corpora.opus_ubuntu_csfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ubuntu_csfi_cs"],
+    linkedTo: ["opus_ubuntu_csfi_cs"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3272,7 +3272,7 @@ settings.corpora.opus_ubuntu_csfi_cs = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "cze",
-    linked_to: ["opus_ubuntu_csfi_fi"],
+    linkedTo: ["opus_ubuntu_csfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3292,7 +3292,7 @@ settings.corpora.opus_opensubtitles2011_finl_nl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dut",
-    linked_to: ["opus_opensubtitles2011_finl_fi"],
+    linkedTo: ["opus_opensubtitles2011_finl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3312,7 +3312,7 @@ settings.corpora.opus_opensubtitles2011_finl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2011_finl_nl"],
+    linkedTo: ["opus_opensubtitles2011_finl_nl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3331,7 +3331,7 @@ settings.corpora.opus_opensubtitles2012_finl_nl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dut",
-    linked_to: ["opus_opensubtitles2012_finl_fi"],
+    linkedTo: ["opus_opensubtitles2012_finl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3351,7 +3351,7 @@ settings.corpora.opus_opensubtitles2012_finl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2012_finl_nl"],
+    linkedTo: ["opus_opensubtitles2012_finl_nl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3370,7 +3370,7 @@ settings.corpora.opus_opensubtitles2013_finl_nl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dut",
-    linked_to: ["opus_opensubtitles2013_finl_fi"],
+    linkedTo: ["opus_opensubtitles2013_finl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3390,7 +3390,7 @@ settings.corpora.opus_opensubtitles2013_finl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2013_finl_nl"],
+    linkedTo: ["opus_opensubtitles2013_finl_nl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3409,7 +3409,7 @@ settings.corpora.opus_dgt_finl_nl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dut",
-    linked_to: ["opus_dgt_finl_fi"],
+    linkedTo: ["opus_dgt_finl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3429,7 +3429,7 @@ settings.corpora.opus_dgt_finl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_dgt_finl_nl"],
+    linkedTo: ["opus_dgt_finl_nl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3448,7 +3448,7 @@ settings.corpora.opus_eubookshop_finl_nl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dut",
-    linked_to: ["opus_eubookshop_finl_fi"],
+    linkedTo: ["opus_eubookshop_finl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3468,7 +3468,7 @@ settings.corpora.opus_eubookshop_finl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_eubookshop_finl_nl"],
+    linkedTo: ["opus_eubookshop_finl_nl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3487,7 +3487,7 @@ settings.corpora.opus_emea_finl_nl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dut",
-    linked_to: ["opus_emea_finl_fi"],
+    linkedTo: ["opus_emea_finl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3507,7 +3507,7 @@ settings.corpora.opus_emea_finl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_emea_finl_nl"],
+    linkedTo: ["opus_emea_finl_nl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3526,7 +3526,7 @@ settings.corpora.opus_ecb_finl_nl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dut",
-    linked_to: ["opus_ecb_finl_fi"],
+    linkedTo: ["opus_ecb_finl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3546,7 +3546,7 @@ settings.corpora.opus_ecb_finl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ecb_finl_nl"],
+    linkedTo: ["opus_ecb_finl_nl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3565,7 +3565,7 @@ settings.corpora.opus_kde4_finl_nl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dut",
-    linked_to: ["opus_kde4_finl_fi"],
+    linkedTo: ["opus_kde4_finl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3585,7 +3585,7 @@ settings.corpora.opus_kde4_finl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_kde4_finl_nl"],
+    linkedTo: ["opus_kde4_finl_nl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3604,7 +3604,7 @@ settings.corpora.opus_gnome_finl_nl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dut",
-    linked_to: ["opus_gnome_finl_fi"],
+    linkedTo: ["opus_gnome_finl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3624,7 +3624,7 @@ settings.corpora.opus_gnome_finl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_gnome_finl_nl"],
+    linkedTo: ["opus_gnome_finl_nl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3643,7 +3643,7 @@ settings.corpora.opus_euconst_finl_nl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dut",
-    linked_to: ["opus_euconst_finl_fi"],
+    linkedTo: ["opus_euconst_finl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3663,7 +3663,7 @@ settings.corpora.opus_euconst_finl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_euconst_finl_nl"],
+    linkedTo: ["opus_euconst_finl_nl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3682,7 +3682,7 @@ settings.corpora.opus_php_finl_nl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dut",
-    linked_to: ["opus_php_finl_fi"],
+    linkedTo: ["opus_php_finl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3702,7 +3702,7 @@ settings.corpora.opus_php_finl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_php_finl_nl"],
+    linkedTo: ["opus_php_finl_nl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3721,7 +3721,7 @@ settings.corpora.opus_ubuntu_finl_nl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dut",
-    linked_to: ["opus_ubuntu_finl_fi"],
+    linkedTo: ["opus_ubuntu_finl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3741,7 +3741,7 @@ settings.corpora.opus_ubuntu_finl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ubuntu_finl_nl"],
+    linkedTo: ["opus_ubuntu_finl_nl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3760,7 +3760,7 @@ settings.corpora.opus_tatoeba_finl_nl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dut",
-    linked_to: ["opus_tatoeba_finl_fi"],
+    linkedTo: ["opus_tatoeba_finl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3780,7 +3780,7 @@ settings.corpora.opus_tatoeba_finl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_tatoeba_finl_nl"],
+    linkedTo: ["opus_tatoeba_finl_nl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3799,7 +3799,7 @@ settings.corpora.opus_opensubtitles2011_firu_ru = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "rus",
-    linked_to: ["opus_opensubtitles2011_firu_fi"],
+    linkedTo: ["opus_opensubtitles2011_firu_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3819,7 +3819,7 @@ settings.corpora.opus_opensubtitles2011_firu_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2011_firu_ru"],
+    linkedTo: ["opus_opensubtitles2011_firu_ru"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3838,7 +3838,7 @@ settings.corpora.opus_kde4_firu_ru = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "rus",
-    linked_to: ["opus_kde4_firu_fi"],
+    linkedTo: ["opus_kde4_firu_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3858,7 +3858,7 @@ settings.corpora.opus_kde4_firu_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_kde4_firu_ru"],
+    linkedTo: ["opus_kde4_firu_ru"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3877,7 +3877,7 @@ settings.corpora.opus_eubookshop_firu_ru = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "rus",
-    linked_to: ["opus_eubookshop_firu_fi"],
+    linkedTo: ["opus_eubookshop_firu_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3897,7 +3897,7 @@ settings.corpora.opus_opensubtitles2012_firu_ru = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "rus",
-    linked_to: ["opus_opensubtitles2012_firu_fi"],
+    linkedTo: ["opus_opensubtitles2012_firu_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3917,7 +3917,7 @@ settings.corpora.opus_opensubtitles2012_firu_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2012_firu_ru"],
+    linkedTo: ["opus_opensubtitles2012_firu_ru"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3936,7 +3936,7 @@ settings.corpora.opus_eubookshop_firu_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_eubookshop_firu_ru"],
+    linkedTo: ["opus_eubookshop_firu_ru"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3955,7 +3955,7 @@ settings.corpora.opus_php_firu_ru = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "rus",
-    linked_to: ["opus_php_firu_fi"],
+    linkedTo: ["opus_php_firu_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3975,7 +3975,7 @@ settings.corpora.opus_php_firu_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_php_firu_ru"],
+    linkedTo: ["opus_php_firu_ru"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -3994,7 +3994,7 @@ settings.corpora.opus_opensubtitles_firu_ru = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "rus",
-    linked_to: ["opus_opensubtitles_firu_fi"],
+    linkedTo: ["opus_opensubtitles_firu_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4014,7 +4014,7 @@ settings.corpora.opus_opensubtitles_firu_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles_firu_ru"],
+    linkedTo: ["opus_opensubtitles_firu_ru"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4033,7 +4033,7 @@ settings.corpora.opus_tatoeba_firu_ru = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "rus",
-    linked_to: ["opus_tatoeba_firu_fi"],
+    linkedTo: ["opus_tatoeba_firu_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4053,7 +4053,7 @@ settings.corpora.opus_tatoeba_firu_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_tatoeba_firu_ru"],
+    linkedTo: ["opus_tatoeba_firu_ru"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4072,7 +4072,7 @@ settings.corpora.opus_ubuntu_firu_ru = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "rus",
-    linked_to: ["opus_ubuntu_firu_fi"],
+    linkedTo: ["opus_ubuntu_firu_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4092,7 +4092,7 @@ settings.corpora.opus_ubuntu_firu_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ubuntu_firu_ru"],
+    linkedTo: ["opus_ubuntu_firu_ru"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4111,7 +4111,7 @@ settings.corpora.opus_gnome_firu_ru = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "rus",
-    linked_to: ["opus_gnome_firu_fi"],
+    linkedTo: ["opus_gnome_firu_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4131,7 +4131,7 @@ settings.corpora.opus_gnome_firu_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_gnome_firu_ru"],
+    linkedTo: ["opus_gnome_firu_ru"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4150,7 +4150,7 @@ settings.corpora.opus_gnome_enfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_gnome_enfi_en"],
+    linkedTo: ["opus_gnome_enfi_en"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4169,7 +4169,7 @@ settings.corpora.opus_gnome_enfi_en = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "en",
-    linked_to: ["opus_gnome_enfi_fi"],
+    linkedTo: ["opus_gnome_enfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4189,7 +4189,7 @@ settings.corpora.opus_euconst_enfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_euconst_enfi_en"],
+    linkedTo: ["opus_euconst_enfi_en"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4208,7 +4208,7 @@ settings.corpora.opus_euconst_enfi_en = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "en",
-    linked_to: ["opus_euconst_enfi_fi"],
+    linkedTo: ["opus_euconst_enfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4228,7 +4228,7 @@ settings.corpora.opus_books_enfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_books_enfi_en"],
+    linkedTo: ["opus_books_enfi_en"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4247,7 +4247,7 @@ settings.corpora.opus_books_enfi_en = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "en",
-    linked_to: ["opus_books_enfi_fi"],
+    linkedTo: ["opus_books_enfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4267,7 +4267,7 @@ settings.corpora.opus_php_enfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_php_enfi_en"],
+    linkedTo: ["opus_php_enfi_en"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4286,7 +4286,7 @@ settings.corpora.opus_php_enfi_en = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "en",
-    linked_to: ["opus_php_enfi_fi"],
+    linkedTo: ["opus_php_enfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4306,7 +4306,7 @@ settings.corpora.opus_ubuntu_enfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ubuntu_enfi_en"],
+    linkedTo: ["opus_ubuntu_enfi_en"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4325,7 +4325,7 @@ settings.corpora.opus_ubuntu_enfi_en = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "en",
-    linked_to: ["opus_ubuntu_enfi_fi"],
+    linkedTo: ["opus_ubuntu_enfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4345,7 +4345,7 @@ settings.corpora.opus_opensubtitles2012_fihu_hu = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "hun",
-    linked_to: ["opus_opensubtitles2012_fihu_fi"],
+    linkedTo: ["opus_opensubtitles2012_fihu_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4365,7 +4365,7 @@ settings.corpora.opus_opensubtitles2012_fihu_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2012_fihu_hu"],
+    linkedTo: ["opus_opensubtitles2012_fihu_hu"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4384,7 +4384,7 @@ settings.corpora.opus_opensubtitles2013_fihu_hu = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "hun",
-    linked_to: ["opus_opensubtitles2013_fihu_fi"],
+    linkedTo: ["opus_opensubtitles2013_fihu_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4404,7 +4404,7 @@ settings.corpora.opus_opensubtitles2013_fihu_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2013_fihu_hu"],
+    linkedTo: ["opus_opensubtitles2013_fihu_hu"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4423,7 +4423,7 @@ settings.corpora.opus_opensubtitles2011_fihu_hu = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "hun",
-    linked_to: ["opus_opensubtitles2011_fihu_fi"],
+    linkedTo: ["opus_opensubtitles2011_fihu_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4443,7 +4443,7 @@ settings.corpora.opus_opensubtitles2011_fihu_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2011_fihu_hu"],
+    linkedTo: ["opus_opensubtitles2011_fihu_hu"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4462,7 +4462,7 @@ settings.corpora.opus_dgt_fihu_hu = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "hun",
-    linked_to: ["opus_dgt_fihu_fi"],
+    linkedTo: ["opus_dgt_fihu_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4482,7 +4482,7 @@ settings.corpora.opus_dgt_fihu_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_dgt_fihu_hu"],
+    linkedTo: ["opus_dgt_fihu_hu"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4501,7 +4501,7 @@ settings.corpora.opus_ecb_fihu_hu = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "hun",
-    linked_to: ["opus_ecb_fihu_fi"],
+    linkedTo: ["opus_ecb_fihu_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4521,7 +4521,7 @@ settings.corpora.opus_ecb_fihu_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ecb_fihu_hu"],
+    linkedTo: ["opus_ecb_fihu_hu"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4540,7 +4540,7 @@ settings.corpora.opus_emea_fihu_hu = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "hun",
-    linked_to: ["opus_emea_fihu_fi"],
+    linkedTo: ["opus_emea_fihu_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4560,7 +4560,7 @@ settings.corpora.opus_emea_fihu_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_emea_fihu_hu"],
+    linkedTo: ["opus_emea_fihu_hu"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4579,7 +4579,7 @@ settings.corpora.opus_eubookshop_fihu_hu = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "hun",
-    linked_to: ["opus_eubookshop_fihu_fi"],
+    linkedTo: ["opus_eubookshop_fihu_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4599,7 +4599,7 @@ settings.corpora.opus_eubookshop_fihu_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_eubookshop_fihu_hu"],
+    linkedTo: ["opus_eubookshop_fihu_hu"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4618,7 +4618,7 @@ settings.corpora.opus_kde4_fihu_hu = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "hun",
-    linked_to: ["opus_kde4_fihu_fi"],
+    linkedTo: ["opus_kde4_fihu_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4638,7 +4638,7 @@ settings.corpora.opus_kde4_fihu_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_kde4_fihu_hu"],
+    linkedTo: ["opus_kde4_fihu_hu"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4657,7 +4657,7 @@ settings.corpora.opus_emea_fiit_it = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "ita",
-    linked_to: ["opus_emea_fiit_fi"],
+    linkedTo: ["opus_emea_fiit_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4677,7 +4677,7 @@ settings.corpora.opus_emea_fiit_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_emea_fiit_it"],
+    linkedTo: ["opus_emea_fiit_it"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4696,7 +4696,7 @@ settings.corpora.opus_ecb_fiit_it = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "ita",
-    linked_to: ["opus_ecb_fiit_fi"],
+    linkedTo: ["opus_ecb_fiit_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4716,7 +4716,7 @@ settings.corpora.opus_ecb_fiit_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ecb_fiit_it"],
+    linkedTo: ["opus_ecb_fiit_it"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4735,7 +4735,7 @@ settings.corpora.opus_opensubtitles2011_fiit_it = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "por",
-    linked_to: ["opus_opensubtitles2011_fiit_fi"],
+    linkedTo: ["opus_opensubtitles2011_fiit_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4755,7 +4755,7 @@ settings.corpora.opus_opensubtitles2011_fiit_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2011_fiit_it"],
+    linkedTo: ["opus_opensubtitles2011_fiit_it"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4774,7 +4774,7 @@ settings.corpora.opus_opensubtitles2013_fiit_it = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "ita",
-    linked_to: ["opus_opensubtitles2013_fiit_fi"],
+    linkedTo: ["opus_opensubtitles2013_fiit_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4794,7 +4794,7 @@ settings.corpora.opus_opensubtitles2013_fiit_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2013_fiit_it"],
+    linkedTo: ["opus_opensubtitles2013_fiit_it"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4813,7 +4813,7 @@ settings.corpora.opus_opensubtitles2012_fiit_it = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "ita",
-    linked_to: ["opus_opensubtitles2012_fiit_fi"],
+    linkedTo: ["opus_opensubtitles2012_fiit_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4833,7 +4833,7 @@ settings.corpora.opus_opensubtitles2012_fiit_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2012_fiit_it"],
+    linkedTo: ["opus_opensubtitles2012_fiit_it"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4852,7 +4852,7 @@ settings.corpora.opus_eubookshop_fiit_it = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "ita",
-    linked_to: ["opus_eubookshop_fiit_fi"],
+    linkedTo: ["opus_eubookshop_fiit_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4872,7 +4872,7 @@ settings.corpora.opus_eubookshop_fiit_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_eubookshop_fiit_it"],
+    linkedTo: ["opus_eubookshop_fiit_it"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4891,7 +4891,7 @@ settings.corpora.opus_dgt_fiit_it = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "ita",
-    linked_to: ["opus_dgt_fiit_fi"],
+    linkedTo: ["opus_dgt_fiit_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4911,7 +4911,7 @@ settings.corpora.opus_dgt_fiit_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_dgt_fiit_it"],
+    linkedTo: ["opus_dgt_fiit_it"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4930,7 +4930,7 @@ settings.corpora.opus_ecb_fipt_pt = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "por",
-    linked_to: ["opus_ecb_fipt_fi"],
+    linkedTo: ["opus_ecb_fipt_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4950,7 +4950,7 @@ settings.corpora.opus_ecb_fipt_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ecb_fipt_pt"],
+    linkedTo: ["opus_ecb_fipt_pt"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4969,7 +4969,7 @@ settings.corpora.opus_emea_fipt_pt = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "por",
-    linked_to: ["opus_emea_fipt_fi"],
+    linkedTo: ["opus_emea_fipt_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -4989,7 +4989,7 @@ settings.corpora.opus_emea_fipt_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_emea_fipt_pt"],
+    linkedTo: ["opus_emea_fipt_pt"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5008,7 +5008,7 @@ settings.corpora.opus_opensubtitles2011_fipt_pt = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "por",
-    linked_to: ["opus_opensubtitles2011_fipt_fi"],
+    linkedTo: ["opus_opensubtitles2011_fipt_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5028,7 +5028,7 @@ settings.corpora.opus_opensubtitles2011_fipt_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2011_fipt_pt"],
+    linkedTo: ["opus_opensubtitles2011_fipt_pt"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5047,7 +5047,7 @@ settings.corpora.opus_opensubtitles2013_fipt_pt = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "por",
-    linked_to: ["opus_opensubtitles2013_fipt_fi"],
+    linkedTo: ["opus_opensubtitles2013_fipt_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5067,7 +5067,7 @@ settings.corpora.opus_opensubtitles2013_fipt_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2013_fipt_pt"],
+    linkedTo: ["opus_opensubtitles2013_fipt_pt"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5088,7 +5088,7 @@ settings.corpora.opus_eubookshop_fipt_pt = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "por",
-    linked_to: ["opus_eubookshop_fipt_fi"],
+    linkedTo: ["opus_eubookshop_fipt_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5108,7 +5108,7 @@ settings.corpora.opus_eubookshop_fipt_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_eubookshop_fipt_pt"],
+    linkedTo: ["opus_eubookshop_fipt_pt"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5127,7 +5127,7 @@ settings.corpora.opus_opensubtitles_fipt_pt = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "por",
-    linked_to: ["opus_opensubtitles_fipt_fi"],
+    linkedTo: ["opus_opensubtitles_fipt_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5147,7 +5147,7 @@ settings.corpora.opus_opensubtitles_fipt_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles_fipt_pt"],
+    linkedTo: ["opus_opensubtitles_fipt_pt"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5166,7 +5166,7 @@ settings.corpora.opus_dgt_fipt_pt = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "por",
-    linked_to: ["opus_dgt_fipt_fi"],
+    linkedTo: ["opus_dgt_fipt_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5186,7 +5186,7 @@ settings.corpora.opus_dgt_fipt_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_dgt_fipt_pt"],
+    linkedTo: ["opus_dgt_fipt_pt"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5205,7 +5205,7 @@ settings.corpora.opus_opensubtitles2011_etfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2011_etfi_et"],
+    linkedTo: ["opus_opensubtitles2011_etfi_et"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5224,7 +5224,7 @@ settings.corpora.opus_opensubtitles2011_etfi_et = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "est",
-    linked_to: ["opus_opensubtitles2011_etfi_fi"],
+    linkedTo: ["opus_opensubtitles2011_etfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5244,7 +5244,7 @@ settings.corpora.opus_emea_etfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_emea_etfi_et"],
+    linkedTo: ["opus_emea_etfi_et"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5262,7 +5262,7 @@ settings.corpora.opus_kde4_etfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_kde4_etfi_et"],
+    linkedTo: ["opus_kde4_etfi_et"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5281,7 +5281,7 @@ settings.corpora.opus_kde4_etfi_et = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "est",
-    linked_to: ["opus_kde4_etfi_fi"],
+    linkedTo: ["opus_kde4_etfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5301,7 +5301,7 @@ settings.corpora.opus_emea_etfi_et = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "est",
-    linked_to: ["opus_emea_etfi_fi"],
+    linkedTo: ["opus_emea_etfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5321,7 +5321,7 @@ settings.corpora.opus_dgt_etfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_dgt_etfi_et"],
+    linkedTo: ["opus_dgt_etfi_et"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5340,7 +5340,7 @@ settings.corpora.opus_dgt_etfi_et = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "est",
-    linked_to: ["opus_dgt_etfi_fi"],
+    linkedTo: ["opus_dgt_etfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5360,7 +5360,7 @@ settings.corpora.opus_opensubtitles2012_etfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2012_etfi_et"],
+    linkedTo: ["opus_opensubtitles2012_etfi_et"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5379,7 +5379,7 @@ settings.corpora.opus_opensubtitles2012_etfi_et = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "est",
-    linked_to: ["opus_opensubtitles2012_etfi_fi"],
+    linkedTo: ["opus_opensubtitles2012_etfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5398,7 +5398,7 @@ settings.corpora.opus_opensubtitles2013_etfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2013_etfi_et"],
+    linkedTo: ["opus_opensubtitles2013_etfi_et"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5417,7 +5417,7 @@ settings.corpora.opus_opensubtitles2013_etfi_et = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "est",
-    linked_to: ["opus_opensubtitles2013_etfi_fi"],
+    linkedTo: ["opus_opensubtitles2013_etfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5437,7 +5437,7 @@ settings.corpora.opus_emea_fipl_pl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "pol",
-    linked_to: ["opus_emea_fipl_fi"],
+    linkedTo: ["opus_emea_fipl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5457,7 +5457,7 @@ settings.corpora.opus_emea_fipl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fim",
-    linked_to: ["opus_emea_fipl_pl"],
+    linkedTo: ["opus_emea_fipl_pl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5476,7 +5476,7 @@ settings.corpora.opus_ecb_fipl_pl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "pol",
-    linked_to: ["opus_ecb_fipl_fi"],
+    linkedTo: ["opus_ecb_fipl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5496,7 +5496,7 @@ settings.corpora.opus_ecb_fipl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fim",
-    linked_to: ["opus_ecb_fipl_pl"],
+    linkedTo: ["opus_ecb_fipl_pl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5515,7 +5515,7 @@ settings.corpora.opus_dgt_fipl_pl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "pol",
-    linked_to: ["opus_dgt_fipl_fi"],
+    linkedTo: ["opus_dgt_fipl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5535,7 +5535,7 @@ settings.corpora.opus_dgt_fipl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_dgt_fipl_pl"],
+    linkedTo: ["opus_dgt_fipl_pl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5554,7 +5554,7 @@ settings.corpora.opus_opensubtitles2012_fipl_pl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "pol",
-    linked_to: ["opus_opensubtitles2012_fipl_fi"],
+    linkedTo: ["opus_opensubtitles2012_fipl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5574,7 +5574,7 @@ settings.corpora.opus_opensubtitles2012_fipl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2012_fipl_pl"],
+    linkedTo: ["opus_opensubtitles2012_fipl_pl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5593,7 +5593,7 @@ settings.corpora.opus_opensubtitles2013_fipl_pl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "pol",
-    linked_to: ["opus_opensubtitles2013_fipl_fi"],
+    linkedTo: ["opus_opensubtitles2013_fipl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5613,7 +5613,7 @@ settings.corpora.opus_opensubtitles2013_fipl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2013_fipl_pl"],
+    linkedTo: ["opus_opensubtitles2013_fipl_pl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5632,7 +5632,7 @@ settings.corpora.opus_opensubtitles2011_fipl_pl = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "pol",
-    linked_to: ["opus_opensubtitles2011_fipl_fi"],
+    linkedTo: ["opus_opensubtitles2011_fipl_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5652,7 +5652,7 @@ settings.corpora.opus_opensubtitles2011_fipl_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2011_fipl_pl"],
+    linkedTo: ["opus_opensubtitles2011_fipl_pl"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5671,7 +5671,7 @@ settings.corpora.opus_dgt_dafi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_dgt_dafi_da"],
+    linkedTo: ["opus_dgt_dafi_da"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5690,7 +5690,7 @@ settings.corpora.opus_dgt_dafi_da = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dan",
-    linked_to: ["opus_dgt_dafi_fi"],
+    linkedTo: ["opus_dgt_dafi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5710,7 +5710,7 @@ settings.corpora.opus_eubookshop_dafi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_eubookshop_dafi_da"],
+    linkedTo: ["opus_eubookshop_dafi_da"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5729,7 +5729,7 @@ settings.corpora.opus_eubookshop_dafi_da = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dan",
-    linked_to: ["opus_eubookshop_dafi_fi"],
+    linkedTo: ["opus_eubookshop_dafi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5749,7 +5749,7 @@ settings.corpora.opus_opensubtitles2012_dafi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2012_dafi_da"],
+    linkedTo: ["opus_opensubtitles2012_dafi_da"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5768,7 +5768,7 @@ settings.corpora.opus_opensubtitles2012_dafi_da = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dan",
-    linked_to: ["opus_opensubtitles2012_dafi_fi"],
+    linkedTo: ["opus_opensubtitles2012_dafi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5788,7 +5788,7 @@ settings.corpora.opus_opensubtitles2013_dafi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2013_dafi_da"],
+    linkedTo: ["opus_opensubtitles2013_dafi_da"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5807,7 +5807,7 @@ settings.corpora.opus_opensubtitles2013_dafi_da = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dan",
-    linked_to: ["opus_opensubtitles2013_dafi_fi"],
+    linkedTo: ["opus_opensubtitles2013_dafi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5827,7 +5827,7 @@ settings.corpora.opus_kde4_dafi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_kde4_dafi_da"],
+    linkedTo: ["opus_kde4_dafi_da"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5846,7 +5846,7 @@ settings.corpora.opus_kde4_dafi_da = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dan",
-    linked_to: ["opus_kde4_dafi_fi"],
+    linkedTo: ["opus_kde4_dafi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5866,7 +5866,7 @@ settings.corpora.opus_ecb_dafi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ecb_dafi_da"],
+    linkedTo: ["opus_ecb_dafi_da"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5885,7 +5885,7 @@ settings.corpora.opus_ecb_dafi_da = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "dan",
-    linked_to: ["opus_ecb_dafi_fi"],
+    linkedTo: ["opus_ecb_dafi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5906,7 +5906,7 @@ settings.corpora.opus_dgt_esfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_dgt_esfi_es"],
+    linkedTo: ["opus_dgt_esfi_es"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5925,7 +5925,7 @@ settings.corpora.opus_dgt_esfi_es = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "spa",
-    linked_to: ["opus_dgt_esfi_fi"],
+    linkedTo: ["opus_dgt_esfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5945,7 +5945,7 @@ settings.corpora.opus_opensubtitles2012_esfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2012_esfi_es"],
+    linkedTo: ["opus_opensubtitles2012_esfi_es"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5964,7 +5964,7 @@ settings.corpora.opus_opensubtitles2012_esfi_es = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "spa",
-    linked_to: ["opus_opensubtitles2012_esfi_fi"],
+    linkedTo: ["opus_opensubtitles2012_esfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -5984,7 +5984,7 @@ settings.corpora.opus_opensubtitles2013_esfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2013_esfi_es"],
+    linkedTo: ["opus_opensubtitles2013_esfi_es"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6003,7 +6003,7 @@ settings.corpora.opus_opensubtitles2013_esfi_es = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "spa",
-    linked_to: ["opus_opensubtitles2013_esfi_fi"],
+    linkedTo: ["opus_opensubtitles2013_esfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6023,7 +6023,7 @@ settings.corpora.opus_eubookshop_esfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_eubookshop_esfi_es"],
+    linkedTo: ["opus_eubookshop_esfi_es"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6042,7 +6042,7 @@ settings.corpora.opus_eubookshop_esfi_es = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "spa",
-    linked_to: ["opus_eubookshop_esfi_fi"],
+    linkedTo: ["opus_eubookshop_esfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6062,7 +6062,7 @@ settings.corpora.opus_ecb_fifr_fr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fra",
-    linked_to: ["opus_ecb_fifr_fi"],
+    linkedTo: ["opus_ecb_fifr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6082,7 +6082,7 @@ settings.corpora.opus_ecb_fifr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ecb_fifr_fr"],
+    linkedTo: ["opus_ecb_fifr_fr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6101,7 +6101,7 @@ settings.corpora.opus_emea_fifr_fr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fra",
-    linked_to: ["opus_emea_fifr_fi"],
+    linkedTo: ["opus_emea_fifr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6121,7 +6121,7 @@ settings.corpora.opus_emea_fifr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_emea_fifr_fr"],
+    linkedTo: ["opus_emea_fifr_fr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6140,7 +6140,7 @@ settings.corpora.opus_opensubtitles2013_fifr_fr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fra",
-    linked_to: ["opus_opensubtitles2013_fifr_fi"],
+    linkedTo: ["opus_opensubtitles2013_fifr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6160,7 +6160,7 @@ settings.corpora.opus_opensubtitles2013_fifr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2013_fifr_fr"],
+    linkedTo: ["opus_opensubtitles2013_fifr_fr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6179,7 +6179,7 @@ settings.corpora.opus_opensubtitles2011_fifr_fr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fra",
-    linked_to: ["opus_opensubtitles2011_fifr_fi"],
+    linkedTo: ["opus_opensubtitles2011_fifr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6199,7 +6199,7 @@ settings.corpora.opus_opensubtitles2011_fifr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2011_fifr_fr"],
+    linkedTo: ["opus_opensubtitles2011_fifr_fr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6218,7 +6218,7 @@ settings.corpora.opus_eubookshop_fifr_fr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fra",
-    linked_to: ["opus_eubookshop_fifr_fi"],
+    linkedTo: ["opus_eubookshop_fifr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6238,7 +6238,7 @@ settings.corpora.opus_eubookshop_fifr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_eubookshop_fifr_fr"],
+    linkedTo: ["opus_eubookshop_fifr_fr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6257,7 +6257,7 @@ settings.corpora.opus_dgt_fifr_fr = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fra",
-    linked_to: ["opus_dgt_fifr_fi"],
+    linkedTo: ["opus_dgt_fifr_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6277,7 +6277,7 @@ settings.corpora.opus_dgt_fifr_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_dgt_fifr_fr"],
+    linkedTo: ["opus_dgt_fifr_fr"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6296,7 +6296,7 @@ settings.corpora.opus_kde4_defi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_kde4_defi_de"],
+    linkedTo: ["opus_kde4_defi_de"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6315,7 +6315,7 @@ settings.corpora.opus_kde4_defi_de = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "deu",
-    linked_to: ["opus_kde4_defi_fi"],
+    linkedTo: ["opus_kde4_defi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6336,7 +6336,7 @@ settings.corpora.opus_emea_defi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_emea_defi_de"],
+    linkedTo: ["opus_emea_defi_de"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6355,7 +6355,7 @@ settings.corpora.opus_emea_defi_de = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "deu",
-    linked_to: ["opus_emea_defi_fi"],
+    linkedTo: ["opus_emea_defi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6375,7 +6375,7 @@ settings.corpora.opus_ecb_defi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ecb_defi_de"],
+    linkedTo: ["opus_ecb_defi_de"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6394,7 +6394,7 @@ settings.corpora.opus_ecb_defi_de = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "deu",
-    linked_to: ["opus_ecb_defi_fi"],
+    linkedTo: ["opus_ecb_defi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6414,7 +6414,7 @@ settings.corpora.opus_dgt_defi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_dgt_defi_de"],
+    linkedTo: ["opus_dgt_defi_de"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6433,7 +6433,7 @@ settings.corpora.opus_dgt_defi_de = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "deu",
-    linked_to: ["opus_dgt_defi_fi"],
+    linkedTo: ["opus_dgt_defi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6453,7 +6453,7 @@ settings.corpora.opus_opensubtitles2013_defi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2013_defi_de"],
+    linkedTo: ["opus_opensubtitles2013_defi_de"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6472,7 +6472,7 @@ settings.corpora.opus_opensubtitles2013_defi_de = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "deu",
-    linked_to: ["opus_opensubtitles2013_defi_fi"],
+    linkedTo: ["opus_opensubtitles2013_defi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6492,7 +6492,7 @@ settings.corpora.opus_opensubtitles2011_defi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2011_defi_de"],
+    linkedTo: ["opus_opensubtitles2011_defi_de"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6511,7 +6511,7 @@ settings.corpora.opus_opensubtitles2011_defi_de = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "deu",
-    linked_to: ["opus_opensubtitles2011_defi_fi"],
+    linkedTo: ["opus_opensubtitles2011_defi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6531,7 +6531,7 @@ settings.corpora.opus_opensubtitles2012_defi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2012_defi_de"],
+    linkedTo: ["opus_opensubtitles2012_defi_de"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6550,7 +6550,7 @@ settings.corpora.opus_opensubtitles2012_defi_de = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "deu",
-    linked_to: ["opus_opensubtitles2012_defi_fi"],
+    linkedTo: ["opus_opensubtitles2012_defi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6570,7 +6570,7 @@ settings.corpora.opus_eubookshop_defi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_eubookshop_defi_de"],
+    linkedTo: ["opus_eubookshop_defi_de"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6589,7 +6589,7 @@ settings.corpora.opus_eubookshop_defi_de = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "deu",
-    linked_to: ["opus_eubookshop_defi_fi"],
+    linkedTo: ["opus_eubookshop_defi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6609,7 +6609,7 @@ settings.corpora.opus_dgt_fisv_sv = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "swe",
-    linked_to: ["opus_dgt_fisv_fi"],
+    linkedTo: ["opus_dgt_fisv_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6629,7 +6629,7 @@ settings.corpora.opus_dgt_fisv_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_dgt_fisv_sv"],
+    linkedTo: ["opus_dgt_fisv_sv"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6648,7 +6648,7 @@ settings.corpora.opus_eubookshop_fisv_sv = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "swe",
-    linked_to: ["opus_eubookshop_fisv_fi"],
+    linkedTo: ["opus_eubookshop_fisv_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6668,7 +6668,7 @@ settings.corpora.opus_eubookshop_fisv_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_eubookshop_fisv_sv"],
+    linkedTo: ["opus_eubookshop_fisv_sv"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6685,7 +6685,7 @@ settings.corpora.opus_opensubtitles2012_fisv_fi = {
     description: "OpenSubtitles 2012",
     id: "opus_opensubtitles2012_fisv_fi",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2012_fisv_sv"],
+    linkedTo: ["opus_opensubtitles2012_fisv_sv"],
     context: context.alignAligned,
     within: {"sentence":"sentence"},
     attributes: {},
@@ -6699,7 +6699,7 @@ settings.corpora.opus_opensubtitles2012_fisv_sv = {
     description: "OpenSubtitles2012 SV",
     id: "opus_opensubtitles2012_fisv_sv",
     lang: "swe",
-    linked_to: ["opus_opensubtitles2012_fisv_fi"],
+    linkedTo: ["opus_opensubtitles2012_fisv_fi"],
     context: context.alignAligned,
     within: {"sentence":"sentence"},
     attributes: {},
@@ -6714,7 +6714,7 @@ settings.corpora.opus_opensubtitles2013_fisv_fi = {
     description: "OpenSubtitles 2013",
     id: "opus_opensubtitles2013_fisv_fi",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2013_fisv_sv"],
+    linkedTo: ["opus_opensubtitles2013_fisv_sv"],
     context: context.alignAligned,
     within: {"sentence":"sentence"},
     attributes: {},
@@ -6728,7 +6728,7 @@ settings.corpora.opus_opensubtitles2013_fisv_sv = {
     description: "OpenSubtitles2013 SV",
     id: "opus_opensubtitles2013_fisv_sv",
     lang: "swe",
-    linked_to: ["opus_opensubtitles2013_fisv_fi"],
+    linkedTo: ["opus_opensubtitles2013_fisv_fi"],
     context: context.alignAligned,
     within: {"sentence":"sentence"},
     attributes: {},
@@ -6743,7 +6743,7 @@ settings.corpora.opus_opensubtitles2011_fisv_fi = {
     description: "OpenSubtitles 2011",
     id: "opus_opensubtitles2011_fisv_fi",
     lang: "fin",
-    linked_to: ["opus_opensubtitles2011_fisv_sv"],
+    linkedTo: ["opus_opensubtitles2011_fisv_sv"],
     context: context.alignAligned,
     within: {"sentence":"sentence"},
     attributes: {},
@@ -6757,7 +6757,7 @@ settings.corpora.opus_opensubtitles2011_fisv_sv = {
     description: "OpenSubtitles2011 SV",
     id: "opus_opensubtitles2011_fisv_sv",
     lang: "swe",
-    linked_to: ["opus_opensubtitles2011_fisv_fi"],
+    linkedTo: ["opus_opensubtitles2011_fisv_fi"],
     context: context.alignAligned,
     within: {"sentence":"sentence"},
     attributes: {},
@@ -6774,7 +6774,7 @@ settings.corpora.opus_kde4_fisv_sv = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "swe",
-    linked_to: ["opus_kde4_fisv_fi"],
+    linkedTo: ["opus_kde4_fisv_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6794,7 +6794,7 @@ settings.corpora.opus_kde4_fisv_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_kde4_fisv_sv"],
+    linkedTo: ["opus_kde4_fisv_sv"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6814,7 +6814,7 @@ settings.corpora.opus_dgt_enfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_dgt_enfi_en"],
+    linkedTo: ["opus_dgt_enfi_en"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6833,7 +6833,7 @@ settings.corpora.opus_dgt_enfi_en = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "eng",
-    linked_to: ["opus_dgt_enfi_fi"],
+    linkedTo: ["opus_dgt_enfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6853,7 +6853,7 @@ settings.corpora.opus_emea_enfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_emea_enfi_en"],
+    linkedTo: ["opus_emea_enfi_en"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6872,7 +6872,7 @@ settings.corpora.opus_emea_enfi_en = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "eng",
-    linked_to: ["opus_emea_enfi_fi"],
+    linkedTo: ["opus_emea_enfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6892,7 +6892,7 @@ settings.corpora.opus_emea_fisv_sv = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "swe",
-    linked_to: ["opus_emea_fisv_fi"],
+    linkedTo: ["opus_emea_fisv_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6912,7 +6912,7 @@ settings.corpora.opus_emea_fisv_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_emea_fisv_sv"],
+    linkedTo: ["opus_emea_fisv_sv"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6931,7 +6931,7 @@ settings.corpora.opus_opensub2013enfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensub2013enfi_en"],
+    linkedTo: ["opus_opensub2013enfi_en"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6950,7 +6950,7 @@ settings.corpora.opus_opensub2013enfi_en = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "eng",
-    linked_to: ["opus_opensub2013enfi_fi"],
+    linkedTo: ["opus_opensub2013enfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6968,7 +6968,7 @@ settings.corpora.opus_opensub2015enfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensub2015enfi_en"],
+    linkedTo: ["opus_opensub2015enfi_en"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -6987,7 +6987,7 @@ settings.corpora.opus_opensub2015enfi_en = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "eng",
-    linked_to: ["opus_opensub2015enfi_fi"],
+    linkedTo: ["opus_opensub2015enfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -7007,7 +7007,7 @@ settings.corpora.opus_opensub2011enfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensub2011enfi_en"],
+    linkedTo: ["opus_opensub2011enfi_en"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -7026,7 +7026,7 @@ settings.corpora.opus_opensub2011enfi_en = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "eng",
-    linked_to: ["opus_opensub2011enfi_fi"],
+    linkedTo: ["opus_opensub2011enfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -7046,7 +7046,7 @@ settings.corpora.opus_opensub2012enfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_opensub2012enfi_en"],
+    linkedTo: ["opus_opensub2012enfi_en"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -7065,7 +7065,7 @@ settings.corpora.opus_opensub2012enfi_en = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "eng",
-    linked_to: ["opus_opensub2012enfi_fi"],
+    linkedTo: ["opus_opensub2012enfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -7085,7 +7085,7 @@ settings.corpora.opus_ecb_enfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_ecb_enfi_en"],
+    linkedTo: ["opus_ecb_enfi_en"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -7104,7 +7104,7 @@ settings.corpora.opus_ecb_enfi_en = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "eng",
-    linked_to: ["opus_ecb_enfi_fi"],
+    linkedTo: ["opus_ecb_enfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -7124,7 +7124,7 @@ settings.corpora.opus_eubookshop_enfi_en = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "eng",
-    linked_to: ["opus_eubookshop_enfi_fi"],
+    linkedTo: ["opus_eubookshop_enfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -7144,7 +7144,7 @@ settings.corpora.opus_eubookshop_enfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_eubookshop_enfi_en"],
+    linkedTo: ["opus_eubookshop_enfi_en"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -7163,7 +7163,7 @@ settings.corpora.opus_tatoeba_enfi_fi = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "fin",
-    linked_to: ["opus_tatoeba_enfi_en"],
+    linkedTo: ["opus_tatoeba_enfi_en"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -7182,7 +7182,7 @@ settings.corpora.opus_tatoeba_enfi_en = {
     urn: "urn_placeholder",
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "eng",
-    linked_to: ["opus_tatoeba_enfi_fi"],
+    linkedTo: ["opus_tatoeba_enfi_fi"],
     context: context.alignAligned,
     within: {
 	"sentence": "sentence"
@@ -7204,7 +7204,7 @@ settings.corpora.europarl_v7_enfi_en = {
     urn: "urn:nbn:fi:lb-2015042002",
     metadata_urn: "urn:nbn:fi:lb-2015042001",
     lang: "eng",
-    linked_to: ["europarl_v7_enfi_fi"],
+    linkedTo: ["europarl_v7_enfi_fi"],
     context: context.defaultAligned,
     within: {
         "sentence": "sentence"
@@ -7225,7 +7225,7 @@ settings.corpora.europarl_v7_etfi_et = {
     urn: "urn:nbn:fi:lb-2015042002",
     metadata_urn: "urn:nbn:fi:lb-2015042001",
     lang: "est",
-    linked_to: ["europarl_v7_etfi_fi"],
+    linkedTo: ["europarl_v7_etfi_fi"],
     context: context.defaultAligned,
     within: {
         "sentence": "sentence"
@@ -7245,7 +7245,7 @@ settings.corpora.europarl_v7_esfi_es = {
     urn: "urn:nbn:fi:lb-2015042002",
     metadata_urn: "urn:nbn:fi:lb-2015042001",
     lang: "spa",
-    linked_to: ["europarl_v7_esfi_fi"],
+    linkedTo: ["europarl_v7_esfi_fi"],
     context: context.defaultAligned,
     within: {
         "sentence": "sentence"
@@ -7265,7 +7265,7 @@ settings.corpora.europarl_v7_frfi_fr = {
     urn: "urn:nbn:fi:lb-2015042002",
     metadata_urn: "urn:nbn:fi:lb-2015042001",
     lang: "fra",
-    linked_to: ["europarl_v7_frfi_fi"],
+    linkedTo: ["europarl_v7_frfi_fi"],
     context: context.defaultAligned,
     within: {
         "sentence": "sentence"
@@ -7285,7 +7285,7 @@ settings.corpora.europarl_v7_defi_de = {
     urn: "urn:nbn:fi:lb-2015042002",
     metadata_urn: "urn:nbn:fi:lb-2015042001",
     lang: "deu",
-    linked_to: ["europarl_v7_defi_fi"],
+    linkedTo: ["europarl_v7_defi_fi"],
     context: context.defaultAligned,
     within: {
         "sentence": "sentence"
@@ -7305,7 +7305,7 @@ settings.corpora.europarl_v7_svfi_sv = {
     urn: "urn:nbn:fi:lb-2015042002",
     metadata_urn: "urn:nbn:fi:lb-2015042001",
     lang: "swe",
-    linked_to: ["europarl_v7_svfi_fi"],
+    linkedTo: ["europarl_v7_svfi_fi"],
     context: context.defaultAligned,
     within: {
         "sentence": "sentence"
@@ -7325,7 +7325,7 @@ settings.corpora.europarl_v7_etfi_fi = {
     urn: "urn:nbn:fi:lb-2015042002",
     metadata_urn: "urn:nbn:fi:lb-2015042001",
     lang: "fin",
-    linked_to: ["europarl_v7_etfi_et"],
+    linkedTo: ["europarl_v7_etfi_et"],
     context: context.defaultAligned,
     within: {
         "sentence": "sentence"
@@ -7344,7 +7344,7 @@ settings.corpora.europarl_v7_esfi_fi = {
     urn: "urn:nbn:fi:lb-2015042002",
     metadata_urn: "urn:nbn:fi:lb-2015042001",
     lang: "fin",
-    linked_to: ["europarl_v7_esfi_es"],
+    linkedTo: ["europarl_v7_esfi_es"],
     context: context.defaultAligned,
     within: {
         "sentence": "sentence"
@@ -7363,7 +7363,7 @@ settings.corpora.europarl_v7_frfi_fi = {
     urn: "urn:nbn:fi:lb-2015042002",
     metadata_urn: "urn:nbn:fi:lb-2015042001",
     lang: "fin",
-    linked_to: ["europarl_v7_frfi_fr"],
+    linkedTo: ["europarl_v7_frfi_fr"],
     context: context.defaultAligned,
     within: {
         "sentence": "sentence"
@@ -7382,7 +7382,7 @@ settings.corpora.europarl_v7_defi_fi = {
     urn: "urn:nbn:fi:lb-2015042002",
     metadata_urn: "urn:nbn:fi:lb-2015042001",
     lang: "fin",
-    linked_to: ["europarl_v7_defi_de"],
+    linkedTo: ["europarl_v7_defi_de"],
     context: context.defaultAligned,
     within: {
         "sentence": "sentence"
@@ -7401,7 +7401,7 @@ settings.corpora.europarl_v7_enfi_fi = {
     urn: "urn:nbn:fi:lb-2015042002",
     metadata_urn: "urn:nbn:fi:lb-2015042001",
     lang: "fin",
-    linked_to: ["europarl_v7_enfi_en"],
+    linkedTo: ["europarl_v7_enfi_en"],
     context: context.defaultAligned,
     within: {
         "sentence": "sentence"
@@ -7420,7 +7420,7 @@ settings.corpora.europarl_v7_svfi_fi = {
     urn: "urn:nbn:fi:lb-2015042002",
     metadata_urn: "urn:nbn:fi:lb-2015042001",
     lang: "fin",
-    linked_to: ["europarl_v7_svfi_sv"],
+    linkedTo: ["europarl_v7_svfi_sv"],
     context: context.defaultAligned,
     within: {
         "sentence": "sentence"
@@ -7442,7 +7442,7 @@ settings.corpora.jrc_acquis_enfi_en = {
     urn: "urn:nbn:fi:lb-2015062302",
     metadata_urn: "urn:nbn:fi:lb-2015061201",
     lang: "eng",
-    linked_to: ["jrc_acquis_enfi_fi"],
+    linkedTo: ["jrc_acquis_enfi_fi"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7462,7 +7462,7 @@ settings.corpora.jrc_acquis_enfi_fi = {
     urn: "urn:nbn:fi:lb-2015062302",
     metadata_urn: "urn:nbn:fi:lb-2015061201",
     lang: "fin",
-    linked_to: ["jrc_acquis_enfi_en"],
+    linkedTo: ["jrc_acquis_enfi_en"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7482,7 +7482,7 @@ settings.corpora.jrc_acquis_hufi_hu = {
     urn: "urn:nbn:fi:lb-2015062309",
     metadata_urn: "urn:nbn:fi:lb-2015061205",
     lang: "hun",
-    linked_to: ["jrc_acquis_hufi_fi"],
+    linkedTo: ["jrc_acquis_hufi_fi"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7502,7 +7502,7 @@ settings.corpora.jrc_acquis_hufi_fi = {
     urn: "urn:nbn:fi:lb-2015062309",
     metadata_urn: "urn:nbn:fi:lb-2015061205",
     lang: "fin",
-    linked_to: ["jrc_acquis_hufi_hu"],
+    linkedTo: ["jrc_acquis_hufi_hu"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7521,7 +7521,7 @@ settings.corpora.jrc_acquis_frfi_fr = {
     urn: "urn:nbn:fi:lb-2015062307",
     metadata_urn: "urn:nbn:fi:lb-2015061203",
     lang: "fra",
-    linked_to: ["jrc_acquis_frfi_fi"],
+    linkedTo: ["jrc_acquis_frfi_fi"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7541,7 +7541,7 @@ settings.corpora.jrc_acquis_frfi_fi = {
     urn: "urn:nbn:fi:lb-2015062307",
     metadata_urn: "urn:nbn:fi:lb-2015061203",
     lang: "fin",
-    linked_to: ["jrc_acquis_frfi_fr"],
+    linkedTo: ["jrc_acquis_frfi_fr"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7560,7 +7560,7 @@ settings.corpora.jrc_acquis_plfi_pl = {
     urn: "urn:nbn:fi:lb-2015062310",
     metadata_urn: "urn:nbn:fi:lb-2015061207",
     lang: "pol",
-    linked_to: ["jrc_acquis_plfi_fi"],
+    linkedTo: ["jrc_acquis_plfi_fi"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7580,7 +7580,7 @@ settings.corpora.jrc_acquis_plfi_fi = {
     urn: "urn:nbn:fi:lb-2015062310",
     metadata_urn: "urn:nbn:fi:lb-2015061207",
     lang: "fin",
-    linked_to: ["jrc_acquis_plfi_pl"],
+    linkedTo: ["jrc_acquis_plfi_pl"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7599,7 +7599,7 @@ settings.corpora.jrc_acquis_itfi_it = {
     urn: "urn:nbn:fi:lb-2015062308",
     metadata_urn: "urn:nbn:fi:lb-2015061206",
     lang: "ita",
-    linked_to: ["jrc_acquis_itfi_fi"],
+    linkedTo: ["jrc_acquis_itfi_fi"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7619,7 +7619,7 @@ settings.corpora.jrc_acquis_itfi_fi = {
     urn: "urn:nbn:fi:lb-2015062308",
     metadata_urn: "urn:nbn:fi:lb-2015061206",
     lang: "fin",
-    linked_to: ["jrc_acquis_itfi_it"],
+    linkedTo: ["jrc_acquis_itfi_it"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7638,7 +7638,7 @@ settings.corpora.jrc_acquis_esfi_es = {
     urn: "urn:nbn:fi:lb-2015062305",
     metadata_urn: "urn:nbn:fi:lb-2015061208",
     lang: "spa",
-    linked_to: ["jrc_acquis_esfi_fi"],
+    linkedTo: ["jrc_acquis_esfi_fi"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7658,7 +7658,7 @@ settings.corpora.jrc_acquis_esfi_fi = {
     urn: "urn:nbn:fi:lb-2015062305",
     metadata_urn: "urn:nbn:fi:lb-2015061208",
     lang: "fin",
-    linked_to: ["jrc_acquis_esfi_es"],
+    linkedTo: ["jrc_acquis_esfi_es"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7677,7 +7677,7 @@ settings.corpora.jrc_acquis_etfi_et = {
     urn: "urn:nbn:fi:lb-2015062306",
     metadata_urn: "urn:nbn:fi:lb-2015061202",
     lang: "est",
-    linked_to: ["jrc_acquis_etfi_fi"],
+    linkedTo: ["jrc_acquis_etfi_fi"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7697,7 +7697,7 @@ settings.corpora.jrc_acquis_etfi_fi = {
     urn: "urn:nbn:fi:lb-2015062306",
     metadata_urn: "urn:nbn:fi:lb-2015061202",
     lang: "fin",
-    linked_to: ["jrc_acquis_etfi_et"],
+    linkedTo: ["jrc_acquis_etfi_et"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7716,7 +7716,7 @@ settings.corpora.jrc_acquis_defi_de = {
     urn: "urn:nbn:fi:lb-2015062304",
     metadata_urn: "urn:nbn:fi:lb-2015061204",
     lang: "deu",
-    linked_to: ["jrc_acquis_defi_fi"],
+    linkedTo: ["jrc_acquis_defi_fi"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7736,7 +7736,7 @@ settings.corpora.jrc_acquis_defi_fi = {
     urn: "urn:nbn:fi:lb-2015062304",
     metadata_urn: "urn:nbn:fi:lb-2015061204",
     lang: "fin",
-    linked_to: ["jrc_acquis_defi_de"],
+    linkedTo: ["jrc_acquis_defi_de"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7755,7 +7755,7 @@ settings.corpora.jrc_acquis_svfi_sv = {
     urn: "urn:nbn:fi:lb-2015062303",
     metadata_urn: "urn:nbn:fi:lb-2015061209",
     lang: "swe",
-    linked_to: ["jrc_acquis_svfi_fi"],
+    linkedTo: ["jrc_acquis_svfi_fi"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7775,7 +7775,7 @@ settings.corpora.jrc_acquis_svfi_fi = {
     urn: "urn:nbn:fi:lb-2015062303",
     metadata_urn: "urn:nbn:fi:lb-2015061209",
     lang: "fin",
-    linked_to: ["jrc_acquis_svfi_sv"],
+    linkedTo: ["jrc_acquis_svfi_sv"],
     context: context.alignAligned,
     within: {
         "sentence": "sentence"
@@ -7796,7 +7796,7 @@ settings.corpora.kfspc_fi = {
     id: "kfspc_fi",
     cite_id: "kfspc-korp",
     lang: "fin",
-    linked_to: ["kfspc_sv"],
+    linkedTo: ["kfspc_sv"],
     context: context.defaultAligned,
     within: {
         "sentence": "sentence"
@@ -7811,7 +7811,7 @@ settings.corpora.kfspc_sv = {
     id: "kfspc_sv",
     cite_id: "kfspc-korp",
     lang: "swe",
-    linked_to: ["kfspc_fi"],
+    linkedTo: ["kfspc_fi"],
     context: context.defaultAligned,
     within: {
         "sentence": "sentence"
@@ -7830,7 +7830,7 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc,
 settings.corpora.europarl_fi = {
     id: "europarl_fi",
     lang: "fin",
-    linked_to: ["europarl_en"],
+    linkedTo: ["europarl_en"],
     title: "EuroParl suomi–englanti-rinnakkaiskorpus",
     context: context.defaultAligned,
     within: {
@@ -7843,7 +7843,7 @@ settings.corpora.europarl_fi = {
 settings.corpora.europarl_en = {
     id: "europarl_en",
     lang: "eng",
-    linked_to: ["europarl_fi"],
+    linkedTo: ["europarl_fi"],
     title: "EuroParl suomi–englanti-rinnakkaiskorpus",
     context: context.defaultAligned,
     within: {
@@ -7871,7 +7871,7 @@ sattrlist.parfin = $.extend(
 settings.corpora.mulcold_fi = {
     id: "mulcold_fi",
     lang: "fin",
-    linked_to: ["mulcold_en", "mulcold_sv", "mulcold_ru", "mulcold_de"],
+    linkedTo: ["mulcold_en", "mulcold_sv", "mulcold_ru", "mulcold_de"],
     title: "MULCOLD – Multilingual Corpus of Legal Documents (suomi)",
     description: "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned,
@@ -7885,7 +7885,7 @@ settings.corpora.mulcold_fi = {
 settings.corpora.mulcold_en = {
     id: "mulcold_en",
     lang: "eng",
-    linked_to: ["mulcold_fi", "mulcold_sv", "mulcold_ru", "mulcold_de"],
+    linkedTo: ["mulcold_fi", "mulcold_sv", "mulcold_ru", "mulcold_de"],
     title: "MULCOLD – Multilingual Corpus of Legal Documents (englanti)",
     description: "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned,
@@ -7900,7 +7900,7 @@ settings.corpora.mulcold_en = {
 settings.corpora.mulcold_sv = {
     id: "mulcold_sv",
     lang: "swe",
-    linked_to: ["mulcold_fi", "mulcold_en", "mulcold_ru", "mulcold_de"],
+    linkedTo: ["mulcold_fi", "mulcold_en", "mulcold_ru", "mulcold_de"],
     title: "MULCOLD – Multilingual Corpus of Legal Documents (ruotsi)",
     description: "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned,
@@ -7915,7 +7915,7 @@ settings.corpora.mulcold_sv = {
 settings.corpora.mulcold_ru = {
     id: "mulcold_ru",
     lang: "rus",
-    linked_to: ["mulcold_fi", "mulcold_en", "mulcold_sv", "mulcold_de"],
+    linkedTo: ["mulcold_fi", "mulcold_en", "mulcold_sv", "mulcold_de"],
     title: "MULCOLD – Multilingual Corpus of Legal Documents (venäjä)",
     description: "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned,
@@ -7930,7 +7930,7 @@ settings.corpora.mulcold_ru = {
 settings.corpora.mulcold_de = {
     id: "mulcold_de",
     lang: "deu",
-    linked_to: ["mulcold_fi", "mulcold_en", "mulcold_sv", "mulcold_ru"],
+    linkedTo: ["mulcold_fi", "mulcold_en", "mulcold_sv", "mulcold_ru"],
     title: "MULCOLD – Multilingual Corpus of Legal Documents (saksa)",
     description: "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned,
@@ -7951,7 +7951,7 @@ settings.fn.extend_corpus_settings(
 settings.corpora.parfin_fi = {
     id: "parfin_fi",
     lang: "fin",
-    linked_to: ["parfin_ru"],
+    linkedTo: ["parfin_ru"],
     title: "ParFin",
     description: "Suomenkielisiä kaunokirjallisia teoksia ja niiden käännöksiä venäjäksi",
     context: context.alignAligned,
@@ -7967,7 +7967,7 @@ settings.corpora.parfin_fi = {
 settings.corpora.parfin_ru = {
     id: "parfin_ru",
     lang: "rus",
-    linked_to: ["parfin_fi"],
+    linkedTo: ["parfin_fi"],
     title: "ParFin",
     description: "Suomenkielisiä kaunokirjallisia teoksia ja niiden käännöksiä venäjäksi",
     context: context.alignAligned,
@@ -7994,7 +7994,7 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parfin,
 settings.corpora.parfin_fi = {
     id: "parfin_fi",
     lang: "fin",
-    linked_to: ["parfin_ru"],
+    linkedTo: ["parfin_ru"],
     attributes: attrlist.parfin_fi,
     structAttributes: sattrlist.parfin_fi,
 };
@@ -8002,7 +8002,7 @@ settings.corpora.parfin_fi = {
 settings.corpora.parfin_ru = {
     id: "parfin_ru",
     lang: "rus",
-    linked_to: ["parfin_fi"],
+    linkedTo: ["parfin_fi"],
     attributes: attrlist.parfin_ru,
     structAttributes: sattrlist.parfin_ru,
     hide: true,
@@ -8048,7 +8048,7 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parfin,
 settings.corpora.parrus_fi = {
     id: "parrus_fi",
     lang: "fin",
-    linked_to: ["parrus_ru"],
+    linkedTo: ["parrus_ru"],
     title: "ParRus (suomi) [poistuva]",
     description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/><br/><strong>Huomaa:</strong> Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti suomenkielisistä käännöksistä. Jos samasta teoksesta on useita käännöksiä, tämä hakee niistä kaikista.<br/><br/><strong>Huomaa, että ParRus 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
     attributes: attrlist.parrus_fi,
@@ -8058,9 +8058,9 @@ settings.corpora.parrus_fi = {
 settings.corpora.parrus_ru = {
     id: "parrus_ru",
     lang: "rus",
-    linked_to: ["parrus_fi1", "parrus_fi2", "parrus_fi3"],
+    linkedTo: ["parrus_fi1", "parrus_fi2", "parrus_fi3"],
     // Needed to make searches in Finnish work in parrus_ru
-    linked_to_inverse: ["parrus_fi"],
+    linkedTo_inverse: ["parrus_fi"],
     title: "ParRus (venäjä) [poistuva]",
     description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/><br/><strong>Huomaa:</strong> Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti venäjänkielisistä alkuperäisteksteistä. Jos samasta teoksesta on useita käännöksiä, niistä kukin näkyy tuloksessa erikseen.<br/><br/><strong>Huomaa, että ParRus 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
     attributes: attrlist.parrus_ru,
@@ -8071,19 +8071,19 @@ settings.corpora.parrus_ru = {
 
 settings.corpora.parrus_fi1 = {
     id: "parrus_fi1",
-    linked_to: ["parrus_ru", "parrus_fi2", "parrus_fi3"],
+    linkedTo: ["parrus_ru", "parrus_fi2", "parrus_fi3"],
     title: "ParRus (suomenkielinen käännös 1)",
 };
 
 settings.corpora.parrus_fi2 = {
     id: "parrus_fi2",
-    linked_to: ["parrus_ru", "parrus_fi1", "parrus_fi3"],
+    linkedTo: ["parrus_ru", "parrus_fi1", "parrus_fi3"],
     title: "ParRus (suomenkielinen käännös 2)",
 };
 
 settings.corpora.parrus_fi3 = {
     id: "parrus_fi3",
-    linked_to: ["parrus_ru", "parrus_fi1", "parrus_fi2"],
+    linkedTo: ["parrus_ru", "parrus_fi1", "parrus_fi2"],
     title: "ParRus (suomenkielinen käännös 3)",
 };
 
@@ -8119,7 +8119,7 @@ settings.fn.extend_corpus_settings(
 settings.corpora.parfin_2016_fi = {
     id: "parfin_2016_fi",
     lang: "fin",
-    linked_to: ["parfin_2016_ru"],
+    linkedTo: ["parfin_2016_ru"],
     attributes: attrlist.parfin_2016_fi,
     structAttributes: sattrlist.parfin_2016_fi,
 };
@@ -8127,7 +8127,7 @@ settings.corpora.parfin_2016_fi = {
 settings.corpora.parfin_2016_ru = {
     id: "parfin_2016_ru",
     lang: "rus",
-    linked_to: ["parfin_2016_fi"],
+    linkedTo: ["parfin_2016_fi"],
     attributes: attrlist.parfin_2016_ru,
     structAttributes: sattrlist.parfin_2016_ru,
     hide: true,
@@ -8181,13 +8181,13 @@ settings.corpora.parrus_2016_ru = {
     title: "ParRus 2016",
     id: "parrus_2016_ru",
     lang: "rus",
-    linked_to: ["parrus_2016_fi1", "parrus_2016_fi2", "parrus_2016_fi3",
+    linkedTo: ["parrus_2016_fi1", "parrus_2016_fi2", "parrus_2016_fi3",
 		 "parrus_2016_fi4"],
-    // linked_to_inverse appeared to be needed to make searches in
+    // linkedTo_inverse appeared to be needed to make searches in
     // Finnish work in parrus_2016_ru. But now the searches seem to
     // work without that, although nothing related to that should have
     // been changed. Why is that? (Jyrki Niemi 2017-02-03)
-    // linked_to_inverse: ["parrus_2016_fi"],
+    // linkedTo_inverse: ["parrus_2016_fi"],
     attributes: attrlist.parrus_2016_ru,
     structAttributes: sattrlist.parrus_2016_ru,
 };
@@ -8195,33 +8195,33 @@ settings.corpora.parrus_2016_ru = {
 settings.corpora.parrus_2016_fi = {
     title: "ParRus 2016 (suomi)",
     id: "parrus_2016_fi",
-    linked_to: ["parrus_2016_ru"],
+    linkedTo: ["parrus_2016_ru"],
 };
 
 settings.corpora.parrus_2016_fi1 = {
     id: "parrus_2016_fi1",
-    linked_to: ["parrus_2016_ru",
+    linkedTo: ["parrus_2016_ru",
 		 "parrus_2016_fi2", "parrus_2016_fi3", "parrus_2016_fi4"],
     title: "ParRus 2016 (suomenkielinen käännös 1)",
 };
 
 settings.corpora.parrus_2016_fi2 = {
     id: "parrus_2016_fi2",
-    linked_to: ["parrus_2016_ru",
+    linkedTo: ["parrus_2016_ru",
 		 "parrus_2016_fi1", "parrus_2016_fi3", "parrus_2016_fi4"],
     title: "ParRus 2016 (suomenkielinen käännös 2)",
 };
 
 settings.corpora.parrus_2016_fi3 = {
     id: "parrus_2016_fi3",
-    linked_to: ["parrus_2016_ru",
+    linkedTo: ["parrus_2016_ru",
 		 "parrus_2016_fi1", "parrus_2016_fi2", "parrus_2016_fi4"],
     title: "ParRus 2016 (suomenkielinen käännös 3)",
 };
 
 settings.corpora.parrus_2016_fi4 = {
     id: "parrus_2016_fi4",
-    linked_to: ["parrus_2016_ru",
+    linkedTo: ["parrus_2016_ru",
 		 "parrus_2016_fi1", "parrus_2016_fi2", "parrus_2016_fi3"],
     title: "ParRus 2016 (suomenkielinen käännös 4)",
 };
