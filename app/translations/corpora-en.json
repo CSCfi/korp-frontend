@@ -1102,6 +1102,7 @@
     "facsimile_title": "facsimile title",
 
     "ner_tags": "name classification",
+    "ner_tags_max": "name classification (maximal)",
     "ner_tags_EnamexPrsHum": "person: person name",
     "ner_tags__": "unidentified",
     "ner_tags_EnamexLocGpl": "location: geographical",

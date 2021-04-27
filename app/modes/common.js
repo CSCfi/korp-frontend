@@ -1780,6 +1780,21 @@ attrlist.finer = {
     nerbio: attrs.ner_bio,
 };
 
+// Attributes produced by vrt-finnish-nertag (*not* FiNER version 2,
+// but Finnish NER *tags* version 2)
+attrlist.finer2 = {
+    nertag: {
+        label: "ner_tag_max",
+    },
+    nertags: {
+        label: "ner_tags",
+        opts: settings.setOptions,
+    },
+    nerbio: {
+        label: "ner_bio",
+    },
+};
+
 attrlist.ud2_fi = {
     ref: attrs.ref,
     lemma: attrs.baseform,
@@ -1797,6 +1812,10 @@ attrlist.ud2_en = attrlist.ud2_fi;
 
 settings.corpus_features.finer = {
     attributes: attrlist.finer,
+};
+
+settings.corpus_features.finer2 = {
+    attributes: attrlist.finer2,
 };
 
 // An attribute not to be shown in Korp but included for documentation
