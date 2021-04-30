@@ -38,6 +38,10 @@ class ConfigLicenceCategory {
         const result = [];
         for (let corpusId in corpora) {
             const corpus = corpora[corpusId];
+            if (corpus.licence && ! corpus.licence.category) {
+                corpus.licence.category =
+                    this._getLicenceCategory(corpus.licence)
+            }
             if (corpus.licenceType == null) {
                 corpus.licenceType = (
                     (corpus.licence && corpus.licence.category) ||
@@ -55,15 +59,10 @@ class ConfigLicenceCategory {
     // contains info.licence.name with CLARIN RES or CLARIN ACA, and
     // recursively that of all its subfolders.
     _setFolderLicenceCategory (folder) {
-        const licenceName =
-              folder.info && folder.info.licence && folder.info.licence.name;
-        // c.log("licenceName", folder.title, licenceName)
-        if (licenceName != null) {
-            const match = /(?:CLARIN )?(ACA(-Fi)?|RES)/.exec(licenceName);
-            if (match) {
-                folder.info.licence.category = match[1];
-                // c.log("licenceCategory", match[1])
-            }
+        if (folder.info && folder.info.licence
+            && ! folder.info.licence.category) {
+            folder.info.licence.category =
+                this._getLicenceCategory(folder.info.licence)
         }
         for (let subfolderName of Object.keys(folder || {})) {
             const subfolder = folder[subfolderName];
@@ -72,6 +71,18 @@ class ConfigLicenceCategory {
             }
         }
     };
+
+    _getLicenceCategory (licenceObj) {
+        const licenceName = licenceObj && licenceObj.name
+        if (licenceName != null) {
+            const match = /(?:CLARIN )?(ACA(-Fi)?|RES)/.exec(licenceName);
+            if (match) {
+                // c.log("licenceCategory", licenceName, match[1])
+                return match[1];
+            }
+        }
+        return undefined
+    }
 
 }
 
