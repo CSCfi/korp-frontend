@@ -13860,7 +13860,7 @@ settings.corpora.nlfcl_fi = {
     metadata_urn: "urn:nbn:fi:lb-201803281",
     cite_id: "nlfcl-fi-korp",
     licence: settings.licenceinfo.CC_BY_40,
-    features: ["paragraphs", "parsed_tdt", "finer"],
+    features: ["paragraphs", "parsed_tdt", "finer2"],
     struct_attributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
