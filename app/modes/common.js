@@ -5069,8 +5069,8 @@ settings.templ.lemmie_common = {
     id: "",
     within: settings.spWithin,
     context: settings.spContext,
-    limited_access: true,
-    licence_type: "RES",
+    limitedAccess: true,
+    licenceType: "RES",
     attributes: {
     },
     struct_attributes: {
