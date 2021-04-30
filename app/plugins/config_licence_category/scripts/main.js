@@ -12,6 +12,13 @@ console.log("plugin config_logical_corpora")
 
 class ConfigLicenceCategory {
 
+    constructor () {
+        // This plugin needs to be registered after a plugin providing
+        // feature "logicalCorpus", so that its callback method is
+        // called after the logicalCorpus property has been added.
+        this.requiresFeatures = ["logicalCorpus"]
+    }
+
     // Callback method
 
     // Initialize properties licenceType and limitedAccess to corpora
