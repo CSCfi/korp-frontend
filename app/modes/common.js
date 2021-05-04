@@ -1788,6 +1788,7 @@ attrlist.finer2 = {
     },
     nertags: {
         label: "ner_tags",
+        type: "set",
         opts: settings.setOptions,
     },
     nerbio: {

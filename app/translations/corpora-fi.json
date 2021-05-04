@@ -1721,7 +1721,7 @@
     "download_publ_pdf": "Lataa julkaisu PDF-tiedostona",
 
     "ner_tags": "nimiluokitus",
-    "ner_tags_max": "nimiluokitus (pisin)",
+    "ner_tag_max": "nimiluokitus (pisin)",
     "ner_tags__": "tunnistamaton",
     "ner_tags_EnamexLocGpl": "paikka: maantieteellinen",
     "ner_tags_EnamexLocPpl": "paikka: geopoliittinen",
