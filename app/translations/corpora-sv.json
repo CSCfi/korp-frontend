@@ -778,6 +778,9 @@
     "polarity_neut": "neutral",
     "polarity_neg": "negativ",
 
+    "ner_tags": "namnklassificering",
+    "ner_tag_max": "namnklassificering (maximal)",
+
     "ne_expr": "uttryck",
     "ne_type": "namntyp",
     "ne_subtype": "namnundertyp",
