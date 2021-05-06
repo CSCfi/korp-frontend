@@ -125,6 +125,10 @@
     "subject": "ämne",
     "volume": "band",
 
+    "book_number": "bokens nummer",
+    "nlfcl_contributor": "medarbetare",
+    "publication_year": "utgivningsår",
+
     "author_name_type": "författarnamnets typ",
     "author_name_type_candidate_id": "abiturientsignum",
     "sex": "kön",
