@@ -5129,7 +5129,7 @@ settings.templ.lemmie_common = {
     licenceType: "RES",
     attributes: {
     },
-    struct_attributes: {
+    structAttributes: {
 	text_title: sattrs.text_title,
 	text_creator: sattrs.author,
 	text_publisher: sattrs.publisher,
