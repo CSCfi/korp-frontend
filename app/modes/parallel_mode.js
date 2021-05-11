@@ -47,18 +47,18 @@ settings.corporafolders.europarl = {
     title: "HeKo-EuroParl 7",
     description: "Helsinki Korp EuroParl v7 -aineistokokoelma",
     contents: [
-	"europarl_v7_enfi_fi",
-	"europarl_v7_svfi_fi",
-	"europarl_v7_defi_fi",
-	"europarl_v7_frfi_fi",
-	"europarl_v7_esfi_fi",
-	"europarl_v7_etfi_fi",
+        "europarl_v7_enfi_fi",
+        "europarl_v7_svfi_fi",
+        "europarl_v7_defi_fi",
+        "europarl_v7_frfi_fi",
+        "europarl_v7_esfi_fi",
+        "europarl_v7_etfi_fi",
     ],
     info: {
-	urn: "urn:nbn:fi:lb-2015043012",
-	metadata_urn: "urn:nbn:fi:lb-2015043011",
-	licence: settings.licenceinfo.CC_BY,
-	cite_id: "HeKo-Europarl",
+        urn: "urn:nbn:fi:lb-2015043012",
+        metadata_urn: "urn:nbn:fi:lb-2015043011",
+        licence: settings.licenceinfo.CC_BY,
+        cite_id: "HeKo-Europarl",
     }
 };
 
@@ -69,21 +69,21 @@ settings.corporafolders.jrc = {
     title: "HeKo-JRC-Acquis",
     description: "Helsinki Korp JRC-Acquis -aineistokokoelma",
     contents: [
-	"jrc_acquis_enfi_fi",
-	"jrc_acquis_svfi_fi",
-	"jrc_acquis_defi_fi",
-	"jrc_acquis_esfi_fi",
-	"jrc_acquis_etfi_fi",
-	"jrc_acquis_frfi_fi",
-	"jrc_acquis_itfi_fi",
-	"jrc_acquis_hufi_fi",
-	"jrc_acquis_plfi_fi",
+        "jrc_acquis_enfi_fi",
+        "jrc_acquis_svfi_fi",
+        "jrc_acquis_defi_fi",
+        "jrc_acquis_esfi_fi",
+        "jrc_acquis_etfi_fi",
+        "jrc_acquis_frfi_fi",
+        "jrc_acquis_itfi_fi",
+        "jrc_acquis_hufi_fi",
+        "jrc_acquis_plfi_fi",
     ],
     info: {
-	urn: "urn:nbn:fi:lb-2015062301",
-	metadata_urn: "urn:nbn:fi:lb-2015061210",
-	licence: settings.licenceinfo.CC_BY,
-	cite_id: "HeKo-JRC-Acquis",
+        urn: "urn:nbn:fi:lb-2015062301",
+        metadata_urn: "urn:nbn:fi:lb-2015061210",
+        licence: settings.licenceinfo.CC_BY,
+        cite_id: "HeKo-JRC-Acquis",
     }
 };
 
@@ -93,21 +93,21 @@ settings.corporafolders.opus = {
     title: "OPUS",
     description: "OPUS – an open source parallel corpus",
     info: {
-	urn: "urn:nbn:fi:lb-2016012101",
-	metadata_urn: "urn:nbn:fi:lb-2015102201",
-	licence: settings.licenceinfo.CC_BY_40,
-	cite_id: "Opus-Korp",
+        urn: "urn:nbn:fi:lb-2016012101",
+        metadata_urn: "urn:nbn:fi:lb-2015102201",
+        licence: settings.licenceinfo.CC_BY_40,
+        cite_id: "Opus-Korp",
     },
 };
 
 settings.corporafolders.opus.enfi = {
     title: "OPUS Finnish–English",
     contents: ['opus_opensub2011enfi_fi', 'opus_opensub2012enfi_fi',
-		'opus_opensub2013enfi_fi', 'opus_opensub2015enfi_fi',
-		'opus_ecb_enfi_fi', 'opus_emea_enfi_fi', 'opus_eubookshop_enfi_fi',
-		'opus_dgt_enfi_fi', 'opus_tatoeba_enfi_fi', 'opus_php_enfi_fi',
-		'opus_gnome_enfi_fi', 'opus_euconst_enfi_fi', 'opus_books_enfi_fi',
-	       'opus_ubuntu_enfi_fi']
+                'opus_opensub2013enfi_fi', 'opus_opensub2015enfi_fi',
+                'opus_ecb_enfi_fi', 'opus_emea_enfi_fi', 'opus_eubookshop_enfi_fi',
+                'opus_dgt_enfi_fi', 'opus_tatoeba_enfi_fi', 'opus_php_enfi_fi',
+                'opus_gnome_enfi_fi', 'opus_euconst_enfi_fi', 'opus_books_enfi_fi',
+               'opus_ubuntu_enfi_fi']
 };
 
 settings.corpus_aliases.opus_enfi = "opus_.*enfi_fi";
@@ -116,10 +116,10 @@ settings.corpus_aliases.opus_fien = "opus_.*enfi_fi";
 settings.corporafolders.opus.firu = {
     title: "OPUS Finnish–Russian",
     contents: ['opus_opensubtitles2011_firu_fi', 'opus_opensubtitles2012_firu_fi',
-		'opus_eubookshop_firu_fi', 'opus_kde4_firu_fi', 'opus_opensubtitles_firu_fi',
-		'opus_tatoeba_firu_fi', 'opus_php_firu_fi',
-		'opus_gnome_firu_fi',
-		'opus_ubuntu_firu_fi']
+                'opus_eubookshop_firu_fi', 'opus_kde4_firu_fi', 'opus_opensubtitles_firu_fi',
+                'opus_tatoeba_firu_fi', 'opus_php_firu_fi',
+                'opus_gnome_firu_fi',
+                'opus_ubuntu_firu_fi']
 };
 
 settings.corpus_aliases.opus_firu = "opus_.*firu_fi";
@@ -127,10 +127,10 @@ settings.corpus_aliases.opus_firu = "opus_.*firu_fi";
 settings.corporafolders.opus.fisv = {
     title: "OPUS Finnish–Swedish",
     contents: ['opus_opensubtitles2011_fisv_fi', 'opus_opensubtitles2012_fisv_fi',
-		'opus_opensubtitles2013_fisv_fi', 'opus_dgt_fisv_fi',
-		'opus_kde4_fisv_fi', 'opus_emea_fisv_fi', 'opus_eubookshop_fisv_fi',
-		'opus_gnome_fisv_fi', 'opus_euconst_fisv_fi', 'opus_php_fisv_fi',
-		'opus_ubuntu_fisv_fi', 'opus_tatoeba_fisv_fi', 'opus_opensubtitles_fisv_fi']
+                'opus_opensubtitles2013_fisv_fi', 'opus_dgt_fisv_fi',
+                'opus_kde4_fisv_fi', 'opus_emea_fisv_fi', 'opus_eubookshop_fisv_fi',
+                'opus_gnome_fisv_fi', 'opus_euconst_fisv_fi', 'opus_php_fisv_fi',
+                'opus_ubuntu_fisv_fi', 'opus_tatoeba_fisv_fi', 'opus_opensubtitles_fisv_fi']
 };
 
 settings.corpus_aliases.opus_fisv = "opus_.*fisv_fi";
@@ -138,10 +138,10 @@ settings.corpus_aliases.opus_fisv = "opus_.*fisv_fi";
 settings.corporafolders.opus.defi = {
     title: "OPUS Finnish–German",
     contents: ['opus_opensubtitles2012_defi_fi', 'opus_opensubtitles2011_defi_fi',
-		'opus_opensubtitles2013_defi_fi', 'opus_eubookshop_defi_fi', 'opus_dgt_defi_fi',
-		'opus_kde4_defi_fi', 'opus_emea_defi_fi', 'opus_ecb_defi_fi', 'opus_ubuntu_defi_fi',
-	        'opus_gnome_defi_fi', 'opus_tatoeba_defi_fi', 'opus_opensubtitles_defi_fi',
-	        'opus_php_defi_fi',  'opus_euconst_defi_fi']
+                'opus_opensubtitles2013_defi_fi', 'opus_eubookshop_defi_fi', 'opus_dgt_defi_fi',
+                'opus_kde4_defi_fi', 'opus_emea_defi_fi', 'opus_ecb_defi_fi', 'opus_ubuntu_defi_fi',
+                'opus_gnome_defi_fi', 'opus_tatoeba_defi_fi', 'opus_opensubtitles_defi_fi',
+                'opus_php_defi_fi',  'opus_euconst_defi_fi']
 };
 
 settings.corpus_aliases.opus_defi = "opus_.*defi_fi";
@@ -150,20 +150,20 @@ settings.corpus_aliases.opus_fide = "opus_.*defi_fi";
 settings.corporafolders.opus.fifr = {
     title: "OPUS Finnish–French",
     contents: ['opus_dgt_fifr_fi',
-		'opus_emea_fifr_fi',
-		'opus_ecb_fifr_fi',
-		'opus_eubookshop_fifr_fi',
-		'opus_opensubtitles2013_fifr_fi',
-		'opus_opensubtitles2011_fifr_fi',
-	        'opus_books_fifr_fi',
-	        'opus_opensubtitles2012_fifr_fi',
-	        'opus_opensubtitles_fifr_fi',
-	        'opus_kde4_fifr_fi',
-	        'opus_gnome_fifr_fi',
-	        'opus_euconst_fifr_fi',
-	        'opus_php_fifr_fi',
-	        'opus_ubuntu_fifr_fi',
-	        'opus_tatoeba_fifr_fi']
+                'opus_emea_fifr_fi',
+                'opus_ecb_fifr_fi',
+                'opus_eubookshop_fifr_fi',
+                'opus_opensubtitles2013_fifr_fi',
+                'opus_opensubtitles2011_fifr_fi',
+                'opus_books_fifr_fi',
+                'opus_opensubtitles2012_fifr_fi',
+                'opus_opensubtitles_fifr_fi',
+                'opus_kde4_fifr_fi',
+                'opus_gnome_fifr_fi',
+                'opus_euconst_fifr_fi',
+                'opus_php_fifr_fi',
+                'opus_ubuntu_fifr_fi',
+                'opus_tatoeba_fifr_fi']
 };
 
 settings.corpus_aliases.opus_fifr = "opus_.*fifr_fi";
@@ -171,11 +171,11 @@ settings.corpus_aliases.opus_fifr = "opus_.*fifr_fi";
 settings.corporafolders.opus.dafi = {
     title: "OPUS Finnish–Danish",
     contents: ['opus_dgt_dafi_fi',
-		'opus_eubookshop_dafi_fi',
-		'opus_opensubtitles2012_dafi_fi',
-		'opus_opensubtitles2013_dafi_fi',
-		'opus_kde4_dafi_fi',
-		'opus_ecb_dafi_fi']
+                'opus_eubookshop_dafi_fi',
+                'opus_opensubtitles2012_dafi_fi',
+                'opus_opensubtitles2013_dafi_fi',
+                'opus_kde4_dafi_fi',
+                'opus_ecb_dafi_fi']
 };
 
 settings.corpus_aliases.opus_dafi = "opus_.*dafi_fi";
@@ -184,11 +184,11 @@ settings.corpus_aliases.opus_fida = "opus_.*dafi_fi";
 settings.corporafolders.opus.fipl = {
     title: "OPUS Finnish–Polish",
     contents: ['opus_dgt_fipl_fi',
-		'opus_opensubtitles2011_fipl_fi',
-		'opus_opensubtitles2012_fipl_fi',
-		'opus_opensubtitles2013_fipl_fi',
-		'opus_emea_fipl_fi',
-	       'opus_ecb_fipl_fi']
+                'opus_opensubtitles2011_fipl_fi',
+                'opus_opensubtitles2012_fipl_fi',
+                'opus_opensubtitles2013_fipl_fi',
+                'opus_emea_fipl_fi',
+               'opus_ecb_fipl_fi']
 };
 
 settings.corpus_aliases.opus_fipl = "opus_.*fipl_fi";
@@ -196,20 +196,20 @@ settings.corpus_aliases.opus_fipl = "opus_.*fipl_fi";
 settings.corporafolders.opus.esfi = {
     title: "OPUS Finnish–Spanish",
     contents: ['opus_dgt_esfi_fi',
-		'opus_eubookshop_esfi_fi',
-		'opus_opensubtitles2012_esfi_fi',
-		'opus_opensubtitles2013_esfi_fi',
+                'opus_eubookshop_esfi_fi',
+                'opus_opensubtitles2012_esfi_fi',
+                'opus_opensubtitles2013_esfi_fi',
                 'opus_opensubtitles2011_esfi_fi',
                 'opus_ecb_esfi_fi',
-		'opus_emea_esfi_fi',
-		'opus_euconst_esfi_fi',
-		'opus_gnome_esfi_fi',
-		'opus_kde4_esfi_fi',
-		'opus_opensubtitles_esfi_fi',
-		'opus_php_esfi_fi',
-		'opus_tatoeba_esfi_fi',
-		'opus_ubuntu_esfi_fi',
-	       'opus_books_esfi_fi']
+                'opus_emea_esfi_fi',
+                'opus_euconst_esfi_fi',
+                'opus_gnome_esfi_fi',
+                'opus_kde4_esfi_fi',
+                'opus_opensubtitles_esfi_fi',
+                'opus_php_esfi_fi',
+                'opus_tatoeba_esfi_fi',
+                'opus_ubuntu_esfi_fi',
+               'opus_books_esfi_fi']
 };
 
 settings.corpus_aliases.opus_esfi = "opus_.*esfi_fi";
@@ -218,12 +218,12 @@ settings.corpus_aliases.opus_fies = "opus_.*esfi_fi";
 settings.corporafolders.opus.fipt = {
     title: "OPUS Finnish–Portuguese",
     contents: ['opus_dgt_fipt_fi',
-		'opus_eubookshop_fipt_fi',
-		'opus_opensubtitles2011_fipt_fi',
-		'opus_opensubtitles2013_fipt_fi',
-		'opus_opensubtitles_fipt_fi',
-		'opus_emea_fipt_fi',
-		'opus_ecb_fipt_fi']
+                'opus_eubookshop_fipt_fi',
+                'opus_opensubtitles2011_fipt_fi',
+                'opus_opensubtitles2013_fipt_fi',
+                'opus_opensubtitles_fipt_fi',
+                'opus_emea_fipt_fi',
+                'opus_ecb_fipt_fi']
 };
 
 settings.corpus_aliases.opus_fipt = "opus_.*fipt_fi";
@@ -231,11 +231,11 @@ settings.corpus_aliases.opus_fipt = "opus_.*fipt_fi";
 settings.corporafolders.opus.etfi = {
     title: "OPUS Finnish–Estonian",
     contents: ['opus_dgt_etfi_fi',
-		'opus_emea_etfi_fi',
-		'opus_kde4_etfi_fi',
-		'opus_opensubtitles2012_etfi_fi',
+                'opus_emea_etfi_fi',
+                'opus_kde4_etfi_fi',
+                'opus_opensubtitles2012_etfi_fi',
                 'opus_opensubtitles2011_etfi_fi',
-		'opus_opensubtitles2013_etfi_fi']
+                'opus_opensubtitles2013_etfi_fi']
 };
 
 settings.corpus_aliases.opus_etfi = "opus_.*etfi_fi";
@@ -244,12 +244,12 @@ settings.corpus_aliases.opus_fiet = "opus_.*etfi_fi";
 settings.corporafolders.opus.fiit = {
     title: "OPUS Finnish–Italian",
     contents: ['opus_dgt_fiit_fi',
-		'opus_emea_fiit_fi',
-		'opus_ecb_fiit_fi',
-		'opus_opensubtitles2012_fiit_fi',
-		'opus_opensubtitles2011_fiit_fi',
-		'opus_opensubtitles2013_fiit_fi',
-		'opus_eubookshop_fiit_fi']
+                'opus_emea_fiit_fi',
+                'opus_ecb_fiit_fi',
+                'opus_opensubtitles2012_fiit_fi',
+                'opus_opensubtitles2011_fiit_fi',
+                'opus_opensubtitles2013_fiit_fi',
+                'opus_eubookshop_fiit_fi']
 };
 
 settings.corpus_aliases.opus_fiit = "opus_.*fiit_fi";
@@ -257,13 +257,13 @@ settings.corpus_aliases.opus_fiit = "opus_.*fiit_fi";
 settings.corporafolders.opus.fihu = {
     title: "OPUS Finnish–Hungarian",
     contents: ['opus_dgt_fihu_fi',
-		'opus_emea_fihu_fi',
-		'opus_ecb_fihu_fi',
-		'opus_opensubtitles2012_fihu_fi',
-		'opus_opensubtitles2011_fihu_fi',
-		'opus_opensubtitles2013_fihu_fi',
-		'opus_eubookshop_fihu_fi',
-		'opus_kde4_fihu_fi']
+                'opus_emea_fihu_fi',
+                'opus_ecb_fihu_fi',
+                'opus_opensubtitles2012_fihu_fi',
+                'opus_opensubtitles2011_fihu_fi',
+                'opus_opensubtitles2013_fihu_fi',
+                'opus_eubookshop_fihu_fi',
+                'opus_kde4_fihu_fi']
 };
 
 settings.corpus_aliases.opus_fihu = "opus_.*fihu_fi";
@@ -271,18 +271,18 @@ settings.corpus_aliases.opus_fihu = "opus_.*fihu_fi";
 settings.corporafolders.opus.finl = {
     title: "OPUS Finnish–Dutch",
     contents: ['opus_dgt_finl_fi',
-		'opus_ecb_finl_fi',
-		'opus_emea_finl_fi',
-		'opus_eubookshop_finl_fi',
-		'opus_euconst_finl_fi',
-		'opus_gnome_finl_fi',
-		'opus_kde4_finl_fi',
-		'opus_opensubtitles2011_finl_fi',
-		'opus_opensubtitles2012_finl_fi',
-		'opus_opensubtitles2013_finl_fi',
-		'opus_php_finl_fi',
-		'opus_tatoeba_finl_fi',
-		'opus_ubuntu_finl_fi']
+                'opus_ecb_finl_fi',
+                'opus_emea_finl_fi',
+                'opus_eubookshop_finl_fi',
+                'opus_euconst_finl_fi',
+                'opus_gnome_finl_fi',
+                'opus_kde4_finl_fi',
+                'opus_opensubtitles2011_finl_fi',
+                'opus_opensubtitles2012_finl_fi',
+                'opus_opensubtitles2013_finl_fi',
+                'opus_php_finl_fi',
+                'opus_tatoeba_finl_fi',
+                'opus_ubuntu_finl_fi']
 };
 
 settings.corpus_aliases.opus_finl = "opus_.*finl_fi";
@@ -290,13 +290,13 @@ settings.corpus_aliases.opus_finl = "opus_.*finl_fi";
 settings.corporafolders.opus.fitrl = {
     title: "OPUS Finnish–Turkish",
     contents: ['opus_eubookshop_fitr_fi',
-		'opus_gnome_fitr_fi',
-		'opus_kde4_fitr_fi',
-		'opus_opensubtitles2011_fitr_fi',
-		'opus_opensubtitles2012_fitr_fi',
-		'opus_opensubtitles2013_fitr_fi',
-		'opus_php_fitr_fi',
-		'opus_opensubtitles_fitr_fi']
+                'opus_gnome_fitr_fi',
+                'opus_kde4_fitr_fi',
+                'opus_opensubtitles2011_fitr_fi',
+                'opus_opensubtitles2012_fitr_fi',
+                'opus_opensubtitles2013_fitr_fi',
+                'opus_php_fitr_fi',
+                'opus_opensubtitles_fitr_fi']
 };
 
 settings.corpus_aliases.opus_fitr = "opus_.*fitr_fi";
@@ -304,19 +304,19 @@ settings.corpus_aliases.opus_fitr = "opus_.*fitr_fi";
 settings.corporafolders.opus.csfi = {
     title: "OPUS Finnish–Czech",
     contents: ['opus_dgt_csfi_fi',
-		'opus_ecb_csfi_fi',
-		'opus_emea_csfi_fi',
-		'opus_eubookshop_csfi_fi',
-		'opus_euconst_csfi_fi',
-		'opus_gnome_csfi_fi',
-		'opus_kde4_csfi_fi',
-		'opus_opensubtitles2011_csfi_fi',
-		'opus_opensubtitles2012_csfi_fi',
-		'opus_opensubtitles2013_csfi_fi',
-		'opus_php_csfi_fi',
-		'opus_tatoeba_csfi_fi',
-		'opus_ubuntu_csfi_fi',
-	       'opus_europarl_csfi_fi']
+                'opus_ecb_csfi_fi',
+                'opus_emea_csfi_fi',
+                'opus_eubookshop_csfi_fi',
+                'opus_euconst_csfi_fi',
+                'opus_gnome_csfi_fi',
+                'opus_kde4_csfi_fi',
+                'opus_opensubtitles2011_csfi_fi',
+                'opus_opensubtitles2012_csfi_fi',
+                'opus_opensubtitles2013_csfi_fi',
+                'opus_php_csfi_fi',
+                'opus_tatoeba_csfi_fi',
+                'opus_ubuntu_csfi_fi',
+               'opus_europarl_csfi_fi']
 };
 
 settings.corpus_aliases.opus_csfi = "opus_.*csfi_fi";
@@ -325,18 +325,18 @@ settings.corpus_aliases.opus_fics = "opus_.*csfi_fi";
 settings.corporafolders.opus.elfi = {
     title: "OPUS Finnish–Greek",
     contents: ['opus_dgt_elfi_fi',
-		'opus_ecb_elfi_fi',
-		'opus_emea_elfi_fi',
-		'opus_eubookshop_elfi_fi',
-		'opus_euconst_elfi_fi',
-		'opus_gnome_elfi_fi',
-		'opus_kde4_elfi_fi',
-		'opus_opensubtitles2011_elfi_fi',
-		'opus_opensubtitles2012_elfi_fi',
-		'opus_opensubtitles2013_elfi_fi',
-		'opus_php_elfi_fi',
-		'opus_opensubtitles_elfi_fi',
-		'opus_ubuntu_elfi_fi']
+                'opus_ecb_elfi_fi',
+                'opus_emea_elfi_fi',
+                'opus_eubookshop_elfi_fi',
+                'opus_euconst_elfi_fi',
+                'opus_gnome_elfi_fi',
+                'opus_kde4_elfi_fi',
+                'opus_opensubtitles2011_elfi_fi',
+                'opus_opensubtitles2012_elfi_fi',
+                'opus_opensubtitles2013_elfi_fi',
+                'opus_php_elfi_fi',
+                'opus_opensubtitles_elfi_fi',
+                'opus_ubuntu_elfi_fi']
 };
 
 settings.corpus_aliases.opus_elfi = "opus_.*elfi_fi";
@@ -346,9 +346,9 @@ settings.corpus_aliases.opus_fiel = "opus_.*elfi_fi";
 settings.corporafolders.parfin_parrus = {
     title: "ParFin, ParRus",
     contents: [
-	"parfin_2016_fi",
-	// "parrus_2016_fi",
-	"parrus_2016_ru",
+        "parfin_2016_fi",
+        // "parrus_2016_fi",
+        "parrus_2016_ru",
     ],
 };
 
@@ -392,12 +392,12 @@ var wordlink = {
 settings.corporafolders.ceal = {
     title: "CEAL",
     description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus<br/>Classics of English and American Literature as translated by Kersti Juva, English–Finnish parallel corpus",
-	// <br/><br/><strong>Huomaa</strong>, että korpukset CEAL-o ja CEAL-s sisältävät samat tekstit, mutta CEAL-s:ssä kappaleet on sekoitettu kunkin teoksen sisällä, kun taas CEAL-o:ssa kappaleet ovat alkuperäisessä järjestyksessä. Hakuja varten kannattaa valita vain toinen korpus. CEAL-o vaatii aina henkilökohtaisen käyttöluvan."
+        // <br/><br/><strong>Huomaa</strong>, että korpukset CEAL-o ja CEAL-s sisältävät samat tekstit, mutta CEAL-s:ssä kappaleet on sekoitettu kunkin teoksen sisällä, kun taas CEAL-o:ssa kappaleet ovat alkuperäisessä järjestyksessä. Hakuja varten kannattaa valita vain toinen korpus. CEAL-o vaatii aina henkilökohtaisen käyttöluvan."
     info: {
-	metadata_urn: "urn:nbn:fi:lb-2020012801",
-	iprholder: {
-	    name: "Kersti Juva",
-	},
+        metadata_urn: "urn:nbn:fi:lb-2020012801",
+        iprholder: {
+            name: "Kersti Juva",
+        },
     },
     contents: ["ceal_s_fi"]
 };
@@ -405,27 +405,27 @@ settings.corporafolders.ceal = {
 sattrlist.ceal_common = {
     text_year: sattrs.year,
     text_author: {
-	label: "author",
-	displayType: "select",
-	localize: false,
-	opts: liteOptions,
-	dataset: [
-	    "Jane Austen",
-	    "Charles Dickens",
-	    "Henry James",
-	],
+        label: "author",
+        displayType: "select",
+        localize: false,
+        opts: liteOptions,
+        dataset: [
+            "Jane Austen",
+            "Charles Dickens",
+            "Henry James",
+        ],
     },
     text_title: {
-	label: "work_title",
+        label: "work_title",
     },
     text_translator: {
-	label: "text_translator",
-	// All the works in CEAL have been translated by Kersti Juva,
-	// so having the translator as a search criterion would make
-	// little sense. How about statistics and comparison?
-	hideExtended: true,
-	// hideStatistics: true,
-	// hideCompare: true,
+        label: "text_translator",
+        // All the works in CEAL have been translated by Kersti Juva,
+        // so having the translator as a search criterion would make
+        // little sense. How about statistics and comparison?
+        hideExtended: true,
+        // hideStatistics: true,
+        // hideCompare: true,
     },
 };
 
@@ -442,8 +442,8 @@ settings.corpora.ceal_s_fi = {
     urn: "urn:nbn:fi:lb-2020012802",
     metadata_urn: "urn:nbn:fi:lb-2020012801",
     licence: {
-	name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
-	urn: "urn:nbn:fi:lb-2020012804",
+        name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
+        urn: "urn:nbn:fi:lb-2020012804",
     },
     cite_id: "ceal-par-s-korp",
     limitedAccess: true,
@@ -464,8 +464,8 @@ settings.corpora.ceal_s_en = {
     urn: "urn:nbn:fi:lb-2020012802",
     metadata_urn: "urn:nbn:fi:lb-2020012801",
     licence: {
-	name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
-	urn: "urn:nbn:fi:lb-2020012803",
+        name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
+        urn: "urn:nbn:fi:lb-2020012803",
     },
     cite_id: "ceal-par-s-korp",
     limitedAccess: true,
@@ -491,29 +491,29 @@ settings.corpora.semfinlex_asd_par_2018_fi = {
     licence : settings.licenceinfo.CC_BY,
     features: ["parsed_tdt"],
     structAttributes : {
-	text_url : {
-	    label : "URL",
-	    type : "url",
-	    url_opts : sattrs.link_url_opts
-	},
-	text_parl_statute_type: {
-	    label: "parl_statute_type",
-	    displayType: "select",
-	    opts: liteOptions,
-	    translationKey: "parlstatutetype_",
-	    dataset: [
-		"laki",
-		"asetus",
-		"paatos",
-		"ilmoitus",
-		"tyojarjestys",
-		"kirje",
-		"luettelo",
-		"kuulutus",
-		"kaari",
-		""
-	    ]
-	}
+        text_url : {
+            label : "URL",
+            type : "url",
+            url_opts : sattrs.link_url_opts
+        },
+        text_parl_statute_type: {
+            label: "parl_statute_type",
+            displayType: "select",
+            opts: liteOptions,
+            translationKey: "parlstatutetype_",
+            dataset: [
+                "laki",
+                "asetus",
+                "paatos",
+                "ilmoitus",
+                "tyojarjestys",
+                "kirje",
+                "luettelo",
+                "kuulutus",
+                "kaari",
+                ""
+            ]
+        }
     },
     cite_id: "semfinlex-asd-par-2018-korp",
     urn: "urn:nbn:fi:lb-2019042606",
@@ -531,29 +531,29 @@ settings.corpora.semfinlex_asd_par_2018_sv = {
     licence : settings.licenceinfo.CC_BY,
     attributes : attrlist.parsed_sv,
     structAttributes : {
-	text_url : {
-	    label : "URL",
-	    type : "url",
-	    url_opts : sattrs.link_url_opts
-	},
-	text_parl_statute_type: {
-	    label: "parl_statute_type",
-	    displayType: "select",
-	    opts: liteOptions,
-	    translationKey: "parlstatutetype_",
-	    dataset: [
-		"laki",
-		"asetus",
-		"paatos",
-		"ilmoitus",
-		"tyojarjestys",
-		"kirje",
-		"luettelo",
-		"kuulutus",
-		"kaari",
-		""
-	    ]
-	}
+        text_url : {
+            label : "URL",
+            type : "url",
+            url_opts : sattrs.link_url_opts
+        },
+        text_parl_statute_type: {
+            label: "parl_statute_type",
+            displayType: "select",
+            opts: liteOptions,
+            translationKey: "parlstatutetype_",
+            dataset: [
+                "laki",
+                "asetus",
+                "paatos",
+                "ilmoitus",
+                "tyojarjestys",
+                "kirje",
+                "luettelo",
+                "kuulutus",
+                "kaari",
+                ""
+            ]
+        }
     },
     cite_id: "semfinlex-asd-par-2018-korp",
     urn: "urn:nbn:fi:lb-2019042606",
@@ -576,7 +576,7 @@ settings.corpora.opus_opensubtitles2011_fitr_tr = {
     linkedTo: ["opus_opensubtitles2011_fitr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -596,7 +596,7 @@ settings.corpora.opus_opensubtitles2011_fitr_fi = {
     linkedTo: ["opus_opensubtitles2011_fitr_tr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -615,7 +615,7 @@ settings.corpora.opus_opensubtitles2012_fitr_tr = {
     linkedTo: ["opus_opensubtitles2012_fitr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -635,7 +635,7 @@ settings.corpora.opus_opensubtitles2012_fitr_fi = {
     linkedTo: ["opus_opensubtitles2012_fitr_tr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -654,7 +654,7 @@ settings.corpora.opus_opensubtitles2013_fitr_tr = {
     linkedTo: ["opus_opensubtitles2013_fitr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -674,7 +674,7 @@ settings.corpora.opus_opensubtitles2013_fitr_fi = {
     linkedTo: ["opus_opensubtitles2013_fitr_tr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -693,7 +693,7 @@ settings.corpora.opus_opensubtitles_fitr_tr = {
     linkedTo: ["opus_opensubtitles_fitr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -713,7 +713,7 @@ settings.corpora.opus_opensubtitles_fitr_fi = {
     linkedTo: ["opus_opensubtitles_fitr_tr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -732,7 +732,7 @@ settings.corpora.opus_eubookshop_fitr_tr = {
     linkedTo: ["opus_eubookshop_fitr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -752,7 +752,7 @@ settings.corpora.opus_eubookshop_fitr_fi = {
     linkedTo: ["opus_eubookshop_fitr_tr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -771,7 +771,7 @@ settings.corpora.opus_kde4_fitr_tr = {
     linkedTo: ["opus_kde4_fitr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -791,7 +791,7 @@ settings.corpora.opus_kde4_fitr_fi = {
     linkedTo: ["opus_kde4_fitr_tr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -810,7 +810,7 @@ settings.corpora.opus_gnome_fitr_tr = {
     linkedTo: ["opus_gnome_fitr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -830,7 +830,7 @@ settings.corpora.opus_gnome_fitr_fi = {
     linkedTo: ["opus_gnome_fitr_tr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -849,7 +849,7 @@ settings.corpora.opus_php_fitr_tr = {
     linkedTo: ["opus_php_fitr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -869,7 +869,7 @@ settings.corpora.opus_php_fitr_fi = {
     linkedTo: ["opus_php_fitr_tr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -888,7 +888,7 @@ settings.corpora.opus_books_fifr_fr = {
     linkedTo: ["opus_books_fifr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -908,7 +908,7 @@ settings.corpora.opus_books_fifr_fi = {
     linkedTo: ["opus_books_fifr_fr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -927,7 +927,7 @@ settings.corpora.opus_opensubtitles2012_fifr_fr = {
     linkedTo: ["opus_opensubtitles2012_fifr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -947,7 +947,7 @@ settings.corpora.opus_opensubtitles2012_fifr_fi = {
     linkedTo: ["opus_opensubtitles2012_fifr_fr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -966,7 +966,7 @@ settings.corpora.opus_opensubtitles_fifr_fr = {
     linkedTo: ["opus_opensubtitles_fifr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -986,7 +986,7 @@ settings.corpora.opus_opensubtitles_fifr_fi = {
     linkedTo: ["opus_opensubtitles_fifr_fr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1005,7 +1005,7 @@ settings.corpora.opus_kde4_fifr_fr = {
     linkedTo: ["opus_kde4_fifr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1025,7 +1025,7 @@ settings.corpora.opus_kde4_fifr_fi = {
     linkedTo: ["opus_kde4_fifr_fr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1044,7 +1044,7 @@ settings.corpora.opus_gnome_fifr_fr = {
     linkedTo: ["opus_gnome_fifr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1064,7 +1064,7 @@ settings.corpora.opus_gnome_fifr_fi = {
     linkedTo: ["opus_gnome_fifr_fr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1083,7 +1083,7 @@ settings.corpora.opus_euconst_fifr_fr = {
     linkedTo: ["opus_euconst_fifr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1103,7 +1103,7 @@ settings.corpora.opus_euconst_fifr_fi = {
     linkedTo: ["opus_euconst_fifr_fr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1122,7 +1122,7 @@ settings.corpora.opus_php_fifr_fr = {
     linkedTo: ["opus_php_fifr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1142,7 +1142,7 @@ settings.corpora.opus_php_fifr_fi = {
     linkedTo: ["opus_php_fifr_fr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1161,7 +1161,7 @@ settings.corpora.opus_ubuntu_fifr_fr = {
     linkedTo: ["opus_ubuntu_fifr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1181,7 +1181,7 @@ settings.corpora.opus_ubuntu_fifr_fi = {
     linkedTo: ["opus_ubuntu_fifr_fr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1200,7 +1200,7 @@ settings.corpora.opus_tatoeba_fifr_fr = {
     linkedTo: ["opus_tatoeba_fifr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1220,7 +1220,7 @@ settings.corpora.opus_tatoeba_fifr_fi = {
     linkedTo: ["opus_tatoeba_fifr_fr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1239,7 +1239,7 @@ settings.corpora.opus_opensubtitles2011_esfi_fi = {
     linkedTo: ["opus_opensubtitles2011_esfi_es"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1258,7 +1258,7 @@ settings.corpora.opus_opensubtitles2011_esfi_es = {
     linkedTo: ["opus_opensubtitles2011_esfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1278,7 +1278,7 @@ settings.corpora.opus_opensubtitles_esfi_fi = {
     linkedTo: ["opus_opensubtitles_esfi_es"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1297,7 +1297,7 @@ settings.corpora.opus_opensubtitles_esfi_es = {
     linkedTo: ["opus_opensubtitles_esfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1317,7 +1317,7 @@ settings.corpora.opus_kde4_esfi_fi = {
     linkedTo: ["opus_kde4_esfi_es"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1336,7 +1336,7 @@ settings.corpora.opus_kde4_esfi_es = {
     linkedTo: ["opus_kde4_esfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1356,7 +1356,7 @@ settings.corpora.opus_gnome_esfi_fi = {
     linkedTo: ["opus_gnome_esfi_es"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1375,7 +1375,7 @@ settings.corpora.opus_gnome_esfi_es = {
     linkedTo: ["opus_gnome_esfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1395,7 +1395,7 @@ settings.corpora.opus_euconst_esfi_fi = {
     linkedTo: ["opus_euconst_esfi_es"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1414,7 +1414,7 @@ settings.corpora.opus_euconst_esfi_es = {
     linkedTo: ["opus_euconst_esfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1434,7 +1434,7 @@ settings.corpora.opus_php_esfi_fi = {
     linkedTo: ["opus_php_esfi_es"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1453,7 +1453,7 @@ settings.corpora.opus_php_esfi_es = {
     linkedTo: ["opus_php_esfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1473,7 +1473,7 @@ settings.corpora.opus_ubuntu_esfi_fi = {
     linkedTo: ["opus_ubuntu_esfi_es"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1492,7 +1492,7 @@ settings.corpora.opus_ubuntu_esfi_es = {
     linkedTo: ["opus_ubuntu_esfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1512,7 +1512,7 @@ settings.corpora.opus_tatoeba_esfi_fi = {
     linkedTo: ["opus_tatoeba_esfi_es"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1531,7 +1531,7 @@ settings.corpora.opus_tatoeba_esfi_es = {
     linkedTo: ["opus_tatoeba_esfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1551,7 +1551,7 @@ settings.corpora.opus_books_esfi_fi = {
     linkedTo: ["opus_books_esfi_es"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1570,7 +1570,7 @@ settings.corpora.opus_books_esfi_es = {
     linkedTo: ["opus_books_esfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1590,7 +1590,7 @@ settings.corpora.opus_europarl_csfi_fi = {
     linkedTo: ["opus_europarl_csfi_cs"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1609,7 +1609,7 @@ settings.corpora.opus_europarl_csfi_cs = {
     linkedTo: ["opus_europarl_csfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1629,7 +1629,7 @@ settings.corpora.opus_gnome_fisv_sv = {
     linkedTo: ["opus_gnome_fisv_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1649,7 +1649,7 @@ settings.corpora.opus_gnome_fisv_fi = {
     linkedTo: ["opus_gnome_fisv_sv"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1668,7 +1668,7 @@ settings.corpora.opus_euconst_fisv_sv = {
     linkedTo: ["opus_euconst_fisv_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1688,7 +1688,7 @@ settings.corpora.opus_euconst_fisv_fi = {
     linkedTo: ["opus_euconst_fisv_sv"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1707,7 +1707,7 @@ settings.corpora.opus_php_fisv_sv = {
     linkedTo: ["opus_php_fisv_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1727,7 +1727,7 @@ settings.corpora.opus_php_fisv_fi = {
     linkedTo: ["opus_php_fisv_sv"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1746,7 +1746,7 @@ settings.corpora.opus_ubuntu_fisv_sv = {
     linkedTo: ["opus_ubuntu_fisv_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1766,7 +1766,7 @@ settings.corpora.opus_ubuntu_fisv_fi = {
     linkedTo: ["opus_ubuntu_fisv_sv"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1785,7 +1785,7 @@ settings.corpora.opus_tatoeba_fisv_sv = {
     linkedTo: ["opus_tatoeba_fisv_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1805,7 +1805,7 @@ settings.corpora.opus_tatoeba_fisv_fi = {
     linkedTo: ["opus_tatoeba_fisv_sv"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1824,7 +1824,7 @@ settings.corpora.opus_opensubtitles_fisv_sv = {
     linkedTo: ["opus_opensubtitles_fisv_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1844,7 +1844,7 @@ settings.corpora.opus_opensubtitles_fisv_fi = {
     linkedTo: ["opus_opensubtitles_fisv_sv"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1863,7 +1863,7 @@ settings.corpora.opus_opensubtitles2011_elfi_fi = {
     linkedTo: ["opus_opensubtitles2011_elfi_el"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1882,7 +1882,7 @@ settings.corpora.opus_opensubtitles2011_elfi_el = {
     linkedTo: ["opus_opensubtitles2011_elfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1902,7 +1902,7 @@ settings.corpora.opus_opensubtitles2012_elfi_fi = {
     linkedTo: ["opus_opensubtitles2012_elfi_el"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1921,7 +1921,7 @@ settings.corpora.opus_opensubtitles2012_elfi_el = {
     linkedTo: ["opus_opensubtitles2012_elfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1941,7 +1941,7 @@ settings.corpora.opus_opensubtitles2013_elfi_fi = {
     linkedTo: ["opus_opensubtitles2013_elfi_el"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1960,7 +1960,7 @@ settings.corpora.opus_opensubtitles2013_elfi_el = {
     linkedTo: ["opus_opensubtitles2013_elfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1980,7 +1980,7 @@ settings.corpora.opus_opensubtitles_elfi_fi = {
     linkedTo: ["opus_opensubtitles_elfi_el"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -1999,7 +1999,7 @@ settings.corpora.opus_opensubtitles_elfi_el = {
     linkedTo: ["opus_opensubtitles_elfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2019,7 +2019,7 @@ settings.corpora.opus_dgt_elfi_fi = {
     linkedTo: ["opus_dgt_elfi_el"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2038,7 +2038,7 @@ settings.corpora.opus_dgt_elfi_el = {
     linkedTo: ["opus_dgt_elfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2058,7 +2058,7 @@ settings.corpora.opus_eubookshop_elfi_fi = {
     linkedTo: ["opus_eubookshop_elfi_el"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2077,7 +2077,7 @@ settings.corpora.opus_eubookshop_elfi_el = {
     linkedTo: ["opus_eubookshop_elfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2097,7 +2097,7 @@ settings.corpora.opus_emea_elfi_fi = {
     linkedTo: ["opus_emea_elfi_el"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2116,7 +2116,7 @@ settings.corpora.opus_emea_elfi_el = {
     linkedTo: ["opus_emea_elfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2136,7 +2136,7 @@ settings.corpora.opus_ecb_elfi_fi = {
     linkedTo: ["opus_ecb_elfi_el"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2155,7 +2155,7 @@ settings.corpora.opus_ecb_elfi_el = {
     linkedTo: ["opus_ecb_elfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2175,7 +2175,7 @@ settings.corpora.opus_kde4_elfi_fi = {
     linkedTo: ["opus_kde4_elfi_el"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2194,7 +2194,7 @@ settings.corpora.opus_kde4_elfi_el = {
     linkedTo: ["opus_kde4_elfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2214,7 +2214,7 @@ settings.corpora.opus_gnome_elfi_fi = {
     linkedTo: ["opus_gnome_elfi_el"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2233,7 +2233,7 @@ settings.corpora.opus_gnome_elfi_el = {
     linkedTo: ["opus_gnome_elfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2253,7 +2253,7 @@ settings.corpora.opus_euconst_elfi_fi = {
     linkedTo: ["opus_euconst_elfi_el"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2272,7 +2272,7 @@ settings.corpora.opus_euconst_elfi_el = {
     linkedTo: ["opus_euconst_elfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2292,7 +2292,7 @@ settings.corpora.opus_ubuntu_elfi_fi = {
     linkedTo: ["opus_ubuntu_elfi_el"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2311,7 +2311,7 @@ settings.corpora.opus_ubuntu_elfi_el = {
     linkedTo: ["opus_ubuntu_elfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2331,7 +2331,7 @@ settings.corpora.opus_opensubtitles_defi_fi = {
     linkedTo: ["opus_opensubtitles_defi_de"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2350,7 +2350,7 @@ settings.corpora.opus_opensubtitles_defi_de = {
     linkedTo: ["opus_opensubtitles_defi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2370,7 +2370,7 @@ settings.corpora.opus_gnome_defi_fi = {
     linkedTo: ["opus_gnome_defi_de"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2389,7 +2389,7 @@ settings.corpora.opus_gnome_defi_de = {
     linkedTo: ["opus_gnome_defi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2409,7 +2409,7 @@ settings.corpora.opus_euconst_defi_fi = {
     linkedTo: ["opus_euconst_defi_de"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2428,7 +2428,7 @@ settings.corpora.opus_euconst_defi_de = {
     linkedTo: ["opus_euconst_defi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2448,7 +2448,7 @@ settings.corpora.opus_php_defi_fi = {
     linkedTo: ["opus_php_defi_de"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2467,7 +2467,7 @@ settings.corpora.opus_php_defi_de = {
     linkedTo: ["opus_php_defi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2487,7 +2487,7 @@ settings.corpora.opus_ubuntu_defi_fi = {
     linkedTo: ["opus_ubuntu_defi_de"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2506,7 +2506,7 @@ settings.corpora.opus_ubuntu_defi_de = {
     linkedTo: ["opus_ubuntu_defi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2526,7 +2526,7 @@ settings.corpora.opus_tatoeba_defi_fi = {
     linkedTo: ["opus_tatoeba_defi_de"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2545,7 +2545,7 @@ settings.corpora.opus_tatoeba_defi_de = {
     linkedTo: ["opus_tatoeba_defi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2565,7 +2565,7 @@ settings.corpora.opus_opensubtitles2011_csfi_fi = {
     linkedTo: ["opus_opensubtitles2011_csfi_cs"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2584,7 +2584,7 @@ settings.corpora.opus_opensubtitles2011_csfi_cs = {
     linkedTo: ["opus_opensubtitles2011_csfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2604,7 +2604,7 @@ settings.corpora.opus_opensubtitles2012_csfi_fi = {
     linkedTo: ["opus_opensubtitles2012_csfi_cs"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2623,7 +2623,7 @@ settings.corpora.opus_opensubtitles2012_csfi_cs = {
     linkedTo: ["opus_opensubtitles2012_csfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2643,7 +2643,7 @@ settings.corpora.opus_opensubtitles2013_csfi_fi = {
     linkedTo: ["opus_opensubtitles2013_csfi_cs"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2662,7 +2662,7 @@ settings.corpora.opus_opensubtitles2013_csfi_cs = {
     linkedTo: ["opus_opensubtitles2013_csfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2682,7 +2682,7 @@ settings.corpora.opus_dgt_csfi_fi = {
     linkedTo: ["opus_dgt_csfi_cs"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2701,7 +2701,7 @@ settings.corpora.opus_dgt_csfi_cs = {
     linkedTo: ["opus_dgt_csfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2721,7 +2721,7 @@ settings.corpora.opus_eubookshop_csfi_fi = {
     linkedTo: ["opus_eubookshop_csfi_cs"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2740,7 +2740,7 @@ settings.corpora.opus_eubookshop_csfi_cs = {
     linkedTo: ["opus_eubookshop_csfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2760,7 +2760,7 @@ settings.corpora.opus_emea_csfi_fi = {
     linkedTo: ["opus_emea_csfi_cs"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2779,7 +2779,7 @@ settings.corpora.opus_emea_csfi_cs = {
     linkedTo: ["opus_emea_csfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2799,7 +2799,7 @@ settings.corpora.opus_ecb_csfi_fi = {
     linkedTo: ["opus_ecb_csfi_cs"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2818,7 +2818,7 @@ settings.corpora.opus_ecb_csfi_cs = {
     linkedTo: ["opus_ecb_csfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2838,7 +2838,7 @@ settings.corpora.opus_kde4_csfi_fi = {
     linkedTo: ["opus_kde4_csfi_cs"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2857,7 +2857,7 @@ settings.corpora.opus_kde4_csfi_cs = {
     linkedTo: ["opus_kde4_csfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2877,7 +2877,7 @@ settings.corpora.opus_gnome_csfi_fi = {
     linkedTo: ["opus_gnome_csfi_cs"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2896,7 +2896,7 @@ settings.corpora.opus_gnome_csfi_cs = {
     linkedTo: ["opus_gnome_csfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2916,7 +2916,7 @@ settings.corpora.opus_euconst_csfi_fi = {
     linkedTo: ["opus_euconst_csfi_cs"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2935,7 +2935,7 @@ settings.corpora.opus_euconst_csfi_cs = {
     linkedTo: ["opus_euconst_csfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2955,7 +2955,7 @@ settings.corpora.opus_php_csfi_fi = {
     linkedTo: ["opus_php_csfi_cs"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2974,7 +2974,7 @@ settings.corpora.opus_php_csfi_cs = {
     linkedTo: ["opus_php_csfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -2994,7 +2994,7 @@ settings.corpora.opus_ubuntu_csfi_fi = {
     linkedTo: ["opus_ubuntu_csfi_cs"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3013,7 +3013,7 @@ settings.corpora.opus_ubuntu_csfi_cs = {
     linkedTo: ["opus_ubuntu_csfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3033,7 +3033,7 @@ settings.corpora.opus_opensubtitles2011_finl_nl = {
     linkedTo: ["opus_opensubtitles2011_finl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3053,7 +3053,7 @@ settings.corpora.opus_opensubtitles2011_finl_fi = {
     linkedTo: ["opus_opensubtitles2011_finl_nl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3072,7 +3072,7 @@ settings.corpora.opus_opensubtitles2012_finl_nl = {
     linkedTo: ["opus_opensubtitles2012_finl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3092,7 +3092,7 @@ settings.corpora.opus_opensubtitles2012_finl_fi = {
     linkedTo: ["opus_opensubtitles2012_finl_nl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3111,7 +3111,7 @@ settings.corpora.opus_opensubtitles2013_finl_nl = {
     linkedTo: ["opus_opensubtitles2013_finl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3131,7 +3131,7 @@ settings.corpora.opus_opensubtitles2013_finl_fi = {
     linkedTo: ["opus_opensubtitles2013_finl_nl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3150,7 +3150,7 @@ settings.corpora.opus_dgt_finl_nl = {
     linkedTo: ["opus_dgt_finl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3170,7 +3170,7 @@ settings.corpora.opus_dgt_finl_fi = {
     linkedTo: ["opus_dgt_finl_nl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3189,7 +3189,7 @@ settings.corpora.opus_eubookshop_finl_nl = {
     linkedTo: ["opus_eubookshop_finl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3209,7 +3209,7 @@ settings.corpora.opus_eubookshop_finl_fi = {
     linkedTo: ["opus_eubookshop_finl_nl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3228,7 +3228,7 @@ settings.corpora.opus_emea_finl_nl = {
     linkedTo: ["opus_emea_finl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3248,7 +3248,7 @@ settings.corpora.opus_emea_finl_fi = {
     linkedTo: ["opus_emea_finl_nl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3267,7 +3267,7 @@ settings.corpora.opus_ecb_finl_nl = {
     linkedTo: ["opus_ecb_finl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3287,7 +3287,7 @@ settings.corpora.opus_ecb_finl_fi = {
     linkedTo: ["opus_ecb_finl_nl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3306,7 +3306,7 @@ settings.corpora.opus_kde4_finl_nl = {
     linkedTo: ["opus_kde4_finl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3326,7 +3326,7 @@ settings.corpora.opus_kde4_finl_fi = {
     linkedTo: ["opus_kde4_finl_nl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3345,7 +3345,7 @@ settings.corpora.opus_gnome_finl_nl = {
     linkedTo: ["opus_gnome_finl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3365,7 +3365,7 @@ settings.corpora.opus_gnome_finl_fi = {
     linkedTo: ["opus_gnome_finl_nl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3384,7 +3384,7 @@ settings.corpora.opus_euconst_finl_nl = {
     linkedTo: ["opus_euconst_finl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3404,7 +3404,7 @@ settings.corpora.opus_euconst_finl_fi = {
     linkedTo: ["opus_euconst_finl_nl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3423,7 +3423,7 @@ settings.corpora.opus_php_finl_nl = {
     linkedTo: ["opus_php_finl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3443,7 +3443,7 @@ settings.corpora.opus_php_finl_fi = {
     linkedTo: ["opus_php_finl_nl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3462,7 +3462,7 @@ settings.corpora.opus_ubuntu_finl_nl = {
     linkedTo: ["opus_ubuntu_finl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3482,7 +3482,7 @@ settings.corpora.opus_ubuntu_finl_fi = {
     linkedTo: ["opus_ubuntu_finl_nl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3501,7 +3501,7 @@ settings.corpora.opus_tatoeba_finl_nl = {
     linkedTo: ["opus_tatoeba_finl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3521,7 +3521,7 @@ settings.corpora.opus_tatoeba_finl_fi = {
     linkedTo: ["opus_tatoeba_finl_nl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3540,7 +3540,7 @@ settings.corpora.opus_opensubtitles2011_firu_ru = {
     linkedTo: ["opus_opensubtitles2011_firu_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3560,7 +3560,7 @@ settings.corpora.opus_opensubtitles2011_firu_fi = {
     linkedTo: ["opus_opensubtitles2011_firu_ru"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3579,7 +3579,7 @@ settings.corpora.opus_kde4_firu_ru = {
     linkedTo: ["opus_kde4_firu_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3599,7 +3599,7 @@ settings.corpora.opus_kde4_firu_fi = {
     linkedTo: ["opus_kde4_firu_ru"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3618,7 +3618,7 @@ settings.corpora.opus_eubookshop_firu_ru = {
     linkedTo: ["opus_eubookshop_firu_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3638,7 +3638,7 @@ settings.corpora.opus_opensubtitles2012_firu_ru = {
     linkedTo: ["opus_opensubtitles2012_firu_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3658,7 +3658,7 @@ settings.corpora.opus_opensubtitles2012_firu_fi = {
     linkedTo: ["opus_opensubtitles2012_firu_ru"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3677,7 +3677,7 @@ settings.corpora.opus_eubookshop_firu_fi = {
     linkedTo: ["opus_eubookshop_firu_ru"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3696,7 +3696,7 @@ settings.corpora.opus_php_firu_ru = {
     linkedTo: ["opus_php_firu_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3716,7 +3716,7 @@ settings.corpora.opus_php_firu_fi = {
     linkedTo: ["opus_php_firu_ru"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3735,7 +3735,7 @@ settings.corpora.opus_opensubtitles_firu_ru = {
     linkedTo: ["opus_opensubtitles_firu_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3755,7 +3755,7 @@ settings.corpora.opus_opensubtitles_firu_fi = {
     linkedTo: ["opus_opensubtitles_firu_ru"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3774,7 +3774,7 @@ settings.corpora.opus_tatoeba_firu_ru = {
     linkedTo: ["opus_tatoeba_firu_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3794,7 +3794,7 @@ settings.corpora.opus_tatoeba_firu_fi = {
     linkedTo: ["opus_tatoeba_firu_ru"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3813,7 +3813,7 @@ settings.corpora.opus_ubuntu_firu_ru = {
     linkedTo: ["opus_ubuntu_firu_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3833,7 +3833,7 @@ settings.corpora.opus_ubuntu_firu_fi = {
     linkedTo: ["opus_ubuntu_firu_ru"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3852,7 +3852,7 @@ settings.corpora.opus_gnome_firu_ru = {
     linkedTo: ["opus_gnome_firu_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3872,7 +3872,7 @@ settings.corpora.opus_gnome_firu_fi = {
     linkedTo: ["opus_gnome_firu_ru"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3891,7 +3891,7 @@ settings.corpora.opus_gnome_enfi_fi = {
     linkedTo: ["opus_gnome_enfi_en"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3910,7 +3910,7 @@ settings.corpora.opus_gnome_enfi_en = {
     linkedTo: ["opus_gnome_enfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3930,7 +3930,7 @@ settings.corpora.opus_euconst_enfi_fi = {
     linkedTo: ["opus_euconst_enfi_en"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3949,7 +3949,7 @@ settings.corpora.opus_euconst_enfi_en = {
     linkedTo: ["opus_euconst_enfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3969,7 +3969,7 @@ settings.corpora.opus_books_enfi_fi = {
     linkedTo: ["opus_books_enfi_en"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -3988,7 +3988,7 @@ settings.corpora.opus_books_enfi_en = {
     linkedTo: ["opus_books_enfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4008,7 +4008,7 @@ settings.corpora.opus_php_enfi_fi = {
     linkedTo: ["opus_php_enfi_en"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4027,7 +4027,7 @@ settings.corpora.opus_php_enfi_en = {
     linkedTo: ["opus_php_enfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4047,7 +4047,7 @@ settings.corpora.opus_ubuntu_enfi_fi = {
     linkedTo: ["opus_ubuntu_enfi_en"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4066,7 +4066,7 @@ settings.corpora.opus_ubuntu_enfi_en = {
     linkedTo: ["opus_ubuntu_enfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4086,7 +4086,7 @@ settings.corpora.opus_opensubtitles2012_fihu_hu = {
     linkedTo: ["opus_opensubtitles2012_fihu_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4106,7 +4106,7 @@ settings.corpora.opus_opensubtitles2012_fihu_fi = {
     linkedTo: ["opus_opensubtitles2012_fihu_hu"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4125,7 +4125,7 @@ settings.corpora.opus_opensubtitles2013_fihu_hu = {
     linkedTo: ["opus_opensubtitles2013_fihu_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4145,7 +4145,7 @@ settings.corpora.opus_opensubtitles2013_fihu_fi = {
     linkedTo: ["opus_opensubtitles2013_fihu_hu"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4164,7 +4164,7 @@ settings.corpora.opus_opensubtitles2011_fihu_hu = {
     linkedTo: ["opus_opensubtitles2011_fihu_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4184,7 +4184,7 @@ settings.corpora.opus_opensubtitles2011_fihu_fi = {
     linkedTo: ["opus_opensubtitles2011_fihu_hu"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4203,7 +4203,7 @@ settings.corpora.opus_dgt_fihu_hu = {
     linkedTo: ["opus_dgt_fihu_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4223,7 +4223,7 @@ settings.corpora.opus_dgt_fihu_fi = {
     linkedTo: ["opus_dgt_fihu_hu"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4242,7 +4242,7 @@ settings.corpora.opus_ecb_fihu_hu = {
     linkedTo: ["opus_ecb_fihu_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4262,7 +4262,7 @@ settings.corpora.opus_ecb_fihu_fi = {
     linkedTo: ["opus_ecb_fihu_hu"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4281,7 +4281,7 @@ settings.corpora.opus_emea_fihu_hu = {
     linkedTo: ["opus_emea_fihu_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4301,7 +4301,7 @@ settings.corpora.opus_emea_fihu_fi = {
     linkedTo: ["opus_emea_fihu_hu"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4320,7 +4320,7 @@ settings.corpora.opus_eubookshop_fihu_hu = {
     linkedTo: ["opus_eubookshop_fihu_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4340,7 +4340,7 @@ settings.corpora.opus_eubookshop_fihu_fi = {
     linkedTo: ["opus_eubookshop_fihu_hu"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4359,7 +4359,7 @@ settings.corpora.opus_kde4_fihu_hu = {
     linkedTo: ["opus_kde4_fihu_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4379,7 +4379,7 @@ settings.corpora.opus_kde4_fihu_fi = {
     linkedTo: ["opus_kde4_fihu_hu"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4398,7 +4398,7 @@ settings.corpora.opus_emea_fiit_it = {
     linkedTo: ["opus_emea_fiit_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4418,7 +4418,7 @@ settings.corpora.opus_emea_fiit_fi = {
     linkedTo: ["opus_emea_fiit_it"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4437,7 +4437,7 @@ settings.corpora.opus_ecb_fiit_it = {
     linkedTo: ["opus_ecb_fiit_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4457,7 +4457,7 @@ settings.corpora.opus_ecb_fiit_fi = {
     linkedTo: ["opus_ecb_fiit_it"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4476,7 +4476,7 @@ settings.corpora.opus_opensubtitles2011_fiit_it = {
     linkedTo: ["opus_opensubtitles2011_fiit_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4496,7 +4496,7 @@ settings.corpora.opus_opensubtitles2011_fiit_fi = {
     linkedTo: ["opus_opensubtitles2011_fiit_it"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4515,7 +4515,7 @@ settings.corpora.opus_opensubtitles2013_fiit_it = {
     linkedTo: ["opus_opensubtitles2013_fiit_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4535,7 +4535,7 @@ settings.corpora.opus_opensubtitles2013_fiit_fi = {
     linkedTo: ["opus_opensubtitles2013_fiit_it"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4554,7 +4554,7 @@ settings.corpora.opus_opensubtitles2012_fiit_it = {
     linkedTo: ["opus_opensubtitles2012_fiit_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4574,7 +4574,7 @@ settings.corpora.opus_opensubtitles2012_fiit_fi = {
     linkedTo: ["opus_opensubtitles2012_fiit_it"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4593,7 +4593,7 @@ settings.corpora.opus_eubookshop_fiit_it = {
     linkedTo: ["opus_eubookshop_fiit_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4613,7 +4613,7 @@ settings.corpora.opus_eubookshop_fiit_fi = {
     linkedTo: ["opus_eubookshop_fiit_it"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4632,7 +4632,7 @@ settings.corpora.opus_dgt_fiit_it = {
     linkedTo: ["opus_dgt_fiit_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4652,7 +4652,7 @@ settings.corpora.opus_dgt_fiit_fi = {
     linkedTo: ["opus_dgt_fiit_it"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4671,7 +4671,7 @@ settings.corpora.opus_ecb_fipt_pt = {
     linkedTo: ["opus_ecb_fipt_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4691,7 +4691,7 @@ settings.corpora.opus_ecb_fipt_fi = {
     linkedTo: ["opus_ecb_fipt_pt"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4710,7 +4710,7 @@ settings.corpora.opus_emea_fipt_pt = {
     linkedTo: ["opus_emea_fipt_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4730,7 +4730,7 @@ settings.corpora.opus_emea_fipt_fi = {
     linkedTo: ["opus_emea_fipt_pt"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4749,7 +4749,7 @@ settings.corpora.opus_opensubtitles2011_fipt_pt = {
     linkedTo: ["opus_opensubtitles2011_fipt_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4769,7 +4769,7 @@ settings.corpora.opus_opensubtitles2011_fipt_fi = {
     linkedTo: ["opus_opensubtitles2011_fipt_pt"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4788,7 +4788,7 @@ settings.corpora.opus_opensubtitles2013_fipt_pt = {
     linkedTo: ["opus_opensubtitles2013_fipt_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4808,7 +4808,7 @@ settings.corpora.opus_opensubtitles2013_fipt_fi = {
     linkedTo: ["opus_opensubtitles2013_fipt_pt"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4829,7 +4829,7 @@ settings.corpora.opus_eubookshop_fipt_pt = {
     linkedTo: ["opus_eubookshop_fipt_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4849,7 +4849,7 @@ settings.corpora.opus_eubookshop_fipt_fi = {
     linkedTo: ["opus_eubookshop_fipt_pt"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4868,7 +4868,7 @@ settings.corpora.opus_opensubtitles_fipt_pt = {
     linkedTo: ["opus_opensubtitles_fipt_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4888,7 +4888,7 @@ settings.corpora.opus_opensubtitles_fipt_fi = {
     linkedTo: ["opus_opensubtitles_fipt_pt"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4907,7 +4907,7 @@ settings.corpora.opus_dgt_fipt_pt = {
     linkedTo: ["opus_dgt_fipt_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4927,7 +4927,7 @@ settings.corpora.opus_dgt_fipt_fi = {
     linkedTo: ["opus_dgt_fipt_pt"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4946,7 +4946,7 @@ settings.corpora.opus_opensubtitles2011_etfi_fi = {
     linkedTo: ["opus_opensubtitles2011_etfi_et"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4965,7 +4965,7 @@ settings.corpora.opus_opensubtitles2011_etfi_et = {
     linkedTo: ["opus_opensubtitles2011_etfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -4985,7 +4985,7 @@ settings.corpora.opus_emea_etfi_fi = {
     linkedTo: ["opus_emea_etfi_et"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5003,7 +5003,7 @@ settings.corpora.opus_kde4_etfi_fi = {
     linkedTo: ["opus_kde4_etfi_et"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5022,7 +5022,7 @@ settings.corpora.opus_kde4_etfi_et = {
     linkedTo: ["opus_kde4_etfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5042,7 +5042,7 @@ settings.corpora.opus_emea_etfi_et = {
     linkedTo: ["opus_emea_etfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5062,7 +5062,7 @@ settings.corpora.opus_dgt_etfi_fi = {
     linkedTo: ["opus_dgt_etfi_et"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5081,7 +5081,7 @@ settings.corpora.opus_dgt_etfi_et = {
     linkedTo: ["opus_dgt_etfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5101,7 +5101,7 @@ settings.corpora.opus_opensubtitles2012_etfi_fi = {
     linkedTo: ["opus_opensubtitles2012_etfi_et"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5120,7 +5120,7 @@ settings.corpora.opus_opensubtitles2012_etfi_et = {
     linkedTo: ["opus_opensubtitles2012_etfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5139,7 +5139,7 @@ settings.corpora.opus_opensubtitles2013_etfi_fi = {
     linkedTo: ["opus_opensubtitles2013_etfi_et"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5158,7 +5158,7 @@ settings.corpora.opus_opensubtitles2013_etfi_et = {
     linkedTo: ["opus_opensubtitles2013_etfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5178,7 +5178,7 @@ settings.corpora.opus_emea_fipl_pl = {
     linkedTo: ["opus_emea_fipl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5198,7 +5198,7 @@ settings.corpora.opus_emea_fipl_fi = {
     linkedTo: ["opus_emea_fipl_pl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5217,7 +5217,7 @@ settings.corpora.opus_ecb_fipl_pl = {
     linkedTo: ["opus_ecb_fipl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5237,7 +5237,7 @@ settings.corpora.opus_ecb_fipl_fi = {
     linkedTo: ["opus_ecb_fipl_pl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5256,7 +5256,7 @@ settings.corpora.opus_dgt_fipl_pl = {
     linkedTo: ["opus_dgt_fipl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5276,7 +5276,7 @@ settings.corpora.opus_dgt_fipl_fi = {
     linkedTo: ["opus_dgt_fipl_pl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5295,7 +5295,7 @@ settings.corpora.opus_opensubtitles2012_fipl_pl = {
     linkedTo: ["opus_opensubtitles2012_fipl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5315,7 +5315,7 @@ settings.corpora.opus_opensubtitles2012_fipl_fi = {
     linkedTo: ["opus_opensubtitles2012_fipl_pl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5334,7 +5334,7 @@ settings.corpora.opus_opensubtitles2013_fipl_pl = {
     linkedTo: ["opus_opensubtitles2013_fipl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5354,7 +5354,7 @@ settings.corpora.opus_opensubtitles2013_fipl_fi = {
     linkedTo: ["opus_opensubtitles2013_fipl_pl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5373,7 +5373,7 @@ settings.corpora.opus_opensubtitles2011_fipl_pl = {
     linkedTo: ["opus_opensubtitles2011_fipl_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5393,7 +5393,7 @@ settings.corpora.opus_opensubtitles2011_fipl_fi = {
     linkedTo: ["opus_opensubtitles2011_fipl_pl"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5412,7 +5412,7 @@ settings.corpora.opus_dgt_dafi_fi = {
     linkedTo: ["opus_dgt_dafi_da"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5431,7 +5431,7 @@ settings.corpora.opus_dgt_dafi_da = {
     linkedTo: ["opus_dgt_dafi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5451,7 +5451,7 @@ settings.corpora.opus_eubookshop_dafi_fi = {
     linkedTo: ["opus_eubookshop_dafi_da"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5470,7 +5470,7 @@ settings.corpora.opus_eubookshop_dafi_da = {
     linkedTo: ["opus_eubookshop_dafi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5490,7 +5490,7 @@ settings.corpora.opus_opensubtitles2012_dafi_fi = {
     linkedTo: ["opus_opensubtitles2012_dafi_da"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5509,7 +5509,7 @@ settings.corpora.opus_opensubtitles2012_dafi_da = {
     linkedTo: ["opus_opensubtitles2012_dafi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5529,7 +5529,7 @@ settings.corpora.opus_opensubtitles2013_dafi_fi = {
     linkedTo: ["opus_opensubtitles2013_dafi_da"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5548,7 +5548,7 @@ settings.corpora.opus_opensubtitles2013_dafi_da = {
     linkedTo: ["opus_opensubtitles2013_dafi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5568,7 +5568,7 @@ settings.corpora.opus_kde4_dafi_fi = {
     linkedTo: ["opus_kde4_dafi_da"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5587,7 +5587,7 @@ settings.corpora.opus_kde4_dafi_da = {
     linkedTo: ["opus_kde4_dafi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5607,7 +5607,7 @@ settings.corpora.opus_ecb_dafi_fi = {
     linkedTo: ["opus_ecb_dafi_da"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5626,7 +5626,7 @@ settings.corpora.opus_ecb_dafi_da = {
     linkedTo: ["opus_ecb_dafi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5647,7 +5647,7 @@ settings.corpora.opus_dgt_esfi_fi = {
     linkedTo: ["opus_dgt_esfi_es"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5666,7 +5666,7 @@ settings.corpora.opus_dgt_esfi_es = {
     linkedTo: ["opus_dgt_esfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5686,7 +5686,7 @@ settings.corpora.opus_opensubtitles2012_esfi_fi = {
     linkedTo: ["opus_opensubtitles2012_esfi_es"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5705,7 +5705,7 @@ settings.corpora.opus_opensubtitles2012_esfi_es = {
     linkedTo: ["opus_opensubtitles2012_esfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5725,7 +5725,7 @@ settings.corpora.opus_opensubtitles2013_esfi_fi = {
     linkedTo: ["opus_opensubtitles2013_esfi_es"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5744,7 +5744,7 @@ settings.corpora.opus_opensubtitles2013_esfi_es = {
     linkedTo: ["opus_opensubtitles2013_esfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5764,7 +5764,7 @@ settings.corpora.opus_eubookshop_esfi_fi = {
     linkedTo: ["opus_eubookshop_esfi_es"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5783,7 +5783,7 @@ settings.corpora.opus_eubookshop_esfi_es = {
     linkedTo: ["opus_eubookshop_esfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5803,7 +5803,7 @@ settings.corpora.opus_ecb_fifr_fr = {
     linkedTo: ["opus_ecb_fifr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5823,7 +5823,7 @@ settings.corpora.opus_ecb_fifr_fi = {
     linkedTo: ["opus_ecb_fifr_fr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5842,7 +5842,7 @@ settings.corpora.opus_emea_fifr_fr = {
     linkedTo: ["opus_emea_fifr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5862,7 +5862,7 @@ settings.corpora.opus_emea_fifr_fi = {
     linkedTo: ["opus_emea_fifr_fr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5881,7 +5881,7 @@ settings.corpora.opus_opensubtitles2013_fifr_fr = {
     linkedTo: ["opus_opensubtitles2013_fifr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5901,7 +5901,7 @@ settings.corpora.opus_opensubtitles2013_fifr_fi = {
     linkedTo: ["opus_opensubtitles2013_fifr_fr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5920,7 +5920,7 @@ settings.corpora.opus_opensubtitles2011_fifr_fr = {
     linkedTo: ["opus_opensubtitles2011_fifr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5940,7 +5940,7 @@ settings.corpora.opus_opensubtitles2011_fifr_fi = {
     linkedTo: ["opus_opensubtitles2011_fifr_fr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5959,7 +5959,7 @@ settings.corpora.opus_eubookshop_fifr_fr = {
     linkedTo: ["opus_eubookshop_fifr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5979,7 +5979,7 @@ settings.corpora.opus_eubookshop_fifr_fi = {
     linkedTo: ["opus_eubookshop_fifr_fr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -5998,7 +5998,7 @@ settings.corpora.opus_dgt_fifr_fr = {
     linkedTo: ["opus_dgt_fifr_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6018,7 +6018,7 @@ settings.corpora.opus_dgt_fifr_fi = {
     linkedTo: ["opus_dgt_fifr_fr"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6037,7 +6037,7 @@ settings.corpora.opus_kde4_defi_fi = {
     linkedTo: ["opus_kde4_defi_de"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6056,7 +6056,7 @@ settings.corpora.opus_kde4_defi_de = {
     linkedTo: ["opus_kde4_defi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6077,7 +6077,7 @@ settings.corpora.opus_emea_defi_fi = {
     linkedTo: ["opus_emea_defi_de"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6096,7 +6096,7 @@ settings.corpora.opus_emea_defi_de = {
     linkedTo: ["opus_emea_defi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6116,7 +6116,7 @@ settings.corpora.opus_ecb_defi_fi = {
     linkedTo: ["opus_ecb_defi_de"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6135,7 +6135,7 @@ settings.corpora.opus_ecb_defi_de = {
     linkedTo: ["opus_ecb_defi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6155,7 +6155,7 @@ settings.corpora.opus_dgt_defi_fi = {
     linkedTo: ["opus_dgt_defi_de"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6174,7 +6174,7 @@ settings.corpora.opus_dgt_defi_de = {
     linkedTo: ["opus_dgt_defi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6194,7 +6194,7 @@ settings.corpora.opus_opensubtitles2013_defi_fi = {
     linkedTo: ["opus_opensubtitles2013_defi_de"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6213,7 +6213,7 @@ settings.corpora.opus_opensubtitles2013_defi_de = {
     linkedTo: ["opus_opensubtitles2013_defi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6233,7 +6233,7 @@ settings.corpora.opus_opensubtitles2011_defi_fi = {
     linkedTo: ["opus_opensubtitles2011_defi_de"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6252,7 +6252,7 @@ settings.corpora.opus_opensubtitles2011_defi_de = {
     linkedTo: ["opus_opensubtitles2011_defi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6272,7 +6272,7 @@ settings.corpora.opus_opensubtitles2012_defi_fi = {
     linkedTo: ["opus_opensubtitles2012_defi_de"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6291,7 +6291,7 @@ settings.corpora.opus_opensubtitles2012_defi_de = {
     linkedTo: ["opus_opensubtitles2012_defi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6311,7 +6311,7 @@ settings.corpora.opus_eubookshop_defi_fi = {
     linkedTo: ["opus_eubookshop_defi_de"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6330,7 +6330,7 @@ settings.corpora.opus_eubookshop_defi_de = {
     linkedTo: ["opus_eubookshop_defi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6350,7 +6350,7 @@ settings.corpora.opus_dgt_fisv_sv = {
     linkedTo: ["opus_dgt_fisv_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6370,7 +6370,7 @@ settings.corpora.opus_dgt_fisv_fi = {
     linkedTo: ["opus_dgt_fisv_sv"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6389,7 +6389,7 @@ settings.corpora.opus_eubookshop_fisv_sv = {
     linkedTo: ["opus_eubookshop_fisv_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6409,7 +6409,7 @@ settings.corpora.opus_eubookshop_fisv_fi = {
     linkedTo: ["opus_eubookshop_fisv_sv"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6515,7 +6515,7 @@ settings.corpora.opus_kde4_fisv_sv = {
     linkedTo: ["opus_kde4_fisv_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6535,7 +6535,7 @@ settings.corpora.opus_kde4_fisv_fi = {
     linkedTo: ["opus_kde4_fisv_sv"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6555,7 +6555,7 @@ settings.corpora.opus_dgt_enfi_fi = {
     linkedTo: ["opus_dgt_enfi_en"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6574,7 +6574,7 @@ settings.corpora.opus_dgt_enfi_en = {
     linkedTo: ["opus_dgt_enfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6594,7 +6594,7 @@ settings.corpora.opus_emea_enfi_fi = {
     linkedTo: ["opus_emea_enfi_en"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6613,7 +6613,7 @@ settings.corpora.opus_emea_enfi_en = {
     linkedTo: ["opus_emea_enfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     attributes: {
     },
@@ -6633,7 +6633,7 @@ settings.corpora.opus_emea_fisv_sv = {
     linkedTo: ["opus_emea_fisv_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6653,7 +6653,7 @@ settings.corpora.opus_emea_fisv_fi = {
     linkedTo: ["opus_emea_fisv_sv"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6672,7 +6672,7 @@ settings.corpora.opus_opensub2013enfi_fi = {
     linkedTo: ["opus_opensub2013enfi_en"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6691,7 +6691,7 @@ settings.corpora.opus_opensub2013enfi_en = {
     linkedTo: ["opus_opensub2013enfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     attributes: {
     },
@@ -6709,7 +6709,7 @@ settings.corpora.opus_opensub2015enfi_fi = {
     linkedTo: ["opus_opensub2015enfi_en"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6728,7 +6728,7 @@ settings.corpora.opus_opensub2015enfi_en = {
     linkedTo: ["opus_opensub2015enfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6748,7 +6748,7 @@ settings.corpora.opus_opensub2011enfi_fi = {
     linkedTo: ["opus_opensub2011enfi_en"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6767,7 +6767,7 @@ settings.corpora.opus_opensub2011enfi_en = {
     linkedTo: ["opus_opensub2011enfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6787,7 +6787,7 @@ settings.corpora.opus_opensub2012enfi_fi = {
     linkedTo: ["opus_opensub2012enfi_en"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6806,7 +6806,7 @@ settings.corpora.opus_opensub2012enfi_en = {
     linkedTo: ["opus_opensub2012enfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6826,7 +6826,7 @@ settings.corpora.opus_ecb_enfi_fi = {
     linkedTo: ["opus_ecb_enfi_en"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6845,7 +6845,7 @@ settings.corpora.opus_ecb_enfi_en = {
     linkedTo: ["opus_ecb_enfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6865,7 +6865,7 @@ settings.corpora.opus_eubookshop_enfi_en = {
     linkedTo: ["opus_eubookshop_enfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6885,7 +6885,7 @@ settings.corpora.opus_eubookshop_enfi_fi = {
     linkedTo: ["opus_eubookshop_enfi_en"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6904,7 +6904,7 @@ settings.corpora.opus_tatoeba_enfi_fi = {
     linkedTo: ["opus_tatoeba_enfi_en"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     within: spWithin,
     context: spContext,
@@ -6923,7 +6923,7 @@ settings.corpora.opus_tatoeba_enfi_en = {
     linkedTo: ["opus_tatoeba_enfi_fi"],
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     attributes: {
     },
@@ -7561,7 +7561,7 @@ settings.corpora.kfspc_sv = {
 };
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc,
-				   ["kfspc_fi", "kfspc_sv"]);
+                                   ["kfspc_fi", "kfspc_sv"]);
 
 
 /*
@@ -7572,7 +7572,7 @@ settings.corpora.europarl_fi = {
     title: "EuroParl suomi–englanti-rinnakkaiskorpus",
     context: context.defaultAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     attributes: {},
     structAttributes: {}
@@ -7585,7 +7585,7 @@ settings.corpora.europarl_en = {
     title: "EuroParl suomi–englanti-rinnakkaiskorpus",
     context: context.defaultAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     attributes: {},
     structAttributes: {},
@@ -7599,9 +7599,9 @@ settings.corpora.europarl_en = {
 sattrlist.parfin = $.extend(
     true, {}, sattrlist.mulcold,
     {
-	align_text_translator: {
-	    label: "text_translator"
-	}
+        align_text_translator: {
+            label: "text_translator"
+        }
     }
 );
 */
@@ -7614,7 +7614,7 @@ settings.corpora.mulcold_fi = {
     description: "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     attributes: attrlist.mulcold_fi,
     structAttributes: sattrlist.mulcold
@@ -7628,7 +7628,7 @@ settings.corpora.mulcold_en = {
     description: "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     attributes: attrlist.mulcold_en,
     structAttributes: sattrlist.mulcold,
@@ -7643,7 +7643,7 @@ settings.corpora.mulcold_sv = {
     description: "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     attributes: attrlist.mulcold_sv,
     structAttributes: sattrlist.mulcold,
@@ -7658,7 +7658,7 @@ settings.corpora.mulcold_ru = {
     description: "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     attributes: attrlist.mulcold_ru,
     structAttributes: sattrlist.mulcold,
@@ -7673,7 +7673,7 @@ settings.corpora.mulcold_de = {
     description: "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     attributes: attrlist.mulcold_de,
     structAttributes: sattrlist.mulcold,
@@ -7694,7 +7694,7 @@ settings.corpora.parfin_fi = {
     description: "Suomenkielisiä kaunokirjallisia teoksia ja niiden käännöksiä venäjäksi",
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     attributes: attrlist.mulcold_fi,
     structAttributes: sattrlist.parfin,
@@ -7710,7 +7710,7 @@ settings.corpora.parfin_ru = {
     description: "Suomenkielisiä kaunokirjallisia teoksia ja niiden käännöksiä venäjäksi",
     context: context.alignAligned,
     within: {
-	"sentence": "sentence"
+        "sentence": "sentence"
     },
     attributes: attrlist.mulcold_ru,
     structAttributes: sattrlist.parfin,
@@ -7720,7 +7720,7 @@ settings.corpora.parfin_ru = {
 };
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.parfin,
-				   ["parfin_fi", "parfin_ru"]);
+                                   ["parfin_fi", "parfin_ru"]);
 */
 
 
@@ -7748,18 +7748,18 @@ settings.corpora.parfin_ru = {
 
 settings.fn.extend_corpus_settings(
     {
-	// Properties common to parfin_fi and parfin_ru
-	title: "ParFin [poistuva]",
-	description: "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1990–2010 ja niiden käännöksiä venäjäksi virketasolla kohdistettuina<br/><br/><strong>Huomaa, että ParFin 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
-	context: context.linkAligned,
-	within: settings.linkWithin,
-	limitedAccess: true,
-	licenceType: "RES",
+        // Properties common to parfin_fi and parfin_ru
+        title: "ParFin [poistuva]",
+        description: "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1990–2010 ja niiden käännöksiä venäjäksi virketasolla kohdistettuina<br/><br/><strong>Huomaa, että ParFin 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
+        context: context.linkAligned,
+        within: settings.linkWithin,
+        limitedAccess: true,
+        licenceType: "RES",
     },
     ["parfin_fi", "parfin_ru"]
 );
 settings.fn.extend_corpus_settings(settings.corpusinfo.parfin,
-				   ["parfin_fi", "parfin_ru"]);
+                                   ["parfin_fi", "parfin_ru"]);
 */
 
 
@@ -7827,22 +7827,22 @@ settings.corpora.parrus_fi3 = {
 
 settings.fn.extend_corpus_settings(
     {
-	// Properties common to parrus_fi1, parrus_fi2, parrus_fi3
-	lang: "fin",
-	description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus",
-	attributes: attrlist.parrus_fi,
-	structAttributes: sattrlist.parrus_fi,
-	hide: true,
+        // Properties common to parrus_fi1, parrus_fi2, parrus_fi3
+        lang: "fin",
+        description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus",
+        attributes: attrlist.parrus_fi,
+        structAttributes: sattrlist.parrus_fi,
+        hide: true,
     },
     ["parrus_fi1", "parrus_fi2", "parrus_fi3"]);
 
 settings.fn.extend_corpus_settings(
     {
-	// Properties common to all ParRus language versions
-	context: context.linkAligned,
-	within: settings.linkWithin,
-	limitedAccess: true,
-	licenceType: "RES"
+        // Properties common to all ParRus language versions
+        context: context.linkAligned,
+        within: settings.linkWithin,
+        limitedAccess: true,
+        licenceType: "RES"
     },
     ["parrus_fi", "parrus_fi1", "parrus_fi2", "parrus_fi3", "parrus_ru"]);
 
@@ -7873,23 +7873,23 @@ settings.corpora.parfin_2016_ru = {
 
 settings.fn.extend_corpus_settings(
     {
-	// Properties common to parfin_2016_fi and parfin_2016_ru
-	title: "ParFin 2016",
-	description: "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1910–2008 ja niiden käännöksiä venäjäksi virketasolla kohdistettuina<br/>ParFin 2016: финско-русский корпус художественных текстов. Финская проза 1910–2008 гг. и ее переводы на русский язык, тексты выровнены на уровне предложений.<br/><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Suomen annotaatioiden kuvaus</a><br/><a href=\"http://nl.ijs.si/ME/V4/msd/html/msd-ru.html\" target=\"_blank\">Venäjän morfologisen ja sanaluokka-annotaation kuvaus (englanniksi)</a></br><a href=\"http://www.ruscorpora.ru/instruction-syntax.html\" target=\"_blank\">Venäjän syntaktisen annotaation kuvaus (venäjäksi)</a>",
-	urn: "urn:nbn:fi:lb-2016121601",
-	metadata_urn: "urn:nbn:fi:lb-2016121610",
-	licence: settings.licenceinfo.ParFinRus_2016_fi,
-	cite_id: "ParFin2016",
-	context: context.linkAligned,
-	// TODO: Make sure that sentLinkWithin works in all cases.
-	within: settings.sentLinkWithin,
-	limitedAccess: true,
-	licenceType: "RES",
+        // Properties common to parfin_2016_fi and parfin_2016_ru
+        title: "ParFin 2016",
+        description: "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1910–2008 ja niiden käännöksiä venäjäksi virketasolla kohdistettuina<br/>ParFin 2016: финско-русский корпус художественных текстов. Финская проза 1910–2008 гг. и ее переводы на русский язык, тексты выровнены на уровне предложений.<br/><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Suomen annotaatioiden kuvaus</a><br/><a href=\"http://nl.ijs.si/ME/V4/msd/html/msd-ru.html\" target=\"_blank\">Venäjän morfologisen ja sanaluokka-annotaation kuvaus (englanniksi)</a></br><a href=\"http://www.ruscorpora.ru/instruction-syntax.html\" target=\"_blank\">Venäjän syntaktisen annotaation kuvaus (venäjäksi)</a>",
+        urn: "urn:nbn:fi:lb-2016121601",
+        metadata_urn: "urn:nbn:fi:lb-2016121610",
+        licence: settings.licenceinfo.ParFinRus_2016_fi,
+        cite_id: "ParFin2016",
+        context: context.linkAligned,
+        // TODO: Make sure that sentLinkWithin works in all cases.
+        within: settings.sentLinkWithin,
+        limitedAccess: true,
+        licenceType: "RES",
     },
     ["parfin_2016_fi", "parfin_2016_ru"]
 );
 settings.fn.extend_corpus_settings(settings.corpusinfo.parfin_2016,
-				   ["parfin_2016_fi", "parfin_2016_ru"]);
+                                   ["parfin_2016_fi", "parfin_2016_ru"]);
 
 
 /* ParRus 2016 */
@@ -7920,7 +7920,7 @@ settings.corpora.parrus_2016_ru = {
     id: "parrus_2016_ru",
     lang: "rus",
     linkedTo: ["parrus_2016_fi1", "parrus_2016_fi2", "parrus_2016_fi3",
-		 "parrus_2016_fi4"],
+                 "parrus_2016_fi4"],
     // linkedTo_inverse appeared to be needed to make searches in
     // Finnish work in parrus_2016_ru. But now the searches seem to
     // work without that, although nothing related to that should have
@@ -7939,44 +7939,44 @@ settings.corpora.parrus_2016_fi = {
 settings.corpora.parrus_2016_fi1 = {
     id: "parrus_2016_fi1",
     linkedTo: ["parrus_2016_ru",
-		 "parrus_2016_fi2", "parrus_2016_fi3", "parrus_2016_fi4"],
+                 "parrus_2016_fi2", "parrus_2016_fi3", "parrus_2016_fi4"],
     title: "ParRus 2016 (suomenkielinen käännös 1)",
 };
 
 settings.corpora.parrus_2016_fi2 = {
     id: "parrus_2016_fi2",
     linkedTo: ["parrus_2016_ru",
-		 "parrus_2016_fi1", "parrus_2016_fi3", "parrus_2016_fi4"],
+                 "parrus_2016_fi1", "parrus_2016_fi3", "parrus_2016_fi4"],
     title: "ParRus 2016 (suomenkielinen käännös 2)",
 };
 
 settings.corpora.parrus_2016_fi3 = {
     id: "parrus_2016_fi3",
     linkedTo: ["parrus_2016_ru",
-		 "parrus_2016_fi1", "parrus_2016_fi2", "parrus_2016_fi4"],
+                 "parrus_2016_fi1", "parrus_2016_fi2", "parrus_2016_fi4"],
     title: "ParRus 2016 (suomenkielinen käännös 3)",
 };
 
 settings.corpora.parrus_2016_fi4 = {
     id: "parrus_2016_fi4",
     linkedTo: ["parrus_2016_ru",
-		 "parrus_2016_fi1", "parrus_2016_fi2", "parrus_2016_fi3"],
+                 "parrus_2016_fi1", "parrus_2016_fi2", "parrus_2016_fi3"],
     title: "ParRus 2016 (suomenkielinen käännös 4)",
 };
 
 settings.fn.extend_corpus_settings(
     {
-	// Properties common to all ParRus 2016 language versions
-	description: "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/>ParRus 2016: русско-русский корпус художественных текстов. Русская классическая и современная проза и ее переводы на финский язык, тексты выровнены на уровне абзацев.<br/><br/><strong>Huomaa:</strong> Suomeksi haettaessa hakutulos sisältää samoja tuloksia useaan kertaan.<br/><br/><a href=\"http://nl.ijs.si/ME/V4/msd/html/msd-ru.html\" target=\"_blank\">Venäjän morfologisen ja sanaluokka-annotaation kuvaus (englanniksi)</a></br><a href=\"http://www.ruscorpora.ru/instruction-syntax.html\" target=\"_blank\">Venäjän syntaktisen annotaation kuvaus (venäjäksi)</a><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Suomen annotaatioiden kuvaus</a>",
-	urn: "urn:nbn:fi:lb-2016121604",
-	metadata_urn: "urn:nbn:fi:lb-20140730173",
-	licence: settings.licenceinfo.ParFinRus_2016_fi,
-	cite_id: "ParRus2016",
-	context: context.linkAligned,
-	// TODO: Make sure that sentLinkWithin works in all cases.
-	within: settings.sentLinkWithin,
-	limitedAccess: true,
-	licenceType: "RES"
+        // Properties common to all ParRus 2016 language versions
+        description: "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/>ParRus 2016: русско-русский корпус художественных текстов. Русская классическая и современная проза и ее переводы на финский язык, тексты выровнены на уровне абзацев.<br/><br/><strong>Huomaa:</strong> Suomeksi haettaessa hakutulos sisältää samoja tuloksia useaan kertaan.<br/><br/><a href=\"http://nl.ijs.si/ME/V4/msd/html/msd-ru.html\" target=\"_blank\">Venäjän morfologisen ja sanaluokka-annotaation kuvaus (englanniksi)</a></br><a href=\"http://www.ruscorpora.ru/instruction-syntax.html\" target=\"_blank\">Venäjän syntaktisen annotaation kuvaus (venäjäksi)</a><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Suomen annotaatioiden kuvaus</a>",
+        urn: "urn:nbn:fi:lb-2016121604",
+        metadata_urn: "urn:nbn:fi:lb-20140730173",
+        licence: settings.licenceinfo.ParFinRus_2016_fi,
+        cite_id: "ParRus2016",
+        context: context.linkAligned,
+        // TODO: Make sure that sentLinkWithin works in all cases.
+        within: settings.sentLinkWithin,
+        limitedAccess: true,
+        licenceType: "RES"
     },
     ["parrus_2016_fi",
      "parrus_2016_fi1",
@@ -7996,12 +7996,12 @@ settings.fn.extend_corpus_settings(
 
 settings.fn.extend_corpus_settings(
     {
-	// Properties common to parrus_2016_fiN
-	lang: "fin",
-	// description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus",
-	attributes: attrlist.parrus_2016_fi,
-	structAttributes: sattrlist.parrus_2016_fi,
-	hide: true,
+        // Properties common to parrus_2016_fiN
+        lang: "fin",
+        // description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus",
+        attributes: attrlist.parrus_2016_fi,
+        structAttributes: sattrlist.parrus_2016_fi,
+        hide: true,
     },
     ["parrus_2016_fi",
      "parrus_2016_fi1",
@@ -8014,8 +8014,8 @@ settings.fn.extend_corpus_settings(
 settings.parallel_corpora.testpar = {
     "default": "testpar_fi",
     testpar_fi: {
-	id: "testpar_fi",
-	lang: "fin",
+        id: "testpar_fi",
+        lang: "fin",
         parent: "testpar",
         title: "Testpar suomi–englanti-rinnakkaiskorpustesti",
         context: context.spContext,
@@ -8026,8 +8026,8 @@ settings.parallel_corpora.testpar = {
         structAttributes: {}
     },
     testpar_en: {
-	id: "testpar_en",
-	lang: "eng",
+        id: "testpar_en",
+        lang: "eng",
         parent: "testpar",
         title: "Testpar suomi–englanti-rinnakkaiskorpustesti",
         context: context.spContext,
@@ -8044,8 +8044,8 @@ settings.parallel_corpora.testpar = {
 settings.parallel_corpora.testpar4 = {
     "default": "testpar4_fi",
     testpar4_fi: {
-	id: "testpar4_fi",
-	lang: "fin",
+        id: "testpar4_fi",
+        lang: "fin",
         parent: "testpar4",
         title: "Testpar4 suomi–englanti–ruotsi–saksa-rinnakkaiskorpustesti",
         context: context.spContext,
@@ -8056,8 +8056,8 @@ settings.parallel_corpora.testpar4 = {
         structAttributes: {}
     },
     testpar4_en: {
-	id: "testpar4_en",
-	lang: "eng",
+        id: "testpar4_en",
+        lang: "eng",
         parent: "testpar4",
         title: "Testpar4 suomi–englanti–ruotsi–saksa-rinnakkaiskorpustesti",
         context: context.spContext,
@@ -8069,8 +8069,8 @@ settings.parallel_corpora.testpar4 = {
         hide: true
     },
     testpar4_sv: {
-	id: "testpar4_sv",
-	lang: "swe",
+        id: "testpar4_sv",
+        lang: "swe",
         parent: "testpar4",
         title: "Testpar4 suomi–englanti–ruotsi–saksa-rinnakkaiskorpustesti",
         context: context.spContext,
@@ -8082,8 +8082,8 @@ settings.parallel_corpora.testpar4 = {
         hide: true
     },
     testpar4_de: {
-	id: "testpar4_de",
-	lang: "deu",
+        id: "testpar4_de",
+        lang: "deu",
         parent: "testpar4",
         title: "Testpar4 suomi–englanti–ruotsi–saksa-rinnakkaiskorpustesti",
         context: context.spContext,

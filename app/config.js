@@ -7,11 +7,11 @@ var isProductionServer = (
 var isProductionServerTest =
     (isProductionServer
      && (window.location.pathname.indexOf("test/") != -1
-	 || window.location.pathname.indexOf("test-") != -1));
+         || window.location.pathname.indexOf("test-") != -1));
 var isProductionServerBeta =
     (isProductionServer && (window.location.pathname.indexOf("beta") != -1
-			    || window.location.pathname.indexOf("lab") != -1
-			    || window.location.pathname.indexOf("-jn5") != -1));
+                            || window.location.pathname.indexOf("lab") != -1
+                            || window.location.pathname.indexOf("-jn5") != -1));
 var isProductionServerOld =
     (isProductionServer && window.location.pathname.indexOf("old/") != -1);
 settings.isPublicServer = (window.location.hostname != "localhost");
@@ -124,12 +124,12 @@ if (! isProductionServer) {
 // 2016-09-26)
 physical_formats = {
     table: {
-	formats: ["xls", "csv", "tsv", "html_table"],
-	selected: "xls",
+        formats: ["xls", "csv", "tsv", "html_table"],
+        selected: "xls",
     },
     text: {
-	formats: ["text_utf8", "html"],
-	selected: "text_utf8",
+        formats: ["text_utf8", "html"],
+        selected: "text_utf8",
     },
 };
 
@@ -138,26 +138,26 @@ settings.downloadFormatParams = {
         structs: "+"
     },
     "annot": {
-	format: "tokens",
-	attrs: "+,-lex",
-	match_marker: "***",
-	physical_formats: physical_formats.table,
+        format: "tokens",
+        attrs: "+,-lex",
+        match_marker: "***",
+        physical_formats: physical_formats.table,
     },
     "ref": {
-	format: "bibref",
-	physical_formats: physical_formats.table,
+        format: "bibref",
+        physical_formats: physical_formats.table,
     },
     "sentences": {
-	format: "sentences",
-	subformat: "lemmas-resultinfo",
-	physical_formats: physical_formats.table,
+        format: "sentences",
+        subformat: "lemmas-resultinfo",
+        physical_formats: physical_formats.table,
     },
     // As "sentences", but match tokens and context tokens in separate
     // columns
     "sentences_kwic": {
-	format: "sentences",
-	subformat: "lemmas-resultinfo,lemmas-kwic",
-	physical_formats: physical_formats.table,
+        format: "sentences",
+        subformat: "lemmas-resultinfo,lemmas-kwic",
+        physical_formats: physical_formats.table,
     },
     "nooj": {
         attrs: "+"
@@ -166,30 +166,30 @@ settings.downloadFormatParams = {
         attrs: "+"
     },
     "text": {
-	format: "text",
-	subformat: "sentences-bare",
-	structs: "",
-	physical_formats: physical_formats.text,
+        format: "text",
+        subformat: "sentences-bare",
+        structs: "",
+        physical_formats: physical_formats.text,
     },
 };
 
 settings.downloadFormatParamsPhysical = {
     "xls": {
-	format_suffix: ",xls",
+        format_suffix: ",xls",
     },
     "csv": {
-	format_suffix: ",csv",
+        format_suffix: ",csv",
     },
     "tsv": {
-	format_suffix: ",tsv",
+        format_suffix: ",tsv",
     },
     "text_utf8": {
     },
     "html": {
-	format_suffix: ",html",
+        format_suffix: ",html",
     },
     "html_table": {
-	format_suffix: ",html_table",
+        format_suffix: ",html_table",
     },
 };
 
@@ -286,14 +286,14 @@ settings.getShibbolethLogoutURL = function (encodedURL) {
 settings.shibbolethLoginUrl = function (href) {
     return ("/shibboleth-ds/index.html?"
             + encodeURIComponent(util.compressUrlHashParams(
-		(href || window.location.href) + "&shib_logged_in")));
+                (href || window.location.href) + "&shib_logged_in")));
 };
 // settings.shibbolethLogoutUrl =
 //     "https://korp.csc.fi/Shibboleth.sso/Logout?return=" + encodeURI(baseURL);
 settings.shibbolethLogoutUrl = function (href) {
     return ("/Shibboleth.sso/Logout?return="
             + encodeURIComponent(
-		util.compressUrlHashParams(href || window.location.href)));
+                util.compressUrlHashParams(href || window.location.href)));
 }
 
 // Return a direct URL to the application of a corpus in Language Bank
@@ -303,11 +303,11 @@ settings.shibbolethLogoutUrl = function (href) {
 settings.make_direct_LBR_URL = function (lbr_id) {
     console.log ("make_direct_LBR_URL", lbr_id);
     if (lbr_id) {
-	return ("https://www.kielipankki.fi/lbr3/"
-		+ (lbr_id.slice(0, 3) != "urn" ? "urn:nbn:fi:lb-" : "")
-		+ lbr_id);
+        return ("https://www.kielipankki.fi/lbr3/"
+                + (lbr_id.slice(0, 3) != "urn" ? "urn:nbn:fi:lb-" : "")
+                + lbr_id);
     } else {
-	return "https://lbr.csc.fi";
+        return "https://lbr.csc.fi";
     }
 };
 
@@ -336,14 +336,14 @@ settings.corpusExtraInfoItems = [
 settings.corpusExtraInfo = {
     infoPopup: settings.corpusExtraInfoItems,
     sidebar: [
-	"subcorpus_of",
-	"pid",
-	// "metadata",
-	"cite",
-	"licence",
-	"infopage",
-	"urn",
-	"download",
+        "subcorpus_of",
+        "pid",
+        // "metadata",
+        "cite",
+        "licence",
+        "infopage",
+        "urn",
+        "download",
     ]
 };
 
@@ -358,35 +358,35 @@ settings.corpusExtraInfo = {
 // tried.
 settings.makeCorpusExtraInfoItem = {
     subcorpus_of: function (corpusObj, label) {
-	if (corpusObj.logical_corpus
-	    && corpusObj.logical_corpus.title != corpusObj.title) {
-	    return {
-		text: corpusObj.logical_corpus.title,
-		label: label,
-	    };
-	}
+        if (corpusObj.logical_corpus
+            && corpusObj.logical_corpus.title != corpusObj.title) {
+            return {
+                text: corpusObj.logical_corpus.title,
+                label: label,
+            };
+        }
     },
     pid: function (corpusObj, label) {
         // If the PID of a corpus is not specified explicitly, use
         // the metadata URN.
         var pid = ((corpusObj.pid ? corpusObj.pid.urn : null)
-		   || corpusObj.pid_urn
-		   || (corpusObj.metadata ? corpusObj.metadata.urn : null)
-		   || corpusObj.metadata_urn);
-	if (pid) {
-	    return {
-		url: util.makeUrnUrl(pid),
-		// Prevent breaking the URN at the hyphen by using
-		// white-space: nowrap.
-		text: ('<span style="white-space: nowrap;">' + pid +
-		       '</span>'),
-		label: label,
-	    };
-	}
+                   || corpusObj.pid_urn
+                   || (corpusObj.metadata ? corpusObj.metadata.urn : null)
+                   || corpusObj.metadata_urn);
+        if (pid) {
+            return {
+                url: util.makeUrnUrl(pid),
+                // Prevent breaking the URN at the hyphen by using
+                // white-space: nowrap.
+                text: ('<span style="white-space: nowrap;">' + pid +
+                       '</span>'),
+                label: label,
+            };
+        }
     },
     cite: function (corpusObj, label) {
-	if (corpusObj.cite_id && settings.corpus_cite_base_url) {
-	    return {
+        if (corpusObj.cite_id && settings.corpus_cite_base_url) {
+            return {
                 // Using ng-href would require using Angular $compile,
                 // but how could we use it here or where should it be
                 // called?
@@ -402,16 +402,16 @@ settings.makeCorpusExtraInfoItem = {
                 url: (settings.corpus_cite_base_url
                       + escape(corpusObj.cite_id) + '&lang=' + window.lang),
                 text: label,
-	    };
-	}
+            };
+        }
     },
     urn: function (corpusObj, label) {
-	if (corpusObj.urn) {
-	    return {
-		url: util.makeUrnUrl(corpusObj.urn),
-		text: label,
-	    };
-	}
+        if (corpusObj.urn) {
+            return {
+                url: util.makeUrnUrl(corpusObj.urn),
+                text: label,
+            };
+        }
     },
     homepage: function (corpusObj, label) {
         if (! ("homepage" in corpusObj) && corpusObj.url) {
@@ -421,8 +421,8 @@ settings.makeCorpusExtraInfoItem = {
             return {
                 url: corpusObj.url,
                 text: label,
-	    };
-	}
+            };
+        }
     },
 };
 
@@ -508,21 +508,21 @@ settings.modeConfig = [
     },
 /*
     {
-	localekey: "finnish_national_library_texts",
-	mode: "finnish_national_library"
+        localekey: "finnish_national_library_texts",
+        mode: "finnish_national_library"
     },
     {
-	localekey: "old_finnish_texts",
-	mode: "old_finnish"
+        localekey: "old_finnish_texts",
+        mode: "old_finnish"
     },
 */
     {
-	localekey: "swedish_texts",
-	mode: "swedish"
+        localekey: "swedish_texts",
+        mode: "swedish"
     },
     {
-	localekey: "other_languages_texts",
-	mode: "other_languages"
+        localekey: "other_languages_texts",
+        mode: "other_languages"
     },
     {
         localekey: "parallel_texts",
@@ -604,23 +604,23 @@ settings.short_url_config = {};
 // attribute definitions. (Jyrki Niemi 2017-10-20)
 settings.default_sidebar_display_order = {
     attributes: [
-	"lemma",
-	"lemmacomp",
-	"pos",
-	"posset",
-	"lex",
-	"saldo",
-	"variants",
-	"msd",
-	"deprel",
+        "lemma",
+        "lemmacomp",
+        "pos",
+        "posset",
+        "lex",
+        "saldo",
+        "variants",
+        "msd",
+        "deprel",
     ],
     struct_attributes: [
-	/^text_/,
-	/^chapter_/,
-	/^speech_/,
-	/^paragraph_/,
-	/^sentence_/,
-	/^clause_/,
+        /^text_/,
+        /^chapter_/,
+        /^speech_/,
+        /^paragraph_/,
+        /^sentence_/,
+        /^clause_/,
     ]
 };
 
@@ -735,29 +735,29 @@ settings.corporafolder_properties = {
 settings.fn.remove_empty_corporafolders = function (folder) {
     var empty = true;
     if ("contents" in folder) {
-	var new_contents = [];
-	for (var i = 0; i < folder.contents.length; i++) {
-	    var corpname = folder.contents[i];
-	    if (corpname in settings.corpora) {
-		new_contents.push(corpname);
-	    }
-	}
-	if (new_contents.length == 0) {
-	    delete folder.contents;
-	} else {
-	    folder.contents = new_contents;
-	    empty = false;
-	}
+        var new_contents = [];
+        for (var i = 0; i < folder.contents.length; i++) {
+            var corpname = folder.contents[i];
+            if (corpname in settings.corpora) {
+                new_contents.push(corpname);
+            }
+        }
+        if (new_contents.length == 0) {
+            delete folder.contents;
+        } else {
+            folder.contents = new_contents;
+            empty = false;
+        }
     }
     for (var prop in folder) {
-	if (folder.hasOwnProperty(prop)
-	    && ! (prop in settings.corporafolder_properties)) {
-	    if (settings.fn.remove_empty_corporafolders(folder[prop])) {
-		delete folder[prop];
-	    } else {
-		empty = false;
-	    }
-	}
+        if (folder.hasOwnProperty(prop)
+            && ! (prop in settings.corporafolder_properties)) {
+            if (settings.fn.remove_empty_corporafolders(folder[prop])) {
+                delete folder[prop];
+            } else {
+                empty = false;
+            }
+        }
     }
     return empty;
 }
@@ -771,10 +771,10 @@ settings.fn.remove_matching_corpora = function (corplist) {
     var inverse = (arguments.length > 1 && arguments[1]);
     var corp_re = new RegExp("^(" + corplist.join ("|") + ")$");
     for (var corpus in settings.corpora) {
-	var matches = corp_re.test (corpus);
-	if ((matches && ! inverse) || (inverse && ! matches)) {
-	    delete settings.corpora[corpus];
-	}
+        var matches = corp_re.test (corpus);
+        if ((matches && ! inverse) || (inverse && ! matches)) {
+            delete settings.corpora[corpus];
+        }
     }
     settings.fn.remove_empty_corporafolders(settings.corporafolders);
 };
@@ -793,31 +793,31 @@ settings.fn.remove_matching_corpora = function (corplist) {
 // to the appropriate attributes of corpora.
 settings.fn.add_attr_extra_properties = function (corpora) {
     for (var corpname in corpora) {
-	var corpus = corpora[corpname];
-	var attr_group_names = ["attributes", "struct_attributes"];
-	var attr_group_count = attr_group_names.length;
-	for (var groupnum = 0; groupnum < attr_group_count; groupnum++) {
-	    if (attr_group_names[groupnum] in corpus) {
-		var attrs = corpus[attr_group_names[groupnum]];
-		var extra_props_count = settings.attr_extra_properties.length;
-		for (var attrname in attrs) {
-		    for (var i = 0; i < extra_props_count; i++) {
-			var attr_extra_props =
-			    settings.attr_extra_properties[i];
-			var attr = attrs[attrname];
-			if (attr_extra_props.test(attr)) {
-			    var props = attr_extra_props.props;
-			    for (var prop in props) {
-				if (props.hasOwnProperty(prop)
-				    && ! attr.hasOwnProperty(prop)) {
-				    attr[prop] = props[prop];
-				}
-			    }
-			}
-		    }
-		}
-	    }
-	}
+        var corpus = corpora[corpname];
+        var attr_group_names = ["attributes", "struct_attributes"];
+        var attr_group_count = attr_group_names.length;
+        for (var groupnum = 0; groupnum < attr_group_count; groupnum++) {
+            if (attr_group_names[groupnum] in corpus) {
+                var attrs = corpus[attr_group_names[groupnum]];
+                var extra_props_count = settings.attr_extra_properties.length;
+                for (var attrname in attrs) {
+                    for (var i = 0; i < extra_props_count; i++) {
+                        var attr_extra_props =
+                            settings.attr_extra_properties[i];
+                        var attr = attrs[attrname];
+                        if (attr_extra_props.test(attr)) {
+                            var props = attr_extra_props.props;
+                            for (var prop in props) {
+                                if (props.hasOwnProperty(prop)
+                                    && ! attr.hasOwnProperty(prop)) {
+                                    attr[prop] = props[prop];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -843,42 +843,42 @@ settings.fn.add_corpus_aliases = function (corpus_id_patt, aliases) {
     var add_variants = (opts.add_variants !== false);
 
     var add_dash_underscore_variants = function (aliases, alias) {
-	if (alias.indexOf("_") > -1) {
-	    aliases.push(alias.replace(/_/g, "-"));
-	}
-	if (alias.indexOf("-") > -1) {
-	    aliases.push(alias.replace(/-/g, "_"));
-	}
+        if (alias.indexOf("_") > -1) {
+            aliases.push(alias.replace(/_/g, "-"));
+        }
+        if (alias.indexOf("-") > -1) {
+            aliases.push(alias.replace(/-/g, "_"));
+        }
     }
 
     if (! _.isArray(aliases)) {
-	aliases = [aliases];
+        aliases = [aliases];
     }
     for (var i = 0; i < aliases.length; i++) {
-	var alias = aliases[i]
-	var aliases2 = [alias];
-	var alias2;
-	if (add_variants) {
-	    // Add alias variants:
-	    // x -> x, x-korp, x_korp
-	    // x-y | x_y | x-y-korp | x_y_korp -> x-y, x_y, x-y-korp, x_y_korp
-	    add_dash_underscore_variants(aliases2, alias);
-	    // This may add some aliases twice to alias2, but that
-	    // does not matter in the end.
-	    if (alias.match(/[_-]korp($|[_-])/)) {
-		alias2 = alias.replace(/[_-]korp($|[_-])/, "$1");
-		aliases2.push(alias2)
-		add_dash_underscore_variants(aliases2, alias2);
-	    } else {
-		aliases2.push(alias + "-korp");
-		add_dash_underscore_variants(aliases2, alias + "-korp");
-	    }
-	}
-	for (var j = 0; j < aliases2.length; j++) {
-	    alias2 = aliases2[j];
-	    if (override || ! (alias2 in settings.corpus_aliases)) {
-		settings.corpus_aliases[alias2] = corpus_id_patt;
-	    }
-	}
+        var alias = aliases[i]
+        var aliases2 = [alias];
+        var alias2;
+        if (add_variants) {
+            // Add alias variants:
+            // x -> x, x-korp, x_korp
+            // x-y | x_y | x-y-korp | x_y_korp -> x-y, x_y, x-y-korp, x_y_korp
+            add_dash_underscore_variants(aliases2, alias);
+            // This may add some aliases twice to alias2, but that
+            // does not matter in the end.
+            if (alias.match(/[_-]korp($|[_-])/)) {
+                alias2 = alias.replace(/[_-]korp($|[_-])/, "$1");
+                aliases2.push(alias2)
+                add_dash_underscore_variants(aliases2, alias2);
+            } else {
+                aliases2.push(alias + "-korp");
+                add_dash_underscore_variants(aliases2, alias + "-korp");
+            }
+        }
+        for (var j = 0; j < aliases2.length; j++) {
+            alias2 = aliases2[j];
+            if (override || ! (alias2 in settings.corpus_aliases)) {
+                settings.corpus_aliases[alias2] = corpus_id_patt;
+            }
+        }
     }
 };

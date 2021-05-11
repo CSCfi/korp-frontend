@@ -46,78 +46,78 @@ settings.corpusFeatures.paragraphs = {
 // Recurring corpus licence information (name + URL)
 settings.licenceinfo = {
     CC0: {
-	name: "CC ZERO (CC0) (CLARIN PUB)",
-	description: "Public Domain Dedication",
-	url: "http://creativecommons.org/publicdomain/zero/1.0/",
+        name: "CC ZERO (CC0) (CLARIN PUB)",
+        description: "Public Domain Dedication",
+        url: "http://creativecommons.org/publicdomain/zero/1.0/",
     },
     CC_BY: {
-	name: "CC BY (CLARIN PUB)",
-	description: "Creative Commons Attribution",
-	url: "https://creativecommons.org/licenses/by/4.0/",
+        name: "CC BY (CLARIN PUB)",
+        description: "Creative Commons Attribution",
+        url: "https://creativecommons.org/licenses/by/4.0/",
     },
     CC_BY_30: {
-	name: "CC BY 3.0 (CLARIN PUB)",
-	description: "Creative Commons Attribution 3.0",
-	url: "https://creativecommons.org/licenses/by/3.0/",
+        name: "CC BY 3.0 (CLARIN PUB)",
+        description: "Creative Commons Attribution 3.0",
+        url: "https://creativecommons.org/licenses/by/3.0/",
     },
     CC_BY_40: {
-	name: "CC BY 4.0 (CLARIN PUB)",
-	description: "Creative Commons Attribution",
-	url: "https://creativecommons.org/licenses/by/4.0/",
+        name: "CC BY 4.0 (CLARIN PUB)",
+        description: "Creative Commons Attribution",
+        url: "https://creativecommons.org/licenses/by/4.0/",
     },
     CC_BY_NC: {
-	name: "CC BY-NC (CLARIN PUB)",
-	description: "Creative Commons Attribution-NonCommercial",
-	url: "https://creativecommons.org/licenses/by-nc/4.0/",
+        name: "CC BY-NC (CLARIN PUB)",
+        description: "Creative Commons Attribution-NonCommercial",
+        url: "https://creativecommons.org/licenses/by-nc/4.0/",
     },
     CC_BY_ND: {
-	name: "CC BY-ND (CLARIN PUB)",
-	description: "Creative Commons Attribution-NoDerivatives",
-	url: "https://creativecommons.org/licenses/by-nd/4.0/",
+        name: "CC BY-ND (CLARIN PUB)",
+        description: "Creative Commons Attribution-NoDerivatives",
+        url: "https://creativecommons.org/licenses/by-nd/4.0/",
     },
     CC_BY_ND_40: {
-	name: "CC BY-ND 4.0 (CLARIN PUB)",
-	description: "Creative Commons Attribution-NoDerivatives 4.0",
-	url: "https://creativecommons.org/licenses/by-nd/4.0/",
+        name: "CC BY-ND 4.0 (CLARIN PUB)",
+        description: "Creative Commons Attribution-NoDerivatives 4.0",
+        url: "https://creativecommons.org/licenses/by-nd/4.0/",
     },
     CC_BY_NC_ND: {
-	name: "CC BY-NC-ND (CLARIN PUB)",
-	description: "Creative Commons Attribution-NonCommercial-NoDerivatives",
-	url: "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        name: "CC BY-NC-ND (CLARIN PUB)",
+        description: "Creative Commons Attribution-NonCommercial-NoDerivatives",
+        url: "https://creativecommons.org/licenses/by-nc-nd/4.0/",
     },
     CC_BY_NC_ND_40: {
-	name: "CC BY-NC-ND 4.0 (CLARIN PUB)",
-	description: "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0",
-	url: "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        name: "CC BY-NC-ND 4.0 (CLARIN PUB)",
+        description: "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0",
+        url: "https://creativecommons.org/licenses/by-nc-nd/4.0/",
     },
     CC_BY_SA_30: {
-	name: "CC BY-SA 3.0 (CLARIN PUB)",
-	description: "Creative Commons Attribution-ShareAlike",
-	url: "https://creativecommons.org/licenses/by-sa/3.0/",
+        name: "CC BY-SA 3.0 (CLARIN PUB)",
+        description: "Creative Commons Attribution-ShareAlike",
+        url: "https://creativecommons.org/licenses/by-sa/3.0/",
     },
     EUPL_11: {
-	name: "EUPL v1.1 (CLARIN PUB)",
-	description: "European Union Public Licence, version 1.1",
-	url: "http://ec.europa.eu/idabc/en/document/7774.html",
-	// An alternative URL:
-	// url: "https://joinup.ec.europa.eu/community/eupl/og_page/european-union-public-licence-eupl-v11",
+        name: "EUPL v1.1 (CLARIN PUB)",
+        description: "European Union Public Licence, version 1.1",
+        url: "http://ec.europa.eu/idabc/en/document/7774.html",
+        // An alternative URL:
+        // url: "https://joinup.ec.europa.eu/community/eupl/og_page/european-union-public-licence-eupl-v11",
     },
     ParFinRus_2016_fi: {
-	name: "CLARIN RES +NC +INF +ND 1.0",
-	urn: "urn:nbn:fi:lb-2017020611",
+        name: "CLARIN RES +NC +INF +ND 1.0",
+        urn: "urn:nbn:fi:lb-2017020611",
     },
     ParFinRus_2016_en: {
-	name: "CLARIN RES +NC +INF +ND 1.0",
-	urn: "urn:nbn:fi:lb-2017020612",
+        name: "CLARIN RES +NC +INF +ND 1.0",
+        urn: "urn:nbn:fi:lb-2017020612",
     },
     ACA_NC: {
-	name: "CLARIN ACA +NC",
-	description: "CLARIN ACA (Academic) End-User License 1.0, Non-commercial",
-	url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
+        name: "CLARIN ACA +NC",
+        description: "CLARIN ACA (Academic) End-User License 1.0, Non-commercial",
+        url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
     },
     Ylenews_sv_en: {
-	name: "CLARIN ACA +NC 1.0",
-	urn: "urn:nbn:fi:lb-2019120401",
+        name: "CLARIN ACA +NC 1.0",
+        urn: "urn:nbn:fi:lb-2019120401",
     },
 };
 
@@ -860,22 +860,22 @@ attrs.pos_ftb2 = {
     displayType: "select",
     translationKey: "posftb2_",
     dataset: {
-	"A": "A",
-	"Abbr": "Abbr",
-	"Adp": "Adp",
-	"Adv": "Adv",
-	"CC": "CC",
-	"Con": "Con",
-	"CS": "CS",
-	// "Interj|INTERJ": "Interj",
-	"Interj": "Interj",
-	// "N|Noun": "N",
-	"N": "N",
-	"Num": "Num",
-	"POST": "POST",
-	"Pron": "Pron",
-	"Pun": "Pun",
-	"V": "V"
+        "A": "A",
+        "Abbr": "Abbr",
+        "Adp": "Adp",
+        "Adv": "Adv",
+        "CC": "CC",
+        "Con": "Con",
+        "CS": "CS",
+        // "Interj|INTERJ": "Interj",
+        "Interj": "Interj",
+        // "N|Noun": "N",
+        "N": "N",
+        "Num": "Num",
+        "POST": "POST",
+        "Pron": "Pron",
+        "Pun": "Pun",
+        "V": "V"
     },
     opts: liteOptions
 };
@@ -885,25 +885,25 @@ attrs.pos_ftb3 = {
     displayType: "select",
     translationKey: "posftb3_",
     dataset: {
-	"A": "A",
-	"Abbr": "Abbr",
-	"Adp": "Adp",
-	"Adp|Po": "Post",
-	"Adv": "Adv",
-	"Art": "Art",
-	"CC": "CC",
-	"Con|C": "Con",
-	"CS": "CS",
-	"Forgn": "Forgn",
-	"Interj|INTERJ": "Interj",
-	"N|Noun": "N",
-	"Num": "Num",
-	"Pron": "Pron",
-	"PrfPrc": "PrfPrc",
-	"PrsPrc": "PrsPrc",
-	"Punct": "Punct",
-	"V": "V",
-	"[NON-TWOL]": "NonTWOL"
+        "A": "A",
+        "Abbr": "Abbr",
+        "Adp": "Adp",
+        "Adp|Po": "Post",
+        "Adv": "Adv",
+        "Art": "Art",
+        "CC": "CC",
+        "Con|C": "Con",
+        "CS": "CS",
+        "Forgn": "Forgn",
+        "Interj|INTERJ": "Interj",
+        "N|Noun": "N",
+        "Num": "Num",
+        "Pron": "Pron",
+        "PrfPrc": "PrfPrc",
+        "PrsPrc": "PrsPrc",
+        "Punct": "Punct",
+        "V": "V",
+        "[NON-TWOL]": "NonTWOL"
     },
     opts: liteOptions
 };
@@ -911,25 +911,25 @@ attrs.pos_ftb3_orig = {
     label: "pos_orig",
     translationKey: "posftb3_",
     dataset: {
-	"A": "A",
-	"Abbr": "Abbr",
-	"Adp": "Adp",
-	"Adp|Po": "Post",
-	"Adv": "Adv",
-	"Art": "Art",
-	"CC": "CC",
-	"Con|C": "Con",
-	"CS": "CS",
-	"Forgn": "Forgn",
-	"Interj|INTERJ": "Interj",
-	"N|Noun": "N",
-	"Num": "Num",
-	"Pron": "Pron",
-	"PrfPrc": "PrfPrc",
-	"PrsPrc": "PrsPrc",
-	"Punct": "Punct",
-	"V": "V",
-	"[NON-TWOL]": "NonTWOL"
+        "A": "A",
+        "Abbr": "Abbr",
+        "Adp": "Adp",
+        "Adp|Po": "Post",
+        "Adv": "Adv",
+        "Art": "Art",
+        "CC": "CC",
+        "Con|C": "Con",
+        "CS": "CS",
+        "Forgn": "Forgn",
+        "Interj|INTERJ": "Interj",
+        "N|Noun": "N",
+        "Num": "Num",
+        "Pron": "Pron",
+        "PrfPrc": "PrfPrc",
+        "PrsPrc": "PrsPrc",
+        "Punct": "Punct",
+        "V": "V",
+        "[NON-TWOL]": "NonTWOL"
     },
     opts: settings.defaultOptions
 };
@@ -967,15 +967,15 @@ attrs.namecat_omorfi = {
     displayType: "select",
     translationKey: "namecat_omorfi_",
     dataset: [
-	"ARTWORK",
-	"CULTGRP",
-	"FIRST",
-	"GEO",
-	"LAST",
-	"MISC",
-	"ORG",
-	"PRODUCT",
-	"_",
+        "ARTWORK",
+        "CULTGRP",
+        "FIRST",
+        "GEO",
+        "LAST",
+        "MISC",
+        "ORG",
+        "PRODUCT",
+        "_",
     ],
     opts: setOptions,
 };
@@ -985,25 +985,25 @@ attrs.pos_ftb31 = {
     displayType: "select",
     translationKey: "posftb3_",
     dataset: {
-	"A": "A",
-	"Abbr": "Abbr",
-	"Adp": "Adp",
-	"Adv": "Adv",
-	"AgPrc": "AgPrc",
-	"CC": "CC",
-	"CS": "CS",
-	"Forgn": "Forgn",
-	"Interj": "Interj",
-	"N": "N",
-	"NegPrc": "NegPrc",
-	"Num": "Num",
-	"PrfPrc": "PrfPrc",
-	"Pron": "Pron",
-	"PrsPrc": "PrsPrc",
-	"Punct": "Punct",
-	"TrunCo": "TrunCo",
-	"Unkwn": "Unkwn",
-	"V": "V"
+        "A": "A",
+        "Abbr": "Abbr",
+        "Adp": "Adp",
+        "Adv": "Adv",
+        "AgPrc": "AgPrc",
+        "CC": "CC",
+        "CS": "CS",
+        "Forgn": "Forgn",
+        "Interj": "Interj",
+        "N": "N",
+        "NegPrc": "NegPrc",
+        "Num": "Num",
+        "PrfPrc": "PrfPrc",
+        "Pron": "Pron",
+        "PrsPrc": "PrsPrc",
+        "Punct": "Punct",
+        "TrunCo": "TrunCo",
+        "Unkwn": "Unkwn",
+        "V": "V"
     },
     opts: liteOptions
 };
@@ -1012,44 +1012,44 @@ attrs.pos_kotus = {
     displayType: "select",
     translationKey: "poskotus_",
     dataset: {
-	// Some of the following POS codes might be coding errors in
-	// the corpora (usually very few occurrences): CMPR, D, DA-US,
-	// DA-UUS, DN-INEN, DN-LLINEN, DN-TON, DV-MA (?), DV-TTA,
-	// FORGN, INTJ, P, PROP, REL, null (empty)
-	"A": "A",
-	"ABBR": "Abbr",
-	"AD-A": "AdA",
-	"ADV": "Adv",
-	"A/N": "AN",
-	"C": "Con",
-	"CMPR": "Cmpr",
-	"D": "D",
-	"DA-US": "DaUs",
-	"DA-UUS": "DaUus",
-	"DN-INEN": "DnInen",
-	"DN-LLINEN": "DnLlinen",
-	"DN-TON": "DnTon",
-	"DV-MA": "DvMa",
-	"DV-TTA": "DvTta",
-	"FORGN": "Forgn",
-	"INTJ": "Interj",
-	"N": "N",
-	"NUM": "Num",
-	"P": "P",
-	"PCP1": "Pcp1",
-	"PCP2": "Pcp2",
-	"PP": "Pp",
-	"PRON": "Pron",
-	"PROP": "Prop",
-	"PSP": "Post",
-	"PUNCT": "Punct",
-	"REFL/PRON": "ReflPron",
-	"REL": "Rel",
-	"#UNKNOWN": "Unknown",
-	"V": "V",
-	// null corresponds to an __UNDEF__ value in CWB, resulting
-	// from an empty value in the VRT file.
-	"null": "null"
+        // Some of the following POS codes might be coding errors in
+        // the corpora (usually very few occurrences): CMPR, D, DA-US,
+        // DA-UUS, DN-INEN, DN-LLINEN, DN-TON, DV-MA (?), DV-TTA,
+        // FORGN, INTJ, P, PROP, REL, null (empty)
+        "A": "A",
+        "ABBR": "Abbr",
+        "AD-A": "AdA",
+        "ADV": "Adv",
+        "A/N": "AN",
+        "C": "Con",
+        "CMPR": "Cmpr",
+        "D": "D",
+        "DA-US": "DaUs",
+        "DA-UUS": "DaUus",
+        "DN-INEN": "DnInen",
+        "DN-LLINEN": "DnLlinen",
+        "DN-TON": "DnTon",
+        "DV-MA": "DvMa",
+        "DV-TTA": "DvTta",
+        "FORGN": "Forgn",
+        "INTJ": "Interj",
+        "N": "N",
+        "NUM": "Num",
+        "P": "P",
+        "PCP1": "Pcp1",
+        "PCP2": "Pcp2",
+        "PP": "Pp",
+        "PRON": "Pron",
+        "PROP": "Prop",
+        "PSP": "Post",
+        "PUNCT": "Punct",
+        "REFL/PRON": "ReflPron",
+        "REL": "Rel",
+        "#UNKNOWN": "Unknown",
+        "V": "V",
+        // null corresponds to an __UNDEF__ value in CWB, resulting
+        // from an empty value in the VRT file.
+        "null": "null"
     },
     opts: liteOptions
 };
@@ -1059,21 +1059,21 @@ attrs.pos_mulcold_fi = {
     displayType: "select",
     translationKey: "posmulcoldfi_",
     dataset: {
-	"A": "A",
-	"Abbr": "Abbr",
-	"ADV": "Adv",
-	"Aux": "Aux",
-	"CC": "CC",
-	"CS": "CS",
-	"Heur": "Heur",
-	"N": "N",
-	"NUM": "Num",
-	"POST": "Post",
-	"PREP": "Prep",
-	"PRON": "Pron",
-	"pun": "Punct",
-	"UNKNOWN": "UNKNOWN",
-	"V": "V"
+        "A": "A",
+        "Abbr": "Abbr",
+        "ADV": "Adv",
+        "Aux": "Aux",
+        "CC": "CC",
+        "CS": "CS",
+        "Heur": "Heur",
+        "N": "N",
+        "NUM": "Num",
+        "POST": "Post",
+        "PREP": "Prep",
+        "PRON": "Pron",
+        "pun": "Punct",
+        "UNKNOWN": "UNKNOWN",
+        "V": "V"
     },
     opts: liteOptions
 };
@@ -1082,21 +1082,21 @@ attrs.pos_mulcold_ru = {
     displayType: "select",
     translationKey: "posmulcoldru_",
     dataset: {
-	"Adj": "Adj",
-	"Adv": "Adv",
-	"Conj": "Conj",
-	"Gerund": "Gerund",
-	"Interj": "Interj",
-	"Noun": "Noun",
-	"Numeral": "Numeral",
-	"Part": "Part",
-	"Particle": "Particle",
-	"Predicative": "Predicative",
-	"Preposition": "Preposition",
-	"Pron": "Pron",
-	"pun": "Punct",
-	"UNKNOWN": "UNKNOWN",
-	"Verb": "Verb"
+        "Adj": "Adj",
+        "Adv": "Adv",
+        "Conj": "Conj",
+        "Gerund": "Gerund",
+        "Interj": "Interj",
+        "Noun": "Noun",
+        "Numeral": "Numeral",
+        "Part": "Part",
+        "Particle": "Particle",
+        "Predicative": "Predicative",
+        "Preposition": "Preposition",
+        "Pron": "Pron",
+        "pun": "Punct",
+        "UNKNOWN": "UNKNOWN",
+        "Verb": "Verb"
     },
     opts: liteOptions
 };
@@ -1105,25 +1105,25 @@ attrs.pos_mulcold_en = {
     displayType: "select",
     translationKey: "posmulcolden_",
     dataset: {
-	"A": "A",
-	"ABBR": "ABBR",
-	"ADV": "ADV",
-	"CC": "CC",
-	"CS": "CS",
-	"DET": "DET",
-	"EN": "EN",
-	"Ex": "EX",
-	"INFMARK": "INFMARK",
-	"ING": "ING",
-	"N": "N",
-	"NEG-PART": "NEG-PART",
-	"NUM": "NUM",
-	"PREP": "PREP",
-	"PRON": "PRON",
-	"pun": "Punct",
-	"Rel": "REL",
-	"UNKNOWN": "UNKNOWN",
-	"V": "V"
+        "A": "A",
+        "ABBR": "ABBR",
+        "ADV": "ADV",
+        "CC": "CC",
+        "CS": "CS",
+        "DET": "DET",
+        "EN": "EN",
+        "Ex": "EX",
+        "INFMARK": "INFMARK",
+        "ING": "ING",
+        "N": "N",
+        "NEG-PART": "NEG-PART",
+        "NUM": "NUM",
+        "PREP": "PREP",
+        "PRON": "PRON",
+        "pun": "Punct",
+        "Rel": "REL",
+        "UNKNOWN": "UNKNOWN",
+        "V": "V"
     },
     opts: liteOptions
 };
@@ -1132,18 +1132,18 @@ attrs.pos_mulcold_sv = {
     displayType: "select",
     translationKey: "posmulcoldsv_",
     dataset: {
-	"A": "A",
-	"ADV": "ADV",
-	"CC": "CC",
-	"CS": "CS",
-	"DET": "DET",
-	"N": "N",
-	"NUM": "NUM",
-	"PREP": "PREP",
-	"PRON": "PRON",
-	"pun": "Punct",
-	"UNKNOWN": "UNKNOWN",
-	"V": "V"
+        "A": "A",
+        "ADV": "ADV",
+        "CC": "CC",
+        "CS": "CS",
+        "DET": "DET",
+        "N": "N",
+        "NUM": "NUM",
+        "PREP": "PREP",
+        "PRON": "PRON",
+        "pun": "Punct",
+        "UNKNOWN": "UNKNOWN",
+        "V": "V"
     },
     opts: liteOptions
 };
@@ -1154,21 +1154,21 @@ attrs.pos_uta_ru = {
     translationKey: "pos_",
     opts: liteOptions,
     dataset: {
-	"-": "Punct",
-	",": "Punct",
-	":": "Punct",
-	"'": "Punct",
-	"\"": "Punct",
-	"A": "A",
-	"C": "C",
-	"I": "Interj",
-	"M": "Num",
-	"N": "N",
-	"P": "Pron",
-	"Q": "Particle",
-	"R": "Adv",
-	"S": "Prep",
-	"V": "V",
+        "-": "Punct",
+        ",": "Punct",
+        ":": "Punct",
+        "'": "Punct",
+        "\"": "Punct",
+        "A": "A",
+        "C": "C",
+        "I": "Interj",
+        "M": "Num",
+        "N": "N",
+        "P": "Pron",
+        "Q": "Particle",
+        "R": "Adv",
+        "S": "Prep",
+        "V": "V",
     },
 };
 
@@ -1177,23 +1177,23 @@ attrs.pos_ud2_universal = {
     displayType: "select",
     translationKey: "pos_",
     dataset: {
-	"ADJ": "A",
-	"ADP": "Adp",
-	"ADV": "Adv",
-	"AUX": "Aux",
-	"CCONJ": "CC",
-	"DET": "DT",
-	"INTJ": "Interj",
-	"NOUN": "N",
-	"NUM": "Num",
-	"PART": "PL",
-	"PRON": "Pron",
-	"PROPN": "Prop",
-	"PUNCT": "Punct",
-	"SCONJ": "CS",
-	"SYM": "Symb",
-	"VERB": "V",
-	"X": "Other",
+        "ADJ": "A",
+        "ADP": "Adp",
+        "ADV": "Adv",
+        "AUX": "Aux",
+        "CCONJ": "CC",
+        "DET": "DT",
+        "INTJ": "Interj",
+        "NOUN": "N",
+        "NUM": "Num",
+        "PART": "PL",
+        "PRON": "Pron",
+        "PROPN": "Prop",
+        "PUNCT": "Punct",
+        "SCONJ": "CS",
+        "SYM": "Symb",
+        "VERB": "V",
+        "X": "Other",
     },
 };
 
@@ -1202,18 +1202,18 @@ attrs.pos_ud2_fi = {
     displayType: "select",
     translationKey: "pos_",
     dataset: {
-	"A": "A",
-	"Adp": "Adp",
-	"Adv": "Adv",
-	"C": "C",
-	"Foreign": "Foreign",
-	"Interj": "Interj",
-	"N": "N",
-	"Num": "Num",
-	"Pron": "Pron",
-	"Punct": "Punct",
-	"Symb": "Symb",
-	"V": "V",
+        "A": "A",
+        "Adp": "Adp",
+        "Adv": "Adv",
+        "C": "C",
+        "Foreign": "Foreign",
+        "Interj": "Interj",
+        "N": "N",
+        "Num": "Num",
+        "Pron": "Pron",
+        "Punct": "Punct",
+        "Symb": "Symb",
+        "V": "V",
     },
 };
 
@@ -1223,21 +1223,21 @@ attrs.pos_ud_fi = {
     translationKey: "pos_",
     opts: liteOptions,
     dataset: {
-	"ADJ": "A",
-	"ADP": "Adp",
-	"ADV": "Adv",
-	"AUX": "Aux",
-	"CONJ": "C",
-	"INTJ": "Interj",
-	"NOUN": "N",
-	"NUM": "Num",
-	"PRON": "Pron",
-	"PROPN": "Prop",
-	"PUNCT": "Punct",
-	"SCONJ": "CS",
-	"SYM": "Symb",
-	"VERB": "V",
-	"X": "Other",
+        "ADJ": "A",
+        "ADP": "Adp",
+        "ADV": "Adv",
+        "AUX": "Aux",
+        "CONJ": "C",
+        "INTJ": "Interj",
+        "NOUN": "N",
+        "NUM": "Num",
+        "PRON": "Pron",
+        "PROPN": "Prop",
+        "PUNCT": "Punct",
+        "SCONJ": "CS",
+        "SYM": "Symb",
+        "VERB": "V",
+        "X": "Other",
     },
 };
 
@@ -1250,19 +1250,19 @@ attrs.pos_klk = {
     displayType: "select",
     translationKey: "pos_klk_",
     dataset: {
-	"": "",
-	"A": "A",
-	"Adp": "Adp",
-	"Adv": "Adv",
-	"C": "C",
-	"Foreign": "Foreign",
-	"Interj": "Interj",
-	"N": "N",
-	"Num": "Num",
-	"Pron": "Pron",
-	"Punct": "Punct",
-	"Symb": "Symb",
-	"V": "V"
+        "": "",
+        "A": "A",
+        "Adp": "Adp",
+        "Adv": "Adv",
+        "C": "C",
+        "Foreign": "Foreign",
+        "Interj": "Interj",
+        "N": "N",
+        "Num": "Num",
+        "Pron": "Pron",
+        "Punct": "Punct",
+        "Symb": "Symb",
+        "V": "V"
     },
     extendedComponent: "datasetSelect",
     escape: false,
@@ -1278,23 +1278,23 @@ attrs.pos_textmorfo = {
     opts: liteOptions,
     translationKey: "pos_",
     dataset: {
-	"-|null": "Unknown",
-	"Abbrev": "Abbr",
-	"Adjective": "Adj",
-	"Adjective-Noun|Adjective-No": "AdjNoun",
-	"Adverb": "Adv",
-	"Code": "Code",
-	"CompPart": "CompPart",
-	"Conjunction": "Conj",
-	"Delimiter": "Punct",
-	"Interjection": "Interj",
-	"Noun": "Noun",
-	"Noun-Noun": "NounNoun",
-	"Numeral": "Num",
-	"Preposition": "Prep",
-	"Pronoun": "Pron",
-	"Proper": "Prop",
-	"Verb": "Verb",
+        "-|null": "Unknown",
+        "Abbrev": "Abbr",
+        "Adjective": "Adj",
+        "Adjective-Noun|Adjective-No": "AdjNoun",
+        "Adverb": "Adv",
+        "Code": "Code",
+        "CompPart": "CompPart",
+        "Conjunction": "Conj",
+        "Delimiter": "Punct",
+        "Interjection": "Interj",
+        "Noun": "Noun",
+        "Noun-Noun": "NounNoun",
+        "Numeral": "Num",
+        "Preposition": "Prep",
+        "Pronoun": "Pron",
+        "Proper": "Prop",
+        "Verb": "Verb",
     },
 };
 
@@ -1305,61 +1305,61 @@ attrs.pos_swecg = {
     opts: liteOptions,
     localize: false,
     dataset: [
-	"A",
-	"ABBR",
-	"ADV",
-	"ADV/PREP",
-	"A/N",
-	"CC",
-	"CLB",
-	"DEF",
-	"DER/-het",
-	"DER/-nde",
-	"DET",
-	"GEN",
-	"INDEF",
-	"INFMARK",
-	"INTERJ",
-	"N",
-	"NOM",
-	"NUM",
-	"PRB",
-	"PREP",
-	"PREPADV",
-	"PRON",
-	"SC",
-	"UTRNEU",
-	"V",
+        "A",
+        "ABBR",
+        "ADV",
+        "ADV/PREP",
+        "A/N",
+        "CC",
+        "CLB",
+        "DEF",
+        "DER/-het",
+        "DER/-nde",
+        "DET",
+        "GEN",
+        "INDEF",
+        "INFMARK",
+        "INTERJ",
+        "N",
+        "NOM",
+        "NUM",
+        "PRB",
+        "PREP",
+        "PREPADV",
+        "PRON",
+        "SC",
+        "UTRNEU",
+        "V",
     ],
     // translationKey: "pos_",
     // // Some of the following values migt be errors
     // dataset: {
-    // 	"A": "Adj",
-    // 	"ABBR": "Abbr",
-    // 	"ADV": "Adv",
-    // 	"ADV/PREP": "Adv/Prep",
-    // 	"A/N": "Adj/Noun",
-    // 	"CC": "CC",
-    // 	"CLB": "CLB",
-    // 	"DEF": "DEF",
-    // 	"DER/-het": "DER/-het",
-    // 	"DER/-nde": "DER/-nde",
-    // 	"DET": "DET",
-    // 	"GEN": "GEN",
-    // 	"INDEF": "INDEF",
-    // 	"INFMARK": "INFMARK",
-    // 	"INTERJ": "INTERJ",
-    // 	"N": "N",
-    // 	"NOM": "NOM",
-    // 	"NUM": "NUM",
-    // 	"PRB": "PRB",
-    // 	"PREP": "PREP",
-    // 	"PREPADV": "PREP/ADV",
-    // 	"PRON": "PRON",
-    // 	"SC": "CS",
-    // 	"UTRNEU": "UTRNEU",
-    // 	"V": "V",
-    // 	"null": "Unknown",
+    //  "A": "Adj",
+    //  "ABBR": "Abbr",
+    //  "ADV": "Adv",
+    //  "ADV/PREP": "Adv/Prep",
+    //  "A/N": "Adj/Noun",
+    //  "CC": "CC",
+    //  "CLB": "CLB",
+    //  "DEF": "DEF",
+    //  "DER/-het": "DER/-het",
+    //  "DER/-nde": "DER/-nde",
+    //  "DET": "DET",
+    //  "GEN": "GEN",
+    //  "INDEF": "INDEF",
+    //  "INFMARK": "INFMARK",
+    //  "INTERJ": "INTERJ",
+    //  "N": "N",
+    //  "NOM": "NOM",
+    //  "NUM": "NUM",
+    //  "PRB": "PRB",
+    //  "PREP": "PREP",
+    //  "PREPADV": "PREP/ADV",
+    //  "PRON": "PRON",
+    //  "SC": "CS",
+    //  "UTRNEU": "UTRNEU",
+    //  "V": "V",
+    //  "null": "Unknown",
     // },
 };
 
@@ -1376,7 +1376,7 @@ attrs.msd = {
     // and paste to a further search expression (unlike if we added a
     // zero-width space U+200B).
     stringify: function(val) {
-	return val.replace(/\|/g, "|<wbr>");
+        return val.replace(/\|/g, "|<wbr>");
     }
 };
 attrs.msd_ordered = JSON.parse(JSON.stringify(attrs.msd));
@@ -1440,23 +1440,23 @@ attrs.deprel_ftb2 = {
     translationKey: "deprelftb2_",
     opts: liteOptions,
     dataset: {
-	"advl": "advl",
-	"attr": "attr",
-	"aux": "aux",
-	"comp": "comp",
-	"conjunct": "conjunct",
-	// "idiom|idom": "idiom",
-	"idiom": "idiom",
-	"main": "main",
-	"mod": "mod",
-	"modal": "modal",
-	"obj": "obj",
-	"phrm": "phrm",
-	"phrv": "phrv",
-	"scomp": "scomp",
-	"subj": "subj",
-	"voc": "voc",
-	"_": "_",
+        "advl": "advl",
+        "attr": "attr",
+        "aux": "aux",
+        "comp": "comp",
+        "conjunct": "conjunct",
+        // "idiom|idom": "idiom",
+        "idiom": "idiom",
+        "main": "main",
+        "mod": "mod",
+        "modal": "modal",
+        "obj": "obj",
+        "phrm": "phrm",
+        "phrv": "phrv",
+        "scomp": "scomp",
+        "subj": "subj",
+        "voc": "voc",
+        "_": "_",
     }
 };
 attrs.deprel_tdt = {
@@ -1465,61 +1465,61 @@ attrs.deprel_tdt = {
     translationKey: "deprel_tdt_",
     opts: liteOptions,
     dataset: {
-	"_": "_",
-	"acomp": "acomp",
-	"adpos": "adpos",
-	"advcl": "advcl",
-	"advmod": "advmod",
-	"amod": "amod",
-	"appos": "appos",
-	"arg": "arg",
-	"aux": "aux",
-	"auxpass": "auxpass",
-	"cc": "cc",
-	"ccomp": "ccomp",
-	"comp": "comp",
-	"compar": "compar",
-	"comparator": "comparator",
-	"complm": "complm",
-	"conj": "conj",
-	"cop": "cop",
-	"csubj": "csubj",
-	"csubj-cop": "csubj-cop",
-	"dep": "dep",
-	"det": "det",
-	"dobj": "dobj",
-	"ellipsis": "ellipsis",
-	"gobj": "gobj",
-	"gsubj": "gsubj",
-	"iccomp": "iccomp",
-	"infmod": "infmod",
-	"intj": "intj",
-	"mark": "mark",
-	"mod": "mod",
-	"name": "name",
-	"neg": "neg",
-	"nn": "nn",
-	"nommod": "nommod",
-	"nommod-own": "nommod-own",
-	"nsubj": "nsubj",
-	"nsubj-cop": "nsubj-cop",
-	"num": "num",
-	"number": "number",
-	"parataxis": "parataxis",
-	"partmod": "partmod",
-	"poss": "poss",
-	"preconj": "preconj",
-	"prt": "prt",
-	"punct": "punct",
-	"quantmod": "quantmod",
-	"rcmod": "rcmod",
-	"rel": "rel",
-	"ROOT": "ROOT",
-	"subj": "subj",
-	"voc": "voc",
-	"xcomp": "xcomp",
-	"xsubj": "xsubj",
-	"xsubj-cop": "xsubj-cop"
+        "_": "_",
+        "acomp": "acomp",
+        "adpos": "adpos",
+        "advcl": "advcl",
+        "advmod": "advmod",
+        "amod": "amod",
+        "appos": "appos",
+        "arg": "arg",
+        "aux": "aux",
+        "auxpass": "auxpass",
+        "cc": "cc",
+        "ccomp": "ccomp",
+        "comp": "comp",
+        "compar": "compar",
+        "comparator": "comparator",
+        "complm": "complm",
+        "conj": "conj",
+        "cop": "cop",
+        "csubj": "csubj",
+        "csubj-cop": "csubj-cop",
+        "dep": "dep",
+        "det": "det",
+        "dobj": "dobj",
+        "ellipsis": "ellipsis",
+        "gobj": "gobj",
+        "gsubj": "gsubj",
+        "iccomp": "iccomp",
+        "infmod": "infmod",
+        "intj": "intj",
+        "mark": "mark",
+        "mod": "mod",
+        "name": "name",
+        "neg": "neg",
+        "nn": "nn",
+        "nommod": "nommod",
+        "nommod-own": "nommod-own",
+        "nsubj": "nsubj",
+        "nsubj-cop": "nsubj-cop",
+        "num": "num",
+        "number": "number",
+        "parataxis": "parataxis",
+        "partmod": "partmod",
+        "poss": "poss",
+        "preconj": "preconj",
+        "prt": "prt",
+        "punct": "punct",
+        "quantmod": "quantmod",
+        "rcmod": "rcmod",
+        "rel": "rel",
+        "ROOT": "ROOT",
+        "subj": "subj",
+        "voc": "voc",
+        "xcomp": "xcomp",
+        "xsubj": "xsubj",
+        "xsubj-cop": "xsubj-cop"
     }
 };
 attrs.deprel_tdt_ordered = JSON.parse(JSON.stringify(attrs.deprel_tdt));
@@ -1530,51 +1530,51 @@ attrs.deprel_ud2 = {
     translationKey: "deprel_ud2_",
     opts: liteOptions,
     dataset: {
-	"acl": "acl",
-	"acl:relcl": "acl:relcl",
-	"advcl": "advcl",
-	"advmod": "advmod",
-	"amod": "amod",
-	"appos": "appos",
-	"aux": "aux",
-	"aux:pass": "aux:pass",
-	"case": "case",
-	"cc": "cc",
-	"ccomp": "ccomp",
-	"cc:preconj": "cc:preconj",
-	"compound": "compound",
-	"compound:nn": "compound:nn",
-	"compound:prt": "compound:prt",
-	"conj": "conj",
-	"cop": "cop",
-	"cop:own": "cop:own",
-	"csubj": "csubj",
-	"csubj:cop": "csubj:cop",
-	"dep": "dep",
-	"det": "det",
-	"discourse": "discourse",
-	"fixed": "fixed",
-	"flat": "flat",
-	"flat:foreign": "flat:foreign",
-	"flat:name": "flat:name",
-	"goeswith": "goeswith",
-	"mark": "mark",
-	"nmod": "nmod",
-	"nmod:gobj": "nmod:gobj",
-	"nmod:gsubj": "nmod:gsubj",
-	"nmod:poss": "nmod:poss",
-	"nsubj": "nsubj",
-	"nsubj:cop": "nsubj:cop",
-	"nummod": "nummod",
-	"obj": "obj",
-	"obl": "obl",
-	"orphan": "orphan",
-	"parataxis": "parataxis",
-	"punct": "punct",
-	"root": "root",
-	"vocative": "vocative",
-	"xcomp": "xcomp",
-	"xcomp:ds": "xcomp:ds",
+        "acl": "acl",
+        "acl:relcl": "acl:relcl",
+        "advcl": "advcl",
+        "advmod": "advmod",
+        "amod": "amod",
+        "appos": "appos",
+        "aux": "aux",
+        "aux:pass": "aux:pass",
+        "case": "case",
+        "cc": "cc",
+        "ccomp": "ccomp",
+        "cc:preconj": "cc:preconj",
+        "compound": "compound",
+        "compound:nn": "compound:nn",
+        "compound:prt": "compound:prt",
+        "conj": "conj",
+        "cop": "cop",
+        "cop:own": "cop:own",
+        "csubj": "csubj",
+        "csubj:cop": "csubj:cop",
+        "dep": "dep",
+        "det": "det",
+        "discourse": "discourse",
+        "fixed": "fixed",
+        "flat": "flat",
+        "flat:foreign": "flat:foreign",
+        "flat:name": "flat:name",
+        "goeswith": "goeswith",
+        "mark": "mark",
+        "nmod": "nmod",
+        "nmod:gobj": "nmod:gobj",
+        "nmod:gsubj": "nmod:gsubj",
+        "nmod:poss": "nmod:poss",
+        "nsubj": "nsubj",
+        "nsubj:cop": "nsubj:cop",
+        "nummod": "nummod",
+        "obj": "obj",
+        "obl": "obl",
+        "orphan": "orphan",
+        "parataxis": "parataxis",
+        "punct": "punct",
+        "root": "root",
+        "vocative": "vocative",
+        "xcomp": "xcomp",
+        "xcomp:ds": "xcomp:ds",
     }
 };
 attrs.deprel_ud_fi = {
@@ -1583,51 +1583,51 @@ attrs.deprel_ud_fi = {
     translationKey: "deprel_",
     opts: liteOptions,
     dataset: {
-	"_": "_",
-	"acl": "acl",
-	"acl:relcl": "rcmod",
-	"advcl": "advcl",
-	"advmod": "advmod",
-	"amod": "amod",
-	"appos": "appos",
-	"aux": "aux",
-	"auxpass": "auxpass",
-	"case": "adpos",
-	"cc": "cc",
-	"ccomp": "ccomp",
-	"cc:preconj": "preconj",
-	"compound": "compound",
-	"compound:nn": "nn",
-	"compound:prt": "prt",
-	"conj": "conj",
-	"cop": "cop",
-	"csubj": "csubj",
-	"csubj:cop": "csubj-cop",
-	"dep": "dep",
-	"det": "det",
-	"discourse": "discourse",
-	"dobj": "dobj",
-	"goeswith": "goeswith",
-	"mark": "mark",
-	"mwe": "mwe",
-	"name": "name",
-	"neg": "neg",
-	"nmod": "nommod",
-	"nmod:gobj": "gobj",
-	"nmod:gsubj": "gsubj",
-	"nmod:own": "nommod-own",
-	"nmod:poss": "poss",
-	"nsubj": "nsubj",
-	"nsubj:cop": "nsubj-cop",
-	"nummod": "num",
-	"parataxis": "parataxis",
-	"punct": "punct",
-	"remnant": "remnant",
-	"rel": "rel",
-	"root": "ROOT",
-	"vocative": "voc",
-	"xcomp": "xcomp",
-	"xcomp:ds": "xcomp:ds",
+        "_": "_",
+        "acl": "acl",
+        "acl:relcl": "rcmod",
+        "advcl": "advcl",
+        "advmod": "advmod",
+        "amod": "amod",
+        "appos": "appos",
+        "aux": "aux",
+        "auxpass": "auxpass",
+        "case": "adpos",
+        "cc": "cc",
+        "ccomp": "ccomp",
+        "cc:preconj": "preconj",
+        "compound": "compound",
+        "compound:nn": "nn",
+        "compound:prt": "prt",
+        "conj": "conj",
+        "cop": "cop",
+        "csubj": "csubj",
+        "csubj:cop": "csubj-cop",
+        "dep": "dep",
+        "det": "det",
+        "discourse": "discourse",
+        "dobj": "dobj",
+        "goeswith": "goeswith",
+        "mark": "mark",
+        "mwe": "mwe",
+        "name": "name",
+        "neg": "neg",
+        "nmod": "nommod",
+        "nmod:gobj": "gobj",
+        "nmod:gsubj": "gsubj",
+        "nmod:own": "nommod-own",
+        "nmod:poss": "poss",
+        "nsubj": "nsubj",
+        "nsubj:cop": "nsubj-cop",
+        "nummod": "num",
+        "parataxis": "parataxis",
+        "punct": "punct",
+        "remnant": "remnant",
+        "rel": "rel",
+        "root": "ROOT",
+        "vocative": "voc",
+        "xcomp": "xcomp",
+        "xcomp:ds": "xcomp:ds",
     }
 };
 attrs.deprel_ud_fi_ud1 = JSON.parse(JSON.stringify(attrs.deprel_ud_fi));
@@ -1639,77 +1639,77 @@ attrs.deprel_uta_ru = {
     localize: false,
     opts: liteOptions,
     dataset: [
-	"1-компл",
-	"1-несобст-компл",
-	"2-компл",
-	"2-несобст-компл",
-	"3-компл",
-	"3-несобст-компл",
-	"4-компл",
-	"5-компл",
-	"PUNC",
-	"ROOT",
-	"fictit",
-	"агент",
-	"аддит",
-	"аналит",
-	"аппоз",
-	"аппрокс-колич",
-	"атриб",
-	"вводн",
-	"вспом",
-	"дат-субъект",
-	"дистанц",
-	"длительн",
-	"изъясн",
-	"инф-союзн",
-	"квазиагент",
-	"колич-вспом",
-	"колич-копред",
-	"колич-огран",
-	"количест",
-	"ком-сочин",
-	"компл-аппоз",
-	"композ",
-	"композ-аппоз",
-	"кратн",
-	"кратно-длительн",
-	"неакт-компл",
-	"несобст-агент",
-	"ном-аппоз",
-	"нум-аппоз",
-	"об-аппоз",
-	"об-копр",
-	"обст",
-	"обст-тавт",
-	"огранич",
-	"оп-аппоз",
-	"оп-опред",
-	"опред",
-	"пасс-анал",
-	"подч-союзн",
-	"предик",
-	"предл",
-	"презентат",
-	"примыкат",
-	"присвяз",
-	"пролепт",
-	"разъяснит",
-	"распред",
-	"релят",
-	"сент-предик",
-	"сент-соч",
-	"соотнос",
-	"соч-союзн",
-	"сочин",
-	"сравн-союзн",
-	"сравнит",
-	"суб-копр",
-	"суб-обст",
-	"уточн",
-	"эксплет",
-	"электив",
-	"эллипт",
+        "1-компл",
+        "1-несобст-компл",
+        "2-компл",
+        "2-несобст-компл",
+        "3-компл",
+        "3-несобст-компл",
+        "4-компл",
+        "5-компл",
+        "PUNC",
+        "ROOT",
+        "fictit",
+        "агент",
+        "аддит",
+        "аналит",
+        "аппоз",
+        "аппрокс-колич",
+        "атриб",
+        "вводн",
+        "вспом",
+        "дат-субъект",
+        "дистанц",
+        "длительн",
+        "изъясн",
+        "инф-союзн",
+        "квазиагент",
+        "колич-вспом",
+        "колич-копред",
+        "колич-огран",
+        "количест",
+        "ком-сочин",
+        "компл-аппоз",
+        "композ",
+        "композ-аппоз",
+        "кратн",
+        "кратно-длительн",
+        "неакт-компл",
+        "несобст-агент",
+        "ном-аппоз",
+        "нум-аппоз",
+        "об-аппоз",
+        "об-копр",
+        "обст",
+        "обст-тавт",
+        "огранич",
+        "оп-аппоз",
+        "оп-опред",
+        "опред",
+        "пасс-анал",
+        "подч-союзн",
+        "предик",
+        "предл",
+        "презентат",
+        "примыкат",
+        "присвяз",
+        "пролепт",
+        "разъяснит",
+        "распред",
+        "релят",
+        "сент-предик",
+        "сент-соч",
+        "соотнос",
+        "соч-союзн",
+        "сочин",
+        "сравн-союзн",
+        "сравнит",
+        "суб-копр",
+        "суб-обст",
+        "уточн",
+        "эксплет",
+        "электив",
+        "эллипт",
     ],
 };
 
@@ -1757,7 +1757,7 @@ var mulcold_pos_langs = ["fi", "ru", "en", "sv"];
 for (var i = 0; i < mulcold_pos_langs.length; i++) {
     var lang = mulcold_pos_langs[i];
     attrs["ambiguous_pos_mulcold_" + lang] = $.extend(
-	true, {}, attrs["pos_mulcold_" + lang], attrs.ambiguous_pos);
+        true, {}, attrs["pos_mulcold_" + lang], attrs.ambiguous_pos);
 }
 // delete mulcold_pos_langs;
 
@@ -1766,11 +1766,11 @@ attrs.wordtype = {
     displayType: "select",
     translationKey: "topling_",
     dataset: {
-	"text": "text",
-	"to": "to",
-	"from": "from",
-	"comment": "comment",
-	"subject": "subject"
+        "text": "text",
+        "to": "to",
+        "from": "from",
+        "comment": "comment",
+        "subject": "subject"
     },
     opts: settings.defaultOptions
 };
@@ -1790,15 +1790,15 @@ attrs.ne_type_fi = {
     translationKey: "ne_type_",
     isStructAttr: true,
     dataset: [
-	"LOC",
-	"PRS",
-	"ORG",
-	"EVT",
-	// "WRK",
-	// "OBJ",
-	"PRO",
-	"MSR",
-	"TME"
+        "LOC",
+        "PRS",
+        "ORG",
+        "EVT",
+        // "WRK",
+        // "OBJ",
+        "PRO",
+        "MSR",
+        "TME"
    ]
 };
 // FiNER name subtypes
@@ -1808,26 +1808,26 @@ attrs.ne_subtype_fi = {
     translationKey: "ne_subtype_",
     isStructAttr: true,
     dataset: [
-	"ANM",
-	"AST",
-	"ATH",
-	"CLT",
-	"CRP",
-	"CUR",
-	"DAT",
-	"EDU",
-	"FIN",
-	"FNC",
-	"GPL",
-	"HRM",
-	"HUM",
-	"MYT",
-	"PLT",
-	"PPL",
-	"STR",
-	"TIT",
-	"TVR",
-	"XXX",
+        "ANM",
+        "AST",
+        "ATH",
+        "CLT",
+        "CRP",
+        "CUR",
+        "DAT",
+        "EDU",
+        "FIN",
+        "FNC",
+        "GPL",
+        "HRM",
+        "HUM",
+        "MYT",
+        "PLT",
+        "PPL",
+        "STR",
+        "TIT",
+        "TVR",
+        "XXX",
    ],
 };
 // FiNER full name types: expression category, type, subtype
@@ -1837,29 +1837,29 @@ attrs.ne_fulltype_fi = {
     translationKey: "namecat_",
     isStructAttr: true,
     dataset: [
-	"EnamexEvtXxx",
-	"EnamexProXxx",
-	"EnamexPrsAnm",
-	"EnamexPrsHum",
-	"EnamexPrsMyt",
-	"EnamexPrsTit",
-	"EnamexLocXxx",
-	"EnamexLocGpl",
-	"EnamexLocPpl",
-	"EnamexLocStr",
-	"EnamexLocFnc",
-	"EnamexLocAst",
-	"EnamexOrgAth",
-	"EnamexOrgClt",
-	"EnamexOrgCrp",
-	"EnamexOrgEdu",
-	"EnamexOrgFin",
-	"EnamexOrgPlt",
-	"EnamexOrgTvr",
-	"NumexMsrCur",
-	"NumexMsrXxx",
-	"TimexTmeDat",
-	"TimexTmeHrm",
+        "EnamexEvtXxx",
+        "EnamexProXxx",
+        "EnamexPrsAnm",
+        "EnamexPrsHum",
+        "EnamexPrsMyt",
+        "EnamexPrsTit",
+        "EnamexLocXxx",
+        "EnamexLocGpl",
+        "EnamexLocPpl",
+        "EnamexLocStr",
+        "EnamexLocFnc",
+        "EnamexLocAst",
+        "EnamexOrgAth",
+        "EnamexOrgClt",
+        "EnamexOrgCrp",
+        "EnamexOrgEdu",
+        "EnamexOrgFin",
+        "EnamexOrgPlt",
+        "EnamexOrgTvr",
+        "NumexMsrCur",
+        "NumexMsrXxx",
+        "TimexTmeDat",
+        "TimexTmeHrm",
     ],
 };
 // The name (tokens) within the ne structure
@@ -1880,9 +1880,9 @@ attrs.ne_placename_source = {
     displayType: "select",
     translationKey: "placename_source_",
     dataset: [
-	"ner",
-	"pos",
-	"meta",
+        "ner",
+        "pos",
+        "meta",
     ],
     isStructAttr: true,
 };
@@ -1898,9 +1898,9 @@ attrs.ner_bio = {
     displayType: "select",
     translationKey: "ner_bio_",
     dataset: [
-	"B",
-	"I",
-	"O",
+        "B",
+        "I",
+        "O",
     ],
 };
 
@@ -1989,10 +1989,10 @@ sattrs.sex = {
     displayType: "select",
     translationKey: "sex_",
     dataset: {
-	"f": "female",
-	"m": "male",
-	"x": "other",
-	"u": "unknown",
+        "f": "female",
+        "m": "male",
+        "x": "other",
+        "u": "unknown",
     },
     opts: liteOptions,
 };
@@ -2002,10 +2002,10 @@ sattrs.author_name_type = {
     displayType: "select",
     translationKey: "author_name_type_",
     dataset: {
-	"candidate id": "candidate_id",
+        "candidate id": "candidate_id",
     },
     opts: liteOptions,
-}; 
+};
 
 
 sattrs.publ_year = {
@@ -2054,10 +2054,10 @@ sattrs.link_fulltext_context = {
 };
 sattrs.link_prefixed = function (label, url_prefix) {
     return {
-	label: label,
-	type: "url",
-	url_opts: sattrs.link_url_opts,
-	url_prefix: url_prefix
+        label: label,
+        type: "url",
+        url_opts: sattrs.link_url_opts,
+        url_prefix: url_prefix
     };
 };
 sattrs.link_show_video_prefixed = function (url_prefix) {
@@ -2084,11 +2084,11 @@ sattrs.sentence_type = {
     displayType: "select",
     translationKey: "klassikot_",
     dataset: {
-	"text": "text",
-	"head": "head",
-	"stanza": "stanza",
-	"speaker": "speaker",
-	"stage": "stage"
+        "text": "text",
+        "head": "head",
+        "stanza": "stanza",
+        "speaker": "speaker",
+        "stage": "stage"
     }
 };
 
@@ -2134,8 +2134,8 @@ sattrs.mikhailov_text_genre = {
     displayType: "select",
     translationKey: "textgenre_",
     dataset: {
-	"fiction": "fiction",
-	"law": "law",
+        "fiction": "fiction",
+        "law": "law",
     },
     opts: liteOptions
 };
@@ -2245,7 +2245,7 @@ attrlist.hc = {
             opts : settings.defaultOptions},
 
     supplement : {label: "supplement",
-		  opts : settings.defaultOptions}
+                  opts : settings.defaultOptions}
 
 };
 
@@ -2259,32 +2259,32 @@ sattrlist.oracc = {
     text_provenance : {
         label : "oracc_provenance",
     },
-    
+
     text_language : {
         label : "oracc_textlang",
         displayType : "select",
         translationKey : "oracc_textlang_",
         dataset : [
-		   "Akkadian",
-		   "AkkadianAramaic",
-		   "AkkadianAramaicLuwian",
-		   "AkkadianEgyptian",
-		   "AkkadianOldPersian",
-		   "AkkadianOldPersianElamite",
-		   "AkkadianOldPersianElamiteEgyptian",
-		   "AkkadianUrartian",
-		   "Aramaic",
-		   "Eblaite",
-		   "Elamite",
-		   "Hittite",
-		   "Neo-Assyrian",
-		   "Neo-Babylonian",
-		   "OldPersian",
-		   "OldPersianElamite",
-		   "Sumerian",
-		   "SumerianAkkadian",
-		   "Uncertainorunspecified",
-		   "Urartian"
+                   "Akkadian",
+                   "AkkadianAramaic",
+                   "AkkadianAramaicLuwian",
+                   "AkkadianEgyptian",
+                   "AkkadianOldPersian",
+                   "AkkadianOldPersianElamite",
+                   "AkkadianOldPersianElamiteEgyptian",
+                   "AkkadianUrartian",
+                   "Aramaic",
+                   "Eblaite",
+                   "Elamite",
+                   "Hittite",
+                   "Neo-Assyrian",
+                   "Neo-Babylonian",
+                   "OldPersian",
+                   "OldPersianElamite",
+                   "Sumerian",
+                   "SumerianAkkadian",
+                   "Uncertainorunspecified",
+                   "Urartian"
         ]
     },
     text_genre : {
@@ -2292,20 +2292,20 @@ sattrlist.oracc = {
         displayType : "select",
         translationKey : "oracc_genre_",
         dataset : [
-		   "administrativerecord",
-		   "astrologicalastronomical",
-		   "grantdecreegift",
-		   "legaltransaction",
-		   "letter",
-		   "lexical",
-		   "literary",
-		   "miscellaneous",
-		   "omendivination",
-		   "prayerritualincantation",
-		   "royalinscription",
-		   "scholarly",
-		   "school",
-		   "uncertainorunspecified"
+                   "administrativerecord",
+                   "astrologicalastronomical",
+                   "grantdecreegift",
+                   "legaltransaction",
+                   "letter",
+                   "lexical",
+                   "literary",
+                   "miscellaneous",
+                   "omendivination",
+                   "prayerritualincantation",
+                   "royalinscription",
+                   "scholarly",
+                   "school",
+                   "uncertainorunspecified"
         ]
     },
     text_period : {
@@ -2313,31 +2313,31 @@ sattrlist.oracc = {
         displayType : "select",
         translationKey : "oracc_period_",
         dataset : [
-	    "Achaemenid",
-	    "Archaic",
-	    "EarlyDynastic",
-	    "Ebla",
-	    "FirstMillennium",
-	    "Hellenistic",
-	    "LagašII",
-	    "LateBabylonian",
-	    "MiddleAssyrian",
-	    "MiddleBabylonian",
-	    "MiddleHittite",
-	    "NeoAssyrian",
-	    "Neo-Assyrian",
-	    "NeoBabylonian",
-	    "Neo-Babylonian",
-	    "OldAkkadian",
-	    "OldAssyrian",
-	    "OldBabylonian",
-	    "Parthian",
-	    "StandardBabylonian",
-	    "Uncertainorunspecified",
-	    "Urartian",
-	    "UrIII",
-	    "UrukIII",
-	    "UrukIV"
+            "Achaemenid",
+            "Archaic",
+            "EarlyDynastic",
+            "Ebla",
+            "FirstMillennium",
+            "Hellenistic",
+            "LagašII",
+            "LateBabylonian",
+            "MiddleAssyrian",
+            "MiddleBabylonian",
+            "MiddleHittite",
+            "NeoAssyrian",
+            "Neo-Assyrian",
+            "NeoBabylonian",
+            "Neo-Babylonian",
+            "OldAkkadian",
+            "OldAssyrian",
+            "OldBabylonian",
+            "Parthian",
+            "StandardBabylonian",
+            "Uncertainorunspecified",
+            "Urartian",
+            "UrIII",
+            "UrukIII",
+            "UrukIV"
         ]
     },
     text_subgenre : {
@@ -2378,18 +2378,18 @@ attrlist.oracc = {
         displayType : "select",
         translationKey : "oracc_pos_",
         dataset : [
-	    "adjective",
-	    "adverb",
-	    "commonnoun",
-	    "conjunction",
-	    "interjection",
-	    "miscellaneousundetermined",
-	    "number",
-	    "particle",
-	    "prepositionpostposition",
-	    "pronoun",
-	    "propernoun",
-	    "verb"
+            "adjective",
+            "adverb",
+            "commonnoun",
+            "conjunction",
+            "interjection",
+            "miscellaneousundetermined",
+            "number",
+            "particle",
+            "prepositionpostposition",
+            "pronoun",
+            "propernoun",
+            "verb"
         ]
     },
     possub : {
@@ -2405,43 +2405,43 @@ attrlist.oracc = {
         displayType : "select",
         translationKey : "oracc_lang_",
         dataset : [
-		   "Akkadian",
-		   "Aramaic",
-		   "Cuneiform",
-		   "EarlyAkkadian",
-		   "Eblaite",
-		   "Elamite",
-		   "Greek",
-		   "Hittite",
-		   "Hurrian",
-		   "LateBabylonian",
-		   "MiddleAssyrian",
-		   "MiddleBabylonian",
-		   "MiddleBabylonianperipheral",
-		   "Neo-Assyrian",
-		   "Neo-Babylonian",
-		   "OldAkkadian",
-		   "OldAssyrian",
-		   "OldBabylonian",
-		   "OldPersian",
-		   "Proto-cuneiform",
-		   "StandardBabylonian",
-		   "Sumerian",
-		   "SumerianEmesal",
-		   "Ugaritic",
-		   "Urartian"
+                   "Akkadian",
+                   "Aramaic",
+                   "Cuneiform",
+                   "EarlyAkkadian",
+                   "Eblaite",
+                   "Elamite",
+                   "Greek",
+                   "Hittite",
+                   "Hurrian",
+                   "LateBabylonian",
+                   "MiddleAssyrian",
+                   "MiddleBabylonian",
+                   "MiddleBabylonianperipheral",
+                   "Neo-Assyrian",
+                   "Neo-Babylonian",
+                   "OldAkkadian",
+                   "OldAssyrian",
+                   "OldBabylonian",
+                   "OldPersian",
+                   "Proto-cuneiform",
+                   "StandardBabylonian",
+                   "Sumerian",
+                   "SumerianEmesal",
+                   "Ugaritic",
+                   "Urartian"
         ]
     },
 
-    // links won't work 
+    // links won't work
     url : {
-	label: "oracc_url",
-	type: "url",
-	url_opts: {
-	    //in_link_section : true,
-	    //hide_url : true,
-	    new_window : true,
-	}
+        label: "oracc_url",
+        type: "url",
+        url_opts: {
+            //in_link_section : true,
+            //hide_url : true,
+            new_window : true,
+        }
     }
 /*
     url : {
@@ -2450,7 +2450,7 @@ attrlist.oracc = {
         new_window : true,
         label : "oracc_url",
         type : "url"
-	}*/
+        }*/
 
 };
 
@@ -2467,7 +2467,7 @@ sattrlist.ethesis = {
         label: "original_date"
     },
     text_year: {
-	label: "text_year"
+        label: "text_year"
     },
     text_keywords: {
         label: "text_keywords"
@@ -2676,15 +2676,15 @@ settings.corpusFeatures.parsed_tdt_nodep = {
 // Corpora parsed with TDT and run through FiNER
 attrlist.parsed_tdt_ner =
     $.extend({}, attrlist.parsed_tdt, {
-	nertag: attrs.ner_tags
+        nertag: attrs.ner_tags
     });
 
 
 settings.corpusFeatures.spaces = {
     attributes: {
-	spaces: {
-	    label: "whitespace_related_to_token",
-	},
+        spaces: {
+            label: "whitespace_related_to_token",
+        },
     },
 };
 
@@ -2692,8 +2692,8 @@ settings.corpusFeatures.spaces = {
 // KLK structural attributes, for both Finnish and Swedish
 sattrlist.klk = {
     text_label: {
-	// The label has the prefix klk_ because it might not have the
-	// same meaning as "label" in some other contexts.
+        // The label has the prefix klk_ because it might not have the
+        // same meaning as "label" in some other contexts.
         label: "klk_label",
     },
     text_publ_title: {
@@ -2734,8 +2734,8 @@ sattrlist.klk = {
             "sv": "swe",
             "et": "est",
         },
-	extendedComponent: "datasetSelect",
-	escape: false,
+        extendedComponent: "datasetSelect",
+        escape: false,
     },
     /*
     text_page_id: {
@@ -2757,7 +2757,7 @@ sattrlist.klk = {
     text_img_url: {
         label: "image_url",
         type: "url",
-	displayType: "hidden",
+        displayType: "hidden",
     },
     /*
     text_dateto: {
@@ -2770,16 +2770,16 @@ sattrlist.klk = {
     },
     */
     text_publ_type: {
-	label: "publication_type",
-	displayType: "select",
-	translationKey: "publtype_",
-	opts: liteOptions,
-	dataset: {
-	    "aikakausi": "journal",
-	    "sanomalehti": "newspaper"
-	},
-	extendedComponent: "datasetSelect",
-	escape: false,
+        label: "publication_type",
+        displayType: "select",
+        translationKey: "publtype_",
+        opts: liteOptions,
+        dataset: {
+            "aikakausi": "journal",
+            "sanomalehti": "newspaper"
+        },
+        extendedComponent: "datasetSelect",
+        escape: false,
     },
     paragraph_id: {
         label: "paragraph_id",
@@ -2792,24 +2792,24 @@ sattrlist.klk2 = $.extend(
     {},
     sattrlist.klk,
     {
-	text_date: sattrs.date_iso,
-	text_filename_orig: {
-	    label: "filename_orig",
-	},
-	text_filename_metadata: {
-	    label: "filename_metadata",
-	},
-	text_add_version: {
-	    label: "added_in_version",
-	    displayType: "select",
-	    opts: liteOptions,
-	    dataset: [
-		"1",
-		"2",
-	    ],
-	    extendedComponent: "datasetSelect",
-	    escape: false,
-	},
+        text_date: sattrs.date_iso,
+        text_filename_orig: {
+            label: "filename_orig",
+        },
+        text_filename_metadata: {
+            label: "filename_metadata",
+        },
+        text_add_version: {
+            label: "added_in_version",
+            displayType: "select",
+            opts: liteOptions,
+            dataset: [
+                "1",
+                "2",
+            ],
+            extendedComponent: "datasetSelect",
+            escape: false,
+        },
     }
 );
 // Change the label of text_issue_date, as text_date is in ISO format
@@ -2819,34 +2819,34 @@ sattrlist.klk2.text_issue_date.label = "issue_date";
 // KLK page image links used for both Finnish and Swedish
 sattrlist.klk_pagelinks = {
     text_binding_id: {
-	displayType: "hidden"
+        displayType: "hidden"
     },
     text_page_image_url: {
-	label: "show_page_image",
-	type: "url",
-	url_opts: sattrs.link_url_opts,
-	synthetic: true,
-	stringify_synthetic: function (token_data) {
-	    return settings.fn.make_klk_page_image_url(token_data, 0);
-	}
+        label: "show_page_image",
+        type: "url",
+        url_opts: sattrs.link_url_opts,
+        synthetic: true,
+        stringify_synthetic: function (token_data) {
+            return settings.fn.make_klk_page_image_url(token_data, 0);
+        }
     },
     text_page_image_context_url: {
-	label: "show_page_image_context",
-	type: "url",
-	url_opts: sattrs.link_url_opts,
-	synthetic: true,
-	stringify_synthetic: function (token_data) {
-	    return settings.fn.make_klk_page_image_url(token_data, 2);
-	}
+        label: "show_page_image_context",
+        type: "url",
+        url_opts: sattrs.link_url_opts,
+        synthetic: true,
+        stringify_synthetic: function (token_data) {
+            return settings.fn.make_klk_page_image_url(token_data, 2);
+        }
     },
     text_download_pdf_url: {
-	label: "download_publ_pdf",
-	type: "url",
-	url_opts: sattrs.link_url_opts,
-	synthetic: true,
-	stringify_synthetic: function (token_data) {
-	    return settings.fn.make_klk_url_base(token_data) + "/pdf";
-	}
+        label: "download_publ_pdf",
+        type: "url",
+        url_opts: sattrs.link_url_opts,
+        synthetic: true,
+        stringify_synthetic: function (token_data) {
+            return settings.fn.make_klk_url_base(token_data) + "/pdf";
+        }
     },
 };
 
@@ -2896,23 +2896,23 @@ attrlist.mulcold_de = {
 
 sattrlist.mulcold = {
     align_text_code: {
-	label: "text_id"
+        label: "text_id"
     },
     align_text_author: {
-	label: "author"
+        label: "author"
     },
     align_text_title: {
-	label: "title"
+        label: "title"
     },
     align_text_typeoftext: {
-	label: "text_type"
+        label: "text_type"
     },
     align_text_genre: sattrs.mikhailov_text_genre,
     align_text_period: {
-	label: "year"
+        label: "year"
     },
     align_text_publisher: {
-	label: "publisher"
+        label: "publisher"
     },
     sentence_id: sattrs.sentence_id_hidden
 };
@@ -2929,23 +2929,23 @@ settings.corpusinfo.mulcold = {
 
 sattrlist.legal = {
     text_code: {
-	label: "text_id"
+        label: "text_id"
     },
     text_author: {
-	label: "author"
+        label: "author"
     },
     text_title: {
-	label: "title"
+        label: "title"
     },
     text_typeoftext: {
-	label: "text_type"
+        label: "text_type"
     },
     text_genre: sattrs.mikhailov_text_genre,
     text_period: {
-	label: "text_period"
+        label: "text_period"
     },
     text_publisher: {
-	label: "publisher"
+        label: "publisher"
     },
     sentence_id: sattrs.sentence_id_hidden
 };
@@ -2965,34 +2965,34 @@ settings.corpusinfo.parfin = {
     metadata_urn: "urn:nbn:fi:lb-2014052710",
     lbr_id: "urn:nbn:fi:lb-2014052710",
     licence: {
-	name: "CLARIN RES +NC +PLAN +INF",
-	urn: "urn:nbn:fi:lb-2015041306",
+        name: "CLARIN RES +NC +PLAN +INF",
+        urn: "urn:nbn:fi:lb-2015041306",
     },
     homepage_url: "https://mustikka.uta.fi/",
 };
 
 sattrlist.parfin_base = {
     link_text_code: {
-	label: "text_id"
+        label: "text_id"
     },
     link_txtnumber: {
-	label: "text_number"
+        label: "text_number"
     },
     link_text_author: {
-	label: "author"
+        label: "author"
     },
     link_text_title: {
-	label: "title"
+        label: "title"
     },
     link_text_typeoftext: {
-	label: "text_type"
+        label: "text_type"
     },
     link_text_genre: sattrs.mikhailov_text_genre,
     link_text_period: {
-	label: "year"
+        label: "year"
     },
     link_text_publisher: {
-	label: "publisher"
+        label: "publisher"
     },
     sentence_id: sattrs.sentence_id_hidden
 };
@@ -3000,130 +3000,130 @@ sattrlist.parfin_base = {
 sattrlist.parfin_fi = $.extend(
     true, {}, sattrlist.parfin_base,
     {
-	link_text_author: {
-	    label: "author",
-	    displayType: "select",
-	    dataset: [
-		"Haahtela Joel",
-		"Hotakainen Kari",
-		"Konkka Anita",
-		"Krohn Leena",
-		"Lassila Maiju",
-		"Lehtolainen Leena",
-		"Mäkelä Hannu",
-		"Oksanen Sofi",
-		"Rimminen Mikko",
-		"Sillanpää Frans Emil",
-		"Sinisalo Johanna",
-		"Tuuri Antti",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_translator: {
-	    label: "translator",
-	    displayType: "select",
-	    dataset: [
-		"Djafarova Taissia",
-		"Džafarova-Viitala Taisja",
-		"Ioffe Eleonora",
-		"Melnik Tatjana",
-		"Muravin Gennadi, Kamenskaja J",
-		"Muravin, Gennadi",
-		"Priležajev Ivan",
-		"Sidorova Anna",
-		"Sidorova Anna, Tinovitskaja Jevgenija",
-		"Tinovitskaja Evgenija",
-		"Uretskij Ilja",
-		"Virolainen Laura A.",
-		"Zoštšenko Mihail",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_title: {
-	    label: "title",
-	    displayType: "select",
-	    dataset: [
-		"Ennen päivänlaskua ei voi",
-		"Ensimmäinen murhani",
-		"Harmin paikka",
-		"Hullun taivaassa",
-		"Ihmisen vaatteissa",
-		"Ihmiset suviyössä",
-		"Joki virtaa läpi kaupungin",
-		"Juoksuhaudantie",
-		"Kuparisydän",
-		"Pekka Peloton",
-		"Perhoskerääjä",
-		"Puhdistus",
-		"Pussikaljaromaani",
-		"Sfinksi vai robotti",
-		"Tulitikkuja lainaamassa",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_publisher: {
-	    label: "publisher",
-	    displayType: "select",
-	    dataset: {
-		"Kansa": "Kansa",
-		"Otava": "Otava",
-		"[Tt]ammi": "Tammi",
-		"Teos": "Teos",
-		"WSOY": "WSOY",
-	    },
-	    localize: false,
-	    opts: liteOptions,
-	},
+        link_text_author: {
+            label: "author",
+            displayType: "select",
+            dataset: [
+                "Haahtela Joel",
+                "Hotakainen Kari",
+                "Konkka Anita",
+                "Krohn Leena",
+                "Lassila Maiju",
+                "Lehtolainen Leena",
+                "Mäkelä Hannu",
+                "Oksanen Sofi",
+                "Rimminen Mikko",
+                "Sillanpää Frans Emil",
+                "Sinisalo Johanna",
+                "Tuuri Antti",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_translator: {
+            label: "translator",
+            displayType: "select",
+            dataset: [
+                "Djafarova Taissia",
+                "Džafarova-Viitala Taisja",
+                "Ioffe Eleonora",
+                "Melnik Tatjana",
+                "Muravin Gennadi, Kamenskaja J",
+                "Muravin, Gennadi",
+                "Priležajev Ivan",
+                "Sidorova Anna",
+                "Sidorova Anna, Tinovitskaja Jevgenija",
+                "Tinovitskaja Evgenija",
+                "Uretskij Ilja",
+                "Virolainen Laura A.",
+                "Zoštšenko Mihail",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_title: {
+            label: "title",
+            displayType: "select",
+            dataset: [
+                "Ennen päivänlaskua ei voi",
+                "Ensimmäinen murhani",
+                "Harmin paikka",
+                "Hullun taivaassa",
+                "Ihmisen vaatteissa",
+                "Ihmiset suviyössä",
+                "Joki virtaa läpi kaupungin",
+                "Juoksuhaudantie",
+                "Kuparisydän",
+                "Pekka Peloton",
+                "Perhoskerääjä",
+                "Puhdistus",
+                "Pussikaljaromaani",
+                "Sfinksi vai robotti",
+                "Tulitikkuja lainaamassa",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_publisher: {
+            label: "publisher",
+            displayType: "select",
+            dataset: {
+                "Kansa": "Kansa",
+                "Otava": "Otava",
+                "[Tt]ammi": "Tammi",
+                "Teos": "Teos",
+                "WSOY": "WSOY",
+            },
+            localize: false,
+            opts: liteOptions,
+        },
     }
 );
 
 sattrlist.parfin_ru = $.extend(
     true, {}, sattrlist.parfin_fi,
     {
-	link_text_title: {
-	    label: "title",
-	    displayType: "select",
-	    dataset: [
-		"Бесстрашный Пекка  В одежде человека",
-		"В одежде человека",
-		"В сумасшедших небесах",
-		"До заката нельзя",
-		"За спичками",
-		"Змеи в раю",
-		"Люди в летней ночи",
-		"Медное сердце",
-		"Мое первое убийство",
-		"Очищение",
-		"Река течет через город",
-		"Роман с пивом",
-		"Собиратель бабочек",
-		"Сфинкс или робот  В одежде человека",
-		"Улица окопная",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_publisher: {
-	    label: "publisher",
-	    displayType: "select",
-	    dataset: [
-		"Азбука-классика",
-		"Амфора",
-		"Астрель",
-		"Государственное издательство художественной литературы",
-		"Едиториал УРСС",
-		"КомКнига",
-		"Лимбус Пресс, Издательство К. Тублина",
-		"Самокат",
-		"Текст",
-		"Художественная литература",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
+        link_text_title: {
+            label: "title",
+            displayType: "select",
+            dataset: [
+                "Бесстрашный Пекка  В одежде человека",
+                "В одежде человека",
+                "В сумасшедших небесах",
+                "До заката нельзя",
+                "За спичками",
+                "Змеи в раю",
+                "Люди в летней ночи",
+                "Медное сердце",
+                "Мое первое убийство",
+                "Очищение",
+                "Река течет через город",
+                "Роман с пивом",
+                "Собиратель бабочек",
+                "Сфинкс или робот  В одежде человека",
+                "Улица окопная",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_publisher: {
+            label: "publisher",
+            displayType: "select",
+            dataset: [
+                "Азбука-классика",
+                "Амфора",
+                "Астрель",
+                "Государственное издательство художественной литературы",
+                "Едиториал УРСС",
+                "КомКнига",
+                "Лимбус Пресс, Издательство К. Тублина",
+                "Самокат",
+                "Текст",
+                "Художественная литература",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
     }
 );
 
@@ -3145,370 +3145,370 @@ attrlist.parrus_ru = $.extend(
 sattrlist.parrus_fi = $.extend(
     true, {}, sattrlist.parfin_base,
     {
-	link_text_author: {
-	    label: "author",
-	    displayType: "select",
-	    dataset: [
-		"Бабель И.",
-		"Бакланов Г.",
-		"Булгаков М.А.",
-		"Гоголь Н.В.",
-		"Горький М.",
-		"Достоевский Ф.М.",
-		"Дудинцев В.",
-		"Зощенко М.",
-		"Лермонтов М.Ю.",
-		"Лесков Н.",
-		"Маринина А.",
-		"Пушкин А.С.",
-		"Семенов Ю.",
-		"Толстой Л.Н.",
-		"Трифонов Ю.",
-		"Троепольский Г.",
-		"Тургенев И.С.",
-		"Фадеев А.",
-		"Чехов А.П.",
-		"Шолохов М.А.",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_translator: {
-	    label: "translator",
-	    displayType: "select",
-	    dataset: [
-		"Adrian E.",
-		"Adrian, Esa",
-		"Ahava, Juho, Hameen-anttila, Vaino",
-		"Anhava M.",
-		"Heino U.-L.",
-		"Heino, Ulla-Liisa",
-		"Hollo J.A.",
-		"Hollo, Juho Anselmi",
-		"Iranto L.",
-		"Juhani Konkka",
-		"Kallama, Valto",
-		"Konkka J.",
-		"Konkka, Juhani",
-		"Koskinen M.",
-		"Kuukasjärvi Olli",
-		"Losowitch K.",
-		"Mitrošin A.",
-		"Orlov Vappu",
-		"Pienimäki N.",
-		"Pyykkö L.",
-		"Pyykkö Lea",
-		"Viitanen Liisa",
-		"null",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_title: {
-	    label: "title",
-	    displayType: "select",
-	    dataset: [
-		"Aateliskoti",
-		"Aatelisneiti talonpoikaistyttönä / Laukaus ja y. m. kertomuksia.",
-		"Agafja / Valitut novelit 1.",
-		"Aikamme sankari",
-		"Albionin tytär / Valitut novellit 1.",
-		"Alustava tilinpäätös",
-		"Anna Karenina",
-		"Aristokraatti / Kireähermoista väkeä.",
-		"Asemanhoitaja / Romaanit ja kertomukset.",
-		"Bim mustakorva",
-		"Ei onnistunut! / Valitut novellit 1.",
-		"Elämän pikkuseikka / Valitut novellit 1.",
-		"Griša / Valitut novellit 1.",
-		"Haaveita / Valitut novelit 1.",
-		"Hammaskirurgi / Valitut novellit 1.",
-		"Herra salaneuvos / Valitut novellit 1.",
-		"Hevosenkaltainen sukunimi / Valitut novelit 1.",
-		"Hiljaa virtaa Don",
-		"Huvila-asukkaita / Valitut novelit 1.",
-		"Häät kenraalin kera / Valitut novellit 1.",
-		"Ilkeä poika / Valitut novellit 1.",
-		"Isergil-muori",
-		"Isä-kulta / Valitut novellit 1.",
-		"Jeesuksen synti",
-		"Kaikesta täytyy maksaa",
-		"Kalliita kielitunteja / Valitut novellit 1.",
-		"Kameleontti / Valitut novellit 1.",
-		"Kapteenintytär / Romaanit ja kertomukset.",
-		"Karamazovin veljekset",
-		"Karkuri / Valitut novellit 1.",
-		"Karviaismarjoja / Suuret kertomukset 2.",
-		"Kauhunyö / Valitut novellit 1.",
-		"Keittäjätär menee naimisiin / Valitut novelit 1.",
-		"Kellariloukko",
-		"Kerjäläinen / Valittuja kertomuksia ja novelleja 1.",
-		"Kevään seitsemäntoista hetkeä",
-		"Kireähermoista väkeä / Kireähermoista väkeä.",
-		"Kirje isoisälle / Valitut novellit 1.",
-		"Koiran sydän",
-		"Kostaja / Valitut novellit 1.",
-		"Kuningas / Odessalaisia ja muita novelleja",
-		"Kunnon saksalainen / Valitut novellit 1.",
-		"Kuolema ja vähän rakkautta",
-		"Kuorotyttö / Valitut novellit 1.",
-		"Lapsia / Valitut novellit 1.",
-		"Laukaus / Laukaus ja y. m. kertomuksia.",
-		"Liikaa suolaa / Valitut novellit 1.",
-		"Lumimyrsky / Romaanit ja kertomukset.",
-		"Lumottu vaeltaja",
-		"Made / Valettuja kertomuksia ja novellija 1.",
-		"Makar Tšudra",
-		"Nainen ja sylikoira / Suuret kertomukset 2.",
-		"Noita / Valitut novellit 1.",
-		"Näyttelijän lähtö / Valitut novelit 1.",
-		"Onnenpoika / Valitut novellit 1.",
-		"Onnettomuus / Valitut novellit 1.",
-		"Onni / Suuret kertomukset 1.",
-		"Osterit / Valitut novellit 1.",
-		"Pahantekijä / Valitut novellit 1.",
-		"Paksukainen ja ohukainen / Valitut novellit 1.",
-		"Patarouva / Romaanit ja kertomukset.",
-		"Perheen isä / Valitut novellit 1.",
-		"Pimeässä / Valitut novellit 1.",
-		"Poikia / Valitut novelit 1.",
-		"Pyry",
-		"Päällysviitta / Valitut teokset. 1.",
-		"Rakkaus / Valitut novellit 1.",
-		"Rikos ja rangaistus",
-		"Romaani bassoviulusta / Valitut novellit 1.",
-		"Rotkossa / Suuret kertomukset 2.",
-		"Ruumisarkuntekijä / Romaanit ja kertomukset.",
-		"Saatana saapuu Moskovaan",
-		"Seireeni / Valitut novellit 1.",
-		"Surkea tapaus / Valitut novellit 1.",
-		"Suru / Valitut novellit 1.",
-		"Synnyinmaan puolesta",
-		"Taiteen tuote / Valitut novellit 1.",
-		"Taiteilijan tarina / Suuret kertomukset 1.",
-		"Talo rantakadulla",
-		"Talonpoikia / Suuret kertomukset 2.",
-		"Tapaus yöllä / Kireähermoista väkeä.",
-		"Tarpeettomia ihmisiä / Valitut novellit 1.",
-		"Teatteriromaani",
-		"Tuho",
-		"Tuttu mies / Valitut novellit 1.",
-		"Tšelkaš",
-		"Valkeat vaatteet",
-		"Vanhuus/ Valitut novellit 1.",
-		"Virkamiehen kuolema / Valitut novellit 1.",
-		"Yö ennen oikeudenkäyntiä  / Valitut novellit 1.",
-		"Yö hautausmaalla / Valitut novellit 1.",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_publisher: {
-	    label: "publisher",
-	    displayType: "select",
-	    dataset: [
-		"Gummerus",
-		"Helsinki",
-		"Kansankulttuuri",
-		"Karisto",
-		"Otava",
-		"SN-kirjat",
-		"Tammi",
-		"WSOY",
-		"null",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
+        link_text_author: {
+            label: "author",
+            displayType: "select",
+            dataset: [
+                "Бабель И.",
+                "Бакланов Г.",
+                "Булгаков М.А.",
+                "Гоголь Н.В.",
+                "Горький М.",
+                "Достоевский Ф.М.",
+                "Дудинцев В.",
+                "Зощенко М.",
+                "Лермонтов М.Ю.",
+                "Лесков Н.",
+                "Маринина А.",
+                "Пушкин А.С.",
+                "Семенов Ю.",
+                "Толстой Л.Н.",
+                "Трифонов Ю.",
+                "Троепольский Г.",
+                "Тургенев И.С.",
+                "Фадеев А.",
+                "Чехов А.П.",
+                "Шолохов М.А.",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_translator: {
+            label: "translator",
+            displayType: "select",
+            dataset: [
+                "Adrian E.",
+                "Adrian, Esa",
+                "Ahava, Juho, Hameen-anttila, Vaino",
+                "Anhava M.",
+                "Heino U.-L.",
+                "Heino, Ulla-Liisa",
+                "Hollo J.A.",
+                "Hollo, Juho Anselmi",
+                "Iranto L.",
+                "Juhani Konkka",
+                "Kallama, Valto",
+                "Konkka J.",
+                "Konkka, Juhani",
+                "Koskinen M.",
+                "Kuukasjärvi Olli",
+                "Losowitch K.",
+                "Mitrošin A.",
+                "Orlov Vappu",
+                "Pienimäki N.",
+                "Pyykkö L.",
+                "Pyykkö Lea",
+                "Viitanen Liisa",
+                "null",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_title: {
+            label: "title",
+            displayType: "select",
+            dataset: [
+                "Aateliskoti",
+                "Aatelisneiti talonpoikaistyttönä / Laukaus ja y. m. kertomuksia.",
+                "Agafja / Valitut novelit 1.",
+                "Aikamme sankari",
+                "Albionin tytär / Valitut novellit 1.",
+                "Alustava tilinpäätös",
+                "Anna Karenina",
+                "Aristokraatti / Kireähermoista väkeä.",
+                "Asemanhoitaja / Romaanit ja kertomukset.",
+                "Bim mustakorva",
+                "Ei onnistunut! / Valitut novellit 1.",
+                "Elämän pikkuseikka / Valitut novellit 1.",
+                "Griša / Valitut novellit 1.",
+                "Haaveita / Valitut novelit 1.",
+                "Hammaskirurgi / Valitut novellit 1.",
+                "Herra salaneuvos / Valitut novellit 1.",
+                "Hevosenkaltainen sukunimi / Valitut novelit 1.",
+                "Hiljaa virtaa Don",
+                "Huvila-asukkaita / Valitut novelit 1.",
+                "Häät kenraalin kera / Valitut novellit 1.",
+                "Ilkeä poika / Valitut novellit 1.",
+                "Isergil-muori",
+                "Isä-kulta / Valitut novellit 1.",
+                "Jeesuksen synti",
+                "Kaikesta täytyy maksaa",
+                "Kalliita kielitunteja / Valitut novellit 1.",
+                "Kameleontti / Valitut novellit 1.",
+                "Kapteenintytär / Romaanit ja kertomukset.",
+                "Karamazovin veljekset",
+                "Karkuri / Valitut novellit 1.",
+                "Karviaismarjoja / Suuret kertomukset 2.",
+                "Kauhunyö / Valitut novellit 1.",
+                "Keittäjätär menee naimisiin / Valitut novelit 1.",
+                "Kellariloukko",
+                "Kerjäläinen / Valittuja kertomuksia ja novelleja 1.",
+                "Kevään seitsemäntoista hetkeä",
+                "Kireähermoista väkeä / Kireähermoista väkeä.",
+                "Kirje isoisälle / Valitut novellit 1.",
+                "Koiran sydän",
+                "Kostaja / Valitut novellit 1.",
+                "Kuningas / Odessalaisia ja muita novelleja",
+                "Kunnon saksalainen / Valitut novellit 1.",
+                "Kuolema ja vähän rakkautta",
+                "Kuorotyttö / Valitut novellit 1.",
+                "Lapsia / Valitut novellit 1.",
+                "Laukaus / Laukaus ja y. m. kertomuksia.",
+                "Liikaa suolaa / Valitut novellit 1.",
+                "Lumimyrsky / Romaanit ja kertomukset.",
+                "Lumottu vaeltaja",
+                "Made / Valettuja kertomuksia ja novellija 1.",
+                "Makar Tšudra",
+                "Nainen ja sylikoira / Suuret kertomukset 2.",
+                "Noita / Valitut novellit 1.",
+                "Näyttelijän lähtö / Valitut novelit 1.",
+                "Onnenpoika / Valitut novellit 1.",
+                "Onnettomuus / Valitut novellit 1.",
+                "Onni / Suuret kertomukset 1.",
+                "Osterit / Valitut novellit 1.",
+                "Pahantekijä / Valitut novellit 1.",
+                "Paksukainen ja ohukainen / Valitut novellit 1.",
+                "Patarouva / Romaanit ja kertomukset.",
+                "Perheen isä / Valitut novellit 1.",
+                "Pimeässä / Valitut novellit 1.",
+                "Poikia / Valitut novelit 1.",
+                "Pyry",
+                "Päällysviitta / Valitut teokset. 1.",
+                "Rakkaus / Valitut novellit 1.",
+                "Rikos ja rangaistus",
+                "Romaani bassoviulusta / Valitut novellit 1.",
+                "Rotkossa / Suuret kertomukset 2.",
+                "Ruumisarkuntekijä / Romaanit ja kertomukset.",
+                "Saatana saapuu Moskovaan",
+                "Seireeni / Valitut novellit 1.",
+                "Surkea tapaus / Valitut novellit 1.",
+                "Suru / Valitut novellit 1.",
+                "Synnyinmaan puolesta",
+                "Taiteen tuote / Valitut novellit 1.",
+                "Taiteilijan tarina / Suuret kertomukset 1.",
+                "Talo rantakadulla",
+                "Talonpoikia / Suuret kertomukset 2.",
+                "Tapaus yöllä / Kireähermoista väkeä.",
+                "Tarpeettomia ihmisiä / Valitut novellit 1.",
+                "Teatteriromaani",
+                "Tuho",
+                "Tuttu mies / Valitut novellit 1.",
+                "Tšelkaš",
+                "Valkeat vaatteet",
+                "Vanhuus/ Valitut novellit 1.",
+                "Virkamiehen kuolema / Valitut novellit 1.",
+                "Yö ennen oikeudenkäyntiä  / Valitut novellit 1.",
+                "Yö hautausmaalla / Valitut novellit 1.",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_publisher: {
+            label: "publisher",
+            displayType: "select",
+            dataset: [
+                "Gummerus",
+                "Helsinki",
+                "Kansankulttuuri",
+                "Karisto",
+                "Otava",
+                "SN-kirjat",
+                "Tammi",
+                "WSOY",
+                "null",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
     }
 );
 
 sattrlist.parrus_ru = $.extend(
     true, {}, sattrlist.parfin_base,
     {
-	link_text_author: {
-	    label: "author",
-	    displayType: "select",
-	    dataset: [
-		"Бабель И.",
-		"Бакланов Г.",
-		"Булгаков М.А.",
-		"Гоголь Н.В.",
-		"Горький М.",
-		"Достоевский Ф.М.",
-		"Дудинцев В.",
-		"Зощенко М.",
-		"Лермонтов М.Ю.",
-		"Лесков Н.",
-		"Маринина А.",
-		"Пушкин А.С.",
-		"Семенов Ю.",
-		"Толстой Л.Н.",
-		"Трифонов Ю.",
-		"Троепольский Г.",
-		"Тургенев И.С.",
-		"Фадеев А.",
-		"Чехов А.П.",
-		"Шолохов М.А.",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_translator: {
-	    label: "translator",
-	    displayType: "select",
-	    dataset: [
-		"Adrian, Esa",
-		"Ahava Juho, Hämeen-Anttila Väinö",
-		"Anhava, Martti",
-		"Heino, Ulla-Liisa",
-		"Hollo, Juho Anselmi",
-		"Iranto, Lidia",
-		"Konkka, Juhani",
-		"Koskinen, Marja",
-		"Kuukasjärvi, Olli",
-		"Losowitch, Katja",
-		"Mitrošin, A.",
-		"Pesonen, Pekka Alarik",
-		"Pienimäki, Natalia",
-		"Pyykkö Lea",
-		"Viitanen, Liisa",
-		"null",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_title: {
-	    label: "title",
-	    displayType: "select",
-	    dataset: [
-		"Агафья / Собр. соч. в 15 тт.",
-		"Актерская гибель / Собр. соч. в 15 тт.",
-		"Анна Каренина",
-		"Аристократка",
-		"Барышня-крестьянка",
-		"Беглец / Собр. соч. в 15 тт.",
-		"Белые одежды",
-		"Белый Бим черное ухо",
-		"Братья Карамазовы",
-		"В овраге / Собр. соч. в 15 тт.",
-		"В потемках / Собр. соч. в 15 тт.",
-		"Ванька / Собр. соч. в 15 тт.",
-		"Ведьма / Собр. соч. в 15 тт.",
-		"Выстрел",
-		"Герой нашего времени",
-		"Гриша / Собр. соч. в 15 тт.",
-		"Гробовщик",
-		"Дама с собачкой / Собр. соч. в 15 тт.",
-		"Дачники / Собр. соч. в 15 тт.",
-		"Дворянское гнездо",
-		"Детвора / Собр. соч. в 15 тт.",
-		"Добрый немец / Собр. соч. в 15 тт.",
-		"Дом на набережной",
-		"Дом с мезонином / Собр. соч. в 15 тт.",
-		"Дорогие уроки / Собр. соч. в 15 тт.",
-		"Дочь Альбиона / Собр. соч. в 15 тт.",
-		"Житейская мелочь / Собр. соч. в 15 тт.",
-		"За все надо платить",
-		"Записки из подполья",
-		"Злой мальчик / Собр. соч. в 15 тт.",
-		"Злоумышленник / Собр. соч. в 15 тт.",
-		"Знакомый мужчина / Собр. соч. в 15 тт.",
-		"Иисусов грех / Одесские рассказы.",
-		"Капитанская дочка",
-		"Король / Одесские рассказы.",
-		"Крыжовник / Собр. соч. в 15 тт.",
-		"Кухарка женится / Собр. соч. в 15 тт.",
-		"Лишние люди / Собр. соч. в 15 тт.",
-		"Лошадиная фамилия / Собр. соч. в 15 тт.",
-		"Любовь / Собр. соч. в 15 тт.",
-		"Макар Чудра",
-		"Мальчики / Собр. соч. в 15 тт.",
-		"Мастер и Маргарита",
-		"Метель",
-		"Мечты / Собр. соч. в 15 тт.",
-		"Мститель / Собр. соч. в 15 тт.",
-		"Мужики / Собр. соч. в 15 тт.",
-		"Навеки девятнадцатилетние",
-		"Налим / Собр. соч. в 15 тт.",
-		"Нервные люди",
-		"Несчастье / Собр. соч. в 15 тт.",
-		"Неудача / Собр. соч. в 15 тт.",
-		"Нищий / Собр. соч. в 15 тт.",
-		"Ночное происшествие",
-		"Ночь на кладбище / Собр. соч. в 15 тт.",
-		"Ночь перед судом / Собр. соч. в 15 тт.",
-		"Отец семейства / Собр. соч. в 15 тт.",
-		"Очарованный странник",
-		"Папаша / Собр. соч. в 15 тт.",
-		"Пересолил / Собр. соч. в 15 тт.",
-		"Пиковая дама ",
-		"Предварительные итоги",
-		"Преступление и наказание",
-		"Произведение искусства / Собр. соч. в 15 тт.",
-		"Разгром",
-		"Роман с контрабасом / Собр. соч. в 15 тт.",
-		"Свадьба с генералом / Собр. соч. в 15 тт.",
-		"Семнадцать мгновений весны",
-		"Сирена / Собр. соч. в 15 тт.",
-		"Смерть и немного любви",
-		"Смерть чиновника / Собр. соч. в 15 тт.",
-		"Собачье сердце",
-		"Событие / Собр. соч. в 15 тт.",
-		"Станционный смотритель",
-		"Старость / Собр. соч. в 15 тт.",
-		"Старуха Изергиль",
-		"Страшная ночь / Собр. соч. в 15 тт.",
-		"Счастливчик / Собр. соч. в 15 тт.",
-		"Счастье / Собр. соч. в 15 тт.",
-		"Тайный советник / Собр. соч. в 15 тт.",
-		"Театральный роман",
-		"Тихий Дон, ч. 1",
-		"Толстый и тонкий / Собр. соч. в 15 тт.",
-		"Тоска / Собр. соч. в 15 тт.",
-		"Устрицы / Собр. соч. в 15 тт.",
-		"Хамелеон / Собр. соч. в 15 тт.",
-		"Хирургия / Собр. соч. в 15 тт.",
-		"Хористка / Собр. соч. в 15 тт.",
-		"Челкаш",
-		"Шинель",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_publisher: {
-	    label: "publisher",
-	    displayType: "select",
-	    dataset: [
-		"АСТ, 1997",
-		"АСТ, 1998",
-		"АСТ, 2001",
-		"АСТ, 2002",
-		"АСТ, 2004",
-		"АСТ, 2007",
-		"АСТ, 2010",
-		"АСТ, 2011",
-		"АСТ, Астрель, 2002",
-		"АСТ, Астрель, 2011",
-		"Азбука-классика, 2002",
-		"Альд, Империум Пресс, Литература, 2003",
-		"Детская литература, 1999",
-		"Детская литература, 2000",
-		"Детская литература, 2004",
-		"Олимп, АСТ, 2002",
-		"Терра,  1999",
-		"Терра, 1999",
-		"Терра,1999",
-		"Художественная литература, 2000",
-		"Эксмо",
-		"Эксмо, 2003",
-		"Эксмо, 2007",
-		"Эксмо, 2009",
-		"Эксо, 2008",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
+        link_text_author: {
+            label: "author",
+            displayType: "select",
+            dataset: [
+                "Бабель И.",
+                "Бакланов Г.",
+                "Булгаков М.А.",
+                "Гоголь Н.В.",
+                "Горький М.",
+                "Достоевский Ф.М.",
+                "Дудинцев В.",
+                "Зощенко М.",
+                "Лермонтов М.Ю.",
+                "Лесков Н.",
+                "Маринина А.",
+                "Пушкин А.С.",
+                "Семенов Ю.",
+                "Толстой Л.Н.",
+                "Трифонов Ю.",
+                "Троепольский Г.",
+                "Тургенев И.С.",
+                "Фадеев А.",
+                "Чехов А.П.",
+                "Шолохов М.А.",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_translator: {
+            label: "translator",
+            displayType: "select",
+            dataset: [
+                "Adrian, Esa",
+                "Ahava Juho, Hämeen-Anttila Väinö",
+                "Anhava, Martti",
+                "Heino, Ulla-Liisa",
+                "Hollo, Juho Anselmi",
+                "Iranto, Lidia",
+                "Konkka, Juhani",
+                "Koskinen, Marja",
+                "Kuukasjärvi, Olli",
+                "Losowitch, Katja",
+                "Mitrošin, A.",
+                "Pesonen, Pekka Alarik",
+                "Pienimäki, Natalia",
+                "Pyykkö Lea",
+                "Viitanen, Liisa",
+                "null",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_title: {
+            label: "title",
+            displayType: "select",
+            dataset: [
+                "Агафья / Собр. соч. в 15 тт.",
+                "Актерская гибель / Собр. соч. в 15 тт.",
+                "Анна Каренина",
+                "Аристократка",
+                "Барышня-крестьянка",
+                "Беглец / Собр. соч. в 15 тт.",
+                "Белые одежды",
+                "Белый Бим черное ухо",
+                "Братья Карамазовы",
+                "В овраге / Собр. соч. в 15 тт.",
+                "В потемках / Собр. соч. в 15 тт.",
+                "Ванька / Собр. соч. в 15 тт.",
+                "Ведьма / Собр. соч. в 15 тт.",
+                "Выстрел",
+                "Герой нашего времени",
+                "Гриша / Собр. соч. в 15 тт.",
+                "Гробовщик",
+                "Дама с собачкой / Собр. соч. в 15 тт.",
+                "Дачники / Собр. соч. в 15 тт.",
+                "Дворянское гнездо",
+                "Детвора / Собр. соч. в 15 тт.",
+                "Добрый немец / Собр. соч. в 15 тт.",
+                "Дом на набережной",
+                "Дом с мезонином / Собр. соч. в 15 тт.",
+                "Дорогие уроки / Собр. соч. в 15 тт.",
+                "Дочь Альбиона / Собр. соч. в 15 тт.",
+                "Житейская мелочь / Собр. соч. в 15 тт.",
+                "За все надо платить",
+                "Записки из подполья",
+                "Злой мальчик / Собр. соч. в 15 тт.",
+                "Злоумышленник / Собр. соч. в 15 тт.",
+                "Знакомый мужчина / Собр. соч. в 15 тт.",
+                "Иисусов грех / Одесские рассказы.",
+                "Капитанская дочка",
+                "Король / Одесские рассказы.",
+                "Крыжовник / Собр. соч. в 15 тт.",
+                "Кухарка женится / Собр. соч. в 15 тт.",
+                "Лишние люди / Собр. соч. в 15 тт.",
+                "Лошадиная фамилия / Собр. соч. в 15 тт.",
+                "Любовь / Собр. соч. в 15 тт.",
+                "Макар Чудра",
+                "Мальчики / Собр. соч. в 15 тт.",
+                "Мастер и Маргарита",
+                "Метель",
+                "Мечты / Собр. соч. в 15 тт.",
+                "Мститель / Собр. соч. в 15 тт.",
+                "Мужики / Собр. соч. в 15 тт.",
+                "Навеки девятнадцатилетние",
+                "Налим / Собр. соч. в 15 тт.",
+                "Нервные люди",
+                "Несчастье / Собр. соч. в 15 тт.",
+                "Неудача / Собр. соч. в 15 тт.",
+                "Нищий / Собр. соч. в 15 тт.",
+                "Ночное происшествие",
+                "Ночь на кладбище / Собр. соч. в 15 тт.",
+                "Ночь перед судом / Собр. соч. в 15 тт.",
+                "Отец семейства / Собр. соч. в 15 тт.",
+                "Очарованный странник",
+                "Папаша / Собр. соч. в 15 тт.",
+                "Пересолил / Собр. соч. в 15 тт.",
+                "Пиковая дама ",
+                "Предварительные итоги",
+                "Преступление и наказание",
+                "Произведение искусства / Собр. соч. в 15 тт.",
+                "Разгром",
+                "Роман с контрабасом / Собр. соч. в 15 тт.",
+                "Свадьба с генералом / Собр. соч. в 15 тт.",
+                "Семнадцать мгновений весны",
+                "Сирена / Собр. соч. в 15 тт.",
+                "Смерть и немного любви",
+                "Смерть чиновника / Собр. соч. в 15 тт.",
+                "Собачье сердце",
+                "Событие / Собр. соч. в 15 тт.",
+                "Станционный смотритель",
+                "Старость / Собр. соч. в 15 тт.",
+                "Старуха Изергиль",
+                "Страшная ночь / Собр. соч. в 15 тт.",
+                "Счастливчик / Собр. соч. в 15 тт.",
+                "Счастье / Собр. соч. в 15 тт.",
+                "Тайный советник / Собр. соч. в 15 тт.",
+                "Театральный роман",
+                "Тихий Дон, ч. 1",
+                "Толстый и тонкий / Собр. соч. в 15 тт.",
+                "Тоска / Собр. соч. в 15 тт.",
+                "Устрицы / Собр. соч. в 15 тт.",
+                "Хамелеон / Собр. соч. в 15 тт.",
+                "Хирургия / Собр. соч. в 15 тт.",
+                "Хористка / Собр. соч. в 15 тт.",
+                "Челкаш",
+                "Шинель",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_publisher: {
+            label: "publisher",
+            displayType: "select",
+            dataset: [
+                "АСТ, 1997",
+                "АСТ, 1998",
+                "АСТ, 2001",
+                "АСТ, 2002",
+                "АСТ, 2004",
+                "АСТ, 2007",
+                "АСТ, 2010",
+                "АСТ, 2011",
+                "АСТ, Астрель, 2002",
+                "АСТ, Астрель, 2011",
+                "Азбука-классика, 2002",
+                "Альд, Империум Пресс, Литература, 2003",
+                "Детская литература, 1999",
+                "Детская литература, 2000",
+                "Детская литература, 2004",
+                "Олимп, АСТ, 2002",
+                "Терра,  1999",
+                "Терра, 1999",
+                "Терра,1999",
+                "Художественная литература, 2000",
+                "Эксмо",
+                "Эксмо, 2003",
+                "Эксмо, 2007",
+                "Эксмо, 2009",
+                "Эксо, 2008",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
     }
 );
 
@@ -3517,8 +3517,8 @@ settings.corpusinfo.parrus = {
     metadata_urn: "urn:nbn:fi:lb-20140730173",
     lbr_id: "urn:nbn:fi:lb-2014052710",
     licence: {
-	name: "CLARIN RES +PLAN +NC +INF +ND",
-	url: "urn:nbn:fi:lb-2016042705",
+        name: "CLARIN RES +PLAN +NC +INF +ND",
+        url: "urn:nbn:fi:lb-2016042705",
     },
     homepage_url: "https://mustikka.uta.fi/",
 };
@@ -3538,35 +3538,35 @@ settings.corpusinfo.parfin_2016 = {
 
 sattrlist.parfin_2016_base = {
     link_text_code: {
-	label: "text_id"
+        label: "text_id"
     },
     // link_txtnumber: {
-    // 	label: "text_number"
+    //  label: "text_number"
     // },
     link_text_author: {
-	label: "author"
+        label: "author"
     },
     link_text_title: {
-	label: "title"
+        label: "title"
     },
     // link_text_typeoftext: {
-    // 	label: "text_type"
+    //  label: "text_type"
     // },
     // link_text_genre: sattrs.mikhailov_text_genre,
     // link_text_period: {
-    // 	label: "year"
+    //  label: "year"
     // },
     link_text_publisher: {
-	label: "publisher"
+        label: "publisher"
     },
     link_text_year: {
-	label: "year",
+        label: "year",
     },
     link_text_yearorig: {
-	label: "year_orig",
+        label: "year_orig",
     },
     link_text_yeartr: {
-	label: "year_transl",
+        label: "year_transl",
     },
     sentence_id: sattrs.sentence_id_hidden
 };
@@ -3574,148 +3574,148 @@ sattrlist.parfin_2016_base = {
 sattrlist.parfin_2016_fi = $.extend(
     true, {}, sattrlist.parfin_2016_base,
     {
-	link_text_author: {
-	    label: "author",
-	    displayType: "select",
-	    dataset: [
-		"Haahtela Joel",
-		"Hotakainen Kari",
-		"Katz Daniel",
-		"Konkka Anita",
-		"Krohn Leena",
-		"Lassila Maiju",
-		"Lehtolainen Leena",
-		"Linna Väinö",
-		"Mäkelä Hannu",
-		"Oksanen Sofi",
-		"Rimminen Mikko",
-		"Salminen Arto",
-		"Sillanpää Frans Emil",
-		"Sinisalo Johanna",
-		"Tuuri Antti",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_translator: {
-	    label: "translator",
-	},
-	link_text_title: {
-	    label: "title",
-	    displayType: "select",
-	    dataset: [
-		"Ei-kuori",
-		"Ennen päivänlaskua ei voi",
-		"Ensimmäinen murhani",
-		"Harmin paikka",
-		"Hullun taivaassa",
-		"Ihmisen vaatteissa",
-		"Ihmiset suviyössä",
-		"Joki virtaa",
-		"Juoksuhaudantie",
-		"Kun isoisä suomeen hiihti",
-		"Kuparisydän",
-		"Pekka Peloton",
-		"Perhoskerääjä",
-		"Puhdistus",
-		"Pussikalja",
-		"Sfinksi vai robotti",
-		"Tulitikkuja lainaamassa",
-		"Tuntematon sotilas",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_publisher: {
-	    label: "publisher",
-	    displayType: "select",
-	    dataset: [
-		"Kansa",
-		"Otava",
-		"Tammi",
-		"Teos",
-		"WSOY",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_year_orig: {
-	    label: "year",
-	},
+        link_text_author: {
+            label: "author",
+            displayType: "select",
+            dataset: [
+                "Haahtela Joel",
+                "Hotakainen Kari",
+                "Katz Daniel",
+                "Konkka Anita",
+                "Krohn Leena",
+                "Lassila Maiju",
+                "Lehtolainen Leena",
+                "Linna Väinö",
+                "Mäkelä Hannu",
+                "Oksanen Sofi",
+                "Rimminen Mikko",
+                "Salminen Arto",
+                "Sillanpää Frans Emil",
+                "Sinisalo Johanna",
+                "Tuuri Antti",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_translator: {
+            label: "translator",
+        },
+        link_text_title: {
+            label: "title",
+            displayType: "select",
+            dataset: [
+                "Ei-kuori",
+                "Ennen päivänlaskua ei voi",
+                "Ensimmäinen murhani",
+                "Harmin paikka",
+                "Hullun taivaassa",
+                "Ihmisen vaatteissa",
+                "Ihmiset suviyössä",
+                "Joki virtaa",
+                "Juoksuhaudantie",
+                "Kun isoisä suomeen hiihti",
+                "Kuparisydän",
+                "Pekka Peloton",
+                "Perhoskerääjä",
+                "Puhdistus",
+                "Pussikalja",
+                "Sfinksi vai robotti",
+                "Tulitikkuja lainaamassa",
+                "Tuntematon sotilas",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_publisher: {
+            label: "publisher",
+            displayType: "select",
+            dataset: [
+                "Kansa",
+                "Otava",
+                "Tammi",
+                "Teos",
+                "WSOY",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_year_orig: {
+            label: "year",
+        },
     }
 );
 
 sattrlist.parfin_2016_ru = $.extend(
     true, {}, sattrlist.parfin_2016_fi,
     {
-	link_text_title: {
-	    label: "title",
-	    displayType: "select",
-	    dataset: [
-		"Бесстрашный Пекка",
-		"В одежде человека",
-		"В сумасшедших небесах",
-		"За спичками",
-		"Змеи в раю",
-		"Как мой прадедушка на лыжах прибежал в Финляндию",
-		"Люди в летней ночи",
-		"Медное сердце",
-		"Мое первое убийство",
-		"Неизвестный солдат",
-		"Очищение",
-		"Река течет через город",
-		"Роман с пивом",
-		"Собиратель бабочек",
-		"Спасибо, нет",
-		"Сфинкс или робот",
-		"Тролль",
-		"Улица окопная",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_translator: {
-	    label: "translator",
-	    displayType: "select",
-	    dataset: [
-		"Виролайнен, Лаура and Иоффе, Элеонора",
-		"Джафарова-Виитала, Таисья",
-		"Зощенко, M.",
-		"Иоффе, Элеонора",
-		"Мельник, Татьяна",
-		"Муравин, Геннадий",
-		"Муравин, Геннадий and Каменская, Е.",
-		"Олыкайнен, Лео and Олыкайнен, Леонид",
-		"Прилежаев, Иван",
-		"Сидорова, Анна",
-		"Смирнов Владимир",
-		"Смирнов, Владимир and Марцина, И.",
-		"Тиновицкая, Евгения",
-		"Урецкий, Илья",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_publisher: {
-	    label: "publisher",
-	    displayType: "select",
-	    dataset: [
-		"Азбука-классика",
-		"Амфора",
-		"Астрель",
-		"Вяжевич, А.С",
-		"Государственное издательство художественной литературы",
-		"Едиториал УРСС",
-		"КомКнига",
-		"Лимбус Пресс, Издательство К. Тублина",
-		"Прогресс",
-		"Самокат",
-		"Текст",
-		"Художественная литература",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
+        link_text_title: {
+            label: "title",
+            displayType: "select",
+            dataset: [
+                "Бесстрашный Пекка",
+                "В одежде человека",
+                "В сумасшедших небесах",
+                "За спичками",
+                "Змеи в раю",
+                "Как мой прадедушка на лыжах прибежал в Финляндию",
+                "Люди в летней ночи",
+                "Медное сердце",
+                "Мое первое убийство",
+                "Неизвестный солдат",
+                "Очищение",
+                "Река течет через город",
+                "Роман с пивом",
+                "Собиратель бабочек",
+                "Спасибо, нет",
+                "Сфинкс или робот",
+                "Тролль",
+                "Улица окопная",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_translator: {
+            label: "translator",
+            displayType: "select",
+            dataset: [
+                "Виролайнен, Лаура and Иоффе, Элеонора",
+                "Джафарова-Виитала, Таисья",
+                "Зощенко, M.",
+                "Иоффе, Элеонора",
+                "Мельник, Татьяна",
+                "Муравин, Геннадий",
+                "Муравин, Геннадий and Каменская, Е.",
+                "Олыкайнен, Лео and Олыкайнен, Леонид",
+                "Прилежаев, Иван",
+                "Сидорова, Анна",
+                "Смирнов Владимир",
+                "Смирнов, Владимир and Марцина, И.",
+                "Тиновицкая, Евгения",
+                "Урецкий, Илья",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_publisher: {
+            label: "publisher",
+            displayType: "select",
+            dataset: [
+                "Азбука-классика",
+                "Амфора",
+                "Астрель",
+                "Вяжевич, А.С",
+                "Государственное издательство художественной литературы",
+                "Едиториал УРСС",
+                "КомКнига",
+                "Лимбус Пресс, Издательство К. Тублина",
+                "Прогресс",
+                "Самокат",
+                "Текст",
+                "Художественная литература",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
     }
 );
 
@@ -3753,427 +3753,427 @@ attrlist.parrus_2016_ru = $.extend(
 sattrlist.parrus_2016_ru = $.extend(
     true, {}, sattrlist.parfin_2016_base,
     {
-	link_text_author: {
-	    label: "author",
-	    displayType: "select",
-	    dataset: [
-		"Бабель И.",
-		"Булгаков М.А.",
-		"Гоголь Н.В.",
-		"Горький М.",
-		"Достоевский Ф.М.",
-		"Дудинцев В.",
-		"Зощенко М.",
-		"Ильф И., Петров Е.",
-		"Лермонтов М.Ю.",
-		"Лесков Н.",
-		"Маринина А.",
-		"Пушкин А.С.",
-		"Семенов Ю.",
-		"Трифонов Ю.",
-		"Троепольский Г.",
-		"Тургенев И.С.",
-		"Улицкая Л.",
-		"Фадеев А.",
-		"Чехов А.П.",
-		"Шолохов М.А.",
-		"Шукшин В.М.",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_title: {
-	    label: "title",
-	    displayType: "select",
-	    dataset: [
-		"Агафья",
-		"Актерская гибель",
-		"Аристократка",
-		"Барышня-крестьянка",
-		"Беглец",
-		"Белые одежды",
-		"Белый Бим черное ухо",
-		"Брат Юрочка / Сквозная линия",
-		"Братья Карамазовы",
-		"В овраге",
-		"В потемках",
-		"Ванька",
-		"Ведьма",
-		"Верую!",
-		"Выстрел",
-		"Герой нашего времени",
-		"Гриша",
-		"Дама с собачкой",
-		"Дачники",
-		"Дворянское гнездо",
-		"Детвора",
-		"Диана / Сквозная линия",
-		"Добрый немец",
-		"Дом на набережной",
-		"Дом с мезонином",
-		"Дорогие уроки",
-		"Дочь Альбиона",
-		"Житейская мелочь",
-		"За все надо платить",
-		"Записки из подполья",
-		"Злоумышленник",
-		"Змеиный яд",
-		"Знакомый мужчина",
-		"Золотой теленок",
-		"Иисусов грех",
-		"Искусство жить / Сквозная линия",
-		"Капитанская дочка",
-		"Конец сюжета / Сквозная линия",
-		"Король",
-		"Крепкий мужик",
-		"Крыжовник",
-		"Кухарка женится",
-		"Лишние люди",
-		"Лошадиная фамилия",
-		"Любовь",
-		"Макар Чудра",
-		"Мальчики",
-		"Мастер и Маргарита",
-		"Мертвые души",
-		"Метель",
-		"Мечты",
-		"Мститель",
-		"Мужики",
-		"Налим",
-		"Нервные люди",
-		"Несчастье",
-		"Неудача",
-		"Нищий",
-		"Ночное происшествие",
-		"Ночь на кладбище",
-		"Ночь перед судом",
-		"Осенью",
-		"Отец семейства",
-		"Очарованный странник",
-		"Папаша",
-		"Пересолил",
-		"Пиковая дама",
-		"Предварительные итоги",
-		"Преступление и наказание",
-		"Произведение искусства",
-		"Разгром",
-		"Роман с контрабасом",
-		"Свадьба с генералом",
-		"Семнадцать мгновений весны",
-		"Сирена",
-		"Смерть и немного любви",
-		"Смерть чиновника",
-		"Собачье сердце",
-		"Событие",
-		"Старость",
-		"Старуха Изергиль",
-		"Страшная ночь",
-		"Счастливчик",
-		"Счастливый случай / Сквозная линия",
-		"Счастье",
-		"Тайный советник",
-		"Тарас Бульба",
-		"Театральный роман",
-		"Тихий Дон, ч. 1",
-		"Толстый и тонкий",
-		"Тоска",
-		"Устрицы",
-		"Хамелеон",
-		"Хирургия",
-		"Хористка",
-		"Челкаш",
-		"Шинель",
-		"Явление природы / Сквозная линия",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_publisher: {
-	    label: "publisher",
-	    displayType: "select",
-	    dataset: [
-		"",
-		"Эксмо",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
+        link_text_author: {
+            label: "author",
+            displayType: "select",
+            dataset: [
+                "Бабель И.",
+                "Булгаков М.А.",
+                "Гоголь Н.В.",
+                "Горький М.",
+                "Достоевский Ф.М.",
+                "Дудинцев В.",
+                "Зощенко М.",
+                "Ильф И., Петров Е.",
+                "Лермонтов М.Ю.",
+                "Лесков Н.",
+                "Маринина А.",
+                "Пушкин А.С.",
+                "Семенов Ю.",
+                "Трифонов Ю.",
+                "Троепольский Г.",
+                "Тургенев И.С.",
+                "Улицкая Л.",
+                "Фадеев А.",
+                "Чехов А.П.",
+                "Шолохов М.А.",
+                "Шукшин В.М.",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_title: {
+            label: "title",
+            displayType: "select",
+            dataset: [
+                "Агафья",
+                "Актерская гибель",
+                "Аристократка",
+                "Барышня-крестьянка",
+                "Беглец",
+                "Белые одежды",
+                "Белый Бим черное ухо",
+                "Брат Юрочка / Сквозная линия",
+                "Братья Карамазовы",
+                "В овраге",
+                "В потемках",
+                "Ванька",
+                "Ведьма",
+                "Верую!",
+                "Выстрел",
+                "Герой нашего времени",
+                "Гриша",
+                "Дама с собачкой",
+                "Дачники",
+                "Дворянское гнездо",
+                "Детвора",
+                "Диана / Сквозная линия",
+                "Добрый немец",
+                "Дом на набережной",
+                "Дом с мезонином",
+                "Дорогие уроки",
+                "Дочь Альбиона",
+                "Житейская мелочь",
+                "За все надо платить",
+                "Записки из подполья",
+                "Злоумышленник",
+                "Змеиный яд",
+                "Знакомый мужчина",
+                "Золотой теленок",
+                "Иисусов грех",
+                "Искусство жить / Сквозная линия",
+                "Капитанская дочка",
+                "Конец сюжета / Сквозная линия",
+                "Король",
+                "Крепкий мужик",
+                "Крыжовник",
+                "Кухарка женится",
+                "Лишние люди",
+                "Лошадиная фамилия",
+                "Любовь",
+                "Макар Чудра",
+                "Мальчики",
+                "Мастер и Маргарита",
+                "Мертвые души",
+                "Метель",
+                "Мечты",
+                "Мститель",
+                "Мужики",
+                "Налим",
+                "Нервные люди",
+                "Несчастье",
+                "Неудача",
+                "Нищий",
+                "Ночное происшествие",
+                "Ночь на кладбище",
+                "Ночь перед судом",
+                "Осенью",
+                "Отец семейства",
+                "Очарованный странник",
+                "Папаша",
+                "Пересолил",
+                "Пиковая дама",
+                "Предварительные итоги",
+                "Преступление и наказание",
+                "Произведение искусства",
+                "Разгром",
+                "Роман с контрабасом",
+                "Свадьба с генералом",
+                "Семнадцать мгновений весны",
+                "Сирена",
+                "Смерть и немного любви",
+                "Смерть чиновника",
+                "Собачье сердце",
+                "Событие",
+                "Старость",
+                "Старуха Изергиль",
+                "Страшная ночь",
+                "Счастливчик",
+                "Счастливый случай / Сквозная линия",
+                "Счастье",
+                "Тайный советник",
+                "Тарас Бульба",
+                "Театральный роман",
+                "Тихий Дон, ч. 1",
+                "Толстый и тонкий",
+                "Тоска",
+                "Устрицы",
+                "Хамелеон",
+                "Хирургия",
+                "Хористка",
+                "Челкаш",
+                "Шинель",
+                "Явление природы / Сквозная линия",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_publisher: {
+            label: "publisher",
+            displayType: "select",
+            dataset: [
+                "",
+                "Эксмо",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
     }
 );
 
 sattrlist.parrus_2016_fi = $.extend(
     true, {}, sattrlist.parfin_2016_base,
     {
-	link_text_author: {
-	    label: "author",
-	    displayType: "select",
-	    dataset: [
-		"Аксенов В.",
-		"Бабель И.",
-		"Бакланов Г.",
-		"Белов В.",
-		"Булгаков М.А.",
-		"Гоголь Н.В.",
-		"Горький М.",
-		"Достоевский Ф.М.",
-		"Дудинцев В.",
-		"Ерофеев В.",
-		"Зощенко М.",
-		"Ильф И., Петров Е.",
-		"Лермонтов М.Ю.",
-		"Лесков Н.",
-		"Маринина А.",
-		"Олеша Ю.",
-		"Приставкин А.",
-		"Пушкин А.С.",
-		"Распутин В.",
-		"Семенов Ю.",
-		"Солженицын А.И.",
-		"Стругацкие А. и Б.",
-		"Толстая Т.",
-		"Трифонов Ю.",
-		"Троепольский Г.",
-		"Тургенев И.С.",
-		"Улицкая Л.",
-		"Фадеев А.",
-		"Чехов А.П.",
-		"Шолохов М.А.",
-		"Шукшин В.М.",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_translator: {
-	    label: "translator",
-	    displayType: "select",
-	    dataset: [
-		"A.W--",
-		"Aarto A.",
-		"Adrian E.",
-		"Adrian, Esa",
-		"Ahava Juho, Hämeen-Anttila V.",
-		"Ahava, Juho, Hameen-anttila, Vaino",
-		"Anhava M.",
-		"Elias Siippainen",
-		"Halonen J.A.",
-		"Heino U.-L.",
-		"Heino Ulla-Liisa",
-		"Heino, Ulla-Liisa",
-		"Hollo J.",
-		"Hollo Juho",
-		"Hollo, Juho",
-		"Hollo, Juho Anselmi",
-		"Holm L.",
-		"Iranto L.",
-		"Jalkanen, Huugo",
-		"Juhani Konkka",
-		"Kallama, Valto",
-		"Konkka J.",
-		"Konkka Juhani",
-		"Konkka, Juhani",
-		"Koskinen M.",
-		"Kuukasjärvi Olli",
-		"Laaksonen H.",
-		"Lahtela M.",
-		"Losowitch K.",
-		"M.-W.",
-		"Mitrošin A.",
-		"Orlov Vappu",
-		"Pesonen, Pekka Alarik",
-		"Pienimäki N.",
-		"Pikkupeura A.",
-		"Pyykkö L.",
-		"Pyykkö Lea",
-		"Rymin R., Parkkinen P.",
-		"Samuli S.",
-		"Samuli Suomalainen",
-		"Silvanto, Reino",
-		"Viitanen Liisa",
-		"Wuori M.",
-		"c.-s.",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_title: {
-	    label: "title",
-	    displayType: "select",
-	    dataset: [
-		"Aateliskoti",
-		"Aatelisneiti talonpoikaistyttönä",
-		"Agafja",
-		"Aikamme sankari",
-		"Aikamme uros",
-		"Albionin tytär",
-		"Alustava tilinpäätös",
-		"Aristokraatti",
-		"Bim mustakorva",
-		"Diana / Naisten valheet",
-		"Ei onnistunut!",
-		"Elä ja muista",
-		"Elämän pikkuseikka",
-		"Elämäntaito / Naisten valheet",
-		"Griša",
-		"Haaveita",
-		"Halu elää",
-		"Hammaskirurgi",
-		"Herra salaneuvos",
-		"Herrasneitti-talonpoikalaistyttö",
-		"Hevosenkaltainen sukunimi",
-		"Hiljaa virtaa Don",
-		"Hiljainen Don",
-		"Huvila-asukkaita",
-		"Häät kenraalin kera",
-		"Isergil-muori",
-		"Isä-kulta",
-		"Ivan Denisovitšin päivä",
-		"Jeesuksen synti",
-		"Joki nimeltä Ockerville",
-		"Jura-veli / Naisten valheet",
-		"Kaikesta täytyy maksaa",
-		"Kalliita kielitunteja",
-		"Kameleontti",
-		"Kapronkuusi",
-		"Kapteenin tytär",
-		"Kapteenintytär",
-		"Karamazovin veljekset",
-		"Karkuri",
-		"Karviaismarjoja",
-		"Kateus",
-		"Kauhunyö",
-		"Keittäjätär menee naimisiin",
-		"Kellariloukko",
-		"Kerjäläinen",
-		"Kevään seitsemäntoista hetkeä",
-		"Kireähermoista väkeä",
-		"Kirje isoisälle",
-		"Kirjoituksia kellarista",
-		"Koiran sydän",
-		"Kostaja",
-		"Kova äijä",
-		"Kultainen vasikka",
-		"Kultaportailla istuivat",
-		"Kun pupujussi lensi ilmapalloilla",
-		"Kuningas",
-		"Kunnon saksalainen",
-		"Kuolema ja vähän rakkautta",
-		"Kuolleet sielut",
-		"Kuorotyttö",
-		"Käärmeenmyrkky",
-		"Lankomies Sergei Sergejevitš",
-		"Lapsia",
-		"Laukaus",
-		"Liikaa suolaa",
-		"Lumimyrsky",
-		"Lumottu vaeltaja",
-		"Luonnonilmiö / Naisten valheet",
-		"Made",
-		"Makar Tšudra",
-		"Matkalippu tähtiin",
-		"Mestari",
-		"Mielipaha",
-		"Mille pardons, madame!",
-		"Minä uskon!",
-		"Moskova-Petuški",
-		"Nainen ja sylikoira",
-		"Nainen koiran kanssa",
-		"Nainen, jolla oli koira",
-		"Naistennaurattaja",
-		"Noita",
-		"Nolla-nolla kokonaista",
-		"Nuoren Vaganovin kärsimykset",
-		"Näyttelijän lähtö",
-		"Onnekas sattuma / Naisten valheet",
-		"Onnenpoika",
-		"Onnettomuus",
-		"Onni",
-		"Osterit",
-		"Pahantekijä",
-		"Pakoyritys",
-		"Paksukainen ja ohukainen",
-		"Patarouva",
-		"Perheen isä",
-		"Pimeässä",
-		"Poika helvetistä",
-		"Poikia",
-		"Puhujan tehokeino",
-		"Päivä Stalinin keskitysleirissä",
-		"Päällystakki",
-		"Päällysviitta",
-		"Rakastaa - ei rakasta",
-		"Rakkaus",
-		"Rikos ja rangaistus",
-		"Romaani bassoviulusta",
-		"Rotkossa",
-		"Saatana saapuu Moskovaan",
-		"Seireeni",
-		"Shura-kulta",
-		"Sonja",
-		"Sormeton",
-		"Surkea tapaus",
-		"Suru",
-		"Syksyllä",
-		"Synnyinmaan puolesta",
-		"Taiteen tuote",
-		"Taiteilijan tarina",
-		"Talo rantakadulla",
-		"Talonpoikia",
-		"Tanssiva Šiva",
-		"Tapahtui ravintolassa",
-		"Tapaus yöllä",
-		"Taras Bulba",
-		"Tarinan loppu / Naisten valheet",
-		"Tarpeettomia ihmisiä",
-		"Teatteriromaani",
-		"Teurastus",
-		"Tuho",
-		"Tuttu mies",
-		"Tuttu tarina",
-		"Tšelkaš",
-		"Valitsen asuinkylää",
-		"Valkeat vaatteet",
-		"Vanhuus",
-		"Vartijaton Aljoša",
-		"Versio",
-		"Viitta",
-		"Virkamiehen kuolema",
-		"Yö ennen oikeudenkäyntiä",
-		"Yö hautausmaalla",
-		"Yöpyi pilvi kultainen",
-		"Äidin sydän",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
-	link_text_publisher: {
-	    label: "publisher",
-	    displayType: "select",
-	    dataset: [
-		"Churberg",
-		"Edlund",
-		"Gummerus",
-		"Hki, Kustannusosakeyhtiö",
-		"Holm",
-		"K.E. Holm",
-		"Kansankulttuuri",
-		"Karisto",
-		"Kirjayhtymä",
-		"Oma",
-		"Otava",
-		"Petroskoi, KSNT",
-		"Päivälehti",
-		"SN-kirjat",
-		"Siltala",
-		"Smia",
-		"Suomen kuvalehti",
-		"Tammi",
-		"Valvoja (lehti)",
-		"WSOY",
-		"null",
-	    ],
-	    localize: false,
-	    opts: liteOptions,
-	},
+        link_text_author: {
+            label: "author",
+            displayType: "select",
+            dataset: [
+                "Аксенов В.",
+                "Бабель И.",
+                "Бакланов Г.",
+                "Белов В.",
+                "Булгаков М.А.",
+                "Гоголь Н.В.",
+                "Горький М.",
+                "Достоевский Ф.М.",
+                "Дудинцев В.",
+                "Ерофеев В.",
+                "Зощенко М.",
+                "Ильф И., Петров Е.",
+                "Лермонтов М.Ю.",
+                "Лесков Н.",
+                "Маринина А.",
+                "Олеша Ю.",
+                "Приставкин А.",
+                "Пушкин А.С.",
+                "Распутин В.",
+                "Семенов Ю.",
+                "Солженицын А.И.",
+                "Стругацкие А. и Б.",
+                "Толстая Т.",
+                "Трифонов Ю.",
+                "Троепольский Г.",
+                "Тургенев И.С.",
+                "Улицкая Л.",
+                "Фадеев А.",
+                "Чехов А.П.",
+                "Шолохов М.А.",
+                "Шукшин В.М.",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_translator: {
+            label: "translator",
+            displayType: "select",
+            dataset: [
+                "A.W--",
+                "Aarto A.",
+                "Adrian E.",
+                "Adrian, Esa",
+                "Ahava Juho, Hämeen-Anttila V.",
+                "Ahava, Juho, Hameen-anttila, Vaino",
+                "Anhava M.",
+                "Elias Siippainen",
+                "Halonen J.A.",
+                "Heino U.-L.",
+                "Heino Ulla-Liisa",
+                "Heino, Ulla-Liisa",
+                "Hollo J.",
+                "Hollo Juho",
+                "Hollo, Juho",
+                "Hollo, Juho Anselmi",
+                "Holm L.",
+                "Iranto L.",
+                "Jalkanen, Huugo",
+                "Juhani Konkka",
+                "Kallama, Valto",
+                "Konkka J.",
+                "Konkka Juhani",
+                "Konkka, Juhani",
+                "Koskinen M.",
+                "Kuukasjärvi Olli",
+                "Laaksonen H.",
+                "Lahtela M.",
+                "Losowitch K.",
+                "M.-W.",
+                "Mitrošin A.",
+                "Orlov Vappu",
+                "Pesonen, Pekka Alarik",
+                "Pienimäki N.",
+                "Pikkupeura A.",
+                "Pyykkö L.",
+                "Pyykkö Lea",
+                "Rymin R., Parkkinen P.",
+                "Samuli S.",
+                "Samuli Suomalainen",
+                "Silvanto, Reino",
+                "Viitanen Liisa",
+                "Wuori M.",
+                "c.-s.",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_title: {
+            label: "title",
+            displayType: "select",
+            dataset: [
+                "Aateliskoti",
+                "Aatelisneiti talonpoikaistyttönä",
+                "Agafja",
+                "Aikamme sankari",
+                "Aikamme uros",
+                "Albionin tytär",
+                "Alustava tilinpäätös",
+                "Aristokraatti",
+                "Bim mustakorva",
+                "Diana / Naisten valheet",
+                "Ei onnistunut!",
+                "Elä ja muista",
+                "Elämän pikkuseikka",
+                "Elämäntaito / Naisten valheet",
+                "Griša",
+                "Haaveita",
+                "Halu elää",
+                "Hammaskirurgi",
+                "Herra salaneuvos",
+                "Herrasneitti-talonpoikalaistyttö",
+                "Hevosenkaltainen sukunimi",
+                "Hiljaa virtaa Don",
+                "Hiljainen Don",
+                "Huvila-asukkaita",
+                "Häät kenraalin kera",
+                "Isergil-muori",
+                "Isä-kulta",
+                "Ivan Denisovitšin päivä",
+                "Jeesuksen synti",
+                "Joki nimeltä Ockerville",
+                "Jura-veli / Naisten valheet",
+                "Kaikesta täytyy maksaa",
+                "Kalliita kielitunteja",
+                "Kameleontti",
+                "Kapronkuusi",
+                "Kapteenin tytär",
+                "Kapteenintytär",
+                "Karamazovin veljekset",
+                "Karkuri",
+                "Karviaismarjoja",
+                "Kateus",
+                "Kauhunyö",
+                "Keittäjätär menee naimisiin",
+                "Kellariloukko",
+                "Kerjäläinen",
+                "Kevään seitsemäntoista hetkeä",
+                "Kireähermoista väkeä",
+                "Kirje isoisälle",
+                "Kirjoituksia kellarista",
+                "Koiran sydän",
+                "Kostaja",
+                "Kova äijä",
+                "Kultainen vasikka",
+                "Kultaportailla istuivat",
+                "Kun pupujussi lensi ilmapalloilla",
+                "Kuningas",
+                "Kunnon saksalainen",
+                "Kuolema ja vähän rakkautta",
+                "Kuolleet sielut",
+                "Kuorotyttö",
+                "Käärmeenmyrkky",
+                "Lankomies Sergei Sergejevitš",
+                "Lapsia",
+                "Laukaus",
+                "Liikaa suolaa",
+                "Lumimyrsky",
+                "Lumottu vaeltaja",
+                "Luonnonilmiö / Naisten valheet",
+                "Made",
+                "Makar Tšudra",
+                "Matkalippu tähtiin",
+                "Mestari",
+                "Mielipaha",
+                "Mille pardons, madame!",
+                "Minä uskon!",
+                "Moskova-Petuški",
+                "Nainen ja sylikoira",
+                "Nainen koiran kanssa",
+                "Nainen, jolla oli koira",
+                "Naistennaurattaja",
+                "Noita",
+                "Nolla-nolla kokonaista",
+                "Nuoren Vaganovin kärsimykset",
+                "Näyttelijän lähtö",
+                "Onnekas sattuma / Naisten valheet",
+                "Onnenpoika",
+                "Onnettomuus",
+                "Onni",
+                "Osterit",
+                "Pahantekijä",
+                "Pakoyritys",
+                "Paksukainen ja ohukainen",
+                "Patarouva",
+                "Perheen isä",
+                "Pimeässä",
+                "Poika helvetistä",
+                "Poikia",
+                "Puhujan tehokeino",
+                "Päivä Stalinin keskitysleirissä",
+                "Päällystakki",
+                "Päällysviitta",
+                "Rakastaa - ei rakasta",
+                "Rakkaus",
+                "Rikos ja rangaistus",
+                "Romaani bassoviulusta",
+                "Rotkossa",
+                "Saatana saapuu Moskovaan",
+                "Seireeni",
+                "Shura-kulta",
+                "Sonja",
+                "Sormeton",
+                "Surkea tapaus",
+                "Suru",
+                "Syksyllä",
+                "Synnyinmaan puolesta",
+                "Taiteen tuote",
+                "Taiteilijan tarina",
+                "Talo rantakadulla",
+                "Talonpoikia",
+                "Tanssiva Šiva",
+                "Tapahtui ravintolassa",
+                "Tapaus yöllä",
+                "Taras Bulba",
+                "Tarinan loppu / Naisten valheet",
+                "Tarpeettomia ihmisiä",
+                "Teatteriromaani",
+                "Teurastus",
+                "Tuho",
+                "Tuttu mies",
+                "Tuttu tarina",
+                "Tšelkaš",
+                "Valitsen asuinkylää",
+                "Valkeat vaatteet",
+                "Vanhuus",
+                "Vartijaton Aljoša",
+                "Versio",
+                "Viitta",
+                "Virkamiehen kuolema",
+                "Yö ennen oikeudenkäyntiä",
+                "Yö hautausmaalla",
+                "Yöpyi pilvi kultainen",
+                "Äidin sydän",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
+        link_text_publisher: {
+            label: "publisher",
+            displayType: "select",
+            dataset: [
+                "Churberg",
+                "Edlund",
+                "Gummerus",
+                "Hki, Kustannusosakeyhtiö",
+                "Holm",
+                "K.E. Holm",
+                "Kansankulttuuri",
+                "Karisto",
+                "Kirjayhtymä",
+                "Oma",
+                "Otava",
+                "Petroskoi, KSNT",
+                "Päivälehti",
+                "SN-kirjat",
+                "Siltala",
+                "Smia",
+                "Suomen kuvalehti",
+                "Tammi",
+                "Valvoja (lehti)",
+                "WSOY",
+                "null",
+            ],
+            localize: false,
+            opts: liteOptions,
+        },
     }
 );
 
@@ -4258,7 +4258,7 @@ sattrlist.europarl_v7 = {
         translationKey: "europarl_v7_aff_",
         dataset: {
             "und": "und"
-	}
+        }
     },
     speaker_lang: {
         label: "speech_language",
@@ -4363,18 +4363,18 @@ sattrlist.testerzya = {
         opts: liteOptions
     },
     sentence_id: sattrs.sentence_id_hidden,
-	sentence_section: {
+        sentence_section: {
         label: "sentence_section"
-	    },
-	sentence_chapno: {
+            },
+        sentence_chapno: {
         label: "sentence_chapno"
-	    },
-	paragraph_class: {
+            },
+        paragraph_class: {
         label: "paragraph_class"
-	    },
-	paragraph_lang: {
+            },
+        paragraph_lang: {
         label: "paragraph_lang"
-	}
+        }
 };
 
 
@@ -4387,7 +4387,7 @@ sattrlist.fennougrica_veps = {
     context: spContext,
     text_datefrom: sattrs.date,
     text_year: {
-	label: "year"
+        label: "year"
     },
     text_author: {
         label: "text_author"
@@ -4403,7 +4403,7 @@ attrlist.fennougrica_veps = {
         url: {
             label: "klk_img_url",
             type: "url"
-	    /*opts: settings.defaultOptions*/
+            /*opts: settings.defaultOptions*/
         }
 };
 
@@ -4487,29 +4487,29 @@ attrlist.topling = {
 sattrlist.topling = {
     sentence_id: sattrs.sentence_id_hidden,
     text_id: {
-	label: "text_id"
+        label: "text_id"
         },
     text_student: {
-	label: "text_studentno"
-	},
+        label: "text_studentno"
+        },
     file_edulevel: {
-	label: "file_edulevel"
-	},
+        label: "file_edulevel"
+        },
     text_year: {
-	label: "year"
-	},
+        label: "year"
+        },
     file_round: {
-	label: "file_round"
-	},
+        label: "file_round"
+        },
     file_levelops: {
-	label: "file_levelops"
-	},
+        label: "file_levelops"
+        },
     file_exercise: {
-	label: "file_exercise"
-	},
+        label: "file_exercise"
+        },
     file_filetype: {
-	label: "file_filetype"
-	}
+        label: "file_filetype"
+        }
 };
 
 
@@ -4534,15 +4534,15 @@ settings.fn.kaino_homepage = function(urlbase) {
 // the extra properties to be added).
 settings.attr_extra_properties = [
     {
-	// If displayType == "select", add property extendedComponent.
-	test: function (attr) {
-	    return "displayType" in attr && attr.displayType == "select";
-	},
-	props: {
-	    extendedComponent: "datasetSelect",
-	    // extended_template: selectType.extended_template,
-	    // controller: selectType.controller
-	}
+        // If displayType == "select", add property extendedComponent.
+        test: function (attr) {
+            return "displayType" in attr && attr.displayType == "select";
+        },
+        props: {
+            extendedComponent: "datasetSelect",
+            // extended_template: selectType.extended_template,
+            // controller: selectType.controller
+        }
     }
 ];
 
@@ -4581,46 +4581,46 @@ settings.attr_extra_properties = [
 // item.
 
 settings.fn.add_corpus_settings = function (template, infolist, folder,
-					    id_templ) {
+                                            id_templ) {
     var ids = [];
     // Replace {} with the id in infolist in these properties:
     var id_subst_props = ["title", "description"];
 
     var add_info = function (info) {
-	var info_is_string = (typeof info == "string");
-	var id_varpart = (info_is_string ? info : info.id);
-	var id = (id_templ.indexOf("{}") > -1
-		  ? id_templ.replace(/{}/g, id_varpart)
-		  : id_templ + id_varpart);
-	// Make a deep copy so that the resulting objects can be
-	// safely modified independently of each other if necessary.
-	settings.corpora[id] = $.extend(true, {}, template);
-	var config = settings.corpora[id];
-	if (! info_is_string) {
-	    $.extend(config, info);
-	}
-	config.id = id;
-	for (var j = 0; j < id_subst_props.length; j++) {
-	    var propname = id_subst_props[j];
-	    config[propname] = config[propname].replace(/{}/g, id_varpart);
-	}
-	ids.push(id);
+        var info_is_string = (typeof info == "string");
+        var id_varpart = (info_is_string ? info : info.id);
+        var id = (id_templ.indexOf("{}") > -1
+                  ? id_templ.replace(/{}/g, id_varpart)
+                  : id_templ + id_varpart);
+        // Make a deep copy so that the resulting objects can be
+        // safely modified independently of each other if necessary.
+        settings.corpora[id] = $.extend(true, {}, template);
+        var config = settings.corpora[id];
+        if (! info_is_string) {
+            $.extend(config, info);
+        }
+        config.id = id;
+        for (var j = 0; j < id_subst_props.length; j++) {
+            var propname = id_subst_props[j];
+            config[propname] = config[propname].replace(/{}/g, id_varpart);
+        }
+        ids.push(id);
     };
 
     if (infolist.length == 2 && Number.isInteger(infolist[0])) {
-	for (var id = infolist[0]; id <= infolist[1]; id++) {
-	    add_info(id.toString());
-	}
+        for (var id = infolist[0]; id <= infolist[1]; id++) {
+            add_info(id.toString());
+        }
     } else {
-	for (var i = 0; i < infolist.length; i++) {
-	    add_info(infolist[i]);
-	}
+        for (var i = 0; i < infolist.length; i++) {
+            add_info(infolist[i]);
+        }
     }
     if (folder != null) {
-	if (! ("contents" in folder)) {
-	    folder.contents = [];
-	}
-	folder.contents = folder.contents.concat(ids);
+        if (! ("contents" in folder)) {
+            folder.contents = [];
+        }
+        folder.contents = folder.contents.concat(ids);
     }
 };
 
@@ -4628,7 +4628,7 @@ settings.fn.add_corpus_settings = function (template, infolist, folder,
 // Add properties to the settings of the listed corpora.
 settings.fn.extend_corpus_settings = function (props, corpus_ids) {
     for (var i = 0; i < corpus_ids.length; i++) {
-	$.extend(true, settings.corpora[corpus_ids[i]], props);
+        $.extend(true, settings.corpora[corpus_ids[i]], props);
     }
 };
 
@@ -4641,20 +4641,20 @@ settings.fn.extend_corpus_settings = function (props, corpus_ids) {
 settings.fn.make_bool_attr = function (label, yes_no) {
     var dataset = {};
     if (arguments.length < 2) {
-	dataset = {
-	    "y": "yes",
-	    "n": "no",
-	};
+        dataset = {
+            "y": "yes",
+            "n": "no",
+        };
     } else {
-	dataset[yes_no[0]] = "yes";
-	dataset[yes_no[1]] = "no";
+        dataset[yes_no[0]] = "yes";
+        dataset[yes_no[1]] = "no";
     }
     return {
-	label: label,
-	displayType: "select",
-	translationKey: "",
-	dataset: dataset,
-	opts: liteOptions,
+        label: label,
+        displayType: "select",
+        translationKey: "",
+        dataset: dataset,
+        opts: liteOptions,
     };
 };
 
@@ -4672,8 +4672,8 @@ settings.fn.make_bool_attr = function (label, yes_no) {
 //   pattern: "<%=settings.fn.make_explained_value(val, {'0': 'no_quote'})%>",
 settings.fn.make_explained_value = function (value, value_map) {
     if (value in value_map) {
-	value += (" <i style=\"color: grey;\">[<span rel=\"localize["
-		  + value_map[value] + "]\"></span>]</i>");
+        value += (" <i style=\"color: grey;\">[<span rel=\"localize["
+                  + value_map[value] + "]\"></span>]</i>");
     }
     return value;
 };
@@ -4726,74 +4726,74 @@ settings.fn.stringify_iso_datetime = function (val) {
 // separate util_config?
 
 settings.fn.make_folder_hierarchy = function (parent_folder, subfolder_tree,
-					      options) {
+                                              options) {
 
     // Return a function for making the folder or corpus (depending on
     // the argumet "type") config object with the given options.
     function get_make_info_fn (type, options) {
-	var info_strings = ["id", "title", "description"];
-	return function (info, parent_folder, ancestor_folder_ids) {
-	    var result = {};
-	    result.data = $.extend(true, {}, options[type + "_template"] || {});
-	    var last_infoitem = info[info.length - 1];
-	    var last_stringinfo_nr = info.length - 1;
-	    if (typeof last_infoitem != "string") {
-		result.data = $.extend(true, result.data, last_infoitem);
-		last_stringinfo_nr--;
-	    }
-	    for (var itemnr = 0; itemnr < info_strings.length; itemnr++) {
-		var infostr = info_strings[itemnr];
-		var make_fn = options["make_" + type + "_" + infostr];
-		if (make_fn) {
-		    result.data[infostr] = make_fn (info, parent_folder,
-						    ancestor_folder_ids)
-		} else {
-		    info_itemnr = (itemnr <= last_stringinfo_nr
-				   ? itemnr : last_stringinfo_nr);
-		    result.data[infostr] =
-			(options[type + "_" + infostr + "_prefix"]
-			 || options[infostr + "_prefix"] || "")
-			+ info[info_itemnr]
-			+ (options[type + "_" + infostr + "_suffix"]
-			   || options[infostr + "_suffix"] || "");
-		}
-	    }
-	    result.id = result.data.id;
-	    if (type == "folder") {
-		delete result.data.id;
-	    }
-	    // c.log('folder hierarchy:', type, parent_folder, info, '->', result);
-	    return result;
-	}
+        var info_strings = ["id", "title", "description"];
+        return function (info, parent_folder, ancestor_folder_ids) {
+            var result = {};
+            result.data = $.extend(true, {}, options[type + "_template"] || {});
+            var last_infoitem = info[info.length - 1];
+            var last_stringinfo_nr = info.length - 1;
+            if (typeof last_infoitem != "string") {
+                result.data = $.extend(true, result.data, last_infoitem);
+                last_stringinfo_nr--;
+            }
+            for (var itemnr = 0; itemnr < info_strings.length; itemnr++) {
+                var infostr = info_strings[itemnr];
+                var make_fn = options["make_" + type + "_" + infostr];
+                if (make_fn) {
+                    result.data[infostr] = make_fn (info, parent_folder,
+                                                    ancestor_folder_ids)
+                } else {
+                    info_itemnr = (itemnr <= last_stringinfo_nr
+                                   ? itemnr : last_stringinfo_nr);
+                    result.data[infostr] =
+                        (options[type + "_" + infostr + "_prefix"]
+                         || options[infostr + "_prefix"] || "")
+                        + info[info_itemnr]
+                        + (options[type + "_" + infostr + "_suffix"]
+                           || options[infostr + "_suffix"] || "");
+                }
+            }
+            result.id = result.data.id;
+            if (type == "folder") {
+                delete result.data.id;
+            }
+            // c.log('folder hierarchy:', type, parent_folder, info, '->', result);
+            return result;
+        }
     }
 
     var make_folder_fn = options.make_folder || get_make_info_fn("folder",
-								 options);
+                                                                 options);
     var make_corpus_fn = options.make_corpus || get_make_info_fn("corpus",
-								 options);
+                                                                 options);
     var ancestor_ids = (arguments.length > 3 ? arguments[3] : []);
     for (var i = 0; i < subfolder_tree.length; i++) {
-	var subfolder_info = subfolder_tree[i];
-	var subsubfolders = subfolder_info[subfolder_info.length - 1];
-	if (_.isArray(subsubfolders) && subsubfolders.length) {
-	    var folder_info = make_folder_fn(subfolder_info.slice(0, -1),
-					     parent_folder, ancestor_ids)
-	    var subfolder = folder_info.data;
-	    parent_folder[folder_info.id] = subfolder;
-	    settings.fn.make_folder_hierarchy(
-		subfolder, subsubfolders, options,
-		ancestor_ids.concat([folder_info.id]));
-	} else {
-	    var corpus_info = $.extend(
-		true, {}, make_corpus_fn(subfolder_info, parent_folder,
-					 ancestor_ids));
-	    if (! ("contents" in parent_folder)) {
-		parent_folder.contents = [];
-	    }
-	    parent_folder.contents
-		= parent_folder.contents.concat([corpus_info.id]);
-	    settings.corpora[corpus_info.id] = corpus_info.data;
-	}
+        var subfolder_info = subfolder_tree[i];
+        var subsubfolders = subfolder_info[subfolder_info.length - 1];
+        if (_.isArray(subsubfolders) && subsubfolders.length) {
+            var folder_info = make_folder_fn(subfolder_info.slice(0, -1),
+                                             parent_folder, ancestor_ids)
+            var subfolder = folder_info.data;
+            parent_folder[folder_info.id] = subfolder;
+            settings.fn.make_folder_hierarchy(
+                subfolder, subsubfolders, options,
+                ancestor_ids.concat([folder_info.id]));
+        } else {
+            var corpus_info = $.extend(
+                true, {}, make_corpus_fn(subfolder_info, parent_folder,
+                                         ancestor_ids));
+            if (! ("contents" in parent_folder)) {
+                parent_folder.contents = [];
+            }
+            parent_folder.contents
+                = parent_folder.contents.concat([corpus_info.id]);
+            settings.corpora[corpus_info.id] = corpus_info.data;
+        }
     }
 };
 
@@ -4804,13 +4804,13 @@ settings.fn.make_folder_hierarchy = function (parent_folder, subfolder_tree,
 // strings or a single string of names separated by spaces (or tabs).
 settings.fn.set_attr_order = function (attrstruct, attrnamelist) {
     if (typeof attrnamelist == "string") {
-	attrnamelist = attrnamelist.split(/[ \t]+/);
+        attrnamelist = attrnamelist.split(/[ \t]+/);
     }
     var attrnamecount = attrnamelist.length;
     for (var i = 0; i < attrnamelist.length; i++) {
-	// The attribute with the smallest order value is shown first;
-	// this has been changed at some point.
-	attrstruct[attrnamelist[i]].order = i;
+        // The attribute with the smallest order value is shown first;
+        // this has been changed at some point.
+        attrstruct[attrnamelist[i]].order = i;
     }
 };
 
@@ -4821,8 +4821,8 @@ settings.fn.set_attr_order = function (attrstruct, attrnamelist) {
 settings.fn.ms_to_hms = function (ms0) {
     // Adapted from https://stackoverflow.com/a/2998822
     var pad = function (num, len) {
-	var s = "000" + Math.floor(num).toString();
-	return s.substr(s.length - len);
+        var s = "000" + Math.floor(num).toString();
+        return s.substr(s.length - len);
     }
     ms0 = parseInt(ms0);
     var ms = pad(ms0 % 1000, 3);
@@ -4830,7 +4830,7 @@ settings.fn.ms_to_hms = function (ms0) {
     var m = pad(ms0 / 60000 % 60, 2);
     var h = pad(ms0 / 3600000, 1);
     return (h + ":" + m + ":" + s
-	    + util.getLocaleString("util_decimalseparator") + ms);
+            + util.getLocaleString("util_decimalseparator") + ms);
 };
 
 
@@ -4852,51 +4852,51 @@ settings.fn.ms_to_hms = function (ms0) {
 // - omit_attrs: the structural attributes not to be passed to the
 //   video page
 settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
-					   msec2sec_attrs, omit_attrs) {
+                                           msec2sec_attrs, omit_attrs) {
     // console.log("settings.fn.make_videopage_url", token_data);
     var msec_to_sec = function (sec) {
-	return (parseInt(sec) / 1000).toString();
+        return (parseInt(sec) / 1000).toString();
     };
     var append_attr = function (key, val, attrdef, text_attrs) {
-	var name = (util.getLocaleStringUndefined(attrdef.label)
-		    || attrdef.label);
-	if (name) {
-	    if (msec2sec_attrs.includes(key)) {
-		val = msec_to_sec(val);
-	    } else if (attrdef.renderItem) {
-	    	val = attrdef.renderItem(
-	    	    key, val, attrdef, token_data.pos_attrs,
-	    	    token_data.struct_attrs, token_data.tokens);
-	    } else if (attrdef.translationKey != undefined) {
-		if (attrdef.dataset && ! _.isArray(attrdef.dataset)) {
-		    val = (attrdef.dataset != undefined
-			   ? attrdef.dataset[val]
-			   : val);
-		}
-		var loc_val = util.getLocaleStringUndefined(
-		    attrdef.translationKey + val);
-		if (loc_val != undefined) {
-		    val = loc_val;
-		}
-	    } else if (val == "") {
-		val = util.getLocaleString("unknown");
-	    }
-	    text_attrs[key] = name + "," + val;
-	}
+        var name = (util.getLocaleStringUndefined(attrdef.label)
+                    || attrdef.label);
+        if (name) {
+            if (msec2sec_attrs.includes(key)) {
+                val = msec_to_sec(val);
+            } else if (attrdef.renderItem) {
+                val = attrdef.renderItem(
+                    key, val, attrdef, token_data.pos_attrs,
+                    token_data.struct_attrs, token_data.tokens);
+            } else if (attrdef.translationKey != undefined) {
+                if (attrdef.dataset && ! _.isArray(attrdef.dataset)) {
+                    val = (attrdef.dataset != undefined
+                           ? attrdef.dataset[val]
+                           : val);
+                }
+                var loc_val = util.getLocaleStringUndefined(
+                    attrdef.translationKey + val);
+                if (loc_val != undefined) {
+                    val = loc_val;
+                }
+            } else if (val == "") {
+                val = util.getLocaleString("unknown");
+            }
+            text_attrs[key] = name + "," + val;
+        }
     };
     var make_licence_info = function (corpus_conf) {
-	// A single quote does not seem to be encoded correctly, so
-	// change single quotes to double ones. FIXME: This assumes
-	// that single quotes are used only to delimit attribute
-	// values.
-	var licence_text = util.formatCorpusExtraInfo(
-	    corpus_conf, { info_items: ["licence"],
-			   static_localization: true })
-	    .replace(/'/g, "\"");
-	// A kludge to put the video licence first: assumes that its
-	// localized label contains the string "video"
-	return licence_text.replace(
-	    /^(.*?)(<br\s*\/?>)(Li.*?video.*)$/, "$3$2$1");
+        // A single quote does not seem to be encoded correctly, so
+        // change single quotes to double ones. FIXME: This assumes
+        // that single quotes are used only to delimit attribute
+        // values.
+        var licence_text = util.formatCorpusExtraInfo(
+            corpus_conf, { info_items: ["licence"],
+                           static_localization: true })
+            .replace(/'/g, "\"");
+        // A kludge to put the video licence first: assumes that its
+        // localized label contains the string "video"
+        return licence_text.replace(
+            /^(.*?)(<br\s*\/?>)(Li.*?video.*)$/, "$3$2$1");
     };
     // Would it be better to declare the base URL (prefix) somewhere
     // else?
@@ -4905,55 +4905,55 @@ settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
     var tokens = token_data.tokens;
     var match_types = ["_matchSentence", "_match"];
     for (var i = 0; i < tokens.length; i++) {
-	var word = tokens[i].word;
-	for (var j = 0; j < match_types.length; j++) {
-	    var match_type = match_types[j];
-	    if (tokens[i][match_type]) {
-		if (i == 0 || ! tokens[i - 1][match_type]) {
-		    word = ("<span class=\"" + match_type.substr(1) + "\">"
-			    + word);
-		}
-		if (i == tokens.length - 1 || ! tokens[i + 1][match_type]) {
-		    word += "</span>";
-		}
-	    }
-	}
-	words.push(word);
+        var word = tokens[i].word;
+        for (var j = 0; j < match_types.length; j++) {
+            var match_type = match_types[j];
+            if (tokens[i][match_type]) {
+                if (i == 0 || ! tokens[i - 1][match_type]) {
+                    word = ("<span class=\"" + match_type.substr(1) + "\">"
+                            + word);
+                }
+                if (i == tokens.length - 1 || ! tokens[i + 1][match_type]) {
+                    word += "</span>";
+                }
+            }
+        }
+        words.push(word);
     }
     var text_attrs = {};
     var corpus_conf = settings.corpora[corpus_id];
     var attr_types = ["struct", "custom"];
     for (var i = 0; i < attr_types.length; i++) {
-	var attr_type = attr_types[i] + "Attributes";
-	for (var key in corpus_conf[attr_type]) {
-	    if (! omit_attrs.includes(key)) {
-		var attrdef = corpus_conf[attr_type][key];
-		// console.log(key, attrdef);
-		append_attr(
-		    key,
-		    (attr_type == "structAttributes"
-		     ? token_data.struct_attrs[key] : null),
-		    attrdef, text_attrs);
-	    }
-	}
+        var attr_type = attr_types[i] + "Attributes";
+        for (var key in corpus_conf[attr_type]) {
+            if (! omit_attrs.includes(key)) {
+                var attrdef = corpus_conf[attr_type][key];
+                // console.log(key, attrdef);
+                append_attr(
+                    key,
+                    (attr_type == "structAttributes"
+                     ? token_data.struct_attrs[key] : null),
+                    attrdef, text_attrs);
+            }
+        }
     }
     var params = {
-	lang: window.lang || settings.defaultLanguage,
-	src: video_url,
-	corpusname: corpus_conf.title,
-	metadata_urn: corpus_conf.metadata_urn,
-	licence_info: make_licence_info(corpus_conf),
-	korp_url: window.location.href,
-	utterance: "<span class=\"utterance\">" + words.join(" ") + "<span>",
-	text_attributes: JSON.stringify(text_attrs),
+        lang: window.lang || settings.defaultLanguage,
+        src: video_url,
+        corpusname: corpus_conf.title,
+        metadata_urn: corpus_conf.metadata_urn,
+        licence_info: make_licence_info(corpus_conf),
+        korp_url: window.location.href,
+        utterance: "<span class=\"utterance\">" + words.join(" ") + "<span>",
+        text_attributes: JSON.stringify(text_attrs),
     };
     // console.log(params);
     var paramstr = "";
     for (var key in params) {
-	if (paramstr != "") {
-	    paramstr += "&";
-	}
-	paramstr += key + "=" + encodeURIComponent(params[key]);
+        if (paramstr != "") {
+            paramstr += "&";
+        }
+        paramstr += key + "=" + encodeURIComponent(params[key]);
     }
     return prefix + paramstr;
 };
@@ -4973,20 +4973,20 @@ settings.fn.make_yearlist = function(start, end, opts)
     var descending = false;
     var result = [];
     if (typeof opts !== 'undefined') {
-	if ('descending' in opts) {
-	    descending = opts.descending;
-	}
-	if ('omit' in opts) {
-	    omit = opts.omit;
-	}
+        if ('descending' in opts) {
+            descending = opts.descending;
+        }
+        if ('omit' in opts) {
+            omit = opts.omit;
+        }
     }
     for (var year = start; year <= end; year++) {
-	if (omit.indexOf(year) == -1) {
-	    result.push(year);
-	}
+        if (omit.indexOf(year) == -1) {
+            result.push(year);
+        }
     }
     if (descending) {
-	result.reverse();
+        result.reverse();
     }
     return result;
 }
@@ -5002,28 +5002,28 @@ settings.fn.make_corpus_settings_by_year_decade = function(
     var contents = [];
 
     function make_decade(decade) {
-	if (contents) {
-	    var folder_name = folder_name_format.replace("{decade}",
-							 decade.toString());
-	    folder_parent[folder_name] = make_folder_settings_fn(decade);
-	    folder_parent[folder_name]["contents"] = contents;
-	}
+        if (contents) {
+            var folder_name = folder_name_format.replace("{decade}",
+                                                         decade.toString());
+            folder_parent[folder_name] = make_folder_settings_fn(decade);
+            folder_parent[folder_name]["contents"] = contents;
+        }
     }
 
     for (var yearnum = 0; yearnum < yearlist.length; yearnum++) {
-	var year = yearlist[yearnum];
-	decade = Math.floor(year / 10) * 10;
-	if (decade != prev_decade && prev_decade != 0) {
-	    make_decade(prev_decade);
-	    contents = [];
-	}
-	var corpus_name = corpus_name_format.replace("{year}",
-						      year.toString());
-	contents.push(corpus_name);
-	settings.corpora[corpus_name] = make_corpus_settings_fn(year,
-								corpus_name);
-	settings.corpora[corpus_name]["id"] = corpus_name;
-	prev_decade = decade;
+        var year = yearlist[yearnum];
+        decade = Math.floor(year / 10) * 10;
+        if (decade != prev_decade && prev_decade != 0) {
+            make_decade(prev_decade);
+            contents = [];
+        }
+        var corpus_name = corpus_name_format.replace("{year}",
+                                                      year.toString());
+        contents.push(corpus_name);
+        settings.corpora[corpus_name] = make_corpus_settings_fn(year,
+                                                                corpus_name);
+        settings.corpora[corpus_name]["id"] = corpus_name;
+        prev_decade = decade;
     }
     make_decade(prev_decade);
 };
@@ -5036,17 +5036,17 @@ settings.fn.make_klk_corpus_settings = function(
     var year_str = year.toString();
     var ctx_type = (year <= 1911 ? "sp" : "default");
     var attrs_key = (key_prefix + "_" + lang + (parsed ? "_parsed" : "")
-		     + (year <= 1910 ? "_pagelinks" : ""));
+                     + (year <= 1910 ? "_pagelinks" : ""));
     return {
-	title: title_format.replace("{year}", year_str),
-	description: descr_format.replace("{year}", year_str),
-	// Korp 9 has window.spWithin but settings.defaultWithin
-	within: (ctx_type == "sp"
-		 ? window[ctx_type + "Within"]
-		 : settings[ctx_type + "Within"]),
-	context: window[ctx_type + "Context"],
-	attributes: attrlist[attrs_key],
-	structAttributes: sattrlist[attrs_key]
+        title: title_format.replace("{year}", year_str),
+        description: descr_format.replace("{year}", year_str),
+        // Korp 9 has window.spWithin but settings.defaultWithin
+        within: (ctx_type == "sp"
+                 ? window[ctx_type + "Within"]
+                 : settings[ctx_type + "Within"]),
+        context: window[ctx_type + "Context"],
+        attributes: attrlist[attrs_key],
+        structAttributes: sattrlist[attrs_key]
     };
 }
 
@@ -5055,9 +5055,9 @@ settings.fn.make_klk_corpus_settings = function(
 
 settings.fn.make_klk_url_base = function (data) {
     return ("http://digi.kansalliskirjasto.fi/"
-	    + data.struct_attrs.text_publ_type
-	    + "/binding/"
-	    + data.struct_attrs.text_binding_id);
+            + data.struct_attrs.text_publ_type
+            + "/binding/"
+            + data.struct_attrs.text_binding_id);
 };
 
 // Return the argument word with non-word characters removed
@@ -5068,41 +5068,41 @@ settings.fn.remove_non_word_chars = function (word) {
     // https://github.com/slevithan/XRegExp/blob/master/src/addons/unicode/unicode-categories.js#L28
     var non_word_chars_re = /[\0-\x2C\x2E\x2F\x3B-\x40\x5B-\x60\x7B-\x9F\xAD\u0378\u0379\u037F-\u0383\u038B\u038D\u03A2\u0528-\u0530\u0557\u0558\u0560\u0588\u058B-\u058E\u0590\u05C8-\u05CF\u05EB-\u05EF\u05F5-\u0605\u061C\u061D\u06DD\u070E\u070F\u074B\u074C\u07B2-\u07BF\u07FB-\u07FF\u082E\u082F\u083F\u085C\u085D\u085F-\u089F\u08A1\u08AD-\u08E3\u08FF\u0978\u0980\u0984\u098D\u098E\u0991\u0992\u09A9\u09B1\u09B3-\u09B5\u09BA\u09BB\u09C5\u09C6\u09C9\u09CA\u09CF-\u09D6\u09D8-\u09DB\u09DE\u09E4\u09E5\u09FC-\u0A00\u0A04\u0A0B-\u0A0E\u0A11\u0A12\u0A29\u0A31\u0A34\u0A37\u0A3A\u0A3B\u0A3D\u0A43-\u0A46\u0A49\u0A4A\u0A4E-\u0A50\u0A52-\u0A58\u0A5D\u0A5F-\u0A65\u0A76-\u0A80\u0A84\u0A8E\u0A92\u0AA9\u0AB1\u0AB4\u0ABA\u0ABB\u0AC6\u0ACA\u0ACE\u0ACF\u0AD1-\u0ADF\u0AE4\u0AE5\u0AF2-\u0B00\u0B04\u0B0D\u0B0E\u0B11\u0B12\u0B29\u0B31\u0B34\u0B3A\u0B3B\u0B45\u0B46\u0B49\u0B4A\u0B4E-\u0B55\u0B58-\u0B5B\u0B5E\u0B64\u0B65\u0B78-\u0B81\u0B84\u0B8B-\u0B8D\u0B91\u0B96-\u0B98\u0B9B\u0B9D\u0BA0-\u0BA2\u0BA5-\u0BA7\u0BAB-\u0BAD\u0BBA-\u0BBD\u0BC3-\u0BC5\u0BC9\u0BCE\u0BCF\u0BD1-\u0BD6\u0BD8-\u0BE5\u0BFB-\u0C00\u0C04\u0C0D\u0C11\u0C29\u0C34\u0C3A-\u0C3C\u0C45\u0C49\u0C4E-\u0C54\u0C57\u0C5A-\u0C5F\u0C64\u0C65\u0C70-\u0C77\u0C80\u0C81\u0C84\u0C8D\u0C91\u0CA9\u0CB4\u0CBA\u0CBB\u0CC5\u0CC9\u0CCE-\u0CD4\u0CD7-\u0CDD\u0CDF\u0CE4\u0CE5\u0CF0\u0CF3-\u0D01\u0D04\u0D0D\u0D11\u0D3B\u0D3C\u0D45\u0D49\u0D4F-\u0D56\u0D58-\u0D5F\u0D64\u0D65\u0D76-\u0D78\u0D80\u0D81\u0D84\u0D97-\u0D99\u0DB2\u0DBC\u0DBE\u0DBF\u0DC7-\u0DC9\u0DCB-\u0DCE\u0DD5\u0DD7\u0DE0-\u0DF1\u0DF5-\u0E00\u0E3B-\u0E3E\u0E5C-\u0E80\u0E83\u0E85\u0E86\u0E89\u0E8B\u0E8C\u0E8E-\u0E93\u0E98\u0EA0\u0EA4\u0EA6\u0EA8\u0EA9\u0EAC\u0EBA\u0EBE\u0EBF\u0EC5\u0EC7\u0ECE\u0ECF\u0EDA\u0EDB\u0EE0-\u0EFF\u0F48\u0F6D-\u0F70\u0F98\u0FBD\u0FCD\u0FDB-\u0FFF\u10C6\u10C8-\u10CC\u10CE\u10CF\u1249\u124E\u124F\u1257\u1259\u125E\u125F\u1289\u128E\u128F\u12B1\u12B6\u12B7\u12BF\u12C1\u12C6\u12C7\u12D7\u1311\u1316\u1317\u135B\u135C\u137D-\u137F\u139A-\u139F\u13F5-\u13FF\u169D-\u169F\u16F1-\u16FF\u170D\u1715-\u171F\u1737-\u173F\u1754-\u175F\u176D\u1771\u1774-\u177F\u17DE\u17DF\u17EA-\u17EF\u17FA-\u17FF\u180F\u181A-\u181F\u1878-\u187F\u18AB-\u18AF\u18F6-\u18FF\u191D-\u191F\u192C-\u192F\u193C-\u193F\u1941-\u1943\u196E\u196F\u1975-\u197F\u19AC-\u19AF\u19CA-\u19CF\u19DB-\u19DD\u1A1C\u1A1D\u1A5F\u1A7D\u1A7E\u1A8A-\u1A8F\u1A9A-\u1A9F\u1AAE-\u1AFF\u1B4C-\u1B4F\u1B7D-\u1B7F\u1BF4-\u1BFB\u1C38-\u1C3A\u1C4A-\u1C4C\u1C80-\u1CBF\u1CC8-\u1CCF\u1CF7-\u1CFF\u1DE7-\u1DFB\u1F16\u1F17\u1F1E\u1F1F\u1F46\u1F47\u1F4E\u1F4F\u1F58\u1F5A\u1F5C\u1F5E\u1F7E\u1F7F\u1FB5\u1FC5\u1FD4\u1FD5\u1FDC\u1FF0\u1FF1\u1FF5\u1FFF\u200B-\u200F\u202A-\u202E\u2060-\u206F\u2072\u2073\u208F\u209D-\u209F\u20BB-\u20CF\u20F1-\u20FF\u218A-\u218F\u23F4-\u23FF\u2427-\u243F\u244B-\u245F\u2700\u2B4D-\u2B4F\u2B5A-\u2BFF\u2C2F\u2C5F\u2CF4-\u2CF8\u2D26\u2D28-\u2D2C\u2D2E\u2D2F\u2D68-\u2D6E\u2D71-\u2D7E\u2D97-\u2D9F\u2DA7\u2DAF\u2DB7\u2DBF\u2DC7\u2DCF\u2DD7\u2DDF\u2E3C-\u2E7F\u2E9A\u2EF4-\u2EFF\u2FD6-\u2FEF\u2FFC-\u2FFF\u3040\u3097\u3098\u3100-\u3104\u312E-\u3130\u318F\u31BB-\u31BF\u31E4-\u31EF\u321F\u32FF\u4DB6-\u4DBF\u9FCD-\u9FFF\uA48D-\uA48F\uA4C7-\uA4CF\uA62C-\uA63F\uA698-\uA69E\uA6F8-\uA6FF\uA78F\uA794-\uA79F\uA7AB-\uA7F7\uA82C-\uA82F\uA83A-\uA83F\uA878-\uA87F\uA8C5-\uA8CD\uA8DA-\uA8DF\uA8FC-\uA8FF\uA954-\uA95E\uA97D-\uA97F\uA9CE\uA9DA-\uA9DD\uA9E0-\uA9FF\uAA37-\uAA3F\uAA4E\uAA4F\uAA5A\uAA5B\uAA7C-\uAA7F\uAAC3-\uAADA\uAAF7-\uAB00\uAB07\uAB08\uAB0F\uAB10\uAB17-\uAB1F\uAB27\uAB2F-\uABBF\uABEE\uABEF\uABFA-\uABFF\uD7A4-\uD7AF\uD7C7-\uD7CA\uD7FC-\uF8FF\uFA6E\uFA6F\uFADA-\uFAFF\uFB07-\uFB12\uFB18-\uFB1C\uFB37\uFB3D\uFB3F\uFB42\uFB45\uFBC2-\uFBD2\uFD40-\uFD4F\uFD90\uFD91\uFDC8-\uFDEF\uFDFE\uFDFF\uFE1A-\uFE1F\uFE27-\uFE2F\uFE53\uFE67\uFE6C-\uFE6F\uFE75\uFEFD-\uFF00\uFFBF-\uFFC1\uFFC8\uFFC9\uFFD0\uFFD1\uFFD8\uFFD9\uFFDD-\uFFDF\uFFE7\uFFEF-\uFFFB\uFFFE\uFFFF]/g;
     return (word.replace(non_word_chars_re, "")
-	    // Remove word-initial and word-final colons; leave
-	    // hyphens intact.
-	    .replace(/^:+/, "")
-	    .replace(/:+$/, ""));
+            // Remove word-initial and word-final colons; leave
+            // hyphens intact.
+            .replace(/^:+/, "")
+            .replace(/:+$/, ""));
 }
 
 // Return the string of context_size words before and after
 // token_data.pos_attrs.word.
 settings.fn.find_context_words = function (token_data, context_size) {
     var main_word =
-	settings.fn.remove_non_word_chars(token_data.pos_attrs.word);
+        settings.fn.remove_non_word_chars(token_data.pos_attrs.word);
     if (context_size == 0) {
-	return main_word;
+        return main_word;
     }
     var wordnum = token_data.pos_attrs.ref - 1;
     var words = [];
     if (main_word) {
-	words.push(main_word);
+        words.push(main_word);
     }
     var numwords = 0;
     for (var i = wordnum - 1; i >= 0 && numwords < context_size; i--) {
-	var word = settings.fn.remove_non_word_chars(token_data.tokens[i].word);
-	if (word) {
-	    words.unshift(word);
-	    numwords++;
-	}
+        var word = settings.fn.remove_non_word_chars(token_data.tokens[i].word);
+        if (word) {
+            words.unshift(word);
+            numwords++;
+        }
     }
     var numtokens = token_data.tokens.length;
     numwords = 0;
     for (var i = wordnum + 1; i < numtokens && numwords < context_size; i++) {
-	var word = settings.fn.remove_non_word_chars(token_data.tokens[i].word);
-	if (word) {
-	    words.push(word);
-	    numwords++;
-	}
+        var word = settings.fn.remove_non_word_chars(token_data.tokens[i].word);
+        if (word) {
+            words.push(word);
+            numwords++;
+        }
     }
     return words.join(" ");
 }
@@ -5112,8 +5112,8 @@ settings.fn.find_context_words = function (token_data, context_size) {
 settings.fn.make_klk_page_image_url = function (token_data, context_size) {
     var words = settings.fn.find_context_words(token_data, context_size);
     return (settings.fn.make_klk_url_base(token_data)
-	    + "?page=" + token_data.struct_attrs.text_page_no)
-	    + (words ? "&term=" + words : "");
+            + "?page=" + token_data.struct_attrs.text_page_no)
+            + (words ? "&term=" + words : "");
 }
 
 
@@ -5130,65 +5130,65 @@ settings.templ.lemmie_common = {
     attributes: {
     },
     structAttributes: {
-	text_title: sattrs.text_title,
-	text_creator: sattrs.author,
-	text_publisher: sattrs.publisher,
-	text_wordcount: {
-	    label: "text_word_count",
-	},
-	text_lemmie_id: {
-	    label: "lemmie_text_id",
-	},
-	text_lang: {
-	    label: "lang",
-	    displayType: "select",
-	    opts: liteOptions,
-	    translationKey: "",
-	    dataset: [
-		"fin",
-		"eng",
-		"swe",
-	    ]
-	},
-	text_date: sattrs.date,
-	text_filename: {
-	    label: "file_name",
-	},
-	text_rights: {
-	    label: "access_rights_cat",
-	},
-	text_contributor: {
-	    label: "contributor",
-	},
-	text_source: {
-	    label: "source",
-	    displayType: "select",
-	    localize: false,
-	    opts: liteOptions,
-	    // dataset: [],
-	},
-	text_lemmie_corpus: {
-	    label: "lemmie_corpus",
-	},
-	// // Always empty
-	// text_type: {
-	//     label: "text_type",
-	// },
-	text_subject: {
-	    label: "subject",
-	},
-	// paragraph_id: sattrs.paragraph_id,
-	paragraph_type: {
-	    label: "paragraph_type",
-	    displayType: "select",
-	    translationKey: "paragraphtype_",
-	    dataset: {},
-	    opts: liteOptions
-	},
-	sentence_id: sattrs.sentence_id_hidden,
-	sentence_within: {
-	    label: "enclosing_elems",
-	},
+        text_title: sattrs.text_title,
+        text_creator: sattrs.author,
+        text_publisher: sattrs.publisher,
+        text_wordcount: {
+            label: "text_word_count",
+        },
+        text_lemmie_id: {
+            label: "lemmie_text_id",
+        },
+        text_lang: {
+            label: "lang",
+            displayType: "select",
+            opts: liteOptions,
+            translationKey: "",
+            dataset: [
+                "fin",
+                "eng",
+                "swe",
+            ]
+        },
+        text_date: sattrs.date,
+        text_filename: {
+            label: "file_name",
+        },
+        text_rights: {
+            label: "access_rights_cat",
+        },
+        text_contributor: {
+            label: "contributor",
+        },
+        text_source: {
+            label: "source",
+            displayType: "select",
+            localize: false,
+            opts: liteOptions,
+            // dataset: [],
+        },
+        text_lemmie_corpus: {
+            label: "lemmie_corpus",
+        },
+        // // Always empty
+        // text_type: {
+        //     label: "text_type",
+        // },
+        text_subject: {
+            label: "subject",
+        },
+        // paragraph_id: sattrs.paragraph_id,
+        paragraph_type: {
+            label: "paragraph_type",
+            displayType: "select",
+            translationKey: "paragraphtype_",
+            dataset: {},
+            opts: liteOptions
+        },
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_within: {
+            label: "enclosing_elems",
+        },
     }
 };
 

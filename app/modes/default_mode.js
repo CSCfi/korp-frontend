@@ -32,27 +32,27 @@ settings.corporafolders.agricola = {
     title: "Agricola",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta",
     contents: [
-	"agricola_abckiria",
-	"agricola_kasikiria",
-	"agricola_messu",
-	"agricola_piina",
-	"agricola_profeetat",
-	"agricola_psaltari",
-	"agricola_rucouskiria",
-	"agricola_sewsitestamenti",
-	"agricola_veisut",
+        "agricola_abckiria",
+        "agricola_kasikiria",
+        "agricola_messu",
+        "agricola_piina",
+        "agricola_profeetat",
+        "agricola_psaltari",
+        "agricola_rucouskiria",
+        "agricola_sewsitestamenti",
+        "agricola_veisut",
     ],
     info: {
-	metadata_urn: "urn:nbn:fi:lb-2019121804",
+        metadata_urn: "urn:nbn:fi:lb-2019121804",
         homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/palvelut-yhteistyo/arkistot/Sivut/home.aspx",
-	urn: "urn:nbn:fi:lb-2019121803",
-	cite_id: "agricola-v1-1-korp",
-	shortname: "agricola-v1-1-korp",
-	licence: settings.licenceinfo.CC_BY_ND_40,
-	iprholder: {
-	    name: "Turun yliopisto; Kotimaisten kielten keskus",
-	},
-    }    
+        urn: "urn:nbn:fi:lb-2019121803",
+        cite_id: "agricola-v1-1-korp",
+        shortname: "agricola-v1-1-korp",
+        licence: settings.licenceinfo.CC_BY_ND_40,
+        iprholder: {
+            name: "Turun yliopisto; Kotimaisten kielten keskus",
+        },
+    }
 };
 
 
@@ -60,20 +60,20 @@ settings.corporafolders.ethesis = {
     title: "E-thesis",
     contents: ["ethesis_maabs", "ethesis_dissabs"],
     info: {
-	cite_id: "e-thesis-fi",
+        cite_id: "e-thesis-fi",
     }
 };
 
 settings.corporafolders.ethesis.matheses = {
     title: "Pro gradu -tutkielmat",
     contents: ["ethesis_ma_ai", "ethesis_ma_bio", "ethesis_ma_el", "ethesis_ma_far", "ethesis_ma_hum", "ethesis_ma_beh",
-		"ethesis_ma_med", "ethesis_ma_mm", "ethesis_ma_sci", "ethesis_ma_ot", "ethesis_ma_teo", "ethesis_ma_valt"]
+                "ethesis_ma_med", "ethesis_ma_mm", "ethesis_ma_sci", "ethesis_ma_ot", "ethesis_ma_teo", "ethesis_ma_valt"]
 };
 
 settings.corporafolders.ethesis.phdtheses = {
     title: "Väitöskirjat",
     contents: ["ethesis_phd_bio", "ethesis_phd_el", "ethesis_phd_far", "ethesis_phd_hum", "ethesis_phd_beh",
-		"ethesis_phd_med", "ethesis_phd_mm", "ethesis_phd_ot", "ethesis_phd_teo", "ethesis_phd_valt"]
+                "ethesis_phd_med", "ethesis_phd_mm", "ethesis_phd_ot", "ethesis_phd_teo", "ethesis_phd_valt"]
 };
 
 settings.corporafolders.ftb = {
@@ -84,10 +84,10 @@ settings.corporafolders.ftb = {
 settings.corporafolders.ftb.ftb3 = {
     title: "FinnTreeBank 3",
     info: {
-	urn: "urn:nbn:fi:lb-2016051001",
-	metadata_urn: "urn:nbn:fi:lb-2016042602",
-	licence: settings.licenceinfo.CC_BY_30,
-	cite_id: "FinnTreeBank3-korp",
+        urn: "urn:nbn:fi:lb-2016051001",
+        metadata_urn: "urn:nbn:fi:lb-2016042602",
+        licence: settings.licenceinfo.CC_BY_30,
+        cite_id: "FinnTreeBank3-korp",
     },
     contents: ["ftb3_europarl", "ftb3_jrcacquis"]
 };
@@ -96,10 +96,10 @@ settings.corporafolders.klk_fi = {
     title: "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet",
     description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio, suomenkieliset lehdet",
     info: {
-	urn: "urn:nbn:fi:lb-201405275",
-	metadata_urn: "urn:nbn:fi:lb-201405276",
-	licence: settings.licenceinfo.CC_BY,
-	cite_id: "KLK-fi",
+        urn: "urn:nbn:fi:lb-201405275",
+        metadata_urn: "urn:nbn:fi:lb-201405276",
+        licence: settings.licenceinfo.CC_BY,
+        cite_id: "KLK-fi",
     }
 };
 
@@ -107,11 +107,11 @@ settings.corporafolders.klk2_fi = {
     title: "Kansalliskirjaston lehtikokoelma, versio 2 (KLK2), suomenkieliset lehdet",
     description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio 2, suomenkieliset lehdet",
     info: {
-	// urn: "urn:nbn:fi:lb-201405275",
-	// metadata_urn: "urn:nbn:fi:lb-201405276",
-	licence: settings.licenceinfo.CC_BY,
-	cite_id: "KLK2-fi",
-	labels: ["test"],
+        // urn: "urn:nbn:fi:lb-201405275",
+        // metadata_urn: "urn:nbn:fi:lb-201405276",
+        licence: settings.licenceinfo.CC_BY,
+        cite_id: "KLK2-fi",
+        labels: ["test"],
     }
 };
 
@@ -145,9 +145,9 @@ settings.corporafolders.kal = {
     title: "Kotuksen aikakauslehtikorpus",
     description: "Kotimaisten kielten keskuksen aikakauslehtikorpus",
     info: {
-	metadata_urn: "urn:nbn:fi:lb-201407301",
-	limitedAccess: true,
-	licenceType: "ACA",
+        metadata_urn: "urn:nbn:fi:lb-201407301",
+        limitedAccess: true,
+        licenceType: "ACA",
     }
 };
 
@@ -156,13 +156,13 @@ settings.corporafolders.kal.kal_perus = {
     description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistamaton",
     contents: ["kal_perus_ha", "kal_perus_la", "kal_perus_sk", "kal_perus_su"],
     info: {
-	urn: "urn:nbn:fi:lb-2018060706",
-	metadata_urn: "urn:nbn:fi:lb-2018060702",
-	cite_id: "kotus-al-unrev-korp",
-	licence: {
-	    name: "CLARIN ACA +NC +DEP 1.0",
-	    urn: "urn:nbn:fi:lb-2021030304",
-	}
+        urn: "urn:nbn:fi:lb-2018060706",
+        metadata_urn: "urn:nbn:fi:lb-2018060702",
+        cite_id: "kotus-al-unrev-korp",
+        licence: {
+            name: "CLARIN ACA +NC +DEP 1.0",
+            urn: "urn:nbn:fi:lb-2021030304",
+        }
     }
 };
 
@@ -171,13 +171,13 @@ settings.corporafolders.kal.kal_ydin = {
     description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistettu",
     contents: ["kal_ydin_ha", "kal_ydin_la", "kal_ydin_sk", "kal_ydin_su"],
     info: {
-	urn: "urn:nbn:fi:lb-2018060705",
-	metadata_urn: "urn:nbn:fi:lb-2018060701",
-	cite_id: "kotus-al-rev-korp",
-	licence: {
-	    name: "CLARIN ACA +NC +DEP 1.0",
-	    urn: "urn:nbn:fi:lb-2021030302",
-	}
+        urn: "urn:nbn:fi:lb-2018060705",
+        metadata_urn: "urn:nbn:fi:lb-2018060701",
+        cite_id: "kotus-al-rev-korp",
+        licence: {
+            name: "CLARIN ACA +NC +DEP 1.0",
+            urn: "urn:nbn:fi:lb-2021030302",
+        }
     }
 };
 
@@ -185,20 +185,20 @@ settings.corporafolders.kal.kal_ydin = {
 settings.corporafolders.literature = {
     title: "Kirjallisuutta",
     contents: ["gutenberg", "sks_kivi_fi", "skvr",
-	       "parfin_2016_fi", "parrus_2016_fi", "iijoki"]
+               "parfin_2016_fi", "parrus_2016_fi", "iijoki"]
 };
 
 settings.corporafolders.literature.kaannossuomi = {
     title: "Käännössuomen korpus",
     description: "Käännössuomen korpus on koostettu vuonna 1999 nykyisessä Itä-Suomen yliopistossa (silloisessa Joensuun yliopistossa sen kansainvälisen viestinnän laitoksella) Suomen Akatemian professori Anna Maurasen johtamassa tutkimushankkeessa Käännössuomi ja kääntämisen universaalit.<br/><br/>Korpus sisältää kaksi osaa: aluperin suomeksi kirjoitettua kieltä (alkusuomi) ja eri kielistä käännettyä kieltä (käännössuomi). Seuraavat tekstilajit ovat edustettuina aineistoissa: akateemiset tekstit, kaunokirjallisuus, lastenkirjallisuus, biografia, populaarikirjallisuus, viihdekirjallisuus, dekkarikirjallisuus ja tietokirjallisuus. Alkusuomen aineiston laajuus on yhteensä 5 465 293 sanaa ja käännössuomen aineiston 7 135 969 sanaa.",
     info: {
-	urn: "urn:nbn:fi:lb-2019100803",
-	metadata_urn: "urn:nbn:fi:lb-2019100801",
-	licence: {
-	    name: "CLARIN RES +NC +DEP 1.0",
-	    urn: "urn:nbn:fi:lb-2019100805",
-	},
-	cite_id: "kaannossuomi-korp",
+        urn: "urn:nbn:fi:lb-2019100803",
+        metadata_urn: "urn:nbn:fi:lb-2019100801",
+        licence: {
+            name: "CLARIN RES +NC +DEP 1.0",
+            urn: "urn:nbn:fi:lb-2019100805",
+        },
+        cite_id: "kaannossuomi-korp",
     },
     contents: ["alkusuomi", "kaannossuomi"]
 };
@@ -207,11 +207,11 @@ settings.corporafolders.literature.skk = {
     title: "Suomalaisen kirjallisuuden klassikoita",
     contents: ["skk_aho","skk_canth","skk_finne","skk_jarnefelt","skk_kailas","skk_lassila","skk_linnankoski","skk_kramsu","skk_lehtonen","skk_leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"],
     info: {
-	urn: "urn:nbn:fi:lb-2015022401",
-	metadata_urn: "urn:nbn:fi:lb-20140730186",
-	licence: settings.licenceinfo.EUPL_11,
-	homepage: settings.fn.kaino_homepage("klassikot/meta/klassikot"),
-	cite_id: "SKK",
+        urn: "urn:nbn:fi:lb-2015022401",
+        metadata_urn: "urn:nbn:fi:lb-20140730186",
+        licence: settings.licenceinfo.EUPL_11,
+        homepage: settings.fn.kaino_homepage("klassikot/meta/klassikot"),
+        cite_id: "SKK",
     }
 };
 
@@ -223,10 +223,10 @@ settings.corporafolders.literature.ceal = {
     title: "CEAL",
     description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi<br/>Classics of English and American Literature in Finnish<br/><br/><strong>Huomaa</strong>, että korpukset CEAL-o ja CEAL-s sisältävät samat tekstit, mutta CEAL-s:ssä kappaleet on sekoitettu kunkin teoksen sisällä, kun taas CEAL-o:ssa kappaleet ovat alkuperäisessä järjestyksessä. Hakuja varten kannattaa valita vain toinen korpus. CEAL-o vaatii aina henkilökohtaisen käyttöluvan.",
     info: {
-	metadata_urn: "urn:nbn:fi:lb-2016110901",
-	iprholder: {
-	    name: "Kersti Juva",
-	},
+        metadata_urn: "urn:nbn:fi:lb-2016110901",
+        iprholder: {
+            name: "Kersti Juva",
+        },
     },
     contents: ["ceal_o", "ceal_s"]
 };
@@ -234,10 +234,10 @@ settings.corporafolders.literature.ceal = {
 settings.corporafolders.legal = {
     title: "Juridisia tekstejä",
     contents: [
-	"kotus_lakidir",
-	"legal_fi",
-	"mulcold_fi",
-	"semfinlex",
+        "kotus_lakidir",
+        "legal_fi",
+        "mulcold_fi",
+        "semfinlex",
     ]
 };
 
@@ -252,31 +252,31 @@ settings.corporafolders.internet.suomi24_2017h2 = {
     // version when it is available
     description: "Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.2<br/><a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut vuosilta 2001–2017 (1.1.2001–31.12.2017).<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu osakorpuksiin vuosittain.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-2019010801' target='_blank' title='Kuvailutiedot'>koko Suomi24 2001–2017 -aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2019010802' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).<br/><br/>(Tämä aineisto näkyi beetatestausvaiheessa Korpissa nimellä <i>Suomi24 virkkeet -korpus (2017H2)</i> ja aineiston ensimmäinen versio nimellä <i>Suomi24 2017H2</i>.)<br/><br/>2021-04-21: Aineistosta on nyt käytössä päivitetty versio 1.2, jonka kuhunkin virkkeeseen on lisätty virkkeen tunnetilaa (sentiment) ilmaiseva polaarisuustieto (positiivinen, neutraali, negatiivinen). Polaarisuustieto on tuotettu luokittimella, joka on opetettu <a href='https://arxiv.org/pdf/2012.02613.pdf' target='_blank'>FinnSentiment-aineistolla</a>.<br/><br/>2020-02-20: Aineistosta on nyt käytössä korjattu versio 1.1. Se sisältää aiemmasta versiosta vuosilta 2009–2012 ja 2014 puuttuneet kirjoittajan nimimerkkitiedot, ja kaikissa nimimerkeissä merkit <i>'</i>, <i>\"</i> ja <i>&amp;</i> näkyvät sellaisinaan, eivät <i>&amp;apos;</i>, <i>&amp;quot;</i> ja <i>&amp;amp;</i>. Lisäksi aineiston nimessä on korvattu <i>2017H2</i> vuosivälillä <i>2001–2017</i>.<br/><br/>2020-01-21: Aineiston dependenssijäsennykset ja -relaatiot on korjattu 2019-12-19. Myös sanakuva toimii periaatteessa, mutta aineiston koon vuoksi valitettavasti ei aina käytännössä. Selvitämme asiaa. Nimientunnistustiedot ovat toistaiseksi vain vanhemmassa Suomi24 2016H2 -aineistossa.</strong>",
     contents: [
-	"s24_2001",
-	"s24_2002",
-	"s24_2003",
-	"s24_2004",
-	"s24_2005",
-	"s24_2006",
-	"s24_2007",
-	"s24_2008",
-	"s24_2009",
-	"s24_2010",
-	"s24_2011",
-	"s24_2012",
-	"s24_2013",
-	"s24_2014",
-	"s24_2015",
-	"s24_2016",
-	"s24_2017",
+        "s24_2001",
+        "s24_2002",
+        "s24_2003",
+        "s24_2004",
+        "s24_2005",
+        "s24_2006",
+        "s24_2007",
+        "s24_2008",
+        "s24_2009",
+        "s24_2010",
+        "s24_2011",
+        "s24_2012",
+        "s24_2013",
+        "s24_2014",
+        "s24_2015",
+        "s24_2016",
+        "s24_2017",
     ],
     info: {
-	urn: "urn:nbn:fi:lb-2020021804",
-	metadata_urn: "urn:nbn:fi:lb-2020021803",
-	licence: settings.licenceinfo.CC_BY_NC,
-	homepage_url: "http://keskustelu.suomi24.fi",
-	cite_id: "suomi24-2001-2017-korp-v1-2",
-	shortname: "suomi24-2001-2017-korp-v1-2",
+        urn: "urn:nbn:fi:lb-2020021804",
+        metadata_urn: "urn:nbn:fi:lb-2020021803",
+        licence: settings.licenceinfo.CC_BY_NC,
+        homepage_url: "http://keskustelu.suomi24.fi",
+        cite_id: "suomi24-2001-2017-korp-v1-2",
+        shortname: "suomi24-2001-2017-korp-v1-2",
     }
 };
 
@@ -284,23 +284,23 @@ settings.corporafolders.internet.suomi24 = {
     title: "Suomi24 2016H2",
     description: "<a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut 1.1.2001–24.9.2016.<br/><br/><strong>Huomaa</strong>, että aineisto ei ole kattava mainitulta aikaväliltä. <strong>Käytä ensisijaisesti uudempaa ja selvästi kattavampaa <a href='http://urn.fi/urn:nbn:fi:lb-2019021101' target='_blank'>Suomi24 2017H2 -aineistoa</a></strong>, jollet tarvitse vertailukelpoisuutta tähän aineistoon perustuvan tutkimuksen kanssa.<br/><br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu useaan osakorpukseen suuren kokonsa vuoksi.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-201412171' target='_blank' title='Kuvailutiedot'>koko Suomi24-aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2015040801' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).<br/><br/>(Tämä aineisto näkyi ennen Suomi24 2017H2 -version julkaisemista Korpissa nimellä <i>Suomi24</i>.)",
     contents: [
-	"s24_001",
-	"s24_002",
-	"s24_003",
-	"s24_004",
-	"s24_005",
-	"s24_006",
-	"s24_007",
-	"s24_008",
-	"s24_009",
-	"s24_010"
+        "s24_001",
+        "s24_002",
+        "s24_003",
+        "s24_004",
+        "s24_005",
+        "s24_006",
+        "s24_007",
+        "s24_008",
+        "s24_009",
+        "s24_010"
     ],
     info: {
-	urn: "urn:nbn:fi:lb-2015120401",
-	metadata_urn: "urn:nbn:fi:lb-2017021505",
-	licence: settings.licenceinfo.CC_BY_NC,
-	homepage_url: "http://keskustelu.suomi24.fi",
-	cite_id: "Suomi24-korp-2016H2",
+        urn: "urn:nbn:fi:lb-2015120401",
+        metadata_urn: "urn:nbn:fi:lb-2017021505",
+        licence: settings.licenceinfo.CC_BY_NC,
+        homepage_url: "http://keskustelu.suomi24.fi",
+        cite_id: "Suomi24-korp-2016H2",
     }
 };
 
@@ -308,10 +308,10 @@ settings.corporafolders.lehdet = {
     title: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
     info: {
-	urn: "urn:nbn:fi:lb-201711241",
-	metadata_urn: "urn:nbn:fi:lb-2017091901",
-	licence: settings.licenceinfo.CC_BY_40,
-	cite_id: "lehdet90ff-v2",
+        urn: "urn:nbn:fi:lb-201711241",
+        metadata_urn: "urn:nbn:fi:lb-2017091901",
+        licence: settings.licenceinfo.CC_BY_40,
+        cite_id: "lehdet90ff-v2",
     }
 };
 
@@ -324,79 +324,79 @@ settings.corporafolders.lehdet.tiedelehdet.ag = {
     title: "A–G",
     description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (A–G-alkuiset)",
     contents: [
-	"tiedelehdet_30paivaa",
-	"tiedelehdet_aakusti",
-	"tiedelehdet_agricola",
-	"tiedelehdet_aidinkieli",
-	"tiedelehdet_aikuiskasvatus",
-	"tiedelehdet_aluejaymparisto",
-	"tiedelehdet_ammattikasvatuksen_aikakauskirja",
-	"tiedelehdet_apollon",
-	"tiedelehdet_areiopagi",
-	"tiedelehdet_ats",
-	"tiedelehdet_auraica",
-	"tiedelehdet_automaatiovayla",
-	"tiedelehdet_avain",
-	"tiedelehdet_baptria",
-	"tiedelehdet_bryobrotherella",
-	"tiedelehdet_diakonia",
-	"tiedelehdet_elo",
-	"tiedelehdet_ennenjanyt",
-	"tiedelehdet_geofoorumi",
-	"tiedelehdet_geologi",
-	"tiedelehdet_glossae",
-	]
+        "tiedelehdet_30paivaa",
+        "tiedelehdet_aakusti",
+        "tiedelehdet_agricola",
+        "tiedelehdet_aidinkieli",
+        "tiedelehdet_aikuiskasvatus",
+        "tiedelehdet_aluejaymparisto",
+        "tiedelehdet_ammattikasvatuksen_aikakauskirja",
+        "tiedelehdet_apollon",
+        "tiedelehdet_areiopagi",
+        "tiedelehdet_ats",
+        "tiedelehdet_auraica",
+        "tiedelehdet_automaatiovayla",
+        "tiedelehdet_avain",
+        "tiedelehdet_baptria",
+        "tiedelehdet_bryobrotherella",
+        "tiedelehdet_diakonia",
+        "tiedelehdet_elo",
+        "tiedelehdet_ennenjanyt",
+        "tiedelehdet_geofoorumi",
+        "tiedelehdet_geologi",
+        "tiedelehdet_glossae",
+        ]
 };
 
 settings.corporafolders.lehdet.tiedelehdet.hk = {
     title: "H–K",
     description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (H–K-alkuiset)",
     contents: [
-	"tiedelehdet_harukaze",
-	"tiedelehdet_havina",
-	"tiedelehdet_hiidenkivi",
-	"tiedelehdet_historiallinen",
-	"tiedelehdet_historianystava",
-	"tiedelehdet_idantutkimus",
-	"tiedelehdet_ilmansuojelu",
-	"tiedelehdet_informaatio",
-	"tiedelehdet_janus",
-	"tiedelehdet_hykirjasto",
-	"tiedelehdet_kasvu",
-	"tiedelehdet_kieliskooppi",
-	"tiedelehdet_kliinlab",
-	"tiedelehdet_kognitiivinen",
-	"tiedelehdet_kompositio",
-	"tiedelehdet_kosmopolis",
-	"tiedelehdet_kulttuurintutkimus",
-	"tiedelehdet_kulutustutkimus",
-	"tiedelehdet_kunnallistiede",
-	"tiedelehdet_kuntoutus",
-	]
+        "tiedelehdet_harukaze",
+        "tiedelehdet_havina",
+        "tiedelehdet_hiidenkivi",
+        "tiedelehdet_historiallinen",
+        "tiedelehdet_historianystava",
+        "tiedelehdet_idantutkimus",
+        "tiedelehdet_ilmansuojelu",
+        "tiedelehdet_informaatio",
+        "tiedelehdet_janus",
+        "tiedelehdet_hykirjasto",
+        "tiedelehdet_kasvu",
+        "tiedelehdet_kieliskooppi",
+        "tiedelehdet_kliinlab",
+        "tiedelehdet_kognitiivinen",
+        "tiedelehdet_kompositio",
+        "tiedelehdet_kosmopolis",
+        "tiedelehdet_kulttuurintutkimus",
+        "tiedelehdet_kulutustutkimus",
+        "tiedelehdet_kunnallistiede",
+        "tiedelehdet_kuntoutus",
+        ]
 };
 
 settings.corporafolders.lehdet.tiedelehdet.lp = {
     title: "L–P",
     description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (L–P-alkuiset)",
     contents: [
-	"tiedelehdet_liikenteensuunta_v2",
-	"tiedelehdet_liiketalous",
-	"tiedelehdet_liikuntajatiede",
-	"tiedelehdet_lounaishame",
-	"tiedelehdet_maaseudunuusiaika",
-	"tiedelehdet_matkailututkimus",
-	"tiedelehdet_mediajaviestinta",
-	"tiedelehdet_metsatiede",
-	"tiedelehdet_muinaistutkija",
-	"tiedelehdet_musiikinsuunta",
-	"tiedelehdet_musiikkikasv",
-	"tiedelehdet_niinnain_v2",
-	"tiedelehdet_nimi",
-	"tiedelehdet_nayttamo_tutkimus",
-	"tiedelehdet_poliittinentalous",
-	"tiedelehdet_prologi",
-	"tiedelehdet_psykologia",
-	]
+        "tiedelehdet_liikenteensuunta_v2",
+        "tiedelehdet_liiketalous",
+        "tiedelehdet_liikuntajatiede",
+        "tiedelehdet_lounaishame",
+        "tiedelehdet_maaseudunuusiaika",
+        "tiedelehdet_matkailututkimus",
+        "tiedelehdet_mediajaviestinta",
+        "tiedelehdet_metsatiede",
+        "tiedelehdet_muinaistutkija",
+        "tiedelehdet_musiikinsuunta",
+        "tiedelehdet_musiikkikasv",
+        "tiedelehdet_niinnain_v2",
+        "tiedelehdet_nimi",
+        "tiedelehdet_nayttamo_tutkimus",
+        "tiedelehdet_poliittinentalous",
+        "tiedelehdet_prologi",
+        "tiedelehdet_psykologia",
+        ]
 };
 
 
@@ -404,54 +404,54 @@ settings.corporafolders.lehdet.tiedelehdet.rs = {
     title: "R–S",
     description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (R–S-alkuiset)",
     contents: [
-	"tiedelehdet_rakmek",
-	"tiedelehdet_ravitsemus",
-	"tiedelehdet_ruralia",
-	"tiedelehdet_sananjalka",
-	"tiedelehdet_siirtolaisuus",
-	"tiedelehdet_skas",
-	"tiedelehdet_skeptikko",
-	"tiedelehdet_skholion",
-	"tiedelehdet_solubiologi",
-	"tiedelehdet_sosiaalilaaketiede",
-	"tiedelehdet_sosiologia",
-	"tiedelehdet_suo",
-	"tiedelehdet_susa",
-	"tiedelehdet_kirkkohistoria",
-	"tiedelehdet_sydanaani",
-	"tiedelehdet_synnyt",
-	]
+        "tiedelehdet_rakmek",
+        "tiedelehdet_ravitsemus",
+        "tiedelehdet_ruralia",
+        "tiedelehdet_sananjalka",
+        "tiedelehdet_siirtolaisuus",
+        "tiedelehdet_skas",
+        "tiedelehdet_skeptikko",
+        "tiedelehdet_skholion",
+        "tiedelehdet_solubiologi",
+        "tiedelehdet_sosiaalilaaketiede",
+        "tiedelehdet_sosiologia",
+        "tiedelehdet_suo",
+        "tiedelehdet_susa",
+        "tiedelehdet_kirkkohistoria",
+        "tiedelehdet_sydanaani",
+        "tiedelehdet_synnyt",
+        ]
 };
 
 settings.corporafolders.lehdet.tiedelehdet.ty = {
     title: "T–Y",
     description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (T–Y-alkuiset)",
     contents: [
-	"tiedelehdet_tahiti",
-	"tiedelehdet_taimiuutiset",
-	"tiedelehdet_teologinen",
-	"tiedelehdet_terminfo",
-	"tiedelehdet_terra",
-	"tiedelehdet_thanatos",
-	"tiedelehdet_tiedejaase",
-	"tiedelehdet_tieteessatapahtuu",
-	"tiedelehdet_tktlehti",
-	"tiedelehdet_tietolinja",
-	"tiedelehdet_toksikologi",
-	"tiedelehdet_transmitteri",
-	"tiedelehdet_trio",
-	"tiedelehdet_tutkimustiedote",
-	"tiedelehdet_tutkivasos",
-	"tiedelehdet_tyoelama",
-	"tiedelehdet_ura",
-	"tiedelehdet_uskonnontutkija",
-	"tiedelehdet_vartija",
-	"tiedelehdet_versus",
-	"tiedelehdet_virittaja",
-	"tiedelehdet_walbum",
-	"tiedelehdet_yhdyskuntasuunnittelu",
-	"tiedelehdet_yhteiskuntapolitiikka",
-	"tiedelehdet_ymparistohistoria",
+        "tiedelehdet_tahiti",
+        "tiedelehdet_taimiuutiset",
+        "tiedelehdet_teologinen",
+        "tiedelehdet_terminfo",
+        "tiedelehdet_terra",
+        "tiedelehdet_thanatos",
+        "tiedelehdet_tiedejaase",
+        "tiedelehdet_tieteessatapahtuu",
+        "tiedelehdet_tktlehti",
+        "tiedelehdet_tietolinja",
+        "tiedelehdet_toksikologi",
+        "tiedelehdet_transmitteri",
+        "tiedelehdet_trio",
+        "tiedelehdet_tutkimustiedote",
+        "tiedelehdet_tutkivasos",
+        "tiedelehdet_tyoelama",
+        "tiedelehdet_ura",
+        "tiedelehdet_uskonnontutkija",
+        "tiedelehdet_vartija",
+        "tiedelehdet_versus",
+        "tiedelehdet_virittaja",
+        "tiedelehdet_walbum",
+        "tiedelehdet_yhdyskuntasuunnittelu",
+        "tiedelehdet_yhteiskuntapolitiikka",
+        "tiedelehdet_ymparistohistoria",
     ]
 };
 
@@ -464,34 +464,34 @@ settings.corporafolders.lehdet.muut_lehdet.a = {
     title: "A",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (A-alkuiset)",
     contents: [
-	"lehdet_aalto_university_magazine",
-	"lehdet_aarre",
-	"lehdet_aino",
-	"lehdet_ajolinja",
-	"lehdet_akavalainen",
-	"lehdet_allergia",
-	"lehdet_ammattisotilas",
-	"lehdet_amnesty",
-	"lehdet_ananda",
-	"lehdet_animalia",
-	"lehdet_anti",
-	"lehdet_antimilitaristi_sivari",
-	"lehdet_apaja",
-	"lehdet_aplodi",
-	"lehdet_arkkitehtiuutiset",
-	"lehdet_aromi",
-	"lehdet_aselehti",
-	"lehdet_askel",
-	"lehdet_asukas",
-	"lehdet_asukki",
-	"lehdet_asuminen_yhteiskunta",
-	"lehdet_asuntoinfo",
-	"lehdet_aurora",
-	"lehdet_avainlehti",
-	"lehdet_avec",
-	"lehdet_avec_perhelehti",
-	"lehdet_avh",
-	"lehdet_avvisio",
+        "lehdet_aalto_university_magazine",
+        "lehdet_aarre",
+        "lehdet_aino",
+        "lehdet_ajolinja",
+        "lehdet_akavalainen",
+        "lehdet_allergia",
+        "lehdet_ammattisotilas",
+        "lehdet_amnesty",
+        "lehdet_ananda",
+        "lehdet_animalia",
+        "lehdet_anti",
+        "lehdet_antimilitaristi_sivari",
+        "lehdet_apaja",
+        "lehdet_aplodi",
+        "lehdet_arkkitehtiuutiset",
+        "lehdet_aromi",
+        "lehdet_aselehti",
+        "lehdet_askel",
+        "lehdet_asukas",
+        "lehdet_asukki",
+        "lehdet_asuminen_yhteiskunta",
+        "lehdet_asuntoinfo",
+        "lehdet_aurora",
+        "lehdet_avainlehti",
+        "lehdet_avec",
+        "lehdet_avec_perhelehti",
+        "lehdet_avh",
+        "lehdet_avvisio",
   ]
 };
 
@@ -499,13 +499,13 @@ settings.corporafolders.lehdet.muut_lehdet.bcd = {
     title: "B, C, D",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (B-, C- ja D-alkuiset)",
     contents: [
-	"lehdet_bof_online",
-	"lehdet_canews",
-	"lehdet_cplehti",
-	"lehdet_curly",
-	"lehdet_debatti",
-	"lehdet_diabetes_ja_laakari",
-	"lehdet_diakonia",
+        "lehdet_bof_online",
+        "lehdet_canews",
+        "lehdet_cplehti",
+        "lehdet_curly",
+        "lehdet_debatti",
+        "lehdet_diabetes_ja_laakari",
+        "lehdet_diakonia",
     ]
 }
 
@@ -513,23 +513,23 @@ settings.corporafolders.lehdet.muut_lehdet.e = {
     title: "E",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (E-alkuiset)",
     contents: [
-	"lehdet_edimensio",
-	"lehdet_effortti",
-	"lehdet_ekonomi",
-	"lehdet_elinehto",
-	"lehdet_elamantahdet_terve",
-	"lehdet_elamassa_kelansanomat",
-	"lehdet_elore",
-	"lehdet_emma",
-	"lehdet_entisesta_enemman",
-	"lehdet_ernie",
-	"lehdet_espanjan_sanomat",
-	"lehdet_espoo",
-	"lehdet_esri",
-	"lehdet_ethnos",
-	"lehdet_eurooppalainen",
-	"lehdet_euro_talous",
-	"lehdet_evento",
+        "lehdet_edimensio",
+        "lehdet_effortti",
+        "lehdet_ekonomi",
+        "lehdet_elinehto",
+        "lehdet_elamantahdet_terve",
+        "lehdet_elamassa_kelansanomat",
+        "lehdet_elore",
+        "lehdet_emma",
+        "lehdet_entisesta_enemman",
+        "lehdet_ernie",
+        "lehdet_espanjan_sanomat",
+        "lehdet_espoo",
+        "lehdet_esri",
+        "lehdet_ethnos",
+        "lehdet_eurooppalainen",
+        "lehdet_euro_talous",
+        "lehdet_evento",
      ]
 }
 
@@ -537,8 +537,8 @@ settings.corporafolders.lehdet.muut_lehdet.f = {
     title: "F",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (F-alkuiset)",
     contents: [
-	"lehdet_focus",
-	"lehdet_folium_classicum",
+        "lehdet_focus",
+        "lehdet_folium_classicum",
   ]
 }
 
@@ -546,24 +546,24 @@ settings.corporafolders.lehdet.muut_lehdet.h = {
     title: "H",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (H-alkuiset)",
     contents: [
-	"lehdet_hkaksi",
-	"lehdet_haagalainen",
-	"lehdet_haavi",
-	"lehdet_hallaus",
-	"lehdet_helen",
-	"lehdet_helmeri",
-	"lehdet_helmi",
-	"lehdet_helsinginhenki",
-	"lehdet_helsinki_info",
-	"lehdet_hengitys",
-	"lehdet_heppu",
-	"lehdet_hervannan_sanomat",
-	"lehdet_hima",
-	"lehdet_hopealeijona",
-	"lehdet_huili",
-	"lehdet_humanistilehti",
-	"lehdet_husari",
-	"lehdet_hyva_asukas",
+        "lehdet_hkaksi",
+        "lehdet_haagalainen",
+        "lehdet_haavi",
+        "lehdet_hallaus",
+        "lehdet_helen",
+        "lehdet_helmeri",
+        "lehdet_helmi",
+        "lehdet_helsinginhenki",
+        "lehdet_helsinki_info",
+        "lehdet_hengitys",
+        "lehdet_heppu",
+        "lehdet_hervannan_sanomat",
+        "lehdet_hima",
+        "lehdet_hopealeijona",
+        "lehdet_huili",
+        "lehdet_humanistilehti",
+        "lehdet_husari",
+        "lehdet_hyva_asukas",
   ]
 }
 
@@ -571,13 +571,13 @@ settings.corporafolders.lehdet.muut_lehdet.ij = {
     title: "I, J",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (I- ja J-alkuiset)",
     contents: [
-	"lehdet_impakti",
-	"lehdet_infors",
-	"lehdet_infront",
-	"lehdet_jane_paulo",
-	"lehdet_jargonia",
-	"lehdet_joensuun_uutiset",
-	"lehdet_julkaisija",
+        "lehdet_impakti",
+        "lehdet_infors",
+        "lehdet_infront",
+        "lehdet_jane_paulo",
+        "lehdet_jargonia",
+        "lehdet_joensuun_uutiset",
+        "lehdet_julkaisija",
   ]
 }
 
@@ -585,40 +585,40 @@ settings.corporafolders.lehdet.muut_lehdet.k = {
     title: "K",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (K-alkuiset)",
     contents: [
-	"lehdet_kalastuslehti",
-	"lehdet_kalpa",
-	"lehdet_kansanopisto",
-	"lehdet_karhunkierros",
-	"lehdet_karhunpalvelus",
-	"lehdet_kauppapolitiikka",
-	"lehdet_kaupunkilainen",
-	"lehdet_kehittaja",
-	"lehdet_kemia_kemi",
-	"lehdet_kemilainen",
-	"lehdet_kerberos",
-	"lehdet_keski_espoon_sanomat",
-	"lehdet_keva",
-	"lehdet_kide",
-	"lehdet_kide_taidelehti",
-	"lehdet_kielipolku_dysfasia",
-	"lehdet_kirjo",
-	"lehdet_kita",
-	"lehdet_koiviston_viesti",
-	"lehdet_kontakt",
-	"lehdet_koor",
-	"lehdet_koti",
-	"lehdet_kotipuutarha",
-	"lehdet_kotosalla",
-	"lehdet_kuljetusyrittaja",
-	"lehdet_kulttuurivihkot",
-	"lehdet_kumina",
-	"lehdet_kumposti",
-	"lehdet_kunnallissuomi",
-	"lehdet_kuuloset",
-	"lehdet_kuuloviesti",
-	"lehdet_kynnys",
-	"lehdet_kyvyt_kayttoon_vates",
-	"lehdet_kaytannon_maamies",
+        "lehdet_kalastuslehti",
+        "lehdet_kalpa",
+        "lehdet_kansanopisto",
+        "lehdet_karhunkierros",
+        "lehdet_karhunpalvelus",
+        "lehdet_kauppapolitiikka",
+        "lehdet_kaupunkilainen",
+        "lehdet_kehittaja",
+        "lehdet_kemia_kemi",
+        "lehdet_kemilainen",
+        "lehdet_kerberos",
+        "lehdet_keski_espoon_sanomat",
+        "lehdet_keva",
+        "lehdet_kide",
+        "lehdet_kide_taidelehti",
+        "lehdet_kielipolku_dysfasia",
+        "lehdet_kirjo",
+        "lehdet_kita",
+        "lehdet_koiviston_viesti",
+        "lehdet_kontakt",
+        "lehdet_koor",
+        "lehdet_koti",
+        "lehdet_kotipuutarha",
+        "lehdet_kotosalla",
+        "lehdet_kuljetusyrittaja",
+        "lehdet_kulttuurivihkot",
+        "lehdet_kumina",
+        "lehdet_kumposti",
+        "lehdet_kunnallissuomi",
+        "lehdet_kuuloset",
+        "lehdet_kuuloviesti",
+        "lehdet_kynnys",
+        "lehdet_kyvyt_kayttoon_vates",
+        "lehdet_kaytannon_maamies",
   ]
 }
 
@@ -626,12 +626,12 @@ settings.corporafolders.lehdet.muut_lehdet.l = {
     title: "L",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (L-alkuiset)",
     contents: [
-	"lehdet_lapsenmaailma",
-	"lehdet_legenda",
-	"lehdet_leija",
-	"lehdet_luokanopettaja",
-	"lehdet_luuppisanomat",
-	"lehdet_lahde_liikkeelle",
+        "lehdet_lapsenmaailma",
+        "lehdet_legenda",
+        "lehdet_leija",
+        "lehdet_luokanopettaja",
+        "lehdet_luuppisanomat",
+        "lehdet_lahde_liikkeelle",
   ]
 }
 
@@ -639,19 +639,19 @@ settings.corporafolders.lehdet.muut_lehdet.m = {
     title: "M",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (M-alkuiset)",
     contents: [
-	"lehdet_maailma_kiitotie",
-	"lehdet_materia",
-	"lehdet_matkailusilma",
-	"lehdet_me",
-	"lehdet_mercurius",
-	"lehdet_meripelastus",
-	"lehdet_merkonomi",
-	"lehdet_minna",
-	"lehdet_mirator",
-	"lehdet_modin",
-	"lehdet_motiva_mplus_xpress",
-	"lehdet_musetti",
-	"lehdet_muusikko",
+        "lehdet_maailma_kiitotie",
+        "lehdet_materia",
+        "lehdet_matkailusilma",
+        "lehdet_me",
+        "lehdet_mercurius",
+        "lehdet_meripelastus",
+        "lehdet_merkonomi",
+        "lehdet_minna",
+        "lehdet_mirator",
+        "lehdet_modin",
+        "lehdet_motiva_mplus_xpress",
+        "lehdet_musetti",
+        "lehdet_muusikko",
   ]
 }
 
@@ -659,13 +659,13 @@ settings.corporafolders.lehdet.muut_lehdet.no = {
     title: "N, O",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (N- ja O-alkuiset)",
     contents: [
-	"lehdet_nonsordino",
-	"lehdet_nakyva_nainen",
-	"lehdet_ollaviiskytviisplus",
-	"lehdet_omakotisanomat",
-	"lehdet_ostrobotnia",
-	"lehdet_ota_opiksi",
-	"lehdet_oulunkylainen",
+        "lehdet_nonsordino",
+        "lehdet_nakyva_nainen",
+        "lehdet_ollaviiskytviisplus",
+        "lehdet_omakotisanomat",
+        "lehdet_ostrobotnia",
+        "lehdet_ota_opiksi",
+        "lehdet_oulunkylainen",
   ]
 }
 
@@ -673,35 +673,35 @@ settings.corporafolders.lehdet.muut_lehdet.p = {
     title: "P",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (P-alkuiset)",
     contents: [
-	"lehdet_pakolainen",
-	"lehdet_palveluesimies",
-	"lehdet_paraisten_kuulutukset",
-	"lehdet_pardianyt",
-	"lehdet_pariperhe",
-	"lehdet_partio_jalki",
-	"lehdet_patria",
-	"lehdet_pelastusalan_ammattilainen",
-	"lehdet_pelastustieto",
-	"lehdet_perussuomalainen",
-	"lehdet_pihlajamaki_info",
-	"lehdet_pihlajisto_viikinmaki",
-	"lehdet_pippuri",
-	"lehdet_pirkkalainen",
-	"lehdet_pirta",
-	"lehdet_pispalalainen",
-	"lehdet_plari",
-	"lehdet_pointti",
-	"lehdet_poleemi",
-	"lehdet_polemiikki",
-	"lehdet_policy",
-	"lehdet_poromies",
-	"lehdet_print_media",
-	"lehdet_pro_etelapohjanmaa",
-	"lehdet_prointerior",
-	"lehdet_promaint_kunnossapito",
-	"lehdet_proresto",
-	"lehdet_puulehti",
-	"lehdet_puutarha_sanomat",
+        "lehdet_pakolainen",
+        "lehdet_palveluesimies",
+        "lehdet_paraisten_kuulutukset",
+        "lehdet_pardianyt",
+        "lehdet_pariperhe",
+        "lehdet_partio_jalki",
+        "lehdet_patria",
+        "lehdet_pelastusalan_ammattilainen",
+        "lehdet_pelastustieto",
+        "lehdet_perussuomalainen",
+        "lehdet_pihlajamaki_info",
+        "lehdet_pihlajisto_viikinmaki",
+        "lehdet_pippuri",
+        "lehdet_pirkkalainen",
+        "lehdet_pirta",
+        "lehdet_pispalalainen",
+        "lehdet_plari",
+        "lehdet_pointti",
+        "lehdet_poleemi",
+        "lehdet_polemiikki",
+        "lehdet_policy",
+        "lehdet_poromies",
+        "lehdet_print_media",
+        "lehdet_pro_etelapohjanmaa",
+        "lehdet_prointerior",
+        "lehdet_promaint_kunnossapito",
+        "lehdet_proresto",
+        "lehdet_puulehti",
+        "lehdet_puutarha_sanomat",
   ]
 }
 
@@ -709,10 +709,10 @@ settings.corporafolders.lehdet.muut_lehdet.r = {
     title: "R",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (R-alkuiset)",
     contents: [
-	"lehdet_rautalampilehti",
-	"lehdet_rautatievirkamies",
-	"lehdet_ruotuvaki",
-	"lehdet_ronsy",
+        "lehdet_rautalampilehti",
+        "lehdet_rautatievirkamies",
+        "lehdet_ruotuvaki",
+        "lehdet_ronsy",
   ]
 }
 
@@ -720,28 +720,28 @@ settings.corporafolders.lehdet.muut_lehdet.s = {
     title: "S",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (S-alkuiset)",
     contents: [
-	"lehdet_saarijarvelainen",
-	"lehdet_saariselka",
-	"lehdet_saima",
-	"lehdet_secretarius",
-	"lehdet_selkosanomat",
-	"lehdet_signum",
-	"lehdet_skrolli",
-	"lehdet_sofia",
-	"lehdet_solidaarisuus",
-	"lehdet_sosiaalivakuutus",
-	"lehdet_stiiknafuulia",
-	"lehdet_sukuviesti",
-	"lehdet_suomen_historiallinen",
-	"lehdet_suomenmaa",
-	"lehdet_seniorilehti",
-	"lehdet_suomi_puola",
-	"lehdet_super",
-	"lehdet_susikko",
-	"lehdet_sydan_hameen_lehti",
-	"lehdet_syopa",
-	"lehdet_syopasaation_focus",
-	"lehdet_sosso",
+        "lehdet_saarijarvelainen",
+        "lehdet_saariselka",
+        "lehdet_saima",
+        "lehdet_secretarius",
+        "lehdet_selkosanomat",
+        "lehdet_signum",
+        "lehdet_skrolli",
+        "lehdet_sofia",
+        "lehdet_solidaarisuus",
+        "lehdet_sosiaalivakuutus",
+        "lehdet_stiiknafuulia",
+        "lehdet_sukuviesti",
+        "lehdet_suomen_historiallinen",
+        "lehdet_suomenmaa",
+        "lehdet_seniorilehti",
+        "lehdet_suomi_puola",
+        "lehdet_super",
+        "lehdet_susikko",
+        "lehdet_sydan_hameen_lehti",
+        "lehdet_syopa",
+        "lehdet_syopasaation_focus",
+        "lehdet_sosso",
   ]
 }
 
@@ -749,42 +749,42 @@ settings.corporafolders.lehdet.muut_lehdet.t = {
     title: "T",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (T-alkuiset)",
     contents: [
-	"lehdet_taku",
-	"lehdet_talentia",
-	"lehdet_taloustaito",
-	"lehdet_tamk_nyt",
-	"lehdet_tampere",
-	"lehdet_kauppakamarilehti",
-	"lehdet_tampereen_liikuntasanomat",
-	"lehdet_tampu",
-	"lehdet_tanhuviesti",
-	"lehdet_tanssiurheilija",
-	"lehdet_tapaturmavakuutus",
-	"lehdet_tapiolan_asiakaslehti",
-	"lehdet_tatsi",
-	"lehdet_tek_verkkolehti",
-	"lehdet_teollisuussuomi",
-	"lehdet_terve_elama",
-	"lehdet_terve_pirkanmaa",
-	"lehdet_tervetuloa_jyvaskylaan",
-	"lehdet_terveydeksi",
-	"lehdet_tiedetoimittaja",
-	"lehdet_tiedosta",
-	"lehdet_tietoa_maasta",
-	"lehdet_tietoarkisto",
-	"lehdet_tiimi",
-	"lehdet_toimi",
-	"lehdet_toisinsanoen",
-	"lehdet_toolilainen",
-	"lehdet_tukijalka",
-	"lehdet_tukilinja",
-	"lehdet_tukiviesti",
-	"lehdet_tuntosarvi",
-	"lehdet_turkuposti",
-	"lehdet_tutkain",
-	"lehdet_tuulivoima_tuulienergia_tuulensilma",
-	"lehdet_tyoelake",
-	"lehdet_taydellinenympyra",
+        "lehdet_taku",
+        "lehdet_talentia",
+        "lehdet_taloustaito",
+        "lehdet_tamk_nyt",
+        "lehdet_tampere",
+        "lehdet_kauppakamarilehti",
+        "lehdet_tampereen_liikuntasanomat",
+        "lehdet_tampu",
+        "lehdet_tanhuviesti",
+        "lehdet_tanssiurheilija",
+        "lehdet_tapaturmavakuutus",
+        "lehdet_tapiolan_asiakaslehti",
+        "lehdet_tatsi",
+        "lehdet_tek_verkkolehti",
+        "lehdet_teollisuussuomi",
+        "lehdet_terve_elama",
+        "lehdet_terve_pirkanmaa",
+        "lehdet_tervetuloa_jyvaskylaan",
+        "lehdet_terveydeksi",
+        "lehdet_tiedetoimittaja",
+        "lehdet_tiedosta",
+        "lehdet_tietoa_maasta",
+        "lehdet_tietoarkisto",
+        "lehdet_tiimi",
+        "lehdet_toimi",
+        "lehdet_toisinsanoen",
+        "lehdet_toolilainen",
+        "lehdet_tukijalka",
+        "lehdet_tukilinja",
+        "lehdet_tukiviesti",
+        "lehdet_tuntosarvi",
+        "lehdet_turkuposti",
+        "lehdet_tutkain",
+        "lehdet_tuulivoima_tuulienergia_tuulensilma",
+        "lehdet_tyoelake",
+        "lehdet_taydellinenympyra",
   ]
 }
 
@@ -792,18 +792,18 @@ settings.corporafolders.lehdet.muut_lehdet.u = {
     title: "U",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (U-alkuiset)",
     contents: [
-	"lehdet_ubik",
-	"lehdet_uiotus",
-	"lehdet_uljas",
-	"lehdet_uniikki",
-	"lehdet_unioni",
-	"lehdet_universitas",
-	"lehdet_universitaschydenius",
-	"lehdet_utain",
-	"lehdet_uusiouutiset",
-	"lehdet_uusipaiva",
-	"lehdet_uusi_safiiri",
-	"lehdet_uutis_jousi",
+        "lehdet_ubik",
+        "lehdet_uiotus",
+        "lehdet_uljas",
+        "lehdet_uniikki",
+        "lehdet_unioni",
+        "lehdet_universitas",
+        "lehdet_universitaschydenius",
+        "lehdet_utain",
+        "lehdet_uusiouutiset",
+        "lehdet_uusipaiva",
+        "lehdet_uusi_safiiri",
+        "lehdet_uutis_jousi",
   ]
 }
 
@@ -811,27 +811,27 @@ settings.corporafolders.lehdet.muut_lehdet.vw = {
     title: "V, W",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (V- ja W-alkuiset)",
     contents: [
-	"lehdet_vaasan_ylioppilaslehti",
-	"lehdet_valkoinen_kaapio",
-	"lehdet_valkonauha",
-	"lehdet_vammaisurheilu",
-	"lehdet_vanhustyo",
-	"lehdet_vankilavirkailija",
-	"lehdet_vantaan_akseli",
-	"lehdet_vantaan_asukaslehti",
-	"lehdet_vapaa_ajattelija",
-	"lehdet_vasama",
-	"lehdet_koskinen",
-	"lehdet_veturimies",
-	"lehdet_via",
-	"lehdet_via_helsinki",
-	"lehdet_vilkku",
-	"lehdet_virallinenlehti",
-	"lehdet_virilactis",
-	"lehdet_virta",
-	"lehdet_valitysuutiset",
-	"lehdet_walpo",
-	"lehdet_wieteri",
+        "lehdet_vaasan_ylioppilaslehti",
+        "lehdet_valkoinen_kaapio",
+        "lehdet_valkonauha",
+        "lehdet_vammaisurheilu",
+        "lehdet_vanhustyo",
+        "lehdet_vankilavirkailija",
+        "lehdet_vantaan_akseli",
+        "lehdet_vantaan_asukaslehti",
+        "lehdet_vapaa_ajattelija",
+        "lehdet_vasama",
+        "lehdet_koskinen",
+        "lehdet_veturimies",
+        "lehdet_via",
+        "lehdet_via_helsinki",
+        "lehdet_vilkku",
+        "lehdet_virallinenlehti",
+        "lehdet_virilactis",
+        "lehdet_virta",
+        "lehdet_valitysuutiset",
+        "lehdet_walpo",
+        "lehdet_wieteri",
   ]
 }
 
@@ -839,13 +839,13 @@ settings.corporafolders.lehdet.muut_lehdet.y = {
     title: "Y",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (Y-alkuiset)",
     contents: [
-	"lehdet_yhteenveto",
-	"lehdet_yhteishyva",
-	"lehdet_yhteishyva_ruoka",
-	"lehdet_yhys_tiedotuslehti",
-	"lehdet_yliopistolainen",
-	"lehdet_yrittajasanomat",
-	"lehdet_yritysetiikka",
+        "lehdet_yhteenveto",
+        "lehdet_yhteishyva",
+        "lehdet_yhteishyva_ruoka",
+        "lehdet_yhys_tiedotuslehti",
+        "lehdet_yliopistolainen",
+        "lehdet_yrittajasanomat",
+        "lehdet_yritysetiikka",
     ]
 };
 
@@ -859,11 +859,11 @@ settings.corporafolders.webnews.ylenews_fi = {
     title: "Ylen suomenkielinen uutisarkisto",
     description: "Ylen suomenkielinen uutisarkisto<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
     info: {
-	homepage: {
-	    name: "Yle Uutiset",
-	    url: "https://yle.fi",
-	    no_label: true,
-	},
+        homepage: {
+            name: "Yle Uutiset",
+            url: "https://yle.fi",
+            no_label: true,
+        },
     },
 };
 
@@ -873,13 +873,13 @@ settings.corporafolders.webnews.ylenews_fi.a = {
     // Contents are added later with settings.fn.add_corpus_settings
     contents: [],
     info: {
-	urn: "urn:nbn:fi:lb-2019121005",
-	metadata_urn: "urn:nbn:fi:lb-2019121003",
-	licence: {
-	    name: "CLARIN ACA +NC 1.0",
-	    urn: "urn:nbn:fi:lb-2019121002",
-	},
-	cite_id: "ylenews-fi-2011-2018-korp",
+        urn: "urn:nbn:fi:lb-2019121005",
+        metadata_urn: "urn:nbn:fi:lb-2019121003",
+        licence: {
+            name: "CLARIN ACA +NC 1.0",
+            urn: "urn:nbn:fi:lb-2019121002",
+        },
+        cite_id: "ylenews-fi-2011-2018-korp",
     }
 };
 
@@ -889,10 +889,10 @@ settings.corporafolders.webnews.ylenews_fi.s = {
     // Contents are added later with settings.fn.add_corpus_settings
     contents: [],
     info: {
-	urn: "urn:nbn:fi:lb-2019121006",
-	metadata_urn: "urn:nbn:fi:lb-2019121004",
-	licence: settings.licenceinfo.CC_BY,
-	cite_id: "ylenews-fi-2011-2018-s-korp",
+        urn: "urn:nbn:fi:lb-2019121006",
+        metadata_urn: "urn:nbn:fi:lb-2019121004",
+        licence: settings.licenceinfo.CC_BY,
+        cite_id: "ylenews-fi-2011-2018-s-korp",
     }
 };
 
@@ -903,30 +903,30 @@ settings.corporafolders.ftc = {
     title: "Suomen kielen tekstikokoelma (SKTP/FTC)",
     description: "Suomen kielen tekstikokoelma: Lemmie-palvelussa olleet osakorpukset",
     info: {
-	urn: "urn:nbn:fi:lb-2014052719",
-	metadata_urn: "urn:nbn:fi:lb-2016050207",
-	lbr_id: "urn:nbn:fi:lb-201403268",
-	licence: {
-	    name: "CLARIN RES +PLAN +NC +ND",
-	    urn: "urn:nbn:fi:lb-20150304137",
-	},
-	// KitWiki is no longer available and there is no replacement page yet
-	// homepage: {
-	//     name: "Aineiston kuvaus",
-	//     url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFtc",
-	//     no_label: true,
-	// },
-	cite_id: "ftc-korp",
+        urn: "urn:nbn:fi:lb-2014052719",
+        metadata_urn: "urn:nbn:fi:lb-2016050207",
+        lbr_id: "urn:nbn:fi:lb-201403268",
+        licence: {
+            name: "CLARIN RES +PLAN +NC +ND",
+            urn: "urn:nbn:fi:lb-20150304137",
+        },
+        // KitWiki is no longer available and there is no replacement page yet
+        // homepage: {
+        //     name: "Aineiston kuvaus",
+        //     url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFtc",
+        //     no_label: true,
+        // },
+        cite_id: "ftc-korp",
     },
 };
 
 settings.corporafolders.other_texts = {
     title: "Muita tekstejä",
     contents: [
-	"kfspc_fi",
-	"opensub_fi_2017",
-	"finstud",
-	"yoaineet",
+        "kfspc_fi",
+        "opensub_fi_2017",
+        "finstud",
+        "yoaineet",
     ]
 };
 
@@ -937,19 +937,19 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
     // settings
     contents: [],
     info: {
-	// URN information also in the corpus .info files; if you need
-	// to update the URNs, you should also check them.
-	urn: "urn:nbn:fi:lb-20151001",
-    	metadata_urn: "urn:nbn:fi:lb-20140730150",
-	licence: settings.licenceinfo.EUPL_11,
-	homepage: settings.fn.kaino_homepage(
-	    "teko/meta/presidentti/presidentti"),
-    	compiler: {
-    	    name: "Kotimaisten kielten keskus",
-    	    url: "http://www.kotus.fi/",
-    	    no_label: true
-	},
-	cite_id: "uudenvuodenpuheet",
+        // URN information also in the corpus .info files; if you need
+        // to update the URNs, you should also check them.
+        urn: "urn:nbn:fi:lb-20151001",
+        metadata_urn: "urn:nbn:fi:lb-20140730150",
+        licence: settings.licenceinfo.EUPL_11,
+        homepage: settings.fn.kaino_homepage(
+            "teko/meta/presidentti/presidentti"),
+        compiler: {
+            name: "Kotimaisten kielten keskus",
+            url: "http://www.kotus.fi/",
+            no_label: true
+        },
+        cite_id: "uudenvuodenpuheet",
     }
 }
 
@@ -958,18 +958,18 @@ settings.corporafolders.legal.semfinlex = {
     description: "Valikoima Eduskunnan alkuperäisiä säädöksiä (1917–2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980–2018) ja KHO:n päätöksiä (1987–2018).<br/><br/>2019-09-02: Huomaa, että aineiston <strong>dependenssijäsennykset ja -relaatiot poikkeavat merkittävästi</strong> aiemmin samalla jäsentimellä jäsennettyjen aineistojen jäsennyksistä. Selvitämme asiaa. <strong>Jos tarvitset dependenssijäsennystietoja, käytä toistaiseksi muita aineistoja.</strong>",
     contents: ["semfinlex_asd_fi_2018", "semfinlex_kko_fi_2018", "semfinlex_kho_fi_2018"],
     info: {
-	licence: settings.licenceinfo.CC_BY,
-	cite_id: "semfinlex",
+        licence: settings.licenceinfo.CC_BY,
+        cite_id: "semfinlex",
     }
 }
 
 settings.corporafolders.spoken = {
     title: "Puhuttua kieltä (tekstiksi litteroituna)",
     contents: [
-	"kotus_sp",
-	"skn",
-	"dma",
-	"arkisyn",
+        "kotus_sp",
+        "skn",
+        "dma",
+        "arkisyn",
     ],
     // unselected: true
 };
@@ -979,11 +979,11 @@ settings.corporafolders.spoken.la_murre = {
     description: "Lauseopin arkiston murrekorpus edustaa kaikkia nykyisen Suomen alueella puhuttuja suomen kielen murteita sekä lisäksi niitä murteita, joita puhuttiin Neuvostoliitolle viime sotien yhteydessä luovutetuilla alueilla ennen alueiden luovuttamista. Puhujat ovat syntyneet vuosina 1860–1910 (suurin osa 1880-luvulla) ja haastattelut on tehty 1950–1970-luvuilla, jolloin puhujat ovat olleet keskimäärin 80-vuotiaita.<br/>Yhdestä pitäjänmurteesta on yleensä valittu käsiteltäväksi yksi noin tunnin laajuinen äänite. Murreaineisto on litteroitu sekä koodattu morfologisesti ja syntaktisesti. Tässä on saatavilla korpuksen versio, jossa litteraatit on karkeasti kohdistettu alkuperäisiin äänitteisiin.",
     // unselected: true,
     info: {
-	urn: "urn:nbn:fi:lb-2014052715",
-	metadata_urn: "urn:nbn:fi:lb-2014052716",
-	licence: settings.licenceinfo.CC_BY_ND_40,
-	infopage_url: "https://www.kielipankki.fi/aineistot/la-murre/",
-	cite_id: "LA-murre-korp",
+        urn: "urn:nbn:fi:lb-2014052715",
+        metadata_urn: "urn:nbn:fi:lb-2014052716",
+        licence: settings.licenceinfo.CC_BY_ND_40,
+        infopage_url: "https://www.kielipankki.fi/aineistot/la-murre/",
+        cite_id: "LA-murre-korp",
     }
  };
 
@@ -1003,8 +1003,8 @@ settings.corporafolders.selkokieli.lehdet = {
     // chooser title bar counts them twice. However, search results
     // come only once from each corpus, as is desirable.
     contents: [
-	"lehdet_leija",
-	"lehdet_selkosanomat",
+        "lehdet_leija",
+        "lehdet_selkosanomat",
     ],
 };
 
@@ -1013,15 +1013,15 @@ settings.corporafolders.selkokieli.ylenews_fi_selko = {
     title: "Ylen suomenkielisen uutisarkiston selkouutiset",
     description: "Ylen suomenkielisen uutisarkiston selkouutiset<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
     contents: [
-	       "ylenews_fi_2011_2018_selko_a",
-	       "ylenews_fi_2011_2018_selko_s",
-	       ],
+               "ylenews_fi_2011_2018_selko_a",
+               "ylenews_fi_2011_2018_selko_s",
+               ],
     info: {
-	homepage: {
-	    name: "Yle Uutiset selkosuomeksi",
-	    url: "https://yle.fi/uutiset/osasto/selkouutiset/",
-	    no_label: true,
-	},
+        homepage: {
+            name: "Yle Uutiset selkosuomeksi",
+            url: "https://yle.fi/uutiset/osasto/selkouutiset/",
+            no_label: true,
+        },
     },
 };
 
@@ -1042,7 +1042,7 @@ settings.corporafolders.learner.las2 = {
             name: "CLARIN RES +PLAN +NC +INF +LOC +ND",
             urn: "urn:nbn:fi:lb-2015041305",
         },
-	cite_id: "LAS2",
+        cite_id: "LAS2",
     },
     contents: ["las2_tentit", "las2_esseet"]
 };
@@ -1050,25 +1050,25 @@ settings.corporafolders.learner.las2 = {
 settings.corporafolders.vks = {
     title: "Vanhan kirjasuomen korpus",
     contents: [
-	"vks_agricola",
-	"vks_biblia",
-	"vks_lait",
-	"vks_saarnat",
-	"vks_almanakat",
-	"vks_bjorkqvist",
-	"vks_frosterus",
-	"vks_ganander",
-	"vks_lizelius",
-	"vks_lpetri",
-	"vks_varia",
-	"vks_virret"
+        "vks_agricola",
+        "vks_biblia",
+        "vks_lait",
+        "vks_saarnat",
+        "vks_almanakat",
+        "vks_bjorkqvist",
+        "vks_frosterus",
+        "vks_ganander",
+        "vks_lizelius",
+        "vks_lpetri",
+        "vks_varia",
+        "vks_virret"
     ],
     info: {
-	urn: "urn:nbn:fi:lb-201407166",
-	metadata_urn: "urn:nbn:fi:lb-201407165",
-	licence: settings.licenceinfo.EUPL_11,
-	homepage: settings.fn.kaino_homepage("vks/meta/vks"),
-	cite_id: "VKS",
+        urn: "urn:nbn:fi:lb-201407166",
+        metadata_urn: "urn:nbn:fi:lb-201407165",
+        licence: settings.licenceinfo.EUPL_11,
+        homepage: settings.fn.kaino_homepage("vks/meta/vks"),
+        cite_id: "VKS",
     },
     // unselected: true
 };
@@ -1078,11 +1078,11 @@ settings.corporafolders.vns = {
     /*contents: ["vns_asetus", "vns_renqvist", "vns_renvall"],*/
     contents: ["vnsk_aejmelaeus","vnsk_ahlholm","vnsk_ahlman_kirjat","vnsk_ahlman_sanastot","vnsk_ahlqvist","vnsk_akiander","vnsk_aminoff","vnsk_almanakka","vnsk_anonyymi","vnsk_asetus","vnsk_aulen","vnsk_backvall","vnsk_bocker","vnsk_bonsdorff","vnsk_borenius","vnsk_borg","vnsk_cajan","vnsk_cannelin","vnsk_cantell","vnsk_canth","vnsk_corander","vnsk_costiander","vnsk_dahlberg","vnsk_edlund","vnsk_eklof","vnsk_euren","vnsk_europaeus","vnsk_europaeus_sanastot","vnsk_fabritius","vnsk_forsman","vnsk_forstrom","vnsk_friman","vnsk_frosterus","vnsk_gottlund","vnsk_granlund","vnsk_hannikainen","vnsk_hjelt","vnsk_hordh","vnsk_hornborg","vnsk_ignatius","vnsk_ingman","vnsk_innain","vnsk_juteini","vnsk_keckman","vnsk_kemell","vnsk_kilpinen","vnsk_kivi","vnsk_koskinen","vnsk_krohn","vnsk_lagervall","vnsk_lankela","vnsk_lavonius","vnsk_lilius_anton","vnsk_lilius_aukusti","vnsk_lonnrot","vnsk_malmberg","vnsk_mehilainen","vnsk_mela","vnsk_meurman","vnsk_mmy","vnsk_murman","vnsk_muut","vnsk_nyman","vnsk_ovs","vnsk_polen","vnsk_poppius","vnsk_puhuttelija","vnsk_rein","vns_renvall","vnsk_roos","vnsk_salmelainen","vnsk_salonius","vnsk_sanaluettelot","vnsk_sandberg","vnsk_schroter","vnsk_sirelius","vnsk_skogman","vnsk_smtr","vnsk_sohlberg","vnsk_soldan","vnsk_ssv","vnsk_stahlberg","vnsk_tarvanen","vnsk_ticklen","vnsk_tikkanen","vnsk_topelius","vnsk_toppelius","vnsk_tvs","vnsk_varelius","vnsk_virsikirja","vnsk_wallin","vnsk_wikman","vnsk_wiwolin","vnsk_yksitt"],
     info: {
-	urn: "urn:nbn:fi:lb-2016081203",
-	metadata_urn: "urn:nbn:fi:lb-20140730147",
-	licence: settings.licenceinfo.EUPL_11,
-	homepage: settings.fn.kaino_homepage("1800/meta/1800"),
-	cite_id: "VNSK",
+        urn: "urn:nbn:fi:lb-2016081203",
+        metadata_urn: "urn:nbn:fi:lb-20140730147",
+        licence: settings.licenceinfo.EUPL_11,
+        homepage: settings.fn.kaino_homepage("1800/meta/1800"),
+        cite_id: "VNSK",
     },
     // unselected: true
 };
@@ -1130,17 +1130,17 @@ settings.corpora.testcorp = {
     context: defaultContext,
     // limitedAccess: true,
     attributes: {
-	lemma: attrs.baseform,
+        lemma: attrs.baseform,
         pos: attrs.pos
     },
     structAttributes: {
-	sentence_id: {
-	    label: "sentence_id"
-	},
-	sentence_url: {
-	    label: "file_url",
-	    type: "url"
-	}
+        sentence_id: {
+            label: "sentence_id"
+        },
+        sentence_url: {
+            label: "file_url",
+            type: "url"
+        }
     }
 };
 */
@@ -1153,17 +1153,17 @@ settings.corpora.testcorp_deptree = {
     within: settings.defaultWithin,
     context: defaultContext,
     attributes: {
-	lemma: attrs.baseform_ftb2,
+        lemma: attrs.baseform_ftb2,
         pos: attrs.pos_ftb2,
-	msd: attrs.msd,
-	dephead: attrs.dephead,
-	deprel: attrs.deprel_ftb2,
-	ref: attrs.ref,
-	spoken: attrs.spoken,
-	lex: attrs.lemgram_hidden
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_ftb2,
+        ref: attrs.ref,
+        spoken: attrs.spoken,
+        lex: attrs.lemgram_hidden
     },
     structAttributes: {
-	sentence_id: sattrs.sentence_id_hidden
+        sentence_id: sattrs.sentence_id_hidden
     }
 };
 */
@@ -1175,7 +1175,7 @@ settings.corpora.kal_perus_ha = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
         text_id: sattrs.hidden,
-	text_title: sattrs.text_title,
+        text_title: sattrs.text_title,
         text_year: sattrs.year,
         text_issue: {
             label: "issue"
@@ -1203,7 +1203,7 @@ settings.corpora.kal_perus_la = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
         text_id: sattrs.hidden,
-	text_title: sattrs.text_title,
+        text_title: sattrs.text_title,
         text_year: sattrs.year,
         text_issue: {
             label: "issue"
@@ -1231,7 +1231,7 @@ settings.corpora.kal_perus_sk = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
         text_id: sattrs.hidden,
-	text_title: sattrs.text_title,
+        text_title: sattrs.text_title,
         text_year: sattrs.year,
         text_issue: {
             label: "issue"
@@ -1258,7 +1258,7 @@ settings.corpora.kal_perus_su = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
         text_id: sattrs.hidden,
-	text_title: sattrs.text_title,
+        text_title: sattrs.text_title,
         text_year: sattrs.year,
         text_issue: {
             label: "issue"
@@ -1285,7 +1285,7 @@ settings.corpora.kal_ydin_ha = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
         text_id: sattrs.hidden,
-	text_title: sattrs.text_title,
+        text_title: sattrs.text_title,
         text_year: sattrs.year,
         text_issue: {
             label: "issue"
@@ -1315,7 +1315,7 @@ settings.corpora.kal_ydin_la = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
         text_id: sattrs.hidden,
-	text_title: sattrs.text_title,
+        text_title: sattrs.text_title,
         text_year: sattrs.year,
         text_issue: {
             label: "issue"
@@ -1345,7 +1345,7 @@ settings.corpora.kal_ydin_sk = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
         text_id: sattrs.hidden,
-	text_title: sattrs.text_title,
+        text_title: sattrs.text_title,
         text_year: sattrs.year,
         text_issue: {
             label: "issue"
@@ -1375,7 +1375,7 @@ settings.corpora.kal_ydin_su = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
         text_id: sattrs.hidden,
-	text_title: sattrs.text_title,
+        text_title: sattrs.text_title,
         text_year: sattrs.year,
         text_issue: {
             label: "issue"
@@ -1408,29 +1408,29 @@ settings.corpora.semfinlex_asd_fi_2018 = {
     licence : settings.licenceinfo.CC_BY,
     features: ["paragraphs", "parsed_tdt"],
     structAttributes : {
-	text_url : {
-	    label : "URL",
-	    type : "url",
-	    url_opts : sattrs.link_url_opts
-	},
-	text_parl_statute_type: {
+        text_url : {
+            label : "URL",
+            type : "url",
+            url_opts : sattrs.link_url_opts
+        },
+        text_parl_statute_type: {
             label: "parl_statute_type",
-	    displayType: "select",
-	    opts: liteOptions,
-	    translationKey: "parlstatutetype_",
-	    dataset: [
-		"laki",
-		"asetus",
-		"paatos",
-		"ilmoitus",
-		"tyojarjestys",
-		"kirje",
-		"luettelo",
-		"kuulutus",
-		"kaari",
-		""
-	    ]
-	}
+            displayType: "select",
+            opts: liteOptions,
+            translationKey: "parlstatutetype_",
+            dataset: [
+                "laki",
+                "asetus",
+                "paatos",
+                "ilmoitus",
+                "tyojarjestys",
+                "kirje",
+                "luettelo",
+                "kuulutus",
+                "kaari",
+                ""
+            ]
+        }
     },
 }
 
@@ -1444,12 +1444,12 @@ settings.corpora.semfinlex_kko_fi_2018 = {
     licence : settings.licenceinfo.CC_BY,
     features: ["paragraphs", "parsed_tdt"],
     structAttributes : {
-	text_url : {
-	    label : "URL",
-	    type : "url",
-	    url_opts : sattrs.link_url_opts
-	},
-	text_keywords: {label: "keywords"}
+        text_url : {
+            label : "URL",
+            type : "url",
+            url_opts : sattrs.link_url_opts
+        },
+        text_keywords: {label: "keywords"}
     },
 }
 
@@ -1463,12 +1463,12 @@ settings.corpora.semfinlex_kho_fi_2018 = {
     licence : settings.licenceinfo.CC_BY,
     features: ["paragraphs", "parsed_tdt"],
     structAttributes : {
-	text_url : {
-	    label : "URL",
-	    type : "url",
-	    url_opts : sattrs.link_url_opts
-	},
-	text_keywords: {label: "keywords"}
+        text_url : {
+            label : "URL",
+            type : "url",
+            url_opts : sattrs.link_url_opts
+        },
+        text_keywords: {label: "keywords"}
     },
 }
 
@@ -1479,8 +1479,8 @@ settings.corpora.finstud = {
     urn: "urn:nbn:fi:lb-2016090610",
     metadata_urn: "urn:nbn:fi:lb-20140730158",
     licence: {
-	name: "CLARIN RES +PLAN +NC +PRIV 1.0",
-	urn: "urn:nbn:fi:lb-2016041802",
+        name: "CLARIN RES +PLAN +NC +PRIV 1.0",
+        urn: "urn:nbn:fi:lb-2016041802",
     },
     cite_id: "FinStud86",
     limitedAccess: true,
@@ -1503,28 +1503,28 @@ settings.corpora.ftb2 = {
     within: settings.defaultWithin,
     context: defaultContext,
     attributes: {
-	lemma: attrs.baseform_ftb2,
+        lemma: attrs.baseform_ftb2,
         pos: attrs.pos_ftb2,
-	msd: attrs.msd,
-	dephead: attrs.dephead,
-	deprel: attrs.deprel_ftb2,
-	ref: attrs.ref,
-	lex: attrs.lemgram_hidden
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_ftb2,
+        ref: attrs.ref,
+        lex: attrs.lemgram_hidden
     },
     structAttributes: {
-	subcorpus_name: {
-	    label: "subcorpus_name",
-	    displayType: "select",
-	    translationKey: "subcorp_",
-	    dataset: {
-		// "news-samples": "news-samples",
-		// "sofie12": "sofie12",
-		"visk-sent": "visk-sent",
-		"wikipedia-samples": "wikipedia-samples"
-	    },
+        subcorpus_name: {
+            label: "subcorpus_name",
+            displayType: "select",
+            translationKey: "subcorp_",
+            dataset: {
+                // "news-samples": "news-samples",
+                // "sofie12": "sofie12",
+                "visk-sent": "visk-sent",
+                "wikipedia-samples": "wikipedia-samples"
+            },
             opts: liteOptions
-	},
-	sentence_id: sattrs.sentence_id_hidden
+        },
+        sentence_id: sattrs.sentence_id_hidden
     }
 };
 
@@ -1536,33 +1536,33 @@ settings.corpora.ftb3 = {
     within: settings.defaultWithin,
     context: defaultContext,
     attributes: {
-	lemma: attrs.baseform_ftb2,
-	lemmacomp: attrs.baseform_compound,
+        lemma: attrs.baseform_ftb2,
+        lemmacomp: attrs.baseform_compound,
         pos: attrs.pos_ftb3,
-	posorig: attrs.pos_ftb3_orig,
-	msd: attrs.msd,
-	dephead: attrs.dephead,
-	deprel: attrs.deprel_ftb2,
-	lex: attrs.lemgram_hidden
+        posorig: attrs.pos_ftb3_orig,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_ftb2,
+        lex: attrs.lemgram_hidden
     },
     structAttributes: {
-	subcorpus_name: {
-	    label: "subcorpus_name",
-	    displayType: "select",
-	    translationKey: "ftb3_subcorp_",
-	    dataset: {
-		"JRC_Acquis": "jrc-acquis",
-		"EuroParl": "europarl",
-	    },
+        subcorpus_name: {
+            label: "subcorpus_name",
+            displayType: "select",
+            translationKey: "ftb3_subcorp_",
+            dataset: {
+                "JRC_Acquis": "jrc-acquis",
+                "EuroParl": "europarl",
+            },
             opts: liteOptions
-	},
-	file_name: {
-	    label: "file_name",
-	},
-	sentence_id: sattrs.sentence_id_hidden,
-	sentence_line: {
-	    label: "sentence_line",
-	}
+        },
+        file_name: {
+            label: "file_name",
+        },
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_line: {
+            label: "sentence_line",
+        }
     }
 };
 */
@@ -1574,74 +1574,74 @@ settings.corpora.ftb3_europarl = {
     within: spWithin,
     context: spContext,
     attributes: {
-	lemma: attrs.baseform_ftb2,
-	lemmacomp: attrs.baseform_compound,
-	pos: attrs.pos_ftb31,
-	msd: attrs.msd,
-	dephead: attrs.dephead,
-	deprel: attrs.deprel_ftb2,
-	ref: attrs.ref,
-	lex: attrs.lemgram_hidden
+        lemma: attrs.baseform_ftb2,
+        lemmacomp: attrs.baseform_compound,
+        pos: attrs.pos_ftb31,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_ftb2,
+        ref: attrs.ref,
+        lex: attrs.lemgram_hidden
     },
     structAttributes: {
-	text_filename: {
-	    label: "file_name",
-	},
-	chapter_id: {
-	    label: "chapter_id",
-	    displayType: "hidden",
-	},
-	chapter_title: {
-	    label: "chapter_title",
-	},
-	paragraph_id: {
-	    label: "paragraph_id",
-	    displayType: "hidden",
-	},
-	speech_speakerid: {
-	    label: "speech_speakerid",
-	    displayType: "hidden",
-	},
-	speech_speakername: {
-	    label: "speech_speakername",
-	},
-	speech_language: {
-	    label: "speech_language",
-	    displayType: "select",
-	    translationKey: "ftb3_europarl_language_",
-	    dataset: {
-		"bg": "bg",
-		"cs": "cs",
-		"da": "da",
-		"de": "de",
-		"el": "el",
-		"en": "en",
-		"es": "es",
-		"et": "et",
-		"eu": "eu",
-		"fi": "fi",
-		"fr": "fr",
-		"ga": "ga",
-		"hu": "hu",
-		"it": "it",
-		"lt": "lt",
-		"lv": "lv",
-		"mt": "mt",
-		"nl": "nl",
-		"pl": "pl",
-		"pt": "pt",
-		"ro": "ro",
-		"sk": "sk",
-		"sl": "sl",
-		"sv": "sv",
-		"und": "und",
-	    },
-	    opts: liteOptions
-	},
-	sentence_id: sattrs.sentence_id_hidden,
-	sentence_line: {
-	    label: "sentence_line",
-	},
+        text_filename: {
+            label: "file_name",
+        },
+        chapter_id: {
+            label: "chapter_id",
+            displayType: "hidden",
+        },
+        chapter_title: {
+            label: "chapter_title",
+        },
+        paragraph_id: {
+            label: "paragraph_id",
+            displayType: "hidden",
+        },
+        speech_speakerid: {
+            label: "speech_speakerid",
+            displayType: "hidden",
+        },
+        speech_speakername: {
+            label: "speech_speakername",
+        },
+        speech_language: {
+            label: "speech_language",
+            displayType: "select",
+            translationKey: "ftb3_europarl_language_",
+            dataset: {
+                "bg": "bg",
+                "cs": "cs",
+                "da": "da",
+                "de": "de",
+                "el": "el",
+                "en": "en",
+                "es": "es",
+                "et": "et",
+                "eu": "eu",
+                "fi": "fi",
+                "fr": "fr",
+                "ga": "ga",
+                "hu": "hu",
+                "it": "it",
+                "lt": "lt",
+                "lv": "lv",
+                "mt": "mt",
+                "nl": "nl",
+                "pl": "pl",
+                "pt": "pt",
+                "ro": "ro",
+                "sk": "sk",
+                "sl": "sl",
+                "sv": "sv",
+                "und": "und",
+            },
+            opts: liteOptions
+        },
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_line: {
+            label: "sentence_line",
+        },
     }
 };
 
@@ -1652,37 +1652,37 @@ settings.corpora.ftb3_jrcacquis = {
     within: spWithin,
     context: spContext,
     attributes: {
-	lemma: attrs.baseform_ftb2,
-	lemmacomp: attrs.baseform_compound,
-	pos: attrs.pos_ftb31,
-	msd: attrs.msd,
-	dephead: attrs.dephead,
-	deprel: attrs.deprel_ftb2,
-	ref: attrs.ref,
-	lex: attrs.lemgram_hidden
+        lemma: attrs.baseform_ftb2,
+        lemmacomp: attrs.baseform_compound,
+        pos: attrs.pos_ftb31,
+        msd: attrs.msd,
+        dephead: attrs.dephead,
+        deprel: attrs.deprel_ftb2,
+        ref: attrs.ref,
+        lex: attrs.lemgram_hidden
     },
     structAttributes: {
-	text_filename: {
-	    label: "file_name",
-	},
-	text_title: {
-	    label: "file_title",
-	},
-	text_codetitle: {
-	    label: "file_codetitle",
-	},
-	text_url: {
-	    label: "file_url",
-	    type: "url",
-	},
-	paragraph_id: {
-	    label: "paragraph_id",
-	    displayType: "hidden",
-	},
-	sentence_id: sattrs.sentence_id_hidden,
-	sentence_line: {
-	    label: "sentence_line",
-	}
+        text_filename: {
+            label: "file_name",
+        },
+        text_title: {
+            label: "file_title",
+        },
+        text_codetitle: {
+            label: "file_codetitle",
+        },
+        text_url: {
+            label: "file_url",
+            type: "url",
+        },
+        paragraph_id: {
+            label: "paragraph_id",
+            displayType: "hidden",
+        },
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_line: {
+            label: "sentence_line",
+        }
     }
 };
 
@@ -2176,20 +2176,20 @@ title: "Kosmopolis",
     structAttributes: {
     text_citationabstracthtmlurl: sattrs.link_lehdet,
         text_citationauthors: {
-	label: "text_author"
-	    },
+        label: "text_author"
+            },
         text_citationpublisher: {
-	label: "text_publisher"
-	    },
+        label: "text_publisher"
+            },
         text_citationtitle: {
-	label: "text_title"
-	    },
+        label: "text_title"
+            },
         text_citationdate: {
-	label: "year"
-	    },
+        label: "year"
+            },
         text_citation: {
-	label: "issue"
-	    }
+        label: "issue"
+            }
     }
 };
 
@@ -2286,8 +2286,8 @@ settings.corpora.tiedelehdet_mediajaviestinta = {
     id: "tiedelehdet_mediajaviestinta",
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_issue: {
-	    label: "issue"
+        text_issue: {
+            label: "issue"
         }
     }
 };
@@ -3383,9 +3383,9 @@ settings.corpora.lehdet_ekonomi = {
         text_title: sattrs.text_title,
         text_date: sattrs.date,
         text_url: sattrs.link_lehdet,
-	text_issue: {
-	    label: "issue"
-	}
+        text_issue: {
+            label: "issue"
+        }
     }
 };
 
@@ -3454,7 +3454,7 @@ settings.corpora.lehdet_aino = {
             label: "issue",
         },
         text_title: sattrs.text_title,
-	text_url: sattrs.link_lehdet,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -3544,7 +3544,7 @@ settings.corpora.lehdet_ananda = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
         text_title: sattrs.text_title,
-	text_url: sattrs.link_lehdet,
+        text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
@@ -3688,7 +3688,7 @@ settings.corpora.lehdet_asuminen_yhteiskunta = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
         text_title: sattrs.text_title,
-	text_url: sattrs.link_lehdet,
+        text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
@@ -4039,7 +4039,7 @@ settings.corpora.lehdet_ethnos = {
             label: "year",
         },
         text_title: sattrs.text_title,
-	text_url: sattrs.link_lehdet,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -4053,7 +4053,7 @@ settings.corpora.lehdet_eurooppalainen = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
         text_title: sattrs.text_title,
-	text_url: sattrs.link_lehdet,
+        text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
@@ -4073,7 +4073,7 @@ settings.corpora.lehdet_curly = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
         text_title: sattrs.text_title,
-	text_url: sattrs.link_lehdet,
+        text_url: sattrs.link_lehdet,
         text_year: {
             label: "year",
         },
@@ -5022,7 +5022,7 @@ settings.corpora.lehdet_pihlajisto_viikinmaki = {
             label: "year",
         },
         text_title: sattrs.text_title,
-	text_url: sattrs.link_lehdet,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -5842,7 +5842,7 @@ settings.corpora.lehdet_elamassa_kelansanomat = {
             label: "year",
         },
         text_title: sattrs.text_title,
-	text_url: sattrs.link_lehdet,
+        text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
@@ -5867,7 +5867,7 @@ settings.corpora.lehdet_sosiaalivakuutus = {
             label: "issue",
         },
         text_title: sattrs.text_title,
-	text_url: sattrs.link_lehdet,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -6147,7 +6147,7 @@ settings.corpora.lehdet_kehittaja = {
             label: "year",
         },
         text_title: sattrs.text_title,
-	text_url: sattrs.link_lehdet,
+        text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -6341,7 +6341,7 @@ settings.corpora.lehdet_kirjo = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -6350,7 +6350,7 @@ settings.corpora.lehdet_kirjo = {
             label: "issue",
         },
         text_title: sattrs.text_title,
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -6363,8 +6363,8 @@ settings.corpora.lehdet_kita = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
-	text_filename: sattrs.hidden,
+        text_id: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -6385,7 +6385,7 @@ settings.corpora.lehdet_koiviston_viesti = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_title: sattrs.text_title,
         text_url: sattrs.link_lehdet,
         text_year: {
@@ -6394,7 +6394,7 @@ settings.corpora.lehdet_koiviston_viesti = {
         text_issue: {
             label: "issue",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -6407,8 +6407,8 @@ settings.corpora.lehdet_koor = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
-	text_filename: sattrs.hidden,
+        text_id: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -6429,12 +6429,12 @@ settings.corpora.lehdet_kotosalla = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -6451,9 +6451,9 @@ settings.corpora.lehdet_kuljetusyrittaja = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_url: sattrs.link_lehdet,
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_title: sattrs.text_title,
         text_year: {
             label: "year",
@@ -6473,7 +6473,7 @@ settings.corpora.lehdet_kumina = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -6482,7 +6482,7 @@ settings.corpora.lehdet_kumina = {
         text_issue: {
             label: "issue",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -6495,11 +6495,11 @@ settings.corpora.lehdet_kyvyt_kayttoon_vates = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         text_title: sattrs.text_title,
         text_issue: {
@@ -6517,11 +6517,11 @@ settings.corpora.lehdet_lahde_liikkeelle = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_title: sattrs.text_title,
         text_issue: {
             label: "issue",
@@ -6539,9 +6539,9 @@ settings.corpora.lehdet_maailma_kiitotie = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_url: sattrs.link_lehdet,
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -6561,13 +6561,13 @@ settings.corpora.lehdet_materia = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         text_year: {
             label: "year",
         },
         text_title: sattrs.text_title,
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -6583,7 +6583,7 @@ settings.corpora.lehdet_matkailusilma = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -6592,7 +6592,7 @@ settings.corpora.lehdet_matkailusilma = {
             label: "issue",
         },
         text_title: sattrs.text_title,
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -6605,7 +6605,7 @@ settings.corpora.lehdet_meripelastus = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -6614,7 +6614,7 @@ settings.corpora.lehdet_meripelastus = {
         text_issue: {
             label: "issue",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -6631,12 +6631,12 @@ settings.corpora.lehdet_merkonomi = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
         text_url: sattrs.link_lehdet,
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -6653,12 +6653,12 @@ settings.corpora.lehdet_minna = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_title: sattrs.text_title,
         text_issue: {
             label: "issue",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -6675,14 +6675,14 @@ settings.corpora.lehdet_motiva_mplus_xpress = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
         text_year: {
             label: "year",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_title: sattrs.text_title,
         text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
@@ -6697,7 +6697,7 @@ settings.corpora.lehdet_muusikko = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -6706,7 +6706,7 @@ settings.corpora.lehdet_muusikko = {
         text_year: {
             label: "year",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -6719,11 +6719,11 @@ settings.corpora.lehdet_nakyva_nainen = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_title: sattrs.text_title,
         text_year: {
             label: "year",
@@ -6741,8 +6741,8 @@ settings.corpora.lehdet_ostrobotnia = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
-	text_filename: sattrs.hidden,
+        text_id: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
@@ -6763,12 +6763,12 @@ settings.corpora.lehdet_oulunkylainen = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
         text_url: sattrs.link_lehdet,
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -6785,13 +6785,13 @@ settings.corpora.lehdet_patria = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_title: sattrs.text_title,
         text_issue: {
             label: "issue",
         },
         text_url: sattrs.link_lehdet,
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -6807,12 +6807,12 @@ settings.corpora.lehdet_perussuomalainen = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -6829,12 +6829,12 @@ settings.corpora.lehdet_pihlajamaki_info = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
         text_title: sattrs.text_title,
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -6851,13 +6851,13 @@ settings.corpora.lehdet_pirta = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
         text_url: sattrs.link_lehdet,
         text_title: sattrs.text_title,
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -6873,7 +6873,7 @@ settings.corpora.lehdet_plari = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
@@ -6882,7 +6882,7 @@ settings.corpora.lehdet_plari = {
             label: "year",
         },
         text_title: sattrs.text_title,
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -6895,11 +6895,11 @@ settings.corpora.lehdet_prointerior = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -6917,11 +6917,11 @@ settings.corpora.lehdet_proresto = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
@@ -6939,7 +6939,7 @@ settings.corpora.lehdet_ruotuvaki = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_title: sattrs.text_title,
         text_year: {
             label: "year",
@@ -6959,7 +6959,7 @@ settings.corpora.lehdet_saariselka = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -6979,9 +6979,9 @@ settings.corpora.lehdet_saima = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_url: sattrs.link_lehdet,
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -7001,7 +7001,7 @@ settings.corpora.lehdet_secretarius = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_title: sattrs.text_title,
         text_year: {
             label: "year",
@@ -7021,7 +7021,7 @@ settings.corpora.lehdet_skrolli = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -7030,7 +7030,7 @@ settings.corpora.lehdet_skrolli = {
         },
         text_url: sattrs.link_lehdet,
         text_title: sattrs.text_title,
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -7043,7 +7043,7 @@ settings.corpora.lehdet_sosso = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -7063,14 +7063,14 @@ settings.corpora.lehdet_sukuviesti = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
         text_issue: {
             label: "issue",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_title: sattrs.text_title,
         text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
@@ -7085,7 +7085,7 @@ settings.corpora.lehdet_suomen_historiallinen = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -7094,7 +7094,7 @@ settings.corpora.lehdet_suomen_historiallinen = {
         },
         text_url: sattrs.link_lehdet,
         text_title: sattrs.text_title,
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -7107,7 +7107,7 @@ settings.corpora.lehdet_suomi_puola = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         text_title: sattrs.text_title,
         text_issue: {
@@ -7116,7 +7116,7 @@ settings.corpora.lehdet_suomi_puola = {
         text_year: {
             label: "year",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
     },
@@ -7129,13 +7129,13 @@ settings.corpora.lehdet_susikko = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
         text_title: sattrs.text_title,
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -7151,8 +7151,8 @@ settings.corpora.lehdet_tamk_nyt = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
-	text_filename: sattrs.hidden,
+        text_id: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_title: sattrs.text_title,
         text_year: {
             label: "year",
@@ -7173,11 +7173,11 @@ settings.corpora.lehdet_tampere = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_title: sattrs.text_title,
         text_year: {
             label: "year",
@@ -7195,7 +7195,7 @@ settings.corpora.lehdet_tampereen_liikuntasanomat = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -7203,7 +7203,7 @@ settings.corpora.lehdet_tampereen_liikuntasanomat = {
         text_issue: {
             label: "issue",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         paragraph_id: sattrs.paragraph_id_hidden,
         sentence_id: sattrs.sentence_id_hidden,
@@ -7217,7 +7217,7 @@ settings.corpora.lehdet_tampu = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_title: sattrs.text_title,
         text_issue: {
             label: "issue",
@@ -7237,12 +7237,12 @@ settings.corpora.lehdet_tanhuviesti = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_title: sattrs.text_title,
         text_year: {
             label: "year",
         },
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -7259,9 +7259,9 @@ settings.corpora.lehdet_tanssiurheilija = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_url: sattrs.link_lehdet,
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
@@ -7281,7 +7281,7 @@ settings.corpora.lehdet_elamantahdet_terve = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_title: sattrs.text_title,
         text_issue: {
             label: "issue",
@@ -7301,7 +7301,7 @@ settings.corpora.lehdet_terve_pirkanmaa = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_year: {
             label: "year",
         },
@@ -7321,12 +7321,12 @@ settings.corpora.lehdet_tervetuloa_jyvaskylaan = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_issue: {
             label: "issue",
         },
         text_title: sattrs.text_title,
-	text_filename: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         text_year: {
             label: "year",
@@ -7343,8 +7343,8 @@ settings.corpora.lehdet_tietoa_maasta = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
-	text_filename: sattrs.hidden,
+        text_id: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_title: sattrs.text_title,
         text_url: sattrs.link_lehdet,
         text_issue: {
@@ -7365,7 +7365,7 @@ settings.corpora.lehdet_tietoarkisto = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
@@ -7386,7 +7386,7 @@ settings.corpora.lehdet_tiimi = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
+        text_id: sattrs.hidden,
         text_title: sattrs.text_title,
         text_url: sattrs.link_lehdet,
         text_year: {
@@ -7408,8 +7408,8 @@ settings.corpora.lehdet_rautatievirkamies = {
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_id: sattrs.hidden,
-	text_filename: sattrs.hidden,
+        text_id: sattrs.hidden,
+        text_filename: sattrs.hidden,
         text_title: sattrs.text_title,
         text_year: {
             label: "year",
@@ -7914,7 +7914,7 @@ settings.corpora.lehdet_syopasaation_focus = {
             label: "year",
         },
         text_title: sattrs.text_title,
-	text_url: sattrs.link_lehdet,
+        text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue",
         },
@@ -9065,9 +9065,9 @@ settings.corpora.hsfi = {
     urn: "urn:nbn:fi:lb-2014052717",
     metadata_urn: "urn:nbn:fi:lb-2014052718",
     licence: {
-	urn: "urn:nbn:fi:lb-20150304140",
-	name: "CLARIN ACA +NC +anonymisointi",
-	description: "Vain ei-kaupalliseen tutkimuskäyttöön. Nimimerkit tulee anonymisoida korpukseen viittaavissa julkaisuissa.",
+        urn: "urn:nbn:fi:lb-20150304140",
+        name: "CLARIN ACA +NC +anonymisointi",
+        description: "Vain ei-kaupalliseen tutkimuskäyttöön. Nimimerkit tulee anonymisoida korpukseen viittaavissa julkaisuissa.",
     },
     cite_id: "HS.fi",
     limitedAccess: true,
@@ -9086,23 +9086,23 @@ settings.corpora.hsfi = {
     },
     structAttributes: {
         sentence_id: sattrs.sentence_id_hidden,
-	text_id: {
-	    label: "text_id"
-	},
-	text_time: {
-	    label: "text_time"
-	    },
-	text_date: {
-	    label: "text_date"
-	},
-	text_fulldate: {
-	    label: "timestamp",
-	    displayType: "hidden"
-	},
-	text_publicnick: {
-	    label: "text_publicnick",
-	},
-	text_title: sattrs.text_title
+        text_id: {
+            label: "text_id"
+        },
+        text_time: {
+            label: "text_time"
+            },
+        text_date: {
+            label: "text_date"
+        },
+        text_fulldate: {
+            label: "timestamp",
+            displayType: "hidden"
+        },
+        text_publicnick: {
+            label: "text_publicnick",
+        },
+        text_title: sattrs.text_title
     }
 
 };
@@ -9115,8 +9115,8 @@ settings.corpora.karjalansuomi = {
     urn: "urn:nbn:fi:lb-2016112501",
     metadata_urn: "urn:nbn:fi:lb-2014092601",
     licence: {
-	name: "CLARIN ACA 1.0",
-	urn: "urn:nbn:fi:lb-2016112302",
+        name: "CLARIN ACA 1.0",
+        urn: "urn:nbn:fi:lb-2016112302",
     },
     cite_id: "Karjalansuomi",
     limitedAccess: true,
@@ -9152,42 +9152,42 @@ settings.corpora.reittidemo = {
     licence: settings.licenceinfo.CC0,
     features: ["paragraphs", "parsed_tdt"],
     attributes: $.extend(
-	true, {},
-	attrlist.parsed_tdt,
-	{
-	    spoken: attrs.spoken,
-	}
+        true, {},
+        attrlist.parsed_tdt,
+        {
+            spoken: attrs.spoken,
+        }
     ),
     structAttributes: {
-	text_author: sattrs.author,
-	text_title: sattrs.title,
-	text_year: sattrs.publ_year,
-	paragraph_id: sattrs.paragraph_id_hidden,
-	sentence_id: sattrs.sentence_id_hidden,
-	utterance_id: {
-	    label: "utterance_num",
-	},
-	utterance_participant: {
-	    label: "speaker",
-	    displayType: "select",
-	    dataset: [
-		"ML",
-		"TA"
-	    ],
-	    opts: liteOptions,
-	    extendedComponent: "datasetSelect",
-	    escape: false,
-	},
-	utterance_begin_time: {
-	    label: "utterance_begin_time"
-	},
-	utterance_end_time: {
-	    label: "utterance_end_time"
-	},
-	utterance_duration: {
-	    label: "utterance_duration"
-	},
-	utterance_annex_link: sattrs.link_show_video_annex,
+        text_author: sattrs.author,
+        text_title: sattrs.title,
+        text_year: sattrs.publ_year,
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+        utterance_id: {
+            label: "utterance_num",
+        },
+        utterance_participant: {
+            label: "speaker",
+            displayType: "select",
+            dataset: [
+                "ML",
+                "TA"
+            ],
+            opts: liteOptions,
+            extendedComponent: "datasetSelect",
+            escape: false,
+        },
+        utterance_begin_time: {
+            label: "utterance_begin_time"
+        },
+        utterance_end_time: {
+            label: "utterance_end_time"
+        },
+        utterance_duration: {
+            label: "utterance_duration"
+        },
+        utterance_annex_link: sattrs.link_show_video_annex,
     },
     customAttributes: {
         video: makeVideoAttr(
@@ -9204,7 +9204,7 @@ settings.corpora.skk_aho = {
     id: "skk_aho",
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	sentence_type: sattrs.sentence_type,
+        sentence_type: sattrs.sentence_type,
         text_title: sattrs.text_title,
         text_distributor: sattrs.text_distributor,
         text_source: sattrs.text_source
@@ -9673,34 +9673,34 @@ settings.corpora.kotus_klassikot = {
     attributes: {
     },
     structAttributes: {
-	text_title: sattrs.text_title,
-	text_distributor: sattrs.text_distributor,
-	text_source: sattrs.text_source,
-	collection_id: {
-	    label: "collection_id",
-	    displayType: "hidden"
-	},
-	collection_title: {
-	    label: "collection_title"
-	},
-	story_id: {
-	    label: "story_id",
-	    displayType: "hidden"
-	},
-	story_title: {
-	    label: "story_title"
-	},
-	sentence_id: sattrs.sentence_id_hidden,
-	sentence_type: {
-	    label: "sentence_type",
-	    displayType: "select",
-	    translationKey: "sentencetype_",
-	    dataset: {
-		"p": "p",
-		"head": "head"
-	    },
-	    opts: liteOptions
-	}
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source,
+        collection_id: {
+            label: "collection_id",
+            displayType: "hidden"
+        },
+        collection_title: {
+            label: "collection_title"
+        },
+        story_id: {
+            label: "story_id",
+            displayType: "hidden"
+        },
+        story_title: {
+            label: "story_title"
+        },
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_type: {
+            label: "sentence_type",
+            displayType: "select",
+            translationKey: "sentencetype_",
+            dataset: {
+                "p": "p",
+                "head": "head"
+            },
+            opts: liteOptions
+        }
     }
 };
 */
@@ -9710,69 +9710,69 @@ settings.corpora.kotus_klassikot = {
 // FTC (sub)corpus hierarchy
 ftc_hierarchy = [
     ["lehdet", "Lehdet", [
-	["aamu", "Aamulehti 1995, 1999", [
-	    ["aamu1995", "Aamulehti 1995",],
-	    ["aamu1999", "Aamulehti 1999",],
-	] ],
-	["demari", "Demari 1995, 1997–2000", [
-	    ["demari1995", "Demari 1995",],
-	    ["demari1997", "Demari 1997",],
-	    ["demari1998", "Demari 1998",],
-	    ["demari1999", "Demari 1999",],
-	    ["demari2000", "Demari 2000",],
-	] ],
-	["hs1995", "Helsingin Sanomat 1995", [
-	    ["hs1995ae", "Helsingin Sanomat 1995 Osasto AE",],
-	    ["hs1995ak", "Helsingin Sanomat 1995 Osasto AK",],
-	    ["hs1995et", "Helsingin Sanomat 1995 Osasto ET",],
-	    ["hs1995hu", "Helsingin Sanomat 1995 Osasto HU",],
-	    ["hs1995ka", "Helsingin Sanomat 1995 Osasto KA",],
-	    ["hs1995kn", "Helsingin Sanomat 1995 Osasto KN",],
-	    ["hs1995ku", "Helsingin Sanomat 1995 Osasto KU",],
-	    ["hs1995ma_mn", "Helsingin Sanomat 1995 Osasto MA_MN",],
-	    ["hs1995misc", "Helsingin Sanomat 1995 Osasto MISC",],
-	    ["hs1995mp", "Helsingin Sanomat 1995 Osasto MP",],
-	    ["hs1995nh", "Helsingin Sanomat 1995 Osasto NH",],
-	    ["hs1995po", "Helsingin Sanomat 1995 Osasto PO",],
-	    ["hs1995ro", "Helsingin Sanomat 1995 Osasto RO",],
-	    ["hs1995rt", "Helsingin Sanomat 1995 Osasto RT",],
-	    ["hs1995sp", "Helsingin Sanomat 1995 Osasto SP",],
-	    ["hs1995st", "Helsingin Sanomat 1995 Osasto ST",],
-	    ["hs1995ta_te", "Helsingin Sanomat 1995 Osasto TA_TE",],
-	    ["hs1995tr", "Helsingin Sanomat 1995 Osasto TR",],
-	    ["hs1995ul", "Helsingin Sanomat 1995 Osasto UL",],
-	    ["hs1995vk", "Helsingin Sanomat 1995 Osasto VK",],
-	    ["hs1995vs", "Helsingin Sanomat 1995 Osasto VS",],
-	    ["hs1995yo", "Helsingin Sanomat 1995 Osasto YO",],
-	] ],
-	["hysa", "Hyvinkään Sanomat 1994, 1997", [
-	    ["hysa1994", "Hyvinkään Sanomat 1994",],
-	    ["hysa1997", "Hyvinkään Sanomat 1997",],
-	] ],
-	["hasa", "Hämeen Sanomat 1999–2000", [
-	    ["hasa1999", "Hämeen Sanomat 1999",],
-	    ["hasa2000", "Hämeen Sanomat 2000",],
-	] ],
-	["ilta1996", "Iltalehti 1996",],
-	["kaleva1998_1999", "Kaleva 1998–1999",],
-	["kangasa", "Kangasalan Sanomat",],
-	["karj", "Karjalainen 1991–95, 1997–99", [
-	    ["karj1991", "Karjalainen 1991",],
-	    ["karj1992", "Karjalainen 1992",],
-	    ["karj1993", "Karjalainen 1993",],
-	    ["karj1994", "Karjalainen 1994",],
-	    ["karj1995", "Karjalainen 1995",],
-	    ["karj1997", "Karjalainen 1997",],
-	    ["karj1998", "Karjalainen 1998",],
-	    ["karj1999", "Karjalainen 1999",],
-	    ["karj_unspec", "Karjalainen Määrittelemättömät",],
-	] ],
-	["kesu1999", "Keskisuomalainen 1999",],
-	["tm1995_1997", "Tekniikan Maailma 1995–1997",],
-	["tusa", "Turun Sanomat 1998–1999", [
-	    ["tusa1998", "Turun Sanomat 1998",],
-	    ["tusa1999", "Turun Sanomat 1999",],
-	] ],
+        ["aamu", "Aamulehti 1995, 1999", [
+            ["aamu1995", "Aamulehti 1995",],
+            ["aamu1999", "Aamulehti 1999",],
+        ] ],
+        ["demari", "Demari 1995, 1997–2000", [
+            ["demari1995", "Demari 1995",],
+            ["demari1997", "Demari 1997",],
+            ["demari1998", "Demari 1998",],
+            ["demari1999", "Demari 1999",],
+            ["demari2000", "Demari 2000",],
+        ] ],
+        ["hs1995", "Helsingin Sanomat 1995", [
+            ["hs1995ae", "Helsingin Sanomat 1995 Osasto AE",],
+            ["hs1995ak", "Helsingin Sanomat 1995 Osasto AK",],
+            ["hs1995et", "Helsingin Sanomat 1995 Osasto ET",],
+            ["hs1995hu", "Helsingin Sanomat 1995 Osasto HU",],
+            ["hs1995ka", "Helsingin Sanomat 1995 Osasto KA",],
+            ["hs1995kn", "Helsingin Sanomat 1995 Osasto KN",],
+            ["hs1995ku", "Helsingin Sanomat 1995 Osasto KU",],
+            ["hs1995ma_mn", "Helsingin Sanomat 1995 Osasto MA_MN",],
+            ["hs1995misc", "Helsingin Sanomat 1995 Osasto MISC",],
+            ["hs1995mp", "Helsingin Sanomat 1995 Osasto MP",],
+            ["hs1995nh", "Helsingin Sanomat 1995 Osasto NH",],
+            ["hs1995po", "Helsingin Sanomat 1995 Osasto PO",],
+            ["hs1995ro", "Helsingin Sanomat 1995 Osasto RO",],
+            ["hs1995rt", "Helsingin Sanomat 1995 Osasto RT",],
+            ["hs1995sp", "Helsingin Sanomat 1995 Osasto SP",],
+            ["hs1995st", "Helsingin Sanomat 1995 Osasto ST",],
+            ["hs1995ta_te", "Helsingin Sanomat 1995 Osasto TA_TE",],
+            ["hs1995tr", "Helsingin Sanomat 1995 Osasto TR",],
+            ["hs1995ul", "Helsingin Sanomat 1995 Osasto UL",],
+            ["hs1995vk", "Helsingin Sanomat 1995 Osasto VK",],
+            ["hs1995vs", "Helsingin Sanomat 1995 Osasto VS",],
+            ["hs1995yo", "Helsingin Sanomat 1995 Osasto YO",],
+        ] ],
+        ["hysa", "Hyvinkään Sanomat 1994, 1997", [
+            ["hysa1994", "Hyvinkään Sanomat 1994",],
+            ["hysa1997", "Hyvinkään Sanomat 1997",],
+        ] ],
+        ["hasa", "Hämeen Sanomat 1999–2000", [
+            ["hasa1999", "Hämeen Sanomat 1999",],
+            ["hasa2000", "Hämeen Sanomat 2000",],
+        ] ],
+        ["ilta1996", "Iltalehti 1996",],
+        ["kaleva1998_1999", "Kaleva 1998–1999",],
+        ["kangasa", "Kangasalan Sanomat",],
+        ["karj", "Karjalainen 1991–95, 1997–99", [
+            ["karj1991", "Karjalainen 1991",],
+            ["karj1992", "Karjalainen 1992",],
+            ["karj1993", "Karjalainen 1993",],
+            ["karj1994", "Karjalainen 1994",],
+            ["karj1995", "Karjalainen 1995",],
+            ["karj1997", "Karjalainen 1997",],
+            ["karj1998", "Karjalainen 1998",],
+            ["karj1999", "Karjalainen 1999",],
+            ["karj_unspec", "Karjalainen Määrittelemättömät",],
+        ] ],
+        ["kesu1999", "Keskisuomalainen 1999",],
+        ["tm1995_1997", "Tekniikan Maailma 1995–1997",],
+        ["tusa", "Turun Sanomat 1998–1999", [
+            ["tusa1998", "Turun Sanomat 1998",],
+            ["tusa1999", "Turun Sanomat 1999",],
+        ] ],
     ] ],
     ["otava1993", "Kustannusosakeyhtiö Otava 1993",],
 ];
@@ -9780,49 +9780,49 @@ ftc_hierarchy = [
 // Settings template for FTC subcorpora
 settings.templ.ftc = $.extend(true, {}, settings.templ.lemmie_common, {
     attributes: {
-	lemma: attrs.baseform,
-	pos: attrs.pos_textmorfo,
-	msd: attrs.msd,
-	id: attrs.id_hidden,
-	lex: attrs.lemgram_hidden,
+        lemma: attrs.baseform,
+        pos: attrs.pos_textmorfo,
+        msd: attrs.msd,
+        id: attrs.id_hidden,
+        lex: attrs.lemgram_hidden,
     },
     structAttributes: {
-	text_source: {
-	    dataset: [
-		"Aamulehti",
-		"Demari",
-		"Helsingin Sanomat",
-		"Hyvinkään Sanomat",
-		"Hämeen Sanomat",
-		"Iltalehti",
-		"Kaleva",
-		"Kangasalan Sanomat",
-		"Karjalainen",
-		"Keskisuomalainen",
-		"Otava",
-		"Tekniikan Maailma",
-		"Turun Sanomat",
-	    ],
-	},
-	paragraph_type: {
-	    dataset: {
-		"author|docAuthor": "author",
-		"byline": "byline",
-		"caption": "caption",
-		"closer": "closer",
-		"date": "date",
-		"head": "head",
-		"hi": "hi",
-		"name": "name",
-		"num": "num",
-		"opener": "opener",
-		"p": "p",
-		"q": "q",
-		"quote": "quote",
-		"rs": "rs",
-		"signed": "signed",
-	    },
-	},
+        text_source: {
+            dataset: [
+                "Aamulehti",
+                "Demari",
+                "Helsingin Sanomat",
+                "Hyvinkään Sanomat",
+                "Hämeen Sanomat",
+                "Iltalehti",
+                "Kaleva",
+                "Kangasalan Sanomat",
+                "Karjalainen",
+                "Keskisuomalainen",
+                "Otava",
+                "Tekniikan Maailma",
+                "Turun Sanomat",
+            ],
+        },
+        paragraph_type: {
+            dataset: {
+                "author|docAuthor": "author",
+                "byline": "byline",
+                "caption": "caption",
+                "closer": "closer",
+                "date": "date",
+                "head": "head",
+                "hi": "hi",
+                "name": "name",
+                "num": "num",
+                "opener": "opener",
+                "p": "p",
+                "q": "q",
+                "quote": "quote",
+                "rs": "rs",
+                "signed": "signed",
+            },
+        },
     }
 });
 
@@ -9830,10 +9830,10 @@ settings.templ.ftc = $.extend(true, {}, settings.templ.lemmie_common, {
 settings.fn.make_folder_hierarchy(
     settings.corporafolders.ftc, ftc_hierarchy,
     {
-	id_prefix: "ftc_",
-	description_prefix: "Suomen kielen tekstikokoelma: ",
-	corpus_title_suffix: " (SKTP)",
-	corpus_template: settings.templ.ftc,
+        id_prefix: "ftc_",
+        description_prefix: "Suomen kielen tekstikokoelma: ",
+        corpus_title_suffix: " (SKTP)",
+        corpus_template: settings.templ.ftc,
     });
 
 delete ftc_hierarchy;
@@ -9854,33 +9854,33 @@ settings.corpora.ns_presidentti = {
     within: spWithin,
     context: spContext,
     attributes: {
-	lemma: attrs.baseform,
-	lemmacomp: attrs.baseform_compound,
+        lemma: attrs.baseform,
+        lemmacomp: attrs.baseform_compound,
         pos: attrs.pos_kotus,
-	msd: attrs.msd,
-	id: attrs.id_hidden,
-	lex: attrs.lemgram_hidden
+        msd: attrs.msd,
+        id: attrs.id_hidden,
+        lex: attrs.lemgram_hidden
     },
     structAttributes: {
-	text_title: sattrs.text_title,
-	text_distributor: sattrs.text_distributor,
-	text_source: sattrs.text_source,
-	paragraph_id: sattrs.paragraph_id,
-	paragraph_type: {
-	    label: "paragraph_type",
-	    displayType: "select",
-	    translationKey: "paragraphtype_",
-	    dataset: {
-		"p": "p",
-		"head": "head",
-		"opener": "opener",
-	    },
-	    opts: liteOptions
-	},
-	paragraph_topic: {
-	    label: "paragraph_topic"
-	},
-	sentence_id: sattrs.sentence_id_hidden
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source,
+        paragraph_id: sattrs.paragraph_id,
+        paragraph_type: {
+            label: "paragraph_type",
+            displayType: "select",
+            translationKey: "paragraphtype_",
+            dataset: {
+                "p": "p",
+                "head": "head",
+                "opener": "opener",
+            },
+            opts: liteOptions
+        },
+        paragraph_topic: {
+            label: "paragraph_topic"
+        },
+        sentence_id: sattrs.sentence_id_hidden
     }
 };
 */
@@ -9893,47 +9893,47 @@ settings.templ.kotus_ns_presidentti = {
     within: spWithin,
     context: spContext,
     attributes: {
-	lemma: attrs.baseform,
-	lemmacomp: attrs.baseform_compound,
-	pos: attrs.pos_kotus,
-	msd: attrs.msd,
-	id: attrs.id_hidden,
-	lex: attrs.lemgram_hidden
+        lemma: attrs.baseform,
+        lemmacomp: attrs.baseform_compound,
+        pos: attrs.pos_kotus,
+        msd: attrs.msd,
+        id: attrs.id_hidden,
+        lex: attrs.lemgram_hidden
     },
     structAttributes: {
-	text_title: sattrs.text_title,
-	text_distributor: sattrs.text_distributor,
-	// text_source: sattrs.text_source,
-	text_author: sattrs.author,
-	text_author_birthyear: sattrs.author_birthyear,
-	text_author_deathyear: sattrs.author_deathyear,
-	text_date: sattrs.date,
-	text_url: sattrs.link_fulltext,
-	// text_original_url: sattrs.link_original,
-	// text_collection_url contains the URL of the subcorpus main
-	// page (the speeches of a certain president) in the Kaino
-	// service.
-	// text_collection_url: ...,
-	paragraph_id: sattrs.paragraph_id,
-	paragraph_type: {
-	    label: "paragraph_type",
-	    displayType: "select",
-	    translationKey: "paragraphtype_",
-	    dataset: {
-		"p": "p",
-		"head": "head",
-		"opener": "opener",
-	    },
-	    opts: liteOptions
-	},
-	paragraph_topic: {
-	    label: "paragraph_topic"
-	},
-	paragraph_span: {
-	    label: "paragraph_span"
-	},
-	sentence_id: sattrs.sentence_id_hidden,
-	sentence_url: sattrs.context_url
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        // text_source: sattrs.text_source,
+        text_author: sattrs.author,
+        text_author_birthyear: sattrs.author_birthyear,
+        text_author_deathyear: sattrs.author_deathyear,
+        text_date: sattrs.date,
+        text_url: sattrs.link_fulltext,
+        // text_original_url: sattrs.link_original,
+        // text_collection_url contains the URL of the subcorpus main
+        // page (the speeches of a certain president) in the Kaino
+        // service.
+        // text_collection_url: ...,
+        paragraph_id: sattrs.paragraph_id,
+        paragraph_type: {
+            label: "paragraph_type",
+            displayType: "select",
+            translationKey: "paragraphtype_",
+            dataset: {
+                "p": "p",
+                "head": "head",
+                "opener": "opener",
+            },
+            opts: liteOptions
+        },
+        paragraph_topic: {
+            label: "paragraph_topic"
+        },
+        paragraph_span: {
+            label: "paragraph_span"
+        },
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_url: sattrs.context_url
     }
 };
 
@@ -9943,65 +9943,65 @@ settings.fn.make_president_corpora = function () {
     var corpus_id_prefix = "kotus_ns_presidentti_";
 
     var make_homepage_info = function (id) {
-	return {
-	    name: "Korpus Kaino-palvelussa",
-	    url: ("http://kaino.kotus.fi/korpus/teko/meta/presidentti/"
-		   + id + "/" + id + "_coll_rdf.xml"),
-	    no_label: true
-	};
+        return {
+            name: "Korpus Kaino-palvelussa",
+            url: ("http://kaino.kotus.fi/korpus/teko/meta/presidentti/"
+                   + id + "/" + id + "_coll_rdf.xml"),
+            no_label: true
+        };
     };
 
     var make_info = function (arglist) {
-	var id = arglist[0];
-	var firstname = arglist[1];
-	var lastname = arglist[2];
-	var years = arglist[3];
-	var extradescr = (arglist.length > 4 ? " " + arglist[4] : "");
-	return {
-	    id: id,
-	    title: "Presidentti " + lastname + " uudenvuodenpuheet",
-	    description: ("Kokoelma sisältää presidentti " + firstname + " "
-			   + lastname + " pitämät uudenvuodenpuheet (" + years
-			   + ")." + extradescr),
-	    // Note that in this way the link text is not localized,
-	    // unlike that for a URL attribute could be. The same
-	    // information is also found in the structural attribute
-	    // text_collection_url.
-	    homepage: make_homepage_info(id)
-	};
+        var id = arglist[0];
+        var firstname = arglist[1];
+        var lastname = arglist[2];
+        var years = arglist[3];
+        var extradescr = (arglist.length > 4 ? " " + arglist[4] : "");
+        return {
+            id: id,
+            title: "Presidentti " + lastname + " uudenvuodenpuheet",
+            description: ("Kokoelma sisältää presidentti " + firstname + " "
+                           + lastname + " pitämät uudenvuodenpuheet (" + years
+                           + ")." + extradescr),
+            // Note that in this way the link text is not localized,
+            // unlike that for a URL attribute could be. The same
+            // information is also found in the structural attribute
+            // text_collection_url.
+            homepage: make_homepage_info(id)
+        };
     };
 
     // The descriptions come from the metadata of Kotus.
     var extradescr_tpk = "Aineisto on kerätty Tasavallan presidentin kanslian Internet-sivustolta <a target='_blank' href='http://www.tpk.fi'>www.tpk.fi</a>.";
     var president_info_items = [
-	["ahtisaari", "Martti", "Ahtisaaren", "1995–2000", extradescr_tpk],
-	["halonen", "Tarja", "Halosen", "2001–2007", extradescr_tpk],
-	["kallio", "Kyösti", "Kallion", "1938–1940"],
-	["kekkonen", "Urho", "Kekkosen", "1957–1981",
-	 "Vuosien 1957–1967 puheet ovat teoksesta <i>Puheita ja kirjoituksia 2</i> (Weilin &amp; Göös 1967), muissa alkutekstinä on presidentin kanslian lehdistötiedote."],
-	["koivisto", "Mauno", "Koiviston", "1982–1994"],
-	["paasikivi", "J. K.", "Paasikiven", "1946–1956"],
-	["ryti", "Risto", "Rydin", "1941, 1943"],
-	["svinhufvud", "P. E.", "Svinhufvudin", "1935–1937"]
+        ["ahtisaari", "Martti", "Ahtisaaren", "1995–2000", extradescr_tpk],
+        ["halonen", "Tarja", "Halosen", "2001–2007", extradescr_tpk],
+        ["kallio", "Kyösti", "Kallion", "1938–1940"],
+        ["kekkonen", "Urho", "Kekkosen", "1957–1981",
+         "Vuosien 1957–1967 puheet ovat teoksesta <i>Puheita ja kirjoituksia 2</i> (Weilin &amp; Göös 1967), muissa alkutekstinä on presidentin kanslian lehdistötiedote."],
+        ["koivisto", "Mauno", "Koiviston", "1982–1994"],
+        ["paasikivi", "J. K.", "Paasikiven", "1946–1956"],
+        ["ryti", "Risto", "Rydin", "1941, 1943"],
+        ["svinhufvud", "P. E.", "Svinhufvudin", "1935–1937"]
     ];
     var president_templ_fill = [];
     var corpus_ids = [];
     for (var i = 0; i < president_info_items.length; i++) {
-	president_templ_fill.push(make_info(president_info_items[i]));
-	corpus_ids.push(corpus_id_prefix + president_info_items[i][0]);
+        president_templ_fill.push(make_info(president_info_items[i]));
+        corpus_ids.push(corpus_id_prefix + president_info_items[i][0]);
     }
     president_templ_fill.push(
-	{ id: "muut",
-	  title: "Muiden kuin tasavallan presidenttien uudenvuodenpuheet",
-	  description: "Muiden kuin tasavallan presidenttien pitämät uudenvuodenpuheet: pääministeri Esko Aho (1993), eduskunnan puhemies Väinö Hakkila (1942), pääministeri Edwin Linkomies (1944), ministeri Mauno Pekkala (1945).",
-	  homepage: make_homepage_info("muut") }
+        { id: "muut",
+          title: "Muiden kuin tasavallan presidenttien uudenvuodenpuheet",
+          description: "Muiden kuin tasavallan presidenttien pitämät uudenvuodenpuheet: pääministeri Esko Aho (1993), eduskunnan puhemies Väinö Hakkila (1942), pääministeri Edwin Linkomies (1944), ministeri Mauno Pekkala (1945).",
+          homepage: make_homepage_info("muut") }
     );
     corpus_ids.push(corpus_id_prefix + "muut");
     settings.fn.add_corpus_settings(
-	settings.templ.kotus_ns_presidentti,
-	president_templ_fill,
-	settings.corporafolders.other_texts.kotus_ns_presidentti,
-	corpus_id_prefix
+        settings.templ.kotus_ns_presidentti,
+        president_templ_fill,
+        settings.corporafolders.other_texts.kotus_ns_presidentti,
+        corpus_id_prefix
     );
     var joined_corpus_ids = corpus_ids.join(",");
     settings.corpus_aliases["ns_presidentti"] = joined_corpus_ids;
@@ -10062,7 +10062,7 @@ settings.corpora.kotus_lakidir = {
                 "closer": "closer"
             },
             opts: liteOptions
-	},
+        },
         sentence_id: sattrs.sentence_id_hidden,
         sentence_type: {
             label: "sentence_type",
@@ -10091,58 +10091,58 @@ settings.corpora.ns_saadokset = {
     within: spWithin,
     context: spContext,
     attributes: {
-	lemma: attrs.baseform,
-	lemmacomp: attrs.baseform_compound,
+        lemma: attrs.baseform,
+        lemmacomp: attrs.baseform_compound,
         pos: attrs.pos_kotus,
-	msd: attrs.msd,
-	id: attrs.id_hidden,
-	lex: attrs.lemgram_hidden
+        msd: attrs.msd,
+        id: attrs.id_hidden,
+        lex: attrs.lemgram_hidden
     },
     structAttributes: {
-	text_title: sattrs.text_title,
-	text_distributor: sattrs.text_distributor,
-	text_source: sattrs.text_source,
-	div_id: {
-	    label: "div_id",
-	    displayType: "hidden",
-	},
-	div_type: {
-	    label: "div_type",
-	    displayType: "select",
-	    translationKey: "divtype_",
-	    dataset: {
-		"section": "section",
-		"section/law": "section_law",
-		"section/end": "section_end"
-	    },
-	    opts: liteOptions
-	},
-	paragraph_id: sattrs.paragraph_id,
-	paragraph_type: {
-	    label: "paragraph_type",
-	    displayType: "select",
-	    translationKey: "paragraphtype_",
-	    dataset: {
-		"p": "p",
-		"head": "head",
-		"opener": "opener",
-		"closer": "closer"
-	    },
-	    opts: liteOptions
-	},
-	sentence_id: sattrs.sentence_id_hidden,
-	sentence_type: {
-	    label: "sentence_type",
-	    displayType: "select",
-	    translationKey: "sentencetype_",
-	    dataset: {
-		"p": "p",
-		"head": "head",
-		"dateline": "dateline",
-		"signed": "signed"
-	    },
-	    opts: liteOptions
-	}
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source,
+        div_id: {
+            label: "div_id",
+            displayType: "hidden",
+        },
+        div_type: {
+            label: "div_type",
+            displayType: "select",
+            translationKey: "divtype_",
+            dataset: {
+                "section": "section",
+                "section/law": "section_law",
+                "section/end": "section_end"
+            },
+            opts: liteOptions
+        },
+        paragraph_id: sattrs.paragraph_id,
+        paragraph_type: {
+            label: "paragraph_type",
+            displayType: "select",
+            translationKey: "paragraphtype_",
+            dataset: {
+                "p": "p",
+                "head": "head",
+                "opener": "opener",
+                "closer": "closer"
+            },
+            opts: liteOptions
+        },
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_type: {
+            label: "sentence_type",
+            displayType: "select",
+            translationKey: "sentencetype_",
+            dataset: {
+                "p": "p",
+                "head": "head",
+                "dateline": "dateline",
+                "signed": "signed"
+            },
+            opts: liteOptions
+        }
     }
 };
 */
@@ -10159,38 +10159,38 @@ settings.corpora.kotus_sp = {
     context: defaultContext,
     features: ["parsed_tdt", "finer"],
     structAttributes: {
-	text_title: sattrs.text_title,
-	text_distributor: sattrs.text_distributor,
-	text_source: sattrs.text_source,
-	entry_location: {
-	    label: "entry_location"
-	},
-	entry_collector: {
-	    label: "entry_collector"
-	},
-	entry_date: {
-	    label: "entry_date"
-	},
-	entry_standard: {
-	    label: "entry_standard"
-	},
-	entry_dialect: {
-	    label: "entry_dialect"
-	},
-	entry_usage: {
-	    label: "entry_usage"
-	},
-	sentence_type: {
-	    label: "sentence_type",
-	    displayType: "select",
-	    translationKey: "sayings_sentencetype_",
-	    dataset: {
-		"standard": "standard",
-		"dialect": "dialect",
-		"usage": "usage"
-	    },
-	    opts: liteOptions
-	}
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source,
+        entry_location: {
+            label: "entry_location"
+        },
+        entry_collector: {
+            label: "entry_collector"
+        },
+        entry_date: {
+            label: "entry_date"
+        },
+        entry_standard: {
+            label: "entry_standard"
+        },
+        entry_dialect: {
+            label: "entry_dialect"
+        },
+        entry_usage: {
+            label: "entry_usage"
+        },
+        sentence_type: {
+            label: "sentence_type",
+            displayType: "select",
+            translationKey: "sayings_sentencetype_",
+            dataset: {
+                "standard": "standard",
+                "dialect": "dialect",
+                "usage": "usage"
+            },
+            opts: liteOptions
+        }
     }
 };
 
@@ -10200,45 +10200,45 @@ attrs.pos_la = {
     displayType: "select",
     translationKey: "posla_",
     dataset: {
-	"a": "a",
-	"a:pron": "a:pron",
-	"a:pron:dem": "a:pron:dem",
-	"a:pron:int": "a:pron:int",
-	"a:pron:rel": "a:pron:rel",
-	// "a:q": "a:q",
-	"adv": "adv",
-	"adv:pron": "adv:pron",
-	"adv:pron:dem": "adv:pron:dem",
-	"adv:pron:int": "adv:pron:int",
-	"adv:pron:rel": "adv:pron:rel",
-	"adv:q": "adv:q",
-	// "cnj": "cnj",
-	"cnj:coord": "cnj:coord",
-	"cnj:rel": "cnj:rel",
-	"cnj:sub": "cnj:sub",
-	"intj": "intj",
-	"muu": "muu",
-	"n": "n",
-	"neg": "neg",
-	"n:prop": "n:prop",
-	"n:prop:pname": "n:prop:pname",
-	"num:card": "num:card",
-	"num:murto": "num:murto",
-	"num:ord": "num:ord",
-	"num:ord_pron": "num:ord_pron",
-	"p:post": "p:post",
-	"p:pre": "p:pre",
-	"pron": "pron",
-	"pron:dem": "pron:dem",
-	"pron:int": "pron:int",
-	"pron:pers": "pron:pers",
-	"pron:pers12": "pron:pers12",
-	"pron:ref": "pron:ref",
-	"pron:rel": "pron:rel",
-	"punct": "punct",
-	"q": "q",
-	// "stem": "stem",
-	"v": "v",
+        "a": "a",
+        "a:pron": "a:pron",
+        "a:pron:dem": "a:pron:dem",
+        "a:pron:int": "a:pron:int",
+        "a:pron:rel": "a:pron:rel",
+        // "a:q": "a:q",
+        "adv": "adv",
+        "adv:pron": "adv:pron",
+        "adv:pron:dem": "adv:pron:dem",
+        "adv:pron:int": "adv:pron:int",
+        "adv:pron:rel": "adv:pron:rel",
+        "adv:q": "adv:q",
+        // "cnj": "cnj",
+        "cnj:coord": "cnj:coord",
+        "cnj:rel": "cnj:rel",
+        "cnj:sub": "cnj:sub",
+        "intj": "intj",
+        "muu": "muu",
+        "n": "n",
+        "neg": "neg",
+        "n:prop": "n:prop",
+        "n:prop:pname": "n:prop:pname",
+        "num:card": "num:card",
+        "num:murto": "num:murto",
+        "num:ord": "num:ord",
+        "num:ord_pron": "num:ord_pron",
+        "p:post": "p:post",
+        "p:pre": "p:pre",
+        "pron": "pron",
+        "pron:dem": "pron:dem",
+        "pron:int": "pron:int",
+        "pron:pers": "pron:pers",
+        "pron:pers12": "pron:pers12",
+        "pron:ref": "pron:ref",
+        "pron:rel": "pron:rel",
+        "punct": "punct",
+        "q": "q",
+        // "stem": "stem",
+        "v": "v",
     },
     opts: liteOptions
 };
@@ -10249,23 +10249,23 @@ attrs.pos_las2 = {
     displayType: "select",
     translationKey: "posla_",
     dataset: {
-	"a": "a",
-	"adv": "adv",
-	"cnj": "cnj",
-	"intj": "intj",
-	"n": "n",
-	// pos_la uses "n:prop" for only non-person proper names, so
-	// we map "n:prop" here to correspond to any proper name.
-	"n:prop": "n:prop:any",
-	"neg": "neg",
-	"num": "num",
-	"p:post": "p:post",
-	"p:pre": "p:pre",
-	// pos_la uses bare "pron" with a more specific meaning, so we
-	// map "pron" here to correspond to any pronoun.
-	"pron": "pron:any",
-	"UNK": "UNK",
-	"v": "v",
+        "a": "a",
+        "adv": "adv",
+        "cnj": "cnj",
+        "intj": "intj",
+        "n": "n",
+        // pos_la uses "n:prop" for only non-person proper names, so
+        // we map "n:prop" here to correspond to any proper name.
+        "n:prop": "n:prop:any",
+        "neg": "neg",
+        "num": "num",
+        "p:post": "p:post",
+        "p:pre": "p:pre",
+        // pos_la uses bare "pron" with a more specific meaning, so we
+        // map "pron" here to correspond to any pronoun.
+        "pron": "pron:any",
+        "UNK": "UNK",
+        "v": "v",
     },
     opts: liteOptions
 };
@@ -10274,38 +10274,38 @@ attrs.func_la = {
     displayType: "select",
     translationKey: "funcla_",
     dataset: {
-	"advl": "advl",
-	"advl:p": "advl:p",
-	"advl:v": "advl:v",
-	"advmod": "advmod",
-	"amod": "amod",
-	"analysoimaton": "analysoimaton",
-	"compl:o": "compl:o",
-	"compl:q": "compl:q",
-	"compl:s": "compl:s",
-	"compl:x": "compl:x",
-	"infobj": "infobj",
-	"infsubj": "infsubj",
-	"irrall": "irrall",
-	"jälkiosa": "jälkiosa",
-	"lauseyhd": "lauseyhd",
-	"lkeyhd": "lkeyhd",
-	"sanayhd_lkeyhd": "sanayhd_lkeyhd",
-	"muu": "muu",
-	"neg:prt": "neg:prt",
-	"nmod": "nmod",
-	"npobj": "npobj",
-	"npsubj": "npsubj",
-	"nummod": "nummod",
-	"osma": "osma",
-	"pmod": "pmod",
-	"pred": "pred",
-	"pred2": "pred2",
-	"pred3": "pred3",
-	"pred:ref": "pred:ref",
-	"pred:toisto": "pred:toisto",
-	"subj:nonfin": "subj:nonfin",
-	"subj:stat": "subj:stat",
+        "advl": "advl",
+        "advl:p": "advl:p",
+        "advl:v": "advl:v",
+        "advmod": "advmod",
+        "amod": "amod",
+        "analysoimaton": "analysoimaton",
+        "compl:o": "compl:o",
+        "compl:q": "compl:q",
+        "compl:s": "compl:s",
+        "compl:x": "compl:x",
+        "infobj": "infobj",
+        "infsubj": "infsubj",
+        "irrall": "irrall",
+        "jälkiosa": "jälkiosa",
+        "lauseyhd": "lauseyhd",
+        "lkeyhd": "lkeyhd",
+        "sanayhd_lkeyhd": "sanayhd_lkeyhd",
+        "muu": "muu",
+        "neg:prt": "neg:prt",
+        "nmod": "nmod",
+        "npobj": "npobj",
+        "npsubj": "npsubj",
+        "nummod": "nummod",
+        "osma": "osma",
+        "pmod": "pmod",
+        "pred": "pred",
+        "pred2": "pred2",
+        "pred3": "pred3",
+        "pred:ref": "pred:ref",
+        "pred:toisto": "pred:toisto",
+        "subj:nonfin": "subj:nonfin",
+        "subj:stat": "subj:stat",
     },
     opts: liteOptions
 };
@@ -10325,206 +10325,206 @@ attrs.func_la = {
 // are used to override the property values in the tmeplate).
 var la_murre_grouping = [
     ["LOU", "Lounaismurteet", [
-	["VarE", "Eteläinen Varsinais-Suomi", [
-	    ["karuna", "Karuna", "karuna"],
-	    ["kisk", "Kisko", "kisko"],
-	    ["muurl", "Muurla", "muurla"],
-	    ["muuhal", "Muurla/Halikko", "muurla_halikko"],
-	    ["paim", "Paimio", "paimio"],
-	    ["pern", "Perniö", "pernio"],
-	    ["uske", "Uskela", "uskela"],
-	] ],
-	["VarP", "Pohjoinen Varsinais-Suomi", [
-	    ["eura", "Eura", "eura"],
-	    ["eurj", "Eurajoki", "eurajoki"],
-	    ["kalan", "Kalanti", "kalanti"],
-	    ["kartl", "Karjala Tl", "karjala_tl"],
-	    ["kust", "Kustavi", "kustavi"],
-	    ["laptl", "Lappi Tl", "lappi_tl"],
-	    ["luvi", "Luvia", "luvia"],
-	    ["mask", "Masku", "masku"],
-	    ["pyhm", "Pyhämaa", "pyhamaa"],
-	    ["raum", "Rauma", "rauma"],
-	    ["ryma", "Rymättylä", "rymattyla"],
-	    ["tais", "Taivassalo", "taivassalo"],
-	    ["velk", "Velkua", "velkua"],
-	] ],
+        ["VarE", "Eteläinen Varsinais-Suomi", [
+            ["karuna", "Karuna", "karuna"],
+            ["kisk", "Kisko", "kisko"],
+            ["muurl", "Muurla", "muurla"],
+            ["muuhal", "Muurla/Halikko", "muurla_halikko"],
+            ["paim", "Paimio", "paimio"],
+            ["pern", "Perniö", "pernio"],
+            ["uske", "Uskela", "uskela"],
+        ] ],
+        ["VarP", "Pohjoinen Varsinais-Suomi", [
+            ["eura", "Eura", "eura"],
+            ["eurj", "Eurajoki", "eurajoki"],
+            ["kalan", "Kalanti", "kalanti"],
+            ["kartl", "Karjala Tl", "karjala_tl"],
+            ["kust", "Kustavi", "kustavi"],
+            ["laptl", "Lappi Tl", "lappi_tl"],
+            ["luvi", "Luvia", "luvia"],
+            ["mask", "Masku", "masku"],
+            ["pyhm", "Pyhämaa", "pyhamaa"],
+            ["raum", "Rauma", "rauma"],
+            ["ryma", "Rymättylä", "rymattyla"],
+            ["tais", "Taivassalo", "taivassalo"],
+            ["velk", "Velkua", "velkua"],
+        ] ],
     ] ],
     ["LVÄ", "Lounaiset välimurteet", [
-	["SatE", "Etelä-Satakunta", [
-	    ["koke", "Kokemäki", "kokemaki"],
-	    ["loim", "Loimaa", "loimaa"],
-	    ["vamp", "Vampula", "vampula"],
-	] ],
-	["SatL", "Länsi-Satakunta", [
-	    // Ahlainen has the whole text as a single paragraph,
-	    // which causes problems in the Korp context view, so
-	    // allow only the sentence context and sentence + clause
-	    // within.
-	    ["ahla", "Ahlainen", "ahlainen", {
-		context: defaultContext,
-		within: settings.scWithin
-	    }],
-	    ["merk", "Merikarvia", "merikarvia"],
-	    ["noor", "Noormarkku", "noormarkku"],
-	    ["pori", "Pori", "pori"],
-	] ],
-	["VarY", "Varsinais-Suomen ylämaa", [
-	    ["kostl", "Koski Tl", "koski_tl"],
-	    ["poyt", "Pöytyä", "poytya"],
-	    ["somero", "Somero", "somero"],
-	    ["saky", "Säkylä", "sakyla"],
-	    ["tarv", "Tarvasjoki", "tarvasjoki"],
-	] ],
-	["VarU", "Länsi-Uusimaa", [
-	    ["samm", "Sammatti", "sammatti"],
-	    ["viht", "Vihti", "vihti"],
-	] ],
+        ["SatE", "Etelä-Satakunta", [
+            ["koke", "Kokemäki", "kokemaki"],
+            ["loim", "Loimaa", "loimaa"],
+            ["vamp", "Vampula", "vampula"],
+        ] ],
+        ["SatL", "Länsi-Satakunta", [
+            // Ahlainen has the whole text as a single paragraph,
+            // which causes problems in the Korp context view, so
+            // allow only the sentence context and sentence + clause
+            // within.
+            ["ahla", "Ahlainen", "ahlainen", {
+                context: defaultContext,
+                within: settings.scWithin
+            }],
+            ["merk", "Merikarvia", "merikarvia"],
+            ["noor", "Noormarkku", "noormarkku"],
+            ["pori", "Pori", "pori"],
+        ] ],
+        ["VarY", "Varsinais-Suomen ylämaa", [
+            ["kostl", "Koski Tl", "koski_tl"],
+            ["poyt", "Pöytyä", "poytya"],
+            ["somero", "Somero", "somero"],
+            ["saky", "Säkylä", "sakyla"],
+            ["tarv", "Tarvasjoki", "tarvasjoki"],
+        ] ],
+        ["VarU", "Länsi-Uusimaa", [
+            ["samm", "Sammatti", "sammatti"],
+            ["viht", "Vihti", "vihti"],
+        ] ],
     ] ],
     ["HÄM", "Hämäläismurteet", [
-	["HämE", "Etelä-Häme", [
-	    ["hatt", "Hattula", "hattula"],
-	    ["haus", "Hausjärvi", "hausjarvi"],
-	    ["nurj", "Nurmijärvi", "nurmijarvi"],
-	    ["renk", "Renko", "renko"],
-	    ["saak", "Sääksmäki", "saaksmaki"],
-	    ["tamm", "Tammela", "tammela"],
-	] ],
-	["HämK", "Kaakkois-Häme", [
-	    ["asko", "Askola", "askola"],
-	    ["asik", "Asikkala", "asikkala"],
-	    ["lamm", "Lammi", "lammi"],
-	] ],
-	["HämP", "Pohjois-Häme", [
-	    ["juup", "Juupajoki", "juupajoki"],
-	    ["kuru", "Kuru", "kuru"],
-	    ["luop", "Luopioinen", "luopioinen"],
-	    ["pirk", "Pirkkala", "pirkkala"],
-	    ["pohjasl", "Pohjaslahti", "pohjaslahti"],
-	    ["vesl", "Vesilahti", "vesilahti"],
-	] ],
-	["SatP", "Pohjois-Satakunta", [
-	    ["ikaa", "Ikaalinen", "ikaalinen"],
-	    ["kanp", "Kankaanpää", "kankaanpaa"],
-	    ["kark", "Karkku", "karkku"],
-	    ["kihn", "Kihniö", "kihnio"],
-	    ["punl", "Punkalaidun", "punkalaidun"],
-	    ["suod", "Suodenniemi", "suodenniemi"],
-	] ],
-	["Kym", "Kymenlaakso", [
-	    ["iitt", "Iitti", "iitti"],
-	    ["lapinj", "Lapinjärvi", "lapinjarvi"],
-	    ["suur", "Suursaari", "suursaari"],
-	    ["vehk", "Vehkalahti", "vehkalahti"],
-	] ],
+        ["HämE", "Etelä-Häme", [
+            ["hatt", "Hattula", "hattula"],
+            ["haus", "Hausjärvi", "hausjarvi"],
+            ["nurj", "Nurmijärvi", "nurmijarvi"],
+            ["renk", "Renko", "renko"],
+            ["saak", "Sääksmäki", "saaksmaki"],
+            ["tamm", "Tammela", "tammela"],
+        ] ],
+        ["HämK", "Kaakkois-Häme", [
+            ["asko", "Askola", "askola"],
+            ["asik", "Asikkala", "asikkala"],
+            ["lamm", "Lammi", "lammi"],
+        ] ],
+        ["HämP", "Pohjois-Häme", [
+            ["juup", "Juupajoki", "juupajoki"],
+            ["kuru", "Kuru", "kuru"],
+            ["luop", "Luopioinen", "luopioinen"],
+            ["pirk", "Pirkkala", "pirkkala"],
+            ["pohjasl", "Pohjaslahti", "pohjaslahti"],
+            ["vesl", "Vesilahti", "vesilahti"],
+        ] ],
+        ["SatP", "Pohjois-Satakunta", [
+            ["ikaa", "Ikaalinen", "ikaalinen"],
+            ["kanp", "Kankaanpää", "kankaanpaa"],
+            ["kark", "Karkku", "karkku"],
+            ["kihn", "Kihniö", "kihnio"],
+            ["punl", "Punkalaidun", "punkalaidun"],
+            ["suod", "Suodenniemi", "suodenniemi"],
+        ] ],
+        ["Kym", "Kymenlaakso", [
+            ["iitt", "Iitti", "iitti"],
+            ["lapinj", "Lapinjärvi", "lapinjarvi"],
+            ["suur", "Suursaari", "suursaari"],
+            ["vehk", "Vehkalahti", "vehkalahti"],
+        ] ],
     ] ],
     ["POH", "Pohjalaismurteet", [
-	["PohE", "Etelä-Pohjanmaa", [
-	    ["isoj", "Isojoki", "isojoki"],
-	    ["kauhava", "Kauhava", "kauhava"],
-	    ["kuri", "Kurikka", "kurikka"],
-	    ["laih", "Laihia", "laihia"],
-	    ["nrmo", "Nurmo", "nurmo"],
-	    ["pers", "Peräseinäjoki", "peraseinajoki"],
-	    ["yhar", "Ylihärmä", "yliharma"],
-	] ],
-	["PohK", "Keski-Pohjanmaa", [
-	    ["haaj", "Haapajärvi", "haapajarvi"],
-	    ["haav", "Haapavesi", "haapavesi"],
-	    ["hima", "Himanka", "himanka"],
-	    ["kest", "Kestilä", "kestila"],
-	    ["lest", "Lestijärvi", "lestijarvi"],
-	    ["pyhj", "Pyhäjoki", "pyhajoki"],
-	    ["toho", "Toholampi", "toholampi"],
-	    ["vete", "Veteli", "veteli"],
-	    ["yvie", "Ylivieska", "ylivieska"],
-	] ],
-	["PohP", "Pohjois-Pohjanmaa", [
-	    ["hail", "Hailuoto", "hailuoto"],
-	    ["paav", "Paavola", "paavola"],
-	    ["temm", "Temmes", "temmes"],
-	    ["ylii", "Yli-Ii", "yli_ii"],
-	    ["ykii", "Ylikiiminki", "ylikiiminki"],
-	] ],
-	["LänP", "Länsipohja", [
-	    ["ator", "Alatornio", "alatornio"],
-	    ["muon", "Muonio", "muonio"],
-	] ],
-	["PerP", "Peräpohjola", [
-	    ["kemi", "Kemi", "kemi"],
-	    ["rova", "Rovaniemi", "rovaniemi"],
-	    ["sall", "Salla", "salla"],
-	    ["soda", "Sodankylä", "sodankyla"],
-	] ],
+        ["PohE", "Etelä-Pohjanmaa", [
+            ["isoj", "Isojoki", "isojoki"],
+            ["kauhava", "Kauhava", "kauhava"],
+            ["kuri", "Kurikka", "kurikka"],
+            ["laih", "Laihia", "laihia"],
+            ["nrmo", "Nurmo", "nurmo"],
+            ["pers", "Peräseinäjoki", "peraseinajoki"],
+            ["yhar", "Ylihärmä", "yliharma"],
+        ] ],
+        ["PohK", "Keski-Pohjanmaa", [
+            ["haaj", "Haapajärvi", "haapajarvi"],
+            ["haav", "Haapavesi", "haapavesi"],
+            ["hima", "Himanka", "himanka"],
+            ["kest", "Kestilä", "kestila"],
+            ["lest", "Lestijärvi", "lestijarvi"],
+            ["pyhj", "Pyhäjoki", "pyhajoki"],
+            ["toho", "Toholampi", "toholampi"],
+            ["vete", "Veteli", "veteli"],
+            ["yvie", "Ylivieska", "ylivieska"],
+        ] ],
+        ["PohP", "Pohjois-Pohjanmaa", [
+            ["hail", "Hailuoto", "hailuoto"],
+            ["paav", "Paavola", "paavola"],
+            ["temm", "Temmes", "temmes"],
+            ["ylii", "Yli-Ii", "yli_ii"],
+            ["ykii", "Ylikiiminki", "ylikiiminki"],
+        ] ],
+        ["LänP", "Länsipohja", [
+            ["ator", "Alatornio", "alatornio"],
+            ["muon", "Muonio", "muonio"],
+        ] ],
+        ["PerP", "Peräpohjola", [
+            ["kemi", "Kemi", "kemi"],
+            ["rova", "Rovaniemi", "rovaniemi"],
+            ["sall", "Salla", "salla"],
+            ["soda", "Sodankylä", "sodankyla"],
+        ] ],
     ] ],
     ["SAV", "Savolaismurteet", [
-	["KesE", "Eteläinen Keski-Suomi", [
-	    ["joutsa", "Joutsa", "joutsa"],
-	    ["jams", "Jämsä", "jamsa"],
-	    ["sysm", "Sysmä", "sysma"],
-	] ],
-	["KesL", "Läntinen Keski-Suomi", [
-	    ["lappa", "Lappajärvi", "lappajarvi"],
-	    ["pihl", "Pihlajavesi", "pihlajavesi"],
-	    ["soin", "Soini", "soini"],
-	] ],
-	["KesP", "Pohjoinen Keski-Suomi", [
-	    ["kong", "Konginkangas", "konginkangas"],
-	    ["lauk", "Laukaa", "laukaa"],
-	    ["mult", "Multia", "multia"],
-	    ["piht", "Pihtipudas", "pihtipudas"],
-	] ],
-	["SavE", "Etelä-Savo", [
-	    ["enok", "Enonkoski", "enonkoski"],
-	    ["mikk", "Mikkeli", "mikkeli"],
-	    ["manh", "Mäntyharju", "mantyharju"],
-	    ["punh", "Punkaharju", "punkaharju"],
-	] ],
-	["SavP", "Pohjois-Savo", [
-	    ["hauv", "Haukivuori", "haukivuori"],
-	    ["lapl", "Lapinlahti", "lapinlahti"],
-	    ["lepp", "Leppävirta", "leppavirta"],
-	    ["nils", "Nilsiä", "nilsia"],
-	    ["rans", "Rantasalmi", "rantasalmi"],
-	    ["raul", "Rautalampi", "rautalampi"],
-	    ["riis", "Riistavesi", "riistavesi"],
-	    ["tervo", "Tervo", "tervo"],
-	    ["vier", "Vieremä", "vierema"],
-	] ],
-	["KarP", "Pohjois-Karjala", [
-	    ["ilom", "Ilomantsi", "ilomantsi"],
-	    ["juuk", "Juuka", "juuka"],
-	    ["kiih", "Kiihtelysvaara", "kiihtelysvaara"],
-	    ["kite", "Kitee", "kitee"],
-	    ["kont", "Kontiolahti", "kontiolahti"],
-	    ["lipe", "Liperi", "liperi"],
-	] ],
-	["Kai", "Kainuu", [
-	    ["posi", "Posio", "posio"],
-	    ["sotk", "Sotkamo", "sotkamo"],
-	    ["suos", "Suomussalmi", "suomussalmi"],
-	] ],
+        ["KesE", "Eteläinen Keski-Suomi", [
+            ["joutsa", "Joutsa", "joutsa"],
+            ["jams", "Jämsä", "jamsa"],
+            ["sysm", "Sysmä", "sysma"],
+        ] ],
+        ["KesL", "Läntinen Keski-Suomi", [
+            ["lappa", "Lappajärvi", "lappajarvi"],
+            ["pihl", "Pihlajavesi", "pihlajavesi"],
+            ["soin", "Soini", "soini"],
+        ] ],
+        ["KesP", "Pohjoinen Keski-Suomi", [
+            ["kong", "Konginkangas", "konginkangas"],
+            ["lauk", "Laukaa", "laukaa"],
+            ["mult", "Multia", "multia"],
+            ["piht", "Pihtipudas", "pihtipudas"],
+        ] ],
+        ["SavE", "Etelä-Savo", [
+            ["enok", "Enonkoski", "enonkoski"],
+            ["mikk", "Mikkeli", "mikkeli"],
+            ["manh", "Mäntyharju", "mantyharju"],
+            ["punh", "Punkaharju", "punkaharju"],
+        ] ],
+        ["SavP", "Pohjois-Savo", [
+            ["hauv", "Haukivuori", "haukivuori"],
+            ["lapl", "Lapinlahti", "lapinlahti"],
+            ["lepp", "Leppävirta", "leppavirta"],
+            ["nils", "Nilsiä", "nilsia"],
+            ["rans", "Rantasalmi", "rantasalmi"],
+            ["raul", "Rautalampi", "rautalampi"],
+            ["riis", "Riistavesi", "riistavesi"],
+            ["tervo", "Tervo", "tervo"],
+            ["vier", "Vieremä", "vierema"],
+        ] ],
+        ["KarP", "Pohjois-Karjala", [
+            ["ilom", "Ilomantsi", "ilomantsi"],
+            ["juuk", "Juuka", "juuka"],
+            ["kiih", "Kiihtelysvaara", "kiihtelysvaara"],
+            ["kite", "Kitee", "kitee"],
+            ["kont", "Kontiolahti", "kontiolahti"],
+            ["lipe", "Liperi", "liperi"],
+        ] ],
+        ["Kai", "Kainuu", [
+            ["posi", "Posio", "posio"],
+            ["sotk", "Sotkamo", "sotkamo"],
+            ["suos", "Suomussalmi", "suomussalmi"],
+        ] ],
     ] ],
     ["KAA", "Kaakkoismurteet", [
-	["KarE", "Etelä-Karjala", [
-	    ["antr", "Antrea", "antrea"],
-	    ["koiv", "Koivisto", "koivisto"],
-	    ["lappe", "Lappee", "lappee"],
-	    ["luum", "Luumäki", "luumaki"],
-	    ["muol", "Muolaa", "muolaa"],
-	    ["nuij", "Nuijamaa", "nuijamaa"],
-	    ["ruok", "Ruokolahti", "ruokolahti"],
-	    ["savt", "Savitaipale", "savitaipale"],
-	    ["seis", "Seiskari", "seiskari"],
-	    ["taip", "Taipalsaari", "taipalsaari"],
-	] ],
-	["KarK", "Keski-Karjala", [
-	    ["lumv", "Lumivaara", "lumivaara"],
-	    ["pari", "Parikkala", "parikkala"],
-	    ["rautu", "Rautu", "rautu"],
-	    ["raisa", "Räisälä", "raisala"],
-	    ["sort", "Sortavala", "sortavala"],
-	] ],
+        ["KarE", "Etelä-Karjala", [
+            ["antr", "Antrea", "antrea"],
+            ["koiv", "Koivisto", "koivisto"],
+            ["lappe", "Lappee", "lappee"],
+            ["luum", "Luumäki", "luumaki"],
+            ["muol", "Muolaa", "muolaa"],
+            ["nuij", "Nuijamaa", "nuijamaa"],
+            ["ruok", "Ruokolahti", "ruokolahti"],
+            ["savt", "Savitaipale", "savitaipale"],
+            ["seis", "Seiskari", "seiskari"],
+            ["taip", "Taipalsaari", "taipalsaari"],
+        ] ],
+        ["KarK", "Keski-Karjala", [
+            ["lumv", "Lumivaara", "lumivaara"],
+            ["pari", "Parikkala", "parikkala"],
+            ["rautu", "Rautu", "rautu"],
+            ["raisa", "Räisälä", "raisala"],
+            ["sort", "Sortavala", "sortavala"],
+        ] ],
     ] ]
 ];
 
@@ -10544,15 +10544,15 @@ for (var i = 0; i < la_murre_grouping.length; i++) {
     la_murre_regions.push(la_murre_grouping[i][0]);
     var groups = la_murre_grouping[i][2];
     for (var j = 0; j < groups.length; j++) {
-	la_murre_groups.push(groups[j][0]);
-	var parishes = groups[j][2];
-	for (var k = 0; k < parishes.length; k++) {
-	    la_murre_parishes.push(parishes[k][1]);
-	    var corpname = la_murre_corpus_prefix + parishes[k][0]
-	    la_murre_corpora.push(corpname);
-	    settings.corpus_aliases[la_murre_alias_prefix + parishes[k][2]] =
-		corpname;
-	}
+        la_murre_groups.push(groups[j][0]);
+        var parishes = groups[j][2];
+        for (var k = 0; k < parishes.length; k++) {
+            la_murre_parishes.push(parishes[k][1]);
+            var corpname = la_murre_corpus_prefix + parishes[k][0]
+            la_murre_corpora.push(corpname);
+            settings.corpus_aliases[la_murre_alias_prefix + parishes[k][2]] =
+                corpname;
+        }
     }
 }
 
@@ -10571,23 +10571,23 @@ settings.fn.make_la_murre_fulltext_url = function (token_data) {
     var match_end = 0;
     var in_match = false;
     for (var tokennum = 0; tokennum < tokencnt; tokennum++) {
-	if (token_data.tokens[tokennum]._match) {
-	    if (! in_match) {
-		match_start = tokennum + 1;
-		in_match = true;
-	    }
-	} else if (in_match) {
-	    match_end = tokennum;
-	    in_match = false;
-	}
+        if (token_data.tokens[tokennum]._match) {
+            if (! in_match) {
+                match_start = tokennum + 1;
+                in_match = true;
+            }
+        } else if (in_match) {
+            match_end = tokennum;
+            in_match = false;
+        }
     }
     if (in_match) {
-	match_end = tokencnt;
+        match_end = tokencnt;
     }
     return (la_murre_fulltext_url_prefix
-	    + token_data.struct_attrs.text_filename + ".html"
-	    + "?" + match_start.toString() + "-" + match_end.toString()
-	    + "#s" + token_data.struct_attrs.sentence_num);
+            + token_data.struct_attrs.text_filename + ".html"
+            + "?" + match_start.toString() + "-" + match_end.toString()
+            + "#s" + token_data.struct_attrs.sentence_num);
 };
 
 // The corpus settings template for the LA-murre corpora
@@ -10598,232 +10598,232 @@ settings.templ.la_murre = {
     within: spcWithin,
     context: spContext,
     attributes: {
-	cleanword: {
-	    label: "cleanword",
-	    opts: settings.defaultOptions
-	},
-	lemma: attrs.baseform,
+        cleanword: {
+            label: "cleanword",
+            opts: settings.defaultOptions
+        },
+        lemma: attrs.baseform,
         pos: attrs.pos_la,
-	msd: attrs.msd,
-	func: attrs.func_la,
-	cow: {
-	    label: "cowla",
-	    displayType: "select",
-	    translationKey: "cowla_",
-	    dataset: {
-		"cw": "cw",
-		"cw1": "cw1",
-		"cw2": "cw2",
-		"": "noncw",
-	    },
-	    opts: liteOptions
-	},
-	note: {
-	    label: "note",
-	    opts: settings.defaultOptions
-	},
-	lex: attrs.lemgram_hidden
+        msd: attrs.msd,
+        func: attrs.func_la,
+        cow: {
+            label: "cowla",
+            displayType: "select",
+            translationKey: "cowla_",
+            dataset: {
+                "cw": "cw",
+                "cw1": "cw1",
+                "cw2": "cw2",
+                "": "noncw",
+            },
+            opts: liteOptions
+        },
+        note: {
+            label: "note",
+            opts: settings.defaultOptions
+        },
+        lex: attrs.lemgram_hidden
     },
     structAttributes: {
-	text_header: {
-	    label: "text_header"
-	},
-	text_info: {
-	    label: "text_info"
-	},
-	text_dialect_region: {
-	    label: "dialect_region",
-	    displayType: "select",
-	    translationKey: "dialect_region_",
-	    dataset: la_murre_regions,
-	    opts: liteOptions
-	},
-	text_dialect_group: {
-	    label: "dialect_group",
-	    displayType: "select",
-	    translationKey: "dialect_group_",
-	    dataset: la_murre_groups,
-	    opts: liteOptions
-	},
-	text_parish: {
-	    label: "parish",
-	    displayType: "select",
-	    localize: false,
-	    dataset: la_murre_parishes,
-	    opts: liteOptions
-	},
-	text_parish_title: {
-	    label: "text_title",
-	},
-	text_filename: {
-	    label: "file_name",
-	    displayType: "hidden"
-	},
-	text_date: sattrs.date,
-	text_session_descr: {
-	    label: "interview_descr",
-	},
-	text_content_descr: {
-	    label: "subject",
-	},
-	text_source_id: {
-	    label: "original_source",
-	},
-	paragraph_type: {
-	    label: "paragraph_type",
-	    displayType: "select",
-	    translationKey: "paragraphtype_",
-	    dataset: {
-		"interviewee": "interviewee",
-		"interviewer": "interviewer",
-		"noninterviewee": "noninterviewee",
-	    },
-	    opts: liteOptions
-	},
-	paragraph_id: {
-	    label: "paragraph_id",
-	},
-	paragraph_speaker: {
-	    label: "speaker",
-	},
-	paragraph_speaker_name: {
-	    label: "speaker_name",
-	    displayType: "hidden",
-	},
-	paragraph_speaker_age: {
-	    label: "speaker_age",
-	},
-	paragraph_speaker_sex: {
-	    label: "speaker_sex",
-	    displayType: "select",
-	    translationKey: "",
-	    dataset: {
-		"male": "male",
-		"female": "female",
-		"": "unknown"
-	    },
-	    opts: liteOptions,
-	},
-	paragraph_speaker_birthdate: {
-	    label: "speaker_birthdate",
-	},
-	paragraph_speaker_descr: {
-	    label: "speaker_descr",
-	},
-	paragraph_begin_time: {
-	    label: "speech_begin_time"
-	},
-	paragraph_duration: {
-	    label: "speech_duration"
-	},
-	paragraph_annex_link: sattrs.link_prefixed(
-	    "listen_speech",
-	    "https://lat.csc.fi/ds/annex/runLoader?"),
-	// sentence_source: {
-	//     label: "sentence_source"
-	// },
-	sentence_clnum: {
-	    label: "sentence_clnum",
-	},
-	sentence_num: {
-	    label: "sentence_num",
-	},
-	sentence_wnum: {
-	    label: "sentence_wnum",
-	},
-	sentence_id: sattrs.sentence_id_hidden,
-	sentence_begin_time: {
-	    label: "sentence_begin_time"
-	},
-	sentence_duration: {
-	    label: "sentence_duration"
-	},
-	sentence_annex_link: sattrs.link_prefixed(
-	    "listen_sentence",
-	    "https://lat.csc.fi/ds/annex/runLoader?"),
-	sentence_fulltext_link:  {
-	    label: "show_fulltext",
-	    type: "url",
-	    url_opts: sattrs.link_url_opts,
-	    synthetic: true,
-	    stringify_synthetic: settings.fn.make_la_murre_fulltext_url,
-	},
-	clause_clnum: {
-	    label: "clause_clnum",
-	},
-	clause_num: {
-	    label: "clause_num",
-	},
-	clause_hier: {
-	    label: "clause_hier",
-	    displayType: "select",
-	    translationKey: "clausehier_",
-	    dataset: [
-		"irrall",
-		"main",
-		"sub1",
-		"sub2",
-		"sub3",
-		"sub4",
-		"sub5",
-		"muu",
-	    ],
-	    opts: liteOptions
-	},
-	clause_type: {
-	    label: "clause_type",
-	    displayType: "select",
-	    translationKey: "clausetype_",
-	    dataset: [
-		"affdecl",
-		"negdecl",
-		"affint",
-		"negint",
-		"affopt",
-		"negopt",
-		"muu",
-	    ],
-	    opts: liteOptions
-	},
-	clause_hallnum: {
-	    label: "clause_hallnum",
-	},
-	clause_ora: {
-	    label: "clause_ora",
-	    displayType: "select",
-	    translationKey: "clauseora_",
-	    dataset: {
-		"dir": "dir",
-		"": "other",
-	    },
-	    opts: liteOptions
-	},
-	clause_depth: {
-	    label: "clause_depth"
-	},
-	clause_partnum: {
-	    label: "clause_partnum",
-	}
+        text_header: {
+            label: "text_header"
+        },
+        text_info: {
+            label: "text_info"
+        },
+        text_dialect_region: {
+            label: "dialect_region",
+            displayType: "select",
+            translationKey: "dialect_region_",
+            dataset: la_murre_regions,
+            opts: liteOptions
+        },
+        text_dialect_group: {
+            label: "dialect_group",
+            displayType: "select",
+            translationKey: "dialect_group_",
+            dataset: la_murre_groups,
+            opts: liteOptions
+        },
+        text_parish: {
+            label: "parish",
+            displayType: "select",
+            localize: false,
+            dataset: la_murre_parishes,
+            opts: liteOptions
+        },
+        text_parish_title: {
+            label: "text_title",
+        },
+        text_filename: {
+            label: "file_name",
+            displayType: "hidden"
+        },
+        text_date: sattrs.date,
+        text_session_descr: {
+            label: "interview_descr",
+        },
+        text_content_descr: {
+            label: "subject",
+        },
+        text_source_id: {
+            label: "original_source",
+        },
+        paragraph_type: {
+            label: "paragraph_type",
+            displayType: "select",
+            translationKey: "paragraphtype_",
+            dataset: {
+                "interviewee": "interviewee",
+                "interviewer": "interviewer",
+                "noninterviewee": "noninterviewee",
+            },
+            opts: liteOptions
+        },
+        paragraph_id: {
+            label: "paragraph_id",
+        },
+        paragraph_speaker: {
+            label: "speaker",
+        },
+        paragraph_speaker_name: {
+            label: "speaker_name",
+            displayType: "hidden",
+        },
+        paragraph_speaker_age: {
+            label: "speaker_age",
+        },
+        paragraph_speaker_sex: {
+            label: "speaker_sex",
+            displayType: "select",
+            translationKey: "",
+            dataset: {
+                "male": "male",
+                "female": "female",
+                "": "unknown"
+            },
+            opts: liteOptions,
+        },
+        paragraph_speaker_birthdate: {
+            label: "speaker_birthdate",
+        },
+        paragraph_speaker_descr: {
+            label: "speaker_descr",
+        },
+        paragraph_begin_time: {
+            label: "speech_begin_time"
+        },
+        paragraph_duration: {
+            label: "speech_duration"
+        },
+        paragraph_annex_link: sattrs.link_prefixed(
+            "listen_speech",
+            "https://lat.csc.fi/ds/annex/runLoader?"),
+        // sentence_source: {
+        //     label: "sentence_source"
+        // },
+        sentence_clnum: {
+            label: "sentence_clnum",
+        },
+        sentence_num: {
+            label: "sentence_num",
+        },
+        sentence_wnum: {
+            label: "sentence_wnum",
+        },
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_begin_time: {
+            label: "sentence_begin_time"
+        },
+        sentence_duration: {
+            label: "sentence_duration"
+        },
+        sentence_annex_link: sattrs.link_prefixed(
+            "listen_sentence",
+            "https://lat.csc.fi/ds/annex/runLoader?"),
+        sentence_fulltext_link:  {
+            label: "show_fulltext",
+            type: "url",
+            url_opts: sattrs.link_url_opts,
+            synthetic: true,
+            stringify_synthetic: settings.fn.make_la_murre_fulltext_url,
+        },
+        clause_clnum: {
+            label: "clause_clnum",
+        },
+        clause_num: {
+            label: "clause_num",
+        },
+        clause_hier: {
+            label: "clause_hier",
+            displayType: "select",
+            translationKey: "clausehier_",
+            dataset: [
+                "irrall",
+                "main",
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "muu",
+            ],
+            opts: liteOptions
+        },
+        clause_type: {
+            label: "clause_type",
+            displayType: "select",
+            translationKey: "clausetype_",
+            dataset: [
+                "affdecl",
+                "negdecl",
+                "affint",
+                "negint",
+                "affopt",
+                "negopt",
+                "muu",
+            ],
+            opts: liteOptions
+        },
+        clause_hallnum: {
+            label: "clause_hallnum",
+        },
+        clause_ora: {
+            label: "clause_ora",
+            displayType: "select",
+            translationKey: "clauseora_",
+            dataset: {
+                "dir": "dir",
+                "": "other",
+            },
+            opts: liteOptions
+        },
+        clause_depth: {
+            label: "clause_depth"
+        },
+        clause_partnum: {
+            label: "clause_partnum",
+        }
     },
     sidebar_display_order: {
-	attributes: [
-	    "cleanword",
-	    "lemma",
-	    "pos",
-	    "msd",
-	    "func",
-	    "cow",
-	    "note",
-	],
-	structAttributes: [
-	    "text_dialect_region",
-	    "text_dialect_group",
-	    "text_parish",
-	    /^text_/,
-	    /^paragraph_/,
-	    /^sentence_/,
-	    /^clause_/,
-	],
+        attributes: [
+            "cleanword",
+            "lemma",
+            "pos",
+            "msd",
+            "func",
+            "cow",
+            "note",
+        ],
+        structAttributes: [
+            "text_dialect_region",
+            "text_dialect_group",
+            "text_parish",
+            /^text_/,
+            /^paragraph_/,
+            /^sentence_/,
+            /^clause_/,
+        ],
     },
     // Ignore any number of punctuation tokens between tokens in the
     // extended search
@@ -10839,34 +10839,34 @@ settings.templ.la_murre = {
 // // folders or corpora in subfolder_tree. This could perhaps be
 // // generalized for other corpora if needed.
 // settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree,
-// 					      depth, leaf_depth) {
+//                                            depth, leaf_depth) {
 //     for (var i = 0; i < subfolder_tree.length; i++) {
-// 	var subfolder_info = subfolder_tree[i];
-// 	var descr = "Lauseopin arkiston murrekorpus: " + subfolder_info[1];
-// 	if (depth < leaf_depth) {
-// 	    var subfolder = {
-// 		title: subfolder_info[1],
-// 		description: descr
-// 	    };
-// 	    main_folder[subfolder_info[0]] = subfolder;
-// 	    settings.fn.make_folders_la_murre(subfolder, subfolder_info[2],
-// 					      depth + 1, leaf_depth);
-// 	} else {
-// 	    var templ_fill = {
-// 		id: subfolder_info[0],
-// 		title: subfolder_info[1] + " (LA-murre)",
-// 		description: descr
-// 	    };
-// 	    // The optional fourth item in the corpus info list is an
-// 	    // object that may be used to override the values in the
-// 	    // template.
-// 	    if (subfolder_info.length > 3) {
-// 		$.extend(templ_fill, subfolder_info[3]);
-// 	    }
-// 	    settings.fn.add_corpus_settings(
-// 		settings.templ.la_murre, [templ_fill], main_folder,
-// 		la_murre_corpus_prefix);
-// 	}
+//      var subfolder_info = subfolder_tree[i];
+//      var descr = "Lauseopin arkiston murrekorpus: " + subfolder_info[1];
+//      if (depth < leaf_depth) {
+//          var subfolder = {
+//              title: subfolder_info[1],
+//              description: descr
+//          };
+//          main_folder[subfolder_info[0]] = subfolder;
+//          settings.fn.make_folders_la_murre(subfolder, subfolder_info[2],
+//                                            depth + 1, leaf_depth);
+//      } else {
+//          var templ_fill = {
+//              id: subfolder_info[0],
+//              title: subfolder_info[1] + " (LA-murre)",
+//              description: descr
+//          };
+//          // The optional fourth item in the corpus info list is an
+//          // object that may be used to override the values in the
+//          // template.
+//          if (subfolder_info.length > 3) {
+//              $.extend(templ_fill, subfolder_info[3]);
+//          }
+//          settings.fn.add_corpus_settings(
+//              settings.templ.la_murre, [templ_fill], main_folder,
+//              la_murre_corpus_prefix);
+//      }
 //     }
 // };
 
@@ -10877,13 +10877,13 @@ settings.templ.la_murre = {
 settings.fn.make_folder_hierarchy(
     settings.corporafolders.spoken.la_murre, la_murre_grouping,
     {
-	id_prefix: la_murre_corpus_prefix,
-	folder_description_prefix: "Lauseopin arkiston murrekorpus: ",
-	corpus_title_suffix: " (LA-murre)",
-	make_corpus_description: function (data) {
-	    return "Lauseopin arkiston murrekorpus: " + data[1];
-	},
-	corpus_template: settings.templ.la_murre,
+        id_prefix: la_murre_corpus_prefix,
+        folder_description_prefix: "Lauseopin arkiston murrekorpus: ",
+        corpus_title_suffix: " (LA-murre)",
+        make_corpus_description: function (data) {
+            return "Lauseopin arkiston murrekorpus: " + data[1];
+        },
+        corpus_template: settings.templ.la_murre,
     });
 
 
@@ -10930,7 +10930,7 @@ sattrlist.las2 = {
     },
     text_datefrom: {
         label: "datefrom",
-	displayType: "hidden",
+        displayType: "hidden",
     },
     text_num: {
         label: "exam_num",
@@ -11012,8 +11012,8 @@ las2_common_props = {
     metadata_urn: "urn:nbn:fi:lb-201407167",
     homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
     licence: {
-	name: "CLARIN RES +PLAN +NC +LOC +ND",
-	urn: "urn:nbn:fi:lb-20150304111"
+        name: "CLARIN RES +PLAN +NC +LOC +ND",
+        urn: "urn:nbn:fi:lb-20150304111"
     },
     cite_id: "LAS2",
     limitedAccess: true,
@@ -11050,41 +11050,41 @@ settings.corpus_aliases.las2 = "las2_tentit,las2_esseet";
 attrlist.agricola = {
     lemma: attrs.baseform,
     pos: {
-	label: "pos",
+        label: "pos",
     },
     nrm: {
         label: "normalized_lemma",
     },
     type: {
-	label: "lang",
-	displayType: "select",
-	translationKey: "agricola_lang_",
-	dataset: {
-	    "": "fin",
-	    "swe": "swe",
-	    "lat": "lat",
-	    "gre": "gre",
-	    "heb": "heb",
-	},
-	opts: liteOptions
-    },	
+        label: "lang",
+        displayType: "select",
+        translationKey: "agricola_lang_",
+        dataset: {
+            "": "fin",
+            "swe": "swe",
+            "lat": "lat",
+            "gre": "gre",
+            "heb": "heb",
+        },
+        opts: liteOptions
+    },
     mrp: attrs.msd,
     fun: {
-	label: "func",
+        label: "func",
     },
     com: {
         displayType: "hidden",
     },
     tunit: {
         label: "comp_tense",
-	displayType: "select",
-	translationKey: "agricola_tense_",
-	dataset: {
-	    "f": "f",
-	    "p": "p",
-	    "pl": "pl",
-	    "p pl": "ppl",
-	},
+        displayType: "select",
+        translationKey: "agricola_tense_",
+        dataset: {
+            "f": "f",
+            "p": "p",
+            "pl": "pl",
+            "p pl": "ppl",
+        },
     }
 };
 
@@ -11093,7 +11093,7 @@ sattrlist.agricola = {
         label: "text_title",
     },
     text_dateto: {
-	displayType: "hidden",
+        displayType: "hidden",
     },
     text_datefrom: {
         displayType: "hidden",
@@ -11148,10 +11148,10 @@ sattrlist.agricola = {
         opts: liteOptions
     },
     clause_depth: {
-	label: "clause_depth"
+        label: "clause_depth"
     },
     clause_partnum: {
-	label: "clause_partnum",
+        label: "clause_partnum",
     }
 };
 
@@ -11263,114 +11263,114 @@ settings.corpora.sks_kivi_fi = {
     homepage_url: "http://www.edith.fi/kivikorpus/index.htm",
     features: ["paragraphs", "parsed_tdt", "finer"],
     attributes: {
-	sketchyword: {
-	    label: "sketchyword",
-	    opts: settings.defaultOptions,
-	},
-	clean_note: {
-	    label: "clean_note",
-	    opts: settings.defaultOptions,
-	},
-	sketchy_note: {
-	    label: "sketchy_note",
-	    opts: settings.defaultOptions,
-	},
-	other_note: {
-	    label: "other_note",
-	    opts: settings.defaultOptions,
-	},
-	wtype: {
-	    label: "wtype",
-	    opts: settings.defaultOptions,
-	}
+        sketchyword: {
+            label: "sketchyword",
+            opts: settings.defaultOptions,
+        },
+        clean_note: {
+            label: "clean_note",
+            opts: settings.defaultOptions,
+        },
+        sketchy_note: {
+            label: "sketchy_note",
+            opts: settings.defaultOptions,
+        },
+        other_note: {
+            label: "other_note",
+            opts: settings.defaultOptions,
+        },
+        wtype: {
+            label: "wtype",
+            opts: settings.defaultOptions,
+        }
     },
     structAttributes: {
-	text_idno: {
-	    label: "kivi_text_idno",
-	    opts: settings.defaultOptions,
-	},
-	text_author: {
-	    label: "kivi_text_author",
-	    opts: settings.defaultOptions,
-	},
-	text_title: {
-	    label: "kivi_text_title",
-	    opts: settings.defaultOptions,
-	},
-	text_byline: {
-	    label: "kivi_text_byline",
-	    opts: settings.defaultOptions,
-	},
-	text_settlement: {
-	    label: "kivi_text_settlement",
-	    opts: settings.defaultOptions,
-	},
-	text_repository: {
-	    label: "kivi_text_repository",
-	    opts: settings.defaultOptions,
-	},
-	text_publisher: {
-	    label: "kivi_text_publisher",
-	    opts: settings.defaultOptions,
-	},
-	text_distributor: {
-	    label: "kivi_text_distributor",
-	    opts: settings.defaultOptions,
-	},
-	text_bibl: {
-	    label: "kivi_text_bibl",
-	    displayType: "hidden",
-	},
-	text_bibl_type: {
-	    label: "kivi_text_bibl_type",
-	    displayType: "hidden",
-	},
-	text_lang: {
-	    label: "kivi_text_lang",
-	    opts: settings.defaultOptions,
-	},
-	text_note: {
-	      label: "kivi_text_note",
-	      opts: settings.defaultOptions,
-	},
-	text_date: {
+        text_idno: {
+            label: "kivi_text_idno",
+            opts: settings.defaultOptions,
+        },
+        text_author: {
+            label: "kivi_text_author",
+            opts: settings.defaultOptions,
+        },
+        text_title: {
+            label: "kivi_text_title",
+            opts: settings.defaultOptions,
+        },
+        text_byline: {
+            label: "kivi_text_byline",
+            opts: settings.defaultOptions,
+        },
+        text_settlement: {
+            label: "kivi_text_settlement",
+            opts: settings.defaultOptions,
+        },
+        text_repository: {
+            label: "kivi_text_repository",
+            opts: settings.defaultOptions,
+        },
+        text_publisher: {
+            label: "kivi_text_publisher",
+            opts: settings.defaultOptions,
+        },
+        text_distributor: {
+            label: "kivi_text_distributor",
+            opts: settings.defaultOptions,
+        },
+        text_bibl: {
+            label: "kivi_text_bibl",
+            displayType: "hidden",
+        },
+        text_bibl_type: {
+            label: "kivi_text_bibl_type",
+            displayType: "hidden",
+        },
+        text_lang: {
+            label: "kivi_text_lang",
+            opts: settings.defaultOptions,
+        },
+        text_note: {
+              label: "kivi_text_note",
+              opts: settings.defaultOptions,
+        },
+        text_date: {
               label: "kivi_text_date",
               opts: settings.defaultOptions,
         },
-	section_id: {
-	    label: "section_id",
-	    displayType: "hidden",
-	},
-	section_type: {
-	    label: "section_type",
-	    opts: settings.defaultOptions,
-	},
-	section_subtype: {
-	    label: "section_subtype",
-	    opts: settings.defaultOptions,
-	},
-	/*
-	section_subtype_n: {
-	    label: "section_subtype_n",
-	    displayType: "hidden",
-	},*/
-	paragraph_id: {
-	    label: "paragraph_id",
-	    displayType: "hidden",
-	},
-	paragraph_type: {
-	    label: "paragraph_type",
-	    opts: settings.defaultOptions,
-	},
-	paragraph_speaker: {
-	    label: "paragraph_speaker",
-	    opts: settings.defaultOptions,
-	},
-	sentence_id: sattrs.sentence_id_hidden,
-	sentence_type: {
-	    label: "sentence_type",
-	    opts: settings.defaultOptions,
-	}
+        section_id: {
+            label: "section_id",
+            displayType: "hidden",
+        },
+        section_type: {
+            label: "section_type",
+            opts: settings.defaultOptions,
+        },
+        section_subtype: {
+            label: "section_subtype",
+            opts: settings.defaultOptions,
+        },
+        /*
+        section_subtype_n: {
+            label: "section_subtype_n",
+            displayType: "hidden",
+        },*/
+        paragraph_id: {
+            label: "paragraph_id",
+            displayType: "hidden",
+        },
+        paragraph_type: {
+            label: "paragraph_type",
+            opts: settings.defaultOptions,
+        },
+        paragraph_speaker: {
+            label: "paragraph_speaker",
+            opts: settings.defaultOptions,
+        },
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_type: {
+            label: "sentence_type",
+            opts: settings.defaultOptions,
+        }
     }
 };
 
@@ -11386,340 +11386,340 @@ settings.corpora.opensub_fi_2017 = {
     context: defaultContext,
     attributes: attrlist.parsed_tdt_ud1,
     structAttributes: {
-	text_country: {
-	    label: "opensub_text_country",
-	    type: "set",
-	    opts: setOptions,
-	    displayType: "select",
-	    dataset: [
-		"Afghanistan",
-		"Algeria",
-		"Angola",
-		"Argentina",
-		"Aruba",
-		"Australia",
-		"Austria",
-		"Bahamas",
-		"Belarus",
-		"Belgium",
-		"Bolivia",
-		"Bosnia and Herzegovina",
-		"Botswana",
-		"Brazil",
-		"Bulgaria",
-		"Burkina Faso",
-		"Cambodia",
-		"Cameroon",
-		"Canada",
-		"Chile",
-		"China",
-		"Colombia",
-		"Croatia",
-		"Cuba",
-		"Cyprus",
-		"Czechoslovakia",
-		"Czech Republic",
-		"Denmark",
-		"Dominican Republic",
-		"Ecuador",
-		"Egypt",
-		"Estonia",
-		"Faroe Islands",
-		"Federal Republic of Yugoslavia",
-		"Finland",
-		"France",
-		"Georgia",
-		"Germany",
-		"Ghana",
-		"Greece",
-		"Hong Kong",
-		"Hungary",
-		"Iceland",
-		"India",
-		"Indonesia",
-		"Iran",
-		"Iraq",
-		"Ireland",
-		"Isle Of Man",
-		"Israel",
-		"Italy",
-		"Jamaica",
-		"Japan",
-		"Kazakhstan",
-		"Latvia",
-		"Lebanon",
-		"Liberia",
-		"Libya",
-		"Liechtenstein",
-		"Lithuania",
-		"Luxembourg",
-		"Macao",
-		"Malaysia",
-		"Malta",
-		"Mexico",
-		"Moldova",
-		"Monaco",
-		"Mongolia",
-		"Morocco",
-		"Namibia",
-		"Netherlands",
-		"New Zealand",
-		"North Korea",
-		"Norway",
-		"Palestine",
-		"Panama",
-		"Paraguay",
-		"Peru",
-		"Philippines",
-		"Poland",
-		"Portugal",
-		"Puerto Rico",
-		"Qatar",
-		"Republic of Macedonia",
-		"Romania",
-		"Russia",
-		"Rwanda",
-		"Saudi Arabia",
-		"Serbia",
-		"Singapore",
-		"Slovakia",
-		"Slovenia",
-		"South Africa",
-		"South Korea",
-		"Soviet Union",
-		"Spain",
-		"Sri Lanka",
-		"Sweden",
-		"Switzerland",
-		"Taiwan",
-		"Tanzania",
-		"Thailand",
-		"Tunisia",
-		"Turkey",
-		"UK",
-		"Ukraine",
-		"United Arab Emirates",
-		"Uruguay",
-		"USA",
-		"Venezuela",
-		"West Germany",
-		"Yugoslavia",
-		"Zambia",
-		"_"
-	      ],
-	},
-	text_lang_orig: {
-	    label: "opensub_text_lang_orig",
-	    type: "set",
-	    opts: setOptions,
-	    displayType: "select",
-	    dataset: [
-		"Abkhazian",
-		"Aboriginal",
-		"Acholi",
-		"Afrikaans",
-		"Albanian",
-		"Algonquin",
-		"American Sign Language",
-		"Amharic",
-		"Ancient (to 1453)",
-		"Apache languages",
-		"Arabic",
-		"Aramaic",
-		"Arapaho",
-		"Armenian",
-		"Assamese",
-		"Assyrian Neo-Aramaic",
-		"Athapascan languages",
-		"Awadhi",
-		"Azerbaijani",
-		"Bambara",
-		"Basque",
-		"Belarusian",
-		"Bengali",
-		"Berber languages",
-		"Bhojpuri",
-		"Bosnian",
-		"Brazilian Sign Language",
-		"Breton",
-		"British Sign Language",
-		"Bulgarian",
-		"Burmese",
-		"Cantonese",
-		"Catalan",
-		"Chechen",
-		"Chinese",
-		"Cornish",
-		"Corsican",
-		"Cree",
-		"Croatian",
-		"Czech",
-		"Danish",
-		"Dari",
-		"Dutch",
-		"Egyptian (Ancient)",
-		"English",
-		"Esperanto",
-		"Estonian",
-		"Ewe",
-		"Faroese",
-		"Filipino",
-		"Finnish",
-		"Flemish",
-		"French",
-		"Gallegan",
-		"Georgian",
-		"German",
-		"Greek",
-		"Greenlandic",
-		"Gujarati",
-		"Hakka",
-		"Hawaiian",
-		"Hebrew",
-		"Hindi",
-		"Hmong",
-		"Hokkien",
-		"Hungarian",
-		"Icelandic",
-		"Indian Sign Language",
-		"Indonesian",
-		"Inuktitut",
-		"Irish",
-		"Italian",
-		"Japanese",
-		"Japanese Sign Language",
-		"Kabyle",
-		"Kazakh",
-		"Khmer",
-		"Kirundi",
-		"Klingon",
-		"Korean",
-		"Korean Sign Language",
-		"Kurdish",
-		"Lao",
-		"Latin",
-		"Latvian",
-		"Lingala",
-		"Lithuanian",
-		"Luxembourgish",
-		"Macedonian",
-		"Malay",
-		"Malayalam",
-		"Maltese",
-		"Mandarin",
-		"Maori",
-		"Mapudungun",
-		"Marathi",
-		"Maya",
-		"Mende",
-		"Min Nan",
-		"Mohawk",
-		"Mongolian",
-		"Navajo",
-		"Neapolitan",
-		"Nepali",
-		"Norse",
-		"North American Indian",
-		"Norwegian",
-		"Nyanja",
-		"Occitan",
-		"Old",
-		"Old English",
-		"Panjabi",
-		"Papiamento",
-		"Pawnee",
-		"Persian",
-		"Polish",
-		"Polynesian",
-		"Portuguese",
-		"Pushto",
-		"Quechua",
-		"Quenya",
-		"Romanian",
-		"Romany",
-		"Russian",
-		"Saami",
-		"Sanskrit",
-		"Scots",
-		"Scottish Gaelic",
-		"Serbian",
-		"Serbo-Croatian",
-		"Shanghainese",
-		"Sicilian",
-		"Sign Languages",
-		"Sindarin",
-		"Sinhalese",
-		"Sioux",
-		"Slovak",
-		"Slovenian",
-		"Somali",
-		"Southern Sotho",
-		"Spanish",
-		"Spanish Sign Language",
-		"Swahili",
-		"Swedish",
-		"Swiss German",
-		"Syriac",
-		"Tagalog",
-		"Tamil",
-		"Tatar",
-		"Thai",
-		"Tibetan",
-		"Tigrigna",
-		"Tok Pisin",
-		"Tonga",
-		"Turkish",
-		"Ukrainian",
-		"Ungwatsi",
-		"Urdu",
-		"Vietnamese",
-		"Washoe",
-		"Welsh",
-		"Wolof",
-		"Xhosa",
-		"Yiddish",
-		"Zulu",
-		"_"
-	    ],
-	},
-	text_genre: {
-	    label: "opensub_text_genre",
-	    type: "set",
-	    opts: setOptions,
-	    displayType: "select",
-	    dataset: [
-		"Action",
-		"Adult",
-		"Adventure",
-		"Animation",
-		"Biography",
-		"Comedy",
-		"Crime",
-		"Documentary",
-		"Drama",
-		"Family",
-		"Fantasy",
-		"Film-Noir",
-		"Game-Show",
-		"History",
-		"Horror",
-		"Music",
-		"Musical",
-		"Mystery",
-		"News",
-		"Reality-TV",
-		"Romance",
-		"Sci-Fi",
-		"Short",
-		"Sport",
-		"Talk-Show",
-		"Thriller",
-		"War",
-		"Western",
-		"_"
-	      ],
-	},
-	text_year: { label: "year" },
+        text_country: {
+            label: "opensub_text_country",
+            type: "set",
+            opts: setOptions,
+            displayType: "select",
+            dataset: [
+                "Afghanistan",
+                "Algeria",
+                "Angola",
+                "Argentina",
+                "Aruba",
+                "Australia",
+                "Austria",
+                "Bahamas",
+                "Belarus",
+                "Belgium",
+                "Bolivia",
+                "Bosnia and Herzegovina",
+                "Botswana",
+                "Brazil",
+                "Bulgaria",
+                "Burkina Faso",
+                "Cambodia",
+                "Cameroon",
+                "Canada",
+                "Chile",
+                "China",
+                "Colombia",
+                "Croatia",
+                "Cuba",
+                "Cyprus",
+                "Czechoslovakia",
+                "Czech Republic",
+                "Denmark",
+                "Dominican Republic",
+                "Ecuador",
+                "Egypt",
+                "Estonia",
+                "Faroe Islands",
+                "Federal Republic of Yugoslavia",
+                "Finland",
+                "France",
+                "Georgia",
+                "Germany",
+                "Ghana",
+                "Greece",
+                "Hong Kong",
+                "Hungary",
+                "Iceland",
+                "India",
+                "Indonesia",
+                "Iran",
+                "Iraq",
+                "Ireland",
+                "Isle Of Man",
+                "Israel",
+                "Italy",
+                "Jamaica",
+                "Japan",
+                "Kazakhstan",
+                "Latvia",
+                "Lebanon",
+                "Liberia",
+                "Libya",
+                "Liechtenstein",
+                "Lithuania",
+                "Luxembourg",
+                "Macao",
+                "Malaysia",
+                "Malta",
+                "Mexico",
+                "Moldova",
+                "Monaco",
+                "Mongolia",
+                "Morocco",
+                "Namibia",
+                "Netherlands",
+                "New Zealand",
+                "North Korea",
+                "Norway",
+                "Palestine",
+                "Panama",
+                "Paraguay",
+                "Peru",
+                "Philippines",
+                "Poland",
+                "Portugal",
+                "Puerto Rico",
+                "Qatar",
+                "Republic of Macedonia",
+                "Romania",
+                "Russia",
+                "Rwanda",
+                "Saudi Arabia",
+                "Serbia",
+                "Singapore",
+                "Slovakia",
+                "Slovenia",
+                "South Africa",
+                "South Korea",
+                "Soviet Union",
+                "Spain",
+                "Sri Lanka",
+                "Sweden",
+                "Switzerland",
+                "Taiwan",
+                "Tanzania",
+                "Thailand",
+                "Tunisia",
+                "Turkey",
+                "UK",
+                "Ukraine",
+                "United Arab Emirates",
+                "Uruguay",
+                "USA",
+                "Venezuela",
+                "West Germany",
+                "Yugoslavia",
+                "Zambia",
+                "_"
+              ],
+        },
+        text_lang_orig: {
+            label: "opensub_text_lang_orig",
+            type: "set",
+            opts: setOptions,
+            displayType: "select",
+            dataset: [
+                "Abkhazian",
+                "Aboriginal",
+                "Acholi",
+                "Afrikaans",
+                "Albanian",
+                "Algonquin",
+                "American Sign Language",
+                "Amharic",
+                "Ancient (to 1453)",
+                "Apache languages",
+                "Arabic",
+                "Aramaic",
+                "Arapaho",
+                "Armenian",
+                "Assamese",
+                "Assyrian Neo-Aramaic",
+                "Athapascan languages",
+                "Awadhi",
+                "Azerbaijani",
+                "Bambara",
+                "Basque",
+                "Belarusian",
+                "Bengali",
+                "Berber languages",
+                "Bhojpuri",
+                "Bosnian",
+                "Brazilian Sign Language",
+                "Breton",
+                "British Sign Language",
+                "Bulgarian",
+                "Burmese",
+                "Cantonese",
+                "Catalan",
+                "Chechen",
+                "Chinese",
+                "Cornish",
+                "Corsican",
+                "Cree",
+                "Croatian",
+                "Czech",
+                "Danish",
+                "Dari",
+                "Dutch",
+                "Egyptian (Ancient)",
+                "English",
+                "Esperanto",
+                "Estonian",
+                "Ewe",
+                "Faroese",
+                "Filipino",
+                "Finnish",
+                "Flemish",
+                "French",
+                "Gallegan",
+                "Georgian",
+                "German",
+                "Greek",
+                "Greenlandic",
+                "Gujarati",
+                "Hakka",
+                "Hawaiian",
+                "Hebrew",
+                "Hindi",
+                "Hmong",
+                "Hokkien",
+                "Hungarian",
+                "Icelandic",
+                "Indian Sign Language",
+                "Indonesian",
+                "Inuktitut",
+                "Irish",
+                "Italian",
+                "Japanese",
+                "Japanese Sign Language",
+                "Kabyle",
+                "Kazakh",
+                "Khmer",
+                "Kirundi",
+                "Klingon",
+                "Korean",
+                "Korean Sign Language",
+                "Kurdish",
+                "Lao",
+                "Latin",
+                "Latvian",
+                "Lingala",
+                "Lithuanian",
+                "Luxembourgish",
+                "Macedonian",
+                "Malay",
+                "Malayalam",
+                "Maltese",
+                "Mandarin",
+                "Maori",
+                "Mapudungun",
+                "Marathi",
+                "Maya",
+                "Mende",
+                "Min Nan",
+                "Mohawk",
+                "Mongolian",
+                "Navajo",
+                "Neapolitan",
+                "Nepali",
+                "Norse",
+                "North American Indian",
+                "Norwegian",
+                "Nyanja",
+                "Occitan",
+                "Old",
+                "Old English",
+                "Panjabi",
+                "Papiamento",
+                "Pawnee",
+                "Persian",
+                "Polish",
+                "Polynesian",
+                "Portuguese",
+                "Pushto",
+                "Quechua",
+                "Quenya",
+                "Romanian",
+                "Romany",
+                "Russian",
+                "Saami",
+                "Sanskrit",
+                "Scots",
+                "Scottish Gaelic",
+                "Serbian",
+                "Serbo-Croatian",
+                "Shanghainese",
+                "Sicilian",
+                "Sign Languages",
+                "Sindarin",
+                "Sinhalese",
+                "Sioux",
+                "Slovak",
+                "Slovenian",
+                "Somali",
+                "Southern Sotho",
+                "Spanish",
+                "Spanish Sign Language",
+                "Swahili",
+                "Swedish",
+                "Swiss German",
+                "Syriac",
+                "Tagalog",
+                "Tamil",
+                "Tatar",
+                "Thai",
+                "Tibetan",
+                "Tigrigna",
+                "Tok Pisin",
+                "Tonga",
+                "Turkish",
+                "Ukrainian",
+                "Ungwatsi",
+                "Urdu",
+                "Vietnamese",
+                "Washoe",
+                "Welsh",
+                "Wolof",
+                "Xhosa",
+                "Yiddish",
+                "Zulu",
+                "_"
+            ],
+        },
+        text_genre: {
+            label: "opensub_text_genre",
+            type: "set",
+            opts: setOptions,
+            displayType: "select",
+            dataset: [
+                "Action",
+                "Adult",
+                "Adventure",
+                "Animation",
+                "Biography",
+                "Comedy",
+                "Crime",
+                "Documentary",
+                "Drama",
+                "Family",
+                "Fantasy",
+                "Film-Noir",
+                "Game-Show",
+                "History",
+                "Horror",
+                "Music",
+                "Musical",
+                "Mystery",
+                "News",
+                "Reality-TV",
+                "Romance",
+                "Sci-Fi",
+                "Short",
+                "Sport",
+                "Talk-Show",
+                "Thriller",
+                "War",
+                "Western",
+                "_"
+              ],
+        },
+        text_year: { label: "year" },
     }
 };
 
@@ -11746,7 +11746,7 @@ settings.corpora.skvr = {
         }
     },
     structAttributes: {
-	text_id: {
+        text_id: {
             label: "skvr_item_id",
             displayType: "hidden",
         },
@@ -11801,12 +11801,12 @@ settings.corpora.skvr = {
         text_refs: {
             label: "skvr_item_refs",
             opts: settings.defaultOptions,
-	},
+        },
         text_cpt: {
             label: "skvr_item_cpt",
             opts: settings.defaultOptions,
         },
-	paragraph_id: {
+        paragraph_id: {
             displayType: "hidden",
         },
         sentence_id: sattrs.sentence_id_hidden,
@@ -11844,12 +11844,12 @@ sattrlist.s24_update = {
     sentence_id: sattrs.sentence_id_hidden,
     text_title: sattrs.text_title,
     text_title_lemmas: {
-	label: "title_lemmas",
+        label: "title_lemmas",
     },
     text_date: sattrs.date,
     text_time: sattrs.text_time,
     text_tid: {
-	label: "discussion_thread_id",
+        label: "discussion_thread_id",
     },
     text_cid: {
         label: "suomi24fi_cid",
@@ -11864,7 +11864,7 @@ sattrlist.s24_update = {
         label: "suomi24fi_user",
     },
     text_anonnick_lemmas: {
-	label: "suomi24fi_user_lemmas",
+        label: "suomi24fi_user_lemmas",
     },
 };
 
@@ -11902,26 +11902,26 @@ settings.corpora.yoaineet = {
     licenceType: "RES",
     features: ["paragraphs", "parsed_tdt", "finer"],
     attributes: {
-	namecat_omorfi: attrs.namecat_omorfi,
+        namecat_omorfi: attrs.namecat_omorfi,
     },
     structAttributes: {
-	text_id: sattrs.hidden,
-	text_year: sattrs.year,
-	text_author: sattrs.text_author,
-	text_author_name_type: sattrs.author_name_type,
-	text_author_sex: sattrs.sex,
-	text_title: sattrs.text_title,
-	text_topic_num: {
-	    label: "topic_number"
-	},
-	text_grade_teacher: {
-	    label: "grade_teacher"
-	},
-	text_grade_censor: {
-	    label: "grade_censor"
-	},    
-	paragraph_id: sattrs.paragraph_id_hidden,
-	sentence_id: sattrs.sentence_id_hidden,
+        text_id: sattrs.hidden,
+        text_year: sattrs.year,
+        text_author: sattrs.text_author,
+        text_author_name_type: sattrs.author_name_type,
+        text_author_sex: sattrs.sex,
+        text_title: sattrs.text_title,
+        text_topic_num: {
+            label: "topic_number"
+        },
+        text_grade_teacher: {
+            label: "grade_teacher"
+        },
+        text_grade_censor: {
+            label: "grade_censor"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
     },
 };
 
@@ -11943,7 +11943,7 @@ settings.corpora.legal_fi = {
 };
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.firulex,
-				   ["legal_fi"]);
+                                   ["legal_fi"]);
 
 
 // MULCOLD
@@ -11960,7 +11960,7 @@ settings.corpora.mulcold_fi = {
 };
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
-				   ["mulcold_fi"]);
+                                   ["mulcold_fi"]);
 
 
 /* ParFin Finnish */
@@ -12022,7 +12022,7 @@ settings.corpora.parfin_2016_fi = {
 };
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.parfin_2016,
-				   ["parfin_2016_fi"]);
+                                   ["parfin_2016_fi"]);
 
 
 /* ParRus 2016 Finnish */
@@ -12043,7 +12043,7 @@ settings.corpora.parrus_2016_fi = {
     structAttributes: sattrlist.parrus_2016_fi,
 };
 settings.fn.extend_corpus_settings(settings.corpusinfo.parrus_2016,
-				   ["parrus_2016_fi"]);
+                                   ["parrus_2016_fi"]);
 
 
 
@@ -12056,20 +12056,20 @@ sattrlist.klk_fi = $.extend({}, sattrlist.klk);
 sattrlist.klk_fi_parsed = $.extend(
     {}, sattrlist.klk_fi,
     {
-	sentence_parse_state: {
-	    label: "parse_state",
-	    displayType: "select",
-	    translationKey: "parse_state_",
-	    opts: liteOptions,
-	    dataset: {
-		"parsed": "parsed",
-		"tagged": "tagged"
-	    }
-	},
-	sentence_local_id: {
-	    label: "local_id",
-	    displayType: "hidden"
-	}
+        sentence_parse_state: {
+            label: "parse_state",
+            displayType: "select",
+            translationKey: "parse_state_",
+            opts: liteOptions,
+            dataset: {
+                "parsed": "parsed",
+                "tagged": "tagged"
+            }
+        },
+        sentence_local_id: {
+            label: "local_id",
+            displayType: "hidden"
+        }
     });
 
 sattrlist.klk_fi_parsed_pagelinks = $.extend(
@@ -12077,25 +12077,25 @@ sattrlist.klk_fi_parsed_pagelinks = $.extend(
 
 attrlist.klk_fi = {
     ocr: {
-	label: "OCR",
-	opts: settings.defaultOptions
+        label: "OCR",
+        opts: settings.defaultOptions
     }
 };
 
 attrlist.klk_fi_parsed =
     $.extend(
-	{
-	    lemma: attrs.baseform,
-	    lemmacomp: attrs.baseform_compound,
-	    pos: attrs.pos_klk,
-	    msd: attrs.msd,
-	    dephead: attrs.dephead,
-	    deprel: attrs.deprel_tdt,
-	    ref: attrs.ref,
-	    lex: attrs.lemgram_hidden
-	},
-	attrlist.klk_fi,
-	attrlist.finer);
+        {
+            lemma: attrs.baseform,
+            lemmacomp: attrs.baseform_compound,
+            pos: attrs.pos_klk,
+            msd: attrs.msd,
+            dephead: attrs.dephead,
+            deprel: attrs.deprel_tdt,
+            ref: attrs.ref,
+            lex: attrs.lemgram_hidden
+        },
+        attrlist.klk_fi,
+        attrlist.finer);
 
 attrlist.klk_fi_parsed_pagelinks = attrlist.klk_fi_parsed;
 
@@ -12110,30 +12110,30 @@ var klk_fi_parsed_years = settings.fn.make_yearlist(1820, 2000);
 settings.fn.make_corpus_settings_by_year_decade(
     settings.corporafolders.klk_fi, "fi_{decade}", "klk_fi_{year}",
     function(decade) {
-	return {
-	    title: decade.toString() + "-luku",
-	    // unselected: (decade <= 1880)
-	};
+        return {
+            title: decade.toString() + "-luku",
+            // unselected: (decade <= 1880)
+        };
     },
     function(year) {
-	return settings.fn.make_klk_corpus_settings(
-	    "KLK suomi {year}",
-	    "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä vuodelta {year}",
-	    "klk",
-	    "fi",
-	    year,
-	    klk_fi_parsed_years.indexOf(year) != -1);
+        return settings.fn.make_klk_corpus_settings(
+            "KLK suomi {year}",
+            "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä vuodelta {year}",
+            "klk",
+            "fi",
+            year,
+            klk_fi_parsed_years.indexOf(year) != -1);
     },
     settings.fn.make_yearlist(1820, 2000,
-			      {descending: true,
-			       omit: [1828, 1843]})
+                              {descending: true,
+                               omit: [1828, 1843]})
 );
 
 // for (var i = 0; i < klk_fi_ner_years.length; i++) {
 //     var year = klk_fi_ner_years[i];
 //     var corpsettings = settings.corpora["klk_fi_" + year.toString()];
 //     corpsettings.attributes = $.extend({}, corpsettings.attributes,
-// 				       attrlist.finer);
+//                                     attrlist.finer);
 // }
 
 delete klk_fi_parsed_years;
@@ -12154,24 +12154,24 @@ sattrlist.klk2_fi_parsed_pagelinks = $.extend(
 
 attrlist.klk2_fi = {
     hyph: {
-	label: "divided_in_lines",
+        label: "divided_in_lines",
     },
     ocr: {
-	label: "ocr_word_confidence",
+        label: "ocr_word_confidence",
     },
     cc: {
-	label: "ocr_char_confidence",
+        label: "ocr_char_confidence",
     },
     vpos: {
-	label: "vertical_position",
+        label: "vertical_position",
     },
 };
 
 attrlist.klk2_fi_parsed =
     $.extend(
-	{},
-	attrlist.parsed_tdt,
-	attrlist.klk2_fi);
+        {},
+        attrlist.parsed_tdt,
+        attrlist.klk2_fi);
 
 settings.fn.set_attr_order(
     attrlist.klk2_fi_parsed,
@@ -12182,18 +12182,18 @@ attrlist.klk2_fi_parsed_pagelinks = attrlist.klk2_fi_parsed;
 settings.fn.make_corpus_settings_by_year_decade(
     settings.corporafolders.klk2_fi, "fi_{decade}", "klk2test_fi_{year}",
     function(decade) {
-	return {
-	    title: decade.toString() + "-luku",
-	};
+        return {
+            title: decade.toString() + "-luku",
+        };
     },
     function(year) {
-	return settings.fn.make_klk_corpus_settings(
-	    "KLK2 suomi {year}",
-	    "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä vuodelta {year} (versio 2)",
-	    "klk2",
-	    "fi",
-	    year,
-	    true);
+        return settings.fn.make_klk_corpus_settings(
+            "KLK2 suomi {year}",
+            "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä vuodelta {year} (versio 2)",
+            "klk2",
+            "fi",
+            year,
+            true);
     },
     [2009, 2008, 2007, 2006, 2005, 2003, 2002, 1941, 1940, 1874, 1776, 1775]
 );
@@ -12217,8 +12217,8 @@ sattrs.vks_sentence_type = {
     displayType: "select",
     translationKey: "vks_sentence_type_",
     dataset: [
-	"sentence",
-	"heading",
+        "sentence",
+        "heading",
     ],
 };
 sattrs.vks_text_year = {
@@ -12246,24 +12246,24 @@ sattrs.vksbib_book_code = {
     displayType: "select",
     translationKey: "vksbibbook_",
     dataset: {
-	"VT4": "VT4",
-	"Jes": "Jes",
-	"Jer": "Jer",
-	"Vlt": "Vlt",
-	"Hes": "Hes",
-	"Dan": "Dan",
-	"Hos": "Hos",
-	"Joel": "Joel",
-	"Am": "Am",
-	"Ob": "Ob",
-	"Jon": "Jon",
-	"Mik": "Mik",
-	"Nah": "Nah",
-	"Hab": "Hab",
-	"Sef": "Sef",
-	"Hgg": "Hgg",
-	"Sak": "Sak",
-	"Mal": "Mal",
+        "VT4": "VT4",
+        "Jes": "Jes",
+        "Jer": "Jer",
+        "Vlt": "Vlt",
+        "Hes": "Hes",
+        "Dan": "Dan",
+        "Hos": "Hos",
+        "Joel": "Joel",
+        "Am": "Am",
+        "Ob": "Ob",
+        "Jon": "Jon",
+        "Mik": "Mik",
+        "Nah": "Nah",
+        "Hab": "Hab",
+        "Sef": "Sef",
+        "Hgg": "Hgg",
+        "Sak": "Sak",
+        "Mal": "Mal",
     },
     opts: liteOptions
 };
@@ -12275,8 +12275,8 @@ sattrs.vkslait_law_code = {
     displayType: "select",
     translationKey: "vkslaitlaw_",
     dataset: {
-	"As1584": "As1584",
-	"As1593": "As1593"
+        "As1584": "As1584",
+        "As1593": "As1593"
     },
     opts: liteOptions
 };
@@ -12287,20 +12287,20 @@ sattrs.vkssaarnat_source_code = {
     displayType: "select",
     translationKey: "vkssaarnatsource_",
     dataset: {
-	"Swahn1706": "Swahn1706",
-	"Wall1706": "Wall1706",
-	"Sten1750": "Sten1750",
-	"Rein1750": "Rein1750",
-	"Sten1771": "Sten1771",
-	"Varia1756a": "Varia1756a",
-	"Paz1764": "Paz1764",
-	"Elgf1768": "Elgf1768",
-	"Laih1768": "Laih1768",
-	"GLyra1772": "GLyra1772",
-	"Sax1776": "Sax1776",
-	"Äjm1779": "Äjm1779",
-	"Widen1780": "Widen1780",
-	"Popp1781": "Popp1781"
+        "Swahn1706": "Swahn1706",
+        "Wall1706": "Wall1706",
+        "Sten1750": "Sten1750",
+        "Rein1750": "Rein1750",
+        "Sten1771": "Sten1771",
+        "Varia1756a": "Varia1756a",
+        "Paz1764": "Paz1764",
+        "Elgf1768": "Elgf1768",
+        "Laih1768": "Laih1768",
+        "GLyra1772": "GLyra1772",
+        "Sax1776": "Sax1776",
+        "Äjm1779": "Äjm1779",
+        "Widen1780": "Widen1780",
+        "Popp1781": "Popp1781"
     },
     opts: liteOptions
 };
@@ -12317,38 +12317,38 @@ settings.corpora.vks_biblia = {
     context: defaultContext,
     attributes: {},
     structAttributes: {
-	sourcecode_bibleref: {
-	    label: "vksbib_sourcecode_bibleref"
-	},
-	sourcecode_book: sattrs.vksbib_sourcecode_book,
-	sourcecode_chapter: {
-	    label: "vksbib_sourcecode_chapter"
-	},
-	sourcecode_verse: {
-	    label: "vksbib_sourcecode_verse"
-	},
-	sourcecode_code: sattrs.vks_sourcecode_code,
-	sourcecode_page: sattrs.vks_sourcecode_page,
-	work_code: {
-	    label: "vks_work_code",
-	    displayType: "hidden",
-	},
-	verse_bibleref: {
-	    label: "vksbib_verse_bibleref"
-	},
-	book_code: sattrs.vksbib_book_code,
-	chapter_code: {
-	    label: "vksbib_chapter_code"
-	},
-	// chapter_bibleref: {
-	//     label: "vksbib_chapter_bibleref"
-	// },
-	verse_code: {
-	    label: "vksbib_verse_code"
-	},
-	sentence_id: sattrs.sentence_id_hidden,
-	span_code: sattrs.vks_sentence_code,
-	span_page: sattrs.vks_sentence_page
+        sourcecode_bibleref: {
+            label: "vksbib_sourcecode_bibleref"
+        },
+        sourcecode_book: sattrs.vksbib_sourcecode_book,
+        sourcecode_chapter: {
+            label: "vksbib_sourcecode_chapter"
+        },
+        sourcecode_verse: {
+            label: "vksbib_sourcecode_verse"
+        },
+        sourcecode_code: sattrs.vks_sourcecode_code,
+        sourcecode_page: sattrs.vks_sourcecode_page,
+        work_code: {
+            label: "vks_work_code",
+            displayType: "hidden",
+        },
+        verse_bibleref: {
+            label: "vksbib_verse_bibleref"
+        },
+        book_code: sattrs.vksbib_book_code,
+        chapter_code: {
+            label: "vksbib_chapter_code"
+        },
+        // chapter_bibleref: {
+        //     label: "vksbib_chapter_bibleref"
+        // },
+        verse_code: {
+            label: "vksbib_verse_code"
+        },
+        sentence_id: sattrs.sentence_id_hidden,
+        span_code: sattrs.vks_sentence_code,
+        span_page: sattrs.vks_sentence_page
     }
 };
 */
@@ -12361,17 +12361,17 @@ settings.corpora.vks_lait = {
     within: settings.defaultWithin,
     context: defaultContext,
     attributes: {
-	word_orig: attrs.origword,
-	word_completed: attrs.complword
+        word_orig: attrs.origword,
+        word_completed: attrs.complword
     },
     structAttributes: {
-	sourcecode_work: sattrs.vkslait_sourcecode_work,
-	sourcecode_code: sattrs.vks_sourcecode_code,
-	sourcecode_page: sattrs.vks_sourcecode_page,
-	law_code: sattrs.vkslait_law_code,
-	sentence_id: sattrs.sentence_id_hidden,
-	span_code: sattrs.vks_sentence_code,
-	span_page: sattrs.vks_sentence_page
+        sourcecode_work: sattrs.vkslait_sourcecode_work,
+        sourcecode_code: sattrs.vks_sourcecode_code,
+        sourcecode_page: sattrs.vks_sourcecode_page,
+        law_code: sattrs.vkslait_law_code,
+        sentence_id: sattrs.sentence_id_hidden,
+        span_code: sattrs.vks_sentence_code,
+        span_page: sattrs.vks_sentence_page
     }
 };
 */
@@ -12384,17 +12384,17 @@ settings.corpora.vks_saarnat = {
     within: settings.defaultWithin,
     context: defaultContext,
     attributes: {
-	word_orig: attrs.origword,
-	word_completed: attrs.complword
+        word_orig: attrs.origword,
+        word_completed: attrs.complword
     },
     structAttributes: {
-	sourcecode_work: sattrs.vkssaarnat_sourcecode_work,
-	sourcecode_code: sattrs.vks_sourcecode_code,
-	sourcecode_page: sattrs.vks_sourcecode_page,
-	source_code: sattrs.vkssaarnat_source_code,
-	sentence_id: sattrs.sentence_id_hidden,
-	span_code: sattrs.vks_sentence_code,
-	span_page: sattrs.vks_sentence_page
+        sourcecode_work: sattrs.vkssaarnat_sourcecode_work,
+        sourcecode_code: sattrs.vks_sourcecode_code,
+        sourcecode_page: sattrs.vks_sourcecode_page,
+        source_code: sattrs.vkssaarnat_source_code,
+        sentence_id: sattrs.sentence_id_hidden,
+        span_code: sattrs.vks_sentence_code,
+        span_page: sattrs.vks_sentence_page
     }
 };
 */
@@ -12406,21 +12406,21 @@ settings.corpora.vks_agricola = {
     within: settings.defaultWithin,
     context: defaultContext,
     attributes: {
-	word_orig: attrs.origword,
-	word_completed: attrs.complword,
-	word_tilde: attrs.tildeword
+        word_orig: attrs.origword,
+        word_completed: attrs.complword,
+        word_tilde: attrs.tildeword
     },
     structAttributes: {
-	text_year: sattrs.vks_text_year,
-	text_title: sattrs.vks_text_title,
-	text_title_facsimile: {
-	    label: "facsimile_title",
-	},
-	sentence_type: sattrs.vks_sentence_type,
-	sentence_code: sattrs.vks_sentence_code,
-	sentence_id: sattrs.sentence_id_hidden,
-	sentence_cRef: sattrs.vks_sentence_cref,
-	span_page: sattrs.vks_span_page
+        text_year: sattrs.vks_text_year,
+        text_title: sattrs.vks_text_title,
+        text_title_facsimile: {
+            label: "facsimile_title",
+        },
+        sentence_type: sattrs.vks_sentence_type,
+        sentence_code: sattrs.vks_sentence_code,
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_cRef: sattrs.vks_sentence_cref,
+        span_page: sattrs.vks_span_page
     }
 };
 
@@ -12677,36 +12677,36 @@ settings.corpora.vns_asetus = {
     attributes: {
     },
     structAttributes: {
-	text_title: sattrs.text_title,
-	text_distributor: sattrs.text_distributor,
-	text_source: sattrs.text_source,
-	article_id: {
-	    label: "article_id"
-	},
-	paragraph_id: {
-	    label: "lawparagraph_id"
-	},
-	sentence_type: {
-	    label: "sentence_type",
-	    displayType: "select",
-	    translationKey: "sentencetype_",
-	    dataset: {
-		"p": "p",
-		"head": "head",
-		"opening": "opening"
-	    },
-	    opts: liteOptions
-	},
-	sentence_id: sattrs.sentence_id_hidden,
-	hi_rend: {
-	    label: "hi_rend",
-	    displayType: "select",
-	    translationKey: "hirend_",
-	    dataset: {
-		"bold": "bold"
-	    },
-	    opts: liteOptions
-	}
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source,
+        article_id: {
+            label: "article_id"
+        },
+        paragraph_id: {
+            label: "lawparagraph_id"
+        },
+        sentence_type: {
+            label: "sentence_type",
+            displayType: "select",
+            translationKey: "sentencetype_",
+            dataset: {
+                "p": "p",
+                "head": "head",
+                "opening": "opening"
+            },
+            opts: liteOptions
+        },
+        sentence_id: sattrs.sentence_id_hidden,
+        hi_rend: {
+            label: "hi_rend",
+            displayType: "select",
+            translationKey: "hirend_",
+            dataset: {
+                "bold": "bold"
+            },
+            opts: liteOptions
+        }
     }
 };
 
@@ -12719,13 +12719,13 @@ settings.corpora.vns_renqvist = {
     attributes: {
     },
     structAttributes: {
-	text_title: sattrs.text_title,
-	text_distributor: sattrs.text_distributor,
-	text_source: sattrs.text_source,
-	paragraph_id: sattrs.paragraph_id,
-	paragraph_type: sattrs.paragraph_type,
-	sentence_id: sattrs.sentence_id_hidden,
-	sentence_n: sattrs.sentence_n
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source,
+        paragraph_id: sattrs.paragraph_id,
+        paragraph_type: sattrs.paragraph_type,
+        sentence_id: sattrs.sentence_id_hidden,
+        sentence_n: sattrs.sentence_n
     }
 };
 */
@@ -13796,61 +13796,61 @@ settings.corpora.vns_renvall = {
     attributes: {
     },
     structAttributes: {
-	text_title: sattrs.text_title,
-	text_distributor: sattrs.text_distributor,
-	text_source: sattrs.text_source,
-/*	sentence_form: {
-	    label: "dict_form"
-	},
-	sentence_example: {
-	    label: "dict_example"
-	},
-	sentence_pos: {
-	    label: "pos"
-	},
-	sentence_xref: {
-	    label: "dict_xref"
-	},
-	sentence_etym: {
-	    label: "dict_etym"
-	},
-	sentence_etymlang: {
-	    label: "dict_etymlang",
-	    displayType: "select",
-	    translationKey: "dictetymlang_",
-	    dataset: {
-		"ru": "ru",
-		"ve": "ve"
-	    },
-	    opts: liteOptions
-	},  */
-	item_itemtype: {
-	    label: "dict_itemtype",
-	    displayType: "select",
-	    translationKey: "dictitemtype_",
-	    dataset: {
-		"orth": "orth",
-		"pos": "pos",
-		"eg": "eg",
-		"xr": "xr",
-		"etym": "etym",
-		"note": "note"
-	    },
-	    opts: liteOptions
-	},
-	item_type: {
-	    label: "dict_item_type"
-	},
-	item_lang: {
-	    label: "dict_etymlang",
-	    displayType: "select",
-	    translationKey: "dictetymlang_",
-	    dataset: {
-		"ru": "ru",
-		"ve": "ve"
-	    },
-	    opts: liteOptions
-	},
+        text_title: sattrs.text_title,
+        text_distributor: sattrs.text_distributor,
+        text_source: sattrs.text_source,
+/*      sentence_form: {
+            label: "dict_form"
+        },
+        sentence_example: {
+            label: "dict_example"
+        },
+        sentence_pos: {
+            label: "pos"
+        },
+        sentence_xref: {
+            label: "dict_xref"
+        },
+        sentence_etym: {
+            label: "dict_etym"
+        },
+        sentence_etymlang: {
+            label: "dict_etymlang",
+            displayType: "select",
+            translationKey: "dictetymlang_",
+            dataset: {
+                "ru": "ru",
+                "ve": "ve"
+            },
+            opts: liteOptions
+        },  */
+        item_itemtype: {
+            label: "dict_itemtype",
+            displayType: "select",
+            translationKey: "dictitemtype_",
+            dataset: {
+                "orth": "orth",
+                "pos": "pos",
+                "eg": "eg",
+                "xr": "xr",
+                "etym": "etym",
+                "note": "note"
+            },
+            opts: liteOptions
+        },
+        item_type: {
+            label: "dict_item_type"
+        },
+        item_lang: {
+            label: "dict_etymlang",
+            displayType: "select",
+            translationKey: "dictetymlang_",
+            dataset: {
+                "ru": "ru",
+                "ve": "ve"
+            },
+            opts: liteOptions
+        },
     }
 };
 
@@ -13861,9 +13861,9 @@ settings.corpora.gutenberg = {
     urn: "urn:nbn:fi:lb-2014102101",
     metadata_urn: "urn:nbn:fi:lb-2014100301",
     homepage: {
-	url: "http://www.gutenberg.org/",
-	name: "Project Gutenberg",
-	no_label: true
+        url: "http://www.gutenberg.org/",
+        name: "Project Gutenberg",
+        no_label: true
     },
     // Is the following correct? According to META-SHARE, licence
     // would be CC BY.
@@ -13872,18 +13872,18 @@ settings.corpora.gutenberg = {
     cite_id: "Gutenberg",
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-	text_title: sattrs.text_title,
-	sentence_id: sattrs.sentence_id_hidden,
-	text_author: sattrs.text_author,
-	text_producers: sattrs.text_producers,
-	text_ebookid: sattrs.text_ebook_id,
-	text_translator: sattrs.text_translator,
-	text_published: sattrs.text_published,
+        text_title: sattrs.text_title,
+        sentence_id: sattrs.sentence_id_hidden,
+        text_author: sattrs.text_author,
+        text_producers: sattrs.text_producers,
+        text_ebookid: sattrs.text_ebook_id,
+        text_translator: sattrs.text_translator,
+        text_published: sattrs.text_published,
         text_url: sattrs.link_gutenberg,
-	text_directurl: sattrs.text_link_gutenberg
+        text_directurl: sattrs.text_link_gutenberg
 /*
-	text_producers: sattrs.text_producers,
-	sentence_id: sattrs.sentence_id_hidden
+        text_producers: sattrs.text_producers,
+        sentence_id: sattrs.sentence_id_hidden
         text_title: sattrs.text_title,
         text_author: sattrs.text_author,
         p_id: sattrs.paragraph_id,
@@ -13903,10 +13903,10 @@ settings.corpora.suomi24fi = {
     within: spWithin,
     context: spContext,
     attributes: {
-	lemma: attrs.baseform,
-	pos: attrs.pos_klk,
-	msd: attrs.msd,
-	dephead: attrs.dephead
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        dephead: attrs.dephead
     },
     structAttributes: {
         text_title: sattrs.text_title,
@@ -13929,7 +13929,7 @@ settings.corpora.suomi24fi = {
             url_opts: sattrs.link_url_opts
         },
 
-	text_urlboard: {
+        text_urlboard: {
             label: "suomi24fi_urlboard",
             type: "url",
             url_opts: sattrs.link_url_opts
@@ -13956,37 +13956,37 @@ settings.corpora.skn = {
             opts: settings.defaultOptions,
         },
         comment: {
-	    label: "word_comment",
-	    opts: settings.defaultOptions
-	},
+            label: "word_comment",
+            opts: settings.defaultOptions
+        },
     },
     structAttributes: {
         text_title: sattrs.text_title,
         text_date: sattrs.date,
         text_editor: {
             label: "murre_editor"
-	},
+        },
         text_parish: {
             label: "murre_parish"
-	},
+        },
         text_dialect_region: {
             label: "murre_dialect_region"
-	},
+        },
         text_dialect_group: {
             label: "murre_dialect_group"
-	},
+        },
         text_name: {
             label: "file_name",
         },
         paragraph_speaker: {
             label: "murre_speaker"
-	},
+        },
         paragraph_sex: {
             label: "murre_sex"
-	},
+        },
         paragraph_role: {
             label: "murre_role"
-	},
+        },
         sentence_urlview: {
             label: "murre_urlview",
             type: "url",
@@ -14045,8 +14045,8 @@ settings.corpora.topling_fi = {
     metadata_urn: "urn:nbn:fi:lb-2016111802",
     lbr_id: "urn:nbn:fi:lb-20140730168",
     licence: {
-	name: "CLARIN RES +NC +DEP 1.0",
-	urn: "urn:nbn:fi:lb-2016112305"
+        name: "CLARIN RES +NC +DEP 1.0",
+        urn: "urn:nbn:fi:lb-2016112305"
     },
     homepage_url: "https://www.jyu.fi/topling",
     cite_id: "topling-fi",
@@ -14062,36 +14062,36 @@ settings.corpora.topling_fi = {
 
 sattrlist.ceal_common = {
     text_title: {
-	label: "work_title",
-	displayType: "select",
-	localize: false,
-	opts: liteOptions,
-	dataset: [
-	    "Ylpeys ja ennakkoluulo",
-	    "Kolea talo",
-	    "Washingtonin aukio",
-	],
+        label: "work_title",
+        displayType: "select",
+        localize: false,
+        opts: liteOptions,
+        dataset: [
+            "Ylpeys ja ennakkoluulo",
+            "Kolea talo",
+            "Washingtonin aukio",
+        ],
     },
     text_year: sattrs.year,
     text_author: {
-	label: "author",
-	displayType: "select",
-	localize: false,
-	opts: liteOptions,
-	dataset: [
-	    "Jane Austen",
-	    "Charles Dickens",
-	    "Henry James",
-	],
+        label: "author",
+        displayType: "select",
+        localize: false,
+        opts: liteOptions,
+        dataset: [
+            "Jane Austen",
+            "Charles Dickens",
+            "Henry James",
+        ],
     },
     text_translator: {
-	label: "text_translator",
-	// All the works in CEAL have been translated by Kersti Juva,
-	// so having the translator as a search criterion would make
-	// little sense. How about statistics and comparison?
-	hideExtended: true,
-	// hideStatistics: true,
-	// hideCompare: true,
+        label: "text_translator",
+        // All the works in CEAL have been translated by Kersti Juva,
+        // so having the translator as a search criterion would make
+        // little sense. How about statistics and comparison?
+        hideExtended: true,
+        // hideStatistics: true,
+        // hideCompare: true,
     },
 };
 
@@ -14104,19 +14104,19 @@ settings.corpora.ceal_o = {
     urn: "urn:nbn:fi:lb-2018011201",
     metadata_urn: "urn:nbn:fi:lb-2017011302",
     licence: {
-	name: "CLARIN RES +NC 1.0",
-	urn: "urn:nbn:fi:lb-2017011306",
+        name: "CLARIN RES +NC 1.0",
+        urn: "urn:nbn:fi:lb-2017011306",
     },
     cite_id: "ceal-o",
     limitedAccess: true,
     licenceType: "RES",
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: $.extend(
-	{}, sattrlist.ceal_common,
-	{
-	    part_num: sattrs.part_num,
-	    chapter_num: sattrs.chapter_num,
-	}),
+        {}, sattrlist.ceal_common,
+        {
+            part_num: sattrs.part_num,
+            chapter_num: sattrs.chapter_num,
+        }),
 };
 
 settings.corpora.ceal_s = {
@@ -14126,8 +14126,8 @@ settings.corpora.ceal_s = {
     urn: "urn:nbn:fi:lb-2018011202",
     metadata_urn: "urn:nbn:fi:lb-2017011303",
     licence: {
-	name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
-	urn: "urn:nbn:fi:lb-2017011308",
+        name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
+        urn: "urn:nbn:fi:lb-2017011308",
     },
     cite_id: "ceal-s",
     limitedAccess: true,
@@ -14155,39 +14155,39 @@ sattrlist.kaannossuomi = {
     text_title: { label: "text_title" },
     text_year: { label: "year" },
     text_orig_lang: {
-	label: "origlang",
-	displayType: "select",
-	opts: liteOptions,
-	translationKey: "kaannossuomi_",
-	dataset: [
-	    "fin",
-	    "eng",
-	    "rus",
-	    "ger",
-	    "fre",
-	    "est",
-	    "swe",
-	    "spa",
-	    "nor",
-	    "hun",
-	    "dut",
-	]
+        label: "origlang",
+        displayType: "select",
+        opts: liteOptions,
+        translationKey: "kaannossuomi_",
+        dataset: [
+            "fin",
+            "eng",
+            "rus",
+            "ger",
+            "fre",
+            "est",
+            "swe",
+            "spa",
+            "nor",
+            "hun",
+            "dut",
+        ]
     },
     text_genre: {
-	label: "text_genre",
-	displayType: "select",
-	opts: liteOptions,
-	translationKey: "kaannossuomi_",
-	dataset: [
-	    "academic",
-	    "biography",
-	    "crime_fiction",
-	    "fiction",
-	    "popular_fiction",
-	    "popular_science",
-	    "childrens_literature",
-	    "kauno",
-	]
+        label: "text_genre",
+        displayType: "select",
+        opts: liteOptions,
+        translationKey: "kaannossuomi_",
+        dataset: [
+            "academic",
+            "biography",
+            "crime_fiction",
+            "fiction",
+            "popular_fiction",
+            "popular_science",
+            "childrens_literature",
+            "kauno",
+        ]
     },
     text_filename: { label: "file_name" },
 };
@@ -14200,8 +14200,8 @@ settings.corpora.alkusuomi = {
     //urn: "",
     metadata_urn: "urn:nbn:fi:lb-2019100801",
     /*licence: {
-	name: "",
-	urn: "",
+        name: "",
+        urn: "",
     },
     cite_id: "",*/
     limitedAccess: true,
@@ -14220,8 +14220,8 @@ settings.corpora.kaannossuomi = {
     //urn: "",
     metadata_urn: "urn:nbn:fi:lb-2019100801",
     /*licence: {
-	name: "",
-	urn: "",
+        name: "",
+        urn: "",
     },
     cite_id: "",*/
     limitedAccess: true,
@@ -14267,16 +14267,16 @@ settings.corpora.iijoki = {
     limitedAccess: true,
     licenceType: "ACA",
     licence: {
-	name: "CLARIN ACA +NC +DEP 1.0",
-	urn: "urn:nbn:fi:lb-2019102106"
+        name: "CLARIN ACA +NC +DEP 1.0",
+        urn: "urn:nbn:fi:lb-2019102106"
     },
     within: spWithin,
     context: spContext,
     attributes: attrlist.ud2_fi,
     structAttributes: {
         text_title: { label: "work_title", order: 3 },
-	text_year: { label: "text_year", order: 2 },
-	text_filename: { label: "file_name", order: 1 },
+        text_year: { label: "text_year", order: 2 },
+        text_filename: { label: "file_name", order: 1 },
     }
 };
 
@@ -14296,7 +14296,7 @@ settings.fn.make_hms_custom_attr = function (label, base_attr) {
         renderItem: function (key, value, attrs, wordData, sentenceData,
                               tokens) {
             // console.log(base_attr + "_hms", key, value, attrs, wordData,
-	    // 		sentenceData, tokens);
+            //          sentenceData, tokens);
             return settings.fn.ms_to_hms(sentenceData[base_attr]);
         }
     };
@@ -14371,8 +14371,8 @@ settings.corpora.eduskunta = {
             displayType: "select",
             opts: liteOptions,
             translationKey: "parlgroup_",
-	    extendedComponent: "datasetSelect",
-	    escape: false,
+            extendedComponent: "datasetSelect",
+            escape: false,
             dataset: [
                 "kd",
                 "kesk",
@@ -14392,8 +14392,8 @@ settings.corpora.eduskunta = {
             displayType: "select",
             opts: liteOptions,
             translationKey: "speakerrole_",
-	    extendedComponent: "datasetSelect",
-	    escape: false,
+            extendedComponent: "datasetSelect",
+            escape: false,
             dataset: [
                 "puhemies",
                 "ensimmainen_varapuhemies",
@@ -14445,8 +14445,8 @@ settings.corpora.eduskunta = {
             displayType: "select",
             opts: liteOptions,
             translationKey: "speechtype_",
-	    extendedComponent: "datasetSelect",
-	    escape: false,
+            extendedComponent: "datasetSelect",
+            escape: false,
             dataset: [
                 "ryhmapuheenvuoro",
                 "esittelypuheenvuoro",
@@ -14546,7 +14546,7 @@ settings.corpus_aliases["topling-fi"] = "topling_fi";
 // through the dataset, without localization.
 settings.fn.dma_stringify_dataset_value = function (attrname) {
     return function (value) {
-	return settings.corpora.dma.structAttributes[attrname].dataset[value];
+        return settings.corpora.dma.structAttributes[attrname].dataset[value];
     };
 };
 
@@ -14559,550 +14559,550 @@ settings.corpora.dma = {
     homepage_url: "http://www.helsinki.fi/fus/research/ma.html",
     // TODO (util.coffee): Allow an array of values for licence.
     licence: {
-	name: "CC BY 4.0 (teksti) / CLARIN RES +PRIV +ND (PDF-sanaliput)",
+        name: "CC BY 4.0 (teksti) / CLARIN RES +PRIV +ND (PDF-sanaliput)",
         // Explicit PUB licence category for the Korp data; otherwise
         // "CLARIN RES" in the name would make it RES
         category: "PUB",
-	urn: "urn:nbn:fi:lb-2016042202",
+        urn: "urn:nbn:fi:lb-2016042202",
     },
     cite_id: "dma",
     within: settings.defaultWithin,
     context: defaultContext,
     attributes: {
-	searchword: {
-	    label: "search_word",
-	    opts: settings.defaultOptions,
-	}
+        searchword: {
+            label: "search_word",
+            opts: settings.defaultOptions,
+        }
     },
     structAttributes: {
-	text_dialect_region: {
-	    label: "dialect_region",
-	    displayType: "select",
-	    localize: false,
-	    // The values of the dataset are shown for the keys
-	    // without localization.
-	    stringify: settings.fn.dma_stringify_dataset_value(
-		"text_dialect_region"),
-	    dataset: {
-		"1": "1 Lounaismurteet",
-		"2": "2 Lounaiset välimurteet",
-		"3": "3 Hämäläismurteet",
-		"4": "4 Etelä-Pohjanmaan murteet",
-		"5": "5 Keski- ja Pohjois-Pohjanmaan murteet",
-		"6": "6 Peräpohjolan murteet",
-		"7": "7 Savolaismurteet",
-		"8": "8 Kaakkoismurteet",
-	    },
-	    opts: liteOptions,
-	},
-	text_dialect_group: {
+        text_dialect_region: {
+            label: "dialect_region",
+            displayType: "select",
+            localize: false,
+            // The values of the dataset are shown for the keys
+            // without localization.
+            stringify: settings.fn.dma_stringify_dataset_value(
+                "text_dialect_region"),
+            dataset: {
+                "1": "1 Lounaismurteet",
+                "2": "2 Lounaiset välimurteet",
+                "3": "3 Hämäläismurteet",
+                "4": "4 Etelä-Pohjanmaan murteet",
+                "5": "5 Keski- ja Pohjois-Pohjanmaan murteet",
+                "6": "6 Peräpohjolan murteet",
+                "7": "7 Savolaismurteet",
+                "8": "8 Kaakkoismurteet",
+            },
+            opts: liteOptions,
+        },
+        text_dialect_group: {
             label: "dialect_group",
-	    displayType: "select",
-	    localize: false,
-	    stringify: function (value) {
-		return (settings.corpora.dma.structAttributes
-			.text_dialect_group.dataset[value]
-			.replace(/[\x00-\x1F ]+/g, ""));
-	    },
-	    dataset: {
-		// The control characters \x01–\x08 are used to get
-		// the desired sorting order. They are invisible in
-		// the output, but could they cause problems in some
-		// cases?
-		// FIXME: Yes: the control characters seem to be shown
-		// as symbols in the extended search selection list in
-		// Chromium on Linux, even though they are invisible
-		// in Firefox on Linux.
-		"[1-6].?": "\x011–6 Länsimurteet",
-		"1.": "\x01  1 Lounaismurteet",
-		"1a": "\x01    1a pohjoisryhmä",
-		"1b": "\x01    1b itäryhmä",
-		"2.": "\x02  2 Lounaiset välimurteet",
-		"2a": "\x02    2a Porin seudun murteet",
-		"2b": "\x02    2b Ala-Satakunnan murteet",
-		"2c": "\x02    2c Turun ylämaan murteet",
-		"2d": "\x02    2d Someron murre",
-		"2e": "\x02    2e Länsi-Uudenmaan murteet",
-		"3.": "\x03  3 Hämäläismurteet",
-		"3a": "\x03    3a Ylä-Satakunnan murteet",
-		"3b": "\x03    3b perihämäläiset murteet",
-		"3c": "\x03    3c etelähämäläiset murteet",
-		"3[d-f]": "\x03    3d–f kaakkoishämäläiset murteet",
-		"3d": "\x03      3d Hollolan ryhmä",
-		"3e": "\x03      3e Porvoon ryhmä",
-		"3f": "\x03      3f Kymenlaakson ryhmä",
-		"4": "\x04  4 Etelä-Pohjanmaan murteet",
-		"5.": "\x05  5 Keski- ja Pohjois-Pohjanmaan murteet",
-		"5a": "\x05    5a Keski-Pohjanmaan murteet",
-		"5b": "\x05    5b Pohjois-Pohjanmaan murteet",
-		"6.": "\x06  6 Peräpohjolan murteet",
-		"6a": "\x06    6a Tornion murre",
-		"6b": "\x06    6b Jällivaaran murre",
-		"6c": "\x06    6c Kemin murre",
-		"6d": "\x06    6d Kemijärven murre",
-		"6e": "\x06    6e Ruijan murre",
-		"[7-8].": "\x077–8 Itämurteet",
-		"7.": "\x07  7 Savolaismurteet",
-		"7a": "\x07    7a Päijät-Hämeen murteet",
-		"7b": "\x07    7b Etelä-Savon murteet",
-		"7c": "\x07    7c Säämingin–Kerimäen ryhmä",
-		"7d": "\x07    7d itäiset savolaismurteet",
-		"7e": "\x07    7e Pohjois-Savon murteet",
-		"7f": "\x07    7f Keski-Suomen murteet",
-		"7g": "\x07    7g savolaiskiilan murteet",
-		"7h": "\x07    7h Kainuun murteet",
-		"7i": "\x07    7i Vermlannin murteet",
-		"8.": "\x08  8 Kaakkoismurteet",
-		"8[a–b]": "\x08    \x018a–b varsinaiset kaakkoismurteet",
-		"8a": "\x08    \x01  8a Länsi-Kannaksen murteet",
-		"8b": "\x08    \x01  8b Itä-Kannaksen murteet",
-		"8c": "\x08    8c Inkerin suomalaismurteet",
-		"8d": "\x08    8d Lemin murre",
-		"8e": "\x08    8e Sortavalan seudun murteet",
-	    },
-	    opts: liteOptions,
-	},
-	text_parish_name: {
+            displayType: "select",
+            localize: false,
+            stringify: function (value) {
+                return (settings.corpora.dma.structAttributes
+                        .text_dialect_group.dataset[value]
+                        .replace(/[\x00-\x1F ]+/g, ""));
+            },
+            dataset: {
+                // The control characters \x01–\x08 are used to get
+                // the desired sorting order. They are invisible in
+                // the output, but could they cause problems in some
+                // cases?
+                // FIXME: Yes: the control characters seem to be shown
+                // as symbols in the extended search selection list in
+                // Chromium on Linux, even though they are invisible
+                // in Firefox on Linux.
+                "[1-6].?": "\x011–6 Länsimurteet",
+                "1.": "\x01  1 Lounaismurteet",
+                "1a": "\x01    1a pohjoisryhmä",
+                "1b": "\x01    1b itäryhmä",
+                "2.": "\x02  2 Lounaiset välimurteet",
+                "2a": "\x02    2a Porin seudun murteet",
+                "2b": "\x02    2b Ala-Satakunnan murteet",
+                "2c": "\x02    2c Turun ylämaan murteet",
+                "2d": "\x02    2d Someron murre",
+                "2e": "\x02    2e Länsi-Uudenmaan murteet",
+                "3.": "\x03  3 Hämäläismurteet",
+                "3a": "\x03    3a Ylä-Satakunnan murteet",
+                "3b": "\x03    3b perihämäläiset murteet",
+                "3c": "\x03    3c etelähämäläiset murteet",
+                "3[d-f]": "\x03    3d–f kaakkoishämäläiset murteet",
+                "3d": "\x03      3d Hollolan ryhmä",
+                "3e": "\x03      3e Porvoon ryhmä",
+                "3f": "\x03      3f Kymenlaakson ryhmä",
+                "4": "\x04  4 Etelä-Pohjanmaan murteet",
+                "5.": "\x05  5 Keski- ja Pohjois-Pohjanmaan murteet",
+                "5a": "\x05    5a Keski-Pohjanmaan murteet",
+                "5b": "\x05    5b Pohjois-Pohjanmaan murteet",
+                "6.": "\x06  6 Peräpohjolan murteet",
+                "6a": "\x06    6a Tornion murre",
+                "6b": "\x06    6b Jällivaaran murre",
+                "6c": "\x06    6c Kemin murre",
+                "6d": "\x06    6d Kemijärven murre",
+                "6e": "\x06    6e Ruijan murre",
+                "[7-8].": "\x077–8 Itämurteet",
+                "7.": "\x07  7 Savolaismurteet",
+                "7a": "\x07    7a Päijät-Hämeen murteet",
+                "7b": "\x07    7b Etelä-Savon murteet",
+                "7c": "\x07    7c Säämingin–Kerimäen ryhmä",
+                "7d": "\x07    7d itäiset savolaismurteet",
+                "7e": "\x07    7e Pohjois-Savon murteet",
+                "7f": "\x07    7f Keski-Suomen murteet",
+                "7g": "\x07    7g savolaiskiilan murteet",
+                "7h": "\x07    7h Kainuun murteet",
+                "7i": "\x07    7i Vermlannin murteet",
+                "8.": "\x08  8 Kaakkoismurteet",
+                "8[a–b]": "\x08    \x018a–b varsinaiset kaakkoismurteet",
+                "8a": "\x08    \x01  8a Länsi-Kannaksen murteet",
+                "8b": "\x08    \x01  8b Itä-Kannaksen murteet",
+                "8c": "\x08    8c Inkerin suomalaismurteet",
+                "8d": "\x08    8d Lemin murre",
+                "8e": "\x08    8e Sortavalan seudun murteet",
+            },
+            opts: liteOptions,
+        },
+        text_parish_name: {
             label: "parish",
-	    displayType: "select",
-	    localize: false,
-	    // translationKey: "",
-	    dataset: [
-		"Artjärvi",
-		"Asikkala",
-		"Askola",
-		"Eurajoki",
-		"Haapavesi",
-		"Halikko",
-		"Halsua",
-		"Hausjärvi",
-		"Heinjoki",
-		"Heinävesi",
-		"Himanka",
-		"Hinnerjoki",
-		"Hirvensalmi",
-		"Honkajoki",
-		"Honkilahti",
-		"Ilmajoki",
-		"Ilomantsi",
-		"Isojoki",
-		"Itä-Ruija",
-		"Jalasjärvi",
-		"Joutsa",
-		"Joutseno",
-		"Juupajoki",
-		"Jällivaara",
-		"Järvisaari",
-		"Kaarina",
-		"Kajaani",
-		"Kalajoki",
-		"Kalvola",
-		"Kangasala",
-		"Kankaanpää",
-		"Kannonkoski",
-		"Karstula",
-		"Karttula",
-		"Kauhava",
-		"Kaustinen",
-		"Kemijärvi",
-		"Keminmlk",
-		"Kerimäki",
-		"Kesälahti",
-		"Keuruu",
-		"Kiikka",
-		"Kitee",
-		"Kittilä",
-		"Kiuruvesi",
-		"Kivennapa",
-		"Koivisto",
-		"Kolari",
-		"Kontiolahti",
-		"Korpilahti",
-		"Kuhmoinen",
-		"Kuivaniemi",
-		"Kurikka",
-		"Kuru",
-		"Kymi",
-		"Käkisalmi",
-		"Kälviä",
-		"Kärsämäki",
-		"Laihia",
-		"Laitila",
-		"Lapinlahti",
-		"Lappajärvi",
-		"Lappee",
-		"Laukaa",
-		"Lavansaari",
-		"Lemi",
-		"Leppävirta",
-		"Liperi",
-		"Loimaa",
-		"Luhanka",
-		"Lumivaara",
-		"Luumäki",
-		"Markkova",
-		"Masku",
-		"Merikarvia",
-		"Merimasku",
-		"Miehikkälä",
-		"Mietoinen",
-		"Mikkelinmlk",
-		"Myrskylä",
-		"Mäntyharju",
-		"Nivala",
-		"Nousiainen",
-		"Nummi",
-		"Nurmes",
-		"Orimattila",
-		"Oulujoki",
-		"Paavola",
-		"Parkano",
-		"Pattijoki",
-		"Perho",
-		"Pieksämäki",
-		"Pielisjärvi",
-		"Pihtipudas",
-		"Polvijärvi",
-		"Pori",
-		"Pornainen",
-		"Pudasjärvi",
-		"Pyhäjoki",
-		"Pyhäjärvi Ol.",
-		"Pöytyä",
-		"Raisi",
-		"Rauma",
-		"Rautio",
-		"Reisjärvi",
-		"Ristiina",
-		"Ruokolahti",
-		"Ruovesi",
-		"Rymättylä",
-		"Saarijärvi",
-		"Salla",
-		"Sauvo",
-		"Savitaipale",
-		"Siilinjärvi",
-		"Simo",
-		"Sodankylä",
-		"Somero",
-		"Sonkajärvi",
-		"Sortavala",
-		"Sumiainen",
-		"Suomusjärvi",
-		"Suomussalmi",
-		"Sysmä",
-		"Sääksmäki",
-		"Sääminki",
-		"Taivassalo",
-		"Tammela",
-		"Teisko",
-		"Tuulos",
-		"Tuusniemi",
-		"Tuutari",
-		"Töysä",
-		"Uukuniemi",
-		"Uurainen",
-		"Uusikirkko Vpl.",
-		"Valkeala",
-		"Vehkalahti",
-		"Vehmersalmi",
-		"Vermlanti",
-		"Vesanto",
-		"Veteli",
-		"Vihti",
-		"Viipurin mlk.",
-		"Virolahti",
-		"Virrat",
-		"Vähäkyrö",
-		"Yli-Ii",
-		"Ylihärmä",
-		"Ylitornio",
-		"Ypäjä",
-		"Ähtäri",
-	    ],
-	    // // An alternative with dialect group code preprended
-	    // stringify: settings.fn.dma_stringify_dataset_value(
-	    // 	"text_parish_name"),
-	    // dataset: {
-	    // 	"Eurajoki": "1a Eurajoki",
-	    // 	"Hinnerjoki": "1a Hinnerjoki",
-	    // 	"Honkilahti": "1a Honkilahti",
-	    // 	"Laitila": "1a Laitila",
-	    // 	"Masku": "1a Masku",
-	    // 	"Merimasku": "1a Merimasku",
-	    // 	"Mietoinen": "1a Mietoinen",
-	    // 	"Nousiainen": "1a Nousiainen",
-	    // 	"Rauma": "1a Rauma",
-	    // 	"Rymättylä": "1a Rymättylä",
-	    // 	"Taivassalo": "1a Taivassalo",
-	    // 	"Halikko": "1b Halikko",
-	    // 	"Kaarina": "1b Kaarina",
-	    // 	"Sauvo": "1b Sauvo",
-	    // 	"Suomusjärvi": "1b Suomusjärvi",
-	    // 	"Merikarvia": "2a Merikarvia",
-	    // 	"Pori": "2a Pori",
-	    // 	"Loimaa": "2b Loimaa",
-	    // 	"Pöytyä": "2c Pöytyä",
-	    // 	"Somero": "2d Somero",
-	    // 	"Nummi": "2e Nummi",
-	    // 	"Vihti": "2e Vihti",
-	    // 	"Honkajoki": "3a Honkajoki",
-	    // 	"Kankaanpää": "3a Kankaanpää",
-	    // 	"Kiikka": "3a Kiikka",
-	    // 	"Parkano": "3a Parkano",
-	    // 	"Virrat": "3a Virrat",
-	    // 	"Juupajoki": "3b Juupajoki",
-	    // 	"Kalvola": "3b Kalvola",
-	    // 	"Kangasala": "3b Kangasala",
-	    // 	"Kuru": "3b Kuru",
-	    // 	"Ruovesi": "3b Ruovesi",
-	    // 	"Sääksmäki": "3b Sääksmäki",
-	    // 	"Teisko": "3b Teisko",
-	    // 	"Tuulos": "3b Tuulos",
-	    // 	"Hausjärvi": "3c Hausjärvi",
-	    // 	"Tammela": "3c Tammela",
-	    // 	"Ypäjä": "3c Ypäjä",
-	    // 	"Asikkala": "3d Asikkala",
-	    // 	"Orimattila": "3d Orimattila",
-	    // 	"Askola": "3e Askola",
-	    // 	"Myrskylä": "3e Myrskylä",
-	    // 	"Pornainen": "3e Pornainen",
-	    // 	"Artjärvi": "3f Artjärvi",
-	    // 	"Kymi": "3f Kymi",
-	    // 	"Valkeala": "3f Valkeala",
-	    // 	"Vehkalahti": "3f Vehkalahti",
-	    // 	"Ilmajoki": "4 Ilmajoki",
-	    // 	"Isojoki": "4 Isojoki",
-	    // 	"Jalasjärvi": "4 Jalasjärvi",
-	    // 	"Kauhava": "4 Kauhava",
-	    // 	"Kurikka": "4 Kurikka",
-	    // 	"Laihia": "4 Laihia",
-	    // 	"Töysä": "4 Töysä",
-	    // 	"Vähäkyrö": "4 Vähäkyrö",
-	    // 	"Ylihärmä": "4 Ylihärmä",
-	    // 	"Haapavesi": "5a Haapavesi",
-	    // 	"Halsua": "5a Halsua",
-	    // 	"Himanka": "5a Himanka",
-	    // 	"Kalajoki": "5a Kalajoki",
-	    // 	"Kälviä": "5a Kälviä",
-	    // 	"Kärsämäki": "5a Kärsämäki",
-	    // 	"Kaustinen": "5a Kaustinen",
-	    // 	"Nivala": "5a Nivala",
-	    // 	"Perho": "5a Perho",
-	    // 	"Pyhäjoki": "5a Pyhäjoki",
-	    // 	"Rautio": "5a Rautio",
-	    // 	"Reisjärvi": "5a Reisjärvi",
-	    // 	"Veteli": "5a Veteli",
-	    // 	"Kuivaniemi": "5b Kuivaniemi",
-	    // 	"Oulujoki": "5b Oulujoki",
-	    // 	"Paavola": "5b Paavola",
-	    // 	"Pattijoki": "5b Pattijoki",
-	    // 	"Yli-Ii": "5b Yli-Ii",
-	    // 	"Kolari": "6a Kolari",
-	    // 	"Ylitornio": "6a Ylitornio",
-	    // 	"Jällivaara": "6b Jällivaara",
-	    // 	"Keminmlk": "6c Keminmlk",
-	    // 	"Kittilä": "6c Kittilä",
-	    // 	"Simo": "6c Simo",
-	    // 	"Sodankylä": "6c Sodankylä",
-	    // 	"Kemijärvi": "6d Kemijärvi",
-	    // 	"Salla": "6d Salla",
-	    // 	"Itä-Ruija": "6e Itä-Ruija",
-	    // 	"Raisi": "6e Raisi",
-	    // 	"Joutsa": "7a Joutsa",
-	    // 	"Korpilahti": "7a Korpilahti",
-	    // 	"Kuhmoinen": "7a Kuhmoinen",
-	    // 	"Luhanka": "7a Luhanka",
-	    // 	"Sysmä": "7a Sysmä",
-	    // 	"Hirvensalmi": "7b Hirvensalmi",
-	    // 	"Mäntyharju": "7b Mäntyharju",
-	    // 	"Mikkelinmlk": "7b Mikkelinmlk",
-	    // 	"Ristiina": "7b Ristiina",
-	    // 	"Kerimäki": "7c Kerimäki",
-	    // 	"Sääminki": "7c Sääminki",
-	    // 	"Ilomantsi": "7d Ilomantsi",
-	    // 	"Kesälahti": "7d Kesälahti",
-	    // 	"Kitee": "7d Kitee",
-	    // 	"Kontiolahti": "7d Kontiolahti",
-	    // 	"Liperi": "7d Liperi",
-	    // 	"Nurmes": "7d Nurmes",
-	    // 	"Pielisjärvi": "7d Pielisjärvi",
-	    // 	"Polvijärvi": "7d Polvijärvi",
-	    // 	"Heinävesi": "7e Heinävesi",
-	    // 	"Karttula": "7e Karttula",
-	    // 	"Kiuruvesi": "7e Kiuruvesi",
-	    // 	"Lapinlahti": "7e Lapinlahti",
-	    // 	"Leppävirta": "7e Leppävirta",
-	    // 	"Pieksämäki": "7e Pieksämäki",
-	    // 	"Pyhäjärvi Ol.": "7e Pyhäjärvi Ol.",
-	    // 	"Siilinjärvi": "7e Siilinjärvi",
-	    // 	"Sonkajärvi": "7e Sonkajärvi",
-	    // 	"Tuusniemi": "7e Tuusniemi",
-	    // 	"Vehmersalmi": "7e Vehmersalmi",
-	    // 	"Vesanto": "7e Vesanto",
-	    // 	"Kannonkoski": "7f Kannonkoski",
-	    // 	"Karstula": "7f Karstula",
-	    // 	"Laukaa": "7f Laukaa",
-	    // 	"Pihtipudas": "7f Pihtipudas",
-	    // 	"Saarijärvi": "7f Saarijärvi",
-	    // 	"Sumiainen": "7f Sumiainen",
-	    // 	"Uurainen": "7f Uurainen",
-	    // 	"Ähtäri": "7g Ähtäri",
-	    // 	"Keuruu": "7g Keuruu",
-	    // 	"Lappajärvi": "7g Lappajärvi",
-	    // 	"Kajaani": "7h Kajaani",
-	    // 	"Pudasjärvi": "7h Pudasjärvi",
-	    // 	"Suomussalmi": "7h Suomussalmi",
-	    // 	"Vermlanti": "7i Vermlanti",
-	    // 	"Heinjoki": "8a Heinjoki",
-	    // 	"Kivennapa": "8a Kivennapa",
-	    // 	"Koivisto": "8a Koivisto",
-	    // 	"Lappee": "8a Lappee",
-	    // 	"Lavansaari": "8a Lavansaari",
-	    // 	"Luumäki": "8a Luumäki",
-	    // 	"Miehikkälä": "8a Miehikkälä",
-	    // 	"Uusikirkko Vpl.": "8a Uusikirkko Vpl.",
-	    // 	"Viipurin mlk.": "8a Viipurin mlk.",
-	    // 	"Virolahti": "8a Virolahti",
-	    // 	"Joutseno": "8b Joutseno",
-	    // 	"Käkisalmi": "8b Käkisalmi",
-	    // 	"Lumivaara": "8b Lumivaara",
-	    // 	"Ruokolahti": "8b Ruokolahti",
-	    // 	"Järvisaari": "8c Järvisaari",
-	    // 	"Markkova": "8c Markkova",
-	    // 	"Tuutari": "8c Tuutari",
-	    // 	"Lemi": "8d Lemi",
-	    // 	"Savitaipale": "8d Savitaipale",
-	    // 	"Sortavala": "8e Sortavala",
-	    // 	"Uukuniemi": "8e Uukuniemi",
-	    // },
-	    opts: liteOptions,
-	},
-	text_village: {
-	    label: "village",
-	},
-	text_parish: {
-	    // Should we have this separately? The attribute parish
-	    // contains the parish name with the dialect group code
-	    // prepended. Or should "parish_name" actually be simply
-	    // "parish"?
-	    label: "parish",
-	    displayType: "hidden",
-	},
-	sentence_comment: {
+            displayType: "select",
+            localize: false,
+            // translationKey: "",
+            dataset: [
+                "Artjärvi",
+                "Asikkala",
+                "Askola",
+                "Eurajoki",
+                "Haapavesi",
+                "Halikko",
+                "Halsua",
+                "Hausjärvi",
+                "Heinjoki",
+                "Heinävesi",
+                "Himanka",
+                "Hinnerjoki",
+                "Hirvensalmi",
+                "Honkajoki",
+                "Honkilahti",
+                "Ilmajoki",
+                "Ilomantsi",
+                "Isojoki",
+                "Itä-Ruija",
+                "Jalasjärvi",
+                "Joutsa",
+                "Joutseno",
+                "Juupajoki",
+                "Jällivaara",
+                "Järvisaari",
+                "Kaarina",
+                "Kajaani",
+                "Kalajoki",
+                "Kalvola",
+                "Kangasala",
+                "Kankaanpää",
+                "Kannonkoski",
+                "Karstula",
+                "Karttula",
+                "Kauhava",
+                "Kaustinen",
+                "Kemijärvi",
+                "Keminmlk",
+                "Kerimäki",
+                "Kesälahti",
+                "Keuruu",
+                "Kiikka",
+                "Kitee",
+                "Kittilä",
+                "Kiuruvesi",
+                "Kivennapa",
+                "Koivisto",
+                "Kolari",
+                "Kontiolahti",
+                "Korpilahti",
+                "Kuhmoinen",
+                "Kuivaniemi",
+                "Kurikka",
+                "Kuru",
+                "Kymi",
+                "Käkisalmi",
+                "Kälviä",
+                "Kärsämäki",
+                "Laihia",
+                "Laitila",
+                "Lapinlahti",
+                "Lappajärvi",
+                "Lappee",
+                "Laukaa",
+                "Lavansaari",
+                "Lemi",
+                "Leppävirta",
+                "Liperi",
+                "Loimaa",
+                "Luhanka",
+                "Lumivaara",
+                "Luumäki",
+                "Markkova",
+                "Masku",
+                "Merikarvia",
+                "Merimasku",
+                "Miehikkälä",
+                "Mietoinen",
+                "Mikkelinmlk",
+                "Myrskylä",
+                "Mäntyharju",
+                "Nivala",
+                "Nousiainen",
+                "Nummi",
+                "Nurmes",
+                "Orimattila",
+                "Oulujoki",
+                "Paavola",
+                "Parkano",
+                "Pattijoki",
+                "Perho",
+                "Pieksämäki",
+                "Pielisjärvi",
+                "Pihtipudas",
+                "Polvijärvi",
+                "Pori",
+                "Pornainen",
+                "Pudasjärvi",
+                "Pyhäjoki",
+                "Pyhäjärvi Ol.",
+                "Pöytyä",
+                "Raisi",
+                "Rauma",
+                "Rautio",
+                "Reisjärvi",
+                "Ristiina",
+                "Ruokolahti",
+                "Ruovesi",
+                "Rymättylä",
+                "Saarijärvi",
+                "Salla",
+                "Sauvo",
+                "Savitaipale",
+                "Siilinjärvi",
+                "Simo",
+                "Sodankylä",
+                "Somero",
+                "Sonkajärvi",
+                "Sortavala",
+                "Sumiainen",
+                "Suomusjärvi",
+                "Suomussalmi",
+                "Sysmä",
+                "Sääksmäki",
+                "Sääminki",
+                "Taivassalo",
+                "Tammela",
+                "Teisko",
+                "Tuulos",
+                "Tuusniemi",
+                "Tuutari",
+                "Töysä",
+                "Uukuniemi",
+                "Uurainen",
+                "Uusikirkko Vpl.",
+                "Valkeala",
+                "Vehkalahti",
+                "Vehmersalmi",
+                "Vermlanti",
+                "Vesanto",
+                "Veteli",
+                "Vihti",
+                "Viipurin mlk.",
+                "Virolahti",
+                "Virrat",
+                "Vähäkyrö",
+                "Yli-Ii",
+                "Ylihärmä",
+                "Ylitornio",
+                "Ypäjä",
+                "Ähtäri",
+            ],
+            // // An alternative with dialect group code preprended
+            // stringify: settings.fn.dma_stringify_dataset_value(
+            //  "text_parish_name"),
+            // dataset: {
+            //  "Eurajoki": "1a Eurajoki",
+            //  "Hinnerjoki": "1a Hinnerjoki",
+            //  "Honkilahti": "1a Honkilahti",
+            //  "Laitila": "1a Laitila",
+            //  "Masku": "1a Masku",
+            //  "Merimasku": "1a Merimasku",
+            //  "Mietoinen": "1a Mietoinen",
+            //  "Nousiainen": "1a Nousiainen",
+            //  "Rauma": "1a Rauma",
+            //  "Rymättylä": "1a Rymättylä",
+            //  "Taivassalo": "1a Taivassalo",
+            //  "Halikko": "1b Halikko",
+            //  "Kaarina": "1b Kaarina",
+            //  "Sauvo": "1b Sauvo",
+            //  "Suomusjärvi": "1b Suomusjärvi",
+            //  "Merikarvia": "2a Merikarvia",
+            //  "Pori": "2a Pori",
+            //  "Loimaa": "2b Loimaa",
+            //  "Pöytyä": "2c Pöytyä",
+            //  "Somero": "2d Somero",
+            //  "Nummi": "2e Nummi",
+            //  "Vihti": "2e Vihti",
+            //  "Honkajoki": "3a Honkajoki",
+            //  "Kankaanpää": "3a Kankaanpää",
+            //  "Kiikka": "3a Kiikka",
+            //  "Parkano": "3a Parkano",
+            //  "Virrat": "3a Virrat",
+            //  "Juupajoki": "3b Juupajoki",
+            //  "Kalvola": "3b Kalvola",
+            //  "Kangasala": "3b Kangasala",
+            //  "Kuru": "3b Kuru",
+            //  "Ruovesi": "3b Ruovesi",
+            //  "Sääksmäki": "3b Sääksmäki",
+            //  "Teisko": "3b Teisko",
+            //  "Tuulos": "3b Tuulos",
+            //  "Hausjärvi": "3c Hausjärvi",
+            //  "Tammela": "3c Tammela",
+            //  "Ypäjä": "3c Ypäjä",
+            //  "Asikkala": "3d Asikkala",
+            //  "Orimattila": "3d Orimattila",
+            //  "Askola": "3e Askola",
+            //  "Myrskylä": "3e Myrskylä",
+            //  "Pornainen": "3e Pornainen",
+            //  "Artjärvi": "3f Artjärvi",
+            //  "Kymi": "3f Kymi",
+            //  "Valkeala": "3f Valkeala",
+            //  "Vehkalahti": "3f Vehkalahti",
+            //  "Ilmajoki": "4 Ilmajoki",
+            //  "Isojoki": "4 Isojoki",
+            //  "Jalasjärvi": "4 Jalasjärvi",
+            //  "Kauhava": "4 Kauhava",
+            //  "Kurikka": "4 Kurikka",
+            //  "Laihia": "4 Laihia",
+            //  "Töysä": "4 Töysä",
+            //  "Vähäkyrö": "4 Vähäkyrö",
+            //  "Ylihärmä": "4 Ylihärmä",
+            //  "Haapavesi": "5a Haapavesi",
+            //  "Halsua": "5a Halsua",
+            //  "Himanka": "5a Himanka",
+            //  "Kalajoki": "5a Kalajoki",
+            //  "Kälviä": "5a Kälviä",
+            //  "Kärsämäki": "5a Kärsämäki",
+            //  "Kaustinen": "5a Kaustinen",
+            //  "Nivala": "5a Nivala",
+            //  "Perho": "5a Perho",
+            //  "Pyhäjoki": "5a Pyhäjoki",
+            //  "Rautio": "5a Rautio",
+            //  "Reisjärvi": "5a Reisjärvi",
+            //  "Veteli": "5a Veteli",
+            //  "Kuivaniemi": "5b Kuivaniemi",
+            //  "Oulujoki": "5b Oulujoki",
+            //  "Paavola": "5b Paavola",
+            //  "Pattijoki": "5b Pattijoki",
+            //  "Yli-Ii": "5b Yli-Ii",
+            //  "Kolari": "6a Kolari",
+            //  "Ylitornio": "6a Ylitornio",
+            //  "Jällivaara": "6b Jällivaara",
+            //  "Keminmlk": "6c Keminmlk",
+            //  "Kittilä": "6c Kittilä",
+            //  "Simo": "6c Simo",
+            //  "Sodankylä": "6c Sodankylä",
+            //  "Kemijärvi": "6d Kemijärvi",
+            //  "Salla": "6d Salla",
+            //  "Itä-Ruija": "6e Itä-Ruija",
+            //  "Raisi": "6e Raisi",
+            //  "Joutsa": "7a Joutsa",
+            //  "Korpilahti": "7a Korpilahti",
+            //  "Kuhmoinen": "7a Kuhmoinen",
+            //  "Luhanka": "7a Luhanka",
+            //  "Sysmä": "7a Sysmä",
+            //  "Hirvensalmi": "7b Hirvensalmi",
+            //  "Mäntyharju": "7b Mäntyharju",
+            //  "Mikkelinmlk": "7b Mikkelinmlk",
+            //  "Ristiina": "7b Ristiina",
+            //  "Kerimäki": "7c Kerimäki",
+            //  "Sääminki": "7c Sääminki",
+            //  "Ilomantsi": "7d Ilomantsi",
+            //  "Kesälahti": "7d Kesälahti",
+            //  "Kitee": "7d Kitee",
+            //  "Kontiolahti": "7d Kontiolahti",
+            //  "Liperi": "7d Liperi",
+            //  "Nurmes": "7d Nurmes",
+            //  "Pielisjärvi": "7d Pielisjärvi",
+            //  "Polvijärvi": "7d Polvijärvi",
+            //  "Heinävesi": "7e Heinävesi",
+            //  "Karttula": "7e Karttula",
+            //  "Kiuruvesi": "7e Kiuruvesi",
+            //  "Lapinlahti": "7e Lapinlahti",
+            //  "Leppävirta": "7e Leppävirta",
+            //  "Pieksämäki": "7e Pieksämäki",
+            //  "Pyhäjärvi Ol.": "7e Pyhäjärvi Ol.",
+            //  "Siilinjärvi": "7e Siilinjärvi",
+            //  "Sonkajärvi": "7e Sonkajärvi",
+            //  "Tuusniemi": "7e Tuusniemi",
+            //  "Vehmersalmi": "7e Vehmersalmi",
+            //  "Vesanto": "7e Vesanto",
+            //  "Kannonkoski": "7f Kannonkoski",
+            //  "Karstula": "7f Karstula",
+            //  "Laukaa": "7f Laukaa",
+            //  "Pihtipudas": "7f Pihtipudas",
+            //  "Saarijärvi": "7f Saarijärvi",
+            //  "Sumiainen": "7f Sumiainen",
+            //  "Uurainen": "7f Uurainen",
+            //  "Ähtäri": "7g Ähtäri",
+            //  "Keuruu": "7g Keuruu",
+            //  "Lappajärvi": "7g Lappajärvi",
+            //  "Kajaani": "7h Kajaani",
+            //  "Pudasjärvi": "7h Pudasjärvi",
+            //  "Suomussalmi": "7h Suomussalmi",
+            //  "Vermlanti": "7i Vermlanti",
+            //  "Heinjoki": "8a Heinjoki",
+            //  "Kivennapa": "8a Kivennapa",
+            //  "Koivisto": "8a Koivisto",
+            //  "Lappee": "8a Lappee",
+            //  "Lavansaari": "8a Lavansaari",
+            //  "Luumäki": "8a Luumäki",
+            //  "Miehikkälä": "8a Miehikkälä",
+            //  "Uusikirkko Vpl.": "8a Uusikirkko Vpl.",
+            //  "Viipurin mlk.": "8a Viipurin mlk.",
+            //  "Virolahti": "8a Virolahti",
+            //  "Joutseno": "8b Joutseno",
+            //  "Käkisalmi": "8b Käkisalmi",
+            //  "Lumivaara": "8b Lumivaara",
+            //  "Ruokolahti": "8b Ruokolahti",
+            //  "Järvisaari": "8c Järvisaari",
+            //  "Markkova": "8c Markkova",
+            //  "Tuutari": "8c Tuutari",
+            //  "Lemi": "8d Lemi",
+            //  "Savitaipale": "8d Savitaipale",
+            //  "Sortavala": "8e Sortavala",
+            //  "Uukuniemi": "8e Uukuniemi",
+            // },
+            opts: liteOptions,
+        },
+        text_village: {
+            label: "village",
+        },
+        text_parish: {
+            // Should we have this separately? The attribute parish
+            // contains the parish name with the dialect group code
+            // prepended. Or should "parish_name" actually be simply
+            // "parish"?
+            label: "parish",
+            displayType: "hidden",
+        },
+        sentence_comment: {
             label: "comment",
-	},
-	sentence_informant: {
-	    label: "informant",
-	},
-	sentence_informant_sex: {
-	    label: "informant_sex",
-	    displayType: "select",
-	    translationKey: "",
-	    dataset: {
-		"m": "male",
-		"n": "female",
-		"": "unknown"
-	    },
-	    opts: liteOptions,
-	},
-	sentence_informant_birthyear: {
+        },
+        sentence_informant: {
+            label: "informant",
+        },
+        sentence_informant_sex: {
+            label: "informant_sex",
+            displayType: "select",
+            translationKey: "",
+            dataset: {
+                "m": "male",
+                "n": "female",
+                "": "unknown"
+            },
+            opts: liteOptions,
+        },
+        sentence_informant_birthyear: {
             label: "informant_birthyear",
-	},
-	sentence_signum: {
-	    label: "signum",
-	    type: "set",
-	    opts: setOptions,
-	    // This URL is in the sidebar (i) link
-	    taginfo_url: "markup/dma_signumlist.html",
-	    // The input field also has an (i) link opening a list of
-	    // signums as links from which one can select. This has
-	    // been copied and modified from the code for the the
-	    // Swedish msd attribute.
-	    extended_template: '<input class="arg_value" ng-model="model">' +
-		'<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
-	    controller: function($scope, $uibModal) {
-		var modal = null;
-		$scope.onIconClick = function() {
-		    modal = $uibModal.open({
-			template: '<div>' +
-			    '<div class="modal-header">' +
-			    '<h3 class="modal-title">{{\'signum_long\' | loc:lang}}</h3>' +
-			    '<span ng-click="clickX()" class="close-x">×</span>' +
-			    '</div>' +
-			    '<div class="modal-body" ng-click="handleClick($event)" ng-include="\'markup/dma_signumlist_links.html\'" style="font-size: 80%;"></div>' +
-			    '</div>',
-			scope: $scope
-		    })
-		}
-		$scope.clickX = function(event) {
-		    modal.close()
-		}
-		$scope.handleClick = function(event) {
-		    val = $(event.target).parents("td").data("value");
-		    // c.log ("signum selected:", val);
-		    if(!val) return;
-		    $scope.model = val;
-		    // c.log ("signum updated $scope:", $scope);
-		    modal.close();
-		}
-	    },
-	},
-	sentence_signumlist: {
-	    label: "signum_list",
-	    opts: settings.defaultOptions,
-	},
-	sentence_updated: {
-	    displayType: "hidden",
-	},
-	sentence_location: {
-	    label: "original_location",
-	    opts: settings.defaultOptions,
-	},
-	sentence_text_words: {
-	    label: "clause_any_wordform",
-	    type: "set",
-	    // This would benefit from having also other options than
-	    // "is" and "is not" for a set-valued attribute, but that
-	    // is not (yet) possible.
-	    opts: setOptions,
-	    displayOnly: "search",
-	},
-	sentence_search_words: {
-	    label: "clause_any_search_word",
-	    type: "set",
-	    // The same applies here as in sentence_text_words.
-	    opts: setOptions,
-	    displayOnly: "search",
-	},
-	sentence_pdf: {
+        },
+        sentence_signum: {
+            label: "signum",
+            type: "set",
+            opts: setOptions,
+            // This URL is in the sidebar (i) link
+            taginfo_url: "markup/dma_signumlist.html",
+            // The input field also has an (i) link opening a list of
+            // signums as links from which one can select. This has
+            // been copied and modified from the code for the the
+            // Swedish msd attribute.
+            extended_template: '<input class="arg_value" ng-model="model">' +
+                '<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
+            controller: function($scope, $uibModal) {
+                var modal = null;
+                $scope.onIconClick = function() {
+                    modal = $uibModal.open({
+                        template: '<div>' +
+                            '<div class="modal-header">' +
+                            '<h3 class="modal-title">{{\'signum_long\' | loc:lang}}</h3>' +
+                            '<span ng-click="clickX()" class="close-x">×</span>' +
+                            '</div>' +
+                            '<div class="modal-body" ng-click="handleClick($event)" ng-include="\'markup/dma_signumlist_links.html\'" style="font-size: 80%;"></div>' +
+                            '</div>',
+                        scope: $scope
+                    })
+                }
+                $scope.clickX = function(event) {
+                    modal.close()
+                }
+                $scope.handleClick = function(event) {
+                    val = $(event.target).parents("td").data("value");
+                    // c.log ("signum selected:", val);
+                    if(!val) return;
+                    $scope.model = val;
+                    // c.log ("signum updated $scope:", $scope);
+                    modal.close();
+                }
+            },
+        },
+        sentence_signumlist: {
+            label: "signum_list",
+            opts: settings.defaultOptions,
+        },
+        sentence_updated: {
+            displayType: "hidden",
+        },
+        sentence_location: {
+            label: "original_location",
+            opts: settings.defaultOptions,
+        },
+        sentence_text_words: {
+            label: "clause_any_wordform",
+            type: "set",
+            // This would benefit from having also other options than
+            // "is" and "is not" for a set-valued attribute, but that
+            // is not (yet) possible.
+            opts: setOptions,
+            displayOnly: "search",
+        },
+        sentence_search_words: {
+            label: "clause_any_search_word",
+            type: "set",
+            // The same applies here as in sentence_text_words.
+            opts: setOptions,
+            displayOnly: "search",
+        },
+        sentence_pdf: {
             label: "show_wordnote",
             opts: settings.defaultOptions,
             type: "url",
             url_opts: $.extend({}, sattrs.link_url_opts, {
                 stringify_link: function (key, filename, attrs, html_attrs) {
-		    if (! filename) {
-			return "";
-		    }
+                    if (! filename) {
+                        return "";
+                    }
                     var fnames = filename.split(" ");
                     var output = ("<span rel='localize[" + attrs.label + "]'>"
-				  + key + "</span> [RES]:");
+                                  + key + "</span> [RES]:");
                     for (var i = 0; i < fnames.length; i++) {
                         var fname = (fnames[i]
-				     .replace(/ä/g, 'a')
-				     .replace(/Ä/g, 'A')
-				     .replace(/ö/g, 'o'));
+                                     .replace(/ä/g, 'a')
+                                     .replace(/Ä/g, 'A')
+                                     .replace(/ö/g, 'o'));
                         var url = ("/dma/pdf/"
                                    + fname.slice(0, fname.lastIndexOf("_"))
                                    + "/" + fname);
                         output += ("<br/><a href='" + url + "' " + html_attrs
-				   + ">" + fname + "</a>");
+                                   + ">" + fname + "</a>");
                     }
                     return output;
                 }
             }),
-	},
-	sentence_id: sattrs.sentence_id,
+        },
+        sentence_id: sattrs.sentence_id,
     }
 };
 
@@ -15119,11 +15119,11 @@ settings.corpora.ylilauta = {
     within: spWithin,
     context: spContext,
     attributes: {
-	/*
-	lemma: attrs.baseform,
-	pos: attrs.pos_klk,
-	msd: attrs.msd,
-	syn: attrs.deprel_tdt*/
+        /*
+        lemma: attrs.baseform,
+        pos: attrs.pos_klk,
+        msd: attrs.msd,
+        syn: attrs.deprel_tdt*/
         lemma: attrs.baseform,
         lemmacomp: attrs.baseform_compound,
         pos: attrs.pos_klk,
@@ -15251,7 +15251,7 @@ settings.corpus_aliases.suomi24_2016h2
 // (all its subcorpora)
 settings.short_url_config.suomi24 =
     function () {
-	settings.preselected_corpora = ["__internet.suomi24"];
+        settings.preselected_corpora = ["__internet.suomi24"];
     };
 
 
@@ -15270,7 +15270,7 @@ settings.corpora.s24 = {
     within: spWithin,
     context: spContext,
     attributes: {
-	/*
+        /*
         lemma: attrs.baseform,
         pos: attrs.pos_klk,
         msd: {
@@ -15331,134 +15331,134 @@ sattrlist.s24_2018 = {
     text_date: sattrs.date,
     text_time: sattrs.time,
     // text_datetime_approximated: settings.fn.make_bool_attr(
-    //	"timestamp_approximated"),
+    //  "timestamp_approximated"),
     text_author: {
-	label: "writer_nickname",
+        label: "writer_nickname",
     },
     text_author_logged_in: settings.fn.make_bool_attr("user_logged_in"),
     text_author_nick_registered: settings.fn.make_bool_attr("registered_nick"),
     text_topic_names: {
-	label: "s24_topic_full",
+        label: "s24_topic_full",
     },
     text_topic_name_top: {
-	label: "s24_topic_main",
-	displayType: "select",
-	localize: false,
-	dataset: [
-	    "Ajanviete",
-	    "Ajoneuvot ja liikenne",
-	    "Harrastukset",
-	    "Koti ja rakentaminen",
-	    // "Kysy Mitä Vain",
-	    "Lemmikit",
-	    "Matkailu",
-	    "Muoti ja kauneus",
-	    "Nuoret",
-	    "Paikkakunnat",
-	    "Perhe",
-	    "Ruoka ja juoma",
-	    "Ryhmät",
-	    "Seksi",
-	    "Suhteet",
-	    // "Suomi24 Blogi ★",
-	    "Talous",
-	    "Terveys",
-	    "Tiede ja teknologia",
-	    "Työ ja opiskelu",
-	    "Urheilu ja kuntoilu",
-	    "Viihde ja kulttuuri",
-	    "Yhteiskunta",
-	],
-	opts: liteOptions,
-	hideSidebar: true,
+        label: "s24_topic_main",
+        displayType: "select",
+        localize: false,
+        dataset: [
+            "Ajanviete",
+            "Ajoneuvot ja liikenne",
+            "Harrastukset",
+            "Koti ja rakentaminen",
+            // "Kysy Mitä Vain",
+            "Lemmikit",
+            "Matkailu",
+            "Muoti ja kauneus",
+            "Nuoret",
+            "Paikkakunnat",
+            "Perhe",
+            "Ruoka ja juoma",
+            "Ryhmät",
+            "Seksi",
+            "Suhteet",
+            // "Suomi24 Blogi ★",
+            "Talous",
+            "Terveys",
+            "Tiede ja teknologia",
+            "Työ ja opiskelu",
+            "Urheilu ja kuntoilu",
+            "Viihde ja kulttuuri",
+            "Yhteiskunta",
+        ],
+        opts: liteOptions,
+        hideSidebar: true,
     },
     text_topic_name_leaf: {
-	label: "s24_topic_leaf",
-	hideSidebar: true,
+        label: "s24_topic_leaf",
+        hideSidebar: true,
     },
     // text_topic_names_set: {
-    //	label: "s24_topic_set",
-    //	type: "set",
-    //	opts: setOptions,
+    //  label: "s24_topic_set",
+    //  type: "set",
+    //  opts: setOptions,
     // },
     // text_topic_nums: {
-    //	label: "s24_topic_nums",
+    //  label: "s24_topic_nums",
     // },
     // text_topic_nums_set: {
-    //	label: "s24_topic_nums_set",
+    //  label: "s24_topic_nums_set",
     // },
     text_topic_adultonly: settings.fn.make_bool_attr("s24_topic_is_adultonly"),
     text_msg_type: {
-	label: "message_type",
-	displayType: "select",
-	translationKey: "msgtype_",
-	dataset: [
-	    "thread_start",
-	    "comment",
-	],
-	opts: liteOptions,
+        label: "message_type",
+        displayType: "select",
+        translationKey: "msgtype_",
+        dataset: [
+            "thread_start",
+            "comment",
+        ],
+        opts: liteOptions,
     },
     text_empty: settings.fn.make_bool_attr("message_is_completely_empty"),
     text_id: {
-	label: "text_id",
+        label: "text_id",
     },
     text_thread_id: {
-	label: "message_thread_id",
+        label: "message_thread_id",
     },
     text_thread_start_datetime: {
-	label: "message_thread_start_timestamp",
+        label: "message_thread_start_timestamp",
     },
     text_comment_id: {
-	label: "comment_id",
-	pattern: "<%=settings.fn.make_explained_value(val, {'0': 'thread_start_message'})%>",
+        label: "comment_id",
+        pattern: "<%=settings.fn.make_explained_value(val, {'0': 'thread_start_message'})%>",
     },
     text_parent_comment_id: {
-	label: "parent_comment_id",
-	pattern: "<%=settings.fn.make_explained_value(val, {'0': 'thread_start_message'})%>",
+        label: "parent_comment_id",
+        pattern: "<%=settings.fn.make_explained_value(val, {'0': 'thread_start_message'})%>",
     },
     text_parent_datetime: {
-	label: "parent_timestamp",
+        label: "parent_timestamp",
     },
     text_quoted_comment_id: {
-	label: "quoted_comment_id",
-	pattern: "<%=settings.fn.make_explained_value(val, {'0': 'no_quotation'})%>",
+        label: "quoted_comment_id",
+        pattern: "<%=settings.fn.make_explained_value(val, {'0': 'no_quotation'})%>",
     },
     text_filename_vrt: sattrs.filename,
     text_thread_link: {
-	label: "show_orig_thread",
-	type: "url",
-	url_opts: sattrs.link_url_opts,
-	synthetic: true,
-	stringify_synthetic: function (token_data) {
-	    return ("https://keskustelu.suomi24.fi/t/"
-		    + token_data.struct_attrs.text_thread_id);
-	},
+        label: "show_orig_thread",
+        type: "url",
+        url_opts: sattrs.link_url_opts,
+        synthetic: true,
+        stringify_synthetic: function (token_data) {
+            return ("https://keskustelu.suomi24.fi/t/"
+                    + token_data.struct_attrs.text_thread_id);
+        },
     },
     text_comment_link: {
-	label: "show_orig_message",
-	type: "url",
-	url_opts: sattrs.link_url_opts,
-	synthetic: true,
-	stringify_synthetic: function (token_data) {
-	    var comment_id = token_data.struct_attrs.text_comment_id
-	    var url = ("https://keskustelu.suomi24.fi/t/"
-		       + token_data.struct_attrs.text_thread_id);
-	    if (comment_id != "0") {
-		url += "#comment-" + token_data.struct_attrs.text_comment_id;
-	    }
-	    return url;
-	},
+        label: "show_orig_message",
+        type: "url",
+        url_opts: sattrs.link_url_opts,
+        synthetic: true,
+        stringify_synthetic: function (token_data) {
+            var comment_id = token_data.struct_attrs.text_comment_id
+            var url = ("https://keskustelu.suomi24.fi/t/"
+                       + token_data.struct_attrs.text_thread_id);
+            if (comment_id != "0") {
+                url += "#comment-" + token_data.struct_attrs.text_comment_id;
+            }
+            return url;
+        },
     },
     paragraph_type: {
-	label: "paragraph_type",
-	displayType: "select",
-	translationKey: "paratype_",
-	dataset: {
-	    "title": "heading",
-	    "body": "paragraph",
-	    "empty": "empty",
-	},
-	opts: liteOptions,
+        label: "paragraph_type",
+        displayType: "select",
+        translationKey: "paratype_",
+        dataset: {
+            "title": "heading",
+            "body": "paragraph",
+            "empty": "empty",
+        },
+        opts: liteOptions,
     },
     sentence_id: sattrs.sentence_id_hidden,
     sentence_polarity: {
@@ -15485,20 +15485,20 @@ settings.templ.s24_2018 = {
 settings.fn.add_corpus_settings(
     settings.templ.s24_2018,
     (function (year1, year2) {
-	var result = [];
-	for (var y = year1; y <= year2; y++) {
-	    var ystr = y.toString();
-	    result.push({
-		title: "Suomi24 2001–2017: " + ystr,
-		description: (
-		    "Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.2: "
-			+ ystr
-			+ "<br/>Suomi24-keskustelujen viestit vuodelta "
-			+ ystr),
-		id: ystr,
-	    });
-	}
-	return result;
+        var result = [];
+        for (var y = year1; y <= year2; y++) {
+            var ystr = y.toString();
+            result.push({
+                title: "Suomi24 2001–2017: " + ystr,
+                description: (
+                    "Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.2: "
+                        + ystr
+                        + "<br/>Suomi24-keskustelujen viestit vuodelta "
+                        + ystr),
+                id: ystr,
+            });
+        }
+        return result;
     })(2001, 2017),
     settings.corporafolders.s24_2017h2,
     "s24_");
@@ -15520,8 +15520,8 @@ settings.corpora.iclfi = {
     urn: "urn:nbn:fi:lb-20140730163",
     metadata_urn: "urn:nbn:fi:lb-20140730163",
     licence: {
-	name: "CLARIN RES +PLAN +NC +INF +PRIV +DEP",
-	urn: "urn:nbn:fi:lb-2015050501"
+        name: "CLARIN RES +PLAN +NC +INF +PRIV +DEP",
+        urn: "urn:nbn:fi:lb-2015050501"
     },
     homepage_url: "http://www.oulu.fi/suomitoisenakielena/node/16078",
     cite_id: "ICLFI",
@@ -15539,64 +15539,64 @@ settings.corpora.iclfi = {
     structAttributes: {
         text_place: {
             label: "iclfi_place"
-	},
+        },
         text_year: {
             label: "iclfi_year"
-	},
+        },
         text_medium: {
             label: "iclfi_medium"
-	},
+        },
         text_code: {
             label: "iclfi_code"
-	},
+        },
         text_dob: {
             label: "iclfi_dob"
-	},
+        },
         text_sex: {
             label: "iclfi_sex"
-	},
+        },
         text_pob: {
             label: "iclfi_pob"
-	},
+        },
         text_infloc: {
             label: "iclfi_infloc"
-	},
+        },
         text_inflang: {
             label: "iclfi_inflang"
-	},
+        },
         text_infmotherlang: {
             label: "iclfi_infmotherlang"
-	},
+        },
         text_inffatherlang: {
             label: "iclfi_inffatherlang"
-	},
+        },
         text_finnishathome: {
             label: "iclfi_finnishathome"
-	},
+        },
         text_taugthfinnish: {
             label: "iclfi_taugthfinnish"
-	},
+        },
         text_teacherlang: {
             label: "iclfi_teacherlang"
-	},
+        },
         text_beentofinland: {
             label: "iclfi_beentofinland"
-	},
+        },
         text_book: {
             label: "iclfi_book"
-	},
+        },
         text_levelhour: {
             label: "iclfi_levelhour"
-	},
+        },
         text_levelcefrone: {
             label: "iclfi_levelcefrone"
-	},
+        },
         text_levelcefrtwo: {
             label: "iclfi_levelcefrtwo"
-	},
+        },
         text_otherlangs: {
             label: "iclfi_otherlangs"
-	},
+        },
         text_levelcefrthree: {
             label: "iclfi_levelcefrthree"
         },
@@ -15608,25 +15608,25 @@ settings.corpora.iclfi = {
         },
         text_texttype: {
             label: "iclfi_texttype"
-	},
+        },
         text_exercise: {
             label: "iclfi_exercise"
-	},
+        },
         text_examtype: {
             label: "iclfi_examtype"
-	},
+        },
         text_limitedtime: {
             label: "iclfi_limitedtime"
-	},
+        },
         text_wherewritten: {
             label: "iclfi_wherewritten"
-	},
+        },
         text_aids: {
             label: "iclfi_aids"
-	},
+        },
         text_filename: {
             label: "iclfi_filename"
-	}
+        }
     }
 };
 
@@ -15636,606 +15636,606 @@ settings.corpora.iclfi = {
 
 sattrlist.ylenews_fi_common = {
     text_main_department: {
-	label: "main_section",
-	displayType: "select",
-	opts: liteOptions,
-	dataset: [
-		  "100 päivää",
-		  "1917",
-		  "8 myyttiä työstä",
-		  "Abitreenit",
-		  "aihe",
-		  "Akuutti",
-		  "Au pairit",
-		  "Battle",
-		  "Blogit",
-		  "Digitalsummit",
-		  "Digitreenit ",
-		  "Docventures",
-		  "Dokumentit",
-		  "Dox@net",
-		  "Draama",
-		  "Egenland",
-		  "Elektroninen urheilu",
-		  "Elokuvat",
-		  "Elossa 24h",
-		  "Eläinsairaala",
-		  "Eläkesäätiö",
-		  "Elämä",
-		  "Elämä pelissä",
-		  "Elävä arkisto",
-		  "Erikoiset",
-		  "Etusivu",
-		  "E-urheilu",
-		  "Euroviisut 2014",
-		  "Euroviisut 2015",
-		  "Euroviisut 2016",
-		  "Euroviisut 2017",
-		  "Euroviisut 2018",
-		  "Flinkkilä & Tastula",
-		  "FOMO",
-		  "FTW",
-		  "Futisvanhemmat",
-		  "Galaxi",
-		  "Goals-sarja",
-		  "Hasbeen",
-		  "Helsinki Script",
-		  "Historia",
-		  "Hulahulasuomi",
-		  "Huono ystävä",
-		  "Huumori",
-		  "Hyvät katsojat",
-		  "Ihmeelliset aivot",
-		  "Imettäjät",
-		  "Itämeren heinäkuu",
-		  "Janna Rantala",
-		  "Jenny+",
-		  "Kadonnut",
-		  "Kandit",
-		  "Kansainvälinen Paulon sellokilpailu 2018",
-		  "Kekkonen",
-		  "Kids@docs",
-		  "Kirjat",
-		  "Kirjojen Suomi",
-		  "Klassinen",
-		  "Klassinen Suomi",
-		  "Klassisen juttuarkisto",
-		  "Koti",
-		  "Kulttuuri",
-		  "Kulttuuricocktail",
-		  "Kulttuurin välikysymys",
-		  "Kuningaskuluttaja",
-		  "Kuusijuhla",
-		  "Lapset",
-		  "Lovemilla",
-		  "Luonto",
-		  "Luontovuosi",
-		  "Lupa välittää",
-		  "Lähiö",
-		  "Marja Hintikka Live",
-		  "Meidän luokka",
-		  "Mennään metsään",
-		  "Meri Louhos",
-		  "Miljoona linnunpönttöä",
-		  "MOT",
-		  "Musiikki",
-		  "Muumilaakso",
-		  "Muuttopäiväkirjat",
-		  "Naurun tasapaino",
-		  "Nettiä ikä kaikki",
-		  "Noin viikon uutiset",
-		  "Nuoret",
-		  "Nuorille. Nyt!",
-		  "Nyt",
-		  "Nyt tai ei koskaan",
-		  "Näkökulmat",
-		  "Ohjelmat",
-		  "Oi maamme",
-		  "Olen jossain",
-		  "Olivia18",
-		  "Operaatio Alaska",
-		  "Operaatio Mannerheim",
-		  "Oppiminen",
-		  "Orkesterikone",
-		  "Oscar-gaala",
-		  "Parasta nyt",
-		  "Pasila",
-		  "Perjantai",
-		  "Podcastit",
-		  "Presidentti",
-		  "Prophecy",
-		  "Puoli seitsemän",
-		  "Putkiremontti",
-		  "Rikos ja oikeus",
-		  "Robomestarit",
-		  "RSO",
-		  "Ruoka",
-		  "Sadan vuoden talo",
-		  "Satuhäät",
-		  "Sekasin",
-		  "Seksi-Suomen Historia",
-		  "Shortdox",
-		  "Sinun tarinasi",
-		  "Sisujengi",
-		  "Slush",
-		  "Strömsö",
-		  "Summeri",
-		  "Suomi",
-		  "SuomiLOVE",
-		  "Suomi on venäläinen",
-		  "Syke",
-		  "Tangomarkkinat 2014",
-		  "Tangomarkkinat 2015",
-		  "Tangomarkkinat 2016",
-		  "Tartu mikkiin",
-		  "Teiniäidit",
-		  "Tekijänä",
-		  "Tellus",
-		  "Terveys",
-		  "The Heroes of The Baltic Sea",
-		  "Tiede",
-		  "Tietoa ohjelmista",
-		  "To Nightwish With Love",
-		  "Tove Jansson 100v",
-		  "Tuhkimotarinoita",
-		  "Tyyli",
-		  "UMK17",
-		  "UMK18",
-		  "UMK18 Saara Aalto",
-		  "UMK19",
-		  "UMK2014",
-		  "UMK 2015",
-		  "UMK 2016",
-		  "Urheilu",
-		  "Urheilusuomi",
-		  "Uusi päivä",
-		  "Vaakakapina",
-		  "Vaiheessa - 10 erilaista elämänvalintaa",
-		  "Valmennuskoulu",
-		  "Valokuvan voimaa",
-		  "Vanhemmuus",
-		  "Vapaa-aika",
-		  "Vihreät Valot",
-		  "Viihde",
-		  "Ville 30 päivässä",
-		  "Villi kortti",
-		  "Väärät bileet",
-		  "We want more",
-		  "Y",
-		  "Yhteiskunta",
-		  "Yle Beta",
-		  "Yle Forum",
-		  "Yleisradio",
-		  "Yle kilpailutukset",
-		  "Yle Kipinä",
-		  "Yle Klassinen",
-		  "Yle Puhe",
-		  "Yle Radio 1",
-		  "Yle Radio Suomi",
-		  "Yle Teema",
-		  "Yle TV1",
-		  "Yle TV2",
-		  "YleX",
-		  ],
+        label: "main_section",
+        displayType: "select",
+        opts: liteOptions,
+        dataset: [
+                  "100 päivää",
+                  "1917",
+                  "8 myyttiä työstä",
+                  "Abitreenit",
+                  "aihe",
+                  "Akuutti",
+                  "Au pairit",
+                  "Battle",
+                  "Blogit",
+                  "Digitalsummit",
+                  "Digitreenit ",
+                  "Docventures",
+                  "Dokumentit",
+                  "Dox@net",
+                  "Draama",
+                  "Egenland",
+                  "Elektroninen urheilu",
+                  "Elokuvat",
+                  "Elossa 24h",
+                  "Eläinsairaala",
+                  "Eläkesäätiö",
+                  "Elämä",
+                  "Elämä pelissä",
+                  "Elävä arkisto",
+                  "Erikoiset",
+                  "Etusivu",
+                  "E-urheilu",
+                  "Euroviisut 2014",
+                  "Euroviisut 2015",
+                  "Euroviisut 2016",
+                  "Euroviisut 2017",
+                  "Euroviisut 2018",
+                  "Flinkkilä & Tastula",
+                  "FOMO",
+                  "FTW",
+                  "Futisvanhemmat",
+                  "Galaxi",
+                  "Goals-sarja",
+                  "Hasbeen",
+                  "Helsinki Script",
+                  "Historia",
+                  "Hulahulasuomi",
+                  "Huono ystävä",
+                  "Huumori",
+                  "Hyvät katsojat",
+                  "Ihmeelliset aivot",
+                  "Imettäjät",
+                  "Itämeren heinäkuu",
+                  "Janna Rantala",
+                  "Jenny+",
+                  "Kadonnut",
+                  "Kandit",
+                  "Kansainvälinen Paulon sellokilpailu 2018",
+                  "Kekkonen",
+                  "Kids@docs",
+                  "Kirjat",
+                  "Kirjojen Suomi",
+                  "Klassinen",
+                  "Klassinen Suomi",
+                  "Klassisen juttuarkisto",
+                  "Koti",
+                  "Kulttuuri",
+                  "Kulttuuricocktail",
+                  "Kulttuurin välikysymys",
+                  "Kuningaskuluttaja",
+                  "Kuusijuhla",
+                  "Lapset",
+                  "Lovemilla",
+                  "Luonto",
+                  "Luontovuosi",
+                  "Lupa välittää",
+                  "Lähiö",
+                  "Marja Hintikka Live",
+                  "Meidän luokka",
+                  "Mennään metsään",
+                  "Meri Louhos",
+                  "Miljoona linnunpönttöä",
+                  "MOT",
+                  "Musiikki",
+                  "Muumilaakso",
+                  "Muuttopäiväkirjat",
+                  "Naurun tasapaino",
+                  "Nettiä ikä kaikki",
+                  "Noin viikon uutiset",
+                  "Nuoret",
+                  "Nuorille. Nyt!",
+                  "Nyt",
+                  "Nyt tai ei koskaan",
+                  "Näkökulmat",
+                  "Ohjelmat",
+                  "Oi maamme",
+                  "Olen jossain",
+                  "Olivia18",
+                  "Operaatio Alaska",
+                  "Operaatio Mannerheim",
+                  "Oppiminen",
+                  "Orkesterikone",
+                  "Oscar-gaala",
+                  "Parasta nyt",
+                  "Pasila",
+                  "Perjantai",
+                  "Podcastit",
+                  "Presidentti",
+                  "Prophecy",
+                  "Puoli seitsemän",
+                  "Putkiremontti",
+                  "Rikos ja oikeus",
+                  "Robomestarit",
+                  "RSO",
+                  "Ruoka",
+                  "Sadan vuoden talo",
+                  "Satuhäät",
+                  "Sekasin",
+                  "Seksi-Suomen Historia",
+                  "Shortdox",
+                  "Sinun tarinasi",
+                  "Sisujengi",
+                  "Slush",
+                  "Strömsö",
+                  "Summeri",
+                  "Suomi",
+                  "SuomiLOVE",
+                  "Suomi on venäläinen",
+                  "Syke",
+                  "Tangomarkkinat 2014",
+                  "Tangomarkkinat 2015",
+                  "Tangomarkkinat 2016",
+                  "Tartu mikkiin",
+                  "Teiniäidit",
+                  "Tekijänä",
+                  "Tellus",
+                  "Terveys",
+                  "The Heroes of The Baltic Sea",
+                  "Tiede",
+                  "Tietoa ohjelmista",
+                  "To Nightwish With Love",
+                  "Tove Jansson 100v",
+                  "Tuhkimotarinoita",
+                  "Tyyli",
+                  "UMK17",
+                  "UMK18",
+                  "UMK18 Saara Aalto",
+                  "UMK19",
+                  "UMK2014",
+                  "UMK 2015",
+                  "UMK 2016",
+                  "Urheilu",
+                  "Urheilusuomi",
+                  "Uusi päivä",
+                  "Vaakakapina",
+                  "Vaiheessa - 10 erilaista elämänvalintaa",
+                  "Valmennuskoulu",
+                  "Valokuvan voimaa",
+                  "Vanhemmuus",
+                  "Vapaa-aika",
+                  "Vihreät Valot",
+                  "Viihde",
+                  "Ville 30 päivässä",
+                  "Villi kortti",
+                  "Väärät bileet",
+                  "We want more",
+                  "Y",
+                  "Yhteiskunta",
+                  "Yle Beta",
+                  "Yle Forum",
+                  "Yleisradio",
+                  "Yle kilpailutukset",
+                  "Yle Kipinä",
+                  "Yle Klassinen",
+                  "Yle Puhe",
+                  "Yle Radio 1",
+                  "Yle Radio Suomi",
+                  "Yle Teema",
+                  "Yle TV1",
+                  "Yle TV2",
+                  "YleX",
+                  ],
     },
     text_departments: {
-	label: "sections",
-	type: "set",
-	opts: setOptions,
-	displayType: "select",
-	dataset: [
-		  "100 päivää",
-		  "101 kirjaa",
-		  "1917",
-		  "8 myyttiä työstä",
-		  "Aalto",
-		  "Abitreenit",
-		  "AFK",
-		  "Äidinkieli",
-		  "aihe",
-		  "Aikaleima",
-		  "Ajankohtainen kolmonen",
-		  "Akuutti",
-		  "Arkkitehtuuri",
-		  "Artikkelit",
-		  "Askartelu ja käsityöt",
-		  "Atte Blom",
-		  "Au pairit",
-		  "Battle",
-		  "Biologia",
-		  "Blog",
-		  "Blogit",
-		  "Digitalsummit",
-		  "Digitreenit ",
-		  "Docventures",
-		  "Docventures-yhteisö muuttaa maailmaa",
-		  "Dokumentit",
-		  "Draama",
-		  "Egenland",
-		  "Eläinsairaala",
-		  "Eläkesäätiö",
-		  "Elämä",
-		  "Elämänkatsomustieto",
-		  "Elämäntaidot",
-		  "Elämä pelissä",
-		  "Elävä arkisto",
-		  "Elävän arkiston blogi",
-		  "Elektroninen urheilu",
-		  "Elokuvat",
-		  "Elossa 24h",
-		  "Englanti",
-		  "Eränkävijät",
-		  "Espanja",
-		  "Etusivu",
-		  "E-urheilu",
-		  "Euroviisut 2014",
-		  "Euroviisut 2015",
-		  "Euroviisut 2016",
-		  "Euroviisut 2017",
-		  "Euroviisut 2018",
-		  "Even myshörna",
-		  "Filosofia",
-		  "Flinkkilä & Tastula",
-		  "FOLK",
-		  "FOMO",
-		  "FTW",
-		  "Futisvanhemmat",
-		  "Fysiikka",
-		  "Galaxi",
-		  "Gambatte! − vuosi Japanissa",
-		  "Goals-sarja",
-		  "Hahmot",
-		  "HD",
-		  "Helsinki Script",
-		  "Henkilöt",
-		  "Hetkiä Kalliossa",
-		  "Hetki New Yorkissa",
-		  "Historia",
-		  "Hulahulasuomi",
-		  "Hullujenhautausmaa",
-		  "Hulluus kylässä",
-		  "Huono ystävä",
-		  "Huume-Suomi",
-		  "Huumori",
-		  "Huumorivirkkaajan päiväkirja",
-		  "Hyvät katsojat",
-		  "Ihmeelliset aivot",
-		  "Ihminen ja yhteiskunta",
-		  "Imettäjät",
-		  "In English",
-		  "Interaktiiviset",
-		  "Isä, äiti ja media",
-		  "Italia",
-		  "Itämeren heinäkuu",
-		  "Itämeren merirosvot",
-		  "Janna Rantala",
-		  "Jante redux",
-		  "Jatkuu",
-		  "Jean Sibelius 150v",
-		  "Jean Sibelius -viulukilpailu",
-		  "Jenny+",
-		  "Jenny ja läskimyytinmurtajat",
-		  "Juice goes Nenäpäivä",
-		  "#junapummit",
-		  "Jutut",
-		  "Kadonnut",
-		  "Kahden polven treffit",
-		  "Kaikkien aikojen tangokuninkaalliset",
-		  "Kaikki kilpailutyöt",
-		  "Kandit",
-		  "Kansainvälinen Paulon sellokilpailu 2018",
-		  "Kare Eskolan blogi",
-		  "Kasvatusviisautta kiireisille",
-		  "Katoava Pohjola",
-		  "Kehitys kehittyy",
-		  "Kekkonen",
-		  "Kemia",
-		  "Kesärannan linnut: Lokit ja Tiirat",
-		  "Kesärannan linnut: Vesilintuja",
-		  "Kevät",
-		  "Kids@docs",
-		  "Kielet",
-		  "Kieltolaki",
-		  "Kirjat",
-		  "Kirjojen Suomi",
-		  "Klassinen",
-		  "Klassinen Suomi",
-		  "Klassisen juttuarkisto",
-		  "Konsertit, kausi 2011-2012",
-		  "Konsertit, kausi 2012-2013",
-		  "Konsertit, kausi 2013-2014",
-		  "Konsertit, kausi 2014-2015",
-		  "Konsertit, kausi 2015-2016",
-		  "Konsertit, kausi 2016-2017",
-		  "Konsertit, kausi 2017-2018",
-		  "Konsertit, kausi 2018-2019",
-		  "Koodauksen MM",
-		  "Koti",
-		  "Koulutus",
-		  "Kuka lintulaudallani ruokailee: opas talvilintujen tunnistamiseen",
-		  "Kulttuuri",
-		  "Kulttuuricocktail",
-		  "Kulttuurin välikysymys",
-		  "Kulttuuriosasto",
-		  "Kuluttajakysymykset",
-		  "Kuningaskuluttaja",
-		  "Kuningaskuluttajan näkökulmat",
-		  "Kuningaskuluttajan testit",
-		  "Kuningas Matti ja ysäristit",
-		  "Kuusijuhla",
-		  "Kuvia",
-		  "Lähetykset",
-		  "Lähiö",
-		  "Lahjapaketit",
-		  "Laitakaupungin kanat",
-		  "Läpimurto",
-		  "Lappeenrannan laulukilpailut 2016",
-		  "Lapset",
-		  "Latina",
-		  "Lomamatka 80-luvulle",
-		  "Lovemilla",
-		  "Luonto",
-		  "Luontovuosi",
-		  "Lupa välittää",
-		  "Maantiede",
-		  "Maatuskan mitoissa",
-		  "Mannerheimit",
-		  "Marja Hintikka Live",
-		  "Markus Kajo",
-		  "Matematiikka",
-		  "Media- ja digitaidot",
-		  "Medialle",
-		  "Meidän luokka",
-		  "Meille töihin?",
-		  "Mennään metsään",
-		  "Menneisyyden metsästäjät",
-		  "Meri Louhos",
-		  "Metsien kätkemä",
-		  "Miljoona linnunpönttöä",
-		  "Minä",
-		  "Mirjam Helin -laulukilpailu 2014",
-		  "MMM",
-		  "Mokasiko media?",
-		  "MOT",
-		  "Muksun mukana",
-		  "Musiikin kevät 1918",
-		  "Musiikki",
-		  "Musiikkineuvola",
-		  "Muuttolintujen matkassa: opas syysmuuttajien tunnistamiseen",
-		  "Muuttopäiväkirjat",
-		  "Näkökulma",
-		  "Näkökulmat",
-		  "Nappituntuma",
-		  "Naurun tasapaino",
-		  "Näyttelijät",
-		  "Neljäs kansainvälinen Maj Lind -pianokilpailu 2017",
-		  "Nettiä ikä kaikki",
-		  "Noin viikon uutiset",
-		  "Nosteessa",
-		  "Nuoret",
-		  "Nuorille. Nyt!",
-		  "Nyt",
-		  "Nyt tai ei koskaan",
-		  "Ohjelmat",
-		  "Oi maamme",
-		  "Olen jossain",
-		  "Olivia",
-		  "Olivia18",
-		  "Olotila",
-		  "Omalääkäri",
-		  "Onnenongintaa",
-		  "Operaatio Alaska",
-		  "Operaatio Mannerheim",
-		  "Opettajalle",
-		  "Oppiaineet ja yo-kokeet",
-		  "Oppiminen",
-		  "Oppimistaidot",
-		  "Orkesteri",
-		  "Oscar-gaala",
-		  "Paineessa",
-		  "Päivikin ryhtihaaste",
-		  "Parasta aikaa",
-		  "Parasta nyt",
-		  "Parhaat palat",
-		  "Pasila",
-		  "Pasi Toiviainen",
-		  "Peltsin kova vuosi",
-		  "Perjantai",
-		  "Pertti Kurikan Nimipäivät",
-		  "Peter von Bagh",
-		  "Pikku Kakkonen",
-		  "Pimeä historia",
-		  "Pizzastipendi",
-		  "Podcastit",
-		  "Polkupyörämatkalla - joka päivä",
-		  "Polvillaan",
-		  "Portugali",
-		  "Presidentti",
-		  "Prisma Studio",
-		  "Prophecy",
-		  "Psykologia",
-		  "Pulloposti",
-		  "Puoli seitsemän",
-		  "Putkiremontti",
-		  "Puutarha",
-		  "Rakenna soitin!",
-		  "Rakkautta ensikuulemalla",
-		  "Ranska",
-		  "Rauhassa",
-		  "rekryle",
-		  "Rikos ja oikeus",
-		  "Robomestarit",
-		  "RSO",
-		  "RSO in English",
-		  "Ruoka",
-		  "Ruoka ja juoma",
-		  "Ruokamuistoja",
-		  "Ruotsi",
-		  "Saame",
-		  "Sadan vuoden talo",
-		  "Saksa",
-		  "Saksaa uusin silmin",
-		  "Satuhäät",
-		  "Sekasin",
-		  "Seksi-Suomen Historia",
-		  "Seniorin seurassa",
-		  "Shortdox",
-		  "Sideways 2018",
-		  "Sielukoulu",
-		  "Silkkiä ja säveliä",
-		  "SILTA-yleisötyö ",
-		  "Sinun tarinasi",
-		  "Sisujengi",
-		  "Sivuraiteilla",
-		  "Slush",
-		  "#sota39",
-		  "Sound Tracker",
-		  "Strömsö",
-		  "Summeri",
-		  "Suomeksi",
-		  "Suomen kielen alkeet",
-		  "Suomi",
-		  "SuomiLOVE",
-		  "Suomi on venäläinen",
-		  "Suosikkimusavideot",
-		  "Syke",
-		  "Syötävä kaupunki",
-		  "Tangomarkkinakilpailijat 2014: miehet",
-		  "Tangomarkkinakilpailijat 2014: naiset",
-		  "Tangomarkkinakilpailijat 2015: miehet",
-		  "Tangomarkkinakilpailijat 2015: naiset",
-		  "Tangomarkkinat 2014",
-		  "Tangomarkkinat 2015",
-		  "Tangomarkkinat 2016",
-		  "Tangomarkkinat juttuarkisto 2015",
-		  "Tanssiva karhu",
-		  "Tapio Wirkkala 100v",
-		  "Tarinanmetsästäjät",
-		  "Tartu mikkiin",
-		  "tech.yle.fi",
-		  "Teeman elokuvafestivaali",
-		  "Teeman elokuvafestivaali 2016",
-		  "Teemat",
-		  "Teiniäidit",
-		  "Tekijänä",
-		  "Tellus",
-		  "Terveiset musiikkimatkalta",
-		  "Terveys",
-		  "Terveystieto",
-		  "Testi",
-		  "The Heroes of The Baltic Sea",
-		  "Tiede",
-		  "Tiedeblogi",
-		  "Tiedotteet",
-		  "Tien päällä",
-		  "Tietoa ohjelmista",
-		  "Titanicilla",
-		  "Tohtori Raimo",
-		  "To Nightwish With Love",
-		  "Tove Jansson 100v",
-		  "Tuhkimotarinoita",
-		  "Tulevaisuuden tusina",
-		  "Tuotantoyhtiöille",
-		  "Tyhmyreille",
-		  "Tyttärenä tässä",
-		  "Tyyli",
-		  "Ulkomaiset sarjat",
-		  "UMK17",
-		  "UMK18",
-		  "UMK18 Saara Aalto",
-		  "UMK2014",
-		  "UMK 2015",
-		  "UMK 2016",
-		  "UPplus",
-		  "Ura 30 sekunnissa",
-		  "Urheilu",
-		  "Urheilusuomi",
-		  "Usein kysyttyä",
-		  "Uskonto",
-		  "Uuden Päivän musiikki",
-		  "Uusi päivä",
-		  "Vaakakapina",
-		  "#vaalit56",
-		  "Väärät bileet",
-		  "Vaiheessa - 10 erilaista elämänvalintaa",
-		  "Valmennuskoulu",
-		  "Valokuvan voimaa",
-		  "Vanhemmuus",
-		  "Vanhempien seksikoulu",
-		  "Vapaa-aika",
-		  "Vastaukset",
-		  "Vastuullisuus",
-		  "Venäjä",
-		  "Vieraskynä",
-		  "Vihreät Valot",
-		  "Viihde",
-		  "Viikko koulussa",
-		  "Viikonloppulista",
-		  "Vikasietotila",
-		  "Ville 30 päivässä",
-		  "Villein matkavideo",
-		  "Villen keittiö 30 minuutissa",
-		  "Villi kortti",
-		  "We want more",
-		  "Y",
-		  "Yhteiskunta",
-		  "Yhteiskuntaoppi",
-		  "Yle Areena",
-		  "Yle Beta",
-		  "Yle Beta Challenge",
-		  "yle.fi/aihe/uusimmat",
-		  "Yle Forum",
-		  "Yleisradio",
-		  "Yle kilpailutukset",
-		  "Yle Kipinä",
-		  "Yle Klassinen",
-		  "Yle Live",
-		  "Ylen siisti kesäduuni",
-		  "Ylen talous",
-		  "Yle Puhe",
-		  "Yle Radio 1",
-		  "Yle Radio Suomi",
-		  "Yle Teema",
-		  "Yle TV1",
-		  "Yle TV2",
-		  "YleX",
-		  "Y:n blogi",
-		  "Ystäväni hevonen",
-		  ],
-    },    
+        label: "sections",
+        type: "set",
+        opts: setOptions,
+        displayType: "select",
+        dataset: [
+                  "100 päivää",
+                  "101 kirjaa",
+                  "1917",
+                  "8 myyttiä työstä",
+                  "Aalto",
+                  "Abitreenit",
+                  "AFK",
+                  "Äidinkieli",
+                  "aihe",
+                  "Aikaleima",
+                  "Ajankohtainen kolmonen",
+                  "Akuutti",
+                  "Arkkitehtuuri",
+                  "Artikkelit",
+                  "Askartelu ja käsityöt",
+                  "Atte Blom",
+                  "Au pairit",
+                  "Battle",
+                  "Biologia",
+                  "Blog",
+                  "Blogit",
+                  "Digitalsummit",
+                  "Digitreenit ",
+                  "Docventures",
+                  "Docventures-yhteisö muuttaa maailmaa",
+                  "Dokumentit",
+                  "Draama",
+                  "Egenland",
+                  "Eläinsairaala",
+                  "Eläkesäätiö",
+                  "Elämä",
+                  "Elämänkatsomustieto",
+                  "Elämäntaidot",
+                  "Elämä pelissä",
+                  "Elävä arkisto",
+                  "Elävän arkiston blogi",
+                  "Elektroninen urheilu",
+                  "Elokuvat",
+                  "Elossa 24h",
+                  "Englanti",
+                  "Eränkävijät",
+                  "Espanja",
+                  "Etusivu",
+                  "E-urheilu",
+                  "Euroviisut 2014",
+                  "Euroviisut 2015",
+                  "Euroviisut 2016",
+                  "Euroviisut 2017",
+                  "Euroviisut 2018",
+                  "Even myshörna",
+                  "Filosofia",
+                  "Flinkkilä & Tastula",
+                  "FOLK",
+                  "FOMO",
+                  "FTW",
+                  "Futisvanhemmat",
+                  "Fysiikka",
+                  "Galaxi",
+                  "Gambatte! − vuosi Japanissa",
+                  "Goals-sarja",
+                  "Hahmot",
+                  "HD",
+                  "Helsinki Script",
+                  "Henkilöt",
+                  "Hetkiä Kalliossa",
+                  "Hetki New Yorkissa",
+                  "Historia",
+                  "Hulahulasuomi",
+                  "Hullujenhautausmaa",
+                  "Hulluus kylässä",
+                  "Huono ystävä",
+                  "Huume-Suomi",
+                  "Huumori",
+                  "Huumorivirkkaajan päiväkirja",
+                  "Hyvät katsojat",
+                  "Ihmeelliset aivot",
+                  "Ihminen ja yhteiskunta",
+                  "Imettäjät",
+                  "In English",
+                  "Interaktiiviset",
+                  "Isä, äiti ja media",
+                  "Italia",
+                  "Itämeren heinäkuu",
+                  "Itämeren merirosvot",
+                  "Janna Rantala",
+                  "Jante redux",
+                  "Jatkuu",
+                  "Jean Sibelius 150v",
+                  "Jean Sibelius -viulukilpailu",
+                  "Jenny+",
+                  "Jenny ja läskimyytinmurtajat",
+                  "Juice goes Nenäpäivä",
+                  "#junapummit",
+                  "Jutut",
+                  "Kadonnut",
+                  "Kahden polven treffit",
+                  "Kaikkien aikojen tangokuninkaalliset",
+                  "Kaikki kilpailutyöt",
+                  "Kandit",
+                  "Kansainvälinen Paulon sellokilpailu 2018",
+                  "Kare Eskolan blogi",
+                  "Kasvatusviisautta kiireisille",
+                  "Katoava Pohjola",
+                  "Kehitys kehittyy",
+                  "Kekkonen",
+                  "Kemia",
+                  "Kesärannan linnut: Lokit ja Tiirat",
+                  "Kesärannan linnut: Vesilintuja",
+                  "Kevät",
+                  "Kids@docs",
+                  "Kielet",
+                  "Kieltolaki",
+                  "Kirjat",
+                  "Kirjojen Suomi",
+                  "Klassinen",
+                  "Klassinen Suomi",
+                  "Klassisen juttuarkisto",
+                  "Konsertit, kausi 2011-2012",
+                  "Konsertit, kausi 2012-2013",
+                  "Konsertit, kausi 2013-2014",
+                  "Konsertit, kausi 2014-2015",
+                  "Konsertit, kausi 2015-2016",
+                  "Konsertit, kausi 2016-2017",
+                  "Konsertit, kausi 2017-2018",
+                  "Konsertit, kausi 2018-2019",
+                  "Koodauksen MM",
+                  "Koti",
+                  "Koulutus",
+                  "Kuka lintulaudallani ruokailee: opas talvilintujen tunnistamiseen",
+                  "Kulttuuri",
+                  "Kulttuuricocktail",
+                  "Kulttuurin välikysymys",
+                  "Kulttuuriosasto",
+                  "Kuluttajakysymykset",
+                  "Kuningaskuluttaja",
+                  "Kuningaskuluttajan näkökulmat",
+                  "Kuningaskuluttajan testit",
+                  "Kuningas Matti ja ysäristit",
+                  "Kuusijuhla",
+                  "Kuvia",
+                  "Lähetykset",
+                  "Lähiö",
+                  "Lahjapaketit",
+                  "Laitakaupungin kanat",
+                  "Läpimurto",
+                  "Lappeenrannan laulukilpailut 2016",
+                  "Lapset",
+                  "Latina",
+                  "Lomamatka 80-luvulle",
+                  "Lovemilla",
+                  "Luonto",
+                  "Luontovuosi",
+                  "Lupa välittää",
+                  "Maantiede",
+                  "Maatuskan mitoissa",
+                  "Mannerheimit",
+                  "Marja Hintikka Live",
+                  "Markus Kajo",
+                  "Matematiikka",
+                  "Media- ja digitaidot",
+                  "Medialle",
+                  "Meidän luokka",
+                  "Meille töihin?",
+                  "Mennään metsään",
+                  "Menneisyyden metsästäjät",
+                  "Meri Louhos",
+                  "Metsien kätkemä",
+                  "Miljoona linnunpönttöä",
+                  "Minä",
+                  "Mirjam Helin -laulukilpailu 2014",
+                  "MMM",
+                  "Mokasiko media?",
+                  "MOT",
+                  "Muksun mukana",
+                  "Musiikin kevät 1918",
+                  "Musiikki",
+                  "Musiikkineuvola",
+                  "Muuttolintujen matkassa: opas syysmuuttajien tunnistamiseen",
+                  "Muuttopäiväkirjat",
+                  "Näkökulma",
+                  "Näkökulmat",
+                  "Nappituntuma",
+                  "Naurun tasapaino",
+                  "Näyttelijät",
+                  "Neljäs kansainvälinen Maj Lind -pianokilpailu 2017",
+                  "Nettiä ikä kaikki",
+                  "Noin viikon uutiset",
+                  "Nosteessa",
+                  "Nuoret",
+                  "Nuorille. Nyt!",
+                  "Nyt",
+                  "Nyt tai ei koskaan",
+                  "Ohjelmat",
+                  "Oi maamme",
+                  "Olen jossain",
+                  "Olivia",
+                  "Olivia18",
+                  "Olotila",
+                  "Omalääkäri",
+                  "Onnenongintaa",
+                  "Operaatio Alaska",
+                  "Operaatio Mannerheim",
+                  "Opettajalle",
+                  "Oppiaineet ja yo-kokeet",
+                  "Oppiminen",
+                  "Oppimistaidot",
+                  "Orkesteri",
+                  "Oscar-gaala",
+                  "Paineessa",
+                  "Päivikin ryhtihaaste",
+                  "Parasta aikaa",
+                  "Parasta nyt",
+                  "Parhaat palat",
+                  "Pasila",
+                  "Pasi Toiviainen",
+                  "Peltsin kova vuosi",
+                  "Perjantai",
+                  "Pertti Kurikan Nimipäivät",
+                  "Peter von Bagh",
+                  "Pikku Kakkonen",
+                  "Pimeä historia",
+                  "Pizzastipendi",
+                  "Podcastit",
+                  "Polkupyörämatkalla - joka päivä",
+                  "Polvillaan",
+                  "Portugali",
+                  "Presidentti",
+                  "Prisma Studio",
+                  "Prophecy",
+                  "Psykologia",
+                  "Pulloposti",
+                  "Puoli seitsemän",
+                  "Putkiremontti",
+                  "Puutarha",
+                  "Rakenna soitin!",
+                  "Rakkautta ensikuulemalla",
+                  "Ranska",
+                  "Rauhassa",
+                  "rekryle",
+                  "Rikos ja oikeus",
+                  "Robomestarit",
+                  "RSO",
+                  "RSO in English",
+                  "Ruoka",
+                  "Ruoka ja juoma",
+                  "Ruokamuistoja",
+                  "Ruotsi",
+                  "Saame",
+                  "Sadan vuoden talo",
+                  "Saksa",
+                  "Saksaa uusin silmin",
+                  "Satuhäät",
+                  "Sekasin",
+                  "Seksi-Suomen Historia",
+                  "Seniorin seurassa",
+                  "Shortdox",
+                  "Sideways 2018",
+                  "Sielukoulu",
+                  "Silkkiä ja säveliä",
+                  "SILTA-yleisötyö ",
+                  "Sinun tarinasi",
+                  "Sisujengi",
+                  "Sivuraiteilla",
+                  "Slush",
+                  "#sota39",
+                  "Sound Tracker",
+                  "Strömsö",
+                  "Summeri",
+                  "Suomeksi",
+                  "Suomen kielen alkeet",
+                  "Suomi",
+                  "SuomiLOVE",
+                  "Suomi on venäläinen",
+                  "Suosikkimusavideot",
+                  "Syke",
+                  "Syötävä kaupunki",
+                  "Tangomarkkinakilpailijat 2014: miehet",
+                  "Tangomarkkinakilpailijat 2014: naiset",
+                  "Tangomarkkinakilpailijat 2015: miehet",
+                  "Tangomarkkinakilpailijat 2015: naiset",
+                  "Tangomarkkinat 2014",
+                  "Tangomarkkinat 2015",
+                  "Tangomarkkinat 2016",
+                  "Tangomarkkinat juttuarkisto 2015",
+                  "Tanssiva karhu",
+                  "Tapio Wirkkala 100v",
+                  "Tarinanmetsästäjät",
+                  "Tartu mikkiin",
+                  "tech.yle.fi",
+                  "Teeman elokuvafestivaali",
+                  "Teeman elokuvafestivaali 2016",
+                  "Teemat",
+                  "Teiniäidit",
+                  "Tekijänä",
+                  "Tellus",
+                  "Terveiset musiikkimatkalta",
+                  "Terveys",
+                  "Terveystieto",
+                  "Testi",
+                  "The Heroes of The Baltic Sea",
+                  "Tiede",
+                  "Tiedeblogi",
+                  "Tiedotteet",
+                  "Tien päällä",
+                  "Tietoa ohjelmista",
+                  "Titanicilla",
+                  "Tohtori Raimo",
+                  "To Nightwish With Love",
+                  "Tove Jansson 100v",
+                  "Tuhkimotarinoita",
+                  "Tulevaisuuden tusina",
+                  "Tuotantoyhtiöille",
+                  "Tyhmyreille",
+                  "Tyttärenä tässä",
+                  "Tyyli",
+                  "Ulkomaiset sarjat",
+                  "UMK17",
+                  "UMK18",
+                  "UMK18 Saara Aalto",
+                  "UMK2014",
+                  "UMK 2015",
+                  "UMK 2016",
+                  "UPplus",
+                  "Ura 30 sekunnissa",
+                  "Urheilu",
+                  "Urheilusuomi",
+                  "Usein kysyttyä",
+                  "Uskonto",
+                  "Uuden Päivän musiikki",
+                  "Uusi päivä",
+                  "Vaakakapina",
+                  "#vaalit56",
+                  "Väärät bileet",
+                  "Vaiheessa - 10 erilaista elämänvalintaa",
+                  "Valmennuskoulu",
+                  "Valokuvan voimaa",
+                  "Vanhemmuus",
+                  "Vanhempien seksikoulu",
+                  "Vapaa-aika",
+                  "Vastaukset",
+                  "Vastuullisuus",
+                  "Venäjä",
+                  "Vieraskynä",
+                  "Vihreät Valot",
+                  "Viihde",
+                  "Viikko koulussa",
+                  "Viikonloppulista",
+                  "Vikasietotila",
+                  "Ville 30 päivässä",
+                  "Villein matkavideo",
+                  "Villen keittiö 30 minuutissa",
+                  "Villi kortti",
+                  "We want more",
+                  "Y",
+                  "Yhteiskunta",
+                  "Yhteiskuntaoppi",
+                  "Yle Areena",
+                  "Yle Beta",
+                  "Yle Beta Challenge",
+                  "yle.fi/aihe/uusimmat",
+                  "Yle Forum",
+                  "Yleisradio",
+                  "Yle kilpailutukset",
+                  "Yle Kipinä",
+                  "Yle Klassinen",
+                  "Yle Live",
+                  "Ylen siisti kesäduuni",
+                  "Ylen talous",
+                  "Yle Puhe",
+                  "Yle Radio 1",
+                  "Yle Radio Suomi",
+                  "Yle Teema",
+                  "Yle TV1",
+                  "Yle TV2",
+                  "YleX",
+                  "Y:n blogi",
+                  "Ystäväni hevonen",
+                  ],
+    },
     text_id: {
-	label: "text_id",
+        label: "text_id",
     },
     text_publisher: sattrs.text_publisher,
     text_url: sattrs.link_original,
     text_datetime_published: {
-	label: "datetime_published",
-	stringify: settings.fn.stringify_iso_datetime,
+        label: "datetime_published",
+        stringify: settings.fn.stringify_iso_datetime,
     },
     text_datetime_content_modified: {
-	label: "datetime_content_modified",
-	stringify: settings.fn.stringify_iso_datetime,
+        label: "datetime_content_modified",
+        stringify: settings.fn.stringify_iso_datetime,
     },
     text_datetime_json_modified: {
-	label: "datetime_json_modified",
-	stringify: settings.fn.stringify_iso_datetime,
+        label: "datetime_json_modified",
+        stringify: settings.fn.stringify_iso_datetime,
     },
     paragraph_id: sattrs.hidden,
     sentence_id: sattrs.hidden,
     sentence_type: {
-	label: "sentence_type",
-	displayType: "select",
-	opts: liteOptions,
-	translationKey: "textpart_",
-	dataset: {
-	    "alt": "image_alt",
-	    "by": "byline",
-	    "caption": "caption",
-	    "heading": "heading",
-	    "heading-alt": "heading_alt",
-	    "heading-caption": "heading_caption",
-	    "text": "text",
-	},
+        label: "sentence_type",
+        displayType: "select",
+        opts: liteOptions,
+        translationKey: "textpart_",
+        dataset: {
+            "alt": "image_alt",
+            "by": "byline",
+            "caption": "caption",
+            "heading": "heading",
+            "heading-alt": "heading_alt",
+            "heading-caption": "heading_caption",
+            "text": "text",
+        },
     },
 };
 
@@ -16245,15 +16245,15 @@ sattrs.ylenews_fi_paragraph_type = {
     opts: liteOptions,
     translationKey: "textpart_",
     dataset: {
-	"by": "byline",
-	"heading": "heading",
-	"headline": "headline",
-	"image": "image",
-	"lead": "lead",
-	"quote": "quote",
-	"shortSummary": "short_summary",
-	"summary": "summary",
-	"text": "text",
+        "by": "byline",
+        "heading": "heading",
+        "headline": "headline",
+        "image": "image",
+        "lead": "lead",
+        "quote": "quote",
+        "shortSummary": "short_summary",
+        "summary": "summary",
+        "text": "text",
     },
 };
 
@@ -16268,8 +16268,8 @@ settings.templ.ylenews_fi_a = {
     structAttributes: $.extend(
         {}, sattrlist.ylenews_fi_common,
         {
-	    paragraph_type: sattrs.ylenews_fi_paragraph_type,
-	}),
+            paragraph_type: sattrs.ylenews_fi_paragraph_type,
+        }),
 };
 
 settings.fn.add_corpus_settings(
@@ -16284,7 +16284,7 @@ settings.corpus_aliases["ylenews_fi_2011_2018_a"]
     = settings.corpus_aliases["ylenews-fi-2011-2018"]
     = "ylenews_fi_201[1-8]_a";
 
-    
+
 settings.templ.ylenews_fi_s = {
     title: "Ylen suomenkielinen uutisarkisto {} (kaikille)",
     description: "Ylen suomenkielinen uutisarkisto 2011–2018, Korp: vuosi {}<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea",
@@ -16295,8 +16295,8 @@ settings.templ.ylenews_fi_s = {
     structAttributes: $.extend(
         {}, sattrlist.ylenews_fi_common,
         {
-	    sentence_paragraph_type: sattrs.ylenews_fi_paragraph_type,
-	}),
+            sentence_paragraph_type: sattrs.ylenews_fi_paragraph_type,
+        }),
 };
 
 
@@ -16311,7 +16311,7 @@ settings.corpus_aliases["ylenews_fi_2011_2018_s"]
     = settings.corpus_aliases["ylenews-fi-2011-2018-s-korp"]
     = settings.corpus_aliases["ylenews-fi-2011-2018-s"]
     = "ylenews_fi_201[1-8]_s";
-	
+
 
 /* YLE Finnish Easy-to-read*/
 
@@ -16319,40 +16319,40 @@ settings.corpus_aliases["ylenews_fi_2011_2018_s"]
 sattrlist.ylenews_fi_selko_common = {
 
     text_id: {
-	label: "text_id",
+        label: "text_id",
     },
     text_publisher: sattrs.text_publisher,
     text_url: sattrs.link_original,
     text_datetime_published: {
-	label: "datetime_published",
-	stringify: settings.fn.stringify_iso_datetime,
+        label: "datetime_published",
+        stringify: settings.fn.stringify_iso_datetime,
     },
     text_datetime_content_modified: {
-	label: "datetime_content_modified",
-	stringify: settings.fn.stringify_iso_datetime,
+        label: "datetime_content_modified",
+        stringify: settings.fn.stringify_iso_datetime,
     },
     text_datetime_json_modified: {
-	label: "datetime_json_modified",
-	stringify: settings.fn.stringify_iso_datetime,
+        label: "datetime_json_modified",
+        stringify: settings.fn.stringify_iso_datetime,
     },
     // paragraph_id: {
     // },
     // sentence_id: {
     // },
     sentence_type: {
-	label: "sentence_type",
-	displayType: "select",
-	opts: liteOptions,
-	translationKey: "textpart_",
-	dataset: {
-	    "alt": "image_alt",
-	    "by": "byline",
-	    "caption": "caption",
-	    "heading": "heading",
-	    "heading-alt": "heading_alt",
-	    "heading-caption": "heading_caption",
-	    "text": "text",
-	},
+        label: "sentence_type",
+        displayType: "select",
+        opts: liteOptions,
+        translationKey: "textpart_",
+        dataset: {
+            "alt": "image_alt",
+            "by": "byline",
+            "caption": "caption",
+            "heading": "heading",
+            "heading-alt": "heading_alt",
+            "heading-caption": "heading_caption",
+            "text": "text",
+        },
     },
 };
 
@@ -16363,15 +16363,15 @@ sattrs.ylenews_fi_selko_paragraph_type = {
     opts: liteOptions,
     translationKey: "textpart_",
     dataset: {
-	"by": "byline",
-	"heading": "heading",
-	"headline": "headline",
-	"image": "image",
-	"lead": "lead",
-	"quote": "quote",
-	"shortSummary": "short_summary",
-	"summary": "summary",
-	"text": "text",
+        "by": "byline",
+        "heading": "heading",
+        "headline": "headline",
+        "image": "image",
+        "lead": "lead",
+        "quote": "quote",
+        "shortSummary": "short_summary",
+        "summary": "summary",
+        "text": "text",
     },
 };
 
@@ -16385,14 +16385,14 @@ settings.corpora.ylenews_fi_2011_2018_selko_a = {
     limitedAccess: true,
     licenceType: "ACA",
     licence: {
-	name: "CLARIN ACA +NC 1.0",
-	urn: "urn:nbn:fi:lb-2019121202",
+        name: "CLARIN ACA +NC 1.0",
+        urn: "urn:nbn:fi:lb-2019121202",
     },
     features: ["paragraphs", "parsed_tdt"],
     structAttributes: $.extend(
         {}, sattrlist.ylenews_fi_selko_common,
         {
-	    paragraph_type: sattrs.ylenews_fi_selko_paragraph_type,
+            paragraph_type: sattrs.ylenews_fi_selko_paragraph_type,
         }),
 };
 
@@ -16416,8 +16416,8 @@ settings.corpora.ylenews_fi_2011_2018_selko_s = {
     structAttributes: $.extend(
         {}, sattrlist.ylenews_fi_selko_common,
         {
-	    sentence_paragraph_type: sattrs.ylenews_fi_selko_paragraph_type,
-	}),
+            sentence_paragraph_type: sattrs.ylenews_fi_selko_paragraph_type,
+        }),
 };
 
 
