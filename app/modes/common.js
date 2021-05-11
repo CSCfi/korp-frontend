@@ -4924,14 +4924,14 @@ settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
     var corpus_conf = settings.corpora[corpus_id];
     var attr_types = ["struct", "custom"];
     for (var i = 0; i < attr_types.length; i++) {
-	var attr_type = attr_types[i] + "_attributes";
+	var attr_type = attr_types[i] + "Attributes";
 	for (var key in corpus_conf[attr_type]) {
 	    if (! omit_attrs.includes(key)) {
 		var attrdef = corpus_conf[attr_type][key];
 		// console.log(key, attrdef);
 		append_attr(
 		    key,
-		    (attr_type == "struct_attributes"
+		    (attr_type == "structAttributes"
 		     ? token_data.struct_attrs[key] : null),
 		    attrdef, text_attrs);
 	    }
