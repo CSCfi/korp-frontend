@@ -1416,7 +1416,7 @@ settings.corpora.semfinlex_asd_fi_2018 = {
 	text_parl_statute_type: {
             label: "parl_statute_type",
 	    displayType: "select",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    translationKey: "parlstatutetype_",
 	    dataset: [
 		"laki",
@@ -1554,7 +1554,7 @@ settings.corpora.ftb3 = {
 		"JRC_Acquis": "jrc-acquis",
 		"EuroParl": "europarl",
 	    },
-            opts: settings.liteOptions
+            opts: liteOptions
 	},
 	file_name: {
 	    label: "file_name",
@@ -9699,7 +9699,7 @@ settings.corpora.kotus_klassikot = {
 		"p": "p",
 		"head": "head"
 	    },
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	}
     }
 };
@@ -9875,7 +9875,7 @@ settings.corpora.ns_presidentti = {
 		"head": "head",
 		"opener": "opener",
 	    },
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},
 	paragraph_topic: {
 	    label: "paragraph_topic"
@@ -9924,7 +9924,7 @@ settings.templ.kotus_ns_presidentti = {
 		"head": "head",
 		"opener": "opener",
 	    },
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},
 	paragraph_topic: {
 	    label: "paragraph_topic"
@@ -10048,7 +10048,7 @@ settings.corpora.kotus_lakidir = {
                 "section/law": "section_law",
                 "section/end": "section_end"
             },
-            opts: settings.liteOptions
+            opts: liteOptions
         },
         paragraph_id: sattrs.paragraph_id,
         paragraph_type: {
@@ -10061,7 +10061,7 @@ settings.corpora.kotus_lakidir = {
                 "opener": "opener",
                 "closer": "closer"
             },
-            opts: settings.liteOptions
+            opts: liteOptions
 	},
         sentence_id: sattrs.sentence_id_hidden,
         sentence_type: {
@@ -10074,7 +10074,7 @@ settings.corpora.kotus_lakidir = {
                 "dateline": "dateline",
                 "signed": "signed"
             },
-            opts: settings.liteOptions
+            opts: liteOptions
         }
     }
 };
@@ -10115,7 +10115,7 @@ settings.corpora.ns_saadokset = {
 		"section/law": "section_law",
 		"section/end": "section_end"
 	    },
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},
 	paragraph_id: sattrs.paragraph_id,
 	paragraph_type: {
@@ -10128,7 +10128,7 @@ settings.corpora.ns_saadokset = {
 		"opener": "opener",
 		"closer": "closer"
 	    },
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},
 	sentence_id: sattrs.sentence_id_hidden,
 	sentence_type: {
@@ -10141,7 +10141,7 @@ settings.corpora.ns_saadokset = {
 		"dateline": "dateline",
 		"signed": "signed"
 	    },
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	}
     }
 };
@@ -10189,7 +10189,7 @@ settings.corpora.kotus_sp = {
 		"dialect": "dialect",
 		"usage": "usage"
 	    },
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	}
     }
 };
@@ -10240,7 +10240,7 @@ attrs.pos_la = {
 	// "stem": "stem",
 	"v": "v",
     },
-    opts: settings.liteOptions
+    opts: liteOptions
 };
 // pos_las2 is for LAS2, which has codes similar to pos_la for
 // LA-murre, but fewer (and a generic "cnj").
@@ -10267,7 +10267,7 @@ attrs.pos_las2 = {
 	"UNK": "UNK",
 	"v": "v",
     },
-    opts: settings.liteOptions
+    opts: liteOptions
 };
 attrs.func_la = {
     label: "func",
@@ -10307,7 +10307,7 @@ attrs.func_la = {
 	"subj:nonfin": "subj:nonfin",
 	"subj:stat": "subj:stat",
     },
-    opts: settings.liteOptions
+    opts: liteOptions
 };
 
 
@@ -10996,7 +10996,7 @@ sattrlist.las2 = {
             "negopt": "negopt",
             "muu": "muu",
         },
-        opts: settings.liteOptions
+        opts: liteOptions
     },
     clause_fun: {
         label: "clause_fun",
@@ -11066,7 +11066,7 @@ attrlist.agricola = {
 	    "gre": "gre",
 	    "heb": "heb",
 	},
-	opts: settings.liteOptions
+	opts: liteOptions
     },	
     mrp: attrs.msd,
     fun: {
@@ -11145,7 +11145,7 @@ sattrlist.agricola = {
             "negopt": "negopt",
             "muu": "muu",
         },
-        opts: settings.liteOptions
+        opts: liteOptions
     },
     clause_depth: {
 	label: "clause_depth"
@@ -11820,7 +11820,7 @@ settings.corpora.skvr = {
                 'editor_commentary':'editor',
                 'caption':'caption'
             },
-            opts: settings.liteOptions,
+            opts: liteOptions,
         },
         sentence_refs: {
             label: "sentence_refs",
@@ -12060,7 +12060,7 @@ sattrlist.klk_fi_parsed = $.extend(
 	    label: "parse_state",
 	    displayType: "select",
 	    translationKey: "parse_state_",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: {
 		"parsed": "parsed",
 		"tagged": "tagged"
@@ -12265,7 +12265,7 @@ sattrs.vksbib_book_code = {
 	"Sak": "Sak",
 	"Mal": "Mal",
     },
-    opts: settings.liteOptions
+    opts: liteOptions
 };
 // Copy the object so that the change does not affect the original.
 sattrs.vksbib_sourcecode_book = $.extend({}, sattrs.vksbib_book_code);
@@ -12278,7 +12278,7 @@ sattrs.vkslait_law_code = {
 	"As1584": "As1584",
 	"As1593": "As1593"
     },
-    opts: settings.liteOptions
+    opts: liteOptions
 };
 sattrs.vkslait_sourcecode_work = $.extend({}, sattrs.vkslait_law_code);
 sattrs.vkslait_sourcecode_work.label = "vkslait_sourcecode_work";
@@ -12302,7 +12302,7 @@ sattrs.vkssaarnat_source_code = {
 	"Widen1780": "Widen1780",
 	"Popp1781": "Popp1781"
     },
-    opts: settings.liteOptions
+    opts: liteOptions
 };
 sattrs.vkssaarnat_sourcecode_work = $.extend({}, sattrs.vkssaarnat_source_code);
 sattrs.vkssaarnat_sourcecode_work.label = "vkssaarnat_sourcecode_work";
@@ -12695,7 +12695,7 @@ settings.corpora.vns_asetus = {
 		"head": "head",
 		"opening": "opening"
 	    },
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},
 	sentence_id: sattrs.sentence_id_hidden,
 	hi_rend: {
@@ -12705,7 +12705,7 @@ settings.corpora.vns_asetus = {
 	    dataset: {
 		"bold": "bold"
 	    },
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	}
     }
 };
@@ -12757,7 +12757,7 @@ settings.corpora.vnsk_asetus = {
                 "head": "head",
                 "opening": "opening"
             },
-            opts: settings.liteOptions
+            opts: liteOptions
         },
         sentence_id: sattrs.sentence_id_hidden,
         hi_rend: {
@@ -12767,7 +12767,7 @@ settings.corpora.vnsk_asetus = {
             dataset: {
                 "bold": "bold"
             },
-            opts: settings.liteOptions
+            opts: liteOptions
         }
     }
 };
@@ -13822,7 +13822,7 @@ settings.corpora.vns_renvall = {
 		"ru": "ru",
 		"ve": "ve"
 	    },
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},  */
 	item_itemtype: {
 	    label: "dict_itemtype",
@@ -13836,7 +13836,7 @@ settings.corpora.vns_renvall = {
 		"etym": "etym",
 		"note": "note"
 	    },
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},
 	item_type: {
 	    label: "dict_item_type"
@@ -13849,7 +13849,7 @@ settings.corpora.vns_renvall = {
 		"ru": "ru",
 		"ve": "ve"
 	    },
-	    opts: settings.liteOptions
+	    opts: liteOptions
 	},
     }
 };
@@ -14065,7 +14065,7 @@ sattrlist.ceal_common = {
 	label: "work_title",
 	displayType: "select",
 	localize: false,
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	dataset: [
 	    "Ylpeys ja ennakkoluulo",
 	    "Kolea talo",
@@ -14077,7 +14077,7 @@ sattrlist.ceal_common = {
 	label: "author",
 	displayType: "select",
 	localize: false,
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	dataset: [
 	    "Jane Austen",
 	    "Charles Dickens",
@@ -15012,7 +15012,7 @@ settings.corpora.dma = {
 	sentence_signum: {
 	    label: "signum",
 	    type: "set",
-	    opts: settings.setOptions,
+	    opts: setOptions,
 	    // This URL is in the sidebar (i) link
 	    taginfo_url: "markup/dma_signumlist.html",
 	    // The input field also has an (i) link opening a list of
@@ -15065,14 +15065,14 @@ settings.corpora.dma = {
 	    // This would benefit from having also other options than
 	    // "is" and "is not" for a set-valued attribute, but that
 	    // is not (yet) possible.
-	    opts: settings.setOptions,
+	    opts: setOptions,
 	    displayOnly: "search",
 	},
 	sentence_search_words: {
 	    label: "clause_any_search_word",
 	    type: "set",
 	    // The same applies here as in sentence_text_words.
-	    opts: settings.setOptions,
+	    opts: setOptions,
 	    displayOnly: "search",
 	},
 	sentence_pdf: {
@@ -15369,7 +15369,7 @@ sattrlist.s24_2018 = {
 	    "Viihde ja kulttuuri",
 	    "Yhteiskunta",
 	],
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	hideSidebar: true,
     },
     text_topic_name_leaf: {
@@ -15379,7 +15379,7 @@ sattrlist.s24_2018 = {
     // text_topic_names_set: {
     //	label: "s24_topic_set",
     //	type: "set",
-    //	opts: settings.setOptions,
+    //	opts: setOptions,
     // },
     // text_topic_nums: {
     //	label: "s24_topic_nums",
@@ -15396,7 +15396,7 @@ sattrlist.s24_2018 = {
 	    "thread_start",
 	    "comment",
 	],
-	opts: settings.liteOptions,
+	opts: liteOptions,
     },
     text_empty: settings.fn.make_bool_attr("message_is_completely_empty"),
     text_id: {
@@ -15458,7 +15458,7 @@ sattrlist.s24_2018 = {
 	    "body": "paragraph",
 	    "empty": "empty",
 	},
-	opts: settings.liteOptions,
+	opts: liteOptions,
     },
     sentence_id: sattrs.sentence_id_hidden,
     sentence_polarity: {
@@ -15638,7 +15638,7 @@ sattrlist.ylenews_fi_common = {
     text_main_department: {
 	label: "main_section",
 	displayType: "select",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	dataset: [
 		  "100 päivää",
 		  "1917",
@@ -15821,7 +15821,7 @@ sattrlist.ylenews_fi_common = {
     text_departments: {
 	label: "sections",
 	type: "set",
-	opts: settings.setOptions,
+	opts: setOptions,
 	displayType: "select",
 	dataset: [
 		  "100 päivää",
@@ -16225,7 +16225,7 @@ sattrlist.ylenews_fi_common = {
     sentence_type: {
 	label: "sentence_type",
 	displayType: "select",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	translationKey: "textpart_",
 	dataset: {
 	    "alt": "image_alt",
@@ -16242,7 +16242,7 @@ sattrlist.ylenews_fi_common = {
 sattrs.ylenews_fi_paragraph_type = {
     label: "paragraph_type",
     displayType: "select",
-    opts: settings.liteOptions,
+    opts: liteOptions,
     translationKey: "textpart_",
     dataset: {
 	"by": "byline",
@@ -16342,7 +16342,7 @@ sattrlist.ylenews_fi_selko_common = {
     sentence_type: {
 	label: "sentence_type",
 	displayType: "select",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	translationKey: "textpart_",
 	dataset: {
 	    "alt": "image_alt",
@@ -16360,7 +16360,7 @@ sattrlist.ylenews_fi_selko_common = {
 sattrs.ylenews_fi_selko_paragraph_type = {
     label: "paragraph_type",
     displayType: "select",
-    opts: settings.liteOptions,
+    opts: liteOptions,
     translationKey: "textpart_",
     dataset: {
 	"by": "byline",

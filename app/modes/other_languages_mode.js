@@ -566,7 +566,7 @@ sattrlist.sust_common = {
 	    "mdf",
 	    "myv",
 	],
-	opts: settings.liteOptions,
+	opts: liteOptions,
     },
     text_recdate: {
         label: "interview_date"
@@ -709,7 +709,7 @@ attrlist.sust_tagged = $.extend(true, attrlist.sust_common, {
 	    "V": "V",
 	    null: null,
 	},
-	opts: settings.liteOptions,
+	opts: liteOptions,
     },
     msd: {
 	label: "msd",
@@ -1651,7 +1651,7 @@ settings.corpora.elfa = {
 	    displayType: "select",
 	    // translationKey: "",
 	    localize: false,
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: {
 		"word": "word",
 		"hesitation": "hesitation",
@@ -1684,7 +1684,7 @@ settings.corpora.elfa = {
 	    displayType: "select",
 	    // translationKey: "",
 	    localize: false,
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: {
 		"overlap": "overlap",
 		"unfinished": "unfinished",
@@ -1702,7 +1702,7 @@ settings.corpora.elfa = {
 	    displayType: "select",
 	    // translationKey: "",
 	    localize: false,
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: {
 		"speaking": "speaking",
 		"reading_aloud": "reading aloud",
@@ -1715,7 +1715,7 @@ settings.corpora.elfa = {
 	    displayType: "select",
 	    // translationKey: "",
 	    localize: false,
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: {
 		"normal": "normal",
 		"laugh": "laugh",
@@ -1756,7 +1756,7 @@ settings.corpora.elfa = {
 	    label: "academic_domain",
 	    displayType: "select",
 	    translationKey: "academic_domain_",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: [
 		"behavioural_sciences",
 		"economics_and_administration",
@@ -1772,7 +1772,7 @@ settings.corpora.elfa = {
 	    label: "academic_discipline",
 	    displayType: "select",
 	    localize: false,
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: [
 		"accounting",
 		"automation engineering",
@@ -1821,7 +1821,7 @@ settings.corpora.elfa = {
 	    displayType: "select",
 	    // translationKey: "",
 	    localize: false,
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: [
 		"conference discussion",
 		"conference presentation",
@@ -1842,7 +1842,7 @@ settings.corpora.elfa = {
 	    label: "event_purpose",
 	    displayType: "select",
 	    translationKey: "event_purpose_",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: [
 		"discuss",
 		"inform",
@@ -1864,7 +1864,7 @@ settings.corpora.elfa = {
 	    label: "preparedness",
 	    displayType: "select",
 	    translationKey: "preparedness_",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: [
 		"true",
 		"false",
@@ -1874,7 +1874,7 @@ settings.corpora.elfa = {
 	    label: "interaction_degree",
 	    displayType: "select",
 	    translationKey: "interaction_degree_",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: [
 		"complete",
 		"partial",
@@ -1889,7 +1889,7 @@ settings.corpora.elfa = {
 	    displayType: "select",
 	    // translationKey: "",
 	    localize: false,
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: [
 		"conference",
 		"university degree programme",
@@ -1911,7 +1911,7 @@ settings.corpora.elfa = {
 	    label: "speaker_identification",
 	    displayType: "select",
 	    translationKey: "speaker_ident_",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: [
 		"identified",
 		"several",
@@ -1923,7 +1923,7 @@ settings.corpora.elfa = {
 	    type: "set",
 	    displayType: "select",
 	    translationKey: "",
-	    opts: settings.setOptions,
+	    opts: setOptions,
 	    dataset: {
 		"ada-GH": "ada-GH",
 		"aka.*": "aka",
@@ -2016,7 +2016,7 @@ settings.corpora.elfa = {
 	    label: "academic_role",
 	    displayType: "select",
 	    translationKey: "academic_role_",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: [
 		"junior staff",
 		"junior staff and research student",
@@ -2032,7 +2032,7 @@ settings.corpora.elfa = {
 	    label: "age",
 	    displayType: "select",
 	    translationKey: "age_",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: [
 		"17-23",
 		"24-30",
@@ -2045,7 +2045,7 @@ settings.corpora.elfa = {
 	    label: "gender",
 	    displayType: "select",
 	    translationKey: "",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: {
 		"male": "male",
 		"female": "female",
@@ -2059,7 +2059,7 @@ settings.corpora.elfa = {
 	    label: "speech_event_type",
 	    displayType: "select",
 	    translationKey: "speech_event_type_",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: [
 		"utterance",
 		"incident",
@@ -2117,7 +2117,7 @@ sattrlist.scotscorr = {
     text_lcinf: {
 	label: "scotscorr_lcinf",
 	displayType: "select",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	localize: false,
 	dataset: {
 	    // The control characters \x01–\x08 are used to get the
@@ -2153,7 +2153,7 @@ sattrlist.scotscorr = {
     text_largeregion: {
 	label: "scotscorr_largeregion",
 	displayType: "select",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	localize: false,
 	dataset: {
 	    // The control characters \x01–\x08 are used to get the
@@ -2174,7 +2174,7 @@ sattrlist.scotscorr = {
     text_wgr: {
 	label: "scotscorr_srg",
 	displayType: "select",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	localize: false,
 	dataset: [
 	    "female",
@@ -2186,7 +2186,7 @@ sattrlist.scotscorr = {
     text_agr: {
 	label: "scotscorr_arg",
 	displayType: "select",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	localize: false,
 	dataset: [
 	    "female",
@@ -2198,7 +2198,7 @@ sattrlist.scotscorr = {
     text_lettertype: {
 	label: "scotscorr_hand",
 	displayType: "select",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	localize: false,
 	dataset: [
 	    "autograph",
@@ -2209,7 +2209,7 @@ sattrlist.scotscorr = {
     text_scripttype: {
 	label: "scotscorr_scripttype",
 	displayType: "select",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	localize: false,
 	dataset: [
 	    "information unavailable",
@@ -2230,7 +2230,7 @@ sattrlist.scotscorr = {
     text_lettertype2: {
 	label: "scotscorr_hand2",
 	displayType: "select",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	localize: false,
 	dataset: [
 	    "autograph",
@@ -2241,7 +2241,7 @@ sattrlist.scotscorr = {
     text_scripttype2: {
 	label: "scotscorr_scripttype",
 	displayType: "select",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	localize: false,
 	dataset: [
 	    "copy",
@@ -2751,7 +2751,7 @@ settings.corpora.kildin_sample = {
 		"fiction",
 		"non-fiction",
 	    ],
-            opts: settings.liteOptions,
+            opts: liteOptions,
 	},
 	text_medium: {
 	    label: "medium",
@@ -2762,7 +2762,7 @@ settings.corpora.kildin_sample = {
 		"periodical",
 		"internet",
 	    ],
-            opts: settings.liteOptions,
+            opts: liteOptions,
 	},
 	text_language: {
 	    label: "lang",
@@ -2771,7 +2771,7 @@ settings.corpora.kildin_sample = {
 	    dataset: [
 		"sjd",
 	    ],
-            opts: settings.liteOptions,
+            opts: liteOptions,
 	},
 	text_author: {
 	    label: "author",
@@ -2795,7 +2795,7 @@ settings.corpora.kildin_sample = {
 	    dataset: [
 		"written",
 	    ],
-            opts: settings.liteOptions,
+            opts: liteOptions,
 	},
 	text_year: {
 	    label: "year",
@@ -2809,7 +2809,7 @@ settings.corpora.kildin_sample = {
 		"novel",
 		"story",
 	    ],
-            opts: settings.liteOptions,
+            opts: liteOptions,
 	},
 	text_session_name: {
 	    label: "session_name",
@@ -2825,7 +2825,7 @@ settings.corpora.kildin_sample = {
 		"original",
 		"translation",
 	    ],
-            opts: settings.liteOptions,
+            opts: liteOptions,
 	},
 	text_editor: {
 	    label: "editor",
@@ -2846,7 +2846,7 @@ settings.corpora.kildin_sample = {
 		"sms",
 		"kpv",
 	    ],
-            opts: settings.liteOptions,
+            opts: liteOptions,
 	},
 	// sentence_id: {
 	//     label: "",
@@ -2861,7 +2861,7 @@ settings.corpora.kildin_sample = {
 		"begin+end": "lone",
 		"": "middle",
 	    },
-            opts: settings.liteOptions,
+            opts: liteOptions,
 	},
     }
 };
@@ -2911,7 +2911,7 @@ settings.corpora.swahili_sample = {
 		"V-BE",
 		"_",
 	    ],
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	},
 	msd: {
 	    label: "msd",
@@ -2984,7 +2984,7 @@ settings.templ.hcs2_common = {
 		"V-DEF",
 		"_",
 	    ],
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	},
 	msd: {
 	    label: "msd",
@@ -3039,7 +3039,7 @@ settings.templ.hcs2_common = {
 		"@SUBJ+rel",
 		"_",
 	    ],
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	},
 	msdextra: {
 	    label: "extra_features",
@@ -3122,7 +3122,7 @@ attrlist.byu = {
 	type: "set",
 	displayType: "select",
 	translationKey: "pos_",
-	opts: settings.setOptions,
+	opts: setOptions,
 	order: 49,
 	// TODO: Map the UD2 PoS codes below to existing PoS keys
 	dataset: {
@@ -3149,7 +3149,7 @@ attrlist.byu = {
 	type: "set",
 	displayType: "select",
 	translationKey: "pos_",
-	opts: settings.setOptions,
+	opts: setOptions,
 	order: 48,
 	// PoS tags from http://ucrel.lancs.ac.uk/claws7tags.html,
 	// with some additions of BYU.
@@ -3356,7 +3356,7 @@ sattrlist.byu_common = {
 	label: "paragraph_type",
 	displayType: "select",
 	translationKey: "paratype_",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	dataset: [
 	    "paragraph",
 	    "heading",
@@ -3370,7 +3370,7 @@ sattrlist.byu_common = {
 	label: "sentence_part_deleted",
 	displayType: "select",
 	translationKey: "",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	dataset: [
 	    "yes",
 	    "no",
@@ -3388,7 +3388,7 @@ sattrlist.coca = $.extend(
 	    label: "genre",
 	    displayType: "select",
 	    translationKey: "genre_",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: {
 		"ACAD": "academic",
 		"FIC": "fiction",
@@ -3448,7 +3448,7 @@ sattrlist.coha =  $.extend(
 	    label: "genre",
 	    displayType: "select",
 	    translationKey: "genre_",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: {
 		"FIC": "fiction",
 		"MAG": "popular_magazine",
@@ -3468,7 +3468,7 @@ sattrlist.coha =  $.extend(
 	    label: "lib_congress_classif",
 	    displayType: "select",
 	    // translationKey: "lcc_",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: {
 		"A": "A – General Works",
 		"B": "B – Philosophy. Psychology. Religion",
@@ -3596,7 +3596,7 @@ sattrlist.glowbe = $.extend(
 	    label: "country",
 	    displayType: "select",
 	    translationKey: "country_",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    // Uppercase country codes
 	    dataset: (_.unzip(glowbe_countries)[0]
 		       .map(function (s) { return s.toUpperCase(); })),
@@ -3605,7 +3605,7 @@ sattrlist.glowbe = $.extend(
 	    label: "genre",
 	    displayType: "select",
 	    translationKey: "genre_",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    dataset: {
 		"B": "blog",
 		"G": "general",

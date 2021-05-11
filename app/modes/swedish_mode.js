@@ -235,7 +235,7 @@ settings.corpora.semfinlex_asd_sv_2018 = {
 	text_parl_statute_type: {
 	    label: "parl_statute_type",
 	    displayType: "select",
-	    opts: settings.liteOptions,
+	    opts: liteOptions,
 	    translationKey: "parlstatutetype_",
 	    dataset: [
 		"laki",
@@ -568,7 +568,7 @@ sattrlist.ylenews_sv_common = {
     text_main_department: {
 	label: "main_section",
 	displayType: "select",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	dataset: [
 	    "#NiVetIngenting",
 	    "Abimix",
@@ -687,7 +687,7 @@ sattrlist.ylenews_sv_common = {
     text_departments: {
 	label: "sections",
 	type: "set",
-	opts: settings.setOptions,
+	opts: setOptions,
 	displayType: "select",
 	dataset: [
 	    "#NiVetIngenting",
@@ -865,7 +865,7 @@ sattrlist.ylenews_sv_common = {
     sentence_type: {
 	label: "sentence_type",
 	displayType: "select",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	translationKey: "textpart_",
 	dataset: {
 	    "alt": "image_alt",
@@ -882,7 +882,7 @@ sattrlist.ylenews_sv_common = {
 sattrs.ylenews_sv_paragraph_type = {
     label: "paragraph_type",
     displayType: "select",
-    opts: settings.liteOptions,
+    opts: liteOptions,
     translationKey: "textpart_",
     dataset: {
 	"by": "byline",
