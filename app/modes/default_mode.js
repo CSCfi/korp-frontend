@@ -146,8 +146,8 @@ settings.corporafolders.kal = {
     description: "Kotimaisten kielten keskuksen aikakauslehtikorpus",
     info: {
 	metadata_urn: "urn:nbn:fi:lb-201407301",
-	limited_access: true,
-	licence_type: "ACA",
+	limitedAccess: true,
+	licenceType: "ACA",
     }
 };
 
@@ -1173,7 +1173,7 @@ settings.corpora.kal_perus_ha = {
     description: "Historiallinen Aikakauskirja; numerot 1917, 1920, 1925, 1935, 1945 (OCR tarkistamaton)",
     id: "kal_perus_ha",
     features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
+    structAttributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
         text_year: sattrs.year,
@@ -1201,7 +1201,7 @@ settings.corpora.kal_perus_la = {
     description: "Lakimies; numerot 1917, 1920, 1925, 1935, 1945, 1955, 1965, 1972 (OCR tarkistamaton)",
     id: "kal_perus_la",
     features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
+    structAttributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
         text_year: sattrs.year,
@@ -1229,7 +1229,7 @@ settings.corpora.kal_perus_sk = {
     description: "Suomen Kuvalehti; numerot 1916, 1917, 1925, 1935, 1945, 1955, 1965, 1972 (OCR tarkistamaton)",
     id: "kal_perus_sk",
     features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
+    structAttributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
         text_year: sattrs.year,
@@ -1256,7 +1256,7 @@ settings.corpora.kal_perus_su = {
     description: "Suomi; numerot 1917, 1920, 1923, 1935, 1938 (OCR tarkistamaton)",
     id: "kal_perus_su",
     features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
+    structAttributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
         text_year: sattrs.year,
@@ -1283,7 +1283,7 @@ settings.corpora.kal_ydin_ha = {
     description: "Historiallinen Aikakauskirja; numero 1/1935 (OCR tarkistettu)",
     id: "kal_ydin_ha",
     features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
+    structAttributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
         text_year: sattrs.year,
@@ -1313,7 +1313,7 @@ settings.corpora.kal_ydin_la = {
     description: "Lakimies; numero 1935 (OCR tarkistettu)",
     id: "kal_ydin_la",
     features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
+    structAttributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
         text_year: sattrs.year,
@@ -1343,7 +1343,7 @@ settings.corpora.kal_ydin_sk = {
     description: "Suomen Kuvalehti; neljä numeroa (4, 17, 30 ja 43) per vuosi 1917, 1925, 1935, 1945, 1955, 1965 ja 1972 (OCR tarkistettu)",
     id: "kal_ydin_sk",
     features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
+    structAttributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
         text_year: sattrs.year,
@@ -1373,7 +1373,7 @@ settings.corpora.kal_ydin_su = {
     description: "Suomi; numero 1935 (OCR tarkistettu)",
     id: "kal_ydin_su",
     features: ["paragraphs", "parsed_tdt", "finer"],
-    struct_attributes: {
+    structAttributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
         text_year: sattrs.year,
@@ -11383,13 +11383,13 @@ settings.corpora.opensub_fi_2017 = {
     metadata_urn: "urn:nbn:fi:lb-2018060403",
     lang: "fin",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: attrlist.parsed_tdt_ud1,
-    struct_attributes: {
+    structAttributes: {
 	text_country: {
 	    label: "opensub_text_country",
 	    type: "set",
-	    opts: settings.setOptions,
+	    opts: setOptions,
 	    displayType: "select",
 	    dataset: [
 		"Afghanistan",
@@ -11511,7 +11511,7 @@ settings.corpora.opensub_fi_2017 = {
 	text_lang_orig: {
 	    label: "opensub_text_lang_orig",
 	    type: "set",
-	    opts: settings.setOptions,
+	    opts: setOptions,
 	    displayType: "select",
 	    dataset: [
 		"Abkhazian",
@@ -11685,7 +11685,7 @@ settings.corpora.opensub_fi_2017 = {
 	text_genre: {
 	    label: "opensub_text_genre",
 	    type: "set",
-	    opts: settings.setOptions,
+	    opts: setOptions,
 	    displayType: "select",
 	    dataset: [
 		"Action",
@@ -14157,7 +14157,7 @@ sattrlist.kaannossuomi = {
     text_orig_lang: {
 	label: "origlang",
 	displayType: "select",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	translationKey: "kaannossuomi_",
 	dataset: [
 	    "fin",
@@ -14176,7 +14176,7 @@ sattrlist.kaannossuomi = {
     text_genre: {
 	label: "text_genre",
 	displayType: "select",
-	opts: settings.liteOptions,
+	opts: liteOptions,
 	translationKey: "kaannossuomi_",
 	dataset: [
 	    "academic",
@@ -14204,12 +14204,12 @@ settings.corpora.alkusuomi = {
 	urn: "",
     },
     cite_id: "",*/
-    limited_access: true,
-    licence_type: "RES",
+    limitedAccess: true,
+    licenceType: "RES",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: attrlist.kaannossuomi,
-    struct_attributes: sattrlist.kaannossuomi,
+    structAttributes: sattrlist.kaannossuomi,
 };
 
 settings.corpora.kaannossuomi = {
@@ -14224,12 +14224,12 @@ settings.corpora.kaannossuomi = {
 	urn: "",
     },
     cite_id: "",*/
-    limited_access: true,
-    licence_type: "RES",
+    limitedAccess: true,
+    licenceType: "RES",
     within: settings.defaultWithin,
-    context: settings.defaultContext,
+    context: defaultContext,
     attributes: attrlist.kaannossuomi,
-    struct_attributes: sattrlist.kaannossuomi,
+    structAttributes: sattrlist.kaannossuomi,
 };
 
 settings.corpora.arkisyn = {
@@ -15470,7 +15470,7 @@ sattrlist.s24_2018 = {
             "neut",
             "neg",
         ],
-        opts: settings.liteOptions,
+        opts: liteOptions,
     },
 };
 
