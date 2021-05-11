@@ -1,7 +1,9 @@
 
 var isLab = window.isLab || false;
 
-var isProductionServer = (window.location.hostname.indexOf(".csc.fi") != -1);
+var isProductionServer = (
+    window.location.hostname.indexOf(".csc.fi") != -1
+        || window.location.hostname == "195.148.22.239");
 var isProductionServerTest =
     (isProductionServer
      && (window.location.pathname.indexOf("test/") != -1

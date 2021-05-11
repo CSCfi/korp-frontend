@@ -31,13 +31,18 @@
     "saldo": "betydelse",
     "sense": "betydelse",
     "pos": "ordklass",
+    "pos_ud1": "ordklass (UD1)",
     "posset": "homografmängd",
     "msd": "msd",
+    "msd_ud1": "msd (UD1)",
     "baseform": "grundform",
+    "baseform_ud1": "grundform (UD1)",
     "lemgram": "lemgram",
     "dalin-lemgram": "dalin-lemgram",
     "dephead": "dephead",
+    "dephead_ud1": "dephead (UD1)",
     "deprel": "dependensrelation",
+    "deprel_ud1": "dependensrelation (UD1)",
     "sentence": "mening",
     "paragraph": "stycke",
     "prefix": "förled",
@@ -52,6 +57,7 @@
     
     "lemma": "grundform",
     "baseform_compound": "grundform (sammansättningsgränser)",
+    "baseform_compound_ud1": "grundform (sammansättningsgränser) (UD1)",
     "lemmacomp": "grundform (sammansättningsgränser)",
     "func": "satsdel",
 
@@ -766,6 +772,11 @@
     "place": "plats",
 
     "facsimile_title": "faksimilupplaga",
+
+    "sentence_polarity": "meningens polaritet",
+    "polarity_pos": "positiv",
+    "polarity_neut": "neutral",
+    "polarity_neg": "negativ",
 
     "ne_expr": "uttryck",
     "ne_type": "namntyp",

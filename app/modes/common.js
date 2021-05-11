@@ -248,6 +248,10 @@ attrs.dephead = {
     label: "dephead",
     displayType: "hidden"
 };
+attrs.dephead_ud1 = {
+    label: "dephead_ud1",
+    displayType: "hidden"
+};
 attrs.deprel = {
     label: "deprel",
     translationKey: "deprel_",
@@ -1237,6 +1241,10 @@ attrs.pos_ud_fi = {
     },
 };
 
+attrs.pos_ud_fi_ud1 = JSON.parse(JSON.stringify(attrs.pos_ud_fi));
+attrs.pos_ud_fi_ud1.label = "pos_ud1";
+attrs.pos_ud_fi_ud1.order = 13;
+
 attrs.pos_klk = {
     label: "pos",
     displayType: "select",
@@ -1260,6 +1268,8 @@ attrs.pos_klk = {
     escape: false,
     opts: liteOptions
 };
+attrs.pos_klk_ordered = JSON.parse(JSON.stringify(attrs.pos_klk));
+attrs.pos_klk_ordered.order = 18;
 
 // TextMorfo parts of speech, used in FTC
 attrs.pos_textmorfo = {
@@ -1369,6 +1379,11 @@ attrs.msd = {
 	return val.replace(/\|/g, "|<wbr>");
     }
 };
+attrs.msd_ordered = JSON.parse(JSON.stringify(attrs.msd));
+attrs.msd_ordered.order = 17;
+attrs.msd_ud1 = JSON.parse(JSON.stringify(attrs.msd));
+attrs.msd_ud1.label = "msd_ud1";
+attrs.msd_ud1.order = 12;
 attrs.baseform = {
     label: "baseform",
     // type: "set",
@@ -1378,6 +1393,11 @@ attrs.baseform = {
     },
     opts: settings.defaultOptions,
 };
+attrs.baseform_ordered = JSON.parse(JSON.stringify(attrs.baseform));
+attrs.baseform_ordered.order = 20;
+attrs.baseform_ud1 = JSON.parse(JSON.stringify(attrs.baseform));
+attrs.baseform_ud1.label = "baseform_ud1";
+attrs.baseform_ud1.order = 15;
 attrs.baseform_ftb2 = {
     label: "baseform",
     // type: "set",
@@ -1396,7 +1416,18 @@ attrs.baseform_compound = {
     },
     opts: settings.defaultOptions
 };
-
+attrs.baseform_compound_ordered = JSON.parse(JSON.stringify(attrs.baseform_compound));
+attrs.baseform_compound_ordered.order = 19;
+attrs.baseform_compound_ud1_ordered = {
+    label: "baseform_compound_ud1",
+    order: 14,
+    // type: "set",
+    // displayType: "autocomplete",
+    stringify: function(baseform) {
+        return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
+    },
+    opts: settings.defaultOptions
+};
 attrs.lemgram_hidden = {
     label: "lemgram",
     type: "set",    // Seems to work only if this is "set" even if "hidden"
@@ -1491,6 +1522,8 @@ attrs.deprel_tdt = {
 	"xsubj-cop": "xsubj-cop"
     }
 };
+attrs.deprel_tdt_ordered = JSON.parse(JSON.stringify(attrs.deprel_tdt));
+attrs.deprel_tdt_ordered.order = 16;
 attrs.deprel_ud2 = {
     label: "deprel",
     displayType: "select",
@@ -1597,6 +1630,9 @@ attrs.deprel_ud_fi = {
 	"xcomp:ds": "xcomp:ds",
     }
 };
+attrs.deprel_ud_fi_ud1 = JSON.parse(JSON.stringify(attrs.deprel_ud_fi));
+attrs.deprel_ud_fi_ud1.label = "deprel_ud1";
+attrs.deprel_ud_fi_ud1.order = 11;
 attrs.deprel_uta_ru = {
     label: "deprel",
     displayType: "select",
@@ -2427,8 +2463,11 @@ sattrlist.ethesis = {
     text_title: {
         label: "text_title"
     },
-    text_date: {
-        label: "text_date"
+    text_date_orig: {
+        label: "original_date"
+    },
+    text_year: {
+	label: "text_year"
     },
     text_keywords: {
         label: "text_keywords"
@@ -2597,6 +2636,23 @@ attrlist.parsed_tdt = {
     dephead: attrs.dephead,
     deprel: attrs.deprel_tdt,
     ref: attrs.ref,
+    lex: attrs.lemgram_hidden,
+};
+
+attrlist.parsed_tdt_ud1 = {
+    ref: attrs.ref,
+    lemma: attrs.baseform_ordered, // order: 20
+    lemmacomp: attrs.baseform_compound_ordered, // order: 19
+    pos: attrs.pos_klk_ordered, // order: 18
+    msd: attrs.msd_ordered, // order: 17
+    dephead: attrs.dephead,
+    deprel: attrs.deprel_tdt_ordered, // order: 16
+    lemma_ud1: attrs.baseform_ud1, // order: 15
+    lemmacomp_ud1: attrs.baseform_compound_ud1_ordered, // order: 14
+    pos_ud1: attrs.pos_ud_fi_ud1, // order: 13
+    msd_ud1: attrs.msd_ud1, // order: 12
+    dephead_ud1: attrs.dephead_ud1,
+    deprel_ud1: attrs.deprel_ud_fi_ud1, // order: 11
     lex: attrs.lemgram_hidden,
 };
 

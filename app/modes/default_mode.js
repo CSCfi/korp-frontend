@@ -84,8 +84,8 @@ settings.corporafolders.ftb = {
 settings.corporafolders.ftb.ftb3 = {
     title: "FinnTreeBank 3",
     info: {
-	urn: "urn:nbn:fi:lb-201406021",
-	metadata_urn: "urn:nbn:fi:lb-201406022",
+	urn: "urn:nbn:fi:lb-2016051001",
+	metadata_urn: "urn:nbn:fi:lb-2016042602",
 	licence: settings.licenceinfo.CC_BY_30,
 	cite_id: "FinnTreeBank3-korp",
     },
@@ -141,12 +141,66 @@ settings.corporafolders.klk2_fi = {
 // };
 // */
 
+settings.corporafolders.kal = {
+    title: "Kotuksen aikakauslehtikorpus",
+    description: "Kotimaisten kielten keskuksen aikakauslehtikorpus",
+    info: {
+	metadata_urn: "urn:nbn:fi:lb-201407301",
+	limited_access: true,
+	licence_type: "ACA",
+    }
+};
+
+settings.corporafolders.kal.kal_perus = {
+    title: "Kotuksen aikakauslehtikorpus, tarkistamaton",
+    description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistamaton",
+    contents: ["kal_perus_ha", "kal_perus_la", "kal_perus_sk", "kal_perus_su"],
+    info: {
+	urn: "urn:nbn:fi:lb-2018060706",
+	metadata_urn: "urn:nbn:fi:lb-2018060702",
+	cite_id: "kotus-al-unrev-korp",
+	licence: {
+	    name: "CLARIN ACA +NC +DEP 1.0",
+	    urn: "urn:nbn:fi:lb-2021030304",
+	}
+    }
+};
+
+settings.corporafolders.kal.kal_ydin = {
+    title: "Kotuksen aikakauslehtikorpus, tarkistettu",
+    description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistettu",
+    contents: ["kal_ydin_ha", "kal_ydin_la", "kal_ydin_sk", "kal_ydin_su"],
+    info: {
+	urn: "urn:nbn:fi:lb-2018060705",
+	metadata_urn: "urn:nbn:fi:lb-2018060701",
+	cite_id: "kotus-al-rev-korp",
+	licence: {
+	    name: "CLARIN ACA +NC +DEP 1.0",
+	    urn: "urn:nbn:fi:lb-2021030302",
+	}
+    }
+};
 
 
 settings.corporafolders.literature = {
     title: "Kirjallisuutta",
     contents: ["gutenberg", "sks_kivi_fi", "skvr",
 	       "parfin_2016_fi", "parrus_2016_fi", "iijoki"]
+};
+
+settings.corporafolders.literature.kaannossuomi = {
+    title: "Käännössuomen korpus",
+    description: "Käännössuomen korpus on koostettu vuonna 1999 nykyisessä Itä-Suomen yliopistossa (silloisessa Joensuun yliopistossa sen kansainvälisen viestinnän laitoksella) Suomen Akatemian professori Anna Maurasen johtamassa tutkimushankkeessa Käännössuomi ja kääntämisen universaalit.<br/><br/>Korpus sisältää kaksi osaa: aluperin suomeksi kirjoitettua kieltä (alkusuomi) ja eri kielistä käännettyä kieltä (käännössuomi). Seuraavat tekstilajit ovat edustettuina aineistoissa: akateemiset tekstit, kaunokirjallisuus, lastenkirjallisuus, biografia, populaarikirjallisuus, viihdekirjallisuus, dekkarikirjallisuus ja tietokirjallisuus. Alkusuomen aineiston laajuus on yhteensä 5 465 293 sanaa ja käännössuomen aineiston 7 135 969 sanaa.",
+    info: {
+	urn: "urn:nbn:fi:lb-2019100803",
+	metadata_urn: "urn:nbn:fi:lb-2019100801",
+	licence: {
+	    name: "CLARIN RES +NC +DEP 1.0",
+	    urn: "urn:nbn:fi:lb-2019100805",
+	},
+	cite_id: "kaannossuomi-korp",
+    },
+    contents: ["alkusuomi", "kaannossuomi"]
 };
 
 settings.corporafolders.literature.skk = {
@@ -196,7 +250,7 @@ settings.corporafolders.internet.suomi24_2017h2 = {
     title: "Suomi24 2001–2017",
     // TODO: Change VRT download and metadata URN to point to the new
     // version when it is available
-    description: "Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.1<br/><a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut vuosilta 2001–2017 (1.1.2001–31.12.2017).<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu osakorpuksiin vuosittain.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-2019010801' target='_blank' title='Kuvailutiedot'>koko Suomi24 2001–2017 -aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2019010802' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).<br/><br/>(Tämä aineisto näkyi beetatestausvaiheessa Korpissa nimellä <i>Suomi24 virkkeet -korpus (2017H2)</i> ja aineiston ensimmäinen versio nimellä <i>Suomi24 2017H2</i>.)<br/><br/>2020-02-20: Aineistosta on nyt käytössä korjattu versio 1.1. Se sisältää aiemmasta versiosta vuosilta 2009–2012 ja 2014 puuttuneet kirjoittajan nimimerkkitiedot, ja kaikissa nimimerkeissä merkit <i>'</i>, <i>\"</i> ja <i>&amp;</i> näkyvät sellaisinaan, eivät <i>&amp;apos;</i>, <i>&amp;quot;</i> ja <i>&amp;amp;</i>. Lisäksi aineiston nimessä on korvattu <i>2017H2</i> vuosivälillä <i>2001–2017</i>.<br/><br/>2020-01-21: Aineiston dependenssijäsennykset ja -relaatiot on korjattu 2019-12-19. Myös sanakuva toimii periaatteessa, mutta aineiston koon vuoksi valitettavasti ei aina käytännössä. Selvitämme asiaa. Nimientunnistustiedot ovat toistaiseksi vain vanhemmassa Suomi24 2016H2 -aineistossa.</strong>",
+    description: "Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.2<br/><a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut vuosilta 2001–2017 (1.1.2001–31.12.2017).<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu osakorpuksiin vuosittain.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-2019010801' target='_blank' title='Kuvailutiedot'>koko Suomi24 2001–2017 -aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2019010802' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).<br/><br/>(Tämä aineisto näkyi beetatestausvaiheessa Korpissa nimellä <i>Suomi24 virkkeet -korpus (2017H2)</i> ja aineiston ensimmäinen versio nimellä <i>Suomi24 2017H2</i>.)<br/><br/>2021-04-21: Aineistosta on nyt käytössä päivitetty versio 1.2, jonka kuhunkin virkkeeseen on lisätty virkkeen tunnetilaa (sentiment) ilmaiseva polaarisuustieto (positiivinen, neutraali, negatiivinen). Polaarisuustieto on tuotettu luokittimella, joka on opetettu <a href='https://arxiv.org/pdf/2012.02613.pdf' target='_blank'>FinnSentiment-aineistolla</a>.<br/><br/>2020-02-20: Aineistosta on nyt käytössä korjattu versio 1.1. Se sisältää aiemmasta versiosta vuosilta 2009–2012 ja 2014 puuttuneet kirjoittajan nimimerkkitiedot, ja kaikissa nimimerkeissä merkit <i>'</i>, <i>\"</i> ja <i>&amp;</i> näkyvät sellaisinaan, eivät <i>&amp;apos;</i>, <i>&amp;quot;</i> ja <i>&amp;amp;</i>. Lisäksi aineiston nimessä on korvattu <i>2017H2</i> vuosivälillä <i>2001–2017</i>.<br/><br/>2020-01-21: Aineiston dependenssijäsennykset ja -relaatiot on korjattu 2019-12-19. Myös sanakuva toimii periaatteessa, mutta aineiston koon vuoksi valitettavasti ei aina käytännössä. Selvitämme asiaa. Nimientunnistustiedot ovat toistaiseksi vain vanhemmassa Suomi24 2016H2 -aineistossa.</strong>",
     contents: [
 	"s24_2001",
 	"s24_2002",
@@ -221,8 +275,8 @@ settings.corporafolders.internet.suomi24_2017h2 = {
 	metadata_urn: "urn:nbn:fi:lb-2020021803",
 	licence: settings.licenceinfo.CC_BY_NC,
 	homepage_url: "http://keskustelu.suomi24.fi",
-	cite_id: "suomi24-2001-2017-korp-v1-1",
-	shortname: "suomi24-2001-2017-korp-v1-1",
+	cite_id: "suomi24-2001-2017-korp-v1-2",
+	shortname: "suomi24-2001-2017-korp-v1-2",
     }
 };
 
@@ -870,6 +924,7 @@ settings.corporafolders.other_texts = {
     title: "Muita tekstejä",
     contents: [
 	"kfspc_fi",
+	"opensub_fi_2017",
 	"finstud",
 	"yoaineet",
     ]
@@ -935,9 +990,23 @@ settings.corporafolders.spoken.la_murre = {
 
 settings.corporafolders.selkokieli = {
     title: "Selkokieli",
-    contents: ["ylenews_fi_selko"]
+    description: "Selkokieliaineistoja<br/><br/><strong>Huomaa</strong>, että selkokieliset lehdet ovat edelleen osa aineistoa <i>1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä</i>. Niistä tulevat hakutulokset näkyvät kuitenkin vain yhteen kertaan, vaikka ne olisi valittu sekä osana selkokieliaineistoja että osana muita lehtiä.",
 };
 
+
+settings.corporafolders.selkokieli.lehdet = {
+    title: "Selkokielisiä lehtiä",
+    // Note the magazines are referred to both here and in
+    // lehdet.muut_lehdet. As a side-effect, if a Korp URL refers to
+    // these corpus ids, they are duplicated and shown in both places
+    // in the corpus chooser, and the number of corpora in the corpus
+    // chooser title bar counts them twice. However, search results
+    // come only once from each corpus, as is desirable.
+    contents: [
+	"lehdet_leija",
+	"lehdet_selkosanomat",
+    ],
+};
 
 
 settings.corporafolders.selkokieli.ylenews_fi_selko = {
@@ -1099,13 +1168,243 @@ settings.corpora.testcorp_deptree = {
 };
 */
 
+settings.corpora.kal_perus_ha = {
+    title: "Historiallinen Aikakauskirja (tarkistamaton)",
+    description: "Historiallinen Aikakauskirja; numerot 1917, 1920, 1925, 1935, 1945 (OCR tarkistamaton)",
+    id: "kal_perus_ha",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+
+settings.corpora.kal_perus_la = {
+    title: "Lakimies (tarkistamaton)",
+    description: "Lakimies; numerot 1917, 1920, 1925, 1935, 1945, 1955, 1965, 1972 (OCR tarkistamaton)",
+    id: "kal_perus_la",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+
+settings.corpora.kal_perus_sk = {
+    title: "Suomen Kuvalehti (tarkistamaton)",
+    description: "Suomen Kuvalehti; numerot 1916, 1917, 1925, 1935, 1945, 1955, 1965, 1972 (OCR tarkistamaton)",
+    id: "kal_perus_sk",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+settings.corpora.kal_perus_su = {
+    title: "Suomi (tarkistamaton)",
+    description: "Suomi; numerot 1917, 1920, 1923, 1935, 1938 (OCR tarkistamaton)",
+    id: "kal_perus_su",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+settings.corpora.kal_ydin_ha = {
+    title: "Historiallinen Aikakauskirja (tarkistettu)",
+    description: "Historiallinen Aikakauskirja; numero 1/1935 (OCR tarkistettu)",
+    id: "kal_ydin_ha",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_page: {
+            label: "page"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+settings.corpora.kal_ydin_la = {
+    title: "Lakimies (tarkistettu)",
+    description: "Lakimies; numero 1935 (OCR tarkistettu)",
+    id: "kal_ydin_la",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_page: {
+            label: "page"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+settings.corpora.kal_ydin_sk = {
+    title: "Suomen Kuvalehti (tarkistettu)",
+    description: "Suomen Kuvalehti; neljä numeroa (4, 17, 30 ja 43) per vuosi 1917, 1925, 1935, 1945, 1955, 1965 ja 1972 (OCR tarkistettu)",
+    id: "kal_ydin_sk",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_page: {
+            label: "page"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+settings.corpora.kal_ydin_su = {
+    title: "Suomi (tarkistettu)",
+    description: "Suomi; numero 1935 (OCR tarkistettu)",
+    id: "kal_ydin_su",
+    features: ["paragraphs", "parsed_tdt", "finer"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+        text_year: sattrs.year,
+        text_issue: {
+            label: "issue"
+        },
+        text_page: {
+            label: "page"
+        },
+        text_publisher: sattrs.text_publisher,
+        text_year_digitized: {
+            label: "digitized"
+        },
+        text_date_modified: {
+            label: "modified"
+        },
+        text_wordcount: {
+            label: "wordcount"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
 settings.corpora.semfinlex_asd_fi_2018 = {
     id: "semfinlex_asd_fi_2018",
     lang: "fin",
     title: "Alkuperäisiä säädöksiä",
     description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1917–2018.",
     urn: "urn:nbn:fi:lb-2019042602",
-    metadata_urn: "urn:nbn:fi:lb-2019042601",
+    metadata_urn: "urn:nbn:fi:lb-2020052701",
     licence : settings.licenceinfo.CC_BY,
     features: ["paragraphs", "parsed_tdt"],
     structAttributes : {
@@ -1198,7 +1497,7 @@ settings.corpora.ftb2 = {
     description: "Finnish tree bank, version 2",
     id: "ftb2",
     urn: "urn:nbn:fi:lb-201407164",
-    metadata_urn: "urn:nbn:fi:lb-201407163",
+    metadata_urn: "urn:nbn:fi:lb-2016042406",
     licence: settings.licenceinfo.CC_BY_30,
     cite_id: "FinnTreeBank2-korp",
     within: settings.defaultWithin,
@@ -11075,6 +11374,355 @@ settings.corpora.sks_kivi_fi = {
     }
 };
 
+settings.corpora.opensub_fi_2017 = {
+    title: "OpenSubtitles 2017",
+    description: "Opensubtitles.org-sivuston jakamat elokuvien ja tv-ohjelmien suomenkieliset tekstitykset",
+    licence: settings.licenceinfo.CC_BY_40,
+    id: "opensub_fi_2017",
+    urn: "urn:nbn:fi:lb-2018060404",
+    metadata_urn: "urn:nbn:fi:lb-2018060403",
+    lang: "fin",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.parsed_tdt_ud1,
+    struct_attributes: {
+	text_country: {
+	    label: "opensub_text_country",
+	    type: "set",
+	    opts: settings.setOptions,
+	    displayType: "select",
+	    dataset: [
+		"Afghanistan",
+		"Algeria",
+		"Angola",
+		"Argentina",
+		"Aruba",
+		"Australia",
+		"Austria",
+		"Bahamas",
+		"Belarus",
+		"Belgium",
+		"Bolivia",
+		"Bosnia and Herzegovina",
+		"Botswana",
+		"Brazil",
+		"Bulgaria",
+		"Burkina Faso",
+		"Cambodia",
+		"Cameroon",
+		"Canada",
+		"Chile",
+		"China",
+		"Colombia",
+		"Croatia",
+		"Cuba",
+		"Cyprus",
+		"Czechoslovakia",
+		"Czech Republic",
+		"Denmark",
+		"Dominican Republic",
+		"Ecuador",
+		"Egypt",
+		"Estonia",
+		"Faroe Islands",
+		"Federal Republic of Yugoslavia",
+		"Finland",
+		"France",
+		"Georgia",
+		"Germany",
+		"Ghana",
+		"Greece",
+		"Hong Kong",
+		"Hungary",
+		"Iceland",
+		"India",
+		"Indonesia",
+		"Iran",
+		"Iraq",
+		"Ireland",
+		"Isle Of Man",
+		"Israel",
+		"Italy",
+		"Jamaica",
+		"Japan",
+		"Kazakhstan",
+		"Latvia",
+		"Lebanon",
+		"Liberia",
+		"Libya",
+		"Liechtenstein",
+		"Lithuania",
+		"Luxembourg",
+		"Macao",
+		"Malaysia",
+		"Malta",
+		"Mexico",
+		"Moldova",
+		"Monaco",
+		"Mongolia",
+		"Morocco",
+		"Namibia",
+		"Netherlands",
+		"New Zealand",
+		"North Korea",
+		"Norway",
+		"Palestine",
+		"Panama",
+		"Paraguay",
+		"Peru",
+		"Philippines",
+		"Poland",
+		"Portugal",
+		"Puerto Rico",
+		"Qatar",
+		"Republic of Macedonia",
+		"Romania",
+		"Russia",
+		"Rwanda",
+		"Saudi Arabia",
+		"Serbia",
+		"Singapore",
+		"Slovakia",
+		"Slovenia",
+		"South Africa",
+		"South Korea",
+		"Soviet Union",
+		"Spain",
+		"Sri Lanka",
+		"Sweden",
+		"Switzerland",
+		"Taiwan",
+		"Tanzania",
+		"Thailand",
+		"Tunisia",
+		"Turkey",
+		"UK",
+		"Ukraine",
+		"United Arab Emirates",
+		"Uruguay",
+		"USA",
+		"Venezuela",
+		"West Germany",
+		"Yugoslavia",
+		"Zambia",
+		"_"
+	      ],
+	},
+	text_lang_orig: {
+	    label: "opensub_text_lang_orig",
+	    type: "set",
+	    opts: settings.setOptions,
+	    displayType: "select",
+	    dataset: [
+		"Abkhazian",
+		"Aboriginal",
+		"Acholi",
+		"Afrikaans",
+		"Albanian",
+		"Algonquin",
+		"American Sign Language",
+		"Amharic",
+		"Ancient (to 1453)",
+		"Apache languages",
+		"Arabic",
+		"Aramaic",
+		"Arapaho",
+		"Armenian",
+		"Assamese",
+		"Assyrian Neo-Aramaic",
+		"Athapascan languages",
+		"Awadhi",
+		"Azerbaijani",
+		"Bambara",
+		"Basque",
+		"Belarusian",
+		"Bengali",
+		"Berber languages",
+		"Bhojpuri",
+		"Bosnian",
+		"Brazilian Sign Language",
+		"Breton",
+		"British Sign Language",
+		"Bulgarian",
+		"Burmese",
+		"Cantonese",
+		"Catalan",
+		"Chechen",
+		"Chinese",
+		"Cornish",
+		"Corsican",
+		"Cree",
+		"Croatian",
+		"Czech",
+		"Danish",
+		"Dari",
+		"Dutch",
+		"Egyptian (Ancient)",
+		"English",
+		"Esperanto",
+		"Estonian",
+		"Ewe",
+		"Faroese",
+		"Filipino",
+		"Finnish",
+		"Flemish",
+		"French",
+		"Gallegan",
+		"Georgian",
+		"German",
+		"Greek",
+		"Greenlandic",
+		"Gujarati",
+		"Hakka",
+		"Hawaiian",
+		"Hebrew",
+		"Hindi",
+		"Hmong",
+		"Hokkien",
+		"Hungarian",
+		"Icelandic",
+		"Indian Sign Language",
+		"Indonesian",
+		"Inuktitut",
+		"Irish",
+		"Italian",
+		"Japanese",
+		"Japanese Sign Language",
+		"Kabyle",
+		"Kazakh",
+		"Khmer",
+		"Kirundi",
+		"Klingon",
+		"Korean",
+		"Korean Sign Language",
+		"Kurdish",
+		"Lao",
+		"Latin",
+		"Latvian",
+		"Lingala",
+		"Lithuanian",
+		"Luxembourgish",
+		"Macedonian",
+		"Malay",
+		"Malayalam",
+		"Maltese",
+		"Mandarin",
+		"Maori",
+		"Mapudungun",
+		"Marathi",
+		"Maya",
+		"Mende",
+		"Min Nan",
+		"Mohawk",
+		"Mongolian",
+		"Navajo",
+		"Neapolitan",
+		"Nepali",
+		"Norse",
+		"North American Indian",
+		"Norwegian",
+		"Nyanja",
+		"Occitan",
+		"Old",
+		"Old English",
+		"Panjabi",
+		"Papiamento",
+		"Pawnee",
+		"Persian",
+		"Polish",
+		"Polynesian",
+		"Portuguese",
+		"Pushto",
+		"Quechua",
+		"Quenya",
+		"Romanian",
+		"Romany",
+		"Russian",
+		"Saami",
+		"Sanskrit",
+		"Scots",
+		"Scottish Gaelic",
+		"Serbian",
+		"Serbo-Croatian",
+		"Shanghainese",
+		"Sicilian",
+		"Sign Languages",
+		"Sindarin",
+		"Sinhalese",
+		"Sioux",
+		"Slovak",
+		"Slovenian",
+		"Somali",
+		"Southern Sotho",
+		"Spanish",
+		"Spanish Sign Language",
+		"Swahili",
+		"Swedish",
+		"Swiss German",
+		"Syriac",
+		"Tagalog",
+		"Tamil",
+		"Tatar",
+		"Thai",
+		"Tibetan",
+		"Tigrigna",
+		"Tok Pisin",
+		"Tonga",
+		"Turkish",
+		"Ukrainian",
+		"Ungwatsi",
+		"Urdu",
+		"Vietnamese",
+		"Washoe",
+		"Welsh",
+		"Wolof",
+		"Xhosa",
+		"Yiddish",
+		"Zulu",
+		"_"
+	    ],
+	},
+	text_genre: {
+	    label: "opensub_text_genre",
+	    type: "set",
+	    opts: settings.setOptions,
+	    displayType: "select",
+	    dataset: [
+		"Action",
+		"Adult",
+		"Adventure",
+		"Animation",
+		"Biography",
+		"Comedy",
+		"Crime",
+		"Documentary",
+		"Drama",
+		"Family",
+		"Fantasy",
+		"Film-Noir",
+		"Game-Show",
+		"History",
+		"Horror",
+		"Music",
+		"Musical",
+		"Mystery",
+		"News",
+		"Reality-TV",
+		"Romance",
+		"Sci-Fi",
+		"Short",
+		"Sport",
+		"Talk-Show",
+		"Thriller",
+		"War",
+		"Western",
+		"_"
+	      ],
+	},
+	text_year: { label: "year" },
+    }
+};
+
 settings.corpora.skvr = {
     title: "SKVR",
     description: "SKS:n Suomen Kansan Vanhat Runot -korpus",
@@ -13490,6 +14138,99 @@ settings.corpora.ceal_s = {
 
 delete ceal_work_list;
 
+attrlist.kaannossuomi = {
+    ref: attrs.ref,
+    lemma: attrs.baseform,
+    lemmacomp: attrs.baseform_compound,
+    pos: attrs.pos_ud2_fi,
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel_tdt,
+    spaces: { label: "", displayType: "hidden" },
+    initid: { label: "", displayType: "hidden" },
+};
+
+sattrlist.kaannossuomi = {
+    text_author: { label: "text_author" },
+    text_title: { label: "text_title" },
+    text_year: { label: "year" },
+    text_orig_lang: {
+	label: "origlang",
+	displayType: "select",
+	opts: settings.liteOptions,
+	translationKey: "kaannossuomi_",
+	dataset: [
+	    "fin",
+	    "eng",
+	    "rus",
+	    "ger",
+	    "fre",
+	    "est",
+	    "swe",
+	    "spa",
+	    "nor",
+	    "hun",
+	    "dut",
+	]
+    },
+    text_genre: {
+	label: "text_genre",
+	displayType: "select",
+	opts: settings.liteOptions,
+	translationKey: "kaannossuomi_",
+	dataset: [
+	    "academic",
+	    "biography",
+	    "crime_fiction",
+	    "fiction",
+	    "popular_fiction",
+	    "popular_science",
+	    "childrens_literature",
+	    "kauno",
+	]
+    },
+    text_filename: { label: "file_name" },
+};
+
+settings.corpora.alkusuomi = {
+    title: "Käännössuomen korpus - alkusuomi",
+    description: "Eri kielistä käännettyä kieltä",
+    lang: "fin",
+    id: "alkusuomi",
+    //urn: "",
+    metadata_urn: "urn:nbn:fi:lb-2019100801",
+    /*licence: {
+	name: "",
+	urn: "",
+    },
+    cite_id: "",*/
+    limited_access: true,
+    licence_type: "RES",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.kaannossuomi,
+    struct_attributes: sattrlist.kaannossuomi,
+};
+
+settings.corpora.kaannossuomi = {
+    title: "Käännössuomen korpus - käännössuomi",
+    description: "Aluperin suomeksi kirjoitettua kieltä",
+    lang: "fin",
+    id: "kaannossuomi",
+    //urn: "",
+    metadata_urn: "urn:nbn:fi:lb-2019100801",
+    /*licence: {
+	name: "",
+	urn: "",
+    },
+    cite_id: "",*/
+    limited_access: true,
+    licence_type: "RES",
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    attributes: attrlist.kaannossuomi,
+    struct_attributes: sattrlist.kaannossuomi,
+};
 
 settings.corpora.arkisyn = {
     title: "Arkisyn",
@@ -14720,6 +15461,17 @@ sattrlist.s24_2018 = {
 	opts: settings.liteOptions,
     },
     sentence_id: sattrs.sentence_id_hidden,
+    sentence_polarity: {
+        label: "sentence_polarity",
+        displayType: "select",
+        translationKey: "polarity_",
+        dataset: [
+            "pos",
+            "neut",
+            "neg",
+        ],
+        opts: settings.liteOptions,
+    },
 };
 
 settings.templ.s24_2018 = {
@@ -14739,7 +15491,7 @@ settings.fn.add_corpus_settings(
 	    result.push({
 		title: "Suomi24 2001–2017: " + ystr,
 		description: (
-		    "Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.1: "
+		    "Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.2: "
 			+ ystr
 			+ "<br/>Suomi24-keskustelujen viestit vuodelta "
 			+ ystr),
@@ -14753,7 +15505,12 @@ settings.fn.add_corpus_settings(
 
 settings.fn.add_corpus_aliases(
     "s24_20(0[1-9]|1[0-7])",
-    ["suomi24-2017h2", "suomi24-2001-2017", "suomi24-2001-2017-korp-v1-1"]);
+    [
+        "suomi24-2017h2",
+        "suomi24-2001-2017",
+        "suomi24-2001-2017-korp-v1-1",
+        "suomi24-2001-2017-korp-v1-2",
+    ]);
 
 
 settings.corpora.iclfi = {

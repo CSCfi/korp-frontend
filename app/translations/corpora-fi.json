@@ -9,11 +9,16 @@
 
     "saldo": "merkitys",
     "pos": "sanaluokka",
+    "pos_ud1": "sanaluokka (UD1)",
     "msd": "morfologinen analyysi",
+    "msd_ud1": "morfologinen analyysi (UD1)",
     "baseform": "perusmuoto",
+    "baseform_ud1": "perusmuoto (UD1)",
     "lemgram": "lemgrammi",
     "dephead": "pääsanan numero",
+    "dephead_ud1": "pääsanan numero (UD1)",
     "deprel": "dependenssisuhde",
+    "deprel_ud1": "dependenssisuhde (UD1)",
     "sentence": "virke",
     "paragraph": "kappale",
     "prefix": "alkuosa",
@@ -36,6 +41,7 @@
 
     "lemma": "perusmuoto",
     "baseform_compound": "perusmuoto (yhdyssanarajat)",
+    "baseform_compound_ud1": "perusmuoto (yhdyssanarajat) (UD1)",
     "lemmacomp": "perusmuoto (yhdyssanarajat)",
     "pos_orig": "sanaluokka (siivoamaton)",
     "func": "lauseenjäsen",
@@ -80,6 +86,10 @@
     "text_volume": "nide",
     "subject": "aihe",
 
+    "digitized": "digitoitu",
+    "modified": "muunnettu",
+    "wordcount": "sanamäärä",
+
     "sentence_link": "sentence link",
     "text_issue": "numero",
 
@@ -102,7 +112,7 @@
     "tags": "tags",
     "post_url": "post address",
 
-    "page": "page",
+    "page": "sivu",
     "author_type": "author type",
     "gender": "gender",
     "journalist": "journalist",
@@ -792,7 +802,28 @@
     "INF": "Infinitiivi",
     "FINIT": "Finiittiverbi",
 
-    "origlang": "original language",
+    "kaannossuomi_academic": "akateemiset tekstit",
+    "kaannossuomi_biography": "biografia",
+    "kaannossuomi_crime_fiction": "dekkarikirjallisuus",
+    "kaannossuomi_fiction": "viihdekirjallisuus",
+    "kaannossuomi_popular_fiction": "populaarikirjallisuus",
+    "kaannossuomi_popular_science": "tietokirjallisuus",
+    "kaannossuomi_childrens_literature": "lastenkirjallisuus",
+    "kaannossuomi_kauno": "kaunokirjallisuus",
+
+    "kaannossuomi_fin": "suomi",
+    "kaannossuomi_eng": "englanti",
+    "kaannossuomi_rus": "venäjä",
+    "kaannossuomi_ger": "saksa",
+    "kaannossuomi_fre": "ranska",
+    "kaannossuomi_est": "viro",
+    "kaannossuomi_swe": "ruotsi",
+    "kaannossuomi_spa": "espanja",
+    "kaannossuomi_nor": "norja",
+    "kaannossuomi_hun": "unkari",
+    "kaannossuomi_dut": "hollanti",
+
+    "origlang": "alkuperäinen kieli",
     "page_n": "page number",
     "paragraph_marginal": "margin notes",
     "date_interval": "aikaväli",
@@ -1691,6 +1722,11 @@
 
     "title_lemmas": "otsikon sanojen perusmuodot",
 
+    "sentence_polarity": "virkkeen polaarisuus",
+    "polarity_pos": "myönteinen",
+    "polarity_neut": "neutraali",
+    "polarity_neg": "kielteinen",
+
     "publication_type": "julkaisutyyppi",
     "publtype_journal": "aikakauslehti",
     "publtype_newspaper": "sanomalehti",
@@ -1995,6 +2031,7 @@
     "lex": "lekseemi",
     "text_keywords": "avainsanat",
     "text_faculty": "tiedekunta",
+    "text_facultydirectory" : "tiedekunta (korpushakemisto)",
     "text_subject": "oppiaine",
     "text_dissertationtype": "tutkielman tyyppi",
     "text_lang": "kieli",
@@ -2005,6 +2042,11 @@
     "transcription": "transkriptio",
     "text_category": "aihealue",
     "text_correction_year": "editointivuosi",
+
+    "ethesis_doctoral_dissertation_monograph": "Väitöskirja (monografia)",
+    "ethesis_doctoral_dissertation_article_based": "Väitöskirja (artikkelimuotoinen)",
+    "ethesis_doctoral_dissertation": "Väitöskirja",
+    "ethesis_masters_thesis": "Pro gradu",
 
     "web_domain_name": "verkkotunnus",
     "lib_congress_classif": "Yhdysvaltain Kongressin kirjaston luokitus",
@@ -2178,5 +2220,9 @@
     "hc_audience" : "kohdeyleisö",
     "hc_partrel" : "osallisen suhde kirjoittajaan",
     "hc_interaction" : "interaktiivisuus",
-    "hc_setting" : "muodollisuus"
+    "hc_setting" : "muodollisuus",
+
+    "opensub_text_country" : "alkuperämaa",
+    "opensub_text_lang_orig" : "alkuperäiskieli",
+    "opensub_text_genre" : "lajityyppi"
 }
