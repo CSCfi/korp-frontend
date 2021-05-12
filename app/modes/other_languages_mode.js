@@ -85,21 +85,18 @@ settings.corporafolders.german = {
     title: "Deutsch / Saksa / German",
     description: "Texte auf Deutsch<br/>Saksankielisiä tekstejä<br/>Texts in German",
     contents: ["mulcold_de", "ethesis_de"],
-    // unselected: true
 };
 
 settings.corporafolders.french = {
     title: "Français / Ranska / French",
     description: "Textes en français<br/>Ranskankielisiä tekstejä<br/>Texts in French",
     contents: ["ethesis_fr"],
-    // unselected: true
 };
 
 settings.corporafolders.spanish = {
     title: "Español / Espanja / Spanish",
     description: "Textos on español<br/>Espanjankielisiä tekstejä<br/>Texts in Spanish",
     contents: ["ethesis_es"],
-    // unselected: true
 };
 
 
@@ -113,7 +110,6 @@ settings.corporafolders.russian = {
         "parfin_2016_ru",
         "ethesis_ru"
     ],
-    // unselected: true
 };
 
 settings.corporafolders.english.ethesis = {
@@ -305,21 +301,6 @@ settings.corporafolders.english.scotscorr = {
     ],
 };
 
-
-/*
-settings.corpora.fennougrica = {
-    id: "fennougrica",
-    title: "Fenno-Ugrica",
-    description: "Fenno-Ugrica",
-    metadata_urn: "urn:nbn:fi:lb-2014073056",
-    homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: spWithin,
-    context: spContext,
-    attributes: attrlist.fennougrica,
-    structAttributes: sattrlist.fennougrica,
-    unselected: true
-};
-*/
 
 settings.corpora.hc = {
     id : "hc",
@@ -610,13 +591,6 @@ sattrlist.sust_common = {
     text_publ_place: {
         label: "publication_place",
     },
-    /*
-    text_author: {
-        label: "text_author"
-        },*/
-    // text_pgli: {
-    //     label: "sentence_line"
-    // },
     text_corryear: {
         label: "text_correction_year"
     },
@@ -651,15 +625,6 @@ sattrlist.sust_common = {
     sentence_type: {
         label: "sentence_type",
     },
-    // sentence_chapno: {
-    //     label: "sentence_chapno",
-    // },
-    // paragraph_parttitle: {
-    //     label: "paragraph_title",
-    // },
-    // paragraph_lang: {
-    //     label: "paragraph_lang",
-    // },
     sentence_orig: {
         label: "transcription",
     },
@@ -1527,42 +1492,6 @@ settings.corpora.ethesis_en_phd_valt = {
     structAttributes: sattrlist.ethesis
 };
 
-/* ParRus ru */
-
-/*
-// Deprecated version
-settings.corpora.parrus_ru = {
-    id: "parrus_ru",
-    title: "ParRus (venäjä) [deprecated]",
-    description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (venäjänkieliset alkuperäistekstit)<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta)<br/><br/><strong>Please note that ParRus 2016 replaces this corpus, and this corpus will be taken out of use at the beginning of 2017.</strong>",
-    // TODO: Add paragraphs corresponding to link elements
-    context: defaultContext,
-    within: settings.defaultWithin,
-    limitedAccess: true,
-    licenceType: "RES",
-    attributes: attrlist.parrus_ru,
-    structAttributes: sattrlist.parrus_ru,
-};
-settings.fn.extend_corpus_settings(settings.corpusinfo.parrus, ["parrus_ru"]);
-*/
-
-/* ParFin ru */
-
-/*
-// Deprecated version
-settings.corpora.parfin_ru = {
-    id: "parfin_ru",
-    title: "ParFin (venäjä) [deprecated]",
-    description: "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (venäjänkieliset käännökset)<br/>Suomenkielisten kaunokirjallisten tekstien (vuosilta 1990–2010) käännöksiä venäjäksi<strong>Please note that ParRus 2016 replaces this corpus, and this corpus will be taken out of use at the beginning of 2017.</strong>",
-    context: defaultContext,
-    within: settings.defaultWithin,
-    limitedAccess: true,
-    licenceType: "RES",
-    attributes: attrlist.parfin_ru,
-    structAttributes: sattrlist.parfin_ru,
-};
-settings.fn.extend_corpus_settings(settings.corpusinfo.parfin, ["parfin_ru"]);
-*/
 
 /* ParRus 2016 ru */
 
@@ -1623,7 +1552,6 @@ settings.corpora.topling_en = {
     licenceType: "RES",
     context: spContext,
     within: spWithin,
-    // unselected: true,
     attributes: attrlist.topling,
     structAttributes: sattrlist.topling
 };
@@ -1649,7 +1577,6 @@ settings.corpora.elfa = {
         type: {
             label: "token_type",
             displayType: "select",
-            // translationKey: "",
             localize: false,
             opts: liteOptions,
             dataset: {
@@ -1682,7 +1609,6 @@ settings.corpora.elfa = {
         subtype: {
             label: "token_subtype",
             displayType: "select",
-            // translationKey: "",
             localize: false,
             opts: liteOptions,
             dataset: {
@@ -1700,7 +1626,6 @@ settings.corpora.elfa = {
         mode: {
             label: "action_type",
             displayType: "select",
-            // translationKey: "",
             localize: false,
             opts: liteOptions,
             dataset: {
@@ -1713,7 +1638,6 @@ settings.corpora.elfa = {
         voice: {
             label: "speaking_mode",
             displayType: "select",
-            // translationKey: "",
             localize: false,
             opts: liteOptions,
             dataset: {
@@ -1819,7 +1743,6 @@ settings.corpora.elfa = {
         text_event_type: {
             label: "event_type",
             displayType: "select",
-            // translationKey: "",
             localize: false,
             opts: liteOptions,
             dataset: [
@@ -1887,7 +1810,6 @@ settings.corpora.elfa = {
         text_recording_type: {
             label: "recording_type",
             displayType: "select",
-            // translationKey: "",
             localize: false,
             opts: liteOptions,
             dataset: [
@@ -2074,44 +1996,11 @@ settings.corpora.elfa = {
 };
 
 
-/*
-settings.corpora.fennougrica_veps = {
-    id: "fennougrica_veps",
-    title: "Fenno-Ugrica: Vepsä (näyte)",
-    description: "Fenno-Ugrica: Vepsä (näyte)",
-    metadata_urn: "urn:nbn:fi:lb-2014073056",
-    homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: spWithin,
-    context: spContext,
-    attributes: attrlist.fennougrica_veps,
-    structAttributes: sattrlist.fennougrica_veps,
-    // unselected: true
-};
-*/
-
-
-/* attrlist.scotscorr is currently not used */
-attrlist.scotscorr = {
-    w_note: attrs.word_note,
-    w_supplement: attrs.word_supplement,
-    w_full: attrs.word_correction,
-    w_spacing: {
-        label: "word_spacing",
-        opts: settings.defaultOptions
-    },
-    w_typography: attrs.word_typography,
-    w_state: {
-        label: "word_state",
-        opts: settings.defaultOptions
-    }
-};
-
 sattrlist.scotscorr = {
     sentence_id: sattrs.sentence_id_hidden,
     text_from: { label: "writer" },
     text_to: { label: "addressee" },
     text_year: { label: "year" },
-    // text_datefrom: sattrs.date,
     text_date: { label: "date" },
     text_fraser: { label: "scotscorr_fraser" },
     text_lcinf: {
@@ -2697,17 +2586,6 @@ settings.fn.extend_corpus_settings(
 settings.corpus_aliases.scotscorr = "scots_.*";
 
 
-/*
-settings.corpora.erzya = {
-    id: "erzya",
-    title: "Ersä (testikorpus)",
-    description: "Ersä (testikorpus)",
-    within: spWithin,
-    context: spContext,
-    attributes: attrlist.testerzya,
-    structAttributes: sattrlist.testerzya
-    };*/
-
 settings.corpora.erme_myv = {
     id: "erme_myv",
     title: "Ersä/Erzya",
@@ -2848,9 +2726,6 @@ settings.corpora.kildin_sample = {
             ],
             opts: liteOptions,
         },
-        // sentence_id: {
-        //     label: "",
-        // },
         sentence_paragraph_boundary: {
             label: "in_paragraph",
             displayType: "select",
@@ -2867,73 +2742,6 @@ settings.corpora.kildin_sample = {
 };
 
 
-/*
-settings.corpora.swahili_sample = {
-    id: "swahili_sample",
-    title: "Swahili (sample)",
-    description: "A test sample of the new Swahili corpus",
-    // metadata_urn: "urn:nbn:fi:lb-",
-    // licence: settings.licenceinfo.CC_BY,
-    limitedAccess: true,
-    licenceType: "ACA",
-    context: defaultContext,
-    within: settings.defaultWithin,
-    attributes: {
-        lemma: attrs.baseform,
-        pos: {
-            label: "pos",
-            displayType: "select",
-            // translationKey: "pos_",
-            localize: "false",
-            dataset: [
-                "ADJ",
-                "ADJ-POST",
-                "ADJ-PRE",
-                "ADV",
-                "AG-PART",
-                "CC",
-                "COLON",
-                "COMMA",
-                "CONJ",
-                "DEM",
-                "DOUBLE-QUOTE-OPENING",
-                "GEN-CON",
-                "GEN-CON-KWA",
-                "LEFT-PARENTHESIS",
-                "N",
-                "NUM",
-                "PREP",
-                "PRON",
-                "PROPNAME",
-                "RIGHT-PARENTHESIS",
-                "SINGLE-QUOTE-OPENING",
-                "V",
-                "V-BE",
-                "_",
-            ],
-            opts: liteOptions,
-        },
-        msd: {
-            label: "msd",
-            taginfo_url: "",
-        },
-        gloss: {
-            label: "gloss",
-        },
-        syntax: {
-            label: "syntactic_function",
-        },
-        verbextra: {
-            label: "verb_features",
-        },
-    },
-    structAttributes: {
-        sentence_id: sattrs.sentence_id_hidden,
-    },
-};
-*/
-
-
 settings.templ.hcs2_common = {
     id: "",
     title: "",
@@ -2947,7 +2755,6 @@ settings.templ.hcs2_common = {
         pos: {
             label: "pos",
             displayType: "select",
-            // translationKey: "pos_",
             localize: "false",
             // The dataset currently excludes tags for punctuation
             // marks
@@ -3350,8 +3157,6 @@ sattrlist.byu_common = {
     text_filename: {
         label: "file_name"
     },
-    // paragraph_id: {
-    // },
     paragraph_type: {
         label: "paragraph_type",
         displayType: "select",
@@ -3364,8 +3169,6 @@ sattrlist.byu_common = {
             "sentence",
         ],
     },
-    // sentence_id: {
-    // },
     sentence_gaps: {
         label: "sentence_part_deleted",
         displayType: "select",
@@ -3467,7 +3270,6 @@ sattrlist.coha =  $.extend(
         text_lcc: {
             label: "lib_congress_classif",
             displayType: "select",
-            // translationKey: "lcc_",
             opts: liteOptions,
             dataset: {
                 "A": "A – General Works",

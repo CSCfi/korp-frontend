@@ -867,9 +867,7 @@ attrs.pos_ftb2 = {
         "CC": "CC",
         "Con": "Con",
         "CS": "CS",
-        // "Interj|INTERJ": "Interj",
         "Interj": "Interj",
-        // "N|Noun": "N",
         "N": "N",
         "Num": "Num",
         "POST": "POST",
@@ -879,61 +877,6 @@ attrs.pos_ftb2 = {
     },
     opts: liteOptions
 };
-/*
-attrs.pos_ftb3 = {
-    label: "pos",
-    displayType: "select",
-    translationKey: "posftb3_",
-    dataset: {
-        "A": "A",
-        "Abbr": "Abbr",
-        "Adp": "Adp",
-        "Adp|Po": "Post",
-        "Adv": "Adv",
-        "Art": "Art",
-        "CC": "CC",
-        "Con|C": "Con",
-        "CS": "CS",
-        "Forgn": "Forgn",
-        "Interj|INTERJ": "Interj",
-        "N|Noun": "N",
-        "Num": "Num",
-        "Pron": "Pron",
-        "PrfPrc": "PrfPrc",
-        "PrsPrc": "PrsPrc",
-        "Punct": "Punct",
-        "V": "V",
-        "[NON-TWOL]": "NonTWOL"
-    },
-    opts: liteOptions
-};
-attrs.pos_ftb3_orig = {
-    label: "pos_orig",
-    translationKey: "posftb3_",
-    dataset: {
-        "A": "A",
-        "Abbr": "Abbr",
-        "Adp": "Adp",
-        "Adp|Po": "Post",
-        "Adv": "Adv",
-        "Art": "Art",
-        "CC": "CC",
-        "Con|C": "Con",
-        "CS": "CS",
-        "Forgn": "Forgn",
-        "Interj|INTERJ": "Interj",
-        "N|Noun": "N",
-        "Num": "Num",
-        "Pron": "Pron",
-        "PrfPrc": "PrfPrc",
-        "PrsPrc": "PrsPrc",
-        "Punct": "Punct",
-        "V": "V",
-        "[NON-TWOL]": "NonTWOL"
-    },
-    opts: settings.defaultOptions
-};
-*/
 attrs.ner_tags = {
     label: "ner_tags",
     displayType: "select",
@@ -1331,36 +1274,6 @@ attrs.pos_swecg = {
         "UTRNEU",
         "V",
     ],
-    // translationKey: "pos_",
-    // // Some of the following values migt be errors
-    // dataset: {
-    //  "A": "Adj",
-    //  "ABBR": "Abbr",
-    //  "ADV": "Adv",
-    //  "ADV/PREP": "Adv/Prep",
-    //  "A/N": "Adj/Noun",
-    //  "CC": "CC",
-    //  "CLB": "CLB",
-    //  "DEF": "DEF",
-    //  "DER/-het": "DER/-het",
-    //  "DER/-nde": "DER/-nde",
-    //  "DET": "DET",
-    //  "GEN": "GEN",
-    //  "INDEF": "INDEF",
-    //  "INFMARK": "INFMARK",
-    //  "INTERJ": "INTERJ",
-    //  "N": "N",
-    //  "NOM": "NOM",
-    //  "NUM": "NUM",
-    //  "PRB": "PRB",
-    //  "PREP": "PREP",
-    //  "PREPADV": "PREP/ADV",
-    //  "PRON": "PRON",
-    //  "SC": "CS",
-    //  "UTRNEU": "UTRNEU",
-    //  "V": "V",
-    //  "null": "Unknown",
-    // },
 };
 
 
@@ -1386,8 +1299,6 @@ attrs.msd_ud1.label = "msd_ud1";
 attrs.msd_ud1.order = 12;
 attrs.baseform = {
     label: "baseform",
-    // type: "set",
-    // displayType: "autocomplete",
     stringify: function(baseform) {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
@@ -1400,8 +1311,6 @@ attrs.baseform_ud1.label = "baseform_ud1";
 attrs.baseform_ud1.order = 15;
 attrs.baseform_ftb2 = {
     label: "baseform",
-    // type: "set",
-    // displayType: "autocomplete",
     stringify: function(baseform) {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
@@ -1409,8 +1318,6 @@ attrs.baseform_ftb2 = {
 };
 attrs.baseform_compound = {
     label: "baseform_compound",
-    // type: "set",
-    // displayType: "autocomplete",
     stringify: function(baseform) {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
@@ -1421,8 +1328,6 @@ attrs.baseform_compound_ordered.order = 19;
 attrs.baseform_compound_ud1_ordered = {
     label: "baseform_compound_ud1",
     order: 14,
-    // type: "set",
-    // displayType: "autocomplete",
     stringify: function(baseform) {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
@@ -1432,7 +1337,6 @@ attrs.lemgram_hidden = {
     label: "lemgram",
     type: "set",    // Seems to work only if this is "set" even if "hidden"
     displayType: "hidden",
-    // opts: liteOptions
 };
 attrs.deprel_ftb2 = {
     label: "deprel",
@@ -1445,7 +1349,6 @@ attrs.deprel_ftb2 = {
         "aux": "aux",
         "comp": "comp",
         "conjunct": "conjunct",
-        // "idiom|idom": "idiom",
         "idiom": "idiom",
         "main": "main",
         "mod": "mod",
@@ -2481,21 +2384,6 @@ sattrlist.ethesis = {
     text_type: {
         label: "text_dissertationtype"
     },
-    /*
-    text_lang: {
-        label: "text_lang",
-        displayType: "select",
-        translationKey: "ftb3_europarl_language_",
-        dataset: {
-            "fi": "fi",
-            "sv": "sv",
-            "es": "es",
-            "en": "en",
-            "ru": "ru"
-        },
-        opts: liteOptions
-    },
-    */
     text_url: {
         label: "text_abslink",
         type: "url",
@@ -2759,16 +2647,6 @@ sattrlist.klk = {
         type: "url",
         displayType: "hidden",
     },
-    /*
-    text_dateto: {
-        label: "dateto",
-        displayType: "hidden",
-    },
-    text_datefrom: {
-        label: "datefrom",
-        displayType: "hidden",
-    },
-    */
     text_publ_type: {
         label: "publication_type",
         displayType: "select",
@@ -3529,9 +3407,6 @@ settings.corpusinfo.parrus = {
 settings.corpusinfo.parfin_2016 = {
     // The URNs in the single-language version are different from
     // those in the parallel corpus.
-    // urn: "[to be added]",
-    // metadata_urn: "urn:nbn:fi:lb-2014052710",
-    // licence: settings.licenceinfo.ParFinRus_2016_fi,
     lbr_id: "urn:nbn:fi:lb-2017020601",
     homepage_url: "https://mustikka.uta.fi/",
 };
@@ -3540,22 +3415,12 @@ sattrlist.parfin_2016_base = {
     link_text_code: {
         label: "text_id"
     },
-    // link_txtnumber: {
-    //  label: "text_number"
-    // },
     link_text_author: {
         label: "author"
     },
     link_text_title: {
         label: "title"
     },
-    // link_text_typeoftext: {
-    //  label: "text_type"
-    // },
-    // link_text_genre: sattrs.mikhailov_text_genre,
-    // link_text_period: {
-    //  label: "year"
-    // },
     link_text_publisher: {
         label: "publisher"
     },
@@ -4180,9 +4045,6 @@ sattrlist.parrus_2016_fi = $.extend(
 settings.corpusinfo.parrus_2016 = {
     // The URNs in the single-language version are different from
     // those in the parallel corpus.
-    // urn: "[to be added]",
-    // metadata_urn: "urn:nbn:fi:lb-20140730173",
-    // licence: settings.licenceinfo.ParFinRus_2016_fi,
     lbr_id: "urn:nbn:fi:lb-2017020601",
     homepage_url: "https://mustikka.uta.fi/",
 };
@@ -4202,17 +4064,6 @@ sattrlist.sinebrychoff = {
     text_id: { label: "text_id" }
 };
 
-
-/* OPUS */
-
-/*
-sattrlist.opus = {
-    sentence_id: sattrs.sentence_id_hidden,
-    text_title: {
-        label: "title"
-    }
-};
-*/
 
 
 // EuroParl
@@ -4403,7 +4254,6 @@ attrlist.fennougrica_veps = {
         url: {
             label: "klk_img_url",
             type: "url"
-            /*opts: settings.defaultOptions*/
         }
 };
 
@@ -5165,7 +5015,6 @@ settings.templ.lemmie_common = {
             displayType: "select",
             localize: false,
             opts: liteOptions,
-            // dataset: [],
         },
         text_lemmie_corpus: {
             label: "lemmie_corpus",
@@ -5177,7 +5026,6 @@ settings.templ.lemmie_common = {
         text_subject: {
             label: "subject",
         },
-        // paragraph_id: sattrs.paragraph_id,
         paragraph_type: {
             label: "paragraph_type",
             displayType: "select",

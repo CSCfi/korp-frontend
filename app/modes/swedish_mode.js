@@ -77,24 +77,6 @@ attrlist.klk_sv_parsed_pagelinks = attrlist.klk_sv_parsed;
 settings.corpora = {};
 settings.corporafolders = {};
 
-/*
-settings.corporafolders.koff = {
-    title: "Paul Sinebrychoffs brevsamling",
-    description: "Paul Sinebrychoffs brevsampling (1895–1908)",
-    info: {
-        metadata_urn: "urn:nbn:fi:lb-201407303",
-        licence: settings.licenceinfo.CC_BY_30,
-    },
-    contents: ["sinebrychoff_orig", "sinebrychoff_fi"]
-    };*/
-
-/*
-settings.corporafolders.koff = {
-    title: "Paul Sinebrychoffs brevsamling",
-    description: "Paul Sinebrychoffs brevsamling (1895–1908)",
-    contents: ["sinebrychoff_orig", "sinebrychoff_fi"]
-    };
-*/
 
 settings.corporafolders.ethesis = {
     title: "E-thesis",
@@ -394,7 +376,6 @@ settings.corpora.topling_sv = {
     within: spWithin,
     limitedAccess: true,
     licenceType: "RES",
-    // unselected: true,
     attributes: attrlist.topling,
     structAttributes: sattrlist.topling
 };

@@ -27,9 +27,6 @@ settings.autocomplete = true;
 settings.enableMap = true;
 settings.mapPosTag = ["PM", "NNP", "NNPS"]
 settings.newMapEnabled = false;
-// settings.enableMap = !isLab;
-// settings.newMapEnabled = isLab;
-// settings.wordpicture = false;
 settings.hitsPerPageDefault = 25
 settings.hitsPerPageValues = [25,50,75,100,500,1000]
 // If settings.show_related_words is not defined, it is considered
@@ -193,7 +190,6 @@ settings.downloadFormatParamsPhysical = {
     },
 };
 
-// delete physical_formats;
 
 // Korp backend URL
 settings.korpBackendURL =
@@ -252,7 +248,6 @@ settings.groupStatistics = [];
 
 settings.filterSelection = "intersection"
 
-// settings.newsDeskUrl = "https://svn.spraakdata.gu.se/sb-arkiv/pub/component_news/json/korpnews.json";
 settings.newsDeskUrl =
     window.location.protocol + "//" + window.location.hostname + "/"
     + window.location.pathname + "news/json/korp"
@@ -282,14 +277,11 @@ settings.getShibbolethLogoutURL = function (encodedURL) {
 // the return URL to make exceeding the Apache URL length limit less
 // likely.
 // for eduGAIN / CSC Account:
-// settings.shibbolethLoginUrl = baseURL + "shibboleth-ds/index.html";
 settings.shibbolethLoginUrl = function (href) {
     return ("/shibboleth-ds/index.html?"
             + encodeURIComponent(util.compressUrlHashParams(
                 (href || window.location.href) + "&shib_logged_in")));
 };
-// settings.shibbolethLogoutUrl =
-//     "https://korp.csc.fi/Shibboleth.sso/Logout?return=" + encodeURI(baseURL);
 settings.shibbolethLogoutUrl = function (href) {
     return ("/Shibboleth.sso/Logout?return="
             + encodeURIComponent(
@@ -318,9 +310,6 @@ settings.make_direct_LBR_URL = function (lbr_id) {
 settings.corpusExtraInfoItems = [
     "subcorpus_of",
     "pid",
-    // PID is represented as a metadata link so a separate metadata
-    // link is not needed.
-    // // "metadata",
     "cite",
     "licence",
     "infopage",
@@ -338,7 +327,6 @@ settings.corpusExtraInfo = {
     sidebar: [
         "subcorpus_of",
         "pid",
-        // "metadata",
         "cite",
         "licence",
         "infopage",
@@ -506,16 +494,6 @@ settings.modeConfig = [
         localekey: "modern_texts",
         mode: "default"
     },
-/*
-    {
-        localekey: "finnish_national_library_texts",
-        mode: "finnish_national_library"
-    },
-    {
-        localekey: "old_finnish_texts",
-        mode: "old_finnish"
-    },
-*/
     {
         localekey: "swedish_texts",
         mode: "swedish"
@@ -641,9 +619,6 @@ settings.defaultOptions = {
     "matches": "*=",
     "matches_not": "!*=",
 }
-
-// settings.korpBackendURL = "https://ws.spraakbanken.gu.se/ws/korp/v8";
-// settings.downloadCgiScript = "https://ws.spraakbanken.gu.se/ws/korp/download";
 
 // Initial map centre: latitude, longitude and zoom level
 settings.mapCenter = {

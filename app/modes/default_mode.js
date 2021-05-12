@@ -21,12 +21,6 @@ settings.corporafolders = {};
 
 settings.corporafolders = {};
 
-/*
-settings.corporafolders.sv = {
-    title: "Svenska texter",
-    contents: ["testcorpus"]
-};
-*/
 
 settings.corporafolders.agricola = {
     title: "Agricola",
@@ -115,32 +109,6 @@ settings.corporafolders.klk2_fi = {
     }
 };
 
-// /*
-// settings.corporafolders.kotus = {
-//     title: "Kotuksen korpuksia (näytteitä)",
-//     contents: ["kotus_klassikot", "kotus_sananparret"]
-// };
-// */
-
-// /*
-// settings.corporafolders.kotus.ns = {
-//     title: "Nykysuomen aineistoja (näytteitä)",
-//     contents: ["ns_presidentti", "ns_saadokset"]
-// };
-// */
-
-// /*
-// settings.corporafolders.la = {
-//     title: "Lauseopin arkisto",
-//     contents: ["la_murre", "las2"]
-// };
-
-// settings.corporafolders.sks = {
-//     title: "SKS:n aineistoja",
-//     contents: ["sks_kivi_fi", "skvr"]
-// };
-// */
-
 settings.corporafolders.kal = {
     title: "Kotuksen aikakauslehtikorpus",
     description: "Kotimaisten kielten keskuksen aikakauslehtikorpus",
@@ -214,10 +182,6 @@ settings.corporafolders.literature.skk = {
         cite_id: "SKK",
     }
 };
-
-// /*,"skk_canth","skk_finne","skk_jarnefelt","skk_kailas","skk_lassila","skk_linnankoski","skk_kramsu","skk_lehtonen","skk_\
-// leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"]
-// */
 
 settings.corporafolders.literature.ceal = {
     title: "CEAL",
@@ -971,13 +935,11 @@ settings.corporafolders.spoken = {
         "dma",
         "arkisyn",
     ],
-    // unselected: true
 };
 
 settings.corporafolders.spoken.la_murre = {
     title: "Lauseopin arkiston murrekorpus",
     description: "Lauseopin arkiston murrekorpus edustaa kaikkia nykyisen Suomen alueella puhuttuja suomen kielen murteita sekä lisäksi niitä murteita, joita puhuttiin Neuvostoliitolle viime sotien yhteydessä luovutetuilla alueilla ennen alueiden luovuttamista. Puhujat ovat syntyneet vuosina 1860–1910 (suurin osa 1880-luvulla) ja haastattelut on tehty 1950–1970-luvuilla, jolloin puhujat ovat olleet keskimäärin 80-vuotiaita.<br/>Yhdestä pitäjänmurteesta on yleensä valittu käsiteltäväksi yksi noin tunnin laajuinen äänite. Murreaineisto on litteroitu sekä koodattu morfologisesti ja syntaktisesti. Tässä on saatavilla korpuksen versio, jossa litteraatit on karkeasti kohdistettu alkuperäisiin äänitteisiin.",
-    // unselected: true,
     info: {
         urn: "urn:nbn:fi:lb-2014052715",
         metadata_urn: "urn:nbn:fi:lb-2014052716",
@@ -1029,7 +991,6 @@ settings.corporafolders.selkokieli.ylenews_fi_selko = {
 settings.corporafolders.learner = {
     title: "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
     contents: ["iclfi", "topling_fi"],
-    // unselected: true
 };
 
 settings.corporafolders.learner.las2 = {
@@ -1070,12 +1031,10 @@ settings.corporafolders.vks = {
         homepage: settings.fn.kaino_homepage("vks/meta/vks"),
         cite_id: "VKS",
     },
-    // unselected: true
 };
 
 settings.corporafolders.vns = {
     title: "Varhaisnykysuomen korpus",
-    /*contents: ["vns_asetus", "vns_renqvist", "vns_renvall"],*/
     contents: ["vnsk_aejmelaeus","vnsk_ahlholm","vnsk_ahlman_kirjat","vnsk_ahlman_sanastot","vnsk_ahlqvist","vnsk_akiander","vnsk_aminoff","vnsk_almanakka","vnsk_anonyymi","vnsk_asetus","vnsk_aulen","vnsk_backvall","vnsk_bocker","vnsk_bonsdorff","vnsk_borenius","vnsk_borg","vnsk_cajan","vnsk_cannelin","vnsk_cantell","vnsk_canth","vnsk_corander","vnsk_costiander","vnsk_dahlberg","vnsk_edlund","vnsk_eklof","vnsk_euren","vnsk_europaeus","vnsk_europaeus_sanastot","vnsk_fabritius","vnsk_forsman","vnsk_forstrom","vnsk_friman","vnsk_frosterus","vnsk_gottlund","vnsk_granlund","vnsk_hannikainen","vnsk_hjelt","vnsk_hordh","vnsk_hornborg","vnsk_ignatius","vnsk_ingman","vnsk_innain","vnsk_juteini","vnsk_keckman","vnsk_kemell","vnsk_kilpinen","vnsk_kivi","vnsk_koskinen","vnsk_krohn","vnsk_lagervall","vnsk_lankela","vnsk_lavonius","vnsk_lilius_anton","vnsk_lilius_aukusti","vnsk_lonnrot","vnsk_malmberg","vnsk_mehilainen","vnsk_mela","vnsk_meurman","vnsk_mmy","vnsk_murman","vnsk_muut","vnsk_nyman","vnsk_ovs","vnsk_polen","vnsk_poppius","vnsk_puhuttelija","vnsk_rein","vns_renvall","vnsk_roos","vnsk_salmelainen","vnsk_salonius","vnsk_sanaluettelot","vnsk_sandberg","vnsk_schroter","vnsk_sirelius","vnsk_skogman","vnsk_smtr","vnsk_sohlberg","vnsk_soldan","vnsk_ssv","vnsk_stahlberg","vnsk_tarvanen","vnsk_ticklen","vnsk_tikkanen","vnsk_topelius","vnsk_toppelius","vnsk_tvs","vnsk_varelius","vnsk_virsikirja","vnsk_wallin","vnsk_wikman","vnsk_wiwolin","vnsk_yksitt"],
     info: {
         urn: "urn:nbn:fi:lb-2016081203",
@@ -1084,7 +1043,6 @@ settings.corporafolders.vns = {
         homepage: settings.fn.kaino_homepage("1800/meta/1800"),
         cite_id: "VNSK",
     },
-    // unselected: true
 };
 
 settings.corporafolders.test = {
@@ -1102,71 +1060,11 @@ settings.preselectedCorpora = [
     "reittidemo",
 ];
 
+
 /*
  * CORPORA
  */
 
-/*
-settings.corpora.testcorpus = {
-    title: "The Korp Test Corpus",
-    description: "A test corpus for testing Korp.",
-    id: "testcorpus",
-    within: settings.defaultWithin,
-    context: defaultContext,
-    attributes: {
-        pos: attrs.pos
-    },
-    structAttributes: {
-    }
-};
-*/
-
-/*
-settings.corpora.testcorp = {
-    title: "Testikorpus",
-    description: "Testikorpus Korpin ominaisuuksien testaamiseksi",
-    id: "testcorp",
-    within: settings.defaultWithin,
-    context: defaultContext,
-    // limitedAccess: true,
-    attributes: {
-        lemma: attrs.baseform,
-        pos: attrs.pos
-    },
-    structAttributes: {
-        sentence_id: {
-            label: "sentence_id"
-        },
-        sentence_url: {
-            label: "file_url",
-            type: "url"
-        }
-    }
-};
-*/
-
-/*
-settings.corpora.testcorp_deptree = {
-    title: "Dependenssipuutesti",
-    description: "Testikorpus Korpin dependenssipuun piirtämisen testaamiseksi",
-    id: "testcorp_deptree",
-    within: settings.defaultWithin,
-    context: defaultContext,
-    attributes: {
-        lemma: attrs.baseform_ftb2,
-        pos: attrs.pos_ftb2,
-        msd: attrs.msd,
-        dephead: attrs.dephead,
-        deprel: attrs.deprel_ftb2,
-        ref: attrs.ref,
-        spoken: attrs.spoken,
-        lex: attrs.lemgram_hidden
-    },
-    structAttributes: {
-        sentence_id: sattrs.sentence_id_hidden
-    }
-};
-*/
 
 settings.corpora.kal_perus_ha = {
     title: "Historiallinen Aikakauskirja (tarkistamaton)",
@@ -1517,8 +1415,6 @@ settings.corpora.ftb2 = {
             displayType: "select",
             translationKey: "subcorp_",
             dataset: {
-                // "news-samples": "news-samples",
-                // "sofie12": "sofie12",
                 "visk-sent": "visk-sent",
                 "wikipedia-samples": "wikipedia-samples"
             },
@@ -1527,45 +1423,6 @@ settings.corpora.ftb2 = {
         sentence_id: sattrs.sentence_id_hidden
     }
 };
-
-/*
-settings.corpora.ftb3 = {
-    title: "FinnTreeBank 3",
-    description: "Finnish tree bank, version 3: EuroParl, JRC Acquis",
-    id: "ftb3",
-    within: settings.defaultWithin,
-    context: defaultContext,
-    attributes: {
-        lemma: attrs.baseform_ftb2,
-        lemmacomp: attrs.baseform_compound,
-        pos: attrs.pos_ftb3,
-        posorig: attrs.pos_ftb3_orig,
-        msd: attrs.msd,
-        dephead: attrs.dephead,
-        deprel: attrs.deprel_ftb2,
-        lex: attrs.lemgram_hidden
-    },
-    structAttributes: {
-        subcorpus_name: {
-            label: "subcorpus_name",
-            displayType: "select",
-            translationKey: "ftb3_subcorp_",
-            dataset: {
-                "JRC_Acquis": "jrc-acquis",
-                "EuroParl": "europarl",
-            },
-            opts: liteOptions
-        },
-        file_name: {
-            label: "file_name",
-        },
-        sentence_id: sattrs.sentence_id_hidden,
-        sentence_line: {
-            label: "sentence_line",
-        }
-    }
-};
-*/
 
 settings.corpora.ftb3_europarl = {
     title: "FinnTreeBank 3: EuroParl",
@@ -1686,7 +1543,7 @@ settings.corpora.ftb3_jrcacquis = {
     }
 };
 
-// /* ==== TIEDELEHTIÄ ==== */
+/* ==== TIEDELEHTIÄ ==== */
 
 settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
 
@@ -2573,7 +2430,6 @@ settings.corpora.tiedelehdet_maaseudunuusiaika = {
     id: "tiedelehdet_maaseudunuusiaika",
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-        /*text_title: sattrs.text_title,*/
         text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue"
@@ -2686,7 +2542,6 @@ settings.corpora.tiedelehdet_diakonia = {
     id: "tiedelehdet_diakonia",
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-        /*text_url: sattrs.link_lehdet,*/
         text_issue: {
             label: "issue"
         }
@@ -2699,7 +2554,6 @@ settings.corpora.tiedelehdet_psykologia = {
     id: "tiedelehdet_psykologia",
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-        /*text_url: sattrs.link_lehdet,*/
         text_issue: {
             label: "issue"
         }
@@ -2825,7 +2679,6 @@ settings.corpora.tiedelehdet_ats = {
     id: "tiedelehdet_ats",
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
-        /*text_url: sattrs.link_lehdet,*/
         text_issue: {
             label: "issue"
         }
@@ -2854,7 +2707,6 @@ settings.corpora.tiedelehdet_aikuiskasvatus = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
         text_atitle: sattrs.text_title,
-        /*text_date: sattrs.date,*/
         text_author: sattrs.article_author,
         text_url: sattrs.link_lehdet,
         text_issue: {
@@ -2996,7 +2848,6 @@ settings.corpora.tiedelehdet_aluejaymparisto = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
         text_title: sattrs.text_title,
-        /*text_date: sattrs.date,*/
         text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue"
@@ -3011,7 +2862,6 @@ settings.corpora.tiedelehdet_aakusti = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
         text_title: sattrs.text_title,
-        /*text_date: sattrs.date,*/
         text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue"
@@ -3026,7 +2876,6 @@ settings.corpora.tiedelehdet_30paivaa = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
         text_title: sattrs.text_title,
-        /*text_date: sattrs.date,*/
         text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue"
@@ -3041,7 +2890,6 @@ settings.corpora.tiedelehdet_aidinkieli = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: {
         text_title: sattrs.text_title,
-        /*text_date: sattrs.date,*/
         text_url: sattrs.link_lehdet,
         text_issue: {
             label: "issue"
@@ -9658,53 +9506,6 @@ settings.corpora.ethesis_ma_med = {
 };
 
 
-
-/*
-settings.corpora.kotus_klassikot = {
-    title: "Suomalaisen kirjallisuuden klassikoita (näyte)",
-    description: "Suomalaisen kirjallisuuden klassikoita (Kotimaisten kielten keskuksen aineisto)",
-    id: "kotus_klassikot",
-    urn: "urn:nbn:fi:lb-2015022401",
-    metadata_urn: "urn:nbn:fi:lb-20140730186",
-    licence: settings.licenceinfo.EUPL_11,
-    homepage: settings.fn.kaino_homepage("klassikot/meta/klassikot"),
-    within: settings.defaultWithin,
-    context: defaultContext,
-    attributes: {
-    },
-    structAttributes: {
-        text_title: sattrs.text_title,
-        text_distributor: sattrs.text_distributor,
-        text_source: sattrs.text_source,
-        collection_id: {
-            label: "collection_id",
-            displayType: "hidden"
-        },
-        collection_title: {
-            label: "collection_title"
-        },
-        story_id: {
-            label: "story_id",
-            displayType: "hidden"
-        },
-        story_title: {
-            label: "story_title"
-        },
-        sentence_id: sattrs.sentence_id_hidden,
-        sentence_type: {
-            label: "sentence_type",
-            displayType: "select",
-            translationKey: "sentencetype_",
-            dataset: {
-                "p": "p",
-                "head": "head"
-            },
-            opts: liteOptions
-        }
-    }
-};
-*/
-
 /* FTC (Finnish Text Collection) aka SKTP */
 
 // FTC (sub)corpus hierarchy
@@ -9846,46 +9647,6 @@ delete ftc_hierarchy;
 settings.corpus_aliases.ftc = "ftc_.*";
 
 
-/*
-settings.corpora.ns_presidentti = {
-    title: "Tasavallan presidenttien uudenvuodenpuheita (näyte)",
-    description: "Tasavallan presidenttien uudenvuodenpuheita (1935–2006) (Kotimaisten kielten keskuksen aineisto)",
-    id: "ns_presidentti",
-    within: spWithin,
-    context: spContext,
-    attributes: {
-        lemma: attrs.baseform,
-        lemmacomp: attrs.baseform_compound,
-        pos: attrs.pos_kotus,
-        msd: attrs.msd,
-        id: attrs.id_hidden,
-        lex: attrs.lemgram_hidden
-    },
-    structAttributes: {
-        text_title: sattrs.text_title,
-        text_distributor: sattrs.text_distributor,
-        text_source: sattrs.text_source,
-        paragraph_id: sattrs.paragraph_id,
-        paragraph_type: {
-            label: "paragraph_type",
-            displayType: "select",
-            translationKey: "paragraphtype_",
-            dataset: {
-                "p": "p",
-                "head": "head",
-                "opener": "opener",
-            },
-            opts: liteOptions
-        },
-        paragraph_topic: {
-            label: "paragraph_topic"
-        },
-        sentence_id: sattrs.sentence_id_hidden
-    }
-};
-*/
-
-
 settings.templ.kotus_ns_presidentti = {
     title: "",
     description: "",
@@ -9903,13 +9664,11 @@ settings.templ.kotus_ns_presidentti = {
     structAttributes: {
         text_title: sattrs.text_title,
         text_distributor: sattrs.text_distributor,
-        // text_source: sattrs.text_source,
         text_author: sattrs.author,
         text_author_birthyear: sattrs.author_birthyear,
         text_author_deathyear: sattrs.author_deathyear,
         text_date: sattrs.date,
         text_url: sattrs.link_fulltext,
-        // text_original_url: sattrs.link_original,
         // text_collection_url contains the URL of the subcorpus main
         // page (the speeches of a certain president) in the Kaino
         // service.
@@ -10079,73 +9838,7 @@ settings.corpora.kotus_lakidir = {
     }
 };
 
-/*
-settings.corpora.ns_saadokset = {
-    title: "Lakeja ja direktiivejä (näyte)",
-    description: "Lakeja ja direktiivejä vuosilta 2002–2003 (Kotimaisten kielten keskuksen aineisto)",
-    id: "ns_saadokset",
-    // No Korp URN yet
-    metadata_urn: "urn:nbn:fi:lb-20140730126",
-    licence: settings.licenceinfo.EUPL_11,
-    homepage: settings.fn.kaino_homepage("teko/meta/saadokset/saadokset"),
-    within: spWithin,
-    context: spContext,
-    attributes: {
-        lemma: attrs.baseform,
-        lemmacomp: attrs.baseform_compound,
-        pos: attrs.pos_kotus,
-        msd: attrs.msd,
-        id: attrs.id_hidden,
-        lex: attrs.lemgram_hidden
-    },
-    structAttributes: {
-        text_title: sattrs.text_title,
-        text_distributor: sattrs.text_distributor,
-        text_source: sattrs.text_source,
-        div_id: {
-            label: "div_id",
-            displayType: "hidden",
-        },
-        div_type: {
-            label: "div_type",
-            displayType: "select",
-            translationKey: "divtype_",
-            dataset: {
-                "section": "section",
-                "section/law": "section_law",
-                "section/end": "section_end"
-            },
-            opts: liteOptions
-        },
-        paragraph_id: sattrs.paragraph_id,
-        paragraph_type: {
-            label: "paragraph_type",
-            displayType: "select",
-            translationKey: "paragraphtype_",
-            dataset: {
-                "p": "p",
-                "head": "head",
-                "opener": "opener",
-                "closer": "closer"
-            },
-            opts: liteOptions
-        },
-        sentence_id: sattrs.sentence_id_hidden,
-        sentence_type: {
-            label: "sentence_type",
-            displayType: "select",
-            translationKey: "sentencetype_",
-            dataset: {
-                "p": "p",
-                "head": "head",
-                "dateline": "dateline",
-                "signed": "signed"
-            },
-            opts: liteOptions
-        }
-    }
-};
-*/
+
 settings.corpora.kotus_sp = {
     title: "Sananparsikokoelma",
     description: "Suomen murteiden Sananparsikokoelma (1930-luvulta) (Kotimaisten kielten keskuksen aineisto)",
@@ -10592,9 +10285,6 @@ settings.fn.make_la_murre_fulltext_url = function (token_data) {
 
 // The corpus settings template for the LA-murre corpora
 settings.templ.la_murre = {
-    // title: "Lauseopin arkiston murrekorpus",
-    // description: "Lauseopin arkiston murrekorpus",
-    // id: "la_murre",
     within: spcWithin,
     context: spContext,
     attributes: {
@@ -10719,9 +10409,6 @@ settings.templ.la_murre = {
         paragraph_annex_link: sattrs.link_prefixed(
             "listen_speech",
             "https://lat.csc.fi/ds/annex/runLoader?"),
-        // sentence_source: {
-        //     label: "sentence_source"
-        // },
         sentence_clnum: {
             label: "sentence_clnum",
         },
@@ -10829,50 +10516,6 @@ settings.templ.la_murre = {
     // extended search
     ignore_between_tokens_cqp: '[pos="punct"]*',
 };
-
-// The following is now superseded with the more general
-// settings.fn.make_folder_hierarchy.
-
-// // Recursively make settings.corporafolders and settings.corpora for
-// // the (sub)corpora of the la_murre corpus (based on
-// // la_murre_grouping). main_folder is the folder to which to add the
-// // folders or corpora in subfolder_tree. This could perhaps be
-// // generalized for other corpora if needed.
-// settings.fn.make_folders_la_murre = function (main_folder, subfolder_tree,
-//                                            depth, leaf_depth) {
-//     for (var i = 0; i < subfolder_tree.length; i++) {
-//      var subfolder_info = subfolder_tree[i];
-//      var descr = "Lauseopin arkiston murrekorpus: " + subfolder_info[1];
-//      if (depth < leaf_depth) {
-//          var subfolder = {
-//              title: subfolder_info[1],
-//              description: descr
-//          };
-//          main_folder[subfolder_info[0]] = subfolder;
-//          settings.fn.make_folders_la_murre(subfolder, subfolder_info[2],
-//                                            depth + 1, leaf_depth);
-//      } else {
-//          var templ_fill = {
-//              id: subfolder_info[0],
-//              title: subfolder_info[1] + " (LA-murre)",
-//              description: descr
-//          };
-//          // The optional fourth item in the corpus info list is an
-//          // object that may be used to override the values in the
-//          // template.
-//          if (subfolder_info.length > 3) {
-//              $.extend(templ_fill, subfolder_info[3]);
-//          }
-//          settings.fn.add_corpus_settings(
-//              settings.templ.la_murre, [templ_fill], main_folder,
-//              la_murre_corpus_prefix);
-//      }
-//     }
-// };
-
-// // Call the above recursive function
-// settings.fn.make_folders_la_murre(
-//     settings.corporafolders.spoken.la_murre, la_murre_grouping, 1, 3);
 
 settings.fn.make_folder_hierarchy(
     settings.corporafolders.spoken.la_murre, la_murre_grouping,
@@ -11255,7 +10898,6 @@ settings.corpora.sks_kivi_fi = {
     title: "Aleksis Kivi (SKS)",
     description: "Aleksis Kiven painetut teokset, kirjeet ja muu tunnettu tuotanto. Toimittaneet Sakari Katajamäki, Ossi Kokko ja Elina Kela. <a href='http://www.edith.fi/kivikorpus/index.htm'>Infosivu</a>",
     id: "sks_kivi_fi",
-    // unselected: true,
     urn: "urn:nbn:fi:lb-201405273",
     metadata_urn: "urn:nbn:fi:lb-201405274",
     licence: settings.licenceinfo.CC_BY_NC,
@@ -11349,11 +10991,6 @@ settings.corpora.sks_kivi_fi = {
             label: "section_subtype",
             opts: settings.defaultOptions,
         },
-        /*
-        section_subtype_n: {
-            label: "section_subtype_n",
-            displayType: "hidden",
-        },*/
         paragraph_id: {
             label: "paragraph_id",
             displayType: "hidden",
@@ -11727,7 +11364,6 @@ settings.corpora.skvr = {
     title: "SKVR",
     description: "SKS:n Suomen Kansan Vanhat Runot -korpus",
     id: "skvr",
-    // unselected: true,
     urn: "urn:nbn:fi:lb-2014052711",
     metadata_urn: "urn:nbn:fi:lb-2014052712",
     licence: settings.licenceinfo.CC_BY_NC,
@@ -11869,7 +11505,7 @@ sattrlist.s24_update = {
 };
 
 
-// // KFSPC
+// KFSPC
 
 settings.corpora.kfspc_fi = {
     title: "KFSPC suomi",
@@ -11963,46 +11599,6 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
                                    ["mulcold_fi"]);
 
 
-/* ParFin Finnish */
-
-/*
-// Deprecated version
-settings.corpora.parfin_fi = {
-    id: "parfin_fi",
-    title: "ParFin (suomi) [poistuva]",
-    description: "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset alkuperäistekstit)<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1990–2010<br/><br/><strong>Huomaa, että ParFin 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
-    // TODO: Add paragraphs corresponding to link elements
-    context: defaultContext,
-    within: settings.defaultWithin,
-    attributes: attrlist.parfin_fi,
-    structAttributes: sattrlist.parfin_fi,
-    limitedAccess: true,
-    licenceType: "RES",
-};
-
-settings.fn.extend_corpus_settings(settings.corpusinfo.parfin, ["parfin_fi"]);
-*/
-
-
-/* ParRus Finnish */
-
-/*
-// Deprecated version
-settings.corpora.parrus_fi = {
-    id: "parrus_fi",
-    title: "ParRus (suomi) [poistuva]",
-    description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus (suomenkieliset käännökset)<br/>Venäjänkielisten kaunokirjallisten tekstien (klassista ja 1900-luvun kirjallisuutta) käännöksiä suomeksi<br/><br/><strong>Huomaa, että ParRus 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
-    context: defaultContext,
-    within: settings.defaultWithin,
-    limitedAccess: true,
-    licenceType: "RES",
-    attributes: attrlist.parrus_fi,
-    structAttributes: sattrlist.parrus_fi,
-};
-settings.fn.extend_corpus_settings(settings.corpusinfo.parrus, ["parrus_fi"]);
-*/
-
-
 /* ParFin 2016 Finnish */
 
 settings.corpora.parfin_2016_fi = {
@@ -12048,9 +11644,8 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.parrus_2016,
 
 
 
-/*
- * Previously in Finnish National Library mode
- */
+// National Library of Finland newspapers and periodicals (KLK)
+
 
 sattrlist.klk_fi = $.extend({}, sattrlist.klk);
 sattrlist.klk_fi_parsed = $.extend(
@@ -12101,8 +11696,6 @@ attrlist.klk_fi_parsed_pagelinks = attrlist.klk_fi_parsed;
 
 
 var klk_fi_parsed_years = settings.fn.make_yearlist(1820, 2000);
-// // All KLK Fi corpora now have NER tags, so this is not needed
-// var klk_fi_ner_years = settings.fn.make_yearlist(1820, 1820);
 
 // Generate settings.corpora and settings.corporafolders for the
 // Finnish KLK corpora by using the above functions
@@ -12129,15 +11722,7 @@ settings.fn.make_corpus_settings_by_year_decade(
                                omit: [1828, 1843]})
 );
 
-// for (var i = 0; i < klk_fi_ner_years.length; i++) {
-//     var year = klk_fi_ner_years[i];
-//     var corpsettings = settings.corpora["klk_fi_" + year.toString()];
-//     corpsettings.attributes = $.extend({}, corpsettings.attributes,
-//                                     attrlist.finer);
-// }
-
 delete klk_fi_parsed_years;
-// delete klk_fi_ner_years;
 
 
 // KLK version 2
@@ -12199,10 +11784,6 @@ settings.fn.make_corpus_settings_by_year_decade(
 );
 
 
-/*
- * Previously in Old Finnish Mode
- */
-
 sattrs.vks_sentence_id = {
     label: "vks_sentence_id"
 };
@@ -12239,165 +11820,6 @@ sattrs.vks_sourcecode_page = {
 sattrs.vks_span_page = {
     label: "vks_span_page"
 };
-
-/*
-sattrs.vksbib_book_code = {
-    label: "vksbib_book_code",
-    displayType: "select",
-    translationKey: "vksbibbook_",
-    dataset: {
-        "VT4": "VT4",
-        "Jes": "Jes",
-        "Jer": "Jer",
-        "Vlt": "Vlt",
-        "Hes": "Hes",
-        "Dan": "Dan",
-        "Hos": "Hos",
-        "Joel": "Joel",
-        "Am": "Am",
-        "Ob": "Ob",
-        "Jon": "Jon",
-        "Mik": "Mik",
-        "Nah": "Nah",
-        "Hab": "Hab",
-        "Sef": "Sef",
-        "Hgg": "Hgg",
-        "Sak": "Sak",
-        "Mal": "Mal",
-    },
-    opts: liteOptions
-};
-// Copy the object so that the change does not affect the original.
-sattrs.vksbib_sourcecode_book = $.extend({}, sattrs.vksbib_book_code);
-sattrs.vksbib_sourcecode_book.label = "vksbib_sourcecode_book";
-sattrs.vkslait_law_code = {
-    label: "vkslait_law_code",
-    displayType: "select",
-    translationKey: "vkslaitlaw_",
-    dataset: {
-        "As1584": "As1584",
-        "As1593": "As1593"
-    },
-    opts: liteOptions
-};
-sattrs.vkslait_sourcecode_work = $.extend({}, sattrs.vkslait_law_code);
-sattrs.vkslait_sourcecode_work.label = "vkslait_sourcecode_work";
-sattrs.vkssaarnat_source_code = {
-    label: "vkssaarnat_source_code",
-    displayType: "select",
-    translationKey: "vkssaarnatsource_",
-    dataset: {
-        "Swahn1706": "Swahn1706",
-        "Wall1706": "Wall1706",
-        "Sten1750": "Sten1750",
-        "Rein1750": "Rein1750",
-        "Sten1771": "Sten1771",
-        "Varia1756a": "Varia1756a",
-        "Paz1764": "Paz1764",
-        "Elgf1768": "Elgf1768",
-        "Laih1768": "Laih1768",
-        "GLyra1772": "GLyra1772",
-        "Sax1776": "Sax1776",
-        "Äjm1779": "Äjm1779",
-        "Widen1780": "Widen1780",
-        "Popp1781": "Popp1781"
-    },
-    opts: liteOptions
-};
-sattrs.vkssaarnat_sourcecode_work = $.extend({}, sattrs.vkssaarnat_source_code);
-sattrs.vkssaarnat_sourcecode_work.label = "vkssaarnat_sourcecode_work";
-*/
-
-/*
-settings.corpora.vks_biblia = {
-    title: "Biblia (näyte)",
-    description: "Vuoden 1642 raamatunsuomennos",
-    id: "vks_biblia",
-    within: settings.defaultWithin,
-    context: defaultContext,
-    attributes: {},
-    structAttributes: {
-        sourcecode_bibleref: {
-            label: "vksbib_sourcecode_bibleref"
-        },
-        sourcecode_book: sattrs.vksbib_sourcecode_book,
-        sourcecode_chapter: {
-            label: "vksbib_sourcecode_chapter"
-        },
-        sourcecode_verse: {
-            label: "vksbib_sourcecode_verse"
-        },
-        sourcecode_code: sattrs.vks_sourcecode_code,
-        sourcecode_page: sattrs.vks_sourcecode_page,
-        work_code: {
-            label: "vks_work_code",
-            displayType: "hidden",
-        },
-        verse_bibleref: {
-            label: "vksbib_verse_bibleref"
-        },
-        book_code: sattrs.vksbib_book_code,
-        chapter_code: {
-            label: "vksbib_chapter_code"
-        },
-        // chapter_bibleref: {
-        //     label: "vksbib_chapter_bibleref"
-        // },
-        verse_code: {
-            label: "vksbib_verse_code"
-        },
-        sentence_id: sattrs.sentence_id_hidden,
-        span_code: sattrs.vks_sentence_code,
-        span_page: sattrs.vks_sentence_page
-    }
-};
-*/
-
-/*
-settings.corpora.vks_lait = {
-    title: "Laki- ja asetustekstejä (näyte)",
-    description: "Laki- ja asetustekstejä",
-    id: "vks_lait",
-    within: settings.defaultWithin,
-    context: defaultContext,
-    attributes: {
-        word_orig: attrs.origword,
-        word_completed: attrs.complword
-    },
-    structAttributes: {
-        sourcecode_work: sattrs.vkslait_sourcecode_work,
-        sourcecode_code: sattrs.vks_sourcecode_code,
-        sourcecode_page: sattrs.vks_sourcecode_page,
-        law_code: sattrs.vkslait_law_code,
-        sentence_id: sattrs.sentence_id_hidden,
-        span_code: sattrs.vks_sentence_code,
-        span_page: sattrs.vks_sentence_page
-    }
-};
-*/
-
-/*
-settings.corpora.vks_saarnat = {
-    title: "Ruumissaarnoja, puheita ja muistorunoja (näyte)",
-    description: "Ruumissaarnoja, puheita ja muistorunoja",
-    id: "vks_saarnat",
-    within: settings.defaultWithin,
-    context: defaultContext,
-    attributes: {
-        word_orig: attrs.origword,
-        word_completed: attrs.complword
-    },
-    structAttributes: {
-        sourcecode_work: sattrs.vkssaarnat_sourcecode_work,
-        sourcecode_code: sattrs.vks_sourcecode_code,
-        sourcecode_page: sattrs.vks_sourcecode_page,
-        source_code: sattrs.vkssaarnat_source_code,
-        sentence_id: sattrs.sentence_id_hidden,
-        span_code: sattrs.vks_sentence_code,
-        span_page: sattrs.vks_sentence_page
-    }
-};
-*/
 
 settings.corpora.vks_agricola = {
     title: "Mikael Agricolan teoksia",
@@ -12666,69 +12088,6 @@ settings.corpora.vks_virret = {
         span_page: sattrs.vks_span_page
     }
 };
-
-/*
-settings.corpora.vns_asetus = {
-    title: "Asetuksia (näyte)",
-    description: "Asetuksia",
-    id: "vns_asetus",
-    within: spWithin,
-    context: spContext,
-    attributes: {
-    },
-    structAttributes: {
-        text_title: sattrs.text_title,
-        text_distributor: sattrs.text_distributor,
-        text_source: sattrs.text_source,
-        article_id: {
-            label: "article_id"
-        },
-        paragraph_id: {
-            label: "lawparagraph_id"
-        },
-        sentence_type: {
-            label: "sentence_type",
-            displayType: "select",
-            translationKey: "sentencetype_",
-            dataset: {
-                "p": "p",
-                "head": "head",
-                "opening": "opening"
-            },
-            opts: liteOptions
-        },
-        sentence_id: sattrs.sentence_id_hidden,
-        hi_rend: {
-            label: "hi_rend",
-            displayType: "select",
-            translationKey: "hirend_",
-            dataset: {
-                "bold": "bold"
-            },
-            opts: liteOptions
-        }
-    }
-};
-
-settings.corpora.vns_renqvist = {
-    title: "Renqvist (näyte)",
-    description: "Renqvist",
-    id: "vns_renqvist",
-    within: settings.defaultWithin,
-    context: defaultContext,
-    attributes: {
-    },
-    structAttributes: {
-        text_title: sattrs.text_title,
-        text_distributor: sattrs.text_distributor,
-        text_source: sattrs.text_source,
-        paragraph_id: sattrs.paragraph_id,
-        paragraph_type: sattrs.paragraph_type,
-        sentence_id: sattrs.sentence_id_hidden,
-        sentence_n: sattrs.sentence_n
-    }
-};
-*/
 
 settings.corpora.vnsk_asetus = {
     title: "Asetuksia",
@@ -13799,31 +13158,6 @@ settings.corpora.vns_renvall = {
         text_title: sattrs.text_title,
         text_distributor: sattrs.text_distributor,
         text_source: sattrs.text_source,
-/*      sentence_form: {
-            label: "dict_form"
-        },
-        sentence_example: {
-            label: "dict_example"
-        },
-        sentence_pos: {
-            label: "pos"
-        },
-        sentence_xref: {
-            label: "dict_xref"
-        },
-        sentence_etym: {
-            label: "dict_etym"
-        },
-        sentence_etymlang: {
-            label: "dict_etymlang",
-            displayType: "select",
-            translationKey: "dictetymlang_",
-            dataset: {
-                "ru": "ru",
-                "ve": "ve"
-            },
-            opts: liteOptions
-        },  */
         item_itemtype: {
             label: "dict_itemtype",
             displayType: "select",
@@ -13881,62 +13215,9 @@ settings.corpora.gutenberg = {
         text_published: sattrs.text_published,
         text_url: sattrs.link_gutenberg,
         text_directurl: sattrs.text_link_gutenberg
-/*
-        text_producers: sattrs.text_producers,
-        sentence_id: sattrs.sentence_id_hidden
-        text_title: sattrs.text_title,
-        text_author: sattrs.text_author,
-        p_id: sattrs.paragraph_id,
-        s_id: sattrs.sentence_id_hidden,
-        s_type: sattrs.sentence_type
-*/
     }
 };
 
-/* testiversio
-settings.corpora.suomi24fi = {
-    title: "Suomi24",
-    description: "suomi24.fi -forumin keskustelut (2001–2014)",
-    id: "suomi24fi",
-    urn: "urn:nbn:fi:lb-201412171",
-    metadata_urn: "urn:nbn:fi:lb-201412171",
-    within: spWithin,
-    context: spContext,
-    attributes: {
-        lemma: attrs.baseform,
-        pos: attrs.pos_klk,
-        msd: attrs.msd,
-        dephead: attrs.dephead
-    },
-    structAttributes: {
-        text_title: sattrs.text_title,
-        text_date: sattrs.date,
-        text_time: sattrs.text_time,
-        text_sect: {
-            label: "suomi24fi_sect",
-        },
-        text_sub: {
-            label: "suomi24fi_sub",
-        },
-        text_user: {
-            label: "suomi24fi_user",
-        },
-        sentence_id: sattrs.sentence_id_hidden,
-
-        text_urlmsg: {
-            label: "suomi24fi_urlmsg",
-            type: "url",
-            url_opts: sattrs.link_url_opts
-        },
-
-        text_urlboard: {
-            label: "suomi24fi_urlboard",
-            type: "url",
-            url_opts: sattrs.link_url_opts
-        }
-    }
-};
-*/
 
 settings.corpus_aliases.murre = "skn";
 
@@ -14020,22 +13301,11 @@ settings.corpora.sinebrychoff_fi = {
     licence: settings.licenceinfo.CC_BY_30,
     cite_id: "sinebrychoff-fi",
     features: ["paragraphs", "parsed_tdt", "finer"],
-    // attributes: attrlist.sinebrychoff,
     structAttributes: sattrlist.sinebrychoff
 };
 
 
 /* TOPLING SUOMI */
-/*
-settings.corpora.topling_fi_test = {
-    id: "topling_fi_test",
-    title: "TOPLING (suomi, debug)",
-    description: "TOPLING (suomi, debug)",
-    context: spContext,
-    within: spWithin,
-    attributes: attrlist.topling,
-    structAttributes: sattrlist.topling
-    };*/
 
 settings.corpora.topling_fi = {
     id: "topling_fi",
@@ -14197,13 +13467,7 @@ settings.corpora.alkusuomi = {
     description: "Eri kielistä käännettyä kieltä",
     lang: "fin",
     id: "alkusuomi",
-    //urn: "",
     metadata_urn: "urn:nbn:fi:lb-2019100801",
-    /*licence: {
-        name: "",
-        urn: "",
-    },
-    cite_id: "",*/
     limitedAccess: true,
     licenceType: "RES",
     within: settings.defaultWithin,
@@ -14217,13 +13481,7 @@ settings.corpora.kaannossuomi = {
     description: "Aluperin suomeksi kirjoitettua kieltä",
     lang: "fin",
     id: "kaannossuomi",
-    //urn: "",
     metadata_urn: "urn:nbn:fi:lb-2019100801",
-    /*licence: {
-        name: "",
-        urn: "",
-    },
-    cite_id: "",*/
     limitedAccess: true,
     licenceType: "RES",
     within: settings.defaultWithin,
@@ -14666,7 +13924,6 @@ settings.corpora.dma = {
             label: "parish",
             displayType: "select",
             localize: false,
-            // translationKey: "",
             dataset: [
                 "Artjärvi",
                 "Asikkala",
@@ -14820,162 +14077,6 @@ settings.corpora.dma = {
                 "Ypäjä",
                 "Ähtäri",
             ],
-            // // An alternative with dialect group code preprended
-            // stringify: settings.fn.dma_stringify_dataset_value(
-            //  "text_parish_name"),
-            // dataset: {
-            //  "Eurajoki": "1a Eurajoki",
-            //  "Hinnerjoki": "1a Hinnerjoki",
-            //  "Honkilahti": "1a Honkilahti",
-            //  "Laitila": "1a Laitila",
-            //  "Masku": "1a Masku",
-            //  "Merimasku": "1a Merimasku",
-            //  "Mietoinen": "1a Mietoinen",
-            //  "Nousiainen": "1a Nousiainen",
-            //  "Rauma": "1a Rauma",
-            //  "Rymättylä": "1a Rymättylä",
-            //  "Taivassalo": "1a Taivassalo",
-            //  "Halikko": "1b Halikko",
-            //  "Kaarina": "1b Kaarina",
-            //  "Sauvo": "1b Sauvo",
-            //  "Suomusjärvi": "1b Suomusjärvi",
-            //  "Merikarvia": "2a Merikarvia",
-            //  "Pori": "2a Pori",
-            //  "Loimaa": "2b Loimaa",
-            //  "Pöytyä": "2c Pöytyä",
-            //  "Somero": "2d Somero",
-            //  "Nummi": "2e Nummi",
-            //  "Vihti": "2e Vihti",
-            //  "Honkajoki": "3a Honkajoki",
-            //  "Kankaanpää": "3a Kankaanpää",
-            //  "Kiikka": "3a Kiikka",
-            //  "Parkano": "3a Parkano",
-            //  "Virrat": "3a Virrat",
-            //  "Juupajoki": "3b Juupajoki",
-            //  "Kalvola": "3b Kalvola",
-            //  "Kangasala": "3b Kangasala",
-            //  "Kuru": "3b Kuru",
-            //  "Ruovesi": "3b Ruovesi",
-            //  "Sääksmäki": "3b Sääksmäki",
-            //  "Teisko": "3b Teisko",
-            //  "Tuulos": "3b Tuulos",
-            //  "Hausjärvi": "3c Hausjärvi",
-            //  "Tammela": "3c Tammela",
-            //  "Ypäjä": "3c Ypäjä",
-            //  "Asikkala": "3d Asikkala",
-            //  "Orimattila": "3d Orimattila",
-            //  "Askola": "3e Askola",
-            //  "Myrskylä": "3e Myrskylä",
-            //  "Pornainen": "3e Pornainen",
-            //  "Artjärvi": "3f Artjärvi",
-            //  "Kymi": "3f Kymi",
-            //  "Valkeala": "3f Valkeala",
-            //  "Vehkalahti": "3f Vehkalahti",
-            //  "Ilmajoki": "4 Ilmajoki",
-            //  "Isojoki": "4 Isojoki",
-            //  "Jalasjärvi": "4 Jalasjärvi",
-            //  "Kauhava": "4 Kauhava",
-            //  "Kurikka": "4 Kurikka",
-            //  "Laihia": "4 Laihia",
-            //  "Töysä": "4 Töysä",
-            //  "Vähäkyrö": "4 Vähäkyrö",
-            //  "Ylihärmä": "4 Ylihärmä",
-            //  "Haapavesi": "5a Haapavesi",
-            //  "Halsua": "5a Halsua",
-            //  "Himanka": "5a Himanka",
-            //  "Kalajoki": "5a Kalajoki",
-            //  "Kälviä": "5a Kälviä",
-            //  "Kärsämäki": "5a Kärsämäki",
-            //  "Kaustinen": "5a Kaustinen",
-            //  "Nivala": "5a Nivala",
-            //  "Perho": "5a Perho",
-            //  "Pyhäjoki": "5a Pyhäjoki",
-            //  "Rautio": "5a Rautio",
-            //  "Reisjärvi": "5a Reisjärvi",
-            //  "Veteli": "5a Veteli",
-            //  "Kuivaniemi": "5b Kuivaniemi",
-            //  "Oulujoki": "5b Oulujoki",
-            //  "Paavola": "5b Paavola",
-            //  "Pattijoki": "5b Pattijoki",
-            //  "Yli-Ii": "5b Yli-Ii",
-            //  "Kolari": "6a Kolari",
-            //  "Ylitornio": "6a Ylitornio",
-            //  "Jällivaara": "6b Jällivaara",
-            //  "Keminmlk": "6c Keminmlk",
-            //  "Kittilä": "6c Kittilä",
-            //  "Simo": "6c Simo",
-            //  "Sodankylä": "6c Sodankylä",
-            //  "Kemijärvi": "6d Kemijärvi",
-            //  "Salla": "6d Salla",
-            //  "Itä-Ruija": "6e Itä-Ruija",
-            //  "Raisi": "6e Raisi",
-            //  "Joutsa": "7a Joutsa",
-            //  "Korpilahti": "7a Korpilahti",
-            //  "Kuhmoinen": "7a Kuhmoinen",
-            //  "Luhanka": "7a Luhanka",
-            //  "Sysmä": "7a Sysmä",
-            //  "Hirvensalmi": "7b Hirvensalmi",
-            //  "Mäntyharju": "7b Mäntyharju",
-            //  "Mikkelinmlk": "7b Mikkelinmlk",
-            //  "Ristiina": "7b Ristiina",
-            //  "Kerimäki": "7c Kerimäki",
-            //  "Sääminki": "7c Sääminki",
-            //  "Ilomantsi": "7d Ilomantsi",
-            //  "Kesälahti": "7d Kesälahti",
-            //  "Kitee": "7d Kitee",
-            //  "Kontiolahti": "7d Kontiolahti",
-            //  "Liperi": "7d Liperi",
-            //  "Nurmes": "7d Nurmes",
-            //  "Pielisjärvi": "7d Pielisjärvi",
-            //  "Polvijärvi": "7d Polvijärvi",
-            //  "Heinävesi": "7e Heinävesi",
-            //  "Karttula": "7e Karttula",
-            //  "Kiuruvesi": "7e Kiuruvesi",
-            //  "Lapinlahti": "7e Lapinlahti",
-            //  "Leppävirta": "7e Leppävirta",
-            //  "Pieksämäki": "7e Pieksämäki",
-            //  "Pyhäjärvi Ol.": "7e Pyhäjärvi Ol.",
-            //  "Siilinjärvi": "7e Siilinjärvi",
-            //  "Sonkajärvi": "7e Sonkajärvi",
-            //  "Tuusniemi": "7e Tuusniemi",
-            //  "Vehmersalmi": "7e Vehmersalmi",
-            //  "Vesanto": "7e Vesanto",
-            //  "Kannonkoski": "7f Kannonkoski",
-            //  "Karstula": "7f Karstula",
-            //  "Laukaa": "7f Laukaa",
-            //  "Pihtipudas": "7f Pihtipudas",
-            //  "Saarijärvi": "7f Saarijärvi",
-            //  "Sumiainen": "7f Sumiainen",
-            //  "Uurainen": "7f Uurainen",
-            //  "Ähtäri": "7g Ähtäri",
-            //  "Keuruu": "7g Keuruu",
-            //  "Lappajärvi": "7g Lappajärvi",
-            //  "Kajaani": "7h Kajaani",
-            //  "Pudasjärvi": "7h Pudasjärvi",
-            //  "Suomussalmi": "7h Suomussalmi",
-            //  "Vermlanti": "7i Vermlanti",
-            //  "Heinjoki": "8a Heinjoki",
-            //  "Kivennapa": "8a Kivennapa",
-            //  "Koivisto": "8a Koivisto",
-            //  "Lappee": "8a Lappee",
-            //  "Lavansaari": "8a Lavansaari",
-            //  "Luumäki": "8a Luumäki",
-            //  "Miehikkälä": "8a Miehikkälä",
-            //  "Uusikirkko Vpl.": "8a Uusikirkko Vpl.",
-            //  "Viipurin mlk.": "8a Viipurin mlk.",
-            //  "Virolahti": "8a Virolahti",
-            //  "Joutseno": "8b Joutseno",
-            //  "Käkisalmi": "8b Käkisalmi",
-            //  "Lumivaara": "8b Lumivaara",
-            //  "Ruokolahti": "8b Ruokolahti",
-            //  "Järvisaari": "8c Järvisaari",
-            //  "Markkova": "8c Markkova",
-            //  "Tuutari": "8c Tuutari",
-            //  "Lemi": "8d Lemi",
-            //  "Savitaipale": "8d Savitaipale",
-            //  "Sortavala": "8e Sortavala",
-            //  "Uukuniemi": "8e Uukuniemi",
-            // },
             opts: liteOptions,
         },
         text_village: {
@@ -15119,11 +14220,6 @@ settings.corpora.ylilauta = {
     within: spWithin,
     context: spContext,
     attributes: {
-        /*
-        lemma: attrs.baseform,
-        pos: attrs.pos_klk,
-        msd: attrs.msd,
-        syn: attrs.deprel_tdt*/
         lemma: attrs.baseform,
         lemmacomp: attrs.baseform_compound,
         pos: attrs.pos_klk,
@@ -15214,17 +14310,6 @@ settings.corpora.s24_008 = {
     features: ["paragraphs", "parsed_tdt", "finer"],
     structAttributes: sattrlist.s24_update
 };
-/*
-settings.corpora.s24_009test = {
-    title: "Suomi24 (test)",
-    description: "Suomi24-keskustelut (test)",
-    id: "s24_009test",
-    within: spWithin,
-    context: spContext,
-    attributes: attrlist.parsed_tdt,
-    structAttributes: sattrlist.s24_update
-};
-*/
 
 settings.corpora.s24_009 = {
     title: "Suomi24 2016H2: 9/10",
@@ -15270,20 +14355,6 @@ settings.corpora.s24 = {
     within: spWithin,
     context: spContext,
     attributes: {
-        /*
-        lemma: attrs.baseform,
-        pos: attrs.pos_klk,
-        msd: {
-            label: "msd",
-            opts: settings.defaultOptions
-        },
-        dep: {
-            label: "dephead",
-            opts: settings.defaultOptions
-        },
-        syn: attrs.deprel_tdt,
-        unk: attrs.ner_tags*/
-
         lemma: attrs.baseform,
         lemmacomp: attrs.baseform_compound,
         pos: attrs.pos_klk,
@@ -15327,7 +14398,6 @@ settings.corpora.s24 = {
 
 sattrlist.s24_2018 = {
     text_title: sattrs.title,
-    // text_datetime: sattrs.datetime,
     text_date: sattrs.date,
     text_time: sattrs.time,
     // text_datetime_approximated: settings.fn.make_bool_attr(
@@ -15349,7 +14419,6 @@ sattrlist.s24_2018 = {
             "Ajoneuvot ja liikenne",
             "Harrastukset",
             "Koti ja rakentaminen",
-            // "Kysy Mitä Vain",
             "Lemmikit",
             "Matkailu",
             "Muoti ja kauneus",
@@ -15360,7 +14429,6 @@ sattrlist.s24_2018 = {
             "Ryhmät",
             "Seksi",
             "Suhteet",
-            // "Suomi24 Blogi ★",
             "Talous",
             "Terveys",
             "Tiede ja teknologia",
@@ -15532,9 +14600,6 @@ settings.corpora.iclfi = {
     attributes: {
         lemma: attrs.baseform,
         msd: attrs.msd
-        /*dephead: attrs.dephead,
-        deprel: attrs.deprel_tdt,
-        ref: attrs.ref*/
     },
     structAttributes: {
         text_place: {
@@ -16278,7 +15343,6 @@ settings.fn.add_corpus_settings(
     settings.corporafolders.webnews.ylenews_fi.a,
     "ylenews_fi_{}_a");
 
-// settings.corpus_aliases["ylenews_fi_2018h2_a"] = "ylenews_fi_201[1-8]_a";
 settings.corpus_aliases["ylenews_fi_2011_2018_a"]
     = settings.corpus_aliases["ylenews-fi-2011-2018-korp"]
     = settings.corpus_aliases["ylenews-fi-2011-2018"]
@@ -16306,7 +15370,6 @@ settings.fn.add_corpus_settings(
     settings.corporafolders.webnews.ylenews_fi.s,
     "ylenews_fi_{}_s");
 
-// settings.corpus_aliases["ylenews_fi_2018h2_s"] = "ylenews_fi_201[1-8]_s";
 settings.corpus_aliases["ylenews_fi_2011_2018_s"]
     = settings.corpus_aliases["ylenews-fi-2011-2018-s-korp"]
     = settings.corpus_aliases["ylenews-fi-2011-2018-s"]
@@ -16335,10 +15398,6 @@ sattrlist.ylenews_fi_selko_common = {
         label: "datetime_json_modified",
         stringify: settings.fn.stringify_iso_datetime,
     },
-    // paragraph_id: {
-    // },
-    // sentence_id: {
-    // },
     sentence_type: {
         label: "sentence_type",
         displayType: "select",

@@ -4,24 +4,13 @@ settings.startLang = "fin";
 settings.hitsPerPageDefault = 10
 settings.hitsPerPageValues = [10,25,50,75,100,500,1000]
 
-// settings.primaryColor = "#7A90C3";
 settings.primaryColor = "#CAD2E6";
 settings.primaryLight = "#CAD2E6";
 
 var context = {
     "defaultAligned": {
-        // "1 link": "1 link"
         "1 sentence": "1 sentence"
     },
-/*
-    "sentenceAligned": {
-        "1 sentence": "1 sentence"
-    },
-    "spContext": {
-        "1 sentence": "1 sentence",
-        "1 paragraph": "1 paragraph"
-    },
-*/
     "linkAligned": {
         "1 link": "1 link"
     },
@@ -347,31 +336,9 @@ settings.corporafolders.parfin_parrus = {
     title: "ParFin, ParRus",
     contents: [
         "parfin_2016_fi",
-        // "parrus_2016_fi",
         "parrus_2016_ru",
     ],
 };
-
-/*
-settings.corporafolders.kfspc = {
-    title: "Kotus Finnish-Swedish Parallel Corpus (KFSPC)",
-    contents: ["kfspc_fi"]
-};
-*/
-
-/*
-settings.corporafolders.parrus = {
-    title: "ParRus",
-    contents: ["parrus_fi"]
-};
-*/
-
-/*
-settings.corporafolders.mulcold = {
-    title: "MULCOLD – Multilingual Corpus of Legal Documents",
-    contents: ["mulcold_fi"]
-};
-*/
 
 
 settings.corpora = {};
@@ -7564,48 +7531,6 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc,
                                    ["kfspc_fi", "kfspc_sv"]);
 
 
-/*
-settings.corpora.europarl_fi = {
-    id: "europarl_fi",
-    lang: "fin",
-    linkedTo: ["europarl_en"],
-    title: "EuroParl suomi–englanti-rinnakkaiskorpus",
-    context: context.defaultAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    attributes: {},
-    structAttributes: {}
-};
-
-settings.corpora.europarl_en = {
-    id: "europarl_en",
-    lang: "eng",
-    linkedTo: ["europarl_fi"],
-    title: "EuroParl suomi–englanti-rinnakkaiskorpus",
-    context: context.defaultAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    attributes: {},
-    structAttributes: {},
-    hide: true
-};
-*/
-
-
-/*
-// Make a deep copy of sattrlist.mulcold and then extend it
-sattrlist.parfin = $.extend(
-    true, {}, sattrlist.mulcold,
-    {
-        align_text_translator: {
-            label: "text_translator"
-        }
-    }
-);
-*/
-
 settings.corpora.mulcold_fi = {
     id: "mulcold_fi",
     lang: "fin",
@@ -7683,173 +7608,6 @@ settings.corpora.mulcold_de = {
 settings.fn.extend_corpus_settings(
     $.extend({}, settings.corpusinfo.mulcold, { cite_id: "MULCOLD", }),
     ["mulcold_fi", "mulcold_en", "mulcold_sv", "mulcold_ru", "mulcold_de"]);
-
-
-/*
-settings.corpora.parfin_fi = {
-    id: "parfin_fi",
-    lang: "fin",
-    linkedTo: ["parfin_ru"],
-    title: "ParFin",
-    description: "Suomenkielisiä kaunokirjallisia teoksia ja niiden käännöksiä venäjäksi",
-    context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    attributes: attrlist.mulcold_fi,
-    structAttributes: sattrlist.parfin,
-    limitedAccess: true,
-    licenceType: "RES"
-};
-
-settings.corpora.parfin_ru = {
-    id: "parfin_ru",
-    lang: "rus",
-    linkedTo: ["parfin_fi"],
-    title: "ParFin",
-    description: "Suomenkielisiä kaunokirjallisia teoksia ja niiden käännöksiä venäjäksi",
-    context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    attributes: attrlist.mulcold_ru,
-    structAttributes: sattrlist.parfin,
-    limitedAccess: true,
-    licenceType: "RES",
-    hide: true
-};
-
-settings.fn.extend_corpus_settings(settings.corpusinfo.parfin,
-                                   ["parfin_fi", "parfin_ru"]);
-*/
-
-
-/* ParFin (updated version) */
-
-/*
-// Deprecated version
-
-settings.corpora.parfin_fi = {
-    id: "parfin_fi",
-    lang: "fin",
-    linkedTo: ["parfin_ru"],
-    attributes: attrlist.parfin_fi,
-    structAttributes: sattrlist.parfin_fi,
-};
-
-settings.corpora.parfin_ru = {
-    id: "parfin_ru",
-    lang: "rus",
-    linkedTo: ["parfin_fi"],
-    attributes: attrlist.parfin_ru,
-    structAttributes: sattrlist.parfin_ru,
-    hide: true,
-};
-
-settings.fn.extend_corpus_settings(
-    {
-        // Properties common to parfin_fi and parfin_ru
-        title: "ParFin [poistuva]",
-        description: "ParFin – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus<br/>Suomenkielisiä kaunokirjallisia tekstejä vuosilta 1990–2010 ja niiden käännöksiä venäjäksi virketasolla kohdistettuina<br/><br/><strong>Huomaa, että ParFin 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
-        context: context.linkAligned,
-        within: settings.linkWithin,
-        limitedAccess: true,
-        licenceType: "RES",
-    },
-    ["parfin_fi", "parfin_ru"]
-);
-settings.fn.extend_corpus_settings(settings.corpusinfo.parfin,
-                                   ["parfin_fi", "parfin_ru"]);
-*/
-
-
-/* ParRus */
-
-// parrus_fi contains all the parallel Finnish translations and it is
-// linked to parrus_ru, so that a search in Finnish returns matches
-// from any Finnish translation.
-//
-// However, parrus_ru is linked to the Finnish versions _fi1, _fi2,
-// _fi3, each of which contains only a single translation of each
-// text, so that searching in Russian should return results in each of
-// the translations. (_fi1 contains translations of all texts, _fi2
-// contains the second translations for the texts with at least two
-// translations and _fi3 contains the third translations for texts
-// that have three translations.)
-//
-// Both parrus_fi and parrus_ru are shown in the corpus selector,
-// whereas the _fiN versions are not.
-
-/*
-// Deprecated version
-
-settings.corpora.parrus_fi = {
-    id: "parrus_fi",
-    lang: "fin",
-    linkedTo: ["parrus_ru"],
-    title: "ParRus (suomi) [poistuva]",
-    description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/><br/><strong>Huomaa:</strong> Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti suomenkielisistä käännöksistä. Jos samasta teoksesta on useita käännöksiä, tämä hakee niistä kaikista.<br/><br/><strong>Huomaa, että ParRus 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
-    attributes: attrlist.parrus_fi,
-    structAttributes: sattrlist.parrus_fi,
-};
-
-settings.corpora.parrus_ru = {
-    id: "parrus_ru",
-    lang: "rus",
-    linkedTo: ["parrus_fi1", "parrus_fi2", "parrus_fi3"],
-    // Needed to make searches in Finnish work in parrus_ru
-    linkedTo_inverse: ["parrus_fi"],
-    title: "ParRus (venäjä) [poistuva]",
-    description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/><br/><strong>Huomaa:</strong> Tämä versio soveltuu parhaiten hakuihin, joissa haetaan ensisijaisesti venäjänkielisistä alkuperäisteksteistä. Jos samasta teoksesta on useita käännöksiä, niistä kukin näkyy tuloksessa erikseen.<br/><br/><strong>Huomaa, että ParRus 2016 korvaa tämän korpuksen, ja tämä korpus poistuu käytöstä helmikuussa 2017.</strong>",
-    attributes: attrlist.parrus_ru,
-    structAttributes: sattrlist.parrus_ru,
-    // hide: true,
-};
-
-
-settings.corpora.parrus_fi1 = {
-    id: "parrus_fi1",
-    linkedTo: ["parrus_ru", "parrus_fi2", "parrus_fi3"],
-    title: "ParRus (suomenkielinen käännös 1)",
-};
-
-settings.corpora.parrus_fi2 = {
-    id: "parrus_fi2",
-    linkedTo: ["parrus_ru", "parrus_fi1", "parrus_fi3"],
-    title: "ParRus (suomenkielinen käännös 2)",
-};
-
-settings.corpora.parrus_fi3 = {
-    id: "parrus_fi3",
-    linkedTo: ["parrus_ru", "parrus_fi1", "parrus_fi2"],
-    title: "ParRus (suomenkielinen käännös 3)",
-};
-
-settings.fn.extend_corpus_settings(
-    {
-        // Properties common to parrus_fi1, parrus_fi2, parrus_fi3
-        lang: "fin",
-        description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus",
-        attributes: attrlist.parrus_fi,
-        structAttributes: sattrlist.parrus_fi,
-        hide: true,
-    },
-    ["parrus_fi1", "parrus_fi2", "parrus_fi3"]);
-
-settings.fn.extend_corpus_settings(
-    {
-        // Properties common to all ParRus language versions
-        context: context.linkAligned,
-        within: settings.linkWithin,
-        limitedAccess: true,
-        licenceType: "RES"
-    },
-    ["parrus_fi", "parrus_fi1", "parrus_fi2", "parrus_fi3", "parrus_ru"]);
-
-settings.fn.extend_corpus_settings(
-    settings.corpusinfo.parrus,
-    ["parrus_fi", "parrus_fi1", "parrus_fi2", "parrus_fi3", "parrus_ru"]);
-*/
 
 
 /* ParFin 2016 */
@@ -7998,7 +7756,6 @@ settings.fn.extend_corpus_settings(
     {
         // Properties common to parrus_2016_fiN
         lang: "fin",
-        // description: "ParRus – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus",
         attributes: attrlist.parrus_2016_fi,
         structAttributes: sattrlist.parrus_2016_fi,
         hide: true,
@@ -8008,95 +7765,6 @@ settings.fn.extend_corpus_settings(
      "parrus_2016_fi2",
      "parrus_2016_fi3",
      "parrus_2016_fi4"]);
-
-
-/*
-settings.parallel_corpora.testpar = {
-    "default": "testpar_fi",
-    testpar_fi: {
-        id: "testpar_fi",
-        lang: "fin",
-        parent: "testpar",
-        title: "Testpar suomi–englanti-rinnakkaiskorpustesti",
-        context: context.spContext,
-        within: {
-            "sentence": "sentence"
-        },
-        attributes: {},
-        structAttributes: {}
-    },
-    testpar_en: {
-        id: "testpar_en",
-        lang: "eng",
-        parent: "testpar",
-        title: "Testpar suomi–englanti-rinnakkaiskorpustesti",
-        context: context.spContext,
-        within: {
-            "sentence": "sentence"
-        },
-        attributes: {},
-        structAttributes: {},
-        hide: true
-    }
-};
-
-
-settings.parallel_corpora.testpar4 = {
-    "default": "testpar4_fi",
-    testpar4_fi: {
-        id: "testpar4_fi",
-        lang: "fin",
-        parent: "testpar4",
-        title: "Testpar4 suomi–englanti–ruotsi–saksa-rinnakkaiskorpustesti",
-        context: context.spContext,
-        within: {
-            "sentence": "sentence"
-        },
-        attributes: {},
-        structAttributes: {}
-    },
-    testpar4_en: {
-        id: "testpar4_en",
-        lang: "eng",
-        parent: "testpar4",
-        title: "Testpar4 suomi–englanti–ruotsi–saksa-rinnakkaiskorpustesti",
-        context: context.spContext,
-        within: {
-            "sentence": "sentence"
-        },
-        attributes: {},
-        structAttributes: {},
-        hide: true
-    },
-    testpar4_sv: {
-        id: "testpar4_sv",
-        lang: "swe",
-        parent: "testpar4",
-        title: "Testpar4 suomi–englanti–ruotsi–saksa-rinnakkaiskorpustesti",
-        context: context.spContext,
-        within: {
-            "sentence": "sentence"
-        },
-        attributes: {},
-        structAttributes: {},
-        hide: true
-    },
-    testpar4_de: {
-        id: "testpar4_de",
-        lang: "deu",
-        parent: "testpar4",
-        title: "Testpar4 suomi–englanti–ruotsi–saksa-rinnakkaiskorpustesti",
-        context: context.spContext,
-        within: {
-            "sentence": "sentence"
-        },
-        attributes: {},
-        structAttributes: {},
-        hide: true
-    }
-};
-*/
-
 
 
 settings.fn.add_attr_extra_properties(settings.corpora);
