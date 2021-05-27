@@ -19,10 +19,52 @@ settings.corporafolders = {};
  * FOLDERS
  */
 
-settings.corporafolders = {};
+// Top-level folders according to CLARIN resource families
+settings.corporafolders = {
+    cmc: {
+        title: "Tietokonevälitteistä viestintää",
+        description: "Tietokonevälitteistä viestintää sisältäviä aineistoja (computer-mediated communication corpora)",
+    },
+    academic: {
+        title: "Akateemisia tekstejä",
+        description: "Akateemisia tekstejä sisältäviä aineistoja",
+    },
+    historical: {
+        title: "Historiallisia aineistoja",
+        description: "Historiallisia aineistoja",
+    },
+    learner: {
+        title: "Oppijansuomen aineistoja",
+        description: "Suomenoppijoiden kieltä sisältäviä aineistoja (suomea toisena tai vieraana kielenä)",
+    },
+    literary: {
+        title: "Kirjallisuusaineistoja",
+        description: "Kirjallisuusaineistoja",
+    },
+    manual: {
+        title: "Käsin annotoituja aineistoja",
+        description: "Käsin annotoituja aineistoja",
+    },
+    newspaper: {
+        title: "Sanomalehtiaineistoja",
+        description: "Sanoma- ja aikakauslehtiaineistoja",
+    },
+    parliament: {
+        title: "Parlamenttiaineistoja",
+        description: "Parlamenttiaineistoja",
+    },
+    spoken: {
+        title: "Puheaineistoja",
+        description: "Puhuttua kieltä litteroituna sisältäviä aineistoja",
+    },
+    other: {
+        title: "Muita aineistoja",
+        description: "Muita aineistoja",
+    },
+};
 
 
-settings.corporafolders.agricola = {
+settings.corporafolders.historical.agricola = {
     title: "Agricola",
     description: "Mikael Agricolan teosten morfosyntaktinen tietokanta",
     contents: [
@@ -50,7 +92,7 @@ settings.corporafolders.agricola = {
 };
 
 
-settings.corporafolders.ethesis = {
+settings.corporafolders.academic.ethesis = {
     title: "E-thesis",
     contents: ["ethesis_maabs", "ethesis_dissabs"],
     info: {
@@ -58,24 +100,24 @@ settings.corporafolders.ethesis = {
     }
 };
 
-settings.corporafolders.ethesis.matheses = {
+settings.corporafolders.academic.ethesis.matheses = {
     title: "Pro gradu -tutkielmat",
     contents: ["ethesis_ma_ai", "ethesis_ma_bio", "ethesis_ma_el", "ethesis_ma_far", "ethesis_ma_hum", "ethesis_ma_beh",
                 "ethesis_ma_med", "ethesis_ma_mm", "ethesis_ma_sci", "ethesis_ma_ot", "ethesis_ma_teo", "ethesis_ma_valt"]
 };
 
-settings.corporafolders.ethesis.phdtheses = {
+settings.corporafolders.academic.ethesis.phdtheses = {
     title: "Väitöskirjat",
     contents: ["ethesis_phd_bio", "ethesis_phd_el", "ethesis_phd_far", "ethesis_phd_hum", "ethesis_phd_beh",
                 "ethesis_phd_med", "ethesis_phd_mm", "ethesis_phd_ot", "ethesis_phd_teo", "ethesis_phd_valt"]
 };
 
-settings.corporafolders.ftb = {
+settings.corporafolders.other.ftb = {
     title: "FinnTreeBank: suomen puupankki",
     contents: ["ftb2"]
 };
 
-settings.corporafolders.ftb.ftb3 = {
+settings.corporafolders.other.ftb.ftb3 = {
     title: "FinnTreeBank 3",
     info: {
         urn: "urn:nbn:fi:lb-2016051001",
@@ -86,7 +128,7 @@ settings.corporafolders.ftb.ftb3 = {
     contents: ["ftb3_europarl", "ftb3_jrcacquis"]
 };
 
-settings.corporafolders.klk_fi = {
+settings.corporafolders.newspaper.klk_fi = {
     title: "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet",
     description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio, suomenkieliset lehdet",
     info: {
@@ -97,7 +139,7 @@ settings.corporafolders.klk_fi = {
     }
 };
 
-settings.corporafolders.klk2_fi = {
+settings.corporafolders.newspaper.klk2_fi = {
     title: "Kansalliskirjaston lehtikokoelma, versio 2 (KLK2), suomenkieliset lehdet",
     description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio 2, suomenkieliset lehdet",
     info: {
@@ -109,7 +151,7 @@ settings.corporafolders.klk2_fi = {
     }
 };
 
-settings.corporafolders.kal = {
+settings.corporafolders.newspaper.kal = {
     title: "Kotuksen aikakauslehtikorpus",
     description: "Kotimaisten kielten keskuksen aikakauslehtikorpus",
     info: {
@@ -119,7 +161,7 @@ settings.corporafolders.kal = {
     }
 };
 
-settings.corporafolders.kal.kal_perus = {
+settings.corporafolders.newspaper.kal.kal_perus = {
     title: "Kotuksen aikakauslehtikorpus, tarkistamaton",
     description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistamaton",
     contents: ["kal_perus_ha", "kal_perus_la", "kal_perus_sk", "kal_perus_su"],
@@ -134,7 +176,7 @@ settings.corporafolders.kal.kal_perus = {
     }
 };
 
-settings.corporafolders.kal.kal_ydin = {
+settings.corporafolders.newspaper.kal.kal_ydin = {
     title: "Kotuksen aikakauslehtikorpus, tarkistettu",
     description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistettu",
     contents: ["kal_ydin_ha", "kal_ydin_la", "kal_ydin_sk", "kal_ydin_su"],
@@ -150,13 +192,16 @@ settings.corporafolders.kal.kal_ydin = {
 };
 
 
-settings.corporafolders.literature = {
-    title: "Kirjallisuutta",
-    contents: ["gutenberg", "sks_kivi_fi", "skvr",
-               "parfin_2016_fi", "parrus_2016_fi", "iijoki"]
-};
+funcs.addCorporaToFolder("literary", [
+    "gutenberg",
+    "sks_kivi_fi",
+    "skvr",
+    "parfin_2016_fi",
+    "parrus_2016_fi",
+    "iijoki",
+]);
 
-settings.corporafolders.literature.kaannossuomi = {
+settings.corporafolders.literary.kaannossuomi = {
     title: "Käännössuomen korpus",
     description: "Käännössuomen korpus on koostettu vuonna 1999 nykyisessä Itä-Suomen yliopistossa (silloisessa Joensuun yliopistossa sen kansainvälisen viestinnän laitoksella) Suomen Akatemian professori Anna Maurasen johtamassa tutkimushankkeessa Käännössuomi ja kääntämisen universaalit.<br/><br/>Korpus sisältää kaksi osaa: aluperin suomeksi kirjoitettua kieltä (alkusuomi) ja eri kielistä käännettyä kieltä (käännössuomi). Seuraavat tekstilajit ovat edustettuina aineistoissa: akateemiset tekstit, kaunokirjallisuus, lastenkirjallisuus, biografia, populaarikirjallisuus, viihdekirjallisuus, dekkarikirjallisuus ja tietokirjallisuus. Alkusuomen aineiston laajuus on yhteensä 5 465 293 sanaa ja käännössuomen aineiston 7 135 969 sanaa.",
     info: {
@@ -171,7 +216,7 @@ settings.corporafolders.literature.kaannossuomi = {
     contents: ["alkusuomi", "kaannossuomi"]
 };
 
-settings.corporafolders.literature.skk = {
+settings.corporafolders.literary.skk = {
     title: "Suomalaisen kirjallisuuden klassikoita",
     contents: ["skk_aho","skk_canth","skk_finne","skk_jarnefelt","skk_kailas","skk_lassila","skk_linnankoski","skk_kramsu","skk_lehtonen","skk_leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"],
     info: {
@@ -183,7 +228,7 @@ settings.corporafolders.literature.skk = {
     }
 };
 
-settings.corporafolders.literature.ceal = {
+settings.corporafolders.literary.ceal = {
     title: "CEAL",
     description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita suomeksi<br/>Classics of English and American Literature in Finnish<br/><br/><strong>Huomaa</strong>, että korpukset CEAL-o ja CEAL-s sisältävät samat tekstit, mutta CEAL-s:ssä kappaleet on sekoitettu kunkin teoksen sisällä, kun taas CEAL-o:ssa kappaleet ovat alkuperäisessä järjestyksessä. Hakuja varten kannattaa valita vain toinen korpus. CEAL-o vaatii aina henkilökohtaisen käyttöluvan.",
     info: {
@@ -195,7 +240,7 @@ settings.corporafolders.literature.ceal = {
     contents: ["ceal_o", "ceal_s"]
 };
 
-settings.corporafolders.legal = {
+settings.corporafolders.other.legal = {
     title: "Juridisia tekstejä",
     contents: [
         "kotus_lakidir",
@@ -205,12 +250,12 @@ settings.corporafolders.legal = {
     ]
 };
 
-settings.corporafolders.internet = {
-    title: "Internet-keskusteluaineistoja",
-    contents: ["s24", "ylilauta", "hsfi"]
-};
+funcs.addCorporaToFolder("cmc", [
+    "s24",
+    "ylilauta",
+]);
 
-settings.corporafolders.internet.suomi24_2017h2 = {
+settings.corporafolders.cmc.suomi24_2017h2 = {
     title: "Suomi24 2001–2017",
     // TODO: Change VRT download and metadata URN to point to the new
     // version when it is available
@@ -244,7 +289,7 @@ settings.corporafolders.internet.suomi24_2017h2 = {
     }
 };
 
-settings.corporafolders.internet.suomi24 = {
+settings.corporafolders.cmc.suomi24 = {
     title: "Suomi24 2016H2",
     description: "<a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut 1.1.2001–24.9.2016.<br/><br/><strong>Huomaa</strong>, että aineisto ei ole kattava mainitulta aikaväliltä. <strong>Käytä ensisijaisesti uudempaa ja selvästi kattavampaa <a href='http://urn.fi/urn:nbn:fi:lb-2019021101' target='_blank'>Suomi24 2017H2 -aineistoa</a></strong>, jollet tarvitse vertailukelpoisuutta tähän aineistoon perustuvan tutkimuksen kanssa.<br/><br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu useaan osakorpukseen suuren kokonsa vuoksi.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-201412171' target='_blank' title='Kuvailutiedot'>koko Suomi24-aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2015040801' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).<br/><br/>(Tämä aineisto näkyi ennen Suomi24 2017H2 -version julkaisemista Korpissa nimellä <i>Suomi24</i>.)",
     contents: [
@@ -268,7 +313,7 @@ settings.corporafolders.internet.suomi24 = {
     }
 };
 
-settings.corporafolders.lehdet = {
+settings.corporafolders.newspaper.lehdet = {
     title: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
     info: {
@@ -279,12 +324,12 @@ settings.corporafolders.lehdet = {
     }
 };
 
-settings.corporafolders.lehdet.tiedelehdet = {
+settings.corporafolders.newspaper.lehdet.tiedelehdet = {
     title: "Tiedelehtiä",
     description: "1990- ja 2000-luvun suomalaisia tiedelehtiä",
 }
 
-settings.corporafolders.lehdet.tiedelehdet.ag = {
+settings.corporafolders.newspaper.lehdet.tiedelehdet.ag = {
     title: "A–G",
     description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (A–G-alkuiset)",
     contents: [
@@ -312,7 +357,7 @@ settings.corporafolders.lehdet.tiedelehdet.ag = {
         ]
 };
 
-settings.corporafolders.lehdet.tiedelehdet.hk = {
+settings.corporafolders.newspaper.lehdet.tiedelehdet.hk = {
     title: "H–K",
     description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (H–K-alkuiset)",
     contents: [
@@ -339,7 +384,7 @@ settings.corporafolders.lehdet.tiedelehdet.hk = {
         ]
 };
 
-settings.corporafolders.lehdet.tiedelehdet.lp = {
+settings.corporafolders.newspaper.lehdet.tiedelehdet.lp = {
     title: "L–P",
     description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (L–P-alkuiset)",
     contents: [
@@ -364,7 +409,7 @@ settings.corporafolders.lehdet.tiedelehdet.lp = {
 };
 
 
-settings.corporafolders.lehdet.tiedelehdet.rs = {
+settings.corporafolders.newspaper.lehdet.tiedelehdet.rs = {
     title: "R–S",
     description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (R–S-alkuiset)",
     contents: [
@@ -387,7 +432,7 @@ settings.corporafolders.lehdet.tiedelehdet.rs = {
         ]
 };
 
-settings.corporafolders.lehdet.tiedelehdet.ty = {
+settings.corporafolders.newspaper.lehdet.tiedelehdet.ty = {
     title: "T–Y",
     description: "1990- ja 2000-luvun suomalaisia tiedelehtiä (T–Y-alkuiset)",
     contents: [
@@ -419,12 +464,12 @@ settings.corporafolders.lehdet.tiedelehdet.ty = {
     ]
 };
 
-settings.corporafolders.lehdet.muut_lehdet = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet = {
     title: "Muita lehtiä",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä",
 }
 
-settings.corporafolders.lehdet.muut_lehdet.a = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet.a = {
     title: "A",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (A-alkuiset)",
     contents: [
@@ -459,7 +504,7 @@ settings.corporafolders.lehdet.muut_lehdet.a = {
   ]
 };
 
-settings.corporafolders.lehdet.muut_lehdet.bcd = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet.bcd = {
     title: "B, C, D",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (B-, C- ja D-alkuiset)",
     contents: [
@@ -473,7 +518,7 @@ settings.corporafolders.lehdet.muut_lehdet.bcd = {
     ]
 }
 
-settings.corporafolders.lehdet.muut_lehdet.e = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet.e = {
     title: "E",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (E-alkuiset)",
     contents: [
@@ -497,7 +542,7 @@ settings.corporafolders.lehdet.muut_lehdet.e = {
      ]
 }
 
-settings.corporafolders.lehdet.muut_lehdet.f = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet.f = {
     title: "F",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (F-alkuiset)",
     contents: [
@@ -506,7 +551,7 @@ settings.corporafolders.lehdet.muut_lehdet.f = {
   ]
 }
 
-settings.corporafolders.lehdet.muut_lehdet.h = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet.h = {
     title: "H",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (H-alkuiset)",
     contents: [
@@ -531,7 +576,7 @@ settings.corporafolders.lehdet.muut_lehdet.h = {
   ]
 }
 
-settings.corporafolders.lehdet.muut_lehdet.ij = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet.ij = {
     title: "I, J",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (I- ja J-alkuiset)",
     contents: [
@@ -545,7 +590,7 @@ settings.corporafolders.lehdet.muut_lehdet.ij = {
   ]
 }
 
-settings.corporafolders.lehdet.muut_lehdet.k = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet.k = {
     title: "K",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (K-alkuiset)",
     contents: [
@@ -586,7 +631,7 @@ settings.corporafolders.lehdet.muut_lehdet.k = {
   ]
 }
 
-settings.corporafolders.lehdet.muut_lehdet.l = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet.l = {
     title: "L",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (L-alkuiset)",
     contents: [
@@ -599,7 +644,7 @@ settings.corporafolders.lehdet.muut_lehdet.l = {
   ]
 }
 
-settings.corporafolders.lehdet.muut_lehdet.m = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet.m = {
     title: "M",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (M-alkuiset)",
     contents: [
@@ -619,7 +664,7 @@ settings.corporafolders.lehdet.muut_lehdet.m = {
   ]
 }
 
-settings.corporafolders.lehdet.muut_lehdet.no = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet.no = {
     title: "N, O",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (N- ja O-alkuiset)",
     contents: [
@@ -633,7 +678,7 @@ settings.corporafolders.lehdet.muut_lehdet.no = {
   ]
 }
 
-settings.corporafolders.lehdet.muut_lehdet.p = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet.p = {
     title: "P",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (P-alkuiset)",
     contents: [
@@ -669,7 +714,7 @@ settings.corporafolders.lehdet.muut_lehdet.p = {
   ]
 }
 
-settings.corporafolders.lehdet.muut_lehdet.r = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet.r = {
     title: "R",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (R-alkuiset)",
     contents: [
@@ -680,7 +725,7 @@ settings.corporafolders.lehdet.muut_lehdet.r = {
   ]
 }
 
-settings.corporafolders.lehdet.muut_lehdet.s = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet.s = {
     title: "S",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (S-alkuiset)",
     contents: [
@@ -709,7 +754,7 @@ settings.corporafolders.lehdet.muut_lehdet.s = {
   ]
 }
 
-settings.corporafolders.lehdet.muut_lehdet.t = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet.t = {
     title: "T",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (T-alkuiset)",
     contents: [
@@ -752,7 +797,7 @@ settings.corporafolders.lehdet.muut_lehdet.t = {
   ]
 }
 
-settings.corporafolders.lehdet.muut_lehdet.u = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet.u = {
     title: "U",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (U-alkuiset)",
     contents: [
@@ -771,7 +816,7 @@ settings.corporafolders.lehdet.muut_lehdet.u = {
   ]
 }
 
-settings.corporafolders.lehdet.muut_lehdet.vw = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet.vw = {
     title: "V, W",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (V- ja W-alkuiset)",
     contents: [
@@ -799,7 +844,7 @@ settings.corporafolders.lehdet.muut_lehdet.vw = {
   ]
 }
 
-settings.corporafolders.lehdet.muut_lehdet.y = {
+settings.corporafolders.newspaper.lehdet.muut_lehdet.y = {
     title: "Y",
     description: "1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä (Y-alkuiset)",
     contents: [
@@ -814,12 +859,12 @@ settings.corporafolders.lehdet.muut_lehdet.y = {
 };
 
 
-settings.corporafolders.webnews = {
-    title: "Verkkouutisia",
-};
+// settings.corporafolders.webnews = {
+//     title: "Verkkouutisia",
+// };
 
 
-settings.corporafolders.webnews.ylenews_fi = {
+settings.corporafolders.newspaper.ylenews_fi = {
     title: "Ylen suomenkielinen uutisarkisto",
     description: "Ylen suomenkielinen uutisarkisto<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
     info: {
@@ -831,7 +876,7 @@ settings.corporafolders.webnews.ylenews_fi = {
     },
 };
 
-settings.corporafolders.webnews.ylenews_fi.a = {
+settings.corporafolders.newspaper.ylenews_fi.a = {
     title: "Ylen suomenkielinen uutisarkisto 2011–2018 (tutkijoille)",
     description: "Ylen suomenkielinen uutisarkisto 2011–2018, Korp<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
     // Contents are added later with settings.fn.add_corpus_settings
@@ -847,7 +892,7 @@ settings.corporafolders.webnews.ylenews_fi.a = {
     }
 };
 
-settings.corporafolders.webnews.ylenews_fi.s = {
+settings.corporafolders.newspaper.ylenews_fi.s = {
     title: "Ylen suomenkielinen uutisarkisto 2011–2018 (kaikille)",
     description: "Ylen suomenkielinen uutisarkisto 2011–2018, sekoitettu, Korp<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
     // Contents are added later with settings.fn.add_corpus_settings
@@ -863,7 +908,7 @@ settings.corporafolders.webnews.ylenews_fi.s = {
 
 
 
-settings.corporafolders.ftc = {
+settings.corporafolders.historical.ftc = {
     title: "Suomen kielen tekstikokoelma (SKTP/FTC)",
     description: "Suomen kielen tekstikokoelma: Lemmie-palvelussa olleet osakorpukset",
     info: {
@@ -884,17 +929,19 @@ settings.corporafolders.ftc = {
     },
 };
 
-settings.corporafolders.other_texts = {
-    title: "Muita tekstejä",
-    contents: [
-        "kfspc_fi",
-        "opensub_fi_2017",
-        "finstud",
-        "yoaineet",
-    ]
-};
+// settings.corporafolders.other_texts = {
+//     title: "Muita tekstejä",
+//     contents: [
+//         "kfspc_fi",
+//         "opensub_fi_2017",
+//         "finstud",
+//         "yoaineet",
+//     ]
+// };
 
-settings.corporafolders.other_texts.kotus_ns_presidentti = {
+funcs.addCorporaToFolder("academic", ["finstud", "yoaineet"]);
+
+settings.corporafolders.historical.kotus_ns_presidentti = {
     title: "Tasavallan presidenttien uudenvuodenpuheet",
     description: "Tasavallan presidenttien uudenvuodenpuheiden kokoelmassa on kaikki tasavallan presidenttien pitämät uudenvuodenpuheet vuosilta 1935–2007. Muutaman kerran puheen on pitänyt joku muu kuin presidentti. Nämäkin puheet sisältyvät aineistoon.<br/>Kokoelma on järjestetty presidenteittäin ja vuosittain. Kokoelma koostuu lehtileikkeistä, konekirjoitusliuskoista, kirjojen sivuista, lehdistötiedotteista ja verkkoteksteistä. Aineistoa on hankittu arkistoista, kirjoista ja Internetistä.",
     // Contents will be filled in when constructing the corpus
@@ -917,7 +964,7 @@ settings.corporafolders.other_texts.kotus_ns_presidentti = {
     }
 }
 
-settings.corporafolders.legal.semfinlex = {
+settings.corporafolders.historical.semfinlex = {
     title: "Semfinlex",
     description: "Valikoima Eduskunnan alkuperäisiä säädöksiä (1917–2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980–2018) ja KHO:n päätöksiä (1987–2018).<br/><br/>2019-09-02: Huomaa, että aineiston <strong>dependenssijäsennykset ja -relaatiot poikkeavat merkittävästi</strong> aiemmin samalla jäsentimellä jäsennettyjen aineistojen jäsennyksistä. Selvitämme asiaa. <strong>Jos tarvitset dependenssijäsennystietoja, käytä toistaiseksi muita aineistoja.</strong>",
     contents: ["semfinlex_asd_fi_2018", "semfinlex_kko_fi_2018", "semfinlex_kho_fi_2018"],
@@ -927,15 +974,13 @@ settings.corporafolders.legal.semfinlex = {
     }
 }
 
-settings.corporafolders.spoken = {
-    title: "Puhuttua kieltä (tekstiksi litteroituna)",
-    contents: [
-        "kotus_sp",
-        "skn",
-        "dma",
-        "arkisyn",
-    ],
-};
+funcs.addCorporaToFolder("spoken", [
+    "kotus_sp",
+    "skn",
+    "dma",
+    "arkisyn",
+    "reittidemo",
+]);
 
 settings.corporafolders.spoken.la_murre = {
     title: "Lauseopin arkiston murrekorpus",
@@ -950,13 +995,13 @@ settings.corporafolders.spoken.la_murre = {
  };
 
 
-settings.corporafolders.selkokieli = {
+settings.corporafolders.other.selkokieli = {
     title: "Selkokieli",
     description: "Selkokieliaineistoja<br/><br/><strong>Huomaa</strong>, että selkokieliset lehdet ovat edelleen osa aineistoa <i>1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä</i>. Niistä tulevat hakutulokset näkyvät kuitenkin vain yhteen kertaan, vaikka ne olisi valittu sekä osana selkokieliaineistoja että osana muita lehtiä.",
 };
 
 
-settings.corporafolders.selkokieli.lehdet = {
+settings.corporafolders.other.selkokieli.lehdet = {
     title: "Selkokielisiä lehtiä",
     // Note the magazines are referred to both here and in
     // lehdet.muut_lehdet. As a side-effect, if a Korp URL refers to
@@ -971,7 +1016,7 @@ settings.corporafolders.selkokieli.lehdet = {
 };
 
 
-settings.corporafolders.selkokieli.ylenews_fi_selko = {
+settings.corporafolders.other.selkokieli.ylenews_fi_selko = {
     title: "Ylen suomenkielisen uutisarkiston selkouutiset",
     description: "Ylen suomenkielisen uutisarkiston selkouutiset<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
     contents: [
@@ -988,10 +1033,10 @@ settings.corporafolders.selkokieli.ylenews_fi_selko = {
 };
 
 
-settings.corporafolders.learner = {
-    title: "Suomenoppijoiden kieltä (suomi toisena tai vieraana kielenä)",
-    contents: ["iclfi", "topling_fi"],
-};
+funcs.addCorporaToFolder("learner", [
+    "iclfi",
+    "topling_fi",
+]);
 
 settings.corporafolders.learner.las2 = {
     title: "LAS2 – Edistyneiden suomenoppijoiden korpus",
@@ -1008,7 +1053,7 @@ settings.corporafolders.learner.las2 = {
     contents: ["las2_tentit", "las2_esseet"]
 };
 
-settings.corporafolders.vks = {
+settings.corporafolders.historical.vks = {
     title: "Vanhan kirjasuomen korpus",
     contents: [
         "vks_agricola",
@@ -1033,7 +1078,7 @@ settings.corporafolders.vks = {
     },
 };
 
-settings.corporafolders.vns = {
+settings.corporafolders.historical.vns = {
     title: "Varhaisnykysuomen korpus",
     contents: ["vnsk_aejmelaeus","vnsk_ahlholm","vnsk_ahlman_kirjat","vnsk_ahlman_sanastot","vnsk_ahlqvist","vnsk_akiander","vnsk_aminoff","vnsk_almanakka","vnsk_anonyymi","vnsk_asetus","vnsk_aulen","vnsk_backvall","vnsk_bocker","vnsk_bonsdorff","vnsk_borenius","vnsk_borg","vnsk_cajan","vnsk_cannelin","vnsk_cantell","vnsk_canth","vnsk_corander","vnsk_costiander","vnsk_dahlberg","vnsk_edlund","vnsk_eklof","vnsk_euren","vnsk_europaeus","vnsk_europaeus_sanastot","vnsk_fabritius","vnsk_forsman","vnsk_forstrom","vnsk_friman","vnsk_frosterus","vnsk_gottlund","vnsk_granlund","vnsk_hannikainen","vnsk_hjelt","vnsk_hordh","vnsk_hornborg","vnsk_ignatius","vnsk_ingman","vnsk_innain","vnsk_juteini","vnsk_keckman","vnsk_kemell","vnsk_kilpinen","vnsk_kivi","vnsk_koskinen","vnsk_krohn","vnsk_lagervall","vnsk_lankela","vnsk_lavonius","vnsk_lilius_anton","vnsk_lilius_aukusti","vnsk_lonnrot","vnsk_malmberg","vnsk_mehilainen","vnsk_mela","vnsk_meurman","vnsk_mmy","vnsk_murman","vnsk_muut","vnsk_nyman","vnsk_ovs","vnsk_polen","vnsk_poppius","vnsk_puhuttelija","vnsk_rein","vns_renvall","vnsk_roos","vnsk_salmelainen","vnsk_salonius","vnsk_sanaluettelot","vnsk_sandberg","vnsk_schroter","vnsk_sirelius","vnsk_skogman","vnsk_smtr","vnsk_sohlberg","vnsk_soldan","vnsk_ssv","vnsk_stahlberg","vnsk_tarvanen","vnsk_ticklen","vnsk_tikkanen","vnsk_topelius","vnsk_toppelius","vnsk_tvs","vnsk_varelius","vnsk_virsikirja","vnsk_wallin","vnsk_wikman","vnsk_wiwolin","vnsk_yksitt"],
     info: {
@@ -1045,10 +1090,10 @@ settings.corporafolders.vns = {
     },
 };
 
-settings.corporafolders.test = {
-    title: "Demo- ja testiaineistoja",
-    contents: ["reittidemo"]
-};
+// settings.corporafolders.test = {
+//     title: "Demo- ja testiaineistoja",
+//     contents: ["reittidemo"]
+// };
 
 
 
@@ -8905,6 +8950,7 @@ settings.corpus_aliases.lehdet90ff_v2 =
     "tiedelehdet_30paivaa,tiedelehdet_aakusti,tiedelehdet_agricola,tiedelehdet_aidinkieli,tiedelehdet_aikuiskasvatus,tiedelehdet_aluejaymparisto,tiedelehdet_ammattikasvatuksen_aikakauskirja,tiedelehdet_apollon,tiedelehdet_areiopagi,tiedelehdet_ats,tiedelehdet_auraica,tiedelehdet_automaatiovayla,tiedelehdet_avain,tiedelehdet_baptria,tiedelehdet_bryobrotherella,tiedelehdet_diakonia,tiedelehdet_elo,tiedelehdet_ennenjanyt,tiedelehdet_geofoorumi,tiedelehdet_geologi,tiedelehdet_glossae,tiedelehdet_harukaze,tiedelehdet_havina,tiedelehdet_hiidenkivi,tiedelehdet_historiallinen,tiedelehdet_historianystava,tiedelehdet_idantutkimus,tiedelehdet_ilmansuojelu,tiedelehdet_informaatio,tiedelehdet_janus,tiedelehdet_hykirjasto,tiedelehdet_kasvu,tiedelehdet_kieliskooppi,tiedelehdet_kliinlab,tiedelehdet_kognitiivinen,tiedelehdet_kompositio,tiedelehdet_kosmopolis,tiedelehdet_kulttuurintutkimus,tiedelehdet_kulutustutkimus,tiedelehdet_kunnallistiede,tiedelehdet_kuntoutus,tiedelehdet_liikenteensuunta_v2,tiedelehdet_liiketalous,tiedelehdet_liikuntajatiede,tiedelehdet_lounaishame,tiedelehdet_maaseudunuusiaika,tiedelehdet_matkailututkimus,tiedelehdet_mediajaviestinta,tiedelehdet_metsatiede,tiedelehdet_muinaistutkija,tiedelehdet_musiikinsuunta,tiedelehdet_musiikkikasv,tiedelehdet_niinnain_v2,tiedelehdet_nimi,tiedelehdet_nayttamo_tutkimus,tiedelehdet_poliittinentalous,tiedelehdet_prologi,tiedelehdet_psykologia,tiedelehdet_rakmek,tiedelehdet_ravitsemus,tiedelehdet_ruralia,tiedelehdet_sananjalka,tiedelehdet_siirtolaisuus,tiedelehdet_skas,tiedelehdet_skeptikko,tiedelehdet_skholion,tiedelehdet_solubiologi,tiedelehdet_sosiaalilaaketiede,tiedelehdet_sosiologia,tiedelehdet_suo,tiedelehdet_susa,tiedelehdet_kirkkohistoria,tiedelehdet_sydanaani,tiedelehdet_synnyt,tiedelehdet_tahiti,tiedelehdet_taimiuutiset,tiedelehdet_teologinen,tiedelehdet_terminfo,tiedelehdet_terra,tiedelehdet_thanatos,tiedelehdet_tiedejaase,tiedelehdet_tieteessatapahtuu,tiedelehdet_tktlehti,tiedelehdet_tietolinja,tiedelehdet_toksikologi,tiedelehdet_transmitteri,tiedelehdet_trio,tiedelehdet_tutkimustiedote,tiedelehdet_tutkivasos,tiedelehdet_tyoelama,tiedelehdet_ura,tiedelehdet_uskonnontutkija,tiedelehdet_vartija,tiedelehdet_versus,tiedelehdet_virittaja,tiedelehdet_walbum,tiedelehdet_yhdyskuntasuunnittelu,tiedelehdet_yhteiskuntapolitiikka,tiedelehdet_ymparistohistoria,lehdet_aalto_university_magazine,lehdet_aarre,lehdet_aino,lehdet_ajolinja,lehdet_akavalainen,lehdet_allergia,lehdet_ammattisotilas,lehdet_amnesty,lehdet_ananda,lehdet_animalia,lehdet_anti,lehdet_antimilitaristi_sivari,lehdet_apaja,lehdet_aplodi,lehdet_arkkitehtiuutiset,lehdet_aromi,lehdet_aselehti,lehdet_askel,lehdet_asukas,lehdet_asukki,lehdet_asuminen_yhteiskunta,lehdet_asuntoinfo,lehdet_aurora,lehdet_avainlehti,lehdet_avec,lehdet_avec_perhelehti,lehdet_avh,lehdet_avvisio,lehdet_bof_online,lehdet_canews,lehdet_cplehti,lehdet_curly,lehdet_debatti,lehdet_diabetes_ja_laakari,lehdet_diakonia,lehdet_edimensio,lehdet_effortti,lehdet_ekonomi,lehdet_elinehto,lehdet_elamantahdet_terve,lehdet_elamassa_kelansanomat,lehdet_elore,lehdet_emma,lehdet_entisesta_enemman,lehdet_ernie,lehdet_espanjan_sanomat,lehdet_espoo,lehdet_esri,lehdet_ethnos,lehdet_eurooppalainen,lehdet_euro_talous,lehdet_evento,lehdet_focus,lehdet_folium_classicum,lehdet_hkaksi,lehdet_haagalainen,lehdet_haavi,lehdet_hallaus,lehdet_helen,lehdet_helmeri,lehdet_helmi,lehdet_helsinginhenki,lehdet_helsinki_info,lehdet_hengitys,lehdet_heppu,lehdet_hervannan_sanomat,lehdet_hima,lehdet_hopealeijona,lehdet_huili,lehdet_humanistilehti,lehdet_husari,lehdet_hyva_asukas,lehdet_impakti,lehdet_infors,lehdet_infront,lehdet_jane_paulo,lehdet_jargonia,lehdet_joensuun_uutiset,lehdet_julkaisija,lehdet_kalastuslehti,lehdet_kalpa,lehdet_kansanopisto,lehdet_karhunkierros,lehdet_karhunpalvelus,lehdet_kauppapolitiikka,lehdet_kaupunkilainen,lehdet_kehittaja,lehdet_kemia_kemi,lehdet_kemilainen,lehdet_kerberos,lehdet_keski_espoon_sanomat,lehdet_keva,lehdet_kide,lehdet_kide_taidelehti,lehdet_kielipolku_dysfasia,lehdet_kirjo,lehdet_kita,lehdet_koiviston_viesti,lehdet_kontakt,lehdet_koor,lehdet_koti,lehdet_kotipuutarha,lehdet_kotosalla,lehdet_kuljetusyrittaja,lehdet_kulttuurivihkot,lehdet_kumina,lehdet_kumposti,lehdet_kunnallissuomi,lehdet_kuuloset,lehdet_kuuloviesti,lehdet_kynnys,lehdet_kyvyt_kayttoon_vates,lehdet_kaytannon_maamies,lehdet_lapsenmaailma,lehdet_legenda,lehdet_leija,lehdet_luokanopettaja,lehdet_luuppisanomat,lehdet_lahde_liikkeelle,lehdet_maailma_kiitotie,lehdet_materia,lehdet_matkailusilma,lehdet_me,lehdet_mercurius,lehdet_meripelastus,lehdet_merkonomi,lehdet_minna,lehdet_mirator,lehdet_modin,lehdet_motiva_mplus_xpress,lehdet_musetti,lehdet_muusikko,lehdet_nonsordino,lehdet_nakyva_nainen,lehdet_ollaviiskytviisplus,lehdet_omakotisanomat,lehdet_ostrobotnia,lehdet_ota_opiksi,lehdet_oulunkylainen,lehdet_pakolainen,lehdet_palveluesimies,lehdet_paraisten_kuulutukset,lehdet_pardianyt,lehdet_pariperhe,lehdet_partio_jalki,lehdet_patria,lehdet_pelastusalan_ammattilainen,lehdet_pelastustieto,lehdet_perussuomalainen,lehdet_pihlajamaki_info,lehdet_pihlajisto_viikinmaki,lehdet_pippuri,lehdet_pirkkalainen,lehdet_pirta,lehdet_pispalalainen,lehdet_plari,lehdet_pointti,lehdet_poleemi,lehdet_polemiikki,lehdet_policy,lehdet_poromies,lehdet_print_media,lehdet_pro_etelapohjanmaa,lehdet_prointerior,lehdet_promaint_kunnossapito,lehdet_proresto,lehdet_puulehti,lehdet_puutarha_sanomat,lehdet_rautalampilehti,lehdet_rautatievirkamies,lehdet_ruotuvaki,lehdet_ronsy,lehdet_saarijarvelainen,lehdet_saariselka,lehdet_saima,lehdet_secretarius,lehdet_selkosanomat,lehdet_signum,lehdet_skrolli,lehdet_sofia,lehdet_solidaarisuus,lehdet_sosiaalivakuutus,lehdet_stiiknafuulia,lehdet_sukuviesti,lehdet_suomen_historiallinen,lehdet_suomenmaa,lehdet_seniorilehti,lehdet_suomi_puola,lehdet_super,lehdet_susikko,lehdet_sydan_hameen_lehti,lehdet_syopa,lehdet_syopasaation_focus,lehdet_sosso,lehdet_taku,lehdet_talentia,lehdet_taloustaito,lehdet_tamk_nyt,lehdet_tampere,lehdet_kauppakamarilehti,lehdet_tampereen_liikuntasanomat,lehdet_tampu,lehdet_tanhuviesti,lehdet_tanssiurheilija,lehdet_tapaturmavakuutus,lehdet_tapiolan_asiakaslehti,lehdet_tatsi,lehdet_tek_verkkolehti,lehdet_teollisuussuomi,lehdet_terve_elama,lehdet_terve_pirkanmaa,lehdet_tervetuloa_jyvaskylaan,lehdet_terveydeksi,lehdet_tiedetoimittaja,lehdet_tiedosta,lehdet_tietoa_maasta,lehdet_tietoarkisto,lehdet_tiimi,lehdet_toimi,lehdet_toisinsanoen,lehdet_toolilainen,lehdet_tukijalka,lehdet_tukilinja,lehdet_tukiviesti,lehdet_tuntosarvi,lehdet_turkuposti,lehdet_tutkain,lehdet_tuulivoima_tuulienergia_tuulensilma,lehdet_tyoelake,lehdet_taydellinenympyra,lehdet_ubik,lehdet_uiotus,lehdet_uljas,lehdet_uniikki,lehdet_unioni,lehdet_universitas,lehdet_universitaschydenius,lehdet_utain,lehdet_uusiouutiset,lehdet_uusipaiva,lehdet_uusi_safiiri,lehdet_uutis_jousi,lehdet_vaasan_ylioppilaslehti,lehdet_valkoinen_kaapio,lehdet_valkonauha,lehdet_vammaisurheilu,lehdet_vanhustyo,lehdet_vankilavirkailija,lehdet_vantaan_akseli,lehdet_vantaan_asukaslehti,lehdet_vapaa_ajattelija,lehdet_vasama,lehdet_koskinen,lehdet_veturimies,lehdet_via,lehdet_via_helsinki,lehdet_vilkku,lehdet_virallinenlehti,lehdet_virilactis,lehdet_virta,lehdet_valitysuutiset,lehdet_walpo,lehdet_wieteri,lehdet_yhteenveto,lehdet_yhteishyva,lehdet_yhteishyva_ruoka,lehdet_yhys_tiedotuslehti,lehdet_yliopistolainen,lehdet_yrittajasanomat,lehdet_yritysetiikka";
 
 
+funcs.addCorporaToFolder("newspaper", ["hsfi"]);
 
 settings.corpora.hsfi = {
     title: "HS.fi",
@@ -8955,6 +9001,8 @@ settings.corpora.hsfi = {
 
 };
 
+
+funcs.addCorporaToFolder("newspaper", ["karjalansuomi"]);
 
 settings.corpora.karjalansuomi = {
     title: "Karjalansuomi",
@@ -9629,7 +9677,7 @@ settings.templ.ftc = $.extend(true, {}, settings.templ.lemmie_common, {
 
 // Create the FTC corpus folder hierarchy and corpus settings
 settings.fn.make_folder_hierarchy(
-    settings.corporafolders.ftc, ftc_hierarchy,
+    settings.corporafolders.historical.ftc, ftc_hierarchy,
     {
         id_prefix: "ftc_",
         description_prefix: "Suomen kielen tekstikokoelma: ",
@@ -9759,7 +9807,7 @@ settings.fn.make_president_corpora = function () {
     settings.fn.add_corpus_settings(
         settings.templ.kotus_ns_presidentti,
         president_templ_fill,
-        settings.corporafolders.other_texts.kotus_ns_presidentti,
+        settings.corporafolders.historical.kotus_ns_presidentti,
         corpus_id_prefix
     );
     var joined_corpus_ids = corpus_ids.join(",");
@@ -11011,6 +11059,9 @@ settings.corpora.sks_kivi_fi = {
     }
 };
 
+
+funcs.addCorporaToFolder("other", ["opensub_fi_2017"]);
+
 settings.corpora.opensub_fi_2017 = {
     title: "OpenSubtitles 2017",
     description: "Opensubtitles.org-sivuston jakamat elokuvien ja tv-ohjelmien suomenkieliset tekstitykset",
@@ -11507,6 +11558,8 @@ sattrlist.s24_update = {
 
 // KFSPC
 
+funcs.addCorporaToFolder("other", ["kfspc_fi"]);
+
 settings.corpora.kfspc_fi = {
     title: "KFSPC suomi",
     description: "Kotus Finnish-Swedish Parallel Corpus, suomenkielinen osuus",
@@ -11701,7 +11754,7 @@ var klk_fi_parsed_years = settings.fn.make_yearlist(1820, 2000);
 // Finnish KLK corpora by using the above functions
 
 settings.fn.make_corpus_settings_by_year_decade(
-    settings.corporafolders.klk_fi, "fi_{decade}", "klk_fi_{year}",
+    settings.corporafolders.newspaper.klk_fi, "fi_{decade}", "klk_fi_{year}",
     function(decade) {
         return {
             title: decade.toString() + "-luku",
@@ -11765,7 +11818,9 @@ settings.fn.set_attr_order(
 attrlist.klk2_fi_parsed_pagelinks = attrlist.klk2_fi_parsed;
 
 settings.fn.make_corpus_settings_by_year_decade(
-    settings.corporafolders.klk2_fi, "fi_{decade}", "klk2test_fi_{year}",
+    settings.corporafolders.newspaper.klk2_fi,
+    "fi_{decade}",
+    "klk2test_fi_{year}",
     function(decade) {
         return {
             title: decade.toString() + "-luku",
@@ -13293,6 +13348,8 @@ settings.corpora.skn = {
 
 /* SINEBRYCHOFF */
 
+funcs.addCorporaToFolder("historical", ["sinebrychoff_fi"]);
+
 settings.corpora.sinebrychoff_fi = {
     id: "sinebrychoff_fi",
     title: "Paul Sinebrychoffin kirjeenvaihto",
@@ -13560,6 +13617,8 @@ settings.fn.make_hms_custom_attr = function (label, base_attr) {
     };
 };
 
+
+funcs.addCorporaToFolder("parliament", ["eduskunta"]);
 
 settings.corpora.eduskunta = {
     title: "Eduskunnan täysistunnot",
@@ -14244,7 +14303,7 @@ settings.corpora.ylilauta = {
 
 // Properties urn, metadata_urn, licence and homepage_url of
 // settings.corpora.s24_??? come from
-// settings.corporafolders.internet.suomi24, so they should not be
+// settings.corporafolders.cmc.suomi24, so they should not be
 // specified in the settings of the individual subcorpora.
 
 settings.corpora.s24_001 = {
@@ -14568,7 +14627,7 @@ settings.fn.add_corpus_settings(
         }
         return result;
     })(2001, 2017),
-    settings.corporafolders.s24_2017h2,
+    settings.corporafolders.cmc.s24_2017h2,
     "s24_");
 
 settings.fn.add_corpus_aliases(
@@ -15340,7 +15399,7 @@ settings.templ.ylenews_fi_a = {
 settings.fn.add_corpus_settings(
     settings.templ.ylenews_fi_a,
     [2011, 2018],
-    settings.corporafolders.webnews.ylenews_fi.a,
+    settings.corporafolders.newspaper.ylenews_fi.a,
     "ylenews_fi_{}_a");
 
 settings.corpus_aliases["ylenews_fi_2011_2018_a"]
@@ -15367,7 +15426,7 @@ settings.templ.ylenews_fi_s = {
 settings.fn.add_corpus_settings(
     settings.templ.ylenews_fi_s,
     [2011, 2018],
-    settings.corporafolders.webnews.ylenews_fi.s,
+    settings.corporafolders.newspaper.ylenews_fi.s,
     "ylenews_fi_{}_s");
 
 settings.corpus_aliases["ylenews_fi_2011_2018_s"]
