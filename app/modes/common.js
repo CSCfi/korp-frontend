@@ -4367,6 +4367,35 @@ sattrlist.topling = {
 /* --------- */
 
 
+// Functions used in corpus configurations
+// TODO: Rename settings.fn.* as funcs.*
+funcs = {};
+
+
+// Add corpusIds to the "contents" array of corpusfolder folderName.
+// Arguments:
+// - folderName: a string that is a property (folder) in
+//   settings.corporafolders. folderName may specify subfolders as
+//   separated by dots: "a.b.c" denotes settings.corporafolders.a.b.c
+// - corpusIds: a single corpus id string or an array of corpus them
+//   to be added to the contents of folderName
+funcs.addCorporaToFolder = function (folderName, corpusIds) {
+    let folder = settings.corporafolders
+    for (let subfolderName of folderName.split(".")) {
+        folder = folder[subfolderName]
+    }
+    if (_.isString(corpusIds)) {
+        corpusIds = [corpusIds]
+    }
+    if (folder.contents == undefined) {
+        folder.contents = []
+    }
+    for (let corpusId of corpusIds) {
+        folder.contents.push(corpusId)
+    }
+}
+
+
 // Homepage in Kotus's Kaino service
 settings.fn.kaino_homepage = function(urlbase) {
     return {
@@ -5125,6 +5154,7 @@ module.exports = {
     sattrs,
     attrlist,
     sattrlist,
+    funcs,
     modernAttrsOld,
     setOptions,
     liteOptions,
