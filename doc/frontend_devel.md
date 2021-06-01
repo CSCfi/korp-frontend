@@ -540,6 +540,8 @@ __corporafolders__ - Create a directory-structure in corpus chooser. Example:
 
 __preselectedCorpora__ - An array of corpus (internal) names or folder names. Given corpora and corpora in folders will be selected on load. To select only a subfolder write `folder.subfolder`.
  
+__allowNoPreselectedCorpora__ - Boolean. If `true`, an empty or undefined `preselectedCorpora` means that no corpora are initially selected instead of having all unprotected corpora selected.
+
 __newMapEnabled__ - See **Map**.
 
 __mapCenter__ - See **Map**.

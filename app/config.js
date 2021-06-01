@@ -154,3 +154,8 @@ settings.mapCenter = {
 };
 
 settings.readingModeField = "sentence_id"
+
+// If settings.allowNoPreselectedCorpora is true, an empty
+// settings.preselectedCorpora array results in no corpora
+// preselected, instead of preselecting all unrestricted corpora
+settings.allowNoPreselectedCorpora = false

@@ -210,7 +210,9 @@ korpApp.run(function ($rootScope, $location, searches, tmhDynamicLocale, $q, $ti
                 )
             )
         } else {
-            if (!(settings.preselectedCorpora && settings.preselectedCorpora.length)) {
+            if (! (settings.preselectedCorpora &&
+                   (settings.preselectedCorpora.length ||
+                    settings.allowNoPreselectedCorpora))) {
                 currentCorpora = _.map(settings.corpusListing.corpora, "id")
             } else {
                 for (let pre_item of settings.preselectedCorpora) {
