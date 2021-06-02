@@ -130,37 +130,6 @@ settings.corporafolders.news.klk_sv = {
     }
 };
 
-settings.corporafolders.news.fstc = {
-    title: "Finlandssvensk textkorpus (UHLCS) (FISC/FSTC)",
-    description: "Finlandssvensk textcorpus (UHLCS): delkorpusar som var i Lemmie-servicen, morfosyntaktiskt analyserade med SWECG",
-    info: {
-        urn: "urn:nbn:fi:lb-2016112318",
-        metadata_urn: "urn:nbn:fi:lb-2016050213",
-        lbr_id: "urn:nbn:fi:lb-2016050212",
-        licence: {
-            name: "CLARIN RES +PLAN +NC +LOC +ND",
-            urn: "urn:nbn:fi:lb-20150304123",
-        },
-        // KitWiki is no longer available and there is no replacement page yet
-        // homepage: {
-        //     name: "Beskrivning",
-        //     url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFstc",
-        //     no_label: true,
-        // },
-        cite_id: "fstc-korp",
-    },
-};
-
-settings.corporafolders.legal.semfinlex = {
-    title: "Semfinlex",
-    description: "Innehåller ett urval av ursprungliga författningar av Riksdagen (1920–2018), avgöranden av Högsta domstolen (1980–) och avgöranden av Högsta förvaltningsdomstolen (2001–).",
-    contents: ["semfinlex_asd_sv_2018", "semfinlex_kko_sv_2018", "semfinlex_kho_sv_2018"],
-    info: {
-        licence: settings.licenceinfo.CC_BY,
-        cite_id: "semfinlex",
-    }
-}
-
 settings.corporafolders.news.ylenews_sv = {
     title: "Yle svenska webbartiklar",
     description: "Yle svenska webbartiklar<br/><br/>Mappen innehåller två korpusar med samma meningar men med olika tillgänglighet och egenskaper: den ena korpusen är öppen för alla och har meningarna i en blandad ordning inom varje text och utan utökad kontextvisning, medan den andra korpusen är tillgänglig för forskare och har meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning.",
@@ -198,6 +167,37 @@ settings.corporafolders.news.ylenews_sv.s = {
         cite_id: "ylenews-sv-2012-2018-s-korp",
     },
 };
+
+settings.corporafolders.news.fstc = {
+    title: "Finlandssvensk textkorpus (UHLCS) (FISC/FSTC)",
+    description: "Finlandssvensk textcorpus (UHLCS): delkorpusar som var i Lemmie-servicen, morfosyntaktiskt analyserade med SWECG",
+    info: {
+        urn: "urn:nbn:fi:lb-2016112318",
+        metadata_urn: "urn:nbn:fi:lb-2016050213",
+        lbr_id: "urn:nbn:fi:lb-2016050212",
+        licence: {
+            name: "CLARIN RES +PLAN +NC +LOC +ND",
+            urn: "urn:nbn:fi:lb-20150304123",
+        },
+        // KitWiki is no longer available and there is no replacement page yet
+        // homepage: {
+        //     name: "Beskrivning",
+        //     url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFstc",
+        //     no_label: true,
+        // },
+        cite_id: "fstc-korp",
+    },
+};
+
+settings.corporafolders.legal.semfinlex = {
+    title: "Semfinlex",
+    description: "Innehåller ett urval av ursprungliga författningar av Riksdagen (1920–2018), avgöranden av Högsta domstolen (1980–) och avgöranden av Högsta förvaltningsdomstolen (2001–).",
+    contents: ["semfinlex_asd_sv_2018", "semfinlex_kko_sv_2018", "semfinlex_kho_sv_2018"],
+    info: {
+        licence: settings.licenceinfo.CC_BY,
+        cite_id: "semfinlex",
+    }
+}
 
 
 var klk_sv_parsed_years = settings.fn.make_yearlist(1771, 1948);

@@ -23,64 +23,6 @@ settings.corpora = {};
 settings.corporafolders = {};
 
 
-settings.corporafolders.akkadian = {
-    title: "Akkadi / Akkadian",
-    description: "Akkadinkielisiä tekstejä / Texts in Akkadian",
-};
-
-settings.corporafolders.akkadian.oracc = {
-    title: "Oracc",
-    description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2019-05",
-    contents: ["oracc_adsd", "oracc_ario", "oracc_blms", "oracc_cams",
-               "oracc_caspo", "oracc_ctij", "oracc_dcclt", "oracc_dccmt",
-               "oracc_ecut", "oracc_etcsri", "oracc_hbtin", "oracc_obmc",
-               "oracc_riao", "oracc_ribo", "oracc_rimanum", "oracc_rinap", "oracc_saao", "oracc_others"],
-    info: {
-        metadata_urn: "urn:nbn:fi:lb-2019060601",
-        urn: "urn:nbn:fi:lb-2019060602",
-        licence: settings.licenceinfo.CC_BY_SA_30,
-        iprholder: {
-            name: "Open Richly Annotated Cuneiform Corpus Project",
-            url: "http://oracc.museum.upenn.edu/doc/about/licensing/index.html",
-        },
-        cite_id: "oracc-korp-2019-05",
-        infopage_url: "https://www.kielipankki.fi/corpora/oracc/",
-    }
-};
-
-settings.corpus_aliases["oracc-2019-05"] = "oracc_adsd,oracc_ario,oracc_blms,oracc_cams,oracc_caspo,oracc_ctij,oracc_dcclt,oracc_dccmt,oracc_ecut,oracc_etcsri,oracc_hbtin,oracc_obmc,oracc_riao,oracc_ribo,oracc_rimanum,oracc_rinap,oracc_saao,oracc_others";
-settings.corpus_aliases.oracc_2919_05
-    = settings.corpus_aliases["oracc-2019-05"];
-
-
-settings.corporafolders.uralic = {
-    title: "Uralilaisia kieliä / Uralic languages",
-    description: "Uralilaisten kielten aineistoja<br/>Corpora in Uralic languages",
-};
-
-settings.corporafolders.uralic.erme = {
-    title: "ERME",
-    description: "ERME: Erzya and Moksha Extended Corpora",
-    contents: ["erme_mdf", "erme_myv"]
-};
-
-settings.corporafolders.uralic.fennougrica = {
-    title: "Fenno-Ugrica",
-    contents: ["fennougrica_myv",
-                "fennougrica_kca",
-                "fennougrica_izh",
-                "fennougrica_mhr",
-                "fennougrica_mrj",
-                "fennougrica_mns",
-                "fennougrica_mdf",
-                "fennougrica_sel",
-                "fennougrica_yrk",
-                "fennougrica_vep"],
-    info: {
-        cite_id: "Fenno-ugrica",
-    },
-};
-
 settings.corporafolders.english = {
     title: "English / Englanti",
     description: "Texts in English<br/>Englanninkielisiä tekstejä",
@@ -193,10 +135,21 @@ settings.corporafolders.russian = {
     },
 };
 
+settings.corporafolders.uralic = {
+    title: "Uralilaisia kieliä / Uralic languages",
+    description: "Uralilaisten kielten aineistoja<br/>Corpora in Uralic languages",
+};
+
 settings.corporafolders.swahili = {
     title: "Swahili",
     description: "Swahilihinkielisiä tekstejä<br/>Texts in Swahili",
 };
+
+settings.corporafolders.akkadian = {
+    title: "Akkadi / Akkadian",
+    description: "Akkadinkielisiä tekstejä / Texts in Akkadian",
+};
+
 
 settings.corporafolders.english.academic.ethesis = {
     title: "E-thesis",
@@ -288,30 +241,56 @@ settings.corporafolders.english.other.glowbe = {
     },
 };
 
-settings.corporafolders.swahili.hcs2 = {
-    title: "Helsinki Corpus of Swahili 2.0 (HCS 2.0)",
-    description: "Helsinki Corpus of Swahili 2.0 (HCS 2.0) Annotated Version<br/><br><a href=\"https://www.kielipankki.fi/corpora/hcs2/\" target=\"_blank\">Corpus information page, including descriptions of annotation feature values (tags)</a>",
+settings.corporafolders.english.historical.scotscorr = {
+    title: "ScotsCorr",
+    // Description copied from META-SHARE
+    description: "Helsinki Corpus of Scottish Correspondence (1540–1750)<br/><br/>The corpus comprises circa 0.5 million tokens (417,709 words) of early Scottish correspondence by male and female writers dating from the period 1540–1750. The corpus consists of transcripts of original letter manuscripts, which reproduce the text disallowing any modernisation, normalisation or emendation. Language-external variables such as date, region, gender, addressee, hand and script type have been coded into the database. The writers originate from fifteen different regions of Scotland; these can be grouped to represent the areas of North, North-East, Central, South-East, and South-West. In addition, there are two categories of informants that have not been defined by geographical origin: representatives of the court and professional people such as members of the clergy. The proportion of female informants in the corpus is 21 per cent.<br/><br/><strong>Please note</strong> that the Korp version of the corpus is in test use and may change without notification, although the corpus data itself should be stable.<br/><br/><a href='https://www.kielipankki.fi/corpora/scotscorr/' target='_blank'>ScotsCorr information page with links to documentation</a>.",
     info: {
-        urn: "urn:nbn:fi:lb-201608301",
-        metadata_urn: "urn:nbn:fi:lb-2016011301",
-        lbr_id: "urn:nbn:fi:lb-2014032624",
-        licence: {
-            name: "CLARIN ACA +NC 1.0",
-            urn: "urn:nbn:fi:lb-2016112310",
+        urn: "urn:nbn:fi:lb-2016121607",
+        metadata_urn: "urn:nbn:fi:lb-201411071",
+        // Use the generic ACA+NC licence information but add a URN
+        // directing to a licence page specific to ScotsCorr (URN
+        // overrides the URL in settings.licenceinfo.ACA_NC).
+        licence: $.extend(true, {},
+                           settings.licenceinfo.ACA_NC,
+                           { urn: "urn:nbn:fi:lb-2016051203" }),
+        // General ACA status application, since ScotsCorr does not
+        // have one of its own
+        lbr_id: "urn:nbn:fi:lb-2016110710",
+        iprholder: {
+            name: "Anneli Meurman-Solin",
         },
-        cite_id: "hcs-a-v2",
+        cite_id: "ScotsCorr",
     },
+    contents: [
+        "scots_royal",
+        "scots_m1540_1599",
+        "scots_f1540_1599",
+        "scots_m1600_1649",
+        "scots_f1600_1649",
+        "scots_m1650_1699",
+        "scots_f1650_1699",
+        "scots_m1700_1749",
+        "scots_f1700_1749",
+    ],
 };
 
-settings.corporafolders.uralic.sust = {
-    title: "SUS-kenttätyö (näyte)",
-    description: "Suomalais-Ugrilaisen Seuran kenttätyökorpus (näyte)",
-    // The Finno-Ugrian Society Fieldwork Corpus (sample)<br/>
+
+settings.corporafolders.uralic.fennougrica = {
+    title: "Fenno-Ugrica",
+    contents: ["fennougrica_myv",
+                "fennougrica_kca",
+                "fennougrica_izh",
+                "fennougrica_mhr",
+                "fennougrica_mrj",
+                "fennougrica_mns",
+                "fennougrica_mdf",
+                "fennougrica_sel",
+                "fennougrica_yrk",
+                "fennougrica_vep"],
     info: {
-        metadata_urn: "urn:nbn:fi:lb-2016092001",
-        licence: settings.licenceinfo.CC_BY_NC,
+        cite_id: "Fenno-ugrica",
     },
-    contents: ["sust_myv", "sust_kpv", "sust_mdf"]
 };
 
 settings.corporafolders.uralic.wanca_2016 = {
@@ -353,39 +332,63 @@ settings.corporafolders.uralic.wanca_2016 = {
                "wanca_2016_yrk" ]
 };
 
-settings.corporafolders.english.historical.scotscorr = {
-    title: "ScotsCorr",
-    // Description copied from META-SHARE
-    description: "Helsinki Corpus of Scottish Correspondence (1540–1750)<br/><br/>The corpus comprises circa 0.5 million tokens (417,709 words) of early Scottish correspondence by male and female writers dating from the period 1540–1750. The corpus consists of transcripts of original letter manuscripts, which reproduce the text disallowing any modernisation, normalisation or emendation. Language-external variables such as date, region, gender, addressee, hand and script type have been coded into the database. The writers originate from fifteen different regions of Scotland; these can be grouped to represent the areas of North, North-East, Central, South-East, and South-West. In addition, there are two categories of informants that have not been defined by geographical origin: representatives of the court and professional people such as members of the clergy. The proportion of female informants in the corpus is 21 per cent.<br/><br/><strong>Please note</strong> that the Korp version of the corpus is in test use and may change without notification, although the corpus data itself should be stable.<br/><br/><a href='https://www.kielipankki.fi/corpora/scotscorr/' target='_blank'>ScotsCorr information page with links to documentation</a>.",
-    info: {
-        urn: "urn:nbn:fi:lb-2016121607",
-        metadata_urn: "urn:nbn:fi:lb-201411071",
-        // Use the generic ACA+NC licence information but add a URN
-        // directing to a licence page specific to ScotsCorr (URN
-        // overrides the URL in settings.licenceinfo.ACA_NC).
-        licence: $.extend(true, {},
-                           settings.licenceinfo.ACA_NC,
-                           { urn: "urn:nbn:fi:lb-2016051203" }),
-        // General ACA status application, since ScotsCorr does not
-        // have one of its own
-        lbr_id: "urn:nbn:fi:lb-2016110710",
-        iprholder: {
-            name: "Anneli Meurman-Solin",
-        },
-        cite_id: "ScotsCorr",
-    },
-    contents: [
-        "scots_royal",
-        "scots_m1540_1599",
-        "scots_f1540_1599",
-        "scots_m1600_1649",
-        "scots_f1600_1649",
-        "scots_m1650_1699",
-        "scots_f1650_1699",
-        "scots_m1700_1749",
-        "scots_f1700_1749",
-    ],
+settings.corporafolders.uralic.erme = {
+    title: "ERME",
+    description: "ERME: Erzya and Moksha Extended Corpora",
+    contents: ["erme_mdf", "erme_myv"]
 };
+
+settings.corporafolders.uralic.sust = {
+    title: "SUS-kenttätyö (näyte)",
+    description: "Suomalais-Ugrilaisen Seuran kenttätyökorpus (näyte)",
+    // The Finno-Ugrian Society Fieldwork Corpus (sample)<br/>
+    info: {
+        metadata_urn: "urn:nbn:fi:lb-2016092001",
+        licence: settings.licenceinfo.CC_BY_NC,
+    },
+    contents: ["sust_myv", "sust_kpv", "sust_mdf"]
+};
+
+
+settings.corporafolders.swahili.hcs2 = {
+    title: "Helsinki Corpus of Swahili 2.0 (HCS 2.0)",
+    description: "Helsinki Corpus of Swahili 2.0 (HCS 2.0) Annotated Version<br/><br><a href=\"https://www.kielipankki.fi/corpora/hcs2/\" target=\"_blank\">Corpus information page, including descriptions of annotation feature values (tags)</a>",
+    info: {
+        urn: "urn:nbn:fi:lb-201608301",
+        metadata_urn: "urn:nbn:fi:lb-2016011301",
+        lbr_id: "urn:nbn:fi:lb-2014032624",
+        licence: {
+            name: "CLARIN ACA +NC 1.0",
+            urn: "urn:nbn:fi:lb-2016112310",
+        },
+        cite_id: "hcs-a-v2",
+    },
+};
+
+
+settings.corporafolders.akkadian.oracc = {
+    title: "Oracc",
+    description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2019-05",
+    contents: ["oracc_adsd", "oracc_ario", "oracc_blms", "oracc_cams",
+               "oracc_caspo", "oracc_ctij", "oracc_dcclt", "oracc_dccmt",
+               "oracc_ecut", "oracc_etcsri", "oracc_hbtin", "oracc_obmc",
+               "oracc_riao", "oracc_ribo", "oracc_rimanum", "oracc_rinap", "oracc_saao", "oracc_others"],
+    info: {
+        metadata_urn: "urn:nbn:fi:lb-2019060601",
+        urn: "urn:nbn:fi:lb-2019060602",
+        licence: settings.licenceinfo.CC_BY_SA_30,
+        iprholder: {
+            name: "Open Richly Annotated Cuneiform Corpus Project",
+            url: "http://oracc.museum.upenn.edu/doc/about/licensing/index.html",
+        },
+        cite_id: "oracc-korp-2019-05",
+        infopage_url: "https://www.kielipankki.fi/corpora/oracc/",
+    }
+};
+
+settings.corpus_aliases["oracc-2019-05"] = "oracc_adsd,oracc_ario,oracc_blms,oracc_cams,oracc_caspo,oracc_ctij,oracc_dcclt,oracc_dccmt,oracc_ecut,oracc_etcsri,oracc_hbtin,oracc_obmc,oracc_riao,oracc_ribo,oracc_rimanum,oracc_rinap,oracc_saao,oracc_others";
+settings.corpus_aliases.oracc_2919_05
+    = settings.corpus_aliases["oracc-2019-05"];
 
 
 settings.corpora.hc = {

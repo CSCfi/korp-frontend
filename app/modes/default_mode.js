@@ -155,46 +155,6 @@ settings.corporafolders.news.klk2_fi = {
     }
 };
 
-settings.corporafolders.news.kal = {
-    title: "Kotuksen aikakauslehtikorpus",
-    description: "Kotimaisten kielten keskuksen aikakauslehtikorpus",
-    info: {
-        metadata_urn: "urn:nbn:fi:lb-201407301",
-        limitedAccess: true,
-        licenceType: "ACA",
-    }
-};
-
-settings.corporafolders.news.kal.kal_perus = {
-    title: "Kotuksen aikakauslehtikorpus, tarkistamaton",
-    description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistamaton",
-    contents: ["kal_perus_ha", "kal_perus_la", "kal_perus_sk", "kal_perus_su"],
-    info: {
-        urn: "urn:nbn:fi:lb-2018060706",
-        metadata_urn: "urn:nbn:fi:lb-2018060702",
-        cite_id: "kotus-al-unrev-korp",
-        licence: {
-            name: "CLARIN ACA +NC +DEP 1.0",
-            urn: "urn:nbn:fi:lb-2021030304",
-        }
-    }
-};
-
-settings.corporafolders.news.kal.kal_ydin = {
-    title: "Kotuksen aikakauslehtikorpus, tarkistettu",
-    description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistettu",
-    contents: ["kal_ydin_ha", "kal_ydin_la", "kal_ydin_sk", "kal_ydin_su"],
-    info: {
-        urn: "urn:nbn:fi:lb-2018060705",
-        metadata_urn: "urn:nbn:fi:lb-2018060701",
-        cite_id: "kotus-al-rev-korp",
-        licence: {
-            name: "CLARIN ACA +NC +DEP 1.0",
-            urn: "urn:nbn:fi:lb-2021030302",
-        }
-    }
-};
-
 
 funcs.addCorporaToFolder("literary", [
     "gutenberg",
@@ -204,6 +164,18 @@ funcs.addCorporaToFolder("literary", [
     "parrus_2016_fi",
     "iijoki",
 ]);
+
+settings.corporafolders.literary.skk = {
+    title: "Suomalaisen kirjallisuuden klassikoita",
+    contents: ["skk_aho","skk_canth","skk_finne","skk_jarnefelt","skk_kailas","skk_lassila","skk_linnankoski","skk_kramsu","skk_lehtonen","skk_leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"],
+    info: {
+        urn: "urn:nbn:fi:lb-2015022401",
+        metadata_urn: "urn:nbn:fi:lb-20140730186",
+        licence: settings.licenceinfo.EUPL_11,
+        homepage: settings.fn.kaino_homepage("klassikot/meta/klassikot"),
+        cite_id: "SKK",
+    }
+};
 
 settings.corporafolders.literary.kaannossuomi = {
     title: "Käännössuomen korpus",
@@ -218,18 +190,6 @@ settings.corporafolders.literary.kaannossuomi = {
         cite_id: "kaannossuomi-korp",
     },
     contents: ["alkusuomi", "kaannossuomi"]
-};
-
-settings.corporafolders.literary.skk = {
-    title: "Suomalaisen kirjallisuuden klassikoita",
-    contents: ["skk_aho","skk_canth","skk_finne","skk_jarnefelt","skk_kailas","skk_lassila","skk_linnankoski","skk_kramsu","skk_lehtonen","skk_leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"],
-    info: {
-        urn: "urn:nbn:fi:lb-2015022401",
-        metadata_urn: "urn:nbn:fi:lb-20140730186",
-        licence: settings.licenceinfo.EUPL_11,
-        homepage: settings.fn.kaino_homepage("klassikot/meta/klassikot"),
-        cite_id: "SKK",
-    }
 };
 
 settings.corporafolders.literary.ceal = {
@@ -906,8 +866,6 @@ settings.corporafolders.news.ylenews_fi.s = {
 };
 
 
-
-
 settings.corporafolders.news.ftc = {
     title: "Suomen kielen tekstikokoelma (SKTP/FTC)",
     description: "Suomen kielen tekstikokoelma: Lemmie-palvelussa olleet osakorpukset",
@@ -929,6 +887,48 @@ settings.corporafolders.news.ftc = {
     },
 };
 
+
+settings.corporafolders.news.kal = {
+    title: "Kotuksen aikakauslehtikorpus",
+    description: "Kotimaisten kielten keskuksen aikakauslehtikorpus",
+    info: {
+        metadata_urn: "urn:nbn:fi:lb-201407301",
+        limitedAccess: true,
+        licenceType: "ACA",
+    }
+};
+
+settings.corporafolders.news.kal.kal_perus = {
+    title: "Kotuksen aikakauslehtikorpus, tarkistamaton",
+    description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistamaton",
+    contents: ["kal_perus_ha", "kal_perus_la", "kal_perus_sk", "kal_perus_su"],
+    info: {
+        urn: "urn:nbn:fi:lb-2018060706",
+        metadata_urn: "urn:nbn:fi:lb-2018060702",
+        cite_id: "kotus-al-unrev-korp",
+        licence: {
+            name: "CLARIN ACA +NC +DEP 1.0",
+            urn: "urn:nbn:fi:lb-2021030304",
+        }
+    }
+};
+
+settings.corporafolders.news.kal.kal_ydin = {
+    title: "Kotuksen aikakauslehtikorpus, tarkistettu",
+    description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistettu",
+    contents: ["kal_ydin_ha", "kal_ydin_la", "kal_ydin_sk", "kal_ydin_su"],
+    info: {
+        urn: "urn:nbn:fi:lb-2018060705",
+        metadata_urn: "urn:nbn:fi:lb-2018060701",
+        cite_id: "kotus-al-rev-korp",
+        licence: {
+            name: "CLARIN ACA +NC +DEP 1.0",
+            urn: "urn:nbn:fi:lb-2021030302",
+        }
+    }
+};
+
+
 // settings.corporafolders.other_texts = {
 //     title: "Muita tekstejä",
 //     contents: [
@@ -941,28 +941,6 @@ settings.corporafolders.news.ftc = {
 
 funcs.addCorporaToFolder("academic", ["finstud", "yoaineet"]);
 
-settings.corporafolders.other.kotus_ns_presidentti = {
-    title: "Tasavallan presidenttien uudenvuodenpuheet",
-    description: "Tasavallan presidenttien uudenvuodenpuheiden kokoelmassa on kaikki tasavallan presidenttien pitämät uudenvuodenpuheet vuosilta 1935–2007. Muutaman kerran puheen on pitänyt joku muu kuin presidentti. Nämäkin puheet sisältyvät aineistoon.<br/>Kokoelma on järjestetty presidenteittäin ja vuosittain. Kokoelma koostuu lehtileikkeistä, konekirjoitusliuskoista, kirjojen sivuista, lehdistötiedotteista ja verkkoteksteistä. Aineistoa on hankittu arkistoista, kirjoista ja Internetistä.",
-    // Contents will be filled in when constructing the corpus
-    // settings
-    contents: [],
-    info: {
-        // URN information also in the corpus .info files; if you need
-        // to update the URNs, you should also check them.
-        urn: "urn:nbn:fi:lb-20151001",
-        metadata_urn: "urn:nbn:fi:lb-20140730150",
-        licence: settings.licenceinfo.EUPL_11,
-        homepage: settings.fn.kaino_homepage(
-            "teko/meta/presidentti/presidentti"),
-        compiler: {
-            name: "Kotimaisten kielten keskus",
-            url: "http://www.kotus.fi/",
-            no_label: true
-        },
-        cite_id: "uudenvuodenpuheet",
-    }
-}
 
 settings.corporafolders.legal.semfinlex = {
     title: "Semfinlex",
@@ -975,9 +953,9 @@ settings.corporafolders.legal.semfinlex = {
 }
 
 funcs.addCorporaToFolder("spoken", [
-    "kotus_sp",
     "skn",
     "dma",
+    "kotus_sp",
     "arkisyn",
     "reittidemo",
 ]);
@@ -1031,6 +1009,30 @@ settings.corporafolders.other.selkokieli.ylenews_fi_selko = {
         },
     },
 };
+
+
+settings.corporafolders.other.kotus_ns_presidentti = {
+    title: "Tasavallan presidenttien uudenvuodenpuheet",
+    description: "Tasavallan presidenttien uudenvuodenpuheiden kokoelmassa on kaikki tasavallan presidenttien pitämät uudenvuodenpuheet vuosilta 1935–2007. Muutaman kerran puheen on pitänyt joku muu kuin presidentti. Nämäkin puheet sisältyvät aineistoon.<br/>Kokoelma on järjestetty presidenteittäin ja vuosittain. Kokoelma koostuu lehtileikkeistä, konekirjoitusliuskoista, kirjojen sivuista, lehdistötiedotteista ja verkkoteksteistä. Aineistoa on hankittu arkistoista, kirjoista ja Internetistä.",
+    // Contents will be filled in when constructing the corpus
+    // settings
+    contents: [],
+    info: {
+        // URN information also in the corpus .info files; if you need
+        // to update the URNs, you should also check them.
+        urn: "urn:nbn:fi:lb-20151001",
+        metadata_urn: "urn:nbn:fi:lb-20140730150",
+        licence: settings.licenceinfo.EUPL_11,
+        homepage: settings.fn.kaino_homepage(
+            "teko/meta/presidentti/presidentti"),
+        compiler: {
+            name: "Kotimaisten kielten keskus",
+            url: "http://www.kotus.fi/",
+            no_label: true
+        },
+        cite_id: "uudenvuodenpuheet",
+    }
+}
 
 
 funcs.addCorporaToFolder("learner", [
