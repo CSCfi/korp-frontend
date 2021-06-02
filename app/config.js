@@ -196,3 +196,8 @@ settings.lemgramComplete = null
 // Corpus folder property names not to be treated as corpus ids, in
 // addition to "title", "contents" and "description"
 settings.corpusfolderNonCorpusProperties = []
+
+// If settings.allowNoPreselectedCorpora is true, an empty
+// settings.preselectedCorpora array results in no corpora
+// preselected, instead of preselecting all unrestricted corpora
+settings.allowNoPreselectedCorpora = false
