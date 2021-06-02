@@ -84,46 +84,121 @@ settings.corporafolders.uralic.fennougrica = {
 settings.corporafolders.english = {
     title: "English / Englanti",
     description: "Texts in English<br/>Englanninkielisiä tekstejä",
-    contents: [
-        "mulcold_en",
-        "elfa",
-        "hc",
-        "topling_en",
-    ]
+    academic: {
+        title: "Academic texts / Akateemisia tekstejä",
+        description: "Corpora containing academic texts<br/>Akateemisia tekstejä sisältäviä aineistoja",
+    },
+    historical: {
+        title: "Historical corpora / Historiallisia aineistoja",
+        description: "Historical corpora<br/>Historiallisia aineistoja",
+        contents: [
+            "hc",
+        ],
+    },
+    learner: {
+        title: "Learner corpora / Oppijankielen aineistoja",
+        description: "Corpora of texts by learners of English (English as a second or foreign language)<br/>Englanninoppijoiden kieltä sisältäviä aineistoja (englantia toisena tai vieraana kielenä)",
+        contents: [
+            "topling_en",
+        ],
+    },
+    spoken: {
+        title: "Spoken language / Puheaineistoja",
+        description: "Corpora of transliterated spoken language<br/>Litteroitua puhuttua kieltä sisältäviä aineistoja",
+        contents: [
+            "elfa",
+        ],
+    },
+    legal: {
+        title: "Legal texts / Juridisia aineistoja",
+        description: "Legal texts<br/>Juridisia aineistoja",
+        contents: [
+            "mulcold_en",
+        ],
+    },
+    other: {
+        title: "Other corpora / Muita aineistoja",
+        description: "Other corpora<br/>Muita aineistoja",
+    },
 };
 
 settings.corporafolders.german = {
     title: "Deutsch / Saksa / German",
     description: "Texte auf Deutsch<br/>Saksankielisiä tekstejä<br/>Texts in German",
-    contents: ["mulcold_de", "ethesis_de"],
+    academic: {
+        title: "Akademische Texte / Akateemisia tekstejä / Academic texts",
+        description: "Akademische Texte<br/>Akateemisia tekstejä<br/>Academic texts",
+        contents: [
+            "ethesis_de",
+        ],
+    },
+    legal: {
+        title: "Juristische Texte / Juridisia tekstejä / Legal texts",
+        description: "Juristische Texte<br/>Juridisia tekstejä<br/>Legal texts",
+        contents: [
+            "mulcold_de",
+        ],
+    },
 };
 
 settings.corporafolders.french = {
     title: "Français / Ranska / French",
     description: "Textes en français<br/>Ranskankielisiä tekstejä<br/>Texts in French",
-    contents: ["ethesis_fr"],
+    academic: {
+        title: "Textes académiques / Akateemisia tekstejä / Academic texts",
+        description: "Textes académiques<br/>Akateemisia tekstejä<br/>Academic texts",
+        contents: [
+            "ethesis_fr"
+        ],
+    },
 };
 
 settings.corporafolders.spanish = {
     title: "Español / Espanja / Spanish",
     description: "Textos on español<br/>Espanjankielisiä tekstejä<br/>Texts in Spanish",
-    contents: ["ethesis_es"],
+    academic: {
+        title: "Textos académicos / Akateemisia tekstejä / Academic texts",
+        description: "Textos académicos<br/>Akateemisia tekstejä<br/>Academic texts",
+        contents: [
+            "ethesis_es"
+        ],
+    },
 };
-
 
 settings.corporafolders.russian = {
     title: "Русский / Venäjä / Russian",
     description: "Tексты по-русски<br/>Venäjänkielisiä tekstejä<br/>Texts in Russian",
-    contents: [
-        "legal_ru",
-        "mulcold_ru",
-        "parrus_2016_ru",
-        "parfin_2016_ru",
-        "ethesis_ru"
-    ],
+    academic: {
+        title: "Академические тексты / Akateemisia tekstejä / Academic texts",
+        description: "Академическиe тексты<br/>Akateemisia tekstejä<br/>Academic texts",
+        contents: [
+            "ethesis_ru"
+        ],
+    },
+    literary: {
+        title: "Художественные тексты / Kirjallisuutta / Literary texts",
+        description: "Художественные тексты<br/>Kirjallisuutta<br/>Literary texts",
+        contents: [
+            "parrus_2016_ru",
+            "parfin_2016_ru",
+        ],
+    },
+    legal: {
+        title: "Юридические тексты / Juridisia tekstejä / Legal texts",
+        description: "Юридические тексты<br/>Juridisia tekstejä<br/>Legal texts",
+        contents: [
+            "legal_ru",
+            "mulcold_ru",
+        ],
+    },
 };
 
-settings.corporafolders.english.ethesis = {
+settings.corporafolders.swahili = {
+    title: "Swahili",
+    description: "Swahilihinkielisiä tekstejä<br/>Texts in Swahili",
+};
+
+settings.corporafolders.english.academic.ethesis = {
     title: "E-thesis",
     description: "Corpus of University of Helsinki theses and dissertations<br/><a href='https://ethesis.helsinki.fi/'>https://ethesis.helsinki.fi/</a>",
     contents: ["ethesis_en_dissabs", "ethesis_en_maabs"],
@@ -136,14 +211,14 @@ settings.corporafolders.english.ethesis = {
     }
 };
 
-settings.corporafolders.english.ethesis.phdtheses = {
+settings.corporafolders.english.academic.ethesis.phdtheses = {
     title: "Doctoral dissertations",
     contents: ["ethesis_en_phd_mm", "ethesis_en_phd_hum", "ethesis_en_phd_bio", "ethesis_en_phd_beh",
                 "ethesis_en_phd_ot", "ethesis_en_phd_med", "ethesis_en_phd_far", "ethesis_en_phd_sci",
                 "ethesis_en_phd_valt", "ethesis_en_phd_teo", "ethesis_en_phd_el"]
 };
 
-settings.corporafolders.english.ethesis.matheses = {
+settings.corporafolders.english.academic.ethesis.matheses = {
     title: "Master's theses",
     contents: ["ethesis_en_ma_mm", "ethesis_en_ma_ai", "ethesis_en_ma_hum", "ethesis_en_ma_bio", "ethesis_en_ma_beh",
                 "ethesis_en_ma_far", "ethesis_en_ma_ot", "ethesis_en_ma_med", "ethesis_en_ma_sci",
@@ -153,7 +228,7 @@ settings.corporafolders.english.ethesis.matheses = {
 
 var byu_fulltext_note = "<br/><br/><strong>Note:</strong> To follow the US Fair Use Law, every 200 words, ten words have been removed and replaced with “@” (<a href='http://corpus.byu.edu/full-text/limitations.asp' target='_blank'>more information</a>).";
 
-settings.corporafolders.english.coca = {
+settings.corporafolders.english.other.coca = {
     title: "COCA: Corpus of Contemporary American English",
     description: "COCA: Corpus of Contemporary American English – Kielipankki Korp version 2017H1<br/><br/>The COCA corpus contains about 520 million words in 220,000 texts of US English from the years 1990–2015. The corpus is evenly divided into spoken, fiction, magazine, newspaper and academic genres." + byu_fulltext_note,
     // contents will be added further below
@@ -173,7 +248,7 @@ settings.corporafolders.english.coca = {
     },
 };
 
-settings.corporafolders.english.coha = {
+settings.corporafolders.english.historical.coha = {
     title: "COHA: Corpus of Historical American English",
     description: "COHA: Corpus of Historical American English – Kielipankki Korp version 2017H1<br/><br/>The COHA corpus contains about 400 million words in 107,000 texts of US English from the years 1810–2009. Each decade has roughly the same balance of fiction, popular magazine, newspaper, and non-fiction books." + byu_fulltext_note,
     // contents will be added futher below
@@ -193,7 +268,7 @@ settings.corporafolders.english.coha = {
     },
 };
 
-settings.corporafolders.english.glowbe = {
+settings.corporafolders.english.other.glowbe = {
     title: "GloWbE: Global Web-based English",
     description: "GloWbE: Global Web-based English – Kielipankki Korp version 2017H1<br/><br/>The GloWbE corpus contains about 1.8 billion words on 1.8 million Web pages of English from the United States, Great Britain, Australia, India and 16 other countries, collected in 2013. About 60% of the text is from blogs." + byu_fulltext_note,
     // contents will be added futher below
@@ -278,7 +353,7 @@ settings.corporafolders.uralic.wanca_2016 = {
                "wanca_2016_yrk" ]
 };
 
-settings.corporafolders.english.scotscorr = {
+settings.corporafolders.english.historical.scotscorr = {
     title: "ScotsCorr",
     // Description copied from META-SHARE
     description: "Helsinki Corpus of Scottish Correspondence (1540–1750)<br/><br/>The corpus comprises circa 0.5 million tokens (417,709 words) of early Scottish correspondence by male and female writers dating from the period 1540–1750. The corpus consists of transcripts of original letter manuscripts, which reproduce the text disallowing any modernisation, normalisation or emendation. Language-external variables such as date, region, gender, addressee, hand and script type have been coded into the database. The writers originate from fifteen different regions of Scotland; these can be grouped to represent the areas of North, North-East, Central, South-East, and South-West. In addition, there are two categories of informants that have not been defined by geographical origin: representatives of the court and professional people such as members of the clergy. The proportion of female informants in the corpus is 21 per cent.<br/><br/><strong>Please note</strong> that the Korp version of the corpus is in test use and may change without notification, although the corpus data itself should be stable.<br/><br/><a href='https://www.kielipankki.fi/corpora/scotscorr/' target='_blank'>ScotsCorr information page with links to documentation</a>.",
@@ -3242,7 +3317,7 @@ var coca_hierarchy = [
 ];
 
 settings.fn.make_folder_hierarchy(
-    settings.corporafolders.english.coca, coca_hierarchy,
+    settings.corporafolders.english.other.coca, coca_hierarchy,
     {
         id_prefix: "coca_",
         title_prefix: "COCA: ",
@@ -3354,7 +3429,7 @@ var coha_hierarchy =
     .concat(make_coha_hierarchy(1860, 2000, coha_genres_news));
 
 settings.fn.make_folder_hierarchy(
-    settings.corporafolders.english.coha, coha_hierarchy,
+    settings.corporafolders.english.historical.coha, coha_hierarchy,
     {
         id_prefix: "coha_",
         title_prefix: "COHA: ",
@@ -3460,7 +3535,7 @@ function make_glowbe_hierarchy (countries) {
 }
 
 settings.fn.make_folder_hierarchy(
-    settings.corporafolders.english.glowbe,
+    settings.corporafolders.english.other.glowbe,
     make_glowbe_hierarchy(glowbe_countries),
     {
         id_prefix: "glowbe_",
