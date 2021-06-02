@@ -23,7 +23,12 @@ settings.corpora = {};
 settings.corporafolders = {};
 
 
-settings.corporafolders.oracc = {
+settings.corporafolders.akkadian = {
+    title: "Akkadi / Akkadian",
+    description: "Akkadinkielisiä tekstejä / Texts in Akkadian",
+};
+
+settings.corporafolders.akkadian.oracc = {
     title: "Oracc",
     description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2019-05",
     contents: ["oracc_adsd", "oracc_ario", "oracc_blms", "oracc_cams",
@@ -47,13 +52,19 @@ settings.corpus_aliases["oracc-2019-05"] = "oracc_adsd,oracc_ario,oracc_blms,ora
 settings.corpus_aliases.oracc_2919_05
     = settings.corpus_aliases["oracc-2019-05"];
 
-settings.corporafolders.testikansio = {
+
+settings.corporafolders.uralic = {
+    title: "Uralilaisia kieliä / Uralic languages",
+    description: "Uralilaisten kielten aineistoja<br/>Corpora in Uralic languages",
+};
+
+settings.corporafolders.uralic.erme = {
     title: "ERME",
     description: "ERME: Erzya and Moksha Extended Corpora",
     contents: ["erme_mdf", "erme_myv"]
 };
 
-settings.corporafolders.fennougrica = {
+settings.corporafolders.uralic.fennougrica = {
     title: "Fenno-Ugrica",
     contents: ["fennougrica_myv",
                 "fennougrica_kca",
@@ -202,7 +213,7 @@ settings.corporafolders.english.glowbe = {
     },
 };
 
-settings.corporafolders.hcs2 = {
+settings.corporafolders.swahili.hcs2 = {
     title: "Helsinki Corpus of Swahili 2.0 (HCS 2.0)",
     description: "Helsinki Corpus of Swahili 2.0 (HCS 2.0) Annotated Version<br/><br><a href=\"https://www.kielipankki.fi/corpora/hcs2/\" target=\"_blank\">Corpus information page, including descriptions of annotation feature values (tags)</a>",
     info: {
@@ -217,7 +228,7 @@ settings.corporafolders.hcs2 = {
     },
 };
 
-settings.corporafolders.sust = {
+settings.corporafolders.uralic.sust = {
     title: "SUS-kenttätyö (näyte)",
     description: "Suomalais-Ugrilaisen Seuran kenttätyökorpus (näyte)",
     // The Finno-Ugrian Society Fieldwork Corpus (sample)<br/>
@@ -228,7 +239,7 @@ settings.corporafolders.sust = {
     contents: ["sust_myv", "sust_kpv", "sust_mdf"]
 };
 
-settings.corporafolders.wanca_2016 = {
+settings.corporafolders.uralic.wanca_2016 = {
     title: "Wanca 2016",
     description: "A collection of web corpora in small Uralic languages",
     info: {
@@ -2741,6 +2752,8 @@ settings.corpora.kildin_sample = {
     }
 };
 
+funcs.addCorporaToFolder("uralic", ["kildin_sample"]);
+
 
 settings.templ.hcs2_common = {
     id: "",
@@ -2890,7 +2903,7 @@ hcs2_hierarchy = [
 ];
 
 settings.fn.make_folder_hierarchy(
-    settings.corporafolders.hcs2, hcs2_hierarchy,
+    settings.corporafolders.swahili.hcs2, hcs2_hierarchy,
     {
         id_prefix: "hcs2_",
         title_prefix: "HCS 2.0: ",
@@ -2916,6 +2929,8 @@ settings.corpora.besercorp = {
     attributes: attrlist.besercorp,
     structAttributes: {}
 };
+
+funcs.addCorporaToFolder("uralic", ["besercorp"]);
 
 
 // Mark Davies's corpora
