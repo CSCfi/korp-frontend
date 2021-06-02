@@ -78,7 +78,40 @@ settings.corpora = {};
 settings.corporafolders = {};
 
 
-settings.corporafolders.ethesis = {
+// Top-level folders according to CLARIN resource families
+settings.corporafolders = {
+    academic: {
+        title: "Akademiska texter",
+        description: "Korpusar av akademiska texter",
+    },
+    historical: {
+        title: "Historiska korpusar",
+        description: "Historiska korpusar",
+    },
+    learner: {
+        title: "Svenskinlärares språk",
+        description: "Korpusar av svenskinlärarens språk (svenska som andraspråk)",
+    },
+    literary: {
+        title: "Litteraturkorpusar",
+        description: "Litteraturkorpusar",
+    },
+    news: {
+        title: "Tidnings-, tidskrifts- och nyhetskorpusar",
+        description: "Tidnings-, tidskrifts- och nyhetskorpusar",
+    },
+    legal: {
+        title: "Juridiska korpusar",
+        description: "Juridiska korpusar",
+    },
+    other: {
+        title: "Andra korpusar",
+        description: "Andra korpusar",
+    },
+};
+
+
+settings.corporafolders.academic.ethesis = {
     title: "E-thesis",
     contents: ["ethesis_sv_dissabs", "ethesis_sv_maabs", "ethesis_sv_phd", "ethesis_sv_ma"],
     info: {
@@ -86,7 +119,7 @@ settings.corporafolders.ethesis = {
     }
 };
 
-settings.corporafolders.klk_sv = {
+settings.corporafolders.news.klk_sv = {
     title: "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter",
     description: "Svenskspråkiga tidningar och tidskrifter i Nationalbibliotekets digitala samlingar, Kielipankki-version",
     info: {
@@ -97,7 +130,7 @@ settings.corporafolders.klk_sv = {
     }
 };
 
-settings.corporafolders.fstc = {
+settings.corporafolders.news.fstc = {
     title: "Finlandssvensk textkorpus (UHLCS) (FISC/FSTC)",
     description: "Finlandssvensk textcorpus (UHLCS): delkorpusar som var i Lemmie-servicen, morfosyntaktiskt analyserade med SWECG",
     info: {
@@ -118,7 +151,7 @@ settings.corporafolders.fstc = {
     },
 };
 
-settings.corporafolders.semfinlex = {
+settings.corporafolders.legal.semfinlex = {
     title: "Semfinlex",
     description: "Innehåller ett urval av ursprungliga författningar av Riksdagen (1920–2018), avgöranden av Högsta domstolen (1980–) och avgöranden av Högsta förvaltningsdomstolen (2001–).",
     contents: ["semfinlex_asd_sv_2018", "semfinlex_kko_sv_2018", "semfinlex_kho_sv_2018"],
@@ -128,7 +161,7 @@ settings.corporafolders.semfinlex = {
     }
 }
 
-settings.corporafolders.ylenews_sv = {
+settings.corporafolders.news.ylenews_sv = {
     title: "Yle svenska webbartiklar",
     description: "Yle svenska webbartiklar<br/><br/>Mappen innehåller två korpusar med samma meningar men med olika tillgänglighet och egenskaper: den ena korpusen är öppen för alla och har meningarna i en blandad ordning inom varje text och utan utökad kontextvisning, medan den andra korpusen är tillgänglig för forskare och har meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning.",
     info: {
@@ -140,7 +173,7 @@ settings.corporafolders.ylenews_sv = {
     },
 };
 
-settings.corporafolders.ylenews_sv.a = {
+settings.corporafolders.news.ylenews_sv.a = {
     title: "Yle svenska webbartiklar 2012–2018 (för forskare)",
     description: "Yle svenska webbartiklar 2012–2018, Korp<br/>Variant tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning<br/><br/>Korpusen är indelad i delkorpusar enligt år, och artiklarna är ordnade enligt redigeringsdatumet.",
     // Contents are added later with settings.fn.add_corpus_settings
@@ -153,7 +186,7 @@ settings.corporafolders.ylenews_sv.a = {
     },
 };
 
-settings.corporafolders.ylenews_sv.s = {
+settings.corporafolders.news.ylenews_sv.s = {
     title: "Yle svenska webbartiklar 2012–2018 (för alla)",
     description: "Yle svenska webbartiklar 2012–2018, blandad, Korp<br/>Variant öppen för alla: meningarna i en blandad ordning inom varje text och ingen utökad kontextvisning<br/><br/>Korpusen är indelad i delkorpusar enligt år, och artiklarna är ordnade enligt redigeringsdatumet.",
     // Contents are added later with settings.fn.add_corpus_settings
@@ -174,7 +207,7 @@ var klk_sv_parsed_years = settings.fn.make_yearlist(1771, 1948);
 // Swedish KLK corpora by using functions defined in config.js
 
 settings.fn.make_corpus_settings_by_year_decade(
-    settings.corporafolders.klk_sv, "sv_{decade}", "klk_sv_{year}",
+    settings.corporafolders.news.klk_sv, "sv_{decade}", "klk_sv_{year}",
     function(decade) {
         return { title: decade.toString() + "-talet" };
     },
@@ -343,6 +376,8 @@ settings.corpora.studentsvenska = {
     structAttributes: sattrlist.studentsvenska
 };
 
+funcs.addCorporaToFolder("learner", "studentsvenska");
+
 
 settings.corpora.mulcold_sv = {
     id: "mulcold_sv",
@@ -357,6 +392,8 @@ settings.corpora.mulcold_sv = {
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
                                    ["mulcold_sv"]);
+
+funcs.addCorporaToFolder("legal", "mulcold_sv");
 
 
 settings.corpora.topling_sv = {
@@ -380,7 +417,10 @@ settings.corpora.topling_sv = {
     structAttributes: sattrlist.topling
 };
 
+funcs.addCorporaToFolder("learner", "topling_sv");
+
 settings.corpus_aliases["topling-sv"] = "topling_sv";
+
 
 settings.corpora.kfspc_sv = {
     title: "KFSPC svenska",
@@ -395,6 +435,9 @@ settings.corpora.kfspc_sv = {
     structAttributes: sattrlist.kfspc,
 };
 
+funcs.addCorporaToFolder("other", "kfspc_sv");
+
+
 settings.corpora.sinebrychoff_orig = {
     id: "sinebrychoff_orig",
     title: "Paul Sinebrychoffs brevsamling",
@@ -408,6 +451,7 @@ settings.corpora.sinebrychoff_orig = {
     structAttributes: sattrlist.sinebrychoff
 };
 
+funcs.addCorporaToFolder("historical", "sinebrychoff_orig");
 
 
 settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_sv"]);
@@ -505,7 +549,7 @@ settings.templ.fstc = $.extend(true, {}, settings.templ.lemmie_common, {
 
 // Create the FSTC corpus folder hierarchy and corpus settings
 settings.fn.make_folder_hierarchy(
-    settings.corporafolders.fstc, fstc_hierarchy,
+    settings.corporafolders.news.fstc, fstc_hierarchy,
     {
         id_prefix: "fstc_",
         description_prefix: "Finlandssvensk textkorpus (UHLCS): ",
@@ -541,6 +585,8 @@ settings.corpora.parole_sv = $.extend(true, {}, settings.templ.fstc, {
         dataset: ["p"]
     },
 });
+
+funcs.addCorporaToFolder("other", "parole_sv");
 
 
 /* Svenska YLE */
@@ -896,7 +942,7 @@ settings.templ.ylenews_sv_a = {
 settings.fn.add_corpus_settings(
     settings.templ.ylenews_sv_a,
     [2012, 2018],
-    settings.corporafolders.ylenews_sv.a,
+    settings.corporafolders.news.ylenews_sv.a,
     "ylenews_sv_{}_a");
 
 settings.corpus_aliases["ylenews_sv_2012_2018_a"]
@@ -921,7 +967,7 @@ settings.templ.ylenews_sv_s = {
 settings.fn.add_corpus_settings(
     settings.templ.ylenews_sv_s,
     [2012, 2018],
-    settings.corporafolders.ylenews_sv.s,
+    settings.corporafolders.news.ylenews_sv.s,
     "ylenews_sv_{}_s");
 
 settings.corpus_aliases["ylenews_sv_2012_2018_s"]
