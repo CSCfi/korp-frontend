@@ -1102,7 +1102,7 @@ settings.corporafolders.historical.vns = {
  * Folders will be expanded to all corpora. Optionally prefix folders with __ , which will be ignored.
  */
 settings.preselectedCorpora = [
-    "reittidemo",
+    // "reittidemo",
 ];
 
 

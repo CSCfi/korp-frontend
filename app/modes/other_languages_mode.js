@@ -15,7 +15,7 @@ settings.placenameConstraint = "pos contains 'np1?' | pos='PROPNAME'";
 
 
 settings.preselectedCorpora = [
-    "mulcold_en",
+//    "mulcold_en",
 ];
 
 

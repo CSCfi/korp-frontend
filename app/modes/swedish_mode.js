@@ -23,8 +23,8 @@ settings.show_related_words = true;
 
 
 settings.preselectedCorpora = [
-    "mulcold_sv",
-    "kfspc_sv",
+    // "mulcold_sv",
+    // "kfspc_sv",
 ];
 
 

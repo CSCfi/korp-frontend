@@ -665,6 +665,11 @@ settings.lemgramComplete = {
 // addition to "title", "contents" and "description"
 settings.corpusfolderNonCorpusProperties = ["info"]
 
+// If settings.allowNoPreselectedCorpora is true, an empty
+// settings.preselectedCorpora array results in no corpora
+// preselected, instead of preselecting all unrestricted corpora
+settings.allowNoPreselectedCorpora = true
+
 
 /*
  * Modify the list of corpora

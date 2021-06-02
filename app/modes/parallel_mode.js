@@ -20,8 +20,8 @@ var context = {
 };
 
 settings.preselectedCorpora = [
-    "europarl_v7_enfi_fi",
-    "mulcold_fi",
+    // "europarl_v7_enfi_fi",
+    // "mulcold_fi",
 ];
 
 settings.defaultOverviewContext = "1 link";
