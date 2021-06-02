@@ -32,7 +32,29 @@ settings.linkWithin = { "link": "link" };
 
 settings.corporafolders = {};
 
-settings.corporafolders.europarl = {
+
+// Top-level folders according to CLARIN resource families
+settings.corporafolders = {
+    literary: {
+        title: "Kirjallisuusaineistoja / Litteraturkorpusar / Literary texts",
+        description: "Kirjallisuusaineistoja<br/>Litteraturkorpusar<br/>Literary texts",
+    },
+    parliament: {
+        title: "Parlamenttiaineistoja / Parlamentariska korpusar / Parliamentary texts",
+        description: "Parlamenttiaineistoja<br/>Parlamentariska korpusar<br/>Parliamentary texts",
+    },
+    legal: {
+        title: "Juridisia aineistoja / Juridiska korpusar / Legal texts",
+        description: "Juridisia aineistoja<br/>Juridiska korpusar<br/>Legal texts",
+    },
+    other: {
+        title: "Muita aineistoja / Andra korpusar / Other corpora",
+        description: "Muita aineistoja<br/>Andra korpusar<br/>Other corpora",
+    },
+};
+
+
+settings.corporafolders.parliament.europarl = {
     title: "HeKo-EuroParl 7",
     description: "Helsinki Korp EuroParl v7 -aineistokokoelma",
     contents: [
@@ -54,7 +76,7 @@ settings.corporafolders.europarl = {
 settings.corpus_aliases.europarl_v7 = "europarl_v7_.*_fi";
 settings.corpus_aliases.europarl = settings.corpus_aliases.europarl_v7;
 
-settings.corporafolders.jrc = {
+settings.corporafolders.legal.jrc = {
     title: "HeKo-JRC-Acquis",
     description: "Helsinki Korp JRC-Acquis -aineistokokoelma",
     contents: [
@@ -78,7 +100,7 @@ settings.corporafolders.jrc = {
 
 settings.corpus_aliases.jrc_acquis = "jrc_acquis_.*fi";
 
-settings.corporafolders.opus = {
+settings.corporafolders.other.opus = {
     title: "OPUS",
     description: "OPUS – an open source parallel corpus",
     info: {
@@ -89,7 +111,7 @@ settings.corporafolders.opus = {
     },
 };
 
-settings.corporafolders.opus.enfi = {
+settings.corporafolders.other.opus.enfi = {
     title: "OPUS Finnish–English",
     contents: ['opus_opensub2011enfi_fi', 'opus_opensub2012enfi_fi',
                 'opus_opensub2013enfi_fi', 'opus_opensub2015enfi_fi',
@@ -102,7 +124,7 @@ settings.corporafolders.opus.enfi = {
 settings.corpus_aliases.opus_enfi = "opus_.*enfi_fi";
 settings.corpus_aliases.opus_fien = "opus_.*enfi_fi";
 
-settings.corporafolders.opus.firu = {
+settings.corporafolders.other.opus.firu = {
     title: "OPUS Finnish–Russian",
     contents: ['opus_opensubtitles2011_firu_fi', 'opus_opensubtitles2012_firu_fi',
                 'opus_eubookshop_firu_fi', 'opus_kde4_firu_fi', 'opus_opensubtitles_firu_fi',
@@ -113,7 +135,7 @@ settings.corporafolders.opus.firu = {
 
 settings.corpus_aliases.opus_firu = "opus_.*firu_fi";
 
-settings.corporafolders.opus.fisv = {
+settings.corporafolders.other.opus.fisv = {
     title: "OPUS Finnish–Swedish",
     contents: ['opus_opensubtitles2011_fisv_fi', 'opus_opensubtitles2012_fisv_fi',
                 'opus_opensubtitles2013_fisv_fi', 'opus_dgt_fisv_fi',
@@ -124,7 +146,7 @@ settings.corporafolders.opus.fisv = {
 
 settings.corpus_aliases.opus_fisv = "opus_.*fisv_fi";
 
-settings.corporafolders.opus.defi = {
+settings.corporafolders.other.opus.defi = {
     title: "OPUS Finnish–German",
     contents: ['opus_opensubtitles2012_defi_fi', 'opus_opensubtitles2011_defi_fi',
                 'opus_opensubtitles2013_defi_fi', 'opus_eubookshop_defi_fi', 'opus_dgt_defi_fi',
@@ -136,7 +158,7 @@ settings.corporafolders.opus.defi = {
 settings.corpus_aliases.opus_defi = "opus_.*defi_fi";
 settings.corpus_aliases.opus_fide = "opus_.*defi_fi";
 
-settings.corporafolders.opus.fifr = {
+settings.corporafolders.other.opus.fifr = {
     title: "OPUS Finnish–French",
     contents: ['opus_dgt_fifr_fi',
                 'opus_emea_fifr_fi',
@@ -157,7 +179,7 @@ settings.corporafolders.opus.fifr = {
 
 settings.corpus_aliases.opus_fifr = "opus_.*fifr_fi";
 
-settings.corporafolders.opus.dafi = {
+settings.corporafolders.other.opus.dafi = {
     title: "OPUS Finnish–Danish",
     contents: ['opus_dgt_dafi_fi',
                 'opus_eubookshop_dafi_fi',
@@ -170,7 +192,7 @@ settings.corporafolders.opus.dafi = {
 settings.corpus_aliases.opus_dafi = "opus_.*dafi_fi";
 settings.corpus_aliases.opus_fida = "opus_.*dafi_fi";
 
-settings.corporafolders.opus.fipl = {
+settings.corporafolders.other.opus.fipl = {
     title: "OPUS Finnish–Polish",
     contents: ['opus_dgt_fipl_fi',
                 'opus_opensubtitles2011_fipl_fi',
@@ -182,7 +204,7 @@ settings.corporafolders.opus.fipl = {
 
 settings.corpus_aliases.opus_fipl = "opus_.*fipl_fi";
 
-settings.corporafolders.opus.esfi = {
+settings.corporafolders.other.opus.esfi = {
     title: "OPUS Finnish–Spanish",
     contents: ['opus_dgt_esfi_fi',
                 'opus_eubookshop_esfi_fi',
@@ -204,7 +226,7 @@ settings.corporafolders.opus.esfi = {
 settings.corpus_aliases.opus_esfi = "opus_.*esfi_fi";
 settings.corpus_aliases.opus_fies = "opus_.*esfi_fi";
 
-settings.corporafolders.opus.fipt = {
+settings.corporafolders.other.opus.fipt = {
     title: "OPUS Finnish–Portuguese",
     contents: ['opus_dgt_fipt_fi',
                 'opus_eubookshop_fipt_fi',
@@ -217,7 +239,7 @@ settings.corporafolders.opus.fipt = {
 
 settings.corpus_aliases.opus_fipt = "opus_.*fipt_fi";
 
-settings.corporafolders.opus.etfi = {
+settings.corporafolders.other.opus.etfi = {
     title: "OPUS Finnish–Estonian",
     contents: ['opus_dgt_etfi_fi',
                 'opus_emea_etfi_fi',
@@ -230,7 +252,7 @@ settings.corporafolders.opus.etfi = {
 settings.corpus_aliases.opus_etfi = "opus_.*etfi_fi";
 settings.corpus_aliases.opus_fiet = "opus_.*etfi_fi";
 
-settings.corporafolders.opus.fiit = {
+settings.corporafolders.other.opus.fiit = {
     title: "OPUS Finnish–Italian",
     contents: ['opus_dgt_fiit_fi',
                 'opus_emea_fiit_fi',
@@ -243,7 +265,7 @@ settings.corporafolders.opus.fiit = {
 
 settings.corpus_aliases.opus_fiit = "opus_.*fiit_fi";
 
-settings.corporafolders.opus.fihu = {
+settings.corporafolders.other.opus.fihu = {
     title: "OPUS Finnish–Hungarian",
     contents: ['opus_dgt_fihu_fi',
                 'opus_emea_fihu_fi',
@@ -257,7 +279,7 @@ settings.corporafolders.opus.fihu = {
 
 settings.corpus_aliases.opus_fihu = "opus_.*fihu_fi";
 
-settings.corporafolders.opus.finl = {
+settings.corporafolders.other.opus.finl = {
     title: "OPUS Finnish–Dutch",
     contents: ['opus_dgt_finl_fi',
                 'opus_ecb_finl_fi',
@@ -276,7 +298,7 @@ settings.corporafolders.opus.finl = {
 
 settings.corpus_aliases.opus_finl = "opus_.*finl_fi";
 
-settings.corporafolders.opus.fitrl = {
+settings.corporafolders.other.opus.fitrl = {
     title: "OPUS Finnish–Turkish",
     contents: ['opus_eubookshop_fitr_fi',
                 'opus_gnome_fitr_fi',
@@ -290,7 +312,7 @@ settings.corporafolders.opus.fitrl = {
 
 settings.corpus_aliases.opus_fitr = "opus_.*fitr_fi";
 
-settings.corporafolders.opus.csfi = {
+settings.corporafolders.other.opus.csfi = {
     title: "OPUS Finnish–Czech",
     contents: ['opus_dgt_csfi_fi',
                 'opus_ecb_csfi_fi',
@@ -311,7 +333,7 @@ settings.corporafolders.opus.csfi = {
 settings.corpus_aliases.opus_csfi = "opus_.*csfi_fi";
 settings.corpus_aliases.opus_fics = "opus_.*csfi_fi";
 
-settings.corporafolders.opus.elfi = {
+settings.corporafolders.other.opus.elfi = {
     title: "OPUS Finnish–Greek",
     contents: ['opus_dgt_elfi_fi',
                 'opus_ecb_elfi_fi',
@@ -332,7 +354,7 @@ settings.corpus_aliases.opus_elfi = "opus_.*elfi_fi";
 settings.corpus_aliases.opus_fiel = "opus_.*elfi_fi";
 
 
-settings.corporafolders.parfin_parrus = {
+settings.corporafolders.literary.parfin_parrus = {
     title: "ParFin, ParRus",
     contents: [
         "parfin_2016_fi",
@@ -356,7 +378,7 @@ var wordlink = {
 
 /* CEAL */
 
-settings.corporafolders.ceal = {
+settings.corporafolders.literary.ceal = {
     title: "CEAL",
     description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus<br/>Classics of English and American Literature as translated by Kersti Juva, English–Finnish parallel corpus",
         // <br/><br/><strong>Huomaa</strong>, että korpukset CEAL-o ja CEAL-s sisältävät samat tekstit, mutta CEAL-s:ssä kappaleet on sekoitettu kunkin teoksen sisällä, kun taas CEAL-o:ssa kappaleet ovat alkuperäisessä järjestyksessä. Hakuja varten kannattaa valita vain toinen korpus. CEAL-o vaatii aina henkilökohtaisen käyttöluvan."
@@ -528,6 +550,9 @@ settings.corpora.semfinlex_asd_par_2018_sv = {
     linkedTo: ["semfinlex_asd_par_2018_fi"],
     hide: true
 }
+
+funcs.addCorporaToFolder("legal", "semfinlex_asd_par_2018_fi");
+
 
 /* OPUS – Open Source Paraller Corpus */
 
@@ -7530,6 +7555,8 @@ settings.corpora.kfspc_sv = {
 settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc,
                                    ["kfspc_fi", "kfspc_sv"]);
 
+funcs.addCorporaToFolder("other", "kfspc_fi");
+
 
 settings.corpora.mulcold_fi = {
     id: "mulcold_fi",
@@ -7608,6 +7635,8 @@ settings.corpora.mulcold_de = {
 settings.fn.extend_corpus_settings(
     $.extend({}, settings.corpusinfo.mulcold, { cite_id: "MULCOLD", }),
     ["mulcold_fi", "mulcold_en", "mulcold_sv", "mulcold_ru", "mulcold_de"]);
+
+funcs.addCorporaToFolder("legal", "mulcold_fi");
 
 
 /* ParFin 2016 */
