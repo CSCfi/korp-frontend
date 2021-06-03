@@ -204,6 +204,31 @@ settings.corporafolders.literary.ceal = {
     contents: ["ceal_o", "ceal_s"]
 };
 
+
+var ftc_info = {
+    urn: "urn:nbn:fi:lb-2014052719",
+    metadata_urn: "urn:nbn:fi:lb-2016050207",
+    lbr_id: "urn:nbn:fi:lb-201403268",
+    licence: {
+        name: "CLARIN RES +PLAN +NC +ND",
+        urn: "urn:nbn:fi:lb-20150304137",
+    },
+    // KitWiki is no longer available and there is no replacement page yet
+    // homepage: {
+    //     name: "Aineiston kuvaus",
+    //     url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFtc",
+    //     no_label: true,
+    // },
+    cite_id: "ftc-korp",
+};
+
+settings.corporafolders.literary.ftc_literary = {
+    title: "Suomen kielen tekstikokoelma (SKTP/FTC): kirjallisuus",
+    description: "Suomen kielen tekstikokoelman kirjallisuus: Lemmie-palvelussa olleet osakorpukset<br/><br/><strong>Huomaa</strong>, että Suomen kielen tekstikokoelman lehdet ovat korpusvalikon kansiossa <i>Lehti- ja uutisaineistoja</i>.",
+    info: ftc_info,
+};
+
+
 funcs.addCorporaToFolder("legal", [
     "kotus_lakidir",
     "legal_fi",
@@ -866,25 +891,10 @@ settings.corporafolders.news.ylenews_fi.s = {
 };
 
 
-settings.corporafolders.news.ftc = {
-    title: "Suomen kielen tekstikokoelma (SKTP/FTC)",
-    description: "Suomen kielen tekstikokoelma: Lemmie-palvelussa olleet osakorpukset",
-    info: {
-        urn: "urn:nbn:fi:lb-2014052719",
-        metadata_urn: "urn:nbn:fi:lb-2016050207",
-        lbr_id: "urn:nbn:fi:lb-201403268",
-        licence: {
-            name: "CLARIN RES +PLAN +NC +ND",
-            urn: "urn:nbn:fi:lb-20150304137",
-        },
-        // KitWiki is no longer available and there is no replacement page yet
-        // homepage: {
-        //     name: "Aineiston kuvaus",
-        //     url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFtc",
-        //     no_label: true,
-        // },
-        cite_id: "ftc-korp",
-    },
+settings.corporafolders.news.ftc_news = {
+    title: "Suomen kielen tekstikokoelma (SKTP/FTC): lehdet",
+    description: "Suomen kielen tekstikokoelman lehdet: Lemmie-palvelussa olleet osakorpukset<br/><br/><strong>Huomaa</strong>, että Suomen kielen tekstikokoelman kirjallisuus on korpusvalikon kansiossa <i>Kirjallisuusaineistoja</i>.",
+    info: ftc_info,
 };
 
 
@@ -9558,9 +9568,9 @@ settings.corpora.ethesis_ma_med = {
 
 /* FTC (Finnish Text Collection) aka SKTP */
 
-// FTC (sub)corpus hierarchy
-ftc_hierarchy = [
-    ["lehdet", "Lehdet", [
+// FTC (sub)corpus hierarchies
+ftc_hierarchy = {
+    news: [
         ["aamu", "Aamulehti 1995, 1999", [
             ["aamu1995", "Aamulehti 1995",],
             ["aamu1999", "Aamulehti 1999",],
@@ -9624,9 +9634,11 @@ ftc_hierarchy = [
             ["tusa1998", "Turun Sanomat 1998",],
             ["tusa1999", "Turun Sanomat 1999",],
         ] ],
-    ] ],
-    ["otava1993", "Kustannusosakeyhtiö Otava 1993",],
-];
+    ],
+    literary: [
+        ["otava1993", "Kustannusosakeyhtiö Otava 1993",],
+    ],
+};
 
 // Settings template for FTC subcorpora
 settings.templ.ftc = $.extend(true, {}, settings.templ.lemmie_common, {
@@ -9677,15 +9689,20 @@ settings.templ.ftc = $.extend(true, {}, settings.templ.lemmie_common, {
     }
 });
 
-// Create the FTC corpus folder hierarchy and corpus settings
-settings.fn.make_folder_hierarchy(
-    settings.corporafolders.news.ftc, ftc_hierarchy,
-    {
-        id_prefix: "ftc_",
-        description_prefix: "Suomen kielen tekstikokoelma: ",
-        corpus_title_suffix: " (SKTP)",
-        corpus_template: settings.templ.ftc,
-    });
+// Create the FTC corpus folder hierarchies and corpus settings
+for (const [key, label] of [
+    ["news", "lehdet"],
+    ["literary", "kirjallisuus"],
+]) {
+    settings.fn.make_folder_hierarchy(
+        settings.corporafolders[key]["ftc_" + key], ftc_hierarchy[key],
+        {
+            id_prefix: "ftc_",
+            description_prefix: "Suomen kielen tekstikokoelma: " + label + ": ",
+            corpus_title_suffix: " (SKTP)",
+            corpus_template: settings.templ.ftc,
+        });
+}
 
 delete ftc_hierarchy;
 
