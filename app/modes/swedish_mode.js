@@ -119,6 +119,29 @@ settings.corporafolders.academic.ethesis = {
     }
 };
 
+var fstc_info = {
+    urn: "urn:nbn:fi:lb-2016112318",
+    metadata_urn: "urn:nbn:fi:lb-2016050213",
+    lbr_id: "urn:nbn:fi:lb-2016050212",
+    licence: {
+        name: "CLARIN RES +PLAN +NC +LOC +ND",
+        urn: "urn:nbn:fi:lb-20150304123",
+    },
+    // KitWiki is no longer available and there is no replacement page yet
+    // homepage: {
+    //     name: "Beskrivning",
+    //     url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFstc",
+    //     no_label: true,
+    // },
+    cite_id: "fstc-korp",
+};
+
+settings.corporafolders.literary.fstc_literary = {
+    title: "Finlandssvensk textkorpus (UHLCS) (FISC/FSTC): litteratur",
+    description: "Finlandssvensk textcorpus (UHLCS): litteratur: delkorpusar som var i Lemmie-servicen, morfosyntaktiskt analyserade med SWECG<br/><br/><strong>Observera</strong> att delkorpusar av FSTC finns också under <i>Tidnings-, tidskrifts- och nyhetskorpusar</i> och <i>Andra korpusar</i>.",
+    info: fstc_info,
+};
+
 settings.corporafolders.news.klk_sv = {
     title: "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter",
     description: "Svenskspråkiga tidningar och tidskrifter i Nationalbibliotekets digitala samlingar, Kielipankki-version",
@@ -168,25 +191,10 @@ settings.corporafolders.news.ylenews_sv.s = {
     },
 };
 
-settings.corporafolders.news.fstc = {
-    title: "Finlandssvensk textkorpus (UHLCS) (FISC/FSTC)",
-    description: "Finlandssvensk textcorpus (UHLCS): delkorpusar som var i Lemmie-servicen, morfosyntaktiskt analyserade med SWECG",
-    info: {
-        urn: "urn:nbn:fi:lb-2016112318",
-        metadata_urn: "urn:nbn:fi:lb-2016050213",
-        lbr_id: "urn:nbn:fi:lb-2016050212",
-        licence: {
-            name: "CLARIN RES +PLAN +NC +LOC +ND",
-            urn: "urn:nbn:fi:lb-20150304123",
-        },
-        // KitWiki is no longer available and there is no replacement page yet
-        // homepage: {
-        //     name: "Beskrivning",
-        //     url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/KielipankkiAineistotFstc",
-        //     no_label: true,
-        // },
-        cite_id: "fstc-korp",
-    },
+settings.corporafolders.news.fstc_news = {
+    title: "Finlandssvensk textkorpus (UHLCS) (FISC/FSTC): tidningar och nyheter",
+    description: "Finlandssvensk textcorpus (UHLCS): tidningar och nyheter: delkorpusar som var i Lemmie-servicen, morfosyntaktiskt analyserade med SWECG<br/><br/><strong>Observera</strong> att delkorpusar av FSTC finns också under <i>Litteraturkorpusar</i> och <i>Andra korpusar</i>.",
+    info: fstc_info,
 };
 
 settings.corporafolders.legal.semfinlex = {
@@ -198,6 +206,12 @@ settings.corporafolders.legal.semfinlex = {
         cite_id: "semfinlex",
     }
 }
+
+settings.corporafolders.other.fstc_other = {
+    title: "Finlandssvensk textkorpus (UHLCS) (FISC/FSTC): myndighetstexter",
+    description: "Finlandssvensk textcorpus (UHLCS): myndighetstexter: delkorpus som var i Lemmie-servicen, morfosyntaktiskt analyserad med SWECG<br/><br/><strong>Observera</strong> att delkorpusar av FSTC finns också under <i>Litteraturkorpusar</i> och <i>Tidnings-, tidskrifts- och nyhetskorpusar</i>.",
+    info: fstc_info,
+};
 
 
 var klk_sv_parsed_years = settings.fn.make_yearlist(1771, 1948);
@@ -459,31 +473,40 @@ settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_sv"]);
 
 /* FSTC (Finland-Swedish Text Corpus) aka FISC */
 
-// FSTC (sub)corpus hierarchy
-fstc_hierarchy = [
-    ["fnb", "Finska Notisbyrån 1999–2000", [
-        ["fnb1999", "Finska Notisbyrån 1999"],
-        ["fnb2000", "Finska Notisbyrån 2000"],
-    ] ],
-    ["hbl", "Hufvudstadsbladet 1998–1999", [
-        ["hbl1998", "Hufvudstadsbladet 1998"],
-        ["hbl1999", "Hufvudstadsbladet 1999"],
-    ] ],
-    ["jt", "Jakobstads Tidning 1999–2000", [
-        ["jt1999", "Jakobstads Tidning 1999"],
-        ["jt2000", "Jakobstads Tidning 2000"],
-    ] ],
-    ["soder", "Söderströms 1997–1999", [
-        ["soder_a", "Söderströms 1997–1999 A"],
-        ["soder_b", "Söderströms 1997–1999 B"],
-    ] ],
-    ["fisc", "FISC", "FISC – En finlandssvensk textkorpus", [
-        ["fisc_lit", "FISC Litteratur"],
-        ["fisc_myn", "FISC Myndighet"],
-        ["fisc_sak", "FISC Sakprosa"],
-        ["fisc_tid", "FISC Tidning"],
-    ] ],
-];
+// FSTC (sub)corpus hierarchies
+fstc_hierarchy = {
+    news: [
+        ["fnb", "Finska Notisbyrån 1999–2000", [
+            ["fnb1999", "Finska Notisbyrån 1999"],
+            ["fnb2000", "Finska Notisbyrån 2000"],
+        ] ],
+        ["hbl", "Hufvudstadsbladet 1998–1999", [
+            ["hbl1998", "Hufvudstadsbladet 1998"],
+            ["hbl1999", "Hufvudstadsbladet 1999"],
+        ] ],
+        ["jt", "Jakobstads Tidning 1999–2000", [
+            ["jt1999", "Jakobstads Tidning 1999"],
+            ["jt2000", "Jakobstads Tidning 2000"],
+        ] ],
+        ["fisc_tid", "FISC Tidning",
+         "FISC – En finlandssvensk textkorpus: Tidning<br/><br/><strong>Observera</strong> att delkorpusar av FISC finns också under <i>Tidnings-, tidskrifts- och nyhetskorpusar</i> och <i>Andra korpusar</i>."],
+    ],
+    literary: [
+        ["soder", "Söderströms 1997–1999", [
+            ["soder_a", "Söderströms 1997–1999 A"],
+            ["soder_b", "Söderströms 1997–1999 B"],
+        ] ],
+        ["fisc", "FISC Litteratur och Sakprosa",
+         "FISC – En finlandssvensk textkorpus: Litteratur och Sakprosa<br/><br/><strong>Observera</strong> att delkorpusar av FISC finns också under <i>Litteraturkorpusar</i> och <i>Andra korpusar</i>.", [
+            ["fisc_lit", "FISC Litteratur"],
+            ["fisc_sak", "FISC Sakprosa"],
+        ] ],
+    ],
+    other: [
+        ["fisc_myn", "FISC Myndighet",
+         "FISC – En finlandssvensk textkorpus: Myndighet<br/><br/><strong>Observera</strong> att delkorpusar av FISC finns också under <i>Litteraturkorpusar</i> och <i>Tidnings-, tidskrifts- och nyhetskorpusar</i>."],
+    ],
+};
 
 // Settings template for FSTC subcorpora
 settings.templ.fstc = $.extend(true, {}, settings.templ.lemmie_common, {
@@ -547,15 +570,22 @@ settings.templ.fstc = $.extend(true, {}, settings.templ.lemmie_common, {
     }
 });
 
-// Create the FSTC corpus folder hierarchy and corpus settings
-settings.fn.make_folder_hierarchy(
-    settings.corporafolders.news.fstc, fstc_hierarchy,
-    {
-        id_prefix: "fstc_",
-        description_prefix: "Finlandssvensk textkorpus (UHLCS): ",
-        corpus_title_suffix: " (FSTC)",
-        corpus_template: settings.templ.fstc,
-    });
+// Create the FSTC corpus folder hierarchies and corpus settings
+for (const [key, label] of [
+    ["news", "tidningar och nyheter"],
+    ["literary", "litteratur"],
+    ["other", "andra"],
+]) {
+    settings.fn.make_folder_hierarchy(
+        settings.corporafolders[key]["fstc_" + key], fstc_hierarchy[key],
+        {
+            id_prefix: "fstc_",
+            description_prefix: ("Finlandssvensk textkorpus (UHLCS): "
+                                 + label + ": "),
+            corpus_title_suffix: " (FSTC)",
+            corpus_template: settings.templ.fstc,
+        });
+}
 
 delete fstc_hierarchy;
 
