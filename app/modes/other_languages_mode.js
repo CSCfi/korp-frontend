@@ -90,7 +90,7 @@ settings.corporafolders.french = {
         title: "Textes académiques / Akateemisia tekstejä / Academic texts",
         description: "Textes académiques<br/>Akateemisia tekstejä<br/>Academic texts",
         contents: [
-            "ethesis_fr"
+            "ethesis_fr",
         ],
     },
 };
@@ -102,7 +102,7 @@ settings.corporafolders.spanish = {
         title: "Textos académicos / Akateemisia tekstejä / Academic texts",
         description: "Textos académicos<br/>Akateemisia tekstejä<br/>Academic texts",
         contents: [
-            "ethesis_es"
+            "ethesis_es",
         ],
     },
 };
@@ -114,7 +114,7 @@ settings.corporafolders.russian = {
         title: "Академические тексты / Akateemisia tekstejä / Academic texts",
         description: "Академическиe тексты<br/>Akateemisia tekstejä<br/>Academic texts",
         contents: [
-            "ethesis_ru"
+            "ethesis_ru",
         ],
     },
     literary: {
@@ -154,7 +154,10 @@ settings.corporafolders.akkadian = {
 settings.corporafolders.english.academic.ethesis = {
     title: "E-thesis",
     description: "Corpus of University of Helsinki theses and dissertations<br/><a href='https://ethesis.helsinki.fi/'>https://ethesis.helsinki.fi/</a>",
-    contents: ["ethesis_en_dissabs", "ethesis_en_maabs"],
+    contents: [
+        "ethesis_en_dissabs",
+        "ethesis_en_maabs",
+    ],
     info: {
         cite_id: "e-thesis-en-korp-v1-1",
         urn: "urn:nbn:fi:lb-2020031302",
@@ -166,16 +169,37 @@ settings.corporafolders.english.academic.ethesis = {
 
 settings.corporafolders.english.academic.ethesis.phdtheses = {
     title: "Doctoral dissertations",
-    contents: ["ethesis_en_phd_mm", "ethesis_en_phd_hum", "ethesis_en_phd_bio", "ethesis_en_phd_beh",
-                "ethesis_en_phd_ot", "ethesis_en_phd_med", "ethesis_en_phd_far", "ethesis_en_phd_sci",
-                "ethesis_en_phd_valt", "ethesis_en_phd_teo", "ethesis_en_phd_el"]
+    contents: [
+        "ethesis_en_phd_mm",
+        "ethesis_en_phd_hum",
+        "ethesis_en_phd_bio",
+        "ethesis_en_phd_beh",
+        "ethesis_en_phd_ot",
+        "ethesis_en_phd_med",
+        "ethesis_en_phd_far",
+        "ethesis_en_phd_sci",
+        "ethesis_en_phd_valt",
+        "ethesis_en_phd_teo",
+        "ethesis_en_phd_el",
+    ]
 };
 
 settings.corporafolders.english.academic.ethesis.matheses = {
     title: "Master's theses",
-    contents: ["ethesis_en_ma_mm", "ethesis_en_ma_ai", "ethesis_en_ma_hum", "ethesis_en_ma_bio", "ethesis_en_ma_beh",
-                "ethesis_en_ma_far", "ethesis_en_ma_ot", "ethesis_en_ma_med", "ethesis_en_ma_sci",
-                "ethesis_en_ma_valt", "ethesis_en_ma_teo", "ethesis_en_ma_el"]
+    contents: [
+        "ethesis_en_ma_mm",
+        "ethesis_en_ma_ai",
+        "ethesis_en_ma_hum",
+        "ethesis_en_ma_bio",
+        "ethesis_en_ma_beh",
+        "ethesis_en_ma_far",
+        "ethesis_en_ma_ot",
+        "ethesis_en_ma_med",
+        "ethesis_en_ma_sci",
+        "ethesis_en_ma_valt",
+        "ethesis_en_ma_teo",
+        "ethesis_en_ma_el",
+    ]
 };
 
 
@@ -278,16 +302,18 @@ settings.corporafolders.english.historical.scotscorr = {
 
 settings.corporafolders.uralic.fennougrica = {
     title: "Fenno-Ugrica",
-    contents: ["fennougrica_myv",
-                "fennougrica_kca",
-                "fennougrica_izh",
-                "fennougrica_mhr",
-                "fennougrica_mrj",
-                "fennougrica_mns",
-                "fennougrica_mdf",
-                "fennougrica_sel",
-                "fennougrica_yrk",
-                "fennougrica_vep"],
+    contents: [
+        "fennougrica_myv",
+        "fennougrica_kca",
+        "fennougrica_izh",
+        "fennougrica_mhr",
+        "fennougrica_mrj",
+        "fennougrica_mns",
+        "fennougrica_mdf",
+        "fennougrica_sel",
+        "fennougrica_yrk",
+        "fennougrica_vep",
+    ],
     info: {
         cite_id: "Fenno-ugrica",
     },
@@ -301,41 +327,46 @@ settings.corporafolders.uralic.wanca_2016 = {
         licence: settings.licenceinfo.CC_BY,
         cite_id: "wanca2016-korp",
     },
-    contents: ["wanca_2016_fit_multili",
-               "wanca_2016_fkv_multili",
-               "wanca_2016_izh",
-               "wanca_2016_kca_multili",
-               "wanca_2016_koi_multili",
-               "wanca_2016_kpv_multili",
-               "wanca_2016_krl_multili",
-               "wanca_2016_liv",
-               "wanca_2016_lud",
-               "wanca_2016_mdf_multili",
-               "wanca_2016_mhr_multili",
-               "wanca_2016_mns_multili",
-               "wanca_2016_mrj_multili",
-               "wanca_2016_myv_multili",
-               "wanca_2016_nio",
-               "wanca_2016_olo_multili",
-               "wanca_2016_sjd",
-               "wanca_2016_sjk",
-               "wanca_2016_sju",
-               "wanca_2016_sma_multili",
-               "wanca_2016_sme_multili",
-               "wanca_2016_smj_multili",
-               "wanca_2016_smn_multili",
-               "wanca_2016_sms_multili",
-               "wanca_2016_udm_multili",
-               "wanca_2016_vep_multili",
-               "wanca_2016_vot",
-               "wanca_2016_vro_multili",
-               "wanca_2016_yrk" ]
+    contents: [
+        "wanca_2016_fit_multili",
+        "wanca_2016_fkv_multili",
+        "wanca_2016_izh",
+        "wanca_2016_kca_multili",
+        "wanca_2016_koi_multili",
+        "wanca_2016_kpv_multili",
+        "wanca_2016_krl_multili",
+        "wanca_2016_liv",
+        "wanca_2016_lud",
+        "wanca_2016_mdf_multili",
+        "wanca_2016_mhr_multili",
+        "wanca_2016_mns_multili",
+        "wanca_2016_mrj_multili",
+        "wanca_2016_myv_multili",
+        "wanca_2016_nio",
+        "wanca_2016_olo_multili",
+        "wanca_2016_sjd",
+        "wanca_2016_sjk",
+        "wanca_2016_sju",
+        "wanca_2016_sma_multili",
+        "wanca_2016_sme_multili",
+        "wanca_2016_smj_multili",
+        "wanca_2016_smn_multili",
+        "wanca_2016_sms_multili",
+        "wanca_2016_udm_multili",
+        "wanca_2016_vep_multili",
+        "wanca_2016_vot",
+        "wanca_2016_vro_multili",
+        "wanca_2016_yrk",
+    ]
 };
 
 settings.corporafolders.uralic.erme = {
     title: "ERME",
     description: "ERME: Erzya and Moksha Extended Corpora",
-    contents: ["erme_mdf", "erme_myv"]
+    contents: [
+        "erme_mdf",
+        "erme_myv",
+    ]
 };
 
 settings.corporafolders.uralic.sust = {
@@ -346,7 +377,11 @@ settings.corporafolders.uralic.sust = {
         metadata_urn: "urn:nbn:fi:lb-2016092001",
         licence: settings.licenceinfo.CC_BY_NC,
     },
-    contents: ["sust_myv", "sust_kpv", "sust_mdf"]
+    contents: [
+        "sust_myv",
+        "sust_kpv",
+        "sust_mdf",
+    ]
 };
 
 
@@ -369,10 +404,26 @@ settings.corporafolders.swahili.hcs2 = {
 settings.corporafolders.akkadian.oracc = {
     title: "Oracc",
     description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2019-05",
-    contents: ["oracc_adsd", "oracc_ario", "oracc_blms", "oracc_cams",
-               "oracc_caspo", "oracc_ctij", "oracc_dcclt", "oracc_dccmt",
-               "oracc_ecut", "oracc_etcsri", "oracc_hbtin", "oracc_obmc",
-               "oracc_riao", "oracc_ribo", "oracc_rimanum", "oracc_rinap", "oracc_saao", "oracc_others"],
+    contents: [
+        "oracc_adsd",
+        "oracc_ario",
+        "oracc_blms",
+        "oracc_cams",
+        "oracc_caspo",
+        "oracc_ctij",
+        "oracc_dcclt",
+        "oracc_dccmt",
+        "oracc_ecut",
+        "oracc_etcsri",
+        "oracc_hbtin",
+        "oracc_obmc",
+        "oracc_riao",
+        "oracc_ribo",
+        "oracc_rimanum",
+        "oracc_rinap",
+        "oracc_saao",
+        "oracc_others",
+    ],
     info: {
         metadata_urn: "urn:nbn:fi:lb-2019060601",
         urn: "urn:nbn:fi:lb-2019060602",

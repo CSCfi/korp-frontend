@@ -98,7 +98,10 @@ settings.corporafolders.historical.agricola = {
 
 settings.corporafolders.academic.ethesis = {
     title: "E-thesis",
-    contents: ["ethesis_maabs", "ethesis_dissabs"],
+    contents: [
+        "ethesis_maabs",
+        "ethesis_dissabs",
+    ],
     info: {
         cite_id: "e-thesis-fi",
     }
@@ -106,14 +109,36 @@ settings.corporafolders.academic.ethesis = {
 
 settings.corporafolders.academic.ethesis.matheses = {
     title: "Pro gradu -tutkielmat",
-    contents: ["ethesis_ma_ai", "ethesis_ma_bio", "ethesis_ma_el", "ethesis_ma_far", "ethesis_ma_hum", "ethesis_ma_beh",
-                "ethesis_ma_med", "ethesis_ma_mm", "ethesis_ma_sci", "ethesis_ma_ot", "ethesis_ma_teo", "ethesis_ma_valt"]
+    contents: [
+        "ethesis_ma_ai",
+        "ethesis_ma_bio",
+        "ethesis_ma_el",
+        "ethesis_ma_far",
+        "ethesis_ma_hum",
+        "ethesis_ma_beh",
+        "ethesis_ma_med",
+        "ethesis_ma_mm",
+        "ethesis_ma_sci",
+        "ethesis_ma_ot",
+        "ethesis_ma_teo",
+        "ethesis_ma_valt",
+    ]
 };
 
 settings.corporafolders.academic.ethesis.phdtheses = {
     title: "Väitöskirjat",
-    contents: ["ethesis_phd_bio", "ethesis_phd_el", "ethesis_phd_far", "ethesis_phd_hum", "ethesis_phd_beh",
-                "ethesis_phd_med", "ethesis_phd_mm", "ethesis_phd_ot", "ethesis_phd_teo", "ethesis_phd_valt"]
+    contents: [
+        "ethesis_phd_bio",
+        "ethesis_phd_el",
+        "ethesis_phd_far",
+        "ethesis_phd_hum",
+        "ethesis_phd_beh",
+        "ethesis_phd_med",
+        "ethesis_phd_mm",
+        "ethesis_phd_ot",
+        "ethesis_phd_teo",
+        "ethesis_phd_valt",
+    ]
 };
 
 // FinnTreeBank has now been split
@@ -135,7 +160,10 @@ funcs.addCorporaToFolder("other", "ftb2");
 //         licence: settings.licenceinfo.CC_BY_30,
 //         cite_id: "FinnTreeBank3-korp",
 //     },
-//     contents: ["ftb3_europarl", "ftb3_jrcacquis"]
+//     contents: [
+//         "ftb3_europarl",
+//         "ftb3_jrcacquis",
+//     ]
 // };
 
 settings.corporafolders.news.klk_fi = {
@@ -173,7 +201,22 @@ funcs.addCorporaToFolder("literary", [
 
 settings.corporafolders.literary.skk = {
     title: "Suomalaisen kirjallisuuden klassikoita",
-    contents: ["skk_aho","skk_canth","skk_finne","skk_jarnefelt","skk_kailas","skk_lassila","skk_linnankoski","skk_kramsu","skk_lehtonen","skk_leino","skk_pakkala","skk_siljo","skk_sodergran","skk_wilkuna"],
+    contents: [
+        "skk_aho",
+        "skk_canth",
+        "skk_finne",
+        "skk_jarnefelt",
+        "skk_kailas",
+        "skk_lassila",
+        "skk_linnankoski",
+        "skk_kramsu",
+        "skk_lehtonen",
+        "skk_leino",
+        "skk_pakkala",
+        "skk_siljo",
+        "skk_sodergran",
+        "skk_wilkuna",
+    ],
     info: {
         urn: "urn:nbn:fi:lb-2015022401",
         metadata_urn: "urn:nbn:fi:lb-20140730186",
@@ -195,7 +238,10 @@ settings.corporafolders.literary.kaannossuomi = {
         },
         cite_id: "kaannossuomi-korp",
     },
-    contents: ["alkusuomi", "kaannossuomi"]
+    contents: [
+        "alkusuomi",
+        "kaannossuomi",
+    ]
 };
 
 settings.corporafolders.literary.ceal = {
@@ -207,7 +253,10 @@ settings.corporafolders.literary.ceal = {
             name: "Kersti Juva",
         },
     },
-    contents: ["ceal_o", "ceal_s"]
+    contents: [
+        "ceal_o",
+        "ceal_s",
+    ]
 };
 
 
@@ -345,7 +394,7 @@ settings.corporafolders.news.lehdet.tiedelehdet.ag = {
         "tiedelehdet_geofoorumi",
         "tiedelehdet_geologi",
         "tiedelehdet_glossae",
-        ]
+    ]
 };
 
 settings.corporafolders.news.lehdet.tiedelehdet.hk = {
@@ -372,7 +421,7 @@ settings.corporafolders.news.lehdet.tiedelehdet.hk = {
         "tiedelehdet_kulutustutkimus",
         "tiedelehdet_kunnallistiede",
         "tiedelehdet_kuntoutus",
-        ]
+    ]
 };
 
 settings.corporafolders.news.lehdet.tiedelehdet.lp = {
@@ -396,7 +445,7 @@ settings.corporafolders.news.lehdet.tiedelehdet.lp = {
         "tiedelehdet_poliittinentalous",
         "tiedelehdet_prologi",
         "tiedelehdet_psykologia",
-        ]
+    ]
 };
 
 
@@ -420,7 +469,7 @@ settings.corporafolders.news.lehdet.tiedelehdet.rs = {
         "tiedelehdet_kirkkohistoria",
         "tiedelehdet_sydanaani",
         "tiedelehdet_synnyt",
-        ]
+    ]
 };
 
 settings.corporafolders.news.lehdet.tiedelehdet.ty = {
@@ -492,7 +541,7 @@ settings.corporafolders.news.lehdet.muut_lehdet.a = {
         "lehdet_avec_perhelehti",
         "lehdet_avh",
         "lehdet_avvisio",
-  ]
+    ]
 };
 
 settings.corporafolders.news.lehdet.muut_lehdet.bcd = {
@@ -530,7 +579,7 @@ settings.corporafolders.news.lehdet.muut_lehdet.e = {
         "lehdet_eurooppalainen",
         "lehdet_euro_talous",
         "lehdet_evento",
-     ]
+    ]
 }
 
 settings.corporafolders.news.lehdet.muut_lehdet.f = {
@@ -539,7 +588,7 @@ settings.corporafolders.news.lehdet.muut_lehdet.f = {
     contents: [
         "lehdet_focus",
         "lehdet_folium_classicum",
-  ]
+    ]
 }
 
 settings.corporafolders.news.lehdet.muut_lehdet.h = {
@@ -564,7 +613,7 @@ settings.corporafolders.news.lehdet.muut_lehdet.h = {
         "lehdet_humanistilehti",
         "lehdet_husari",
         "lehdet_hyva_asukas",
-  ]
+    ]
 }
 
 settings.corporafolders.news.lehdet.muut_lehdet.ij = {
@@ -578,7 +627,7 @@ settings.corporafolders.news.lehdet.muut_lehdet.ij = {
         "lehdet_jargonia",
         "lehdet_joensuun_uutiset",
         "lehdet_julkaisija",
-  ]
+    ]
 }
 
 settings.corporafolders.news.lehdet.muut_lehdet.k = {
@@ -619,7 +668,7 @@ settings.corporafolders.news.lehdet.muut_lehdet.k = {
         "lehdet_kynnys",
         "lehdet_kyvyt_kayttoon_vates",
         "lehdet_kaytannon_maamies",
-  ]
+    ]
 }
 
 settings.corporafolders.news.lehdet.muut_lehdet.l = {
@@ -632,7 +681,7 @@ settings.corporafolders.news.lehdet.muut_lehdet.l = {
         "lehdet_luokanopettaja",
         "lehdet_luuppisanomat",
         "lehdet_lahde_liikkeelle",
-  ]
+    ]
 }
 
 settings.corporafolders.news.lehdet.muut_lehdet.m = {
@@ -652,7 +701,7 @@ settings.corporafolders.news.lehdet.muut_lehdet.m = {
         "lehdet_motiva_mplus_xpress",
         "lehdet_musetti",
         "lehdet_muusikko",
-  ]
+    ]
 }
 
 settings.corporafolders.news.lehdet.muut_lehdet.no = {
@@ -666,7 +715,7 @@ settings.corporafolders.news.lehdet.muut_lehdet.no = {
         "lehdet_ostrobotnia",
         "lehdet_ota_opiksi",
         "lehdet_oulunkylainen",
-  ]
+    ]
 }
 
 settings.corporafolders.news.lehdet.muut_lehdet.p = {
@@ -702,7 +751,7 @@ settings.corporafolders.news.lehdet.muut_lehdet.p = {
         "lehdet_proresto",
         "lehdet_puulehti",
         "lehdet_puutarha_sanomat",
-  ]
+    ]
 }
 
 settings.corporafolders.news.lehdet.muut_lehdet.r = {
@@ -713,7 +762,7 @@ settings.corporafolders.news.lehdet.muut_lehdet.r = {
         "lehdet_rautatievirkamies",
         "lehdet_ruotuvaki",
         "lehdet_ronsy",
-  ]
+    ]
 }
 
 settings.corporafolders.news.lehdet.muut_lehdet.s = {
@@ -742,7 +791,7 @@ settings.corporafolders.news.lehdet.muut_lehdet.s = {
         "lehdet_syopa",
         "lehdet_syopasaation_focus",
         "lehdet_sosso",
-  ]
+    ]
 }
 
 settings.corporafolders.news.lehdet.muut_lehdet.t = {
@@ -785,7 +834,7 @@ settings.corporafolders.news.lehdet.muut_lehdet.t = {
         "lehdet_tuulivoima_tuulienergia_tuulensilma",
         "lehdet_tyoelake",
         "lehdet_taydellinenympyra",
-  ]
+    ]
 }
 
 settings.corporafolders.news.lehdet.muut_lehdet.u = {
@@ -804,7 +853,7 @@ settings.corporafolders.news.lehdet.muut_lehdet.u = {
         "lehdet_uusipaiva",
         "lehdet_uusi_safiiri",
         "lehdet_uutis_jousi",
-  ]
+    ]
 }
 
 settings.corporafolders.news.lehdet.muut_lehdet.vw = {
@@ -832,7 +881,7 @@ settings.corporafolders.news.lehdet.muut_lehdet.vw = {
         "lehdet_valitysuutiset",
         "lehdet_walpo",
         "lehdet_wieteri",
-  ]
+    ]
 }
 
 settings.corporafolders.news.lehdet.muut_lehdet.y = {
@@ -917,7 +966,12 @@ settings.corporafolders.news.kal = {
 settings.corporafolders.news.kal.kal_perus = {
     title: "Kotuksen aikakauslehtikorpus, tarkistamaton",
     description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistamaton",
-    contents: ["kal_perus_ha", "kal_perus_la", "kal_perus_sk", "kal_perus_su"],
+    contents: [
+        "kal_perus_ha",
+        "kal_perus_la",
+        "kal_perus_sk",
+        "kal_perus_su",
+    ],
     info: {
         urn: "urn:nbn:fi:lb-2018060706",
         metadata_urn: "urn:nbn:fi:lb-2018060702",
@@ -932,7 +986,12 @@ settings.corporafolders.news.kal.kal_perus = {
 settings.corporafolders.news.kal.kal_ydin = {
     title: "Kotuksen aikakauslehtikorpus, tarkistettu",
     description: "Kotimaisten kielten keskuksen aikakauslehtikorpus, OCR tarkistettu",
-    contents: ["kal_ydin_ha", "kal_ydin_la", "kal_ydin_sk", "kal_ydin_su"],
+    contents: [
+        "kal_ydin_ha",
+        "kal_ydin_la",
+        "kal_ydin_sk",
+        "kal_ydin_su",
+    ],
     info: {
         urn: "urn:nbn:fi:lb-2018060705",
         metadata_urn: "urn:nbn:fi:lb-2018060701",
@@ -961,7 +1020,11 @@ funcs.addCorporaToFolder("academic", ["finstud", "yoaineet"]);
 settings.corporafolders.legal.semfinlex = {
     title: "Semfinlex",
     description: "Valikoima Eduskunnan alkuperäisiä säädöksiä (1917–2018 sekä muutamia varhaisempia), KKO:n päätöksiä (1980–2018) ja KHO:n päätöksiä (1987–2018).<br/><br/>2019-09-02: Huomaa, että aineiston <strong>dependenssijäsennykset ja -relaatiot poikkeavat merkittävästi</strong> aiemmin samalla jäsentimellä jäsennettyjen aineistojen jäsennyksistä. Selvitämme asiaa. <strong>Jos tarvitset dependenssijäsennystietoja, käytä toistaiseksi muita aineistoja.</strong>",
-    contents: ["semfinlex_asd_fi_2018", "semfinlex_kko_fi_2018", "semfinlex_kho_fi_2018"],
+    contents: [
+        "semfinlex_asd_fi_2018",
+        "semfinlex_kko_fi_2018",
+        "semfinlex_kho_fi_2018",
+    ],
     info: {
         licence: settings.licenceinfo.CC_BY,
         cite_id: "semfinlex",
@@ -1014,9 +1077,9 @@ settings.corporafolders.other.selkokieli.ylenews_fi_selko = {
     title: "Ylen suomenkielisen uutisarkiston selkouutiset",
     description: "Ylen suomenkielisen uutisarkiston selkouutiset<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
     contents: [
-               "ylenews_fi_2011_2018_selko_a",
-               "ylenews_fi_2011_2018_selko_s",
-               ],
+        "ylenews_fi_2011_2018_selko_a",
+        "ylenews_fi_2011_2018_selko_s",
+    ],
     info: {
         homepage: {
             name: "Yle Uutiset selkosuomeksi",
@@ -1068,7 +1131,10 @@ settings.corporafolders.learner.las2 = {
         },
         cite_id: "LAS2",
     },
-    contents: ["las2_tentit", "las2_esseet"]
+    contents: [
+        "las2_tentit",
+        "las2_esseet",
+    ]
 };
 
 settings.corporafolders.historical.vks = {
@@ -1098,7 +1164,102 @@ settings.corporafolders.historical.vks = {
 
 settings.corporafolders.historical.vns = {
     title: "Varhaisnykysuomen korpus",
-    contents: ["vnsk_aejmelaeus","vnsk_ahlholm","vnsk_ahlman_kirjat","vnsk_ahlman_sanastot","vnsk_ahlqvist","vnsk_akiander","vnsk_aminoff","vnsk_almanakka","vnsk_anonyymi","vnsk_asetus","vnsk_aulen","vnsk_backvall","vnsk_bocker","vnsk_bonsdorff","vnsk_borenius","vnsk_borg","vnsk_cajan","vnsk_cannelin","vnsk_cantell","vnsk_canth","vnsk_corander","vnsk_costiander","vnsk_dahlberg","vnsk_edlund","vnsk_eklof","vnsk_euren","vnsk_europaeus","vnsk_europaeus_sanastot","vnsk_fabritius","vnsk_forsman","vnsk_forstrom","vnsk_friman","vnsk_frosterus","vnsk_gottlund","vnsk_granlund","vnsk_hannikainen","vnsk_hjelt","vnsk_hordh","vnsk_hornborg","vnsk_ignatius","vnsk_ingman","vnsk_innain","vnsk_juteini","vnsk_keckman","vnsk_kemell","vnsk_kilpinen","vnsk_kivi","vnsk_koskinen","vnsk_krohn","vnsk_lagervall","vnsk_lankela","vnsk_lavonius","vnsk_lilius_anton","vnsk_lilius_aukusti","vnsk_lonnrot","vnsk_malmberg","vnsk_mehilainen","vnsk_mela","vnsk_meurman","vnsk_mmy","vnsk_murman","vnsk_muut","vnsk_nyman","vnsk_ovs","vnsk_polen","vnsk_poppius","vnsk_puhuttelija","vnsk_rein","vns_renvall","vnsk_roos","vnsk_salmelainen","vnsk_salonius","vnsk_sanaluettelot","vnsk_sandberg","vnsk_schroter","vnsk_sirelius","vnsk_skogman","vnsk_smtr","vnsk_sohlberg","vnsk_soldan","vnsk_ssv","vnsk_stahlberg","vnsk_tarvanen","vnsk_ticklen","vnsk_tikkanen","vnsk_topelius","vnsk_toppelius","vnsk_tvs","vnsk_varelius","vnsk_virsikirja","vnsk_wallin","vnsk_wikman","vnsk_wiwolin","vnsk_yksitt"],
+    contents: [
+        "vnsk_aejmelaeus",
+        "vnsk_ahlholm",
+        "vnsk_ahlman_kirjat",
+        "vnsk_ahlman_sanastot",
+        "vnsk_ahlqvist",
+        "vnsk_akiander",
+        "vnsk_aminoff",
+        "vnsk_almanakka",
+        "vnsk_anonyymi",
+        "vnsk_asetus",
+        "vnsk_aulen",
+        "vnsk_backvall",
+        "vnsk_bocker",
+        "vnsk_bonsdorff",
+        "vnsk_borenius",
+        "vnsk_borg",
+        "vnsk_cajan",
+        "vnsk_cannelin",
+        "vnsk_cantell",
+        "vnsk_canth",
+        "vnsk_corander",
+        "vnsk_costiander",
+        "vnsk_dahlberg",
+        "vnsk_edlund",
+        "vnsk_eklof",
+        "vnsk_euren",
+        "vnsk_europaeus",
+        "vnsk_europaeus_sanastot",
+        "vnsk_fabritius",
+        "vnsk_forsman",
+        "vnsk_forstrom",
+        "vnsk_friman",
+        "vnsk_frosterus",
+        "vnsk_gottlund",
+        "vnsk_granlund",
+        "vnsk_hannikainen",
+        "vnsk_hjelt",
+        "vnsk_hordh",
+        "vnsk_hornborg",
+        "vnsk_ignatius",
+        "vnsk_ingman",
+        "vnsk_innain",
+        "vnsk_juteini",
+        "vnsk_keckman",
+        "vnsk_kemell",
+        "vnsk_kilpinen",
+        "vnsk_kivi",
+        "vnsk_koskinen",
+        "vnsk_krohn",
+        "vnsk_lagervall",
+        "vnsk_lankela",
+        "vnsk_lavonius",
+        "vnsk_lilius_anton",
+        "vnsk_lilius_aukusti",
+        "vnsk_lonnrot",
+        "vnsk_malmberg",
+        "vnsk_mehilainen",
+        "vnsk_mela",
+        "vnsk_meurman",
+        "vnsk_mmy",
+        "vnsk_murman",
+        "vnsk_muut",
+        "vnsk_nyman",
+        "vnsk_ovs",
+        "vnsk_polen",
+        "vnsk_poppius",
+        "vnsk_puhuttelija",
+        "vnsk_rein",
+        "vns_renvall",
+        "vnsk_roos",
+        "vnsk_salmelainen",
+        "vnsk_salonius",
+        "vnsk_sanaluettelot",
+        "vnsk_sandberg",
+        "vnsk_schroter",
+        "vnsk_sirelius",
+        "vnsk_skogman",
+        "vnsk_smtr",
+        "vnsk_sohlberg",
+        "vnsk_soldan",
+        "vnsk_ssv",
+        "vnsk_stahlberg",
+        "vnsk_tarvanen",
+        "vnsk_ticklen",
+        "vnsk_tikkanen",
+        "vnsk_topelius",
+        "vnsk_toppelius",
+        "vnsk_tvs",
+        "vnsk_varelius",
+        "vnsk_virsikirja",
+        "vnsk_wallin",
+        "vnsk_wikman",
+        "vnsk_wiwolin",
+        "vnsk_yksitt",
+    ],
     info: {
         urn: "urn:nbn:fi:lb-2016081203",
         metadata_urn: "urn:nbn:fi:lb-20140730147",

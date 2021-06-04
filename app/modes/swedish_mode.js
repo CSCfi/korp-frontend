@@ -113,7 +113,12 @@ settings.corporafolders = {
 
 settings.corporafolders.academic.ethesis = {
     title: "E-thesis",
-    contents: ["ethesis_sv_dissabs", "ethesis_sv_maabs", "ethesis_sv_phd", "ethesis_sv_ma"],
+    contents: [
+        "ethesis_sv_dissabs",
+        "ethesis_sv_maabs",
+        "ethesis_sv_phd",
+        "ethesis_sv_ma",
+    ],
     info: {
         cite_id: "e-thesis-sv",
     }
@@ -200,7 +205,11 @@ settings.corporafolders.news.fstc_news = {
 settings.corporafolders.legal.semfinlex = {
     title: "Semfinlex",
     description: "Innehåller ett urval av ursprungliga författningar av Riksdagen (1920–2018), avgöranden av Högsta domstolen (1980–) och avgöranden av Högsta förvaltningsdomstolen (2001–).",
-    contents: ["semfinlex_asd_sv_2018", "semfinlex_kko_sv_2018", "semfinlex_kho_sv_2018"],
+    contents: [
+        "semfinlex_asd_sv_2018",
+        "semfinlex_kko_sv_2018",
+        "semfinlex_kho_sv_2018",
+    ],
     info: {
         licence: settings.licenceinfo.CC_BY,
         cite_id: "semfinlex",

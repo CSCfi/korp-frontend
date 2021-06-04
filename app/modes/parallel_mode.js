@@ -113,12 +113,22 @@ settings.corporafolders.other.opus = {
 
 settings.corporafolders.other.opus.enfi = {
     title: "OPUS Finnish–English",
-    contents: ['opus_opensub2011enfi_fi', 'opus_opensub2012enfi_fi',
-                'opus_opensub2013enfi_fi', 'opus_opensub2015enfi_fi',
-                'opus_ecb_enfi_fi', 'opus_emea_enfi_fi', 'opus_eubookshop_enfi_fi',
-                'opus_dgt_enfi_fi', 'opus_tatoeba_enfi_fi', 'opus_php_enfi_fi',
-                'opus_gnome_enfi_fi', 'opus_euconst_enfi_fi', 'opus_books_enfi_fi',
-               'opus_ubuntu_enfi_fi']
+    contents: [
+        "opus_opensub2011enfi_fi",
+        "opus_opensub2012enfi_fi",
+        "opus_opensub2013enfi_fi",
+        "opus_opensub2015enfi_fi",
+        "opus_ecb_enfi_fi",
+        "opus_emea_enfi_fi",
+        "opus_eubookshop_enfi_fi",
+        "opus_dgt_enfi_fi",
+        "opus_tatoeba_enfi_fi",
+        "opus_php_enfi_fi",
+        "opus_gnome_enfi_fi",
+        "opus_euconst_enfi_fi",
+        "opus_books_enfi_fi",
+        "opus_ubuntu_enfi_fi",
+    ]
 };
 
 settings.corpus_aliases.opus_enfi = "opus_.*enfi_fi";
@@ -126,33 +136,60 @@ settings.corpus_aliases.opus_fien = "opus_.*enfi_fi";
 
 settings.corporafolders.other.opus.firu = {
     title: "OPUS Finnish–Russian",
-    contents: ['opus_opensubtitles2011_firu_fi', 'opus_opensubtitles2012_firu_fi',
-                'opus_eubookshop_firu_fi', 'opus_kde4_firu_fi', 'opus_opensubtitles_firu_fi',
-                'opus_tatoeba_firu_fi', 'opus_php_firu_fi',
-                'opus_gnome_firu_fi',
-                'opus_ubuntu_firu_fi']
+    contents: [
+        "opus_opensubtitles2011_firu_fi",
+        "opus_opensubtitles2012_firu_fi",
+        "opus_eubookshop_firu_fi",
+        "opus_kde4_firu_fi",
+        "opus_opensubtitles_firu_fi",
+        "opus_tatoeba_firu_fi",
+        "opus_php_firu_fi",
+        "opus_gnome_firu_fi",
+        "opus_ubuntu_firu_fi",
+    ]
 };
 
 settings.corpus_aliases.opus_firu = "opus_.*firu_fi";
 
 settings.corporafolders.other.opus.fisv = {
     title: "OPUS Finnish–Swedish",
-    contents: ['opus_opensubtitles2011_fisv_fi', 'opus_opensubtitles2012_fisv_fi',
-                'opus_opensubtitles2013_fisv_fi', 'opus_dgt_fisv_fi',
-                'opus_kde4_fisv_fi', 'opus_emea_fisv_fi', 'opus_eubookshop_fisv_fi',
-                'opus_gnome_fisv_fi', 'opus_euconst_fisv_fi', 'opus_php_fisv_fi',
-                'opus_ubuntu_fisv_fi', 'opus_tatoeba_fisv_fi', 'opus_opensubtitles_fisv_fi']
+    contents: [
+        "opus_opensubtitles2011_fisv_fi",
+        "opus_opensubtitles2012_fisv_fi",
+        "opus_opensubtitles2013_fisv_fi",
+        "opus_dgt_fisv_fi",
+        "opus_kde4_fisv_fi",
+        "opus_emea_fisv_fi",
+        "opus_eubookshop_fisv_fi",
+        "opus_gnome_fisv_fi",
+        "opus_euconst_fisv_fi",
+        "opus_php_fisv_fi",
+        "opus_ubuntu_fisv_fi",
+        "opus_tatoeba_fisv_fi",
+        "opus_opensubtitles_fisv_fi",
+    ]
 };
 
 settings.corpus_aliases.opus_fisv = "opus_.*fisv_fi";
 
 settings.corporafolders.other.opus.defi = {
     title: "OPUS Finnish–German",
-    contents: ['opus_opensubtitles2012_defi_fi', 'opus_opensubtitles2011_defi_fi',
-                'opus_opensubtitles2013_defi_fi', 'opus_eubookshop_defi_fi', 'opus_dgt_defi_fi',
-                'opus_kde4_defi_fi', 'opus_emea_defi_fi', 'opus_ecb_defi_fi', 'opus_ubuntu_defi_fi',
-                'opus_gnome_defi_fi', 'opus_tatoeba_defi_fi', 'opus_opensubtitles_defi_fi',
-                'opus_php_defi_fi',  'opus_euconst_defi_fi']
+    contents: [
+        "opus_opensubtitles2012_defi_fi",
+        "opus_opensubtitles2011_defi_fi",
+        "opus_opensubtitles2013_defi_fi",
+        "opus_eubookshop_defi_fi",
+        "opus_dgt_defi_fi",
+        "opus_kde4_defi_fi",
+        "opus_emea_defi_fi",
+        "opus_ecb_defi_fi",
+        "opus_ubuntu_defi_fi",
+        "opus_gnome_defi_fi",
+        "opus_tatoeba_defi_fi",
+        "opus_opensubtitles_defi_fi",
+        "opus_php_defi_fi",
+        "opus_euconst_defi_fi",
+    ]
 };
 
 settings.corpus_aliases.opus_defi = "opus_.*defi_fi";
@@ -160,33 +197,37 @@ settings.corpus_aliases.opus_fide = "opus_.*defi_fi";
 
 settings.corporafolders.other.opus.fifr = {
     title: "OPUS Finnish–French",
-    contents: ['opus_dgt_fifr_fi',
-                'opus_emea_fifr_fi',
-                'opus_ecb_fifr_fi',
-                'opus_eubookshop_fifr_fi',
-                'opus_opensubtitles2013_fifr_fi',
-                'opus_opensubtitles2011_fifr_fi',
-                'opus_books_fifr_fi',
-                'opus_opensubtitles2012_fifr_fi',
-                'opus_opensubtitles_fifr_fi',
-                'opus_kde4_fifr_fi',
-                'opus_gnome_fifr_fi',
-                'opus_euconst_fifr_fi',
-                'opus_php_fifr_fi',
-                'opus_ubuntu_fifr_fi',
-                'opus_tatoeba_fifr_fi']
+    contents: [
+        "opus_dgt_fifr_fi",
+        "opus_emea_fifr_fi",
+        "opus_ecb_fifr_fi",
+        "opus_eubookshop_fifr_fi",
+        "opus_opensubtitles2013_fifr_fi",
+        "opus_opensubtitles2011_fifr_fi",
+        "opus_books_fifr_fi",
+        "opus_opensubtitles2012_fifr_fi",
+        "opus_opensubtitles_fifr_fi",
+        "opus_kde4_fifr_fi",
+        "opus_gnome_fifr_fi",
+        "opus_euconst_fifr_fi",
+        "opus_php_fifr_fi",
+        "opus_ubuntu_fifr_fi",
+        "opus_tatoeba_fifr_fi",
+    ]
 };
 
 settings.corpus_aliases.opus_fifr = "opus_.*fifr_fi";
 
 settings.corporafolders.other.opus.dafi = {
     title: "OPUS Finnish–Danish",
-    contents: ['opus_dgt_dafi_fi',
-                'opus_eubookshop_dafi_fi',
-                'opus_opensubtitles2012_dafi_fi',
-                'opus_opensubtitles2013_dafi_fi',
-                'opus_kde4_dafi_fi',
-                'opus_ecb_dafi_fi']
+    contents: [
+        "opus_dgt_dafi_fi",
+        "opus_eubookshop_dafi_fi",
+        "opus_opensubtitles2012_dafi_fi",
+        "opus_opensubtitles2013_dafi_fi",
+        "opus_kde4_dafi_fi",
+        "opus_ecb_dafi_fi",
+    ]
 };
 
 settings.corpus_aliases.opus_dafi = "opus_.*dafi_fi";
@@ -194,33 +235,37 @@ settings.corpus_aliases.opus_fida = "opus_.*dafi_fi";
 
 settings.corporafolders.other.opus.fipl = {
     title: "OPUS Finnish–Polish",
-    contents: ['opus_dgt_fipl_fi',
-                'opus_opensubtitles2011_fipl_fi',
-                'opus_opensubtitles2012_fipl_fi',
-                'opus_opensubtitles2013_fipl_fi',
-                'opus_emea_fipl_fi',
-               'opus_ecb_fipl_fi']
+    contents: [
+        "opus_dgt_fipl_fi",
+        "opus_opensubtitles2011_fipl_fi",
+        "opus_opensubtitles2012_fipl_fi",
+        "opus_opensubtitles2013_fipl_fi",
+        "opus_emea_fipl_fi",
+        "opus_ecb_fipl_fi",
+    ]
 };
 
 settings.corpus_aliases.opus_fipl = "opus_.*fipl_fi";
 
 settings.corporafolders.other.opus.esfi = {
     title: "OPUS Finnish–Spanish",
-    contents: ['opus_dgt_esfi_fi',
-                'opus_eubookshop_esfi_fi',
-                'opus_opensubtitles2012_esfi_fi',
-                'opus_opensubtitles2013_esfi_fi',
-                'opus_opensubtitles2011_esfi_fi',
-                'opus_ecb_esfi_fi',
-                'opus_emea_esfi_fi',
-                'opus_euconst_esfi_fi',
-                'opus_gnome_esfi_fi',
-                'opus_kde4_esfi_fi',
-                'opus_opensubtitles_esfi_fi',
-                'opus_php_esfi_fi',
-                'opus_tatoeba_esfi_fi',
-                'opus_ubuntu_esfi_fi',
-               'opus_books_esfi_fi']
+    contents: [
+        "opus_dgt_esfi_fi",
+        "opus_eubookshop_esfi_fi",
+        "opus_opensubtitles2012_esfi_fi",
+        "opus_opensubtitles2013_esfi_fi",
+        "opus_opensubtitles2011_esfi_fi",
+        "opus_ecb_esfi_fi",
+        "opus_emea_esfi_fi",
+        "opus_euconst_esfi_fi",
+        "opus_gnome_esfi_fi",
+        "opus_kde4_esfi_fi",
+        "opus_opensubtitles_esfi_fi",
+        "opus_php_esfi_fi",
+        "opus_tatoeba_esfi_fi",
+        "opus_ubuntu_esfi_fi",
+        "opus_books_esfi_fi",
+    ]
 };
 
 settings.corpus_aliases.opus_esfi = "opus_.*esfi_fi";
@@ -228,25 +273,29 @@ settings.corpus_aliases.opus_fies = "opus_.*esfi_fi";
 
 settings.corporafolders.other.opus.fipt = {
     title: "OPUS Finnish–Portuguese",
-    contents: ['opus_dgt_fipt_fi',
-                'opus_eubookshop_fipt_fi',
-                'opus_opensubtitles2011_fipt_fi',
-                'opus_opensubtitles2013_fipt_fi',
-                'opus_opensubtitles_fipt_fi',
-                'opus_emea_fipt_fi',
-                'opus_ecb_fipt_fi']
+    contents: [
+        "opus_dgt_fipt_fi",
+        "opus_eubookshop_fipt_fi",
+        "opus_opensubtitles2011_fipt_fi",
+        "opus_opensubtitles2013_fipt_fi",
+        "opus_opensubtitles_fipt_fi",
+        "opus_emea_fipt_fi",
+        "opus_ecb_fipt_fi",
+    ]
 };
 
 settings.corpus_aliases.opus_fipt = "opus_.*fipt_fi";
 
 settings.corporafolders.other.opus.etfi = {
     title: "OPUS Finnish–Estonian",
-    contents: ['opus_dgt_etfi_fi',
-                'opus_emea_etfi_fi',
-                'opus_kde4_etfi_fi',
-                'opus_opensubtitles2012_etfi_fi',
-                'opus_opensubtitles2011_etfi_fi',
-                'opus_opensubtitles2013_etfi_fi']
+    contents: [
+        "opus_dgt_etfi_fi",
+        "opus_emea_etfi_fi",
+        "opus_kde4_etfi_fi",
+        "opus_opensubtitles2012_etfi_fi",
+        "opus_opensubtitles2011_etfi_fi",
+        "opus_opensubtitles2013_etfi_fi",
+    ]
 };
 
 settings.corpus_aliases.opus_etfi = "opus_.*etfi_fi";
@@ -254,80 +303,90 @@ settings.corpus_aliases.opus_fiet = "opus_.*etfi_fi";
 
 settings.corporafolders.other.opus.fiit = {
     title: "OPUS Finnish–Italian",
-    contents: ['opus_dgt_fiit_fi',
-                'opus_emea_fiit_fi',
-                'opus_ecb_fiit_fi',
-                'opus_opensubtitles2012_fiit_fi',
-                'opus_opensubtitles2011_fiit_fi',
-                'opus_opensubtitles2013_fiit_fi',
-                'opus_eubookshop_fiit_fi']
+    contents: [
+        "opus_dgt_fiit_fi",
+        "opus_emea_fiit_fi",
+        "opus_ecb_fiit_fi",
+        "opus_opensubtitles2012_fiit_fi",
+        "opus_opensubtitles2011_fiit_fi",
+        "opus_opensubtitles2013_fiit_fi",
+        "opus_eubookshop_fiit_fi",
+    ]
 };
 
 settings.corpus_aliases.opus_fiit = "opus_.*fiit_fi";
 
 settings.corporafolders.other.opus.fihu = {
     title: "OPUS Finnish–Hungarian",
-    contents: ['opus_dgt_fihu_fi',
-                'opus_emea_fihu_fi',
-                'opus_ecb_fihu_fi',
-                'opus_opensubtitles2012_fihu_fi',
-                'opus_opensubtitles2011_fihu_fi',
-                'opus_opensubtitles2013_fihu_fi',
-                'opus_eubookshop_fihu_fi',
-                'opus_kde4_fihu_fi']
+    contents: [
+        "opus_dgt_fihu_fi",
+        "opus_emea_fihu_fi",
+        "opus_ecb_fihu_fi",
+        "opus_opensubtitles2012_fihu_fi",
+        "opus_opensubtitles2011_fihu_fi",
+        "opus_opensubtitles2013_fihu_fi",
+        "opus_eubookshop_fihu_fi",
+        "opus_kde4_fihu_fi",
+    ]
 };
 
 settings.corpus_aliases.opus_fihu = "opus_.*fihu_fi";
 
 settings.corporafolders.other.opus.finl = {
     title: "OPUS Finnish–Dutch",
-    contents: ['opus_dgt_finl_fi',
-                'opus_ecb_finl_fi',
-                'opus_emea_finl_fi',
-                'opus_eubookshop_finl_fi',
-                'opus_euconst_finl_fi',
-                'opus_gnome_finl_fi',
-                'opus_kde4_finl_fi',
-                'opus_opensubtitles2011_finl_fi',
-                'opus_opensubtitles2012_finl_fi',
-                'opus_opensubtitles2013_finl_fi',
-                'opus_php_finl_fi',
-                'opus_tatoeba_finl_fi',
-                'opus_ubuntu_finl_fi']
+    contents: [
+        "opus_dgt_finl_fi",
+        "opus_ecb_finl_fi",
+        "opus_emea_finl_fi",
+        "opus_eubookshop_finl_fi",
+        "opus_euconst_finl_fi",
+        "opus_gnome_finl_fi",
+        "opus_kde4_finl_fi",
+        "opus_opensubtitles2011_finl_fi",
+        "opus_opensubtitles2012_finl_fi",
+        "opus_opensubtitles2013_finl_fi",
+        "opus_php_finl_fi",
+        "opus_tatoeba_finl_fi",
+        "opus_ubuntu_finl_fi",
+    ]
 };
 
 settings.corpus_aliases.opus_finl = "opus_.*finl_fi";
 
 settings.corporafolders.other.opus.fitrl = {
     title: "OPUS Finnish–Turkish",
-    contents: ['opus_eubookshop_fitr_fi',
-                'opus_gnome_fitr_fi',
-                'opus_kde4_fitr_fi',
-                'opus_opensubtitles2011_fitr_fi',
-                'opus_opensubtitles2012_fitr_fi',
-                'opus_opensubtitles2013_fitr_fi',
-                'opus_php_fitr_fi',
-                'opus_opensubtitles_fitr_fi']
+    contents: [
+        "opus_eubookshop_fitr_fi",
+        "opus_gnome_fitr_fi",
+        "opus_kde4_fitr_fi",
+        "opus_opensubtitles2011_fitr_fi",
+        "opus_opensubtitles2012_fitr_fi",
+        "opus_opensubtitles2013_fitr_fi",
+        "opus_php_fitr_fi",
+        "opus_opensubtitles_fitr_fi",
+    ]
 };
 
 settings.corpus_aliases.opus_fitr = "opus_.*fitr_fi";
 
 settings.corporafolders.other.opus.csfi = {
     title: "OPUS Finnish–Czech",
-    contents: ['opus_dgt_csfi_fi',
-                'opus_ecb_csfi_fi',
-                'opus_emea_csfi_fi',
-                'opus_eubookshop_csfi_fi',
-                'opus_euconst_csfi_fi',
-                'opus_gnome_csfi_fi',
-                'opus_kde4_csfi_fi',
-                'opus_opensubtitles2011_csfi_fi',
-                'opus_opensubtitles2012_csfi_fi',
-                'opus_opensubtitles2013_csfi_fi',
-                'opus_php_csfi_fi',
-                'opus_tatoeba_csfi_fi',
-                'opus_ubuntu_csfi_fi',
-               'opus_europarl_csfi_fi']
+    contents: [
+        "opus_dgt_csfi_fi",
+        "opus_ecb_csfi_fi",
+        "opus_emea_csfi_fi",
+        "opus_eubookshop_csfi_fi",
+        "opus_euconst_csfi_fi",
+        "opus_gnome_csfi_fi",
+        "opus_kde4_csfi_fi",
+        "opus_opensubtitles2011_csfi_fi",
+        "opus_opensubtitles2012_csfi_fi",
+        "opus_opensubtitles2013_csfi_fi",
+        "opus_php_csfi_fi",
+        "opus_tatoeba_csfi_fi",
+        "opus_ubuntu_csfi_fi",
+        "opus_europarl_csfi_fi",
+    ]
 };
 
 settings.corpus_aliases.opus_csfi = "opus_.*csfi_fi";
@@ -335,19 +394,21 @@ settings.corpus_aliases.opus_fics = "opus_.*csfi_fi";
 
 settings.corporafolders.other.opus.elfi = {
     title: "OPUS Finnish–Greek",
-    contents: ['opus_dgt_elfi_fi',
-                'opus_ecb_elfi_fi',
-                'opus_emea_elfi_fi',
-                'opus_eubookshop_elfi_fi',
-                'opus_euconst_elfi_fi',
-                'opus_gnome_elfi_fi',
-                'opus_kde4_elfi_fi',
-                'opus_opensubtitles2011_elfi_fi',
-                'opus_opensubtitles2012_elfi_fi',
-                'opus_opensubtitles2013_elfi_fi',
-                'opus_php_elfi_fi',
-                'opus_opensubtitles_elfi_fi',
-                'opus_ubuntu_elfi_fi']
+    contents: [
+        "opus_dgt_elfi_fi",
+        "opus_ecb_elfi_fi",
+        "opus_emea_elfi_fi",
+        "opus_eubookshop_elfi_fi",
+        "opus_euconst_elfi_fi",
+        "opus_gnome_elfi_fi",
+        "opus_kde4_elfi_fi",
+        "opus_opensubtitles2011_elfi_fi",
+        "opus_opensubtitles2012_elfi_fi",
+        "opus_opensubtitles2013_elfi_fi",
+        "opus_php_elfi_fi",
+        "opus_opensubtitles_elfi_fi",
+        "opus_ubuntu_elfi_fi",
+    ]
 };
 
 settings.corpus_aliases.opus_elfi = "opus_.*elfi_fi";
@@ -388,7 +449,9 @@ settings.corporafolders.literary.ceal = {
             name: "Kersti Juva",
         },
     },
-    contents: ["ceal_s_fi"]
+    contents: [
+        "ceal_s_fi",
+    ]
 };
 
 sattrlist.ceal_common = {
