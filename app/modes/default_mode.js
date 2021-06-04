@@ -116,21 +116,27 @@ settings.corporafolders.academic.ethesis.phdtheses = {
                 "ethesis_phd_med", "ethesis_phd_mm", "ethesis_phd_ot", "ethesis_phd_teo", "ethesis_phd_valt"]
 };
 
-settings.corporafolders.other.ftb = {
-    title: "FinnTreeBank: suomen puupankki",
-    contents: ["ftb2"]
-};
+// FinnTreeBank has now been split
 
-settings.corporafolders.other.ftb.ftb3 = {
-    title: "FinnTreeBank 3",
-    info: {
-        urn: "urn:nbn:fi:lb-2016051001",
-        metadata_urn: "urn:nbn:fi:lb-2016042602",
-        licence: settings.licenceinfo.CC_BY_30,
-        cite_id: "FinnTreeBank3-korp",
-    },
-    contents: ["ftb3_europarl", "ftb3_jrcacquis"]
-};
+funcs.addCorporaToFolder("parliament", "ftb3_europarl");
+funcs.addCorporaToFolder("legal", "ftb3_jrcacquis");
+funcs.addCorporaToFolder("other", "ftb2");
+
+// settings.corporafolders.other.ftb = {
+//     title: "FinnTreeBank: suomen puupankki",
+//     contents: ["ftb2"]
+// };
+
+// settings.corporafolders.other.ftb.ftb3 = {
+//     title: "FinnTreeBank 3",
+//     info: {
+//         urn: "urn:nbn:fi:lb-2016051001",
+//         metadata_urn: "urn:nbn:fi:lb-2016042602",
+//         licence: settings.licenceinfo.CC_BY_30,
+//         cite_id: "FinnTreeBank3-korp",
+//     },
+//     contents: ["ftb3_europarl", "ftb3_jrcacquis"]
+// };
 
 settings.corporafolders.news.klk_fi = {
     title: "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet",
@@ -1481,9 +1487,17 @@ settings.corpora.ftb2 = {
     }
 };
 
-settings.corpora.ftb3_europarl = {
+
+var ftb3_info = {
+    urn: "urn:nbn:fi:lb-2016051001",
+    metadata_urn: "urn:nbn:fi:lb-2016042602",
+    licence: settings.licenceinfo.CC_BY_30,
+    cite_id: "FinnTreeBank3-korp",
+};
+
+settings.corpora.ftb3_europarl = $.extend(true, {}, ftb3_info, {
     title: "FinnTreeBank 3: EuroParl",
-    description: "Suomen puupankki, versio 3: EuroParl (Euroopan parlamentin istuntoja)",
+    description: "Suomen puupankki, versio 3: EuroParl (Euroopan parlamentin istuntoja)<br/><br/><strong>Huomaa</strong>, että FinnTreeBank 3:n osakorpus <i>JRC Acquis</i> on kansiossa <i>Juridisia tekstejä</i>.",
     id: "ftb3_europarl",
     within: spWithin,
     context: spContext,
@@ -1557,11 +1571,11 @@ settings.corpora.ftb3_europarl = {
             label: "sentence_line",
         },
     }
-};
+});
 
-settings.corpora.ftb3_jrcacquis = {
+settings.corpora.ftb3_jrcacquis = $.extend(true, {}, ftb3_info, {
     title: "FinnTreeBank 3: JRC Acquis",
-    description: "Suomen puupankki, versio 3: JRC Acquis (EU-säädöksiä)",
+    description: "Suomen puupankki, versio 3: JRC Acquis (EU-säädöksiä)<br/><br/><strong>Huomaa</strong>, että FinnTreeBank 3:n osakorpus <i>EuroParl</i> on kansiossa <i>Parlamenttiaineistoja</i>.",
     id: "ftb3_jrcacquis",
     within: spWithin,
     context: spContext,
@@ -1598,7 +1612,7 @@ settings.corpora.ftb3_jrcacquis = {
             label: "sentence_line",
         }
     }
-};
+});
 
 /* ==== TIEDELEHTIÄ ==== */
 
@@ -13637,7 +13651,8 @@ settings.fn.make_hms_custom_attr = function (label, base_attr) {
 };
 
 
-funcs.addCorporaToFolder("parliament", ["eduskunta"]);
+// Prepend to get Eduskunnan täysistunnot above FTB3 EuroParl
+funcs.addCorporaToFolder("parliament", ["eduskunta"], {prepend: true});
 
 settings.corpora.eduskunta = {
     title: "Eduskunnan täysistunnot",
