@@ -4379,7 +4379,11 @@ funcs = {};
 //   separated by dots: "a.b.c" denotes settings.corporafolders.a.b.c
 // - corpusIds: a single corpus id string or an array of corpus them
 //   to be added to the contents of folderName
-funcs.addCorporaToFolder = function (folderName, corpusIds) {
+// - options: an object of options; the only currently supported
+//   option is:
+//   - prepend: if true, prepend corpusIds to contents instead of
+//     appending
+funcs.addCorporaToFolder = function (folderName, corpusIds, options = {}) {
     let folder = settings.corporafolders
     for (let subfolderName of folderName.split(".")) {
         folder = folder[subfolderName]
@@ -4390,8 +4394,14 @@ funcs.addCorporaToFolder = function (folderName, corpusIds) {
     if (folder.contents == undefined) {
         folder.contents = []
     }
+    const addFunc = (options.prepend ? "unshift" : "push")
+    if (options.prepend) {
+        // As the corpus ids are added one at a time, reverse the
+        // array when prepending, so that their order is preserved.
+        corpusIds.reverse()
+    }
     for (let corpusId of corpusIds) {
-        folder.contents.push(corpusId)
+        folder.contents[addFunc](corpusId)
     }
 }
 
