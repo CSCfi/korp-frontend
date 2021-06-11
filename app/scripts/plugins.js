@@ -68,7 +68,11 @@ const Plugins = class Plugins {
         if (! (hookPoint in this.callbacks)) {
             this.callbacks[hookPoint] = []
         }
-        this.callbacks[hookPoint].push(func.bind(plugin))
+        // Add a reference to the plugin object as the property
+        // "plugin" of the bound function
+        const bound_func = func.bind(plugin)
+        bound_func.plugin = plugin
+        this.callbacks[hookPoint].push(bound_func)
     }
 
     // Register a plugin object containing function properties which
