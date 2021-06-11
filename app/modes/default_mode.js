@@ -1018,7 +1018,7 @@ settings.corporafolders.news.kal.kal_ydin = {
 //     ]
 // };
 
-funcs.addCorporaToFolder("academic", ["finstud", "yoaineet"]);
+// funcs.addCorporaToFolder("other", ["finstud", "yoaineet"]);
 
 
 settings.corporafolders.legal.semfinlex = {
@@ -1591,6 +1591,8 @@ settings.corpora.semfinlex_kho_fi_2018 = {
         text_keywords: {label: "keywords"}
     },
 }
+
+funcs.addCorporaToFolder("other", "finstud");
 
 settings.corpora.finstud = {
     id: "finstud",
@@ -11767,6 +11769,8 @@ settings.corpora.kfspc_fi = {
 settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_fi"]);
 
 // Ylioppilasaineet
+
+funcs.addCorporaToFolder("other", "yoaineet");
 
 settings.corpora.yoaineet = {
     id: "yoaineet",
