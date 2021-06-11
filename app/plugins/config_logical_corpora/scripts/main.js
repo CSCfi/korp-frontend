@@ -54,8 +54,8 @@ class ConfigLogicalCorpora {
     // in the folder hierarchy or it is the same as the physical
     // corpus.
     _setFolderLogicalCorpora (folder, corpora, logicalCorpus = null) {
-        c.log("setFolderLogicalCorpora", folder,
-              logicalCorpus != null ? logicalCorpus.title : undefined);
+        // c.log("setFolderLogicalCorpora", folder,
+        //       logicalCorpus != null ? logicalCorpus.title : undefined);
         for (let corpusId of folder.contents || []) {
             if (! (corpusId in corpora)) {
                 continue;
