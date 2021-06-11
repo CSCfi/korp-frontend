@@ -14,21 +14,20 @@ console.log("plugin config_corpusinfo_copier")
 
 class ConfigCorpusInfoCopier {
 
-    // Callback methods called at hook points
-
-    // Call _copyCorpusInfoToConfig for all corpora in corpora
-    modifyCorpusConfigsList (corpora) {
-        // c.log("modifyCorpusConfigsList", corpora)
-        for (let corpus of corpora) {
-            // c.log("modifyCorpusConfigsList", corpus)
-            this._copyCorpusInfoToConfig(corpus)
-        }
+    constructor () {
+        // Provide feature "corpusInfo"
+        this.providesFeatures = ["corpusInfo"]
     }
 
-    // Call _propagateCorpusFolderInfo for all corpus folders
-    modifyCorpusFolderConfigs (corpusFolders) {
+    // Callback methods called at hook points
+
+    // Modify corpus and corpus folder configurations
+    modifyCorpusConfigs (corpora, corpusFolders) {
         for (let folderId in corpusFolders) {
             this._propagateCorpusFolderInfo(corpusFolders[folderId], undefined)
+        }
+        for (let corpusId in corpora) {
+            this._copyCorpusInfoToConfig(corpora[corpusId])
         }
     }
 
@@ -47,6 +46,9 @@ class ConfigCorpusInfoCopier {
     // Licence_URL: X, Licence_Name: Y is converted to licence : {
     // url: X, name: Y }.
     _copyCorpusInfoToConfig (corpusObj) {
+        if (! corpusObj.info) {
+            return;
+        }
         const info_key_sects =
               settings.corpusExtraInfoItems
               .filter((item) => item !== "urn")
@@ -118,7 +120,10 @@ class ConfigCorpusInfoCopier {
         if (info && corpusFolder.contents) {
             let i = 0;
             while (i < corpusFolder.contents.length) {
-                addCorpusInfo(settings.corpora[corpusFolder.contents[i]], info);
+                let corpusId = corpusFolder.contents[i];
+                if (settings.corpora[corpusId]) {
+                    addCorpusInfo(settings.corpora[corpusId], info);
+                }
                 i++;
             }
         }
