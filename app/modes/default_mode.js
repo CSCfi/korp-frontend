@@ -61,6 +61,10 @@ settings.corporafolders = {
         title: "Juridisia aineistoja",
         description: "Juridisia aineistoja",
     },
+    easytoread: {
+        title: "Selkokieliaineistoja",
+        description: "Selkokieliaineistoja<br/><br/><strong>Huomaa</strong>, että selkokieliset lehdet ovat edelleen osa aineistoa <i>1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä</i>. Niistä tulevat hakutulokset näkyvät kuitenkin vain yhteen kertaan, vaikka ne olisi valittu sekä osana selkokieliaineistoja että osana muita lehtiä.",
+    },
     other: {
         title: "Muita aineistoja",
         description: "Muita aineistoja",
@@ -1052,13 +1056,7 @@ settings.corporafolders.spoken.la_murre = {
  };
 
 
-settings.corporafolders.other.selkokieli = {
-    title: "Selkokieli",
-    description: "Selkokieliaineistoja<br/><br/><strong>Huomaa</strong>, että selkokieliset lehdet ovat edelleen osa aineistoa <i>1990- ja 2000-luvun suomalaisia aikakaus- ja sanomalehtiä</i>. Niistä tulevat hakutulokset näkyvät kuitenkin vain yhteen kertaan, vaikka ne olisi valittu sekä osana selkokieliaineistoja että osana muita lehtiä.",
-};
-
-
-settings.corporafolders.other.selkokieli.lehdet = {
+settings.corporafolders.easytoread.lehdet = {
     title: "Selkokielisiä lehtiä",
     // Note the magazines are referred to both here and in
     // lehdet.muut_lehdet. As a side-effect, if a Korp URL refers to
@@ -1073,7 +1071,7 @@ settings.corporafolders.other.selkokieli.lehdet = {
 };
 
 
-settings.corporafolders.other.selkokieli.ylenews_fi_selko = {
+settings.corporafolders.easytoread.ylenews_fi_selko = {
     title: "Ylen suomenkielisen uutisarkiston selkouutiset",
     description: "Ylen suomenkielisen uutisarkiston selkouutiset<br/><br/>Kansiossa on kaksi korpusta, jotka sisältävät samat virkkeet mutta joilla on erilaiset käyttöehdot ja ominaisuudet: kaikille avoimen korpuksen virkkeet on sekoitettu kunkin tekstin sisällä eikä se tue laajennettua kontekstia, kun taas tutkijoiden käytettävissä olevan korpuksen virkkeet ovat alkuperäisessä järjestyksessä ja se tukee laajennettua kontekstia.<br/><br/>Huomaa, että selkouutiset ovat myös osana laajempaa Ylen suomenkielinen uutisarkisto -aineistoa.",
     contents: [
