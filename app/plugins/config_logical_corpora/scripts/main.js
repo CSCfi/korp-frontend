@@ -13,9 +13,11 @@ console.log("plugin config_logical_corpora")
 class ConfigLogicalCorpora {
 
     constructor () {
-        // This plugin provides feature "logicalCorpora"; if some
-        // other plugin requires it, its registering is deferred until
-        // after this plugin has been registered.
+        // This plugin requires feature "corpusInfo"
+        this.requiresFeatures = ["corpusInfo"]
+        // This plugin provides feature "logicalCorpus"; if some other
+        // plugin requires it, its registering is deferred until after
+        // this plugin has been registered.
         this.providesFeatures = ["logicalCorpus"]
     }
 
