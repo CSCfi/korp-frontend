@@ -891,8 +891,8 @@ util.loadCorporaFolderRecursive = function (first_level, folder) {
     if (first_level) {
         outHTML = "<ul>"
     } else {
-        // Let plugins filter the folder title shown in the popup,
-        // based on folder configuration
+        // Let plugins filter the folder title shown in the popup and
+        // in the corpus chooser, based on folder configuration
         const folderTitle = plugins.callFilters(
             "formatPopupFolderTitle", folder.title || "", folder)
         // Let plugins filter the folder description shown in the
@@ -913,7 +913,11 @@ util.loadCorporaFolderRecursive = function (first_level, folder) {
         // Corpora
         if (folder["contents"] && folder["contents"].length > 0) {
             $.each(folder.contents, function (key, value) {
-                outHTML += `<li id="${value}">${settings.corpora[value]["title"]}</li>`
+                // Let plugins filter the corpus title
+                const corpusTitle = plugins.callFilters(
+                    "formatCorpusChooserCorpusTitle",
+                    settings.corpora[value]["title"], settings.corpora[value])
+                outHTML += `<li id="${value}">${corpusTitle}</li>`
                 added_corpora_ids.push(value)
             })
         }
@@ -933,7 +937,11 @@ util.loadCorporaFolderRecursive = function (first_level, folder) {
             }
 
             // Add it anyway:
-            outHTML += `<li id='${val}'>${settings.corpora[val].title}</li>`
+            // Let plugins filter the corpus title
+            const corpusTitle = plugins.callFilters(
+                "formatCorpusChooserCorpusTitle",
+                settings.corpora[val]["title"], settings.corpora[val])
+            outHTML += `<li id='${val}'>${corpusTitle}</li>`
         }
     }
     outHTML += "</ul>"
