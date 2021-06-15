@@ -133,6 +133,12 @@ var hp_corpusChooser = {
             header_text_2 = "corpselector_allselected"
         } else if (num_checked_checkboxes == 1) {
             var currentCorpusName = checked_checkboxes.parent().parent().attr("data")
+            // Let plugins filter the name of the single selected
+            // corpus, typically to remove HTML formatting or added
+            // information
+            currentCorpusName = plugins.callFilters(
+                "filterCorpusChooserSingleSelectedCorpusName",
+                currentCorpusName)
             if (currentCorpusName.length > 37) {
                 // Ellipsis
                 currentCorpusName = _.trim(currentCorpusName.substr(0, 37)) + "..."

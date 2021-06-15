@@ -68,7 +68,11 @@ const Plugins = class Plugins {
         if (! (hookPoint in this.callbacks)) {
             this.callbacks[hookPoint] = []
         }
-        this.callbacks[hookPoint].push(func.bind(plugin))
+        // Add a reference to the plugin object as the property
+        // "plugin" of the bound function
+        const bound_func = func.bind(plugin)
+        bound_func.plugin = plugin
+        this.callbacks[hookPoint].push(bound_func)
     }
 
     // Register a plugin object containing function properties which
@@ -223,6 +227,21 @@ const Plugins = class Plugins {
             arg1 = func(arg1, ...rest)
         }
         return arg1
+    }
+
+    // Use default_settings as defaults for settings_obj (defaulting
+    // to global settings): for each key in default_settings, if
+    // settings_obj[key] is undefined, set it to
+    // default_settings[key].
+    // This function could also be used outside plugins, so it could
+    // be in util or window, for example. However, having it in
+    // plugins ensures that it is available for plugins.
+    setDefaultSettings (default_settings, settings_obj = settings) {
+        for (let key in default_settings) {
+            if (settings_obj[key] === undefined) {
+                settings_obj[key] = default_settings[key]
+            }
+        }
     }
 
 }
