@@ -66,18 +66,17 @@ class ConfigLogicalCorpora {
         // c.log("logical corpus of", corpusId, "is",
         //       corpus.logicalCorpus.title)
         for (let subfolderName of Object.keys(folder || {})) {
-            const subfolder = folder[subfolderName];
             if (! window.folderNonCorpusProps.includes(subfolderName)) {
+                const subfolder = folder[subfolderName];
+                if (! subfolder.info) {
+                    subfolder.info = {};
+                }
                 const subfolderLogicalCorpus = (
                     logicalCorpus ||
-                        ((subfolder.info != null
-                          ? subfolder.info.isLogicalCorpus
-                          : undefined) ||
-                         (subfolder.info != null
-                          ? subfolder.info.urn
-                          : undefined)
+                        ((subfolder.info.isLogicalCorpus ||
+                          subfolder.info.urn)
                          ? subfolder
-                         : undefined));
+                         : null));
                 this._setFolderLogicalCorpora(
                     subfolder, corpora, subfolderLogicalCorpus);
             }
