@@ -56,6 +56,9 @@ class ConfigLogicalCorpora {
     _setFolderLogicalCorpora (folder, corpora, logicalCorpus = null) {
         // c.log("setFolderLogicalCorpora", folder,
         //       logicalCorpus != null ? logicalCorpus.title : undefined);
+        if (logicalCorpus) {
+            folder.info.logicalCorpus = logicalCorpus;
+        }
         for (let corpusId of folder.contents || []) {
             if (! (corpusId in corpora)) {
                 continue;
