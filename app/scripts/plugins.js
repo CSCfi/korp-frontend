@@ -229,6 +229,21 @@ const Plugins = class Plugins {
         return arg1
     }
 
+    // Use default_settings as defaults for settings_obj (defaulting
+    // to global settings): for each key in default_settings, if
+    // settings_obj[key] is undefined, set it to
+    // default_settings[key].
+    // This function could also be used outside plugins, so it could
+    // be in util or window, for example. However, having it in
+    // plugins ensures that it is available for plugins.
+    setDefaultSettings (default_settings, settings_obj = settings) {
+        for (let key in default_settings) {
+            if (settings_obj[key] === undefined) {
+                settings_obj[key] = default_settings[key]
+            }
+        }
+    }
+
 }
 
 // Create a global Plugins instance to which all plugins should be
