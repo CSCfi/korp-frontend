@@ -109,10 +109,9 @@ class ConfigCorpusInfoCopier {
         // The info in this folder overrides that coming from above
         if (corpusFolder.info) {
             info = $.extend(true, {}, info || {}, corpusFolder.info);
-        }
-        // Add or modify the info in this folder
-        if (info) {
-            corpusFolder.info = info;
+        } else if (info) {
+            // Copy the info to this folder
+            corpusFolder.info = $.extend(true, {}, info);
         }
         // Propagate the info to the corpora in this folder
         if (info && corpusFolder.contents) {
