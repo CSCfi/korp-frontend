@@ -663,7 +663,13 @@ settings.lemgramComplete = {
 
 // Corpus folder property names not to be treated as corpus ids, in
 // addition to "title", "contents" and "description"
-settings.corpusfolderNonCorpusProperties = ["info"]
+settings.corpusfolderNonSubfolderProperties = ["info"]
+
+// Function ((name: string) -> boolean) testing if the property named
+// name of a folder is a subfolder; if undefined or null, test for
+// non-inclusion in settings.corpusfolderNonSubfolderProperties in
+// addition to "title", "contents" and "description"
+settings.isSubfolderPropertyName = null
 
 // If settings.allowNoPreselectedCorpora is true, an empty
 // settings.preselectedCorpora array results in no corpora
