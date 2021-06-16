@@ -39,6 +39,13 @@ class ConfigLicenceCategory {
         }
     }
 
+    // Remove text in square brackets (licence category) from the
+    // corpus title shown in the corpus chooser heading when a single
+    // corpus is selected
+    filterCorpusChooserSingleSelectedCorpusName (corpusName) {
+        return corpusName.replace(/ *\[.*?\]/g, "")
+    }
+
     // Internal methods
 
     // Initialize the properties licenceType and limitedAccess for all
@@ -71,10 +78,14 @@ class ConfigLicenceCategory {
     // contains info.licence.name with CLARIN RES or CLARIN ACA, and
     // recursively that of all its subfolders.
     _setFolderLicenceCategory (folder) {
-        if (folder.info && folder.info.licence
-            && ! folder.info.licence.category) {
-            folder.info.licence.category =
-                this._getLicenceCategory(folder.info.licence)
+        if (folder.info && folder.info.licence) {
+            if (! folder.info.licence.category) {
+                folder.info.licence.category =
+                    this._getLicenceCategory(folder.info.licence)
+            }
+            if (folder.info.licence.category) {
+                folder.title += ` [${folder.info.licence.category}]`
+            }
         }
         for (let subfolderName of Object.keys(folder || {})) {
             const subfolder = folder[subfolderName];
@@ -84,6 +95,8 @@ class ConfigLicenceCategory {
         }
     };
 
+    // Get the licence category (ACA(-Fi) or RES) based on a licence
+    // object; return undefined if not found
     _getLicenceCategory (licenceObj) {
         const licenceName = licenceObj && licenceObj.name
         if (licenceName != null) {
