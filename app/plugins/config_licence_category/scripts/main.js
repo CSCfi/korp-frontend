@@ -27,6 +27,18 @@ class ConfigLicenceCategory {
         this._initCorpusSettingsLicenceCategory (corpora, corporafolders)
     }
 
+    // Append a licence category label in square brackets to the names
+    // of ACA and RES corpora in the corpus chooser.
+    // TODO: Add similar label to corpus folders containing corpora of
+    // only one licence category.
+    modifyCorpusConfigsList (corpusList) {
+        for (let corpus of corpusList) {
+            if (corpus.licenceType && corpus.licenceType != "PUB") {
+                corpus.title = `${corpus.title} [${corpus.licenceType}]`
+            }
+        }
+    }
+
     // Internal methods
 
     // Initialize the properties licenceType and limitedAccess for all
@@ -66,7 +78,7 @@ class ConfigLicenceCategory {
         }
         for (let subfolderName of Object.keys(folder || {})) {
             const subfolder = folder[subfolderName];
-            if (! window.folderNonCorpusProps.includes(subfolderName)) {
+            if (window.isSubfolderName(subfolderName)) {
                 this._setFolderLicenceCategory(subfolder);
             }
         }
