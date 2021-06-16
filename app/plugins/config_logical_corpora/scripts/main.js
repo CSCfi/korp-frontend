@@ -3,6 +3,19 @@
 //
 // Callback methods to add logicalCorpus property to corpus
 // configurations.
+//
+// Also add corpusType to corpus configurations and info.folderType to
+// corpus folder configurations:
+// - corpus.corpusType is one of:
+//   - standaloneCorpus: a corpus without subcorpora, consisting of a
+//     single physical corpus
+//   - subcorpus: a subcorpus of a corpus with subcorpora
+// - folder.info.folderType is one of:
+//   - corpusWithSubcorpora: the top folder of a corpus consisting of
+//     subcorpora
+//   - subcorpusCollection: an intermediate folder within a corpus
+//     consisting of subcorpora
+//   - corpusCollection: a collection of corpora, not a corpus itself
 
 
 console.log("plugin config_logical_corpora")
@@ -13,10 +26,16 @@ console.log("plugin config_logical_corpora")
 class ConfigLogicalCorpora {
 
     constructor () {
-        // This plugin provides feature "logicalCorpora"; if some
-        // other plugin requires it, its registering is deferred until
-        // after this plugin has been registered.
-        this.providesFeatures = ["logicalCorpus"]
+        // This plugin requires feature "corpusInfo"
+        this.requiresFeatures = ["corpusInfo"]
+        // This plugin provides features "logicalCorpus" and
+        // "corpusItemType"; if some other plugin requires one of
+        // them, its registering is deferred until after this plugin
+        // has been registered.
+        this.providesFeatures = [
+            "logicalCorpus",
+            "corpusItemType",
+        ]
     }
 
     // Callback method
@@ -40,6 +59,9 @@ class ConfigLogicalCorpora {
             const corpus = corpora[corpusId];
             if (! ("logicalCorpus" in corpus)) {
                 corpus.logicalCorpus = corpus;
+                // Top-level corpora are stand-alone corpora (a corpus
+                // without subcorpora)
+                corpus.corpusType = "standaloneCorpus";
             }
         }
     }
@@ -52,30 +74,47 @@ class ConfigLogicalCorpora {
     // in the folder hierarchy or it is the same as the physical
     // corpus.
     _setFolderLogicalCorpora (folder, corpora, logicalCorpus = null) {
-        c.log("setFolderLogicalCorpora", folder,
-              logicalCorpus != null ? logicalCorpus.title : undefined);
+        // c.log("setFolderLogicalCorpora", folder,
+        //       logicalCorpus != null ? logicalCorpus.title : undefined);
+        if (logicalCorpus) {
+            folder.info.logicalCorpus = logicalCorpus;
+        }
         for (let corpusId of folder.contents || []) {
             if (! (corpusId in corpora)) {
                 continue;
             }
             const corpus = corpora[corpusId];
             corpus.logicalCorpus = logicalCorpus || corpora[corpusId];
+            // If within a logical corpus, this is a subcorpus,
+            // otherwise a stand-alone corpus
+            corpus.corpusType = (
+                logicalCorpus ? "subcorpus" : "standaloneCorpus");
         }
         // c.log("logical corpus of", corpusId, "is",
         //       corpus.logicalCorpus.title)
         for (let subfolderName of Object.keys(folder || {})) {
-            const subfolder = folder[subfolderName];
-            if (! window.folderNonCorpusProps.includes(subfolderName)) {
+            if (window.isSubfolderName(subfolderName)) {
+                const subfolder = folder[subfolderName];
+                if (! subfolder.info) {
+                    subfolder.info = {};
+                }
                 const subfolderLogicalCorpus = (
                     logicalCorpus ||
-                        ((subfolder.info != null
-                          ? subfolder.info.isLogicalCorpus
-                          : undefined) ||
-                         (subfolder.info != null
-                          ? subfolder.info.urn
-                          : undefined)
+                        ((subfolder.info.isLogicalCorpus ||
+                          subfolder.info.urn)
                          ? subfolder
-                         : undefined));
+                         : null));
+                // If this folder is (within) a logical corpus, a
+                // subfolder is a collection of subcorpora; otherwise,
+                // if the subfolder is a logical corpus, it is a
+                // corpus with subcorpora; otherwise, the subfolder is
+                // a collection of separate corpora
+                subfolder.info.folderType = (
+                    logicalCorpus
+                        ? "subcorpusCollection"
+                        : (subfolderLogicalCorpus
+                           ? "corpusWithSubcorpora"
+                           : "corpusCollection"));
                 this._setFolderLogicalCorpora(
                     subfolder, corpora, subfolderLogicalCorpus);
             }
