@@ -193,9 +193,9 @@ settings.handleUnavailableCorpora = "fatal"
 //   Return value: list (array) of lemgrams as strings
 settings.lemgramComplete = null
 
-// Corpus folder property names not to be treated as corpus ids, in
+// Corpus folder property names not to be treated as subfolder ids, in
 // addition to "title", "contents" and "description"
-settings.corpusfolderNonCorpusProperties = []
+settings.corpusfolderNonSubfolderProperties = []
 
 // If settings.allowNoPreselectedCorpora is true, an empty
 // settings.preselectedCorpora array results in no corpora

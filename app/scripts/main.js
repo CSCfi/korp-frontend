@@ -4,10 +4,10 @@ const deparam = require("jquery-deparam")
 
 import jStorage from "../lib/jstorage"
 
-// Corpus folder property names not to be treated as corpus ids
-window.folderNonCorpusProps =
+// Corpus folder property names not to be treated as subfolder ids
+window.folderNonSubfolderProps =
     ["title", "contents", "description",
-     ...(settings.corpusfolderNonCorpusProperties || [])]
+     ...(settings.corpusfolderNonSubfolderProperties || [])]
 
 window.authenticationProxy = new model.AuthenticationProxy()
 window.timeProxy = new model.TimeProxy()
@@ -172,7 +172,7 @@ window.getAllCorporaInFolders = function (lastLevel, folderOrCorpus) {
         // Folder
         // Continue to go through any subfolders
         $.each(lastLevel[folderOrCorpus], function (key, val) {
-            if (! window.folderNonCorpusProps.includes(key)) {
+            if (! window.folderNonSubfolderProps.includes(key)) {
                 outCorpora = outCorpora.concat(
                     getAllCorporaInFolders(lastLevel[folderOrCorpus], key)
                 )
