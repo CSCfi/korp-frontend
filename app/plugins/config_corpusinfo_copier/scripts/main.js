@@ -14,21 +14,35 @@ console.log("plugin config_corpusinfo_copier")
 
 class ConfigCorpusInfoCopier {
 
-    // Callback methods called at hook points
-
-    // Call _copyCorpusInfoToConfig for all corpora in corpora
-    modifyCorpusConfigsList (corpora) {
-        // c.log("modifyCorpusConfigsList", corpora)
-        for (let corpus of corpora) {
-            // c.log("modifyCorpusConfigsList", corpus)
-            this._copyCorpusInfoToConfig(corpus)
-        }
+    constructor () {
+        // Provide feature "corpusInfo"
+        this.providesFeatures = ["corpusInfo"]
+        // Internal constant values used in _copyCorpusInfoToConfig
+        // Info key sections
+        this._infoKeySects =
+              settings.corpusExtraInfoItems
+              .filter((item) => item !== "urn")
+              .map((item) => item.charAt(0).toUpperCase() + item.slice(1));
+        this._infoKeySects.push("");
+        // Supported subkeys in the info items: a full key can be of
+        // the form section + subkey
+        this._infoSubkeys = [
+            "Name",
+            "Description",
+            "URN",
+            "URL"
+        ];
     }
 
-    // Call _propagateCorpusFolderInfo for all corpus folders
-    modifyCorpusFolderConfigs (corpusFolders) {
+    // Callback methods called at hook points
+
+    // Modify corpus and corpus folder configurations
+    modifyCorpusConfigs (corpora, corpusFolders) {
         for (let folderId in corpusFolders) {
             this._propagateCorpusFolderInfo(corpusFolders[folderId], undefined)
+        }
+        for (let corpusId in corpora) {
+            this._copyCorpusInfoToConfig(corpora[corpusId])
         }
     }
 
@@ -47,21 +61,11 @@ class ConfigCorpusInfoCopier {
     // Licence_URL: X, Licence_Name: Y is converted to licence : {
     // url: X, name: Y }.
     _copyCorpusInfoToConfig (corpusObj) {
-        const info_key_sects =
-              settings.corpusExtraInfoItems
-              .filter((item) => item !== "urn")
-              .map((item) => item.charAt(0).toUpperCase() + item.slice(1));
-        info_key_sects.push("");
-        const info_subkeys = [
-            "Name",
-            "Description",
-            "URN",
-            "URL"
-        ];
+        if (! corpusObj.info) {
+            return;
+        }
         const corpusInfo = corpusObj.info;
-        let i = 0;
-        while (i < info_key_sects.length) {
-            const sect = info_key_sects[i];
+        for (let sect of this._infoKeySects) {
             const sect_name = sect.toLowerCase();
             let subobj = corpusObj;
             if (sect !== "") {
@@ -69,22 +73,18 @@ class ConfigCorpusInfoCopier {
             }
             const info_key_prefix = sect + (sect === "" ? "" : "_");
             let added_properties = false;
-            let j = 0;
-            while (j < info_subkeys.length) {
-                const key = info_subkeys[j];
+            for (let key of this._infoSubkeys) {
                 const subkey = key.toLowerCase();
                 const value = corpusInfo[info_key_prefix + key];
                 if (value) {
                     subobj[subkey] = value;
                     added_properties = true;
                 }
-                j++;
             }
             // Add only non-empty subobjects
             if ((sect !== "") && added_properties) {
                 corpusObj[sect_name] = subobj;
             }
-            i++;
         }
     }
 
@@ -109,22 +109,21 @@ class ConfigCorpusInfoCopier {
         // The info in this folder overrides that coming from above
         if (corpusFolder.info) {
             info = $.extend(true, {}, info || {}, corpusFolder.info);
-        }
-        // Add or modify the info in this folder
-        if (info) {
-            corpusFolder.info = info;
+        } else if (info) {
+            // Copy the info to this folder
+            corpusFolder.info = $.extend(true, {}, info);
         }
         // Propagate the info to the corpora in this folder
         if (info && corpusFolder.contents) {
-            let i = 0;
-            while (i < corpusFolder.contents.length) {
-                addCorpusInfo(settings.corpora[corpusFolder.contents[i]], info);
-                i++;
+            for (let corpusId of corpusFolder.contents) {
+                if (settings.corpora[corpusId]) {
+                    addCorpusInfo(settings.corpora[corpusId], info);
+                }
             }
         }
         // Recursively process subfolders and propagate the info
         for (let prop_name in corpusFolder) {
-            if (! window.folderNonCorpusProps.includes(prop_name)) {
+            if (window.isSubfolderName(prop_name)) {
                 // c.log("propagate ", prop_name);
                 this._propagateCorpusFolderInfo(corpusFolder[prop_name], info);
             }
