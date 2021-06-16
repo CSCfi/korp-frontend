@@ -93,7 +93,7 @@ class ConfigLogicalCorpora {
         // c.log("logical corpus of", corpusId, "is",
         //       corpus.logicalCorpus.title)
         for (let subfolderName of Object.keys(folder || {})) {
-            if (! window.folderNonCorpusProps.includes(subfolderName)) {
+            if (window.isSubfolderName(subfolderName)) {
                 const subfolder = folder[subfolderName];
                 if (! subfolder.info) {
                     subfolder.info = {};
