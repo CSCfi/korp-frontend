@@ -197,6 +197,12 @@ settings.lemgramComplete = null
 // addition to "title", "contents" and "description"
 settings.corpusfolderNonSubfolderProperties = []
 
+// Function ((name: string) -> boolean) testing if the property named
+// name of a folder is a subfolder; if undefined or null, test for
+// non-inclusion in settings.corpusfolderNonSubfolderProperties in
+// addition to "title", "contents" and "description"
+settings.isSubfolderPropertyName = null
+
 // If settings.allowNoPreselectedCorpora is true, an empty
 // settings.preselectedCorpora array results in no corpora
 // preselected, instead of preselecting all unrestricted corpora

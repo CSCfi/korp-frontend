@@ -5,9 +5,16 @@ const deparam = require("jquery-deparam")
 import jStorage from "../lib/jstorage"
 
 // Corpus folder property names not to be treated as subfolder ids
-window.folderNonSubfolderProps =
+const folderNonSubfolderProps =
     ["title", "contents", "description",
      ...(settings.corpusfolderNonSubfolderProperties || [])]
+
+// Function to test if property with name is a subfolder: if
+// settings.isSubfolderPropertyName is defined, use it; otherwise,
+// test against folderNonSubfolderProps
+window.isSubfolderName =
+    settings.isSubfolderPropertyName ||
+    ((name) => ! folderNonSubfolderProps.includes(name))
 
 window.authenticationProxy = new model.AuthenticationProxy()
 window.timeProxy = new model.TimeProxy()
@@ -172,7 +179,7 @@ window.getAllCorporaInFolders = function (lastLevel, folderOrCorpus) {
         // Folder
         // Continue to go through any subfolders
         $.each(lastLevel[folderOrCorpus], function (key, val) {
-            if (! window.folderNonSubfolderProps.includes(key)) {
+            if (window.isSubfolderName(key)) {
                 outCorpora = outCorpora.concat(
                     getAllCorporaInFolders(lastLevel[folderOrCorpus], key)
                 )
