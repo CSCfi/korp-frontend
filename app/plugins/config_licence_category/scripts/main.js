@@ -84,6 +84,8 @@ class ConfigLicenceCategory {
         }
     };
 
+    // Get the licence category (ACA(-Fi) or RES) based on a licence
+    // object; return undefined if not found
     _getLicenceCategory (licenceObj) {
         const licenceName = licenceObj && licenceObj.name
         if (licenceName != null) {
