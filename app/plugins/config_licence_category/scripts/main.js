@@ -39,6 +39,13 @@ class ConfigLicenceCategory {
         }
     }
 
+    // Remove text in square brackets (licence category) from the
+    // corpus title shown in the corpus chooser heading when a single
+    // corpus is selected
+    filterCorpusChooserSingleSelectedCorpusName (corpusName) {
+        return corpusName.replace(/ *\[.*?\]/g, "")
+    }
+
     // Internal methods
 
     // Initialize the properties licenceType and limitedAccess for all
