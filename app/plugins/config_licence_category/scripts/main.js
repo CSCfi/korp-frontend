@@ -78,10 +78,14 @@ class ConfigLicenceCategory {
     // contains info.licence.name with CLARIN RES or CLARIN ACA, and
     // recursively that of all its subfolders.
     _setFolderLicenceCategory (folder) {
-        if (folder.info && folder.info.licence
-            && ! folder.info.licence.category) {
-            folder.info.licence.category =
-                this._getLicenceCategory(folder.info.licence)
+        if (folder.info && folder.info.licence) {
+            if (! folder.info.licence.category) {
+                folder.info.licence.category =
+                    this._getLicenceCategory(folder.info.licence)
+            }
+            if (folder.info.licence.category) {
+                folder.title += ` [${folder.info.licence.category}]`
+            }
         }
         for (let subfolderName of Object.keys(folder || {})) {
             const subfolder = folder[subfolderName];
