@@ -40,7 +40,7 @@ class ConfigCorpusSettingsModifier {
         const deleteFolderProcessedProperty = function (folder) {
             delete folder._processed
             for (let subfolderName in folder) {
-                if (! window.folderNonCorpusProps.includes(subfolderName)) {
+                if (window.isSubfolderName(subfolderName)) {
                     deleteFolderProcessedProperty(folder[subfolderName])
                 }
             }
@@ -87,7 +87,7 @@ class ConfigCorpusSettingsModifier {
         }
         // Recursively process subfolders 
         for (let subfolderName of Object.keys(folder || {})) {
-            if (! window.folderNonCorpusProps.includes(subfolderName)) {
+            if (window.isSubfolderName(subfolderName)) {
                 const subfolder = folder[subfolderName]
                 if (settings.modifyFolderSettings) {
                     // Call the modification function for subfolder
