@@ -123,7 +123,7 @@ class ConfigCorpusInfoCopier {
         }
         // Recursively process subfolders and propagate the info
         for (let prop_name in corpusFolder) {
-            if (! window.folderNonCorpusProps.includes(prop_name)) {
+            if (window.isSubfolderName(prop_name)) {
                 // c.log("propagate ", prop_name);
                 this._propagateCorpusFolderInfo(corpusFolder[prop_name], info);
             }
