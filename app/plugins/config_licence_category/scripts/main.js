@@ -78,7 +78,7 @@ class ConfigLicenceCategory {
         }
         for (let subfolderName of Object.keys(folder || {})) {
             const subfolder = folder[subfolderName];
-            if (! window.folderNonCorpusProps.includes(subfolderName)) {
+            if (window.isSubfolderName(subfolderName)) {
                 this._setFolderLicenceCategory(subfolder);
             }
         }
