@@ -2102,7 +2102,7 @@ attrlist.hc = {
 };
 
 /* Oracc 2021 -- Old Oracc is to be removed later */
-
+/*
 attrlist.oracc2021 = {
     lemma : attrs.baseform,
     autolemma : attrs.baseform,
@@ -2165,7 +2165,7 @@ sattrlist.oracc2021 = {
 	displayType : "hidden",
     }
 };
-
+*/
 
 /* Oracc */
 
