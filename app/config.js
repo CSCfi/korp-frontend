@@ -682,6 +682,19 @@ settings.isSubfolderPropertyName = null
 // preselected, instead of preselecting all unrestricted corpora
 settings.allowNoPreselectedCorpora = true
 
+// Formatting functions for corpus and corpus folder titles in the
+// corpus chooser
+settings.formatCorpusChooserItem = {
+    // Italicize folders that are collections of corpora, not single
+    // corpora or collections of subcorpora (as suggested by Mietta
+    // Lennes)
+    corpusCollection: (title, folder) => `<i>${title}</i>`,
+    // // Bold titles for top folders of corpora and stand-alone corpora
+    // // (corpora with no subcorpora)
+    // standaloneCorpus: (title, corpus) => `<b>${title}</b>`,
+    // corpusWithSubcorpora: (title, folder) => `<b>${title}</b>`,
+}
+
 
 /*
  * Modify the list of corpora
