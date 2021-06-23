@@ -89,8 +89,8 @@ settings.corporafolders = {
         description: "Historiska korpusar",
     },
     learner: {
-        title: "Svenskinlärares språk",
-        description: "Korpusar av svenskinlärarens språk (svenska som andraspråk)",
+        title: "Svenskstuderandes språk",
+        description: "Korpusar av svenskstuderandes språk (svenska som andra eller främmande språk)",
     },
     literary: {
         title: "Litteraturkorpusar",
