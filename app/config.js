@@ -373,24 +373,30 @@ settings.makeCorpusExtraInfoItem = {
         }
     },
     cite: function (corpusObj, label) {
-        if (corpusObj.cite_id && settings.corpus_cite_base_url) {
-            return {
-                // Using ng-href would require using Angular $compile,
-                // but how could we use it here or where should it be
-                // called?
-                // http://stackoverflow.com/questions/11771513/angularjs-jquery-how-to-get-dynamic-content-working-in-angularjs
-                // url: settings.corpus_cite_base_url + corpusObj.cite_id +
-                //      '&lang={{lang}}'
-                // This does not change the lang parameter in the
-                // corpus info popup, although it works in the sidebar.
-                //
-                // escape call is needed for a cite_id containing a &,
-                // but the escaped % then seems to be escaped again
-                // somewhere else. Where?
-                url: (settings.corpus_cite_base_url
-                      + escape(corpusObj.cite_id) + '&lang=' + window.lang),
-                text: label,
-            };
+        if (settings.corpus_cite_base_url) {
+            // Use the metadata URN as the default cite id; fall back
+            // to cite_id if no metadata URN is found
+            let citeId = (
+                (corpusObj.pid && corpusObj.pid.urn)
+                    || corpusObj.pid_urn
+                    || (corpusObj.metadata && corpusObj.metadata.urn)
+                    || corpusObj.metadata_urn
+                    || corpusObj.cite_id);
+            if (citeId) {
+                return {
+                    // Using ng-href would require using Angular $compile,
+                    // but how could we use it here or where should it be
+                    // called?
+                    // http://stackoverflow.com/questions/11771513/angularjs-jquery-how-to-get-dynamic-content-working-in-angularjs
+                    // url: settings.corpus_cite_base_url + citeId +
+                    //      '&lang={{lang}}'
+                    // This does not change the lang parameter in the
+                    // corpus info popup, although it works in the sidebar.
+                    url: (settings.corpus_cite_base_url
+                          + citeId + "&lang=" + window.lang),
+                    text: label,
+                };
+            }
         }
     },
     urn: function (corpusObj, label) {
