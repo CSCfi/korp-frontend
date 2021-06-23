@@ -346,10 +346,10 @@ settings.corpusExtraInfo = {
 // tried.
 settings.makeCorpusExtraInfoItem = {
     subcorpus_of: function (corpusObj, label) {
-        if (corpusObj.logical_corpus
-            && corpusObj.logical_corpus.title != corpusObj.title) {
+        if (corpusObj.logicalCorpus
+            && corpusObj.logicalCorpus.title != corpusObj.title) {
             return {
-                text: corpusObj.logical_corpus.title,
+                text: corpusObj.logicalCorpus.title,
                 label: label,
             };
         }
